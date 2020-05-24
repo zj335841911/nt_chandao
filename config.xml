@@ -38,12 +38,10 @@
       export NODE_OPTIONS=--max-old-space-size=4096
       cd pms/
       mvn clean package -Pwebapi
-      echo &apos;echo &quot;$para1&quot;&apos; &gt; apppasswd.sh
-      chmod -R 777 *
-      setsid env SSH_ASKPASS=&apos;./apppasswd.sh&apos; DISPLAY=&apos;none:0&apos; ssh SWARM@172.16.240.110 &quot;mkdir -p /51F8593D-1516-4306-9AAC-2BF825A9B507&quot;
-      setsid env SSH_ASKPASS=&apos;./apppasswd.sh&apos; DISPLAY=&apos;none:0&apos; scp -r ibizpms-provider-webapi.jar SWARM@172.16.240.110:/51F8593D-1516-4306-9AAC-2BF825A9B507
-      setsid env SSH_ASKPASS=&apos;./apppasswd.sh&apos; DISPLAY=&apos;none:0&apos; ssh SWARM@172.16.240.110 &quot;ps -ef | grep &apos;/51F8593D-1516-4306-9AAC-2BF825A9B507&apos;| tr -s &apos; &apos;|cut -d&apos; &apos; -f2,8,9  | grep -v grep | grep &apos;jar&apos; | cut -d&apos; &apos; -f1|xargs  --no-run-if-empty kill -9&quot;
-      setsid env SSH_ASKPASS=&apos;./apppasswd.sh&apos; DISPLAY=&apos;none:0&apos; ssh SWARM@172.16.240.110 &quot;source /etc/profile;source ~/.bash_profile; nohup java -jar -Xms512m -Xmx1024m -XX:PermSize=128M -XX:MaxPermSize=128m /51F8593D-1516-4306-9AAC-2BF825A9B507/ibizpms-provider-webapi.jar &gt;&gt;/51F8593D-1516-4306-9AAC-2BF825A9B507/pms_apiwebapi-`date --date=&apos;0 days ago&apos; +%Y-%m-%d`.log 2&gt;&amp;1 &amp;&quot;
+      cd ibizpms-provider/ibizpms-provider-webapi
+      mvn -Pwebapi docker:build
+      mvn -Pwebapi docker:push
+      docker -H $para1 stack deploy --compose-file=src/main/docker/ibizpms-provider-webapi.yaml iBizEE --with-registry-auth      
       </command>
     </hudson.tasks.Shell>
   </builders>
