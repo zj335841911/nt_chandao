@@ -1,0 +1,22 @@
+<script lang='tsx'>
+import { Component } from 'vue-property-decorator';
+import MainTabExpViewtabexppanelBase from './main-tab-exp-viewtabexppanel-tabexppanel-base.vue';
+import view_tabviewpanel from '@widgets/project/main-tab-exp-viewtabviewpanel-tabviewpanel/main-tab-exp-viewtabviewpanel-tabviewpanel.vue';
+import view_tabviewpanel2 from '@widgets/project/main-tab-exp-viewtabviewpanel2-tabviewpanel/main-tab-exp-viewtabviewpanel2-tabviewpanel.vue';
+import view_tabviewpanel4 from '@widgets/project/main-tab-exp-viewtabviewpanel4-tabviewpanel/main-tab-exp-viewtabviewpanel4-tabviewpanel.vue';
+import view_tabviewpanel3 from '@widgets/project/main-tab-exp-viewtabviewpanel3-tabviewpanel/main-tab-exp-viewtabviewpanel3-tabviewpanel.vue';
+
+ 
+@Component({
+    components: {
+        view_tabviewpanel, 
+        view_tabviewpanel2, 
+        view_tabviewpanel4, 
+        view_tabviewpanel3, 
+         
+    }
+})
+export default class MainTabExpViewtabexppanel extends MainTabExpViewtabexppanelBase {
+
+}
+</script>

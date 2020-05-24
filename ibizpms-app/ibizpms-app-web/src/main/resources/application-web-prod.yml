@@ -1,0 +1,75 @@
+server:
+  port: 10120
+#zuul网关路由设置
+zuul:
+  routes:
+    zt_productplan:
+      path: /productplans/**
+      serviceId: pms-webapi
+      stripPrefix: false
+    zt_projectproduct:
+      path: /projectproducts/**
+      serviceId: pms-webapi
+      stripPrefix: false
+    zt_product:
+      path: /products/**
+      serviceId: pms-webapi
+      stripPrefix: false
+    zt_storyspec:
+      path: /storyspecs/**
+      serviceId: pms-webapi
+      stripPrefix: false
+    zt_branch:
+      path: /branches/**
+      serviceId: pms-webapi
+      stripPrefix: false
+    zt_action:
+      path: /actions/**
+      serviceId: pms-webapi
+      stripPrefix: false
+    zt_story:
+      path: /stories/**
+      serviceId: pms-webapi
+      stripPrefix: false
+    zt_project:
+      path: /projects/**
+      serviceId: pms-webapi
+      stripPrefix: false
+    zt_history:
+      path: /histories/**
+      serviceId: pms-webapi
+      stripPrefix: false
+    ibz_productmodule:
+      path: /productmodules/**
+      serviceId: pms-webapi
+      stripPrefix: false
+    zt_module:
+      path: /modules/**
+      serviceId: pms-webapi
+      stripPrefix: false
+    ibz_productlife:
+      path: /productlives/**
+      serviceId: pms-webapi
+      stripPrefix: false
+    zt_task:
+      path: /tasks/**
+      serviceId: pms-webapi
+      stripPrefix: false
+    zt_build:
+      path: /builds/**
+      serviceId: pms-webapi
+      stripPrefix: false
+    zt_bug:
+      path: /bugs/**
+      serviceId: pms-webapi
+      stripPrefix: false
+    ibz_doc:
+      path: /ibzdocs/**
+      serviceId: pms-webapi
+      stripPrefix: false
+    zt_release:
+      path: /releases/**
+      serviceId: pms-webapi
+      stripPrefix: false
+  sensitive-headers:
+    - Cookie,Set-Cookie,Authorization

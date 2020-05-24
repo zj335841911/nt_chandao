@@ -1,0 +1,79 @@
+.project-list {
+    min-width: 350px;
+    color: var(--view-font-color-bright);
+
+    >.ivu-list {
+        border-bottom: 1px solid var(--view-dividing-line-color-tint);
+
+        >.ivu-list-container {
+
+            >.ivu-list-items {
+
+                >.ivu-list-item:hover {
+
+                    >.open-action {
+                        display: block;
+                    }
+                }
+
+                >.ivu-list-item {
+                    position: relative;
+                    padding: 5px 0px;
+                    margin-bottom: 3px;
+
+                    >.title {
+                        padding: 0px 5px;
+
+                        >.ivu-tag.ivu-tag-border {
+                            height: 22px;
+                            line-height: 22px;
+                        }
+
+                        >.project-name {
+                            font-weight: 700;
+                            font-size: 16px;
+                            vertical-align: -2px;
+                            padding-left: 5px;
+                        }
+                    }
+
+                    >.content {
+                        padding: 0px 5px;
+                        margin-top: 5px;
+                    }
+
+                    >.open-action {
+                        display: none;
+                        cursor: pointer;
+                        position: absolute;
+                        text-align: center;
+                        top: 0px;
+                        right: 0px;
+                        bottom: 0px;
+                        width: 30px;
+                        background: var(--view-button-background-color);
+                        color: var(--view-button-color);
+
+                        >.ivu-icon {
+                            font-size: 24px;
+                            margin-top: 33px;
+                        }
+                    }
+
+                    >.ivu-list-item-action {
+                        margin-top: 6px;
+
+                        >li {
+                            padding: 0px 8px;
+                            color: rgba(var(--view-font-color-rgb), 0.6);
+                        }
+
+                        >li::after {
+                            background-color: var(--view-dividing-line-color-tint);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

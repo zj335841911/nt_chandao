@@ -1,0 +1,144 @@
+<script lang='tsx'>
+import { Vue, Component } from 'vue-property-decorator';
+import { CreateElement } from 'vue';
+import { Subject, Subscription } from 'rxjs';
+import { UIActionTool,Util } from '@/utils';
+
+/**
+ * 应用菜单基类
+ */
+export default class ZentaoBase extends Vue {
+
+    /**
+     * 菜单点击
+     *
+     * @private
+     * @param {*} item 菜单数据
+     * @memberof Zentao
+     */
+    private click(item: any) {
+        if (item) {
+            switch (item.appfunctag) {
+                case 'Auto3': 
+                    this.clickAuto3(item);
+                    return;
+                case 'Auto5': 
+                    this.clickAuto5(item);
+                    return;
+                case 'Auto2': 
+                    this.clickAuto2(item);
+                    return;
+                case 'Auto1': 
+                    this.clickAuto1(item);
+                    return;
+                case 'Auto4': 
+                    this.clickAuto4(item);
+                    return;
+                default:
+                    console.warn('未指定应用功能');
+            }
+        }
+    }
+    
+    /**
+     * 产品测试
+     *
+     * @param {*} [item={}]
+     * @memberof Zentao
+     */
+    public clickAuto3(item: any = {}) {
+        const viewparam: any = {};
+        Object.assign(viewparam, {});
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'testgridview', parameterName: 'testgridview' },
+        ];
+        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
+        this.$router.push(path);
+    }
+    
+    /**
+     * 项目边栏
+     *
+     * @param {*} [item={}]
+     * @memberof Zentao
+     */
+    public clickAuto5(item: any = {}) {
+        const viewparam: any = {};
+        Object.assign(viewparam, {});
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'leftsidebarlistview', parameterName: 'leftsidebarlistview' },
+        ];
+        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
+        this.$router.push(path);
+    }
+    
+    /**
+     * 左边栏产品列表视图
+     *
+     * @param {*} [item={}]
+     * @memberof Zentao
+     */
+    public clickAuto2(item: any = {}) {
+        const viewparam: any = {};
+        Object.assign(viewparam, {});
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'leftsidebarlistview', parameterName: 'leftsidebarlistview' },
+        ];
+        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
+        this.$router.push(path);
+    }
+    
+    /**
+     * 项目(测试菜单)
+     *
+     * @param {*} [item={}]
+     * @memberof Zentao
+     */
+    public clickAuto1(item: any = {}) {
+        const viewparam: any = {};
+        Object.assign(viewparam, {});
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'gridview', parameterName: 'gridview' },
+        ];
+        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
+        this.$router.push(path);
+    }
+    
+    /**
+     * 打开项目表格视图
+     *
+     * @param {*} [item={}]
+     * @memberof Zentao
+     */
+    public clickAuto4(item: any = {}) {
+        const viewparam: any = {};
+        Object.assign(viewparam, {});
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'gridview', parameterName: 'gridview' },
+        ];
+        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
+        this.$router.push(path);
+    }
+
+    /**
+     * 绘制内容
+     *
+     * @private
+     * @memberof Zentao
+     */
+    public render(): any {
+        return <span style="display: none;"/>
+    }
+
+}
+</script>

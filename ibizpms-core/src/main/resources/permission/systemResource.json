@@ -1,0 +1,150 @@
+    {
+    "unires":[
+           ],
+    "entities":[
+    {
+    "dename":"ProductPlan",
+    "delogicname":"产品计划",
+    "sysmoudle":{"id":"ZENTAO","name":"禅道模块"},
+    "dedataset":[{"id":"Default" , "name":"DEFAULT"}],
+    "deaction":[{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}]
+     }
+    ,    {
+    "dename":"ProjectProduct",
+    "delogicname":"项目产品",
+    "sysmoudle":{"id":"ZENTAO","name":"禅道模块"},
+    "dedataset":[{"id":"RelationPlan" , "name":"关联计划"},{"id":"Default" , "name":"DEFAULT"}],
+    "deaction":[{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}]
+     }
+    ,    {
+    "dename":"Product",
+    "delogicname":"产品",
+    "sysmoudle":{"id":"ZENTAO","name":"禅道模块"},
+    "dedataset":[{"id":"Default" , "name":"DEFAULT"},{"id":"CurProject" , "name":"当前项目"}],
+    "deaction":[{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Create" , "name":"Create" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}]
+     }
+    ,    {
+    "dename":"StorySpec",
+    "delogicname":"需求描述",
+    "sysmoudle":{"id":"ZENTAO","name":"禅道模块"},
+    "dedataset":[{"id":"Default" , "name":"DEFAULT"}],
+    "deaction":[{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}]
+     }
+    ,    {
+    "dename":"Branch",
+    "delogicname":"产品的分支和平台信息",
+    "sysmoudle":{"id":"ZENTAO","name":"禅道模块"},
+    "dedataset":[{"id":"Default" , "name":"DEFAULT"}],
+    "deaction":[{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}]
+     }
+    ,    {
+    "dename":"Action",
+    "delogicname":"系统日志",
+    "sysmoudle":{"id":"ZENTAO","name":"禅道模块"},
+    "dedataset":[{"id":"Default" , "name":"DEFAULT"},{"id":"ProductTrends" , "name":"ProductTrends"},{"id":"ProjectTrends" , "name":"项目动态(项目相关所有)"},{"id":"Type" , "name":"Type"}],
+    "deaction":[{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}]
+     }
+    ,    {
+    "dename":"Story",
+    "delogicname":"需求",
+    "sysmoudle":{"id":"ZENTAO","name":"禅道模块"},
+    "dedataset":[{"id":"Default" , "name":"DEFAULT"}],
+    "deaction":[{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}]
+     }
+    ,    {
+    "dename":"Project",
+    "delogicname":"项目",
+    "sysmoudle":{"id":"ZENTAO","name":"禅道模块"},
+    "dedataset":[{"id":"CurProduct" , "name":"当前项目"},{"id":"Default" , "name":"DEFAULT"}],
+    "deaction":[{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}]
+     }
+    ,    {
+    "dename":"History",
+    "delogicname":"操作历史",
+    "sysmoudle":{"id":"ZENTAO","name":"禅道模块"},
+    "dedataset":[{"id":"Default" , "name":"DEFAULT"}],
+    "deaction":[{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}]
+     }
+    ,    {
+    "dename":"ProductModule",
+    "delogicname":"需求模块",
+    "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
+    "dedataset":[{"id":"Default" , "name":"DEFAULT"},{"id":"Root_NoBranch" , "name":"根模块_无分支"},{"id":"Root" , "name":"根模块"}],
+    "deaction":[{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}]
+     }
+    ,    {
+    "dename":"Module",
+    "delogicname":"模块",
+    "sysmoudle":{"id":"ZENTAO","name":"禅道模块"},
+    "dedataset":[{"id":"Line" , "name":"产品线"},{"id":"StoryModule" , "name":"需求模块"},{"id":"Default" , "name":"DEFAULT"},{"id":"DocModule" , "name":"文档目录"}],
+    "deaction":[{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}]
+     }
+    ,    {
+    "dename":"ProductLife",
+    "delogicname":"产品生命周期",
+    "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
+    "dedataset":[{"id":"GetRoadmap" , "name":"GetRoadmap"},{"id":"Default" , "name":"DEFAULT"}],
+    "deaction":[{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}, {"id":"createman","name":"创建人"}]
+     }
+    ,    {
+    "dename":"Task",
+    "delogicname":"任务",
+    "sysmoudle":{"id":"ZENTAO","name":"禅道模块"},
+    "dedataset":[{"id":"RootTask" , "name":"根任务"},{"id":"TypeGroup" , "name":"任务类型分组"},{"id":"Default" , "name":"DEFAULT"}],
+    "deaction":[{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Create" , "name":"Create" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}]
+     }
+    ,    {
+    "dename":"Build",
+    "delogicname":"版本",
+    "sysmoudle":{"id":"ZENTAO","name":"禅道模块"},
+    "dedataset":[{"id":"Default" , "name":"DEFAULT"}],
+    "deaction":[{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}]
+     }
+    ,    {
+    "dename":"Bug",
+    "delogicname":"Bug",
+    "sysmoudle":{"id":"ZENTAO","name":"禅道模块"},
+    "dedataset":[{"id":"Default" , "name":"DEFAULT"}],
+    "deaction":[{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}]
+     }
+    ,    {
+    "dename":"IBzDoc",
+    "delogicname":"文档",
+    "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
+    "dedataset":[{"id":"Default" , "name":"DEFAULT"}],
+    "deaction":[{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}, {"id":"createman","name":"创建人"}]
+     }
+    ,    {
+    "dename":"Release",
+    "delogicname":"发布",
+    "sysmoudle":{"id":"ZENTAO","name":"禅道模块"},
+    "dedataset":[{"id":"Default" , "name":"DEFAULT"}],
+    "deaction":[{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}]
+     }
+    ],
+    "appmenus":[
+            
+            {
+               "appid":"Web",
+               "appname":"iBiz项目管理",
+               "appmenu":[{"menuid":"zentao", "menuname":"zentao", "menuitem":[{ "id":"top_menus" , "name":"顶部菜单" , "items":[{ "id":"menuitem3" , "name":"产品" },{ "id":"menuitem2" , "name":"项目" },{ "id":"menuitem1" , "name":"测试" }]},{ "id":"left_exp" , "name":"左侧分页导航" , "items":[{ "id":"menuitem4" , "name":"产品" },{ "id":"menuitem5" , "name":"项目" }]},{ "id":"bottom_exp" , "name":"底部导航区" },{ "id":"footer_center" , "name":"底部中间菜单" }] }]
+            }
+            ]
+    }
