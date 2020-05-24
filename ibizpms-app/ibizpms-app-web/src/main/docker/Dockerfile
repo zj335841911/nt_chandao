@@ -9,6 +9,6 @@ CMD echo "The application will start in ${IBZ_SLEEP}s..." && \
     sleep ${IBZ_SLEEP} && \
     java ${JAVA_OPTS} -Djava.security.egd=file:/dev/./urandom -jar /ibizpms-app-web.jar
 
-EXPOSE 8080
+EXPOSE 30120
 
 ADD ibizpms-app-web.jar /ibizpms-app-web.jar
