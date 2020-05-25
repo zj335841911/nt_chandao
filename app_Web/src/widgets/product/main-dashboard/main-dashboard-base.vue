@@ -5,17 +5,31 @@
     </row>
     <row v-if="!isHasCustomized">
           <div style = ''>
-      <i-col :md="{ span: 24, offset: 0 }">
+      <i-col :xs="{ span: 16, offset: 0}" :sm="{ span: 16, offset: 0}" :md="{ span: 16, offset: 0 }" :lg="{ span: 16, offset: 0 }">
         <card class="portlet-card" :bordered="false" dis-hover :padding="0">
           <span>
-          <view_dashboard_container1 
+          <view_dashboard_container2 
               :viewState="viewState"  
               :viewparams="viewparams" 
               :context="context" 
-              name="dashboard_container1"  
-              ref='dashboard_container1' 
+              name="dashboard_container2"  
+              ref='dashboard_container2' 
               @closeview="closeView($event)">
-          </view_dashboard_container1>
+          </view_dashboard_container2>
+          </span>
+        </card>
+      </i-col>
+      <i-col :xs="{ span: 8, offset: 0}" :sm="{ span: 8, offset: 0}" :md="{ span: 8, offset: 0 }" :lg="{ span: 8, offset: 0 }">
+        <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+          <span>
+          <view_dashboard_container3 
+              :viewState="viewState"  
+              :viewparams="viewparams" 
+              :context="context" 
+              name="dashboard_container3"  
+              ref='dashboard_container3' 
+              @closeview="closeView($event)">
+          </view_dashboard_container3>
           </span>
         </card>
       </i-col>
