@@ -782,4 +782,36 @@ div::-webkit-scrollbar-thumb {
         }
     }
 }
+
+// element下拉菜单样式
+.el-dropdown-menu.el-popper {
+    background: var(--view-button-background-color);
+    padding: 0px;
+    border: 0px;
+
+    >.popper__arrow::after {
+        border-bottom-color: var(--view-button-background-color);
+    }
+
+    >.el-dropdown-menu__item {
+        color: var(--view-button-color);
+    }
+
+    >.el-dropdown-menu__item.is-select {
+        background-color: var(--view-button-background-color-active);
+
+        >span {
+
+            >span {
+                color: var(--view-button-color-active) !important;
+            }
+        }
+    }
+
+    .el-dropdown-menu__item:hover {
+        background-color: var(--view-button-background-color-active);
+        color: var(--view-button-color-active);
+    }
+
+}
 @import './user.less';

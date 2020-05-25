@@ -1,13 +1,13 @@
 <template>
   <div class="app-quick-group">
-    <span class="app-quick-item" v-for="item in renderArray" :key="item.id" @click="handleClick(item)">
+    <div class="app-quick-item" v-for="item in renderArray" :key="item.id" @click="handleClick(item)">
       <span v-if="!item.children" :style="{color:item.color}" :class="{'app-seleted-item':isSelectedItem(item)}">
         <i v-if=" item.iconcls && !Object.is(item.iconcls, '')" :class="item.iconcls"></i>
         <img v-else-if="item.icon && !Object.is(item.icon, '')" :src="item.icon" />
         <span class="app-quick-item-label">{{item.label}}</span>
         <span v-show="isSelectedItem(item) && counterService && counterService.counterData && counterService.counterData[item.codename]" class="app-quick-item-counter">{{itemTag(item)}}</span>
       </span>
-      <el-dropdown v-if="item.children" style="outline: none !important;" trigger="click" @command="handleCommand($event,item)">
+      <el-dropdown v-if="item.children" class="app-quick-item-dropdown" trigger="click" @command="handleCommand($event,item)">
         <span :style="{color:item.color}" :class="{'app-seleted-item':isSelectedItem(item)}">
           <i v-if=" item.iconcls && !Object.is(item.iconcls, '')" :class="item.iconcls"></i>
           <img v-else-if="item.icon && !Object.is(item.icon, '')" :src="item.icon" />
@@ -15,7 +15,7 @@
           <span v-show="isSelectedItem(item) && counterService && counterService.counterData && counterService.counterData[item.codename]" class="app-quick-item-counter">{{itemTag(item)}}</span>
         </span>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item v-for="childitem in item.children" :command="childitem" :key="childitem.id">
+          <el-dropdown-item v-for="childitem in item.children" :command="childitem" :key="childitem.id" :class="{ 'is-select': Object.is(selectedUiItem.codename, childitem.codename) }">
             <span :style="{color:childitem.color}">
               <i v-if=" childitem.iconcls && !Object.is(childitem.iconcls, '')" :class="childitem.iconcls"></i>
               <img v-else-if="childitem.icon && !Object.is(childitem.icon, '')" :src="childitem.icon" />
@@ -23,13 +23,14 @@
             </span>
           </el-dropdown-item>
         </el-dropdown-menu>
-    </el-dropdown>
-    </span>
+      </el-dropdown>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component, Prop, Model, Emit } from "vue-property-decorator";
+
 @Component({})
 export default class AppQuickGroup extends Vue {
 
@@ -39,7 +40,7 @@ export default class AppQuickGroup extends Vue {
      * @type {Array<any>}
      * @memberof AppQuickGroup
      */
-    @Prop() public items!:Array<any>;
+    @Prop() public items!: Array<any>;
 
     /**
      * 计数器服务名
@@ -47,7 +48,7 @@ export default class AppQuickGroup extends Vue {
      * @type {string}
      * @memberof AppQuickGroup
      */
-    @Prop() public counterService?:any;
+    @Prop() public counterService?: any;
 
     /**
      * UI选中项
@@ -55,7 +56,7 @@ export default class AppQuickGroup extends Vue {
      * @type {*}
      * @memberof AppQuickGroup
      */
-    public selectedUiItem:any;
+    public selectedUiItem: any = {};
 
     /**
      * 传入渲染项
@@ -63,22 +64,22 @@ export default class AppQuickGroup extends Vue {
      * @type {Array<any>}
      * @memberof AppQuickGroup
      */
-    get renderArray(){
-      if(this.items && this.items.length >0){
-        this.selectedUiItem = this.items[0];
-        this.handleClick(this.items[0]);
-        return this.handleDataSet(this.items)
-      }else{
-        return [];
-      }
+    get renderArray(): any[] {
+        if(this.items && this.items.length >0){
+            this.selectedUiItem = this.items[0];
+            this.handleClick(this.items[0]);
+            return this.handleDataSet(this.items);
+        }else{
+            return [];
+        }
     }
 
-    public itemTag(item:any){
-      if(this.counterService && this.counterService.counterData && item.codename){
-        return this.counterService.counterData[item.codename];
-      }else{
-        return "";
-      }
+    public itemTag(item:any): string {
+        if(this.counterService && this.counterService.counterData && item.codename){
+            return this.counterService.counterData[item.codename];
+        }else{
+            return "";
+        }
     }
 
     /**
@@ -87,12 +88,12 @@ export default class AppQuickGroup extends Vue {
      * @param item 传入当前项
      * @memberof AppQuickGroup
      */
-    public isSelectedItem(item:any){
-      if(this.selectedUiItem && (this.selectedUiItem.id === item.id)){
-        return true;
-      }else{
-        return false;
-      }
+    public isSelectedItem(item:any): boolean {
+        if(this.selectedUiItem && (this.selectedUiItem.id === item.id)){
+            return true;
+        }else{
+            return false;
+        }
     }
  
     /**
@@ -101,15 +102,15 @@ export default class AppQuickGroup extends Vue {
      * @param result 返回数组
      * @memberof AppQuickGroup
      */
-    public handleDataSet(result:Array<any>){
+    public handleDataSet(result: Array<any>): any[] {
         let list:Array<any> = [];
         if(result.length === 0){
             return list;
         }
-        result.forEach((codeItem:any) =>{
-            if(!codeItem.pvalue){
-                let valueField:string = codeItem.value;
-                this.setChildCodeItems(valueField,result,codeItem);
+        result.forEach((codeItem:any) => {
+            if (!codeItem.pvalue) {
+                let valueField: string = codeItem.value;
+                this.setChildCodeItems(valueField, result, codeItem);
                 list.push(codeItem);
             }
         })
@@ -124,12 +125,12 @@ export default class AppQuickGroup extends Vue {
      * @param codeItem 代码项
      * @memberof AppQuickGroup
      */
-    public setChildCodeItems(pValue:string,result:Array<any>,codeItem:any){
-        result.forEach((item:any) =>{
-            if(item.pvalue == pValue){
-                let valueField:string = item.value;
-                this.setChildCodeItems(valueField,result,item);
-                if(!codeItem.children){
+    public setChildCodeItems(pValue: string, result: Array<any>, codeItem: any): void {
+        result.forEach((item: any) => {
+            if (item.pvalue == pValue) {
+                let valueField: string = item.value;
+                this.setChildCodeItems(valueField, result, item);
+                if (!codeItem.children) {
                     codeItem.children = [];
                 }
                 codeItem.children.push(item);
@@ -144,12 +145,12 @@ export default class AppQuickGroup extends Vue {
      * @param isswitch 是否切换UI选中项
      * @memberof AppQuickGroup
      */
-    public handleClick($event:any,isswitch:boolean = true){
-      this.$emit('valuechange',$event);
-      if(isswitch){
-        this.selectedUiItem = $event;
-      }
-      this.$forceUpdate();
+    public handleClick($event: any, isswitch: boolean = true): void {
+        this.$emit('valuechange', $event);
+        if (isswitch) {
+            this.selectedUiItem = $event;
+        }
+        this.$forceUpdate();
     }
 
     /**
@@ -159,13 +160,11 @@ export default class AppQuickGroup extends Vue {
      * @param item 父值
      * @memberof AppQuickGroup
      */
-    public handleCommand($event:any,item:any){
-      item.label = $event.label;
-      item.codename = $event.codename;
-      this.handleClick($event,false);
+    public handleCommand($event: any, item: any): void {
+        item.label = $event.label;
+        item.codename = $event.codename;
+        this.handleClick($event, false);
     }
-
-    
 
 }
 </script>
