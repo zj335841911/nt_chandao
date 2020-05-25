@@ -1,15 +1,17 @@
 
 <template>
-!!!!模版产生代码错误:----
-Tip: It's the step after the last dot that caused this error, not those before it.
-----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
-
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if view.isEnableQuickGroup()  [in template "TEMPLCODE_zh_CN" at line 34, column 1]
-----
+<studio-view viewName="productmaindashboardview" viewTitle="产品数据看板视图" class='deportalview product-main-dashboard-view'>
+    <view_dashboard 
+                    :viewState="viewState"  
+                    :viewparams="viewparams" 
+                    :context="JSON.parse(JSON.stringify(context))" 
+                    :isEnableCustomized = "false"
+                    name="dashboard"  
+                    ref='dashboard' 
+                    @load="dashboard_load($event)"  
+                    @closeview="closeView($event)">
+                </view_dashboard>
+</studio-view>
 </template>
 
 <script lang='tsx'>

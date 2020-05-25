@@ -1,14 +1,79 @@
 <template>
-!!!!模版产生代码错误:----
-Tip: It's the step after the last dot that caused this error, not those before it.
-----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
-
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if view.isEnableQuickGroup()  [in template "TEMPLCODE_zh_CN" at line 28, column 1]
-----
+<studio-view viewName="bugeditview" viewTitle="bug编辑视图" class='deeditview bug-edit-view'>
+    <template slot='title'>
+    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
+    </template>
+    <template slot="toolbar">
+        <div class='toolbar-container'>
+            <i-button :title="$t('entities.bug.editviewtoolbar_toolbar.tbitem3.tip')" v-show="toolBarModels.tbitem3.visabled" :disabled="toolBarModels.tbitem3.disabled" class='' @click="toolbar_click({ tag: 'tbitem3' }, $event)">
+                    <i class='fa fa-save'></i>
+                    <span class='caption'>{{$t('entities.bug.editviewtoolbar_toolbar.tbitem3.caption')}}</span>
+                </i-button>
+            <i-button :title="$t('entities.bug.editviewtoolbar_toolbar.tbitem4.tip')" v-show="toolBarModels.tbitem4.visabled" :disabled="toolBarModels.tbitem4.disabled" class='' @click="toolbar_click({ tag: 'tbitem4' }, $event)">
+                    <i class='sx-tb-saveandnew'></i>
+                    <span class='caption'>{{$t('entities.bug.editviewtoolbar_toolbar.tbitem4.caption')}}</span>
+                </i-button>
+            <i-button :title="$t('entities.bug.editviewtoolbar_toolbar.tbitem5.tip')" v-show="toolBarModels.tbitem5.visabled" :disabled="toolBarModels.tbitem5.disabled" class='' @click="toolbar_click({ tag: 'tbitem5' }, $event)">
+                    <i class='sx-tb-saveandclose'></i>
+                    <span class='caption'>{{$t('entities.bug.editviewtoolbar_toolbar.tbitem5.caption')}}</span>
+                </i-button>
+            <span class='seperator'>|</span>    <i-button :title="$t('entities.bug.editviewtoolbar_toolbar.tbitem7.tip')" v-show="toolBarModels.tbitem7.visabled" :disabled="toolBarModels.tbitem7.disabled" class='' @click="toolbar_click({ tag: 'tbitem7' }, $event)">
+                    <i class='fa fa-remove'></i>
+                    <span class='caption'>{{$t('entities.bug.editviewtoolbar_toolbar.tbitem7.caption')}}</span>
+                </i-button>
+            <span class='seperator'>|</span>    <i-button :title="$t('entities.bug.editviewtoolbar_toolbar.tbitem12.tip')" v-show="toolBarModels.tbitem12.visabled" :disabled="toolBarModels.tbitem12.disabled" class='' @click="toolbar_click({ tag: 'tbitem12' }, $event)">
+                    <i class='fa fa-file-text-o'></i>
+                    <span class='caption'>{{$t('entities.bug.editviewtoolbar_toolbar.tbitem12.caption')}}</span>
+                </i-button>
+            <span class='seperator'>|</span>    <i-button :title="$t('entities.bug.editviewtoolbar_toolbar.tbitem14.tip')" v-show="toolBarModels.tbitem14.visabled" :disabled="toolBarModels.tbitem14.disabled" class='' @click="toolbar_click({ tag: 'tbitem14' }, $event)">
+                    <i class='fa fa-copy'></i>
+                    <span class='caption'>{{$t('entities.bug.editviewtoolbar_toolbar.tbitem14.caption')}}</span>
+                </i-button>
+            <span class='seperator'>|</span>    <i-button :title="$t('entities.bug.editviewtoolbar_toolbar.tbitem23.tip')" v-show="toolBarModels.tbitem23.visabled" :disabled="toolBarModels.tbitem23.disabled" class='' @click="toolbar_click({ tag: 'tbitem23' }, $event)">
+                    <i class='fa fa-fast-backward'></i>
+                    
+                </i-button>
+            <i-button :title="$t('entities.bug.editviewtoolbar_toolbar.tbitem24.tip')" v-show="toolBarModels.tbitem24.visabled" :disabled="toolBarModels.tbitem24.disabled" class='' @click="toolbar_click({ tag: 'tbitem24' }, $event)">
+                    <i class='fa fa-step-backward'></i>
+                    
+                </i-button>
+            <i-button :title="$t('entities.bug.editviewtoolbar_toolbar.tbitem25.tip')" v-show="toolBarModels.tbitem25.visabled" :disabled="toolBarModels.tbitem25.disabled" class='' @click="toolbar_click({ tag: 'tbitem25' }, $event)">
+                    <i class='fa fa-step-forward'></i>
+                    
+                </i-button>
+            <i-button :title="$t('entities.bug.editviewtoolbar_toolbar.tbitem26.tip')" v-show="toolBarModels.tbitem26.visabled" :disabled="toolBarModels.tbitem26.disabled" class='' @click="toolbar_click({ tag: 'tbitem26' }, $event)">
+                    <i class='fa fa-fast-forward'></i>
+                    
+                </i-button>
+            <span class='seperator'>|</span>    <i-button :title="$t('entities.bug.editviewtoolbar_toolbar.tbitem22.tip')" v-show="toolBarModels.tbitem22.visabled" :disabled="toolBarModels.tbitem22.disabled" class='' @click="toolbar_click({ tag: 'tbitem22' }, $event)">
+                    <i class='fa fa-question'></i>
+                    <span class='caption'>{{$t('entities.bug.editviewtoolbar_toolbar.tbitem22.caption')}}</span>
+                </i-button>
+        </div>
+    </template>
+    <view_form 
+                :viewState="viewState"  
+                :viewparams="viewparams" 
+                :context="context" 
+                :autosave="false" 
+                :viewtag="viewtag"
+                :showBusyIndicator="true"
+                updateAction="Update"
+                removeAction="Remove"
+                loaddraftAction="GetDraft"
+                loadAction="Get"
+                createAction="Create"
+                WFSubmitAction=""
+                WFStartAction=""
+                style='' 
+                name="form"  
+                ref='form' 
+                @save="form_save($event)"  
+                @remove="form_remove($event)"  
+                @load="form_load($event)"  
+                @closeview="closeView($event)">
+            </view_form>
+</studio-view>
 </template>
 
 <script lang='tsx'>
