@@ -1,43 +1,14 @@
 <template>
-<studio-view viewName="branchpmeditview" viewTitle="平台管理" class='deeditview branch-pmedit-view'>
-    <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
-    </template>
-    <template slot="toolbar">
-        <div class='toolbar-container'>
-            <i-button :title="$t('entities.branch.pmeditviewtoolbar_toolbar.deuiaction2.tip')" v-show="toolBarModels.deuiaction2.visabled" :disabled="toolBarModels.deuiaction2.disabled" class='' @click="toolbar_click({ tag: 'deuiaction2' }, $event)">
-                    <i class='fa fa-save'></i>
-                    <span class='caption'>{{$t('entities.branch.pmeditviewtoolbar_toolbar.deuiaction2.caption')}}</span>
-                </i-button>
-            <i-button :title="$t('entities.branch.pmeditviewtoolbar_toolbar.deuiaction1.tip')" v-show="toolBarModels.deuiaction1.visabled" :disabled="toolBarModels.deuiaction1.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1' }, $event)">
-                    <i class='sx-tb-saveandclose'></i>
-                    <span class='caption'>{{$t('entities.branch.pmeditviewtoolbar_toolbar.deuiaction1.caption')}}</span>
-                </i-button>
-        </div>
-    </template>
-    <view_form 
-                :viewState="viewState"  
-                :viewparams="viewparams" 
-                :context="context" 
-                :autosave="false" 
-                :viewtag="viewtag"
-                :showBusyIndicator="true"
-                updateAction="Update"
-                removeAction="Remove"
-                loaddraftAction="GetDraft"
-                loadAction="Get"
-                createAction="Create"
-                WFSubmitAction=""
-                WFStartAction=""
-                style='' 
-                name="form"  
-                ref='form' 
-                @save="form_save($event)"  
-                @remove="form_remove($event)"  
-                @load="form_load($event)"  
-                @closeview="closeView($event)">
-            </view_form>
-</studio-view>
+!!!!模版产生代码错误:----
+Tip: It's the step after the last dot that caused this error, not those before it.
+----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: #if view.isEnableQuickGroup()  [in template "TEMPLCODE_zh_CN" at line 28, column 1]
+----
 </template>
 
 <script lang='tsx'>

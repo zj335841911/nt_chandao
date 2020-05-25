@@ -1,17 +1,14 @@
 <template>
-<studio-view viewName="producttesttabexpview" viewTitle="产品主数据视图" class='detabexpview product-test-tab-exp-view'>
-    <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
-    </template>
-    <view_tabexppanel 
-        :viewState="viewState"  
-        :viewparams="viewparams" 
-        :context="context" 
-        name="tabexppanel"  
-        ref='tabexppanel' 
-        @closeview="closeView($event)">
-    </view_tabexppanel>
-</studio-view>
+!!!!模版产生代码错误:----
+Tip: It's the step after the last dot that caused this error, not those before it.
+----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: #if view.isEnableQuickGroup()  [in template "TEMPLCODE_zh_CN" at line 26, column 1]
+----
 </template>
 
 <script lang='tsx'>
