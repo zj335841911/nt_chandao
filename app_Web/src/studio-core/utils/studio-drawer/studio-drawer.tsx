@@ -192,9 +192,22 @@ export class StudioDrawer extends Vue {
                     </span>;
                 })}
             </div>
-            <div class="close" on-click={() => this.closeByIndex(-1)}>
-                <icon title="关闭所有视图" type="md-close" />
-            </div>
+            {
+                this.viewList.length > 1 ?
+                    <poptip
+                        class="close"
+                        confirm
+                        placement="left-start"
+                        title="确认关闭所有界面?"
+                        on-on-ok={() => this.closeByIndex(-1)}
+                    >
+                        <icon title="关闭所有视图" type="md-close" />
+                    </poptip>
+                    :
+                    <div class="close" on-click={() => this.closeByIndex(-1)}>
+                        <icon title="关闭所有视图" type="md-close" />
+                    </div>
+            }
         </div>;
     }
 
