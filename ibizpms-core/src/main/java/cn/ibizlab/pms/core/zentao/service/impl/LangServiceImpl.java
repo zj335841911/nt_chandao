@@ -117,6 +117,12 @@ public class LangServiceImpl extends ServiceImpl<LangMapper, Lang> implements IL
     }
 
     @Override
+    public boolean saveBatch(Collection<Lang> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Lang> list) {
         saveOrUpdateBatch(list,batchSize);
     }

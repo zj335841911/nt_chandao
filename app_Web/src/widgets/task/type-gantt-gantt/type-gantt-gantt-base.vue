@@ -219,11 +219,6 @@ export default class TypeGanttBase extends Vue implements ControlInterface {
             labelField: 'text',
             columns: [
                 {
-                    label: '结束时间',
-                    value: 'end',
-                    width: 100
-                },
-                {
                     label: '任务类型分类',
                     value: 'text',
                     expander: true,
@@ -232,6 +227,11 @@ export default class TypeGanttBase extends Vue implements ControlInterface {
                 {
                     label: '开始时间',
                     value: 'start',
+                    width: 100
+                },
+                {
+                    label: '结束时间',
+                    value: 'end',
                     width: 100
                 },
             ]

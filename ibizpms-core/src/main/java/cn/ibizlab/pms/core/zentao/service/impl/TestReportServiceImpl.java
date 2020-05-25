@@ -106,6 +106,12 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
     }
 
     @Override
+    public boolean saveBatch(Collection<TestReport> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<TestReport> list) {
         saveOrUpdateBatch(list,batchSize);
     }

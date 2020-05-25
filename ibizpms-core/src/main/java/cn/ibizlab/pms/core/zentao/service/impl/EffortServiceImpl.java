@@ -87,6 +87,12 @@ public class EffortServiceImpl extends ServiceImpl<EffortMapper, Effort> impleme
     }
 
     @Override
+    public boolean saveBatch(Collection<Effort> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Effort> list) {
         saveOrUpdateBatch(list,batchSize);
     }

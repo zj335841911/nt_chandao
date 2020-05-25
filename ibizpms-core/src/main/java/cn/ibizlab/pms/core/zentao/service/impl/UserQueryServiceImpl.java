@@ -117,6 +117,12 @@ public class UserQueryServiceImpl extends ServiceImpl<UserQueryMapper, UserQuery
     }
 
     @Override
+    public boolean saveBatch(Collection<UserQuery> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<UserQuery> list) {
         saveOrUpdateBatch(list,batchSize);
     }

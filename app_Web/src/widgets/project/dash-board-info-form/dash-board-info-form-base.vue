@@ -1465,8 +1465,6 @@ export default class DashBoardInfoBase extends Vue implements ControlInterface {
      *@memberof @memberof DashBoardInfo
      */
     public print(){
-        let _this:any = this;
-        _this.$print({id:'form',popTitle:'看板信息表单'});
     }
 
     /**

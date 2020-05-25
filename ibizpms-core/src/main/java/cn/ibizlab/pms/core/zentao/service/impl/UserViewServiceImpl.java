@@ -117,6 +117,12 @@ public class UserViewServiceImpl extends ServiceImpl<UserViewMapper, UserView> i
     }
 
     @Override
+    public boolean saveBatch(Collection<UserView> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<UserView> list) {
         saveOrUpdateBatch(list,batchSize);
     }

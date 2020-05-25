@@ -106,6 +106,12 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, File> implements IF
     }
 
     @Override
+    public boolean saveBatch(Collection<File> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<File> list) {
         saveOrUpdateBatch(list,batchSize);
     }

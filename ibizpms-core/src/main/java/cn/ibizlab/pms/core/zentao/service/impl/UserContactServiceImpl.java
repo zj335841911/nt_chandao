@@ -86,6 +86,12 @@ public class UserContactServiceImpl extends ServiceImpl<UserContactMapper, UserC
     }
 
     @Override
+    public boolean saveBatch(Collection<UserContact> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<UserContact> list) {
         saveOrUpdateBatch(list,batchSize);
     }

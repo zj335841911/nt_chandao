@@ -1498,8 +1498,6 @@ export default class Main_EditModeBase extends Vue implements ControlInterface {
      *@memberof @memberof Main_EditMode
      */
     public print(){
-        let _this:any = this;
-        _this.$print({id:'form',popTitle:'编辑模式'});
     }
 
     /**

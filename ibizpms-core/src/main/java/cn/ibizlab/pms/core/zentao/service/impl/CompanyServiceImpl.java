@@ -117,6 +117,12 @@ public class CompanyServiceImpl extends ServiceImpl<CompanyMapper, Company> impl
     }
 
     @Override
+    public boolean saveBatch(Collection<Company> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Company> list) {
         saveOrUpdateBatch(list,batchSize);
     }

@@ -124,6 +124,12 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
     }
 
     @Override
+    public boolean saveBatch(Collection<Action> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Action> list) {
         saveOrUpdateBatch(list,batchSize);
     }

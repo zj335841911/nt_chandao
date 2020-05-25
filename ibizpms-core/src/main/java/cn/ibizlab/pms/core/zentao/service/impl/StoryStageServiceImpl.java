@@ -106,6 +106,12 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
     }
 
     @Override
+    public boolean saveBatch(Collection<StoryStage> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<StoryStage> list) {
         saveOrUpdateBatch(list,batchSize);
     }

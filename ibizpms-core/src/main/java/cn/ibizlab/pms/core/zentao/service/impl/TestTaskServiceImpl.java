@@ -98,6 +98,12 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     }
 
     @Override
+    public boolean saveBatch(Collection<TestTask> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<TestTask> list) {
         saveOrUpdateBatch(list,batchSize);
     }

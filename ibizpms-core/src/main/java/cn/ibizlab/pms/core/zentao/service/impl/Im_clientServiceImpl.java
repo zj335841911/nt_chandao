@@ -117,6 +117,12 @@ public class Im_clientServiceImpl extends ServiceImpl<Im_clientMapper, Im_client
     }
 
     @Override
+    public boolean saveBatch(Collection<Im_client> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Im_client> list) {
         saveOrUpdateBatch(list,batchSize);
     }

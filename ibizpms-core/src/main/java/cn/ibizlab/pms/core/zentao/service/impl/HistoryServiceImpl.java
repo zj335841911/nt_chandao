@@ -117,6 +117,12 @@ public class HistoryServiceImpl extends ServiceImpl<HistoryMapper, History> impl
     }
 
     @Override
+    public boolean saveBatch(Collection<History> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<History> list) {
         saveOrUpdateBatch(list,batchSize);
     }

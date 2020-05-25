@@ -94,6 +94,12 @@ public class Im_chatServiceImpl extends ServiceImpl<Im_chatMapper, Im_chat> impl
     }
 
     @Override
+    public boolean saveBatch(Collection<Im_chat> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Im_chat> list) {
         saveOrUpdateBatch(list,batchSize);
     }

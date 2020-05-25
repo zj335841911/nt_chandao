@@ -1691,8 +1691,6 @@ export default class MainBase extends Vue implements ControlInterface {
      *@memberof @memberof Main
      */
     public print(){
-        let _this:any = this;
-        _this.$print({id:'form',popTitle:'主编辑表单'});
     }
 
     /**

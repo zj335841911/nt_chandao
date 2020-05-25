@@ -1063,8 +1063,6 @@ export default class MainDetailBase extends Vue implements ControlInterface {
      *@memberof @memberof MainDetail
      */
     public print(){
-        let _this:any = this;
-        _this.$print({id:'form',popTitle:'主信息详情表单'});
     }
 
     /**

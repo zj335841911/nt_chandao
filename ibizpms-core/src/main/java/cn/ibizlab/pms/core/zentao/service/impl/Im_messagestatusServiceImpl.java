@@ -113,6 +113,12 @@ public class Im_messagestatusServiceImpl extends ServiceImpl<Im_messagestatusMap
     }
 
     @Override
+    public boolean saveBatch(Collection<Im_messagestatus> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Im_messagestatus> list) {
         saveOrUpdateBatch(list,batchSize);
     }

@@ -113,6 +113,13 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
     }
 
     @Override
+    public boolean saveBatch(Collection<CaseStep> list) {
+        list.forEach(item->fillParentData(item));
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<CaseStep> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);

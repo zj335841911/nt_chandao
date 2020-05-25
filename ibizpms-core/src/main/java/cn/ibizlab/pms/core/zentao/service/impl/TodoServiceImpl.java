@@ -99,6 +99,12 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     }
 
     @Override
+    public boolean saveBatch(Collection<Todo> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Todo> list) {
         saveOrUpdateBatch(list,batchSize);
     }

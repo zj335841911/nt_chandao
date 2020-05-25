@@ -133,6 +133,12 @@ public class RepoFilesServiceImpl extends ServiceImpl<RepoFilesMapper, RepoFiles
     }
 
     @Override
+    public boolean saveBatch(Collection<RepoFiles> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<RepoFiles> list) {
         saveOrUpdateBatch(list,batchSize);
     }

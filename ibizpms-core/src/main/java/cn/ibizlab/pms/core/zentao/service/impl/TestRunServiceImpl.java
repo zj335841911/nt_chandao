@@ -129,6 +129,13 @@ public class TestRunServiceImpl extends ServiceImpl<TestRunMapper, TestRun> impl
     }
 
     @Override
+    public boolean saveBatch(Collection<TestRun> list) {
+        list.forEach(item->fillParentData(item));
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<TestRun> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);

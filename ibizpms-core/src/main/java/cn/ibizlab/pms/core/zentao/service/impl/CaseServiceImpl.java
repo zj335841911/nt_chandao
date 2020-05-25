@@ -105,6 +105,12 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     }
 
     @Override
+    public boolean saveBatch(Collection<Case> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Case> list) {
         saveOrUpdateBatch(list,batchSize);
     }

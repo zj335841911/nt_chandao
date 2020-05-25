@@ -87,6 +87,12 @@ public class Im_conferenceactionServiceImpl extends ServiceImpl<Im_conferenceact
     }
 
     @Override
+    public boolean saveBatch(Collection<Im_conferenceaction> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Im_conferenceaction> list) {
         saveOrUpdateBatch(list,batchSize);
     }

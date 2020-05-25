@@ -95,6 +95,12 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
     }
 
     @Override
+    public boolean saveBatch(Collection<Release> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Release> list) {
         saveOrUpdateBatch(list,batchSize);
     }

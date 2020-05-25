@@ -126,6 +126,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     }
 
     @Override
+    public boolean saveBatch(Collection<User> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<User> list) {
         saveOrUpdateBatch(list,batchSize);
     }

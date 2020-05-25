@@ -87,6 +87,12 @@ public class RelationServiceImpl extends ServiceImpl<RelationMapper, Relation> i
     }
 
     @Override
+    public boolean saveBatch(Collection<Relation> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Relation> list) {
         saveOrUpdateBatch(list,batchSize);
     }

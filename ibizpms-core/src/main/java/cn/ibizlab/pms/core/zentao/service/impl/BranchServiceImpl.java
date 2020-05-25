@@ -148,6 +148,12 @@ public class BranchServiceImpl extends ServiceImpl<BranchMapper, Branch> impleme
     }
 
     @Override
+    public boolean saveBatch(Collection<Branch> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Branch> list) {
         saveOrUpdateBatch(list,batchSize);
     }

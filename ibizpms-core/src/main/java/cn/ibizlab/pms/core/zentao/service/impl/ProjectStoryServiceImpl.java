@@ -104,6 +104,12 @@ public class ProjectStoryServiceImpl extends ServiceImpl<ProjectStoryMapper, Pro
     }
 
     @Override
+    public boolean saveBatch(Collection<ProjectStory> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<ProjectStory> list) {
         saveOrUpdateBatch(list,batchSize);
     }

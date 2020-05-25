@@ -85,6 +85,12 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
     }
 
     @Override
+    public boolean saveBatch(Collection<TaskEstimate> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<TaskEstimate> list) {
         saveOrUpdateBatch(list,batchSize);
     }

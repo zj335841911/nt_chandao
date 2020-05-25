@@ -77,6 +77,12 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
     }
 
     @Override
+    public boolean saveBatch(Collection<TestSuite> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<TestSuite> list) {
         saveOrUpdateBatch(list,batchSize);
     }

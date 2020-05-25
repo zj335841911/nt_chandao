@@ -131,6 +131,12 @@ public class JenkinsServiceImpl extends ServiceImpl<JenkinsMapper, Jenkins> impl
     }
 
     @Override
+    public boolean saveBatch(Collection<Jenkins> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Jenkins> list) {
         saveOrUpdateBatch(list,batchSize);
     }

@@ -129,6 +129,12 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     }
 
     @Override
+    public boolean saveBatch(Collection<Bug> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Bug> list) {
         saveOrUpdateBatch(list,batchSize);
     }

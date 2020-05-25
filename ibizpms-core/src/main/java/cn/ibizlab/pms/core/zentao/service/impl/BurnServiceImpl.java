@@ -118,6 +118,12 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
     }
 
     @Override
+    public boolean saveBatch(Collection<Burn> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Burn> list) {
         saveOrUpdateBatch(list,batchSize);
     }

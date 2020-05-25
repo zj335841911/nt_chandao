@@ -100,6 +100,12 @@ public class RepoBranchServiceImpl extends ServiceImpl<RepoBranchMapper, RepoBra
     }
 
     @Override
+    public boolean saveBatch(Collection<RepoBranch> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<RepoBranch> list) {
         saveOrUpdateBatch(list,batchSize);
     }

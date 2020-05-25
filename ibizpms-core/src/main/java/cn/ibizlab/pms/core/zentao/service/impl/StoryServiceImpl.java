@@ -165,6 +165,13 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     }
 
     @Override
+    public boolean saveBatch(Collection<Story> list) {
+        list.forEach(item->fillParentData(item));
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Story> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);

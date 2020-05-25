@@ -122,6 +122,12 @@ public class EntryServiceImpl extends ServiceImpl<EntryMapper, Entry> implements
     }
 
     @Override
+    public boolean saveBatch(Collection<Entry> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Entry> list) {
         saveOrUpdateBatch(list,batchSize);
     }

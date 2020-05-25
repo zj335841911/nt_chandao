@@ -86,6 +86,12 @@ public class WebHookServiceImpl extends ServiceImpl<WebHookMapper, WebHook> impl
     }
 
     @Override
+    public boolean saveBatch(Collection<WebHook> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<WebHook> list) {
         saveOrUpdateBatch(list,batchSize);
     }

@@ -126,6 +126,12 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
     }
 
     @Override
+    public boolean saveBatch(Collection<DocLib> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<DocLib> list) {
         saveOrUpdateBatch(list,batchSize);
     }

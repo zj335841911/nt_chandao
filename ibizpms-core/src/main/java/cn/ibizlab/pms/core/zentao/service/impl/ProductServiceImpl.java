@@ -132,6 +132,13 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     }
 
     @Override
+    public boolean saveBatch(Collection<Product> list) {
+        list.forEach(item->fillParentData(item));
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Product> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);

@@ -87,6 +87,12 @@ public class NotifyServiceImpl extends ServiceImpl<NotifyMapper, Notify> impleme
     }
 
     @Override
+    public boolean saveBatch(Collection<Notify> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Notify> list) {
         saveOrUpdateBatch(list,batchSize);
     }

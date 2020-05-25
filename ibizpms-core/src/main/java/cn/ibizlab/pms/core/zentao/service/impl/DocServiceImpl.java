@@ -93,6 +93,12 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
     }
 
     @Override
+    public boolean saveBatch(Collection<Doc> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Doc> list) {
         saveOrUpdateBatch(list,batchSize);
     }

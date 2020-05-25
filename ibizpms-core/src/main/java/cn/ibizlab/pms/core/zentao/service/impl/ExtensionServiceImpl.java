@@ -95,6 +95,12 @@ public class ExtensionServiceImpl extends ServiceImpl<ExtensionMapper, Extension
     }
 
     @Override
+    public boolean saveBatch(Collection<Extension> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Extension> list) {
         saveOrUpdateBatch(list,batchSize);
     }

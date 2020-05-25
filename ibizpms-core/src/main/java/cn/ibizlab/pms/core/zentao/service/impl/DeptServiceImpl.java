@@ -70,6 +70,13 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements ID
     }
 
     @Override
+    public boolean saveBatch(Collection<Dept> list) {
+        list.forEach(item->fillParentData(item));
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Dept> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);

@@ -122,6 +122,12 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     }
 
     @Override
+    public boolean saveBatch(Collection<Task> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Task> list) {
         saveOrUpdateBatch(list,batchSize);
     }

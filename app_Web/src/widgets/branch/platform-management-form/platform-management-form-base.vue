@@ -948,8 +948,6 @@ export default class PlatformManagementBase extends Vue implements ControlInterf
      *@memberof @memberof PlatformManagement
      */
     public print(){
-        let _this:any = this;
-        _this.$print({id:'form',popTitle:'平台管理'});
     }
 
     /**

@@ -82,6 +82,12 @@ public class LogServiceImpl extends ServiceImpl<LogMapper, Log> implements ILogS
     }
 
     @Override
+    public boolean saveBatch(Collection<Log> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Log> list) {
         saveOrUpdateBatch(list,batchSize);
     }

@@ -134,6 +134,12 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     }
 
     @Override
+    public boolean saveBatch(Collection<Module> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Module> list) {
         saveOrUpdateBatch(list,batchSize);
     }

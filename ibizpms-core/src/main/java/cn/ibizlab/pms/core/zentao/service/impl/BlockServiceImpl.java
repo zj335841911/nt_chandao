@@ -68,6 +68,12 @@ public class BlockServiceImpl extends ServiceImpl<BlockMapper, Block> implements
     }
 
     @Override
+    public boolean saveBatch(Collection<Block> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Block> list) {
         saveOrUpdateBatch(list,batchSize);
     }

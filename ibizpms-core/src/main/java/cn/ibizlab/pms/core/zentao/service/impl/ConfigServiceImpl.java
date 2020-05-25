@@ -109,6 +109,12 @@ public class ConfigServiceImpl extends ServiceImpl<ConfigMapper, Config> impleme
     }
 
     @Override
+    public boolean saveBatch(Collection<Config> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Config> list) {
         saveOrUpdateBatch(list,batchSize);
     }

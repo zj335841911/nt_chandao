@@ -304,52 +304,51 @@
     >.view-content {
 
         .portlet-without-title {
-
-            .portlet-without-title {
-
-                >.portlet {
-                    background: var(--view-background-color-bright);
-
-                    .studio-view {
-                        background: var(--view-background-color-bright);
-
-                        >.view-content {
-
-                            .ivu-card.app-form-group {
-                                background: var(--view-background-color-bright);
-                            }
-                        }
-                    }
-                }
-
-                >.portlet:hover {
-                    box-shadow: 0 1px 6px #dddddd;
-                }
-            }
-        }
-
-        .portlet-without-title {
             height: 100%;
 
             >.portlet {
                 height: 100%;
-                border: 1px solid var(--view-dividing-line-color-bright);
                 border-radius: 5px;
-                margin: 10px 10px 0px 10px;
+                padding: 8px;
 
                 >.portlet-title {
                     height: 38px;
                     padding: 7px 8px;
                     font-size: 16px;
                     font-weight: 700;
-                    border-bottom: 1px solid var(--view-dividing-line-color-bright);
+                    border-width: 1px 1px 0px 1px;
+                    border-style: solid;
+                    border-color: var(--view-dividing-line-color-bright);
                     color: var(--view-font-color-bright);
+                    border-radius: 5px 5px 0px 0px;
+                    background: var(--view-background-color-bright);
                 }
 
                 >.portlet-with-title {
                     height: calc(100% - 39px);
                     overflow: auto;
                     padding: 6px 8px;
+                    border: 1px solid var(--view-dividing-line-color-bright);
+                    border-radius: 0px 0px 5px 5px;
+                    background: var(--view-background-color-bright);
+                }
+
+                >.portlet-without-title {
+                    padding: 0px 8px;
+                    border: 1px solid var(--view-dividing-line-color-bright);
+                    border-radius: 5px;
+                    background: var(--view-background-color-bright);
+                }
+
+                .studio-view {
+                    background: var(--view-background-color-bright);
+
+                    >.view-content {
+
+                        .ivu-card.app-form-group {
+                            background: var(--view-background-color-bright);
+                        }
+                    }
                 }
             }
         }

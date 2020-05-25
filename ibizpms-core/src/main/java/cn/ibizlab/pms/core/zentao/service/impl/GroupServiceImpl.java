@@ -107,6 +107,12 @@ public class GroupServiceImpl extends ServiceImpl<GroupMapper, Group> implements
     }
 
     @Override
+    public boolean saveBatch(Collection<Group> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Group> list) {
         saveOrUpdateBatch(list,batchSize);
     }

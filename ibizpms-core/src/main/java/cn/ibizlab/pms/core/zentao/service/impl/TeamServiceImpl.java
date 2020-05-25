@@ -68,6 +68,12 @@ public class TeamServiceImpl extends ServiceImpl<TeamMapper, Team> implements IT
     }
 
     @Override
+    public boolean saveBatch(Collection<Team> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Team> list) {
         saveOrUpdateBatch(list,batchSize);
     }

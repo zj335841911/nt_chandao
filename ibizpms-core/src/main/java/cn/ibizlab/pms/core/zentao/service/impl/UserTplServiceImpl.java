@@ -92,6 +92,12 @@ public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> impl
     }
 
     @Override
+    public boolean saveBatch(Collection<UserTpl> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<UserTpl> list) {
         saveOrUpdateBatch(list,batchSize);
     }

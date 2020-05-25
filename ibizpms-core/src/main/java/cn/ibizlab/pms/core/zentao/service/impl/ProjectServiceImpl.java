@@ -108,6 +108,13 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
     }
 
     @Override
+    public boolean saveBatch(Collection<Project> list) {
+        list.forEach(item->fillParentData(item));
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Project> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);

@@ -129,6 +129,12 @@ public class JobServiceImpl extends ServiceImpl<JobMapper, Job> implements IJobS
     }
 
     @Override
+    public boolean saveBatch(Collection<Job> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Job> list) {
         saveOrUpdateBatch(list,batchSize);
     }

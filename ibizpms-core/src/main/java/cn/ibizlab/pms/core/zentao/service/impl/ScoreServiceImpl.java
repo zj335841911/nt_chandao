@@ -82,6 +82,12 @@ public class ScoreServiceImpl extends ServiceImpl<ScoreMapper, Score> implements
     }
 
     @Override
+    public boolean saveBatch(Collection<Score> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Score> list) {
         saveOrUpdateBatch(list,batchSize);
     }

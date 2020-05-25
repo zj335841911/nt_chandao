@@ -100,6 +100,12 @@ public class Im_queueServiceImpl extends ServiceImpl<Im_queueMapper, Im_queue> i
     }
 
     @Override
+    public boolean saveBatch(Collection<Im_queue> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Im_queue> list) {
         saveOrUpdateBatch(list,batchSize);
     }

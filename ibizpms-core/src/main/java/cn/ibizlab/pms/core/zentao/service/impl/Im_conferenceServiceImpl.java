@@ -126,6 +126,12 @@ public class Im_conferenceServiceImpl extends ServiceImpl<Im_conferenceMapper, I
     }
 
     @Override
+    public boolean saveBatch(Collection<Im_conference> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Im_conference> list) {
         saveOrUpdateBatch(list,batchSize);
     }

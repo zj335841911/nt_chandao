@@ -82,6 +82,12 @@ public class GroupPrivServiceImpl extends ServiceImpl<GroupPrivMapper, GroupPriv
     }
 
     @Override
+    public boolean saveBatch(Collection<GroupPriv> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<GroupPriv> list) {
         saveOrUpdateBatch(list,batchSize);
     }

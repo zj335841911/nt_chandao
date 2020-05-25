@@ -85,6 +85,12 @@ public class RepoServiceImpl extends ServiceImpl<RepoMapper, Repo> implements IR
     }
 
     @Override
+    public boolean saveBatch(Collection<Repo> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Repo> list) {
         saveOrUpdateBatch(list,batchSize);
     }

@@ -68,6 +68,12 @@ public class RepoHistoryServiceImpl extends ServiceImpl<RepoHistoryMapper, RepoH
     }
 
     @Override
+    public boolean saveBatch(Collection<RepoHistory> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<RepoHistory> list) {
         saveOrUpdateBatch(list,batchSize);
     }

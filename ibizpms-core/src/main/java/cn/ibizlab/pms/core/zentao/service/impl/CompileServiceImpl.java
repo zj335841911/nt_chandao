@@ -129,6 +129,12 @@ public class CompileServiceImpl extends ServiceImpl<CompileMapper, Compile> impl
     }
 
     @Override
+    public boolean saveBatch(Collection<Compile> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Compile> list) {
         saveOrUpdateBatch(list,batchSize);
     }

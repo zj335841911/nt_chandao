@@ -68,6 +68,12 @@ public class UserGroupServiceImpl extends ServiceImpl<UserGroupMapper, UserGroup
     }
 
     @Override
+    public boolean saveBatch(Collection<UserGroup> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<UserGroup> list) {
         saveOrUpdateBatch(list,batchSize);
     }

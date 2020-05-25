@@ -82,6 +82,12 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     }
 
     @Override
+    public boolean saveBatch(Collection<ProductPlan> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<ProductPlan> list) {
         saveOrUpdateBatch(list,batchSize);
     }

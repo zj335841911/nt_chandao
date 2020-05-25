@@ -91,6 +91,12 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     }
 
     @Override
+    public boolean saveBatch(Collection<Build> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<Build> list) {
         saveOrUpdateBatch(list,batchSize);
     }
