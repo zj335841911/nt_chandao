@@ -1,5 +1,5 @@
 <template>
-    <i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='form' style="">
+    <i-form :model="this.data" class='app-form info-form-mode' ref='form' style="">
     <input style="display:none;" />
     <row >
             
