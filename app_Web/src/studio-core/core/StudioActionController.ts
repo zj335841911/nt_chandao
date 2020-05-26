@@ -92,7 +92,7 @@ export class StudioActionController {
     public async createdIssues(viewName: string): Promise<void> {
         const config: any = await this.getConfig(viewName);
         if (config) {
-            const context: string = `视图模块：${config.viewmodule}\n视图抬头: ${config.title}\n视图标题: ${config.caption}\n视图标识：${config.viewname}\n视图类型：${config.viewtype}\n`;
+            const context: string = `视图模块：${config.viewmodule}\n视图抬头: ${config.title}\n视图标题: ${config.caption}\n视图标识：${config.viewname}\n视图类型：${config.viewtype}\n浏览器信息：${navigator.userAgent}<br/>\n`;
             window.open(`${Environment.ProjectUrl}/issues/new?issue[title]=${encodeURIComponent('问题')}&issue[description]=${encodeURIComponent(context)}`, '_blank');
         }
     }
