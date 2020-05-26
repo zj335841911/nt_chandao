@@ -220,28 +220,38 @@ export default class TypeGanttBase extends Vue implements ControlInterface {
             columns: [
                 {
                     label: '任务类型分类',
-                    value: 'text',
+                    value: (task: any) => {
+                        return this.getColumnValue(task, 'text')
+                    },
                     expander: true,
                     width: 160,
                 },
                 {
                     label: '指派给',
-                    value: 'assignedto',
+                    value: (task: any) => {
+                        return this.getColumnValue(task, 'assignedto')
+                    },
                     width: 100,
                 },
                 {
                     label: '开始时间',
-                    value: 'start',
+                    value: (task: any) => {
+                        return this.getColumnValue(task, 'start')
+                    },
                     width: 100,
                 },
                 {
                     label: '结束时间',
-                    value: 'end',
+                    value: (task: any) => {
+                        return this.getColumnValue(task, 'end')
+                    },
                     width: 100,
                 },
                 {
                     label: '持续时间',
-                    value: 'taskduration',
+                    value: (task: any) => {
+                        return this.getColumnValue(task, 'taskduration')
+                    },
                     width: 100,
                 },
             ]
@@ -255,9 +265,7 @@ export default class TypeGanttBase extends Vue implements ControlInterface {
      * @type {any[]}
      * @memberof TypeGantt
      */
-    public dynamicStyle: any = {
-
-    };
+    public dynamicStyle: any = {};
 
     /**
      * 日程事件集合
@@ -277,6 +285,48 @@ export default class TypeGanttBase extends Vue implements ControlInterface {
     @Watch('$i18n.locale')
     public onLocaleChange(newval: any, val: any) {
         this.locale = newval;
+    }
+
+    /**
+     * 获取列属性值
+     *
+     * @public
+     * @memberof TypeGantt
+     */
+    public getColumnValue(task: any, field: string) {
+        if(Object.is(task.id.split(';')[0], 'TaskTypes')) {
+            if (Object.is(field, 'text')) {
+                let codelist: any[] = this.$store.getters.getCodeList('CodeList4');
+                if(codelist) {
+                    return this.getCodeListItem(codelist, task[field]);
+                }
+            }
+            return task[field];
+        }
+        if(Object.is(task.id.split(';')[0], 'ROOT')) {
+            return task[field];
+        }
+        if(Object.is(task.id.split(';')[0], 'ChildTasks')) {
+            return task[field];
+        }
+        if(Object.is(task.id.split(';')[0], 'Tasks')) {
+            return task[field];
+        }
+    }
+
+    /**
+     * 获取代码项
+     *
+     * @public
+     * @memberof TypeGantt
+     */
+    public getCodeListItem(codelist: any, val: any) {
+        for(let i = 0; i < codelist.items.length; i++) {
+            if(Object.is(codelist.items[i].value, val)) {
+                return codelist.items[i].text;
+            }
+        }
+        return codelist.emptytext;
     }
 
     /**
@@ -373,12 +423,12 @@ export default class TypeGanttBase extends Vue implements ControlInterface {
      * @param {*} $event 事件信息
      * @memberof TypeGantt
      */
-    public getEditView(deName: string) {
+    public getEditView(type: string) {
         let view: any = {};
-        switch(deName){
-            case "task":
+        switch(type){
+            case "TaskTypes":
                 break;
-            case "task":
+            case "ChildTasks":
                 view = {
                     viewname: 'task-main-dashboard-view', 
                     height: 0, 
@@ -389,7 +439,7 @@ export default class TypeGanttBase extends Vue implements ControlInterface {
                     parameters: [{ pathName: 'tasks', parameterName: 'task' }, { pathName: 'maindashboardview', parameterName: 'maindashboardview' } ],
                 };
                 break;
-            case "task":
+            case "Tasks":
                 view = {
                     viewname: 'task-main-dashboard-view', 
                     height: 0, 
@@ -467,15 +517,15 @@ export default class TypeGanttBase extends Vue implements ControlInterface {
         switch(key) {
             case "TaskTypes":
                 _context.task = data.task;
-                view = this.getEditView("task");
+                view = this.getEditView("TaskTypes");
                 break;
             case "ChildTasks":
                 _context.task = data.task;
-                view = this.getEditView("task");
+                view = this.getEditView("ChildTasks");
                 break;
             case "Tasks":
                 _context.task = data.task;
-                view = this.getEditView("task");
+                view = this.getEditView("Tasks");
                 break;
         }
         if (!view.viewname) {

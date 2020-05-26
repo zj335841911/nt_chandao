@@ -99,6 +99,84 @@ export default class TypeGanttService extends ControlService {
 	public TREENODE_TASKS: string = 'Tasks';
 
     /**
+     * 商品类别节点分隔符号
+     *
+     * @public
+     * @type {*}
+     * @memberof TypeGanttService
+     */
+    public dataModel: any = {
+        TaskTypes: {
+            assignedto: {
+                prop: 'assignedto',
+                default: null
+            },
+            end: {
+                prop: 'deadline',
+                default: null
+            },
+            start: {
+                prop: 'eststarted',
+                default: null
+            },
+            text: {
+                prop: 'type',
+                default: null
+            },
+            taskduration: {
+                prop: 'duration',
+                default: null
+            },
+        },
+        ROOT: {
+        },
+        ChildTasks: {
+            text: {
+                prop: 'name',
+                default: null
+            },
+            assignedto: {
+                prop: 'assignedto',
+                default: null
+            },
+            end: {
+                prop: 'deadline',
+                default: null
+            },
+            start: {
+                prop: 'eststarted',
+                default: null
+            },
+            taskduration: {
+                prop: 'duration',
+                default: null
+            },
+        },
+        Tasks: {
+            start: {
+                prop: 'eststarted',
+                default: null
+            },
+            text: {
+                prop: 'name',
+                default: null
+            },
+            end: {
+                prop: 'deadline',
+                default: null
+            },
+            assignedto: {
+                prop: 'assignedto',
+                default: null
+            },
+            taskduration: {
+                prop: 'duration',
+                default: null
+            },
+        },
+    }
+
+    /**
      * 获取节点数据
      *
      * @param {string} action
@@ -238,16 +316,28 @@ export default class TypeGanttService extends ControlService {
                         Object.assign(treeNode, { id: strNodeId + '_#_' + filter.srfnodeid });
                         Object.assign(treeNode, { collapsed: true });
                         Object.assign(treeNode, { leaf: false });
-                        Object.assign(treeNode, { assignedto: entity.assignedto });
-                        Object.assign(treeNode, { end: entity.deadline });
-                        Object.assign(treeNode, { start: entity.eststarted });
-                        Object.assign(treeNode, { text: entity.type });
-                        Object.assign(treeNode, { taskduration: entity.duration });
                         Object.assign(treeNode, { navparams: '{}' });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
                         if(!Object.is(filter.srfnodeid, this.TREENODE_ROOT)) {
                             Object.assign(treeNode, { parentId: filter.srfotherkey });
+                        }
+                        for(let key in this.dataModel.TaskTypes) {
+                            let item = this.dataModel.TaskTypes[key];
+                            let propVal: any = entity[item.prop];
+                            try {
+                                let def: any = JSON.parse(item.default);
+                                propVal = propVal != null ? propVal : def.value;
+                                if (def.hasOwnProperty('bkcolor')) {
+                                    Object.assign(treeNode.style, { base: { fill: def.bkcolor, stroke: def.bkcolor }});
+                                }
+                                if (def.hasOwnProperty('color')) {
+                                    Object.assign(treeNode.style, { text: { color: def.color }});
+                                }
+                            } catch(e) {
+                                propVal = propVal != null ? propVal : item.default
+                            }
+                            treeNode[key] = propVal
                         }
                         list.push(treeNode);
                         resolve(list);
@@ -463,16 +553,28 @@ export default class TypeGanttService extends ControlService {
                         Object.assign(treeNode, { id: strNodeId + '_#_' + filter.srfnodeid });
                         Object.assign(treeNode, { collapsed: true });
                         Object.assign(treeNode, { leaf: true });
-                        Object.assign(treeNode, { text: entity.name });
-                        Object.assign(treeNode, { assignedto: entity.assignedto });
-                        Object.assign(treeNode, { end: entity.deadline });
-                        Object.assign(treeNode, { start: entity.eststarted });
-                        Object.assign(treeNode, { taskduration: entity.duration });
                         Object.assign(treeNode, { navparams: '{}' });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
                         if(!Object.is(filter.srfnodeid, this.TREENODE_ROOT)) {
                             Object.assign(treeNode, { parentId: filter.srfotherkey });
+                        }
+                        for(let key in this.dataModel.ChildTasks) {
+                            let item = this.dataModel.ChildTasks[key];
+                            let propVal: any = entity[item.prop];
+                            try {
+                                let def: any = JSON.parse(item.default);
+                                propVal = propVal != null ? propVal : def.value;
+                                if (def.hasOwnProperty('bkcolor')) {
+                                    Object.assign(treeNode.style, { base: { fill: def.bkcolor, stroke: def.bkcolor }});
+                                }
+                                if (def.hasOwnProperty('color')) {
+                                    Object.assign(treeNode.style, { text: { color: def.color }});
+                                }
+                            } catch(e) {
+                                propVal = propVal != null ? propVal : item.default
+                            }
+                            treeNode[key] = propVal
                         }
                         list.push(treeNode);
                         resolve(list);
@@ -608,16 +710,28 @@ export default class TypeGanttService extends ControlService {
                         Object.assign(treeNode, { id: strNodeId + '_#_' + filter.srfnodeid });
                         Object.assign(treeNode, { collapsed: true });
                         Object.assign(treeNode, { leaf: false });
-                        Object.assign(treeNode, { start: entity.eststarted });
-                        Object.assign(treeNode, { text: entity.name });
-                        Object.assign(treeNode, { end: entity.deadline });
-                        Object.assign(treeNode, { assignedto: entity.assignedto });
-                        Object.assign(treeNode, { taskduration: entity.duration });
                         Object.assign(treeNode, { navparams: '{}' });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
                         if(!Object.is(filter.srfnodeid, this.TREENODE_ROOT)) {
                             Object.assign(treeNode, { parentId: filter.srfotherkey });
+                        }
+                        for(let key in this.dataModel.Tasks) {
+                            let item = this.dataModel.Tasks[key];
+                            let propVal: any = entity[item.prop];
+                            try {
+                                let def: any = JSON.parse(item.default);
+                                propVal = propVal != null ? propVal : def.value;
+                                if (def.hasOwnProperty('bkcolor')) {
+                                    Object.assign(treeNode.style, { base: { fill: def.bkcolor, stroke: def.bkcolor }});
+                                }
+                                if (def.hasOwnProperty('color')) {
+                                    Object.assign(treeNode.style, { text: { color: def.color }});
+                                }
+                            } catch(e) {
+                                propVal = propVal != null ? propVal : item.default
+                            }
+                            treeNode[key] = propVal
                         }
                         list.push(treeNode);
                         resolve(list);
