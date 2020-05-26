@@ -1,8 +1,8 @@
 
 <template>
   <div class='tabviewpanel' style="height:100%;">
-        <tabs :animated="false" class='tabexppanel' name='maintabexpviewtabexppanel' @on-click="tabPanelClick">
-        <tab-pane :value="activiedTabViewPanel" :index="0" name='tabviewpanel' tab='maintabexpviewtabexppanel' class=''  
+        <tabs :value="activiedTabViewPanel" :animated="false" class='tabexppanel' name='maintabexpviewtabexppanel' @on-click="tabPanelClick">
+        <tab-pane :index="0" name='tabviewpanel' tab='maintabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '概况'),
@@ -25,7 +25,7 @@ v-if="isInit.tabviewpanel"
     @closeview="closeView($event)">
 </view_tabviewpanel>
         </tab-pane>
-        <tab-pane :value="activiedTabViewPanel" :index="1" name='tabviewpanel2' tab='maintabexpviewtabexppanel' class=''  
+        <tab-pane :index="1" name='tabviewpanel2' tab='maintabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '需求'),
@@ -48,7 +48,7 @@ v-if="isInit.tabviewpanel2"
     @closeview="closeView($event)">
 </view_tabviewpanel2>
         </tab-pane>
-        <tab-pane :value="activiedTabViewPanel" :index="2" name='tabviewpanel3' tab='maintabexpviewtabexppanel' class=''  
+        <tab-pane :index="2" name='tabviewpanel3' tab='maintabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '计划'),
@@ -71,7 +71,7 @@ v-if="isInit.tabviewpanel3"
     @closeview="closeView($event)">
 </view_tabviewpanel3>
         </tab-pane>
-        <tab-pane :value="activiedTabViewPanel" :index="3" name='tabviewpanel4' tab='maintabexpviewtabexppanel' class=''  
+        <tab-pane :index="3" name='tabviewpanel4' tab='maintabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '发布'),
@@ -94,7 +94,7 @@ v-if="isInit.tabviewpanel4"
     @closeview="closeView($event)">
 </view_tabviewpanel4>
         </tab-pane>
-        <tab-pane :value="activiedTabViewPanel" :index="4" name='tabviewpanel9' tab='maintabexpviewtabexppanel' class=''  
+        <tab-pane :index="4" name='tabviewpanel9' tab='maintabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '路线图'),
@@ -117,7 +117,7 @@ v-if="isInit.tabviewpanel9"
     @closeview="closeView($event)">
 </view_tabviewpanel9>
         </tab-pane>
-        <tab-pane :value="activiedTabViewPanel" :index="5" name='tabviewpanel5' tab='maintabexpviewtabexppanel' class=''  
+        <tab-pane :index="5" name='tabviewpanel5' tab='maintabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '项目'),
@@ -140,7 +140,7 @@ v-if="isInit.tabviewpanel5"
     @closeview="closeView($event)">
 </view_tabviewpanel5>
         </tab-pane>
-        <tab-pane :value="activiedTabViewPanel" :index="6" name='tabviewpanel8' tab='maintabexpviewtabexppanel' class=''  
+        <tab-pane :index="6" name='tabviewpanel8' tab='maintabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '平台'),
@@ -163,7 +163,7 @@ v-if="isInit.tabviewpanel8"
     @closeview="closeView($event)">
 </view_tabviewpanel8>
         </tab-pane>
-        <tab-pane :value="activiedTabViewPanel" :index="7" name='tabviewpanel7' tab='maintabexpviewtabexppanel' class=''  
+        <tab-pane :index="7" name='tabviewpanel7' tab='maintabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '动态'),
@@ -186,7 +186,7 @@ v-if="isInit.tabviewpanel7"
     @closeview="closeView($event)">
 </view_tabviewpanel7>
         </tab-pane>
-        <tab-pane :value="activiedTabViewPanel" :index="8" name='tabviewpanel6' tab='maintabexpviewtabexppanel' class=''  
+        <tab-pane :index="8" name='tabviewpanel6' tab='maintabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '模块'),

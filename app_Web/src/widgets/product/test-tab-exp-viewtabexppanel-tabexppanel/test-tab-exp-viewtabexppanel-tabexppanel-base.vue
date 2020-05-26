@@ -1,8 +1,8 @@
 
 <template>
   <div class='tabviewpanel' style="height:100%;">
-        <tabs :animated="false" class='tabexppanel' name='testtabexpviewtabexppanel' @on-click="tabPanelClick">
-        <tab-pane :value="activiedTabViewPanel" :index="0" name='tabviewpanel' tab='testtabexpviewtabexppanel' class=''  
+        <tabs :value="activiedTabViewPanel" :animated="false" class='tabexppanel' name='testtabexpviewtabexppanel' @on-click="tabPanelClick">
+        <tab-pane :index="0" name='tabviewpanel' tab='testtabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '概况'),
@@ -25,7 +25,7 @@ v-if="isInit.tabviewpanel"
     @closeview="closeView($event)">
 </view_tabviewpanel>
         </tab-pane>
-        <tab-pane :value="activiedTabViewPanel" :index="1" name='tabviewpanel2' tab='testtabexpviewtabexppanel' class=''  
+        <tab-pane :index="1" name='tabviewpanel2' tab='testtabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', 'Bug'),

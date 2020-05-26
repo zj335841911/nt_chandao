@@ -1,8 +1,8 @@
 
 <template>
   <div class='tabviewpanel' style="height:100%;">
-        <tabs :animated="false" class='tabexppanel' name='maintabexpviewtabexppanel' @on-click="tabPanelClick">
-        <tab-pane :value="activiedTabViewPanel" :index="0" name='tabviewpanel' tab='maintabexpviewtabexppanel' class=''  
+        <tabs :value="activiedTabViewPanel" :animated="false" class='tabexppanel' name='maintabexpviewtabexppanel' @on-click="tabPanelClick">
+        <tab-pane :index="0" name='tabviewpanel' tab='maintabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '概况'),
@@ -25,7 +25,7 @@ v-if="isInit.tabviewpanel"
     @closeview="closeView($event)">
 </view_tabviewpanel>
         </tab-pane>
-        <tab-pane :value="activiedTabViewPanel" :index="1" name='tabviewpanel2' tab='maintabexpviewtabexppanel' class=''  
+        <tab-pane :index="1" name='tabviewpanel2' tab='maintabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '任务'),
@@ -48,7 +48,7 @@ v-if="isInit.tabviewpanel2"
     @closeview="closeView($event)">
 </view_tabviewpanel2>
         </tab-pane>
-        <tab-pane :value="activiedTabViewPanel" :index="2" name='tabviewpanel4' tab='maintabexpviewtabexppanel' class=''  
+        <tab-pane :index="2" name='tabviewpanel4' tab='maintabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '甘特图'),
@@ -71,7 +71,7 @@ v-if="isInit.tabviewpanel4"
     @closeview="closeView($event)">
 </view_tabviewpanel4>
         </tab-pane>
-        <tab-pane :value="activiedTabViewPanel" :index="3" name='tabviewpanel3' tab='maintabexpviewtabexppanel' class=''  
+        <tab-pane :index="3" name='tabviewpanel3' tab='maintabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '动态'),
