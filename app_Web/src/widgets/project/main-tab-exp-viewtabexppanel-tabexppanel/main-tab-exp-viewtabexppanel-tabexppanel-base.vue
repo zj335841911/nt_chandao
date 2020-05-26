@@ -2,7 +2,7 @@
 <template>
   <div class='tabviewpanel' style="height:100%;">
         <tabs :animated="false" class='tabexppanel' name='maintabexpviewtabexppanel' @on-click="tabPanelClick">
-        <tab-pane :index="0" name='tabviewpanel' tab='maintabexpviewtabexppanel' class=''  
+        <tab-pane :value="activiedTabViewPanel" :index="0" name='tabviewpanel' tab='maintabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '概况'),
@@ -25,7 +25,7 @@ v-if="isInit.tabviewpanel"
     @closeview="closeView($event)">
 </view_tabviewpanel>
         </tab-pane>
-        <tab-pane :index="1" name='tabviewpanel2' tab='maintabexpviewtabexppanel' class=''  
+        <tab-pane :value="activiedTabViewPanel" :index="1" name='tabviewpanel2' tab='maintabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '任务'),
@@ -48,7 +48,7 @@ v-if="isInit.tabviewpanel2"
     @closeview="closeView($event)">
 </view_tabviewpanel2>
         </tab-pane>
-        <tab-pane :index="2" name='tabviewpanel4' tab='maintabexpviewtabexppanel' class=''  
+        <tab-pane :value="activiedTabViewPanel" :index="2" name='tabviewpanel4' tab='maintabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '甘特图'),
@@ -71,7 +71,7 @@ v-if="isInit.tabviewpanel4"
     @closeview="closeView($event)">
 </view_tabviewpanel4>
         </tab-pane>
-        <tab-pane :index="3" name='tabviewpanel3' tab='maintabexpviewtabexppanel' class=''  
+        <tab-pane :value="activiedTabViewPanel" :index="3" name='tabviewpanel3' tab='maintabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '动态'),
@@ -294,11 +294,11 @@ export default class MainTabExpViewtabexppanelBase extends Vue implements Contro
      * 执行created后的逻辑
      *
      *  @memberof MainTabExpViewtabexppanel
-     */    
+     */
     public afterCreated(){
         //设置分页导航srfparentdename和srfparentkey
-        if(this.context.project){
-            Object.assign(this.context,{srfparentdename:'Project',srfparentkey:this.context.project})
+        if (this.context.project) {
+            Object.assign(this.context, { srfparentdename: 'Project', srfparentkey: this.context.project });
         }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
@@ -309,7 +309,28 @@ export default class MainTabExpViewtabexppanelBase extends Vue implements Contro
                 this.viewState.next({ tag: this.activiedTabViewPanel, action: action, data: data });
             });
         }
-    }    
+    }
+
+    /**
+     * 组件加载完毕
+     *
+     *  @memberof MainTabExpViewtabexppanel
+     */
+    public mounted(): void {
+        if (this.viewparams) {
+            const activate = this.viewparams.activate;
+            if (activate && this.isInit[activate] !== undefined) {
+                for (const key in this.isInit) {
+                    if (this.isInit.hasOwnProperty(key)) {
+                        this.isInit[key] = false;
+                    }
+                }
+                this.$nextTick(() => {
+                    this.tabPanelClick(activate);
+                });
+            }
+        }
+    }
 
     /**
      * vue 生命周期
