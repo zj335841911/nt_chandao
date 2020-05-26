@@ -185,7 +185,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
 
 	@Override
 	@Transactional
-	public boolean create(Create et) {
+	public boolean create(Product et) {
 	  et.setName("禅道API产品");
 	  et.setCode("ZT-API-PRODUCT");
 	  et.setQD("xiuyaoyao");
