@@ -188,9 +188,9 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
 	public boolean create(Product et) {
 	  et.setName("禅道API产品");
 	  et.setCode("ZT-API-PRODUCT");
-	  et.setQD("xiuyaoyao");
-	  et.setRD("xiechenlong");
-	  et.setPO("xiechenlong");
+	  et.setQd"xiuyaoyao");
+	  et.setRd("xiechenlong");
+	  et.setPo("xiechenlong");
 	  et.setDeleted("0");
 	  et.setCreatedby("admin");
 	  et.setStatus("normal");
@@ -212,7 +212,10 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
 		header.put("Authorization","Basic "+ token);
 		return header;
 	}
-
+	@Override
+   public void createBatch(List<Product> list) {
+        
+   }
 	private JSONObject doRestRequest(String url, org.springframework.http.HttpMethod method, JSONObject headerMap, JSONObject paramMap){
 		org.springframework.web.client.RestTemplate restTemplate = getRestTemplate();
 		org.springframework.http.HttpHeaders headers = new org.springframework.http.HttpHeaders();
