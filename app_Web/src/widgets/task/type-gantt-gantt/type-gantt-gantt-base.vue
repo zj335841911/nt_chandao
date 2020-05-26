@@ -225,6 +225,11 @@ export default class TypeGanttBase extends Vue implements ControlInterface {
                     width: 160,
                 },
                 {
+                    label: '指派给',
+                    value: 'assignedto',
+                    width: 100,
+                },
+                {
                     label: '开始时间',
                     value: 'start',
                     width: 100,
@@ -232,6 +237,11 @@ export default class TypeGanttBase extends Vue implements ControlInterface {
                 {
                     label: '结束时间',
                     value: 'end',
+                    width: 100,
+                },
+                {
+                    label: '持续时间',
+                    value: 'duration',
                     width: 100,
                 },
             ]

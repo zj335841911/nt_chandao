@@ -238,9 +238,11 @@ export default class TypeGanttService extends ControlService {
                         Object.assign(treeNode, { id: strNodeId + '_#_' + filter.srfnodeid });
                         Object.assign(treeNode, { collapsed: true });
                         Object.assign(treeNode, { leaf: false });
+                        Object.assign(treeNode, { assignedto: entity.assignedto });
                         Object.assign(treeNode, { end: entity.deadline });
                         Object.assign(treeNode, { start: entity.eststarted });
                         Object.assign(treeNode, { text: entity.type });
+                        Object.assign(treeNode, { duration: entity.duration });
                         Object.assign(treeNode, { navparams: '{}' });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
@@ -462,8 +464,10 @@ export default class TypeGanttService extends ControlService {
                         Object.assign(treeNode, { collapsed: true });
                         Object.assign(treeNode, { leaf: true });
                         Object.assign(treeNode, { text: entity.name });
+                        Object.assign(treeNode, { assignedto: entity.assignedto });
                         Object.assign(treeNode, { end: entity.deadline });
                         Object.assign(treeNode, { start: entity.eststarted });
+                        Object.assign(treeNode, { duration: entity.duration });
                         Object.assign(treeNode, { navparams: '{}' });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
@@ -607,6 +611,8 @@ export default class TypeGanttService extends ControlService {
                         Object.assign(treeNode, { start: entity.eststarted });
                         Object.assign(treeNode, { text: entity.name });
                         Object.assign(treeNode, { end: entity.deadline });
+                        Object.assign(treeNode, { assignedto: entity.assignedto });
+                        Object.assign(treeNode, { duration: entity.duration });
                         Object.assign(treeNode, { navparams: '{}' });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
