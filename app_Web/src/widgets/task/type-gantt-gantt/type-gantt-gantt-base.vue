@@ -350,16 +350,10 @@ export default class TypeGanttBase extends Vue implements ControlInterface {
      */
     public taskItemExpand(task: any) {
         if(!task.collapsed) {
-            this.load(task);
-        } else {
-            let len: number = this.tasks.length;
-            let datas: any = [];
-            for(let i = len - 1;i >= 0; i--) {
-                if(!Object.is(task.id, this.tasks[i].parentId)) {
-                    datas.push(this.tasks[i]);
-                }
+            let index: number = this.tasks.findIndex((item: any) => Object.is(task.id, item.parentId));
+            if(index < 0) {
+                this.load(task);
             }
-            this.tasks = datas;
         }
     }
 
@@ -455,6 +449,9 @@ export default class TypeGanttBase extends Vue implements ControlInterface {
                 _context.task = data.task;
                 view = this.getEditView("task");
                 break;
+        }
+        if (!view.viewname) {
+            return;
         }
         // 根据打开模式打开视图
         if (Object.is(view.placement, 'INDEXVIEWTAB') || Object.is(view.placement, '')) {
