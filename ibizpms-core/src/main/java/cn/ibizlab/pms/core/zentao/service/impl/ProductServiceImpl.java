@@ -183,65 +183,65 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         removeByIds(idList);
     }
 
-@Override
-@Transactional
-public boolean create(Create et) {
-  et.setName("禅道API产品");
-  et.setCode("ZT-API-PRODUCT");
-  et.setQD("xiuyaoyao");
-  et.setRD("xiechenlong");
-  et.setPO("xiechenlong");
-  et.setDeleted("0");
-  et.setCreatedby("admin");
-  et.setStatus("normal");
-  et.setType("normal");
-  JSONObject rst = doRestRequest("http://172.16.100.202/zentao/product-create.json", HttpMethod.POST, getHeader(), (JSONObject) JSONObject.toJSON(et));
-  return true;
-}
-
-public JSONObject getHeader(){
-	JSONObject header = new JSONObject();
-	header.put("Content-Type","application/json");
-	String token= null;
-	try {
-		Base64 base64 = new Base64();
-		token = base64.encodeToString(("IF:happy123").getBytes("UTF-8"));
-	} catch (UnsupportedEncodingException e) {
-		e.printStackTrace();
+	@Override
+	@Transactional
+	public boolean create(Create et) {
+	  et.setName("禅道API产品");
+	  et.setCode("ZT-API-PRODUCT");
+	  et.setQD("xiuyaoyao");
+	  et.setRD("xiechenlong");
+	  et.setPO("xiechenlong");
+	  et.setDeleted("0");
+	  et.setCreatedby("admin");
+	  et.setStatus("normal");
+	  et.setType("normal");
+	  JSONObject rst = doRestRequest("http://172.16.100.202/zentao/product-create.json", org.springframework.http.HttpMethod.POST, getHeader(), (JSONObject) JSONObject.toJSON(et));
+	  return true;
 	}
-	header.put("Authorization","Basic "+ token);
-	return header;
-}
 
-private JSONObject doRestRequest(String url, HttpMethod method, JSONObject headerMap, JSONObject paramMap){
-	RestTemplate restTemplate = getRestTemplate();
-	HttpHeaders headers = new HttpHeaders();
-	if(headerMap!=null){
-		for(String key : headerMap.keySet()){
-			headers.add(key,headerMap.getString(key));
+	public JSONObject getHeader(){
+		JSONObject header = new JSONObject();
+		header.put("Content-Type","application/json");
+		String token= null;
+		try {
+			org.apache.commons.codec.binary.Base64 base64 = new org.apache.commons.codec.binary.Base64();
+			token = base64.encodeToString(("IF:happy123").getBytes("UTF-8"));
+		} catch (java.io.UnsupportedEncodingException e) {
+			e.printStackTrace();
 		}
+		header.put("Authorization","Basic "+ token);
+		return header;
 	}
-	MultiValueMap<String,String> params = new LinkedMultiValueMap<String,String>();
-	HttpEntity<String> entity;
-	if(paramMap!=null){
-		entity = new HttpEntity<>(paramMap.toString(), headers);
-	}else{
-		entity = new HttpEntity<>(null, headers);
-	}
-	ResponseEntity<JSONObject> responseEntity = restTemplate.exchange(url, method, entity, JSONObject.class);
-	return responseEntity.getBody();
-}
 
-private RestTemplate getRestTemplate(){
-	RestTemplate restTemplate = new RestTemplate();
-	for (HttpMessageConverter<?> httpMessageConverter : restTemplate.getMessageConverters()) {
-		if (httpMessageConverter instanceof StringHttpMessageConverter) {
-			((StringHttpMessageConverter) httpMessageConverter).setDefaultCharset(Charset.forName("UTF-8"));
-			break;
+	private JSONObject doRestRequest(String url, org.springframework.http.HttpMethod method, JSONObject headerMap, JSONObject paramMap){
+		org.springframework.web.client.RestTemplate restTemplate = getRestTemplate();
+		org.springframework.http.HttpHeaders headers = new org.springframework.http.HttpHeaders();
+		if(headerMap!=null){
+			for(String key : headerMap.keySet()){
+				headers.add(key,headerMap.getString(key));
+			}
 		}
+		org.springframework.util.MultiValueMap<String,String> params = new org.springframework.util.LinkedMultiValueMap<String,String>();
+		org.springframework.http.HttpEntity<String> entity;
+		if(paramMap!=null){
+			entity = new org.springframework.http.HttpEntity<>(paramMap.toString(), headers);
+		}else{
+			entity = new org.springframework.http.HttpEntity<>(null, headers);
+		}
+		org.springframework.http.ResponseEntity<JSONObject> responseEntity = restTemplate.exchange(url, method, entity, JSONObject.class);
+		return responseEntity.getBody();
 	}
-	return restTemplate;
-}
+
+	private org.springframework.web.client.RestTemplate getRestTemplate(){
+		org.springframework.web.client.RestTemplate restTemplate = new org.springframework.web.client.RestTemplate();
+		for (org.springframework.http.converter.HttpMessageConverter<?> httpMessageConverter : restTemplate.getMessageConverters()) {
+			if (httpMessageConverter instanceof org.springframework.http.converter.StringHttpMessageConverter) {
+				((org.springframework.http.converter.StringHttpMessageConverter) httpMessageConverter).setDefaultCharset(java.nio.charset.Charset.forName("UTF-8"));
+				break;
+			}
+		}
+		return restTemplate;
+	}
 
 	@Override
     public List<Product> selectByLine(BigInteger id) {
