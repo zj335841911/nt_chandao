@@ -63,7 +63,7 @@ public class ProductResource {
         return ResponseEntity.status(HttpStatus.OK).body(productService.save(productMapping.toDomain(productdto)));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Save',{'Sql',this.productMapping,#productdtos})")
     @ApiOperation(value = "SaveBatch", tags = {"Product" },  notes = "SaveBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<ProductDTO> productdtos) {
@@ -90,14 +90,14 @@ public class ProductResource {
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}")
     @Transactional
     public ResponseEntity<ProductDTO> update(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductDTO productdto) {
-		Product domain = productMapping.toDomain(productdto);
-        domain.setId(product_id);
-		productService.update(domain);
-		ProductDTO dto = productMapping.toDto(domain);
+		Product domain  = productMapping.toDomain(productdto);
+        domain .setId(product_id);
+		productService.update(domain );
+		ProductDTO dto = productMapping.toDto(domain );
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Update',{'Sql',this.productMapping,#productdtos})")
     @ApiOperation(value = "UpdateBatch", tags = {"Product" },  notes = "UpdateBatch")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<ProductDTO> productdtos) {
@@ -113,7 +113,7 @@ public class ProductResource {
          return ResponseEntity.status(HttpStatus.OK).body(productService.remove(product_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.humanMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasPermission('Remove',{'Sql',this.productMapping,this.permissionDTO,#ids})")
     @ApiOperation(value = "RemoveBatch", tags = {"Product" },  notes = "RemoveBatch")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
@@ -132,7 +132,7 @@ public class ProductResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Create',{'Sql',this.productMapping,#productdtos})")
     @ApiOperation(value = "createBatch", tags = {"Product" },  notes = "createBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<ProductDTO> productdtos) {

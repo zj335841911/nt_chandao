@@ -41,7 +41,7 @@
             <template v-if="getColumnState('name')">
                 <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.task.main2_grid.columns.name')" :min-width="1"  :align="'left'" :sortable="'custom'">
                     <template v-slot="{row,column}">
-                        <app-column-link deKeyField='task' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'task-main-dashboard-view', height: 0,width: 0,title: $t('entities.task.views.maindashboardview.title'),placement: '', isRedirectView: false,deResParameters: [
+                        <app-column-link deKeyField='task' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'task-main-dashboard-view', height: 0,width: 1360,title: $t('entities.task.views.maindashboardview.title'),placement: 'POPUPMODAL', isRedirectView: false,deResParameters: [
             { pathName: 'projects', parameterName: 'project' },
             ]
             ,parameters: [

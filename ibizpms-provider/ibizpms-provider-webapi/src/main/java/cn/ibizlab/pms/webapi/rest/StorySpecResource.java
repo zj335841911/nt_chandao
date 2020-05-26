@@ -65,7 +65,7 @@ public class StorySpecResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Create',{'Sql',this.storyspecMapping,#storyspecdtos})")
     @ApiOperation(value = "createBatch", tags = {"StorySpec" },  notes = "createBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/storyspecs/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<StorySpecDTO> storyspecdtos) {
@@ -80,7 +80,7 @@ public class StorySpecResource {
         return ResponseEntity.status(HttpStatus.OK).body(storyspecService.save(storyspecMapping.toDomain(storyspecdto)));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Save',{'Sql',this.storyspecMapping,#storyspecdtos})")
     @ApiOperation(value = "SaveBatch", tags = {"StorySpec" },  notes = "SaveBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/storyspecs/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<StorySpecDTO> storyspecdtos) {
@@ -105,7 +105,7 @@ public class StorySpecResource {
          return ResponseEntity.status(HttpStatus.OK).body(storyspecService.remove(storyspec_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.humanMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasPermission('Remove',{'Sql',this.storyspecMapping,this.permissionDTO,#ids})")
     @ApiOperation(value = "RemoveBatch", tags = {"StorySpec" },  notes = "RemoveBatch")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/storyspecs/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<String> ids) {
@@ -118,14 +118,14 @@ public class StorySpecResource {
 	@RequestMapping(method = RequestMethod.PUT, value = "/storyspecs/{storyspec_id}")
     @Transactional
     public ResponseEntity<StorySpecDTO> update(@PathVariable("storyspec_id") String storyspec_id, @RequestBody StorySpecDTO storyspecdto) {
-		StorySpec domain = storyspecMapping.toDomain(storyspecdto);
-        domain.setId(storyspec_id);
-		storyspecService.update(domain);
-		StorySpecDTO dto = storyspecMapping.toDto(domain);
+		StorySpec domain  = storyspecMapping.toDomain(storyspecdto);
+        domain .setId(storyspec_id);
+		storyspecService.update(domain );
+		StorySpecDTO dto = storyspecMapping.toDto(domain );
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Update',{'Sql',this.storyspecMapping,#storyspecdtos})")
     @ApiOperation(value = "UpdateBatch", tags = {"StorySpec" },  notes = "UpdateBatch")
 	@RequestMapping(method = RequestMethod.PUT, value = "/storyspecs/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<StorySpecDTO> storyspecdtos) {

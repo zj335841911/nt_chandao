@@ -379,8 +379,26 @@ export default class TypeGanttBase extends Vue implements ControlInterface {
             case "task":
                 break;
             case "task":
+                view = {
+                    viewname: 'task-main-dashboard-view', 
+                    height: 0, 
+                    width: 1360,
+                    title: this.$t('entities.task.views.maindashboardview.title'),
+                    placement: 'POPUPMODAL',
+                    deResParameters: [{ pathName: 'projects', parameterName: 'project' }, ],
+                    parameters: [{ pathName: 'tasks', parameterName: 'task' }, { pathName: 'maindashboardview', parameterName: 'maindashboardview' } ],
+                };
                 break;
             case "task":
+                view = {
+                    viewname: 'task-main-dashboard-view', 
+                    height: 0, 
+                    width: 1360,
+                    title: this.$t('entities.task.views.maindashboardview.title'),
+                    placement: 'POPUPMODAL',
+                    deResParameters: [{ pathName: 'projects', parameterName: 'project' }, ],
+                    parameters: [{ pathName: 'tasks', parameterName: 'task' }, { pathName: 'maindashboardview', parameterName: 'maindashboardview' } ],
+                };
                 break;
         }
         return view;

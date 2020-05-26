@@ -61,7 +61,7 @@ public class ProjectResource {
         return ResponseEntity.status(HttpStatus.OK).body(projectService.save(projectMapping.toDomain(projectdto)));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Save',{'Sql',this.projectMapping,#projectdtos})")
     @ApiOperation(value = "SaveBatch", tags = {"Project" },  notes = "SaveBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<ProjectDTO> projectdtos) {
@@ -74,14 +74,14 @@ public class ProjectResource {
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}")
     @Transactional
     public ResponseEntity<ProjectDTO> update(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectDTO projectdto) {
-		Project domain = projectMapping.toDomain(projectdto);
-        domain.setId(project_id);
-		projectService.update(domain);
-		ProjectDTO dto = projectMapping.toDto(domain);
+		Project domain  = projectMapping.toDomain(projectdto);
+        domain .setId(project_id);
+		projectService.update(domain );
+		ProjectDTO dto = projectMapping.toDto(domain );
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Update',{'Sql',this.projectMapping,#projectdtos})")
     @ApiOperation(value = "UpdateBatch", tags = {"Project" },  notes = "UpdateBatch")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<ProjectDTO> projectdtos) {
@@ -109,7 +109,7 @@ public class ProjectResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Create',{'Sql',this.projectMapping,#projectdtos})")
     @ApiOperation(value = "createBatch", tags = {"Project" },  notes = "createBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<ProjectDTO> projectdtos) {
@@ -125,7 +125,7 @@ public class ProjectResource {
          return ResponseEntity.status(HttpStatus.OK).body(projectService.remove(project_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.humanMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasPermission('Remove',{'Sql',this.projectMapping,this.permissionDTO,#ids})")
     @ApiOperation(value = "RemoveBatch", tags = {"Project" },  notes = "RemoveBatch")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {

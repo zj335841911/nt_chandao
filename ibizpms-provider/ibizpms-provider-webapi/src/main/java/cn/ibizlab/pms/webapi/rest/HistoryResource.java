@@ -52,14 +52,14 @@ public class HistoryResource {
 	@RequestMapping(method = RequestMethod.PUT, value = "/histories/{history_id}")
     @Transactional
     public ResponseEntity<HistoryDTO> update(@PathVariable("history_id") BigInteger history_id, @RequestBody HistoryDTO historydto) {
-		History domain = historyMapping.toDomain(historydto);
-        domain.setId(history_id);
-		historyService.update(domain);
-		HistoryDTO dto = historyMapping.toDto(domain);
+		History domain  = historyMapping.toDomain(historydto);
+        domain .setId(history_id);
+		historyService.update(domain );
+		HistoryDTO dto = historyMapping.toDto(domain );
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Update',{'Sql',this.historyMapping,#historydtos})")
     @ApiOperation(value = "UpdateBatch", tags = {"History" },  notes = "UpdateBatch")
 	@RequestMapping(method = RequestMethod.PUT, value = "/histories/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<HistoryDTO> historydtos) {
@@ -78,7 +78,7 @@ public class HistoryResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Create',{'Sql',this.historyMapping,#historydtos})")
     @ApiOperation(value = "createBatch", tags = {"History" },  notes = "createBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/histories/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<HistoryDTO> historydtos) {
@@ -109,7 +109,7 @@ public class HistoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(historyService.save(historyMapping.toDomain(historydto)));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Save',{'Sql',this.historyMapping,#historydtos})")
     @ApiOperation(value = "SaveBatch", tags = {"History" },  notes = "SaveBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/histories/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<HistoryDTO> historydtos) {
@@ -125,7 +125,7 @@ public class HistoryResource {
          return ResponseEntity.status(HttpStatus.OK).body(historyService.remove(history_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.humanMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasPermission('Remove',{'Sql',this.historyMapping,this.permissionDTO,#ids})")
     @ApiOperation(value = "RemoveBatch", tags = {"History" },  notes = "RemoveBatch")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/histories/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
@@ -174,7 +174,7 @@ public class HistoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Update',{'Sql',this.historyMapping,#historydtos})")
     @ApiOperation(value = "UpdateBatchByAction", tags = {"History" },  notes = "UpdateBatchByAction")
 	@RequestMapping(method = RequestMethod.PUT, value = "/actions/{action_id}/histories/batch")
     public ResponseEntity<Boolean> updateBatchByAction(@PathVariable("action_id") BigInteger action_id, @RequestBody List<HistoryDTO> historydtos) {
@@ -198,7 +198,7 @@ public class HistoryResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Create',{'Sql',this.historyMapping,#historydtos})")
     @ApiOperation(value = "createBatchByAction", tags = {"History" },  notes = "createBatchByAction")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/{action_id}/histories/batch")
     public ResponseEntity<Boolean> createBatchByAction(@PathVariable("action_id") BigInteger action_id, @RequestBody List<HistoryDTO> historydtos) {
@@ -235,7 +235,7 @@ public class HistoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(historyService.save(domain));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Save',{'Sql',this.historyMapping,#historydtos})")
     @ApiOperation(value = "SaveBatchByAction", tags = {"History" },  notes = "SaveBatchByAction")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/{action_id}/histories/savebatch")
     public ResponseEntity<Boolean> saveBatchByAction(@PathVariable("action_id") BigInteger action_id, @RequestBody List<HistoryDTO> historydtos) {
@@ -255,7 +255,7 @@ public class HistoryResource {
 		return ResponseEntity.status(HttpStatus.OK).body(historyService.remove(history_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.humanMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasPermission('Remove',{'Sql',this.historyMapping,this.permissionDTO,#ids})")
     @ApiOperation(value = "RemoveBatchByAction", tags = {"History" },  notes = "RemoveBatchByAction")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/actions/{action_id}/histories/batch")
     public ResponseEntity<Boolean> removeBatchByAction(@RequestBody List<BigInteger> ids) {

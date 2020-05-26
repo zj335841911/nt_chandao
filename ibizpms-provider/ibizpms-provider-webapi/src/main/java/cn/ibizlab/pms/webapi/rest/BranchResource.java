@@ -62,7 +62,7 @@ public class BranchResource {
          return ResponseEntity.status(HttpStatus.OK).body(branchService.remove(branch_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.humanMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasPermission('Remove',{'Sql',this.branchMapping,this.permissionDTO,#ids})")
     @ApiOperation(value = "RemoveBatch", tags = {"Branch" },  notes = "RemoveBatch")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/branches/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
@@ -81,7 +81,7 @@ public class BranchResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Create',{'Sql',this.branchMapping,#branchdtos})")
     @ApiOperation(value = "createBatch", tags = {"Branch" },  notes = "createBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/branches/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<BranchDTO> branchdtos) {
@@ -94,14 +94,14 @@ public class BranchResource {
 	@RequestMapping(method = RequestMethod.PUT, value = "/branches/{branch_id}")
     @Transactional
     public ResponseEntity<BranchDTO> update(@PathVariable("branch_id") BigInteger branch_id, @RequestBody BranchDTO branchdto) {
-		Branch domain = branchMapping.toDomain(branchdto);
-        domain.setId(branch_id);
-		branchService.update(domain);
-		BranchDTO dto = branchMapping.toDto(domain);
+		Branch domain  = branchMapping.toDomain(branchdto);
+        domain .setId(branch_id);
+		branchService.update(domain );
+		BranchDTO dto = branchMapping.toDto(domain );
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Update',{'Sql',this.branchMapping,#branchdtos})")
     @ApiOperation(value = "UpdateBatch", tags = {"Branch" },  notes = "UpdateBatch")
 	@RequestMapping(method = RequestMethod.PUT, value = "/branches/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<BranchDTO> branchdtos) {
@@ -123,7 +123,7 @@ public class BranchResource {
         return ResponseEntity.status(HttpStatus.OK).body(branchService.save(branchMapping.toDomain(branchdto)));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Save',{'Sql',this.branchMapping,#branchdtos})")
     @ApiOperation(value = "SaveBatch", tags = {"Branch" },  notes = "SaveBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/branches/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<BranchDTO> branchdtos) {
@@ -178,7 +178,7 @@ public class BranchResource {
 		return ResponseEntity.status(HttpStatus.OK).body(branchService.remove(branch_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.humanMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasPermission('Remove',{'Sql',this.branchMapping,this.permissionDTO,#ids})")
     @ApiOperation(value = "RemoveBatchByProduct", tags = {"Branch" },  notes = "RemoveBatchByProduct")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/branches/batch")
     public ResponseEntity<Boolean> removeBatchByProduct(@RequestBody List<BigInteger> ids) {
@@ -198,7 +198,7 @@ public class BranchResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Create',{'Sql',this.branchMapping,#branchdtos})")
     @ApiOperation(value = "createBatchByProduct", tags = {"Branch" },  notes = "createBatchByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/branches/batch")
     public ResponseEntity<Boolean> createBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<BranchDTO> branchdtos) {
@@ -223,7 +223,7 @@ public class BranchResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Update',{'Sql',this.branchMapping,#branchdtos})")
     @ApiOperation(value = "UpdateBatchByProduct", tags = {"Branch" },  notes = "UpdateBatchByProduct")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/branches/batch")
     public ResponseEntity<Boolean> updateBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<BranchDTO> branchdtos) {
@@ -251,7 +251,7 @@ public class BranchResource {
         return ResponseEntity.status(HttpStatus.OK).body(branchService.save(domain));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Save',{'Sql',this.branchMapping,#branchdtos})")
     @ApiOperation(value = "SaveBatchByProduct", tags = {"Branch" },  notes = "SaveBatchByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/branches/savebatch")
     public ResponseEntity<Boolean> saveBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<BranchDTO> branchdtos) {

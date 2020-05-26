@@ -65,7 +65,7 @@ public class ModuleResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Create',{'Sql',this.moduleMapping,#moduledtos})")
     @ApiOperation(value = "createBatch", tags = {"Module" },  notes = "createBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/modules/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<ModuleDTO> moduledtos) {
@@ -87,14 +87,14 @@ public class ModuleResource {
 	@RequestMapping(method = RequestMethod.PUT, value = "/modules/{module_id}")
     @Transactional
     public ResponseEntity<ModuleDTO> update(@PathVariable("module_id") BigInteger module_id, @RequestBody ModuleDTO moduledto) {
-		Module domain = moduleMapping.toDomain(moduledto);
-        domain.setId(module_id);
-		moduleService.update(domain);
-		ModuleDTO dto = moduleMapping.toDto(domain);
+		Module domain  = moduleMapping.toDomain(moduledto);
+        domain .setId(module_id);
+		moduleService.update(domain );
+		ModuleDTO dto = moduleMapping.toDto(domain );
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Update',{'Sql',this.moduleMapping,#moduledtos})")
     @ApiOperation(value = "UpdateBatch", tags = {"Module" },  notes = "UpdateBatch")
 	@RequestMapping(method = RequestMethod.PUT, value = "/modules/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<ModuleDTO> moduledtos) {
@@ -109,7 +109,7 @@ public class ModuleResource {
         return ResponseEntity.status(HttpStatus.OK).body(moduleService.save(moduleMapping.toDomain(moduledto)));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Save',{'Sql',this.moduleMapping,#moduledtos})")
     @ApiOperation(value = "SaveBatch", tags = {"Module" },  notes = "SaveBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/modules/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<ModuleDTO> moduledtos) {
@@ -132,7 +132,7 @@ public class ModuleResource {
          return ResponseEntity.status(HttpStatus.OK).body(moduleService.remove(module_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.humanMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasPermission('Remove',{'Sql',this.moduleMapping,this.permissionDTO,#ids})")
     @ApiOperation(value = "RemoveBatch", tags = {"Module" },  notes = "RemoveBatch")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/modules/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {

@@ -61,7 +61,7 @@ public class BuildResource {
         return ResponseEntity.status(HttpStatus.OK).body(buildService.save(buildMapping.toDomain(builddto)));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Save',{'Sql',this.buildMapping,#builddtos})")
     @ApiOperation(value = "SaveBatch", tags = {"Build" },  notes = "SaveBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/builds/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<BuildDTO> builddtos) {
@@ -93,7 +93,7 @@ public class BuildResource {
          return ResponseEntity.status(HttpStatus.OK).body(buildService.remove(build_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.humanMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasPermission('Remove',{'Sql',this.buildMapping,this.permissionDTO,#ids})")
     @ApiOperation(value = "RemoveBatch", tags = {"Build" },  notes = "RemoveBatch")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/builds/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
@@ -112,7 +112,7 @@ public class BuildResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Create',{'Sql',this.buildMapping,#builddtos})")
     @ApiOperation(value = "createBatch", tags = {"Build" },  notes = "createBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/builds/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<BuildDTO> builddtos) {
@@ -125,14 +125,14 @@ public class BuildResource {
 	@RequestMapping(method = RequestMethod.PUT, value = "/builds/{build_id}")
     @Transactional
     public ResponseEntity<BuildDTO> update(@PathVariable("build_id") BigInteger build_id, @RequestBody BuildDTO builddto) {
-		Build domain = buildMapping.toDomain(builddto);
-        domain.setId(build_id);
-		buildService.update(domain);
-		BuildDTO dto = buildMapping.toDto(domain);
+		Build domain  = buildMapping.toDomain(builddto);
+        domain .setId(build_id);
+		buildService.update(domain );
+		BuildDTO dto = buildMapping.toDto(domain );
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Update',{'Sql',this.buildMapping,#builddtos})")
     @ApiOperation(value = "UpdateBatch", tags = {"Build" },  notes = "UpdateBatch")
 	@RequestMapping(method = RequestMethod.PUT, value = "/builds/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<BuildDTO> builddtos) {
@@ -177,7 +177,7 @@ public class BuildResource {
         return ResponseEntity.status(HttpStatus.OK).body(buildService.save(domain));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Save',{'Sql',this.buildMapping,#builddtos})")
     @ApiOperation(value = "SaveBatchByProduct", tags = {"Build" },  notes = "SaveBatchByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/builds/savebatch")
     public ResponseEntity<Boolean> saveBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<BuildDTO> builddtos) {
@@ -215,7 +215,7 @@ public class BuildResource {
 		return ResponseEntity.status(HttpStatus.OK).body(buildService.remove(build_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.humanMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasPermission('Remove',{'Sql',this.buildMapping,this.permissionDTO,#ids})")
     @ApiOperation(value = "RemoveBatchByProduct", tags = {"Build" },  notes = "RemoveBatchByProduct")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/builds/batch")
     public ResponseEntity<Boolean> removeBatchByProduct(@RequestBody List<BigInteger> ids) {
@@ -235,7 +235,7 @@ public class BuildResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Create',{'Sql',this.buildMapping,#builddtos})")
     @ApiOperation(value = "createBatchByProduct", tags = {"Build" },  notes = "createBatchByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/builds/batch")
     public ResponseEntity<Boolean> createBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<BuildDTO> builddtos) {
@@ -260,7 +260,7 @@ public class BuildResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Update',{'Sql',this.buildMapping,#builddtos})")
     @ApiOperation(value = "UpdateBatchByProduct", tags = {"Build" },  notes = "UpdateBatchByProduct")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/builds/batch")
     public ResponseEntity<Boolean> updateBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<BuildDTO> builddtos) {

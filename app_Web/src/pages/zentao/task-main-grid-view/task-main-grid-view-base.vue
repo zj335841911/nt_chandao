@@ -1140,14 +1140,28 @@ export default class TaskMainGridViewBase extends Vue {
         }
         const parameters: any[] = [
             { pathName: 'tasks', parameterName: 'task' },
-            { pathName: 'maindashboardview', parameterName: 'maindashboardview' },
         ];
         const _this: any = this;
-        const openIndexViewTab = (data: any) => {
-            const routePath = this.$viewTool.buildUpRoutePath(this.$route, curViewParam, deResParameters, parameters, args, data);
-            this.$router.push(routePath);
+        const openDrawer = (view: any, data: any) => {
+            let container: Subject<any> = this.$appdrawer.openDrawer(view, curViewParam, data);
+            container.subscribe((result: any) => {
+                if (!result || !Object.is(result.ret, 'OK')) {
+                    return;
+                }
+                if (!xData || !(xData.refresh instanceof Function)) {
+                    return;
+                }
+                xData.refresh(result.datas);
+            });
         }
-        openIndexViewTab(data);
+        const view: any = {
+            viewname: 'task-main-dashboard-view', 
+            height: 0, 
+            width: 1360,  
+            title: this.$t('entities.task.views.maindashboardview.title'),
+            placement: 'DRAWER_TOP',
+        };
+        openDrawer(view, data);
     }
 
 

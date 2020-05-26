@@ -55,7 +55,7 @@ public class ActionResource {
          return ResponseEntity.status(HttpStatus.OK).body(actionService.remove(action_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.humanMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasPermission('Remove',{'Sql',this.actionMapping,this.permissionDTO,#ids})")
     @ApiOperation(value = "RemoveBatch", tags = {"Action" },  notes = "RemoveBatch")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/actions/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
@@ -74,7 +74,7 @@ public class ActionResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Create',{'Sql',this.actionMapping,#actiondtos})")
     @ApiOperation(value = "createBatch", tags = {"Action" },  notes = "createBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<ActionDTO> actiondtos) {
@@ -94,14 +94,14 @@ public class ActionResource {
 	@RequestMapping(method = RequestMethod.PUT, value = "/actions/{action_id}")
     @Transactional
     public ResponseEntity<ActionDTO> update(@PathVariable("action_id") BigInteger action_id, @RequestBody ActionDTO actiondto) {
-		Action domain = actionMapping.toDomain(actiondto);
-        domain.setId(action_id);
-		actionService.update(domain);
-		ActionDTO dto = actionMapping.toDto(domain);
+		Action domain  = actionMapping.toDomain(actiondto);
+        domain .setId(action_id);
+		actionService.update(domain );
+		ActionDTO dto = actionMapping.toDto(domain );
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Update',{'Sql',this.actionMapping,#actiondtos})")
     @ApiOperation(value = "UpdateBatch", tags = {"Action" },  notes = "UpdateBatch")
 	@RequestMapping(method = RequestMethod.PUT, value = "/actions/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<ActionDTO> actiondtos) {
@@ -123,7 +123,7 @@ public class ActionResource {
         return ResponseEntity.status(HttpStatus.OK).body(actionService.save(actionMapping.toDomain(actiondto)));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Save',{'Sql',this.actionMapping,#actiondtos})")
     @ApiOperation(value = "SaveBatch", tags = {"Action" },  notes = "SaveBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<ActionDTO> actiondtos) {

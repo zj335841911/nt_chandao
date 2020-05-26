@@ -70,7 +70,7 @@ public class ReleaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(releaseService.save(releaseMapping.toDomain(releasedto)));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Save',{'Sql',this.releaseMapping,#releasedtos})")
     @ApiOperation(value = "SaveBatch", tags = {"Release" },  notes = "SaveBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/releases/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<ReleaseDTO> releasedtos) {
@@ -89,7 +89,7 @@ public class ReleaseResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Create',{'Sql',this.releaseMapping,#releasedtos})")
     @ApiOperation(value = "createBatch", tags = {"Release" },  notes = "createBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/releases/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<ReleaseDTO> releasedtos) {
@@ -109,14 +109,14 @@ public class ReleaseResource {
 	@RequestMapping(method = RequestMethod.PUT, value = "/releases/{release_id}")
     @Transactional
     public ResponseEntity<ReleaseDTO> update(@PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
-		Release domain = releaseMapping.toDomain(releasedto);
-        domain.setId(release_id);
-		releaseService.update(domain);
-		ReleaseDTO dto = releaseMapping.toDto(domain);
+		Release domain  = releaseMapping.toDomain(releasedto);
+        domain .setId(release_id);
+		releaseService.update(domain );
+		ReleaseDTO dto = releaseMapping.toDto(domain );
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Update',{'Sql',this.releaseMapping,#releasedtos})")
     @ApiOperation(value = "UpdateBatch", tags = {"Release" },  notes = "UpdateBatch")
 	@RequestMapping(method = RequestMethod.PUT, value = "/releases/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<ReleaseDTO> releasedtos) {
@@ -132,7 +132,7 @@ public class ReleaseResource {
          return ResponseEntity.status(HttpStatus.OK).body(releaseService.remove(release_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.humanMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasPermission('Remove',{'Sql',this.releaseMapping,this.permissionDTO,#ids})")
     @ApiOperation(value = "RemoveBatch", tags = {"Release" },  notes = "RemoveBatch")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/releases/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
@@ -186,7 +186,7 @@ public class ReleaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(releaseService.save(domain));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Save',{'Sql',this.releaseMapping,#releasedtos})")
     @ApiOperation(value = "SaveBatchByProduct", tags = {"Release" },  notes = "SaveBatchByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/releases/savebatch")
     public ResponseEntity<Boolean> saveBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<ReleaseDTO> releasedtos) {
@@ -210,7 +210,7 @@ public class ReleaseResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Create',{'Sql',this.releaseMapping,#releasedtos})")
     @ApiOperation(value = "createBatchByProduct", tags = {"Release" },  notes = "createBatchByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/releases/batch")
     public ResponseEntity<Boolean> createBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<ReleaseDTO> releasedtos) {
@@ -244,7 +244,7 @@ public class ReleaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.humanMapping,#humandtos})")
+    @PreAuthorize("hasPermission('Update',{'Sql',this.releaseMapping,#releasedtos})")
     @ApiOperation(value = "UpdateBatchByProduct", tags = {"Release" },  notes = "UpdateBatchByProduct")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/releases/batch")
     public ResponseEntity<Boolean> updateBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<ReleaseDTO> releasedtos) {
@@ -264,7 +264,7 @@ public class ReleaseResource {
 		return ResponseEntity.status(HttpStatus.OK).body(releaseService.remove(release_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.humanMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasPermission('Remove',{'Sql',this.releaseMapping,this.permissionDTO,#ids})")
     @ApiOperation(value = "RemoveBatchByProduct", tags = {"Release" },  notes = "RemoveBatchByProduct")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/releases/batch")
     public ResponseEntity<Boolean> removeBatchByProduct(@RequestBody List<BigInteger> ids) {
