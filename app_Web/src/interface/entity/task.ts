@@ -341,4 +341,12 @@ export interface Task {
      * @memberof Task
      */
     frombug?: any;
+
+    /**
+     * 持续时间
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    duration?: any;
 }

@@ -350,6 +350,13 @@ public class Task extends EntityMP implements Serializable {
     @JSONField(name = "frombug")
     @JsonProperty("frombug")
     private BigInteger frombug;
+    /**
+     * 持续时间
+     */
+    @TableField(exist = false)
+    @JSONField(name = "duration")
+    @JsonProperty("duration")
+    private String duration;
 
     /**
      * 

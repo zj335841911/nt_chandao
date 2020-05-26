@@ -368,6 +368,14 @@ public class TaskDTO extends DTOBase implements Serializable {
     @JsonProperty("frombug")
     private BigInteger frombug;
 
+    /**
+     * 属性 [DURATION]
+     *
+     */
+    @JSONField(name = "duration")
+    @JsonProperty("duration")
+    private String duration;
+
 
     /**
      * 设置 [CANCELEDBY]

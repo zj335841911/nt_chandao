@@ -2,10 +2,10 @@ window.Environment = {
     // 是否为开发模式
     devMode: true,
     // 项目模板地址
-    ProjectUrl: "http://demo.ibizlab.cn/iBizSln_ZenTao/ibizzentao",
+    ProjectUrl: "https://gitee.com/ibizlab/iBizPMS",
     // 配置平台地址
     StudioUrl: "http://studio.ibizlab.cn/slnstudio/",
-    // 中心标识
+    // 方案标识
     SlnId: "CFA3E6DC-69B0-4404-8022-23C3D42E3737",
     // 系统标识
     SysId: "981F7CF9-C496-45F4-BA23-91756ABE8C93",

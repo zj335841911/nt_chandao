@@ -141,6 +141,9 @@ export default class MainDashboardViewdashboard_container2Model {
       {
         name: 'frombug',
       },
+      {
+        name: 'duration',
+      },
     ]
   }
 

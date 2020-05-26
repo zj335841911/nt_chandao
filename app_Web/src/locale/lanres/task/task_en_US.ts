@@ -43,6 +43,7 @@ export default {
     story: '相关需求',
     parent: '父任务',
     frombug: '来源Bug',
+    duration: '持续时间',
   },
 	views: {
 		maingridview9_child: {

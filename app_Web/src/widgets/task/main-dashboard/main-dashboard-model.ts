@@ -141,6 +141,9 @@ export default class MainModel {
       {
         name: 'frombug',
       },
+      {
+        name: 'duration',
+      },
     ]
   }
 
