@@ -188,7 +188,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
 	public boolean create(Product et) {
 	  et.setName("禅道API产品");
 	  et.setCode("ZT-API-PRODUCT");
-	  et.setQd"xiuyaoyao");
+	  et.setQd("xiuyaoyao");
 	  et.setRd("xiechenlong");
 	  et.setPo("xiechenlong");
 	  et.setDeleted("0");
@@ -198,6 +198,11 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
 	  JSONObject rst = doRestRequest("http://172.16.100.202/zentao/product-create.json", org.springframework.http.HttpMethod.POST, getHeader(), (JSONObject) JSONObject.toJSON(et));
 	  return true;
 	}
+	
+	@Override
+    public void createBatch(List<Product> list) {
+        
+    }
 
 	public JSONObject getHeader(){
 		JSONObject header = new JSONObject();
@@ -212,10 +217,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
 		header.put("Authorization","Basic "+ token);
 		return header;
 	}
-	@Override
-   public void createBatch(List<Product> list) {
-        
-   }
+
 	private JSONObject doRestRequest(String url, org.springframework.http.HttpMethod method, JSONObject headerMap, JSONObject paramMap){
 		org.springframework.web.client.RestTemplate restTemplate = getRestTemplate();
 		org.springframework.http.HttpHeaders headers = new org.springframework.http.HttpHeaders();
