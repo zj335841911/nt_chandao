@@ -69,7 +69,7 @@ export default class TypeGanttModel {
                     prop: 'type'
                   },
                   {
-                    name: 'duration',
+                    name: 'taskduration',
                     prop: 'duration'
                   },
               ];
@@ -97,7 +97,7 @@ export default class TypeGanttModel {
                     prop: 'eststarted'
                   },
                   {
-                    name: 'duration',
+                    name: 'taskduration',
                     prop: 'duration'
                   },
               ];
@@ -125,7 +125,7 @@ export default class TypeGanttModel {
                     prop: 'assignedto'
                   },
                   {
-                    name: 'duration',
+                    name: 'taskduration',
                     prop: 'duration'
                   },
               ];

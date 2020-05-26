@@ -241,7 +241,7 @@ export default class TypeGanttBase extends Vue implements ControlInterface {
                 },
                 {
                     label: '持续时间',
-                    value: 'duration',
+                    value: 'taskduration',
                     width: 100,
                 },
             ]
