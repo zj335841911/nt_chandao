@@ -4996,10 +4996,10 @@ human-signals@^1.1.1:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-1.1.1.tgz#c5b1cd14f50aeae09ab6c59fe63ba3395fe4dfa3"
   integrity sha512-SEQu7vl8KjNL2eoGBLF3+wAjpsNfA9XMlXAYj/3EdaNfAlxKthD1xjEQfGOUhllCGGJVNY34bRr6lPINhNjyZw==
 
-ibiz-gantt-elastic@^1.0.13:
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/ibiz-gantt-elastic/-/ibiz-gantt-elastic-1.0.13.tgz#420751337f7d4352df7f351a72ba0e13551bdf23"
-  integrity sha512-floFaw93UNo9y/9BAExApvz8ATuUuxv2bOUOUbj9jvqY5WkWFKo4C9Bmu4779M5foTHy6SGWItNgZnvbm8i0QQ==
+ibiz-gantt-elastic@^1.0.14:
+  version "1.0.14"
+  resolved "https://registry.yarnpkg.com/ibiz-gantt-elastic/-/ibiz-gantt-elastic-1.0.14.tgz#59847f3ab2c77f0f1439b5adeefce3b2f10429b9"
+  integrity sha512-2mF0mcdpBMdQyiiDev9YWijn6t1emPT5ryD0bCTj/pwtX6lIeyNPQDTKL16Q0Ofr53mxNaN2SWTvPwwcZKAbBw==
   dependencies:
     dayjs "^1.8.16"
     resize-observer-polyfill "^1.5.1"
