@@ -651,10 +651,10 @@ export default class ProductPlanGridViewBase extends Vue {
             });
         }
         const view: any = {
-            viewname: 'product-plan-edit-view-new-mode', 
+            viewname: 'product-plan-edit-view', 
             height: 0, 
             width: 0,  
-            title: this.$t('entities.productplan.views.editview_newmode.title'),
+            title: this.$t('entities.productplan.views.editview.title'),
             placement: 'DRAWER_RIGHT',
         };
         openDrawer(view, data);
@@ -704,7 +704,7 @@ export default class ProductPlanGridViewBase extends Vue {
             height: 0, 
             width: 0,  
             title: this.$t('entities.productplan.views.editview.title'),
-            placement: 'DRAWER_TOP',
+            placement: 'DRAWER_RIGHT',
         };
         openDrawer(view, data);
     }

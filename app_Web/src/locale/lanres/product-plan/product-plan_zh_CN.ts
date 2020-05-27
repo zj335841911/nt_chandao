@@ -26,7 +26,7 @@ export default {
       title: '产品计划',
 		},
 	},
-	main_newmode_form: {
+	main_form: {
 		details: {
 			grouppanel1: '分组面板', 
 			group1: 'productplan基本信息', 
@@ -48,7 +48,7 @@ export default {
 		uiactions: {
 		},
 	},
-	main_form: {
+	main_newmode_form: {
 		details: {
 			grouppanel1: '分组面板', 
 			group1: 'productplan基本信息', 
@@ -92,16 +92,6 @@ export default {
 		deuiaction2: {
 			caption: '刷新',
 			tip: '刷新',
-		},
-	},
-	editview_newmodetoolbar_toolbar: {
-		deuiaction2: {
-			caption: '保存',
-			tip: '保存',
-		},
-		deuiaction1: {
-			caption: '保存并关闭',
-			tip: '保存并关闭',
 		},
 	},
 	editviewtoolbar_toolbar: {
@@ -168,6 +158,16 @@ export default {
 		tbitem22: {
 			caption: '帮助',
 			tip: '帮助',
+		},
+	},
+	editview_newmodetoolbar_toolbar: {
+		deuiaction2: {
+			caption: '保存',
+			tip: '保存',
+		},
+		deuiaction1: {
+			caption: '保存并关闭',
+			tip: '保存并关闭',
 		},
 	},
 };

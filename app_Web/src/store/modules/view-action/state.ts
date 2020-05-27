@@ -136,15 +136,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '4bd9f30e47b4e0015ded5bd3f7b84b28',
-            viewmodule: 'zentao',
-            viewname: 'ProductPlanEditView_NewMode',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: '522b28992d16207a0fc47340589bb2cf',
             viewmodule: 'zentao',
             viewname: 'ProjectCurProductGridView',
@@ -295,7 +286,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'aad9a5713d6828d3119b811b26915215',
-                '4bd9f30e47b4e0015ded5bd3f7b84b28',
             ],
         },
         {

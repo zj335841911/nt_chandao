@@ -430,7 +430,7 @@
         "memo": ""
     },
     "productplaneditview": {
-        "title": "productplan编辑视图",
+        "title": "计划",
         "caption": "产品计划",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "zentao",

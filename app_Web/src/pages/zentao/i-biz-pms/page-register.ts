@@ -44,7 +44,6 @@ export const PageComponents = {
         Vue.component('story-main2-grid-view', () => import('@pages/zentao/story-main2-grid-view/story-main2-grid-view.vue'));
         Vue.component('action-edit-view', () => import('@pages/zentao/action-edit-view/action-edit-view.vue'));
         Vue.component('story-main-view9-edit-mode', () => import('@pages/zentao/story-main-view9-edit-mode/story-main-view9-edit-mode.vue'));
-        Vue.component('product-plan-edit-view-new-mode', () => import('@pages/zentao/product-plan-edit-view-new-mode/product-plan-edit-view-new-mode.vue'));
         Vue.component('product-bug-tree-exp-view', () => import('@pages/zentao/product-bug-tree-exp-view/product-bug-tree-exp-view.vue'));
         Vue.component('branch-pmedit-view', () => import('@pages/zentao/branch-pmedit-view/branch-pmedit-view.vue'));
         Vue.component('project-edit-view', () => import('@pages/zentao/project-edit-view/project-edit-view.vue'));

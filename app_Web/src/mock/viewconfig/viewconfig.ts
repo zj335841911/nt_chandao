@@ -352,7 +352,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "a4af2d93ae66c9877ee99bfe7b93d22c"
         },
         "productplaneditview": {
-            "title": "productplan编辑视图",
+            "title": "计划",
             "caption": "产品计划",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",
