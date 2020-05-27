@@ -1,8 +1,5 @@
 <template>
 <studio-view viewName="productplanmaineditview" viewTitle="计划详情" class='deeditview product-plan-main-edit-view'>
-    <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
-    </template>
     <view_form 
                 :viewState="viewState"  
                 :viewparams="viewparams" 

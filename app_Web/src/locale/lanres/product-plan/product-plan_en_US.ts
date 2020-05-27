@@ -58,7 +58,7 @@ export default {
 			grouppanel1: "分组面板", 
 			group1: "基本信息", 
 			druipart1: "", 
-			grouppanel2: "分组面板", 
+			grouppanel2: "历史记录", 
 			formpage1: "基本信息", 
 			srforikey: "", 
 			srfkey: "编号", 
