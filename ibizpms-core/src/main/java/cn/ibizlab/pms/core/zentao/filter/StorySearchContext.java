@@ -34,6 +34,13 @@ public class StorySearchContext extends QueryWrapperContext<Story> {
             this.getSelectCond().eq("assignedto", n_assignedto_eq);
         }
     }
+	private String n_plan_eq;//[所属计划]
+	public void setN_plan_eq(String n_plan_eq) {
+        this.n_plan_eq = n_plan_eq;
+        if(!ObjectUtils.isEmpty(this.n_plan_eq)){
+            this.getSelectCond().eq("plan", n_plan_eq);
+        }
+    }
 	private String n_status_eq;//[当前状态]
 	public void setN_status_eq(String n_status_eq) {
         this.n_status_eq = n_status_eq;
