@@ -24,7 +24,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "03c110360a714011ed9c30b8207d3703"
         },
         "bugplansubgridview": {
-            "title": "bug表格视图",
+            "title": "Bug",
             "caption": "Bug",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",

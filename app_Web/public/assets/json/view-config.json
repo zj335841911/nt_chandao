@@ -20,7 +20,7 @@
         "memo": ""
     },
     "bugplansubgridview": {
-        "title": "bug表格视图",
+        "title": "Bug",
         "caption": "Bug",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "zentao",

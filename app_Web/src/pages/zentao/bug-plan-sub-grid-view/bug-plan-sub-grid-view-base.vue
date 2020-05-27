@@ -1,5 +1,5 @@
 <template>
-<studio-view viewName="bugplansubgridview" viewTitle="bug表格视图" class='degridview bug-plan-sub-grid-view'>
+<studio-view viewName="bugplansubgridview" viewTitle="Bug" class='degridview bug-plan-sub-grid-view'>
     <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
         <div class='toolbar-container'>

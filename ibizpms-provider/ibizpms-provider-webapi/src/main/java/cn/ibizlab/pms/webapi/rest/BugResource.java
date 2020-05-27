@@ -290,5 +290,269 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Get-all')")
+    @ApiOperation(value = "GetByProductPlan", tags = {"Bug" },  notes = "GetByProductPlan")
+	@RequestMapping(method = RequestMethod.GET, value = "/productplans/{productplan_id}/bugs/{bug_id}")
+    public ResponseEntity<BugDTO> getByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("bug_id") BigInteger bug_id) {
+        Bug domain = bugService.get(bug_id);
+        BugDTO dto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "GetDraftByProductPlan", tags = {"Bug" },  notes = "GetDraftByProductPlan")
+    @RequestMapping(method = RequestMethod.GET, value = "/productplans/{productplan_id}/bugs/getdraft")
+    public ResponseEntity<BugDTO> getDraftByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id) {
+        Bug domain = new Bug();
+        domain.setPlan(productplan_id);
+        return ResponseEntity.status(HttpStatus.OK).body(bugMapping.toDto(bugService.getDraft(domain)));
+    }
+
+    @ApiOperation(value = "CheckKeyByProductPlan", tags = {"Bug" },  notes = "CheckKeyByProductPlan")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/bugs/checkkey")
+    public ResponseEntity<Boolean> checkKeyByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugDTO bugdto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(bugService.checkKey(bugMapping.toDomain(bugdto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
+    @ApiOperation(value = "SaveByProductPlan", tags = {"Bug" },  notes = "SaveByProductPlan")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/bugs/save")
+    public ResponseEntity<Boolean> saveByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setPlan(productplan_id);
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.save(domain));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
+    @ApiOperation(value = "SaveBatchByProductPlan", tags = {"Bug" },  notes = "SaveBatchByProductPlan")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/bugs/savebatch")
+    public ResponseEntity<Boolean> saveBatchByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody List<BugDTO> bugdtos) {
+        List<Bug> domainlist=bugMapping.toDomain(bugdtos);
+        for(Bug domain:domainlist){
+             domain.setPlan(productplan_id);
+        }
+        bugService.saveBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
+    @ApiOperation(value = "CreateByProductPlan", tags = {"Bug" },  notes = "CreateByProductPlan")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/bugs")
+    @Transactional
+    public ResponseEntity<BugDTO> createByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setPlan(productplan_id);
+		bugService.create(domain);
+        BugDTO dto = bugMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
+    @ApiOperation(value = "createBatchByProductPlan", tags = {"Bug" },  notes = "createBatchByProductPlan")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/bugs/batch")
+    public ResponseEntity<Boolean> createBatchByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody List<BugDTO> bugdtos) {
+        List<Bug> domainlist=bugMapping.toDomain(bugdtos);
+        for(Bug domain:domainlist){
+            domain.setPlan(productplan_id);
+        }
+        bugService.createBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Remove-all')")
+    @ApiOperation(value = "RemoveByProductPlan", tags = {"Bug" },  notes = "RemoveByProductPlan")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/productplans/{productplan_id}/bugs/{bug_id}")
+    @Transactional
+    public ResponseEntity<Boolean> removeByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("bug_id") BigInteger bug_id) {
+		return ResponseEntity.status(HttpStatus.OK).body(bugService.remove(bug_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Remove-all')")
+    @ApiOperation(value = "RemoveBatchByProductPlan", tags = {"Bug" },  notes = "RemoveBatchByProductPlan")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/productplans/{productplan_id}/bugs/batch")
+    public ResponseEntity<Boolean> removeBatchByProductPlan(@RequestBody List<BigInteger> ids) {
+        bugService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
+    @ApiOperation(value = "UpdateByProductPlan", tags = {"Bug" },  notes = "UpdateByProductPlan")
+	@RequestMapping(method = RequestMethod.PUT, value = "/productplans/{productplan_id}/bugs/{bug_id}")
+    @Transactional
+    public ResponseEntity<BugDTO> updateByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setPlan(productplan_id);
+        domain.setId(bug_id);
+		bugService.update(domain);
+        BugDTO dto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
+    @ApiOperation(value = "UpdateBatchByProductPlan", tags = {"Bug" },  notes = "UpdateBatchByProductPlan")
+	@RequestMapping(method = RequestMethod.PUT, value = "/productplans/{productplan_id}/bugs/batch")
+    public ResponseEntity<Boolean> updateBatchByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody List<BugDTO> bugdtos) {
+        List<Bug> domainlist=bugMapping.toDomain(bugdtos);
+        for(Bug domain:domainlist){
+            domain.setPlan(productplan_id);
+        }
+        bugService.updateBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Default-all')")
+	@ApiOperation(value = "fetchDEFAULTByProductPlan", tags = {"Bug" } ,notes = "fetchDEFAULTByProductPlan")
+    @RequestMapping(method= RequestMethod.GET , value="/productplans/{productplan_id}/bugs/fetchdefault")
+	public ResponseEntity<List<BugDTO>> fetchBugDefaultByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id,BugSearchContext context) {
+        context.setN_plan_eq(productplan_id);
+        Page<Bug> domains = bugService.searchDefault(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Default-all')")
+	@ApiOperation(value = "searchDEFAULTByProductPlan", tags = {"Bug" } ,notes = "searchDEFAULTByProductPlan")
+    @RequestMapping(method= RequestMethod.POST , value="/productplans/{productplan_id}/bugs/searchdefault")
+	public ResponseEntity<Page<BugDTO>> searchBugDefaultByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugSearchContext context) {
+        context.setN_plan_eq(productplan_id);
+        Page<Bug> domains = bugService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Get-all')")
+    @ApiOperation(value = "GetByProductProductPlan", tags = {"Bug" },  notes = "GetByProductProductPlan")
+	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/productplans/{productplan_id}/bugs/{bug_id}")
+    public ResponseEntity<BugDTO> getByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("bug_id") BigInteger bug_id) {
+        Bug domain = bugService.get(bug_id);
+        BugDTO dto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "GetDraftByProductProductPlan", tags = {"Bug" },  notes = "GetDraftByProductProductPlan")
+    @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/productplans/{productplan_id}/bugs/getdraft")
+    public ResponseEntity<BugDTO> getDraftByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id) {
+        Bug domain = new Bug();
+        domain.setPlan(productplan_id);
+        return ResponseEntity.status(HttpStatus.OK).body(bugMapping.toDto(bugService.getDraft(domain)));
+    }
+
+    @ApiOperation(value = "CheckKeyByProductProductPlan", tags = {"Bug" },  notes = "CheckKeyByProductProductPlan")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/bugs/checkkey")
+    public ResponseEntity<Boolean> checkKeyByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugDTO bugdto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(bugService.checkKey(bugMapping.toDomain(bugdto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
+    @ApiOperation(value = "SaveByProductProductPlan", tags = {"Bug" },  notes = "SaveByProductProductPlan")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/bugs/save")
+    public ResponseEntity<Boolean> saveByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setPlan(productplan_id);
+        return ResponseEntity.status(HttpStatus.OK).body(bugService.save(domain));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
+    @ApiOperation(value = "SaveBatchByProductProductPlan", tags = {"Bug" },  notes = "SaveBatchByProductProductPlan")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/bugs/savebatch")
+    public ResponseEntity<Boolean> saveBatchByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @RequestBody List<BugDTO> bugdtos) {
+        List<Bug> domainlist=bugMapping.toDomain(bugdtos);
+        for(Bug domain:domainlist){
+             domain.setPlan(productplan_id);
+        }
+        bugService.saveBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
+    @ApiOperation(value = "CreateByProductProductPlan", tags = {"Bug" },  notes = "CreateByProductProductPlan")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/bugs")
+    @Transactional
+    public ResponseEntity<BugDTO> createByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setPlan(productplan_id);
+		bugService.create(domain);
+        BugDTO dto = bugMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
+    @ApiOperation(value = "createBatchByProductProductPlan", tags = {"Bug" },  notes = "createBatchByProductProductPlan")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/bugs/batch")
+    public ResponseEntity<Boolean> createBatchByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @RequestBody List<BugDTO> bugdtos) {
+        List<Bug> domainlist=bugMapping.toDomain(bugdtos);
+        for(Bug domain:domainlist){
+            domain.setPlan(productplan_id);
+        }
+        bugService.createBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Remove-all')")
+    @ApiOperation(value = "RemoveByProductProductPlan", tags = {"Bug" },  notes = "RemoveByProductProductPlan")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/productplans/{productplan_id}/bugs/{bug_id}")
+    @Transactional
+    public ResponseEntity<Boolean> removeByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("bug_id") BigInteger bug_id) {
+		return ResponseEntity.status(HttpStatus.OK).body(bugService.remove(bug_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Remove-all')")
+    @ApiOperation(value = "RemoveBatchByProductProductPlan", tags = {"Bug" },  notes = "RemoveBatchByProductProductPlan")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/productplans/{productplan_id}/bugs/batch")
+    public ResponseEntity<Boolean> removeBatchByProductProductPlan(@RequestBody List<BigInteger> ids) {
+        bugService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
+    @ApiOperation(value = "UpdateByProductProductPlan", tags = {"Bug" },  notes = "UpdateByProductProductPlan")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/productplans/{productplan_id}/bugs/{bug_id}")
+    @Transactional
+    public ResponseEntity<BugDTO> updateByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setPlan(productplan_id);
+        domain.setId(bug_id);
+		bugService.update(domain);
+        BugDTO dto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
+    @ApiOperation(value = "UpdateBatchByProductProductPlan", tags = {"Bug" },  notes = "UpdateBatchByProductProductPlan")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/productplans/{productplan_id}/bugs/batch")
+    public ResponseEntity<Boolean> updateBatchByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @RequestBody List<BugDTO> bugdtos) {
+        List<Bug> domainlist=bugMapping.toDomain(bugdtos);
+        for(Bug domain:domainlist){
+            domain.setPlan(productplan_id);
+        }
+        bugService.updateBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Default-all')")
+	@ApiOperation(value = "fetchDEFAULTByProductProductPlan", tags = {"Bug" } ,notes = "fetchDEFAULTByProductProductPlan")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productplans/{productplan_id}/bugs/fetchdefault")
+	public ResponseEntity<List<BugDTO>> fetchBugDefaultByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id,BugSearchContext context) {
+        context.setN_plan_eq(productplan_id);
+        Page<Bug> domains = bugService.searchDefault(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Default-all')")
+	@ApiOperation(value = "searchDEFAULTByProductProductPlan", tags = {"Bug" } ,notes = "searchDEFAULTByProductProductPlan")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productplans/{productplan_id}/bugs/searchdefault")
+	public ResponseEntity<Page<BugDTO>> searchBugDefaultByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugSearchContext context) {
+        context.setN_plan_eq(productplan_id);
+        Page<Bug> domains = bugService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
 }
 
