@@ -74,13 +74,13 @@
 
 </i-col>
 <i-col v-show="detailsModel.source.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
-    <app-form-item name='source' :itemRules="this.rules.source" class='' :caption="$t('entities.story.main_newmode_form.details.source')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.source.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='source' :itemRules="this.rules.source" class='' :caption="$t('entities.story.main_newmode_form.details.source')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.source.error" :isEmptyCaption="false" labelPos="LEFT">
      <dropdown-list v-model="data.source" :data="data" :itemParam="{}" :disabled="detailsModel.source.disabled"  tag='Story__source' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.sourcenote.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
-    <app-form-item name='sourcenote' :itemRules="this.rules.sourcenote" class='' :caption="$t('entities.story.main_newmode_form.details.sourcenote')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.sourcenote.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='sourcenote' :itemRules="this.rules.sourcenote" class='' :caption="$t('entities.story.main_newmode_form.details.sourcenote')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.sourcenote.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box v-model="data.sourcenote"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.sourcenote.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
