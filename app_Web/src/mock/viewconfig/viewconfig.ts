@@ -23,6 +23,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectProductPlanListView9",
             "viewtag": "03c110360a714011ed9c30b8207d3703"
         },
+        "bugplansubgridview": {
+            "title": "bug表格视图",
+            "caption": "Bug",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugPlanSubGridView",
+            "viewtag": "07004de8a7d23e97b76460f888c8b290"
+        },
         "productliferoadmaplistview": {
             "title": "路线图",
             "caption": "产品生命周期",
@@ -31,12 +39,12 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductLifeRoadMapListView",
             "viewtag": "07327890c326f9c806b9343f0c660fc1"
         },
-        "productplanmain_editmode": {
+        "productplanmaintabexp": {
             "title": "计划",
             "caption": "产品计划",
             "viewtype": "DETABEXPVIEW",
             "viewmodule": "zentao",
-            "viewname": "ProductPlanMain_EditMode",
+            "viewname": "ProductPlanMainTabExp",
             "viewtag": "08ca1b1e6234a0d038e1fbf52478ea7f"
         },
         "projecttasktreeexpview": {
@@ -54,6 +62,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "BugMainDashboardView",
             "viewtag": "1540523a668e920d831510cfbec2c5e2"
+        },
+        "productplanmaineditview": {
+            "title": "计划详情",
+            "caption": "产品计划",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProductPlanMainEditView",
+            "viewtag": "17831eefddbb65ba3bda7534b8ef8d09"
         },
         "producttestdashboardview": {
             "title": "产品测试数据看板视图",

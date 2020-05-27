@@ -79,6 +79,7 @@ export default class BugUIServiceBase extends UIService {
      * @memberof  BugUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'plansubgridview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'bugs'});
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'bugs'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'bugs'});

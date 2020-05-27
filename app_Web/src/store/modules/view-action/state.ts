@@ -24,12 +24,34 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '07004de8a7d23e97b76460f888c8b290',
+            viewmodule: 'zentao',
+            viewname: 'BugPlanSubGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '46517a803b2470cd0bef27aeda0dbcaf',
+            ],
+        },
+        {
             viewtag: '07327890c326f9c806b9343f0c660fc1',
             viewmodule: 'ibiz',
             viewname: 'ProductLifeRoadMapListView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: '08ca1b1e6234a0d038e1fbf52478ea7f',
+            viewmodule: 'zentao',
+            viewname: 'ProductPlanMainTabExp',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '07004de8a7d23e97b76460f888c8b290',
+                'b9e94e3713c82ebab002631bda872b94',
+                '17831eefddbb65ba3bda7534b8ef8d09',
             ],
         },
         {
@@ -40,6 +62,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'a4af2d93ae66c9877ee99bfe7b93d22c',
+            ],
+        },
+        {
+            viewtag: '17831eefddbb65ba3bda7534b8ef8d09',
+            viewmodule: 'zentao',
+            viewname: 'ProductPlanMainEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
             ],
         },
         {
@@ -286,6 +318,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'aad9a5713d6828d3119b811b26915215',
+                '08ca1b1e6234a0d038e1fbf52478ea7f',
             ],
         },
         {
@@ -428,6 +461,17 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'b9e94e3713c82ebab002631bda872b94',
+            viewmodule: 'zentao',
+            viewname: 'StoryPlanSubGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3f2ca3e560d9082bb56fbf7667a57a66',
+                '4863a523ac490ebce771717756f0c6a8',
             ],
         },
         {

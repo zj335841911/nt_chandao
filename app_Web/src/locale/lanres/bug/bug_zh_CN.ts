@@ -60,6 +60,10 @@ export default {
     resolvedbuild: '解决版本',
   },
 	views: {
+		plansubgridview: {
+			caption: 'Bug',
+      title: 'Bug',
+		},
 		maindashboardview: {
 			caption: 'Bug',
       title: 'Bug',
@@ -94,6 +98,20 @@ export default {
 		},
 	},
 	main_grid: {
+		columns: {
+			id: 'Bug编号',
+			pri: 'P',
+			confirmed: '是否确认',
+			title: 'Bug标题',
+			status: 'Bug状态',
+			openedby: '由谁创建',
+			openeddate: '创建日期',
+			assignedto: '指派给',
+		},
+		uiactions: {
+		},
+	},
+	main_plansub_grid: {
 		columns: {
 			id: 'Bug编号',
 			pri: 'P',
@@ -236,6 +254,20 @@ export default {
 		tbitem22: {
 			caption: '帮助',
 			tip: '帮助',
+		},
+	},
+	plansubgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: '新建',
+			tip: '新建',
+		},
+		seperator1: {
+			caption: '',
+			tip: '',
+		},
+		deuiaction2: {
+			caption: '刷新',
+			tip: '刷新',
 		},
 	},
 };

@@ -1,15 +1,15 @@
 <template>
-<studio-view viewName="productplangridview" viewTitle="productplan表格视图" class='degridview product-plan-grid-view'>
+<studio-view viewName="bugplansubgridview" viewTitle="bug表格视图" class='degridview bug-plan-sub-grid-view'>
     <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
         <div class='toolbar-container'>
-            <i-button :title="$t('entities.productplan.gridviewtoolbar_toolbar.deuiaction1.tip')" v-show="toolBarModels.deuiaction1.visabled" :disabled="toolBarModels.deuiaction1.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1' }, $event)">
+            <i-button :title="$t('entities.bug.plansubgridviewtoolbar_toolbar.deuiaction1.tip')" v-show="toolBarModels.deuiaction1.visabled" :disabled="toolBarModels.deuiaction1.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1' }, $event)">
                     <i class='fa fa-plus'></i>
-                    <span class='caption'>{{$t('entities.productplan.gridviewtoolbar_toolbar.deuiaction1.caption')}}</span>
+                    <span class='caption'>{{$t('entities.bug.plansubgridviewtoolbar_toolbar.deuiaction1.caption')}}</span>
                 </i-button>
-            <span class='seperator'>|</span>    <i-button :title="$t('entities.productplan.gridviewtoolbar_toolbar.deuiaction2.tip')" v-show="toolBarModels.deuiaction2.visabled" :disabled="toolBarModels.deuiaction2.disabled" class='' @click="toolbar_click({ tag: 'deuiaction2' }, $event)">
+            <span class='seperator'>|</span>    <i-button :title="$t('entities.bug.plansubgridviewtoolbar_toolbar.deuiaction2.tip')" v-show="toolBarModels.deuiaction2.visabled" :disabled="toolBarModels.deuiaction2.disabled" class='' @click="toolbar_click({ tag: 'deuiaction2' }, $event)">
                     <i class='fa fa-refresh'></i>
-                    <span class='caption'>{{$t('entities.productplan.gridviewtoolbar_toolbar.deuiaction2.caption')}}</span>
+                    <span class='caption'>{{$t('entities.bug.plansubgridviewtoolbar_toolbar.deuiaction2.caption')}}</span>
                 </i-button>
         </div>
     </template>
@@ -47,7 +47,7 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { UIActionTool,Util } from '@/utils';
 import { Subject } from 'rxjs';
-import ProductPlanService from '@/service/product-plan/product-plan-service';
+import BugService from '@/service/bug/bug-service';
 
 import GridViewEngine from '@engine/view/grid-view-engine';
 
@@ -59,22 +59,22 @@ import CodeListService from "@service/app/codelist-service";
     components: {
     },
 })
-export default class ProductPlanGridViewBase extends Vue {
+export default class BugPlanSubGridViewBase extends Vue {
 
     /**
      * 实体服务对象
      *
-     * @type {ProductPlanService}
-     * @memberof ProductPlanGridViewBase
+     * @type {BugService}
+     * @memberof BugPlanSubGridViewBase
      */
-    public appEntityService: ProductPlanService = new ProductPlanService;
+    public appEntityService: BugService = new BugService;
 
 
     /**
      * 计数器服务对象集合
      *
      * @type {Array<*>}
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */    
     public counterServiceArray:Array<any> = [];
     
@@ -83,7 +83,7 @@ export default class ProductPlanGridViewBase extends Vue {
      *
      * @param {*} val
      * @returns {*}
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     @Emit() 
     public viewDatasChange(val: any):any {
@@ -94,7 +94,7 @@ export default class ProductPlanGridViewBase extends Vue {
      * 传入视图上下文
      *
      * @type {string}
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     @Prop() public viewdata!: string;
 
@@ -102,7 +102,7 @@ export default class ProductPlanGridViewBase extends Vue {
      * 传入视图参数
      *
      * @type {string}
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     @Prop() public viewparam!: string;
 
@@ -110,7 +110,7 @@ export default class ProductPlanGridViewBase extends Vue {
      * 视图默认使用
      *
      * @type {boolean}
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     @Prop({ default: true }) public viewDefaultUsage!: boolean;
 
@@ -118,15 +118,15 @@ export default class ProductPlanGridViewBase extends Vue {
 	 * 视图标识
 	 *
 	 * @type {string}
-	 * @memberof ProductPlanGridViewBase
+	 * @memberof BugPlanSubGridViewBase
 	 */
-	public viewtag: string = '81b0cee2fedff8f4902c0d735714e5af';
+	public viewtag: string = '07004de8a7d23e97b76460f888c8b290';
 
 	/**
 	 * 自定义视图导航上下文集合
 	 *
 	 * @type {*}
-	 * @memberof ProductPlanGridViewBase
+	 * @memberof BugPlanSubGridViewBase
 	 */
     public customViewNavContexts:any ={
     };
@@ -135,7 +135,7 @@ export default class ProductPlanGridViewBase extends Vue {
 	 * 自定义视图导航参数集合
 	 *
 	 * @type {*}
-	 * @memberof ProductPlanGridViewBase
+	 * @memberof BugPlanSubGridViewBase
 	 */
     public customViewParams:any ={
     };
@@ -144,12 +144,12 @@ export default class ProductPlanGridViewBase extends Vue {
      * 视图模型数据
      *
      * @type {*}
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     public model: any = {
-        srfCaption: 'entities.productplan.views.gridview.caption',
-        srfTitle: 'entities.productplan.views.gridview.title',
-        srfSubTitle: 'entities.productplan.views.gridview.subtitle',
+        srfCaption: 'entities.bug.views.plansubgridview.caption',
+        srfTitle: 'entities.bug.views.plansubgridview.title',
+        srfSubTitle: 'entities.bug.views.plansubgridview.subtitle',
         dataInfo: ''
     }
 
@@ -158,7 +158,7 @@ export default class ProductPlanGridViewBase extends Vue {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     @Watch('viewparam',{immediate: true, deep: true})
     onParamData(newVal: any, oldVal: any) {
@@ -176,7 +176,7 @@ export default class ProductPlanGridViewBase extends Vue {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     @Watch('viewdata')
     onViewData(newVal: any, oldVal: any) {
@@ -192,7 +192,7 @@ export default class ProductPlanGridViewBase extends Vue {
      * 容器模型
      *
      * @type {*}
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     public containerModel: any = {
         view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
@@ -202,7 +202,7 @@ export default class ProductPlanGridViewBase extends Vue {
     /**
      *  计数器刷新
      *
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     public counterRefresh(){
         const _this:any =this;
@@ -220,14 +220,14 @@ export default class ProductPlanGridViewBase extends Vue {
      *
      * @public
      * @type {Subject<{action: string, data: any}>}
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     public viewState: Subject<ViewState> = new Subject();
     /**
      * 工具栏模型
      *
      * @type {*}
-     * @memberof ProductPlanGridView
+     * @memberof BugPlanSubGridView
      */
     public toolBarModels: any = {
         deuiaction1: { name: 'deuiaction1', caption: '新建', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'New', target: '' } },
@@ -246,7 +246,7 @@ export default class ProductPlanGridViewBase extends Vue {
      *
      * @public
      * @type {Engine}
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     public engine: GridViewEngine = new GridViewEngine();
 
@@ -254,7 +254,7 @@ export default class ProductPlanGridViewBase extends Vue {
      * 引擎初始化
      *
      * @public
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     public engineInit(): void {
         this.engine.init({
@@ -266,7 +266,7 @@ export default class ProductPlanGridViewBase extends Vue {
                 this.newdata(args,fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
-            keyPSDEField: 'productplan',
+            keyPSDEField: 'bug',
             majorPSDEField: 'title',
             isLoadDefault: true,
         });
@@ -276,7 +276,7 @@ export default class ProductPlanGridViewBase extends Vue {
      * 应用上下文
      *
      * @type {*}
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     public context:any = {};
 
@@ -284,7 +284,7 @@ export default class ProductPlanGridViewBase extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     public viewparams:any = {};
 
@@ -292,7 +292,7 @@ export default class ProductPlanGridViewBase extends Vue {
      * 解析视图参数
      *
      * @public
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     public parseViewParam(): void {
         for(let key in this.context){
@@ -332,7 +332,7 @@ export default class ProductPlanGridViewBase extends Vue {
     /**
      * 处理自定义视图数据
      *
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
 	public handleCustomViewData(){
 		if(Object.keys(this.customViewNavContexts).length > 0){
@@ -356,7 +356,7 @@ export default class ProductPlanGridViewBase extends Vue {
     /**
      * 处理自定义视图数据逻辑
      *
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
 	public handleCustomDataLogic(curNavData:any,tempData:any,item:string){
 		// 直接值直接赋值
@@ -409,7 +409,7 @@ export default class ProductPlanGridViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     public created() {
         this.afterCreated();
@@ -418,7 +418,7 @@ export default class ProductPlanGridViewBase extends Vue {
     /**
      * 执行created后的逻辑
      *
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */    
     public afterCreated(){
         const secondtag = this.$util.createUUID();
@@ -442,7 +442,7 @@ export default class ProductPlanGridViewBase extends Vue {
     /**
      * 销毁之前
      *
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     public beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
@@ -451,7 +451,7 @@ export default class ProductPlanGridViewBase extends Vue {
     /**
      * Vue声明周期(组件初始化完毕)
      *
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     public mounted() {
         this.afterMounted();
@@ -460,7 +460,7 @@ export default class ProductPlanGridViewBase extends Vue {
     /**
      * 执行mounted后的逻辑
      * 
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     public afterMounted(){
         const _this: any = this;
@@ -478,7 +478,7 @@ export default class ProductPlanGridViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     public toolbar_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {
@@ -495,7 +495,7 @@ export default class ProductPlanGridViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     public grid_selectionchange($event: any, $event2?: any) {
         this.engine.onCtrlEvent('grid', 'selectionchange', $event);
@@ -507,7 +507,7 @@ export default class ProductPlanGridViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     public grid_beforeload($event: any, $event2?: any) {
         this.engine.onCtrlEvent('grid', 'beforeload', $event);
@@ -519,7 +519,7 @@ export default class ProductPlanGridViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     public grid_rowdblclick($event: any, $event2?: any) {
         this.engine.onCtrlEvent('grid', 'rowdblclick', $event);
@@ -531,7 +531,7 @@ export default class ProductPlanGridViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     public grid_remove($event: any, $event2?: any) {
         this.engine.onCtrlEvent('grid', 'remove', $event);
@@ -543,7 +543,7 @@ export default class ProductPlanGridViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     public grid_load($event: any, $event2?: any) {
         this.engine.onCtrlEvent('grid', 'load', $event);
@@ -577,7 +577,7 @@ export default class ProductPlanGridViewBase extends Vue {
           datas = [params];
         }
         // 界面行为
-        this.New(datas, contextJO,paramJO,  $event, xData,this,"ProductPlan");
+        this.New(datas, contextJO,paramJO,  $event, xData,this,"Bug");
     }
 
     /**
@@ -606,7 +606,7 @@ export default class ProductPlanGridViewBase extends Vue {
           datas = [params];
         }
         // 界面行为
-        this.Refresh(datas, contextJO,paramJO,  $event, xData,this,"ProductPlan");
+        this.Refresh(datas, contextJO,paramJO,  $event, xData,this,"Bug");
     }
 
     /**
@@ -617,7 +617,7 @@ export default class ProductPlanGridViewBase extends Vue {
      * @param {*} [fullargs]
      * @param {*} [$event]
      * @param {*} [xData]
-     * @memberof ProductPlanGridView
+     * @memberof BugPlanSubGridView
      */
     public newdata(args: any[],fullargs?:any[], params?: any, $event?: any, xData?: any) {
         const data: any = {};
@@ -635,29 +635,17 @@ export default class ProductPlanGridViewBase extends Vue {
             ]
         }
         const parameters: any[] = [
-            { pathName: 'productplans', parameterName: 'productplan' },
+            { pathName: 'bugs', parameterName: 'bug' },
+            { pathName: 'editview', parameterName: 'editview' },
         ];
         const _this: any = this;
-        const openDrawer = (view: any, data: any) => {
-            let container: Subject<any> = this.$appdrawer.openDrawer(view, curViewParam, data);
-            container.subscribe((result: any) => {
-                if (!result || !Object.is(result.ret, 'OK')) {
-                    return;
-                }
-                if (!xData || !(xData.refresh instanceof Function)) {
-                    return;
-                }
-                xData.refresh(result.datas);
-            });
+        const openIndexViewTab = (data: any) => {
+            const _data: any = { w: (new Date().getTime()) };
+            Object.assign(_data, data);
+            const routePath = this.$viewTool.buildUpRoutePath(this.$route, curViewParam, deResParameters, parameters, args, _data);
+            this.$router.push(routePath);
         }
-        const view: any = {
-            viewname: 'product-plan-edit-view', 
-            height: 0, 
-            width: 0,  
-            title: this.$t('entities.productplan.views.editview.title'),
-            placement: 'DRAWER_RIGHT',
-        };
-        openDrawer(view, data);
+        openIndexViewTab(data);
     }
 
 
@@ -669,7 +657,7 @@ export default class ProductPlanGridViewBase extends Vue {
      * @param {*} [fullargs]
      * @param {*} [$event]
      * @param {*} [xData]
-     * @memberof ProductPlanGridView
+     * @memberof BugPlanSubGridView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
         const data: any = {};
@@ -684,8 +672,8 @@ export default class ProductPlanGridViewBase extends Vue {
             ]
         }
         const parameters: any[] = [
-            { pathName: 'productplans', parameterName: 'productplan' },
-            { pathName: 'maintabexp', parameterName: 'maintabexp' },
+            { pathName: 'bugs', parameterName: 'bug' },
+            { pathName: 'editview', parameterName: 'editview' },
         ];
         const _this: any = this;
         const openIndexViewTab = (data: any) => {
@@ -705,7 +693,7 @@ export default class ProductPlanGridViewBase extends Vue {
      * @param {*} [$event] 事件源
      * @param {*} [xData]  执行行为所需当前部件
      * @param {*} [actionContext]  执行行为上下文
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     public New(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
          const _this: any = this;
@@ -725,7 +713,7 @@ export default class ProductPlanGridViewBase extends Vue {
      * @param {*} [$event] 事件源
      * @param {*} [xData]  执行行为所需当前部件
      * @param {*} [actionContext]  执行行为上下文
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     public Refresh(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         const _this: any = this;
@@ -740,7 +728,7 @@ export default class ProductPlanGridViewBase extends Vue {
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     public closeView(args: any[]): void {
         let _view: any = this;
@@ -755,7 +743,7 @@ export default class ProductPlanGridViewBase extends Vue {
     /**
      * 销毁视图回调
      *
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     public destroyed(){
         this.afterDestroyed();
@@ -764,7 +752,7 @@ export default class ProductPlanGridViewBase extends Vue {
     /**
      * 执行destroyed后的逻辑
      * 
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     public afterDestroyed(){
         if(this.viewDefaultUsage){
@@ -783,7 +771,7 @@ export default class ProductPlanGridViewBase extends Vue {
      * 是否单选
      *
      * @type {boolean}
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     public isSingleSelect: boolean = false;
 
@@ -792,7 +780,7 @@ export default class ProductPlanGridViewBase extends Vue {
     * 是否嵌入关系界面
     *
     * @type {boolean}
-    * @memberof ProductPlanGridViewBase
+    * @memberof BugPlanSubGridViewBase
     */
     @Prop({default:false}) public isformDruipart?: boolean;
 
@@ -800,7 +788,7 @@ export default class ProductPlanGridViewBase extends Vue {
     * 界面关系通讯对象
     *
     * @type {Subject<ViewState>}
-    * @memberof ProductPlanGridViewBase
+    * @memberof BugPlanSubGridViewBase
     */
     @Prop() public formDruipart?: Subject<ViewState>;
 
@@ -808,7 +796,7 @@ export default class ProductPlanGridViewBase extends Vue {
      * 搜索值
      *
      * @type {string}
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     public query: string = '';
 
@@ -816,7 +804,7 @@ export default class ProductPlanGridViewBase extends Vue {
      * 是否展开搜索表单
      *
      * @type {boolean}
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     public isExpandSearchForm: boolean = false;
 
@@ -827,7 +815,7 @@ export default class ProductPlanGridViewBase extends Vue {
      * 2 双击激活
      *
      * @type {(number | 0 | 1 | 2)}
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     public gridRowActiveMode: number | 0 | 1 | 2 = 2;
 
@@ -835,7 +823,7 @@ export default class ProductPlanGridViewBase extends Vue {
      * 快速搜索
      *
      * @param {*} $event
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     public onSearch($event: any): void {
         const grid: any = this.$refs.grid;
@@ -860,7 +848,7 @@ export default class ProductPlanGridViewBase extends Vue {
      *
      * @readonly
      * @type {(number | null)}
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     get refreshdata(): number | null {
         return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
@@ -872,7 +860,7 @@ export default class ProductPlanGridViewBase extends Vue {
      * @param {*} newVal
      * @param {*} oldVal
      * @returns
-     * @memberof ProductPlanGridViewBase
+     * @memberof BugPlanSubGridViewBase
      */
     @Watch('refreshdata')
     onRefreshData(newVal: any, oldVal: any) {
@@ -892,5 +880,5 @@ export default class ProductPlanGridViewBase extends Vue {
 </script>
 
 <style lang='less'>
-@import './product-plan-grid-view.less';
+@import './bug-plan-sub-grid-view.less';
 </style>

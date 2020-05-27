@@ -13,7 +13,11 @@ export default {
     product: '产品',
   },
 	views: {
-		main_editmode: {
+		maintabexp: {
+			caption: '产品计划',
+      title: '产品计划',
+		},
+		maineditview: {
 			caption: '产品计划',
       title: '产品计划',
 		},
@@ -24,6 +28,30 @@ export default {
 		editview: {
 			caption: '产品计划',
       title: '产品计划',
+		},
+	},
+	info_form: {
+		details: {
+			grouppanel1: '分组面板', 
+			group1: '基本信息', 
+			druipart1: '', 
+			grouppanel2: '分组面板', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			product: '产品', 
+			title: '名称', 
+			begin: '开始日期', 
+			end: '结束日期', 
+			desc: '描述', 
+			id: '编号', 
+		},
+		uiactions: {
 		},
 	},
 	main_form: {

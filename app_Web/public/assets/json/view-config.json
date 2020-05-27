@@ -19,6 +19,16 @@
         "viewtag": "03c110360a714011ed9c30b8207d3703",
         "memo": ""
     },
+    "bugplansubgridview": {
+        "title": "bug表格视图",
+        "caption": "Bug",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BugPlanSubGridView",
+        "viewfilename": "bug-plan-sub-grid-view",
+        "viewtag": "07004de8a7d23e97b76460f888c8b290",
+        "memo": ""
+    },
     "productliferoadmaplistview": {
         "title": "路线图",
         "caption": "产品生命周期",
@@ -29,13 +39,13 @@
         "viewtag": "07327890c326f9c806b9343f0c660fc1",
         "memo": "视图参数转换"
     },
-    "productplanmain_editmode": {
+    "productplanmaintabexp": {
         "title": "计划",
         "caption": "产品计划",
         "viewtype": "DETABEXPVIEW",
         "viewmodule": "zentao",
-        "viewname": "ProductPlanMain_EditMode",
-        "viewfilename": "product-plan-main-edit-mode",
+        "viewname": "ProductPlanMainTabExp",
+        "viewfilename": "product-plan-main-tab-exp",
         "viewtag": "08ca1b1e6234a0d038e1fbf52478ea7f",
         "memo": ""
     },
@@ -57,6 +67,16 @@
         "viewname": "BugMainDashboardView",
         "viewfilename": "bug-main-dashboard-view",
         "viewtag": "1540523a668e920d831510cfbec2c5e2",
+        "memo": ""
+    },
+    "productplanmaineditview": {
+        "title": "计划详情",
+        "caption": "产品计划",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "ProductPlanMainEditView",
+        "viewfilename": "product-plan-main-edit-view",
+        "viewtag": "17831eefddbb65ba3bda7534b8ef8d09",
         "memo": ""
     },
     "producttestdashboardview": {

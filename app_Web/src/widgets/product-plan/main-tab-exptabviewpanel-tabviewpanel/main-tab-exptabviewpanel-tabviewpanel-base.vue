@@ -1,0 +1,220 @@
+<template>
+  <div class='tabviewpanel' style="height:100%;" v-if = 'isActivied' >
+        <story-plan-sub-grid-view 
+      class='viewcontainer2' 
+      :viewdata="JSON.stringify(context)" 
+      :viewparam="JSON.stringify(viewparams)"
+      @viewload="viewDatasChange($event)" 
+      :viewDefaultUsage="false" >
+    </story-plan-sub-grid-view>
+  </div>
+</template>
+<script lang='tsx'>
+import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
+import { CreateElement } from 'vue';
+import { Subject, Subscription } from 'rxjs';
+import { ControlInterface } from '@/interface/control';
+import { UIActionTool,Util } from '@/utils';
+import ProductPlanService from '@/service/product-plan/product-plan-service';
+import MainTabExptabviewpanelService from './main-tab-exptabviewpanel-tabviewpanel-service';
+
+
+
+@Component({
+    components: {
+      
+    }
+})
+export default class MainTabExptabviewpanelBase extends Vue implements ControlInterface {
+
+    /**
+     * 名称
+     *
+     * @type {string}
+     * @memberof MainTabExptabviewpanel
+     */
+    @Prop() public name?: string;
+
+    /**
+     * 视图通讯对象
+     *
+     * @type {Subject<ViewState>}
+     * @memberof MainTabExptabviewpanel
+     */
+    @Prop() public viewState!: Subject<ViewState>;
+
+    /**
+     * 应用上下文
+     *
+     * @type {*}
+     * @memberof MainTabExptabviewpanel
+     */
+    @Prop() public context: any;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof MainTabExptabviewpanel
+     */
+    @Prop() public viewparams: any;
+
+    /**
+     * 视图状态事件
+     *
+     * @public
+     * @type {(Subscription | undefined)}
+     * @memberof MainTabExptabviewpanel
+     */
+    public viewStateEvent: Subscription | undefined;
+
+    /**
+     * 获取部件类型
+     *
+     * @returns {string}
+     * @memberof MainTabExptabviewpanel
+     */
+    public getControlType(): string {
+        return 'TABVIEWPANEL'
+    }
+
+
+
+    /**
+     * 建构部件服务对象
+     *
+     * @type {MainTabExptabviewpanelService}
+     * @memberof MainTabExptabviewpanel
+     */
+    public service: MainTabExptabviewpanelService = new MainTabExptabviewpanelService({ $store: this.$store });
+
+    /**
+     * 实体服务对象
+     *
+     * @type {ProductPlanService}
+     * @memberof MainTabExptabviewpanel
+     */
+    public appEntityService: ProductPlanService = new ProductPlanService({ $store: this.$store });
+    
+
+
+    /**
+     * 关闭视图
+     *
+     * @param {any} args
+     * @memberof MainTabExptabviewpanel
+     */
+    public closeView(args: any): void {
+        let _this: any = this;
+        _this.$emit('closeview', [args]);
+    }
+
+    /**
+     *  计数器刷新
+     *
+     * @memberof MainTabExptabviewpanel
+     */
+    public counterRefresh(){
+        const _this:any =this;
+        if(_this.counterServiceArray && _this.counterServiceArray.length >0){
+            _this.counterServiceArray.forEach((item:any) =>{
+                if(item.refreshData && item.refreshData instanceof Function){
+                    item.refreshData();
+                }
+            })
+        }
+    }
+
+
+ /**
+     * 获取多项数据
+     *
+     * @returns {any[]}
+     * @memberof MainTabExptabviewpanel
+     */
+    public getDatas(): any[] {
+        return [];
+    }
+
+    /**
+     * 获取单项树
+     *
+     * @returns {*}
+     * @memberof MainTabExptabviewpanel
+     */
+    public getData(): any {
+        return null;
+    }
+
+    /**
+     * 是否被激活
+     *
+     * @type {boolean}
+     * @memberof MainTabExptabviewpanel
+     */
+    public isActivied: boolean = true;
+             
+    /**
+     * vue 生命周期
+     *
+     * @returns
+     * @memberof MainTabExptabviewpanel
+     */
+    public created() {
+        this.afterCreated();
+    }
+
+    /**
+     * 执行created后的逻辑
+     *
+     *  @memberof MainTabExptabviewpanel
+     */    
+    public afterCreated(){
+        if (this.viewState) {
+            this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
+                if (!Object.is(tag, this.name)) {
+                    return;
+                }
+                this.$forceUpdate();
+
+            });
+        }
+    }
+
+    /**
+     * 视图数据变化
+     *
+     * @memberof  MainTabExptabviewpanel
+     */
+    public viewDatasChange($event:any){
+        this.$emit('viewpanelDatasChange',$event);
+    }
+
+    /**
+     * vue 生命周期
+     *
+     * @memberof MainTabExptabviewpanel
+     */
+    public destroyed() {
+        this.afterDestroy();
+    }
+
+    /**
+     * 执行destroyed后的逻辑
+     *
+     * @memberof MainTabExptabviewpanel
+     */
+    public afterDestroy() {
+        if (this.viewStateEvent) {
+            this.viewStateEvent.unsubscribe();
+        }
+    }
+
+
+
+}
+</script>
+
+<style lang='less'>
+@import './main-tab-exptabviewpanel-tabviewpanel.less';
+</style>
