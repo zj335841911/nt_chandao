@@ -31,6 +31,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductLifeRoadMapListView",
             "viewtag": "07327890c326f9c806b9343f0c660fc1"
         },
+        "productplanmain_editmode": {
+            "title": "计划",
+            "caption": "产品计划",
+            "viewtype": "DETABEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProductPlanMain_EditMode",
+            "viewtag": "08ca1b1e6234a0d038e1fbf52478ea7f"
+        },
         "projecttasktreeexpview": {
             "title": "项目任务导航视图",
             "caption": "项目",
@@ -126,14 +134,6 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "StoryEditView",
             "viewtag": "4863a523ac490ebce771717756f0c6a8"
-        },
-        "productplaneditview_newmode": {
-            "title": "productplan编辑视图",
-            "caption": "产品计划",
-            "viewtype": "DEEDITVIEW",
-            "viewmodule": "zentao",
-            "viewname": "ProductPlanEditView_NewMode",
-            "viewtag": "4bd9f30e47b4e0015ded5bd3f7b84b28"
         },
         "projectcurproductgridview": {
             "title": "project表格视图",

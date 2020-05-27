@@ -249,7 +249,7 @@ export default class GetRoadmapYearBase extends Vue implements ControlInterface 
      * @type {string}
      * @memberof GetRoadmapYear
      */    
-    public sortDir:string = 'asc';
+    public sortDir:string = 'desc';
 
     /**
      * 排序字段
@@ -257,7 +257,7 @@ export default class GetRoadmapYearBase extends Vue implements ControlInterface 
      * @type {string}
      * @memberof GetRoadmapYear
      */    
-    public sortField: string = 'begin';
+    public sortField: string = 'year';
 
     /**
      * 选中数组

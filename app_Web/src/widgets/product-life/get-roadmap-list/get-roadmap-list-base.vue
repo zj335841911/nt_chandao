@@ -249,7 +249,7 @@ export default class GetRoadmapBase extends Vue implements ControlInterface {
      * @type {string}
      * @memberof GetRoadmap
      */    
-    public sortDir:string = 'asc';
+    public sortDir:string = 'desc';
 
     /**
      * 排序字段
@@ -257,7 +257,7 @@ export default class GetRoadmapBase extends Vue implements ControlInterface {
      * @type {string}
      * @memberof GetRoadmap
      */    
-    public sortField: string = 'begin';
+    public sortField: string = 'year';
 
     /**
      * 选中数组
