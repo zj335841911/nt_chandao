@@ -95,7 +95,7 @@ export default class ZentaoBase extends Vue {
     }
     
     /**
-     * 项目(测试菜单)
+     * 打开产品主页
      *
      * @param {*} [item={}]
      * @memberof Zentao
@@ -105,8 +105,7 @@ export default class ZentaoBase extends Vue {
         Object.assign(viewparam, {});
         const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'products', parameterName: 'product' },
-            { pathName: 'gridview', parameterName: 'gridview' },
+            { pathName: 'productportalview', parameterName: 'productportalview' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
         this.$router.push(path);

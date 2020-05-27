@@ -49,7 +49,7 @@ export default class ZentaoModel {
                 	textcls: '',
                 	appfunctag: 'Auto1',
                 	appfuncyype: 'APPVIEW',
-                	viewname: 'product-grid-view',
+                	viewname: 'product-portal-view',
                 	resourcetag: '',
                 }
                 ,
@@ -249,12 +249,11 @@ export default class ZentaoModel {
             appfunctag: 'Auto1',
             appfuncyype: 'APPVIEW',
             openmode: '',
-            codename: 'productgridview',
+            codename: 'productportalview',
             deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/products/:product?/gridview/:gridview?',
+            routepath: '/ibizpms/:ibizpms?/productportalview/:productportalview?',
             parameters: [
-                { pathName: 'products', parameterName: 'product' },
-                { pathName: 'gridview', parameterName: 'gridview' },
+                { pathName: 'productportalview', parameterName: 'productportalview' },
             ],
         },
         {

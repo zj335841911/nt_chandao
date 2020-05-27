@@ -22,6 +22,10 @@ export default {
   },
 	views: {
 		testtabexpview: {
+			caption: '测试',
+      title: '测试',
+		},
+		expeditview: {
 			caption: '产品',
       title: '产品',
 		},
@@ -33,6 +37,14 @@ export default {
 			caption: '产品',
       title: '产品',
 		},
+		chartview: {
+			caption: '产品总览',
+      title: '产品总览',
+		},
+		gridview_unclosed: {
+			caption: '未关闭产品',
+      title: '未关闭产品',
+		},
 		storytreeexpview: {
 			caption: '产品',
       title: '产品',
@@ -40,6 +52,10 @@ export default {
 		maintabexpview: {
 			caption: '产品',
       title: '产品',
+		},
+		bugleftsidebarlistview: {
+			caption: '测试',
+      title: '测试',
 		},
 		gridview: {
 			caption: '产品',
@@ -60,6 +76,10 @@ export default {
 		editview: {
 			caption: '产品',
       title: '产品',
+		},
+		listexpview: {
+			caption: '产品统计',
+      title: '产品统计',
 		},
 		bugtreeexpview: {
 			caption: '产品',
@@ -172,15 +192,7 @@ export default {
 			tip: '导出数据模型',
 		},
 	},
-	leftsidebarlistviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: '新建',
-			tip: '新建',
-		},
-		seperator1: {
-			caption: '',
-			tip: '',
-		},
+	bugleftsidebarlistviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: '刷新',
 			tip: '刷新',
@@ -252,6 +264,34 @@ export default {
 		tbitem18: {
 			caption: '帮助',
 			tip: '帮助',
+		},
+	},
+	leftsidebarlistviewtoolbar_toolbar: {
+		deuiaction3_manager: {
+			caption: '管理',
+			tip: '管理',
+		},
+		seperator2: {
+			caption: '',
+			tip: '',
+		},
+		deuiaction1: {
+			caption: '新建',
+			tip: '新建',
+		},
+		seperator1: {
+			caption: '',
+			tip: '',
+		},
+		deuiaction2: {
+			caption: '刷新',
+			tip: '刷新',
+		},
+	},
+	listexpviewlistexpbar_list_quicktoolbar_toolbar: {
+		deuiaction1: {
+			caption: '新建',
+			tip: '新建',
 		},
 	},
 };

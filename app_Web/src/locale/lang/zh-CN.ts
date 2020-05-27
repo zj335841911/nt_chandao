@@ -1,9 +1,11 @@
 import productplan_zh_CN from '@locale/lanres/product-plan/product-plan_zh_CN';
 import projectproduct_zh_CN from '@locale/lanres/project-product/project-product_zh_CN';
+import case_zh_CN from '@locale/lanres/case/case_zh_CN';
 import product_zh_CN from '@locale/lanres/product/product_zh_CN';
 import storyspec_zh_CN from '@locale/lanres/story-spec/story-spec_zh_CN';
 import branch_zh_CN from '@locale/lanres/branch/branch_zh_CN';
 import action_zh_CN from '@locale/lanres/action/action_zh_CN';
+import casestep_zh_CN from '@locale/lanres/case-step/case-step_zh_CN';
 import story_zh_CN from '@locale/lanres/story/story_zh_CN';
 import project_zh_CN from '@locale/lanres/project/project_zh_CN';
 import history_zh_CN from '@locale/lanres/history/history_zh_CN';
@@ -13,6 +15,7 @@ import module_zh_CN from '@locale/lanres/module/module_zh_CN';
 import productlife_zh_CN from '@locale/lanres/product-life/product-life_zh_CN';
 import task_zh_CN from '@locale/lanres/task/task_zh_CN';
 import build_zh_CN from '@locale/lanres/build/build_zh_CN';
+import testtask_zh_CN from '@locale/lanres/test-task/test-task_zh_CN';
 import bug_zh_CN from '@locale/lanres/bug/bug_zh_CN';
 import ibzdoc_zh_CN from '@locale/lanres/ibz-doc/ibz-doc_zh_CN';
 import release_zh_CN from '@locale/lanres/release/release_zh_CN';
@@ -65,6 +68,10 @@ export default {
                 caption: 'iBiz项目管理',
                 title: 'iBiz项目管理',
             },
+            productportalview: {
+                caption: '',
+                title: '',
+            },
         },
         utilview:{
             importview:"导入数据",
@@ -88,10 +95,12 @@ export default {
     entities: {
         productplan: productplan_zh_CN,
         projectproduct: projectproduct_zh_CN,
+        case: case_zh_CN,
         product: product_zh_CN,
         storyspec: storyspec_zh_CN,
         branch: branch_zh_CN,
         action: action_zh_CN,
+        casestep: casestep_zh_CN,
         story: story_zh_CN,
         project: project_zh_CN,
         history: history_zh_CN,
@@ -101,6 +110,7 @@ export default {
         productlife: productlife_zh_CN,
         task: task_zh_CN,
         build: build_zh_CN,
+        testtask: testtask_zh_CN,
         bug: bug_zh_CN,
         ibzdoc: ibzdoc_zh_CN,
         release: release_zh_CN,

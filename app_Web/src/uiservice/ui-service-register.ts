@@ -41,10 +41,12 @@ export class UIServiceRegister {
     protected init(): void {
                 this.allUIService.set('productplan', () => import('@/uiservice/product-plan/product-plan-ui-service'));
         this.allUIService.set('projectproduct', () => import('@/uiservice/project-product/project-product-ui-service'));
+        this.allUIService.set('case', () => import('@/uiservice/case/case-ui-service'));
         this.allUIService.set('product', () => import('@/uiservice/product/product-ui-service'));
         this.allUIService.set('storyspec', () => import('@/uiservice/story-spec/story-spec-ui-service'));
         this.allUIService.set('branch', () => import('@/uiservice/branch/branch-ui-service'));
         this.allUIService.set('action', () => import('@/uiservice/action/action-ui-service'));
+        this.allUIService.set('casestep', () => import('@/uiservice/case-step/case-step-ui-service'));
         this.allUIService.set('story', () => import('@/uiservice/story/story-ui-service'));
         this.allUIService.set('project', () => import('@/uiservice/project/project-ui-service'));
         this.allUIService.set('history', () => import('@/uiservice/history/history-ui-service'));
@@ -54,6 +56,7 @@ export class UIServiceRegister {
         this.allUIService.set('productlife', () => import('@/uiservice/product-life/product-life-ui-service'));
         this.allUIService.set('task', () => import('@/uiservice/task/task-ui-service'));
         this.allUIService.set('build', () => import('@/uiservice/build/build-ui-service'));
+        this.allUIService.set('testtask', () => import('@/uiservice/test-task/test-task-ui-service'));
         this.allUIService.set('bug', () => import('@/uiservice/bug/bug-ui-service'));
         this.allUIService.set('ibzdoc', () => import('@/uiservice/ibz-doc/ibz-doc-ui-service'));
         this.allUIService.set('release', () => import('@/uiservice/release/release-ui-service'));

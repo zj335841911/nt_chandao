@@ -1,9 +1,11 @@
 import productplan_en_US from '@locale/lanres/product-plan/product-plan_en_US';
 import projectproduct_en_US from '@locale/lanres/project-product/project-product_en_US';
+import case_en_US from '@locale/lanres/case/case_en_US';
 import product_en_US from '@locale/lanres/product/product_en_US';
 import storyspec_en_US from '@locale/lanres/story-spec/story-spec_en_US';
 import branch_en_US from '@locale/lanres/branch/branch_en_US';
 import action_en_US from '@locale/lanres/action/action_en_US';
+import casestep_en_US from '@locale/lanres/case-step/case-step_en_US';
 import story_en_US from '@locale/lanres/story/story_en_US';
 import project_en_US from '@locale/lanres/project/project_en_US';
 import history_en_US from '@locale/lanres/history/history_en_US';
@@ -13,6 +15,7 @@ import module_en_US from '@locale/lanres/module/module_en_US';
 import productlife_en_US from '@locale/lanres/product-life/product-life_en_US';
 import task_en_US from '@locale/lanres/task/task_en_US';
 import build_en_US from '@locale/lanres/build/build_en_US';
+import testtask_en_US from '@locale/lanres/test-task/test-task_en_US';
 import bug_en_US from '@locale/lanres/bug/bug_en_US';
 import ibzdoc_en_US from '@locale/lanres/ibz-doc/ibz-doc_en_US';
 import release_en_US from '@locale/lanres/release/release_en_US';
@@ -65,6 +68,10 @@ export default {
                 caption: 'iBiz项目管理',
                 title: 'iBiz项目管理',
             },
+            productportalview: {
+                caption: '',
+                title: '',
+            },
         },
         utilview:{
             importview:"Import Data",
@@ -88,10 +95,12 @@ export default {
     entities: {
         productplan: productplan_en_US,
         projectproduct: projectproduct_en_US,
+        case: case_en_US,
         product: product_en_US,
         storyspec: storyspec_en_US,
         branch: branch_en_US,
         action: action_en_US,
+        casestep: casestep_en_US,
         story: story_en_US,
         project: project_en_US,
         history: history_en_US,
@@ -101,6 +110,7 @@ export default {
         productlife: productlife_en_US,
         task: task_en_US,
         build: build_en_US,
+        testtask: testtask_en_US,
         bug: bug_en_US,
         ibzdoc: ibzdoc_en_US,
         release: release_en_US,

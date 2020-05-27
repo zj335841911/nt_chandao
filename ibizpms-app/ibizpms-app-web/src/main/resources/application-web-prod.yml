@@ -11,6 +11,10 @@ zuul:
       path: /projectproducts/**
       serviceId: pms-webapi
       stripPrefix: false
+    zt_case:
+      path: /cases/**
+      serviceId: pms-webapi
+      stripPrefix: false
     zt_product:
       path: /products/**
       serviceId: pms-webapi
@@ -25,6 +29,10 @@ zuul:
       stripPrefix: false
     zt_action:
       path: /actions/**
+      serviceId: pms-webapi
+      stripPrefix: false
+    zt_casestep:
+      path: /casesteps/**
       serviceId: pms-webapi
       stripPrefix: false
     zt_story:
@@ -61,6 +69,10 @@ zuul:
       stripPrefix: false
     zt_build:
       path: /builds/**
+      serviceId: pms-webapi
+      stripPrefix: false
+    zt_testtask:
+      path: /testtasks/**
       serviceId: pms-webapi
       stripPrefix: false
     zt_bug:
