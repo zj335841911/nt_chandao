@@ -36,6 +36,7 @@ public interface IProductLifeService{
     void removeBatch(Collection<String> idList) ;
     Page<ProductLife> searchGetRoadmap(ProductLifeSearchContext context) ;
     Page<ProductLife> searchDefault(ProductLifeSearchContext context) ;
+    Page<ProductLife> searchRoadMapYear(ProductLifeSearchContext context) ;
 
 }
 

@@ -8,7 +8,7 @@
         createAction="Create"
         removeAction="Remove"
         updateAction="Update"
-        fetchAction="FetchGetRoadmap"
+        fetchAction="FetchRoadMapYear"
         :showBusyIndicator="true"
         name="list"  
         ref='list' 
@@ -172,6 +172,7 @@ export default class ProductLifeRoadMapListViewBase extends Vue {
      * @memberof ProductLifeRoadMapListViewBase
      */
     public containerModel: any = {
+        view_list2: { name: 'list2', type: 'LIST' },
         view_list: { name: 'list', type: 'LIST' },
     };
 

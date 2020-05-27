@@ -115,6 +115,14 @@ public class ProductLifeServiceImpl implements IProductLifeService {
         return new PageImpl<ProductLife>(new ArrayList(),context.getPageable(),0);
     }
 
+    /**
+     * 查询集合 RoadMapYear
+     */
+    @Override
+    public Page<ProductLife> searchRoadMapYear(ProductLifeSearchContext context) {
+        return new PageImpl<ProductLife>(new ArrayList(),context.getPageable(),0);
+    }
+
 
 }
 

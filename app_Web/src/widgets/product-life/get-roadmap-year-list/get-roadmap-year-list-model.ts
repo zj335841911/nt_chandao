@@ -1,49 +1,49 @@
 /**
- * GetRoadmap 部件模型
+ * GetRoadmapYear 部件模型
  *
  * @export
- * @class GetRoadmapModel
+ * @class GetRoadmapYearModel
  */
-export default class GetRoadmapModel {
+export default class GetRoadmapYearModel {
 
 	/**
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof GetRoadmapListMode
+	 * @memberof GetRoadmapYearListMode
 	 */
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'product',
-			},
-			{
 				name: 'year',
-			},
-			{
-				name: 'parent',
-			},
-			{
-				name: 'ibz_productlifeid',
-			},
-			{
-				name: 'type',
-			},
-			{
-				name: 'end',
-			},
-			{
-				name: 'begin',
 			},
 			{
 				name: 'marker',
         codelist:{tag:'YesNo3',codelistType:'STATIC'},
 			},
 			{
-				name: 'branch',
+				name: 'ibz_productlifename',
 			},
 			{
-				name: 'ibz_productlifename',
+				name: 'end',
+			},
+			{
+				name: 'type',
+			},
+			{
+				name: 'parent',
+			},
+			{
+				name: 'begin',
+			},
+			{
+				name: 'product',
+			},
+			{
+				name: 'ibz_productlifeid',
+			},
+			{
+				name: 'branch',
 			},
       {
         name:'size',
