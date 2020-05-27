@@ -109,6 +109,7 @@ export default class ProductPlanMainEditViewBase extends Vue {
 	 * @memberof ProductPlanMainEditViewBase
 	 */
     public customViewNavContexts:any ={
+    "OBJECTTYPE":{"isRawValue":true,"value":"productplan"}
     };
 
 	/**
