@@ -2,30 +2,7 @@
 <template>
   <div class='tabviewpanel' style="height:100%;">
         <tabs :value="activiedTabViewPanel" :animated="false" class='tabexppanel' name='maintabexptabexppanel' @on-click="tabPanelClick">
-        <tab-pane :index="0" name='tabviewpanel3' tab='maintabexptabexppanel' class=''  
-            :label="(h) =>{
-                return h('div', [
-                    h('span', '计划详情'),
-                    h('Badge', {
-                        props: {
-                            count: undefined,
-                            type: 'primary'
-                        }
-                    })
-                ])
-            }" >
-            <view_tabviewpanel3 
-    :viewState="viewState"  
-    :viewparams="viewparams" 
-    :context="context" 
-v-if="isInit.tabviewpanel3"
-@viewpanelDatasChange = "tabViewPanelDatasChange"
-    name="tabviewpanel3"  
-    ref='tabviewpanel3' 
-    @closeview="closeView($event)">
-</view_tabviewpanel3>
-        </tab-pane>
-        <tab-pane :index="1" name='tabviewpanel' tab='maintabexptabexppanel' class=''  
+        <tab-pane :index="0" name='tabviewpanel' tab='maintabexptabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '需求'),
@@ -48,7 +25,7 @@ v-if="isInit.tabviewpanel"
     @closeview="closeView($event)">
 </view_tabviewpanel>
         </tab-pane>
-        <tab-pane :index="2" name='tabviewpanel2' tab='maintabexptabexppanel' class=''  
+        <tab-pane :index="1" name='tabviewpanel2' tab='maintabexptabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', 'Bug'),
@@ -70,6 +47,29 @@ v-if="isInit.tabviewpanel2"
     ref='tabviewpanel2' 
     @closeview="closeView($event)">
 </view_tabviewpanel2>
+        </tab-pane>
+        <tab-pane :index="2" name='tabviewpanel3' tab='maintabexptabexppanel' class=''  
+            :label="(h) =>{
+                return h('div', [
+                    h('span', '计划详情'),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel3 
+    :viewState="viewState"  
+    :viewparams="viewparams" 
+    :context="context" 
+v-if="isInit.tabviewpanel3"
+@viewpanelDatasChange = "tabViewPanelDatasChange"
+    name="tabviewpanel3"  
+    ref='tabviewpanel3' 
+    @closeview="closeView($event)">
+</view_tabviewpanel3>
         </tab-pane>
     </tabs>
   </div>
@@ -205,9 +205,9 @@ export default class MainTabExptabexppanelBase extends Vue implements ControlInt
      * @memberof MainTabExptabexppanel
      */
     public isInit: any = {
-        tabviewpanel3:  true ,
-        tabviewpanel:  false ,
+        tabviewpanel:  true ,
         tabviewpanel2:  false ,
+        tabviewpanel3:  false ,
     }
 
     /**
@@ -245,7 +245,7 @@ export default class MainTabExptabexppanelBase extends Vue implements ControlInt
      * @type {string}
      * @memberof MainTabExptabexppanel
      */
-    public activiedTabViewPanel: string = 'tabviewpanel3';
+    public activiedTabViewPanel: string = 'tabviewpanel';
 
     /**
      * 分页视图面板数据变更
