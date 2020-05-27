@@ -127,7 +127,7 @@ export default {
 			code: '项目代号', 
 			end: '结束日期', 
 			begin: '开始时间', 
-			formitemex1: '', 
+			formitemex1: '项目周期', 
 			days: '可用工作日', 
 			team: '团队名称', 
 			type: '项目类型', 

@@ -504,10 +504,10 @@ export default class MainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '开始时间 值不能为空', trigger: 'blur' },
         ],
         formitemex1: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
+            { type: 'string', message: '项目周期 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '项目周期 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '项目周期 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '项目周期 值不能为空', trigger: 'blur' },
         ],
         days: [
             { type: 'number', message: '可用工作日 值必须为数值类型', trigger: 'change' },
@@ -594,7 +594,7 @@ export default class MainBase extends Vue implements ControlInterface {
 , 
         begin: new FormItemModel({ caption: '开始时间', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        formitemex1: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        formitemex1: new FormItemModel({ caption: '项目周期', detailType: 'FORMITEM', name: 'formitemex1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         days: new FormItemModel({ caption: '可用工作日', detailType: 'FORMITEM', name: 'days', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
