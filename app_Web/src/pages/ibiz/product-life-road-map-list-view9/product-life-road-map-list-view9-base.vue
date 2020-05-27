@@ -115,6 +115,7 @@ export default class ProductLifeRoadMapListView9Base extends Vue {
 	 * @memberof ProductLifeRoadMapListView9Base
 	 */
     public customViewParams:any ={
+    "product":{"isRawValue":false,"value":"srfparentkey"}
     };
 
     /**
