@@ -100,7 +100,6 @@ export default class MainModel {
           name: 'story',
           prop: 'id',
         },
-
         {
           name:'size',
           prop:'size'
