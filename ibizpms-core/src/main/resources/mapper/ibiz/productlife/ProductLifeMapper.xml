@@ -47,6 +47,7 @@
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
        <![CDATA[	SELECT t1.`BEGIN`, t1.`BRANCH`, t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`END`, t1.`IBZ_PRODUCTLIFEID`, t1.`IBZ_PRODUCTLIFENAME`, t1.`MARKER`, t1.`PARENT`, t1.`PRODUCT`, t1.`TYPE`, t1.`UPDATEDATE`, t1.`UPDATEMAN`, t1.`YEAR` FROM `T_IBZ_PRODUCTLIFE` t1  
+				 WHERE 	( t1.`PRODUCT` = #{srf.datacontext.product}  AND  <#assign _value=srfdatacontext('branch','{\"ignoreempty\":true,\"defname\":\"BRANCH\",\"dename\":\"IBZ_PRODUCTLIFE\"}')><#if _value?length gt 0>t1.`BRANCH` =  ${_value}<#else>1=1</#if>  AND  t1.`PARENT` <> '-1' )
 			]]>
     </sql>
 
