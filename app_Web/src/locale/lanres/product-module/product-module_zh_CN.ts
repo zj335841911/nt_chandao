@@ -91,18 +91,18 @@ export default {
 		uiactions: {
 		},
 	},
-	taskexp_treeview: {
+	exp_treeview: {
 		nodes: {
 			all: '所有模块',
+			branch: '平台',
 			root: '默认根节点',
 		},
 		uiactions: {
 		},
 	},
-	exp_treeview: {
+	taskexp_treeview: {
 		nodes: {
 			all: '所有模块',
-			branch: '平台',
 			root: '默认根节点',
 		},
 		uiactions: {

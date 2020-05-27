@@ -25,6 +25,9 @@ export default {
         'bydesign': '设计如此',
         empty: '',
     },
+    UserRealName: {
+        empty: '',
+    },
     Task__type: {
         'design': '设计',
         'devel': '开发',

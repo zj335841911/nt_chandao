@@ -158,31 +158,7 @@ export default {
 		uiactions: {
 		},
 	},
-	leftsidebarlistviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: '新建',
-			tip: '新建',
-		},
-		seperator1: {
-			caption: '',
-			tip: '',
-		},
-		deuiaction2: {
-			caption: '刷新',
-			tip: '刷新',
-		},
-	},
-	editviewtoolbar_toolbar: {
-		deuiaction2: {
-			caption: '保存',
-			tip: '保存',
-		},
-		deuiaction1: {
-			caption: '保存并关闭',
-			tip: '保存并关闭',
-		},
-	},
-	gridviewtoolbar_toolbar: {
+	curproductgridviewtoolbar_toolbar: {
 		tbitem3: {
 			caption: '新建',
 			tip: '新建',
@@ -240,7 +216,31 @@ export default {
 			tip: '帮助',
 		},
 	},
-	curproductgridviewtoolbar_toolbar: {
+	editviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: '保存',
+			tip: '保存',
+		},
+		deuiaction1: {
+			caption: '保存并关闭',
+			tip: '保存并关闭',
+		},
+	},
+	leftsidebarlistviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: '新建',
+			tip: '新建',
+		},
+		seperator1: {
+			caption: '',
+			tip: '',
+		},
+		deuiaction2: {
+			caption: '刷新',
+			tip: '刷新',
+		},
+	},
+	gridviewtoolbar_toolbar: {
 		tbitem3: {
 			caption: '新建',
 			tip: '新建',

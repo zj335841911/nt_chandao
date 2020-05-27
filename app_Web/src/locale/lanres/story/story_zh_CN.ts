@@ -67,6 +67,10 @@ export default {
 			caption: '需求',
       title: '需求',
 		},
+		plansubgridview: {
+			caption: '需求',
+      title: '需求',
+		},
 		main2gridview: {
 			caption: '需求',
       title: '需求',
@@ -187,6 +191,16 @@ export default {
 		uiactions: {
 		},
 	},
+	main_plansub_grid: {
+		columns: {
+			id: 'ID',
+			pri: 'P',
+			title: '需求名称',
+			modulename: '所属模块名称',
+		},
+		uiactions: {
+		},
+	},
 	main_grid: {
 		columns: {
 			id: 'ID',
@@ -213,6 +227,30 @@ export default {
 		uiactions: {
 		},
 	},
+	plansubgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: '新建',
+			tip: '新建',
+		},
+		seperator1: {
+			caption: '',
+			tip: '',
+		},
+		deuiaction2: {
+			caption: '刷新',
+			tip: '刷新',
+		},
+	},
+	editviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: '保存',
+			tip: '保存',
+		},
+		deuiaction1: {
+			caption: '保存并关闭',
+			tip: '保存并关闭',
+		},
+	},
 	maingridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: '新建',
@@ -225,16 +263,6 @@ export default {
 		deuiaction2: {
 			caption: '编辑',
 			tip: '编辑',
-		},
-	},
-	editviewtoolbar_toolbar: {
-		deuiaction2: {
-			caption: '保存',
-			tip: '保存',
-		},
-		deuiaction1: {
-			caption: '保存并关闭',
-			tip: '保存并关闭',
 		},
 	},
 	main2gridviewtoolbar_toolbar: {

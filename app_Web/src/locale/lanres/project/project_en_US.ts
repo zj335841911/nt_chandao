@@ -159,31 +159,7 @@ export default {
 		uiactions: {
 		},
 	},
-	leftsidebarlistviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-	},
-	editviewtoolbar_toolbar: {
-		deuiaction2: {
-			caption: "Save",
-			tip: "Save",
-		},
-		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
-		},
-	},
-	gridviewtoolbar_toolbar: {
+	curproductgridviewtoolbar_toolbar: {
 		tbitem3: {
 			caption: "New",
 			tip: "New",
@@ -241,7 +217,31 @@ export default {
 			tip: "Help",
 		},
 	},
-	curproductgridviewtoolbar_toolbar: {
+	editviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "Save",
+			tip: "Save",
+		},
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+	},
+	leftsidebarlistviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "New",
+			tip: "New",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
+	gridviewtoolbar_toolbar: {
 		tbitem3: {
 			caption: "New",
 			tip: "New",

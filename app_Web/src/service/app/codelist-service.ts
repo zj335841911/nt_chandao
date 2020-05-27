@@ -1,3 +1,4 @@
+import UserRealName from '@/codelist/user-real-name';   
 import { Store } from 'vuex';
 
 /**
@@ -40,6 +41,14 @@ export default class CodeListService {
      */
     public static codelistCache:Map<string,any> = new Map();
 
+
+    /**
+     * 代码表--用户真实名称（动态）
+     *
+     * @type {UserRealName}
+     * @memberof CodeListService
+     */
+    public UserRealName: UserRealName = new UserRealName();
 
     /**
      * 获取动态代码表

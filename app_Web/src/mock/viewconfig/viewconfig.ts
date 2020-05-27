@@ -367,6 +367,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductDashboardInfoMainView9",
             "viewtag": "b5d2389c0dd12ae614b319090ecc2361"
         },
+        "storyplansubgridview": {
+            "title": "story表格视图",
+            "caption": "需求",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryPlanSubGridView",
+            "viewtag": "b9e94e3713c82ebab002631bda872b94"
+        },
         "productmaindashboardview": {
             "title": "产品数据看板视图",
             "caption": "产品",
