@@ -17,17 +17,36 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 
-import cn.ibizlab.pms.util.filter.SearchContextBase;
-
+import cn.ibizlab.pms.util.filter.QueryWrapperContext;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import cn.ibizlab.pms.core.ibiz.domain.ProductLife;
 /**
- * ServiceApi数据实体[ProductLife] 查询条件对象
+ * 关系型数据实体[ProductLife] 查询条件对象
  */
 @Slf4j
 @Data
-public class ProductLifeSearchContext extends SearchContextBase {
-	private String n_ibz_productlifename_like;//[产品生命周期名称]
+public class ProductLifeSearchContext extends QueryWrapperContext<ProductLife> {
 
+	private String n_ibz_productlifename_like;//[产品生命周期名称]
+	public void setN_ibz_productlifename_like(String n_ibz_productlifename_like) {
+        this.n_ibz_productlifename_like = n_ibz_productlifename_like;
+        if(!ObjectUtils.isEmpty(this.n_ibz_productlifename_like)){
+            this.getSelectCond().like("ibz_productlifename", n_ibz_productlifename_like);
+        }
+    }
+
+    /**
+	 * 启用快速搜索
+	 */
+	public void setQuery(String query)
+	{
+		 this.query=query;
+		 if(!StringUtils.isEmpty(query)){
+			this.getSelectCond().or().like("ibz_productlifename",query);
+		 }
+	}
 }
+
 
 
 

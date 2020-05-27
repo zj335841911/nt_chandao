@@ -21,123 +21,128 @@ import java.io.Serializable;
 import lombok.Data;
 import org.springframework.data.annotation.Transient;
 
-import cn.ibizlab.pms.util.domain.EntityClient;
+
+import com.baomidou.mybatisplus.annotation.*;
+import cn.ibizlab.pms.util.domain.EntityMP;
+
 
 /**
- * ServiceApi [产品生命周期] 对象
+ * 实体[产品生命周期]
  */
 @Data
-public class ProductLife extends EntityClient implements Serializable {
+@TableName(value = "T_IBZ_PRODUCTLIFE",resultMap = "ProductLifeResultMap")
+public class ProductLife extends EntityMP implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     /**
      * 平台/分支
      */
+    @TableField(value = "branch")
     @JSONField(name = "branch")
     @JsonProperty("branch")
     private String branch;
-
     /**
      * 建立人
      */
     @DEField(preType = DEPredefinedFieldType.CREATEMAN)
-    @JSONField(name = "createMan")
-    @JsonProperty("createMan")
+    @TableField(value = "createman" , fill = FieldFill.INSERT)
+    @JSONField(name = "createman")
+    @JsonProperty("createman")
     private String createman;
-
     /**
      * 更新时间
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
+    @TableField(value = "updatedate")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updateDate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updateDate")
+    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("updatedate")
     private Timestamp updatedate;
-
     /**
      * 产品生命周期名称
      */
     @DEField(name = "ibz_productlifename")
-    @JSONField(name = "productLifeName")
-    @JsonProperty("productLifeName")
+    @TableField(value = "ibz_productlifename")
+    @JSONField(name = "productlifename")
+    @JsonProperty("productlifename")
     private String productlifename;
-
     /**
      * 产品
      */
+    @TableField(value = "product")
     @JSONField(name = "product")
     @JsonProperty("product")
     private Integer product;
-
     /**
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
+    @TableField(value = "createdate" , fill = FieldFill.INSERT)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createDate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("createDate")
+    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("createdate")
     private Timestamp createdate;
-
     /**
      * 父对象
      */
+    @TableField(value = "parent")
     @JSONField(name = "parent")
     @JsonProperty("parent")
     private String parent;
-
     /**
      * 年
      */
+    @TableField(value = "year")
     @JSONField(name = "year")
     @JsonProperty("year")
     private String year;
-
     /**
      * 更新人
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
-    @JSONField(name = "updateMan")
-    @JsonProperty("updateMan")
+    @TableField(value = "updateman")
+    @JSONField(name = "updateman")
+    @JsonProperty("updateman")
     private String updateman;
-
     /**
      * 属性
      */
+    @TableField(value = "type")
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
-
     /**
      * 里程碑
      */
+    @TableField(value = "marker")
     @JSONField(name = "marker")
     @JsonProperty("marker")
     private Integer marker;
-
     /**
      * 开始日期
      */
+    @TableField(value = "begin")
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "begin" , format="yyyy-MM-dd")
     @JsonProperty("begin")
     private Timestamp begin;
-
     /**
      * 产品生命周期标识
      */
     @DEField(name = "ibz_productlifeid" , isKeyField=true)
-    @JSONField(name = "productLifeId")
-    @JsonProperty("productLifeId")
+    @TableId(value= "ibz_productlifeid",type=IdType.UUID)
+    @JSONField(name = "productlifeid")
+    @JsonProperty("productlifeid")
     private String productlifeid;
-
     /**
      * 结束日期
      */
+    @TableField(value = "end")
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "end" , format="yyyy-MM-dd")
     @JsonProperty("end")
     private Timestamp end;
-
-
 
 
 

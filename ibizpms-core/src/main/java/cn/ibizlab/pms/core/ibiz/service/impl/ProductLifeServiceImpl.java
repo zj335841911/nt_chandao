@@ -30,18 +30,33 @@ import cn.ibizlab.pms.core.ibiz.service.IProductLifeService;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import cn.ibizlab.pms.core.ibiz.mapper.ProductLifeMapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.alibaba.fastjson.JSONObject;
+import org.springframework.util.StringUtils;
+
 /**
- * 实体[产品生命周期] 无存储服务对象接口实现
+ * 实体[产品生命周期] 服务对象接口实现
  */
 @Slf4j
-@Service
-public class ProductLifeServiceImpl implements IProductLifeService {
+@Service("ProductLifeServiceImpl")
+public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, ProductLife> implements IProductLifeService {
 
+
+    private int batchSize = 500;
 
     @Override
+    @Transactional
     public ProductLife get(String key) {
-        ProductLife et = new ProductLife();
-        et.setProductlifeid(key);
+        ProductLife et = getById(key);
+        if(et==null){
+            et=new ProductLife();
+            et.setProductlifeid(key);
+        }
+        else{
+        }
         return et;
     }
 
@@ -51,51 +66,80 @@ public class ProductLifeServiceImpl implements IProductLifeService {
     }
 
     @Override
+    @Transactional
     public boolean create(ProductLife et) {
-        //代码实现
+        if(!this.retBool(this.baseMapper.insert(et)))
+            return false;
+        CachedBeanCopier.copy(get(et.getProductlifeid()),et);
         return true;
     }
 
-    public void createBatch(List<ProductLife> list){
-
+    @Override
+    public void createBatch(List<ProductLife> list) {
+        this.saveBatch(list,batchSize);
     }
 
     @Override
     public boolean checkKey(ProductLife et) {
-        return false;
+        return (!ObjectUtils.isEmpty(et.getProductlifeid()))&&(!Objects.isNull(this.getById(et.getProductlifeid())));
     }
+
     @Override
     @Transactional
     public boolean save(ProductLife et) {
-        //代码实现
+        if(!saveOrUpdate(et))
+            return false;
+        return true;
+    }
+
+    @Override
+    @Transactional(
+            rollbackFor = {Exception.class}
+    )
+    public boolean saveOrUpdate(ProductLife et) {
+        if (null == et) {
+            return false;
+        } else {
+            return checkKey(et) ? this.update(et) : this.create(et);
+        }
+    }
+
+    @Override
+    public boolean saveBatch(Collection<ProductLife> list) {
+        saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
     public void saveBatch(List<ProductLife> list) {
-                       
+        saveOrUpdateBatch(list,batchSize);
     }
 
     @Override
+    @Transactional
     public boolean update(ProductLife et) {
-        //代码实现
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("ibz_productlifeid",et.getProductlifeid())))
+            return false;
+        CachedBeanCopier.copy(get(et.getProductlifeid()),et);
         return true;
-    }
-
-    public void updateBatch(List<ProductLife> list){
-                    
     }
 
     @Override
+    public void updateBatch(List<ProductLife> list) {
+        updateBatchById(list,batchSize);
+    }
+
+    @Override
+    @Transactional
     public boolean remove(String key) {
-        return true;
+        boolean result=removeById(key);
+        return result ;
     }
 
-    public void removeBatch(Collection<String> idList){
-                        
+    @Override
+    public void removeBatch(Collection<String> idList) {
+        removeByIds(idList);
     }
-
-
 
 
 
@@ -104,7 +148,8 @@ public class ProductLifeServiceImpl implements IProductLifeService {
      */
     @Override
     public Page<ProductLife> searchGetRoadmap(ProductLifeSearchContext context) {
-        return new PageImpl<ProductLife>(new ArrayList(),context.getPageable(),0);
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductLife> pages=baseMapper.searchGetRoadmap(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<ProductLife>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
     /**
@@ -112,7 +157,8 @@ public class ProductLifeServiceImpl implements IProductLifeService {
      */
     @Override
     public Page<ProductLife> searchDefault(ProductLifeSearchContext context) {
-        return new PageImpl<ProductLife>(new ArrayList(),context.getPageable(),0);
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductLife> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<ProductLife>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
     /**
@@ -120,9 +166,37 @@ public class ProductLifeServiceImpl implements IProductLifeService {
      */
     @Override
     public Page<ProductLife> searchRoadMapYear(ProductLifeSearchContext context) {
-        return new PageImpl<ProductLife>(new ArrayList(),context.getPageable(),0);
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductLife> pages=baseMapper.searchRoadMapYear(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<ProductLife>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
 
+
+
+    @Override
+    public List<JSONObject> select(String sql, Map param){
+        return this.baseMapper.selectBySQL(sql,param);
+    }
+
+    @Override
+    @Transactional
+    public boolean execute(String sql , Map param){
+        if (sql == null || sql.isEmpty()) {
+            return false;
+        }
+        if (sql.toLowerCase().trim().startsWith("insert")) {
+            return this.baseMapper.insertBySQL(sql,param);
+        }
+        if (sql.toLowerCase().trim().startsWith("update")) {
+            return this.baseMapper.updateBySQL(sql,param);
+        }
+        if (sql.toLowerCase().trim().startsWith("delete")) {
+            return this.baseMapper.deleteBySQL(sql,param);
+        }
+        log.warn("暂未支持的SQL语法");
+        return true;
+    }
+
 }
+
 

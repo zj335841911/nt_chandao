@@ -151,6 +151,7 @@
     <!--输出实体[ZT_PRODUCTPLAN]数据结构 -->
 
 
+    <!--输出实体[IBZ_PRODUCTLIFE]数据结构 -->
 
 
     <!--输出实体[ZT_EXTENSION]数据结构 -->
@@ -266,6 +267,7 @@
         <!--输出实体[ZT_DOCLIB]外键关系 -->
         <!--输出实体[ZT_TESTSUITE]外键关系 -->
         <!--输出实体[ZT_PRODUCTPLAN]外键关系 -->
+        <!--输出实体[IBZ_PRODUCTLIFE]外键关系 -->
         <!--输出实体[ZT_EXTENSION]外键关系 -->
         <!--输出实体[ZT_LANG]外键关系 -->
         <!--输出实体[ZT_TASKESTIMATE]外键关系 -->
