@@ -229,69 +229,13 @@ export default {
 		},
 	},
 	editviewtoolbar_toolbar: {
-		tbitem3: {
+		deuiaction2: {
 			caption: "Save",
 			tip: "Save",
 		},
-		tbitem4: {
-			caption: "Save And New",
-			tip: "Save And New",
-		},
-		tbitem5: {
+		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
-		},
-		tbitem6: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem7: {
-			caption: "Remove And Close",
-			tip: "Remove And Close Window",
-		},
-		tbitem8: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem12: {
-			caption: "New",
-			tip: "New",
-		},
-		tbitem13: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem14: {
-			caption: "Copy",
-			tip: "Copy {0}",
-		},
-		tbitem16: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem23: {
-			caption: "第一个记录",
-			tip: "第一个记录",
-		},
-		tbitem24: {
-			caption: "上一个记录",
-			tip: "上一个记录",
-		},
-		tbitem25: {
-			caption: "下一个记录",
-			tip: "下一个记录",
-		},
-		tbitem26: {
-			caption: "最后一个记录",
-			tip: "最后一个记录",
-		},
-		tbitem21: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem22: {
-			caption: "Help",
-			tip: "Help",
 		},
 	},
 	main2gridviewtoolbar_toolbar: {
