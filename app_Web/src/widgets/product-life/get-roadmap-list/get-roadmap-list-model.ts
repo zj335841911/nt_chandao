@@ -10,7 +10,7 @@ export default class GetRoadmapModel {
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof GetRoadmapListMode
+	 * @memberof GetRoadmapList2Mode
 	 */
 	public getDataItems(): any[] {
 		return [

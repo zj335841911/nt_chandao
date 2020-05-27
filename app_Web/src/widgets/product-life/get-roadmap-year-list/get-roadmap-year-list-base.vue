@@ -369,7 +369,7 @@ export default class GetRoadmapYearBase extends Vue implements ControlInterface 
      */
     public load(opt: any = {}): void {
         if(!this.fetchAction){
-            this.$Notice.error({ title: '错误', desc: 'ProductLifeRoadMapListView视图列表fetchAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'ProductLifeRoadMapListView9视图列表fetchAction参数未配置' });
             return;
         }        
         const arg: any = {...opt};
@@ -426,7 +426,7 @@ export default class GetRoadmapYearBase extends Vue implements ControlInterface 
      */
     public async remove(datas: any[]): Promise<any> {
         if(!this.removeAction){
-            this.$Notice.error({ title: '错误', desc: 'ProductLifeRoadMapListView视图表格removeAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'ProductLifeRoadMapListView9视图表格removeAction参数未配置' });
             return;
         }
         if (datas.length === 0) {

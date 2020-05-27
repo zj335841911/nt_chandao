@@ -2,9 +2,11 @@
 import { Component } from 'vue-property-decorator';
 import ProductLifeRoadMapListView9Base from './product-life-road-map-list-view9-base.vue';
 
-import view_list from '@widgets/product-life/get-roadmap-list/get-roadmap-list.vue';
+import view_list2 from '@widgets/product-life/get-roadmap-list/get-roadmap-list.vue';
+import view_list from '@widgets/product-life/get-roadmap-year-list/get-roadmap-year-list.vue';
 @Component({
     components: {
+        view_list2, 
         view_list, 
     },
     beforeRouteEnter: (to: any, from: any, next: any) => {
