@@ -14,6 +14,10 @@ export default {
     product: '产品',
   },
 	views: {
+		editview_newmode: {
+			caption: "产品计划",
+      title: '产品计划',
+		},
 		gridview: {
 			caption: "产品计划",
       title: '产品计划',
@@ -21,6 +25,28 @@ export default {
 		editview: {
 			caption: "产品计划",
       title: '产品计划',
+		},
+	},
+	main_newmode_form: {
+		details: {
+			grouppanel1: "分组面板", 
+			group1: "productplan基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			product: "产品", 
+			title: "名称", 
+			begin: "开始日期", 
+			end: "结束日期", 
+			desc: "描述", 
+			id: "编号", 
+		},
+		uiactions: {
 		},
 	},
 	main_form: {
@@ -67,6 +93,16 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+	},
+	editview_newmodetoolbar_toolbar: {
+		deuiaction2: {
+			caption: "Save",
+			tip: "Save",
+		},
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
 		},
 	},
 	editviewtoolbar_toolbar: {

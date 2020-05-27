@@ -127,6 +127,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryEditView",
             "viewtag": "4863a523ac490ebce771717756f0c6a8"
         },
+        "productplaneditview_newmode": {
+            "title": "productplan编辑视图",
+            "caption": "产品计划",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProductPlanEditView_NewMode",
+            "viewtag": "4bd9f30e47b4e0015ded5bd3f7b84b28"
+        },
         "projectcurproductgridview": {
             "title": "project表格视图",
             "caption": "项目",

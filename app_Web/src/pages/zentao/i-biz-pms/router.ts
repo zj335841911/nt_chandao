@@ -887,6 +887,33 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-main-view9-edit-mode/story-main-view9-edit-mode.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/editview_newmode/:editview_newmode?',
+                    meta: {
+                        caption: 'entities.productplan.views.editview_newmode.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'editview_newmode', parameterName: 'editview_newmode' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-plan-edit-view-new-mode/product-plan-edit-view-new-mode.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/editview_newmode/:editview_newmode?',
+                    meta: {
+                        caption: 'entities.productplan.views.editview_newmode.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'editview_newmode', parameterName: 'editview_newmode' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-plan-edit-view-new-mode/product-plan-edit-view-new-mode.vue'),
+                },
+                {
                     path: 'products/:product?/bugtreeexpview/:bugtreeexpview?',
                     meta: {
                         caption: 'entities.product.views.bugtreeexpview.caption',
@@ -1404,6 +1431,31 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/zentao/story-edit-view/story-edit-view.vue'),
+    },
+    {
+        path: '/products/:product?/productplans/:productplan?/editview_newmode/:editview_newmode?',
+        meta: {
+            caption: 'entities.productplan.views.editview_newmode.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'editview_newmode', parameterName: 'editview_newmode' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/product-plan-edit-view-new-mode/product-plan-edit-view-new-mode.vue'),
+    },
+    {
+        path: '/productplans/:productplan?/editview_newmode/:editview_newmode?',
+        meta: {
+            caption: 'entities.productplan.views.editview_newmode.caption',
+            parameters: [
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'editview_newmode', parameterName: 'editview_newmode' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/product-plan-edit-view-new-mode/product-plan-edit-view-new-mode.vue'),
     },
     {
         path: '/projects/:project?/curproductgridview/:curproductgridview?',

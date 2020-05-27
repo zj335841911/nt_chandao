@@ -651,11 +651,11 @@ export default class ProductPlanGridViewBase extends Vue {
             });
         }
         const view: any = {
-            viewname: 'product-plan-edit-view', 
+            viewname: 'product-plan-edit-view-new-mode', 
             height: 0, 
             width: 0,  
-            title: this.$t('entities.productplan.views.editview.title'),
-            placement: 'DRAWER_TOP',
+            title: this.$t('entities.productplan.views.editview_newmode.title'),
+            placement: 'DRAWER_RIGHT',
         };
         openDrawer(view, data);
     }
