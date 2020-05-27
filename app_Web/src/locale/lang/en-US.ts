@@ -7,6 +7,7 @@ import action_en_US from '@locale/lanres/action/action_en_US';
 import story_en_US from '@locale/lanres/story/story_en_US';
 import project_en_US from '@locale/lanres/project/project_en_US';
 import history_en_US from '@locale/lanres/history/history_en_US';
+import user_en_US from '@locale/lanres/user/user_en_US';
 import productmodule_en_US from '@locale/lanres/product-module/product-module_en_US';
 import module_en_US from '@locale/lanres/module/module_en_US';
 import productlife_en_US from '@locale/lanres/product-life/product-life_en_US';
@@ -94,6 +95,7 @@ export default {
         story: story_en_US,
         project: project_en_US,
         history: history_en_US,
+        user: user_en_US,
         productmodule: productmodule_en_US,
         module: module_en_US,
         productlife: productlife_en_US,

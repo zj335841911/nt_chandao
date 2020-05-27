@@ -39,6 +39,10 @@ zuul:
       path: /histories/**
       serviceId: pms-webapi
       stripPrefix: false
+    zt_user:
+      path: /users/**
+      serviceId: pms-webapi
+      stripPrefix: false
     ibz_productmodule:
       path: /productmodules/**
       serviceId: pms-webapi

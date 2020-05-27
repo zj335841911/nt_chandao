@@ -16,6 +16,7 @@ import './entity/actions/actions';
 import './entity/storys/storys';
 import './entity/projects/projects';
 import './entity/historys/historys';
+import './entity/users/users';
 import './entity/product-modules/product-modules';
 import './entity/modules/modules';
 import './entity/product-lifes/product-lifes';

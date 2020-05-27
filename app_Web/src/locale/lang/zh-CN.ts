@@ -7,6 +7,7 @@ import action_zh_CN from '@locale/lanres/action/action_zh_CN';
 import story_zh_CN from '@locale/lanres/story/story_zh_CN';
 import project_zh_CN from '@locale/lanres/project/project_zh_CN';
 import history_zh_CN from '@locale/lanres/history/history_zh_CN';
+import user_zh_CN from '@locale/lanres/user/user_zh_CN';
 import productmodule_zh_CN from '@locale/lanres/product-module/product-module_zh_CN';
 import module_zh_CN from '@locale/lanres/module/module_zh_CN';
 import productlife_zh_CN from '@locale/lanres/product-life/product-life_zh_CN';
@@ -94,6 +95,7 @@ export default {
         story: story_zh_CN,
         project: project_zh_CN,
         history: history_zh_CN,
+        user: user_zh_CN,
         productmodule: productmodule_zh_CN,
         module: module_zh_CN,
         productlife: productlife_zh_CN,

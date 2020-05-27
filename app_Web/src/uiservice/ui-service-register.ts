@@ -48,6 +48,7 @@ export class UIServiceRegister {
         this.allUIService.set('story', () => import('@/uiservice/story/story-ui-service'));
         this.allUIService.set('project', () => import('@/uiservice/project/project-ui-service'));
         this.allUIService.set('history', () => import('@/uiservice/history/history-ui-service'));
+        this.allUIService.set('user', () => import('@/uiservice/user/user-ui-service'));
         this.allUIService.set('productmodule', () => import('@/uiservice/product-module/product-module-ui-service'));
         this.allUIService.set('module', () => import('@/uiservice/module/module-ui-service'));
         this.allUIService.set('productlife', () => import('@/uiservice/product-life/product-life-ui-service'));
