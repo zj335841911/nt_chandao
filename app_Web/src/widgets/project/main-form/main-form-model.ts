@@ -56,6 +56,55 @@ export default class MainModel {
         dataType: 'TEXT',
       },
       {
+        name: 'code',
+        prop: 'code',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'end',
+        prop: 'end',
+        dataType: 'DATE',
+      },
+      {
+        name: 'begin',
+        prop: 'begin',
+        dataType: 'DATE',
+      },
+      {
+        name: 'formitemex1',
+      },
+      {
+        name: 'days',
+        prop: 'days',
+        dataType: 'INT',
+      },
+      {
+        name: 'team',
+        prop: 'team',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'type',
+        prop: 'type',
+        dataType: 'SSCODELIST',
+      },
+      {
+        name: 'formitem',
+      },
+      {
+        name: 'formitem1',
+      },
+      {
+        name: 'desc',
+        prop: 'desc',
+        dataType: 'LONGTEXT',
+      },
+      {
+        name: 'acl',
+        prop: 'acl',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

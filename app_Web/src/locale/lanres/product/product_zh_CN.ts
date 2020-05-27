@@ -95,6 +95,7 @@ export default {
 	},
 	main_form: {
 		details: {
+			grouppanel1: '分组面板', 
 			group1: 'product基本信息', 
 			formpage1: '基本信息', 
 			srforikey: '', 
