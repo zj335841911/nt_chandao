@@ -48,6 +48,10 @@ export default class ProductLifeServiceBase extends EntityService {
      * @memberof ProductLifeServiceBase
      */
     public async FetchGetRoadmap(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/products/${context.product}/productlives/fetchgetroadmap`,tempData,isloading);
+        }
         let tempData:any = JSON.parse(JSON.stringify(data));
         return Http.getInstance().get(`/productlives/fetchgetroadmap`,tempData,isloading);
     }
@@ -62,6 +66,10 @@ export default class ProductLifeServiceBase extends EntityService {
      * @memberof ProductLifeServiceBase
      */
     public async FetchRoadMapYear(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/products/${context.product}/productlives/fetchroadmapyear`,tempData,isloading);
+        }
         let tempData:any = JSON.parse(JSON.stringify(data));
         return Http.getInstance().get(`/productlives/fetchroadmapyear`,tempData,isloading);
     }
@@ -76,6 +84,9 @@ export default class ProductLifeServiceBase extends EntityService {
      * @memberof ProductLifeServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productlife){
+            return Http.getInstance().get(`/products/${context.product}/productlives/${context.productlife}/select`,isloading);
+        }
             return Http.getInstance().get(`/productlives/${context.productlife}/select`,isloading);
     }
 
@@ -89,6 +100,10 @@ export default class ProductLifeServiceBase extends EntityService {
      * @memberof ProductLifeServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/products/${context.product}/productlives/select`,tempData,isloading);
+        }
         let tempData:any = JSON.parse(JSON.stringify(data));
         return Http.getInstance().get(`/productlives/select`,tempData,isloading);
     }
