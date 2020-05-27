@@ -80,7 +80,6 @@ export default class MainModel {
           name: 'productplan',
           prop: 'id',
         },
-
         {
           name:'size',
           prop:'size'
