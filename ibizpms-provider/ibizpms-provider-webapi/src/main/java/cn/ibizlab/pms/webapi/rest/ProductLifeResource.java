@@ -68,4 +68,25 @@ public class ProductLifeResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productlifeMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductLife-RoadMapYear-all')")
+	@ApiOperation(value = "fetchRoadMapYear", tags = {"ProductLife" } ,notes = "fetchRoadMapYear")
+    @RequestMapping(method= RequestMethod.GET , value="/productlives/fetchroadmapyear")
+	public ResponseEntity<List<ProductLifeDTO>> fetchRoadMapYear(ProductLifeSearchContext context) {
+        Page<ProductLife> domains = productlifeService.searchRoadMapYear(context) ;
+        List<ProductLifeDTO> list = productlifeMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductLife-RoadMapYear-all')")
+	@ApiOperation(value = "searchRoadMapYear", tags = {"ProductLife" } ,notes = "searchRoadMapYear")
+    @RequestMapping(method= RequestMethod.POST , value="/productlives/searchroadmapyear")
+	public ResponseEntity<Page<ProductLifeDTO>> searchRoadMapYear(@RequestBody ProductLifeSearchContext context) {
+        Page<ProductLife> domains = productlifeService.searchRoadMapYear(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(productlifeMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
 }

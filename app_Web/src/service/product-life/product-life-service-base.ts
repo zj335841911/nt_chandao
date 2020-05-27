@@ -53,6 +53,20 @@ export default class ProductLifeServiceBase extends EntityService {
     }
 
     /**
+     * FetchRoadMapYear接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductLifeServiceBase
+     */
+    public async FetchRoadMapYear(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/productlives/fetchroadmapyear`,tempData,isloading);
+    }
+
+    /**
      * Select接口方法
      *
      * @param {*} [context={}]
@@ -75,20 +89,6 @@ export default class ProductLifeServiceBase extends EntityService {
      * @memberof ProductLifeServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/productlives/select`,tempData,isloading);
-    }
-
-    /**
-     * FetchRoadMapYear接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ProductLifeServiceBase
-     */
-    public async FetchRoadMapYear(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return Http.getInstance().get(`/productlives/select`,tempData,isloading);
     }
