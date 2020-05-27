@@ -52,6 +52,7 @@ public interface IIm_chatService extends IService<Im_chat>{
      */
     boolean execute(String sql, Map param);
 
+
 }
 
 

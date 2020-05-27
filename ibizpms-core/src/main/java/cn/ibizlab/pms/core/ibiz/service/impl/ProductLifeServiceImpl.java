@@ -197,6 +197,26 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
         return true;
     }
 
+    @Override
+    public List<ProductLife> getProductlifeByIds(List<String> ids) {
+         return this.listByIds(ids);
+    }
+
+    @Override
+    public List<ProductLife> getProductlifeByEntities(List<ProductLife> entities) {
+        List ids =new ArrayList();
+        for(ProductLife entity : entities){
+            Serializable id=entity.getProductlifeid();
+            if(!ObjectUtils.isEmpty(id)){
+                ids.add(id);
+            }
+        }
+        if(ids.size()>0)
+           return this.listByIds(ids);
+        else
+           return entities;
+    }
+
 }
 
 

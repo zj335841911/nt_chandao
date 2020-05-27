@@ -52,6 +52,7 @@ public interface IWebHookService extends IService<WebHook>{
      */
     boolean execute(String sql, Map param);
 
+
 }
 
 

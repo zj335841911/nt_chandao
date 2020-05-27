@@ -52,6 +52,7 @@ public interface IUserTplService extends IService<UserTpl>{
      */
     boolean execute(String sql, Map param);
 
+
 }
 
 

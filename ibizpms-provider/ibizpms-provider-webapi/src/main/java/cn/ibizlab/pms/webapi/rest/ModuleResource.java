@@ -22,6 +22,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.access.prepost.PostAuthorize;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -39,15 +40,12 @@ import cn.ibizlab.pms.core.zentao.filter.ModuleSearchContext;
 public class ModuleResource {
 
     @Autowired
-    private IModuleService moduleService;
+    public IModuleService moduleService;
 
     @Autowired
     @Lazy
     public ModuleMapping moduleMapping;
 
-    public ModuleDTO permissionDTO=new ModuleDTO();
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-GetDraft-all')")
     @ApiOperation(value = "GetDraft", tags = {"Module" },  notes = "GetDraft")
 	@RequestMapping(method = RequestMethod.GET, value = "/modules/getdraft")
     public ResponseEntity<ModuleDTO> getDraft() {
@@ -65,7 +63,7 @@ public class ModuleResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.moduleMapping,#moduledtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-Create-all')")
     @ApiOperation(value = "createBatch", tags = {"Module" },  notes = "createBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/modules/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<ModuleDTO> moduledtos) {
@@ -94,7 +92,7 @@ public class ModuleResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.moduleMapping,#moduledtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-Update-all')")
     @ApiOperation(value = "UpdateBatch", tags = {"Module" },  notes = "UpdateBatch")
 	@RequestMapping(method = RequestMethod.PUT, value = "/modules/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<ModuleDTO> moduledtos) {
@@ -109,7 +107,7 @@ public class ModuleResource {
         return ResponseEntity.status(HttpStatus.OK).body(moduleService.save(moduleMapping.toDomain(moduledto)));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.moduleMapping,#moduledtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-Save-all')")
     @ApiOperation(value = "SaveBatch", tags = {"Module" },  notes = "SaveBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/modules/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<ModuleDTO> moduledtos) {
@@ -117,7 +115,6 @@ public class ModuleResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-CheckKey-all')")
     @ApiOperation(value = "CheckKey", tags = {"Module" },  notes = "CheckKey")
 	@RequestMapping(method = RequestMethod.POST, value = "/modules/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody ModuleDTO moduledto) {
@@ -132,7 +129,7 @@ public class ModuleResource {
          return ResponseEntity.status(HttpStatus.OK).body(moduleService.remove(module_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.moduleMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-Remove-all')")
     @ApiOperation(value = "RemoveBatch", tags = {"Module" },  notes = "RemoveBatch")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/modules/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
@@ -225,3 +222,4 @@ public class ModuleResource {
                 .body(new PageImpl(moduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 }
+

@@ -22,6 +22,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.access.prepost.PostAuthorize;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -39,15 +40,12 @@ import cn.ibizlab.pms.core.zentao.filter.BranchSearchContext;
 public class BranchResource {
 
     @Autowired
-    private IBranchService branchService;
+    public IBranchService branchService;
 
     @Autowired
     @Lazy
     public BranchMapping branchMapping;
 
-    public BranchDTO permissionDTO=new BranchDTO();
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-GetDraft-all')")
     @ApiOperation(value = "GetDraft", tags = {"Branch" },  notes = "GetDraft")
 	@RequestMapping(method = RequestMethod.GET, value = "/branches/getdraft")
     public ResponseEntity<BranchDTO> getDraft() {
@@ -62,7 +60,7 @@ public class BranchResource {
          return ResponseEntity.status(HttpStatus.OK).body(branchService.remove(branch_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.branchMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Remove-all')")
     @ApiOperation(value = "RemoveBatch", tags = {"Branch" },  notes = "RemoveBatch")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/branches/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
@@ -81,7 +79,7 @@ public class BranchResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.branchMapping,#branchdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Create-all')")
     @ApiOperation(value = "createBatch", tags = {"Branch" },  notes = "createBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/branches/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<BranchDTO> branchdtos) {
@@ -101,7 +99,7 @@ public class BranchResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.branchMapping,#branchdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Update-all')")
     @ApiOperation(value = "UpdateBatch", tags = {"Branch" },  notes = "UpdateBatch")
 	@RequestMapping(method = RequestMethod.PUT, value = "/branches/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<BranchDTO> branchdtos) {
@@ -109,7 +107,6 @@ public class BranchResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-CheckKey-all')")
     @ApiOperation(value = "CheckKey", tags = {"Branch" },  notes = "CheckKey")
 	@RequestMapping(method = RequestMethod.POST, value = "/branches/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody BranchDTO branchdto) {
@@ -123,7 +120,7 @@ public class BranchResource {
         return ResponseEntity.status(HttpStatus.OK).body(branchService.save(branchMapping.toDomain(branchdto)));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.branchMapping,#branchdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Save-all')")
     @ApiOperation(value = "SaveBatch", tags = {"Branch" },  notes = "SaveBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/branches/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<BranchDTO> branchdtos) {
@@ -161,7 +158,6 @@ public class BranchResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(branchMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-GetDraft-all')")
     @ApiOperation(value = "GetDraftByProduct", tags = {"Branch" },  notes = "GetDraftByProduct")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/branches/getdraft")
     public ResponseEntity<BranchDTO> getDraftByProduct(@PathVariable("product_id") BigInteger product_id) {
@@ -178,7 +174,7 @@ public class BranchResource {
 		return ResponseEntity.status(HttpStatus.OK).body(branchService.remove(branch_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.branchMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Remove-all')")
     @ApiOperation(value = "RemoveBatchByProduct", tags = {"Branch" },  notes = "RemoveBatchByProduct")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/branches/batch")
     public ResponseEntity<Boolean> removeBatchByProduct(@RequestBody List<BigInteger> ids) {
@@ -198,7 +194,7 @@ public class BranchResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.branchMapping,#branchdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Create-all')")
     @ApiOperation(value = "createBatchByProduct", tags = {"Branch" },  notes = "createBatchByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/branches/batch")
     public ResponseEntity<Boolean> createBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<BranchDTO> branchdtos) {
@@ -223,7 +219,7 @@ public class BranchResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.branchMapping,#branchdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Update-all')")
     @ApiOperation(value = "UpdateBatchByProduct", tags = {"Branch" },  notes = "UpdateBatchByProduct")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/branches/batch")
     public ResponseEntity<Boolean> updateBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<BranchDTO> branchdtos) {
@@ -235,7 +231,6 @@ public class BranchResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-CheckKey-all')")
     @ApiOperation(value = "CheckKeyByProduct", tags = {"Branch" },  notes = "CheckKeyByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/branches/checkkey")
     public ResponseEntity<Boolean> checkKeyByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BranchDTO branchdto) {
@@ -251,7 +246,7 @@ public class BranchResource {
         return ResponseEntity.status(HttpStatus.OK).body(branchService.save(domain));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.branchMapping,#branchdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Save-all')")
     @ApiOperation(value = "SaveBatchByProduct", tags = {"Branch" },  notes = "SaveBatchByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/branches/savebatch")
     public ResponseEntity<Boolean> saveBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<BranchDTO> branchdtos) {
@@ -296,3 +291,4 @@ public class BranchResource {
                 .body(new PageImpl(branchMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 }
+

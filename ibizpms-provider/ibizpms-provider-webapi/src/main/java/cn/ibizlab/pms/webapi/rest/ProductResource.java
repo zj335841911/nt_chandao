@@ -22,6 +22,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.access.prepost.PostAuthorize;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -39,13 +40,11 @@ import cn.ibizlab.pms.core.zentao.filter.ProductSearchContext;
 public class ProductResource {
 
     @Autowired
-    private IProductService productService;
+    public IProductService productService;
 
     @Autowired
     @Lazy
     public ProductMapping productMapping;
-
-    public ProductDTO permissionDTO=new ProductDTO();
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Get-all')")
     @ApiOperation(value = "Get", tags = {"Product" },  notes = "Get")
@@ -63,7 +62,7 @@ public class ProductResource {
         return ResponseEntity.status(HttpStatus.OK).body(productService.save(productMapping.toDomain(productdto)));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.productMapping,#productdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Save-all')")
     @ApiOperation(value = "SaveBatch", tags = {"Product" },  notes = "SaveBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<ProductDTO> productdtos) {
@@ -71,14 +70,12 @@ public class ProductResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-CheckKey-all')")
     @ApiOperation(value = "CheckKey", tags = {"Product" },  notes = "CheckKey")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody ProductDTO productdto) {
         return  ResponseEntity.status(HttpStatus.OK).body(productService.checkKey(productMapping.toDomain(productdto)));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-GetDraft-all')")
     @ApiOperation(value = "GetDraft", tags = {"Product" },  notes = "GetDraft")
 	@RequestMapping(method = RequestMethod.GET, value = "/products/getdraft")
     public ResponseEntity<ProductDTO> getDraft() {
@@ -97,7 +94,7 @@ public class ProductResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.productMapping,#productdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Update-all')")
     @ApiOperation(value = "UpdateBatch", tags = {"Product" },  notes = "UpdateBatch")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<ProductDTO> productdtos) {
@@ -113,7 +110,7 @@ public class ProductResource {
          return ResponseEntity.status(HttpStatus.OK).body(productService.remove(product_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.productMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Remove-all')")
     @ApiOperation(value = "RemoveBatch", tags = {"Product" },  notes = "RemoveBatch")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
@@ -132,7 +129,7 @@ public class ProductResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.productMapping,#productdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Create-all')")
     @ApiOperation(value = "createBatch", tags = {"Product" },  notes = "createBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<ProductDTO> productdtos) {
@@ -183,3 +180,4 @@ public class ProductResource {
                 .body(new PageImpl(productMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 }
+

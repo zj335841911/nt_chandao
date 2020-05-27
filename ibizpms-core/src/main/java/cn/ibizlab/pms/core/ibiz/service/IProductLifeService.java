@@ -54,6 +54,9 @@ public interface IProductLifeService extends IService<ProductLife>{
      */
     boolean execute(String sql, Map param);
 
+    List<ProductLife> getProductlifeByIds(List<String> ids) ;
+    List<ProductLife> getProductlifeByEntities(List<ProductLife> entities) ;
+
 }
 
 

@@ -22,6 +22,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.access.prepost.PostAuthorize;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -39,15 +40,12 @@ import cn.ibizlab.pms.core.zentao.filter.BuildSearchContext;
 public class BuildResource {
 
     @Autowired
-    private IBuildService buildService;
+    public IBuildService buildService;
 
     @Autowired
     @Lazy
     public BuildMapping buildMapping;
 
-    public BuildDTO permissionDTO=new BuildDTO();
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-CheckKey-all')")
     @ApiOperation(value = "CheckKey", tags = {"Build" },  notes = "CheckKey")
 	@RequestMapping(method = RequestMethod.POST, value = "/builds/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody BuildDTO builddto) {
@@ -61,7 +59,7 @@ public class BuildResource {
         return ResponseEntity.status(HttpStatus.OK).body(buildService.save(buildMapping.toDomain(builddto)));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.buildMapping,#builddtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Save-all')")
     @ApiOperation(value = "SaveBatch", tags = {"Build" },  notes = "SaveBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/builds/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<BuildDTO> builddtos) {
@@ -78,7 +76,6 @@ public class BuildResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-GetDraft-all')")
     @ApiOperation(value = "GetDraft", tags = {"Build" },  notes = "GetDraft")
 	@RequestMapping(method = RequestMethod.GET, value = "/builds/getdraft")
     public ResponseEntity<BuildDTO> getDraft() {
@@ -93,7 +90,7 @@ public class BuildResource {
          return ResponseEntity.status(HttpStatus.OK).body(buildService.remove(build_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.buildMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Remove-all')")
     @ApiOperation(value = "RemoveBatch", tags = {"Build" },  notes = "RemoveBatch")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/builds/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
@@ -112,7 +109,7 @@ public class BuildResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.buildMapping,#builddtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Create-all')")
     @ApiOperation(value = "createBatch", tags = {"Build" },  notes = "createBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/builds/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<BuildDTO> builddtos) {
@@ -132,7 +129,7 @@ public class BuildResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.buildMapping,#builddtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Update-all')")
     @ApiOperation(value = "UpdateBatch", tags = {"Build" },  notes = "UpdateBatch")
 	@RequestMapping(method = RequestMethod.PUT, value = "/builds/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<BuildDTO> builddtos) {
@@ -161,7 +158,6 @@ public class BuildResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(buildMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-CheckKey-all')")
     @ApiOperation(value = "CheckKeyByProduct", tags = {"Build" },  notes = "CheckKeyByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/builds/checkkey")
     public ResponseEntity<Boolean> checkKeyByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BuildDTO builddto) {
@@ -177,7 +173,7 @@ public class BuildResource {
         return ResponseEntity.status(HttpStatus.OK).body(buildService.save(domain));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.buildMapping,#builddtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Save-all')")
     @ApiOperation(value = "SaveBatchByProduct", tags = {"Build" },  notes = "SaveBatchByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/builds/savebatch")
     public ResponseEntity<Boolean> saveBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<BuildDTO> builddtos) {
@@ -198,7 +194,6 @@ public class BuildResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-GetDraft-all')")
     @ApiOperation(value = "GetDraftByProduct", tags = {"Build" },  notes = "GetDraftByProduct")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/builds/getdraft")
     public ResponseEntity<BuildDTO> getDraftByProduct(@PathVariable("product_id") BigInteger product_id) {
@@ -215,7 +210,7 @@ public class BuildResource {
 		return ResponseEntity.status(HttpStatus.OK).body(buildService.remove(build_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.buildMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Remove-all')")
     @ApiOperation(value = "RemoveBatchByProduct", tags = {"Build" },  notes = "RemoveBatchByProduct")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/builds/batch")
     public ResponseEntity<Boolean> removeBatchByProduct(@RequestBody List<BigInteger> ids) {
@@ -235,7 +230,7 @@ public class BuildResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.buildMapping,#builddtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Create-all')")
     @ApiOperation(value = "createBatchByProduct", tags = {"Build" },  notes = "createBatchByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/builds/batch")
     public ResponseEntity<Boolean> createBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<BuildDTO> builddtos) {
@@ -260,7 +255,7 @@ public class BuildResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.buildMapping,#builddtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Update-all')")
     @ApiOperation(value = "UpdateBatchByProduct", tags = {"Build" },  notes = "UpdateBatchByProduct")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/builds/batch")
     public ResponseEntity<Boolean> updateBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<BuildDTO> builddtos) {
@@ -296,3 +291,4 @@ public class BuildResource {
                 .body(new PageImpl(buildMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 }
+

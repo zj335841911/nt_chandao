@@ -22,6 +22,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.access.prepost.PostAuthorize;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -39,13 +40,11 @@ import cn.ibizlab.pms.core.zentao.filter.ActionSearchContext;
 public class ActionResource {
 
     @Autowired
-    private IActionService actionService;
+    public IActionService actionService;
 
     @Autowired
     @Lazy
     public ActionMapping actionMapping;
-
-    public ActionDTO permissionDTO=new ActionDTO();
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Remove-all')")
     @ApiOperation(value = "Remove", tags = {"Action" },  notes = "Remove")
@@ -55,7 +54,7 @@ public class ActionResource {
          return ResponseEntity.status(HttpStatus.OK).body(actionService.remove(action_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.actionMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Remove-all')")
     @ApiOperation(value = "RemoveBatch", tags = {"Action" },  notes = "RemoveBatch")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/actions/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
@@ -74,7 +73,7 @@ public class ActionResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.actionMapping,#actiondtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Create-all')")
     @ApiOperation(value = "createBatch", tags = {"Action" },  notes = "createBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<ActionDTO> actiondtos) {
@@ -82,7 +81,6 @@ public class ActionResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-GetDraft-all')")
     @ApiOperation(value = "GetDraft", tags = {"Action" },  notes = "GetDraft")
 	@RequestMapping(method = RequestMethod.GET, value = "/actions/getdraft")
     public ResponseEntity<ActionDTO> getDraft() {
@@ -101,7 +99,7 @@ public class ActionResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.actionMapping,#actiondtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Update-all')")
     @ApiOperation(value = "UpdateBatch", tags = {"Action" },  notes = "UpdateBatch")
 	@RequestMapping(method = RequestMethod.PUT, value = "/actions/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<ActionDTO> actiondtos) {
@@ -109,7 +107,6 @@ public class ActionResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-CheckKey-all')")
     @ApiOperation(value = "CheckKey", tags = {"Action" },  notes = "CheckKey")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody ActionDTO actiondto) {
@@ -123,7 +120,7 @@ public class ActionResource {
         return ResponseEntity.status(HttpStatus.OK).body(actionService.save(actionMapping.toDomain(actiondto)));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.actionMapping,#actiondtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Save-all')")
     @ApiOperation(value = "SaveBatch", tags = {"Action" },  notes = "SaveBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<ActionDTO> actiondtos) {
@@ -225,3 +222,4 @@ public class ActionResource {
                 .body(new PageImpl(actionMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 }
+

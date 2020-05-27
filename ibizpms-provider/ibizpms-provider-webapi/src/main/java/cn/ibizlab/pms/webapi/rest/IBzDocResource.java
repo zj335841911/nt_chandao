@@ -22,6 +22,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.access.prepost.PostAuthorize;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -39,12 +40,11 @@ import cn.ibizlab.pms.core.ibiz.filter.IBzDocSearchContext;
 public class IBzDocResource {
 
     @Autowired
-    private IIBzDocService ibzdocService;
+    public IIBzDocService ibzdocService;
 
     @Autowired
     @Lazy
     public IBzDocMapping ibzdocMapping;
 
-    public IBzDocDTO permissionDTO=new IBzDocDTO();
-
 }
+

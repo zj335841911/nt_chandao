@@ -22,6 +22,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.access.prepost.PostAuthorize;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -39,15 +40,12 @@ import cn.ibizlab.pms.core.zentao.filter.StorySpecSearchContext;
 public class StorySpecResource {
 
     @Autowired
-    private IStorySpecService storyspecService;
+    public IStorySpecService storyspecService;
 
     @Autowired
     @Lazy
     public StorySpecMapping storyspecMapping;
 
-    public StorySpecDTO permissionDTO=new StorySpecDTO();
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-CheckKey-all')")
     @ApiOperation(value = "CheckKey", tags = {"StorySpec" },  notes = "CheckKey")
 	@RequestMapping(method = RequestMethod.POST, value = "/storyspecs/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody StorySpecDTO storyspecdto) {
@@ -65,7 +63,7 @@ public class StorySpecResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.storyspecMapping,#storyspecdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Create-all')")
     @ApiOperation(value = "createBatch", tags = {"StorySpec" },  notes = "createBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/storyspecs/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<StorySpecDTO> storyspecdtos) {
@@ -80,7 +78,7 @@ public class StorySpecResource {
         return ResponseEntity.status(HttpStatus.OK).body(storyspecService.save(storyspecMapping.toDomain(storyspecdto)));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.storyspecMapping,#storyspecdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Save-all')")
     @ApiOperation(value = "SaveBatch", tags = {"StorySpec" },  notes = "SaveBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/storyspecs/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<StorySpecDTO> storyspecdtos) {
@@ -105,7 +103,7 @@ public class StorySpecResource {
          return ResponseEntity.status(HttpStatus.OK).body(storyspecService.remove(storyspec_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.storyspecMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Remove-all')")
     @ApiOperation(value = "RemoveBatch", tags = {"StorySpec" },  notes = "RemoveBatch")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/storyspecs/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<String> ids) {
@@ -125,7 +123,7 @@ public class StorySpecResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.storyspecMapping,#storyspecdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Update-all')")
     @ApiOperation(value = "UpdateBatch", tags = {"StorySpec" },  notes = "UpdateBatch")
 	@RequestMapping(method = RequestMethod.PUT, value = "/storyspecs/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<StorySpecDTO> storyspecdtos) {
@@ -133,7 +131,6 @@ public class StorySpecResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-GetDraft-all')")
     @ApiOperation(value = "GetDraft", tags = {"StorySpec" },  notes = "GetDraft")
 	@RequestMapping(method = RequestMethod.GET, value = "/storyspecs/getdraft")
     public ResponseEntity<StorySpecDTO> getDraft() {
@@ -162,3 +159,4 @@ public class StorySpecResource {
                 .body(new PageImpl(storyspecMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 }
+

@@ -22,6 +22,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.access.prepost.PostAuthorize;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -39,13 +40,11 @@ import cn.ibizlab.pms.core.zentao.filter.BugSearchContext;
 public class BugResource {
 
     @Autowired
-    private IBugService bugService;
+    public IBugService bugService;
 
     @Autowired
     @Lazy
     public BugMapping bugMapping;
-
-    public BugDTO permissionDTO=new BugDTO();
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Get-all')")
     @ApiOperation(value = "Get", tags = {"Bug" },  notes = "Get")
@@ -56,14 +55,12 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-GetDraft-all')")
     @ApiOperation(value = "GetDraft", tags = {"Bug" },  notes = "GetDraft")
 	@RequestMapping(method = RequestMethod.GET, value = "/bugs/getdraft")
     public ResponseEntity<BugDTO> getDraft() {
         return ResponseEntity.status(HttpStatus.OK).body(bugMapping.toDto(bugService.getDraft(new Bug())));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-CheckKey-all')")
     @ApiOperation(value = "CheckKey", tags = {"Bug" },  notes = "CheckKey")
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody BugDTO bugdto) {
@@ -77,7 +74,7 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugService.save(bugMapping.toDomain(bugdto)));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.bugMapping,#bugdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
     @ApiOperation(value = "SaveBatch", tags = {"Bug" },  notes = "SaveBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<BugDTO> bugdtos) {
@@ -96,7 +93,7 @@ public class BugResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.bugMapping,#bugdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
     @ApiOperation(value = "createBatch", tags = {"Bug" },  notes = "createBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<BugDTO> bugdtos) {
@@ -112,7 +109,7 @@ public class BugResource {
          return ResponseEntity.status(HttpStatus.OK).body(bugService.remove(bug_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.bugMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Remove-all')")
     @ApiOperation(value = "RemoveBatch", tags = {"Bug" },  notes = "RemoveBatch")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/bugs/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
@@ -132,7 +129,7 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.bugMapping,#bugdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
     @ApiOperation(value = "UpdateBatch", tags = {"Bug" },  notes = "UpdateBatch")
 	@RequestMapping(method = RequestMethod.PUT, value = "/bugs/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<BugDTO> bugdtos) {
@@ -170,7 +167,6 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-GetDraft-all')")
     @ApiOperation(value = "GetDraftByProduct", tags = {"Bug" },  notes = "GetDraftByProduct")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/bugs/getdraft")
     public ResponseEntity<BugDTO> getDraftByProduct(@PathVariable("product_id") BigInteger product_id) {
@@ -179,7 +175,6 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugMapping.toDto(bugService.getDraft(domain)));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-CheckKey-all')")
     @ApiOperation(value = "CheckKeyByProduct", tags = {"Bug" },  notes = "CheckKeyByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/checkkey")
     public ResponseEntity<Boolean> checkKeyByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BugDTO bugdto) {
@@ -195,7 +190,7 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugService.save(domain));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.bugMapping,#bugdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
     @ApiOperation(value = "SaveBatchByProduct", tags = {"Bug" },  notes = "SaveBatchByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/savebatch")
     public ResponseEntity<Boolean> saveBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<BugDTO> bugdtos) {
@@ -219,7 +214,7 @@ public class BugResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.bugMapping,#bugdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
     @ApiOperation(value = "createBatchByProduct", tags = {"Bug" },  notes = "createBatchByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/batch")
     public ResponseEntity<Boolean> createBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<BugDTO> bugdtos) {
@@ -239,7 +234,7 @@ public class BugResource {
 		return ResponseEntity.status(HttpStatus.OK).body(bugService.remove(bug_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.bugMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Remove-all')")
     @ApiOperation(value = "RemoveBatchByProduct", tags = {"Bug" },  notes = "RemoveBatchByProduct")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/bugs/batch")
     public ResponseEntity<Boolean> removeBatchByProduct(@RequestBody List<BigInteger> ids) {
@@ -260,7 +255,7 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.bugMapping,#bugdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
     @ApiOperation(value = "UpdateBatchByProduct", tags = {"Bug" },  notes = "UpdateBatchByProduct")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/bugs/batch")
     public ResponseEntity<Boolean> updateBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<BugDTO> bugdtos) {
@@ -296,3 +291,4 @@ public class BugResource {
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 }
+

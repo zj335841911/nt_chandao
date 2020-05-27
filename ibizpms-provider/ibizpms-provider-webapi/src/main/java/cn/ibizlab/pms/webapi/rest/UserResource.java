@@ -22,6 +22,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.access.prepost.PostAuthorize;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -39,15 +40,12 @@ import cn.ibizlab.pms.core.zentao.filter.UserSearchContext;
 public class UserResource {
 
     @Autowired
-    private IUserService userService;
+    public IUserService userService;
 
     @Autowired
     @Lazy
     public UserMapping userMapping;
 
-    public UserDTO permissionDTO=new UserDTO();
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-CheckKey-all')")
     @ApiOperation(value = "CheckKey", tags = {"User" },  notes = "CheckKey")
 	@RequestMapping(method = RequestMethod.POST, value = "/users/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody UserDTO userdto) {
@@ -62,7 +60,7 @@ public class UserResource {
          return ResponseEntity.status(HttpStatus.OK).body(userService.remove(user_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.userMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Remove-all')")
     @ApiOperation(value = "RemoveBatch", tags = {"User" },  notes = "RemoveBatch")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/users/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
@@ -81,7 +79,7 @@ public class UserResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.userMapping,#userdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Create-all')")
     @ApiOperation(value = "createBatch", tags = {"User" },  notes = "createBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/users/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<UserDTO> userdtos) {
@@ -110,7 +108,7 @@ public class UserResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.userMapping,#userdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Update-all')")
     @ApiOperation(value = "UpdateBatch", tags = {"User" },  notes = "UpdateBatch")
 	@RequestMapping(method = RequestMethod.PUT, value = "/users/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<UserDTO> userdtos) {
@@ -125,7 +123,7 @@ public class UserResource {
         return ResponseEntity.status(HttpStatus.OK).body(userService.save(userMapping.toDomain(userdto)));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.userMapping,#userdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Save-all')")
     @ApiOperation(value = "SaveBatch", tags = {"User" },  notes = "SaveBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/users/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<UserDTO> userdtos) {
@@ -133,7 +131,6 @@ public class UserResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-GetDraft-all')")
     @ApiOperation(value = "GetDraft", tags = {"User" },  notes = "GetDraft")
 	@RequestMapping(method = RequestMethod.GET, value = "/users/getdraft")
     public ResponseEntity<UserDTO> getDraft() {
@@ -162,3 +159,4 @@ public class UserResource {
                 .body(new PageImpl(userMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 }
+

@@ -22,6 +22,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.access.prepost.PostAuthorize;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -39,15 +40,12 @@ import cn.ibizlab.pms.core.zentao.filter.ProjectProductSearchContext;
 public class ProjectProductResource {
 
     @Autowired
-    private IProjectProductService projectproductService;
+    public IProjectProductService projectproductService;
 
     @Autowired
     @Lazy
     public ProjectProductMapping projectproductMapping;
 
-    public ProjectProductDTO permissionDTO=new ProjectProductDTO();
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-GetDraft-all')")
     @ApiOperation(value = "GetDraft", tags = {"ProjectProduct" },  notes = "GetDraft")
 	@RequestMapping(method = RequestMethod.GET, value = "/projectproducts/getdraft")
     public ResponseEntity<ProjectProductDTO> getDraft() {
@@ -61,7 +59,7 @@ public class ProjectProductResource {
         return ResponseEntity.status(HttpStatus.OK).body(projectproductService.save(projectproductMapping.toDomain(projectproductdto)));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.projectproductMapping,#projectproductdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Save-all')")
     @ApiOperation(value = "SaveBatch", tags = {"ProjectProduct" },  notes = "SaveBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/projectproducts/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<ProjectProductDTO> projectproductdtos) {
@@ -69,7 +67,6 @@ public class ProjectProductResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-CheckKey-all')")
     @ApiOperation(value = "CheckKey", tags = {"ProjectProduct" },  notes = "CheckKey")
 	@RequestMapping(method = RequestMethod.POST, value = "/projectproducts/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody ProjectProductDTO projectproductdto) {
@@ -96,7 +93,7 @@ public class ProjectProductResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.projectproductMapping,#projectproductdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Create-all')")
     @ApiOperation(value = "createBatch", tags = {"ProjectProduct" },  notes = "createBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/projectproducts/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<ProjectProductDTO> projectproductdtos) {
@@ -112,7 +109,7 @@ public class ProjectProductResource {
          return ResponseEntity.status(HttpStatus.OK).body(projectproductService.remove(projectproduct_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.projectproductMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Remove-all')")
     @ApiOperation(value = "RemoveBatch", tags = {"ProjectProduct" },  notes = "RemoveBatch")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/projectproducts/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<String> ids) {
@@ -132,7 +129,7 @@ public class ProjectProductResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.projectproductMapping,#projectproductdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Update-all')")
     @ApiOperation(value = "UpdateBatch", tags = {"ProjectProduct" },  notes = "UpdateBatch")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projectproducts/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<ProjectProductDTO> projectproductdtos) {
@@ -182,7 +179,6 @@ public class ProjectProductResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectproductMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-GetDraft-all')")
     @ApiOperation(value = "GetDraftByProduct", tags = {"ProjectProduct" },  notes = "GetDraftByProduct")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/projectproducts/getdraft")
     public ResponseEntity<ProjectProductDTO> getDraftByProduct(@PathVariable("product_id") BigInteger product_id) {
@@ -200,7 +196,7 @@ public class ProjectProductResource {
         return ResponseEntity.status(HttpStatus.OK).body(projectproductService.save(domain));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.projectproductMapping,#projectproductdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Save-all')")
     @ApiOperation(value = "SaveBatchByProduct", tags = {"ProjectProduct" },  notes = "SaveBatchByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/projectproducts/savebatch")
     public ResponseEntity<Boolean> saveBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<ProjectProductDTO> projectproductdtos) {
@@ -212,7 +208,6 @@ public class ProjectProductResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-CheckKey-all')")
     @ApiOperation(value = "CheckKeyByProduct", tags = {"ProjectProduct" },  notes = "CheckKeyByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/projectproducts/checkkey")
     public ResponseEntity<Boolean> checkKeyByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody ProjectProductDTO projectproductdto) {
@@ -240,7 +235,7 @@ public class ProjectProductResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.projectproductMapping,#projectproductdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Create-all')")
     @ApiOperation(value = "createBatchByProduct", tags = {"ProjectProduct" },  notes = "createBatchByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/projectproducts/batch")
     public ResponseEntity<Boolean> createBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<ProjectProductDTO> projectproductdtos) {
@@ -260,7 +255,7 @@ public class ProjectProductResource {
 		return ResponseEntity.status(HttpStatus.OK).body(projectproductService.remove(projectproduct_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.projectproductMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Remove-all')")
     @ApiOperation(value = "RemoveBatchByProduct", tags = {"ProjectProduct" },  notes = "RemoveBatchByProduct")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/projectproducts/batch")
     public ResponseEntity<Boolean> removeBatchByProduct(@RequestBody List<String> ids) {
@@ -281,7 +276,7 @@ public class ProjectProductResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.projectproductMapping,#projectproductdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Update-all')")
     @ApiOperation(value = "UpdateBatchByProduct", tags = {"ProjectProduct" },  notes = "UpdateBatchByProduct")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/projectproducts/batch")
     public ResponseEntity<Boolean> updateBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<ProjectProductDTO> projectproductdtos) {
@@ -339,7 +334,6 @@ public class ProjectProductResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectproductMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-GetDraft-all')")
     @ApiOperation(value = "GetDraftByProject", tags = {"ProjectProduct" },  notes = "GetDraftByProject")
     @RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/projectproducts/getdraft")
     public ResponseEntity<ProjectProductDTO> getDraftByProject(@PathVariable("project_id") BigInteger project_id) {
@@ -357,7 +351,7 @@ public class ProjectProductResource {
         return ResponseEntity.status(HttpStatus.OK).body(projectproductService.save(domain));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.projectproductMapping,#projectproductdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Save-all')")
     @ApiOperation(value = "SaveBatchByProject", tags = {"ProjectProduct" },  notes = "SaveBatchByProject")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectproducts/savebatch")
     public ResponseEntity<Boolean> saveBatchByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody List<ProjectProductDTO> projectproductdtos) {
@@ -369,7 +363,6 @@ public class ProjectProductResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-CheckKey-all')")
     @ApiOperation(value = "CheckKeyByProject", tags = {"ProjectProduct" },  notes = "CheckKeyByProject")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectproducts/checkkey")
     public ResponseEntity<Boolean> checkKeyByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectProductDTO projectproductdto) {
@@ -397,7 +390,7 @@ public class ProjectProductResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.projectproductMapping,#projectproductdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Create-all')")
     @ApiOperation(value = "createBatchByProject", tags = {"ProjectProduct" },  notes = "createBatchByProject")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectproducts/batch")
     public ResponseEntity<Boolean> createBatchByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody List<ProjectProductDTO> projectproductdtos) {
@@ -417,7 +410,7 @@ public class ProjectProductResource {
 		return ResponseEntity.status(HttpStatus.OK).body(projectproductService.remove(projectproduct_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.projectproductMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Remove-all')")
     @ApiOperation(value = "RemoveBatchByProject", tags = {"ProjectProduct" },  notes = "RemoveBatchByProject")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/projectproducts/batch")
     public ResponseEntity<Boolean> removeBatchByProject(@RequestBody List<String> ids) {
@@ -438,7 +431,7 @@ public class ProjectProductResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.projectproductMapping,#projectproductdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Update-all')")
     @ApiOperation(value = "UpdateBatchByProject", tags = {"ProjectProduct" },  notes = "UpdateBatchByProject")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/projectproducts/batch")
     public ResponseEntity<Boolean> updateBatchByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody List<ProjectProductDTO> projectproductdtos) {
@@ -497,3 +490,4 @@ public class ProjectProductResource {
                 .body(new PageImpl(projectproductMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 }
+

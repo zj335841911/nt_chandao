@@ -22,6 +22,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.access.prepost.PostAuthorize;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -39,15 +40,12 @@ import cn.ibizlab.pms.core.zentao.filter.ReleaseSearchContext;
 public class ReleaseResource {
 
     @Autowired
-    private IReleaseService releaseService;
+    public IReleaseService releaseService;
 
     @Autowired
     @Lazy
     public ReleaseMapping releaseMapping;
 
-    public ReleaseDTO permissionDTO=new ReleaseDTO();
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-CheckKey-all')")
     @ApiOperation(value = "CheckKey", tags = {"Release" },  notes = "CheckKey")
 	@RequestMapping(method = RequestMethod.POST, value = "/releases/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody ReleaseDTO releasedto) {
@@ -70,7 +68,7 @@ public class ReleaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(releaseService.save(releaseMapping.toDomain(releasedto)));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.releaseMapping,#releasedtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-Save-all')")
     @ApiOperation(value = "SaveBatch", tags = {"Release" },  notes = "SaveBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/releases/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<ReleaseDTO> releasedtos) {
@@ -89,7 +87,7 @@ public class ReleaseResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.releaseMapping,#releasedtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-Create-all')")
     @ApiOperation(value = "createBatch", tags = {"Release" },  notes = "createBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/releases/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<ReleaseDTO> releasedtos) {
@@ -97,7 +95,6 @@ public class ReleaseResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-GetDraft-all')")
     @ApiOperation(value = "GetDraft", tags = {"Release" },  notes = "GetDraft")
 	@RequestMapping(method = RequestMethod.GET, value = "/releases/getdraft")
     public ResponseEntity<ReleaseDTO> getDraft() {
@@ -116,7 +113,7 @@ public class ReleaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.releaseMapping,#releasedtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-Update-all')")
     @ApiOperation(value = "UpdateBatch", tags = {"Release" },  notes = "UpdateBatch")
 	@RequestMapping(method = RequestMethod.PUT, value = "/releases/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<ReleaseDTO> releasedtos) {
@@ -132,7 +129,7 @@ public class ReleaseResource {
          return ResponseEntity.status(HttpStatus.OK).body(releaseService.remove(release_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.releaseMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-Remove-all')")
     @ApiOperation(value = "RemoveBatch", tags = {"Release" },  notes = "RemoveBatch")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/releases/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
@@ -161,7 +158,6 @@ public class ReleaseResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(releaseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-CheckKey-all')")
     @ApiOperation(value = "CheckKeyByProduct", tags = {"Release" },  notes = "CheckKeyByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/releases/checkkey")
     public ResponseEntity<Boolean> checkKeyByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody ReleaseDTO releasedto) {
@@ -186,7 +182,7 @@ public class ReleaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(releaseService.save(domain));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.releaseMapping,#releasedtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-Save-all')")
     @ApiOperation(value = "SaveBatchByProduct", tags = {"Release" },  notes = "SaveBatchByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/releases/savebatch")
     public ResponseEntity<Boolean> saveBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<ReleaseDTO> releasedtos) {
@@ -210,7 +206,7 @@ public class ReleaseResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.releaseMapping,#releasedtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-Create-all')")
     @ApiOperation(value = "createBatchByProduct", tags = {"Release" },  notes = "createBatchByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/releases/batch")
     public ResponseEntity<Boolean> createBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<ReleaseDTO> releasedtos) {
@@ -222,7 +218,6 @@ public class ReleaseResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-GetDraft-all')")
     @ApiOperation(value = "GetDraftByProduct", tags = {"Release" },  notes = "GetDraftByProduct")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/releases/getdraft")
     public ResponseEntity<ReleaseDTO> getDraftByProduct(@PathVariable("product_id") BigInteger product_id) {
@@ -244,7 +239,7 @@ public class ReleaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.releaseMapping,#releasedtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-Update-all')")
     @ApiOperation(value = "UpdateBatchByProduct", tags = {"Release" },  notes = "UpdateBatchByProduct")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/releases/batch")
     public ResponseEntity<Boolean> updateBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<ReleaseDTO> releasedtos) {
@@ -264,7 +259,7 @@ public class ReleaseResource {
 		return ResponseEntity.status(HttpStatus.OK).body(releaseService.remove(release_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.releaseMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-Remove-all')")
     @ApiOperation(value = "RemoveBatchByProduct", tags = {"Release" },  notes = "RemoveBatchByProduct")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/releases/batch")
     public ResponseEntity<Boolean> removeBatchByProduct(@RequestBody List<BigInteger> ids) {
@@ -296,3 +291,4 @@ public class ReleaseResource {
                 .body(new PageImpl(releaseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 }
+

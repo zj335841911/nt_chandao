@@ -22,6 +22,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.access.prepost.PostAuthorize;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -39,13 +40,11 @@ import cn.ibizlab.pms.core.zentao.filter.ProductPlanSearchContext;
 public class ProductPlanResource {
 
     @Autowired
-    private IProductPlanService productplanService;
+    public IProductPlanService productplanService;
 
     @Autowired
     @Lazy
     public ProductPlanMapping productplanMapping;
-
-    public ProductPlanDTO permissionDTO=new ProductPlanDTO();
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Save-all')")
     @ApiOperation(value = "Save", tags = {"ProductPlan" },  notes = "Save")
@@ -54,7 +53,7 @@ public class ProductPlanResource {
         return ResponseEntity.status(HttpStatus.OK).body(productplanService.save(productplanMapping.toDomain(productplandto)));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.productplanMapping,#productplandtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Save-all')")
     @ApiOperation(value = "SaveBatch", tags = {"ProductPlan" },  notes = "SaveBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<ProductPlanDTO> productplandtos) {
@@ -73,7 +72,7 @@ public class ProductPlanResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.productplanMapping,#productplandtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Create-all')")
     @ApiOperation(value = "createBatch", tags = {"ProductPlan" },  notes = "createBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<ProductPlanDTO> productplandtos) {
@@ -89,7 +88,7 @@ public class ProductPlanResource {
          return ResponseEntity.status(HttpStatus.OK).body(productplanService.remove(productplan_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.productplanMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Remove-all')")
     @ApiOperation(value = "RemoveBatch", tags = {"ProductPlan" },  notes = "RemoveBatch")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/productplans/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
@@ -97,14 +96,12 @@ public class ProductPlanResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-CheckKey-all')")
     @ApiOperation(value = "CheckKey", tags = {"ProductPlan" },  notes = "CheckKey")
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody ProductPlanDTO productplandto) {
         return  ResponseEntity.status(HttpStatus.OK).body(productplanService.checkKey(productplanMapping.toDomain(productplandto)));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-GetDraft-all')")
     @ApiOperation(value = "GetDraft", tags = {"ProductPlan" },  notes = "GetDraft")
 	@RequestMapping(method = RequestMethod.GET, value = "/productplans/getdraft")
     public ResponseEntity<ProductPlanDTO> getDraft() {
@@ -123,7 +120,7 @@ public class ProductPlanResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.productplanMapping,#productplandtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Update-all')")
     @ApiOperation(value = "UpdateBatch", tags = {"ProductPlan" },  notes = "UpdateBatch")
 	@RequestMapping(method = RequestMethod.PUT, value = "/productplans/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<ProductPlanDTO> productplandtos) {
@@ -170,7 +167,7 @@ public class ProductPlanResource {
         return ResponseEntity.status(HttpStatus.OK).body(productplanService.save(domain));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.productplanMapping,#productplandtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Save-all')")
     @ApiOperation(value = "SaveBatchByProduct", tags = {"ProductPlan" },  notes = "SaveBatchByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/savebatch")
     public ResponseEntity<Boolean> saveBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<ProductPlanDTO> productplandtos) {
@@ -194,7 +191,7 @@ public class ProductPlanResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.productplanMapping,#productplandtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Create-all')")
     @ApiOperation(value = "createBatchByProduct", tags = {"ProductPlan" },  notes = "createBatchByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/batch")
     public ResponseEntity<Boolean> createBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<ProductPlanDTO> productplandtos) {
@@ -214,7 +211,7 @@ public class ProductPlanResource {
 		return ResponseEntity.status(HttpStatus.OK).body(productplanService.remove(productplan_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.productplanMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Remove-all')")
     @ApiOperation(value = "RemoveBatchByProduct", tags = {"ProductPlan" },  notes = "RemoveBatchByProduct")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/productplans/batch")
     public ResponseEntity<Boolean> removeBatchByProduct(@RequestBody List<BigInteger> ids) {
@@ -222,14 +219,12 @@ public class ProductPlanResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-CheckKey-all')")
     @ApiOperation(value = "CheckKeyByProduct", tags = {"ProductPlan" },  notes = "CheckKeyByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/checkkey")
     public ResponseEntity<Boolean> checkKeyByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductPlanDTO productplandto) {
         return  ResponseEntity.status(HttpStatus.OK).body(productplanService.checkKey(productplanMapping.toDomain(productplandto)));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-GetDraft-all')")
     @ApiOperation(value = "GetDraftByProduct", tags = {"ProductPlan" },  notes = "GetDraftByProduct")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/productplans/getdraft")
     public ResponseEntity<ProductPlanDTO> getDraftByProduct(@PathVariable("product_id") BigInteger product_id) {
@@ -251,7 +246,7 @@ public class ProductPlanResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.productplanMapping,#productplandtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Update-all')")
     @ApiOperation(value = "UpdateBatchByProduct", tags = {"ProductPlan" },  notes = "UpdateBatchByProduct")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/productplans/batch")
     public ResponseEntity<Boolean> updateBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<ProductPlanDTO> productplandtos) {
@@ -296,3 +291,4 @@ public class ProductPlanResource {
                 .body(new PageImpl(productplanMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 }
+

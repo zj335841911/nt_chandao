@@ -52,6 +52,7 @@ public interface IUserQueryService extends IService<UserQuery>{
      */
     boolean execute(String sql, Map param);
 
+
 }
 
 

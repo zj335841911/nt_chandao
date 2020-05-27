@@ -22,6 +22,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.access.prepost.PostAuthorize;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -39,13 +40,11 @@ import cn.ibizlab.pms.core.zentao.filter.HistorySearchContext;
 public class HistoryResource {
 
     @Autowired
-    private IHistoryService historyService;
+    public IHistoryService historyService;
 
     @Autowired
     @Lazy
     public HistoryMapping historyMapping;
-
-    public HistoryDTO permissionDTO=new HistoryDTO();
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Update-all')")
     @ApiOperation(value = "Update", tags = {"History" },  notes = "Update")
@@ -59,7 +58,7 @@ public class HistoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.historyMapping,#historydtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Update-all')")
     @ApiOperation(value = "UpdateBatch", tags = {"History" },  notes = "UpdateBatch")
 	@RequestMapping(method = RequestMethod.PUT, value = "/histories/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<HistoryDTO> historydtos) {
@@ -78,7 +77,7 @@ public class HistoryResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.historyMapping,#historydtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Create-all')")
     @ApiOperation(value = "createBatch", tags = {"History" },  notes = "createBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/histories/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<HistoryDTO> historydtos) {
@@ -95,7 +94,6 @@ public class HistoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-CheckKey-all')")
     @ApiOperation(value = "CheckKey", tags = {"History" },  notes = "CheckKey")
 	@RequestMapping(method = RequestMethod.POST, value = "/histories/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody HistoryDTO historydto) {
@@ -109,7 +107,7 @@ public class HistoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(historyService.save(historyMapping.toDomain(historydto)));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.historyMapping,#historydtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Save-all')")
     @ApiOperation(value = "SaveBatch", tags = {"History" },  notes = "SaveBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/histories/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<HistoryDTO> historydtos) {
@@ -125,7 +123,7 @@ public class HistoryResource {
          return ResponseEntity.status(HttpStatus.OK).body(historyService.remove(history_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.historyMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Remove-all')")
     @ApiOperation(value = "RemoveBatch", tags = {"History" },  notes = "RemoveBatch")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/histories/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
@@ -133,7 +131,6 @@ public class HistoryResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-GetDraft-all')")
     @ApiOperation(value = "GetDraft", tags = {"History" },  notes = "GetDraft")
 	@RequestMapping(method = RequestMethod.GET, value = "/histories/getdraft")
     public ResponseEntity<HistoryDTO> getDraft() {
@@ -174,7 +171,7 @@ public class HistoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.historyMapping,#historydtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Update-all')")
     @ApiOperation(value = "UpdateBatchByAction", tags = {"History" },  notes = "UpdateBatchByAction")
 	@RequestMapping(method = RequestMethod.PUT, value = "/actions/{action_id}/histories/batch")
     public ResponseEntity<Boolean> updateBatchByAction(@PathVariable("action_id") BigInteger action_id, @RequestBody List<HistoryDTO> historydtos) {
@@ -198,7 +195,7 @@ public class HistoryResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.historyMapping,#historydtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Create-all')")
     @ApiOperation(value = "createBatchByAction", tags = {"History" },  notes = "createBatchByAction")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/{action_id}/histories/batch")
     public ResponseEntity<Boolean> createBatchByAction(@PathVariable("action_id") BigInteger action_id, @RequestBody List<HistoryDTO> historydtos) {
@@ -219,7 +216,6 @@ public class HistoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-CheckKey-all')")
     @ApiOperation(value = "CheckKeyByAction", tags = {"History" },  notes = "CheckKeyByAction")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/{action_id}/histories/checkkey")
     public ResponseEntity<Boolean> checkKeyByAction(@PathVariable("action_id") BigInteger action_id, @RequestBody HistoryDTO historydto) {
@@ -235,7 +231,7 @@ public class HistoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(historyService.save(domain));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.historyMapping,#historydtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Save-all')")
     @ApiOperation(value = "SaveBatchByAction", tags = {"History" },  notes = "SaveBatchByAction")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/{action_id}/histories/savebatch")
     public ResponseEntity<Boolean> saveBatchByAction(@PathVariable("action_id") BigInteger action_id, @RequestBody List<HistoryDTO> historydtos) {
@@ -255,7 +251,7 @@ public class HistoryResource {
 		return ResponseEntity.status(HttpStatus.OK).body(historyService.remove(history_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.historyMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Remove-all')")
     @ApiOperation(value = "RemoveBatchByAction", tags = {"History" },  notes = "RemoveBatchByAction")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/actions/{action_id}/histories/batch")
     public ResponseEntity<Boolean> removeBatchByAction(@RequestBody List<BigInteger> ids) {
@@ -263,7 +259,6 @@ public class HistoryResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-GetDraft-all')")
     @ApiOperation(value = "GetDraftByAction", tags = {"History" },  notes = "GetDraftByAction")
     @RequestMapping(method = RequestMethod.GET, value = "/actions/{action_id}/histories/getdraft")
     public ResponseEntity<HistoryDTO> getDraftByAction(@PathVariable("action_id") BigInteger action_id) {
@@ -296,3 +291,4 @@ public class HistoryResource {
                 .body(new PageImpl(historyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 }
+

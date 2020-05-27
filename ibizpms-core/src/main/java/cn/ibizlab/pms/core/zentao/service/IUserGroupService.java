@@ -52,6 +52,7 @@ public interface IUserGroupService extends IService<UserGroup>{
      */
     boolean execute(String sql, Map param);
 
+
 }
 
 

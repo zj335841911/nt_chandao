@@ -22,6 +22,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.access.prepost.PostAuthorize;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -39,15 +40,12 @@ import cn.ibizlab.pms.core.zentao.filter.TaskSearchContext;
 public class TaskResource {
 
     @Autowired
-    private ITaskService taskService;
+    public ITaskService taskService;
 
     @Autowired
     @Lazy
     public TaskMapping taskMapping;
 
-    public TaskDTO permissionDTO=new TaskDTO();
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetDraft-all')")
     @ApiOperation(value = "GetDraft", tags = {"Task" },  notes = "GetDraft")
 	@RequestMapping(method = RequestMethod.GET, value = "/tasks/getdraft")
     public ResponseEntity<TaskDTO> getDraft() {
@@ -62,7 +60,7 @@ public class TaskResource {
          return ResponseEntity.status(HttpStatus.OK).body(taskService.remove(task_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.taskMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Remove-all')")
     @ApiOperation(value = "RemoveBatch", tags = {"Task" },  notes = "RemoveBatch")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/tasks/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
@@ -82,7 +80,7 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.taskMapping,#taskdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Update-all')")
     @ApiOperation(value = "UpdateBatch", tags = {"Task" },  notes = "UpdateBatch")
 	@RequestMapping(method = RequestMethod.PUT, value = "/tasks/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<TaskDTO> taskdtos) {
@@ -97,7 +95,7 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskService.save(taskMapping.toDomain(taskdto)));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.taskMapping,#taskdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Save-all')")
     @ApiOperation(value = "SaveBatch", tags = {"Task" },  notes = "SaveBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<TaskDTO> taskdtos) {
@@ -114,7 +112,6 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-CheckKey-all')")
     @ApiOperation(value = "CheckKey", tags = {"Task" },  notes = "CheckKey")
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody TaskDTO taskdto) {
@@ -132,7 +129,7 @@ public class TaskResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.taskMapping,#taskdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Create-all')")
     @ApiOperation(value = "createBatch", tags = {"Task" },  notes = "createBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<TaskDTO> taskdtos) {
@@ -202,7 +199,6 @@ public class TaskResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(taskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetDraft-all')")
     @ApiOperation(value = "GetDraftByProject", tags = {"Task" },  notes = "GetDraftByProject")
     @RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/tasks/getdraft")
     public ResponseEntity<TaskDTO> getDraftByProject(@PathVariable("project_id") BigInteger project_id) {
@@ -219,7 +215,7 @@ public class TaskResource {
 		return ResponseEntity.status(HttpStatus.OK).body(taskService.remove(task_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.taskMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Remove-all')")
     @ApiOperation(value = "RemoveBatchByProject", tags = {"Task" },  notes = "RemoveBatchByProject")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/tasks/batch")
     public ResponseEntity<Boolean> removeBatchByProject(@RequestBody List<BigInteger> ids) {
@@ -240,7 +236,7 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.taskMapping,#taskdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Update-all')")
     @ApiOperation(value = "UpdateBatchByProject", tags = {"Task" },  notes = "UpdateBatchByProject")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/tasks/batch")
     public ResponseEntity<Boolean> updateBatchByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody List<TaskDTO> taskdtos) {
@@ -261,7 +257,7 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskService.save(domain));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.taskMapping,#taskdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Save-all')")
     @ApiOperation(value = "SaveBatchByProject", tags = {"Task" },  notes = "SaveBatchByProject")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/savebatch")
     public ResponseEntity<Boolean> saveBatchByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody List<TaskDTO> taskdtos) {
@@ -282,7 +278,6 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-CheckKey-all')")
     @ApiOperation(value = "CheckKeyByProject", tags = {"Task" },  notes = "CheckKeyByProject")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/checkkey")
     public ResponseEntity<Boolean> checkKeyByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody TaskDTO taskdto) {
@@ -301,7 +296,7 @@ public class TaskResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.taskMapping,#taskdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Create-all')")
     @ApiOperation(value = "createBatchByProject", tags = {"Task" },  notes = "createBatchByProject")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/batch")
     public ResponseEntity<Boolean> createBatchByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody List<TaskDTO> taskdtos) {
@@ -382,3 +377,4 @@ public class TaskResource {
                 .body(new PageImpl(taskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 }
+

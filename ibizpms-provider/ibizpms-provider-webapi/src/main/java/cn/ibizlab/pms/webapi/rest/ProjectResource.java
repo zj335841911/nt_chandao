@@ -22,6 +22,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.access.prepost.PostAuthorize;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -39,15 +40,12 @@ import cn.ibizlab.pms.core.zentao.filter.ProjectSearchContext;
 public class ProjectResource {
 
     @Autowired
-    private IProjectService projectService;
+    public IProjectService projectService;
 
     @Autowired
     @Lazy
     public ProjectMapping projectMapping;
 
-    public ProjectDTO permissionDTO=new ProjectDTO();
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-CheckKey-all')")
     @ApiOperation(value = "CheckKey", tags = {"Project" },  notes = "CheckKey")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody ProjectDTO projectdto) {
@@ -61,7 +59,7 @@ public class ProjectResource {
         return ResponseEntity.status(HttpStatus.OK).body(projectService.save(projectMapping.toDomain(projectdto)));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.projectMapping,#projectdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-Save-all')")
     @ApiOperation(value = "SaveBatch", tags = {"Project" },  notes = "SaveBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<ProjectDTO> projectdtos) {
@@ -81,7 +79,7 @@ public class ProjectResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.projectMapping,#projectdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-Update-all')")
     @ApiOperation(value = "UpdateBatch", tags = {"Project" },  notes = "UpdateBatch")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<ProjectDTO> projectdtos) {
@@ -109,7 +107,7 @@ public class ProjectResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.projectMapping,#projectdtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-Create-all')")
     @ApiOperation(value = "createBatch", tags = {"Project" },  notes = "createBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<ProjectDTO> projectdtos) {
@@ -125,7 +123,7 @@ public class ProjectResource {
          return ResponseEntity.status(HttpStatus.OK).body(projectService.remove(project_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.projectMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-Remove-all')")
     @ApiOperation(value = "RemoveBatch", tags = {"Project" },  notes = "RemoveBatch")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
@@ -133,7 +131,6 @@ public class ProjectResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-GetDraft-all')")
     @ApiOperation(value = "GetDraft", tags = {"Project" },  notes = "GetDraft")
 	@RequestMapping(method = RequestMethod.GET, value = "/projects/getdraft")
     public ResponseEntity<ProjectDTO> getDraft() {
@@ -183,3 +180,4 @@ public class ProjectResource {
                 .body(new PageImpl(projectMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 }
+

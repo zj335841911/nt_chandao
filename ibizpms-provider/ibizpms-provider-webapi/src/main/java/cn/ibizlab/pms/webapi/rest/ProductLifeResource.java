@@ -22,6 +22,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.access.prepost.PostAuthorize;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -39,13 +40,11 @@ import cn.ibizlab.pms.core.ibiz.filter.ProductLifeSearchContext;
 public class ProductLifeResource {
 
     @Autowired
-    private IProductLifeService productlifeService;
+    public IProductLifeService productlifeService;
 
     @Autowired
     @Lazy
     public ProductLifeMapping productlifeMapping;
-
-    public ProductLifeDTO permissionDTO=new ProductLifeDTO();
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductLife-GetRoadmap-all')")
 	@ApiOperation(value = "fetchGetRoadmap", tags = {"ProductLife" } ,notes = "fetchGetRoadmap")
@@ -90,3 +89,4 @@ public class ProductLifeResource {
                 .body(new PageImpl(productlifeMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 }
+

@@ -22,6 +22,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.access.prepost.PostAuthorize;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -39,13 +40,11 @@ import cn.ibizlab.pms.core.ibiz.filter.ProductModuleSearchContext;
 public class ProductModuleResource {
 
     @Autowired
-    private IProductModuleService productmoduleService;
+    public IProductModuleService productmoduleService;
 
     @Autowired
     @Lazy
     public ProductModuleMapping productmoduleMapping;
-
-    public ProductModuleDTO permissionDTO=new ProductModuleDTO();
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-Update-all')")
     @ApiOperation(value = "UpdateByProduct", tags = {"ProductModule" },  notes = "UpdateByProduct")
@@ -60,7 +59,7 @@ public class ProductModuleResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.productmoduleMapping,#productmoduledtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-Update-all')")
     @ApiOperation(value = "UpdateBatchByProduct", tags = {"ProductModule" },  notes = "UpdateBatchByProduct")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/productmodules/batch")
     public ResponseEntity<Boolean> updateBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<ProductModuleDTO> productmoduledtos) {
@@ -81,14 +80,12 @@ public class ProductModuleResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-CheckKey-all')")
     @ApiOperation(value = "CheckKeyByProduct", tags = {"ProductModule" },  notes = "CheckKeyByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productmodules/checkkey")
     public ResponseEntity<Boolean> checkKeyByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductModuleDTO productmoduledto) {
         return  ResponseEntity.status(HttpStatus.OK).body(productmoduleService.checkKey(productmoduleMapping.toDomain(productmoduledto)));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-GetDraft-all')")
     @ApiOperation(value = "GetDraftByProduct", tags = {"ProductModule" },  notes = "GetDraftByProduct")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/productmodules/getdraft")
     public ResponseEntity<ProductModuleDTO> getDraftByProduct(@PathVariable("product_id") BigInteger product_id) {
@@ -109,7 +106,7 @@ public class ProductModuleResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.productmoduleMapping,#productmoduledtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-Create-all')")
     @ApiOperation(value = "createBatchByProduct", tags = {"ProductModule" },  notes = "createBatchByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productmodules/batch")
     public ResponseEntity<Boolean> createBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<ProductModuleDTO> productmoduledtos) {
@@ -129,7 +126,7 @@ public class ProductModuleResource {
 		return ResponseEntity.status(HttpStatus.OK).body(productmoduleService.remove(productmodule_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.productmoduleMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-Remove-all')")
     @ApiOperation(value = "RemoveBatchByProduct", tags = {"ProductModule" },  notes = "RemoveBatchByProduct")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/productmodules/batch")
     public ResponseEntity<Boolean> removeBatchByProduct(@RequestBody List<BigInteger> ids) {
@@ -146,7 +143,7 @@ public class ProductModuleResource {
         return ResponseEntity.status(HttpStatus.OK).body(productmoduleService.save(domain));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.productmoduleMapping,#productmoduledtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-Save-all')")
     @ApiOperation(value = "SaveBatchByProduct", tags = {"ProductModule" },  notes = "SaveBatchByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productmodules/savebatch")
     public ResponseEntity<Boolean> saveBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<ProductModuleDTO> productmoduledtos) {
@@ -228,3 +225,4 @@ public class ProductModuleResource {
                 .body(new PageImpl(productmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 }
+

@@ -52,6 +52,7 @@ public interface ILogService extends IService<Log>{
      */
     boolean execute(String sql, Map param);
 
+
 }
 
 

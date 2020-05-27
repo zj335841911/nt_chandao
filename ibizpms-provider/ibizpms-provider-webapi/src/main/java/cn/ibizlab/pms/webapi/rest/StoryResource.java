@@ -22,6 +22,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.access.prepost.PostAuthorize;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -39,15 +40,12 @@ import cn.ibizlab.pms.core.zentao.filter.StorySearchContext;
 public class StoryResource {
 
     @Autowired
-    private IStoryService storyService;
+    public IStoryService storyService;
 
     @Autowired
     @Lazy
     public StoryMapping storyMapping;
 
-    public StoryDTO permissionDTO=new StoryDTO();
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-GetDraft-all')")
     @ApiOperation(value = "GetDraft", tags = {"Story" },  notes = "GetDraft")
 	@RequestMapping(method = RequestMethod.GET, value = "/stories/getdraft")
     public ResponseEntity<StoryDTO> getDraft() {
@@ -65,7 +63,7 @@ public class StoryResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.storyMapping,#storydtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Create-all')")
     @ApiOperation(value = "createBatch", tags = {"Story" },  notes = "createBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<StoryDTO> storydtos) {
@@ -73,7 +71,6 @@ public class StoryResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-CheckKey-all')")
     @ApiOperation(value = "CheckKey", tags = {"Story" },  notes = "CheckKey")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody StoryDTO storydto) {
@@ -88,7 +85,7 @@ public class StoryResource {
          return ResponseEntity.status(HttpStatus.OK).body(storyService.remove(story_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.storyMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Remove-all')")
     @ApiOperation(value = "RemoveBatch", tags = {"Story" },  notes = "RemoveBatch")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/stories/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
@@ -108,7 +105,7 @@ public class StoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.storyMapping,#storydtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Update-all')")
     @ApiOperation(value = "UpdateBatch", tags = {"Story" },  notes = "UpdateBatch")
 	@RequestMapping(method = RequestMethod.PUT, value = "/stories/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<StoryDTO> storydtos) {
@@ -132,7 +129,7 @@ public class StoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(storyService.save(storyMapping.toDomain(storydto)));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.storyMapping,#storydtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Save-all')")
     @ApiOperation(value = "SaveBatch", tags = {"Story" },  notes = "SaveBatch")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<StoryDTO> storydtos) {
@@ -161,7 +158,6 @@ public class StoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(storyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-GetDraft-all')")
     @ApiOperation(value = "GetDraftByProduct", tags = {"Story" },  notes = "GetDraftByProduct")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/stories/getdraft")
     public ResponseEntity<StoryDTO> getDraftByProduct(@PathVariable("product_id") BigInteger product_id) {
@@ -182,7 +178,7 @@ public class StoryResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Create',{'Sql',this.storyMapping,#storydtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Create-all')")
     @ApiOperation(value = "createBatchByProduct", tags = {"Story" },  notes = "createBatchByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/batch")
     public ResponseEntity<Boolean> createBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<StoryDTO> storydtos) {
@@ -194,7 +190,6 @@ public class StoryResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-CheckKey-all')")
     @ApiOperation(value = "CheckKeyByProduct", tags = {"Story" },  notes = "CheckKeyByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/checkkey")
     public ResponseEntity<Boolean> checkKeyByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody StoryDTO storydto) {
@@ -209,7 +204,7 @@ public class StoryResource {
 		return ResponseEntity.status(HttpStatus.OK).body(storyService.remove(story_id));
     }
 
-    @PreAuthorize("hasPermission('Remove',{'Sql',this.storyMapping,this.permissionDTO,#ids})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Remove-all')")
     @ApiOperation(value = "RemoveBatchByProduct", tags = {"Story" },  notes = "RemoveBatchByProduct")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/stories/batch")
     public ResponseEntity<Boolean> removeBatchByProduct(@RequestBody List<BigInteger> ids) {
@@ -230,7 +225,7 @@ public class StoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasPermission('Update',{'Sql',this.storyMapping,#storydtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Update-all')")
     @ApiOperation(value = "UpdateBatchByProduct", tags = {"Story" },  notes = "UpdateBatchByProduct")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/batch")
     public ResponseEntity<Boolean> updateBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<StoryDTO> storydtos) {
@@ -260,7 +255,7 @@ public class StoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(storyService.save(domain));
     }
 
-    @PreAuthorize("hasPermission('Save',{'Sql',this.storyMapping,#storydtos})")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Save-all')")
     @ApiOperation(value = "SaveBatchByProduct", tags = {"Story" },  notes = "SaveBatchByProduct")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/savebatch")
     public ResponseEntity<Boolean> saveBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<StoryDTO> storydtos) {
@@ -296,3 +291,4 @@ public class StoryResource {
                 .body(new PageImpl(storyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 }
+

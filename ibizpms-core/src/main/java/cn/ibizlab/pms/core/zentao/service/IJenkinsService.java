@@ -52,6 +52,7 @@ public interface IJenkinsService extends IService<Jenkins>{
      */
     boolean execute(String sql, Map param);
 
+
 }
 
 

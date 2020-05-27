@@ -52,6 +52,7 @@ public interface ICronService extends IService<Cron>{
      */
     boolean execute(String sql, Map param);
 
+
 }
 
 

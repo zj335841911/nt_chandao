@@ -52,6 +52,7 @@ public interface INotifyService extends IService<Notify>{
      */
     boolean execute(String sql, Map param);
 
+
 }
 
 
