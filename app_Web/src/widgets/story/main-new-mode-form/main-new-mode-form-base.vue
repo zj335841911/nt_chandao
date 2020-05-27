@@ -30,7 +30,7 @@
 
 </i-col>
 <i-col v-show="detailsModel.modulename.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
-    <app-form-item name='modulename' :itemRules="this.rules.modulename" class='' :caption="$t('entities.story.main_newmode_form.details.modulename')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.modulename.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='modulename' :itemRules="this.rules.modulename" class='' :caption="$t('entities.story.main_newmode_form.details.modulename')" uiStyle="DEFAULT" :labelWidth="75" :isShowCaption="true" :error="detailsModel.modulename.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-picker  
   :formState="formState"
   :data="data"
@@ -74,7 +74,7 @@
 
 </i-col>
 <i-col v-show="detailsModel.source.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
-    <app-form-item name='source' :itemRules="this.rules.source" class='' :caption="$t('entities.story.main_newmode_form.details.source')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.source.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='source' :itemRules="this.rules.source" class='' :caption="$t('entities.story.main_newmode_form.details.source')" uiStyle="DEFAULT" :labelWidth="75" :isShowCaption="true" :error="detailsModel.source.error" :isEmptyCaption="false" labelPos="LEFT">
      <dropdown-list v-model="data.source" :data="data" :itemParam="{}" :disabled="detailsModel.source.disabled"  tag='Story__source' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
 </app-form-item>
 
