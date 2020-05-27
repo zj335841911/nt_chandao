@@ -278,7 +278,7 @@ export default class ClassifyByTypeBase extends Vue implements ControlInterface 
      * @type {string}
      * @memberof ClassifyByType
      */    
-    public sortDir:string = 'desc';
+    public sortDir:string = 'asc';
 
     /**
      * 排序字段
