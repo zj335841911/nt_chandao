@@ -111,17 +111,13 @@
 </i-col>
 <i-col v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='formitem' :itemRules="this.rules.formitem" class='' :caption="$t('entities.story.main_newmode_form.details.formitem')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem.error" :isEmptyCaption="false" labelPos="LEFT">
-    <div class="ivu-input-wrapper ivu-input-wrapper-default ivu-input-type">
-    <textarea class="ivu-input" :rows="10" v-model="data.formitem" :disabled="detailsModel.formitem.disabled" style="height:200px;"></textarea>
-</div>
+    <app-rich-text-editor :formState="formState" :value="data.formitem" @change="(val) =>{this.data.formitem =val}" :disabled="detailsModel.formitem.disabled"  name="formitem" style=""></app-rich-text-editor>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.formitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='formitem1' :itemRules="this.rules.formitem1" class='' :caption="$t('entities.story.main_newmode_form.details.formitem1')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem1.error" :isEmptyCaption="false" labelPos="LEFT">
-    <div class="ivu-input-wrapper ivu-input-wrapper-default ivu-input-type">
-    <textarea class="ivu-input" :rows="10" v-model="data.formitem1" :disabled="detailsModel.formitem1.disabled" style="height:200px;"></textarea>
-</div>
+    <app-rich-text-editor :formState="formState" :value="data.formitem1" @change="(val) =>{this.data.formitem1 =val}" :disabled="detailsModel.formitem1.disabled"  name="formitem1" style=""></app-rich-text-editor>
 </app-form-item>
 
 </i-col>
