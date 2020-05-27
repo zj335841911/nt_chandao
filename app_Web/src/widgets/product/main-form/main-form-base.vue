@@ -2,22 +2,82 @@
     <i-form :model="this.data" class='app-form' ref='form' style="">
     <input style="display:none;" />
     <row >
-    <tabs size="small" :animated="false" name='main' :value="detailsModel.form.activiedPage" @on-click="detailsModel.form.clickPage($event)">
-            <tab-pane v-show="detailsModel.formpage1.visible" name='formpage1' :index="0" tab='main' class=''  
-                :label="(h) =>{
-                    return h('span',{
-                        class:'caption'
-                    },[
-                    $t('entities.product.main_form.details.formpage1')
-                    ])
-                }">
-                    
+            
 <i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.product.main_form.details.group1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.product.main_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
         <i-col v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.product.main_form.details.name')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box v-model="data.name"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.name.disabled" type='text'  style=""></input-box>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.code.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='code' :itemRules="this.rules.code" class='' :caption="$t('entities.product.main_form.details.code')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.code.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.code"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.code.disabled" type='text'  style=""></input-box>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.linename.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='linename' :itemRules="this.rules.linename" class='' :caption="$t('entities.product.main_form.details.linename')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.linename.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-picker 
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam='{ }' 
+  :disabled="detailsModel.linename.disabled"
+  name='linename'
+  deMajorField='name'
+  deKeyField='module'
+  :service="service"
+  :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchLine'}"
+  valueitem='line' 
+  :value="data.linename" 
+  editortype="" 
+  :pickupView="{ viewname: 'module-pickup-view', title: $t('entities.module.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'modules', parameterName: 'module' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
+  style=""  
+  @formitemvaluechange="onFormItemValueChange">
+</app-picker>
+
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.po.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='po' :itemRules="this.rules.po" class='' :caption="$t('entities.product.main_form.details.po')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.po.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.po"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.po.disabled" type='text'  style=""></input-box>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.qd.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='qd' :itemRules="this.rules.qd" class='' :caption="$t('entities.product.main_form.details.qd')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.qd.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.qd"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.qd.disabled" type='text'  style=""></input-box>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.rd.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='rd' :itemRules="this.rules.rd" class='' :caption="$t('entities.product.main_form.details.rd')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.rd.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.rd"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.rd.disabled" type='text'  style=""></input-box>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='type' :itemRules="this.rules.type" class='' :caption="$t('entities.product.main_form.details.type')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="LEFT">
+     <dropdown-list v-model="data.type" :data="data" :itemParam="{}" :disabled="detailsModel.type.disabled"  tag='Product__type' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.product.main_form.details.desc')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="LEFT">
+    <div class="ivu-input-wrapper ivu-input-wrapper-default ivu-input-type">
+    <textarea class="ivu-input" :rows="10" v-model="data.desc" :disabled="detailsModel.desc.disabled" style="height:200px;"></textarea>
+</div>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.acl.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='acl' :itemRules="this.rules.acl" class='' :caption="$t('entities.product.main_form.details.acl')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.acl.error" :isEmptyCaption="false" labelPos="LEFT">
+     <dropdown-list v-model="data.acl" :data="data" :itemParam="{}" :disabled="detailsModel.acl.disabled"  tag='Product__acl' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -28,28 +88,6 @@
 </i-col>
 
 
-            </tab-pane> 
-            <tab-pane v-show="detailsModel.formpage2.visible" name='formpage2' :index="1" tab='main' class=''  
-                :label="(h) =>{
-                    return h('span',{
-                        class:'caption'
-                    },[
-                    $t('entities.product.main_form.details.formpage2')
-                    ])
-                }">
-                    
-<i-col v-show="detailsModel.group2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.product.main_form.details.group2')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
-    <row>
-            
-    </row>
-</app-form-group>
-
-</i-col>
-
-
-            </tab-pane> 
-    </tabs>
     </row>
 </i-form>
 </template>
@@ -348,6 +386,15 @@ export default class MainBase extends Vue implements ControlInterface {
         srfdeid: null,
         srfsourcekey: null,
         name: null,
+        code: null,
+        line: null,
+        linename: null,
+        po: null,
+        qd: null,
+        rd: null,
+        type: null,
+        desc: null,
+        acl: null,
         id: null,
         product:null,
     };
@@ -439,6 +486,60 @@ export default class MainBase extends Vue implements ControlInterface {
             { required: true, type: 'string', message: '产品名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '产品名称 值不能为空', trigger: 'blur' },
         ],
+        code: [
+            { type: 'string', message: '产品代号 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '产品代号 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '产品代号 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '产品代号 值不能为空', trigger: 'blur' },
+        ],
+        line: [
+            { type: 'number', message: '产品线 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '产品线 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '产品线 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '产品线 值不能为空', trigger: 'blur' },
+        ],
+        linename: [
+            { type: 'string', message: '产品线 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '产品线 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '产品线 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '产品线 值不能为空', trigger: 'blur' },
+        ],
+        po: [
+            { type: 'string', message: '产品负责人 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '产品负责人 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '产品负责人 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '产品负责人 值不能为空', trigger: 'blur' },
+        ],
+        qd: [
+            { type: 'string', message: '测试负责人 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '测试负责人 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '测试负责人 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '测试负责人 值不能为空', trigger: 'blur' },
+        ],
+        rd: [
+            { type: 'string', message: '发布负责人 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '发布负责人 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '发布负责人 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '发布负责人 值不能为空', trigger: 'blur' },
+        ],
+        type: [
+            { type: 'string', message: '产品类型 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '产品类型 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '产品类型 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '产品类型 值不能为空', trigger: 'blur' },
+        ],
+        desc: [
+            { type: 'string', message: '产品描述	 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '产品描述	 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '产品描述	 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '产品描述	 值不能为空', trigger: 'blur' },
+        ],
+        acl: [
+            { type: 'string', message: '访问控制 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '访问控制 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '访问控制 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '访问控制 值不能为空', trigger: 'blur' },
+        ],
         id: [
             { type: 'number', message: '编号 值必须为数值类型', trigger: 'change' },
             { type: 'number', message: '编号 值必须为数值类型', trigger: 'blur' },
@@ -454,13 +555,9 @@ export default class MainBase extends Vue implements ControlInterface {
      * @memberof Main
      */
     public detailsModel: any = {
-        group1: new FormGroupPanelModel({ caption: 'product基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.product.main_form', extractMode: 'ITEM', details: [] } })
+        group1: new FormGroupPanelModel({ caption: 'product基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.product.main_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
-, 
-        group2: new FormGroupPanelModel({ caption: '操作信息', detailType: 'GROUPPANEL', name: 'group2', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.product.main_form', extractMode: 'ITEM', details: [] } })
-, 
-        formpage2: new FormPageModel({ caption: '其它', detailType: 'FORMPAGE', name: 'formpage2', visible: true, isShowCaption: true, form: this })
 , 
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -478,9 +575,26 @@ export default class MainBase extends Vue implements ControlInterface {
 , 
         name: new FormItemModel({ caption: '产品名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        code: new FormItemModel({ caption: '产品代号', detailType: 'FORMITEM', name: 'code', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        line: new FormItemModel({ caption: '产品线', detailType: 'FORMITEM', name: 'line', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        linename: new FormItemModel({ caption: '产品线', detailType: 'FORMITEM', name: 'linename', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        po: new FormItemModel({ caption: '产品负责人', detailType: 'FORMITEM', name: 'po', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        qd: new FormItemModel({ caption: '测试负责人', detailType: 'FORMITEM', name: 'qd', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        rd: new FormItemModel({ caption: '发布负责人', detailType: 'FORMITEM', name: 'rd', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        type: new FormItemModel({ caption: '产品类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        desc: new FormItemModel({ caption: '产品描述	', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        acl: new FormItemModel({ caption: '访问控制', detailType: 'FORMITEM', name: 'acl', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
-        form: new FormTabPanelModel({ caption: 'form', detailType: 'TABPANEL', name: 'form', visible: true, isShowCaption: true, form: this, tabPages: [{ name: 'formpage1', index: 0, visible: true }, { name: 'formpage2', index: 1, visible: true }] }),
     };
 
     /**
@@ -580,6 +694,114 @@ export default class MainBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 code 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.code')
+    onCodeChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'code', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 line 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.line')
+    onLineChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'line', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 linename 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.linename')
+    onLinenameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'linename', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 po 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.po')
+    onPoChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'po', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 qd 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.qd')
+    onQdChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'qd', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 rd 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.rd')
+    onRdChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'rd', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 type 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.type')
+    onTypeChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'type', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 desc 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.desc')
+    onDescChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'desc', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 acl 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.acl')
+    onAclChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'acl', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
@@ -627,6 +849,13 @@ export default class MainBase extends Vue implements ControlInterface {
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
+
+
+
+
+
+
 
 
 

@@ -445,6 +445,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'bda78773fabbeee54079951afb35f954',
+            viewmodule: 'zentao',
+            viewname: 'ModulePickupGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'c9410c9f72535adf1fff569d5243edd1',
             viewmodule: 'zentao',
             viewname: 'BugGridView',
@@ -452,6 +461,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '46517a803b2470cd0bef27aeda0dbcaf',
+            ],
+        },
+        {
+            viewtag: 'cb6c278fd7205b3de3fc041816d15dd8',
+            viewmodule: 'zentao',
+            viewname: 'ModulePickupView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'bda78773fabbeee54079951afb35f954',
             ],
         },
         {
@@ -499,6 +518,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'cb6c278fd7205b3de3fc041816d15dd8',
             ],
         },
         {

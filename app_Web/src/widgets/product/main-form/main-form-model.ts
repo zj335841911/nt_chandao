@@ -56,6 +56,51 @@ export default class MainModel {
         dataType: 'TEXT',
       },
       {
+        name: 'code',
+        prop: 'code',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'line',
+        prop: 'line',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'linename',
+        prop: 'linename',
+        dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'po',
+        prop: 'po',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'qd',
+        prop: 'qd',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'rd',
+        prop: 'rd',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'type',
+        prop: 'type',
+        dataType: 'SSCODELIST',
+      },
+      {
+        name: 'desc',
+        prop: 'desc',
+        dataType: 'LONGTEXT',
+      },
+      {
+        name: 'acl',
+        prop: 'acl',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

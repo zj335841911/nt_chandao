@@ -528,6 +528,19 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-module-edit-view/product-module-edit-view.vue'),
                 },
                 {
+                    path: 'modules/:module?/pickupgridview/:pickupgridview?',
+                    meta: {
+                        caption: 'entities.module.views.pickupgridview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'modules', parameterName: 'module' },
+                            { pathName: 'pickupgridview', parameterName: 'pickupgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/module-pickup-grid-view/module-pickup-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/mainview_editmode/:mainview_editmode?',
                     meta: {
                         caption: 'entities.story.views.mainview_editmode.caption',
@@ -622,19 +635,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-task-type-gantt-view/task-task-type-gantt-view.vue'),
                 },
                 {
-                    path: 'projects/:project?/dashboardinfoview/:dashboardinfoview?',
-                    meta: {
-                        caption: 'entities.project.views.dashboardinfoview.caption',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'dashboardinfoview', parameterName: 'dashboardinfoview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/project-dashboard-info-view/project-dashboard-info-view.vue'),
-                },
-                {
                     path: 'projects/:project?/tasks/:task?/maindashboardview/:maindashboardview?',
                     meta: {
                         caption: 'entities.task.views.maindashboardview.caption',
@@ -660,6 +660,19 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/task-main-dashboard-view/task-main-dashboard-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/dashboardinfoview/:dashboardinfoview?',
+                    meta: {
+                        caption: 'entities.project.views.dashboardinfoview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'dashboardinfoview', parameterName: 'dashboardinfoview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/project-dashboard-info-view/project-dashboard-info-view.vue'),
                 },
                 {
                     path: 'products/:product?/releases/:release?/editview/:editview?',
@@ -1086,6 +1099,19 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/bug-grid-view/bug-grid-view.vue'),
+                },
+                {
+                    path: 'modules/:module?/pickupview/:pickupview?',
+                    meta: {
+                        caption: 'entities.module.views.pickupview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'modules', parameterName: 'module' },
+                            { pathName: 'pickupview', parameterName: 'pickupview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/module-pickup-view/module-pickup-view.vue'),
                 },
                 {
                     path: 'products/:product?/productplans/:productplan?/gridview/:gridview?',
@@ -1910,6 +1936,18 @@ const router = new Router({
         component: () => import('@pages/zentao/product-main-dashboard-view/product-main-dashboard-view.vue'),
     },
     {
+        path: '/modules/:module?/pickupgridview/:pickupgridview?',
+        meta: {
+            caption: 'entities.module.views.pickupgridview.caption',
+            parameters: [
+                { pathName: 'modules', parameterName: 'module' },
+                { pathName: 'pickupgridview', parameterName: 'pickupgridview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/module-pickup-grid-view/module-pickup-grid-view.vue'),
+    },
+    {
         path: '/products/:product?/bugs/:bug?/gridview/:gridview?',
         meta: {
             caption: 'entities.bug.views.gridview.caption',
@@ -1933,6 +1971,18 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/zentao/bug-grid-view/bug-grid-view.vue'),
+    },
+    {
+        path: '/modules/:module?/pickupview/:pickupview?',
+        meta: {
+            caption: 'entities.module.views.pickupview.caption',
+            parameters: [
+                { pathName: 'modules', parameterName: 'module' },
+                { pathName: 'pickupview', parameterName: 'pickupview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/module-pickup-view/module-pickup-view.vue'),
     },
     {
         path: '/projects/:project?/projectproducts/:projectproduct?/listview9/:listview9?',
