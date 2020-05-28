@@ -417,7 +417,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "productportalview": {
             "title": "产品主页",
-            "caption": "",
+            "caption": "产品主页",
             "viewtype": "APPPORTALVIEW",
             "viewmodule": "zentao",
             "viewname": "ProductPortalView",

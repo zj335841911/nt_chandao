@@ -69,8 +69,8 @@ export default {
                 title: 'iBiz项目管理',
             },
             productportalview: {
-                caption: '',
-                title: '',
+                caption: '产品主页',
+                title: '产品主页',
             },
         },
         utilview:{
