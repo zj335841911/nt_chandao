@@ -22,7 +22,7 @@ export default class GetRoadmapYearModel {
         codelist:{tag:'YesNo3',codelistType:'STATIC'},
 			},
 			{
-				name: 'ibz_productlifename',
+				name: 'productlifename',
 			},
 			{
 				name: 'end',
@@ -40,7 +40,7 @@ export default class GetRoadmapYearModel {
 				name: 'product',
 			},
 			{
-				name: 'ibz_productlifeid',
+				name: 'productlifeid',
 			},
 			{
 				name: 'branch',

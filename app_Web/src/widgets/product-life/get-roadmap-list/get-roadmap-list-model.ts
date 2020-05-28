@@ -24,7 +24,7 @@ export default class GetRoadmapModel {
 				name: 'parent',
 			},
 			{
-				name: 'ibz_productlifeid',
+				name: 'productlifeid',
 			},
 			{
 				name: 'type',
@@ -43,7 +43,7 @@ export default class GetRoadmapModel {
 				name: 'branch',
 			},
 			{
-				name: 'ibz_productlifename',
+				name: 'productlifename',
 			},
       {
         name:'size',
