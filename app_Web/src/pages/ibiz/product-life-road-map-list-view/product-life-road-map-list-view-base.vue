@@ -10,6 +10,7 @@
         updateAction="Update"
         fetchAction="FetchRoadMapYear"
         :showBusyIndicator="true"
+        mode="group"
         name="list"  
         ref='list' 
         @selectionchange="list_selectionchange($event)"  
