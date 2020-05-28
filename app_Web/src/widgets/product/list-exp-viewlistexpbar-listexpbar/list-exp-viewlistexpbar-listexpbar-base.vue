@@ -1,9 +1,6 @@
 <template>
-    <split id="listexpviewlistexpbar" class="app-list-exp-bar show-title-bar" v-model="split" mode="horizontal" @on-move-end="onSplitChange">
+    <split id="listexpviewlistexpbar" class="app-list-exp-bar" v-model="split" mode="horizontal" @on-move-end="onSplitChange">
         <template slot='left'>
-            <div class='list-exp-bar-header'>
-                列表导航栏
-            </div>
            <div class="container-header">
            </div>
             <div class='list-exp-bar-content'>

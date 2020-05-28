@@ -259,6 +259,16 @@
         "viewtag": "538555af88ea31549a5bc7dbf1e6286a",
         "memo": ""
     },
+    "productplansubplaneditview": {
+        "title": "子计划",
+        "caption": "产品计划",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "ProductPlanSubPlanEditView",
+        "viewfilename": "product-plan-sub-plan-edit-view",
+        "viewtag": "54c7ba4afb6222c4c0af04a78a0592df",
+        "memo": ""
+    },
     "taskmaindashboardview": {
         "title": "任务主数据看板视图",
         "caption": "任务",

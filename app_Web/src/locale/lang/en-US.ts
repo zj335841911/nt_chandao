@@ -81,9 +81,9 @@ export default {
         menus: {
             zentao: {
                 top_menus: '顶部菜单',
-                menuitem3: '产品',
-                menuitem2: '项目',
-                menuitem1: '测试',
+                menuitem3: '产品主页',
+                menuitem2: '项目主页',
+                menuitem1: '测试主页',
                 left_exp: '左侧分页导航',
                 menuitem4: '产品',
                 menuitem5: '项目',

@@ -215,6 +215,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryMainView9_EditMode",
             "viewtag": "538555af88ea31549a5bc7dbf1e6286a"
         },
+        "productplansubplaneditview": {
+            "title": "子计划",
+            "caption": "产品计划",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProductPlanSubPlanEditView",
+            "viewtag": "54c7ba4afb6222c4c0af04a78a0592df"
+        },
         "taskmaindashboardview": {
             "title": "任务主数据看板视图",
             "caption": "任务",

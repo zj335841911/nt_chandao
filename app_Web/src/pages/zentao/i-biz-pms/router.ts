@@ -1454,6 +1454,33 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-plan-sub-grid-view/story-plan-sub-grid-view.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/subplaneditview/:subplaneditview?',
+                    meta: {
+                        caption: 'entities.productplan.views.subplaneditview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'subplaneditview', parameterName: 'subplaneditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-plan-sub-plan-edit-view/product-plan-sub-plan-edit-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/subplaneditview/:subplaneditview?',
+                    meta: {
+                        caption: 'entities.productplan.views.subplaneditview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'subplaneditview', parameterName: 'subplaneditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-plan-sub-plan-edit-view/product-plan-sub-plan-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/cases/:case?/gridview/:gridview?',
                     meta: {
                         caption: 'entities.case.views.gridview.caption',
@@ -2036,6 +2063,31 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/zentao/story-main-view9-edit-mode/story-main-view9-edit-mode.vue'),
+    },
+    {
+        path: '/products/:product?/productplans/:productplan?/subplaneditview/:subplaneditview?',
+        meta: {
+            caption: 'entities.productplan.views.subplaneditview.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'subplaneditview', parameterName: 'subplaneditview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/product-plan-sub-plan-edit-view/product-plan-sub-plan-edit-view.vue'),
+    },
+    {
+        path: '/productplans/:productplan?/subplaneditview/:subplaneditview?',
+        meta: {
+            caption: 'entities.productplan.views.subplaneditview.caption',
+            parameters: [
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'subplaneditview', parameterName: 'subplaneditview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/product-plan-sub-plan-edit-view/product-plan-sub-plan-edit-view.vue'),
     },
     {
         path: '/projects/:project?/tasks/:task?/maindashboardview/:maindashboardview?',

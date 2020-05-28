@@ -1,32 +1,30 @@
 <template>
-<studio-view viewName="productplanmaintabexp" viewTitle="计划" class='detabexpview product-plan-main-tab-exp'>
+<studio-view viewName="productplansubplaneditview" viewTitle="子计划" class='deeditview product-plan-sub-plan-edit-view'>
     <template slot='title'>
     <span class='caption-info'>{{$t(model.srfTitle)}}</span>
     </template>
-    <template slot="toolbar">
-        <div class='toolbar-container'>
-            <i-button :title="$t('entities.productplan.maintabexptoolbar_toolbar.deuiaction1_newsubplan.tip')" v-show="toolBarModels.deuiaction1_newsubplan.visabled" :disabled="toolBarModels.deuiaction1_newsubplan.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1_newsubplan' }, $event)">
-                    <i class=''></i>
-                    <span class='caption'>{{$t('entities.productplan.maintabexptoolbar_toolbar.deuiaction1_newsubplan.caption')}}</span>
-                </i-button>
-            <i-button :title="$t('entities.productplan.maintabexptoolbar_toolbar.deuiaction1_mainedit.tip')" v-show="toolBarModels.deuiaction1_mainedit.visabled" :disabled="toolBarModels.deuiaction1_mainedit.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1_mainedit' }, $event)">
-                    <i class=''></i>
-                    <span class='caption'>{{$t('entities.productplan.maintabexptoolbar_toolbar.deuiaction1_mainedit.caption')}}</span>
-                </i-button>
-            <i-button :title="$t('entities.productplan.maintabexptoolbar_toolbar.deuiaction1_remove.tip')" v-show="toolBarModels.deuiaction1_remove.visabled" :disabled="toolBarModels.deuiaction1_remove.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1_remove' }, $event)">
-                    <i class='fa fa-remove'></i>
-                    <span class='caption'>{{$t('entities.productplan.maintabexptoolbar_toolbar.deuiaction1_remove.caption')}}</span>
-                </i-button>
-        </div>
-    </template>
-    <view_tabexppanel 
-        :viewState="viewState"  
-        :viewparams="viewparams" 
-        :context="context" 
-        name="tabexppanel"  
-        ref='tabexppanel' 
-        @closeview="closeView($event)">
-    </view_tabexppanel>
+    <view_form 
+                :viewState="viewState"  
+                :viewparams="viewparams" 
+                :context="context" 
+                :autosave="false" 
+                :viewtag="viewtag"
+                :showBusyIndicator="true"
+                updateAction="Update"
+                removeAction="Remove"
+                loaddraftAction="GetDraft"
+                loadAction="Get"
+                createAction="Create"
+                WFSubmitAction=""
+                WFStartAction=""
+                style='' 
+                name="form"  
+                ref='form' 
+                @save="form_save($event)"  
+                @remove="form_remove($event)"  
+                @load="form_load($event)"  
+                @closeview="closeView($event)">
+            </view_form>
 </studio-view>
 </template>
 
@@ -36,22 +34,21 @@ import { UIActionTool,Util } from '@/utils';
 import { Subject } from 'rxjs';
 import ProductPlanService from '@/service/product-plan/product-plan-service';
 
-import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
+import EditViewEngine from '@engine/view/edit-view-engine';
 
 
-import ProductPlanUIService from '@/uiservice/product-plan/product-plan-ui-service';
 
 @Component({
     components: {
     },
 })
-export default class ProductPlanMainTabExpBase extends Vue {
+export default class ProductPlanSubPlanEditViewBase extends Vue {
 
     /**
      * 实体服务对象
      *
      * @type {ProductPlanService}
-     * @memberof ProductPlanMainTabExpBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */
     public appEntityService: ProductPlanService = new ProductPlanService;
 
@@ -60,7 +57,7 @@ export default class ProductPlanMainTabExpBase extends Vue {
      * 计数器服务对象集合
      *
      * @type {Array<*>}
-     * @memberof ProductPlanMainTabExpBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */    
     public counterServiceArray:Array<any> = [];
     
@@ -69,7 +66,7 @@ export default class ProductPlanMainTabExpBase extends Vue {
      *
      * @param {*} val
      * @returns {*}
-     * @memberof ProductPlanMainTabExpBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */
     @Emit() 
     public viewDatasChange(val: any):any {
@@ -80,7 +77,7 @@ export default class ProductPlanMainTabExpBase extends Vue {
      * 传入视图上下文
      *
      * @type {string}
-     * @memberof ProductPlanMainTabExpBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */
     @Prop() public viewdata!: string;
 
@@ -88,7 +85,7 @@ export default class ProductPlanMainTabExpBase extends Vue {
      * 传入视图参数
      *
      * @type {string}
-     * @memberof ProductPlanMainTabExpBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */
     @Prop() public viewparam!: string;
 
@@ -96,7 +93,7 @@ export default class ProductPlanMainTabExpBase extends Vue {
      * 视图默认使用
      *
      * @type {boolean}
-     * @memberof ProductPlanMainTabExpBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */
     @Prop({ default: true }) public viewDefaultUsage!: boolean;
 
@@ -104,15 +101,15 @@ export default class ProductPlanMainTabExpBase extends Vue {
 	 * 视图标识
 	 *
 	 * @type {string}
-	 * @memberof ProductPlanMainTabExpBase
+	 * @memberof ProductPlanSubPlanEditViewBase
 	 */
-	public viewtag: string = '08ca1b1e6234a0d038e1fbf52478ea7f';
+	public viewtag: string = '54c7ba4afb6222c4c0af04a78a0592df';
 
 	/**
 	 * 自定义视图导航上下文集合
 	 *
 	 * @type {*}
-	 * @memberof ProductPlanMainTabExpBase
+	 * @memberof ProductPlanSubPlanEditViewBase
 	 */
     public customViewNavContexts:any ={
     };
@@ -121,7 +118,7 @@ export default class ProductPlanMainTabExpBase extends Vue {
 	 * 自定义视图导航参数集合
 	 *
 	 * @type {*}
-	 * @memberof ProductPlanMainTabExpBase
+	 * @memberof ProductPlanSubPlanEditViewBase
 	 */
     public customViewParams:any ={
     };
@@ -130,12 +127,12 @@ export default class ProductPlanMainTabExpBase extends Vue {
      * 视图模型数据
      *
      * @type {*}
-     * @memberof ProductPlanMainTabExpBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */
     public model: any = {
-        srfCaption: 'entities.productplan.views.maintabexp.caption',
-        srfTitle: 'entities.productplan.views.maintabexp.title',
-        srfSubTitle: 'entities.productplan.views.maintabexp.subtitle',
+        srfCaption: 'entities.productplan.views.subplaneditview.caption',
+        srfTitle: 'entities.productplan.views.subplaneditview.title',
+        srfSubTitle: 'entities.productplan.views.subplaneditview.subtitle',
         dataInfo: ''
     }
 
@@ -144,7 +141,7 @@ export default class ProductPlanMainTabExpBase extends Vue {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof ProductPlanMainTabExpBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */
     @Watch('viewparam',{immediate: true, deep: true})
     onParamData(newVal: any, oldVal: any) {
@@ -162,7 +159,7 @@ export default class ProductPlanMainTabExpBase extends Vue {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof ProductPlanMainTabExpBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */
     @Watch('viewdata')
     onViewData(newVal: any, oldVal: any) {
@@ -178,17 +175,16 @@ export default class ProductPlanMainTabExpBase extends Vue {
      * 容器模型
      *
      * @type {*}
-     * @memberof ProductPlanMainTabExpBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */
     public containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
+        view_form: { name: 'form', type: 'FORM' },
     };
 
     /**
      *  计数器刷新
      *
-     * @memberof ProductPlanMainTabExpBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */
     public counterRefresh(){
         const _this:any =this;
@@ -206,23 +202,9 @@ export default class ProductPlanMainTabExpBase extends Vue {
      *
      * @public
      * @type {Subject<{action: string, data: any}>}
-     * @memberof ProductPlanMainTabExpBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */
     public viewState: Subject<ViewState> = new Subject();
-    /**
-     * 工具栏模型
-     *
-     * @type {*}
-     * @memberof ProductPlanMainTabExp
-     */
-    public toolBarModels: any = {
-        deuiaction1_newsubplan: { name: 'deuiaction1_newsubplan', caption: '子计划', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'NewSubPlan', target: 'SINGLEKEY' } },
-
-        deuiaction1_mainedit: { name: 'deuiaction1_mainedit', caption: '编辑', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'MainEdit', target: 'SINGLEKEY' } },
-
-        deuiaction1_remove: { name: 'deuiaction1_remove', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Remove', target: 'MULTIKEY' } },
-
-    };
 
 
 
@@ -231,19 +213,21 @@ export default class ProductPlanMainTabExpBase extends Vue {
      *
      * @public
      * @type {Engine}
-     * @memberof ProductPlanMainTabExpBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */
-    public engine: TabExpViewEngine = new TabExpViewEngine();
+    public engine: EditViewEngine = new EditViewEngine();
 
     /**
      * 引擎初始化
      *
      * @public
-     * @memberof ProductPlanMainTabExpBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */
     public engineInit(): void {
         this.engine.init({
             view: this,
+            form: this.$refs.form,
+            p2k: '0',
             keyPSDEField: 'productplan',
             majorPSDEField: 'title',
             isLoadDefault: true,
@@ -254,7 +238,7 @@ export default class ProductPlanMainTabExpBase extends Vue {
      * 应用上下文
      *
      * @type {*}
-     * @memberof ProductPlanMainTabExpBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */
     public context:any = {};
 
@@ -262,7 +246,7 @@ export default class ProductPlanMainTabExpBase extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof ProductPlanMainTabExpBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */
     public viewparams:any = {};
 
@@ -270,7 +254,7 @@ export default class ProductPlanMainTabExpBase extends Vue {
      * 解析视图参数
      *
      * @public
-     * @memberof ProductPlanMainTabExpBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */
     public parseViewParam(): void {
         for(let key in this.context){
@@ -310,7 +294,7 @@ export default class ProductPlanMainTabExpBase extends Vue {
     /**
      * 处理自定义视图数据
      *
-     * @memberof ProductPlanMainTabExpBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */
 	public handleCustomViewData(){
 		if(Object.keys(this.customViewNavContexts).length > 0){
@@ -334,7 +318,7 @@ export default class ProductPlanMainTabExpBase extends Vue {
     /**
      * 处理自定义视图数据逻辑
      *
-     * @memberof ProductPlanMainTabExpBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */
 	public handleCustomDataLogic(curNavData:any,tempData:any,item:string){
 		// 直接值直接赋值
@@ -387,7 +371,7 @@ export default class ProductPlanMainTabExpBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof ProductPlanMainTabExpBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */
     public created() {
         this.afterCreated();
@@ -396,7 +380,7 @@ export default class ProductPlanMainTabExpBase extends Vue {
     /**
      * 执行created后的逻辑
      *
-     * @memberof ProductPlanMainTabExpBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */    
     public afterCreated(){
         const secondtag = this.$util.createUUID();
@@ -409,7 +393,7 @@ export default class ProductPlanMainTabExpBase extends Vue {
     /**
      * 销毁之前
      *
-     * @memberof ProductPlanMainTabExpBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */
     public beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
@@ -418,7 +402,7 @@ export default class ProductPlanMainTabExpBase extends Vue {
     /**
      * Vue声明周期(组件初始化完毕)
      *
-     * @memberof ProductPlanMainTabExpBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */
     public mounted() {
         this.afterMounted();
@@ -427,7 +411,7 @@ export default class ProductPlanMainTabExpBase extends Vue {
     /**
      * 执行mounted后的逻辑
      * 
-     * @memberof ProductPlanMainTabExpBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */
     public afterMounted(){
         const _this: any = this;
@@ -440,137 +424,48 @@ export default class ProductPlanMainTabExpBase extends Vue {
 
 
     /**
-     * toolbar 部件 click 事件
+     * form 部件 save 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProductPlanMainTabExpBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */
-    public toolbar_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'deuiaction1_newsubplan')) {
-            this.toolbar_deuiaction1_newsubplan_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction1_mainedit')) {
-            this.toolbar_deuiaction1_mainedit_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction1_remove')) {
-            this.toolbar_deuiaction1_remove_click(null, '', $event2);
-        }
+    public form_save($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('form', 'save', $event);
     }
-
 
 
     /**
-     * 逻辑事件
+     * form 部件 remove 事件
      *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ProductPlanSubPlanEditViewBase
      */
-    public toolbar_deuiaction1_newsubplan_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        
-        let contextJO:any = {};
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:ProductPlanUIService  = new ProductPlanUIService();
-        curUIService.ProductPlan_NewSubPlan(datas,contextJO, paramJO,  $event, xData,this,"ProductPlan");
+    public form_remove($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('form', 'remove', $event);
     }
 
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_deuiaction1_mainedit_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        
-        let contextJO:any = {};
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:ProductPlanUIService  = new ProductPlanUIService();
-        curUIService.ProductPlan_MainEdit(datas,contextJO, paramJO,  $event, xData,this,"ProductPlan");
-    }
 
     /**
-     * 逻辑事件
+     * form 部件 load 事件
      *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ProductPlanSubPlanEditViewBase
      */
-    public toolbar_deuiaction1_remove_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        
-        let contextJO:any = {};
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.Remove(datas, contextJO,paramJO,  $event, xData,this,"ProductPlan");
+    public form_load($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('form', 'load', $event);
     }
 
-    /**
-     * 删除
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof ProductPlanMainTabExpBase
-     */
-    public Remove(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        if (!xData || !(xData.remove instanceof Function)) {
-            return ;
-        }
-        xData.remove(args);
-    }
+
 
 
     /**
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof ProductPlanMainTabExpBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */
     public closeView(args: any[]): void {
         let _view: any = this;
@@ -585,7 +480,7 @@ export default class ProductPlanMainTabExpBase extends Vue {
     /**
      * 销毁视图回调
      *
-     * @memberof ProductPlanMainTabExpBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */
     public destroyed(){
         this.afterDestroyed();
@@ -594,7 +489,7 @@ export default class ProductPlanMainTabExpBase extends Vue {
     /**
      * 执行destroyed后的逻辑
      * 
-     * @memberof ProductPlanMainTabExpBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */
     public afterDestroyed(){
         if(this.viewDefaultUsage){
@@ -609,9 +504,10 @@ export default class ProductPlanMainTabExpBase extends Vue {
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
-@import './product-plan-main-tab-exp.less';
+@import './product-plan-sub-plan-edit-view.less';
 </style>
