@@ -6,16 +6,12 @@
     <template slot="toolbar">
         <div class='toolbar-container'>
             <i-button :title="$t('entities.productplan.maintabexptoolbar_toolbar.deuiaction1_newsubplan.tip')" v-show="toolBarModels.deuiaction1_newsubplan.visabled" :disabled="toolBarModels.deuiaction1_newsubplan.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1_newsubplan' }, $event)">
-                    <i class=''></i>
+                    <i class='fa fa-chain'></i>
                     <span class='caption'>{{$t('entities.productplan.maintabexptoolbar_toolbar.deuiaction1_newsubplan.caption')}}</span>
                 </i-button>
             <i-button :title="$t('entities.productplan.maintabexptoolbar_toolbar.deuiaction1_mainedit.tip')" v-show="toolBarModels.deuiaction1_mainedit.visabled" :disabled="toolBarModels.deuiaction1_mainedit.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1_mainedit' }, $event)">
-                    <i class=''></i>
+                    <i class='fa fa-edit'></i>
                     <span class='caption'>{{$t('entities.productplan.maintabexptoolbar_toolbar.deuiaction1_mainedit.caption')}}</span>
-                </i-button>
-            <i-button :title="$t('entities.productplan.maintabexptoolbar_toolbar.deuiaction1_remove.tip')" v-show="toolBarModels.deuiaction1_remove.visabled" :disabled="toolBarModels.deuiaction1_remove.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1_remove' }, $event)">
-                    <i class='fa fa-remove'></i>
-                    <span class='caption'>{{$t('entities.productplan.maintabexptoolbar_toolbar.deuiaction1_remove.caption')}}</span>
                 </i-button>
         </div>
     </template>
@@ -219,8 +215,6 @@ export default class ProductPlanMainTabExpBase extends Vue {
         deuiaction1_newsubplan: { name: 'deuiaction1_newsubplan', caption: '子计划', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'NewSubPlan', target: 'SINGLEKEY' } },
 
         deuiaction1_mainedit: { name: 'deuiaction1_mainedit', caption: '编辑', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'MainEdit', target: 'SINGLEKEY' } },
-
-        deuiaction1_remove: { name: 'deuiaction1_remove', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Remove', target: 'MULTIKEY' } },
 
     };
 
@@ -453,9 +447,6 @@ export default class ProductPlanMainTabExpBase extends Vue {
         if (Object.is($event.tag, 'deuiaction1_mainedit')) {
             this.toolbar_deuiaction1_mainedit_click(null, '', $event2);
         }
-        if (Object.is($event.tag, 'deuiaction1_remove')) {
-            this.toolbar_deuiaction1_remove_click(null, '', $event2);
-        }
     }
 
 
@@ -516,53 +507,6 @@ export default class ProductPlanMainTabExpBase extends Vue {
         // 界面行为
         const curUIService:ProductPlanUIService  = new ProductPlanUIService();
         curUIService.ProductPlan_MainEdit(datas,contextJO, paramJO,  $event, xData,this,"ProductPlan");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_deuiaction1_remove_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        
-        let contextJO:any = {};
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.Remove(datas, contextJO,paramJO,  $event, xData,this,"ProductPlan");
-    }
-
-    /**
-     * 删除
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof ProductPlanMainTabExpBase
-     */
-    public Remove(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        if (!xData || !(xData.remove instanceof Function)) {
-            return ;
-        }
-        xData.remove(args);
     }
 
 

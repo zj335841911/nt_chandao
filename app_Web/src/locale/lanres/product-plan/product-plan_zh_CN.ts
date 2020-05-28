@@ -153,9 +153,5 @@ export default {
 			caption: '编辑',
 			tip: '编辑',
 		},
-		deuiaction1_remove: {
-			caption: '删除',
-			tip: '删除',
-		},
 	},
 };
