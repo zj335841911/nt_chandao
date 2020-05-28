@@ -17,6 +17,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '00ac056d598228619b6c0dbfcd603e4c',
+            viewmodule: 'zentao',
+            viewname: 'ProductExpEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '02b7ecd8e994b90558a9d6c23705f600',
             viewmodule: 'zentao',
             viewname: 'CaseEditView',
@@ -495,6 +504,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '52e850ef857c81c2a96f5db0a84836f8',
+                'e396b6f39451e3bf963aec602106adf0',
                 '2a60d576ef50d63f5e967cef38bc8fed',
             ],
         },
@@ -636,6 +646,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'cb6c278fd7205b3de3fc041816d15dd8',
+            ],
+        },
+        {
+            viewtag: 'e396b6f39451e3bf963aec602106adf0',
+            viewmodule: 'zentao',
+            viewname: 'ProductListExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '00ac056d598228619b6c0dbfcd603e4c',
             ],
         },
         {
