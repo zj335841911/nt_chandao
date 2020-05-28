@@ -9,54 +9,41 @@
 
             >.ivu-list-items {
 
-                >.ivu-list-item:hover {
-
-                    >.open-action {
-                        display: block;
-                    }
-                }
-
                 >.ivu-list-item {
                     position: relative;
+                    cursor: pointer;
                     padding: 5px 0px;
                     margin-bottom: 3px;
 
-                    >.title {
-                        padding: 0px 5px;
+                    >.content-wrapper {
 
-                        >.ivu-tag.ivu-tag-border {
-                            height: 22px;
-                            line-height: 22px;
+                        >.title {
+                            padding: 0px 5px;
+                            white-space: nowrap;
+
+                            >.ivu-tag.ivu-tag-border {
+                                height: 22px;
+                                line-height: 22px;
+                            }
+
+                            >.name {
+                                font-weight: 700;
+                                font-size: 16px;
+                                vertical-align: -2px;
+                                padding-left: 5px;
+                            }
+
+                            >.open-action {
+                                cursor: pointer;
+                                margin-left: 5px;
+                                font-size: 15px;
+                                vertical-align: -1px;
+                            }
                         }
 
-                        >.product-name {
-                            font-weight: 700;
-                            font-size: 16px;
-                            vertical-align: -2px;
-                            padding-left: 5px;
-                        }
-                    }
-
-                    >.content {
-                        padding: 0px 5px;
-                        margin-top: 5px;
-                    }
-
-                    >.open-action {
-                        display: none;
-                        cursor: pointer;
-                        position: absolute;
-                        text-align: center;
-                        top: 0px;
-                        right: 0px;
-                        bottom: 0px;
-                        width: 30px;
-                        background: var(--view-button-background-color);
-                        color: var(--view-button-color);
-
-                        >.ivu-icon {
-                            font-size: 24px;
-                            margin-top: 33px;
+                        >.content {
+                            padding: 0px 5px;
+                            margin-top: 5px;
                         }
                     }
 

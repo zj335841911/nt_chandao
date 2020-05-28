@@ -121,7 +121,7 @@ export class RoadMap extends Vue {
                                         ?
                                         <div class="date">{item.begin}{Object.is(this.mode, 'group') ? '~' + item.end : ''}</div>
                                         :
-                                        <div class="date">{item.end}</div>
+                                        <div class="date" title={item.end}>{item.end}</div>
                                 }
                             </div>
                         </a>

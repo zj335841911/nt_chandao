@@ -151,32 +151,6 @@ export default class GetRoadmapYearBase extends Vue implements ControlInterface 
     @Prop({ default: 'default' })
     protected mode!: string;
 
-    /**
-     * 列表数据加载
-     *
-     * @public
-     * @param {*} [item={}]
-     * @returns {Promise<any>}
-     * @memberof GetRoadmapYear
-     */
-    protected async loadChildren(item: any = {}): Promise<any> {       
-        const arg: any = {
-            viewparams: this.viewparams
-        };
-        const context = this.context || {};
-        context.action = item.id;
-        let items: any[] = [];
-        try {
-            const response = await this.historyService.search(this.fetchAction, {...context}, arg, this.showBusyIndicator);
-            if (response && response.status === 200) {
-                items = response.data || [];
-            }
-        } catch (error) {
-            console.log(error);
-        } finally {
-            return items;
-        }
-    }
 
     /**
      * 获取多项数据

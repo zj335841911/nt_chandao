@@ -31,6 +31,19 @@ export class ProjectList extends Vue {
     public itemClick(item: Project): void { }
 
     /**
+     * 项单机
+     *
+     * @protected
+     * @param {MouseEvent} e
+     * @param {Project} item
+     * @memberof ProjectList
+     */
+    protected click(e: MouseEvent, item: Project): void {
+        e.stopPropagation();
+        this.itemClick(item);
+    }
+
+    /**
      * 绘制产品项
      *
      * @protected
@@ -40,17 +53,19 @@ export class ProjectList extends Vue {
      */
     protected renderItem(p: Project): any {
         return <listItem>
-            <div class="title">
-                <tag type="border">{p.id}</tag>
-                <tag>{p.code}</tag>
-                <span class="project-name">{p.name}</span>
-            </div>
-            <div class="content">
-                <tag color="cyan">类型：{p.type}</tag>
-                <tag color="geekblue">状态：{p.status}</tag>
-            </div>
-            <div class="open-action" on-click={() => this.itemClick(p)}>
-                <icon type="ios-arrow-forward" />
+            <div class="content-wrapper" on-click={(e: any) => this.click(e, p)}>
+                <div class="title">
+                    <tag type="border">{p.id}</tag>
+                    <tag>{p.code}</tag>
+                    <span class="name">{p.name}</span>
+                    <span class="open-action" on-click={(e: any) => this.click(e, p)}>
+                        <icon type="md-open" />
+                    </span>
+                </div>
+                <div class="content">
+                    <tag color="cyan">类型：{p.type}</tag>
+                    <tag color="geekblue">状态：{p.status}</tag>
+                </div>
             </div>
             <template slot="action">
                 <li>
