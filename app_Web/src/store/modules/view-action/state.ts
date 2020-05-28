@@ -130,15 +130,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '2a60d576ef50d63f5e967cef38bc8fed',
-            viewmodule: 'zentao',
-            viewname: 'ProductChartView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: '2e0d4fb0f3e1ba1ba5bea16a5553cc21',
             viewmodule: 'zentao',
             viewname: 'TaskMainGridView9_Child',
@@ -555,7 +546,6 @@ export const viewstate: any = {
                 '4b82e9acf6c784b138b365d6011b296b',
                 '52e850ef857c81c2a96f5db0a84836f8',
                 'e396b6f39451e3bf963aec602106adf0',
-                '2a60d576ef50d63f5e967cef38bc8fed',
             ],
         },
         {

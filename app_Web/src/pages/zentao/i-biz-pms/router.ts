@@ -1185,19 +1185,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-task-edit-view/test-task-edit-view.vue'),
                 },
                 {
-                    path: 'products/:product?/chartview/:chartview?',
-                    meta: {
-                        caption: 'entities.product.views.chartview.caption',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'chartview', parameterName: 'chartview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/product-chart-view/product-chart-view.vue'),
-                },
-                {
                     path: 'products/:product?/branches/:branch?/pmeditview/:pmeditview?',
                     meta: {
                         caption: 'entities.branch.views.pmeditview.caption',
@@ -1948,18 +1935,6 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/zentao/product-test-grid-view/product-test-grid-view.vue'),
-    },
-    {
-        path: '/products/:product?/chartview/:chartview?',
-        meta: {
-            caption: 'entities.product.views.chartview.caption',
-            parameters: [
-                { pathName: 'products', parameterName: 'product' },
-                { pathName: 'chartview', parameterName: 'chartview' },
-            ],
-            requireAuth: true,
-        },
-        component: () => import('@pages/zentao/product-chart-view/product-chart-view.vue'),
     },
     {
         path: '/projects/:project?/tasks/:task?/maingridview9_child/:maingridview9_child?',
