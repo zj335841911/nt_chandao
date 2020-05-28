@@ -471,6 +471,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskMainGridView",
             "viewtag": "a4af2d93ae66c9877ee99bfe7b93d22c"
         },
+        "projectgridview9_unclosed": {
+            "title": "项目表格视图",
+            "caption": "未关闭的项目",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "ProjectGridView9_UnClosed",
+            "viewtag": "a7a97014cad1917b94284db21ec968f1"
+        },
         "productplaneditview": {
             "title": "计划",
             "caption": "产品计划",

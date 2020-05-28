@@ -96,10 +96,10 @@ export class StudioViewBase extends Vue {
                 {this.$slots.quickSearchForm ? <div class="quick-search-form">{this.$slots.quickSearchForm}</div> : null}
                 {this.$slots.quickSearch ? <div class="quick-search">{this.$slots.quickSearch}</div> : null}
             </div> : null}
-            <div class="view-content">
-                <div class="search-form-wrapper">
+            <div class={{ 'view-content': true, 'show-search-form': this.$slots.searchForm }}>
+                {this.$slots.searchForm ? <div class="search-form-wrapper">
                     {this.$slots.searchForm}
-                </div>
+                </div> : null}
                 <div class="content-wrapper">
                     {this.$slots.default}
                 </div>

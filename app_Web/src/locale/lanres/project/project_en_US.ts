@@ -59,6 +59,10 @@ export default {
 			caption: "项目",
       title: '项目',
 		},
+		gridview9_unclosed: {
+			caption: "未关闭的项目",
+      title: '未关闭的项目',
+		},
 		dashboardinfoview: {
 			caption: "项目",
       title: '项目',
@@ -298,5 +302,7 @@ export default {
 			caption: "Help",
 			tip: "Help",
 		},
+	},
+	gridview9_unclosedtoolbar_toolbar: {
 	},
 };

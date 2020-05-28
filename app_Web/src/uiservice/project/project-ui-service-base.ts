@@ -85,6 +85,7 @@ export default class ProjectUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'leftsidebarlistview',srfappde:'projects'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'projects'});
+        this.allViewMap.set(':',{viewname:'gridview9_unclosed',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'dashboardinfoview',srfappde:'projects'});
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'maintabexpview',srfappde:'projects'});
