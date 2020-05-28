@@ -199,6 +199,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '4b82e9acf6c784b138b365d6011b296b',
+            viewmodule: 'zentao',
+            viewname: 'StoryAssignedToMeGridView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3f2ca3e560d9082bb56fbf7667a57a66',
+                '4863a523ac490ebce771717756f0c6a8',
+            ],
+        },
+        {
             viewtag: '500950593bf64e5516bdb9b7db29b747',
             viewmodule: 'zentao',
             viewname: 'ProductPlanSubPlanGridView',
@@ -523,6 +534,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '4b82e9acf6c784b138b365d6011b296b',
                 '52e850ef857c81c2a96f5db0a84836f8',
                 'e396b6f39451e3bf963aec602106adf0',
                 '2a60d576ef50d63f5e967cef38bc8fed',

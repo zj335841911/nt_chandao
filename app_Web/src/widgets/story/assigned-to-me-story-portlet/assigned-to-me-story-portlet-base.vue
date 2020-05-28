@@ -1,29 +1,11 @@
 <template>
-    <div class='portlet-container db-container3' :style="{}">
-            <i-col :md="{ span: 24, offset: 0 }">
-                <div class="portlet-without-title">
-                                  <view_db_sysportlet2 
-                      :viewState="viewState"  
-                      :viewparams="viewparams" 
-                      :context="context" 
-                      name="db_sysportlet2"  
-                      ref='db_sysportlet2' 
-                      @closeview="closeView($event)">
-                  </view_db_sysportlet2>
-                </div>
-            </i-col>
-            <i-col :md="{ span: 24, offset: 0 }">
-                <div class="portlet-without-title">
-                                  <view_db_sysportlet4 
-                      :viewState="viewState"  
-                      :viewparams="viewparams" 
-                      :context="context" 
-                      name="db_sysportlet4"  
-                      ref='db_sysportlet4' 
-                      @closeview="closeView($event)">
-                  </view_db_sysportlet4>
-                </div>
-            </i-col>
+    <div class='portlet assigned-to-me-story' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : 'auto',}">
+        <p class='portlet-title'>
+            指派给我的需求
+        </p>
+        <div class="portlet-with-title">
+        <story-assigned-to-me-grid-view9 :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></story-assigned-to-me-grid-view9>
+        </div>
     </div>
 </template>
 <script lang='tsx'>
@@ -32,7 +14,8 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import { UIActionTool,Util } from '@/utils';
-import Db_container3Service from './db-container3-portlet-service';
+import StoryService from '@/service/story/story-service';
+import AssignedToMeStoryService from './assigned-to-me-story-portlet-service';
 
 
 
@@ -41,13 +24,13 @@ import Db_container3Service from './db-container3-portlet-service';
       
     }
 })
-export default class Db_container3Base extends Vue implements ControlInterface {
+export default class StoryAssignedToMeStoryBase extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof Db_container3
+     * @memberof AssignedToMeStory
      */
     @Prop() public name?: string;
 
@@ -55,7 +38,7 @@ export default class Db_container3Base extends Vue implements ControlInterface {
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof Db_container3
+     * @memberof AssignedToMeStory
      */
     @Prop() public viewState!: Subject<ViewState>;
 
@@ -63,7 +46,7 @@ export default class Db_container3Base extends Vue implements ControlInterface {
      * 应用上下文
      *
      * @type {*}
-     * @memberof Db_container3
+     * @memberof AssignedToMeStory
      */
     @Prop() public context: any;
 
@@ -71,7 +54,7 @@ export default class Db_container3Base extends Vue implements ControlInterface {
      * 视图参数
      *
      * @type {*}
-     * @memberof Db_container3
+     * @memberof AssignedToMeStory
      */
     @Prop() public viewparams: any;
 
@@ -80,7 +63,7 @@ export default class Db_container3Base extends Vue implements ControlInterface {
      *
      * @public
      * @type {(Subscription | undefined)}
-     * @memberof Db_container3
+     * @memberof AssignedToMeStory
      */
     public viewStateEvent: Subscription | undefined;
 
@@ -88,7 +71,7 @@ export default class Db_container3Base extends Vue implements ControlInterface {
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof Db_container3
+     * @memberof AssignedToMeStory
      */
     public getControlType(): string {
         return 'PORTLET'
@@ -100,17 +83,25 @@ export default class Db_container3Base extends Vue implements ControlInterface {
      * 计数器服务对象集合
      *
      * @type {Array<*>}
-     * @memberof Db_container3
+     * @memberof AssignedToMeStory
      */    
     public counterServiceArray:Array<any> = [];
 
     /**
      * 建构部件服务对象
      *
-     * @type {Db_container3Service}
-     * @memberof Db_container3
+     * @type {AssignedToMeStoryService}
+     * @memberof AssignedToMeStory
      */
-    public service: Db_container3Service = new Db_container3Service({ $store: this.$store });
+    public service: AssignedToMeStoryService = new AssignedToMeStoryService({ $store: this.$store });
+
+    /**
+     * 实体服务对象
+     *
+     * @type {StoryService}
+     * @memberof AssignedToMeStory
+     */
+    public appEntityService: StoryService = new StoryService({ $store: this.$store });
     
 
 
@@ -118,7 +109,7 @@ export default class Db_container3Base extends Vue implements ControlInterface {
      * 关闭视图
      *
      * @param {any} args
-     * @memberof Db_container3
+     * @memberof AssignedToMeStory
      */
     public closeView(args: any): void {
         let _this: any = this;
@@ -128,7 +119,7 @@ export default class Db_container3Base extends Vue implements ControlInterface {
     /**
      *  计数器刷新
      *
-     * @memberof Db_container3
+     * @memberof AssignedToMeStory
      */
     public counterRefresh(){
         const _this:any =this;
@@ -147,7 +138,7 @@ export default class Db_container3Base extends Vue implements ControlInterface {
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof Db_container3
+     * @memberof AssignedToMeStory
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -155,7 +146,7 @@ export default class Db_container3Base extends Vue implements ControlInterface {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof Db_container3
+     * @memberof AssignedToMeStory
      */
     public getDatas(): any[] {
         return [];
@@ -165,7 +156,7 @@ export default class Db_container3Base extends Vue implements ControlInterface {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof Db_container3
+     * @memberof AssignedToMeStory
      */
     public getData(): any {
         return {};
@@ -174,7 +165,7 @@ export default class Db_container3Base extends Vue implements ControlInterface {
     /**
      * vue 生命周期
      *
-     * @memberof Db_container3
+     * @memberof AssignedToMeStory
      */
     public created() {
         this.afterCreated();
@@ -183,7 +174,7 @@ export default class Db_container3Base extends Vue implements ControlInterface {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof Db_container3
+     *  @memberof AssignedToMeStory
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -202,7 +193,7 @@ export default class Db_container3Base extends Vue implements ControlInterface {
     /**
      * vue 生命周期
      *
-     * @memberof Db_container3
+     * @memberof AssignedToMeStory
      */
     public destroyed() {
         this.afterDestroy();
@@ -211,7 +202,7 @@ export default class Db_container3Base extends Vue implements ControlInterface {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof Db_container3
+     * @memberof AssignedToMeStory
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -223,5 +214,5 @@ export default class Db_container3Base extends Vue implements ControlInterface {
 </script>
 
 <style lang='less'>
-@import './db-container3-portlet.less';
+@import './assigned-to-me-story-portlet.less';
 </style>
