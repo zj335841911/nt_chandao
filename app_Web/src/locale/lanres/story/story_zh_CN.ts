@@ -51,6 +51,10 @@ export default {
 			caption: '需求',
       title: '需求',
 		},
+		assignedtomegridview9: {
+			caption: '需求',
+      title: '需求',
+		},
 		mainview9_editmode: {
 			caption: '需求',
       title: '需求',
@@ -216,6 +220,15 @@ export default {
 			id: 'ID',
 			pri: 'P',
 			title: '需求名称',
+		},
+		uiactions: {
+		},
+	},
+	main9_grid: {
+		columns: {
+			pri: 'P',
+			title: '需求名称',
+			status: '状态',
 		},
 		uiactions: {
 		},
