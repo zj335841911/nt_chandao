@@ -1,13 +1,11 @@
-<template>  
-    <div :class="['app-list', this.items.length > 0 ? '' : 'app-list-empty' ]">
-            <div v-if="items.length > 0" style="height:100%;">
-                                        <div v-for = "item in items" :key="item.srfmajortext"  :class="['app-list-item', {'isSelect': item.isselected === true ? true : false}]" @click="handleClick(item)"  @dblclick="handleDblClick(item)">
-                            {{item.srfmajortext}}
-                        </div>
-            </div>
-            <div v-else>
-                暂无数据
-            </div>
+<template>
+    <div :class="{'app-list': true, 'app-list-empty': this.items.length <= 0}">
+        <div v-if="items.length > 0">
+            <road-map :items="items" :mode="mode"/>
+        </div>
+        <div v-else>
+            暂无数据
+        </div>
     </div>
 </template>
 <script lang='tsx'>
@@ -19,6 +17,7 @@ import { UIActionTool,Util } from '@/utils';
 import ProductLifeService from '@/service/product-life/product-life-service';
 import GetRoadmapService from './get-roadmap-list-service';
 
+import GetRoadmapService from '@/widgets/product-life/get-roadmap-list/get-roadmap-list-service';
 
 
 @Component({
@@ -134,6 +133,50 @@ export default class GetRoadmapBase extends Vue implements ControlInterface {
         }
     }
 
+
+    /**
+     * 建构部件服务对象
+     *
+     * @type {GetRoadmapService}
+     * @memberof GetRoadmap
+     */
+    public service2: GetRoadmapService = new GetRoadmapService({ $store: this.$store });
+
+    /**
+     * 列表展示模式
+     *
+     * @type {string}
+     * @memberof GetRoadmap
+     */
+    @Prop({ default: 'default' })
+    protected mode!: string;
+
+    /**
+     * 列表数据加载
+     *
+     * @public
+     * @param {*} [item={}]
+     * @returns {Promise<any>}
+     * @memberof GetRoadmap
+     */
+    protected async loadChildren(item: any = {}): Promise<any> {       
+        const arg: any = {
+            viewparams: this.viewparams
+        };
+        const context = this.context || {};
+        context.action = item.id;
+        let items: any[] = [];
+        try {
+            const response = await this.historyService.search(this.fetchAction, {...context}, arg, this.showBusyIndicator);
+            if (response && response.status === 200) {
+                items = response.data || [];
+            }
+        } catch (error) {
+            console.log(error);
+        } finally {
+            return items;
+        }
+    }
 
     /**
      * 获取多项数据
@@ -361,6 +404,35 @@ export default class GetRoadmapBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 根据年份加载子数据
+     *
+     * @public
+     * @param {*} [arg={}]
+     * @renturn Promise<any>
+     * @memberof GetRoadmap
+     */
+    public async load2(opt: any = {}): Promise<any> {
+        const arg: any = {};
+        if (this.isEnablePagingBar) {
+            Object.assign(arg, { page: this.curPage - 1, size: this.limit });
+        }
+        // 设置排序
+        if (!Object.is(this.sortDir, '') && !Object.is(this.sortField, '')) {
+          const sort: string = this.sortField+","+this.sortDir;
+            Object.assign(arg, { sort: sort });
+        }
+        arg.viewparams = this.viewparams || {};
+        arg.viewparams.year = opt.year;
+        const context = { ...(this.context || {}) };
+        try {
+            const res = await this.service2.search('FetchGetRoadmap', context, arg, this.showBusyIndicator);
+            if (res && res.status === 200) {
+                opt.items = res.data;
+            }
+        } catch (error) { }
+    }
+
+    /**
      * 列表数据加载
      *
      * @public
@@ -388,22 +460,23 @@ export default class GetRoadmapBase extends Vue implements ControlInterface {
         Object.assign(arg, parentdata);
         Object.assign(arg,{viewparams:this.viewparams});
         const post: Promise<any> = this.service.search(this.fetchAction, this.context?JSON.parse(JSON.stringify(this.context)):{}, arg, this.showBusyIndicator);
-        post.then((response: any) => {
+        post.then(async (response: any) => {
             if (!response || response.status !== 200) {
                 if (response.errorMessage) {
                     this.$Notice.error({ title: '错误', desc: response.errorMessage });
                 }
                 return;
             }
-            const data: any = response.data;
+            const items: any = response.data;
             this.items = [];
-            if (Object.keys(data).length > 0) {
-                let datas = JSON.parse(JSON.stringify(data));
-                datas.map((item: any) => {
+            if (items&& items.length > 0) {
+                for (let index = 0; index < items.length; index++) {
+                    const item = items[index];
                     Object.assign(item, { isselected: false });
-                });
+                    await this.load2(item);
+                }
                 this.totalRecord = response.total;
-                this.items.push(...datas);
+                this.items.push(...items);
             }
             this.$emit('load', this.items);
             if(this.isSelectFirstDefault){

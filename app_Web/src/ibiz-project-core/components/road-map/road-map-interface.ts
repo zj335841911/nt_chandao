@@ -1,4 +1,13 @@
-export interface RoadMapItem {
+import { ProductLife } from '@/interface/entity/product-life';
+
+/**
+ * 产品路线图项
+ *
+ * @export
+ * @interface RoadMapItem
+ * @extends {ProductLife}
+ */
+export interface RoadMapItem extends ProductLife {
     /**
      * 文本信息
      *

@@ -407,7 +407,7 @@ export default class ProductPortalViewBase extends Vue {
      * @type {boolean}
      * @memberof ProductPortalView
      */
-    public isDefaultPage: boolean = false;// 是否为起始页面
+    public isDefaultPage: boolean = false;
     
 }
 </script>

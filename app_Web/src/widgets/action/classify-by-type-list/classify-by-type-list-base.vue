@@ -1,6 +1,11 @@
 <template>
     <div :class="{'app-list': true, 'app-list-empty': this.items.length <= 0}">
-        <action-history :items="items" :load="loadChildren"/>
+        <div v-if="items.length > 0">
+            <action-history :items="items" :load="loadChildren"/>
+        </div>
+        <div v-else>
+            暂无数据
+        </div>
     </div>
 </template>
 <script lang='tsx'>
