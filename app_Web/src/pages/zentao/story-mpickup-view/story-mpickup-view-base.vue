@@ -1,24 +1,22 @@
 <template>
-<div class="view-container dempickupview story-mpickup-view">
-    <app-studioaction :viewTitle="$t(model.srfTitle)" viewName="storympickupview"></app-studioaction>
-    <card class='view-card view-no-caption  view-no-toolbar' :dis-hover="true" :padding="0" :bordered="false">
-        <div class="content-container pickup-view">
+<studio-view viewName="storympickupview" viewTitle="关联需求" class='dempickupview story-mpickup-view'>
+    <div class="content-container pickup-view">
             <div class="translate-contant">
                 <div class="center" :style="{width : !isShowButton ? '100%' : ''}">
-    <view_pickupviewpanel 
-        :viewState="viewState"  
-        :viewparams="viewparams" 
-        :context="context" 
-        :isSingleSelect="isSingleSelect"
-        :selectedData="selectedData"
-        :isShowButton="isShowButton"
-        name="pickupviewpanel"  
-        ref='pickupviewpanel' 
-        @selectionchange="pickupviewpanel_selectionchange($event)"  
-        @activated="pickupviewpanel_activated($event)"  
-        @load="pickupviewpanel_load($event)"  
-        @closeview="closeView($event)">
-    </view_pickupviewpanel>
+        <view_pickupviewpanel 
+            :viewState="viewState"  
+            :viewparams="viewparams" 
+            :context="context" 
+            :isSingleSelect="isSingleSelect"
+            :selectedData="selectedData"
+            :isShowButton="isShowButton"
+            name="pickupviewpanel"  
+            ref='pickupviewpanel' 
+            @selectionchange="pickupviewpanel_selectionchange($event)"  
+            @activated="pickupviewpanel_activated($event)"  
+            @load="pickupviewpanel_load($event)"  
+            @closeview="closeView($event)">
+        </view_pickupviewpanel>
                 </div>
                 <div v-if="isShowButton" class="translate-buttons">
                     <div class="buttons">
@@ -50,7 +48,7 @@
                     </div>
                 </div>
             </div>
-             <card v-if="isShowButton" :dis-hover="true" :bordered="false" class="footer">
+            <card v-if="isShowButton" :dis-hover="true" :bordered="false" class="footer">
                 <row :style="{ textAlign: 'right' }">
                     <i-button type="primary"  :disabled="this.viewSelections.length > 0 ? false : true" @click="onClickOk">{{this.containerModel.view_okbtn.text}}</i-button>
                         &nbsp;&nbsp;
@@ -58,8 +56,7 @@
                 </row>
             </card>
         </div>
-    </card>
-</div>
+</studio-view>
 </template>
 
 

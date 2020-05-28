@@ -1,48 +1,48 @@
 <template>
-<div class='view-container depickupgridview story-pickup-grid-view'>
-    <app-studioaction :viewTitle="$t(model.srfTitle)" viewName="storypickupgridview"></app-studioaction>
-    <card class='view-card view-no-caption  view-no-toolbar' :dis-hover="true" :bordered="false">
-        <div class='content-container pickup-grid-view'>
-            <view_searchform 
-                :viewState="viewState"  
-                :viewparams="viewparams" 
-                :context="context" 
-                :showBusyIndicator="true"
-                v-show="isExpandSearchForm"
-                loaddraftAction="FilterGetDraft"
-                loadAction="FilterGet"
-            
-                name="searchform"  
-                ref='searchform' 
-                @save="searchform_save($event)"  
-                @search="searchform_search($event)"  
-                @load="searchform_load($event)"  
-                @closeview="closeView($event)">
-            </view_searchform>
-            <view_grid 
-                :viewState="viewState"  
-                :viewparams="viewparams" 
-                :context="context" 
-                :isSingleSelect="isSingleSelect"
-                :selectedData="selectedData"
-                :showBusyIndicator="true"
-                updateAction=""
-                removeAction="Remove"
-                loaddraftAction=""
-                loadAction=""
-                createAction=""
-                fetchAction="FetchDefault"
-                name="grid"  
-                ref='grid' 
-                @selectionchange="grid_selectionchange($event)"  
-                @beforeload="grid_beforeload($event)"  
-                @rowdblclick="grid_rowdblclick($event)"  
-                @load="grid_load($event)"  
-                @closeview="closeView($event)">
-            </view_grid>
+<studio-view viewName="storypickupgridview" viewTitle="需求" class='depickupgridview story-pickup-grid-view'>
+    <template slot='title'>
+    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
+    </template>
+    <div class='content-container pickup-grid-view'>
+                <view_searchform 
+                    :viewState="viewState"  
+                    :viewparams="viewparams" 
+                    :context="context" 
+                    :showBusyIndicator="true"
+                    v-show="isExpandSearchForm"
+                    loaddraftAction="FilterGetDraft"
+                    loadAction="FilterGet"
+                
+                    name="searchform"  
+                    ref='searchform' 
+                    @save="searchform_save($event)"  
+                    @search="searchform_search($event)"  
+                    @load="searchform_load($event)"  
+                    @closeview="closeView($event)">
+                </view_searchform>
+                <view_grid 
+                    :viewState="viewState"  
+                    :viewparams="viewparams" 
+                    :context="context" 
+                    :isSingleSelect="isSingleSelect"
+                    :selectedData="selectedData"
+                    :showBusyIndicator="true"
+                    updateAction=""
+                    removeAction="Remove"
+                    loaddraftAction=""
+                    loadAction=""
+                    createAction=""
+                    fetchAction="FetchDefault"
+                    name="grid"  
+                    ref='grid' 
+                    @selectionchange="grid_selectionchange($event)"  
+                    @beforeload="grid_beforeload($event)"  
+                    @rowdblclick="grid_rowdblclick($event)"  
+                    @load="grid_load($event)"  
+                    @closeview="closeView($event)">
+                </view_grid>
         </div>
-    </card>
-</div>
+</studio-view>
 </template>
 
 <script lang='tsx'>
