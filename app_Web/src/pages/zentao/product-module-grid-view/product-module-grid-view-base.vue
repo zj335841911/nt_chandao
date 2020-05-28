@@ -5,7 +5,7 @@
     </template>
     <i-input slot="quickSearch" v-show="!isExpandSearchForm" v-model="query" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
-        <div class='toolbar-container'>
+                <div class='toolbar-container'>
             <i-button :title="$t('entities.productmodule.gridviewtoolbar_toolbar.deuiaction1.tip')" v-show="toolBarModels.deuiaction1.visabled" :disabled="toolBarModels.deuiaction1.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1' }, $event)">
                     <i class='fa fa-file-text-o'></i>
                     <span class='caption'>{{$t('entities.productmodule.gridviewtoolbar_toolbar.deuiaction1.caption')}}</span>
@@ -16,22 +16,24 @@
                 </i-button>
         </div>
     </template>
-    <view_searchform 
-        :viewState="viewState"  
-        :viewparams="viewparams" 
-        :context="context" 
-        :showBusyIndicator="true"
-        v-show="isExpandSearchForm"
-        loaddraftAction="FilterGetDraft"
-        loadAction="FilterGet"
-    
-        name="searchform"  
-        ref='searchform' 
-        @save="searchform_save($event)"  
-        @search="searchform_search($event)"  
-        @load="searchform_load($event)"  
-        @closeview="closeView($event)">
-    </view_searchform>
+    <template slot="searchForm">
+                <view_searchform 
+            :viewState="viewState"  
+            :viewparams="viewparams" 
+            :context="context" 
+            :showBusyIndicator="true"
+            v-show="isExpandSearchForm"
+            loaddraftAction="FilterGetDraft"
+            loadAction="FilterGet"
+        
+            name="searchform"  
+            ref='searchform' 
+            @save="searchform_save($event)"  
+            @search="searchform_search($event)"  
+            @load="searchform_load($event)"  
+            @closeview="closeView($event)">
+        </view_searchform>
+    </template>
     <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 

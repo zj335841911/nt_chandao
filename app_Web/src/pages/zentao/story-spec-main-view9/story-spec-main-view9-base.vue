@@ -3,6 +3,20 @@
     <template slot='title'>
     <span class='caption-info'>{{$t(model.srfTitle)}}</span>
     </template>
+    <template slot="searchForm">
+                <view_searchform 
+            :viewState="viewState"  
+            :viewparams="viewparams" 
+            :context="context" 
+            :showBusyIndicator="true"
+            loaddraftAction="FilterGetDraft"
+            loadAction="FilterGet"
+        
+            name="searchform"  
+            ref='searchform' 
+            @closeview="closeView($event)">
+        </view_searchform>
+    </template>
     <view_form 
                 :viewState="viewState"  
                 :viewparams="viewparams" 

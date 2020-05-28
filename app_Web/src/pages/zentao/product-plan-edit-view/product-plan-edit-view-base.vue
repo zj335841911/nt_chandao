@@ -4,7 +4,7 @@
     <span class='caption-info'>{{$t(model.srfTitle)}}</span>
     </template>
     <template slot="toolbar">
-        <div class='toolbar-container'>
+                <div class='toolbar-container'>
             <i-button :title="$t('entities.productplan.editviewtoolbar_toolbar.deuiaction2.tip')" v-show="toolBarModels.deuiaction2.visabled" :disabled="toolBarModels.deuiaction2.disabled" class='' @click="toolbar_click({ tag: 'deuiaction2' }, $event)">
                     <i class='fa fa-save'></i>
                     <span class='caption'>{{$t('entities.productplan.editviewtoolbar_toolbar.deuiaction2.caption')}}</span>

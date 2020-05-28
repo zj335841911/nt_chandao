@@ -88,6 +88,18 @@
         color: var(--view-font-color);
         overflow-y: auto;
         overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+
+        >.search-form-wrapper {
+            flex-shrink: 0;
+        }
+
+        >.content-wrapper {
+            flex-grow: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
     }
 }
 

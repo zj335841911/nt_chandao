@@ -6,7 +6,7 @@
     </template>
     <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
-        <div class='toolbar-container'>
+                <div class='toolbar-container'>
             <i-button :title="$t('entities.product.leftsidebarlistviewtoolbar_toolbar.deuiaction3_manager.tip')" v-show="toolBarModels.deuiaction3_manager.visabled" :disabled="toolBarModels.deuiaction3_manager.disabled" class='' @click="toolbar_click({ tag: 'deuiaction3_manager' }, $event)">
                     <i class=''></i>
                     <span class='caption'>{{$t('entities.product.leftsidebarlistviewtoolbar_toolbar.deuiaction3_manager.caption')}}</span>

@@ -104,9 +104,6 @@
 
         .tabviewpanel {
             height: 100%;
-        }
-
-        >.tabviewpanel {
 
             >.ivu-tabs.tabexppanel {
                 height: 100%;
@@ -170,7 +167,7 @@
 
     >.view-content {
 
-        >.app-tree-exp-bar.ivu-split-wrapper {
+        .app-tree-exp-bar.ivu-split-wrapper {
 
             >.ivu-split-horizontal {
 
@@ -275,7 +272,7 @@
 
     >.view-content {
 
-        >.app-list-exp-bar {
+        .app-list-exp-bar {
 
             .list-exp-bar-header {
                 padding: 3px 6px;
@@ -355,6 +352,45 @@
                     }
                 }
             }
+        }
+    }
+}
+
+// 多数据选择样式
+.dempickupview.studio-view.view-container {
+
+    .pickup-view {
+        height: 100%;
+
+        >.translate-contant {
+            display: flex;
+            height: calc(100% - 64px);
+            width: 100%;
+
+            >.center {
+                flex-grow: 1;
+
+                >.pickupviewpanel {
+                    height: 100%;
+                }
+            }
+
+            >.translate-buttons {
+                flex-shrink: 0;
+                width: 50px;
+                display: flex;
+                align-items: center;
+                text-align: center;
+            }
+
+            >.right {
+                flex-shrink: 0;
+                width: 350px;
+            }
+        }
+
+        >.footer {
+            height: 64px;
         }
     }
 }

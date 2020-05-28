@@ -5,7 +5,7 @@
     </template>
     <i-input slot="quickSearch" v-show="!isExpandSearchForm" v-model="query" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
-        <div class='toolbar-container'>
+                <div class='toolbar-container'>
             <i-button :title="$t('entities.product.testgridviewtoolbar_toolbar.tbitem4.tip')" v-show="toolBarModels.tbitem4.visabled" :disabled="toolBarModels.tbitem4.disabled" class='' @click="toolbar_click({ tag: 'tbitem4' }, $event)">
                     <i class='fa fa-edit'></i>
                     <span class='caption'>{{$t('entities.product.testgridviewtoolbar_toolbar.tbitem4.caption')}}</span>
@@ -29,22 +29,24 @@
             </dropdown>
         </div>
     </template>
-    <view_searchform 
-        :viewState="viewState"  
-        :viewparams="viewparams" 
-        :context="context" 
-        :showBusyIndicator="true"
-        v-show="isExpandSearchForm"
-        loaddraftAction="FilterGetDraft"
-        loadAction="FilterGet"
-    
-        name="searchform"  
-        ref='searchform' 
-        @save="searchform_save($event)"  
-        @search="searchform_search($event)"  
-        @load="searchform_load($event)"  
-        @closeview="closeView($event)">
-    </view_searchform>
+    <template slot="searchForm">
+                <view_searchform 
+            :viewState="viewState"  
+            :viewparams="viewparams" 
+            :context="context" 
+            :showBusyIndicator="true"
+            v-show="isExpandSearchForm"
+            loaddraftAction="FilterGetDraft"
+            loadAction="FilterGet"
+        
+            name="searchform"  
+            ref='searchform' 
+            @save="searchform_save($event)"  
+            @search="searchform_search($event)"  
+            @load="searchform_load($event)"  
+            @closeview="closeView($event)">
+        </view_searchform>
+    </template>
     <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 

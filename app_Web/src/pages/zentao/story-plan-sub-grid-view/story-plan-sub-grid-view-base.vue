@@ -2,7 +2,7 @@
 <studio-view viewName="storyplansubgridview" viewTitle="story表格视图" class='degridview story-plan-sub-grid-view'>
     <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
-        <div class='toolbar-container'>
+                <div class='toolbar-container'>
             <i-button :title="$t('entities.story.plansubgridviewtoolbar_toolbar.deuiaction3_planrelationstory.tip')" v-show="toolBarModels.deuiaction3_planrelationstory.visabled" :disabled="toolBarModels.deuiaction3_planrelationstory.disabled" class='' @click="toolbar_click({ tag: 'deuiaction3_planrelationstory' }, $event)">
                     <i class=''></i>
                     <span class='caption'>{{$t('entities.story.plansubgridviewtoolbar_toolbar.deuiaction3_planrelationstory.caption')}}</span>

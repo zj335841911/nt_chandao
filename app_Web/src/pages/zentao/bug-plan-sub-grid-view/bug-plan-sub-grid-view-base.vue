@@ -2,7 +2,7 @@
 <studio-view viewName="bugplansubgridview" viewTitle="Bug" class='degridview bug-plan-sub-grid-view'>
     <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
-        <div class='toolbar-container'>
+                <div class='toolbar-container'>
             <i-button :title="$t('entities.bug.plansubgridviewtoolbar_toolbar.deuiaction4.tip')" v-show="toolBarModels.deuiaction4.visabled" :disabled="toolBarModels.deuiaction4.disabled" class='' @click="toolbar_click({ tag: 'deuiaction4' }, $event)">
                     <i class='fa fa-remove'></i>
                     <span class='caption'>{{$t('entities.bug.plansubgridviewtoolbar_toolbar.deuiaction4.caption')}}</span>
