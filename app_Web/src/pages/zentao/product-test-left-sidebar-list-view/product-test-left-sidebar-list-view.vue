@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import ProductTestLeftSidebarListViewBase from './product-test-left-sidebar-list-view-base.vue';
 
-import view_list from '@widgets/product/bug-sidebar-list/bug-sidebar-list.vue';
+import view_list from '@widgets/product/test-sidebar-list/test-sidebar-list.vue';
 @Component({
     components: {
         view_list, 
