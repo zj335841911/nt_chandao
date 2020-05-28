@@ -160,6 +160,17 @@ export default {
 		uiactions: {
 		},
 	},
+	main2_grid: {
+		columns: {
+			id: "ID",
+			name: "项目名称",
+			code: "项目代号",
+			status: "项目状态",
+			end: "结束日期",
+		},
+		uiactions: {
+		},
+	},
 	default_searchform: {
 		details: {
 			formpage1: "常规条件", 

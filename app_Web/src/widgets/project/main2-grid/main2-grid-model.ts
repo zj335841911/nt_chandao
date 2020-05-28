@@ -1,16 +1,16 @@
 /**
- * Main 部件模型
+ * Main2 部件模型
  *
  * @export
- * @class MainModel
+ * @class Main2Model
  */
-export default class MainModel {
+export default class Main2Model {
 
 	/**
 	 * 是否是实体数据导出
 	 *
 	 * @returns {any[]}
-	 * @memberof MainGridMode
+	 * @memberof Main2GridMode
 	 */
 	public isDEExport: boolean = false;
 
@@ -18,7 +18,7 @@ export default class MainModel {
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof MainGridMode
+	 * @memberof Main2GridMode
 	 */
 	public getDataItems(): any[] {
     if(this.isDEExport){
@@ -75,7 +75,6 @@ export default class MainModel {
           name: 'project',
           prop: 'id',
         },
-
         {
           name:'size',
           prop:'size'

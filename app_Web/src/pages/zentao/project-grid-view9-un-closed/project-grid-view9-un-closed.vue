@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import ProjectGridView9_UnClosedBase from './project-grid-view9-un-closed-base.vue';
 
-import view_grid from '@widgets/project/main-grid/main-grid.vue';
+import view_grid from '@widgets/project/main2-grid/main2-grid.vue';
 @Component({
     components: {
         view_grid, 
