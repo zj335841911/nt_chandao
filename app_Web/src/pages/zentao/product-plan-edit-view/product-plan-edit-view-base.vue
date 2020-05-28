@@ -253,7 +253,7 @@ export default class ProductPlanEditViewBase extends Vue {
         this.engine.init({
             view: this,
             form: this.$refs.form,
-            p2k: '0',
+            p2k: '1',
             keyPSDEField: 'productplan',
             majorPSDEField: 'title',
             isLoadDefault: true,

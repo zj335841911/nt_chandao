@@ -257,10 +257,6 @@ export default {
 		},
 	},
 	plansubgridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: '新建',
-			tip: '新建',
-		},
 		deuiaction4: {
 			caption: '删除',
 			tip: '删除',

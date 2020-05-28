@@ -258,10 +258,6 @@ export default {
 		},
 	},
 	plansubgridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
-		},
 		deuiaction4: {
 			caption: "Remove",
 			tip: "Remove {0}",
