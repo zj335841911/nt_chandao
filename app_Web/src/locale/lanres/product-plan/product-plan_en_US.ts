@@ -85,8 +85,9 @@ export default {
 		details: {
 			grouppanel1: "分组面板", 
 			group1: "productplan基本信息", 
-			button1: "Save And Close", 
 			button2: "关闭", 
+			button1: "Save And Close", 
+			grouppanel3: "分组面板", 
 			grouppanel2: "分组面板", 
 			formpage1: "基本信息", 
 			srforikey: "", 
@@ -106,8 +107,8 @@ export default {
 			id: "编号", 
 		},
 		uiactions: {
-			saveandexit: "Save And Close",
 			exit: "关闭",
+			saveandexit: "Save And Close",
 		},
 	},
 	main_grid: {
