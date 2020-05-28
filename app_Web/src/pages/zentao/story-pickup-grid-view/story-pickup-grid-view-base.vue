@@ -1,8 +1,5 @@
 <template>
 <studio-view viewName="storypickupgridview" viewTitle="需求" class='depickupgridview story-pickup-grid-view'>
-    <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
-    </template>
     <template slot="searchForm">
                 <view_searchform 
             :viewState="viewState"  

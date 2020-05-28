@@ -81,8 +81,8 @@ export default {
       title: '需求',
 		},
 		mpickupview: {
-			caption: "需求",
-      title: '需求',
+			caption: "关联需求",
+      title: '关联需求',
 		},
 		plansubgridview: {
 			caption: "需求",

@@ -505,7 +505,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "storympickupview": {
             "title": "关联需求",
-            "caption": "需求",
+            "caption": "关联需求",
             "viewtype": "DEMPICKUPVIEW",
             "viewmodule": "zentao",
             "viewname": "StoryMPickupView",
