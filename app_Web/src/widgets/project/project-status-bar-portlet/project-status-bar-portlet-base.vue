@@ -1,20 +1,20 @@
 <template>
-    <div class='portlet project-status-bar' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : '300px',}">
+    <div class='portlet project-status-bar' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : '350px',}">
         <p class='portlet-title'>
             项目总览
         </p>
         <div class="portlet-with-title">
         <!-- 测试 -->
-              <view_db_sysportlet4_chart 
+              <view_db_projectstatusportlet_chart 
           :viewState="viewState"  
           :viewparams="viewparams" 
           :context="context" 
           fetchAction="FetchDefault"
           :showBusyIndicator="true" 
-          name="db_sysportlet4_chart"  
-          ref='db_sysportlet4_chart' 
+          name="db_projectstatusportlet_chart"  
+          ref='db_projectstatusportlet_chart' 
           @closeview="closeView($event)">
-      </view_db_sysportlet4_chart>
+      </view_db_projectstatusportlet_chart>
         </div>
     </div>
 </template>

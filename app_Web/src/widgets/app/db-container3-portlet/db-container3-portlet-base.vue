@@ -2,26 +2,26 @@
     <div class='portlet-container db-container3' :style="{}">
             <i-col :md="{ span: 24, offset: 0 }">
                 <div class="portlet-without-title">
-                                  <view_db_sysportlet2 
+                                  <view_db_projectstatusportlet 
                       :viewState="viewState"  
                       :viewparams="viewparams" 
                       :context="context" 
-                      name="db_sysportlet2"  
-                      ref='db_sysportlet2' 
+                      name="db_projectstatusportlet"  
+                      ref='db_projectstatusportlet' 
                       @closeview="closeView($event)">
-                  </view_db_sysportlet2>
+                  </view_db_projectstatusportlet>
                 </div>
             </i-col>
             <i-col :md="{ span: 24, offset: 0 }">
                 <div class="portlet-without-title">
-                                  <view_db_sysportlet3 
+                                  <view_db_assignedtometaskportlet 
                       :viewState="viewState"  
                       :viewparams="viewparams" 
                       :context="context" 
-                      name="db_sysportlet3"  
-                      ref='db_sysportlet3' 
+                      name="db_assignedtometaskportlet"  
+                      ref='db_assignedtometaskportlet' 
                       @closeview="closeView($event)">
-                  </view_db_sysportlet3>
+                  </view_db_assignedtometaskportlet>
                 </div>
             </i-col>
     </div>

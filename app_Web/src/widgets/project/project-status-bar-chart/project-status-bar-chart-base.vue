@@ -213,7 +213,7 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
      * 图表div绑定的id
      *
      * @type {}
-     * @memberof Db_sysportlet4_chartBase
+     * @memberof Db_projectstatusportlet_chartBase
      */   
     public chartId:string = this.$util.createUUID();
 
@@ -221,7 +221,7 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
      * echarts图表对象
      *
      * @type {}
-     * @memberof Db_sysportlet4_chartBase
+     * @memberof Db_projectstatusportlet_chartBase
      */   
     public myChart:any;
 
@@ -229,7 +229,7 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
      * 代码表服务对象
      *
      * @type {CodeListService}
-     * @memberof Db_sysportlet4_chartBase
+     * @memberof Db_projectstatusportlet_chartBase
      */  
     public codeListService:CodeListService = new CodeListService({ $store: this.$store });
 
@@ -237,7 +237,7 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
      * 序列模型
      *
      * @type {}
-     * @memberof Db_sysportlet4_chartBase
+     * @memberof Db_projectstatusportlet_chartBase
      */
     public  seriesModel:any = {
         statusbar:new ChartBarSeries({
@@ -292,7 +292,7 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
     /**
      * 图表自定义参数集合
      *
-     * @memberof Db_sysportlet4_chartBase
+     * @memberof Db_projectstatusportlet_chartBase
      */   
     public chartUserParams:any ={
     };
@@ -300,7 +300,7 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
     /**
      * 图表基础动态模型
      *
-     * @memberof Db_sysportlet4_chartBase
+     * @memberof Db_projectstatusportlet_chartBase
      */  
     public chartBaseOPtion:any = {};
 
@@ -308,7 +308,7 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
      * 初始化图表所需参数
      *
      * @type {}
-     * @memberof Db_sysportlet4_chartBase
+     * @memberof Db_projectstatusportlet_chartBase
      */   
     public chartOption:any = {
         title:{
@@ -366,7 +366,7 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
      * 刷新
      *
      * @param {*} [opt={}]
-     * @memberof Db_sysportlet4_chartBase
+     * @memberof Db_projectstatusportlet_chartBase
      */
     public refresh(opt: any = {}) {
         this.load(opt);
@@ -376,7 +376,7 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
      * 获取图表数据
      * 
      * @returns {*} 
-     * @memberof Db_sysportlet4_chartBase
+     * @memberof Db_projectstatusportlet_chartBase
      */
     public load(opt?:any) {
         let _this = this;
@@ -398,7 +398,7 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
      * 绘制图表
      * 
      * @returns {*} 
-     * @memberof Db_sysportlet4_chartBase
+     * @memberof Db_projectstatusportlet_chartBase
      */
     public drawCharts(){
         if(!this.myChart){
@@ -414,7 +414,7 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
     /**
      * 处理图表参数
      * 
-     * @memberof Db_sysportlet4_chartBase
+     * @memberof Db_projectstatusportlet_chartBase
      */
     public handleChartOPtion(){
         if(Object.keys(this.seriesModel).length > 0){
@@ -476,7 +476,7 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
      *    
      * @param {*} data 实体数据集
      * @param {Function} callback 回调
-     * @memberof Db_sysportlet4_chartBase
+     * @memberof Db_projectstatusportlet_chartBase
      */
     public async transformToBasicChartSetData(data:any,callback:Function){
         if(!data || !Array.isArray(data) || data.length === 0){
@@ -539,7 +539,7 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
      * @param {Array<any>} callback 回调
      * @param {*} allCodeList 所有代码表
      * 
-     * @memberof Db_sysportlet4_chartBase
+     * @memberof Db_projectstatusportlet_chartBase
      */
     public transformToChartSeriesDataSet(data:any,item:any,callback:Function,allCodeList:any):any{
         if(item.seriesIdField){
@@ -592,7 +592,7 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
      * @param {*} groupFieldModel 分组属性模型
      * @param {*} allCodeList 所有代码表
      * 
-     * @memberof Db_sysportlet4_chartBase
+     * @memberof Db_projectstatusportlet_chartBase
      */
     public groupAndAdd(groupField:Array<any>,seriesField:Array<any>,valueField:Array<any>,data:any,item:any,groupFieldModel:any,allCodeList:any){
         let tempMap:Map<string,any> = new Map();
@@ -704,7 +704,7 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
      * @param {*} groupField 分组属性
      * @param {*} allCodeList 所有代码表
      * 
-     * @memberof Db_sysportlet4_chartBase
+     * @memberof Db_projectstatusportlet_chartBase
      */
     public sortReturnArray(arr:Array<any>,groupField:any,allCodeList:any){
         let returnArray:Array<any> = [];
@@ -755,7 +755,7 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
      * @param {Array<any>} groupField 分组属性
      * @param {Array<any>} label label标签
      * 
-     * @memberof Db_sysportlet4_chartBase
+     * @memberof Db_projectstatusportlet_chartBase
      */
     public handleSortGroupData(arr:Array<any>,groupField:any,label:string){
         arr.forEach((item:any) =>{
@@ -779,7 +779,7 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
      * @param {Array<any>} item 单个序列
      * @param {Array<any>} allCodeList 所有的代码表
      * 
-     * @memberof Db_sysportlet4_chartBase
+     * @memberof Db_projectstatusportlet_chartBase
      */
     public completeDataSet(data:any,item:any,allCodeList:any){
         // 分组属性
@@ -804,7 +804,7 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
      * 
      * @param {Array<any>} tempTimeArray 传入数据
      * 
-     * @memberof Db_sysportlet4_chartBase
+     * @memberof Db_projectstatusportlet_chartBase
      */
     public  getRangeData(tempTimeArray:Array<any>){
         tempTimeArray.forEach((item:any) =>{
@@ -828,7 +828,7 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
      * @param {Array<any>} allCodeList 所有的代码表
      * @param {Array<any>} groupField 分组属性
      * 
-     * @memberof Db_sysportlet4_chartBase
+     * @memberof Db_projectstatusportlet_chartBase
      */
     public handleTimeData(data:any,item:any,allCodeList:any,groupField:any){
         let valueField = item.dataSetFields.find((datasetField:any) =>{
@@ -960,7 +960,7 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
      * @param {Array<any>} item 单个序列
      * @param {Array<any>} allCodeList 所有的代码表
      * 
-     * @memberof Db_sysportlet4_chartBase
+     * @memberof Db_projectstatusportlet_chartBase
      */
     public  completeCodeList(data:any,item:any,allCodeList:any){
         let groupField = item.dataSetFields.find((datasetField:any) =>{
@@ -1004,7 +1004,7 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
      * @param {*} allCodeList 所有代码表
      * @param {*} result 结果值
      * 
-     * @memberof Db_sysportlet4_chartBase
+     * @memberof Db_projectstatusportlet_chartBase
      */
     public handleSingleDataSetField(input:any,field:any,allCodeList:any,result:any,groupField:any){
         let tempFieldObj:any = {};
@@ -1040,7 +1040,7 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
     /**
      * 获取图表所需代码表
      * 
-     * @memberof Db_sysportlet4_chartBase
+     * @memberof Db_projectstatusportlet_chartBase
      */
     public getChartAllCodeList():Promise<any>{
         return new Promise((resolve:any,reject:any) =>{
@@ -1087,7 +1087,7 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
      * 获取代码表
      * 
      * @returns {Promise<any>} 
-     * @memberof Db_sysportlet4_chartBase
+     * @memberof Db_projectstatusportlet_chartBase
      */
     public getCodeList(codeListObject:any):Promise<any>{
         return new Promise((resolve:any,reject:any) =>{

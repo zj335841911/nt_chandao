@@ -1,29 +1,11 @@
 <template>
-    <div class='portlet-container db-container2' :style="{}">
-            <i-col :md="{ span: 24, offset: 0 }">
-                <div class="portlet-without-title">
-                                  <view_db_projectexpportlet 
-                      :viewState="viewState"  
-                      :viewparams="viewparams" 
-                      :context="context" 
-                      name="db_projectexpportlet"  
-                      ref='db_projectexpportlet' 
-                      @closeview="closeView($event)">
-                  </view_db_projectexpportlet>
-                </div>
-            </i-col>
-            <i-col :md="{ span: 24, offset: 0 }">
-                <div class="portlet-without-title">
-                                  <view_db_projectunclosedportlet 
-                      :viewState="viewState"  
-                      :viewparams="viewparams" 
-                      :context="context" 
-                      name="db_projectunclosedportlet"  
-                      ref='db_projectunclosedportlet' 
-                      @closeview="closeView($event)">
-                  </view_db_projectunclosedportlet>
-                </div>
-            </i-col>
+    <div class='portlet project-exp-view' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : '300px',}">
+        <p class='portlet-title'>
+            项目统计
+        </p>
+        <div class="portlet-with-title">
+        <project-list-exp-view :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></project-list-exp-view>
+        </div>
     </div>
 </template>
 <script lang='tsx'>
@@ -32,7 +14,8 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import { UIActionTool,Util } from '@/utils';
-import Db_container2Service from './db-container2-portlet-service';
+import ProjectService from '@/service/project/project-service';
+import ProjectExpViewService from './project-exp-view-portlet-service';
 
 
 
@@ -41,13 +24,13 @@ import Db_container2Service from './db-container2-portlet-service';
       
     }
 })
-export default class Db_container2Base extends Vue implements ControlInterface {
+export default class ProjectProjectExpViewBase extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof Db_container2
+     * @memberof ProjectExpView
      */
     @Prop() public name?: string;
 
@@ -55,7 +38,7 @@ export default class Db_container2Base extends Vue implements ControlInterface {
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof Db_container2
+     * @memberof ProjectExpView
      */
     @Prop() public viewState!: Subject<ViewState>;
 
@@ -63,7 +46,7 @@ export default class Db_container2Base extends Vue implements ControlInterface {
      * 应用上下文
      *
      * @type {*}
-     * @memberof Db_container2
+     * @memberof ProjectExpView
      */
     @Prop() public context: any;
 
@@ -71,7 +54,7 @@ export default class Db_container2Base extends Vue implements ControlInterface {
      * 视图参数
      *
      * @type {*}
-     * @memberof Db_container2
+     * @memberof ProjectExpView
      */
     @Prop() public viewparams: any;
 
@@ -80,7 +63,7 @@ export default class Db_container2Base extends Vue implements ControlInterface {
      *
      * @public
      * @type {(Subscription | undefined)}
-     * @memberof Db_container2
+     * @memberof ProjectExpView
      */
     public viewStateEvent: Subscription | undefined;
 
@@ -88,7 +71,7 @@ export default class Db_container2Base extends Vue implements ControlInterface {
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof Db_container2
+     * @memberof ProjectExpView
      */
     public getControlType(): string {
         return 'PORTLET'
@@ -100,17 +83,25 @@ export default class Db_container2Base extends Vue implements ControlInterface {
      * 计数器服务对象集合
      *
      * @type {Array<*>}
-     * @memberof Db_container2
+     * @memberof ProjectExpView
      */    
     public counterServiceArray:Array<any> = [];
 
     /**
      * 建构部件服务对象
      *
-     * @type {Db_container2Service}
-     * @memberof Db_container2
+     * @type {ProjectExpViewService}
+     * @memberof ProjectExpView
      */
-    public service: Db_container2Service = new Db_container2Service({ $store: this.$store });
+    public service: ProjectExpViewService = new ProjectExpViewService({ $store: this.$store });
+
+    /**
+     * 实体服务对象
+     *
+     * @type {ProjectService}
+     * @memberof ProjectExpView
+     */
+    public appEntityService: ProjectService = new ProjectService({ $store: this.$store });
     
 
 
@@ -118,7 +109,7 @@ export default class Db_container2Base extends Vue implements ControlInterface {
      * 关闭视图
      *
      * @param {any} args
-     * @memberof Db_container2
+     * @memberof ProjectExpView
      */
     public closeView(args: any): void {
         let _this: any = this;
@@ -128,7 +119,7 @@ export default class Db_container2Base extends Vue implements ControlInterface {
     /**
      *  计数器刷新
      *
-     * @memberof Db_container2
+     * @memberof ProjectExpView
      */
     public counterRefresh(){
         const _this:any =this;
@@ -147,7 +138,7 @@ export default class Db_container2Base extends Vue implements ControlInterface {
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof Db_container2
+     * @memberof ProjectExpView
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -155,7 +146,7 @@ export default class Db_container2Base extends Vue implements ControlInterface {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof Db_container2
+     * @memberof ProjectExpView
      */
     public getDatas(): any[] {
         return [];
@@ -165,7 +156,7 @@ export default class Db_container2Base extends Vue implements ControlInterface {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof Db_container2
+     * @memberof ProjectExpView
      */
     public getData(): any {
         return {};
@@ -174,7 +165,7 @@ export default class Db_container2Base extends Vue implements ControlInterface {
     /**
      * vue 生命周期
      *
-     * @memberof Db_container2
+     * @memberof ProjectExpView
      */
     public created() {
         this.afterCreated();
@@ -183,7 +174,7 @@ export default class Db_container2Base extends Vue implements ControlInterface {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof Db_container2
+     *  @memberof ProjectExpView
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -202,7 +193,7 @@ export default class Db_container2Base extends Vue implements ControlInterface {
     /**
      * vue 生命周期
      *
-     * @memberof Db_container2
+     * @memberof ProjectExpView
      */
     public destroyed() {
         this.afterDestroy();
@@ -211,7 +202,7 @@ export default class Db_container2Base extends Vue implements ControlInterface {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof Db_container2
+     * @memberof ProjectExpView
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -223,5 +214,5 @@ export default class Db_container2Base extends Vue implements ControlInterface {
 </script>
 
 <style lang='less'>
-@import './db-container2-portlet.less';
+@import './project-exp-view-portlet.less';
 </style>

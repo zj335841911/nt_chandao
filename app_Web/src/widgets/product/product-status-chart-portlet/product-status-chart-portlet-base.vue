@@ -5,16 +5,16 @@
         </p>
         <div class="portlet-with-title">
         <!-- 测试 -->
-              <view_db_sysportlet2_chart 
+              <view_db_productstatusportlet_chart 
           :viewState="viewState"  
           :viewparams="viewparams" 
           :context="context" 
           fetchAction="FetchDefault"
           :showBusyIndicator="true" 
-          name="db_sysportlet2_chart"  
-          ref='db_sysportlet2_chart' 
+          name="db_productstatusportlet_chart"  
+          ref='db_productstatusportlet_chart' 
           @closeview="closeView($event)">
-      </view_db_sysportlet2_chart>
+      </view_db_productstatusportlet_chart>
         </div>
     </div>
 </template>
