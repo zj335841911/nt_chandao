@@ -84,8 +84,8 @@ export default {
 		details: {
 			grouppanel1: '分组面板', 
 			group1: 'productplan基本信息', 
-			button2: '关闭', 
 			button1: '保存', 
+			button2: '关闭', 
 			grouppanel3: '分组面板', 
 			grouppanel2: '分组面板', 
 			formpage1: '基本信息', 
@@ -106,8 +106,8 @@ export default {
 			id: '编号', 
 		},
 		uiactions: {
-			exit: '关闭',
 			saveandexit: '保存并关闭',
+			exit: '关闭',
 		},
 	},
 	main_grid: {

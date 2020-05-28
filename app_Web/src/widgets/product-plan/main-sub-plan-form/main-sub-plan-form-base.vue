@@ -58,19 +58,19 @@
         <i-col v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 11 }">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productplan.mainsubplan_form.details.grouppanel3')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <div style="height: 100%;display: flex;justify-content: space-around;">
-        <div  v-show="detailsModel.button2.visible" :style="{}">
-    <i-button type="primary" @click="button2_click($event)"
-         style="">
-           
-        <span >{{$t('entities.productplan.mainsubplan_form.details.button2')}}</span>
-    </i-button>
-
-</div>
-<div  v-show="detailsModel.button1.visible" :style="{}">
+        <div  v-show="detailsModel.button1.visible" :style="{}">
     <i-button type="primary" @click="button1_click($event)"
          style="">
            
         <span >{{$t('entities.productplan.mainsubplan_form.details.button1')}}</span>
+    </i-button>
+
+</div>
+<div  v-show="detailsModel.button2.visible" :style="{}">
+    <i-button type="primary" @click="button2_click($event)"
+         style="">
+           
+        <span >{{$t('entities.productplan.mainsubplan_form.details.button2')}}</span>
     </i-button>
 
 </div>
@@ -196,34 +196,6 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
      * @param {*} [$event]
      * @memberof 
      */
-    public form_button2_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.Exit(datas, contextJO,paramJO,  $event, xData,this,"ProductPlan");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
     public form_button1_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -245,21 +217,31 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 关闭
+     * 逻辑事件
      *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof ProductPlanSubPlanEditViewBase
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
      */
-    public Exit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        this.closeView(args);
-        if(window.parent){
-            window.parent.postMessage([{ ...args }],'*');
+    public form_button2_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
         }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.Exit(datas, contextJO,paramJO,  $event, xData,this,"ProductPlan");
     }
 
     /**
@@ -295,6 +277,24 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
             });
         }
     }
+    /**
+     * 关闭
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof ProductPlanSubPlanEditViewBase
+     */
+    public Exit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        this.closeView(args);
+        if(window.parent){
+            window.parent.postMessage([{ ...args }],'*');
+        }
+    }
+
 
     /**
      * 关闭视图
@@ -643,11 +643,11 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
 , 
         group1: new FormGroupPanelModel({ caption: 'productplan基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productplan.mainsubplan_form', extractMode: 'ITEM', details: [] } })
 , 
-        button2: new FormButtonModel({ caption: '关闭', detailType: 'BUTTON', name: 'button2', visible: true, isShowCaption: true, form: this, uiaction: { type: 'DEUIACTION', 
- tag: 'Exit' } })
-, 
         button1: new FormButtonModel({ caption: '保存', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this, uiaction: { type: 'DEUIACTION', 
  tag: 'SaveAndExit' } })
+, 
+        button2: new FormButtonModel({ caption: '关闭', detailType: 'BUTTON', name: 'button2', visible: true, isShowCaption: true, form: this, uiaction: { type: 'DEUIACTION', 
+ tag: 'Exit' } })
 , 
         grouppanel3: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productplan.mainsubplan_form', extractMode: 'ITEM', details: [] } })
 , 
@@ -1116,22 +1116,22 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
 
 
 	/**
-	 * 表单 关闭 事件
-	 *
-	 * @memberof @memberof MainSubPlan
-	 */
-    public button2_click($event: any): void {
-        this.form_button2_click(null, null, $event);
-
-    }
-
-	/**
 	 * 表单 保存 事件
 	 *
 	 * @memberof @memberof MainSubPlan
 	 */
     public button1_click($event: any): void {
         this.form_button1_click(null, null, $event);
+
+    }
+
+	/**
+	 * 表单 关闭 事件
+	 *
+	 * @memberof @memberof MainSubPlan
+	 */
+    public button2_click($event: any): void {
+        this.form_button2_click(null, null, $event);
 
     }
 
