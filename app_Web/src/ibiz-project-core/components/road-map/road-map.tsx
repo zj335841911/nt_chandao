@@ -119,7 +119,7 @@ export class RoadMap extends Vue {
                                 {
                                     Object.is(item.type, 'productplan')
                                         ?
-                                        <div class="date">{item.begin}{Object.is(this.mode, 'group') ? '~' + item.end : ''}</div>
+                                        <div class="date" title={item.begin}>{item.begin}{Object.is(this.mode, 'group') ? '~' + item.end : ''}</div>
                                         :
                                         <div class="date" title={item.end}>{item.end}</div>
                                 }
