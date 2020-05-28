@@ -56,6 +56,7 @@ export const PageComponents = {
         Vue.component('branch-pmedit-view', () => import('@pages/zentao/branch-pmedit-view/branch-pmedit-view.vue'));
         Vue.component('product-test-left-sidebar-list-view', () => import('@pages/zentao/product-test-left-sidebar-list-view/product-test-left-sidebar-list-view.vue'));
         Vue.component('product-bug-tree-exp-view', () => import('@pages/zentao/product-bug-tree-exp-view/product-bug-tree-exp-view.vue'));
+        Vue.component('story-plan-sub-edit-view', () => import('@pages/zentao/story-plan-sub-edit-view/story-plan-sub-edit-view.vue'));
         Vue.component('product-plan-edit-view', () => import('@pages/zentao/product-plan-edit-view/product-plan-edit-view.vue'));
         Vue.component('project-edit-view', () => import('@pages/zentao/project-edit-view/project-edit-view.vue'));
         Vue.component('product-plan-main-tab-exp', () => import('@pages/zentao/product-plan-main-tab-exp/product-plan-main-tab-exp.vue'));

@@ -1197,6 +1197,33 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-bug-tree-exp-view/product-bug-tree-exp-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/plansubeditview/:plansubeditview?',
+                    meta: {
+                        caption: 'entities.story.views.plansubeditview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'plansubeditview', parameterName: 'plansubeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-plan-sub-edit-view/story-plan-sub-edit-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/plansubeditview/:plansubeditview?',
+                    meta: {
+                        caption: 'entities.story.views.plansubeditview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'plansubeditview', parameterName: 'plansubeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-plan-sub-edit-view/story-plan-sub-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/productplans/:productplan?/editview/:editview?',
                     meta: {
                         caption: 'entities.productplan.views.editview.caption',
@@ -2167,6 +2194,31 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/zentao/story-main-view9-edit-mode/story-main-view9-edit-mode.vue'),
+    },
+    {
+        path: '/products/:product?/stories/:story?/plansubeditview/:plansubeditview?',
+        meta: {
+            caption: 'entities.story.views.plansubeditview.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'stories', parameterName: 'story' },
+                { pathName: 'plansubeditview', parameterName: 'plansubeditview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/story-plan-sub-edit-view/story-plan-sub-edit-view.vue'),
+    },
+    {
+        path: '/stories/:story?/plansubeditview/:plansubeditview?',
+        meta: {
+            caption: 'entities.story.views.plansubeditview.caption',
+            parameters: [
+                { pathName: 'stories', parameterName: 'story' },
+                { pathName: 'plansubeditview', parameterName: 'plansubeditview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/story-plan-sub-edit-view/story-plan-sub-edit-view.vue'),
     },
     {
         path: '/products/:product?/productplans/:productplan?/subplaneditview/:subplaneditview?',

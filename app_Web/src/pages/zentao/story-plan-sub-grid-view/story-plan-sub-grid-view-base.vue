@@ -691,11 +691,11 @@ export default class StoryPlanSubGridViewBase extends Vue {
             });
         }
         const view: any = {
-            viewname: 'story-edit-view', 
+            viewname: 'story-plan-sub-edit-view', 
             height: 0, 
             width: 0,  
-            title: this.$t('entities.story.views.editview.title'),
-            placement: 'DRAWER_RIGHT',
+            title: this.$t('entities.story.views.plansubeditview.title'),
+            placement: 'DRAWER_TOP',
         };
         openDrawer(view, data);
     }

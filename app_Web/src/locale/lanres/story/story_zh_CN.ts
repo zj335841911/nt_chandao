@@ -59,6 +59,10 @@ export default {
 			caption: '需求',
       title: '需求',
 		},
+		plansubeditview: {
+			caption: '需求',
+      title: '需求',
+		},
 		mainview_editmode: {
 			caption: '需求',
       title: '需求',
@@ -258,7 +262,7 @@ export default {
 			tip: '刷新',
 		},
 	},
-	editviewtoolbar_toolbar: {
+	plansubeditviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: '保存',
 			tip: '保存',
@@ -280,6 +284,16 @@ export default {
 		deuiaction2: {
 			caption: '编辑',
 			tip: '编辑',
+		},
+	},
+	editviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: '保存',
+			tip: '保存',
+		},
+		deuiaction1: {
+			caption: '保存并关闭',
+			tip: '保存并关闭',
 		},
 	},
 	main2gridviewtoolbar_toolbar: {
