@@ -252,7 +252,7 @@ export default class ProductStatusBase extends Vue implements ControlInterface {
     data:[],
     seriesMap:{},
     dataSetFields:[
-    {name:"status",codelist:{type:"STATIC",tag:"Product__status",emptycode:'empty',emptytext:'未定义'},isGroupField:true,groupMode:""},
+    {name:"status",codelist:{type:"STATIC",tag:"Product__status",emptycode:'empty',emptytext:'未定义'},isGroupField:true,groupMode:"CODELIST"},
     {name:"id",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
@@ -314,7 +314,7 @@ export default class ProductStatusBase extends Vue implements ControlInterface {
      */   
     public chartOption:any = {
         title:{
-            show:true ,
+            show:false ,
             text:'产品总览',
             subtext:''
         },
@@ -326,17 +326,10 @@ export default class ProductStatusBase extends Vue implements ControlInterface {
         },
         dataset:[],
         series:[
-                     {
-            id:'productstatus',
-            name:'',
-            type:'pie',
-            datasetIndex:0,
-            
-            seriesLayoutBy:"column",
-            encode:{
-                itemName:"status",
-                value:"id"
-            }}
+                     !!!!模版产生代码错误:----
+        FTL stack trace ("~" means nesting-related):
+        	- Failed at: #if item.getHeight()?? && item.getHei...  [in template "TEMPLCODE_zh_CN" at line 15, column 5]
+        ----
         ]
     };
 
