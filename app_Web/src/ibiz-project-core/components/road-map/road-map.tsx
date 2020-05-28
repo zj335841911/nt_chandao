@@ -115,7 +115,7 @@ export class RoadMap extends Vue {
                     return <div class="road-map-item">
                         <a href="javascript:void(0);">
                             <div class="content">
-                                <div class="title" title="item.productlifename">{item.productlifename}</div>
+                                <div class="title" title={item.productlifename}>{item.productlifename}</div>
                                 {
                                     Object.is(item.type, 'productplan')
                                         ?
