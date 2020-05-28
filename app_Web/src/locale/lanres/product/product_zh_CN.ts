@@ -38,8 +38,8 @@ export default {
       title: '产品',
 		},
 		chartview: {
-			caption: '产品总览',
-      title: '产品总览',
+			caption: '产品',
+      title: '产品',
 		},
 		gridview_unclosed: {
 			caption: '未关闭产品',

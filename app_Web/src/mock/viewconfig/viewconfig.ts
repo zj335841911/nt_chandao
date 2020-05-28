@@ -121,7 +121,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "productchartview": {
             "title": "产品图表视图",
-            "caption": "产品总览",
+            "caption": "产品",
             "viewtype": "DECHARTVIEW",
             "viewmodule": "zentao",
             "viewname": "ProductChartView",

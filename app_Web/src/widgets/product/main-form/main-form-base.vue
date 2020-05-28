@@ -48,64 +48,19 @@
 </i-col>
 <i-col v-show="detailsModel.po.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='po' :itemRules="this.rules.po" class='' :caption="$t('entities.product.main_form.details.po')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.po.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam='{ }' 
-  :disabled="detailsModel.po.disabled"
-  name='po' 
-  :service="service"
-  :acParams="{ }"
-  valueitem='' 
-  :value="data.po" 
-  editortype="dropdown" 
-  style="" 
-  @formitemvaluechange="onFormItemValueChange">
-</app-picker>
+    <input-box v-model="data.po"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.po.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.qd.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='qd' :itemRules="this.rules.qd" class='' :caption="$t('entities.product.main_form.details.qd')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.qd.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam='{ }' 
-  :disabled="detailsModel.qd.disabled"
-  name='qd' 
-  :service="service"
-  :acParams="{ }"
-  valueitem='' 
-  :value="data.qd" 
-  editortype="dropdown" 
-  style="" 
-  @formitemvaluechange="onFormItemValueChange">
-</app-picker>
+    <input-box v-model="data.qd"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.qd.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.rd.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='rd' :itemRules="this.rules.rd" class='' :caption="$t('entities.product.main_form.details.rd')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.rd.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam='{ }' 
-  :disabled="detailsModel.rd.disabled"
-  name='rd' 
-  :service="service"
-  :acParams="{ }"
-  valueitem='' 
-  :value="data.rd" 
-  editortype="dropdown" 
-  style="" 
-  @formitemvaluechange="onFormItemValueChange">
-</app-picker>
+    <input-box v-model="data.rd"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.rd.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
 </i-col>

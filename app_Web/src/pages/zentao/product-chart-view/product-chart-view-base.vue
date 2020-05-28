@@ -1,8 +1,5 @@
 <template>
 <studio-view viewName="productchartview" viewTitle="产品图表视图" class='dechartview product-chart-view'>
-    <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
-    </template>
     <view_chart 
         :viewState="viewState"  
         :viewparams="viewparams" 

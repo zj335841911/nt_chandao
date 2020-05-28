@@ -1,9 +1,5 @@
 <template>
 <studio-view viewName="productgridview_unclosed" viewTitle="产品表格视图" class='degridview product-grid-view-un-closed'>
-    <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
-    </template>
-    <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
     <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 
