@@ -1,0 +1,150 @@
+package cn.ibizlab.pms.core.zentao.domain;
+
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.math.BigInteger;
+import java.util.HashMap;
+import java.math.BigDecimal;
+import com.alibaba.fastjson.annotation.JSONField;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.util.ObjectUtils;
+import org.springframework.util.DigestUtils;
+import cn.ibizlab.pms.util.domain.EntityBase;
+import cn.ibizlab.pms.util.annotation.DEField;
+import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
+import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
+import java.io.Serializable;
+import lombok.*;
+import org.springframework.data.annotation.Transient;
+
+
+import com.baomidou.mybatisplus.annotation.*;
+import cn.ibizlab.pms.util.domain.EntityMP;
+
+
+/**
+ * 实体[项目中需要做的需求]
+ */
+@Builder
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@TableName(value = "zt_projectstory",resultMap = "ProjectStoryResultMap")
+public class ProjectStory extends EntityMP implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * 虚拟主键
+     */
+    @TableId(value= "id",type=IdType.UUID)
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    private String id;
+    /**
+     * 排序
+     */
+    @TableField(value = "order")
+    @JSONField(name = "order")
+    @JsonProperty("order")
+    private Integer order;
+    /**
+     * 需求版本
+     */
+    @DEField(defaultValue = "1")
+    @TableField(value = "version")
+    @JSONField(name = "version")
+    @JsonProperty("version")
+    private Integer version;
+    /**
+     * 需求
+     */
+    @TableField(value = "story")
+    @JSONField(name = "story")
+    @JsonProperty("story")
+    private BigInteger story;
+    /**
+     * 项目
+     */
+    @TableField(value = "project")
+    @JSONField(name = "project")
+    @JsonProperty("project")
+    private BigInteger project;
+    /**
+     * 所属产品
+     */
+    @TableField(value = "product")
+    @JSONField(name = "product")
+    @JsonProperty("product")
+    private BigInteger product;
+
+    /**
+     * 
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private cn.ibizlab.pms.core.zentao.domain.Product ztproduct;
+
+    /**
+     * 
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private cn.ibizlab.pms.core.zentao.domain.Project ztproject;
+
+    /**
+     * 
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private cn.ibizlab.pms.core.zentao.domain.Story ztstory;
+
+
+
+    /**
+     * 设置 [排序]
+     */
+    public void setOrder(Integer order){
+        this.order = order ;
+        this.modify("order",order);
+    }
+    /**
+     * 设置 [需求版本]
+     */
+    public void setVersion(Integer version){
+        this.version = version ;
+        this.modify("version",version);
+    }
+    /**
+     * 设置 [需求]
+     */
+    public void setStory(BigInteger story){
+        this.story = story ;
+        this.modify("story",story);
+    }
+    /**
+     * 设置 [项目]
+     */
+    public void setProject(BigInteger project){
+        this.project = project ;
+        this.modify("project",project);
+    }
+    /**
+     * 设置 [所属产品]
+     */
+    public void setProduct(BigInteger product){
+        this.product = product ;
+        this.modify("product",product);
+    }
+
+}
+
+
