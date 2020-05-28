@@ -110,4 +110,6 @@ export default {
 			tip: '保存并关闭',
 		},
 	},
+	maintabexptoolbar_toolbar: {
+	},
 };

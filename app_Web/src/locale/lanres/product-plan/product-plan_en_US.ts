@@ -111,4 +111,6 @@ export default {
 			tip: "Save And Close Window",
 		},
 	},
+	maintabexptoolbar_toolbar: {
+	},
 };

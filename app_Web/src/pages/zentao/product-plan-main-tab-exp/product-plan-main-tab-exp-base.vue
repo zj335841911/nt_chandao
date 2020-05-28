@@ -3,6 +3,10 @@
     <template slot='title'>
     <span class='caption-info'>{{$t(model.srfTitle)}}</span>
     </template>
+    <template slot="toolbar">
+        <div class='toolbar-container'>
+        </div>
+    </template>
     <view_tabexppanel 
         :viewState="viewState"  
         :viewparams="viewparams" 
@@ -164,6 +168,7 @@ export default class ProductPlanMainTabExpBase extends Vue {
      * @memberof ProductPlanMainTabExpBase
      */
     public containerModel: any = {
+        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
         view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
     };
 
@@ -191,6 +196,15 @@ export default class ProductPlanMainTabExpBase extends Vue {
      * @memberof ProductPlanMainTabExpBase
      */
     public viewState: Subject<ViewState> = new Subject();
+    /**
+     * 工具栏模型
+     *
+     * @type {*}
+     * @memberof ProductPlanMainTabExp
+     */
+    public toolBarModels: any = {
+    };
+
 
 
     /**

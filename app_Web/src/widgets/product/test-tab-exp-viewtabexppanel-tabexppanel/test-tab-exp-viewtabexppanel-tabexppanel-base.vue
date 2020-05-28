@@ -2,30 +2,7 @@
 <template>
   <div class='tabviewpanel' style="height:100%;">
         <tabs :value="activiedTabViewPanel" :animated="false" class='tabexppanel' name='testtabexpviewtabexppanel' @on-click="tabPanelClick">
-        <tab-pane :index="0" name='tabviewpanel4' tab='testtabexpviewtabexppanel' class=''  
-            :label="(h) =>{
-                return h('div', [
-                    h('span', '测试单'),
-                    h('Badge', {
-                        props: {
-                            count: undefined,
-                            type: 'primary'
-                        }
-                    })
-                ])
-            }" >
-            <view_tabviewpanel4 
-    :viewState="viewState"  
-    :viewparams="viewparams" 
-    :context="context" 
-v-if="isInit.tabviewpanel4"
-@viewpanelDatasChange = "tabViewPanelDatasChange"
-    name="tabviewpanel4"  
-    ref='tabviewpanel4' 
-    @closeview="closeView($event)">
-</view_tabviewpanel4>
-        </tab-pane>
-        <tab-pane :index="1" name='tabviewpanel' tab='testtabexpviewtabexppanel' class=''  
+        <tab-pane :index="0" name='tabviewpanel' tab='testtabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '概况'),
@@ -47,6 +24,29 @@ v-if="isInit.tabviewpanel"
     ref='tabviewpanel' 
     @closeview="closeView($event)">
 </view_tabviewpanel>
+        </tab-pane>
+        <tab-pane :index="1" name='tabviewpanel2' tab='testtabexpviewtabexppanel' class=''  
+            :label="(h) =>{
+                return h('div', [
+                    h('span', 'Bug'),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel2 
+    :viewState="viewState"  
+    :viewparams="viewparams" 
+    :context="context" 
+v-if="isInit.tabviewpanel2"
+@viewpanelDatasChange = "tabViewPanelDatasChange"
+    name="tabviewpanel2"  
+    ref='tabviewpanel2' 
+    @closeview="closeView($event)">
+</view_tabviewpanel2>
         </tab-pane>
         <tab-pane :index="2" name='tabviewpanel3' tab='testtabexpviewtabexppanel' class=''  
             :label="(h) =>{
@@ -71,10 +71,10 @@ v-if="isInit.tabviewpanel3"
     @closeview="closeView($event)">
 </view_tabviewpanel3>
         </tab-pane>
-        <tab-pane :index="3" name='tabviewpanel2' tab='testtabexpviewtabexppanel' class=''  
+        <tab-pane :index="3" name='tabviewpanel4' tab='testtabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
-                    h('span', 'Bug'),
+                    h('span', '测试单'),
                     h('Badge', {
                         props: {
                             count: undefined,
@@ -83,16 +83,16 @@ v-if="isInit.tabviewpanel3"
                     })
                 ])
             }" >
-            <view_tabviewpanel2 
+            <view_tabviewpanel4 
     :viewState="viewState"  
     :viewparams="viewparams" 
     :context="context" 
-v-if="isInit.tabviewpanel2"
+v-if="isInit.tabviewpanel4"
 @viewpanelDatasChange = "tabViewPanelDatasChange"
-    name="tabviewpanel2"  
-    ref='tabviewpanel2' 
+    name="tabviewpanel4"  
+    ref='tabviewpanel4' 
     @closeview="closeView($event)">
-</view_tabviewpanel2>
+</view_tabviewpanel4>
         </tab-pane>
     </tabs>
   </div>
@@ -228,10 +228,10 @@ export default class TestTabExpViewtabexppanelBase extends Vue implements Contro
      * @memberof TestTabExpViewtabexppanel
      */
     public isInit: any = {
-        tabviewpanel4:  true ,
-        tabviewpanel:  false ,
-        tabviewpanel3:  false ,
+        tabviewpanel:  true ,
         tabviewpanel2:  false ,
+        tabviewpanel3:  false ,
+        tabviewpanel4:  false ,
     }
 
     /**
@@ -269,7 +269,7 @@ export default class TestTabExpViewtabexppanelBase extends Vue implements Contro
      * @type {string}
      * @memberof TestTabExpViewtabexppanel
      */
-    public activiedTabViewPanel: string = 'tabviewpanel4';
+    public activiedTabViewPanel: string = 'tabviewpanel';
 
     /**
      * 分页视图面板数据变更

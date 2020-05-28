@@ -1,8 +1,5 @@
 <template>
 <studio-view viewName="producttesttabexpview" viewTitle="产品主数据视图" class='detabexpview product-test-tab-exp-view'>
-    <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
-    </template>
     <view_tabexppanel 
         :viewState="viewState"  
         :viewparams="viewparams" 

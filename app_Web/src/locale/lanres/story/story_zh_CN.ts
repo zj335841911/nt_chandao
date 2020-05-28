@@ -232,6 +232,10 @@ export default {
 			caption: '新建',
 			tip: '新建',
 		},
+		deuiaction4: {
+			caption: '删除',
+			tip: '删除',
+		},
 		seperator1: {
 			caption: '',
 			tip: '',

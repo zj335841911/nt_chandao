@@ -233,6 +233,10 @@ export default {
 			caption: "New",
 			tip: "New",
 		},
+		deuiaction4: {
+			caption: "Remove",
+			tip: "Remove {0}",
+		},
 		seperator1: {
 			caption: "",
 			tip: "",

@@ -48,19 +48,19 @@
 </i-col>
 <i-col v-show="detailsModel.po.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='po' :itemRules="this.rules.po" class='' :caption="$t('entities.product.main_form.details.po')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.po.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.po"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.po.disabled" type='text'  style=""></input-box>
+     <dropdown-list v-model="data.po" :data="data" :itemParam="{}" :disabled="detailsModel.po.disabled"  tag='UserRealName' codelistType='DYNAMIC' placeholder='请选择...' style=""></dropdown-list>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.qd.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='qd' :itemRules="this.rules.qd" class='' :caption="$t('entities.product.main_form.details.qd')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.qd.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.qd"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.qd.disabled" type='text'  style=""></input-box>
+     <dropdown-list v-model="data.qd" :data="data" :itemParam="{}" :disabled="detailsModel.qd.disabled"  tag='UserRealName' codelistType='DYNAMIC' placeholder='请选择...' style=""></dropdown-list>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.rd.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='rd' :itemRules="this.rules.rd" class='' :caption="$t('entities.product.main_form.details.rd')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.rd.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.rd"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.rd.disabled" type='text'  style=""></input-box>
+     <dropdown-list v-model="data.rd" :data="data" :itemParam="{}" :disabled="detailsModel.rd.disabled"  tag='UserRealName' codelistType='DYNAMIC' placeholder='请选择...' style=""></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -495,8 +495,8 @@ export default class MainBase extends Vue implements ControlInterface {
         code: [
             { type: 'string', message: '产品代号 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '产品代号 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '产品代号 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '产品代号 值不能为空', trigger: 'blur' },
+            { required: true, type: 'string', message: '产品代号 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '产品代号 值不能为空', trigger: 'blur' },
         ],
         line: [
             { type: 'number', message: '产品线 值必须为数值类型', trigger: 'change' },
