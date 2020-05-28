@@ -51,7 +51,7 @@ v-if="isInit.tabviewpanel2"
         <tab-pane :index="2" name='tabviewpanel3' tab='maintabexptabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
-                    h('span', '计划详情'),
+                    h('span', '子计划'),
                     h('Badge', {
                         props: {
                             count: undefined,
@@ -70,6 +70,29 @@ v-if="isInit.tabviewpanel3"
     ref='tabviewpanel3' 
     @closeview="closeView($event)">
 </view_tabviewpanel3>
+        </tab-pane>
+        <tab-pane :index="3" name='tabviewpanel4' tab='maintabexptabexppanel' class=''  
+            :label="(h) =>{
+                return h('div', [
+                    h('span', '计划详情'),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel4 
+    :viewState="viewState"  
+    :viewparams="viewparams" 
+    :context="context" 
+v-if="isInit.tabviewpanel4"
+@viewpanelDatasChange = "tabViewPanelDatasChange"
+    name="tabviewpanel4"  
+    ref='tabviewpanel4' 
+    @closeview="closeView($event)">
+</view_tabviewpanel4>
         </tab-pane>
     </tabs>
   </div>
@@ -208,6 +231,7 @@ export default class MainTabExptabexppanelBase extends Vue implements ControlInt
         tabviewpanel:  true ,
         tabviewpanel2:  false ,
         tabviewpanel3:  false ,
+        tabviewpanel4:  false ,
     }
 
     /**

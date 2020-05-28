@@ -1,12 +1,12 @@
 <template>
   <div class='tabviewpanel' style="height:100%;" v-if = 'isActivied' >
-        <product-plan-sub-plan-grid-view 
+        <product-plan-main-edit-view 
       class='viewcontainer2' 
       :viewdata="JSON.stringify(context)" 
       :viewparam="JSON.stringify(viewparams)"
       @viewload="viewDatasChange($event)" 
       :viewDefaultUsage="false" >
-    </product-plan-sub-plan-grid-view>
+    </product-plan-main-edit-view>
   </div>
 </template>
 <script lang='tsx'>
@@ -16,7 +16,7 @@ import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import { UIActionTool,Util } from '@/utils';
 import ProductPlanService from '@/service/product-plan/product-plan-service';
-import MainTabExptabviewpanel3Service from './main-tab-exptabviewpanel3-tabviewpanel-service';
+import MainTabExptabviewpanel4Service from './main-tab-exptabviewpanel4-tabviewpanel-service';
 
 
 
@@ -25,13 +25,13 @@ import MainTabExptabviewpanel3Service from './main-tab-exptabviewpanel3-tabviewp
       
     }
 })
-export default class MainTabExptabviewpanel3Base extends Vue implements ControlInterface {
+export default class MainTabExptabviewpanel4Base extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof MainTabExptabviewpanel3
+     * @memberof MainTabExptabviewpanel4
      */
     @Prop() public name?: string;
 
@@ -39,7 +39,7 @@ export default class MainTabExptabviewpanel3Base extends Vue implements ControlI
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof MainTabExptabviewpanel3
+     * @memberof MainTabExptabviewpanel4
      */
     @Prop() public viewState!: Subject<ViewState>;
 
@@ -47,7 +47,7 @@ export default class MainTabExptabviewpanel3Base extends Vue implements ControlI
      * 应用上下文
      *
      * @type {*}
-     * @memberof MainTabExptabviewpanel3
+     * @memberof MainTabExptabviewpanel4
      */
     @Prop() public context: any;
 
@@ -55,7 +55,7 @@ export default class MainTabExptabviewpanel3Base extends Vue implements ControlI
      * 视图参数
      *
      * @type {*}
-     * @memberof MainTabExptabviewpanel3
+     * @memberof MainTabExptabviewpanel4
      */
     @Prop() public viewparams: any;
 
@@ -64,7 +64,7 @@ export default class MainTabExptabviewpanel3Base extends Vue implements ControlI
      *
      * @public
      * @type {(Subscription | undefined)}
-     * @memberof MainTabExptabviewpanel3
+     * @memberof MainTabExptabviewpanel4
      */
     public viewStateEvent: Subscription | undefined;
 
@@ -72,7 +72,7 @@ export default class MainTabExptabviewpanel3Base extends Vue implements ControlI
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof MainTabExptabviewpanel3
+     * @memberof MainTabExptabviewpanel4
      */
     public getControlType(): string {
         return 'TABVIEWPANEL'
@@ -83,16 +83,16 @@ export default class MainTabExptabviewpanel3Base extends Vue implements ControlI
     /**
      * 建构部件服务对象
      *
-     * @type {MainTabExptabviewpanel3Service}
-     * @memberof MainTabExptabviewpanel3
+     * @type {MainTabExptabviewpanel4Service}
+     * @memberof MainTabExptabviewpanel4
      */
-    public service: MainTabExptabviewpanel3Service = new MainTabExptabviewpanel3Service({ $store: this.$store });
+    public service: MainTabExptabviewpanel4Service = new MainTabExptabviewpanel4Service({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {ProductPlanService}
-     * @memberof MainTabExptabviewpanel3
+     * @memberof MainTabExptabviewpanel4
      */
     public appEntityService: ProductPlanService = new ProductPlanService({ $store: this.$store });
     
@@ -102,7 +102,7 @@ export default class MainTabExptabviewpanel3Base extends Vue implements ControlI
      * 关闭视图
      *
      * @param {any} args
-     * @memberof MainTabExptabviewpanel3
+     * @memberof MainTabExptabviewpanel4
      */
     public closeView(args: any): void {
         let _this: any = this;
@@ -112,7 +112,7 @@ export default class MainTabExptabviewpanel3Base extends Vue implements ControlI
     /**
      *  计数器刷新
      *
-     * @memberof MainTabExptabviewpanel3
+     * @memberof MainTabExptabviewpanel4
      */
     public counterRefresh(){
         const _this:any =this;
@@ -130,7 +130,7 @@ export default class MainTabExptabviewpanel3Base extends Vue implements ControlI
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof MainTabExptabviewpanel3
+     * @memberof MainTabExptabviewpanel4
      */
     public getDatas(): any[] {
         return [];
@@ -140,7 +140,7 @@ export default class MainTabExptabviewpanel3Base extends Vue implements ControlI
      * 获取单项树
      *
      * @returns {*}
-     * @memberof MainTabExptabviewpanel3
+     * @memberof MainTabExptabviewpanel4
      */
     public getData(): any {
         return null;
@@ -150,7 +150,7 @@ export default class MainTabExptabviewpanel3Base extends Vue implements ControlI
      * 是否被激活
      *
      * @type {boolean}
-     * @memberof MainTabExptabviewpanel3
+     * @memberof MainTabExptabviewpanel4
      */
     public isActivied: boolean = true;
              
@@ -158,7 +158,7 @@ export default class MainTabExptabviewpanel3Base extends Vue implements ControlI
      * vue 生命周期
      *
      * @returns
-     * @memberof MainTabExptabviewpanel3
+     * @memberof MainTabExptabviewpanel4
      */
     public created() {
         this.afterCreated();
@@ -167,7 +167,7 @@ export default class MainTabExptabviewpanel3Base extends Vue implements ControlI
     /**
      * 执行created后的逻辑
      *
-     *  @memberof MainTabExptabviewpanel3
+     *  @memberof MainTabExptabviewpanel4
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -184,7 +184,7 @@ export default class MainTabExptabviewpanel3Base extends Vue implements ControlI
     /**
      * 视图数据变化
      *
-     * @memberof  MainTabExptabviewpanel3
+     * @memberof  MainTabExptabviewpanel4
      */
     public viewDatasChange($event:any){
         this.$emit('viewpanelDatasChange',$event);
@@ -193,7 +193,7 @@ export default class MainTabExptabviewpanel3Base extends Vue implements ControlI
     /**
      * vue 生命周期
      *
-     * @memberof MainTabExptabviewpanel3
+     * @memberof MainTabExptabviewpanel4
      */
     public destroyed() {
         this.afterDestroy();
@@ -202,7 +202,7 @@ export default class MainTabExptabviewpanel3Base extends Vue implements ControlI
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof MainTabExptabviewpanel3
+     * @memberof MainTabExptabviewpanel4
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -216,5 +216,5 @@ export default class MainTabExptabviewpanel3Base extends Vue implements ControlI
 </script>
 
 <style lang='less'>
-@import './main-tab-exptabviewpanel3-tabviewpanel.less';
+@import './main-tab-exptabviewpanel4-tabviewpanel.less';
 </style>

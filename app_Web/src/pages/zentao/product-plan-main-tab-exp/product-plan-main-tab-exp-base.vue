@@ -3,18 +3,6 @@
     <template slot='title'>
     <span class='caption-info'>{{$t(model.srfTitle)}}</span>
     </template>
-    <template slot="toolbar">
-        <div class='toolbar-container'>
-            <i-button :title="$t('entities.productplan.maintabexptoolbar_toolbar.deuiaction1_newsubplan.tip')" v-show="toolBarModels.deuiaction1_newsubplan.visabled" :disabled="toolBarModels.deuiaction1_newsubplan.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1_newsubplan' }, $event)">
-                    <i class='fa fa-chain'></i>
-                    <span class='caption'>{{$t('entities.productplan.maintabexptoolbar_toolbar.deuiaction1_newsubplan.caption')}}</span>
-                </i-button>
-            <i-button :title="$t('entities.productplan.maintabexptoolbar_toolbar.deuiaction1_mainedit.tip')" v-show="toolBarModels.deuiaction1_mainedit.visabled" :disabled="toolBarModels.deuiaction1_mainedit.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1_mainedit' }, $event)">
-                    <i class='fa fa-edit'></i>
-                    <span class='caption'>{{$t('entities.productplan.maintabexptoolbar_toolbar.deuiaction1_mainedit.caption')}}</span>
-                </i-button>
-        </div>
-    </template>
     <view_tabexppanel 
         :viewState="viewState"  
         :viewparams="viewparams" 
@@ -35,7 +23,6 @@ import ProductPlanService from '@/service/product-plan/product-plan-service';
 import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
 
 
-import ProductPlanUIService from '@/uiservice/product-plan/product-plan-ui-service';
 
 @Component({
     components: {
@@ -177,7 +164,6 @@ export default class ProductPlanMainTabExpBase extends Vue {
      * @memberof ProductPlanMainTabExpBase
      */
     public containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
         view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
     };
 
@@ -205,19 +191,6 @@ export default class ProductPlanMainTabExpBase extends Vue {
      * @memberof ProductPlanMainTabExpBase
      */
     public viewState: Subject<ViewState> = new Subject();
-    /**
-     * 工具栏模型
-     *
-     * @type {*}
-     * @memberof ProductPlanMainTabExp
-     */
-    public toolBarModels: any = {
-        deuiaction1_newsubplan: { name: 'deuiaction1_newsubplan', caption: '子计划', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'NewSubPlan', target: 'SINGLEKEY' } },
-
-        deuiaction1_mainedit: { name: 'deuiaction1_mainedit', caption: '编辑', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'MainEdit', target: 'SINGLEKEY' } },
-
-    };
-
 
 
     /**
@@ -433,81 +406,6 @@ export default class ProductPlanMainTabExpBase extends Vue {
     }
 
 
-    /**
-     * toolbar 部件 click 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof ProductPlanMainTabExpBase
-     */
-    public toolbar_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'deuiaction1_newsubplan')) {
-            this.toolbar_deuiaction1_newsubplan_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction1_mainedit')) {
-            this.toolbar_deuiaction1_mainedit_click(null, '', $event2);
-        }
-    }
-
-
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_deuiaction1_newsubplan_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        
-        let contextJO:any = {};
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:ProductPlanUIService  = new ProductPlanUIService();
-        curUIService.ProductPlan_NewSubPlan(datas,contextJO, paramJO,  $event, xData,this,"ProductPlan");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_deuiaction1_mainedit_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        
-        let contextJO:any = {};
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:ProductPlanUIService  = new ProductPlanUIService();
-        curUIService.ProductPlan_MainEdit(datas,contextJO, paramJO,  $event, xData,this,"ProductPlan");
-    }
 
 
     /**

@@ -22,6 +22,10 @@ export default {
 			caption: "产品计划",
       title: '产品计划',
 		},
+		subplangridview: {
+			caption: "产品计划",
+      title: '产品计划',
+		},
 		subplaneditview: {
 			caption: "子计划",
       title: '子计划',
@@ -39,30 +43,6 @@ export default {
 		details: {
 			grouppanel1: "分组面板", 
 			group1: "productplan基本信息", 
-			formpage1: "基本信息", 
-			srforikey: "", 
-			srfkey: "编号", 
-			srfmajortext: "名称", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			product: "产品", 
-			title: "名称", 
-			begin: "开始日期", 
-			end: "结束日期", 
-			desc: "描述", 
-			id: "编号", 
-		},
-		uiactions: {
-		},
-	},
-	info_form: {
-		details: {
-			grouppanel1: "分组面板", 
-			group1: "基本信息", 
-			druipart1: "", 
-			grouppanel2: "历史记录", 
 			formpage1: "基本信息", 
 			srforikey: "", 
 			srfkey: "编号", 
@@ -111,7 +91,41 @@ export default {
 			exit: "关闭",
 		},
 	},
+	info_form: {
+		details: {
+			grouppanel1: "分组面板", 
+			group1: "基本信息", 
+			druipart1: "", 
+			grouppanel2: "历史记录", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			product: "产品", 
+			title: "名称", 
+			begin: "开始日期", 
+			end: "结束日期", 
+			desc: "描述", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
 	main_grid: {
+		columns: {
+			id: "编号",
+			title: "名称",
+			begin: "开始日期",
+			end: "结束日期",
+		},
+		uiactions: {
+		},
+	},
+	mainsubplan_grid: {
 		columns: {
 			id: "编号",
 			title: "名称",
@@ -145,14 +159,6 @@ export default {
 			tip: "Save And Close Window",
 		},
 	},
-	maintabexptoolbar_toolbar: {
-		deuiaction1_newsubplan: {
-			caption: "子计划",
-			tip: "子计划",
-		},
-		deuiaction1_mainedit: {
-			caption: "编辑",
-			tip: "编辑",
-		},
+	subplangridviewtoolbar_toolbar: {
 	},
 };
