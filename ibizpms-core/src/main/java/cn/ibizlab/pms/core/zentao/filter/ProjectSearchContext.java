@@ -62,6 +62,13 @@ public class ProjectSearchContext extends QueryWrapperContext<Project> {
             this.getSelectCond().eq("iscat", n_iscat_eq);
         }
     }
+	private String n_status_noteq;//[项目状态]
+	public void setN_status_noteq(String n_status_noteq) {
+        this.n_status_noteq = n_status_noteq;
+        if(!ObjectUtils.isEmpty(this.n_status_noteq)){
+            this.getSelectCond().ne("status", n_status_noteq);
+        }
+    }
 	private String n_parentname_eq;//[parent]
 	public void setN_parentname_eq(String n_parentname_eq) {
         this.n_parentname_eq = n_parentname_eq;

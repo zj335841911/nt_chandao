@@ -303,6 +303,4 @@ export default {
 			tip: "Help",
 		},
 	},
-	gridview9_unclosedtoolbar_toolbar: {
-	},
 };

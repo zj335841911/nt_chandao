@@ -587,7 +587,7 @@
         "viewname": "ProjectGridView9_UnClosed",
         "viewfilename": "project-grid-view9-un-closed",
         "viewtag": "a7a97014cad1917b94284db21ec968f1",
-        "memo": ""
+        "memo": "过滤条件在视图参数中指定"
     },
     "productplaneditview": {
         "title": "计划",
@@ -677,6 +677,16 @@
         "viewname": "ModulePickupView",
         "viewfilename": "module-pickup-view",
         "viewtag": "cb6c278fd7205b3de3fc041816d15dd8",
+        "memo": ""
+    },
+    "projectportalview": {
+        "title": "项目主页",
+        "caption": "项目主页",
+        "viewtype": "APPPORTALVIEW",
+        "viewmodule": "zentao",
+        "viewname": "ProjectPortalView",
+        "viewfilename": "project-portal-view",
+        "viewtag": "CC49500F-030F-458F-82DF-F88F6973DF64",
         "memo": ""
     },
     "projectproductlistview9": {

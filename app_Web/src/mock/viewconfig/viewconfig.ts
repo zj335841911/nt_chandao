@@ -551,6 +551,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ModulePickupView",
             "viewtag": "cb6c278fd7205b3de3fc041816d15dd8"
         },
+        "projectportalview": {
+            "title": "项目主页",
+            "caption": "项目主页",
+            "viewtype": "APPPORTALVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProjectPortalView",
+            "viewtag": "CC49500F-030F-458F-82DF-F88F6973DF64"
+        },
         "projectproductlistview9": {
             "title": "项目产品列表视图",
             "caption": "关联产品",

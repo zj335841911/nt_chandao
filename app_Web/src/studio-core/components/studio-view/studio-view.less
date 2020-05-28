@@ -88,11 +88,16 @@
         color: var(--view-font-color);
         overflow-y: auto;
         overflow-x: hidden;
+
+        >.content-wrapper {
+            height: 100%;
+        }
     }
 
     >.view-content.show-search-form {
         display: flex;
         flex-direction: column;
+        overflow: hidden;
 
         >.search-form-wrapper {
             flex-shrink: 0;
