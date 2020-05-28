@@ -42,7 +42,9 @@ public class HistorySearchContext extends QueryWrapperContext<History> {
 	{
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
-			this.getSelectCond().or().like("diff",query);
+            this.getSelectCond().and( wrapper ->
+                     wrapper.like("diff", query)   
+            );
 		 }
 	}
 }

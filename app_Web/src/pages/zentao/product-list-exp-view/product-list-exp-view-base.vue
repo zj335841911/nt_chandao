@@ -1,8 +1,5 @@
 <template>
 <studio-view viewName="productlistexpview" viewTitle="产品列表导航视图" class='delistexpview product-list-exp-view'>
-    <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
-    </template>
     <view_listexpbar 
         :viewState="viewState"  
         :viewparams="viewparams" 

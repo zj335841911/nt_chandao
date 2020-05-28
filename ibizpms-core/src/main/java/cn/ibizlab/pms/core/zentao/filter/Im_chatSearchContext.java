@@ -49,7 +49,9 @@ public class Im_chatSearchContext extends QueryWrapperContext<Im_chat> {
 	{
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
-			this.getSelectCond().or().like("name",query);
+            this.getSelectCond().and( wrapper ->
+                     wrapper.like("name", query)   
+            );
 		 }
 	}
 }

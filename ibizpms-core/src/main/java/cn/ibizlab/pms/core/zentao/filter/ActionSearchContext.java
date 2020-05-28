@@ -56,7 +56,9 @@ public class ActionSearchContext extends QueryWrapperContext<Action> {
 	{
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
-			this.getSelectCond().or().like("comment",query);
+            this.getSelectCond().and( wrapper ->
+                     wrapper.like("comment", query)   
+            );
 		 }
 	}
 }
