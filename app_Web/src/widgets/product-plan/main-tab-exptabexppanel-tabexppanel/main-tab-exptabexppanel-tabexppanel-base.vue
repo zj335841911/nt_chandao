@@ -1,6 +1,5 @@
-
 <template>
-  <div class='tabviewpanel' style="height:100%;">
+  <div class='tabviewpanel'>
         <tabs :value="activiedTabViewPanel" :animated="false" class='tabexppanel' name='maintabexptabexppanel' @on-click="tabPanelClick">
         <tab-pane :index="0" name='tabviewpanel' tab='maintabexptabexppanel' class=''  
             :label="(h) =>{

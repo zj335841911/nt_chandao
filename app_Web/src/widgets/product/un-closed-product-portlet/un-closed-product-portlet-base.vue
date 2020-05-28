@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet un-closed-product' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : 'auto',}">
+    <div class='portlet un-closed-product' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : '500px',}">
         <p class='portlet-title'>
             未关闭产品
         </p>

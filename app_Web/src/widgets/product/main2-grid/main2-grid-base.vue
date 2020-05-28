@@ -22,28 +22,49 @@
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
-            <template v-if="getColumnState('pri')">
-                <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.story.main9_grid.columns.pri')" :width="50"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('name')">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.product.main2_grid.columns.name')" :width="250"  :align="'left'" :sortable="'custom'">
                     <template v-slot="{row,column}">
-                        <template >
-            <codelist :value="row.pri" tag='Story__pri' codelistType='STATIC' ></codelist>
-                        </template>
+                        <app-column-link deKeyField='product' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'product-main-tab-exp-view', height: 0,width: 0,title: $t('entities.product.views.maintabexpview.title'),placement: '', isRedirectView: false,deResParameters: [
+            ]
+            ,parameters: [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'maintabexpview', parameterName: 'maintabexpview' }
+            ]}" valueitem="srfkey">
+                            <span>{{row.name}}</span>
+                        </app-column-link >
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('title')">
-                <el-table-column show-overflow-tooltip :prop="'title'" :label="$t('entities.story.main9_grid.columns.title')" :min-width="1"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('code')">
+                <el-table-column show-overflow-tooltip :prop="'code'" :label="$t('entities.product.main2_grid.columns.code')" :width="150"  :align="'left'" :sortable="'custom'">
                     <template v-slot="{row,column}">
-                        <span>{{row.title}}</span>
+                        <span>{{row.code}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('status')">
-                <el-table-column show-overflow-tooltip :prop="'status'" :label="$t('entities.story.main9_grid.columns.status')" :width="70"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'status'" :label="$t('entities.product.main2_grid.columns.status')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot="{row,column}">
                         <template >
-            <codelist :value="row.status" tag='Story__status' codelistType='STATIC' ></codelist>
+            <codelist :value="row.status" tag='Product__status' codelistType='STATIC' ></codelist>
                         </template>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('type')">
+                <el-table-column show-overflow-tooltip :prop="'type'" :label="$t('entities.product.main2_grid.columns.type')" :width="150"  :align="'left'" :sortable="'custom'">
+                    <template v-slot="{row,column}">
+                        <template >
+            <codelist :value="row.type" tag='Product__type' codelistType='STATIC' ></codelist>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('linename')">
+                <el-table-column show-overflow-tooltip :prop="'linename'" :label="$t('entities.product.main2_grid.columns.linename')" :width="150"  :align="'left'" :sortable="'custom'">
+                    <template v-slot="{row,column}">
+                        <span>{{row.linename}}</span>
                     </template>
                 </el-table-column>
             </template>
@@ -59,8 +80,8 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import { UIActionTool,Util } from '@/utils';
-import StoryService from '@/service/story/story-service';
-import Main9Service from './main9-grid-service';
+import ProductService from '@/service/product/product-service';
+import Main2Service from './main2-grid-service';
 
 import CodeListService from "@service/app/codelist-service";
 
@@ -70,13 +91,13 @@ import CodeListService from "@service/app/codelist-service";
       
     }
 })
-export default class Main9Base extends Vue implements ControlInterface {
+export default class Main2Base extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof Main9
+     * @memberof Main2
      */
     @Prop() public name?: string;
 
@@ -84,7 +105,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof Main9
+     * @memberof Main2
      */
     @Prop() public viewState!: Subject<ViewState>;
 
@@ -92,7 +113,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 应用上下文
      *
      * @type {*}
-     * @memberof Main9
+     * @memberof Main2
      */
     @Prop() public context: any;
 
@@ -100,7 +121,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 视图参数
      *
      * @type {*}
-     * @memberof Main9
+     * @memberof Main2
      */
     @Prop() public viewparams: any;
 
@@ -109,7 +130,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      *
      * @public
      * @type {(Subscription | undefined)}
-     * @memberof Main9
+     * @memberof Main2
      */
     public viewStateEvent: Subscription | undefined;
 
@@ -117,7 +138,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof Main9
+     * @memberof Main2
      */
     public getControlType(): string {
         return 'GRID'
@@ -129,25 +150,25 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 计数器服务对象集合
      *
      * @type {Array<*>}
-     * @memberof Main9
+     * @memberof Main2
      */    
     public counterServiceArray:Array<any> = [];
 
     /**
      * 建构部件服务对象
      *
-     * @type {Main9Service}
-     * @memberof Main9
+     * @type {Main2Service}
+     * @memberof Main2
      */
-    public service: Main9Service = new Main9Service({ $store: this.$store });
+    public service: Main2Service = new Main2Service({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
-     * @type {StoryService}
-     * @memberof Main9
+     * @type {ProductService}
+     * @memberof Main2
      */
-    public appEntityService: StoryService = new StoryService({ $store: this.$store });
+    public appEntityService: ProductService = new ProductService({ $store: this.$store });
     
 
 
@@ -155,7 +176,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 关闭视图
      *
      * @param {any} args
-     * @memberof Main9
+     * @memberof Main2
      */
     public closeView(args: any): void {
         let _this: any = this;
@@ -165,7 +186,7 @@ export default class Main9Base extends Vue implements ControlInterface {
     /**
      *  计数器刷新
      *
-     * @memberof Main9
+     * @memberof Main2
      */
     public counterRefresh(){
         const _this:any =this;
@@ -183,7 +204,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 代码表服务对象
      *
      * @type {CodeListService}
-     * @memberof Main9
+     * @memberof Main2
      */  
     public codeListService:CodeListService = new CodeListService({ $store: this.$store });
 
@@ -191,7 +212,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof Main9
+     * @memberof Main2
      */
     public getDatas(): any[] {
         return this.selections;
@@ -201,7 +222,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof Main9
+     * @memberof Main2
      */
     public getData(): any {
         return this.selections[0];
@@ -211,14 +232,14 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 打开新建数据视图
      *
      * @type {any}
-     * @memberof Main9
+     * @memberof Main2
      */
     @Prop() public newdata: any;
     /**
      * 打开编辑数据视图
      *
      * @type {any}
-     * @memberof Main9
+     * @memberof Main2
      */
     @Prop() public opendata: any;
 
@@ -226,7 +247,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof Main9
+     * @memberof Main2
      */
     @Prop({ default: true }) public showBusyIndicator?: boolean;
 
@@ -234,7 +255,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 部件行为--update
      *
      * @type {string}
-     * @memberof Main9
+     * @memberof Main2
      */
     @Prop() public updateAction!: string;
     
@@ -242,7 +263,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 部件行为--fetch
      *
      * @type {string}
-     * @memberof Main9
+     * @memberof Main2
      */
     @Prop() public fetchAction!: string;
     
@@ -250,7 +271,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 部件行为--remove
      *
      * @type {string}
-     * @memberof Main9
+     * @memberof Main2
      */
     @Prop() public removeAction!: string;
     
@@ -258,7 +279,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 部件行为--load
      *
      * @type {string}
-     * @memberof Main9
+     * @memberof Main2
      */
     @Prop() public loadAction!: string;
     
@@ -266,7 +287,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 部件行为--loaddraft
      *
      * @type {string}
-     * @memberof Main9
+     * @memberof Main2
      */
     @Prop() public loaddraftAction!: string;
     
@@ -274,7 +295,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof Main9
+     * @memberof Main2
      */
     @Prop() public createAction!: string;
 
@@ -282,7 +303,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 当前页
      *
      * @type {number}
-     * @memberof Main9
+     * @memberof Main2
      */
     public curPage: number = 1;
 
@@ -290,7 +311,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 数据
      *
      * @type {any[]}
-     * @memberof Main9
+     * @memberof Main2
      */
     public items: any[] = [];
 
@@ -298,7 +319,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 是否支持分页
      *
      * @type {boolean}
-     * @memberof Main9
+     * @memberof Main2
      */
     public isEnablePagingBar: boolean = false;
 
@@ -306,7 +327,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 是否禁用排序
      *
      * @type {boolean}
-     * @memberof Main9
+     * @memberof Main2
      */
     public isNoSort: boolean = false;
 
@@ -314,7 +335,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 排序方向
      *
      * @type {string}
-     * @memberof Main9
+     * @memberof Main2
      */
     public minorSortDir: string = '';
 
@@ -322,7 +343,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 排序字段
      *
      * @type {string}
-     * @memberof Main9
+     * @memberof Main2
      */
     public minorSortPSDEF: string = '';
 
@@ -330,15 +351,15 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 分页条数
      *
      * @type {number}
-     * @memberof Main9
+     * @memberof Main2
      */
-    public limit: number = 10;
+    public limit: number = 500;
 
     /**
      * 是否显示标题
      *
      * @type {boolean}
-     * @memberof Main9
+     * @memberof Main2
      */
     public isHideHeader: boolean = false;
 
@@ -346,7 +367,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 是否默认选中第一条数据
      *
      * @type {boolean}
-     * @memberof Main9
+     * @memberof Main2
      */
     @Prop({ default: false }) public isSelectFirstDefault!: boolean;
 
@@ -354,7 +375,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 是否单选
      *
      * @type {boolean}
-     * @memberof Main9
+     * @memberof Main2
      */
     @Prop() public isSingleSelect?: boolean;
 
@@ -362,7 +383,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 选中数据字符串
      *
      * @type {string}
-     * @memberof Main9
+     * @memberof Main2
      */
     @Prop() public selectedData?: string;
 
@@ -371,7 +392,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof Main9
+     * @memberof Main2
      */
     @Watch('selectedData')
     public onValueChange(newVal: any, oldVal: any) {
@@ -399,7 +420,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 2 双击激活
      *
      * @type {(number | 0 | 1 | 2)}
-     * @memberof Main9
+     * @memberof Main2
      */
     @Prop({default: 2}) public gridRowActiveMode!: number;
 
@@ -407,7 +428,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 是否开启行编辑
      *
      * @type {boolean}
-     * @memberof Main9
+     * @memberof Main2
      */
     @Prop({default: false}) public isOpenEdit!: boolean;
 
@@ -415,7 +436,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 实际是否开启行编辑
      *
      * @type {boolean}
-     * @memberof Main9
+     * @memberof Main2
      */
     public actualIsOpenEdit: boolean = this.isOpenEdit;
 
@@ -423,7 +444,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 总条数
      *
      * @type {number}
-     * @memberof Main9
+     * @memberof Main2
      */
     public totalrow: number = 0;
 
@@ -431,7 +452,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 选中行数据
      *
      * @type {any[]}
-     * @memberof Main9
+     * @memberof Main2
      */
     public selections: any[] = [];
 
@@ -439,7 +460,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 拦截行选中
      *
      * @type {boolean}
-     * @memberof Main9
+     * @memberof Main2
      */
     public stopRowClick: boolean = false;
 
@@ -450,7 +471,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 表格是否显示
      *
      * @type {boolean}
-     * @memberof Main9
+     * @memberof Main2
      */
     public isDisplay:boolean = true;
 
@@ -458,7 +479,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 部件刷新
      *
      * @param {any[]} args
-     * @memberof Main9
+     * @memberof Main2
      */
     public refresh(args: any[]): void {
         this.load();
@@ -468,7 +489,7 @@ export default class Main9Base extends Vue implements ControlInterface {
     * 选项框列宽
     *
     * @type {number}
-    * @memberof Main9
+    * @memberof Main2
     */
     public checkboxColWidth: number = 35;
 
@@ -476,7 +497,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 是否允许拖动列宽
      *
      * @type {boolean}
-     * @memberof Main9
+     * @memberof Main2
      */
     public isDragendCol: boolean = false;
 
@@ -484,27 +505,41 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 所有列成员
      *
      * @type {any[]}
-     * @memberof Main9
+     * @memberof Main2
      */
     public allColumns: any[] = [
         {
-            name: 'pri',
-            label: 'P',
-            langtag: 'entities.story.main9_grid.columns.pri',
+            name: 'name',
+            label: '产品名称',
+            langtag: 'entities.product.main2_grid.columns.name',
             show: true,
             util: 'PX'
         },
         {
-            name: 'title',
-            label: '需求名称',
-            langtag: 'entities.story.main9_grid.columns.title',
+            name: 'code',
+            label: '产品代号',
+            langtag: 'entities.product.main2_grid.columns.code',
             show: true,
-            util: 'STAR'
+            util: 'PX'
         },
         {
             name: 'status',
             label: '状态',
-            langtag: 'entities.story.main9_grid.columns.status',
+            langtag: 'entities.product.main2_grid.columns.status',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'type',
+            label: '产品类型',
+            langtag: 'entities.product.main2_grid.columns.type',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'linename',
+            label: '产品线',
+            langtag: 'entities.product.main2_grid.columns.linename',
             show: true,
             util: 'PX'
         },
@@ -514,7 +549,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 属性值规则
      *
      * @type {*}
-     * @memberof Main9
+     * @memberof Main2
      */
     public rules: any = {
         srfkey: [
@@ -527,11 +562,11 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 表格数据加载
      *
      * @param {*} [arg={}]
-     * @memberof Main9
+     * @memberof Main2
      */
     public load(opt: any = {}, pageReset: boolean = false): void {
         if(!this.fetchAction){
-            this.$Notice.error({ title: '错误', desc: 'StoryAssignedToMeGridView9视图表格fetchAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'ProductGridView_UnClosed视图表格fetchAction参数未配置' });
             return;
         }
         if(pageReset){
@@ -602,11 +637,11 @@ export default class Main9Base extends Vue implements ControlInterface {
      *
      * @param {any[]} datas
      * @returns {Promise<any>}
-     * @memberof Main9
+     * @memberof Main2
      */
     public async remove(datas: any[]): Promise<any> {
         if(!this.removeAction){
-            this.$Notice.error({ title: '错误', desc: 'StoryAssignedToMeGridView9视图表格removeAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'ProductGridView_UnClosed视图表格removeAction参数未配置' });
             return;
         }
         let _datas:any[] = [];
@@ -627,7 +662,7 @@ export default class Main9Base extends Vue implements ControlInterface {
         }
         let dataInfo = '';
         _datas.forEach((record: any, index: number) => {
-            let srfmajortext = record.title;
+            let srfmajortext = record.name;
             if (index < 5) {
                 if (!Object.is(dataInfo, '')) {
                     dataInfo += '、';
@@ -651,7 +686,7 @@ export default class Main9Base extends Vue implements ControlInterface {
             });
             let _removeAction = keys.length > 1 ? 'removeBatch' : this.removeAction ;
             const context:any = JSON.parse(JSON.stringify(this.context));
-            const post: Promise<any> = this.service.delete(_removeAction,Object.assign(context,{ story: keys.join(';') }),Object.assign({ story: keys.join(';') },{viewparams:this.viewparams}), this.showBusyIndicator);
+            const post: Promise<any> = this.service.delete(_removeAction,Object.assign(context,{ product: keys.join(';') }),Object.assign({ product: keys.join(';') },{viewparams:this.viewparams}), this.showBusyIndicator);
             return new Promise((resolve: any, reject: any) => {
                 post.then((response: any) => {
                     if (!response || response.status !== 200) {
@@ -705,11 +740,11 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 批量添加
      *
      * @param {*} [arg={}]
-     * @memberof Main9
+     * @memberof Main2
      */
     public addBatch(arg: any = {}): void {
         if(!this.fetchAction){
-            this.$Notice.error({ title: '错误', desc: 'StoryAssignedToMeGridView9视图表格fetchAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'ProductGridView_UnClosed视图表格fetchAction参数未配置' });
             return;
         }
         if(!arg){
@@ -722,7 +757,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 数据导入
      *
      * @param {*} data
-     * @memberof Main9
+     * @memberof Main2
      */
      public importExcel(data:any ={}):void{
         //导入excel
@@ -751,7 +786,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 数据导出
      *
      * @param {*} data
-     * @memberof Main9
+     * @memberof Main2
      */
     public exportExcel(data: any = {}): void {
         // 导出Excel
@@ -767,7 +802,7 @@ export default class Main9Base extends Vue implements ControlInterface {
                 excel.export_json_to_excel({
                   header: tHeader, //表头 必填
                   data, //具体数据 必填
-                  filename: "需求表", //非必填
+                  filename: "产品表", //非必填
                   autoWidth: true, //非必填
                   bookType: "xlsx" //非必填
                 });
@@ -822,21 +857,21 @@ export default class Main9Base extends Vue implements ControlInterface {
      * @param {*} filterVal
      * @param {*} jsonData
      * @returns {[]}
-     * @memberof Main9
+     * @memberof Main2
      */
     public async formatExcelData(filterVal:any, jsonData:any) {
         let codelistColumns:Array<any> = [
           {
-            name: 'pri',
-            srfkey: 'Story__pri',
+            name: 'status',
+            srfkey: 'Product__status',
             codelistType : 'STATIC',
             renderMode: 'other',
             textSeparator: '、',
             valueSeparator: ',',
           },
           {
-            name: 'status',
-            srfkey: 'Story__status',
+            name: 'type',
+            srfkey: 'Product__type',
             codelistType : 'STATIC',
             renderMode: 'other',
             textSeparator: '、',
@@ -870,7 +905,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * @param {any[]} items 代码表数据
      * @param {*} value
      * @returns {*}
-     * @memberof Main9
+     * @memberof Main2
      */
     public getCodelistValue(items: any[], value: any, codelist: any,){
         if(!value){
@@ -923,7 +958,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * @param {any[]} items
      * @param {*} value
      * @returns {*}
-     * @memberof Main9
+     * @memberof Main2
      */
     public getItem(items: any[], value: any, codelist: any): any {
         const arr: Array<any> = items.filter(item => {return item.value == value});
@@ -940,19 +975,19 @@ export default class Main9Base extends Vue implements ControlInterface {
     /**
      * 生命周期
      *
-     * @memberof Main9
+     * @memberof Main2
      */
     public created(): void {
         this.afterCreated();
         this.$acc.commandLocal(() => {
             this.load()
-        }, 'all', 'ZT_STORY');
+        }, 'all', 'ZT_PRODUCT');
     }
 
     /**
      * 执行created后的逻辑
      *
-     *  @memberof Main9
+     *  @memberof Main2
      */    
     public afterCreated(){
         this.setColState();
@@ -977,7 +1012,7 @@ export default class Main9Base extends Vue implements ControlInterface {
     /**
      * vue 生命周期
      *
-     * @memberof Main9
+     * @memberof Main2
      */
     public destroyed() {
         this.afterDestroy();
@@ -986,7 +1021,7 @@ export default class Main9Base extends Vue implements ControlInterface {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof Main9
+     * @memberof Main2
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -998,7 +1033,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 获取选中行胡数据
      *
      * @returns {any[]}
-     * @memberof Main9
+     * @memberof Main2
      */
     public getSelection(): any[] {
         return this.selections;
@@ -1009,7 +1044,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      *
      * @param {*} $event
      * @returns {void}
-     * @memberof Main9
+     * @memberof Main2
      */
     public rowDBLClick($event: any): void {
         if (!$event || this.actualIsOpenEdit || Object.is(this.gridRowActiveMode,0)) {
@@ -1033,7 +1068,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      *
      * @param {*} $event
      * @returns {void}
-     * @memberof  Main9
+     * @memberof  Main2
      */
     public select($event: any): void {
         if (!$event) {
@@ -1048,7 +1083,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 复选框数据全部选中
      *
      * @param {*} $event
-     * @memberof  Main9
+     * @memberof  Main2
      */
     public selectAll($event: any): void {
         if (!$event) {
@@ -1065,7 +1100,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      *
      * @param {*} $event
      * @returns {void}
-     * @memberof Main9
+     * @memberof Main2
      */
     public rowClick($event: any, ifAlways: boolean = false): void {
         if (!ifAlways && (!$event || this.actualIsOpenEdit)) {
@@ -1080,7 +1115,7 @@ export default class Main9Base extends Vue implements ControlInterface {
         }
         // 已选中则删除，没选中则添加
         let selectIndex = this.selections.findIndex((item:any)=>{
-            return Object.is(item.zt_story,$event.zt_story);
+            return Object.is(item.zt_product,$event.zt_product);
         });
         if (Object.is(selectIndex,-1)){
           this.selections.push(JSON.parse(JSON.stringify($event)));
@@ -1107,7 +1142,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      *
      * @param {*} $event
      * @returns {void}
-     * @memberof Main9
+     * @memberof Main2
      */
     public pageOnChange($event: any): void {
         if (!$event) {
@@ -1125,7 +1160,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      *
      * @param {*} $event
      * @returns {void}
-     * @memberof Main9
+     * @memberof Main2
      */
     public onPageSizeChange($event: any): void {
         if (!$event) {
@@ -1143,7 +1178,7 @@ export default class Main9Base extends Vue implements ControlInterface {
     /**
      * 分页刷新
      *
-     * @memberof Main9
+     * @memberof Main2
      */
     public pageRefresh(): void {
         this.load({});
@@ -1153,7 +1188,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * 排序变化
      *
      * @param {{ column: any, prop: any, order: any }} { column, prop, order }
-     * @memberof Main9
+     * @memberof Main2
      */
     public onSortChange({ column, prop, order }: { column: any, prop: any, order: any }): void {
         const dir = Object.is(order, 'ascending') ? 'asc' : Object.is(order, 'descending') ? 'desc' : '';
@@ -1170,7 +1205,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      *
      * @param {{ row: any, rowIndex: any }} { row, rowIndex }
      * @returns {string}
-     * @memberof Main9
+     * @memberof Main2
      */
     public onRowClassName({ row, rowIndex }: { row: any, rowIndex: any }): string {
         const index = this.selections.findIndex((select: any) => Object.is(select.srfkey, row.srfkey));
@@ -1185,7 +1220,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      * @param {*} row
      * @param {*} tag
      * @param {*} $event
-     * @memberof Main9
+     * @memberof Main2
      */
 	public uiAction(row: any, tag: any, $event: any) {
     }
@@ -1193,10 +1228,10 @@ export default class Main9Base extends Vue implements ControlInterface {
     /**
      * 设置列状态
      *
-     * @memberof Main9
+     * @memberof Main2
      */
     public setColState() {
-		const _data: any = localStorage.getItem('zt_story_main9_grid');
+		const _data: any = localStorage.getItem('zt_product_main2_grid');
 		if (_data) {
 			let columns = JSON.parse(_data);
 			columns.forEach((col: any) => {
@@ -1211,10 +1246,10 @@ export default class Main9Base extends Vue implements ControlInterface {
     /**
      * 列变化
      *
-     * @memberof Main9
+     * @memberof Main2
      */
     public onColChange() {
-        localStorage.setItem('zt_story_main9_grid', JSON.stringify(this.allColumns));
+        localStorage.setItem('zt_product_main2_grid', JSON.stringify(this.allColumns));
     }
 
     /**
@@ -1222,7 +1257,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      *
      * @param {string} name
      * @returns {boolean}
-     * @memberof Main9
+     * @memberof Main2
      */
     public getColumnState(name: string): boolean {
         let column = this.allColumns.find((col: any) =>
@@ -1236,7 +1271,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      *
      * @readonly
      * @type {boolean}
-     * @memberof Main9
+     * @memberof Main2
      */
     get adaptiveState(): boolean {
         return !this.allColumns.find((column: any) => column.show && Object.is(column.util, 'STAR'));
@@ -1247,7 +1282,7 @@ export default class Main9Base extends Vue implements ControlInterface {
      *
      * @param {*} $event
      * @returns {void}
-     * @memberof Main9
+     * @memberof Main2
      */
     public save(args: any[], params?: any, $event?: any, xData?: any): void {
         let _this = this;
@@ -1257,19 +1292,19 @@ export default class Main9Base extends Vue implements ControlInterface {
                 return;
             } else if(Object.is(item.rowDataState, 'create')){
                 if(!this.createAction){
-                    this.$Notice.error({ title: '错误', desc: 'StoryAssignedToMeGridView9视图表格createAction参数未配置' });
+                    this.$Notice.error({ title: '错误', desc: 'ProductGridView_UnClosed视图表格createAction参数未配置' });
                     return;
                 }
                 Object.assign(item,{viewparams:this.viewparams});
                 promises.push(this.service.add(this.createAction, JSON.parse(JSON.stringify(this.context)),item, this.showBusyIndicator));
             }else if(Object.is(item.rowDataState, 'update')){
                 if(!this.updateAction){
-                    this.$Notice.error({ title: '错误', desc: 'StoryAssignedToMeGridView9视图表格updateAction参数未配置' });
+                    this.$Notice.error({ title: '错误', desc: 'ProductGridView_UnClosed视图表格updateAction参数未配置' });
                     return;
                 }
                 Object.assign(item,{viewparams:this.viewparams});
-                if(item.story){
-                    Object.assign(this.context,{story:item.story})
+                if(item.product){
+                    Object.assign(this.context,{product:item.product})
                 }
                 promises.push(this.service.add(this.updateAction,JSON.parse(JSON.stringify(this.context)),item, this.showBusyIndicator));
             }
@@ -1289,11 +1324,11 @@ export default class Main9Base extends Vue implements ControlInterface {
      *
      * @param {*} $args row 行数据，rowIndex 行索引
      * @returns {void}
-     * @memberof Main9
+     * @memberof Main2
      */
     public getRowClassName(args:{row: any,rowIndex: number}){
         let isSelected = this.selections.some((item:any)=>{
-            return Object.is(item.story,args.row.story);
+            return Object.is(item.product,args.row.product);
         });
         return isSelected ? "grid-selected-row" : "";
     }
@@ -1301,5 +1336,5 @@ export default class Main9Base extends Vue implements ControlInterface {
 </script>
 
 <style lang='less'>
-@import './main9-grid.less';
+@import './main2-grid.less';
 </style>

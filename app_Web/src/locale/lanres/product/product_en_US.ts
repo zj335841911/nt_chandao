@@ -163,6 +163,17 @@ export default {
 		uiactions: {
 		},
 	},
+	main2_grid: {
+		columns: {
+			name: "产品名称",
+			code: "产品代号",
+			status: "状态",
+			type: "产品类型",
+			linename: "产品线",
+		},
+		uiactions: {
+		},
+	},
 	default_searchform: {
 		details: {
 			formpage1: "常规条件", 
