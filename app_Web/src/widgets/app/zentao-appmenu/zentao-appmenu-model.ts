@@ -158,6 +158,27 @@ export default class ZentaoModel {
                 	resourcetag: '',
                 }
                 ,
+                		        {
+                	id: '8786ECB6-7892-4548-943A-C94D05E9CA86',
+                	name: 'menuitem6',
+                	text: '测试',
+                	type: 'MENUITEM',
+                	counterid: '',
+                	tooltip: '测试',
+                	expanded: false,
+                	separator: false,
+                	hidden: false,
+                	hidesidebar: false,
+                	opendefault: false,
+                	iconcls: 'fa fa-cogs',
+                	icon: '',
+                	textcls: '',
+                	appfunctag: '_2',
+                	appfuncyype: 'APPVIEW',
+                	viewname: 'product-test-left-sidebar-list-view',
+                	resourcetag: '',
+                }
+                ,
         	],
         }
         ,
@@ -209,6 +230,18 @@ export default class ZentaoModel {
 	 * @memberof ZentaoModel
 	 */
 	private funcs: any[] = [
+        {
+            appfunctag: '_2',
+            appfuncyype: 'APPVIEW',
+            openmode: '',
+            codename: 'producttestleftsidebarlistview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/products/:product?/testleftsidebarlistview/:testleftsidebarlistview?',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'testleftsidebarlistview', parameterName: 'testleftsidebarlistview' },
+            ],
+        },
         {
             appfunctag: 'Auto3',
             appfuncyype: 'APPVIEW',

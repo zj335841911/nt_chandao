@@ -1131,6 +1131,19 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-bug-tree-exp-view/product-bug-tree-exp-view.vue'),
                 },
                 {
+                    path: 'products/:product?/testleftsidebarlistview/:testleftsidebarlistview?',
+                    meta: {
+                        caption: 'entities.product.views.testleftsidebarlistview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'testleftsidebarlistview', parameterName: 'testleftsidebarlistview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-test-left-sidebar-list-view/product-test-left-sidebar-list-view.vue'),
+                },
+                {
                     path: 'projects/:project?/editview/:editview?',
                     meta: {
                         caption: 'entities.project.views.editview.caption',
@@ -2121,6 +2134,18 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/zentao/branch-pmgrid-view/branch-pmgrid-view.vue'),
+    },
+    {
+        path: '/products/:product?/testleftsidebarlistview/:testleftsidebarlistview?',
+        meta: {
+            caption: 'entities.product.views.testleftsidebarlistview.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'testleftsidebarlistview', parameterName: 'testleftsidebarlistview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/product-test-left-sidebar-list-view/product-test-left-sidebar-list-view.vue'),
     },
     {
         path: '/projects/:project?/leftsidebarlistview/:leftsidebarlistview?',

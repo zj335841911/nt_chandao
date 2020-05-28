@@ -54,7 +54,7 @@ export default {
 			caption: "产品",
       title: '产品',
 		},
-		bugleftsidebarlistview: {
+		testleftsidebarlistview: {
 			caption: "测试",
       title: '测试',
 		},
@@ -193,7 +193,7 @@ export default {
 			tip: "导出数据模型",
 		},
 	},
-	bugleftsidebarlistviewtoolbar_toolbar: {
+	testleftsidebarlistviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",

@@ -271,12 +271,12 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BranchPMGridView",
             "viewtag": "776ea44ea05316c9c6cb9d5948e993f9"
         },
-        "productbugleftsidebarlistview": {
+        "producttestleftsidebarlistview": {
             "title": "所有产品",
             "caption": "测试",
             "viewtype": "DELISTVIEW",
             "viewmodule": "zentao",
-            "viewname": "ProductBugLeftSidebarListView",
+            "viewname": "ProductTestLeftSidebarListView",
             "viewtag": "7af111f4c127f7032c3e12e8c5fc0045"
         },
         "modulegridview": {

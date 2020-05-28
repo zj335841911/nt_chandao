@@ -111,6 +111,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '7af111f4c127f7032c3e12e8c5fc0045',
                 '1d697dd8e47a4781be8f690bcc5f7800',
                 'A49E5FD9-FC90-434B-9E13-192873F6F2AC',
                 '7c79a923d0cdd1a5bc41a34367809077',
@@ -304,6 +305,17 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'd4cb26555e6d81a172652580cf7d9f7f',
+            ],
+        },
+        {
+            viewtag: '7af111f4c127f7032c3e12e8c5fc0045',
+            viewmodule: 'zentao',
+            viewname: 'ProductTestLeftSidebarListView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '005b0ba30f9e9e982e087961bd50c681',
+                'e042a1dee405b0a853f315b39a375783',
             ],
         },
         {

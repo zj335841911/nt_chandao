@@ -87,6 +87,7 @@ export default {
                 left_exp: '左侧分页导航',
                 menuitem4: '产品',
                 menuitem5: '项目',
+                menuitem6: '测试',
                 bottom_exp: '底部导航区',
                 footer_center: '底部中间菜单',
             },
