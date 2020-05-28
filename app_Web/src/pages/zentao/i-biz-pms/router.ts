@@ -145,6 +145,33 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-plan-sub-grid-view/bug-plan-sub-grid-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/pickupgridview/:pickupgridview?',
+                    meta: {
+                        caption: 'entities.story.views.pickupgridview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'pickupgridview', parameterName: 'pickupgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-pickup-grid-view/story-pickup-grid-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/pickupgridview/:pickupgridview?',
+                    meta: {
+                        caption: 'entities.story.views.pickupgridview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'pickupgridview', parameterName: 'pickupgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-pickup-grid-view/story-pickup-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/dashboardinfomainview9/:dashboardinfomainview9?',
                     meta: {
                         caption: 'entities.product.views.dashboardinfomainview9.caption',
@@ -357,6 +384,33 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/product-module-grid-view/product-module-grid-view.vue'),
+                },
+                {
+                    path: 'products/:product?/stories/:story?/mpickupview/:mpickupview?',
+                    meta: {
+                        caption: 'entities.story.views.mpickupview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'mpickupview', parameterName: 'mpickupview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-mpickup-view/story-mpickup-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/mpickupview/:mpickupview?',
+                    meta: {
+                        caption: 'entities.story.views.mpickupview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'mpickupview', parameterName: 'mpickupview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-mpickup-view/story-mpickup-view.vue'),
                 },
                 {
                     path: 'products/:product?/productplans/:productplan?/bugs/:bug?/editview/:editview?',
@@ -2246,6 +2300,31 @@ const router = new Router({
         component: () => import('@pages/zentao/product-plan-sub-plan-edit-view/product-plan-sub-plan-edit-view.vue'),
     },
     {
+        path: '/products/:product?/stories/:story?/pickupgridview/:pickupgridview?',
+        meta: {
+            caption: 'entities.story.views.pickupgridview.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'stories', parameterName: 'story' },
+                { pathName: 'pickupgridview', parameterName: 'pickupgridview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/story-pickup-grid-view/story-pickup-grid-view.vue'),
+    },
+    {
+        path: '/stories/:story?/pickupgridview/:pickupgridview?',
+        meta: {
+            caption: 'entities.story.views.pickupgridview.caption',
+            parameters: [
+                { pathName: 'stories', parameterName: 'story' },
+                { pathName: 'pickupgridview', parameterName: 'pickupgridview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/story-pickup-grid-view/story-pickup-grid-view.vue'),
+    },
+    {
         path: '/projects/:project?/tasks/:task?/maindashboardview/:maindashboardview?',
         meta: {
             caption: 'entities.task.views.maindashboardview.caption',
@@ -2773,6 +2852,31 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/zentao/product-dashboard-info-main-view9/product-dashboard-info-main-view9.vue'),
+    },
+    {
+        path: '/products/:product?/stories/:story?/mpickupview/:mpickupview?',
+        meta: {
+            caption: 'entities.story.views.mpickupview.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'stories', parameterName: 'story' },
+                { pathName: 'mpickupview', parameterName: 'mpickupview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/story-mpickup-view/story-mpickup-view.vue'),
+    },
+    {
+        path: '/stories/:story?/mpickupview/:mpickupview?',
+        meta: {
+            caption: 'entities.story.views.mpickupview.caption',
+            parameters: [
+                { pathName: 'stories', parameterName: 'story' },
+                { pathName: 'mpickupview', parameterName: 'mpickupview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/story-mpickup-view/story-mpickup-view.vue'),
     },
     {
         path: '/products/:product?/stories/:story?/plansubgridview/:plansubgridview?',

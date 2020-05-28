@@ -299,6 +299,16 @@
         "viewtag": "54c7ba4afb6222c4c0af04a78a0592df",
         "memo": ""
     },
+    "storypickupgridview": {
+        "title": "需求",
+        "caption": "需求",
+        "viewtype": "DEPICKUPGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "StoryPickupGridView",
+        "viewfilename": "story-pickup-grid-view",
+        "viewtag": "569cd532c6b545ffc53cf5fb93427028",
+        "memo": ""
+    },
     "taskmaindashboardview": {
         "title": "任务主数据看板视图",
         "caption": "任务",
@@ -597,6 +607,16 @@
         "viewname": "ProductDashboardInfoMainView9",
         "viewfilename": "product-dashboard-info-main-view9",
         "viewtag": "b5d2389c0dd12ae614b319090ecc2361",
+        "memo": ""
+    },
+    "storympickupview": {
+        "title": "关联需求",
+        "caption": "需求",
+        "viewtype": "DEMPICKUPVIEW",
+        "viewmodule": "zentao",
+        "viewname": "StoryMPickupView",
+        "viewfilename": "story-mpickup-view",
+        "viewtag": "b9bdfc0e33d333ade00934745d9dc0ad",
         "memo": ""
     },
     "storyplansubgridview": {

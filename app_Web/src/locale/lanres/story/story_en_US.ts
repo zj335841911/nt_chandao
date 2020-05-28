@@ -64,6 +64,10 @@ export default {
 			caption: "需求",
       title: '需求',
 		},
+		pickupgridview: {
+			caption: "需求",
+      title: '需求',
+		},
 		mainview_editmode: {
 			caption: "需求",
       title: '需求',
@@ -73,6 +77,10 @@ export default {
       title: '需求',
 		},
 		maingridview: {
+			caption: "需求",
+      title: '需求',
+		},
+		mpickupview: {
 			caption: "需求",
       title: '需求',
 		},
@@ -246,6 +254,14 @@ export default {
 		},
 	},
 	plansubgridviewtoolbar_toolbar: {
+		deuiaction3_planrelationstory: {
+			caption: "关联需求",
+			tip: "关联需求",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
 		deuiaction1: {
 			caption: "New",
 			tip: "New",

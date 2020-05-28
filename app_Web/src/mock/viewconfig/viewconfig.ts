@@ -247,6 +247,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductPlanSubPlanEditView",
             "viewtag": "54c7ba4afb6222c4c0af04a78a0592df"
         },
+        "storypickupgridview": {
+            "title": "需求",
+            "caption": "需求",
+            "viewtype": "DEPICKUPGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryPickupGridView",
+            "viewtag": "569cd532c6b545ffc53cf5fb93427028"
+        },
         "taskmaindashboardview": {
             "title": "任务主数据看板视图",
             "caption": "任务",
@@ -486,6 +494,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ProductDashboardInfoMainView9",
             "viewtag": "b5d2389c0dd12ae614b319090ecc2361"
+        },
+        "storympickupview": {
+            "title": "关联需求",
+            "caption": "需求",
+            "viewtype": "DEMPICKUPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryMPickupView",
+            "viewtag": "b9bdfc0e33d333ade00934745d9dc0ad"
         },
         "storyplansubgridview": {
             "title": "story表格视图",

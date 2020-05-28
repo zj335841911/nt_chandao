@@ -84,9 +84,11 @@ export default class StoryUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'assignedtomegridview9',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'mainview9_editmode',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'plansubeditview',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'mainview_editmode',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'mainview9',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'maingridview',srfappde:'stories'});
+        this.allViewMap.set('MPICKUPVIEW:',{viewname:'mpickupview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'plansubgridview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'main2gridview',srfappde:'stories'});
     }
@@ -159,6 +161,47 @@ export default class StoryUIServiceBase extends UIService {
                 placement: 'DRAWER_TOP',
             };
             openDrawer(view, data);
+    }
+
+    /**
+     * 关联需求
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_PlanRelationStory(args: any[], context:any = {} ,params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        let data: any = {};
+        const _args: any[] = Util.deepCopy(args);
+        const _this: any = actionContext;
+        const actionTarget: string | null = 'NONE';
+        context = UIActionTool.handleContextParam(actionTarget,_args,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'mpickupview', parameterName: 'mpickupview' },
+        ];
+        const openIndexViewTab = (data: any) => {
+            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
+            actionContext.$router.push(routePath);
+            return null;
+        }
+        openIndexViewTab(data);
     }
 
 
