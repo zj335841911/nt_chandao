@@ -386,6 +386,62 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-module-grid-view/product-module-grid-view.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/bugs/:bug?/pickupgridview/:pickupgridview?',
+                    meta: {
+                        caption: 'entities.bug.views.pickupgridview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'pickupgridview', parameterName: 'pickupgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-pickup-grid-view/bug-pickup-grid-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/bugs/:bug?/pickupgridview/:pickupgridview?',
+                    meta: {
+                        caption: 'entities.bug.views.pickupgridview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'pickupgridview', parameterName: 'pickupgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-pickup-grid-view/bug-pickup-grid-view.vue'),
+                },
+                {
+                    path: 'products/:product?/bugs/:bug?/pickupgridview/:pickupgridview?',
+                    meta: {
+                        caption: 'entities.bug.views.pickupgridview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'pickupgridview', parameterName: 'pickupgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-pickup-grid-view/bug-pickup-grid-view.vue'),
+                },
+                {
+                    path: 'bugs/:bug?/pickupgridview/:pickupgridview?',
+                    meta: {
+                        caption: 'entities.bug.views.pickupgridview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'pickupgridview', parameterName: 'pickupgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-pickup-grid-view/bug-pickup-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/mpickupview/:mpickupview?',
                     meta: {
                         caption: 'entities.story.views.mpickupview.caption',
@@ -1372,6 +1428,62 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-main-dashboard-view/product-main-dashboard-view.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/bugs/:bug?/mpickupview/:mpickupview?',
+                    meta: {
+                        caption: 'entities.bug.views.mpickupview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'mpickupview', parameterName: 'mpickupview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-mpickup-view/bug-mpickup-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/bugs/:bug?/mpickupview/:mpickupview?',
+                    meta: {
+                        caption: 'entities.bug.views.mpickupview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'mpickupview', parameterName: 'mpickupview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-mpickup-view/bug-mpickup-view.vue'),
+                },
+                {
+                    path: 'products/:product?/bugs/:bug?/mpickupview/:mpickupview?',
+                    meta: {
+                        caption: 'entities.bug.views.mpickupview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'mpickupview', parameterName: 'mpickupview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-mpickup-view/bug-mpickup-view.vue'),
+                },
+                {
+                    path: 'bugs/:bug?/mpickupview/:mpickupview?',
+                    meta: {
+                        caption: 'entities.bug.views.mpickupview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'mpickupview', parameterName: 'mpickupview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-mpickup-view/bug-mpickup-view.vue'),
+                },
+                {
                     path: 'actions/:action?/histroylistview/:histroylistview?',
                     meta: {
                         caption: 'entities.action.views.histroylistview.caption',
@@ -1935,6 +2047,110 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/zentao/product-test-grid-view/product-test-grid-view.vue'),
+    },
+    {
+        path: '/products/:product?/productplans/:productplan?/bugs/:bug?/pickupgridview/:pickupgridview?',
+        meta: {
+            caption: 'entities.bug.views.pickupgridview.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'pickupgridview', parameterName: 'pickupgridview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-pickup-grid-view/bug-pickup-grid-view.vue'),
+    },
+    {
+        path: '/productplans/:productplan?/bugs/:bug?/pickupgridview/:pickupgridview?',
+        meta: {
+            caption: 'entities.bug.views.pickupgridview.caption',
+            parameters: [
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'pickupgridview', parameterName: 'pickupgridview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-pickup-grid-view/bug-pickup-grid-view.vue'),
+    },
+    {
+        path: '/products/:product?/bugs/:bug?/pickupgridview/:pickupgridview?',
+        meta: {
+            caption: 'entities.bug.views.pickupgridview.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'pickupgridview', parameterName: 'pickupgridview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-pickup-grid-view/bug-pickup-grid-view.vue'),
+    },
+    {
+        path: '/bugs/:bug?/pickupgridview/:pickupgridview?',
+        meta: {
+            caption: 'entities.bug.views.pickupgridview.caption',
+            parameters: [
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'pickupgridview', parameterName: 'pickupgridview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-pickup-grid-view/bug-pickup-grid-view.vue'),
+    },
+    {
+        path: '/products/:product?/productplans/:productplan?/bugs/:bug?/mpickupview/:mpickupview?',
+        meta: {
+            caption: 'entities.bug.views.mpickupview.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'mpickupview', parameterName: 'mpickupview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-mpickup-view/bug-mpickup-view.vue'),
+    },
+    {
+        path: '/productplans/:productplan?/bugs/:bug?/mpickupview/:mpickupview?',
+        meta: {
+            caption: 'entities.bug.views.mpickupview.caption',
+            parameters: [
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'mpickupview', parameterName: 'mpickupview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-mpickup-view/bug-mpickup-view.vue'),
+    },
+    {
+        path: '/products/:product?/bugs/:bug?/mpickupview/:mpickupview?',
+        meta: {
+            caption: 'entities.bug.views.mpickupview.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'mpickupview', parameterName: 'mpickupview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-mpickup-view/bug-mpickup-view.vue'),
+    },
+    {
+        path: '/bugs/:bug?/mpickupview/:mpickupview?',
+        meta: {
+            caption: 'entities.bug.views.mpickupview.caption',
+            parameters: [
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'mpickupview', parameterName: 'mpickupview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-mpickup-view/bug-mpickup-view.vue'),
     },
     {
         path: '/projects/:project?/tasks/:task?/maingridview9_child/:maingridview9_child?',

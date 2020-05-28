@@ -1,8 +1,8 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import StoryPickupGridViewBase from './story-pickup-grid-view-base.vue';
+import BugPickupGridViewBase from './bug-pickup-grid-view-base.vue';
 
-import view_grid from '@widgets/story/main-grid/main-grid.vue';
+import view_grid from '@widgets/bug/main-grid/main-grid.vue';
 @Component({
     components: {
         view_grid, 
@@ -13,7 +13,7 @@ import view_grid from '@widgets/story/main-grid/main-grid.vue';
         });
     },
 })
-export default class StoryPickupGridView extends StoryPickupGridViewBase {
+export default class BugPickupGridView extends BugPickupGridViewBase {
 
 }
 </script>

@@ -68,6 +68,14 @@ export default {
 			caption: 'Bug',
       title: 'Bug',
 		},
+		pickupgridview: {
+			caption: 'Bug',
+      title: 'Bug',
+		},
+		mpickupview: {
+			caption: '关联Bug',
+      title: '关联Bug',
+		},
 		editview: {
 			caption: 'Bug',
       title: 'Bug',
@@ -257,6 +265,14 @@ export default {
 		},
 	},
 	plansubgridviewtoolbar_toolbar: {
+		deuiaction3_planrelationbug: {
+			caption: '关联Bug',
+			tip: '关联Bug',
+		},
+		seperator2: {
+			caption: '',
+			tip: '',
+		},
 		deuiaction4: {
 			caption: '删除',
 			tip: '删除',

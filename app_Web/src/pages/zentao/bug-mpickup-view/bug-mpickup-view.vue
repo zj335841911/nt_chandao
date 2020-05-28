@@ -1,11 +1,11 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import StoryPickupGridViewBase from './story-pickup-grid-view-base.vue';
+import BugMPickupViewBase from './bug-mpickup-view-base.vue';
 
-import view_grid from '@widgets/story/main-grid/main-grid.vue';
+import view_pickupviewpanel from '@widgets/bug/mpickup-viewpickupviewpanel-pickupviewpanel/mpickup-viewpickupviewpanel-pickupviewpanel.vue';
 @Component({
     components: {
-        view_grid, 
+        view_pickupviewpanel, 
     },
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
@@ -13,7 +13,7 @@ import view_grid from '@widgets/story/main-grid/main-grid.vue';
         });
     },
 })
-export default class StoryPickupGridView extends StoryPickupGridViewBase {
+export default class BugMPickupView extends BugMPickupViewBase {
 
 }
 </script>

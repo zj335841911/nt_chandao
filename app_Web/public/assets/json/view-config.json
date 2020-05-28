@@ -119,6 +119,16 @@
         "viewtag": "1d697dd8e47a4781be8f690bcc5f7800",
         "memo": ""
     },
+    "bugpickupgridview": {
+        "title": "bug选择表格视图",
+        "caption": "Bug",
+        "viewtype": "DEPICKUPGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BugPickupGridView",
+        "viewfilename": "bug-pickup-grid-view",
+        "viewtag": "1e7347f3fffc87077dd7f0156125b918",
+        "memo": ""
+    },
     "ibizpms": {
         "title": "iBiz项目管理",
         "caption": "iBiz项目管理",
@@ -127,6 +137,16 @@
         "viewname": "iBizPMS",
         "viewfilename": "i-biz-pms",
         "viewtag": "1ed8a475f4c185fc99c487900bbcf69e",
+        "memo": ""
+    },
+    "bugmpickupview": {
+        "title": "关联Bug",
+        "caption": "关联Bug",
+        "viewtype": "DEMPICKUPVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BugMPickupView",
+        "viewfilename": "bug-mpickup-view",
+        "viewtag": "21d716ac12c793af54b112a5a3599674",
         "memo": ""
     },
     "moduleeditview": {

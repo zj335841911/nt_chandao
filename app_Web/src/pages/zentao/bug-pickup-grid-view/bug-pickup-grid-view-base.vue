@@ -1,5 +1,5 @@
 <template>
-<studio-view viewName="storypickupgridview" viewTitle="需求" class='depickupgridview story-pickup-grid-view'>
+<studio-view viewName="bugpickupgridview" viewTitle="bug选择表格视图" class='depickupgridview bug-pickup-grid-view'>
     <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 
@@ -28,7 +28,7 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { UIActionTool,Util } from '@/utils';
 import { Subject } from 'rxjs';
-import StoryService from '@/service/story/story-service';
+import BugService from '@/service/bug/bug-service';
 
 import PickupGridViewEngine from '@engine/view/pickup-grid-view-engine';
 
@@ -38,22 +38,22 @@ import PickupGridViewEngine from '@engine/view/pickup-grid-view-engine';
     components: {
     },
 })
-export default class StoryPickupGridViewBase extends Vue {
+export default class BugPickupGridViewBase extends Vue {
 
     /**
      * 实体服务对象
      *
-     * @type {StoryService}
-     * @memberof StoryPickupGridViewBase
+     * @type {BugService}
+     * @memberof BugPickupGridViewBase
      */
-    public appEntityService: StoryService = new StoryService;
+    public appEntityService: BugService = new BugService;
 
 
     /**
      * 计数器服务对象集合
      *
      * @type {Array<*>}
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */    
     public counterServiceArray:Array<any> = [];
     
@@ -62,7 +62,7 @@ export default class StoryPickupGridViewBase extends Vue {
      *
      * @param {*} val
      * @returns {*}
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */
     @Emit() 
     public viewDatasChange(val: any):any {
@@ -73,7 +73,7 @@ export default class StoryPickupGridViewBase extends Vue {
      * 传入视图上下文
      *
      * @type {string}
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */
     @Prop() public viewdata!: string;
 
@@ -81,7 +81,7 @@ export default class StoryPickupGridViewBase extends Vue {
      * 传入视图参数
      *
      * @type {string}
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */
     @Prop() public viewparam!: string;
 
@@ -89,7 +89,7 @@ export default class StoryPickupGridViewBase extends Vue {
      * 视图默认使用
      *
      * @type {boolean}
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */
     @Prop({ default: true }) public viewDefaultUsage!: boolean;
 
@@ -97,15 +97,15 @@ export default class StoryPickupGridViewBase extends Vue {
 	 * 视图标识
 	 *
 	 * @type {string}
-	 * @memberof StoryPickupGridViewBase
+	 * @memberof BugPickupGridViewBase
 	 */
-	public viewtag: string = '569cd532c6b545ffc53cf5fb93427028';
+	public viewtag: string = '1e7347f3fffc87077dd7f0156125b918';
 
 	/**
 	 * 自定义视图导航上下文集合
 	 *
 	 * @type {*}
-	 * @memberof StoryPickupGridViewBase
+	 * @memberof BugPickupGridViewBase
 	 */
     public customViewNavContexts:any ={
     };
@@ -114,7 +114,7 @@ export default class StoryPickupGridViewBase extends Vue {
 	 * 自定义视图导航参数集合
 	 *
 	 * @type {*}
-	 * @memberof StoryPickupGridViewBase
+	 * @memberof BugPickupGridViewBase
 	 */
     public customViewParams:any ={
     };
@@ -123,12 +123,12 @@ export default class StoryPickupGridViewBase extends Vue {
      * 视图模型数据
      *
      * @type {*}
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */
     public model: any = {
-        srfCaption: 'entities.story.views.pickupgridview.caption',
-        srfTitle: 'entities.story.views.pickupgridview.title',
-        srfSubTitle: 'entities.story.views.pickupgridview.subtitle',
+        srfCaption: 'entities.bug.views.pickupgridview.caption',
+        srfTitle: 'entities.bug.views.pickupgridview.title',
+        srfSubTitle: 'entities.bug.views.pickupgridview.subtitle',
         dataInfo: ''
     }
 
@@ -137,7 +137,7 @@ export default class StoryPickupGridViewBase extends Vue {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */
     @Watch('viewparam',{immediate: true, deep: true})
     onParamData(newVal: any, oldVal: any) {
@@ -155,7 +155,7 @@ export default class StoryPickupGridViewBase extends Vue {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */
     @Watch('viewdata')
     onViewData(newVal: any, oldVal: any) {
@@ -171,7 +171,7 @@ export default class StoryPickupGridViewBase extends Vue {
      * 容器模型
      *
      * @type {*}
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */
     public containerModel: any = {
         view_grid: { name: 'grid', type: 'GRID' },
@@ -180,7 +180,7 @@ export default class StoryPickupGridViewBase extends Vue {
     /**
      *  计数器刷新
      *
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */
     public counterRefresh(){
         const _this:any =this;
@@ -198,7 +198,7 @@ export default class StoryPickupGridViewBase extends Vue {
      *
      * @public
      * @type {Subject<{action: string, data: any}>}
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */
     public viewState: Subject<ViewState> = new Subject();
 
@@ -208,7 +208,7 @@ export default class StoryPickupGridViewBase extends Vue {
      *
      * @public
      * @type {Engine}
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */
     public engine: PickupGridViewEngine = new PickupGridViewEngine();
 
@@ -216,13 +216,13 @@ export default class StoryPickupGridViewBase extends Vue {
      * 引擎初始化
      *
      * @public
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */
     public engineInit(): void {
         this.engine.init({
             view: this,
             grid: this.$refs.grid,
-            keyPSDEField: 'story',
+            keyPSDEField: 'bug',
             majorPSDEField: 'title',
             isLoadDefault: true,
         });
@@ -232,7 +232,7 @@ export default class StoryPickupGridViewBase extends Vue {
      * 应用上下文
      *
      * @type {*}
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */
     public context:any = {};
 
@@ -240,7 +240,7 @@ export default class StoryPickupGridViewBase extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */
     public viewparams:any = {};
 
@@ -248,7 +248,7 @@ export default class StoryPickupGridViewBase extends Vue {
      * 解析视图参数
      *
      * @public
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */
     public parseViewParam(): void {
         for(let key in this.context){
@@ -288,7 +288,7 @@ export default class StoryPickupGridViewBase extends Vue {
     /**
      * 处理自定义视图数据
      *
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */
 	public handleCustomViewData(){
 		if(Object.keys(this.customViewNavContexts).length > 0){
@@ -312,7 +312,7 @@ export default class StoryPickupGridViewBase extends Vue {
     /**
      * 处理自定义视图数据逻辑
      *
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */
 	public handleCustomDataLogic(curNavData:any,tempData:any,item:string){
 		// 直接值直接赋值
@@ -365,7 +365,7 @@ export default class StoryPickupGridViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */
     public created() {
         this.afterCreated();
@@ -374,7 +374,7 @@ export default class StoryPickupGridViewBase extends Vue {
     /**
      * 执行created后的逻辑
      *
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */    
     public afterCreated(){
         const secondtag = this.$util.createUUID();
@@ -387,7 +387,7 @@ export default class StoryPickupGridViewBase extends Vue {
     /**
      * 销毁之前
      *
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */
     public beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
@@ -396,7 +396,7 @@ export default class StoryPickupGridViewBase extends Vue {
     /**
      * Vue声明周期(组件初始化完毕)
      *
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */
     public mounted() {
         this.afterMounted();
@@ -405,7 +405,7 @@ export default class StoryPickupGridViewBase extends Vue {
     /**
      * 执行mounted后的逻辑
      * 
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */
     public afterMounted(){
         const _this: any = this;
@@ -422,7 +422,7 @@ export default class StoryPickupGridViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */
     public grid_selectionchange($event: any, $event2?: any) {
         this.engine.onCtrlEvent('grid', 'selectionchange', $event);
@@ -434,7 +434,7 @@ export default class StoryPickupGridViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */
     public grid_beforeload($event: any, $event2?: any) {
         this.engine.onCtrlEvent('grid', 'beforeload', $event);
@@ -446,7 +446,7 @@ export default class StoryPickupGridViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */
     public grid_rowdblclick($event: any, $event2?: any) {
         this.engine.onCtrlEvent('grid', 'rowdblclick', $event);
@@ -458,7 +458,7 @@ export default class StoryPickupGridViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */
     public grid_load($event: any, $event2?: any) {
         this.engine.onCtrlEvent('grid', 'load', $event);
@@ -471,7 +471,7 @@ export default class StoryPickupGridViewBase extends Vue {
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */
     public closeView(args: any[]): void {
         let _view: any = this;
@@ -486,7 +486,7 @@ export default class StoryPickupGridViewBase extends Vue {
     /**
      * 销毁视图回调
      *
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */
     public destroyed(){
         this.afterDestroyed();
@@ -495,7 +495,7 @@ export default class StoryPickupGridViewBase extends Vue {
     /**
      * 执行destroyed后的逻辑
      * 
-     * @memberof StoryPickupGridViewBase
+     * @memberof BugPickupGridViewBase
      */
     public afterDestroyed(){
         if(this.viewDefaultUsage){
@@ -513,7 +513,7 @@ export default class StoryPickupGridViewBase extends Vue {
      * 选中数据字符串
      *
      * @type {string}
-     * @memberof StoryPickupGridView
+     * @memberof BugPickupGridView
      */
     @Prop() public selectedData?: string;
 
@@ -521,7 +521,7 @@ export default class StoryPickupGridViewBase extends Vue {
      * 是否单选
      *
      * @type {boolean}
-     * @memberof StoryPickupGridView
+     * @memberof BugPickupGridView
      */
     @Prop() public isSingleSelect?: boolean;
 
@@ -529,7 +529,7 @@ export default class StoryPickupGridViewBase extends Vue {
      * 搜索值
      *
      * @type {string}
-     * @memberof StoryPickupGridView
+     * @memberof BugPickupGridView
      */
     public query: string = '';
 
@@ -537,7 +537,7 @@ export default class StoryPickupGridViewBase extends Vue {
      * 是否展开搜索表单
      *
      * @type {boolean}
-     * @memberof StoryPickupGridView
+     * @memberof BugPickupGridView
      */
     public isExpandSearchForm: boolean = true;
 
@@ -548,7 +548,7 @@ export default class StoryPickupGridViewBase extends Vue {
      * 2 双击激活
      *
      * @type {(number | 0 | 1 | 2)}
-     * @memberof StoryPickupGridView
+     * @memberof BugPickupGridView
      */
     public gridRowActiveMode: number | 0 | 1 | 2 = 2;
 
@@ -556,7 +556,7 @@ export default class StoryPickupGridViewBase extends Vue {
      * 快速搜索
      *
      * @param {*} $event
-     * @memberof StoryPickupGridView
+     * @memberof BugPickupGridView
      */
     public onSearch($event: any): void {
         const refs: any = this.$refs;
@@ -569,5 +569,5 @@ export default class StoryPickupGridViewBase extends Vue {
 </script>
 
 <style lang='less'>
-@import './story-pickup-grid-view.less';
+@import './bug-pickup-grid-view.less';
 </style>

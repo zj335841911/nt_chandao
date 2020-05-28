@@ -103,6 +103,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductTestGridView",
             "viewtag": "1d697dd8e47a4781be8f690bcc5f7800"
         },
+        "bugpickupgridview": {
+            "title": "bug选择表格视图",
+            "caption": "Bug",
+            "viewtype": "DEPICKUPGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugPickupGridView",
+            "viewtag": "1e7347f3fffc87077dd7f0156125b918"
+        },
         "ibizpms": {
             "title": "iBiz项目管理",
             "caption": "iBiz项目管理",
@@ -110,6 +118,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "iBizPMS",
             "viewtag": "1ed8a475f4c185fc99c487900bbcf69e"
+        },
+        "bugmpickupview": {
+            "title": "关联Bug",
+            "caption": "关联Bug",
+            "viewtype": "DEMPICKUPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugMPickupView",
+            "viewtag": "21d716ac12c793af54b112a5a3599674"
         },
         "moduleeditview": {
             "title": "模块",
