@@ -217,7 +217,7 @@
         "viewname": "StoryAssignedToMeGridView9",
         "viewfilename": "story-assigned-to-me-grid-view9",
         "viewtag": "4b82e9acf6c784b138b365d6011b296b",
-        "memo": ""
+        "memo": "视图参数中指定了过滤条件"
     },
     "productplansubplangridview": {
         "title": "子计划",

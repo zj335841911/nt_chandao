@@ -1,5 +1,5 @@
 <template>
-<studio-view viewName="productplanmaintabexp" viewTitle="计划" class='detabexpview product-plan-main-tab-exp'>
+<studio-view viewName="productplanmaintabexp" viewTitle="计划" class='detabexpview product-plan-main-tab-exp tab-exp-view-header-flot'>
     <template slot='title'>
     <span class='caption-info'>{{$t(model.srfTitle)}}</span>
     </template>
