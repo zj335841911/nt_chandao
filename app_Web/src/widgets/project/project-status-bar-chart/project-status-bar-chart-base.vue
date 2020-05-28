@@ -245,14 +245,14 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
     
     
     categorField:'status',
-    categorCodeList:{type:'STATIC',tag:'Project__type',emptycode:'empty',emptytext:'未定义'},
+    categorCodeList:{type:'STATIC',tag:'Project__status',emptycode:'empty',emptytext:'未定义'},
     valueField:'srfcount',
     seriesValues:[],
     seriesIndex:0,
     data:[],
     seriesMap:{},
     dataSetFields:[
-    {name:"status",codelist:{type:"STATIC",tag:"Project__type",emptycode:'empty',emptytext:'未定义'},isGroupField:true,groupMode:"CODELIST"},
+    {name:"status",codelist:{type:"STATIC",tag:"Project__status",emptycode:'empty',emptytext:'未定义'},isGroupField:true,groupMode:"CODELIST"},
     {name:"srfcount",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
