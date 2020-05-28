@@ -133,6 +133,7 @@ export default class StoryPlanSubGridViewBase extends Vue {
 	 * @memberof StoryPlanSubGridViewBase
 	 */
     public customViewNavContexts:any ={
+    "PLAN":{"isRawValue":false,"value":"srfparentkey"}
     };
 
 	/**
