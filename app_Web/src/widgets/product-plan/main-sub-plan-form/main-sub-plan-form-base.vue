@@ -55,7 +55,7 @@
 <i-col v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productplan.mainsubplan_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <div style="height: 100%;display: flex;justify-content: center;">
-        <div  v-show="detailsModel.button1.visible" :style="{}">
+        <div  v-show="detailsModel.button1.visible" :style="{'width': '100px',}">
     <i-button type="primary" @click="button1_click($event)"
          style="">
            
@@ -63,7 +63,7 @@
     </i-button>
 
 </div>
-<div  v-show="detailsModel.button2.visible" :style="{}">
+<div  v-show="detailsModel.button2.visible" :style="{'width': '100px',}">
     <i-button type="primary" @click="button2_click($event)"
          style="">
            
