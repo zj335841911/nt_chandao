@@ -167,6 +167,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectBurnDownChartView",
             "viewtag": "3aa4c66089ff40194c7f4ecaf627acb5"
         },
+        "projectlistexpview": {
+            "title": "项目列表导航视图",
+            "caption": "项目",
+            "viewtype": "DELISTEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProjectListExpView",
+            "viewtag": "3aafb12bb0db2be013c0f5ced8c7dc50"
+        },
         "storymainview": {
             "title": "需求数据看板视图",
             "caption": "需求",
@@ -191,12 +199,12 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryEditView",
             "viewtag": "4863a523ac490ebce771717756f0c6a8"
         },
-        "storyassignedtomegridview9": {
+        "storygridview9_assignedtome": {
             "title": "需求表格视图",
             "caption": "需求",
             "viewtype": "DEGRIDVIEW9",
             "viewmodule": "zentao",
-            "viewname": "StoryAssignedToMeGridView9",
+            "viewname": "StoryGridView9_AssignedToMe",
             "viewtag": "4b82e9acf6c784b138b365d6011b296b"
         },
         "productplansubplangridview": {
@@ -326,6 +334,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "BranchPMGridView",
             "viewtag": "776ea44ea05316c9c6cb9d5948e993f9"
+        },
+        "taskgridview9_assignedtome": {
+            "title": "任务表格视图",
+            "caption": "任务",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "TaskGridView9_AssignedToMe",
+            "viewtag": "79b3a14f0431747becc48f5b9f3aa990"
         },
         "producttestleftsidebarlistview": {
             "title": "所有产品",

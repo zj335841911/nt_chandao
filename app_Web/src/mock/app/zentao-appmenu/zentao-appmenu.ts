@@ -61,7 +61,7 @@ mock.onGet('v7/zentaoappmenu').reply((config: any) => {
 	iconcls: '',
 	icon: '',
 	textcls: '',
-	appfunctag: 'Auto4',
+	appfunctag: '_2',
 	resourcetag: '',
 },
 		{
@@ -153,7 +153,7 @@ mock.onGet('v7/zentaoappmenu').reply((config: any) => {
 	iconcls: 'fa fa-cogs',
 	icon: '',
 	textcls: '',
-	appfunctag: '_2',
+	appfunctag: '_3',
 	resourcetag: '',
 },
 	],

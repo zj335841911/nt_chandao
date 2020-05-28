@@ -52,7 +52,7 @@ export default {
 			caption: "需求",
       title: '需求',
 		},
-		assignedtomegridview9: {
+		gridview9_assignedtome: {
 			caption: "需求",
       title: '需求',
 		},

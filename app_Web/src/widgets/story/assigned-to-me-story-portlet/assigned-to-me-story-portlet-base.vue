@@ -4,7 +4,7 @@
             指派给我的需求
         </p>
         <div class="portlet-with-title">
-        <story-assigned-to-me-grid-view9 :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></story-assigned-to-me-grid-view9>
+        <story-grid-view9-assigned-to-me :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></story-grid-view9-assigned-to-me>
         </div>
     </div>
 </template>

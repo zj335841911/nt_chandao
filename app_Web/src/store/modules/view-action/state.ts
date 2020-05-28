@@ -133,9 +133,9 @@ export const viewstate: any = {
             refviews: [
                 '7af111f4c127f7032c3e12e8c5fc0045',
                 '1d697dd8e47a4781be8f690bcc5f7800',
+                'CC49500F-030F-458F-82DF-F88F6973DF64',
                 'A49E5FD9-FC90-434B-9E13-192873F6F2AC',
                 '7c79a923d0cdd1a5bc41a34367809077',
-                '846ddf8e555650608d4f75c4595c1270',
                 '8ca39819b87c5e3e8669fcd7409cf9a2',
             ],
         },
@@ -212,7 +212,7 @@ export const viewstate: any = {
         {
             viewtag: '4b82e9acf6c784b138b365d6011b296b',
             viewmodule: 'zentao',
-            viewname: 'StoryAssignedToMeGridView9',
+            viewname: 'StoryGridView9_AssignedToMe',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -377,6 +377,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '79b3a14f0431747becc48f5b9f3aa990',
+            viewmodule: 'zentao',
+            viewname: 'TaskGridView9_AssignedToMe',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '575fecad655143bbd28f17c581725a4e',
+                'ea141fddc78fd1af4d06e494baf12cc1',
+            ],
+        },
+        {
             viewtag: '7af111f4c127f7032c3e12e8c5fc0045',
             viewmodule: 'zentao',
             viewname: 'ProductTestLeftSidebarListView',
@@ -394,6 +405,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '846ddf8e555650608d4f75c4595c1270',
                 'f83dac873b9215483c4bb91673284b41',
                 'fd0b8748ff96edcde009d39903a9f211',
             ],
@@ -580,6 +592,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'a7a97014cad1917b94284db21ec968f1',
+            viewmodule: 'zentao',
+            viewname: 'ProjectGridView9_UnClosed',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'f83dac873b9215483c4bb91673284b41',
+                'bc36be2ee4a78e69c13665a8ad03ab6a',
+            ],
+        },
+        {
             viewtag: 'aad9a5713d6828d3119b811b26915215',
             viewmodule: 'zentao',
             viewname: 'ProductPlanEditView',
@@ -669,6 +692,17 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'bda78773fabbeee54079951afb35f954',
+            ],
+        },
+        {
+            viewtag: 'CC49500F-030F-458F-82DF-F88F6973DF64',
+            viewmodule: 'zentao',
+            viewname: 'ProjectPortalView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '79b3a14f0431747becc48f5b9f3aa990',
+                'a7a97014cad1917b94284db21ec968f1',
             ],
         },
         {

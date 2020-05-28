@@ -62,6 +62,10 @@ export default {
 			caption: "任务",
       title: '任务',
 		},
+		gridview9_assignedtome: {
+			caption: "任务",
+      title: '任务',
+		},
 		maingridview: {
 			caption: "任务",
       title: '任务',

@@ -72,6 +72,10 @@ export default {
                 caption: '产品主页',
                 title: '产品主页',
             },
+            projectportalview: {
+                caption: '项目主页',
+                title: '项目主页',
+            },
         },
         utilview:{
             importview:"导入数据",

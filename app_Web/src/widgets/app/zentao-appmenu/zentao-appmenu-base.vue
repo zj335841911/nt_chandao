@@ -19,8 +19,8 @@ export default class ZentaoBase extends Vue {
     private click(item: any) {
         if (item) {
             switch (item.appfunctag) {
-                case '_2': 
-                    this.click_2(item);
+                case '_3': 
+                    this.click_3(item);
                     return;
                 case 'Auto3': 
                     this.clickAuto3(item);
@@ -31,11 +31,11 @@ export default class ZentaoBase extends Vue {
                 case 'Auto2': 
                     this.clickAuto2(item);
                     return;
+                case '_2': 
+                    this.click_2(item);
+                    return;
                 case 'Auto1': 
                     this.clickAuto1(item);
-                    return;
-                case 'Auto4': 
-                    this.clickAuto4(item);
                     return;
                 default:
                     console.warn('未指定应用功能');
@@ -49,7 +49,7 @@ export default class ZentaoBase extends Vue {
      * @param {*} [item={}]
      * @memberof Zentao
      */
-    public click_2(item: any = {}) {
+    public click_3(item: any = {}) {
         const viewparam: any = {};
         Object.assign(viewparam, {});
         const deResParameters: any[] = [];
@@ -116,6 +116,23 @@ export default class ZentaoBase extends Vue {
     }
     
     /**
+     * 打开项目主页
+     *
+     * @param {*} [item={}]
+     * @memberof Zentao
+     */
+    public click_2(item: any = {}) {
+        const viewparam: any = {};
+        Object.assign(viewparam, {});
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'projectportalview', parameterName: 'projectportalview' },
+        ];
+        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
+        this.$router.push(path);
+    }
+    
+    /**
      * 打开产品主页
      *
      * @param {*} [item={}]
@@ -127,24 +144,6 @@ export default class ZentaoBase extends Vue {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'productportalview', parameterName: 'productportalview' },
-        ];
-        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
-        this.$router.push(path);
-    }
-    
-    /**
-     * 打开项目表格视图
-     *
-     * @param {*} [item={}]
-     * @memberof Zentao
-     */
-    public clickAuto4(item: any = {}) {
-        const viewparam: any = {};
-        Object.assign(viewparam, {});
-        const deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'projects', parameterName: 'project' },
-            { pathName: 'gridview', parameterName: 'gridview' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
         this.$router.push(path);

@@ -42,6 +42,10 @@ export default {
 			caption: '项目',
       title: '项目',
 		},
+		listexpview: {
+			caption: '项目',
+      title: '项目',
+		},
 		curproductgridview: {
 			caption: '项目',
       title: '项目',
@@ -230,20 +234,6 @@ export default {
 			tip: '保存并关闭',
 		},
 	},
-	leftsidebarlistviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: '新建',
-			tip: '新建',
-		},
-		seperator1: {
-			caption: '',
-			tip: '',
-		},
-		deuiaction2: {
-			caption: '刷新',
-			tip: '刷新',
-		},
-	},
 	gridviewtoolbar_toolbar: {
 		tbitem3: {
 			caption: '新建',
@@ -300,6 +290,28 @@ export default {
 		tbitem18: {
 			caption: '帮助',
 			tip: '帮助',
+		},
+	},
+	leftsidebarlistviewtoolbar_toolbar: {
+		deuiaction3_manager: {
+			caption: '管理',
+			tip: '管理',
+		},
+		seperator2: {
+			caption: '',
+			tip: '',
+		},
+		deuiaction1: {
+			caption: '新建',
+			tip: '新建',
+		},
+		seperator1: {
+			caption: '',
+			tip: '',
+		},
+		deuiaction2: {
+			caption: '刷新',
+			tip: '刷新',
 		},
 	},
 };

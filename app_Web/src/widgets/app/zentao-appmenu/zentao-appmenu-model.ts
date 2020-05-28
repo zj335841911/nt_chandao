@@ -68,9 +68,9 @@ export default class ZentaoModel {
                 	iconcls: '',
                 	icon: '',
                 	textcls: '',
-                	appfunctag: 'Auto4',
+                	appfunctag: '_2',
                 	appfuncyype: 'APPVIEW',
-                	viewname: 'project-grid-view',
+                	viewname: 'project-portal-view',
                 	resourcetag: '',
                 }
                 ,
@@ -173,7 +173,7 @@ export default class ZentaoModel {
                 	iconcls: 'fa fa-cogs',
                 	icon: '',
                 	textcls: '',
-                	appfunctag: '_2',
+                	appfunctag: '_3',
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'product-test-left-sidebar-list-view',
                 	resourcetag: '',
@@ -231,7 +231,7 @@ export default class ZentaoModel {
 	 */
 	private funcs: any[] = [
         {
-            appfunctag: '_2',
+            appfunctag: '_3',
             appfuncyype: 'APPVIEW',
             openmode: '',
             codename: 'producttestleftsidebarlistview',
@@ -279,6 +279,17 @@ export default class ZentaoModel {
             ],
         },
         {
+            appfunctag: '_2',
+            appfuncyype: 'APPVIEW',
+            openmode: '',
+            codename: 'projectportalview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/projectportalview/:projectportalview?',
+            parameters: [
+                { pathName: 'projectportalview', parameterName: 'projectportalview' },
+            ],
+        },
+        {
             appfunctag: 'Auto1',
             appfuncyype: 'APPVIEW',
             openmode: '',
@@ -287,18 +298,6 @@ export default class ZentaoModel {
             routepath: '/ibizpms/:ibizpms?/productportalview/:productportalview?',
             parameters: [
                 { pathName: 'productportalview', parameterName: 'productportalview' },
-            ],
-        },
-        {
-            appfunctag: 'Auto4',
-            appfuncyype: 'APPVIEW',
-            openmode: '',
-            codename: 'projectgridview',
-            deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/projects/:project?/gridview/:gridview?',
-            parameters: [
-                { pathName: 'projects', parameterName: 'project' },
-                { pathName: 'gridview', parameterName: 'gridview' },
             ],
         },
 	];

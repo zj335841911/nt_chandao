@@ -7,7 +7,11 @@
     <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
                 <div class='toolbar-container'>
-            <i-button :title="$t('entities.project.leftsidebarlistviewtoolbar_toolbar.deuiaction1.tip')" v-show="toolBarModels.deuiaction1.visabled" :disabled="toolBarModels.deuiaction1.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1' }, $event)">
+            <i-button :title="$t('entities.project.leftsidebarlistviewtoolbar_toolbar.deuiaction3_manager.tip')" v-show="toolBarModels.deuiaction3_manager.visabled" :disabled="toolBarModels.deuiaction3_manager.disabled" class='' @click="toolbar_click({ tag: 'deuiaction3_manager' }, $event)">
+                    <i class=''></i>
+                    <span class='caption'>{{$t('entities.project.leftsidebarlistviewtoolbar_toolbar.deuiaction3_manager.caption')}}</span>
+                </i-button>
+            <span class='seperator'>|</span>    <i-button :title="$t('entities.project.leftsidebarlistviewtoolbar_toolbar.deuiaction1.tip')" v-show="toolBarModels.deuiaction1.visabled" :disabled="toolBarModels.deuiaction1.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1' }, $event)">
                     <i class='fa fa-plus'></i>
                     <span class='caption'>{{$t('entities.project.leftsidebarlistviewtoolbar_toolbar.deuiaction1.caption')}}</span>
                 </i-button>
@@ -47,6 +51,7 @@ import ProjectService from '@/service/project/project-service';
 import ListViewEngine from '@engine/view/list-view-engine';
 
 
+import ProjectUIService from '@/uiservice/project/project-ui-service';
 
 @Component({
     components: {
@@ -223,6 +228,9 @@ export default class ProjectLeftSidebarListViewBase extends Vue {
      * @memberof ProjectLeftSidebarListView
      */
     public toolBarModels: any = {
+        deuiaction3_manager: { name: 'deuiaction3_manager', caption: '管理', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Manager', target: 'NONE' } },
+
+        seperator2: {  name: 'seperator2', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
         deuiaction1: { name: 'deuiaction1', caption: '新建', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'New', target: '' } },
 
         seperator1: {  name: 'seperator1', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
@@ -460,6 +468,9 @@ export default class ProjectLeftSidebarListViewBase extends Vue {
      * @memberof ProjectLeftSidebarListViewBase
      */
     public toolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction3_manager')) {
+            this.toolbar_deuiaction3_manager_click(null, '', $event2);
+        }
         if (Object.is($event.tag, 'deuiaction1')) {
             this.toolbar_deuiaction1_click(null, '', $event2);
         }
@@ -529,6 +540,36 @@ export default class ProjectLeftSidebarListViewBase extends Vue {
     }
 
 
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public toolbar_deuiaction3_manager_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        
+        let contextJO:any = {};
+        xData = this.$refs.list;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:ProjectUIService  = new ProjectUIService();
+        curUIService.Project_Manager(datas,contextJO, paramJO,  $event, xData,this,"Project");
+    }
 
     /**
      * 逻辑事件

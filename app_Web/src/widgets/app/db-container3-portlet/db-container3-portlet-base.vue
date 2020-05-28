@@ -14,14 +14,14 @@
             </i-col>
             <i-col :md="{ span: 24, offset: 0 }">
                 <div class="portlet-without-title">
-                                  <view_db_sysportlet4 
+                                  <view_db_sysportlet3 
                       :viewState="viewState"  
                       :viewparams="viewparams" 
                       :context="context" 
-                      name="db_sysportlet4"  
-                      ref='db_sysportlet4' 
+                      name="db_sysportlet3"  
+                      ref='db_sysportlet3' 
                       @closeview="closeView($event)">
-                  </view_db_sysportlet4>
+                  </view_db_sysportlet3>
                 </div>
             </i-col>
     </div>

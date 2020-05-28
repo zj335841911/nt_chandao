@@ -199,6 +199,16 @@
         "viewtag": "3aa4c66089ff40194c7f4ecaf627acb5",
         "memo": ""
     },
+    "projectlistexpview": {
+        "title": "项目列表导航视图",
+        "caption": "项目",
+        "viewtype": "DELISTEXPVIEW",
+        "viewmodule": "zentao",
+        "viewname": "ProjectListExpView",
+        "viewfilename": "project-list-exp-view",
+        "viewtag": "3aafb12bb0db2be013c0f5ced8c7dc50",
+        "memo": ""
+    },
     "storymainview": {
         "title": "需求数据看板视图",
         "caption": "需求",
@@ -229,13 +239,13 @@
         "viewtag": "4863a523ac490ebce771717756f0c6a8",
         "memo": ""
     },
-    "storyassignedtomegridview9": {
+    "storygridview9_assignedtome": {
         "title": "需求表格视图",
         "caption": "需求",
         "viewtype": "DEGRIDVIEW9",
         "viewmodule": "zentao",
-        "viewname": "StoryAssignedToMeGridView9",
-        "viewfilename": "story-assigned-to-me-grid-view9",
+        "viewname": "StoryGridView9_AssignedToMe",
+        "viewfilename": "story-grid-view9-assigned-to-me",
         "viewtag": "4b82e9acf6c784b138b365d6011b296b",
         "memo": "视图参数中指定了过滤条件"
     },
@@ -397,6 +407,16 @@
         "viewname": "BranchPMGridView",
         "viewfilename": "branch-pmgrid-view",
         "viewtag": "776ea44ea05316c9c6cb9d5948e993f9",
+        "memo": ""
+    },
+    "taskgridview9_assignedtome": {
+        "title": "任务表格视图",
+        "caption": "任务",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "TaskGridView9_AssignedToMe",
+        "viewfilename": "task-grid-view9-assigned-to-me",
+        "viewtag": "79b3a14f0431747becc48f5b9f3aa990",
         "memo": ""
     },
     "producttestleftsidebarlistview": {
