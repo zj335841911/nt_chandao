@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 
-import lombok.Data;
+import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
@@ -24,7 +24,10 @@ import cn.ibizlab.pms.core.zentao.domain.Notify;
  * 关系型数据实体[Notify] 查询条件对象
  */
 @Slf4j
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class NotifySearchContext extends QueryWrapperContext<Notify> {
 
 

@@ -18,7 +18,7 @@ import cn.ibizlab.pms.util.annotation.DEField;
 import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
 import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
 import java.io.Serializable;
-import lombok.Data;
+import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
@@ -29,7 +29,11 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 /**
  * 实体[产品生命周期]
  */
-@Data
+@Builder
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @TableName(value = "T_IBZ_PRODUCTLIFE",resultMap = "ProductLifeResultMap")
 public class ProductLife extends EntityMP implements Serializable {
 
