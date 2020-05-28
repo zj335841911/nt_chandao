@@ -3,8 +3,7 @@
     <template slot='title'>
     <span class='caption-info'>{{$t(model.srfTitle)}}</span>
     </template>
-    <div class='content-container pickup-grid-view'>
-                <view_searchform 
+    <view_searchform 
                     :viewState="viewState"  
                     :viewparams="viewparams" 
                     :context="context" 
@@ -41,7 +40,6 @@
                     @load="grid_load($event)"  
                     @closeview="closeView($event)">
                 </view_grid>
-        </div>
 </studio-view>
 </template>
 
