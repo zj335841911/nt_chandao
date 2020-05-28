@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.TestReport;
  * 关系型数据实体[TestReport] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class TestReportSearchContext extends QueryWrapperContext<TestReport> {
 
 	private String n_title_like;//[标题]

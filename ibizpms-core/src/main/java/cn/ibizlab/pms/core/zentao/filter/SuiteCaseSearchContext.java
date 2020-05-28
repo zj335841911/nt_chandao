@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.SuiteCase;
  * 关系型数据实体[SuiteCase] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class SuiteCaseSearchContext extends QueryWrapperContext<SuiteCase> {
 
 	private BigInteger n_suite_eq;//[测试套件]

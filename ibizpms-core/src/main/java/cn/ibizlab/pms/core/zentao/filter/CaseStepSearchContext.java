@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.CaseStep;
  * 关系型数据实体[CaseStep] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class CaseStepSearchContext extends QueryWrapperContext<CaseStep> {
 
 	private BigInteger n_case_eq;//[用例]

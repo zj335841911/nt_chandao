@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.Effort;
  * 关系型数据实体[Effort] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class EffortSearchContext extends QueryWrapperContext<Effort> {
 
 	private String n_status_eq;//[status]

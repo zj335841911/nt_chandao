@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.Block;
  * 关系型数据实体[Block] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class BlockSearchContext extends QueryWrapperContext<Block> {
 
 	private String n_title_like;//[区块名称]

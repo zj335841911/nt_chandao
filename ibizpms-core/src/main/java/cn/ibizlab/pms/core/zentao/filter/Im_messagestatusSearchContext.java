@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.Im_messagestatus;
  * 关系型数据实体[Im_messagestatus] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class Im_messagestatusSearchContext extends QueryWrapperContext<Im_messagestatus> {
 
 	private String n_status_eq;//[status]

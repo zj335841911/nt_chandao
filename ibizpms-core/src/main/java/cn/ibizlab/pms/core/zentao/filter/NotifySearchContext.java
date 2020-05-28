@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.Notify;
  * 关系型数据实体[Notify] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class NotifySearchContext extends QueryWrapperContext<Notify> {
 
 

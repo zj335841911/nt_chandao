@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.Module;
  * 关系型数据实体[Module] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class ModuleSearchContext extends QueryWrapperContext<Module> {
 
 	private String n_name_like;//[模块名称]

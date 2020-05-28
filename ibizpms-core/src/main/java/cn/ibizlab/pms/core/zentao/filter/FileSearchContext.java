@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.File;
  * 关系型数据实体[File] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class FileSearchContext extends QueryWrapperContext<File> {
 
 	private String n_title_like;//[标题]

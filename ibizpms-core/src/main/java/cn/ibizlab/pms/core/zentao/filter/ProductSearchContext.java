@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.Product;
  * 关系型数据实体[Product] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class ProductSearchContext extends QueryWrapperContext<Product> {
 
 	private String n_acl_eq;//[访问控制]

@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.StorySpec;
  * 关系型数据实体[StorySpec] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class StorySpecSearchContext extends QueryWrapperContext<StorySpec> {
 
 	private Integer n_duplicatestory_eq;//[重复需求ID]

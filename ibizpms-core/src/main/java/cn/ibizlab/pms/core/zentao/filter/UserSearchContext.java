@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.User;
  * 关系型数据实体[User] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class UserSearchContext extends QueryWrapperContext<User> {
 
 	private String n_clientstatus_eq;//[clientStatus]

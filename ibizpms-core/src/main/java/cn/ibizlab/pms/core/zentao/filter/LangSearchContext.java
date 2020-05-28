@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.Lang;
  * 关系型数据实体[Lang] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class LangSearchContext extends QueryWrapperContext<Lang> {
 
 	private String n_system_eq;//[system]

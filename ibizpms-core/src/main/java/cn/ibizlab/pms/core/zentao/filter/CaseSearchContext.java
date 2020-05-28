@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.Case;
  * 关系型数据实体[Case] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class CaseSearchContext extends QueryWrapperContext<Case> {
 
 	private String n_frequency_eq;//[frequency]

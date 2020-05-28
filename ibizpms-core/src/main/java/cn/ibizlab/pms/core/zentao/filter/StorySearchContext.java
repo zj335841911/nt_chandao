@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.Story;
  * 关系型数据实体[Story] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class StorySearchContext extends QueryWrapperContext<Story> {
 
 	private String n_assignedto_eq;//[指派给]

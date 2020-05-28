@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.Todo;
  * 关系型数据实体[Todo] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class TodoSearchContext extends QueryWrapperContext<Todo> {
 
 	private String n_status_eq;//[状态]

@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.TestRun;
  * 关系型数据实体[TestRun] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class TestRunSearchContext extends QueryWrapperContext<TestRun> {
 
 	private BigInteger n_case_eq;//[测试用例]

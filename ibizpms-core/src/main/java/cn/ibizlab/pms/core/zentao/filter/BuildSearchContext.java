@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.Build;
  * 关系型数据实体[Build] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class BuildSearchContext extends QueryWrapperContext<Build> {
 
 	private String n_name_like;//[名称编号]

@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.StoryStage;
  * 关系型数据实体[StoryStage] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class StoryStageSearchContext extends QueryWrapperContext<StoryStage> {
 
 	private BigInteger n_story_eq;//[需求]

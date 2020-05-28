@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.Action;
  * 关系型数据实体[Action] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class ActionSearchContext extends QueryWrapperContext<Action> {
 
 	private String n_read_eq;//[已读]

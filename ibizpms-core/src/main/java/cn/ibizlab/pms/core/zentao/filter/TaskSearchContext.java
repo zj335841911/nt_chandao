@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.Task;
  * 关系型数据实体[Task] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class TaskSearchContext extends QueryWrapperContext<Task> {
 
 	private String n_status_eq;//[任务状态]

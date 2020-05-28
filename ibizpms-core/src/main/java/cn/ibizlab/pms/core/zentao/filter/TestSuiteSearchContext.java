@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.TestSuite;
  * 关系型数据实体[TestSuite] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class TestSuiteSearchContext extends QueryWrapperContext<TestSuite> {
 
 	private String n_name_like;//[名称]

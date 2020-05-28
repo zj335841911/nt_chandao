@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.Job;
  * 关系型数据实体[Job] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class JobSearchContext extends QueryWrapperContext<Job> {
 
 	private String n_name_like;//[name]

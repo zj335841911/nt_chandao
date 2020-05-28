@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.Relation;
  * 关系型数据实体[Relation] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class RelationSearchContext extends QueryWrapperContext<Relation> {
 
 

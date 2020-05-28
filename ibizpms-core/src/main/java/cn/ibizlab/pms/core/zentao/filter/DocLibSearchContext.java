@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.DocLib;
  * 关系型数据实体[DocLib] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class DocLibSearchContext extends QueryWrapperContext<DocLib> {
 
 	private Integer n_main_eq;//[是否是主库]

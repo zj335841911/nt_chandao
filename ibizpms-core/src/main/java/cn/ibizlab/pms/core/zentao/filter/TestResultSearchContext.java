@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.TestResult;
  * 关系型数据实体[TestResult] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class TestResultSearchContext extends QueryWrapperContext<TestResult> {
 
 	private BigInteger n_job_eq;//[构建任务]

@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.RepoHistory;
  * 关系型数据实体[RepoHistory] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class RepoHistorySearchContext extends QueryWrapperContext<RepoHistory> {
 
 

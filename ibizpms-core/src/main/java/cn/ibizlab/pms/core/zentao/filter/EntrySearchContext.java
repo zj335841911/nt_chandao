@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.Entry;
  * 关系型数据实体[Entry] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class EntrySearchContext extends QueryWrapperContext<Entry> {
 
 	private String n_freepasswd_eq;//[freePasswd]

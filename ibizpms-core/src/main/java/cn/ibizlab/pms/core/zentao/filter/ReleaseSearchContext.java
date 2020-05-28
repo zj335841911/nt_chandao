@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.Release;
  * 关系型数据实体[Release] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class ReleaseSearchContext extends QueryWrapperContext<Release> {
 
 	private Integer n_marker_eq;//[里程碑]

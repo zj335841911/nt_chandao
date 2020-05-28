@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.Burn;
  * 关系型数据实体[Burn] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class BurnSearchContext extends QueryWrapperContext<Burn> {
 
 	private BigInteger n_project_eq;//[所属项目]

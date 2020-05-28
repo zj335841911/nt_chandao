@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.Im_queue;
  * 关系型数据实体[Im_queue] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class Im_queueSearchContext extends QueryWrapperContext<Im_queue> {
 
 

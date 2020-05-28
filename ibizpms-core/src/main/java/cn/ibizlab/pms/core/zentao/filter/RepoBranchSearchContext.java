@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.RepoBranch;
  * 关系型数据实体[RepoBranch] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class RepoBranchSearchContext extends QueryWrapperContext<RepoBranch> {
 
 

@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.UserQuery;
  * 关系型数据实体[UserQuery] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class UserQuerySearchContext extends QueryWrapperContext<UserQuery> {
 
 	private String n_shortcut_eq;//[shortcut]

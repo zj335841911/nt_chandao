@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.ibiz.domain.ProductModule;
  * 关系型数据实体[ProductModule] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class ProductModuleSearchContext extends QueryWrapperContext<ProductModule> {
 
 	private String n_name_like;//[名称]

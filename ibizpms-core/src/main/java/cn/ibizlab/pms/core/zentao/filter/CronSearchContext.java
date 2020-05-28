@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.Cron;
  * 关系型数据实体[Cron] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class CronSearchContext extends QueryWrapperContext<Cron> {
 
 

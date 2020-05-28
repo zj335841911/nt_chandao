@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.Compile;
  * 关系型数据实体[Compile] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class CompileSearchContext extends QueryWrapperContext<Compile> {
 
 	private String n_name_like;//[name]

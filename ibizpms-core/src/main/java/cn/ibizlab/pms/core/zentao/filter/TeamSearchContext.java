@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.Team;
  * 关系型数据实体[Team] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class TeamSearchContext extends QueryWrapperContext<Team> {
 
 	private String n_type_eq;//[团队类型]

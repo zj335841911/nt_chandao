@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.Dept;
  * 关系型数据实体[Dept] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class DeptSearchContext extends QueryWrapperContext<Dept> {
 
 	private String n_name_like;//[name]

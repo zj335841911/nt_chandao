@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.Bug;
  * 关系型数据实体[Bug] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class BugSearchContext extends QueryWrapperContext<Bug> {
 
 	private String n_status_eq;//[Bug状态]

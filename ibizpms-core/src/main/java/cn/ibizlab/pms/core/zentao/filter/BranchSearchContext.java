@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.Branch;
  * 关系型数据实体[Branch] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class BranchSearchContext extends QueryWrapperContext<Branch> {
 
 	private String n_name_like;//[名称]

@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.History;
  * 关系型数据实体[History] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class HistorySearchContext extends QueryWrapperContext<History> {
 
 	private BigInteger n_action_eq;//[关联日志]

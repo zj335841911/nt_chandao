@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.Im_conferenceaction;
  * 关系型数据实体[Im_conferenceaction] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class Im_conferenceactionSearchContext extends QueryWrapperContext<Im_conferenceaction> {
 
 	private String n_type_eq;//[type]

@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.WebHook;
  * 关系型数据实体[WebHook] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class WebHookSearchContext extends QueryWrapperContext<WebHook> {
 
 	private String n_name_like;//[name]

@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.Im_chatuser;
  * 关系型数据实体[Im_chatuser] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class Im_chatuserSearchContext extends QueryWrapperContext<Im_chatuser> {
 
 	private String n_freeze_eq;//[freeze]

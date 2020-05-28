@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.Jenkins;
  * 关系型数据实体[Jenkins] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class JenkinsSearchContext extends QueryWrapperContext<Jenkins> {
 
 	private String n_name_like;//[name]

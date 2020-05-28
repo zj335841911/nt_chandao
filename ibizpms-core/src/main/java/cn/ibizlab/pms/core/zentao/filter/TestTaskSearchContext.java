@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.TestTask;
  * 关系型数据实体[TestTask] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class TestTaskSearchContext extends QueryWrapperContext<TestTask> {
 
 	private String n_status_eq;//[当前状态]

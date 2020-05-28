@@ -24,10 +24,7 @@ import cn.ibizlab.pms.core.zentao.domain.Im_chat;
  * 关系型数据实体[Im_chat] 查询条件对象
  */
 @Slf4j
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class Im_chatSearchContext extends QueryWrapperContext<Im_chat> {
 
 	private String n_public_eq;//[public]
