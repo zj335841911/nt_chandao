@@ -296,6 +296,7 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
      */   
     public chartUserParams:any ={
         barWidth:20,
+        yAxis.show:false,
         color:["#f69f54","#42B3FF","#aa00ff","#884bff",'#00ffa9','#85B3FF','#A1FFFF']
     };
 
