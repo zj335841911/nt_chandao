@@ -2,7 +2,7 @@
     <i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='task_maininfo' style="">
     <input style="display:none;" />
     <row >
-    <tabs :animated="false" name='maininfo' :value="detailsModel.form.activiedPage" 
+    <tabs :animated="false" size="small" name='maininfo' :value="detailsModel.form.activiedPage" 
         @on-click="detailsModel.form.clickPage($event)">
             <tab-pane v-show="detailsModel.formpage1.visible" name='formpage1' :index="0" tab='maininfo' class=''  
                 :label="(h) =>{

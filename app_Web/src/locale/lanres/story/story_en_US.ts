@@ -233,8 +233,12 @@ export default {
 			id: "ID",
 			pri: "P",
 			title: "需求名称",
+			uagridcolumn1: "操作",
 		},
 		uiactions: {
+			exit: "关闭",
+			openbaseinfoeditview: "编辑",
+			removeandexit: "Remove And Close",
 		},
 	},
 	main9_grid: {
