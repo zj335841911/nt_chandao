@@ -36,11 +36,24 @@ public class ZTProductHelper {
     private final static String  FUNC_DOC= "doc";
     private final static String  FUNC_BUILD= "build";
 
-    private final static Map<String, String> FUNC_URL_PARAMS = new HashMap<>();
     private final static Map<String, HttpMethod> FUNC_HTTPMETHOD_TYPE = new HashMap<>();
+    private final static Map<String, Object> PARAMS_CREATE = new HashMap<>();
 
     static {
+        // http method
         FUNC_HTTPMETHOD_TYPE.put(FUNC_CREATE, HttpMethod.POST);
+
+        // params & default value
+        PARAMS_CREATE.put("name", null);
+        PARAMS_CREATE.put("code", null);
+        PARAMS_CREATE.put("qd", null);
+        PARAMS_CREATE.put("rd", null);
+        PARAMS_CREATE.put("po", null);
+        PARAMS_CREATE.put("type", "normal");
+        PARAMS_CREATE.put("acl", "open");
+        PARAMS_CREATE.put("line", 0);
+        PARAMS_CREATE.put("status", "normal");
+
     }
 
     final static public boolean create(JSONObject jo, ZTResult rst) {
@@ -48,7 +61,7 @@ public class ZTProductHelper {
         String account = ZenTaoConstants.ZT_TMP_USERNAME;
         String url = MODULE_NAME + "-" + FUNC_CREATE + ZenTaoConstants.ZT_URL_EXT;
         JSONObject rstJO = new JSONObject();
-        rstJO = ZenTaoHttpHelper.doRequest(account, url, FUNC_HTTPMETHOD_TYPE.get(FUNC_CREATE), formatCreateJO(jo));
+        rstJO = ZenTaoHttpHelper.doRequest(account, url, FUNC_HTTPMETHOD_TYPE.get(FUNC_CREATE), ZenTaoHttpHelper.formatJSON(jo, PARAMS_CREATE));
         if ("fail".equals(rstJO.getString("result"))) {
             JSONObject message = rstJO.getJSONObject("message");
             List<String> msgList = new ArrayList<>();
@@ -76,28 +89,6 @@ public class ZTProductHelper {
         String idStr = locate.substring("/zentao/product-browse-".length(), locate.indexOf(".json"));
         rst.setEtId(new BigInteger(idStr));
         return true;
-    }
-
-    final static public JSONObject formatCreateJO(JSONObject jo) {
-        JSONObject formatJo = new JSONObject();
-        formatJo.put("name", jo.getString("name"));
-        formatJo.put("code", jo.getString("code"));
-        formatJo.put("qd", jo.getString("qd"));
-        formatJo.put("rd", jo.getString("rd"));
-        formatJo.put("po", jo.getString("po"));
-        formatJo.put("type", jo.getString("type"));
-        formatJo.put("acl", jo.getString("acl"));
-        if (jo.get("line") == null) {
-            formatJo.put("line", 0);
-        } else {
-            formatJo.put("line", jo.getIntValue("line"));
-        }
-        if (jo.get("status") == null) {
-            formatJo.put("status", "normal");
-        } else {
-            formatJo.put("status", jo.getString("status"));
-        }
-        return formatJo;
     }
 
 }

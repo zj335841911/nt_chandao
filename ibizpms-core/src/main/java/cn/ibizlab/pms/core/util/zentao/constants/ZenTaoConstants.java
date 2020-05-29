@@ -7,9 +7,9 @@ import org.springframework.stereotype.Component;
 import java.util.HashMap;
 import java.util.Map;
 
-@Component
+//@Component
 final public class ZenTaoConstants {
-    @Value("${zentao.url:http://172.16.100.202/zentao/}")
+//    @Value("${zentao.url:http://172.16.100.202/zentao/}")
     public static String ZT_URL = "http://172.16.100.202/zentao/";
     final public static String ZT_URL_EXT = ".json";
     final public static String ZT_TMP_USERNAME = "admin";

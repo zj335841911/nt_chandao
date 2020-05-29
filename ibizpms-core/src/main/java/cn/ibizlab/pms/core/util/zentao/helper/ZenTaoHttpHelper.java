@@ -11,6 +11,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
+import java.util.Map;
+
 public class ZenTaoHttpHelper {
 //    @Value("${zentao.url:http://172.16.100.202/zentao/}")
 //    private String ztUrl;
@@ -54,6 +56,19 @@ public class ZenTaoHttpHelper {
         }
         jo = JSONObject.parseObject(body);
         return jo;
+    }
+
+    final static public JSONObject formatJSON(JSONObject jo, Map<String, Object> templateMap) {
+        // 若为空时，default值填充
+        JSONObject formatJo = new JSONObject();
+        for (String key : templateMap.keySet()) {
+            if (jo.get(key) == null) {
+                formatJo.put(key, templateMap.get(key));
+            } else {
+                formatJo.put(key, jo.get(key));
+            }
+        }
+        return formatJo;
     }
 
 }
