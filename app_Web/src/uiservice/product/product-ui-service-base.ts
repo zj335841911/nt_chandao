@@ -136,9 +136,6 @@ export default class ProductUIServiceBase extends UIService {
         const openIndexViewTab = (data: any) => {
             const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
             actionContext.$router.push(routePath);
-            if (xData && xData.refresh && xData.refresh instanceof Function) {
-                xData.refresh(args);
-            }
             return null;
         }
         openIndexViewTab(data);
@@ -175,9 +172,6 @@ export default class ProductUIServiceBase extends UIService {
         const openIndexViewTab = (data: any) => {
             const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
             actionContext.$router.push(routePath);
-            if (xData && xData.refresh && xData.refresh instanceof Function) {
-                xData.refresh(args);
-            }
             return null;
         }
         openIndexViewTab(data);
