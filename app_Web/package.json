@@ -27,7 +27,7 @@
     "font-awesome": "^4.7.0",
     "ibiz-gantt-elastic": "^1.0.15",
     "ibiz-vue-lib": "^0.1.9",
-    "interactjs": "^1.9.4",
+    "interactjs": "1.9.10",
     "moment": "^2.24.0",
     "path-to-regexp": "^6.1.0",
     "qs": "^6.9.1",
@@ -61,7 +61,7 @@
     "less-loader": "^5.0.0",
     "mockjs": "^1.1.0",
     "script-loader": "^0.7.2",
-    "typescript": "~3.5.3",
+    "typescript": "^3.9.3",
     "vue-template-compiler": "^2.6.10"
   }
 }

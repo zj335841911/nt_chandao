@@ -199,7 +199,7 @@ export class StudioDrawer extends Vue {
             <div class="studio-drawer-breadcrumb">
                 {this.viewList.map((item, i) => {
                     return <span>
-                        {i !== 0 ? <span class="studio-drawer-breadcrumb-item-separator">></span> : null}
+                        {i !== 0 ? <span class="studio-drawer-breadcrumb-item-separator">&gt;</span> : null}
                         <span class="text" on-click={() => this.closeByIndex(i)}>{item.title}</span>
                     </span>;
                 })}

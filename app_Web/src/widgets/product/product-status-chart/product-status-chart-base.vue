@@ -246,14 +246,14 @@ export default class ProductStatusBase extends Vue implements ControlInterface {
     
     categorField:'status',
     categorCodeList:{type:'STATIC',tag:'Product__status',emptycode:'empty',emptytext:'未定义'},
-    valueField:'id',
+    valueField:'srfcount',
     seriesValues:[],
     seriesIndex:0,
     data:[],
     seriesMap:{},
     dataSetFields:[
     {name:"status",codelist:{type:"STATIC",tag:"Product__status",emptycode:'empty',emptytext:'未定义'},isGroupField:true,groupMode:"CODELIST"},
-    {name:"id",codelist:null,isGroupField:false,groupMode:""}
+    {name:"srfcount",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
         label:{
@@ -296,7 +296,7 @@ export default class ProductStatusBase extends Vue implements ControlInterface {
      * @memberof Db_productstatusportlet_chartBase
      */   
     public chartUserParams:any ={
-        color:["#f69f54","#00ffa9","#aa00ff","#884bff",'#42B3FF','#85B3FF','#A1FFFF']
+        color:["#f69f54","#42B3FF","#aa00ff","#884bff",'#00ffa9','#85B3FF','#A1FFFF']
     };
 
     /**
@@ -335,7 +335,7 @@ export default class ProductStatusBase extends Vue implements ControlInterface {
             seriesLayoutBy:"column",
             encode:{
                 itemName:"status",
-                value:"id"
+                value:"srfcount"
             }}
         ]
     };
