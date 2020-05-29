@@ -48,11 +48,11 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.ibz_subproductplan && context.bug){
-            return Http.getInstance().get(`/products/${context.product}/ibz_subproductplans/${context.ibz_subproductplan}/bugs/${context.bug}/select`,isloading);
+        if(context.product && context.productplan && context.bug){
+            return Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}/select`,isloading);
         }
-        if(context.ibz_subproductplan && context.bug){
-            return Http.getInstance().get(`/ibz_subproductplans/${context.ibz_subproductplan}/bugs/${context.bug}/select`,isloading);
+        if(context.productplan && context.bug){
+            return Http.getInstance().get(`/productplans/${context.productplan}/bugs/${context.bug}/select`,isloading);
         }
         if(context.product && context.bug){
             return Http.getInstance().get(`/products/${context.product}/bugs/${context.bug}/select`,isloading);
@@ -70,11 +70,11 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.ibz_subproductplan && context.bug){
-            return Http.getInstance().get(`/products/${context.product}/ibz_subproductplans/${context.ibz_subproductplan}/bugs/${context.bug}`,isloading);
+        if(context.product && context.productplan && context.bug){
+            return Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}`,isloading);
         }
-        if(context.ibz_subproductplan && context.bug){
-            return Http.getInstance().get(`/ibz_subproductplans/${context.ibz_subproductplan}/bugs/${context.bug}`,isloading);
+        if(context.productplan && context.bug){
+            return Http.getInstance().get(`/productplans/${context.productplan}/bugs/${context.bug}`,isloading);
         }
         if(context.product && context.bug){
             return Http.getInstance().get(`/products/${context.product}/bugs/${context.bug}`,isloading);
@@ -94,11 +94,11 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.ibz_subproductplan && true){
-            return Http.getInstance().get(`/products/${context.product}/ibz_subproductplans/${context.ibz_subproductplan}/bugs/getdraft`,isloading);
+        if(context.product && context.productplan && true){
+            return Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/bugs/getdraft`,isloading);
         }
-        if(context.ibz_subproductplan && true){
-            return Http.getInstance().get(`/ibz_subproductplans/${context.ibz_subproductplan}/bugs/getdraft`,isloading);
+        if(context.productplan && true){
+            return Http.getInstance().get(`/productplans/${context.productplan}/bugs/getdraft`,isloading);
         }
         if(context.product && true){
             return Http.getInstance().get(`/products/${context.product}/bugs/getdraft`,isloading);
@@ -118,11 +118,11 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.ibz_subproductplan && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/ibz_subproductplans/${context.ibz_subproductplan}/bugs/${context.bug}/checkkey`,data,isloading);
+        if(context.product && context.productplan && context.bug){
+            return Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}/checkkey`,data,isloading);
         }
-        if(context.ibz_subproductplan && context.bug){
-            return Http.getInstance().post(`/ibz_subproductplans/${context.ibz_subproductplan}/bugs/${context.bug}/checkkey`,data,isloading);
+        if(context.productplan && context.bug){
+            return Http.getInstance().post(`/productplans/${context.productplan}/bugs/${context.bug}/checkkey`,data,isloading);
         }
         if(context.product && context.bug){
             return Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/checkkey`,data,isloading);
@@ -140,11 +140,11 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.ibz_subproductplan && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/ibz_subproductplans/${context.ibz_subproductplan}/bugs/${context.bug}/save`,data,isloading);
+        if(context.product && context.productplan && context.bug){
+            return Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}/save`,data,isloading);
         }
-        if(context.ibz_subproductplan && context.bug){
-            return Http.getInstance().post(`/ibz_subproductplans/${context.ibz_subproductplan}/bugs/${context.bug}/save`,data,isloading);
+        if(context.productplan && context.bug){
+            return Http.getInstance().post(`/productplans/${context.productplan}/bugs/${context.bug}/save`,data,isloading);
         }
         if(context.product && context.bug){
             return Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/save`,data,isloading);
@@ -165,23 +165,23 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.ibz_subproductplan && true){
+        if(context.product && context.productplan && true){
             if(!data.srffrontuf || data.srffrontuf !== "1"){
                 data[this.APPDEKEY] = null;
             }
             if(data.srffrontuf){
                 delete data.srffrontuf;
             }
-            return Http.getInstance().post(`/products/${context.product}/ibz_subproductplans/${context.ibz_subproductplan}/bugs`,data,isloading);
+            return Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/bugs`,data,isloading);
         }
-        if(context.ibz_subproductplan && true){
+        if(context.productplan && true){
             if(!data.srffrontuf || data.srffrontuf !== "1"){
                 data[this.APPDEKEY] = null;
             }
             if(data.srffrontuf){
                 delete data.srffrontuf;
             }
-            return Http.getInstance().post(`/ibz_subproductplans/${context.ibz_subproductplan}/bugs`,data,isloading);
+            return Http.getInstance().post(`/productplans/${context.productplan}/bugs`,data,isloading);
         }
         if(context.product && true){
             if(!data.srffrontuf || data.srffrontuf !== "1"){
@@ -215,11 +215,11 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.ibz_subproductplan && context.bug){
-            return Http.getInstance().delete(`/products/${context.product}/ibz_subproductplans/${context.ibz_subproductplan}/bugs/${context.bug}`,isloading);
+        if(context.product && context.productplan && context.bug){
+            return Http.getInstance().delete(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}`,isloading);
         }
-        if(context.ibz_subproductplan && context.bug){
-            return Http.getInstance().delete(`/ibz_subproductplans/${context.ibz_subproductplan}/bugs/${context.bug}`,isloading);
+        if(context.productplan && context.bug){
+            return Http.getInstance().delete(`/productplans/${context.productplan}/bugs/${context.bug}`,isloading);
         }
         if(context.product && context.bug){
             return Http.getInstance().delete(`/products/${context.product}/bugs/${context.bug}`,isloading);
@@ -238,11 +238,11 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.ibz_subproductplan && context.bug){
-            return Http.getInstance().put(`/products/${context.product}/ibz_subproductplans/${context.ibz_subproductplan}/bugs/${context.bug}`,data,isloading);
+        if(context.product && context.productplan && context.bug){
+            return Http.getInstance().put(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}`,data,isloading);
         }
-        if(context.ibz_subproductplan && context.bug){
-            return Http.getInstance().put(`/ibz_subproductplans/${context.ibz_subproductplan}/bugs/${context.bug}`,data,isloading);
+        if(context.productplan && context.bug){
+            return Http.getInstance().put(`/productplans/${context.productplan}/bugs/${context.bug}`,data,isloading);
         }
         if(context.product && context.bug){
             return Http.getInstance().put(`/products/${context.product}/bugs/${context.bug}`,data,isloading);
@@ -263,13 +263,13 @@ export default class BugServiceBase extends EntityService {
      * @memberof BugServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.ibz_subproductplan && true){
+        if(context.product && context.productplan && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/ibz_subproductplans/${context.ibz_subproductplan}/bugs/fetchdefault`,tempData,isloading);
+            return Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/bugs/fetchdefault`,tempData,isloading);
         }
-        if(context.ibz_subproductplan && true){
+        if(context.productplan && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/ibz_subproductplans/${context.ibz_subproductplan}/bugs/fetchdefault`,tempData,isloading);
+            return Http.getInstance().get(`/productplans/${context.productplan}/bugs/fetchdefault`,tempData,isloading);
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));

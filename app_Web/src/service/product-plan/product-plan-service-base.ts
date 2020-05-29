@@ -48,6 +48,9 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan){
+            return Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/select`,isloading);
+        }
             return Http.getInstance().get(`/productplans/${context.productplan}/select`,isloading);
     }
 
@@ -61,9 +64,28 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan){
+            return Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/save`,data,isloading);
+        }
         let masterData:any = {};
+        let bugsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
+            bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
+            if(bugsData && bugsData.length && bugsData.length > 0){
+                bugsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.bugs = bugsData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/productplans/${context.productplan}/save`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
     }
 
@@ -77,7 +99,31 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            if(!data.srffrontuf || data.srffrontuf !== "1"){
+                data[this.APPDEKEY] = null;
+            }
+            if(data.srffrontuf){
+                delete data.srffrontuf;
+            }
+            return Http.getInstance().post(`/products/${context.product}/productplans`,data,isloading);
+        }
         let masterData:any = {};
+        let bugsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
+            bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
+            if(bugsData && bugsData.length && bugsData.length > 0){
+                bugsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.bugs = bugsData;
         Object.assign(data,masterData);
         if(!data.srffrontuf || data.srffrontuf !== "1"){
             data[this.APPDEKEY] = null;
@@ -87,6 +133,7 @@ export default class ProductPlanServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/productplans`,data,isloading);
+        this.tempStorage.setItem(tempContext.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
         return res;
     }
 
@@ -100,6 +147,9 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan){
+            return Http.getInstance().delete(`/products/${context.product}/productplans/${context.productplan}`,isloading);
+        }
             return Http.getInstance().delete(`/productplans/${context.productplan}`,isloading);
 
     }
@@ -114,6 +164,9 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan){
+            return Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/checkkey`,data,isloading);
+        }
             return Http.getInstance().post(`/productplans/${context.productplan}/checkkey`,data,isloading);
     }
 
@@ -127,8 +180,12 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            return Http.getInstance().get(`/products/${context.product}/productplans/getdraft`,isloading);
+        }
         let res:any = await  Http.getInstance().get(`/productplans/getdraft`,isloading);
         res.data.productplan = data.productplan;
+            this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
         return res;
     }
 
@@ -142,9 +199,28 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan){
+            return Http.getInstance().put(`/products/${context.product}/productplans/${context.productplan}`,data,isloading);
+        }
         let masterData:any = {};
+        let bugsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
+            bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
+            if(bugsData && bugsData.length && bugsData.length > 0){
+                bugsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.bugs = bugsData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/productplans/${context.productplan}`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
     }
 
@@ -158,7 +234,11 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan){
+            return Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}`,isloading);
+        }
             let res:any = await Http.getInstance().get(`/productplans/${context.productplan}`,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
 
     }
@@ -173,6 +253,10 @@ export default class ProductPlanServiceBase extends EntityService {
      * @memberof ProductPlanServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/products/${context.product}/productplans/fetchdefault`,tempData,isloading);
+        }
         let tempData:any = JSON.parse(JSON.stringify(data));
         return Http.getInstance().get(`/productplans/fetchdefault`,tempData,isloading);
     }
