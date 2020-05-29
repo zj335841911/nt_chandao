@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet storyspec ' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : '1px',}">
+    <div class='portlet storyspec ' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : 'auto',}">
         <div class="portlet-without-title">
         <story-spec-main-view9 :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></story-spec-main-view9>
         </div>

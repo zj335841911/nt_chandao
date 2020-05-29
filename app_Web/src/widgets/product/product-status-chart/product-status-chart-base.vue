@@ -363,7 +363,6 @@ export default class ProductStatusBase extends Vue implements ControlInterface {
         this.$emit('beforeload', parentdata);
         Object.assign(arg, parentdata);
         Object.assign(arg,{viewparams:this.viewparams,page:0,size:1000});
-        Object.assign(arg,{size:-1});
         this.service.search(this.fetchAction,JSON.parse(JSON.stringify(this.context)),arg,this.showBusyIndicator).then((res) => {
             if (res) {
                this.transformToBasicChartSetData(res.data,() =>{_this.drawCharts()});
