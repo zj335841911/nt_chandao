@@ -68,7 +68,7 @@ public class ZTProductHelper {
     // 接口行为URL参数
     // ----------
 
-    private final static Map<String, List<String>> ACTION_URL_PARAMS_EDIT = new HashMap<>();
+    private final static List<String> ACTION_URL_PARAMS_EDIT = new ArrayList<>();
 
     // ----------
     // 接口行为POST参数设置
@@ -96,6 +96,15 @@ public class ZTProductHelper {
         ACTION_PARAMS_EDIT.put("acl", "open");
         ACTION_PARAMS_EDIT.put("line", 0);
         ACTION_PARAMS_EDIT.put("status", "normal");
+    }
+
+    // ----------
+    // 接口行为URL参数设置
+    // ----------
+
+    static {
+        // EDIT
+        ACTION_URL_PARAMS_EDIT.add("id");
     }
 
     // ----------
@@ -134,6 +143,47 @@ public class ZTProductHelper {
         rst.setMessage(rstJO.getString("message"));
         String locate = rstJO.getString("locate");
         String idStr = locate.substring("/zentao/product-browse-".length(), locate.indexOf(".json"));
+        rst.setEtId(new BigInteger(idStr));
+        return true;
+    }
+
+    final static public boolean edit(JSONObject jo, ZTResult rst) {
+        // 后期从session获取，前期使用admin
+        String account = ZenTaoConstants.ZT_TMP_USERNAME;
+        String urlParams = "";
+        if (ACTION_URL_PARAMS_EDIT != null && ACTION_URL_PARAMS_EDIT.size() > 0) {
+            for (String key : ACTION_URL_PARAMS_EDIT) {
+                urlParams += "-" + jo.get(key);
+            }
+        }
+        String url = MODULE_NAME + "-" + ACTION_EDIT  + urlParams + ZenTaoConstants.ZT_URL_EXT;
+        JSONObject rstJO = new JSONObject();
+        rstJO = ZenTaoHttpHelper.doRequest(account, url, ACTION_HTTPMETHOD_EDIT, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_EDIT));
+        if ("fail".equals(rstJO.getString("result"))) {
+            JSONObject message = rstJO.getJSONObject("message");
+            List<String> msgList = new ArrayList<>();
+            if (!message.isEmpty()) {
+                for (String key : message.keySet()) {
+                    JSONArray ja = message.getJSONArray(key);
+                    for (int i = 0; i < ja.size(); i++) {
+                        msgList.add(ja.getString(i));
+                    }
+                }
+            }
+            String msgStr = "编辑数据失败。\n";
+            if (!msgList.isEmpty()) {
+                msgStr += String.join("\n", msgList);
+            }
+            rst.setSuccess(false);
+            rst.setResult(rstJO);
+            rst.setMessage(msgStr);
+            return false;
+        }
+        rst.setSuccess(true);
+        rst.setResult(rstJO);
+        rst.setMessage(rstJO.getString("message"));
+        String locate = rstJO.getString("locate");
+        String idStr = locate.substring("/zentao/product-view-".length(), locate.indexOf(".json"));
         rst.setEtId(new BigInteger(idStr));
         return true;
     }
