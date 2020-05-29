@@ -151,7 +151,7 @@ public class BuildResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Default-all')")
-	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"版本" } ,notes = "查询DEFAULT")
+	@ApiOperation(value = "查询DEFAULT", tags = {"版本" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/builds/searchdefault")
 	public ResponseEntity<Page<BuildDTO>> searchDefault(@RequestBody BuildSearchContext context) {
         Page<Build> domains = buildService.searchDefault(context) ;

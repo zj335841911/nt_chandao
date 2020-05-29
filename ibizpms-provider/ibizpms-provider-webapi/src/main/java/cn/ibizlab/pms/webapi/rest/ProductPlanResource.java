@@ -151,7 +151,7 @@ public class ProductPlanResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Default-all')")
-	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"产品计划" } ,notes = "查询DEFAULT")
+	@ApiOperation(value = "查询DEFAULT", tags = {"产品计划" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/productplans/searchdefault")
 	public ResponseEntity<Page<ProductPlanDTO>> searchDefault(@RequestBody ProductPlanSearchContext context) {
         Page<ProductPlan> domains = productplanService.searchDefault(context) ;

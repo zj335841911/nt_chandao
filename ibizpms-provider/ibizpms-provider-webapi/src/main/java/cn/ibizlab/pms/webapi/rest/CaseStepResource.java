@@ -151,7 +151,7 @@ public class CaseStepResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Default-all')")
-	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"用例步骤" } ,notes = "查询DEFAULT")
+	@ApiOperation(value = "查询DEFAULT", tags = {"用例步骤" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/casesteps/searchdefault")
 	public ResponseEntity<Page<CaseStepDTO>> searchDefault(@RequestBody CaseStepSearchContext context) {
         Page<CaseStep> domains = casestepService.searchDefault(context) ;

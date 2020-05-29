@@ -151,7 +151,7 @@ public class BranchResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Default-all')")
-	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"产品的分支和平台信息" } ,notes = "查询DEFAULT")
+	@ApiOperation(value = "查询DEFAULT", tags = {"产品的分支和平台信息" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/branches/searchdefault")
 	public ResponseEntity<Page<BranchDTO>> searchDefault(@RequestBody BranchSearchContext context) {
         Page<Branch> domains = branchService.searchDefault(context) ;

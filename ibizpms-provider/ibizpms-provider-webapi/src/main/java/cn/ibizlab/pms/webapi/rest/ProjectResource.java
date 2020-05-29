@@ -151,7 +151,7 @@ public class ProjectResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-CurProduct-all')")
-	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"项目" } ,notes = "查询当前项目")
+	@ApiOperation(value = "查询当前项目", tags = {"项目" } ,notes = "查询当前项目")
     @RequestMapping(method= RequestMethod.POST , value="/projects/searchcurproduct")
 	public ResponseEntity<Page<ProjectDTO>> searchCurProduct(@RequestBody ProjectSearchContext context) {
         Page<Project> domains = projectService.searchCurProduct(context) ;
@@ -172,7 +172,7 @@ public class ProjectResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-Default-all')")
-	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"项目" } ,notes = "查询DEFAULT")
+	@ApiOperation(value = "查询DEFAULT", tags = {"项目" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/projects/searchdefault")
 	public ResponseEntity<Page<ProjectDTO>> searchDefault(@RequestBody ProjectSearchContext context) {
         Page<Project> domains = projectService.searchDefault(context) ;

@@ -151,7 +151,7 @@ public class CaseResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Default-all')")
-	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"测试用例" } ,notes = "查询DEFAULT")
+	@ApiOperation(value = "查询DEFAULT", tags = {"测试用例" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/cases/searchdefault")
 	public ResponseEntity<Page<CaseDTO>> searchDefault(@RequestBody CaseSearchContext context) {
         Page<Case> domains = caseService.searchDefault(context) ;

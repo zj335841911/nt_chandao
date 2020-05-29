@@ -666,12 +666,7 @@ export default class ProductPlanGridViewBase extends Vue {
         if(args.length >0){
             Object.assign(curViewParam,args[0]);
         }
-        let deResParameters: any[] = [];
-        if(curViewParam.product && true){
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
+        const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'productplans', parameterName: 'productplan' },
         ];
@@ -715,12 +710,7 @@ export default class ProductPlanGridViewBase extends Vue {
         if(args.length >0){
             Object.assign(curViewParam,args[0]);
         }
-        let deResParameters: any[] = [];
-        if(curViewParam.product && true){
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
+        const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'productplans', parameterName: 'productplan' },
         ];

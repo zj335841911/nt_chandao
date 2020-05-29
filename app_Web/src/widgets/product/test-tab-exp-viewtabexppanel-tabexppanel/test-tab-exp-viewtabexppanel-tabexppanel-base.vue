@@ -1,30 +1,7 @@
 <template>
   <div class='tabviewpanel'>
         <tabs :value="activiedTabViewPanel" :animated="false" class='tabexppanel' name='testtabexpviewtabexppanel' @on-click="tabPanelClick">
-        <tab-pane :index="0" name='tabviewpanel' tab='testtabexpviewtabexppanel' class=''  
-            :label="(h) =>{
-                return h('div', [
-                    h('span', '概况'),
-                    h('Badge', {
-                        props: {
-                            count: undefined,
-                            type: 'primary'
-                        }
-                    })
-                ])
-            }" >
-            <view_tabviewpanel 
-    :viewState="viewState"  
-    :viewparams="viewparams" 
-    :context="context" 
-v-if="isInit.tabviewpanel"
-@viewpanelDatasChange = "tabViewPanelDatasChange"
-    name="tabviewpanel"  
-    ref='tabviewpanel' 
-    @closeview="closeView($event)">
-</view_tabviewpanel>
-        </tab-pane>
-        <tab-pane :index="1" name='tabviewpanel2' tab='testtabexpviewtabexppanel' class=''  
+        <tab-pane :index="0" name='tabviewpanel2' tab='testtabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', 'Bug'),
@@ -47,7 +24,7 @@ v-if="isInit.tabviewpanel2"
     @closeview="closeView($event)">
 </view_tabviewpanel2>
         </tab-pane>
-        <tab-pane :index="2" name='tabviewpanel3' tab='testtabexpviewtabexppanel' class=''  
+        <tab-pane :index="1" name='tabviewpanel3' tab='testtabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '功能测试'),
@@ -70,7 +47,7 @@ v-if="isInit.tabviewpanel3"
     @closeview="closeView($event)">
 </view_tabviewpanel3>
         </tab-pane>
-        <tab-pane :index="3" name='tabviewpanel4' tab='testtabexpviewtabexppanel' class=''  
+        <tab-pane :index="2" name='tabviewpanel4' tab='testtabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '测试单'),
@@ -227,8 +204,7 @@ export default class TestTabExpViewtabexppanelBase extends Vue implements Contro
      * @memberof TestTabExpViewtabexppanel
      */
     public isInit: any = {
-        tabviewpanel:  true ,
-        tabviewpanel2:  false ,
+        tabviewpanel2:  true ,
         tabviewpanel3:  false ,
         tabviewpanel4:  false ,
     }
@@ -268,7 +244,7 @@ export default class TestTabExpViewtabexppanelBase extends Vue implements Contro
      * @type {string}
      * @memberof TestTabExpViewtabexppanel
      */
-    public activiedTabViewPanel: string = 'tabviewpanel';
+    public activiedTabViewPanel: string = 'tabviewpanel2';
 
     /**
      * 分页视图面板数据变更

@@ -151,7 +151,7 @@ public class ActionResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Default-all')")
-	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"系统日志" } ,notes = "查询DEFAULT")
+	@ApiOperation(value = "查询DEFAULT", tags = {"系统日志" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/actions/searchdefault")
 	public ResponseEntity<Page<ActionDTO>> searchDefault(@RequestBody ActionSearchContext context) {
         Page<Action> domains = actionService.searchDefault(context) ;
@@ -172,7 +172,7 @@ public class ActionResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-ProductTrends-all')")
-	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"系统日志" } ,notes = "查询ProductTrends")
+	@ApiOperation(value = "查询ProductTrends", tags = {"系统日志" } ,notes = "查询ProductTrends")
     @RequestMapping(method= RequestMethod.POST , value="/actions/searchproducttrends")
 	public ResponseEntity<Page<ActionDTO>> searchProductTrends(@RequestBody ActionSearchContext context) {
         Page<Action> domains = actionService.searchProductTrends(context) ;
@@ -193,7 +193,7 @@ public class ActionResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-ProjectTrends-all')")
-	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"系统日志" } ,notes = "查询项目动态(项目相关所有)")
+	@ApiOperation(value = "查询项目动态(项目相关所有)", tags = {"系统日志" } ,notes = "查询项目动态(项目相关所有)")
     @RequestMapping(method= RequestMethod.POST , value="/actions/searchprojecttrends")
 	public ResponseEntity<Page<ActionDTO>> searchProjectTrends(@RequestBody ActionSearchContext context) {
         Page<Action> domains = actionService.searchProjectTrends(context) ;
@@ -214,7 +214,7 @@ public class ActionResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Type-all')")
-	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"系统日志" } ,notes = "查询Type")
+	@ApiOperation(value = "查询Type", tags = {"系统日志" } ,notes = "查询Type")
     @RequestMapping(method= RequestMethod.POST , value="/actions/searchtype")
 	public ResponseEntity<Page<ActionDTO>> searchType(@RequestBody ActionSearchContext context) {
         Page<Action> domains = actionService.searchType(context) ;

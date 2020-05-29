@@ -80,6 +80,10 @@ export default {
 			caption: 'Bug',
       title: 'Bug',
 		},
+		gridview9_assignedtome: {
+			caption: 'Bug',
+      title: 'Bug',
+		},
 		gridview: {
 			caption: 'Bug',
       title: 'Bug',
@@ -285,5 +289,7 @@ export default {
 			caption: '刷新',
 			tip: '刷新',
 		},
+	},
+	gridview9_assignedtometoolbar_toolbar: {
 	},
 };

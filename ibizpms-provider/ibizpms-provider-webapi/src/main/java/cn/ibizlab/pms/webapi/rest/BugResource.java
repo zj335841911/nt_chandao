@@ -151,7 +151,7 @@ public class BugResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Default-all')")
-	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"Bug" } ,notes = "查询DEFAULT")
+	@ApiOperation(value = "查询DEFAULT", tags = {"Bug" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/bugs/searchdefault")
 	public ResponseEntity<Page<BugDTO>> searchDefault(@RequestBody BugSearchContext context) {
         Page<Bug> domains = bugService.searchDefault(context) ;

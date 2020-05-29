@@ -82,7 +82,7 @@
                             </a>
                             <divider type='vertical'></divider>
                             <a @click="uiAction(scope.row, 'OpenBaseInfoEditView', $event)">
-                              <i class=''></i>
+                              <i class='fa fa-edit'></i>
                               {{$t('entities.story.main2_grid.uiactions.openbaseinfoeditview')}}
                             </a>
                             <divider type='vertical'></divider>

@@ -151,7 +151,7 @@ public class TaskResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-RootTask-all')")
-	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"任务" } ,notes = "查询根任务")
+	@ApiOperation(value = "查询根任务", tags = {"任务" } ,notes = "查询根任务")
     @RequestMapping(method= RequestMethod.POST , value="/tasks/searchroottask")
 	public ResponseEntity<Page<TaskDTO>> searchRootTask(@RequestBody TaskSearchContext context) {
         Page<Task> domains = taskService.searchRootTask(context) ;
@@ -171,7 +171,7 @@ public class TaskResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-TypeGroup-all')")
-	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"任务" } ,notes = "查询任务类型分组")
+	@ApiOperation(value = "查询任务类型分组", tags = {"任务" } ,notes = "查询任务类型分组")
     @RequestMapping(method= RequestMethod.POST , value="/tasks/searchtypegroup")
 	public ResponseEntity<Page<HashMap>> searchTypeGroup(@RequestBody TaskSearchContext context) {
         Page<HashMap> domains = taskService.searchTypeGroup(context) ;
@@ -192,7 +192,7 @@ public class TaskResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Default-all')")
-	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"任务" } ,notes = "查询DEFAULT")
+	@ApiOperation(value = "查询DEFAULT", tags = {"任务" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/tasks/searchdefault")
 	public ResponseEntity<Page<TaskDTO>> searchDefault(@RequestBody TaskSearchContext context) {
         Page<Task> domains = taskService.searchDefault(context) ;

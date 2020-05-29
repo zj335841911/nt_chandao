@@ -151,7 +151,7 @@ public class ProjectProductResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-RelationPlan-all')")
-	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"项目产品" } ,notes = "查询关联计划")
+	@ApiOperation(value = "查询关联计划", tags = {"项目产品" } ,notes = "查询关联计划")
     @RequestMapping(method= RequestMethod.POST , value="/projectproducts/searchrelationplan")
 	public ResponseEntity<Page<ProjectProductDTO>> searchRelationPlan(@RequestBody ProjectProductSearchContext context) {
         Page<ProjectProduct> domains = projectproductService.searchRelationPlan(context) ;
@@ -172,7 +172,7 @@ public class ProjectProductResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Default-all')")
-	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"项目产品" } ,notes = "查询DEFAULT")
+	@ApiOperation(value = "查询DEFAULT", tags = {"项目产品" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/projectproducts/searchdefault")
 	public ResponseEntity<Page<ProjectProductDTO>> searchDefault(@RequestBody ProjectProductSearchContext context) {
         Page<ProjectProduct> domains = projectproductService.searchDefault(context) ;

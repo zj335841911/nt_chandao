@@ -12,7 +12,6 @@ export const viewstate: any = {
             refviews: [
                 'f78c94cb0a20d7f459753a4070f8f3e7',
                 'f63aae9bc8cfe29654439743b465a942',
-                '1884d01229cee824d7577705da288043',
                 'aae1ade339fe6a2ebe367489f6393db1',
             ],
         },
@@ -103,15 +102,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
-            ],
-        },
-        {
-            viewtag: '1884d01229cee824d7577705da288043',
-            viewmodule: 'zentao',
-            viewname: 'ProductTestDashboardView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
             ],
         },
         {
@@ -316,7 +306,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '7e14015af219d302f7d81ff40cdcc418',
-                '538555af88ea31549a5bc7dbf1e6286a',
                 '02b7ecd8e994b90558a9d6c23705f600',
             ],
         },
@@ -589,7 +578,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '7e14015af219d302f7d81ff40cdcc418',
-                '538555af88ea31549a5bc7dbf1e6286a',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 '4863a523ac490ebce771717756f0c6a8',
                 '02b7ecd8e994b90558a9d6c23705f600',
@@ -768,7 +756,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '7e14015af219d302f7d81ff40cdcc418',
-                '538555af88ea31549a5bc7dbf1e6286a',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 '4863a523ac490ebce771717756f0c6a8',
                 '02b7ecd8e994b90558a9d6c23705f600',

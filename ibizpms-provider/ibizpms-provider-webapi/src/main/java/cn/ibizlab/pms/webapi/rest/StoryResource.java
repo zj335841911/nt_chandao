@@ -151,7 +151,7 @@ public class StoryResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Default-all')")
-	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"需求" } ,notes = "查询DEFAULT")
+	@ApiOperation(value = "查询DEFAULT", tags = {"需求" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/stories/searchdefault")
 	public ResponseEntity<Page<StoryDTO>> searchDefault(@RequestBody StorySearchContext context) {
         Page<Story> domains = storyService.searchDefault(context) ;

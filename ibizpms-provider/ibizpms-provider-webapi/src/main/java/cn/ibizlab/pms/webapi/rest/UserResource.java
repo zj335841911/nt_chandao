@@ -151,7 +151,7 @@ public class UserResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Default-all')")
-	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"用户" } ,notes = "查询DEFAULT")
+	@ApiOperation(value = "查询DEFAULT", tags = {"用户" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/users/searchdefault")
 	public ResponseEntity<Page<UserDTO>> searchDefault(@RequestBody UserSearchContext context) {
         Page<User> domains = userService.searchDefault(context) ;

@@ -151,7 +151,7 @@ public class HistoryResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Default-all')")
-	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"操作历史" } ,notes = "查询DEFAULT")
+	@ApiOperation(value = "查询DEFAULT", tags = {"操作历史" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/histories/searchdefault")
 	public ResponseEntity<Page<HistoryDTO>> searchDefault(@RequestBody HistorySearchContext context) {
         Page<History> domains = historyService.searchDefault(context) ;

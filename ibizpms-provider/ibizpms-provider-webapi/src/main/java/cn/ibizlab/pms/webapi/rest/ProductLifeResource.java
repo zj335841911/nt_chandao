@@ -60,7 +60,7 @@ public class ProductLifeResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductLife-GetRoadmap-all')")
-	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"产品生命周期" } ,notes = "查询GetRoadmap")
+	@ApiOperation(value = "查询GetRoadmap", tags = {"产品生命周期" } ,notes = "查询GetRoadmap")
     @RequestMapping(method= RequestMethod.POST , value="/productlives/searchgetroadmap")
 	public ResponseEntity<Page<ProductLifeDTO>> searchGetRoadmap(@RequestBody ProductLifeSearchContext context) {
         Page<ProductLife> domains = productlifeService.searchGetRoadmap(context) ;
@@ -81,7 +81,7 @@ public class ProductLifeResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductLife-RoadMapYear-all')")
-	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"产品生命周期" } ,notes = "查询RoadMapYear")
+	@ApiOperation(value = "查询RoadMapYear", tags = {"产品生命周期" } ,notes = "查询RoadMapYear")
     @RequestMapping(method= RequestMethod.POST , value="/productlives/searchroadmapyear")
 	public ResponseEntity<Page<ProductLifeDTO>> searchRoadMapYear(@RequestBody ProductLifeSearchContext context) {
         Page<ProductLife> domains = productlifeService.searchRoadMapYear(context) ;

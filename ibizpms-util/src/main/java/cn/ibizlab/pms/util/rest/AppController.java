@@ -23,7 +23,7 @@ public class AppController {
 	@Value("${ibiz.enablePermissionValid:false}")
     boolean enablePermissionValid;  //是否开启权限校验
 
-    @Value("${"ibiz.systemid:pms'}")
+    @Value("${ibiz.systemid:pms'}")
 	private String systemId;
 
 

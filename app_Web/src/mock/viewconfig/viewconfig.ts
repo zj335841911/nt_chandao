@@ -399,6 +399,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryMainView_EditMode",
             "viewtag": "7e14015af219d302f7d81ff40cdcc418"
         },
+        "buggridview9_assignedtome": {
+            "title": "Bug表格视图",
+            "caption": "Bug",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "BugGridView9_AssignedToMe",
+            "viewtag": "81893d14e76cac341d4218a9c5ef185d"
+        },
         "productplangridview": {
             "title": "productplan表格视图",
             "caption": "产品计划",
@@ -614,6 +622,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "StorySpecMainView9",
             "viewtag": "d0c00941809a9dee4e44db3cca606f0a"
+        },
+        "testportalview": {
+            "title": "测试主页",
+            "caption": "测试主页",
+            "viewtype": "APPPORTALVIEW",
+            "viewmodule": "Ungroup",
+            "viewname": "TestPortalView",
+            "viewtag": "D1283E46-401A-4CFD-A7A1-BF5B90197463"
         },
         "branchpmeditview": {
             "title": "平台管理",

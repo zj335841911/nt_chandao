@@ -151,7 +151,7 @@ public class ReleaseResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-Default-all')")
-	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"发布" } ,notes = "查询DEFAULT")
+	@ApiOperation(value = "查询DEFAULT", tags = {"发布" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/releases/searchdefault")
 	public ResponseEntity<Page<ReleaseDTO>> searchDefault(@RequestBody ReleaseSearchContext context) {
         Page<Release> domains = releaseService.searchDefault(context) ;

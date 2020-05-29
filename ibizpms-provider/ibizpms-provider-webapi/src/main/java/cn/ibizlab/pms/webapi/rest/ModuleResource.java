@@ -151,7 +151,7 @@ public class ModuleResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-Line-all')")
-	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"模块" } ,notes = "查询产品线")
+	@ApiOperation(value = "查询产品线", tags = {"模块" } ,notes = "查询产品线")
     @RequestMapping(method= RequestMethod.POST , value="/modules/searchline")
 	public ResponseEntity<Page<ModuleDTO>> searchLine(@RequestBody ModuleSearchContext context) {
         Page<Module> domains = moduleService.searchLine(context) ;
@@ -172,7 +172,7 @@ public class ModuleResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-StoryModule-all')")
-	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"模块" } ,notes = "查询需求模块")
+	@ApiOperation(value = "查询需求模块", tags = {"模块" } ,notes = "查询需求模块")
     @RequestMapping(method= RequestMethod.POST , value="/modules/searchstorymodule")
 	public ResponseEntity<Page<ModuleDTO>> searchStoryModule(@RequestBody ModuleSearchContext context) {
         Page<Module> domains = moduleService.searchStoryModule(context) ;
@@ -193,7 +193,7 @@ public class ModuleResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-Default-all')")
-	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"模块" } ,notes = "查询DEFAULT")
+	@ApiOperation(value = "查询DEFAULT", tags = {"模块" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/modules/searchdefault")
 	public ResponseEntity<Page<ModuleDTO>> searchDefault(@RequestBody ModuleSearchContext context) {
         Page<Module> domains = moduleService.searchDefault(context) ;
@@ -214,7 +214,7 @@ public class ModuleResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-DocModule-all')")
-	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"模块" } ,notes = "查询文档目录")
+	@ApiOperation(value = "查询文档目录", tags = {"模块" } ,notes = "查询文档目录")
     @RequestMapping(method= RequestMethod.POST , value="/modules/searchdocmodule")
 	public ResponseEntity<Page<ModuleDTO>> searchDocModule(@RequestBody ModuleSearchContext context) {
         Page<Module> domains = moduleService.searchDocModule(context) ;

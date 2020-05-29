@@ -1,8 +1,5 @@
 <template>
 <studio-view viewName="testtaskgridview" viewTitle="testtask表格视图" class='degridview test-task-grid-view'>
-    <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
-    </template>
     <i-input slot="quickSearch" v-show="!isExpandSearchForm" v-model="query" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
                 <div class='toolbar-container'>

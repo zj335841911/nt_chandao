@@ -151,7 +151,7 @@ public class TestTaskResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Default-all')")
-	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"测试版本" } ,notes = "查询DEFAULT")
+	@ApiOperation(value = "查询DEFAULT", tags = {"测试版本" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/testtasks/searchdefault")
 	public ResponseEntity<Page<TestTaskDTO>> searchDefault(@RequestBody TestTaskSearchContext context) {
         Page<TestTask> domains = testtaskService.searchDefault(context) ;
