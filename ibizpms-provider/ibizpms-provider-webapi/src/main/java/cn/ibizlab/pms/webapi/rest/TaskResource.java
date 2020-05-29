@@ -34,7 +34,7 @@ import cn.ibizlab.pms.core.zentao.service.ITaskService;
 import cn.ibizlab.pms.core.zentao.filter.TaskSearchContext;
 
 @Slf4j
-@Api(tags = {"Task" })
+@Api(tags = {"任务" })
 @RestController("WebApi-task")
 @RequestMapping("")
 public class TaskResource {
@@ -46,14 +46,14 @@ public class TaskResource {
     @Lazy
     public TaskMapping taskMapping;
 
-    @ApiOperation(value = "GetDraft", tags = {"Task" },  notes = "GetDraft")
+    @ApiOperation(value = "获取任务草稿", tags = {"任务" },  notes = "获取任务草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/tasks/getdraft")
     public ResponseEntity<TaskDTO> getDraft() {
         return ResponseEntity.status(HttpStatus.OK).body(taskMapping.toDto(taskService.getDraft(new Task())));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Remove-all')")
-    @ApiOperation(value = "Remove", tags = {"Task" },  notes = "Remove")
+    @ApiOperation(value = "删除任务", tags = {"任务" },  notes = "删除任务")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/tasks/{task_id}")
     @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("task_id") BigInteger task_id) {
@@ -61,7 +61,7 @@ public class TaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Remove-all')")
-    @ApiOperation(value = "RemoveBatch", tags = {"Task" },  notes = "RemoveBatch")
+    @ApiOperation(value = "批量删除任务", tags = {"任务" },  notes = "批量删除任务")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/tasks/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
         taskService.removeBatch(ids);
@@ -69,7 +69,7 @@ public class TaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Update-all')")
-    @ApiOperation(value = "Update", tags = {"Task" },  notes = "Update")
+    @ApiOperation(value = "更新任务", tags = {"任务" },  notes = "更新任务")
 	@RequestMapping(method = RequestMethod.PUT, value = "/tasks/{task_id}")
     @Transactional
     public ResponseEntity<TaskDTO> update(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
@@ -81,7 +81,7 @@ public class TaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Update-all')")
-    @ApiOperation(value = "UpdateBatch", tags = {"Task" },  notes = "UpdateBatch")
+    @ApiOperation(value = "批量更新任务", tags = {"任务" },  notes = "批量更新任务")
 	@RequestMapping(method = RequestMethod.PUT, value = "/tasks/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<TaskDTO> taskdtos) {
         taskService.updateBatch(taskMapping.toDomain(taskdtos));
@@ -89,14 +89,14 @@ public class TaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Save-all')")
-    @ApiOperation(value = "Save", tags = {"Task" },  notes = "Save")
+    @ApiOperation(value = "保存任务", tags = {"任务" },  notes = "保存任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/save")
     public ResponseEntity<Boolean> save(@RequestBody TaskDTO taskdto) {
         return ResponseEntity.status(HttpStatus.OK).body(taskService.save(taskMapping.toDomain(taskdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Save-all')")
-    @ApiOperation(value = "SaveBatch", tags = {"Task" },  notes = "SaveBatch")
+    @ApiOperation(value = "批量保存任务", tags = {"任务" },  notes = "批量保存任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<TaskDTO> taskdtos) {
         taskService.saveBatch(taskMapping.toDomain(taskdtos));
@@ -104,7 +104,7 @@ public class TaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Get-all')")
-    @ApiOperation(value = "Get", tags = {"Task" },  notes = "Get")
+    @ApiOperation(value = "获取任务", tags = {"任务" },  notes = "获取任务")
 	@RequestMapping(method = RequestMethod.GET, value = "/tasks/{task_id}")
     public ResponseEntity<TaskDTO> get(@PathVariable("task_id") BigInteger task_id) {
         Task domain = taskService.get(task_id);
@@ -112,14 +112,14 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @ApiOperation(value = "CheckKey", tags = {"Task" },  notes = "CheckKey")
+    @ApiOperation(value = "检查任务", tags = {"任务" },  notes = "检查任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody TaskDTO taskdto) {
         return  ResponseEntity.status(HttpStatus.OK).body(taskService.checkKey(taskMapping.toDomain(taskdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Create-all')")
-    @ApiOperation(value = "Create", tags = {"Task" },  notes = "Create")
+    @ApiOperation(value = "新建任务", tags = {"任务" },  notes = "新建任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks")
     @Transactional
     public ResponseEntity<TaskDTO> create(@RequestBody TaskDTO taskdto) {
@@ -130,7 +130,7 @@ public class TaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Create-all')")
-    @ApiOperation(value = "createBatch", tags = {"Task" },  notes = "createBatch")
+    @ApiOperation(value = "批量新建任务", tags = {"任务" },  notes = "批量新建任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<TaskDTO> taskdtos) {
         taskService.createBatch(taskMapping.toDomain(taskdtos));
@@ -138,7 +138,7 @@ public class TaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-RootTask-all')")
-	@ApiOperation(value = "fetch根任务", tags = {"Task" } ,notes = "fetch根任务")
+	@ApiOperation(value = "获取根任务", tags = {"任务" } ,notes = "获取根任务")
     @RequestMapping(method= RequestMethod.GET , value="/tasks/fetchroottask")
 	public ResponseEntity<List<TaskDTO>> fetchRootTask(TaskSearchContext context) {
         Page<Task> domains = taskService.searchRootTask(context) ;
@@ -151,7 +151,7 @@ public class TaskResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-RootTask-all')")
-	@ApiOperation(value = "search根任务", tags = {"Task" } ,notes = "search根任务")
+	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"任务" } ,notes = "查询根任务")
     @RequestMapping(method= RequestMethod.POST , value="/tasks/searchroottask")
 	public ResponseEntity<Page<TaskDTO>> searchRootTask(@RequestBody TaskSearchContext context) {
         Page<Task> domains = taskService.searchRootTask(context) ;
@@ -159,7 +159,7 @@ public class TaskResource {
                 .body(new PageImpl(taskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-TypeGroup-all')")
-	@ApiOperation(value = "fetch任务类型分组", tags = {"Task" } ,notes = "fetch任务类型分组")
+	@ApiOperation(value = "获取任务类型分组", tags = {"任务" } ,notes = "获取任务类型分组")
     @RequestMapping(method= RequestMethod.GET , value="/tasks/fetchtypegroup")
 	public ResponseEntity<List<HashMap>> fetchTypeGroup(TaskSearchContext context) {
         Page<HashMap> domains = taskService.searchTypeGroup(context) ;
@@ -171,7 +171,7 @@ public class TaskResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-TypeGroup-all')")
-	@ApiOperation(value = "search任务类型分组", tags = {"Task" } ,notes = "search任务类型分组")
+	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"任务" } ,notes = "查询任务类型分组")
     @RequestMapping(method= RequestMethod.POST , value="/tasks/searchtypegroup")
 	public ResponseEntity<Page<HashMap>> searchTypeGroup(@RequestBody TaskSearchContext context) {
         Page<HashMap> domains = taskService.searchTypeGroup(context) ;
@@ -179,7 +179,7 @@ public class TaskResource {
                 .body(new PageImpl(domains.getContent(), context.getPageable(), domains.getTotalElements()));
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Default-all')")
-	@ApiOperation(value = "fetchDEFAULT", tags = {"Task" } ,notes = "fetchDEFAULT")
+	@ApiOperation(value = "获取DEFAULT", tags = {"任务" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/tasks/fetchdefault")
 	public ResponseEntity<List<TaskDTO>> fetchDefault(TaskSearchContext context) {
         Page<Task> domains = taskService.searchDefault(context) ;
@@ -192,14 +192,14 @@ public class TaskResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Default-all')")
-	@ApiOperation(value = "searchDEFAULT", tags = {"Task" } ,notes = "searchDEFAULT")
+	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"任务" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/tasks/searchdefault")
 	public ResponseEntity<Page<TaskDTO>> searchDefault(@RequestBody TaskSearchContext context) {
         Page<Task> domains = taskService.searchDefault(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(taskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @ApiOperation(value = "GetDraftByProject", tags = {"Task" },  notes = "GetDraftByProject")
+    @ApiOperation(value = "根据项目获取任务草稿", tags = {"任务" },  notes = "根据项目获取任务草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/tasks/getdraft")
     public ResponseEntity<TaskDTO> getDraftByProject(@PathVariable("project_id") BigInteger project_id) {
         Task domain = new Task();
@@ -208,7 +208,7 @@ public class TaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Remove-all')")
-    @ApiOperation(value = "RemoveByProject", tags = {"Task" },  notes = "RemoveByProject")
+    @ApiOperation(value = "根据项目删除任务", tags = {"任务" },  notes = "根据项目删除任务")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/tasks/{task_id}")
     @Transactional
     public ResponseEntity<Boolean> removeByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("task_id") BigInteger task_id) {
@@ -216,7 +216,7 @@ public class TaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Remove-all')")
-    @ApiOperation(value = "RemoveBatchByProject", tags = {"Task" },  notes = "RemoveBatchByProject")
+    @ApiOperation(value = "根据项目批量删除任务", tags = {"任务" },  notes = "根据项目批量删除任务")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/tasks/batch")
     public ResponseEntity<Boolean> removeBatchByProject(@RequestBody List<BigInteger> ids) {
         taskService.removeBatch(ids);
@@ -224,7 +224,7 @@ public class TaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Update-all')")
-    @ApiOperation(value = "UpdateByProject", tags = {"Task" },  notes = "UpdateByProject")
+    @ApiOperation(value = "根据项目更新任务", tags = {"任务" },  notes = "根据项目更新任务")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/tasks/{task_id}")
     @Transactional
     public ResponseEntity<TaskDTO> updateByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
@@ -237,7 +237,7 @@ public class TaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Update-all')")
-    @ApiOperation(value = "UpdateBatchByProject", tags = {"Task" },  notes = "UpdateBatchByProject")
+    @ApiOperation(value = "根据项目批量更新任务", tags = {"任务" },  notes = "根据项目批量更新任务")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/tasks/batch")
     public ResponseEntity<Boolean> updateBatchByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody List<TaskDTO> taskdtos) {
         List<Task> domainlist=taskMapping.toDomain(taskdtos);
@@ -249,7 +249,7 @@ public class TaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Save-all')")
-    @ApiOperation(value = "SaveByProject", tags = {"Task" },  notes = "SaveByProject")
+    @ApiOperation(value = "根据项目保存任务", tags = {"任务" },  notes = "根据项目保存任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/save")
     public ResponseEntity<Boolean> saveByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
@@ -258,7 +258,7 @@ public class TaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Save-all')")
-    @ApiOperation(value = "SaveBatchByProject", tags = {"Task" },  notes = "SaveBatchByProject")
+    @ApiOperation(value = "根据项目批量保存任务", tags = {"任务" },  notes = "根据项目批量保存任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/savebatch")
     public ResponseEntity<Boolean> saveBatchByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody List<TaskDTO> taskdtos) {
         List<Task> domainlist=taskMapping.toDomain(taskdtos);
@@ -270,7 +270,7 @@ public class TaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Get-all')")
-    @ApiOperation(value = "GetByProject", tags = {"Task" },  notes = "GetByProject")
+    @ApiOperation(value = "根据项目获取任务", tags = {"任务" },  notes = "根据项目获取任务")
 	@RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/tasks/{task_id}")
     public ResponseEntity<TaskDTO> getByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("task_id") BigInteger task_id) {
         Task domain = taskService.get(task_id);
@@ -278,14 +278,14 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @ApiOperation(value = "CheckKeyByProject", tags = {"Task" },  notes = "CheckKeyByProject")
+    @ApiOperation(value = "根据项目检查任务", tags = {"任务" },  notes = "根据项目检查任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/checkkey")
     public ResponseEntity<Boolean> checkKeyByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody TaskDTO taskdto) {
         return  ResponseEntity.status(HttpStatus.OK).body(taskService.checkKey(taskMapping.toDomain(taskdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Create-all')")
-    @ApiOperation(value = "CreateByProject", tags = {"Task" },  notes = "CreateByProject")
+    @ApiOperation(value = "根据项目建立任务", tags = {"任务" },  notes = "根据项目建立任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks")
     @Transactional
     public ResponseEntity<TaskDTO> createByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody TaskDTO taskdto) {
@@ -297,7 +297,7 @@ public class TaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Create-all')")
-    @ApiOperation(value = "createBatchByProject", tags = {"Task" },  notes = "createBatchByProject")
+    @ApiOperation(value = "根据项目批量建立任务", tags = {"任务" },  notes = "根据项目批量建立任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/batch")
     public ResponseEntity<Boolean> createBatchByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody List<TaskDTO> taskdtos) {
         List<Task> domainlist=taskMapping.toDomain(taskdtos);
@@ -309,7 +309,7 @@ public class TaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-RootTask-all')")
-	@ApiOperation(value = "fetch根任务ByProject", tags = {"Task" } ,notes = "fetch根任务ByProject")
+	@ApiOperation(value = "根据项目获取根任务", tags = {"任务" } ,notes = "根据项目获取根任务")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/fetchroottask")
 	public ResponseEntity<List<TaskDTO>> fetchTaskRootTaskByProject(@PathVariable("project_id") BigInteger project_id,TaskSearchContext context) {
         context.setN_project_eq(project_id);
@@ -323,7 +323,7 @@ public class TaskResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-RootTask-all')")
-	@ApiOperation(value = "search根任务ByProject", tags = {"Task" } ,notes = "search根任务ByProject")
+	@ApiOperation(value = "根据项目查询根任务", tags = {"任务" } ,notes = "根据项目查询根任务")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/searchroottask")
 	public ResponseEntity<Page<TaskDTO>> searchTaskRootTaskByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody TaskSearchContext context) {
         context.setN_project_eq(project_id);
@@ -332,7 +332,7 @@ public class TaskResource {
                 .body(new PageImpl(taskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-TypeGroup-all')")
-	@ApiOperation(value = "fetch任务类型分组ByProject", tags = {"Task" } ,notes = "fetch任务类型分组ByProject")
+	@ApiOperation(value = "根据项目获取任务类型分组", tags = {"任务" } ,notes = "根据项目获取任务类型分组")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/fetchtypegroup")
 	public ResponseEntity<List<HashMap>> fetchTaskTypeGroupByProject(@PathVariable("project_id") BigInteger project_id,TaskSearchContext context) {
         context.setN_project_eq(project_id);
@@ -345,7 +345,7 @@ public class TaskResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-TypeGroup-all')")
-	@ApiOperation(value = "search任务类型分组ByProject", tags = {"Task" } ,notes = "search任务类型分组ByProject")
+	@ApiOperation(value = "根据项目查询任务类型分组", tags = {"任务" } ,notes = "根据项目查询任务类型分组")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/searchtypegroup")
 	public ResponseEntity<Page<HashMap>> searchTaskTypeGroupByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody TaskSearchContext context) {
         context.setN_project_eq(project_id);
@@ -354,7 +354,7 @@ public class TaskResource {
                 .body(new PageImpl(domains.getContent(), context.getPageable(), domains.getTotalElements()));
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Default-all')")
-	@ApiOperation(value = "fetchDEFAULTByProject", tags = {"Task" } ,notes = "fetchDEFAULTByProject")
+	@ApiOperation(value = "根据项目获取DEFAULT", tags = {"任务" } ,notes = "根据项目获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/fetchdefault")
 	public ResponseEntity<List<TaskDTO>> fetchTaskDefaultByProject(@PathVariable("project_id") BigInteger project_id,TaskSearchContext context) {
         context.setN_project_eq(project_id);
@@ -368,7 +368,7 @@ public class TaskResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Default-all')")
-	@ApiOperation(value = "searchDEFAULTByProject", tags = {"Task" } ,notes = "searchDEFAULTByProject")
+	@ApiOperation(value = "根据项目查询DEFAULT", tags = {"任务" } ,notes = "根据项目查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/searchdefault")
 	public ResponseEntity<Page<TaskDTO>> searchTaskDefaultByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody TaskSearchContext context) {
         context.setN_project_eq(project_id);

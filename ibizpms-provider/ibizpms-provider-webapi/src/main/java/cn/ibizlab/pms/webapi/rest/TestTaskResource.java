@@ -34,7 +34,7 @@ import cn.ibizlab.pms.core.zentao.service.ITestTaskService;
 import cn.ibizlab.pms.core.zentao.filter.TestTaskSearchContext;
 
 @Slf4j
-@Api(tags = {"TestTask" })
+@Api(tags = {"测试版本" })
 @RestController("WebApi-testtask")
 @RequestMapping("")
 public class TestTaskResource {
@@ -46,14 +46,14 @@ public class TestTaskResource {
     @Lazy
     public TestTaskMapping testtaskMapping;
 
-    @ApiOperation(value = "GetDraft", tags = {"TestTask" },  notes = "GetDraft")
+    @ApiOperation(value = "获取测试版本草稿", tags = {"测试版本" },  notes = "获取测试版本草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/testtasks/getdraft")
     public ResponseEntity<TestTaskDTO> getDraft() {
         return ResponseEntity.status(HttpStatus.OK).body(testtaskMapping.toDto(testtaskService.getDraft(new TestTask())));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Get-all')")
-    @ApiOperation(value = "Get", tags = {"TestTask" },  notes = "Get")
+    @ApiOperation(value = "获取测试版本", tags = {"测试版本" },  notes = "获取测试版本")
 	@RequestMapping(method = RequestMethod.GET, value = "/testtasks/{testtask_id}")
     public ResponseEntity<TestTaskDTO> get(@PathVariable("testtask_id") BigInteger testtask_id) {
         TestTask domain = testtaskService.get(testtask_id);
@@ -62,14 +62,14 @@ public class TestTaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Save-all')")
-    @ApiOperation(value = "Save", tags = {"TestTask" },  notes = "Save")
+    @ApiOperation(value = "保存测试版本", tags = {"测试版本" },  notes = "保存测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/save")
     public ResponseEntity<Boolean> save(@RequestBody TestTaskDTO testtaskdto) {
         return ResponseEntity.status(HttpStatus.OK).body(testtaskService.save(testtaskMapping.toDomain(testtaskdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Save-all')")
-    @ApiOperation(value = "SaveBatch", tags = {"TestTask" },  notes = "SaveBatch")
+    @ApiOperation(value = "批量保存测试版本", tags = {"测试版本" },  notes = "批量保存测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<TestTaskDTO> testtaskdtos) {
         testtaskService.saveBatch(testtaskMapping.toDomain(testtaskdtos));
@@ -77,7 +77,7 @@ public class TestTaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Create-all')")
-    @ApiOperation(value = "Create", tags = {"TestTask" },  notes = "Create")
+    @ApiOperation(value = "新建测试版本", tags = {"测试版本" },  notes = "新建测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/testtasks")
     @Transactional
     public ResponseEntity<TestTaskDTO> create(@RequestBody TestTaskDTO testtaskdto) {
@@ -88,7 +88,7 @@ public class TestTaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Create-all')")
-    @ApiOperation(value = "createBatch", tags = {"TestTask" },  notes = "createBatch")
+    @ApiOperation(value = "批量新建测试版本", tags = {"测试版本" },  notes = "批量新建测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<TestTaskDTO> testtaskdtos) {
         testtaskService.createBatch(testtaskMapping.toDomain(testtaskdtos));
@@ -96,7 +96,7 @@ public class TestTaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Update-all')")
-    @ApiOperation(value = "Update", tags = {"TestTask" },  notes = "Update")
+    @ApiOperation(value = "更新测试版本", tags = {"测试版本" },  notes = "更新测试版本")
 	@RequestMapping(method = RequestMethod.PUT, value = "/testtasks/{testtask_id}")
     @Transactional
     public ResponseEntity<TestTaskDTO> update(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
@@ -108,7 +108,7 @@ public class TestTaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Update-all')")
-    @ApiOperation(value = "UpdateBatch", tags = {"TestTask" },  notes = "UpdateBatch")
+    @ApiOperation(value = "批量更新测试版本", tags = {"测试版本" },  notes = "批量更新测试版本")
 	@RequestMapping(method = RequestMethod.PUT, value = "/testtasks/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<TestTaskDTO> testtaskdtos) {
         testtaskService.updateBatch(testtaskMapping.toDomain(testtaskdtos));
@@ -116,7 +116,7 @@ public class TestTaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Remove-all')")
-    @ApiOperation(value = "Remove", tags = {"TestTask" },  notes = "Remove")
+    @ApiOperation(value = "删除测试版本", tags = {"测试版本" },  notes = "删除测试版本")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/testtasks/{testtask_id}")
     @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("testtask_id") BigInteger testtask_id) {
@@ -124,21 +124,21 @@ public class TestTaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Remove-all')")
-    @ApiOperation(value = "RemoveBatch", tags = {"TestTask" },  notes = "RemoveBatch")
+    @ApiOperation(value = "批量删除测试版本", tags = {"测试版本" },  notes = "批量删除测试版本")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/testtasks/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
         testtaskService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @ApiOperation(value = "CheckKey", tags = {"TestTask" },  notes = "CheckKey")
+    @ApiOperation(value = "检查测试版本", tags = {"测试版本" },  notes = "检查测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody TestTaskDTO testtaskdto) {
         return  ResponseEntity.status(HttpStatus.OK).body(testtaskService.checkKey(testtaskMapping.toDomain(testtaskdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Default-all')")
-	@ApiOperation(value = "fetchDEFAULT", tags = {"TestTask" } ,notes = "fetchDEFAULT")
+	@ApiOperation(value = "获取DEFAULT", tags = {"测试版本" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/testtasks/fetchdefault")
 	public ResponseEntity<List<TestTaskDTO>> fetchDefault(TestTaskSearchContext context) {
         Page<TestTask> domains = testtaskService.searchDefault(context) ;
@@ -151,14 +151,14 @@ public class TestTaskResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Default-all')")
-	@ApiOperation(value = "searchDEFAULT", tags = {"TestTask" } ,notes = "searchDEFAULT")
+	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"测试版本" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/testtasks/searchdefault")
 	public ResponseEntity<Page<TestTaskDTO>> searchDefault(@RequestBody TestTaskSearchContext context) {
         Page<TestTask> domains = testtaskService.searchDefault(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(testtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @ApiOperation(value = "GetDraftByProduct", tags = {"TestTask" },  notes = "GetDraftByProduct")
+    @ApiOperation(value = "根据产品获取测试版本草稿", tags = {"测试版本" },  notes = "根据产品获取测试版本草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/testtasks/getdraft")
     public ResponseEntity<TestTaskDTO> getDraftByProduct(@PathVariable("product_id") BigInteger product_id) {
         TestTask domain = new TestTask();
@@ -167,7 +167,7 @@ public class TestTaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Get-all')")
-    @ApiOperation(value = "GetByProduct", tags = {"TestTask" },  notes = "GetByProduct")
+    @ApiOperation(value = "根据产品获取测试版本", tags = {"测试版本" },  notes = "根据产品获取测试版本")
 	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/testtasks/{testtask_id}")
     public ResponseEntity<TestTaskDTO> getByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("testtask_id") BigInteger testtask_id) {
         TestTask domain = testtaskService.get(testtask_id);
@@ -176,7 +176,7 @@ public class TestTaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Save-all')")
-    @ApiOperation(value = "SaveByProduct", tags = {"TestTask" },  notes = "SaveByProduct")
+    @ApiOperation(value = "根据产品保存测试版本", tags = {"测试版本" },  notes = "根据产品保存测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/save")
     public ResponseEntity<Boolean> saveByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
@@ -185,7 +185,7 @@ public class TestTaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Save-all')")
-    @ApiOperation(value = "SaveBatchByProduct", tags = {"TestTask" },  notes = "SaveBatchByProduct")
+    @ApiOperation(value = "根据产品批量保存测试版本", tags = {"测试版本" },  notes = "根据产品批量保存测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/savebatch")
     public ResponseEntity<Boolean> saveBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<TestTaskDTO> testtaskdtos) {
         List<TestTask> domainlist=testtaskMapping.toDomain(testtaskdtos);
@@ -197,7 +197,7 @@ public class TestTaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Create-all')")
-    @ApiOperation(value = "CreateByProduct", tags = {"TestTask" },  notes = "CreateByProduct")
+    @ApiOperation(value = "根据产品建立测试版本", tags = {"测试版本" },  notes = "根据产品建立测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks")
     @Transactional
     public ResponseEntity<TestTaskDTO> createByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody TestTaskDTO testtaskdto) {
@@ -209,7 +209,7 @@ public class TestTaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Create-all')")
-    @ApiOperation(value = "createBatchByProduct", tags = {"TestTask" },  notes = "createBatchByProduct")
+    @ApiOperation(value = "根据产品批量建立测试版本", tags = {"测试版本" },  notes = "根据产品批量建立测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/batch")
     public ResponseEntity<Boolean> createBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<TestTaskDTO> testtaskdtos) {
         List<TestTask> domainlist=testtaskMapping.toDomain(testtaskdtos);
@@ -221,7 +221,7 @@ public class TestTaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Update-all')")
-    @ApiOperation(value = "UpdateByProduct", tags = {"TestTask" },  notes = "UpdateByProduct")
+    @ApiOperation(value = "根据产品更新测试版本", tags = {"测试版本" },  notes = "根据产品更新测试版本")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/testtasks/{testtask_id}")
     @Transactional
     public ResponseEntity<TestTaskDTO> updateByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
@@ -234,7 +234,7 @@ public class TestTaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Update-all')")
-    @ApiOperation(value = "UpdateBatchByProduct", tags = {"TestTask" },  notes = "UpdateBatchByProduct")
+    @ApiOperation(value = "根据产品批量更新测试版本", tags = {"测试版本" },  notes = "根据产品批量更新测试版本")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/testtasks/batch")
     public ResponseEntity<Boolean> updateBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<TestTaskDTO> testtaskdtos) {
         List<TestTask> domainlist=testtaskMapping.toDomain(testtaskdtos);
@@ -246,7 +246,7 @@ public class TestTaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Remove-all')")
-    @ApiOperation(value = "RemoveByProduct", tags = {"TestTask" },  notes = "RemoveByProduct")
+    @ApiOperation(value = "根据产品删除测试版本", tags = {"测试版本" },  notes = "根据产品删除测试版本")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/testtasks/{testtask_id}")
     @Transactional
     public ResponseEntity<Boolean> removeByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("testtask_id") BigInteger testtask_id) {
@@ -254,21 +254,21 @@ public class TestTaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Remove-all')")
-    @ApiOperation(value = "RemoveBatchByProduct", tags = {"TestTask" },  notes = "RemoveBatchByProduct")
+    @ApiOperation(value = "根据产品批量删除测试版本", tags = {"测试版本" },  notes = "根据产品批量删除测试版本")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/testtasks/batch")
     public ResponseEntity<Boolean> removeBatchByProduct(@RequestBody List<BigInteger> ids) {
         testtaskService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @ApiOperation(value = "CheckKeyByProduct", tags = {"TestTask" },  notes = "CheckKeyByProduct")
+    @ApiOperation(value = "根据产品检查测试版本", tags = {"测试版本" },  notes = "根据产品检查测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/checkkey")
     public ResponseEntity<Boolean> checkKeyByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody TestTaskDTO testtaskdto) {
         return  ResponseEntity.status(HttpStatus.OK).body(testtaskService.checkKey(testtaskMapping.toDomain(testtaskdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Default-all')")
-	@ApiOperation(value = "fetchDEFAULTByProduct", tags = {"TestTask" } ,notes = "fetchDEFAULTByProduct")
+	@ApiOperation(value = "根据产品获取DEFAULT", tags = {"测试版本" } ,notes = "根据产品获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/testtasks/fetchdefault")
 	public ResponseEntity<List<TestTaskDTO>> fetchTestTaskDefaultByProduct(@PathVariable("product_id") BigInteger product_id,TestTaskSearchContext context) {
         context.setN_product_eq(product_id);
@@ -282,7 +282,7 @@ public class TestTaskResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Default-all')")
-	@ApiOperation(value = "searchDEFAULTByProduct", tags = {"TestTask" } ,notes = "searchDEFAULTByProduct")
+	@ApiOperation(value = "根据产品查询DEFAULT", tags = {"测试版本" } ,notes = "根据产品查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/testtasks/searchdefault")
 	public ResponseEntity<Page<TestTaskDTO>> searchTestTaskDefaultByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody TestTaskSearchContext context) {
         context.setN_product_eq(product_id);

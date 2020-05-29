@@ -34,7 +34,7 @@ import cn.ibizlab.pms.core.zentao.service.IHistoryService;
 import cn.ibizlab.pms.core.zentao.filter.HistorySearchContext;
 
 @Slf4j
-@Api(tags = {"History" })
+@Api(tags = {"操作历史" })
 @RestController("WebApi-history")
 @RequestMapping("")
 public class HistoryResource {
@@ -47,7 +47,7 @@ public class HistoryResource {
     public HistoryMapping historyMapping;
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Update-all')")
-    @ApiOperation(value = "Update", tags = {"History" },  notes = "Update")
+    @ApiOperation(value = "更新操作历史", tags = {"操作历史" },  notes = "更新操作历史")
 	@RequestMapping(method = RequestMethod.PUT, value = "/histories/{history_id}")
     @Transactional
     public ResponseEntity<HistoryDTO> update(@PathVariable("history_id") BigInteger history_id, @RequestBody HistoryDTO historydto) {
@@ -59,7 +59,7 @@ public class HistoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Update-all')")
-    @ApiOperation(value = "UpdateBatch", tags = {"History" },  notes = "UpdateBatch")
+    @ApiOperation(value = "批量更新操作历史", tags = {"操作历史" },  notes = "批量更新操作历史")
 	@RequestMapping(method = RequestMethod.PUT, value = "/histories/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<HistoryDTO> historydtos) {
         historyService.updateBatch(historyMapping.toDomain(historydtos));
@@ -67,7 +67,7 @@ public class HistoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Create-all')")
-    @ApiOperation(value = "Create", tags = {"History" },  notes = "Create")
+    @ApiOperation(value = "新建操作历史", tags = {"操作历史" },  notes = "新建操作历史")
 	@RequestMapping(method = RequestMethod.POST, value = "/histories")
     @Transactional
     public ResponseEntity<HistoryDTO> create(@RequestBody HistoryDTO historydto) {
@@ -78,7 +78,7 @@ public class HistoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Create-all')")
-    @ApiOperation(value = "createBatch", tags = {"History" },  notes = "createBatch")
+    @ApiOperation(value = "批量新建操作历史", tags = {"操作历史" },  notes = "批量新建操作历史")
 	@RequestMapping(method = RequestMethod.POST, value = "/histories/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<HistoryDTO> historydtos) {
         historyService.createBatch(historyMapping.toDomain(historydtos));
@@ -86,7 +86,7 @@ public class HistoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Get-all')")
-    @ApiOperation(value = "Get", tags = {"History" },  notes = "Get")
+    @ApiOperation(value = "获取操作历史", tags = {"操作历史" },  notes = "获取操作历史")
 	@RequestMapping(method = RequestMethod.GET, value = "/histories/{history_id}")
     public ResponseEntity<HistoryDTO> get(@PathVariable("history_id") BigInteger history_id) {
         History domain = historyService.get(history_id);
@@ -94,21 +94,21 @@ public class HistoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @ApiOperation(value = "CheckKey", tags = {"History" },  notes = "CheckKey")
+    @ApiOperation(value = "检查操作历史", tags = {"操作历史" },  notes = "检查操作历史")
 	@RequestMapping(method = RequestMethod.POST, value = "/histories/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody HistoryDTO historydto) {
         return  ResponseEntity.status(HttpStatus.OK).body(historyService.checkKey(historyMapping.toDomain(historydto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Save-all')")
-    @ApiOperation(value = "Save", tags = {"History" },  notes = "Save")
+    @ApiOperation(value = "保存操作历史", tags = {"操作历史" },  notes = "保存操作历史")
 	@RequestMapping(method = RequestMethod.POST, value = "/histories/save")
     public ResponseEntity<Boolean> save(@RequestBody HistoryDTO historydto) {
         return ResponseEntity.status(HttpStatus.OK).body(historyService.save(historyMapping.toDomain(historydto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Save-all')")
-    @ApiOperation(value = "SaveBatch", tags = {"History" },  notes = "SaveBatch")
+    @ApiOperation(value = "批量保存操作历史", tags = {"操作历史" },  notes = "批量保存操作历史")
 	@RequestMapping(method = RequestMethod.POST, value = "/histories/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<HistoryDTO> historydtos) {
         historyService.saveBatch(historyMapping.toDomain(historydtos));
@@ -116,7 +116,7 @@ public class HistoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Remove-all')")
-    @ApiOperation(value = "Remove", tags = {"History" },  notes = "Remove")
+    @ApiOperation(value = "删除操作历史", tags = {"操作历史" },  notes = "删除操作历史")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/histories/{history_id}")
     @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("history_id") BigInteger history_id) {
@@ -124,21 +124,21 @@ public class HistoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Remove-all')")
-    @ApiOperation(value = "RemoveBatch", tags = {"History" },  notes = "RemoveBatch")
+    @ApiOperation(value = "批量删除操作历史", tags = {"操作历史" },  notes = "批量删除操作历史")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/histories/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
         historyService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @ApiOperation(value = "GetDraft", tags = {"History" },  notes = "GetDraft")
+    @ApiOperation(value = "获取操作历史草稿", tags = {"操作历史" },  notes = "获取操作历史草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/histories/getdraft")
     public ResponseEntity<HistoryDTO> getDraft() {
         return ResponseEntity.status(HttpStatus.OK).body(historyMapping.toDto(historyService.getDraft(new History())));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Default-all')")
-	@ApiOperation(value = "fetchDEFAULT", tags = {"History" } ,notes = "fetchDEFAULT")
+	@ApiOperation(value = "获取DEFAULT", tags = {"操作历史" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/histories/fetchdefault")
 	public ResponseEntity<List<HistoryDTO>> fetchDefault(HistorySearchContext context) {
         Page<History> domains = historyService.searchDefault(context) ;
@@ -151,7 +151,7 @@ public class HistoryResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Default-all')")
-	@ApiOperation(value = "searchDEFAULT", tags = {"History" } ,notes = "searchDEFAULT")
+	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"操作历史" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/histories/searchdefault")
 	public ResponseEntity<Page<HistoryDTO>> searchDefault(@RequestBody HistorySearchContext context) {
         Page<History> domains = historyService.searchDefault(context) ;
@@ -159,7 +159,7 @@ public class HistoryResource {
                 .body(new PageImpl(historyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Update-all')")
-    @ApiOperation(value = "UpdateByAction", tags = {"History" },  notes = "UpdateByAction")
+    @ApiOperation(value = "根据系统日志更新操作历史", tags = {"操作历史" },  notes = "根据系统日志更新操作历史")
 	@RequestMapping(method = RequestMethod.PUT, value = "/actions/{action_id}/histories/{history_id}")
     @Transactional
     public ResponseEntity<HistoryDTO> updateByAction(@PathVariable("action_id") BigInteger action_id, @PathVariable("history_id") BigInteger history_id, @RequestBody HistoryDTO historydto) {
@@ -172,7 +172,7 @@ public class HistoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Update-all')")
-    @ApiOperation(value = "UpdateBatchByAction", tags = {"History" },  notes = "UpdateBatchByAction")
+    @ApiOperation(value = "根据系统日志批量更新操作历史", tags = {"操作历史" },  notes = "根据系统日志批量更新操作历史")
 	@RequestMapping(method = RequestMethod.PUT, value = "/actions/{action_id}/histories/batch")
     public ResponseEntity<Boolean> updateBatchByAction(@PathVariable("action_id") BigInteger action_id, @RequestBody List<HistoryDTO> historydtos) {
         List<History> domainlist=historyMapping.toDomain(historydtos);
@@ -184,7 +184,7 @@ public class HistoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Create-all')")
-    @ApiOperation(value = "CreateByAction", tags = {"History" },  notes = "CreateByAction")
+    @ApiOperation(value = "根据系统日志建立操作历史", tags = {"操作历史" },  notes = "根据系统日志建立操作历史")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/{action_id}/histories")
     @Transactional
     public ResponseEntity<HistoryDTO> createByAction(@PathVariable("action_id") BigInteger action_id, @RequestBody HistoryDTO historydto) {
@@ -196,7 +196,7 @@ public class HistoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Create-all')")
-    @ApiOperation(value = "createBatchByAction", tags = {"History" },  notes = "createBatchByAction")
+    @ApiOperation(value = "根据系统日志批量建立操作历史", tags = {"操作历史" },  notes = "根据系统日志批量建立操作历史")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/{action_id}/histories/batch")
     public ResponseEntity<Boolean> createBatchByAction(@PathVariable("action_id") BigInteger action_id, @RequestBody List<HistoryDTO> historydtos) {
         List<History> domainlist=historyMapping.toDomain(historydtos);
@@ -208,7 +208,7 @@ public class HistoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Get-all')")
-    @ApiOperation(value = "GetByAction", tags = {"History" },  notes = "GetByAction")
+    @ApiOperation(value = "根据系统日志获取操作历史", tags = {"操作历史" },  notes = "根据系统日志获取操作历史")
 	@RequestMapping(method = RequestMethod.GET, value = "/actions/{action_id}/histories/{history_id}")
     public ResponseEntity<HistoryDTO> getByAction(@PathVariable("action_id") BigInteger action_id, @PathVariable("history_id") BigInteger history_id) {
         History domain = historyService.get(history_id);
@@ -216,14 +216,14 @@ public class HistoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @ApiOperation(value = "CheckKeyByAction", tags = {"History" },  notes = "CheckKeyByAction")
+    @ApiOperation(value = "根据系统日志检查操作历史", tags = {"操作历史" },  notes = "根据系统日志检查操作历史")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/{action_id}/histories/checkkey")
     public ResponseEntity<Boolean> checkKeyByAction(@PathVariable("action_id") BigInteger action_id, @RequestBody HistoryDTO historydto) {
         return  ResponseEntity.status(HttpStatus.OK).body(historyService.checkKey(historyMapping.toDomain(historydto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Save-all')")
-    @ApiOperation(value = "SaveByAction", tags = {"History" },  notes = "SaveByAction")
+    @ApiOperation(value = "根据系统日志保存操作历史", tags = {"操作历史" },  notes = "根据系统日志保存操作历史")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/{action_id}/histories/save")
     public ResponseEntity<Boolean> saveByAction(@PathVariable("action_id") BigInteger action_id, @RequestBody HistoryDTO historydto) {
         History domain = historyMapping.toDomain(historydto);
@@ -232,7 +232,7 @@ public class HistoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Save-all')")
-    @ApiOperation(value = "SaveBatchByAction", tags = {"History" },  notes = "SaveBatchByAction")
+    @ApiOperation(value = "根据系统日志批量保存操作历史", tags = {"操作历史" },  notes = "根据系统日志批量保存操作历史")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/{action_id}/histories/savebatch")
     public ResponseEntity<Boolean> saveBatchByAction(@PathVariable("action_id") BigInteger action_id, @RequestBody List<HistoryDTO> historydtos) {
         List<History> domainlist=historyMapping.toDomain(historydtos);
@@ -244,7 +244,7 @@ public class HistoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Remove-all')")
-    @ApiOperation(value = "RemoveByAction", tags = {"History" },  notes = "RemoveByAction")
+    @ApiOperation(value = "根据系统日志删除操作历史", tags = {"操作历史" },  notes = "根据系统日志删除操作历史")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/actions/{action_id}/histories/{history_id}")
     @Transactional
     public ResponseEntity<Boolean> removeByAction(@PathVariable("action_id") BigInteger action_id, @PathVariable("history_id") BigInteger history_id) {
@@ -252,14 +252,14 @@ public class HistoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Remove-all')")
-    @ApiOperation(value = "RemoveBatchByAction", tags = {"History" },  notes = "RemoveBatchByAction")
+    @ApiOperation(value = "根据系统日志批量删除操作历史", tags = {"操作历史" },  notes = "根据系统日志批量删除操作历史")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/actions/{action_id}/histories/batch")
     public ResponseEntity<Boolean> removeBatchByAction(@RequestBody List<BigInteger> ids) {
         historyService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @ApiOperation(value = "GetDraftByAction", tags = {"History" },  notes = "GetDraftByAction")
+    @ApiOperation(value = "根据系统日志获取操作历史草稿", tags = {"操作历史" },  notes = "根据系统日志获取操作历史草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/actions/{action_id}/histories/getdraft")
     public ResponseEntity<HistoryDTO> getDraftByAction(@PathVariable("action_id") BigInteger action_id) {
         History domain = new History();
@@ -268,7 +268,7 @@ public class HistoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Default-all')")
-	@ApiOperation(value = "fetchDEFAULTByAction", tags = {"History" } ,notes = "fetchDEFAULTByAction")
+	@ApiOperation(value = "根据系统日志获取DEFAULT", tags = {"操作历史" } ,notes = "根据系统日志获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/actions/{action_id}/histories/fetchdefault")
 	public ResponseEntity<List<HistoryDTO>> fetchHistoryDefaultByAction(@PathVariable("action_id") BigInteger action_id,HistorySearchContext context) {
         context.setN_action_eq(action_id);
@@ -282,7 +282,7 @@ public class HistoryResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Default-all')")
-	@ApiOperation(value = "searchDEFAULTByAction", tags = {"History" } ,notes = "searchDEFAULTByAction")
+	@ApiOperation(value = "根据系统日志查询DEFAULT", tags = {"操作历史" } ,notes = "根据系统日志查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/actions/{action_id}/histories/searchdefault")
 	public ResponseEntity<Page<HistoryDTO>> searchHistoryDefaultByAction(@PathVariable("action_id") BigInteger action_id, @RequestBody HistorySearchContext context) {
         context.setN_action_eq(action_id);

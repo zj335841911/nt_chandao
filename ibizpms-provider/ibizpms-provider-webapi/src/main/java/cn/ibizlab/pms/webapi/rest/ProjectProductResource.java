@@ -34,7 +34,7 @@ import cn.ibizlab.pms.core.zentao.service.IProjectProductService;
 import cn.ibizlab.pms.core.zentao.filter.ProjectProductSearchContext;
 
 @Slf4j
-@Api(tags = {"ProjectProduct" })
+@Api(tags = {"项目产品" })
 @RestController("WebApi-projectproduct")
 @RequestMapping("")
 public class ProjectProductResource {
@@ -46,35 +46,35 @@ public class ProjectProductResource {
     @Lazy
     public ProjectProductMapping projectproductMapping;
 
-    @ApiOperation(value = "GetDraft", tags = {"ProjectProduct" },  notes = "GetDraft")
+    @ApiOperation(value = "获取项目产品草稿", tags = {"项目产品" },  notes = "获取项目产品草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/projectproducts/getdraft")
     public ResponseEntity<ProjectProductDTO> getDraft() {
         return ResponseEntity.status(HttpStatus.OK).body(projectproductMapping.toDto(projectproductService.getDraft(new ProjectProduct())));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Save-all')")
-    @ApiOperation(value = "Save", tags = {"ProjectProduct" },  notes = "Save")
+    @ApiOperation(value = "保存项目产品", tags = {"项目产品" },  notes = "保存项目产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/projectproducts/save")
     public ResponseEntity<Boolean> save(@RequestBody ProjectProductDTO projectproductdto) {
         return ResponseEntity.status(HttpStatus.OK).body(projectproductService.save(projectproductMapping.toDomain(projectproductdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Save-all')")
-    @ApiOperation(value = "SaveBatch", tags = {"ProjectProduct" },  notes = "SaveBatch")
+    @ApiOperation(value = "批量保存项目产品", tags = {"项目产品" },  notes = "批量保存项目产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/projectproducts/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<ProjectProductDTO> projectproductdtos) {
         projectproductService.saveBatch(projectproductMapping.toDomain(projectproductdtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @ApiOperation(value = "CheckKey", tags = {"ProjectProduct" },  notes = "CheckKey")
+    @ApiOperation(value = "检查项目产品", tags = {"项目产品" },  notes = "检查项目产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/projectproducts/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody ProjectProductDTO projectproductdto) {
         return  ResponseEntity.status(HttpStatus.OK).body(projectproductService.checkKey(projectproductMapping.toDomain(projectproductdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Get-all')")
-    @ApiOperation(value = "Get", tags = {"ProjectProduct" },  notes = "Get")
+    @ApiOperation(value = "获取项目产品", tags = {"项目产品" },  notes = "获取项目产品")
 	@RequestMapping(method = RequestMethod.GET, value = "/projectproducts/{projectproduct_id}")
     public ResponseEntity<ProjectProductDTO> get(@PathVariable("projectproduct_id") String projectproduct_id) {
         ProjectProduct domain = projectproductService.get(projectproduct_id);
@@ -83,7 +83,7 @@ public class ProjectProductResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Create-all')")
-    @ApiOperation(value = "Create", tags = {"ProjectProduct" },  notes = "Create")
+    @ApiOperation(value = "新建项目产品", tags = {"项目产品" },  notes = "新建项目产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/projectproducts")
     @Transactional
     public ResponseEntity<ProjectProductDTO> create(@RequestBody ProjectProductDTO projectproductdto) {
@@ -94,7 +94,7 @@ public class ProjectProductResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Create-all')")
-    @ApiOperation(value = "createBatch", tags = {"ProjectProduct" },  notes = "createBatch")
+    @ApiOperation(value = "批量新建项目产品", tags = {"项目产品" },  notes = "批量新建项目产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/projectproducts/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<ProjectProductDTO> projectproductdtos) {
         projectproductService.createBatch(projectproductMapping.toDomain(projectproductdtos));
@@ -102,7 +102,7 @@ public class ProjectProductResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Remove-all')")
-    @ApiOperation(value = "Remove", tags = {"ProjectProduct" },  notes = "Remove")
+    @ApiOperation(value = "删除项目产品", tags = {"项目产品" },  notes = "删除项目产品")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/projectproducts/{projectproduct_id}")
     @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("projectproduct_id") String projectproduct_id) {
@@ -110,7 +110,7 @@ public class ProjectProductResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Remove-all')")
-    @ApiOperation(value = "RemoveBatch", tags = {"ProjectProduct" },  notes = "RemoveBatch")
+    @ApiOperation(value = "批量删除项目产品", tags = {"项目产品" },  notes = "批量删除项目产品")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/projectproducts/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<String> ids) {
         projectproductService.removeBatch(ids);
@@ -118,7 +118,7 @@ public class ProjectProductResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Update-all')")
-    @ApiOperation(value = "Update", tags = {"ProjectProduct" },  notes = "Update")
+    @ApiOperation(value = "更新项目产品", tags = {"项目产品" },  notes = "更新项目产品")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projectproducts/{projectproduct_id}")
     @Transactional
     public ResponseEntity<ProjectProductDTO> update(@PathVariable("projectproduct_id") String projectproduct_id, @RequestBody ProjectProductDTO projectproductdto) {
@@ -130,7 +130,7 @@ public class ProjectProductResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Update-all')")
-    @ApiOperation(value = "UpdateBatch", tags = {"ProjectProduct" },  notes = "UpdateBatch")
+    @ApiOperation(value = "批量更新项目产品", tags = {"项目产品" },  notes = "批量更新项目产品")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projectproducts/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<ProjectProductDTO> projectproductdtos) {
         projectproductService.updateBatch(projectproductMapping.toDomain(projectproductdtos));
@@ -138,7 +138,7 @@ public class ProjectProductResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-RelationPlan-all')")
-	@ApiOperation(value = "fetch关联计划", tags = {"ProjectProduct" } ,notes = "fetch关联计划")
+	@ApiOperation(value = "获取关联计划", tags = {"项目产品" } ,notes = "获取关联计划")
     @RequestMapping(method= RequestMethod.GET , value="/projectproducts/fetchrelationplan")
 	public ResponseEntity<List<ProjectProductDTO>> fetchRelationPlan(ProjectProductSearchContext context) {
         Page<ProjectProduct> domains = projectproductService.searchRelationPlan(context) ;
@@ -151,7 +151,7 @@ public class ProjectProductResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-RelationPlan-all')")
-	@ApiOperation(value = "search关联计划", tags = {"ProjectProduct" } ,notes = "search关联计划")
+	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"项目产品" } ,notes = "查询关联计划")
     @RequestMapping(method= RequestMethod.POST , value="/projectproducts/searchrelationplan")
 	public ResponseEntity<Page<ProjectProductDTO>> searchRelationPlan(@RequestBody ProjectProductSearchContext context) {
         Page<ProjectProduct> domains = projectproductService.searchRelationPlan(context) ;
@@ -159,7 +159,7 @@ public class ProjectProductResource {
                 .body(new PageImpl(projectproductMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Default-all')")
-	@ApiOperation(value = "fetchDEFAULT", tags = {"ProjectProduct" } ,notes = "fetchDEFAULT")
+	@ApiOperation(value = "获取DEFAULT", tags = {"项目产品" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/projectproducts/fetchdefault")
 	public ResponseEntity<List<ProjectProductDTO>> fetchDefault(ProjectProductSearchContext context) {
         Page<ProjectProduct> domains = projectproductService.searchDefault(context) ;
@@ -172,14 +172,14 @@ public class ProjectProductResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Default-all')")
-	@ApiOperation(value = "searchDEFAULT", tags = {"ProjectProduct" } ,notes = "searchDEFAULT")
+	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"项目产品" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/projectproducts/searchdefault")
 	public ResponseEntity<Page<ProjectProductDTO>> searchDefault(@RequestBody ProjectProductSearchContext context) {
         Page<ProjectProduct> domains = projectproductService.searchDefault(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectproductMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @ApiOperation(value = "GetDraftByProduct", tags = {"ProjectProduct" },  notes = "GetDraftByProduct")
+    @ApiOperation(value = "根据产品获取项目产品草稿", tags = {"项目产品" },  notes = "根据产品获取项目产品草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/projectproducts/getdraft")
     public ResponseEntity<ProjectProductDTO> getDraftByProduct(@PathVariable("product_id") BigInteger product_id) {
         ProjectProduct domain = new ProjectProduct();
@@ -188,7 +188,7 @@ public class ProjectProductResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Save-all')")
-    @ApiOperation(value = "SaveByProduct", tags = {"ProjectProduct" },  notes = "SaveByProduct")
+    @ApiOperation(value = "根据产品保存项目产品", tags = {"项目产品" },  notes = "根据产品保存项目产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/projectproducts/save")
     public ResponseEntity<Boolean> saveByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody ProjectProductDTO projectproductdto) {
         ProjectProduct domain = projectproductMapping.toDomain(projectproductdto);
@@ -197,7 +197,7 @@ public class ProjectProductResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Save-all')")
-    @ApiOperation(value = "SaveBatchByProduct", tags = {"ProjectProduct" },  notes = "SaveBatchByProduct")
+    @ApiOperation(value = "根据产品批量保存项目产品", tags = {"项目产品" },  notes = "根据产品批量保存项目产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/projectproducts/savebatch")
     public ResponseEntity<Boolean> saveBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<ProjectProductDTO> projectproductdtos) {
         List<ProjectProduct> domainlist=projectproductMapping.toDomain(projectproductdtos);
@@ -208,14 +208,14 @@ public class ProjectProductResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @ApiOperation(value = "CheckKeyByProduct", tags = {"ProjectProduct" },  notes = "CheckKeyByProduct")
+    @ApiOperation(value = "根据产品检查项目产品", tags = {"项目产品" },  notes = "根据产品检查项目产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/projectproducts/checkkey")
     public ResponseEntity<Boolean> checkKeyByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody ProjectProductDTO projectproductdto) {
         return  ResponseEntity.status(HttpStatus.OK).body(projectproductService.checkKey(projectproductMapping.toDomain(projectproductdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Get-all')")
-    @ApiOperation(value = "GetByProduct", tags = {"ProjectProduct" },  notes = "GetByProduct")
+    @ApiOperation(value = "根据产品获取项目产品", tags = {"项目产品" },  notes = "根据产品获取项目产品")
 	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/projectproducts/{projectproduct_id}")
     public ResponseEntity<ProjectProductDTO> getByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("projectproduct_id") String projectproduct_id) {
         ProjectProduct domain = projectproductService.get(projectproduct_id);
@@ -224,7 +224,7 @@ public class ProjectProductResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Create-all')")
-    @ApiOperation(value = "CreateByProduct", tags = {"ProjectProduct" },  notes = "CreateByProduct")
+    @ApiOperation(value = "根据产品建立项目产品", tags = {"项目产品" },  notes = "根据产品建立项目产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/projectproducts")
     @Transactional
     public ResponseEntity<ProjectProductDTO> createByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody ProjectProductDTO projectproductdto) {
@@ -236,7 +236,7 @@ public class ProjectProductResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Create-all')")
-    @ApiOperation(value = "createBatchByProduct", tags = {"ProjectProduct" },  notes = "createBatchByProduct")
+    @ApiOperation(value = "根据产品批量建立项目产品", tags = {"项目产品" },  notes = "根据产品批量建立项目产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/projectproducts/batch")
     public ResponseEntity<Boolean> createBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<ProjectProductDTO> projectproductdtos) {
         List<ProjectProduct> domainlist=projectproductMapping.toDomain(projectproductdtos);
@@ -248,7 +248,7 @@ public class ProjectProductResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Remove-all')")
-    @ApiOperation(value = "RemoveByProduct", tags = {"ProjectProduct" },  notes = "RemoveByProduct")
+    @ApiOperation(value = "根据产品删除项目产品", tags = {"项目产品" },  notes = "根据产品删除项目产品")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/projectproducts/{projectproduct_id}")
     @Transactional
     public ResponseEntity<Boolean> removeByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("projectproduct_id") String projectproduct_id) {
@@ -256,7 +256,7 @@ public class ProjectProductResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Remove-all')")
-    @ApiOperation(value = "RemoveBatchByProduct", tags = {"ProjectProduct" },  notes = "RemoveBatchByProduct")
+    @ApiOperation(value = "根据产品批量删除项目产品", tags = {"项目产品" },  notes = "根据产品批量删除项目产品")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/projectproducts/batch")
     public ResponseEntity<Boolean> removeBatchByProduct(@RequestBody List<String> ids) {
         projectproductService.removeBatch(ids);
@@ -264,7 +264,7 @@ public class ProjectProductResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Update-all')")
-    @ApiOperation(value = "UpdateByProduct", tags = {"ProjectProduct" },  notes = "UpdateByProduct")
+    @ApiOperation(value = "根据产品更新项目产品", tags = {"项目产品" },  notes = "根据产品更新项目产品")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/projectproducts/{projectproduct_id}")
     @Transactional
     public ResponseEntity<ProjectProductDTO> updateByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("projectproduct_id") String projectproduct_id, @RequestBody ProjectProductDTO projectproductdto) {
@@ -277,7 +277,7 @@ public class ProjectProductResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Update-all')")
-    @ApiOperation(value = "UpdateBatchByProduct", tags = {"ProjectProduct" },  notes = "UpdateBatchByProduct")
+    @ApiOperation(value = "根据产品批量更新项目产品", tags = {"项目产品" },  notes = "根据产品批量更新项目产品")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/projectproducts/batch")
     public ResponseEntity<Boolean> updateBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<ProjectProductDTO> projectproductdtos) {
         List<ProjectProduct> domainlist=projectproductMapping.toDomain(projectproductdtos);
@@ -289,7 +289,7 @@ public class ProjectProductResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-RelationPlan-all')")
-	@ApiOperation(value = "fetch关联计划ByProduct", tags = {"ProjectProduct" } ,notes = "fetch关联计划ByProduct")
+	@ApiOperation(value = "根据产品获取关联计划", tags = {"项目产品" } ,notes = "根据产品获取关联计划")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/projectproducts/fetchrelationplan")
 	public ResponseEntity<List<ProjectProductDTO>> fetchProjectProductRelationPlanByProduct(@PathVariable("product_id") BigInteger product_id,ProjectProductSearchContext context) {
         context.setN_product_eq(product_id);
@@ -303,7 +303,7 @@ public class ProjectProductResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-RelationPlan-all')")
-	@ApiOperation(value = "search关联计划ByProduct", tags = {"ProjectProduct" } ,notes = "search关联计划ByProduct")
+	@ApiOperation(value = "根据产品查询关联计划", tags = {"项目产品" } ,notes = "根据产品查询关联计划")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/projectproducts/searchrelationplan")
 	public ResponseEntity<Page<ProjectProductDTO>> searchProjectProductRelationPlanByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody ProjectProductSearchContext context) {
         context.setN_product_eq(product_id);
@@ -312,7 +312,7 @@ public class ProjectProductResource {
                 .body(new PageImpl(projectproductMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Default-all')")
-	@ApiOperation(value = "fetchDEFAULTByProduct", tags = {"ProjectProduct" } ,notes = "fetchDEFAULTByProduct")
+	@ApiOperation(value = "根据产品获取DEFAULT", tags = {"项目产品" } ,notes = "根据产品获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/projectproducts/fetchdefault")
 	public ResponseEntity<List<ProjectProductDTO>> fetchProjectProductDefaultByProduct(@PathVariable("product_id") BigInteger product_id,ProjectProductSearchContext context) {
         context.setN_product_eq(product_id);
@@ -326,7 +326,7 @@ public class ProjectProductResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Default-all')")
-	@ApiOperation(value = "searchDEFAULTByProduct", tags = {"ProjectProduct" } ,notes = "searchDEFAULTByProduct")
+	@ApiOperation(value = "根据产品查询DEFAULT", tags = {"项目产品" } ,notes = "根据产品查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/projectproducts/searchdefault")
 	public ResponseEntity<Page<ProjectProductDTO>> searchProjectProductDefaultByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody ProjectProductSearchContext context) {
         context.setN_product_eq(product_id);
@@ -334,7 +334,7 @@ public class ProjectProductResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectproductMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @ApiOperation(value = "GetDraftByProject", tags = {"ProjectProduct" },  notes = "GetDraftByProject")
+    @ApiOperation(value = "根据项目获取项目产品草稿", tags = {"项目产品" },  notes = "根据项目获取项目产品草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/projectproducts/getdraft")
     public ResponseEntity<ProjectProductDTO> getDraftByProject(@PathVariable("project_id") BigInteger project_id) {
         ProjectProduct domain = new ProjectProduct();
@@ -343,7 +343,7 @@ public class ProjectProductResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Save-all')")
-    @ApiOperation(value = "SaveByProject", tags = {"ProjectProduct" },  notes = "SaveByProject")
+    @ApiOperation(value = "根据项目保存项目产品", tags = {"项目产品" },  notes = "根据项目保存项目产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectproducts/save")
     public ResponseEntity<Boolean> saveByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectProductDTO projectproductdto) {
         ProjectProduct domain = projectproductMapping.toDomain(projectproductdto);
@@ -352,7 +352,7 @@ public class ProjectProductResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Save-all')")
-    @ApiOperation(value = "SaveBatchByProject", tags = {"ProjectProduct" },  notes = "SaveBatchByProject")
+    @ApiOperation(value = "根据项目批量保存项目产品", tags = {"项目产品" },  notes = "根据项目批量保存项目产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectproducts/savebatch")
     public ResponseEntity<Boolean> saveBatchByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody List<ProjectProductDTO> projectproductdtos) {
         List<ProjectProduct> domainlist=projectproductMapping.toDomain(projectproductdtos);
@@ -363,14 +363,14 @@ public class ProjectProductResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @ApiOperation(value = "CheckKeyByProject", tags = {"ProjectProduct" },  notes = "CheckKeyByProject")
+    @ApiOperation(value = "根据项目检查项目产品", tags = {"项目产品" },  notes = "根据项目检查项目产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectproducts/checkkey")
     public ResponseEntity<Boolean> checkKeyByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectProductDTO projectproductdto) {
         return  ResponseEntity.status(HttpStatus.OK).body(projectproductService.checkKey(projectproductMapping.toDomain(projectproductdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Get-all')")
-    @ApiOperation(value = "GetByProject", tags = {"ProjectProduct" },  notes = "GetByProject")
+    @ApiOperation(value = "根据项目获取项目产品", tags = {"项目产品" },  notes = "根据项目获取项目产品")
 	@RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/projectproducts/{projectproduct_id}")
     public ResponseEntity<ProjectProductDTO> getByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("projectproduct_id") String projectproduct_id) {
         ProjectProduct domain = projectproductService.get(projectproduct_id);
@@ -379,7 +379,7 @@ public class ProjectProductResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Create-all')")
-    @ApiOperation(value = "CreateByProject", tags = {"ProjectProduct" },  notes = "CreateByProject")
+    @ApiOperation(value = "根据项目建立项目产品", tags = {"项目产品" },  notes = "根据项目建立项目产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectproducts")
     @Transactional
     public ResponseEntity<ProjectProductDTO> createByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectProductDTO projectproductdto) {
@@ -391,7 +391,7 @@ public class ProjectProductResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Create-all')")
-    @ApiOperation(value = "createBatchByProject", tags = {"ProjectProduct" },  notes = "createBatchByProject")
+    @ApiOperation(value = "根据项目批量建立项目产品", tags = {"项目产品" },  notes = "根据项目批量建立项目产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectproducts/batch")
     public ResponseEntity<Boolean> createBatchByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody List<ProjectProductDTO> projectproductdtos) {
         List<ProjectProduct> domainlist=projectproductMapping.toDomain(projectproductdtos);
@@ -403,7 +403,7 @@ public class ProjectProductResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Remove-all')")
-    @ApiOperation(value = "RemoveByProject", tags = {"ProjectProduct" },  notes = "RemoveByProject")
+    @ApiOperation(value = "根据项目删除项目产品", tags = {"项目产品" },  notes = "根据项目删除项目产品")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/projectproducts/{projectproduct_id}")
     @Transactional
     public ResponseEntity<Boolean> removeByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("projectproduct_id") String projectproduct_id) {
@@ -411,7 +411,7 @@ public class ProjectProductResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Remove-all')")
-    @ApiOperation(value = "RemoveBatchByProject", tags = {"ProjectProduct" },  notes = "RemoveBatchByProject")
+    @ApiOperation(value = "根据项目批量删除项目产品", tags = {"项目产品" },  notes = "根据项目批量删除项目产品")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/projectproducts/batch")
     public ResponseEntity<Boolean> removeBatchByProject(@RequestBody List<String> ids) {
         projectproductService.removeBatch(ids);
@@ -419,7 +419,7 @@ public class ProjectProductResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Update-all')")
-    @ApiOperation(value = "UpdateByProject", tags = {"ProjectProduct" },  notes = "UpdateByProject")
+    @ApiOperation(value = "根据项目更新项目产品", tags = {"项目产品" },  notes = "根据项目更新项目产品")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/projectproducts/{projectproduct_id}")
     @Transactional
     public ResponseEntity<ProjectProductDTO> updateByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("projectproduct_id") String projectproduct_id, @RequestBody ProjectProductDTO projectproductdto) {
@@ -432,7 +432,7 @@ public class ProjectProductResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Update-all')")
-    @ApiOperation(value = "UpdateBatchByProject", tags = {"ProjectProduct" },  notes = "UpdateBatchByProject")
+    @ApiOperation(value = "根据项目批量更新项目产品", tags = {"项目产品" },  notes = "根据项目批量更新项目产品")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/projectproducts/batch")
     public ResponseEntity<Boolean> updateBatchByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody List<ProjectProductDTO> projectproductdtos) {
         List<ProjectProduct> domainlist=projectproductMapping.toDomain(projectproductdtos);
@@ -444,7 +444,7 @@ public class ProjectProductResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-RelationPlan-all')")
-	@ApiOperation(value = "fetch关联计划ByProject", tags = {"ProjectProduct" } ,notes = "fetch关联计划ByProject")
+	@ApiOperation(value = "根据项目获取关联计划", tags = {"项目产品" } ,notes = "根据项目获取关联计划")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/projectproducts/fetchrelationplan")
 	public ResponseEntity<List<ProjectProductDTO>> fetchProjectProductRelationPlanByProject(@PathVariable("project_id") BigInteger project_id,ProjectProductSearchContext context) {
         context.setN_project_eq(project_id);
@@ -458,7 +458,7 @@ public class ProjectProductResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-RelationPlan-all')")
-	@ApiOperation(value = "search关联计划ByProject", tags = {"ProjectProduct" } ,notes = "search关联计划ByProject")
+	@ApiOperation(value = "根据项目查询关联计划", tags = {"项目产品" } ,notes = "根据项目查询关联计划")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/projectproducts/searchrelationplan")
 	public ResponseEntity<Page<ProjectProductDTO>> searchProjectProductRelationPlanByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectProductSearchContext context) {
         context.setN_project_eq(project_id);
@@ -467,7 +467,7 @@ public class ProjectProductResource {
                 .body(new PageImpl(projectproductMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Default-all')")
-	@ApiOperation(value = "fetchDEFAULTByProject", tags = {"ProjectProduct" } ,notes = "fetchDEFAULTByProject")
+	@ApiOperation(value = "根据项目获取DEFAULT", tags = {"项目产品" } ,notes = "根据项目获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/projectproducts/fetchdefault")
 	public ResponseEntity<List<ProjectProductDTO>> fetchProjectProductDefaultByProject(@PathVariable("project_id") BigInteger project_id,ProjectProductSearchContext context) {
         context.setN_project_eq(project_id);
@@ -481,7 +481,7 @@ public class ProjectProductResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Default-all')")
-	@ApiOperation(value = "searchDEFAULTByProject", tags = {"ProjectProduct" } ,notes = "searchDEFAULTByProject")
+	@ApiOperation(value = "根据项目查询DEFAULT", tags = {"项目产品" } ,notes = "根据项目查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/projectproducts/searchdefault")
 	public ResponseEntity<Page<ProjectProductDTO>> searchProjectProductDefaultByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectProductSearchContext context) {
         context.setN_project_eq(project_id);

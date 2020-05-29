@@ -47,7 +47,7 @@ public class BugResource {
     public BugMapping bugMapping;
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Get-all')")
-    @ApiOperation(value = "Get", tags = {"Bug" },  notes = "Get")
+    @ApiOperation(value = "获取Bug", tags = {"Bug" },  notes = "获取Bug")
 	@RequestMapping(method = RequestMethod.GET, value = "/bugs/{bug_id}")
     public ResponseEntity<BugDTO> get(@PathVariable("bug_id") BigInteger bug_id) {
         Bug domain = bugService.get(bug_id);
@@ -55,27 +55,27 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @ApiOperation(value = "GetDraft", tags = {"Bug" },  notes = "GetDraft")
+    @ApiOperation(value = "获取Bug草稿", tags = {"Bug" },  notes = "获取Bug草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/bugs/getdraft")
     public ResponseEntity<BugDTO> getDraft() {
         return ResponseEntity.status(HttpStatus.OK).body(bugMapping.toDto(bugService.getDraft(new Bug())));
     }
 
-    @ApiOperation(value = "CheckKey", tags = {"Bug" },  notes = "CheckKey")
+    @ApiOperation(value = "检查Bug", tags = {"Bug" },  notes = "检查Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody BugDTO bugdto) {
         return  ResponseEntity.status(HttpStatus.OK).body(bugService.checkKey(bugMapping.toDomain(bugdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
-    @ApiOperation(value = "Save", tags = {"Bug" },  notes = "Save")
+    @ApiOperation(value = "保存Bug", tags = {"Bug" },  notes = "保存Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/save")
     public ResponseEntity<Boolean> save(@RequestBody BugDTO bugdto) {
         return ResponseEntity.status(HttpStatus.OK).body(bugService.save(bugMapping.toDomain(bugdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
-    @ApiOperation(value = "SaveBatch", tags = {"Bug" },  notes = "SaveBatch")
+    @ApiOperation(value = "批量保存Bug", tags = {"Bug" },  notes = "批量保存Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<BugDTO> bugdtos) {
         bugService.saveBatch(bugMapping.toDomain(bugdtos));
@@ -83,7 +83,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
-    @ApiOperation(value = "Create", tags = {"Bug" },  notes = "Create")
+    @ApiOperation(value = "新建Bug", tags = {"Bug" },  notes = "新建Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs")
     @Transactional
     public ResponseEntity<BugDTO> create(@RequestBody BugDTO bugdto) {
@@ -94,7 +94,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
-    @ApiOperation(value = "createBatch", tags = {"Bug" },  notes = "createBatch")
+    @ApiOperation(value = "批量新建Bug", tags = {"Bug" },  notes = "批量新建Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<BugDTO> bugdtos) {
         bugService.createBatch(bugMapping.toDomain(bugdtos));
@@ -102,7 +102,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Remove-all')")
-    @ApiOperation(value = "Remove", tags = {"Bug" },  notes = "Remove")
+    @ApiOperation(value = "删除Bug", tags = {"Bug" },  notes = "删除Bug")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/bugs/{bug_id}")
     @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("bug_id") BigInteger bug_id) {
@@ -110,7 +110,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Remove-all')")
-    @ApiOperation(value = "RemoveBatch", tags = {"Bug" },  notes = "RemoveBatch")
+    @ApiOperation(value = "批量删除Bug", tags = {"Bug" },  notes = "批量删除Bug")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/bugs/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
         bugService.removeBatch(ids);
@@ -118,7 +118,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
-    @ApiOperation(value = "Update", tags = {"Bug" },  notes = "Update")
+    @ApiOperation(value = "更新Bug", tags = {"Bug" },  notes = "更新Bug")
 	@RequestMapping(method = RequestMethod.PUT, value = "/bugs/{bug_id}")
     @Transactional
     public ResponseEntity<BugDTO> update(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
@@ -130,7 +130,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
-    @ApiOperation(value = "UpdateBatch", tags = {"Bug" },  notes = "UpdateBatch")
+    @ApiOperation(value = "批量更新Bug", tags = {"Bug" },  notes = "批量更新Bug")
 	@RequestMapping(method = RequestMethod.PUT, value = "/bugs/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<BugDTO> bugdtos) {
         bugService.updateBatch(bugMapping.toDomain(bugdtos));
@@ -138,7 +138,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Default-all')")
-	@ApiOperation(value = "fetchDEFAULT", tags = {"Bug" } ,notes = "fetchDEFAULT")
+	@ApiOperation(value = "获取DEFAULT", tags = {"Bug" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/bugs/fetchdefault")
 	public ResponseEntity<List<BugDTO>> fetchDefault(BugSearchContext context) {
         Page<Bug> domains = bugService.searchDefault(context) ;
@@ -151,7 +151,7 @@ public class BugResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Default-all')")
-	@ApiOperation(value = "searchDEFAULT", tags = {"Bug" } ,notes = "searchDEFAULT")
+	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"Bug" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/bugs/searchdefault")
 	public ResponseEntity<Page<BugDTO>> searchDefault(@RequestBody BugSearchContext context) {
         Page<Bug> domains = bugService.searchDefault(context) ;
@@ -159,7 +159,7 @@ public class BugResource {
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Get-all')")
-    @ApiOperation(value = "GetByProduct", tags = {"Bug" },  notes = "GetByProduct")
+    @ApiOperation(value = "根据产品获取Bug", tags = {"Bug" },  notes = "根据产品获取Bug")
 	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/bugs/{bug_id}")
     public ResponseEntity<BugDTO> getByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("bug_id") BigInteger bug_id) {
         Bug domain = bugService.get(bug_id);
@@ -167,7 +167,7 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @ApiOperation(value = "GetDraftByProduct", tags = {"Bug" },  notes = "GetDraftByProduct")
+    @ApiOperation(value = "根据产品获取Bug草稿", tags = {"Bug" },  notes = "根据产品获取Bug草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/bugs/getdraft")
     public ResponseEntity<BugDTO> getDraftByProduct(@PathVariable("product_id") BigInteger product_id) {
         Bug domain = new Bug();
@@ -175,14 +175,14 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugMapping.toDto(bugService.getDraft(domain)));
     }
 
-    @ApiOperation(value = "CheckKeyByProduct", tags = {"Bug" },  notes = "CheckKeyByProduct")
+    @ApiOperation(value = "根据产品检查Bug", tags = {"Bug" },  notes = "根据产品检查Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/checkkey")
     public ResponseEntity<Boolean> checkKeyByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BugDTO bugdto) {
         return  ResponseEntity.status(HttpStatus.OK).body(bugService.checkKey(bugMapping.toDomain(bugdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
-    @ApiOperation(value = "SaveByProduct", tags = {"Bug" },  notes = "SaveByProduct")
+    @ApiOperation(value = "根据产品保存Bug", tags = {"Bug" },  notes = "根据产品保存Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/save")
     public ResponseEntity<Boolean> saveByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
@@ -191,7 +191,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
-    @ApiOperation(value = "SaveBatchByProduct", tags = {"Bug" },  notes = "SaveBatchByProduct")
+    @ApiOperation(value = "根据产品批量保存Bug", tags = {"Bug" },  notes = "根据产品批量保存Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/savebatch")
     public ResponseEntity<Boolean> saveBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<BugDTO> bugdtos) {
         List<Bug> domainlist=bugMapping.toDomain(bugdtos);
@@ -203,7 +203,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
-    @ApiOperation(value = "CreateByProduct", tags = {"Bug" },  notes = "CreateByProduct")
+    @ApiOperation(value = "根据产品建立Bug", tags = {"Bug" },  notes = "根据产品建立Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs")
     @Transactional
     public ResponseEntity<BugDTO> createByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BugDTO bugdto) {
@@ -215,7 +215,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
-    @ApiOperation(value = "createBatchByProduct", tags = {"Bug" },  notes = "createBatchByProduct")
+    @ApiOperation(value = "根据产品批量建立Bug", tags = {"Bug" },  notes = "根据产品批量建立Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/batch")
     public ResponseEntity<Boolean> createBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<BugDTO> bugdtos) {
         List<Bug> domainlist=bugMapping.toDomain(bugdtos);
@@ -227,7 +227,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Remove-all')")
-    @ApiOperation(value = "RemoveByProduct", tags = {"Bug" },  notes = "RemoveByProduct")
+    @ApiOperation(value = "根据产品删除Bug", tags = {"Bug" },  notes = "根据产品删除Bug")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/bugs/{bug_id}")
     @Transactional
     public ResponseEntity<Boolean> removeByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("bug_id") BigInteger bug_id) {
@@ -235,7 +235,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Remove-all')")
-    @ApiOperation(value = "RemoveBatchByProduct", tags = {"Bug" },  notes = "RemoveBatchByProduct")
+    @ApiOperation(value = "根据产品批量删除Bug", tags = {"Bug" },  notes = "根据产品批量删除Bug")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/bugs/batch")
     public ResponseEntity<Boolean> removeBatchByProduct(@RequestBody List<BigInteger> ids) {
         bugService.removeBatch(ids);
@@ -243,7 +243,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
-    @ApiOperation(value = "UpdateByProduct", tags = {"Bug" },  notes = "UpdateByProduct")
+    @ApiOperation(value = "根据产品更新Bug", tags = {"Bug" },  notes = "根据产品更新Bug")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/bugs/{bug_id}")
     @Transactional
     public ResponseEntity<BugDTO> updateByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
@@ -256,7 +256,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
-    @ApiOperation(value = "UpdateBatchByProduct", tags = {"Bug" },  notes = "UpdateBatchByProduct")
+    @ApiOperation(value = "根据产品批量更新Bug", tags = {"Bug" },  notes = "根据产品批量更新Bug")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/bugs/batch")
     public ResponseEntity<Boolean> updateBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<BugDTO> bugdtos) {
         List<Bug> domainlist=bugMapping.toDomain(bugdtos);
@@ -268,7 +268,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Default-all')")
-	@ApiOperation(value = "fetchDEFAULTByProduct", tags = {"Bug" } ,notes = "fetchDEFAULTByProduct")
+	@ApiOperation(value = "根据产品获取DEFAULT", tags = {"Bug" } ,notes = "根据产品获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/bugs/fetchdefault")
 	public ResponseEntity<List<BugDTO>> fetchBugDefaultByProduct(@PathVariable("product_id") BigInteger product_id,BugSearchContext context) {
         context.setN_product_eq(product_id);
@@ -282,7 +282,7 @@ public class BugResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Default-all')")
-	@ApiOperation(value = "searchDEFAULTByProduct", tags = {"Bug" } ,notes = "searchDEFAULTByProduct")
+	@ApiOperation(value = "根据产品查询DEFAULT", tags = {"Bug" } ,notes = "根据产品查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/bugs/searchdefault")
 	public ResponseEntity<Page<BugDTO>> searchBugDefaultByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BugSearchContext context) {
         context.setN_product_eq(product_id);
@@ -291,7 +291,7 @@ public class BugResource {
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Get-all')")
-    @ApiOperation(value = "GetByProductPlan", tags = {"Bug" },  notes = "GetByProductPlan")
+    @ApiOperation(value = "根据产品计划获取Bug", tags = {"Bug" },  notes = "根据产品计划获取Bug")
 	@RequestMapping(method = RequestMethod.GET, value = "/productplans/{productplan_id}/bugs/{bug_id}")
     public ResponseEntity<BugDTO> getByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("bug_id") BigInteger bug_id) {
         Bug domain = bugService.get(bug_id);
@@ -299,7 +299,7 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @ApiOperation(value = "GetDraftByProductPlan", tags = {"Bug" },  notes = "GetDraftByProductPlan")
+    @ApiOperation(value = "根据产品计划获取Bug草稿", tags = {"Bug" },  notes = "根据产品计划获取Bug草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/productplans/{productplan_id}/bugs/getdraft")
     public ResponseEntity<BugDTO> getDraftByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id) {
         Bug domain = new Bug();
@@ -307,14 +307,14 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugMapping.toDto(bugService.getDraft(domain)));
     }
 
-    @ApiOperation(value = "CheckKeyByProductPlan", tags = {"Bug" },  notes = "CheckKeyByProductPlan")
+    @ApiOperation(value = "根据产品计划检查Bug", tags = {"Bug" },  notes = "根据产品计划检查Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/bugs/checkkey")
     public ResponseEntity<Boolean> checkKeyByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugDTO bugdto) {
         return  ResponseEntity.status(HttpStatus.OK).body(bugService.checkKey(bugMapping.toDomain(bugdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
-    @ApiOperation(value = "SaveByProductPlan", tags = {"Bug" },  notes = "SaveByProductPlan")
+    @ApiOperation(value = "根据产品计划保存Bug", tags = {"Bug" },  notes = "根据产品计划保存Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/bugs/save")
     public ResponseEntity<Boolean> saveByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
@@ -323,7 +323,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
-    @ApiOperation(value = "SaveBatchByProductPlan", tags = {"Bug" },  notes = "SaveBatchByProductPlan")
+    @ApiOperation(value = "根据产品计划批量保存Bug", tags = {"Bug" },  notes = "根据产品计划批量保存Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/bugs/savebatch")
     public ResponseEntity<Boolean> saveBatchByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody List<BugDTO> bugdtos) {
         List<Bug> domainlist=bugMapping.toDomain(bugdtos);
@@ -335,7 +335,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
-    @ApiOperation(value = "CreateByProductPlan", tags = {"Bug" },  notes = "CreateByProductPlan")
+    @ApiOperation(value = "根据产品计划建立Bug", tags = {"Bug" },  notes = "根据产品计划建立Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/bugs")
     @Transactional
     public ResponseEntity<BugDTO> createByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugDTO bugdto) {
@@ -347,7 +347,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
-    @ApiOperation(value = "createBatchByProductPlan", tags = {"Bug" },  notes = "createBatchByProductPlan")
+    @ApiOperation(value = "根据产品计划批量建立Bug", tags = {"Bug" },  notes = "根据产品计划批量建立Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/bugs/batch")
     public ResponseEntity<Boolean> createBatchByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody List<BugDTO> bugdtos) {
         List<Bug> domainlist=bugMapping.toDomain(bugdtos);
@@ -359,7 +359,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Remove-all')")
-    @ApiOperation(value = "RemoveByProductPlan", tags = {"Bug" },  notes = "RemoveByProductPlan")
+    @ApiOperation(value = "根据产品计划删除Bug", tags = {"Bug" },  notes = "根据产品计划删除Bug")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/productplans/{productplan_id}/bugs/{bug_id}")
     @Transactional
     public ResponseEntity<Boolean> removeByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("bug_id") BigInteger bug_id) {
@@ -367,7 +367,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Remove-all')")
-    @ApiOperation(value = "RemoveBatchByProductPlan", tags = {"Bug" },  notes = "RemoveBatchByProductPlan")
+    @ApiOperation(value = "根据产品计划批量删除Bug", tags = {"Bug" },  notes = "根据产品计划批量删除Bug")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/productplans/{productplan_id}/bugs/batch")
     public ResponseEntity<Boolean> removeBatchByProductPlan(@RequestBody List<BigInteger> ids) {
         bugService.removeBatch(ids);
@@ -375,7 +375,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
-    @ApiOperation(value = "UpdateByProductPlan", tags = {"Bug" },  notes = "UpdateByProductPlan")
+    @ApiOperation(value = "根据产品计划更新Bug", tags = {"Bug" },  notes = "根据产品计划更新Bug")
 	@RequestMapping(method = RequestMethod.PUT, value = "/productplans/{productplan_id}/bugs/{bug_id}")
     @Transactional
     public ResponseEntity<BugDTO> updateByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
@@ -388,7 +388,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
-    @ApiOperation(value = "UpdateBatchByProductPlan", tags = {"Bug" },  notes = "UpdateBatchByProductPlan")
+    @ApiOperation(value = "根据产品计划批量更新Bug", tags = {"Bug" },  notes = "根据产品计划批量更新Bug")
 	@RequestMapping(method = RequestMethod.PUT, value = "/productplans/{productplan_id}/bugs/batch")
     public ResponseEntity<Boolean> updateBatchByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody List<BugDTO> bugdtos) {
         List<Bug> domainlist=bugMapping.toDomain(bugdtos);
@@ -400,7 +400,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Default-all')")
-	@ApiOperation(value = "fetchDEFAULTByProductPlan", tags = {"Bug" } ,notes = "fetchDEFAULTByProductPlan")
+	@ApiOperation(value = "根据产品计划获取DEFAULT", tags = {"Bug" } ,notes = "根据产品计划获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/productplans/{productplan_id}/bugs/fetchdefault")
 	public ResponseEntity<List<BugDTO>> fetchBugDefaultByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id,BugSearchContext context) {
         context.setN_plan_eq(productplan_id);
@@ -414,7 +414,7 @@ public class BugResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Default-all')")
-	@ApiOperation(value = "searchDEFAULTByProductPlan", tags = {"Bug" } ,notes = "searchDEFAULTByProductPlan")
+	@ApiOperation(value = "根据产品计划查询DEFAULT", tags = {"Bug" } ,notes = "根据产品计划查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/productplans/{productplan_id}/bugs/searchdefault")
 	public ResponseEntity<Page<BugDTO>> searchBugDefaultByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugSearchContext context) {
         context.setN_plan_eq(productplan_id);
@@ -423,7 +423,7 @@ public class BugResource {
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Get-all')")
-    @ApiOperation(value = "GetByProductProductPlan", tags = {"Bug" },  notes = "GetByProductProductPlan")
+    @ApiOperation(value = "根据产品产品计划获取Bug", tags = {"Bug" },  notes = "根据产品产品计划获取Bug")
 	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/productplans/{productplan_id}/bugs/{bug_id}")
     public ResponseEntity<BugDTO> getByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("bug_id") BigInteger bug_id) {
         Bug domain = bugService.get(bug_id);
@@ -431,7 +431,7 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @ApiOperation(value = "GetDraftByProductProductPlan", tags = {"Bug" },  notes = "GetDraftByProductProductPlan")
+    @ApiOperation(value = "根据产品产品计划获取Bug草稿", tags = {"Bug" },  notes = "根据产品产品计划获取Bug草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/productplans/{productplan_id}/bugs/getdraft")
     public ResponseEntity<BugDTO> getDraftByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id) {
         Bug domain = new Bug();
@@ -439,14 +439,14 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugMapping.toDto(bugService.getDraft(domain)));
     }
 
-    @ApiOperation(value = "CheckKeyByProductProductPlan", tags = {"Bug" },  notes = "CheckKeyByProductProductPlan")
+    @ApiOperation(value = "根据产品产品计划检查Bug", tags = {"Bug" },  notes = "根据产品产品计划检查Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/bugs/checkkey")
     public ResponseEntity<Boolean> checkKeyByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugDTO bugdto) {
         return  ResponseEntity.status(HttpStatus.OK).body(bugService.checkKey(bugMapping.toDomain(bugdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
-    @ApiOperation(value = "SaveByProductProductPlan", tags = {"Bug" },  notes = "SaveByProductProductPlan")
+    @ApiOperation(value = "根据产品产品计划保存Bug", tags = {"Bug" },  notes = "根据产品产品计划保存Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/bugs/save")
     public ResponseEntity<Boolean> saveByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
@@ -455,7 +455,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
-    @ApiOperation(value = "SaveBatchByProductProductPlan", tags = {"Bug" },  notes = "SaveBatchByProductProductPlan")
+    @ApiOperation(value = "根据产品产品计划批量保存Bug", tags = {"Bug" },  notes = "根据产品产品计划批量保存Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/bugs/savebatch")
     public ResponseEntity<Boolean> saveBatchByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @RequestBody List<BugDTO> bugdtos) {
         List<Bug> domainlist=bugMapping.toDomain(bugdtos);
@@ -467,7 +467,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
-    @ApiOperation(value = "CreateByProductProductPlan", tags = {"Bug" },  notes = "CreateByProductProductPlan")
+    @ApiOperation(value = "根据产品产品计划建立Bug", tags = {"Bug" },  notes = "根据产品产品计划建立Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/bugs")
     @Transactional
     public ResponseEntity<BugDTO> createByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugDTO bugdto) {
@@ -479,7 +479,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
-    @ApiOperation(value = "createBatchByProductProductPlan", tags = {"Bug" },  notes = "createBatchByProductProductPlan")
+    @ApiOperation(value = "根据产品产品计划批量建立Bug", tags = {"Bug" },  notes = "根据产品产品计划批量建立Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/bugs/batch")
     public ResponseEntity<Boolean> createBatchByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @RequestBody List<BugDTO> bugdtos) {
         List<Bug> domainlist=bugMapping.toDomain(bugdtos);
@@ -491,7 +491,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Remove-all')")
-    @ApiOperation(value = "RemoveByProductProductPlan", tags = {"Bug" },  notes = "RemoveByProductProductPlan")
+    @ApiOperation(value = "根据产品产品计划删除Bug", tags = {"Bug" },  notes = "根据产品产品计划删除Bug")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/productplans/{productplan_id}/bugs/{bug_id}")
     @Transactional
     public ResponseEntity<Boolean> removeByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("bug_id") BigInteger bug_id) {
@@ -499,7 +499,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Remove-all')")
-    @ApiOperation(value = "RemoveBatchByProductProductPlan", tags = {"Bug" },  notes = "RemoveBatchByProductProductPlan")
+    @ApiOperation(value = "根据产品产品计划批量删除Bug", tags = {"Bug" },  notes = "根据产品产品计划批量删除Bug")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/productplans/{productplan_id}/bugs/batch")
     public ResponseEntity<Boolean> removeBatchByProductProductPlan(@RequestBody List<BigInteger> ids) {
         bugService.removeBatch(ids);
@@ -507,7 +507,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
-    @ApiOperation(value = "UpdateByProductProductPlan", tags = {"Bug" },  notes = "UpdateByProductProductPlan")
+    @ApiOperation(value = "根据产品产品计划更新Bug", tags = {"Bug" },  notes = "根据产品产品计划更新Bug")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/productplans/{productplan_id}/bugs/{bug_id}")
     @Transactional
     public ResponseEntity<BugDTO> updateByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
@@ -520,7 +520,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
-    @ApiOperation(value = "UpdateBatchByProductProductPlan", tags = {"Bug" },  notes = "UpdateBatchByProductProductPlan")
+    @ApiOperation(value = "根据产品产品计划批量更新Bug", tags = {"Bug" },  notes = "根据产品产品计划批量更新Bug")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/productplans/{productplan_id}/bugs/batch")
     public ResponseEntity<Boolean> updateBatchByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @RequestBody List<BugDTO> bugdtos) {
         List<Bug> domainlist=bugMapping.toDomain(bugdtos);
@@ -532,7 +532,7 @@ public class BugResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Default-all')")
-	@ApiOperation(value = "fetchDEFAULTByProductProductPlan", tags = {"Bug" } ,notes = "fetchDEFAULTByProductProductPlan")
+	@ApiOperation(value = "根据产品产品计划获取DEFAULT", tags = {"Bug" } ,notes = "根据产品产品计划获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productplans/{productplan_id}/bugs/fetchdefault")
 	public ResponseEntity<List<BugDTO>> fetchBugDefaultByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id,BugSearchContext context) {
         context.setN_plan_eq(productplan_id);
@@ -546,7 +546,7 @@ public class BugResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Default-all')")
-	@ApiOperation(value = "searchDEFAULTByProductProductPlan", tags = {"Bug" } ,notes = "searchDEFAULTByProductProductPlan")
+	@ApiOperation(value = "根据产品产品计划查询DEFAULT", tags = {"Bug" } ,notes = "根据产品产品计划查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productplans/{productplan_id}/bugs/searchdefault")
 	public ResponseEntity<Page<BugDTO>> searchBugDefaultByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugSearchContext context) {
         context.setN_plan_eq(productplan_id);

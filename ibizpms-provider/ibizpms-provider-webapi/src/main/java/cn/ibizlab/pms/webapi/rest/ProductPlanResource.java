@@ -34,7 +34,7 @@ import cn.ibizlab.pms.core.zentao.service.IProductPlanService;
 import cn.ibizlab.pms.core.zentao.filter.ProductPlanSearchContext;
 
 @Slf4j
-@Api(tags = {"ProductPlan" })
+@Api(tags = {"产品计划" })
 @RestController("WebApi-productplan")
 @RequestMapping("")
 public class ProductPlanResource {
@@ -47,14 +47,14 @@ public class ProductPlanResource {
     public ProductPlanMapping productplanMapping;
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Save-all')")
-    @ApiOperation(value = "Save", tags = {"ProductPlan" },  notes = "Save")
+    @ApiOperation(value = "保存产品计划", tags = {"产品计划" },  notes = "保存产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/save")
     public ResponseEntity<Boolean> save(@RequestBody ProductPlanDTO productplandto) {
         return ResponseEntity.status(HttpStatus.OK).body(productplanService.save(productplanMapping.toDomain(productplandto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Save-all')")
-    @ApiOperation(value = "SaveBatch", tags = {"ProductPlan" },  notes = "SaveBatch")
+    @ApiOperation(value = "批量保存产品计划", tags = {"产品计划" },  notes = "批量保存产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<ProductPlanDTO> productplandtos) {
         productplanService.saveBatch(productplanMapping.toDomain(productplandtos));
@@ -62,7 +62,7 @@ public class ProductPlanResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Create-all')")
-    @ApiOperation(value = "Create", tags = {"ProductPlan" },  notes = "Create")
+    @ApiOperation(value = "新建产品计划", tags = {"产品计划" },  notes = "新建产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans")
     @Transactional
     public ResponseEntity<ProductPlanDTO> create(@RequestBody ProductPlanDTO productplandto) {
@@ -73,7 +73,7 @@ public class ProductPlanResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Create-all')")
-    @ApiOperation(value = "createBatch", tags = {"ProductPlan" },  notes = "createBatch")
+    @ApiOperation(value = "批量新建产品计划", tags = {"产品计划" },  notes = "批量新建产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<ProductPlanDTO> productplandtos) {
         productplanService.createBatch(productplanMapping.toDomain(productplandtos));
@@ -81,7 +81,7 @@ public class ProductPlanResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Remove-all')")
-    @ApiOperation(value = "Remove", tags = {"ProductPlan" },  notes = "Remove")
+    @ApiOperation(value = "删除产品计划", tags = {"产品计划" },  notes = "删除产品计划")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/productplans/{productplan_id}")
     @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("productplan_id") BigInteger productplan_id) {
@@ -89,27 +89,27 @@ public class ProductPlanResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Remove-all')")
-    @ApiOperation(value = "RemoveBatch", tags = {"ProductPlan" },  notes = "RemoveBatch")
+    @ApiOperation(value = "批量删除产品计划", tags = {"产品计划" },  notes = "批量删除产品计划")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/productplans/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
         productplanService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @ApiOperation(value = "CheckKey", tags = {"ProductPlan" },  notes = "CheckKey")
+    @ApiOperation(value = "检查产品计划", tags = {"产品计划" },  notes = "检查产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody ProductPlanDTO productplandto) {
         return  ResponseEntity.status(HttpStatus.OK).body(productplanService.checkKey(productplanMapping.toDomain(productplandto)));
     }
 
-    @ApiOperation(value = "GetDraft", tags = {"ProductPlan" },  notes = "GetDraft")
+    @ApiOperation(value = "获取产品计划草稿", tags = {"产品计划" },  notes = "获取产品计划草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/productplans/getdraft")
     public ResponseEntity<ProductPlanDTO> getDraft() {
         return ResponseEntity.status(HttpStatus.OK).body(productplanMapping.toDto(productplanService.getDraft(new ProductPlan())));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Update-all')")
-    @ApiOperation(value = "Update", tags = {"ProductPlan" },  notes = "Update")
+    @ApiOperation(value = "更新产品计划", tags = {"产品计划" },  notes = "更新产品计划")
 	@RequestMapping(method = RequestMethod.PUT, value = "/productplans/{productplan_id}")
     @Transactional
     public ResponseEntity<ProductPlanDTO> update(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody ProductPlanDTO productplandto) {
@@ -121,7 +121,7 @@ public class ProductPlanResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Update-all')")
-    @ApiOperation(value = "UpdateBatch", tags = {"ProductPlan" },  notes = "UpdateBatch")
+    @ApiOperation(value = "批量更新产品计划", tags = {"产品计划" },  notes = "批量更新产品计划")
 	@RequestMapping(method = RequestMethod.PUT, value = "/productplans/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<ProductPlanDTO> productplandtos) {
         productplanService.updateBatch(productplanMapping.toDomain(productplandtos));
@@ -129,7 +129,7 @@ public class ProductPlanResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Get-all')")
-    @ApiOperation(value = "Get", tags = {"ProductPlan" },  notes = "Get")
+    @ApiOperation(value = "获取产品计划", tags = {"产品计划" },  notes = "获取产品计划")
 	@RequestMapping(method = RequestMethod.GET, value = "/productplans/{productplan_id}")
     public ResponseEntity<ProductPlanDTO> get(@PathVariable("productplan_id") BigInteger productplan_id) {
         ProductPlan domain = productplanService.get(productplan_id);
@@ -138,7 +138,7 @@ public class ProductPlanResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Default-all')")
-	@ApiOperation(value = "fetchDEFAULT", tags = {"ProductPlan" } ,notes = "fetchDEFAULT")
+	@ApiOperation(value = "获取DEFAULT", tags = {"产品计划" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/productplans/fetchdefault")
 	public ResponseEntity<List<ProductPlanDTO>> fetchDefault(ProductPlanSearchContext context) {
         Page<ProductPlan> domains = productplanService.searchDefault(context) ;
@@ -151,7 +151,7 @@ public class ProductPlanResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Default-all')")
-	@ApiOperation(value = "searchDEFAULT", tags = {"ProductPlan" } ,notes = "searchDEFAULT")
+	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"产品计划" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/productplans/searchdefault")
 	public ResponseEntity<Page<ProductPlanDTO>> searchDefault(@RequestBody ProductPlanSearchContext context) {
         Page<ProductPlan> domains = productplanService.searchDefault(context) ;
@@ -159,7 +159,7 @@ public class ProductPlanResource {
                 .body(new PageImpl(productplanMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Save-all')")
-    @ApiOperation(value = "SaveByProduct", tags = {"ProductPlan" },  notes = "SaveByProduct")
+    @ApiOperation(value = "根据产品保存产品计划", tags = {"产品计划" },  notes = "根据产品保存产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/save")
     public ResponseEntity<Boolean> saveByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductPlanDTO productplandto) {
         ProductPlan domain = productplanMapping.toDomain(productplandto);
@@ -168,7 +168,7 @@ public class ProductPlanResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Save-all')")
-    @ApiOperation(value = "SaveBatchByProduct", tags = {"ProductPlan" },  notes = "SaveBatchByProduct")
+    @ApiOperation(value = "根据产品批量保存产品计划", tags = {"产品计划" },  notes = "根据产品批量保存产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/savebatch")
     public ResponseEntity<Boolean> saveBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<ProductPlanDTO> productplandtos) {
         List<ProductPlan> domainlist=productplanMapping.toDomain(productplandtos);
@@ -180,7 +180,7 @@ public class ProductPlanResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Create-all')")
-    @ApiOperation(value = "CreateByProduct", tags = {"ProductPlan" },  notes = "CreateByProduct")
+    @ApiOperation(value = "根据产品建立产品计划", tags = {"产品计划" },  notes = "根据产品建立产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans")
     @Transactional
     public ResponseEntity<ProductPlanDTO> createByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductPlanDTO productplandto) {
@@ -192,7 +192,7 @@ public class ProductPlanResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Create-all')")
-    @ApiOperation(value = "createBatchByProduct", tags = {"ProductPlan" },  notes = "createBatchByProduct")
+    @ApiOperation(value = "根据产品批量建立产品计划", tags = {"产品计划" },  notes = "根据产品批量建立产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/batch")
     public ResponseEntity<Boolean> createBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<ProductPlanDTO> productplandtos) {
         List<ProductPlan> domainlist=productplanMapping.toDomain(productplandtos);
@@ -204,7 +204,7 @@ public class ProductPlanResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Remove-all')")
-    @ApiOperation(value = "RemoveByProduct", tags = {"ProductPlan" },  notes = "RemoveByProduct")
+    @ApiOperation(value = "根据产品删除产品计划", tags = {"产品计划" },  notes = "根据产品删除产品计划")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/productplans/{productplan_id}")
     @Transactional
     public ResponseEntity<Boolean> removeByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id) {
@@ -212,20 +212,20 @@ public class ProductPlanResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Remove-all')")
-    @ApiOperation(value = "RemoveBatchByProduct", tags = {"ProductPlan" },  notes = "RemoveBatchByProduct")
+    @ApiOperation(value = "根据产品批量删除产品计划", tags = {"产品计划" },  notes = "根据产品批量删除产品计划")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/productplans/batch")
     public ResponseEntity<Boolean> removeBatchByProduct(@RequestBody List<BigInteger> ids) {
         productplanService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @ApiOperation(value = "CheckKeyByProduct", tags = {"ProductPlan" },  notes = "CheckKeyByProduct")
+    @ApiOperation(value = "根据产品检查产品计划", tags = {"产品计划" },  notes = "根据产品检查产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/checkkey")
     public ResponseEntity<Boolean> checkKeyByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductPlanDTO productplandto) {
         return  ResponseEntity.status(HttpStatus.OK).body(productplanService.checkKey(productplanMapping.toDomain(productplandto)));
     }
 
-    @ApiOperation(value = "GetDraftByProduct", tags = {"ProductPlan" },  notes = "GetDraftByProduct")
+    @ApiOperation(value = "根据产品获取产品计划草稿", tags = {"产品计划" },  notes = "根据产品获取产品计划草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/productplans/getdraft")
     public ResponseEntity<ProductPlanDTO> getDraftByProduct(@PathVariable("product_id") BigInteger product_id) {
         ProductPlan domain = new ProductPlan();
@@ -234,7 +234,7 @@ public class ProductPlanResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Update-all')")
-    @ApiOperation(value = "UpdateByProduct", tags = {"ProductPlan" },  notes = "UpdateByProduct")
+    @ApiOperation(value = "根据产品更新产品计划", tags = {"产品计划" },  notes = "根据产品更新产品计划")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/productplans/{productplan_id}")
     @Transactional
     public ResponseEntity<ProductPlanDTO> updateByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @RequestBody ProductPlanDTO productplandto) {
@@ -247,7 +247,7 @@ public class ProductPlanResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Update-all')")
-    @ApiOperation(value = "UpdateBatchByProduct", tags = {"ProductPlan" },  notes = "UpdateBatchByProduct")
+    @ApiOperation(value = "根据产品批量更新产品计划", tags = {"产品计划" },  notes = "根据产品批量更新产品计划")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/productplans/batch")
     public ResponseEntity<Boolean> updateBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<ProductPlanDTO> productplandtos) {
         List<ProductPlan> domainlist=productplanMapping.toDomain(productplandtos);
@@ -259,7 +259,7 @@ public class ProductPlanResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Get-all')")
-    @ApiOperation(value = "GetByProduct", tags = {"ProductPlan" },  notes = "GetByProduct")
+    @ApiOperation(value = "根据产品获取产品计划", tags = {"产品计划" },  notes = "根据产品获取产品计划")
 	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/productplans/{productplan_id}")
     public ResponseEntity<ProductPlanDTO> getByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id) {
         ProductPlan domain = productplanService.get(productplan_id);
@@ -268,7 +268,7 @@ public class ProductPlanResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Default-all')")
-	@ApiOperation(value = "fetchDEFAULTByProduct", tags = {"ProductPlan" } ,notes = "fetchDEFAULTByProduct")
+	@ApiOperation(value = "根据产品获取DEFAULT", tags = {"产品计划" } ,notes = "根据产品获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productplans/fetchdefault")
 	public ResponseEntity<List<ProductPlanDTO>> fetchProductPlanDefaultByProduct(@PathVariable("product_id") BigInteger product_id,ProductPlanSearchContext context) {
         context.setN_product_eq(product_id);
@@ -282,7 +282,7 @@ public class ProductPlanResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Default-all')")
-	@ApiOperation(value = "searchDEFAULTByProduct", tags = {"ProductPlan" } ,notes = "searchDEFAULTByProduct")
+	@ApiOperation(value = "根据产品查询DEFAULT", tags = {"产品计划" } ,notes = "根据产品查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productplans/searchdefault")
 	public ResponseEntity<Page<ProductPlanDTO>> searchProductPlanDefaultByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductPlanSearchContext context) {
         context.setN_product_eq(product_id);

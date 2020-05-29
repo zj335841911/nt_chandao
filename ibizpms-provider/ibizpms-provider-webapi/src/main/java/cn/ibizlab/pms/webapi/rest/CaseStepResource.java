@@ -34,7 +34,7 @@ import cn.ibizlab.pms.core.zentao.service.ICaseStepService;
 import cn.ibizlab.pms.core.zentao.filter.CaseStepSearchContext;
 
 @Slf4j
-@Api(tags = {"CaseStep" })
+@Api(tags = {"用例步骤" })
 @RestController("WebApi-casestep")
 @RequestMapping("")
 public class CaseStepResource {
@@ -47,7 +47,7 @@ public class CaseStepResource {
     public CaseStepMapping casestepMapping;
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Get-all')")
-    @ApiOperation(value = "Get", tags = {"CaseStep" },  notes = "Get")
+    @ApiOperation(value = "获取用例步骤", tags = {"用例步骤" },  notes = "获取用例步骤")
 	@RequestMapping(method = RequestMethod.GET, value = "/casesteps/{casestep_id}")
     public ResponseEntity<CaseStepDTO> get(@PathVariable("casestep_id") BigInteger casestep_id) {
         CaseStep domain = casestepService.get(casestep_id);
@@ -56,7 +56,7 @@ public class CaseStepResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Update-all')")
-    @ApiOperation(value = "Update", tags = {"CaseStep" },  notes = "Update")
+    @ApiOperation(value = "更新用例步骤", tags = {"用例步骤" },  notes = "更新用例步骤")
 	@RequestMapping(method = RequestMethod.PUT, value = "/casesteps/{casestep_id}")
     @Transactional
     public ResponseEntity<CaseStepDTO> update(@PathVariable("casestep_id") BigInteger casestep_id, @RequestBody CaseStepDTO casestepdto) {
@@ -68,34 +68,34 @@ public class CaseStepResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Update-all')")
-    @ApiOperation(value = "UpdateBatch", tags = {"CaseStep" },  notes = "UpdateBatch")
+    @ApiOperation(value = "批量更新用例步骤", tags = {"用例步骤" },  notes = "批量更新用例步骤")
 	@RequestMapping(method = RequestMethod.PUT, value = "/casesteps/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<CaseStepDTO> casestepdtos) {
         casestepService.updateBatch(casestepMapping.toDomain(casestepdtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @ApiOperation(value = "GetDraft", tags = {"CaseStep" },  notes = "GetDraft")
+    @ApiOperation(value = "获取用例步骤草稿", tags = {"用例步骤" },  notes = "获取用例步骤草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/casesteps/getdraft")
     public ResponseEntity<CaseStepDTO> getDraft() {
         return ResponseEntity.status(HttpStatus.OK).body(casestepMapping.toDto(casestepService.getDraft(new CaseStep())));
     }
 
-    @ApiOperation(value = "CheckKey", tags = {"CaseStep" },  notes = "CheckKey")
+    @ApiOperation(value = "检查用例步骤", tags = {"用例步骤" },  notes = "检查用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/casesteps/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody CaseStepDTO casestepdto) {
         return  ResponseEntity.status(HttpStatus.OK).body(casestepService.checkKey(casestepMapping.toDomain(casestepdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Save-all')")
-    @ApiOperation(value = "Save", tags = {"CaseStep" },  notes = "Save")
+    @ApiOperation(value = "保存用例步骤", tags = {"用例步骤" },  notes = "保存用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/casesteps/save")
     public ResponseEntity<Boolean> save(@RequestBody CaseStepDTO casestepdto) {
         return ResponseEntity.status(HttpStatus.OK).body(casestepService.save(casestepMapping.toDomain(casestepdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Save-all')")
-    @ApiOperation(value = "SaveBatch", tags = {"CaseStep" },  notes = "SaveBatch")
+    @ApiOperation(value = "批量保存用例步骤", tags = {"用例步骤" },  notes = "批量保存用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/casesteps/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<CaseStepDTO> casestepdtos) {
         casestepService.saveBatch(casestepMapping.toDomain(casestepdtos));
@@ -103,7 +103,7 @@ public class CaseStepResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Create-all')")
-    @ApiOperation(value = "Create", tags = {"CaseStep" },  notes = "Create")
+    @ApiOperation(value = "新建用例步骤", tags = {"用例步骤" },  notes = "新建用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/casesteps")
     @Transactional
     public ResponseEntity<CaseStepDTO> create(@RequestBody CaseStepDTO casestepdto) {
@@ -114,7 +114,7 @@ public class CaseStepResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Create-all')")
-    @ApiOperation(value = "createBatch", tags = {"CaseStep" },  notes = "createBatch")
+    @ApiOperation(value = "批量新建用例步骤", tags = {"用例步骤" },  notes = "批量新建用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/casesteps/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<CaseStepDTO> casestepdtos) {
         casestepService.createBatch(casestepMapping.toDomain(casestepdtos));
@@ -122,7 +122,7 @@ public class CaseStepResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Remove-all')")
-    @ApiOperation(value = "Remove", tags = {"CaseStep" },  notes = "Remove")
+    @ApiOperation(value = "删除用例步骤", tags = {"用例步骤" },  notes = "删除用例步骤")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/casesteps/{casestep_id}")
     @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("casestep_id") BigInteger casestep_id) {
@@ -130,7 +130,7 @@ public class CaseStepResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Remove-all')")
-    @ApiOperation(value = "RemoveBatch", tags = {"CaseStep" },  notes = "RemoveBatch")
+    @ApiOperation(value = "批量删除用例步骤", tags = {"用例步骤" },  notes = "批量删除用例步骤")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/casesteps/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
         casestepService.removeBatch(ids);
@@ -138,7 +138,7 @@ public class CaseStepResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Default-all')")
-	@ApiOperation(value = "fetchDEFAULT", tags = {"CaseStep" } ,notes = "fetchDEFAULT")
+	@ApiOperation(value = "获取DEFAULT", tags = {"用例步骤" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/casesteps/fetchdefault")
 	public ResponseEntity<List<CaseStepDTO>> fetchDefault(CaseStepSearchContext context) {
         Page<CaseStep> domains = casestepService.searchDefault(context) ;
@@ -151,7 +151,7 @@ public class CaseStepResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Default-all')")
-	@ApiOperation(value = "searchDEFAULT", tags = {"CaseStep" } ,notes = "searchDEFAULT")
+	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"用例步骤" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/casesteps/searchdefault")
 	public ResponseEntity<Page<CaseStepDTO>> searchDefault(@RequestBody CaseStepSearchContext context) {
         Page<CaseStep> domains = casestepService.searchDefault(context) ;
