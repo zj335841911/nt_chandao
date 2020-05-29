@@ -213,13 +213,8 @@ export default {
 			pri: 'P',
 			title: '需求名称',
 			modulename: '所属模块名称',
-			uagridcolumn1: '操作',
 		},
 		uiactions: {
-			changestorydetail: '变更需求',
-			closestory: '关闭',
-			openbaseinfoeditview: '编辑',
-			opencasecreateview: '建用例',
 		},
 	},
 	main_grid: {
@@ -228,8 +223,13 @@ export default {
 			pri: 'P',
 			title: '需求名称',
 			modulename: '所属模块名称',
+			uagridcolumn1: '操作',
 		},
 		uiactions: {
+			changestorydetail: '变更需求',
+			closestory: '关闭',
+			openbaseinfoeditview: '编辑',
+			opencasecreateview: '建用例',
 		},
 	},
 	main2_grid: {

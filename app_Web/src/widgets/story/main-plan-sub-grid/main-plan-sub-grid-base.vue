@@ -73,39 +73,6 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('uagridcolumn1')">
-                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.story.main_plansub_grid.columns.uagridcolumn1')" :width="250"  :align="'right'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.story.main_plansub_grid.columns.uagridcolumn1')}}
-                      </span>
-                    </template>
-                    <template slot-scope="scope">
-                        <span>
-                            
-                            <a @click="uiAction(scope.row, 'ChangeStoryDetail', $event)">
-                              <i class='fa fa-exchange'></i>
-                              {{$t('entities.story.main_plansub_grid.uiactions.changestorydetail')}}
-                            </a>
-                            <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'CloseStory', $event)">
-                              <i class='fa fa-power-off'></i>
-                              {{$t('entities.story.main_plansub_grid.uiactions.closestory')}}
-                            </a>
-                            <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'OpenBaseInfoEditView', $event)">
-                              <i class=''></i>
-                              {{$t('entities.story.main_plansub_grid.uiactions.openbaseinfoeditview')}}
-                            </a>
-                            <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'OpenCaseCreateView', $event)">
-                              <i class='fa fa-lightbulb-o'></i>
-                              {{$t('entities.story.main_plansub_grid.uiactions.opencasecreateview')}}
-                            </a>
-                        </span>
-                    </template>
-                </el-table-column>
-            </template>
             <template v-if="adaptiveState">
                 <el-table-column></el-table-column>
             </template>
@@ -157,7 +124,6 @@ import { UIActionTool,Util } from '@/utils';
 import StoryService from '@/service/story/story-service';
 import Main_PlanSubService from './main-plan-sub-grid-service';
 
-import StoryUIService from '@/uiservice/story/story-ui-service';
 import CodeListService from "@service/app/codelist-service";
 import { FormItemModel } from '@/model/form-detail';
 
@@ -246,122 +212,6 @@ export default class Main_PlanSubBase extends Vue implements ControlInterface {
      */
     public appEntityService: StoryService = new StoryService({ $store: this.$store });
     
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public grid_uagridcolumn1_u7b97712_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:StoryUIService  = new StoryUIService();
-        curUIService.Story_ChangeStoryDetail(datas,contextJO, paramJO,  $event, xData,this,"Story");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public grid_uagridcolumn1_u824d7d6_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:StoryUIService  = new StoryUIService();
-        curUIService.Story_CloseStory(datas,contextJO, paramJO,  $event, xData,this,"Story");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public grid_uagridcolumn1_u7480d3d_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:StoryUIService  = new StoryUIService();
-        curUIService.Story_OpenBaseInfoEditView(datas,contextJO, paramJO,  $event, xData,this,"Story");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public grid_uagridcolumn1_u5aaa4ae_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:StoryUIService  = new StoryUIService();
-        curUIService.Story_OpenCaseCreateView(datas,contextJO, paramJO,  $event, xData,this,"Story");
-    }
 
 
     /**
@@ -725,13 +575,6 @@ export default class Main_PlanSubBase extends Vue implements ControlInterface {
             name: 'modulename',
             label: '所属模块名称',
             langtag: 'entities.story.main_plansub_grid.columns.modulename',
-            show: true,
-            util: 'PX'
-        },
-        {
-            name: 'uagridcolumn1',
-            label: '操作',
-            langtag: 'entities.story.main_plansub_grid.columns.uagridcolumn1',
             show: true,
             util: 'PX'
         },
@@ -1476,18 +1319,6 @@ export default class Main_PlanSubBase extends Vue implements ControlInterface {
      * @memberof Main_PlanSub
      */
 	public uiAction(row: any, tag: any, $event: any) {
-        if(Object.is('ChangeStoryDetail', tag)) {
-            this.grid_uagridcolumn1_u7b97712_click(row, tag, $event);
-        }
-        if(Object.is('CloseStory', tag)) {
-            this.grid_uagridcolumn1_u824d7d6_click(row, tag, $event);
-        }
-        if(Object.is('OpenBaseInfoEditView', tag)) {
-            this.grid_uagridcolumn1_u7480d3d_click(row, tag, $event);
-        }
-        if(Object.is('OpenCaseCreateView', tag)) {
-            this.grid_uagridcolumn1_u5aaa4ae_click(row, tag, $event);
-        }
     }
 
     /**
