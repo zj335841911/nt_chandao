@@ -103,7 +103,7 @@ export class AppContentLeftExp extends Vue {
                         return;
                     }
                     return <div v-show={this.activeIndex === index} key={index} class="exp-item">
-                        {this.$createElement(item.viewname)}
+                        {this.$createElement(item.viewname, { props: { openMode: 'MODAL', viewDefaultUsage: false, viewdata: '{}' } })}
                     </div>;
                 })}
             </div>
