@@ -17,10 +17,6 @@ export default {
 			caption: '产品计划',
       title: '产品计划',
 		},
-		subplancreateview: {
-			caption: '产品计划',
-      title: '产品计划',
-		},
 		maineditview: {
 			caption: '产品计划',
       title: '产品计划',
@@ -58,36 +54,6 @@ export default {
 			id: '编号', 
 		},
 		uiactions: {
-		},
-	},
-	mainsubplan_form: {
-		details: {
-			grouppanel1: '分组面板', 
-			group1: 'productplan基本信息', 
-			button1: '保存', 
-			button2: '关闭', 
-			grouppanel3: '分组面板', 
-			grouppanel2: '分组面板', 
-			formpage1: '基本信息', 
-			srforikey: '', 
-			srfkey: '编号', 
-			srfmajortext: '名称', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			product: '产品', 
-			parent: '父计划', 
-			parentname: '父计划名称', 
-			title: '名称', 
-			begin: '开始日期', 
-			end: '结束日期', 
-			desc: '描述', 
-			id: '编号', 
-		},
-		uiactions: {
-			saveandexit: '保存并关闭',
-			exit: '关闭',
 		},
 	},
 	info_form: {
@@ -178,16 +144,6 @@ export default {
 		deuiaction2: {
 			caption: '刷新',
 			tip: '刷新',
-		},
-	},
-	subplancreateviewtoolbar_toolbar: {
-		deuiaction2: {
-			caption: '保存',
-			tip: '保存',
-		},
-		deuiaction1: {
-			caption: '保存并关闭',
-			tip: '保存并关闭',
 		},
 	},
 };

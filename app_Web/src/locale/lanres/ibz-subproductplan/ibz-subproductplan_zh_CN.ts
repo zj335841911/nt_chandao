@@ -13,6 +13,10 @@ export default {
     product: '产品',
   },
 	views: {
+		subplancreateview: {
+			caption: '产品计划',
+      title: '产品计划',
+		},
 		subplaneditview: {
 			caption: '子计划',
       title: '子计划',
@@ -46,6 +50,16 @@ export default {
 		uiactions: {
 			saveandexit: '保存并关闭',
 			exit: '关闭',
+		},
+	},
+	subplancreateviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: '保存',
+			tip: '保存',
+		},
+		deuiaction1: {
+			caption: '保存并关闭',
+			tip: '保存并关闭',
 		},
 	},
 };

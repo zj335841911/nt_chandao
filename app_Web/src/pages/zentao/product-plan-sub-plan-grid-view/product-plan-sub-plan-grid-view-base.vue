@@ -666,9 +666,14 @@ export default class ProductPlanSubPlanGridViewBase extends Vue {
         if(args.length >0){
             Object.assign(curViewParam,args[0]);
         }
-        const deResParameters: any[] = [];
+        let deResParameters: any[] = [];
+        if(curViewParam.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
         const parameters: any[] = [
-            { pathName: 'productplans', parameterName: 'productplan' },
+            { pathName: 'ibz_subproductplans', parameterName: 'ibz_subproductplan' },
         ];
         const _this: any = this;
         const openPopupModal = (view: any, data: any) => {

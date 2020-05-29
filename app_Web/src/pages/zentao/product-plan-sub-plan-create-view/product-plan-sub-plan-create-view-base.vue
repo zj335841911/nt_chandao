@@ -5,13 +5,13 @@
     </template>
     <template slot="toolbar">
                 <div class='toolbar-container'>
-            <i-button :title="$t('entities.productplan.subplancreateviewtoolbar_toolbar.deuiaction2.tip')" v-show="toolBarModels.deuiaction2.visabled" :disabled="toolBarModels.deuiaction2.disabled" class='' @click="toolbar_click({ tag: 'deuiaction2' }, $event)">
+            <i-button :title="$t('entities.ibz_subproductplan.subplancreateviewtoolbar_toolbar.deuiaction2.tip')" v-show="toolBarModels.deuiaction2.visabled" :disabled="toolBarModels.deuiaction2.disabled" class='' @click="toolbar_click({ tag: 'deuiaction2' }, $event)">
                     <i class='fa fa-save'></i>
-                    <span class='caption'>{{$t('entities.productplan.subplancreateviewtoolbar_toolbar.deuiaction2.caption')}}</span>
+                    <span class='caption'>{{$t('entities.ibz_subproductplan.subplancreateviewtoolbar_toolbar.deuiaction2.caption')}}</span>
                 </i-button>
-            <i-button :title="$t('entities.productplan.subplancreateviewtoolbar_toolbar.deuiaction1.tip')" v-show="toolBarModels.deuiaction1.visabled" :disabled="toolBarModels.deuiaction1.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1' }, $event)">
+            <i-button :title="$t('entities.ibz_subproductplan.subplancreateviewtoolbar_toolbar.deuiaction1.tip')" v-show="toolBarModels.deuiaction1.visabled" :disabled="toolBarModels.deuiaction1.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1' }, $event)">
                     <i class='sx-tb-saveandclose'></i>
-                    <span class='caption'>{{$t('entities.productplan.subplancreateviewtoolbar_toolbar.deuiaction1.caption')}}</span>
+                    <span class='caption'>{{$t('entities.ibz_subproductplan.subplancreateviewtoolbar_toolbar.deuiaction1.caption')}}</span>
                 </i-button>
         </div>
     </template>
@@ -44,7 +44,7 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { UIActionTool,Util } from '@/utils';
 import { Subject } from 'rxjs';
-import ProductPlanService from '@/service/product-plan/product-plan-service';
+import IBZ_SUBPRODUCTPLANService from '@/service/ibz-subproductplan/ibz-subproductplan-service';
 
 import EditViewEngine from '@engine/view/edit-view-engine';
 
@@ -59,10 +59,10 @@ export default class ProductPlanSubPlanCreateViewBase extends Vue {
     /**
      * 实体服务对象
      *
-     * @type {ProductPlanService}
+     * @type {IBZ_SUBPRODUCTPLANService}
      * @memberof ProductPlanSubPlanCreateViewBase
      */
-    public appEntityService: ProductPlanService = new ProductPlanService;
+    public appEntityService: IBZ_SUBPRODUCTPLANService = new IBZ_SUBPRODUCTPLANService;
 
 
     /**
@@ -143,9 +143,9 @@ export default class ProductPlanSubPlanCreateViewBase extends Vue {
      * @memberof ProductPlanSubPlanCreateViewBase
      */
     public model: any = {
-        srfCaption: 'entities.productplan.views.subplancreateview.caption',
-        srfTitle: 'entities.productplan.views.subplancreateview.title',
-        srfSubTitle: 'entities.productplan.views.subplancreateview.subtitle',
+        srfCaption: 'entities.ibz_subproductplan.views.subplancreateview.caption',
+        srfTitle: 'entities.ibz_subproductplan.views.subplancreateview.title',
+        srfSubTitle: 'entities.ibz_subproductplan.views.subplancreateview.subtitle',
         dataInfo: ''
     }
 
@@ -255,7 +255,7 @@ export default class ProductPlanSubPlanCreateViewBase extends Vue {
             view: this,
             form: this.$refs.form,
             p2k: '1',
-            keyPSDEField: 'productplan',
+            keyPSDEField: 'ibz_subproductplan',
             majorPSDEField: 'title',
             isLoadDefault: true,
         });
@@ -530,7 +530,7 @@ export default class ProductPlanSubPlanCreateViewBase extends Vue {
           datas = [params];
         }
         // 界面行为
-        this.Save(datas, contextJO,paramJO,  $event, xData,this,"ProductPlan");
+        this.Save(datas, contextJO,paramJO,  $event, xData,this,"IBZ_SUBPRODUCTPLAN");
     }
 
     /**
@@ -559,7 +559,7 @@ export default class ProductPlanSubPlanCreateViewBase extends Vue {
           datas = [params];
         }
         // 界面行为
-        this.SaveAndExit(datas, contextJO,paramJO,  $event, xData,this,"ProductPlan");
+        this.SaveAndExit(datas, contextJO,paramJO,  $event, xData,this,"IBZ_SUBPRODUCTPLAN");
     }
 
     /**

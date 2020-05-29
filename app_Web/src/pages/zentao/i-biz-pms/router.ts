@@ -1055,12 +1055,26 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-main-grid-view/task-main-grid-view.vue'),
                 },
                 {
-                    path: 'productplans/:productplan?/subplancreateview/:subplancreateview?',
+                    path: 'products/:product?/ibz_subproductplans/:ibz_subproductplan?/subplancreateview/:subplancreateview?',
                     meta: {
                         caption: 'entities.productplan.views.subplancreateview.caption',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'ibz_subproductplans', parameterName: 'ibz_subproductplan' },
+                            { pathName: 'subplancreateview', parameterName: 'subplancreateview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-plan-sub-plan-create-view/product-plan-sub-plan-create-view.vue'),
+                },
+                {
+                    path: 'ibz_subproductplans/:ibz_subproductplan?/subplancreateview/:subplancreateview?',
+                    meta: {
+                        caption: 'entities.productplan.views.subplancreateview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibz_subproductplans', parameterName: 'ibz_subproductplan' },
                             { pathName: 'subplancreateview', parameterName: 'subplancreateview' },
                         ],
                         requireAuth: true,
@@ -1982,11 +1996,24 @@ const router = new Router({
         component: () => import('@pages/zentao/project-task-tree-exp-view/project-task-tree-exp-view.vue'),
     },
     {
-        path: '/productplans/:productplan?/subplancreateview/:subplancreateview?',
+        path: '/products/:product?/ibz_subproductplans/:ibz_subproductplan?/subplancreateview/:subplancreateview?',
         meta: {
             caption: 'entities.productplan.views.subplancreateview.caption',
             parameters: [
-                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'ibz_subproductplans', parameterName: 'ibz_subproductplan' },
+                { pathName: 'subplancreateview', parameterName: 'subplancreateview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/product-plan-sub-plan-create-view/product-plan-sub-plan-create-view.vue'),
+    },
+    {
+        path: '/ibz_subproductplans/:ibz_subproductplan?/subplancreateview/:subplancreateview?',
+        meta: {
+            caption: 'entities.productplan.views.subplancreateview.caption',
+            parameters: [
+                { pathName: 'ibz_subproductplans', parameterName: 'ibz_subproductplan' },
                 { pathName: 'subplancreateview', parameterName: 'subplancreateview' },
             ],
             requireAuth: true,
