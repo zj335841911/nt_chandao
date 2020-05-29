@@ -679,7 +679,7 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
 , 
         parent: new FormItemModel({ caption: '父计划', detailType: 'FORMITEM', name: 'parent', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        parentname: new FormItemModel({ caption: '父计划名称', detailType: 'FORMITEM', name: 'parentname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        parentname: new FormItemModel({ caption: '父计划名称', detailType: 'FORMITEM', name: 'parentname', visible: false, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         title: new FormItemModel({ caption: '名称', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -925,6 +925,14 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'parentname')) {
+            let ret = false;
+            const _parentname = this.data.parentname;
+            if (this.$verify.testCond(_parentname, 'ISNOTNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.parentname.setVisible(ret);
+        }
 
 
 
@@ -1849,6 +1857,9 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
      * @memberof MainSubPlan
      */
     public createDefault(){                    
+        if (this.data.hasOwnProperty('parent')) {
+            this.data['parent'] = this.viewparams['pproductplan'];
+        }
     }
 
     /**

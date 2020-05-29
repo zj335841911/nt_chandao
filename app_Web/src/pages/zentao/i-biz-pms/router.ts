@@ -1096,6 +1096,33 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-main-grid-view/task-main-grid-view.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/subplancreateview/:subplancreateview?',
+                    meta: {
+                        caption: 'entities.productplan.views.subplancreateview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'subplancreateview', parameterName: 'subplancreateview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-plan-sub-plan-create-view/product-plan-sub-plan-create-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/subplancreateview/:subplancreateview?',
+                    meta: {
+                        caption: 'entities.productplan.views.subplancreateview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'subplancreateview', parameterName: 'subplancreateview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-plan-sub-plan-create-view/product-plan-sub-plan-create-view.vue'),
+                },
+                {
                     path: 'actions/:action?/producttrendslistview9/:producttrendslistview9?',
                     meta: {
                         caption: 'entities.action.views.producttrendslistview9.caption',
@@ -2063,6 +2090,31 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/zentao/project-task-tree-exp-view/project-task-tree-exp-view.vue'),
+    },
+    {
+        path: '/products/:product?/productplans/:productplan?/subplancreateview/:subplancreateview?',
+        meta: {
+            caption: 'entities.productplan.views.subplancreateview.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'subplancreateview', parameterName: 'subplancreateview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/product-plan-sub-plan-create-view/product-plan-sub-plan-create-view.vue'),
+    },
+    {
+        path: '/productplans/:productplan?/subplancreateview/:subplancreateview?',
+        meta: {
+            caption: 'entities.productplan.views.subplancreateview.caption',
+            parameters: [
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'subplancreateview', parameterName: 'subplancreateview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/product-plan-sub-plan-create-view/product-plan-sub-plan-create-view.vue'),
     },
     {
         path: '/products/:product?/productplans/:productplan?/maineditview/:maineditview?',

@@ -79,6 +79,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugMainDashboardView",
             "viewtag": "1540523a668e920d831510cfbec2c5e2"
         },
+        "productplansubplancreateview": {
+            "title": "计划",
+            "caption": "产品计划",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProductPlanSubPlanCreateView",
+            "viewtag": "170c1d558f26cf37236390b28f8aca82"
+        },
         "productplanmaineditview": {
             "title": "计划详情",
             "caption": "产品计划",

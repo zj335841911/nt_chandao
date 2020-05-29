@@ -89,6 +89,16 @@
         "viewtag": "1540523a668e920d831510cfbec2c5e2",
         "memo": ""
     },
+    "productplansubplancreateview": {
+        "title": "计划",
+        "caption": "产品计划",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "ProductPlanSubPlanCreateView",
+        "viewfilename": "product-plan-sub-plan-create-view",
+        "viewtag": "170c1d558f26cf37236390b28f8aca82",
+        "memo": ""
+    },
     "productplanmaineditview": {
         "title": "计划详情",
         "caption": "产品计划",

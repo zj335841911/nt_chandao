@@ -18,6 +18,10 @@ export default {
 			caption: "产品计划",
       title: '产品计划',
 		},
+		subplancreateview: {
+			caption: "产品计划",
+      title: '产品计划',
+		},
 		maineditview: {
 			caption: "产品计划",
       title: '产品计划',
@@ -179,6 +183,16 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+	},
+	subplancreateviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "Save",
+			tip: "Save",
+		},
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
 		},
 	},
 };

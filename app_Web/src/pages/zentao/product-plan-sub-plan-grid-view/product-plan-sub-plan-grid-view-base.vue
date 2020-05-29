@@ -676,8 +676,8 @@ export default class ProductPlanSubPlanGridViewBase extends Vue {
             { pathName: 'productplans', parameterName: 'productplan' },
         ];
         const _this: any = this;
-        const openDrawer = (view: any, data: any) => {
-            let container: Subject<any> = this.$appdrawer.openDrawer(view, curViewParam, data);
+        const openPopupModal = (view: any, data: any) => {
+            let container: Subject<any> = this.$appmodal.openModal(view, curViewParam, data);
             container.subscribe((result: any) => {
                 if (!result || !Object.is(result.ret, 'OK')) {
                     return;
@@ -689,13 +689,12 @@ export default class ProductPlanSubPlanGridViewBase extends Vue {
             });
         }
         const view: any = {
-            viewname: 'product-plan-sub-plan-edit-view', 
-            height: 0, 
-            width: 0,  
-            title: this.$t('entities.productplan.views.subplaneditview.title'),
-            placement: 'DRAWER_TOP',
+            viewname: 'product-plan-sub-plan-create-view', 
+            height: 500, 
+            width: 800,  
+            title: this.$t('entities.productplan.views.subplancreateview.title'),
         };
-        openDrawer(view, data);
+        openPopupModal(view, data);
     }
 
 
