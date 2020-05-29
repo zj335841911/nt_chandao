@@ -124,8 +124,6 @@ export default class ProductPlanSubPlanCreateViewBase extends Vue {
 	 * @memberof ProductPlanSubPlanCreateViewBase
 	 */
     public customViewNavContexts:any ={
-    "PPRODUCTPLAN":{"isRawValue":false,"value":"productplan"},
-    "PRODUCTPLAN":{"isRawValue":true,"value":"null"}
     };
 
 	/**
@@ -135,7 +133,7 @@ export default class ProductPlanSubPlanCreateViewBase extends Vue {
 	 * @memberof ProductPlanSubPlanCreateViewBase
 	 */
     public customViewParams:any ={
-    "pproductplan":{"isRawValue":false,"value":"pproductplan"}
+    "pproductplan":{"isRawValue":false,"value":"ibz_subproductplan"}
     };
 
     /**
