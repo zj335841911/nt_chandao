@@ -69,8 +69,9 @@ export class StudioDrawer extends Vue {
      */
     @Watch('isShow')
     public isShowWatch(newVal: boolean, oldVal: boolean): void {
-        if (newVal !== oldVal && oldVal === false) {
-            this.$store.commit('updateZIndex', this.zIndex - 1);
+        if (newVal !== oldVal && newVal === false) {
+            this.zIndex -= 1;
+            this.$store.commit('updateZIndex', this.zIndex);
         }
     }
 
@@ -101,6 +102,10 @@ export class StudioDrawer extends Vue {
     protected created(): void {
         on(document, 'keydown', ($event: KeyboardEvent) => {
             if ($event && $event.keyCode === 27 && this.viewList.length > 0) {
+                const zIndex = this.$store.getters.getZIndex()
+                if (zIndex !== this.zIndex) {
+                    return;
+                }
                 this.refCloseView(this.viewList[this.viewList.length - 1], this.viewList.length - 1);
             }
         });

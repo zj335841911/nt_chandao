@@ -303,7 +303,8 @@
 }
 
 // 看板视图 与 应用看板视图
-.studio-view.view-container.deportalview, .studio-view.view-container.appportalview {
+.studio-view.view-container.deportalview,
+.studio-view.view-container.appportalview {
 
     >.view-content {
 
@@ -409,6 +410,40 @@
 
             >.ivu-card-body {
                 padding: 6px 16px;
+            }
+        }
+    }
+}
+
+
+// 模态样式
+.ivu-modal-wrap.app-modal {
+
+    >.ivu-modal {
+
+        >.ivu-modal-content {
+            position: relative;
+
+            >.ivu-modal-body {
+
+                >.studio-view.view-container {
+                    position: unset;
+
+                    >.view-header {
+                        position: absolute;
+                        top: 0px;
+                        right: 35px;
+                        width: auto;
+
+                        >.title {
+                            display: none;
+                        }
+                    }
+
+                    >.view-content {
+                        height: 100%;
+                    }
+                }
             }
         }
     }
