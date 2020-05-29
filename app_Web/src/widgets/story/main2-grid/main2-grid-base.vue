@@ -62,7 +62,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('uagridcolumn1')">
-                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.story.main2_grid.columns.uagridcolumn1')" :width="100"  :align="'right'">
+                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.story.main2_grid.columns.uagridcolumn1')" :width="250"  :align="'right'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.story.main2_grid.columns.uagridcolumn1')}}
@@ -71,9 +71,14 @@
                     <template slot-scope="scope">
                         <span>
                             
-                            <a @click="uiAction(scope.row, 'Exit', $event)">
-                              <i class='fa fa-sign-out'></i>
-                              {{$t('entities.story.main2_grid.uiactions.exit')}}
+                            <a @click="uiAction(scope.row, 'ChangeStoryDetail', $event)">
+                              <i class='fa fa-exchange'></i>
+                              {{$t('entities.story.main2_grid.uiactions.changestorydetail')}}
+                            </a>
+                            <divider type='vertical'></divider>
+                            <a @click="uiAction(scope.row, 'CloseStory', $event)">
+                              <i class='fa fa-power-off'></i>
+                              {{$t('entities.story.main2_grid.uiactions.closestory')}}
                             </a>
                             <divider type='vertical'></divider>
                             <a @click="uiAction(scope.row, 'OpenBaseInfoEditView', $event)">
@@ -81,9 +86,9 @@
                               {{$t('entities.story.main2_grid.uiactions.openbaseinfoeditview')}}
                             </a>
                             <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'RemoveAndExit', $event)">
-                              <i class='fa fa-remove'></i>
-                              {{$t('entities.story.main2_grid.uiactions.removeandexit')}}
+                            <a @click="uiAction(scope.row, 'OpenCaseCreateView', $event)">
+                              <i class='fa fa-lightbulb-o'></i>
+                              {{$t('entities.story.main2_grid.uiactions.opencasecreateview')}}
                             </a>
                         </span>
                     </template>
@@ -238,7 +243,7 @@ export default class Main2Base extends Vue implements ControlInterface {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u797d4ad_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u7b97712_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -255,7 +260,8 @@ export default class Main2Base extends Vue implements ControlInterface {
           datas = [params];
         }
         // 界面行为
-        this.Exit(datas, contextJO,paramJO,  $event, xData,this,"Story");
+        const curUIService:StoryUIService  = new StoryUIService();
+        curUIService.Story_ChangeStoryDetail(datas,contextJO, paramJO,  $event, xData,this,"Story");
     }
 
     /**
@@ -266,7 +272,36 @@ export default class Main2Base extends Vue implements ControlInterface {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u80095ee_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u824d7d6_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:StoryUIService  = new StoryUIService();
+        curUIService.Story_CloseStory(datas,contextJO, paramJO,  $event, xData,this,"Story");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u7480d3d_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -295,7 +330,7 @@ export default class Main2Base extends Vue implements ControlInterface {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u5ea1add_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u5aaa4ae_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -312,60 +347,10 @@ export default class Main2Base extends Vue implements ControlInterface {
           datas = [params];
         }
         // 界面行为
-        this.RemoveAndExit(datas, contextJO,paramJO,  $event, xData,this,"Story");
+        const curUIService:StoryUIService  = new StoryUIService();
+        curUIService.Story_OpenCaseCreateView(datas,contextJO, paramJO,  $event, xData,this,"Story");
     }
 
-    /**
-     * 关闭
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof StoryMain2GridViewBase
-     */
-    public Exit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        this.closeView(args);
-        if(window.parent){
-            window.parent.postMessage([{ ...args }],'*');
-        }
-    }
-
-    /**
-     * 删除并关闭
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof StoryMain2GridViewBase
-     */
-    public RemoveAndExit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        if (xData && xData.removeAndExit instanceof Function) {
-            xData.removeAndExit().then((response: any) => {
-                if (!response || response.status !== 200) {
-                    return;
-                }
-                if(window.parent){
-                    window.parent.postMessage([{ ...response.data }],'*');
-                }
-            });
-        } else if (_this.removeAndExit && _this.removeAndExit instanceof Function) {
-            _this.removeAndExit().then((response: any) => {
-                if (!response || response.status !== 200) {
-                    return;
-                }
-                if(window.parent){
-                    window.parent.postMessage([{ ...response.data }],'*');
-                }
-            });
-        }
-    }
 
     /**
      * 关闭视图
@@ -1472,14 +1457,17 @@ export default class Main2Base extends Vue implements ControlInterface {
      * @memberof Main2
      */
 	public uiAction(row: any, tag: any, $event: any) {
-        if(Object.is('Exit', tag)) {
-            this.grid_uagridcolumn1_u797d4ad_click(row, tag, $event);
+        if(Object.is('ChangeStoryDetail', tag)) {
+            this.grid_uagridcolumn1_u7b97712_click(row, tag, $event);
+        }
+        if(Object.is('CloseStory', tag)) {
+            this.grid_uagridcolumn1_u824d7d6_click(row, tag, $event);
         }
         if(Object.is('OpenBaseInfoEditView', tag)) {
-            this.grid_uagridcolumn1_u80095ee_click(row, tag, $event);
+            this.grid_uagridcolumn1_u7480d3d_click(row, tag, $event);
         }
-        if(Object.is('RemoveAndExit', tag)) {
-            this.grid_uagridcolumn1_u5ea1add_click(row, tag, $event);
+        if(Object.is('OpenCaseCreateView', tag)) {
+            this.grid_uagridcolumn1_u5aaa4ae_click(row, tag, $event);
         }
     }
 
