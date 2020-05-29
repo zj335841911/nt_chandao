@@ -13,6 +13,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
+/**
+ * 禅道接口辅助类
+ */
 public class ZenTaoHttpHelper {
 //    @Value("${zentao.url:http://172.16.100.202/zentao/}")
 //    private String ztUrl;

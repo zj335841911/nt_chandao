@@ -9,43 +9,60 @@ import org.springframework.stereotype.Component;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 【禅道接口-User】 辅助类
+ */
 public class ZTUserHelper {
+    // ----------
+    // 接口模块
+    // ----------
+
+    /**
+     * 接口模块名
+     */
     private final static String MODULE_NAME = "user";
 
-    private final static String FUNC_VIEW = "view";
-    private final static String FUNC_STORY = "story";
-    private final static String FUNC_TASK = "task";
-    private final static String FUNC_BUG = "bug";
-    private final static String FUNC_TESTTASK = "testtask";
-    private final static String FUNC_TESTCASE = "testcase";
-    private final static String FUNC_PROJECT = "project";
-    private final static String FUNC_PROFILE = "profile";
-    private final static String FUNC_SETREFERER = "setReferer";
-    private final static String FUNC_CREATE = "create";
-    private final static String FUNC_BATCHCREATE = "batchCreate";
-    private final static String FUNC_EDIT = "edit";
-    private final static String FUNC_BATCHEDIT = "batchEdit";
-    private final static String FUNC_DELETE = "delete";
-    private final static String FUNC_UNLOCK = "unlock";
-    private final static String FUNC_UNBIND = "unbind";
-    private final static String FUNC_LOGIN = "login";
-    private final static String FUNC_DENY = "deny";
-    private final static String FUNC_LOGOUT = "logout";
-    private final static String FUNC_RESET = "reset";
-    private final static String FUNC_DYNAMIC = "dynamic";
-    private final static String FUNC_AJAXGETUSER = "ajaxGetUser";
-    private final static String FUNC_AJAXGETCONTACTUSERS = "ajaxGetContactUsers";
-    private final static String FUNC_AJAXGETCONTACTLIST = "ajaxGetContactList";
-    private final static String FUNC_AJAXPRINTTEMPLATES = "ajaxPrintTemplates";
-    private final static String FUNC_AJAXSAVETEMPLATE = "ajaxSaveTemplate";
-    private final static String FUNC_AJAXDELETETEMPLATE = "ajaxDeleteTemplate";
+    // ----------
+    // 接口ACTION
+    // ----------
 
-    private final static Map<String, String> FUNC_URL_PARAMS = new HashMap<>();
-    private final static Map<String, HttpMethod> FUNC_HTTPMETHOD_TYPE = new HashMap<>();
+    private final static String ACTION_VIEW = "view";
+    private final static String ACTION_STORY = "story";
+    private final static String ACTION_TASK = "task";
+    private final static String ACTION_BUG = "bug";
+    private final static String ACTION_TESTTASK = "testtask";
+    private final static String ACTION_TESTCASE = "testcase";
+    private final static String ACTION_PROJECT = "project";
+    private final static String ACTION_PROFILE = "profile";
+    private final static String ACTION_SETREFERER = "setReferer";
+    private final static String ACTION_CREATE = "create";
+    private final static String ACTION_BATCHCREATE = "batchCreate";
+    private final static String ACTION_EDIT = "edit";
+    private final static String ACTION_BATCHEDIT = "batchEdit";
+    private final static String ACTION_DELETE = "delete";
+    private final static String ACTION_UNLOCK = "unlock";
+    private final static String ACTION_UNBIND = "unbind";
+    private final static String ACTION_LOGIN = "login";
+    private final static String ACTION_DENY = "deny";
+    private final static String ACTION_LOGOUT = "logout";
+    private final static String ACTION_RESET = "reset";
+    private final static String ACTION_DYNAMIC = "dynamic";
+    private final static String ACTION_AJAXGETUSER = "ajaxGetUser";
+    private final static String ACTION_AJAXGETCONTACTUSERS = "ajaxGetContactUsers";
+    private final static String ACTION_AJAXGETCONTACTLIST = "ajaxGetContactList";
+    private final static String ACTION_AJAXPRINTTEMPLATES = "ajaxPrintTemplates";
+    private final static String ACTION_AJAXSAVETEMPLATE = "ajaxSaveTemplate";
+    private final static String ACTION_AJAXDELETETEMPLATE = "ajaxDeleteTemplate";
 
-    static {
-        FUNC_HTTPMETHOD_TYPE.put(FUNC_LOGIN, HttpMethod.POST);
-    }
+    // ----------
+    // 接口行为HTTP方法（GET、POST）
+    // ----------
+
+    private final static HttpMethod ACTION_HTTPMETHOD_LOGIN = HttpMethod.POST;
+
+    // ----------
+    // 接口实现
+    // ----------
 
     final static public boolean login(JSONObject rst) {
         // 后期从session获取，前期使用admin
@@ -54,11 +71,11 @@ public class ZTUserHelper {
         if (account == null || account.isEmpty()) {
             return false;
         }
-        String url = MODULE_NAME + "-" + FUNC_LOGIN + ZenTaoConstants.ZT_URL_EXT;
+        String url = MODULE_NAME + "-" + ACTION_LOGIN + ZenTaoConstants.ZT_URL_EXT;
         JSONObject jo = new JSONObject();
         jo.put("account", account);
         jo.put("password", password);
-        rst = ZenTaoHttpHelper.doRequest(account, url, FUNC_HTTPMETHOD_TYPE.get(FUNC_LOGIN), jo, ZenTaoConstants.ZT_ACTION_TYPE_LOGIN);
+        rst = ZenTaoHttpHelper.doRequest(account, url, ACTION_HTTPMETHOD_LOGIN, jo, ZenTaoConstants.ZT_ACTION_TYPE_LOGIN);
         if (!"success".equals(rst.getString("status"))) {
             return false;
         }

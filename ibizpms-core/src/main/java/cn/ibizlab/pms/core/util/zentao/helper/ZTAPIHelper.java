@@ -9,26 +9,43 @@ import org.springframework.stereotype.Component;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 【禅道接口-API】 辅助类
+ */
 public class ZTAPIHelper {
+    // ----------
+    // 接口模块
+    // ----------
+
+    /**
+     * 接口模块名
+     */
     private final static String MODULE_NAME = "api";
 
-    private final static String FUNC_GETSESSIONID = "getSessionID";
-    private final static String FUNC_GETMODEL = "getModel";
-    private final static String FUNC_DEBUG = "debug";
-    private final static String FUNC_SQL = "sql";
+    // ----------
+    // 接口ACTION
+    // ----------
 
-    private final static Map<String, String> FUNC_URL_PARAMS = new HashMap<>();
-    private final static Map<String, HttpMethod> FUNC_HTTPMETHOD_TYPE = new HashMap<>();
+    private final static String ACTION_GETSESSIONID = "getSessionID";
+    private final static String ACTION_GETMODEL = "getModel";
+    private final static String ACTION_DEBUG = "debug";
+    private final static String ACTION_SQL = "sql";
 
-    static {
-        FUNC_HTTPMETHOD_TYPE.put(FUNC_GETSESSIONID, HttpMethod.GET);
-    }
+    // ----------
+    // 接口行为HTTP方法（GET、POST）
+    // ----------
+
+    private final static HttpMethod ACTION_HTTPMETHOD_GETSESSIONID = HttpMethod.GET;
+
+    // ----------
+    // 接口实现
+    // ----------
 
     final static public boolean getSessionID(JSONObject rst) {
         // 后期从session获取，前期使用admin
         String account = ZenTaoConstants.ZT_TMP_USERNAME;
-        String url = MODULE_NAME + "-" + FUNC_GETSESSIONID + ZenTaoConstants.ZT_URL_EXT;
-        rst = ZenTaoHttpHelper.doRequest(account, url, FUNC_HTTPMETHOD_TYPE.get(FUNC_GETSESSIONID), ZenTaoConstants.ZT_ACTION_TYPE_GETSESSION);
+        String url = MODULE_NAME + "-" + ACTION_GETSESSIONID + ZenTaoConstants.ZT_URL_EXT;
+        rst = ZenTaoHttpHelper.doRequest(account, url, ACTION_HTTPMETHOD_GETSESSIONID, ZenTaoConstants.ZT_ACTION_TYPE_GETSESSION);
         if (!"success".equals(rst.getString("status"))) {
             return false;
         }
