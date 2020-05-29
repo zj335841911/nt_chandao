@@ -34,6 +34,7 @@
 </studio-view>
 </template>
 
+
 <script lang='tsx'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { UIActionTool,Util } from '@/utils';
@@ -42,6 +43,8 @@ import ProductService from '@/service/product/product-service';
 
 import ListViewEngine from '@engine/view/list-view-engine';
 
+
+import CodeListService from "@service/app/codelist-service";
 
 
 @Component({
@@ -222,6 +225,7 @@ export default class ProductTestLeftSidebarListViewBase extends Vue {
         deuiaction2: { name: 'deuiaction2', caption: '刷新', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Refresh', target: '' } },
 
     };
+
 
 
 
@@ -442,6 +446,7 @@ export default class ProductTestLeftSidebarListViewBase extends Vue {
             _this.loadModel();
         }
         
+
     }
 
 
@@ -716,6 +721,8 @@ export default class ProductTestLeftSidebarListViewBase extends Vue {
             refs.list.load({});
         }
     }
+
+
 
 }
 </script>

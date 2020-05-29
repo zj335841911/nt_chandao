@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet toolbar' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : 'auto',}">
+    <div class='portlet toolbar ' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : '1px',}">
         <div class="portlet-without-title">
             <app-actionbar :items="actionBarModelData" @itemClick="handleItemClick"></app-actionbar>
         </div>
@@ -241,7 +241,7 @@ export default class TaskToolbarBase extends Vue implements ControlInterface {
      * 操作栏模型数据
      *
      * @returns {any[]}
-     * @memberof Toolbar
+     * @memberof ToolbarBase
      */
     public actionBarModelData:any[] =[
         { viewlogicname:"dashboard_sysportlet2_udf09ee0_click",
@@ -255,7 +255,7 @@ export default class TaskToolbarBase extends Vue implements ControlInterface {
     /**
      * 触发界面行为
      *
-     * @memberof Toolbar
+     * @memberof ToolbarBase
      */
     public handleItemClick($event:any){
         if(Object.is($event,'dashboard_sysportlet2_udf09ee0_click')){
@@ -266,11 +266,12 @@ export default class TaskToolbarBase extends Vue implements ControlInterface {
         }
     }
 
+
     /**
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof Toolbar
+     * @memberof ToolbarBase
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -278,7 +279,7 @@ export default class TaskToolbarBase extends Vue implements ControlInterface {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof Toolbar
+     * @memberof ToolbarBase
      */
     public getDatas(): any[] {
         return [];
@@ -288,7 +289,7 @@ export default class TaskToolbarBase extends Vue implements ControlInterface {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof Toolbar
+     * @memberof ToolbarBase
      */
     public getData(): any {
         return {};
@@ -297,7 +298,7 @@ export default class TaskToolbarBase extends Vue implements ControlInterface {
     /**
      * vue 生命周期
      *
-     * @memberof Toolbar
+     * @memberof ToolbarBase
      */
     public created() {
         this.afterCreated();
@@ -306,7 +307,7 @@ export default class TaskToolbarBase extends Vue implements ControlInterface {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof Toolbar
+     *  @memberof ToolbarBase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -325,7 +326,7 @@ export default class TaskToolbarBase extends Vue implements ControlInterface {
     /**
      * vue 生命周期
      *
-     * @memberof Toolbar
+     * @memberof ToolbarBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -334,7 +335,7 @@ export default class TaskToolbarBase extends Vue implements ControlInterface {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof Toolbar
+     * @memberof ToolbarBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {

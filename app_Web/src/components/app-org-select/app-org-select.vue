@@ -45,6 +45,13 @@ export default class AppOrgSelect extends Vue {
   @Prop({default:false}) public multiple?:boolean;
 
   /**
+   * 查询单位路径
+   * 
+   * @memberof AppOrgSelect
+   */
+  @Prop() public url!:string;
+
+  /**
    * 监听表单数据变化
    * 
    * @memberof AppOrgSelect
@@ -57,19 +64,12 @@ export default class AppOrgSelect extends Vue {
         let tempFilterValue:any = this.initBasicData();
         // filter值变化才去请求数据
         if(tempFilterValue && (this.copyFilterValue !== tempFilterValue)){
-          this.loadTreeData(this.orgDataUrl.replace('${orgid}',tempFilterValue));
+          this.loadTreeData(this.url.replace('${orgid}',tempFilterValue));
           this.copyFilterValue = tempFilterValue;
         }
       }
     }
   }
-
-  /**
-   * 查询单位路径
-   * 
-   * @memberof AppOrgSelect
-   */
-  public orgDataUrl:string ="/ibzorganizations/${orgid}/suborg/picker";
 
   /**
    * 选择值
@@ -99,7 +99,7 @@ export default class AppOrgSelect extends Vue {
    */
   public created(){
     if(!this.filter){
-      this.loadTreeData(this.orgDataUrl.replace('${orgid}','alls'));
+      this.loadTreeData(this.url);
     }
   }
 
@@ -236,7 +236,7 @@ export default class AppOrgSelect extends Vue {
    * @memberof AppOrgSelect
    */
   public emitValue(name:string,value:any){
-    this.$emit('formitemvaluechange',{name:name,value:value});
+    this.$emit('select-change',{name:name,value:value});
   }
 
 }

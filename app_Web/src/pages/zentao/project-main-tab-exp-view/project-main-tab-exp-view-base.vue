@@ -1,3 +1,4 @@
+ 
 <template>
 <studio-view viewName="projectmaintabexpview" viewTitle="项目导航视图" class='detabexpview project-main-tab-exp-view'>
     <view_tabexppanel 
@@ -448,6 +449,28 @@ export default class ProjectMainTabExpViewBase extends Vue {
             }
         }
     }
+    
+    /**
+     * 加载模型
+     * 
+     * @memberof ProjectMainTabExpViewBase
+     */
+    public loadModel(){
+        if(this.context.project){
+            this.appEntityService.getDataInfo(JSON.parse(JSON.stringify(this.context)),{},false).then((response:any) =>{
+                if (!response || response.status !== 200) {
+                    return;
+                }
+                const { data: _data } = response;
+                if (_data.name) {
+                    Object.assign(this.model, { dataInfo: _data.name });
+                    this.$tabPageExp.setCurPageCaption(this.model.srfCaption, this.model.srfTitle, this.model.dataInfo);
+                    Object.assign(this.model, { srfTitle: `${this.$t(this.model.srfTitle)} - ${this.model.dataInfo}` });
+                }
+            })
+        }
+    }
+
 
 }
 </script>

@@ -2,7 +2,7 @@
     <div class="ibiz-group-picker">
         <div class="ibiz-group-container">
             <div v-if="showTree" class="ibiz-group-tree">
-                <ibiz-select-tree :NodesData="treeItems" v-model="treeSelectVal" :treeOnly="true" @select="treeSelect"></ibiz-select-tree>
+                <ibiz-select-tree :NodesData="treeItems" v-model="treeSelectVal" :treeOnly="true" :defaultChecked="true" @select="treeSelect"></ibiz-select-tree>
             </div>
             <div class="ibiz-group-content">
                 <ibiz-group-card :data="cardItems" text="label" value="id" groupName="group" :multiple="multiple" :defaultSelect="cardSelctVal" @select="groupSelect"></ibiz-group-card>
@@ -46,6 +46,22 @@ export default class IBizGroupPicker extends Vue {
      * @memberof IBizGroupPicker
      */  
     protected multiple: boolean = false;
+
+    /**
+     * 加载树url
+     *
+     * @type {*}
+     * @memberof IBizGroupPicker
+     */  
+    protected treeurl:any;
+
+    /**
+     * 加载人员url
+     *
+     * @type {*}
+     * @memberof IBizGroupPicker
+     */  
+    protected url:any;
 
     /**
      * 树数据集
@@ -110,10 +126,9 @@ export default class IBizGroupPicker extends Vue {
      * @memberof IBizGroupPicker
      */  
     get showTree() {
-        if(this.viewParam.hasfilter && Object.is(this.viewData.srforgid, this.viewParam.filtervalue)) {
-            return false;
+        if(this.viewParam) {
+            return this.viewParam.showtree;
         }
-        return true;
     }
 
     /**
@@ -129,6 +144,8 @@ export default class IBizGroupPicker extends Vue {
         this.viewData = JSON.parse(this.viewdata);
         this.viewParam = JSON.parse(this.viewparam);
         this.multiple = this.viewParam.multiple;
+        this.treeurl = this.viewParam.treeurl;
+        this.url = this.viewParam.url;
         if (this.viewParam.selects) {
             this.viewParam.selects.forEach((select: any) => {
                 this.selects.push(select);
@@ -159,8 +176,9 @@ export default class IBizGroupPicker extends Vue {
      * @memberof IBizGroupPicker
      */  
     public loadTree() {
-        let orgid = this.viewParam.hasfilter ? this.viewParam.filtervalue : '450000';
-        let get = Http.getInstance().get(`/ibzorganizations/${orgid}/suborg/ibzdepartments/picker`, true);
+        let orgid = this.viewParam.filtervalue;
+        let tempTreeUrl:string = this.treeurl.replace('${orgid}',orgid);
+        let get = Http.getInstance().get(tempTreeUrl, true);
         get.then((response: any) => {
             if(response.status === 200) {
                 this.treeItems = response.data;
@@ -177,7 +195,8 @@ export default class IBizGroupPicker extends Vue {
      * @memberof IBizGroupPicker
      */  
     public loadGroupData(key: string) {
-        let get = Http.getInstance().get(`/ibzorganizations/${key}/ibzemployees/picker`, true);
+        let tempUrl = this.url.replace('${selected-orgid}',key);
+        let get = Http.getInstance().get(tempUrl, true);
         get.then((response: any) => {
             if(response.status === 200) {
                 this.cardItems = response.data;

@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet-container main-dashboard-viewdashboard-container2' :style="{}">
+    <div class='portlet-container main-dashboard-viewdashboard-container2 ' :style="{}">
             <i-col :xs="{ span: 12, offset: 0 }" :sm="{ span: 12, offset: 0 }" :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }">
                 <div class="portlet-without-title">
                                   <view_dashboard_sysportlet1 
@@ -164,11 +164,12 @@ export default class ProjectMainDashboardViewdashboard_container2Base extends Vu
 
 
 
+
     /**
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof MainDashboardViewdashboard_container2
+     * @memberof MainDashboardViewdashboard_container2Base
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -176,7 +177,7 @@ export default class ProjectMainDashboardViewdashboard_container2Base extends Vu
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof MainDashboardViewdashboard_container2
+     * @memberof MainDashboardViewdashboard_container2Base
      */
     public getDatas(): any[] {
         return [];
@@ -186,7 +187,7 @@ export default class ProjectMainDashboardViewdashboard_container2Base extends Vu
      * 获取单项树
      *
      * @returns {*}
-     * @memberof MainDashboardViewdashboard_container2
+     * @memberof MainDashboardViewdashboard_container2Base
      */
     public getData(): any {
         return {};
@@ -195,7 +196,7 @@ export default class ProjectMainDashboardViewdashboard_container2Base extends Vu
     /**
      * vue 生命周期
      *
-     * @memberof MainDashboardViewdashboard_container2
+     * @memberof MainDashboardViewdashboard_container2Base
      */
     public created() {
         this.afterCreated();
@@ -204,7 +205,7 @@ export default class ProjectMainDashboardViewdashboard_container2Base extends Vu
     /**
      * 执行created后的逻辑
      *
-     *  @memberof MainDashboardViewdashboard_container2
+     *  @memberof MainDashboardViewdashboard_container2Base
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -223,7 +224,7 @@ export default class ProjectMainDashboardViewdashboard_container2Base extends Vu
     /**
      * vue 生命周期
      *
-     * @memberof MainDashboardViewdashboard_container2
+     * @memberof MainDashboardViewdashboard_container2Base
      */
     public destroyed() {
         this.afterDestroy();
@@ -232,7 +233,7 @@ export default class ProjectMainDashboardViewdashboard_container2Base extends Vu
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof MainDashboardViewdashboard_container2
+     * @memberof MainDashboardViewdashboard_container2Base
      */
     public afterDestroy() {
         if (this.viewStateEvent) {

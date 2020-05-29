@@ -1,6 +1,7 @@
 <template>
-    <div class='portlet project-exp-view' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : '300px',}">
+    <div class='portlet project-exp-view ' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : '300px',}">
         <p class='portlet-title'>
+            <i class=''></i>
             项目统计
         </p>
         <div class="portlet-with-title">
@@ -134,11 +135,12 @@ export default class ProjectProjectExpViewBase extends Vue implements ControlInt
 
 
 
+
     /**
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof ProjectExpView
+     * @memberof ProjectExpViewBase
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -146,7 +148,7 @@ export default class ProjectProjectExpViewBase extends Vue implements ControlInt
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof ProjectExpView
+     * @memberof ProjectExpViewBase
      */
     public getDatas(): any[] {
         return [];
@@ -156,7 +158,7 @@ export default class ProjectProjectExpViewBase extends Vue implements ControlInt
      * 获取单项树
      *
      * @returns {*}
-     * @memberof ProjectExpView
+     * @memberof ProjectExpViewBase
      */
     public getData(): any {
         return {};
@@ -165,7 +167,7 @@ export default class ProjectProjectExpViewBase extends Vue implements ControlInt
     /**
      * vue 生命周期
      *
-     * @memberof ProjectExpView
+     * @memberof ProjectExpViewBase
      */
     public created() {
         this.afterCreated();
@@ -174,7 +176,7 @@ export default class ProjectProjectExpViewBase extends Vue implements ControlInt
     /**
      * 执行created后的逻辑
      *
-     *  @memberof ProjectExpView
+     *  @memberof ProjectExpViewBase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -193,7 +195,7 @@ export default class ProjectProjectExpViewBase extends Vue implements ControlInt
     /**
      * vue 生命周期
      *
-     * @memberof ProjectExpView
+     * @memberof ProjectExpViewBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -202,7 +204,7 @@ export default class ProjectProjectExpViewBase extends Vue implements ControlInt
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof ProjectExpView
+     * @memberof ProjectExpViewBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {

@@ -8,7 +8,7 @@
       <i-col :md="{ span: 24, offset: 0 }">
         <card class="portlet-card" :bordered="false" dis-hover :padding="0">
           <span>
-          <view_db_totalcontainer1 
+                      <view_db_totalcontainer1 
               :viewState="viewState"  
               :viewparams="viewparams" 
               :context="context" 
@@ -19,7 +19,7 @@
           </span>
         </card>
       </i-col>
-          </div>
+      </div>
     </row>
     <row v-if="isHasCustomized" style="width: 100%;min-height: calc(100% - 40px);">
       <div class="portlet-container" style="position: relative;width:100%;">

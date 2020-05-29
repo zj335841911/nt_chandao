@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet-container db-rightcontainer3' :style="{}">
+    <div class='portlet-container db-rightcontainer3 ' :style="{}">
             <i-col :md="{ span: 24, offset: 0 }">
                 <div class="portlet-without-title">
                                   <view_db_projectstatusportlet 
@@ -143,11 +143,12 @@ export default class Db_rightcontainer3Base extends Vue implements ControlInterf
 
 
 
+
     /**
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof Db_rightcontainer3
+     * @memberof Db_rightcontainer3Base
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -155,7 +156,7 @@ export default class Db_rightcontainer3Base extends Vue implements ControlInterf
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof Db_rightcontainer3
+     * @memberof Db_rightcontainer3Base
      */
     public getDatas(): any[] {
         return [];
@@ -165,7 +166,7 @@ export default class Db_rightcontainer3Base extends Vue implements ControlInterf
      * 获取单项树
      *
      * @returns {*}
-     * @memberof Db_rightcontainer3
+     * @memberof Db_rightcontainer3Base
      */
     public getData(): any {
         return {};
@@ -174,7 +175,7 @@ export default class Db_rightcontainer3Base extends Vue implements ControlInterf
     /**
      * vue 生命周期
      *
-     * @memberof Db_rightcontainer3
+     * @memberof Db_rightcontainer3Base
      */
     public created() {
         this.afterCreated();
@@ -183,7 +184,7 @@ export default class Db_rightcontainer3Base extends Vue implements ControlInterf
     /**
      * 执行created后的逻辑
      *
-     *  @memberof Db_rightcontainer3
+     *  @memberof Db_rightcontainer3Base
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -202,7 +203,7 @@ export default class Db_rightcontainer3Base extends Vue implements ControlInterf
     /**
      * vue 生命周期
      *
-     * @memberof Db_rightcontainer3
+     * @memberof Db_rightcontainer3Base
      */
     public destroyed() {
         this.afterDestroy();
@@ -211,7 +212,7 @@ export default class Db_rightcontainer3Base extends Vue implements ControlInterf
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof Db_rightcontainer3
+     * @memberof Db_rightcontainer3Base
      */
     public afterDestroy() {
         if (this.viewStateEvent) {

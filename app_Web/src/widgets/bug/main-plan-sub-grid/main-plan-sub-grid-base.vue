@@ -1,6 +1,7 @@
 <template>
 <div :class="{ 'grid': true, 'show-paging-bar': isEnablePagingBar, 'hidden-paging-bar': !isEnablePagingBar }">
-        <el-table v-if="isDisplay === true"
+    <i-form>
+    <el-table v-if="isDisplay === true"
         :default-sort="{ prop: minorSortPSDEF, order: Object.is(minorSortDir, 'ASC') ? 'ascending' : Object.is(minorSortDir, 'DESC') ? 'descending' : '' }"  
         @sort-change="onSortChange($event)"  
         :border="isDragendCol"
@@ -24,14 +25,24 @@
             </template>
             <template v-if="getColumnState('id')">
                 <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.bug.main_plansub_grid.columns.id')" :width="80"  :align="'left'" :sortable="'custom'">
-                    <template v-slot="{row,column}">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.bug.main_plansub_grid.columns.id')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
                         <span>{{row.id}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('pri')">
                 <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.bug.main_plansub_grid.columns.pri')" :width="80"  :align="'left'" :sortable="'custom'">
-                    <template v-slot="{row,column}">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.bug.main_plansub_grid.columns.pri')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
                         <template >
             <codelist :value="row.pri" tag='Bug__pri' codelistType='STATIC' ></codelist>
                         </template>
@@ -40,7 +51,12 @@
             </template>
             <template v-if="getColumnState('confirmed')">
                 <el-table-column show-overflow-tooltip :prop="'confirmed'" :label="$t('entities.bug.main_plansub_grid.columns.confirmed')" :width="80"  :align="'left'" :sortable="'custom'">
-                    <template v-slot="{row,column}">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.bug.main_plansub_grid.columns.confirmed')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
                         <template >
             <codelist :value="row.confirmed" tag='YesNo2' codelistType='STATIC' ></codelist>
                         </template>
@@ -49,7 +65,12 @@
             </template>
             <template v-if="getColumnState('title')">
                 <el-table-column show-overflow-tooltip :prop="'title'" :label="$t('entities.bug.main_plansub_grid.columns.title')" :min-width="1"  :align="'left'" :sortable="'custom'">
-                    <template v-slot="{row,column}">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.bug.main_plansub_grid.columns.title')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
                         <app-column-link deKeyField='bug' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'bug-main-dashboard-view', height: 0,width: 0,title: $t('entities.bug.views.maindashboardview.title'),placement: '', isRedirectView: false,deResParameters: [
             { pathName: 'products', parameterName: 'product' },
             ]
@@ -64,7 +85,12 @@
             </template>
             <template v-if="getColumnState('status')">
                 <el-table-column show-overflow-tooltip :prop="'status'" :label="$t('entities.bug.main_plansub_grid.columns.status')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot="{row,column}">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.bug.main_plansub_grid.columns.status')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
                         <template >
             <codelist :value="row.status" tag='Bug__status' codelistType='STATIC' ></codelist>
                         </template>
@@ -73,21 +99,36 @@
             </template>
             <template v-if="getColumnState('openedby')">
                 <el-table-column show-overflow-tooltip :prop="'openedby'" :label="$t('entities.bug.main_plansub_grid.columns.openedby')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot="{row,column}">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.bug.main_plansub_grid.columns.openedby')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
                         <span>{{row.openedby}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('openeddate')">
                 <el-table-column show-overflow-tooltip :prop="'openeddate'" :label="$t('entities.bug.main_plansub_grid.columns.openeddate')" :width="120"  :align="'left'" :sortable="'custom'">
-                    <template v-slot="{row,column}">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.bug.main_plansub_grid.columns.openeddate')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
                         <app-format-data format="YYYY-MM-DD hh:mm:ss" :data="row.openeddate"></app-format-data>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('assignedto')">
                 <el-table-column show-overflow-tooltip :prop="'assignedto'" :label="$t('entities.bug.main_plansub_grid.columns.assignedto')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot="{row,column}">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.bug.main_plansub_grid.columns.assignedto')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
                         <span>{{row.assignedto}}</span>
                     </template>
                 </el-table-column>
@@ -131,6 +172,7 @@
             </span>
         </page>
     </row>
+  </i-form>
 </div>
 </template>
 <script lang='tsx'>
@@ -143,6 +185,7 @@ import BugService from '@/service/bug/bug-service';
 import Main_PlanSubService from './main-plan-sub-grid-service';
 
 import CodeListService from "@service/app/codelist-service";
+import { FormItemModel } from '@/model/form-detail';
 
 
 @Component({
@@ -626,6 +669,26 @@ export default class Main_PlanSubBase extends Vue implements ControlInterface {
     ]
 
     /**
+     * 表格模型集合
+     *
+     * @type {*}
+     * @memberof Main_PlanSub
+     */
+    public gridItemsModel: any[] = [];
+
+    /**
+     * 获取表格行模型
+     *
+     * @type {*}
+     * @memberof Main_PlanSub
+     */
+    public getGridRowModel(){
+        return {
+          srfkey: new FormItemModel(),
+        }
+    }
+
+    /**
      * 属性值规则
      *
      * @type {*}
@@ -636,6 +699,50 @@ export default class Main_PlanSubBase extends Vue implements ControlInterface {
              { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: 'Bug编号 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: 'Bug编号 值不能为空', trigger: 'blur' },
         ],
+    }
+
+    /**
+     * 表格行编辑项校验
+     *
+     * @param {string} property 属性名
+     * @param {*} data 行数据
+     * @param {number} rowIndex 行索引
+     * @returns Promise<any>
+     * 
+     * @memberof Main_PlanSub
+     */
+    public validate(property:string, data:any, rowIndex:number):Promise<any>{
+        return new Promise((resolve, reject) => {
+            this.$util.validateItem(property,data,this.rules).then(()=>{
+                this.gridItemsModel[rowIndex][property].setError(null);
+                resolve(true);
+            }).catch(({ errors, fields }) => {
+                this.gridItemsModel[rowIndex][property].setError(errors[0].message);
+                resolve(false);
+            });
+        });
+    }
+
+    /**
+     * 校验所有修改过的编辑项
+     *
+     * @returns Promise<any>
+     * @memberof Main_PlanSub
+     */
+    public async validateAll(){
+        let validateState = true;
+        let index = -1;
+        for(let item of this.items){
+          index++;
+          if(item.rowDataState === "create" || item.rowDataState === "update"){
+            for(let property of Object.keys(this.rules)){
+              if(!await this.validate(property,item,index)){
+                validateState = false;
+              }
+            }
+          }
+        }
+        return validateState;
     }
 
     /**
@@ -680,8 +787,10 @@ export default class Main_PlanSubBase extends Vue implements ControlInterface {
             const data: any = response.data;
             this.totalrow = response.total;
             this.items = JSON.parse(JSON.stringify(data));
-            // 清空selections
+            // 清空selections,gridItemsModel
             this.selections = [];
+            this.gridItemsModel = [];
+            this.items.forEach(()=>{this.gridItemsModel.push(this.getGridRowModel())});
             this.$emit('load', this.items);
             // 设置默认选中
             let _this = this;
@@ -730,6 +839,7 @@ export default class Main_PlanSubBase extends Vue implements ControlInterface {
                 this.items.some((val: any, num: number) =>{
                     if(JSON.stringify(val) == JSON.stringify(record)){
                         this.items.splice(num,1);
+                        this.gridItemsModel.splice(num,1);
                         return true;
                     }
                 }); 
@@ -765,8 +875,9 @@ export default class Main_PlanSubBase extends Vue implements ControlInterface {
                 keys.push(data.srfkey);
             });
             let _removeAction = keys.length > 1 ? 'removeBatch' : this.removeAction ;
+            let _keys = keys.length > 1 ? keys : keys[0] ;
             const context:any = JSON.parse(JSON.stringify(this.context));
-            const post: Promise<any> = this.service.delete(_removeAction,Object.assign(context,{ bug: keys.join(';') }),Object.assign({ bug: keys.join(';') },{viewparams:this.viewparams}), this.showBusyIndicator);
+            const post: Promise<any> = this.service.delete(_removeAction,Object.assign(context,{ bug: _keys }),Object.assign({ bug: _keys },{viewparams:this.viewparams}), this.showBusyIndicator);
             return new Promise((resolve: any, reject: any) => {
                 post.then((response: any) => {
                     if (!response || response.status !== 200) {
@@ -780,7 +891,8 @@ export default class Main_PlanSubBase extends Vue implements ControlInterface {
                     _datas.forEach((data: any) => {
                       this.items.some((item:any,index:number)=>{
                         if(Object.is(item.srfkey,data.srfkey)){
-                          this.items.splice(index,1);
+                                this.items.splice(index,1);
+                                this.gridItemsModel.splice(index,1);
                                 return true;
                             }
                         });
@@ -1369,41 +1481,56 @@ export default class Main_PlanSubBase extends Vue implements ControlInterface {
      * 保存
      *
      * @param {*} $event
-     * @returns {void}
+     * @returns {Promise<any>}
      * @memberof Main_PlanSub
      */
-    public save(args: any[], params?: any, $event?: any, xData?: any): void {
+    public async save(args: any[], params?: any, $event?: any, xData?: any){
         let _this = this;
-        let promises:any = [];
-        _this.items.forEach((item:any)=>{
-            if(!item.rowDataState){
-                return;
-            } else if(Object.is(item.rowDataState, 'create')){
-                if(!this.createAction){
-                    this.$Notice.error({ title: '错误', desc: 'BugPlanSubGridView视图表格createAction参数未配置' });
-                    return;
+        if(!await this.validateAll()){
+            this.$Notice.error({ title: '错误', desc: '值规则校验异常' });
+            return [];
+        }
+        let successItems:any = [];
+        let errorItems:any = [];
+        let errorMessage:any = [];
+        for (const item of _this.items) {
+            try {
+                if(Object.is(item.rowDataState, 'create')){
+                    if(!this.createAction){
+                        this.$Notice.error({ title: '错误', desc: 'BugPlanSubGridView视图表格createAction参数未配置' });
+                    }else{
+                      Object.assign(item,{viewparams:this.viewparams});
+                      let response = await this.service.add(this.createAction, JSON.parse(JSON.stringify(this.context)),item, this.showBusyIndicator);
+                      successItems.push(JSON.parse(JSON.stringify(response.data)));
+                    }
+                }else if(Object.is(item.rowDataState, 'update')){
+                    if(!this.updateAction){
+                        this.$Notice.error({ title: '错误', desc: 'BugPlanSubGridView视图表格updateAction参数未配置' });
+                    }else{
+                        Object.assign(item,{viewparams:this.viewparams});
+                        if(item.bug){
+                            Object.assign(this.context,{bug:item.bug});
+                        }
+                        let response = await this.service.add(this.updateAction,JSON.parse(JSON.stringify(this.context)),item, this.showBusyIndicator);
+                        successItems.push(JSON.parse(JSON.stringify(response.data)));
+                    }
                 }
-                Object.assign(item,{viewparams:this.viewparams});
-                promises.push(this.service.add(this.createAction, JSON.parse(JSON.stringify(this.context)),item, this.showBusyIndicator));
-            }else if(Object.is(item.rowDataState, 'update')){
-                if(!this.updateAction){
-                    this.$Notice.error({ title: '错误', desc: 'BugPlanSubGridView视图表格updateAction参数未配置' });
-                    return;
-                }
-                Object.assign(item,{viewparams:this.viewparams});
-                if(item.bug){
-                    Object.assign(this.context,{bug:item.bug})
-                }
-                promises.push(this.service.add(this.updateAction,JSON.parse(JSON.stringify(this.context)),item, this.showBusyIndicator));
+            } catch (error) {
+                errorItems.push(JSON.parse(JSON.stringify(item)));
+                errorMessage.push(error);
             }
-        });
-        Promise.all(promises).then((response: any) => {
-            this.$emit('save', response);
+        }
+        this.$emit('save', successItems);
+        this.refresh([]);
+        if(errorItems.length === 0){
             this.$Notice.success({ title: '', desc: '保存成功!' });
-            this.refresh([]);
-        }).catch((response: any) => {
-            this.$Notice.error({ title: '错误', desc: '系统异常' });
-        });
+        }else{
+          errorItems.forEach((item:any,index:number)=>{
+            this.$Notice.error({ title: '保存失败', desc: item.majorentityname+'保存失败！' });
+            console.error(errorMessage[index]);
+          });
+        }
+        return successItems;
     }
 
 

@@ -1,6 +1,7 @@
 <template>
-    <div class='portlet un-closed-project' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : '500px',}">
+    <div class='portlet un-closed-project ' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : '500px',}">
         <p class='portlet-title'>
+            <i class=''></i>
             未关闭的项目
         </p>
         <div class="portlet-with-title">
@@ -134,11 +135,12 @@ export default class ProjectUnClosedProjectBase extends Vue implements ControlIn
 
 
 
+
     /**
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof UnClosedProject
+     * @memberof UnClosedProjectBase
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -146,7 +148,7 @@ export default class ProjectUnClosedProjectBase extends Vue implements ControlIn
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof UnClosedProject
+     * @memberof UnClosedProjectBase
      */
     public getDatas(): any[] {
         return [];
@@ -156,7 +158,7 @@ export default class ProjectUnClosedProjectBase extends Vue implements ControlIn
      * 获取单项树
      *
      * @returns {*}
-     * @memberof UnClosedProject
+     * @memberof UnClosedProjectBase
      */
     public getData(): any {
         return {};
@@ -165,7 +167,7 @@ export default class ProjectUnClosedProjectBase extends Vue implements ControlIn
     /**
      * vue 生命周期
      *
-     * @memberof UnClosedProject
+     * @memberof UnClosedProjectBase
      */
     public created() {
         this.afterCreated();
@@ -174,7 +176,7 @@ export default class ProjectUnClosedProjectBase extends Vue implements ControlIn
     /**
      * 执行created后的逻辑
      *
-     *  @memberof UnClosedProject
+     *  @memberof UnClosedProjectBase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -193,7 +195,7 @@ export default class ProjectUnClosedProjectBase extends Vue implements ControlIn
     /**
      * vue 生命周期
      *
-     * @memberof UnClosedProject
+     * @memberof UnClosedProjectBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -202,7 +204,7 @@ export default class ProjectUnClosedProjectBase extends Vue implements ControlIn
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof UnClosedProject
+     * @memberof UnClosedProjectBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {

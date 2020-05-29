@@ -8,7 +8,7 @@
     <template slot="toolbar">
                 <div class='toolbar-container'>
             <i-button :title="$t('entities.project.leftsidebarlistviewtoolbar_toolbar.deuiaction3_manager.tip')" v-show="toolBarModels.deuiaction3_manager.visabled" :disabled="toolBarModels.deuiaction3_manager.disabled" class='' @click="toolbar_click({ tag: 'deuiaction3_manager' }, $event)">
-                    <i class=''></i>
+                    <i class='fa fa-list'></i>
                     <span class='caption'>{{$t('entities.project.leftsidebarlistviewtoolbar_toolbar.deuiaction3_manager.caption')}}</span>
                 </i-button>
             <span class='seperator'>|</span>    <i-button :title="$t('entities.project.leftsidebarlistviewtoolbar_toolbar.deuiaction1.tip')" v-show="toolBarModels.deuiaction1.visabled" :disabled="toolBarModels.deuiaction1.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1' }, $event)">
@@ -42,6 +42,7 @@
 </studio-view>
 </template>
 
+
 <script lang='tsx'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { UIActionTool,Util } from '@/utils';
@@ -52,6 +53,8 @@ import ListViewEngine from '@engine/view/list-view-engine';
 
 
 import ProjectUIService from '@/uiservice/project/project-ui-service';
+import CodeListService from "@service/app/codelist-service";
+
 
 @Component({
     components: {
@@ -237,6 +240,7 @@ export default class ProjectLeftSidebarListViewBase extends Vue {
         deuiaction2: { name: 'deuiaction2', caption: '刷新', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Refresh', target: '' } },
 
     };
+
 
 
 
@@ -457,6 +461,7 @@ export default class ProjectLeftSidebarListViewBase extends Vue {
             _this.loadModel();
         }
         
+
     }
 
 
@@ -816,6 +821,8 @@ export default class ProjectLeftSidebarListViewBase extends Vue {
             refs.list.load({});
         }
     }
+
+
 
 }
 </script>
