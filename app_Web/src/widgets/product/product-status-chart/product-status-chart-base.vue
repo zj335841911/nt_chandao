@@ -279,6 +279,7 @@ export default class ProductStatusBase extends Vue implements ControlInterface {
         }
     },
     ecObject:{
+        radius:['60%', '70%'],
     },
     seriesTemp:{
         type:'pie',
