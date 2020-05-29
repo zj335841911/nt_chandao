@@ -135,6 +135,7 @@ export default class ProductPlanSubPlanCreateViewBase extends Vue {
 	 * @memberof ProductPlanSubPlanCreateViewBase
 	 */
     public customViewParams:any ={
+    "pproductplan":{"isRawValue":false,"value":"pproductplan"}
     };
 
     /**
