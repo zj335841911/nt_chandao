@@ -716,7 +716,7 @@ export default class ProductPlanSubPlanGridViewBase extends Vue {
             ]
         }
         const parameters: any[] = [
-            { pathName: 'productplans', parameterName: 'productplan' },
+            { pathName: 'ibz_subproductplans', parameterName: 'ibz_subproductplan' },
         ];
         const _this: any = this;
         const openDrawer = (view: any, data: any) => {

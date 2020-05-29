@@ -2,70 +2,70 @@ import { Environment } from '@/environments/environment';
 import { UIActionTool,Util } from '@/utils';
 import UIService from '../ui-service';
 import { Subject } from 'rxjs';
-import ProductPlanService from '@/service/product-plan/product-plan-service';
+import IBZ_SUBPRODUCTPLANService from '@/service/ibz-subproductplan/ibz-subproductplan-service';
 
 /**
  * 产品计划UI服务对象基类
  *
  * @export
- * @class ProductPlanUIServiceBase
+ * @class IBZ_SUBPRODUCTPLANUIServiceBase
  */
-export default class ProductPlanUIServiceBase extends UIService {
+export default class IBZ_SUBPRODUCTPLANUIServiceBase extends UIService {
 
     /**
      * 是否支持工作流
      * 
-     * @memberof  ProductPlanUIServiceBase
+     * @memberof  IBZ_SUBPRODUCTPLANUIServiceBase
      */
     public isEnableWorkflow:boolean = false;
 
     /**
      * 当前UI服务对应的数据服务对象
      * 
-     * @memberof  ProductPlanUIServiceBase
+     * @memberof  IBZ_SUBPRODUCTPLANUIServiceBase
      */
-    public dataService:ProductPlanService = new ProductPlanService();
+    public dataService:IBZ_SUBPRODUCTPLANService = new IBZ_SUBPRODUCTPLANService();
 
     /**
      * 所有关联视图
      * 
-     * @memberof  ProductPlanUIServiceBase
+     * @memberof  IBZ_SUBPRODUCTPLANUIServiceBase
      */ 
     public allViewMap: Map<string, Object> = new Map();
 
     /**
      * 状态值
      * 
-     * @memberof  ProductPlanUIServiceBase
+     * @memberof  IBZ_SUBPRODUCTPLANUIServiceBase
      */ 
     public stateValue: number = 0;
 
     /**
      * 状态属性
      * 
-     * @memberof  ProductPlanUIServiceBase
+     * @memberof  IBZ_SUBPRODUCTPLANUIServiceBase
      */ 
     public stateField: string = "";
 
     /**
      * 主状态属性集合
      * 
-     * @memberof  ProductPlanUIServiceBase
+     * @memberof  IBZ_SUBPRODUCTPLANUIServiceBase
      */  
     public mainStateFields:Array<any> = [];
 
     /**
      * 主状态集合Map
      * 
-     * @memberof  ProductPlanUIServiceBase
+     * @memberof  IBZ_SUBPRODUCTPLANUIServiceBase
      */  
     public allDeMainStateMap:Map<string,string> = new Map();
 
     /**
-     * Creates an instance of  ProductPlanUIServiceBase.
+     * Creates an instance of  IBZ_SUBPRODUCTPLANUIServiceBase.
      * 
      * @param {*} [opts={}]
-     * @memberof  ProductPlanUIServiceBase
+     * @memberof  IBZ_SUBPRODUCTPLANUIServiceBase
      */
     constructor(opts: any = {}) {
         super(opts);
@@ -76,21 +76,16 @@ export default class ProductPlanUIServiceBase extends UIService {
     /**
      * 初始化视图Map
      * 
-     * @memberof  ProductPlanUIServiceBase
+     * @memberof  IBZ_SUBPRODUCTPLANUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'maintabexp',srfappde:'productplans'});
-        this.allViewMap.set(':',{viewname:'subplancreateview',srfappde:'productplans'});
-        this.allViewMap.set(':',{viewname:'maineditview',srfappde:'productplans'});
-        this.allViewMap.set(':',{viewname:'subplangridview',srfappde:'productplans'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'productplans'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'productplans'});
+        this.allViewMap.set(':',{viewname:'subplaneditview',srfappde:'ibz_subproductplans'});
     }
 
     /**
      * 初始化主状态集合
      * 
-     * @memberof  ProductPlanUIServiceBase
+     * @memberof  IBZ_SUBPRODUCTPLANUIServiceBase
      */  
     public initDeMainStateMap(){
     }
@@ -101,12 +96,12 @@ export default class ProductPlanUIServiceBase extends UIService {
      * 
      * @param srfkey 数据主键
      * @param isEnableWorkflow  重定向视图是否需要处理流程中的数据
-     * @memberof  ProductPlanUIServiceBase
+     * @memberof  IBZ_SUBPRODUCTPLANUIServiceBase
      */
     public async getRDAppView(srfkey:string,isEnableWorkflow:boolean){
         this.isEnableWorkflow = isEnableWorkflow;
         // 进行数据查询
-        let result:any = await this.dataService.Get({productplan:srfkey});
+        let result:any = await this.dataService.Get({ibz_subproductplan:srfkey});
         const curData:any = result.data;
         //判断当前数据模式,默认为true，todo
         const iRealDEModel:boolean = true;
@@ -133,7 +128,7 @@ export default class ProductPlanUIServiceBase extends UIService {
     /**
 	 * 获取实际的数据类型
      * 
-     * @memberof  ProductPlanUIServiceBase
+     * @memberof  IBZ_SUBPRODUCTPLANUIServiceBase
 	 */
 	public getRealDEType(entity:any){
 
@@ -145,7 +140,7 @@ export default class ProductPlanUIServiceBase extends UIService {
      * @param curData 当前数据
      * @param bDataInWF 是否有数据在工作流中
      * @param bWFMode   是否工作流模式
-     * @memberof  ProductPlanUIServiceBase
+     * @memberof  IBZ_SUBPRODUCTPLANUIServiceBase
      */
     public async getDESDDEViewPDTParam(curData:any, bDataInWF:boolean, bWFMode:boolean){
         let strPDTParam:string = '';
@@ -179,7 +174,7 @@ export default class ProductPlanUIServiceBase extends UIService {
      * 获取数据对象的主状态标识
      * 
      * @param curData 当前数据
-     * @memberof  ProductPlanUIServiceBase
+     * @memberof  IBZ_SUBPRODUCTPLANUIServiceBase
      */  
     public async getDEMainStateTag(curData:any){
         if(this.mainStateFields.length === 0) return null;

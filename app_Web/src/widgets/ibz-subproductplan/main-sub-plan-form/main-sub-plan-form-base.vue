@@ -1,35 +1,35 @@
 <template>
-    <i-form :model="this.data" class='app-form' ref='form'  id='productplan_mainsubplan' style="">
+    <i-form :model="this.data" class='app-form' ref='form'  id='ibz_subproductplan_mainsubplan' style="">
     <input style="display:none;" />
     <row >
             
 <i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productplan.mainsubplan_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.ibz_subproductplan.mainsubplan_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
         <i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productplan.mainsubplan_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.ibz_subproductplan.mainsubplan_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
         <i-col v-show="detailsModel.parentname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='parentname' :itemRules="this.rules.parentname" class='' :caption="$t('entities.productplan.mainsubplan_form.details.parentname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.parentname.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='parentname' :itemRules="this.rules.parentname" class='' :caption="$t('entities.ibz_subproductplan.mainsubplan_form.details.parentname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.parentname.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='parentname'
 :value="data.parentname" style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='title' :itemRules="this.rules.title" class='' :caption="$t('entities.productplan.mainsubplan_form.details.title')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='title' :itemRules="this.rules.title" class='' :caption="$t('entities.ibz_subproductplan.mainsubplan_form.details.title')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box v-model="data.title"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.title.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.begin.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='begin' :itemRules="this.rules.begin" class='' :caption="$t('entities.productplan.mainsubplan_form.details.begin')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.begin.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='begin' :itemRules="this.rules.begin" class='' :caption="$t('entities.ibz_subproductplan.mainsubplan_form.details.begin')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.begin.error" :isEmptyCaption="false" labelPos="LEFT">
     <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.begin" :disabled="detailsModel.begin.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.begin = val1 }"></date-picker>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.end.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='end' :itemRules="this.rules.end" class='' :caption="$t('entities.productplan.mainsubplan_form.details.end')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.end.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='end' :itemRules="this.rules.end" class='' :caption="$t('entities.ibz_subproductplan.mainsubplan_form.details.end')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.end.error" :isEmptyCaption="false" labelPos="LEFT">
     <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.end" :disabled="detailsModel.end.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.end = val1 }"></date-picker>
 </app-form-item>
 
@@ -40,7 +40,7 @@
 
 </i-col>
 <i-col v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.productplan.mainsubplan_form.details.desc')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.ibz_subproductplan.mainsubplan_form.details.desc')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="LEFT">
     <div class="ivu-input-wrapper ivu-input-wrapper-default ivu-input-type">
     <textarea class="ivu-input" :rows="10" v-model="data.desc" :disabled="detailsModel.desc.disabled" style="height:200px;"></textarea>
 </div>
@@ -53,16 +53,16 @@
 
 </i-col>
 <i-col v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productplan.mainsubplan_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.ibz_subproductplan.mainsubplan_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
         <i-col v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 11 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productplan.mainsubplan_form.details.grouppanel3')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.ibz_subproductplan.mainsubplan_form.details.grouppanel3')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <div style="height: 100%;display: flex;justify-content: space-around;">
         <div  v-show="detailsModel.button1.visible" :style="{}">
     <i-button type="primary" @click="button1_click($event)"
          style="">
            
-        <span >{{$t('entities.productplan.mainsubplan_form.details.button1')}}</span>
+        <span >{{$t('entities.ibz_subproductplan.mainsubplan_form.details.button1')}}</span>
     </i-button>
 
 </div>
@@ -70,7 +70,7 @@
     <i-button type="primary" @click="button2_click($event)"
          style="">
            
-        <span >{{$t('entities.productplan.mainsubplan_form.details.button2')}}</span>
+        <span >{{$t('entities.ibz_subproductplan.mainsubplan_form.details.button2')}}</span>
     </i-button>
 
 </div>
@@ -96,7 +96,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import { UIActionTool,Util } from '@/utils';
-import ProductPlanService from '@/service/product-plan/product-plan-service';
+import IBZ_SUBPRODUCTPLANService from '@/service/ibz-subproductplan/ibz-subproductplan-service';
 import MainSubPlanService from './main-sub-plan-form-service';
 
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
@@ -182,10 +182,10 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
     /**
      * 实体服务对象
      *
-     * @type {ProductPlanService}
+     * @type {IBZ_SUBPRODUCTPLANService}
      * @memberof MainSubPlan
      */
-    public appEntityService: ProductPlanService = new ProductPlanService({ $store: this.$store });
+    public appEntityService: IBZ_SUBPRODUCTPLANService = new IBZ_SUBPRODUCTPLANService({ $store: this.$store });
     
 
     /**
@@ -213,7 +213,7 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
           datas = [params];
         }
         // 界面行为
-        this.SaveAndExit(datas, contextJO,paramJO,  $event, xData,this,"ProductPlan");
+        this.SaveAndExit(datas, contextJO,paramJO,  $event, xData,this,"IBZ_SUBPRODUCTPLAN");
     }
 
     /**
@@ -241,7 +241,7 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
           datas = [params];
         }
         // 界面行为
-        this.Exit(datas, contextJO,paramJO,  $event, xData,this,"ProductPlan");
+        this.Exit(datas, contextJO,paramJO,  $event, xData,this,"IBZ_SUBPRODUCTPLAN");
     }
 
     /**
@@ -253,7 +253,7 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
      * @param {*} [$event] 事件源
      * @param {*} [xData]  执行行为所需当前部件
      * @param {*} [actionContext]  执行行为上下文
-     * @memberof ProductPlanSubPlanCreateViewBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */
     public SaveAndExit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         const _this: any = this;
@@ -286,7 +286,7 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
      * @param {*} [$event] 事件源
      * @param {*} [xData]  执行行为所需当前部件
      * @param {*} [actionContext]  执行行为上下文
-     * @memberof ProductPlanSubPlanCreateViewBase
+     * @memberof ProductPlanSubPlanEditViewBase
      */
     public Exit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         this.closeView(args);
@@ -504,7 +504,7 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
         end: null,
         desc: null,
         id: null,
-        productplan:null,
+        ibz_subproductplan:null,
     };
 
     /**
@@ -645,9 +645,9 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
      * @memberof MainSubPlan
      */
     public detailsModel: any = {
-        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productplan.mainsubplan_form', extractMode: 'ITEM', details: [] } })
+        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.ibz_subproductplan.mainsubplan_form', extractMode: 'ITEM', details: [] } })
 , 
-        group1: new FormGroupPanelModel({ caption: 'productplan基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productplan.mainsubplan_form', extractMode: 'ITEM', details: [] } })
+        group1: new FormGroupPanelModel({ caption: 'productplan基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.ibz_subproductplan.mainsubplan_form', extractMode: 'ITEM', details: [] } })
 , 
         button1: new FormButtonModel({ caption: '保存', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this, uiaction: { type: 'DEUIACTION', 
  tag: 'SaveAndExit' } })
@@ -655,9 +655,9 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
         button2: new FormButtonModel({ caption: '关闭', detailType: 'BUTTON', name: 'button2', visible: true, isShowCaption: true, form: this, uiaction: { type: 'DEUIACTION', 
  tag: 'Exit' } })
 , 
-        grouppanel3: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productplan.mainsubplan_form', extractMode: 'ITEM', details: [] } })
+        grouppanel3: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.ibz_subproductplan.mainsubplan_form', extractMode: 'ITEM', details: [] } })
 , 
-        grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productplan.mainsubplan_form', extractMode: 'ITEM', details: [] } })
+        grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.ibz_subproductplan.mainsubplan_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
@@ -969,8 +969,8 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
     public onFormLoad(data: any = {},action:string): void {
         if(Object.is(action,"save") || Object.is(action,"autoSave") || Object.is(action,"submit"))
         // 更新context的实体主键
-        if(data.productplan){
-            Object.assign(this.context,{productplan:data.productplan})
+        if(data.ibz_subproductplan){
+            Object.assign(this.context,{ibz_subproductplan:data.ibz_subproductplan})
         }
         this.setFormEnableCond(data);
         this.fillForm(data,action);
@@ -1261,9 +1261,9 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
     public copy(srfkey: string): void {
         let copyData = this.$store.getters.getCopyData(srfkey);
         copyData.srfkey = Util.createUUID();
-        copyData.productplan = copyData.srfkey;
+        copyData.ibz_subproductplan = copyData.srfkey;
         copyData.id = copyData.srfkey;
-        Object.assign(this.context,{productplan:copyData.productplan})
+        Object.assign(this.context,{ibz_subproductplan:copyData.ibz_subproductplan})
         this.data = copyData;
         this.$nextTick(() => {
           this.formState.next({ type: 'load', data: copyData });
@@ -1278,7 +1278,7 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
      */
     public print(){
         let _this:any = this;
-        _this.$print({id:'productplan_mainsubplan',popTitle:'子计划主编辑表单'});
+        _this.$print({id:'ibz_subproductplan_mainsubplan',popTitle:'子计划主编辑表单'});
     }
 
     /**
@@ -1332,7 +1332,7 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
      */
     public load(opt: any = {}): void {
         if(!this.loadAction){
-            this.$Notice.error({ title: '错误', desc: 'ProductPlanSubPlanCreateView视图表单loadAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'ProductPlanSubPlanEditView视图表单loadAction参数未配置' });
             return;
         }
         const arg: any = { ...opt };
@@ -1367,7 +1367,7 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
      */
     public loadDraft(opt: any = {}): void {
         if(!this.loaddraftAction){
-            this.$Notice.error({ title: '错误', desc: 'ProductPlanSubPlanCreateView视图表单loaddraftAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'ProductPlanSubPlanEditView视图表单loaddraftAction参数未配置' });
             return;
         }
         const arg: any = { ...opt } ;
@@ -1382,8 +1382,8 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
             }
 
             const data = response.data;
-            if(data.productplan){
-                Object.assign(this.context,{productplan:data.productplan})
+            if(data.ibz_subproductplan){
+                Object.assign(this.context,{ibz_subproductplan:data.ibz_subproductplan})
             }
             this.resetDraftFormStates();
             this.onFormLoad(data,'loadDraft');
@@ -1429,7 +1429,7 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
         const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
         if(!action){
             let actionName:any = Object.is(data.srfuf, '1')?"updateAction":"createAction";
-            this.$Notice.error({ title: '错误', desc: 'ProductPlanSubPlanCreateView视图表单'+actionName+'参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'ProductPlanSubPlanEditView视图表单'+actionName+'参数未配置' });
             return;
         }
         Object.assign(arg,{viewparams:this.viewparams});
@@ -1493,7 +1493,7 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
             const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
             if(!action){
                 let actionName:any = Object.is(data.srfuf, '1')?"updateAction":"createAction";
-                this.$Notice.error({ title: '错误', desc: 'ProductPlanSubPlanCreateView视图表单'+actionName+'参数未配置' });
+                this.$Notice.error({ title: '错误', desc: 'ProductPlanSubPlanEditView视图表单'+actionName+'参数未配置' });
                 return;
             }
             Object.assign(arg,{viewparams:this.viewparams});
@@ -1543,7 +1543,7 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
     public remove(opt:Array<any> = [],showResultInfo?: boolean): Promise<any> {
         return new Promise((resolve: any, reject: any) => {
             if(!this.removeAction){
-                this.$Notice.error({ title: '错误', desc: 'ProductPlanSubPlanCreateView视图表单removeAction参数未配置' });
+                this.$Notice.error({ title: '错误', desc: 'ProductPlanSubPlanEditView视图表单removeAction参数未配置' });
                 return;
             }
             const arg: any = opt[0];
@@ -1635,7 +1635,7 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
         const _this: any = this;
         const arg: any = data[0];
         Object.assign(arg,{viewparams:this.viewparams});
-        if (!arg.productplan || Object.is(arg.productplan, '')) {
+        if (!arg.ibz_subproductplan || Object.is(arg.ibz_subproductplan, '')) {
             return;
         }
         const post: Promise<any> = Object.is(arg.srfuf, '1')?this.service.update(this.updateAction, JSON.parse(JSON.stringify(this.context)),arg, this.showBusyIndicator):this.service.add(this.createAction,JSON.parse(JSON.stringify(this.context)),arg, this.showBusyIndicator);
