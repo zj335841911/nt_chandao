@@ -4,7 +4,7 @@
     <template slot="toolbar">
                 <div class='toolbar-container'>
             <i-button :title="$t('entities.bug.plansubgridviewtoolbar_toolbar.deuiaction3_planrelationbug.tip')" v-show="toolBarModels.deuiaction3_planrelationbug.visabled" :disabled="toolBarModels.deuiaction3_planrelationbug.disabled" class='' @click="toolbar_click({ tag: 'deuiaction3_planrelationbug' }, $event)">
-                    <i class=''></i>
+                    <i class='fa fa-chain'></i>
                     <span class='caption'>{{$t('entities.bug.plansubgridviewtoolbar_toolbar.deuiaction3_planrelationbug.caption')}}</span>
                 </i-button>
             <span class='seperator'>|</span>    <i-button :title="$t('entities.bug.plansubgridviewtoolbar_toolbar.deuiaction4.tip')" v-show="toolBarModels.deuiaction4.visabled" :disabled="toolBarModels.deuiaction4.disabled" class='' @click="toolbar_click({ tag: 'deuiaction4' }, $event)">
