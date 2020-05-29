@@ -3,13 +3,13 @@
 import { Component } from 'vue-property-decorator';
 import Db_container2Base from './db-container2-portlet-base.vue';
 
-import view_db_projectexpportlet from '@/widgets/project/project-exp-view-portlet/project-exp-view-portlet.vue';
-import view_db_projectunclosedportlet from '@/widgets/project/un-closed-project-portlet/un-closed-project-portlet.vue';
+import view_db_productexpportlet from '@/widgets/product/product-exp-view-portlet/product-exp-view-portlet.vue';
+import view_db_productunclosedportlet from '@/widgets/product/un-closed-product-portlet/un-closed-product-portlet.vue';
  
 @Component({
     components: {
-        view_db_projectexpportlet, 
-view_db_projectunclosedportlet, 
+        view_db_productexpportlet, 
+view_db_productunclosedportlet, 
  
     }
 })

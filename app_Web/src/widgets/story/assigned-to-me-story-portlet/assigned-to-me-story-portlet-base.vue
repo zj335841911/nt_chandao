@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet assigned-to-me-story' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : 'auto',}">
+    <div class='portlet assigned-to-me-story' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : '300px',}">
         <p class='portlet-title'>
             指派给我的需求
         </p>

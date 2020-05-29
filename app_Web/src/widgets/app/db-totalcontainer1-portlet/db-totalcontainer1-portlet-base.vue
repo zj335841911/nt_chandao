@@ -1,21 +1,29 @@
 <template>
-    <div class='portlet product-status-chart' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : '370px',}">
-        <p class='portlet-title'>
-            产品总览
-        </p>
-        <div class="portlet-with-title">
-        <!-- 测试 -->
-              <view_db_productstatusportlet_chart 
-          :viewState="viewState"  
-          :viewparams="viewparams" 
-          :context="context" 
-          fetchAction="FetchDefault"
-          :showBusyIndicator="true" 
-          name="db_productstatusportlet_chart"  
-          ref='db_productstatusportlet_chart' 
-          @closeview="closeView($event)">
-      </view_db_productstatusportlet_chart>
-        </div>
+    <div class='portlet-container db-totalcontainer1' :style="{}">
+            <i-col :xs="{ span: 16, offset: 0 }" :sm="{ span: 16, offset: 0 }" :md="{ span: 16, offset: 0 }" :lg="{ span: 16, offset: 0 }">
+                <div class="portlet-without-title">
+                                  <view_db_leftcontainer2 
+                      :viewState="viewState"  
+                      :viewparams="viewparams" 
+                      :context="context" 
+                      name="db_leftcontainer2"  
+                      ref='db_leftcontainer2' 
+                      @closeview="closeView($event)">
+                  </view_db_leftcontainer2>
+                </div>
+            </i-col>
+            <i-col :xs="{ span: 8, offset: 0 }" :sm="{ span: 8, offset: 0 }" :md="{ span: 8, offset: 0 }" :lg="{ span: 8, offset: 0 }">
+                <div class="portlet-without-title">
+                                  <view_db_rightcontainer3 
+                      :viewState="viewState"  
+                      :viewparams="viewparams" 
+                      :context="context" 
+                      name="db_rightcontainer3"  
+                      ref='db_rightcontainer3' 
+                      @closeview="closeView($event)">
+                  </view_db_rightcontainer3>
+                </div>
+            </i-col>
     </div>
 </template>
 <script lang='tsx'>
@@ -24,8 +32,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import { UIActionTool,Util } from '@/utils';
-import ProductService from '@/service/product/product-service';
-import ProductStatusChartService from './product-status-chart-portlet-service';
+import Db_totalcontainer1Service from './db-totalcontainer1-portlet-service';
 
 
 
@@ -34,13 +41,13 @@ import ProductStatusChartService from './product-status-chart-portlet-service';
       
     }
 })
-export default class ProductProductStatusChartBase extends Vue implements ControlInterface {
+export default class Db_totalcontainer1Base extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof ProductStatusChart
+     * @memberof Db_totalcontainer1
      */
     @Prop() public name?: string;
 
@@ -48,7 +55,7 @@ export default class ProductProductStatusChartBase extends Vue implements Contro
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof ProductStatusChart
+     * @memberof Db_totalcontainer1
      */
     @Prop() public viewState!: Subject<ViewState>;
 
@@ -56,7 +63,7 @@ export default class ProductProductStatusChartBase extends Vue implements Contro
      * 应用上下文
      *
      * @type {*}
-     * @memberof ProductStatusChart
+     * @memberof Db_totalcontainer1
      */
     @Prop() public context: any;
 
@@ -64,7 +71,7 @@ export default class ProductProductStatusChartBase extends Vue implements Contro
      * 视图参数
      *
      * @type {*}
-     * @memberof ProductStatusChart
+     * @memberof Db_totalcontainer1
      */
     @Prop() public viewparams: any;
 
@@ -73,7 +80,7 @@ export default class ProductProductStatusChartBase extends Vue implements Contro
      *
      * @public
      * @type {(Subscription | undefined)}
-     * @memberof ProductStatusChart
+     * @memberof Db_totalcontainer1
      */
     public viewStateEvent: Subscription | undefined;
 
@@ -81,7 +88,7 @@ export default class ProductProductStatusChartBase extends Vue implements Contro
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof ProductStatusChart
+     * @memberof Db_totalcontainer1
      */
     public getControlType(): string {
         return 'PORTLET'
@@ -93,25 +100,17 @@ export default class ProductProductStatusChartBase extends Vue implements Contro
      * 计数器服务对象集合
      *
      * @type {Array<*>}
-     * @memberof ProductStatusChart
+     * @memberof Db_totalcontainer1
      */    
     public counterServiceArray:Array<any> = [];
 
     /**
      * 建构部件服务对象
      *
-     * @type {ProductStatusChartService}
-     * @memberof ProductStatusChart
+     * @type {Db_totalcontainer1Service}
+     * @memberof Db_totalcontainer1
      */
-    public service: ProductStatusChartService = new ProductStatusChartService({ $store: this.$store });
-
-    /**
-     * 实体服务对象
-     *
-     * @type {ProductService}
-     * @memberof ProductStatusChart
-     */
-    public appEntityService: ProductService = new ProductService({ $store: this.$store });
+    public service: Db_totalcontainer1Service = new Db_totalcontainer1Service({ $store: this.$store });
     
 
 
@@ -119,7 +118,7 @@ export default class ProductProductStatusChartBase extends Vue implements Contro
      * 关闭视图
      *
      * @param {any} args
-     * @memberof ProductStatusChart
+     * @memberof Db_totalcontainer1
      */
     public closeView(args: any): void {
         let _this: any = this;
@@ -129,7 +128,7 @@ export default class ProductProductStatusChartBase extends Vue implements Contro
     /**
      *  计数器刷新
      *
-     * @memberof ProductStatusChart
+     * @memberof Db_totalcontainer1
      */
     public counterRefresh(){
         const _this:any =this;
@@ -148,7 +147,7 @@ export default class ProductProductStatusChartBase extends Vue implements Contro
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof ProductStatusChart
+     * @memberof Db_totalcontainer1
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -156,7 +155,7 @@ export default class ProductProductStatusChartBase extends Vue implements Contro
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof ProductStatusChart
+     * @memberof Db_totalcontainer1
      */
     public getDatas(): any[] {
         return [];
@@ -166,7 +165,7 @@ export default class ProductProductStatusChartBase extends Vue implements Contro
      * 获取单项树
      *
      * @returns {*}
-     * @memberof ProductStatusChart
+     * @memberof Db_totalcontainer1
      */
     public getData(): any {
         return {};
@@ -175,7 +174,7 @@ export default class ProductProductStatusChartBase extends Vue implements Contro
     /**
      * vue 生命周期
      *
-     * @memberof ProductStatusChart
+     * @memberof Db_totalcontainer1
      */
     public created() {
         this.afterCreated();
@@ -184,7 +183,7 @@ export default class ProductProductStatusChartBase extends Vue implements Contro
     /**
      * 执行created后的逻辑
      *
-     *  @memberof ProductStatusChart
+     *  @memberof Db_totalcontainer1
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -203,7 +202,7 @@ export default class ProductProductStatusChartBase extends Vue implements Contro
     /**
      * vue 生命周期
      *
-     * @memberof ProductStatusChart
+     * @memberof Db_totalcontainer1
      */
     public destroyed() {
         this.afterDestroy();
@@ -212,7 +211,7 @@ export default class ProductProductStatusChartBase extends Vue implements Contro
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof ProductStatusChart
+     * @memberof Db_totalcontainer1
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -224,5 +223,5 @@ export default class ProductProductStatusChartBase extends Vue implements Contro
 </script>
 
 <style lang='less'>
-@import './product-status-chart-portlet.less';
+@import './db-totalcontainer1-portlet.less';
 </style>

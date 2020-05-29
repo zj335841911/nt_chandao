@@ -3,13 +3,13 @@
 import { Component } from 'vue-property-decorator';
 import Db_container3Base from './db-container3-portlet-base.vue';
 
-import view_db_projectstatusportlet from '@/widgets/project/project-status-bar-portlet/project-status-bar-portlet.vue';
-import view_db_assignedtometaskportlet from '@/widgets/task/assign-to-me-portlet/assign-to-me-portlet.vue';
+import view_db_productstatusportlet from '@/widgets/product/product-status-chart-portlet/product-status-chart-portlet.vue';
+import view_db_assignedtomestoryportlet from '@/widgets/story/assigned-to-me-story-portlet/assigned-to-me-story-portlet.vue';
  
 @Component({
     components: {
-        view_db_projectstatusportlet, 
-view_db_assignedtometaskportlet, 
+        view_db_productstatusportlet, 
+view_db_assignedtomestoryportlet, 
  
     }
 })
