@@ -74,7 +74,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('uagridcolumn1')">
-                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.story.main_grid.columns.uagridcolumn1')" :width="100"  :align="'center'">
+                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.story.main_grid.columns.uagridcolumn1')" :width="300"  :align="'center'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.story.main_grid.columns.uagridcolumn1')}}

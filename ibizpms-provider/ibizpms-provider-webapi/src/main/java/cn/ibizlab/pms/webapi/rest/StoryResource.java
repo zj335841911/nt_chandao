@@ -34,7 +34,7 @@ import cn.ibizlab.pms.core.zentao.service.IStoryService;
 import cn.ibizlab.pms.core.zentao.filter.StorySearchContext;
 
 @Slf4j
-@Api(tags = {"Story" })
+@Api(tags = {"需求" })
 @RestController("WebApi-story")
 @RequestMapping("")
 public class StoryResource {
@@ -46,14 +46,14 @@ public class StoryResource {
     @Lazy
     public StoryMapping storyMapping;
 
-    @ApiOperation(value = "GetDraft", tags = {"Story" },  notes = "GetDraft")
+    @ApiOperation(value = "获取需求草稿", tags = {"需求" },  notes = "获取需求草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/stories/getdraft")
     public ResponseEntity<StoryDTO> getDraft() {
         return ResponseEntity.status(HttpStatus.OK).body(storyMapping.toDto(storyService.getDraft(new Story())));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Create-all')")
-    @ApiOperation(value = "Create", tags = {"Story" },  notes = "Create")
+    @ApiOperation(value = "新建需求", tags = {"需求" },  notes = "新建需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories")
     @Transactional
     public ResponseEntity<StoryDTO> create(@RequestBody StoryDTO storydto) {
@@ -64,21 +64,21 @@ public class StoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Create-all')")
-    @ApiOperation(value = "createBatch", tags = {"Story" },  notes = "createBatch")
+    @ApiOperation(value = "批量新建需求", tags = {"需求" },  notes = "批量新建需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<StoryDTO> storydtos) {
         storyService.createBatch(storyMapping.toDomain(storydtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @ApiOperation(value = "CheckKey", tags = {"Story" },  notes = "CheckKey")
+    @ApiOperation(value = "检查需求", tags = {"需求" },  notes = "检查需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody StoryDTO storydto) {
         return  ResponseEntity.status(HttpStatus.OK).body(storyService.checkKey(storyMapping.toDomain(storydto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Remove-all')")
-    @ApiOperation(value = "Remove", tags = {"Story" },  notes = "Remove")
+    @ApiOperation(value = "删除需求", tags = {"需求" },  notes = "删除需求")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/stories/{story_id}")
     @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("story_id") BigInteger story_id) {
@@ -86,7 +86,7 @@ public class StoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Remove-all')")
-    @ApiOperation(value = "RemoveBatch", tags = {"Story" },  notes = "RemoveBatch")
+    @ApiOperation(value = "批量删除需求", tags = {"需求" },  notes = "批量删除需求")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/stories/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
         storyService.removeBatch(ids);
@@ -94,7 +94,7 @@ public class StoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Update-all')")
-    @ApiOperation(value = "Update", tags = {"Story" },  notes = "Update")
+    @ApiOperation(value = "更新需求", tags = {"需求" },  notes = "更新需求")
 	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}")
     @Transactional
     public ResponseEntity<StoryDTO> update(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
@@ -106,7 +106,7 @@ public class StoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Update-all')")
-    @ApiOperation(value = "UpdateBatch", tags = {"Story" },  notes = "UpdateBatch")
+    @ApiOperation(value = "批量更新需求", tags = {"需求" },  notes = "批量更新需求")
 	@RequestMapping(method = RequestMethod.PUT, value = "/stories/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<StoryDTO> storydtos) {
         storyService.updateBatch(storyMapping.toDomain(storydtos));
@@ -114,7 +114,7 @@ public class StoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Get-all')")
-    @ApiOperation(value = "Get", tags = {"Story" },  notes = "Get")
+    @ApiOperation(value = "获取需求", tags = {"需求" },  notes = "获取需求")
 	@RequestMapping(method = RequestMethod.GET, value = "/stories/{story_id}")
     public ResponseEntity<StoryDTO> get(@PathVariable("story_id") BigInteger story_id) {
         Story domain = storyService.get(story_id);
@@ -123,14 +123,14 @@ public class StoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Save-all')")
-    @ApiOperation(value = "Save", tags = {"Story" },  notes = "Save")
+    @ApiOperation(value = "保存需求", tags = {"需求" },  notes = "保存需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/save")
     public ResponseEntity<Boolean> save(@RequestBody StoryDTO storydto) {
         return ResponseEntity.status(HttpStatus.OK).body(storyService.save(storyMapping.toDomain(storydto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Save-all')")
-    @ApiOperation(value = "SaveBatch", tags = {"Story" },  notes = "SaveBatch")
+    @ApiOperation(value = "批量保存需求", tags = {"需求" },  notes = "批量保存需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<StoryDTO> storydtos) {
         storyService.saveBatch(storyMapping.toDomain(storydtos));
@@ -138,7 +138,7 @@ public class StoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Default-all')")
-	@ApiOperation(value = "fetchDEFAULT", tags = {"Story" } ,notes = "fetchDEFAULT")
+	@ApiOperation(value = "获取DEFAULT", tags = {"需求" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/stories/fetchdefault")
 	public ResponseEntity<List<StoryDTO>> fetchDefault(StorySearchContext context) {
         Page<Story> domains = storyService.searchDefault(context) ;
@@ -151,14 +151,14 @@ public class StoryResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Default-all')")
-	@ApiOperation(value = "searchDEFAULT", tags = {"Story" } ,notes = "searchDEFAULT")
+	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"需求" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/stories/searchdefault")
 	public ResponseEntity<Page<StoryDTO>> searchDefault(@RequestBody StorySearchContext context) {
         Page<Story> domains = storyService.searchDefault(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(storyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @ApiOperation(value = "GetDraftByProduct", tags = {"Story" },  notes = "GetDraftByProduct")
+    @ApiOperation(value = "根据产品获取需求草稿", tags = {"需求" },  notes = "根据产品获取需求草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/stories/getdraft")
     public ResponseEntity<StoryDTO> getDraftByProduct(@PathVariable("product_id") BigInteger product_id) {
         Story domain = new Story();
@@ -167,7 +167,7 @@ public class StoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Create-all')")
-    @ApiOperation(value = "CreateByProduct", tags = {"Story" },  notes = "CreateByProduct")
+    @ApiOperation(value = "根据产品建立需求", tags = {"需求" },  notes = "根据产品建立需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories")
     @Transactional
     public ResponseEntity<StoryDTO> createByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody StoryDTO storydto) {
@@ -179,7 +179,7 @@ public class StoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Create-all')")
-    @ApiOperation(value = "createBatchByProduct", tags = {"Story" },  notes = "createBatchByProduct")
+    @ApiOperation(value = "根据产品批量建立需求", tags = {"需求" },  notes = "根据产品批量建立需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/batch")
     public ResponseEntity<Boolean> createBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<StoryDTO> storydtos) {
         List<Story> domainlist=storyMapping.toDomain(storydtos);
@@ -190,14 +190,14 @@ public class StoryResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @ApiOperation(value = "CheckKeyByProduct", tags = {"Story" },  notes = "CheckKeyByProduct")
+    @ApiOperation(value = "根据产品检查需求", tags = {"需求" },  notes = "根据产品检查需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/checkkey")
     public ResponseEntity<Boolean> checkKeyByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody StoryDTO storydto) {
         return  ResponseEntity.status(HttpStatus.OK).body(storyService.checkKey(storyMapping.toDomain(storydto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Remove-all')")
-    @ApiOperation(value = "RemoveByProduct", tags = {"Story" },  notes = "RemoveByProduct")
+    @ApiOperation(value = "根据产品删除需求", tags = {"需求" },  notes = "根据产品删除需求")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/stories/{story_id}")
     @Transactional
     public ResponseEntity<Boolean> removeByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id) {
@@ -205,7 +205,7 @@ public class StoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Remove-all')")
-    @ApiOperation(value = "RemoveBatchByProduct", tags = {"Story" },  notes = "RemoveBatchByProduct")
+    @ApiOperation(value = "根据产品批量删除需求", tags = {"需求" },  notes = "根据产品批量删除需求")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/stories/batch")
     public ResponseEntity<Boolean> removeBatchByProduct(@RequestBody List<BigInteger> ids) {
         storyService.removeBatch(ids);
@@ -213,7 +213,7 @@ public class StoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Update-all')")
-    @ApiOperation(value = "UpdateByProduct", tags = {"Story" },  notes = "UpdateByProduct")
+    @ApiOperation(value = "根据产品更新需求", tags = {"需求" },  notes = "根据产品更新需求")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}")
     @Transactional
     public ResponseEntity<StoryDTO> updateByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
@@ -226,7 +226,7 @@ public class StoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Update-all')")
-    @ApiOperation(value = "UpdateBatchByProduct", tags = {"Story" },  notes = "UpdateBatchByProduct")
+    @ApiOperation(value = "根据产品批量更新需求", tags = {"需求" },  notes = "根据产品批量更新需求")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/batch")
     public ResponseEntity<Boolean> updateBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<StoryDTO> storydtos) {
         List<Story> domainlist=storyMapping.toDomain(storydtos);
@@ -238,7 +238,7 @@ public class StoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Get-all')")
-    @ApiOperation(value = "GetByProduct", tags = {"Story" },  notes = "GetByProduct")
+    @ApiOperation(value = "根据产品获取需求", tags = {"需求" },  notes = "根据产品获取需求")
 	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/stories/{story_id}")
     public ResponseEntity<StoryDTO> getByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id) {
         Story domain = storyService.get(story_id);
@@ -247,7 +247,7 @@ public class StoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Save-all')")
-    @ApiOperation(value = "SaveByProduct", tags = {"Story" },  notes = "SaveByProduct")
+    @ApiOperation(value = "根据产品保存需求", tags = {"需求" },  notes = "根据产品保存需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/save")
     public ResponseEntity<Boolean> saveByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
@@ -256,7 +256,7 @@ public class StoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Save-all')")
-    @ApiOperation(value = "SaveBatchByProduct", tags = {"Story" },  notes = "SaveBatchByProduct")
+    @ApiOperation(value = "根据产品批量保存需求", tags = {"需求" },  notes = "根据产品批量保存需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/savebatch")
     public ResponseEntity<Boolean> saveBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<StoryDTO> storydtos) {
         List<Story> domainlist=storyMapping.toDomain(storydtos);
@@ -268,7 +268,7 @@ public class StoryResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Default-all')")
-	@ApiOperation(value = "fetchDEFAULTByProduct", tags = {"Story" } ,notes = "fetchDEFAULTByProduct")
+	@ApiOperation(value = "根据产品获取DEFAULT", tags = {"需求" } ,notes = "根据产品获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/fetchdefault")
 	public ResponseEntity<List<StoryDTO>> fetchStoryDefaultByProduct(@PathVariable("product_id") BigInteger product_id,StorySearchContext context) {
         context.setN_product_eq(product_id);
@@ -282,7 +282,7 @@ public class StoryResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Default-all')")
-	@ApiOperation(value = "searchDEFAULTByProduct", tags = {"Story" } ,notes = "searchDEFAULTByProduct")
+	@ApiOperation(value = "根据产品查询DEFAULT", tags = {"需求" } ,notes = "根据产品查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/searchdefault")
 	public ResponseEntity<Page<StoryDTO>> searchStoryDefaultByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody StorySearchContext context) {
         context.setN_product_eq(product_id);

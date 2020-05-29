@@ -34,7 +34,7 @@ import cn.ibizlab.pms.core.ibiz.service.IIBzDocService;
 import cn.ibizlab.pms.core.ibiz.filter.IBzDocSearchContext;
 
 @Slf4j
-@Api(tags = {"IBzDoc" })
+@Api(tags = {"文档" })
 @RestController("WebApi-ibzdoc")
 @RequestMapping("")
 public class IBzDocResource {

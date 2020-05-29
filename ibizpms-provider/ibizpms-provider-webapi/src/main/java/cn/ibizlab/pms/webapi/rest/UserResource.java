@@ -34,7 +34,7 @@ import cn.ibizlab.pms.core.zentao.service.IUserService;
 import cn.ibizlab.pms.core.zentao.filter.UserSearchContext;
 
 @Slf4j
-@Api(tags = {"User" })
+@Api(tags = {"用户" })
 @RestController("WebApi-user")
 @RequestMapping("")
 public class UserResource {
@@ -46,14 +46,14 @@ public class UserResource {
     @Lazy
     public UserMapping userMapping;
 
-    @ApiOperation(value = "CheckKey", tags = {"User" },  notes = "CheckKey")
+    @ApiOperation(value = "检查用户", tags = {"用户" },  notes = "检查用户")
 	@RequestMapping(method = RequestMethod.POST, value = "/users/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody UserDTO userdto) {
         return  ResponseEntity.status(HttpStatus.OK).body(userService.checkKey(userMapping.toDomain(userdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Remove-all')")
-    @ApiOperation(value = "Remove", tags = {"User" },  notes = "Remove")
+    @ApiOperation(value = "删除用户", tags = {"用户" },  notes = "删除用户")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/users/{user_id}")
     @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("user_id") BigInteger user_id) {
@@ -61,7 +61,7 @@ public class UserResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Remove-all')")
-    @ApiOperation(value = "RemoveBatch", tags = {"User" },  notes = "RemoveBatch")
+    @ApiOperation(value = "批量删除用户", tags = {"用户" },  notes = "批量删除用户")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/users/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
         userService.removeBatch(ids);
@@ -69,7 +69,7 @@ public class UserResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Create-all')")
-    @ApiOperation(value = "Create", tags = {"User" },  notes = "Create")
+    @ApiOperation(value = "新建用户", tags = {"用户" },  notes = "新建用户")
 	@RequestMapping(method = RequestMethod.POST, value = "/users")
     @Transactional
     public ResponseEntity<UserDTO> create(@RequestBody UserDTO userdto) {
@@ -80,7 +80,7 @@ public class UserResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Create-all')")
-    @ApiOperation(value = "createBatch", tags = {"User" },  notes = "createBatch")
+    @ApiOperation(value = "批量新建用户", tags = {"用户" },  notes = "批量新建用户")
 	@RequestMapping(method = RequestMethod.POST, value = "/users/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<UserDTO> userdtos) {
         userService.createBatch(userMapping.toDomain(userdtos));
@@ -88,7 +88,7 @@ public class UserResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Get-all')")
-    @ApiOperation(value = "Get", tags = {"User" },  notes = "Get")
+    @ApiOperation(value = "获取用户", tags = {"用户" },  notes = "获取用户")
 	@RequestMapping(method = RequestMethod.GET, value = "/users/{user_id}")
     public ResponseEntity<UserDTO> get(@PathVariable("user_id") BigInteger user_id) {
         User domain = userService.get(user_id);
@@ -97,7 +97,7 @@ public class UserResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Update-all')")
-    @ApiOperation(value = "Update", tags = {"User" },  notes = "Update")
+    @ApiOperation(value = "更新用户", tags = {"用户" },  notes = "更新用户")
 	@RequestMapping(method = RequestMethod.PUT, value = "/users/{user_id}")
     @Transactional
     public ResponseEntity<UserDTO> update(@PathVariable("user_id") BigInteger user_id, @RequestBody UserDTO userdto) {
@@ -109,7 +109,7 @@ public class UserResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Update-all')")
-    @ApiOperation(value = "UpdateBatch", tags = {"User" },  notes = "UpdateBatch")
+    @ApiOperation(value = "批量更新用户", tags = {"用户" },  notes = "批量更新用户")
 	@RequestMapping(method = RequestMethod.PUT, value = "/users/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<UserDTO> userdtos) {
         userService.updateBatch(userMapping.toDomain(userdtos));
@@ -117,28 +117,28 @@ public class UserResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Save-all')")
-    @ApiOperation(value = "Save", tags = {"User" },  notes = "Save")
+    @ApiOperation(value = "保存用户", tags = {"用户" },  notes = "保存用户")
 	@RequestMapping(method = RequestMethod.POST, value = "/users/save")
     public ResponseEntity<Boolean> save(@RequestBody UserDTO userdto) {
         return ResponseEntity.status(HttpStatus.OK).body(userService.save(userMapping.toDomain(userdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Save-all')")
-    @ApiOperation(value = "SaveBatch", tags = {"User" },  notes = "SaveBatch")
+    @ApiOperation(value = "批量保存用户", tags = {"用户" },  notes = "批量保存用户")
 	@RequestMapping(method = RequestMethod.POST, value = "/users/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<UserDTO> userdtos) {
         userService.saveBatch(userMapping.toDomain(userdtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @ApiOperation(value = "GetDraft", tags = {"User" },  notes = "GetDraft")
+    @ApiOperation(value = "获取用户草稿", tags = {"用户" },  notes = "获取用户草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/users/getdraft")
     public ResponseEntity<UserDTO> getDraft() {
         return ResponseEntity.status(HttpStatus.OK).body(userMapping.toDto(userService.getDraft(new User())));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Default-all')")
-	@ApiOperation(value = "fetchDEFAULT", tags = {"User" } ,notes = "fetchDEFAULT")
+	@ApiOperation(value = "获取DEFAULT", tags = {"用户" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/users/fetchdefault")
 	public ResponseEntity<List<UserDTO>> fetchDefault(UserSearchContext context) {
         Page<User> domains = userService.searchDefault(context) ;
@@ -151,7 +151,7 @@ public class UserResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Default-all')")
-	@ApiOperation(value = "searchDEFAULT", tags = {"User" } ,notes = "searchDEFAULT")
+	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"用户" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/users/searchdefault")
 	public ResponseEntity<Page<UserDTO>> searchDefault(@RequestBody UserSearchContext context) {
         Page<User> domains = userService.searchDefault(context) ;

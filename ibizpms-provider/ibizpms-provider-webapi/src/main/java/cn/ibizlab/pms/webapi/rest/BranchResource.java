@@ -34,7 +34,7 @@ import cn.ibizlab.pms.core.zentao.service.IBranchService;
 import cn.ibizlab.pms.core.zentao.filter.BranchSearchContext;
 
 @Slf4j
-@Api(tags = {"Branch" })
+@Api(tags = {"产品的分支和平台信息" })
 @RestController("WebApi-branch")
 @RequestMapping("")
 public class BranchResource {
@@ -46,14 +46,14 @@ public class BranchResource {
     @Lazy
     public BranchMapping branchMapping;
 
-    @ApiOperation(value = "GetDraft", tags = {"Branch" },  notes = "GetDraft")
+    @ApiOperation(value = "获取产品的分支和平台信息草稿", tags = {"产品的分支和平台信息" },  notes = "获取产品的分支和平台信息草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/branches/getdraft")
     public ResponseEntity<BranchDTO> getDraft() {
         return ResponseEntity.status(HttpStatus.OK).body(branchMapping.toDto(branchService.getDraft(new Branch())));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Remove-all')")
-    @ApiOperation(value = "Remove", tags = {"Branch" },  notes = "Remove")
+    @ApiOperation(value = "删除产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "删除产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/branches/{branch_id}")
     @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("branch_id") BigInteger branch_id) {
@@ -61,7 +61,7 @@ public class BranchResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Remove-all')")
-    @ApiOperation(value = "RemoveBatch", tags = {"Branch" },  notes = "RemoveBatch")
+    @ApiOperation(value = "批量删除产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "批量删除产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/branches/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
         branchService.removeBatch(ids);
@@ -69,7 +69,7 @@ public class BranchResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Create-all')")
-    @ApiOperation(value = "Create", tags = {"Branch" },  notes = "Create")
+    @ApiOperation(value = "新建产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "新建产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.POST, value = "/branches")
     @Transactional
     public ResponseEntity<BranchDTO> create(@RequestBody BranchDTO branchdto) {
@@ -80,7 +80,7 @@ public class BranchResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Create-all')")
-    @ApiOperation(value = "createBatch", tags = {"Branch" },  notes = "createBatch")
+    @ApiOperation(value = "批量新建产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "批量新建产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.POST, value = "/branches/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<BranchDTO> branchdtos) {
         branchService.createBatch(branchMapping.toDomain(branchdtos));
@@ -88,7 +88,7 @@ public class BranchResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Update-all')")
-    @ApiOperation(value = "Update", tags = {"Branch" },  notes = "Update")
+    @ApiOperation(value = "更新产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "更新产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.PUT, value = "/branches/{branch_id}")
     @Transactional
     public ResponseEntity<BranchDTO> update(@PathVariable("branch_id") BigInteger branch_id, @RequestBody BranchDTO branchdto) {
@@ -100,28 +100,28 @@ public class BranchResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Update-all')")
-    @ApiOperation(value = "UpdateBatch", tags = {"Branch" },  notes = "UpdateBatch")
+    @ApiOperation(value = "批量更新产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "批量更新产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.PUT, value = "/branches/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<BranchDTO> branchdtos) {
         branchService.updateBatch(branchMapping.toDomain(branchdtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @ApiOperation(value = "CheckKey", tags = {"Branch" },  notes = "CheckKey")
+    @ApiOperation(value = "检查产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "检查产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.POST, value = "/branches/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody BranchDTO branchdto) {
         return  ResponseEntity.status(HttpStatus.OK).body(branchService.checkKey(branchMapping.toDomain(branchdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Save-all')")
-    @ApiOperation(value = "Save", tags = {"Branch" },  notes = "Save")
+    @ApiOperation(value = "保存产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "保存产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.POST, value = "/branches/save")
     public ResponseEntity<Boolean> save(@RequestBody BranchDTO branchdto) {
         return ResponseEntity.status(HttpStatus.OK).body(branchService.save(branchMapping.toDomain(branchdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Save-all')")
-    @ApiOperation(value = "SaveBatch", tags = {"Branch" },  notes = "SaveBatch")
+    @ApiOperation(value = "批量保存产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "批量保存产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.POST, value = "/branches/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<BranchDTO> branchdtos) {
         branchService.saveBatch(branchMapping.toDomain(branchdtos));
@@ -129,7 +129,7 @@ public class BranchResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Get-all')")
-    @ApiOperation(value = "Get", tags = {"Branch" },  notes = "Get")
+    @ApiOperation(value = "获取产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "获取产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.GET, value = "/branches/{branch_id}")
     public ResponseEntity<BranchDTO> get(@PathVariable("branch_id") BigInteger branch_id) {
         Branch domain = branchService.get(branch_id);
@@ -138,7 +138,7 @@ public class BranchResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Default-all')")
-	@ApiOperation(value = "fetchDEFAULT", tags = {"Branch" } ,notes = "fetchDEFAULT")
+	@ApiOperation(value = "获取DEFAULT", tags = {"产品的分支和平台信息" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/branches/fetchdefault")
 	public ResponseEntity<List<BranchDTO>> fetchDefault(BranchSearchContext context) {
         Page<Branch> domains = branchService.searchDefault(context) ;
@@ -151,14 +151,14 @@ public class BranchResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Default-all')")
-	@ApiOperation(value = "searchDEFAULT", tags = {"Branch" } ,notes = "searchDEFAULT")
+	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"产品的分支和平台信息" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/branches/searchdefault")
 	public ResponseEntity<Page<BranchDTO>> searchDefault(@RequestBody BranchSearchContext context) {
         Page<Branch> domains = branchService.searchDefault(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(branchMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @ApiOperation(value = "GetDraftByProduct", tags = {"Branch" },  notes = "GetDraftByProduct")
+    @ApiOperation(value = "根据产品获取产品的分支和平台信息草稿", tags = {"产品的分支和平台信息" },  notes = "根据产品获取产品的分支和平台信息草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/branches/getdraft")
     public ResponseEntity<BranchDTO> getDraftByProduct(@PathVariable("product_id") BigInteger product_id) {
         Branch domain = new Branch();
@@ -167,7 +167,7 @@ public class BranchResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Remove-all')")
-    @ApiOperation(value = "RemoveByProduct", tags = {"Branch" },  notes = "RemoveByProduct")
+    @ApiOperation(value = "根据产品删除产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "根据产品删除产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/branches/{branch_id}")
     @Transactional
     public ResponseEntity<Boolean> removeByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("branch_id") BigInteger branch_id) {
@@ -175,7 +175,7 @@ public class BranchResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Remove-all')")
-    @ApiOperation(value = "RemoveBatchByProduct", tags = {"Branch" },  notes = "RemoveBatchByProduct")
+    @ApiOperation(value = "根据产品批量删除产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "根据产品批量删除产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/branches/batch")
     public ResponseEntity<Boolean> removeBatchByProduct(@RequestBody List<BigInteger> ids) {
         branchService.removeBatch(ids);
@@ -183,7 +183,7 @@ public class BranchResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Create-all')")
-    @ApiOperation(value = "CreateByProduct", tags = {"Branch" },  notes = "CreateByProduct")
+    @ApiOperation(value = "根据产品建立产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "根据产品建立产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/branches")
     @Transactional
     public ResponseEntity<BranchDTO> createByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BranchDTO branchdto) {
@@ -195,7 +195,7 @@ public class BranchResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Create-all')")
-    @ApiOperation(value = "createBatchByProduct", tags = {"Branch" },  notes = "createBatchByProduct")
+    @ApiOperation(value = "根据产品批量建立产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "根据产品批量建立产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/branches/batch")
     public ResponseEntity<Boolean> createBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<BranchDTO> branchdtos) {
         List<Branch> domainlist=branchMapping.toDomain(branchdtos);
@@ -207,7 +207,7 @@ public class BranchResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Update-all')")
-    @ApiOperation(value = "UpdateByProduct", tags = {"Branch" },  notes = "UpdateByProduct")
+    @ApiOperation(value = "根据产品更新产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "根据产品更新产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/branches/{branch_id}")
     @Transactional
     public ResponseEntity<BranchDTO> updateByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("branch_id") BigInteger branch_id, @RequestBody BranchDTO branchdto) {
@@ -220,7 +220,7 @@ public class BranchResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Update-all')")
-    @ApiOperation(value = "UpdateBatchByProduct", tags = {"Branch" },  notes = "UpdateBatchByProduct")
+    @ApiOperation(value = "根据产品批量更新产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "根据产品批量更新产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/branches/batch")
     public ResponseEntity<Boolean> updateBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<BranchDTO> branchdtos) {
         List<Branch> domainlist=branchMapping.toDomain(branchdtos);
@@ -231,14 +231,14 @@ public class BranchResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @ApiOperation(value = "CheckKeyByProduct", tags = {"Branch" },  notes = "CheckKeyByProduct")
+    @ApiOperation(value = "根据产品检查产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "根据产品检查产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/branches/checkkey")
     public ResponseEntity<Boolean> checkKeyByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BranchDTO branchdto) {
         return  ResponseEntity.status(HttpStatus.OK).body(branchService.checkKey(branchMapping.toDomain(branchdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Save-all')")
-    @ApiOperation(value = "SaveByProduct", tags = {"Branch" },  notes = "SaveByProduct")
+    @ApiOperation(value = "根据产品保存产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "根据产品保存产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/branches/save")
     public ResponseEntity<Boolean> saveByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BranchDTO branchdto) {
         Branch domain = branchMapping.toDomain(branchdto);
@@ -247,7 +247,7 @@ public class BranchResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Save-all')")
-    @ApiOperation(value = "SaveBatchByProduct", tags = {"Branch" },  notes = "SaveBatchByProduct")
+    @ApiOperation(value = "根据产品批量保存产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "根据产品批量保存产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/branches/savebatch")
     public ResponseEntity<Boolean> saveBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<BranchDTO> branchdtos) {
         List<Branch> domainlist=branchMapping.toDomain(branchdtos);
@@ -259,7 +259,7 @@ public class BranchResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Get-all')")
-    @ApiOperation(value = "GetByProduct", tags = {"Branch" },  notes = "GetByProduct")
+    @ApiOperation(value = "根据产品获取产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "根据产品获取产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/branches/{branch_id}")
     public ResponseEntity<BranchDTO> getByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("branch_id") BigInteger branch_id) {
         Branch domain = branchService.get(branch_id);
@@ -268,7 +268,7 @@ public class BranchResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Default-all')")
-	@ApiOperation(value = "fetchDEFAULTByProduct", tags = {"Branch" } ,notes = "fetchDEFAULTByProduct")
+	@ApiOperation(value = "根据产品获取DEFAULT", tags = {"产品的分支和平台信息" } ,notes = "根据产品获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/branches/fetchdefault")
 	public ResponseEntity<List<BranchDTO>> fetchBranchDefaultByProduct(@PathVariable("product_id") BigInteger product_id,BranchSearchContext context) {
         context.setN_product_eq(product_id);
@@ -282,7 +282,7 @@ public class BranchResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Default-all')")
-	@ApiOperation(value = "searchDEFAULTByProduct", tags = {"Branch" } ,notes = "searchDEFAULTByProduct")
+	@ApiOperation(value = "根据产品查询DEFAULT", tags = {"产品的分支和平台信息" } ,notes = "根据产品查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/branches/searchdefault")
 	public ResponseEntity<Page<BranchDTO>> searchBranchDefaultByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BranchSearchContext context) {
         context.setN_product_eq(product_id);

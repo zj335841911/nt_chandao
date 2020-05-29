@@ -34,7 +34,7 @@ import cn.ibizlab.pms.core.zentao.service.IActionService;
 import cn.ibizlab.pms.core.zentao.filter.ActionSearchContext;
 
 @Slf4j
-@Api(tags = {"Action" })
+@Api(tags = {"系统日志" })
 @RestController("WebApi-action")
 @RequestMapping("")
 public class ActionResource {
@@ -47,7 +47,7 @@ public class ActionResource {
     public ActionMapping actionMapping;
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Remove-all')")
-    @ApiOperation(value = "Remove", tags = {"Action" },  notes = "Remove")
+    @ApiOperation(value = "删除系统日志", tags = {"系统日志" },  notes = "删除系统日志")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/actions/{action_id}")
     @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("action_id") BigInteger action_id) {
@@ -55,7 +55,7 @@ public class ActionResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Remove-all')")
-    @ApiOperation(value = "RemoveBatch", tags = {"Action" },  notes = "RemoveBatch")
+    @ApiOperation(value = "批量删除系统日志", tags = {"系统日志" },  notes = "批量删除系统日志")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/actions/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
         actionService.removeBatch(ids);
@@ -63,7 +63,7 @@ public class ActionResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Create-all')")
-    @ApiOperation(value = "Create", tags = {"Action" },  notes = "Create")
+    @ApiOperation(value = "新建系统日志", tags = {"系统日志" },  notes = "新建系统日志")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions")
     @Transactional
     public ResponseEntity<ActionDTO> create(@RequestBody ActionDTO actiondto) {
@@ -74,21 +74,21 @@ public class ActionResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Create-all')")
-    @ApiOperation(value = "createBatch", tags = {"Action" },  notes = "createBatch")
+    @ApiOperation(value = "批量新建系统日志", tags = {"系统日志" },  notes = "批量新建系统日志")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<ActionDTO> actiondtos) {
         actionService.createBatch(actionMapping.toDomain(actiondtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @ApiOperation(value = "GetDraft", tags = {"Action" },  notes = "GetDraft")
+    @ApiOperation(value = "获取系统日志草稿", tags = {"系统日志" },  notes = "获取系统日志草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/actions/getdraft")
     public ResponseEntity<ActionDTO> getDraft() {
         return ResponseEntity.status(HttpStatus.OK).body(actionMapping.toDto(actionService.getDraft(new Action())));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Update-all')")
-    @ApiOperation(value = "Update", tags = {"Action" },  notes = "Update")
+    @ApiOperation(value = "更新系统日志", tags = {"系统日志" },  notes = "更新系统日志")
 	@RequestMapping(method = RequestMethod.PUT, value = "/actions/{action_id}")
     @Transactional
     public ResponseEntity<ActionDTO> update(@PathVariable("action_id") BigInteger action_id, @RequestBody ActionDTO actiondto) {
@@ -100,28 +100,28 @@ public class ActionResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Update-all')")
-    @ApiOperation(value = "UpdateBatch", tags = {"Action" },  notes = "UpdateBatch")
+    @ApiOperation(value = "批量更新系统日志", tags = {"系统日志" },  notes = "批量更新系统日志")
 	@RequestMapping(method = RequestMethod.PUT, value = "/actions/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<ActionDTO> actiondtos) {
         actionService.updateBatch(actionMapping.toDomain(actiondtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @ApiOperation(value = "CheckKey", tags = {"Action" },  notes = "CheckKey")
+    @ApiOperation(value = "检查系统日志", tags = {"系统日志" },  notes = "检查系统日志")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody ActionDTO actiondto) {
         return  ResponseEntity.status(HttpStatus.OK).body(actionService.checkKey(actionMapping.toDomain(actiondto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Save-all')")
-    @ApiOperation(value = "Save", tags = {"Action" },  notes = "Save")
+    @ApiOperation(value = "保存系统日志", tags = {"系统日志" },  notes = "保存系统日志")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/save")
     public ResponseEntity<Boolean> save(@RequestBody ActionDTO actiondto) {
         return ResponseEntity.status(HttpStatus.OK).body(actionService.save(actionMapping.toDomain(actiondto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Save-all')")
-    @ApiOperation(value = "SaveBatch", tags = {"Action" },  notes = "SaveBatch")
+    @ApiOperation(value = "批量保存系统日志", tags = {"系统日志" },  notes = "批量保存系统日志")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<ActionDTO> actiondtos) {
         actionService.saveBatch(actionMapping.toDomain(actiondtos));
@@ -129,7 +129,7 @@ public class ActionResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Get-all')")
-    @ApiOperation(value = "Get", tags = {"Action" },  notes = "Get")
+    @ApiOperation(value = "获取系统日志", tags = {"系统日志" },  notes = "获取系统日志")
 	@RequestMapping(method = RequestMethod.GET, value = "/actions/{action_id}")
     public ResponseEntity<ActionDTO> get(@PathVariable("action_id") BigInteger action_id) {
         Action domain = actionService.get(action_id);
@@ -138,7 +138,7 @@ public class ActionResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Default-all')")
-	@ApiOperation(value = "fetchDEFAULT", tags = {"Action" } ,notes = "fetchDEFAULT")
+	@ApiOperation(value = "获取DEFAULT", tags = {"系统日志" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/actions/fetchdefault")
 	public ResponseEntity<List<ActionDTO>> fetchDefault(ActionSearchContext context) {
         Page<Action> domains = actionService.searchDefault(context) ;
@@ -151,7 +151,7 @@ public class ActionResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Default-all')")
-	@ApiOperation(value = "searchDEFAULT", tags = {"Action" } ,notes = "searchDEFAULT")
+	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"系统日志" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/actions/searchdefault")
 	public ResponseEntity<Page<ActionDTO>> searchDefault(@RequestBody ActionSearchContext context) {
         Page<Action> domains = actionService.searchDefault(context) ;
@@ -159,7 +159,7 @@ public class ActionResource {
                 .body(new PageImpl(actionMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-ProductTrends-all')")
-	@ApiOperation(value = "fetchProductTrends", tags = {"Action" } ,notes = "fetchProductTrends")
+	@ApiOperation(value = "获取ProductTrends", tags = {"系统日志" } ,notes = "获取ProductTrends")
     @RequestMapping(method= RequestMethod.GET , value="/actions/fetchproducttrends")
 	public ResponseEntity<List<ActionDTO>> fetchProductTrends(ActionSearchContext context) {
         Page<Action> domains = actionService.searchProductTrends(context) ;
@@ -172,7 +172,7 @@ public class ActionResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-ProductTrends-all')")
-	@ApiOperation(value = "searchProductTrends", tags = {"Action" } ,notes = "searchProductTrends")
+	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"系统日志" } ,notes = "查询ProductTrends")
     @RequestMapping(method= RequestMethod.POST , value="/actions/searchproducttrends")
 	public ResponseEntity<Page<ActionDTO>> searchProductTrends(@RequestBody ActionSearchContext context) {
         Page<Action> domains = actionService.searchProductTrends(context) ;
@@ -180,7 +180,7 @@ public class ActionResource {
                 .body(new PageImpl(actionMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-ProjectTrends-all')")
-	@ApiOperation(value = "fetch项目动态(项目相关所有)", tags = {"Action" } ,notes = "fetch项目动态(项目相关所有)")
+	@ApiOperation(value = "获取项目动态(项目相关所有)", tags = {"系统日志" } ,notes = "获取项目动态(项目相关所有)")
     @RequestMapping(method= RequestMethod.GET , value="/actions/fetchprojecttrends")
 	public ResponseEntity<List<ActionDTO>> fetchProjectTrends(ActionSearchContext context) {
         Page<Action> domains = actionService.searchProjectTrends(context) ;
@@ -193,7 +193,7 @@ public class ActionResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-ProjectTrends-all')")
-	@ApiOperation(value = "search项目动态(项目相关所有)", tags = {"Action" } ,notes = "search项目动态(项目相关所有)")
+	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"系统日志" } ,notes = "查询项目动态(项目相关所有)")
     @RequestMapping(method= RequestMethod.POST , value="/actions/searchprojecttrends")
 	public ResponseEntity<Page<ActionDTO>> searchProjectTrends(@RequestBody ActionSearchContext context) {
         Page<Action> domains = actionService.searchProjectTrends(context) ;
@@ -201,7 +201,7 @@ public class ActionResource {
                 .body(new PageImpl(actionMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Type-all')")
-	@ApiOperation(value = "fetchType", tags = {"Action" } ,notes = "fetchType")
+	@ApiOperation(value = "获取Type", tags = {"系统日志" } ,notes = "获取Type")
     @RequestMapping(method= RequestMethod.GET , value="/actions/fetchtype")
 	public ResponseEntity<List<ActionDTO>> fetchType(ActionSearchContext context) {
         Page<Action> domains = actionService.searchType(context) ;
@@ -214,7 +214,7 @@ public class ActionResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Type-all')")
-	@ApiOperation(value = "searchType", tags = {"Action" } ,notes = "searchType")
+	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"系统日志" } ,notes = "查询Type")
     @RequestMapping(method= RequestMethod.POST , value="/actions/searchtype")
 	public ResponseEntity<Page<ActionDTO>> searchType(@RequestBody ActionSearchContext context) {
         Page<Action> domains = actionService.searchType(context) ;

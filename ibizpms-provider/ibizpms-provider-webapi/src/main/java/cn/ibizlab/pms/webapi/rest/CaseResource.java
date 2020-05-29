@@ -34,7 +34,7 @@ import cn.ibizlab.pms.core.zentao.service.ICaseService;
 import cn.ibizlab.pms.core.zentao.filter.CaseSearchContext;
 
 @Slf4j
-@Api(tags = {"Case" })
+@Api(tags = {"测试用例" })
 @RestController("WebApi-case")
 @RequestMapping("")
 public class CaseResource {
@@ -46,21 +46,21 @@ public class CaseResource {
     @Lazy
     public CaseMapping caseMapping;
 
-    @ApiOperation(value = "GetDraft", tags = {"Case" },  notes = "GetDraft")
+    @ApiOperation(value = "获取测试用例草稿", tags = {"测试用例" },  notes = "获取测试用例草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/cases/getdraft")
     public ResponseEntity<CaseDTO> getDraft() {
         return ResponseEntity.status(HttpStatus.OK).body(caseMapping.toDto(caseService.getDraft(new Case())));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Save-all')")
-    @ApiOperation(value = "Save", tags = {"Case" },  notes = "Save")
+    @ApiOperation(value = "保存测试用例", tags = {"测试用例" },  notes = "保存测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/save")
     public ResponseEntity<Boolean> save(@RequestBody CaseDTO casedto) {
         return ResponseEntity.status(HttpStatus.OK).body(caseService.save(caseMapping.toDomain(casedto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Save-all')")
-    @ApiOperation(value = "SaveBatch", tags = {"Case" },  notes = "SaveBatch")
+    @ApiOperation(value = "批量保存测试用例", tags = {"测试用例" },  notes = "批量保存测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<CaseDTO> casedtos) {
         caseService.saveBatch(caseMapping.toDomain(casedtos));
@@ -68,7 +68,7 @@ public class CaseResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Create-all')")
-    @ApiOperation(value = "Create", tags = {"Case" },  notes = "Create")
+    @ApiOperation(value = "新建测试用例", tags = {"测试用例" },  notes = "新建测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/cases")
     @Transactional
     public ResponseEntity<CaseDTO> create(@RequestBody CaseDTO casedto) {
@@ -79,21 +79,21 @@ public class CaseResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Create-all')")
-    @ApiOperation(value = "createBatch", tags = {"Case" },  notes = "createBatch")
+    @ApiOperation(value = "批量新建测试用例", tags = {"测试用例" },  notes = "批量新建测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<CaseDTO> casedtos) {
         caseService.createBatch(caseMapping.toDomain(casedtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @ApiOperation(value = "CheckKey", tags = {"Case" },  notes = "CheckKey")
+    @ApiOperation(value = "检查测试用例", tags = {"测试用例" },  notes = "检查测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody CaseDTO casedto) {
         return  ResponseEntity.status(HttpStatus.OK).body(caseService.checkKey(caseMapping.toDomain(casedto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Remove-all')")
-    @ApiOperation(value = "Remove", tags = {"Case" },  notes = "Remove")
+    @ApiOperation(value = "删除测试用例", tags = {"测试用例" },  notes = "删除测试用例")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/cases/{case_id}")
     @Transactional
     public ResponseEntity<Boolean> remove(@PathVariable("case_id") BigInteger case_id) {
@@ -101,7 +101,7 @@ public class CaseResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Remove-all')")
-    @ApiOperation(value = "RemoveBatch", tags = {"Case" },  notes = "RemoveBatch")
+    @ApiOperation(value = "批量删除测试用例", tags = {"测试用例" },  notes = "批量删除测试用例")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/cases/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
         caseService.removeBatch(ids);
@@ -109,7 +109,7 @@ public class CaseResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Get-all')")
-    @ApiOperation(value = "Get", tags = {"Case" },  notes = "Get")
+    @ApiOperation(value = "获取测试用例", tags = {"测试用例" },  notes = "获取测试用例")
 	@RequestMapping(method = RequestMethod.GET, value = "/cases/{case_id}")
     public ResponseEntity<CaseDTO> get(@PathVariable("case_id") BigInteger case_id) {
         Case domain = caseService.get(case_id);
@@ -118,7 +118,7 @@ public class CaseResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Update-all')")
-    @ApiOperation(value = "Update", tags = {"Case" },  notes = "Update")
+    @ApiOperation(value = "更新测试用例", tags = {"测试用例" },  notes = "更新测试用例")
 	@RequestMapping(method = RequestMethod.PUT, value = "/cases/{case_id}")
     @Transactional
     public ResponseEntity<CaseDTO> update(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
@@ -130,7 +130,7 @@ public class CaseResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Update-all')")
-    @ApiOperation(value = "UpdateBatch", tags = {"Case" },  notes = "UpdateBatch")
+    @ApiOperation(value = "批量更新测试用例", tags = {"测试用例" },  notes = "批量更新测试用例")
 	@RequestMapping(method = RequestMethod.PUT, value = "/cases/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<CaseDTO> casedtos) {
         caseService.updateBatch(caseMapping.toDomain(casedtos));
@@ -138,7 +138,7 @@ public class CaseResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Default-all')")
-	@ApiOperation(value = "fetchDEFAULT", tags = {"Case" } ,notes = "fetchDEFAULT")
+	@ApiOperation(value = "获取DEFAULT", tags = {"测试用例" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/cases/fetchdefault")
 	public ResponseEntity<List<CaseDTO>> fetchDefault(CaseSearchContext context) {
         Page<Case> domains = caseService.searchDefault(context) ;
@@ -151,14 +151,14 @@ public class CaseResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Default-all')")
-	@ApiOperation(value = "searchDEFAULT", tags = {"Case" } ,notes = "searchDEFAULT")
+	@ApiOperation(value = "查询{deds.getLogicName()}", tags = {"测试用例" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/cases/searchdefault")
 	public ResponseEntity<Page<CaseDTO>> searchDefault(@RequestBody CaseSearchContext context) {
         Page<Case> domains = caseService.searchDefault(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @ApiOperation(value = "GetDraftByProduct", tags = {"Case" },  notes = "GetDraftByProduct")
+    @ApiOperation(value = "根据产品获取测试用例草稿", tags = {"测试用例" },  notes = "根据产品获取测试用例草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/cases/getdraft")
     public ResponseEntity<CaseDTO> getDraftByProduct(@PathVariable("product_id") BigInteger product_id) {
         Case domain = new Case();
@@ -167,7 +167,7 @@ public class CaseResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Save-all')")
-    @ApiOperation(value = "SaveByProduct", tags = {"Case" },  notes = "SaveByProduct")
+    @ApiOperation(value = "根据产品保存测试用例", tags = {"测试用例" },  notes = "根据产品保存测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/save")
     public ResponseEntity<Boolean> saveByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody CaseDTO casedto) {
         Case domain = caseMapping.toDomain(casedto);
@@ -176,7 +176,7 @@ public class CaseResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Save-all')")
-    @ApiOperation(value = "SaveBatchByProduct", tags = {"Case" },  notes = "SaveBatchByProduct")
+    @ApiOperation(value = "根据产品批量保存测试用例", tags = {"测试用例" },  notes = "根据产品批量保存测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/savebatch")
     public ResponseEntity<Boolean> saveBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<CaseDTO> casedtos) {
         List<Case> domainlist=caseMapping.toDomain(casedtos);
@@ -188,7 +188,7 @@ public class CaseResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Create-all')")
-    @ApiOperation(value = "CreateByProduct", tags = {"Case" },  notes = "CreateByProduct")
+    @ApiOperation(value = "根据产品建立测试用例", tags = {"测试用例" },  notes = "根据产品建立测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases")
     @Transactional
     public ResponseEntity<CaseDTO> createByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody CaseDTO casedto) {
@@ -200,7 +200,7 @@ public class CaseResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Create-all')")
-    @ApiOperation(value = "createBatchByProduct", tags = {"Case" },  notes = "createBatchByProduct")
+    @ApiOperation(value = "根据产品批量建立测试用例", tags = {"测试用例" },  notes = "根据产品批量建立测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/batch")
     public ResponseEntity<Boolean> createBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<CaseDTO> casedtos) {
         List<Case> domainlist=caseMapping.toDomain(casedtos);
@@ -211,14 +211,14 @@ public class CaseResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @ApiOperation(value = "CheckKeyByProduct", tags = {"Case" },  notes = "CheckKeyByProduct")
+    @ApiOperation(value = "根据产品检查测试用例", tags = {"测试用例" },  notes = "根据产品检查测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/checkkey")
     public ResponseEntity<Boolean> checkKeyByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody CaseDTO casedto) {
         return  ResponseEntity.status(HttpStatus.OK).body(caseService.checkKey(caseMapping.toDomain(casedto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Remove-all')")
-    @ApiOperation(value = "RemoveByProduct", tags = {"Case" },  notes = "RemoveByProduct")
+    @ApiOperation(value = "根据产品删除测试用例", tags = {"测试用例" },  notes = "根据产品删除测试用例")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/cases/{case_id}")
     @Transactional
     public ResponseEntity<Boolean> removeByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id) {
@@ -226,7 +226,7 @@ public class CaseResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Remove-all')")
-    @ApiOperation(value = "RemoveBatchByProduct", tags = {"Case" },  notes = "RemoveBatchByProduct")
+    @ApiOperation(value = "根据产品批量删除测试用例", tags = {"测试用例" },  notes = "根据产品批量删除测试用例")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/cases/batch")
     public ResponseEntity<Boolean> removeBatchByProduct(@RequestBody List<BigInteger> ids) {
         caseService.removeBatch(ids);
@@ -234,7 +234,7 @@ public class CaseResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Get-all')")
-    @ApiOperation(value = "GetByProduct", tags = {"Case" },  notes = "GetByProduct")
+    @ApiOperation(value = "根据产品获取测试用例", tags = {"测试用例" },  notes = "根据产品获取测试用例")
 	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/cases/{case_id}")
     public ResponseEntity<CaseDTO> getByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id) {
         Case domain = caseService.get(case_id);
@@ -243,7 +243,7 @@ public class CaseResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Update-all')")
-    @ApiOperation(value = "UpdateByProduct", tags = {"Case" },  notes = "UpdateByProduct")
+    @ApiOperation(value = "根据产品更新测试用例", tags = {"测试用例" },  notes = "根据产品更新测试用例")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/cases/{case_id}")
     @Transactional
     public ResponseEntity<CaseDTO> updateByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
@@ -256,7 +256,7 @@ public class CaseResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Update-all')")
-    @ApiOperation(value = "UpdateBatchByProduct", tags = {"Case" },  notes = "UpdateBatchByProduct")
+    @ApiOperation(value = "根据产品批量更新测试用例", tags = {"测试用例" },  notes = "根据产品批量更新测试用例")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/cases/batch")
     public ResponseEntity<Boolean> updateBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<CaseDTO> casedtos) {
         List<Case> domainlist=caseMapping.toDomain(casedtos);
@@ -268,7 +268,7 @@ public class CaseResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Default-all')")
-	@ApiOperation(value = "fetchDEFAULTByProduct", tags = {"Case" } ,notes = "fetchDEFAULTByProduct")
+	@ApiOperation(value = "根据产品获取DEFAULT", tags = {"测试用例" } ,notes = "根据产品获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/fetchdefault")
 	public ResponseEntity<List<CaseDTO>> fetchCaseDefaultByProduct(@PathVariable("product_id") BigInteger product_id,CaseSearchContext context) {
         context.setN_product_eq(product_id);
@@ -282,7 +282,7 @@ public class CaseResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Default-all')")
-	@ApiOperation(value = "searchDEFAULTByProduct", tags = {"Case" } ,notes = "searchDEFAULTByProduct")
+	@ApiOperation(value = "根据产品查询DEFAULT", tags = {"测试用例" } ,notes = "根据产品查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/searchdefault")
 	public ResponseEntity<Page<CaseDTO>> searchCaseDefaultByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody CaseSearchContext context) {
         context.setN_product_eq(product_id);
