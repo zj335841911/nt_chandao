@@ -1,3 +1,4 @@
+ 
 <template>
 <studio-view viewName="productplanmaintabexp" viewTitle="计划" class='detabexpview product-plan-main-tab-exp tab-exp-view-header-flot'>
     <template slot='title'>
@@ -450,6 +451,28 @@ export default class ProductPlanMainTabExpBase extends Vue {
             }
         }
     }
+    
+    /**
+     * 加载模型
+     * 
+     * @memberof ProductPlanMainTabExpBase
+     */
+    public loadModel(){
+        if(this.context.productplan){
+            this.appEntityService.getDataInfo(JSON.parse(JSON.stringify(this.context)),{},false).then((response:any) =>{
+                if (!response || response.status !== 200) {
+                    return;
+                }
+                const { data: _data } = response;
+                if (_data.title) {
+                    Object.assign(this.model, { dataInfo: _data.title });
+                    this.$tabPageExp.setCurPageCaption(this.model.srfCaption, this.model.srfTitle, this.model.dataInfo);
+                    Object.assign(this.model, { srfTitle: `${this.$t(this.model.srfTitle)} - ${this.model.dataInfo}` });
+                }
+            })
+        }
+    }
+
 
 }
 </script>

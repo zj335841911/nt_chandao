@@ -1,6 +1,7 @@
 <template>
-    <div class='portlet project-trends-timeline' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : '300px',}">
+    <div class='portlet project-trends-timeline ' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : '300px',}">
         <p class='portlet-title'>
+            <i class=''></i>
             最新动态
         </p>
         <div class="portlet-with-title">
@@ -134,11 +135,12 @@ export default class ActionProjectTrendsTimelineBase extends Vue implements Cont
 
 
 
+
     /**
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof ProjectTrendsTimeline
+     * @memberof ProjectTrendsTimelineBase
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -146,7 +148,7 @@ export default class ActionProjectTrendsTimelineBase extends Vue implements Cont
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof ProjectTrendsTimeline
+     * @memberof ProjectTrendsTimelineBase
      */
     public getDatas(): any[] {
         return [];
@@ -156,7 +158,7 @@ export default class ActionProjectTrendsTimelineBase extends Vue implements Cont
      * 获取单项树
      *
      * @returns {*}
-     * @memberof ProjectTrendsTimeline
+     * @memberof ProjectTrendsTimelineBase
      */
     public getData(): any {
         return {};
@@ -165,7 +167,7 @@ export default class ActionProjectTrendsTimelineBase extends Vue implements Cont
     /**
      * vue 生命周期
      *
-     * @memberof ProjectTrendsTimeline
+     * @memberof ProjectTrendsTimelineBase
      */
     public created() {
         this.afterCreated();
@@ -174,7 +176,7 @@ export default class ActionProjectTrendsTimelineBase extends Vue implements Cont
     /**
      * 执行created后的逻辑
      *
-     *  @memberof ProjectTrendsTimeline
+     *  @memberof ProjectTrendsTimelineBase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -193,7 +195,7 @@ export default class ActionProjectTrendsTimelineBase extends Vue implements Cont
     /**
      * vue 生命周期
      *
-     * @memberof ProjectTrendsTimeline
+     * @memberof ProjectTrendsTimelineBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -202,7 +204,7 @@ export default class ActionProjectTrendsTimelineBase extends Vue implements Cont
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof ProjectTrendsTimeline
+     * @memberof ProjectTrendsTimelineBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {

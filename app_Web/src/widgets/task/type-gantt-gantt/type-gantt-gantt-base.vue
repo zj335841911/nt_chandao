@@ -418,43 +418,6 @@ export default class TypeGanttBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 获取编辑视图信息
-     *
-     * @param {*} $event 事件信息
-     * @memberof TypeGantt
-     */
-    public getEditView(type: string) {
-        let view: any = {};
-        switch(type){
-            case "TaskTypes":
-                break;
-            case "ChildTasks":
-                view = {
-                    viewname: 'task-main-dashboard-view', 
-                    height: 0, 
-                    width: 1360,
-                    title: this.$t('entities.task.views.maindashboardview.title'),
-                    placement: 'POPUPMODAL',
-                    deResParameters: [{ pathName: 'projects', parameterName: 'project' }, ],
-                    parameters: [{ pathName: 'tasks', parameterName: 'task' }, { pathName: 'maindashboardview', parameterName: 'maindashboardview' } ],
-                };
-                break;
-            case "Tasks":
-                view = {
-                    viewname: 'task-main-dashboard-view', 
-                    height: 0, 
-                    width: 1360,
-                    title: this.$t('entities.task.views.maindashboardview.title'),
-                    placement: 'POPUPMODAL',
-                    deResParameters: [{ pathName: 'projects', parameterName: 'project' }, ],
-                    parameters: [{ pathName: 'tasks', parameterName: 'task' }, { pathName: 'maindashboardview', parameterName: 'maindashboardview' } ],
-                };
-                break;
-        }
-        return view;
-    }
-
-    /**
      * 刷新
      *
      * @memberof TypeGantt
@@ -511,45 +474,10 @@ export default class TypeGanttBase extends Vue implements ControlInterface {
      * @memberof TypeGantt
      */
     public taskClick({event, data}: {event: any, data: any}) {
-        let view: any = {};
-        let _context: any = Object.assign({},this.context);
+        const _this: any = this;
         let key: string = data.id.split(';')[0];
-        switch(key) {
-            case "TaskTypes":
-                _context.task = data.task;
-                view = this.getEditView("TaskTypes");
-                break;
-            case "ChildTasks":
-                _context.task = data.task;
-                view = this.getEditView("ChildTasks");
-                break;
-            case "Tasks":
-                _context.task = data.task;
-                view = this.getEditView("Tasks");
-                break;
-        }
-        if (!view.viewname) {
-            return;
-        }
-        // 根据打开模式打开视图
-        if (Object.is(view.placement, 'INDEXVIEWTAB') || Object.is(view.placement, '')) {
-            const routePath = this.$viewTool.buildUpRoutePath(this.$route, this.context, view.deResParameters, view.parameters, [JSON.parse(JSON.stringify(_context))] , JSON.parse(JSON.stringify(this.viewparams)));
-            this.$router.push(routePath);
-        } else {
-            let container: Subject<any> = new Subject();
-            if (Object.is(view.placement, 'POPOVER')) {
-                container = this.$apppopover.openPop(data, view,JSON.parse(JSON.stringify(_context)),  JSON.parse(JSON.stringify(this.viewparams)));
-            } else if (Object.is(view.placement, 'POPUPMODAL')) {
-                container = this.$appmodal.openModal(view,  JSON.parse(JSON.stringify(_context)),  JSON.parse(JSON.stringify(this.viewparams)));
-            } else if (view.placement.startsWith('DRAWER')) {
-                container = this.$appdrawer.openDrawer(view,  JSON.parse(JSON.stringify(_context)),  JSON.parse(JSON.stringify(this.viewparams)));
-            }
-            container.subscribe((result: any) => {
-                if (!result || !Object.is(result.ret, 'OK')) {
-                    return;
-                }
-                this.refresh();
-            });
+        if(_this[key + '_opendata'] instanceof Function) {
+            _this[key + '_opendata']([data]);
         }
     }
 

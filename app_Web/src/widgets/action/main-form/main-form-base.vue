@@ -1,8 +1,9 @@
 <template>
-    <i-form :model="this.data" class='app-form' ref='form' style="">
+    <i-form :model="this.data" class='app-form' ref='form'  id='action_main' style="">
     <input style="display:none;" />
     <row >
-    <tabs size="small" :animated="false" name='main' :value="detailsModel.form.activiedPage" @on-click="detailsModel.form.clickPage($event)">
+    <tabs :animated="false" name='main' :value="detailsModel.form.activiedPage" 
+        @on-click="detailsModel.form.clickPage($event)">
             <tab-pane v-show="detailsModel.formpage1.visible" name='formpage1' :index="0" tab='main' class=''  
                 :label="(h) =>{
                     return h('span',{
@@ -175,6 +176,12 @@ export default class MainBase extends Vue implements ControlInterface {
     }
 
 
+    /**
+     * 工作流审批意见控件绑定值
+     *
+     * @memberof Main
+     */
+    public srfwfmemo:string = "";
     
     /**
      * 获取多项数据
@@ -579,7 +586,7 @@ export default class MainBase extends Vue implements ControlInterface {
       * 置空对象
       *
       * @param {any[]} args
-      * @memberof Main
+      * @memberof EditForm
       */
     public ResetData(_datas:any){
         if(Object.keys(_datas).length >0){
@@ -843,7 +850,7 @@ export default class MainBase extends Vue implements ControlInterface {
                     this.load(data);
                 }
                 if (Object.is('loaddraft', action)) {
-                    if (this.context.srfsourcekey) {
+                    if(this.context.srfsourcekey){
                         this.copy(this.context.srfsourcekey);
                     }else{
                         this.loadDraft(data);
@@ -930,6 +937,8 @@ export default class MainBase extends Vue implements ControlInterface {
      *@memberof @memberof Main
      */
     public print(){
+        let _this:any = this;
+        _this.$print({id:'action_main',popTitle:'主编辑表单'});
     }
 
     /**
@@ -1076,7 +1085,6 @@ export default class MainBase extends Vue implements ControlInterface {
         }
         const arg: any = { ...opt };
         const data = this.getValues();
-        const isCreate: boolean = Object.is(data.srfuf, '1') ? false : true;
         Object.assign(arg, data);
         const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
         if(!action){
@@ -1101,7 +1109,6 @@ export default class MainBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });
             });
-            this.sendAccMessage(data, 'ZT_ACTION', isCreate ? 'create' : 'update');
         }).catch((response: any) => {
             if (response && response.status && response.data) {
                 this.$Notice.error({ title: '错误', desc: response.data.message });
@@ -1132,7 +1139,6 @@ export default class MainBase extends Vue implements ControlInterface {
             }
             const arg: any = { ...opt };
             const data = this.getValues();
-            const isCreate: boolean = Object.is(data.srfuf, '1') ? false : true;
             Object.assign(arg, data);
             Object.assign(arg, this.context);
             if (ifStateNext) {
@@ -1170,7 +1176,6 @@ export default class MainBase extends Vue implements ControlInterface {
                 if (showResultInfo) {
                     this.$Notice.success({ title: '', desc: (data.srfmajortext ? data.srfmajortext : '') + '&nbsp;保存成功！' });
                 }
-                this.sendAccMessage(data, 'ZT_ACTION', isCreate ? 'create' : 'update');
                 resolve(response);
             }).catch((response: any) => {
                 if (response && response.status  && response.data) {
@@ -1211,7 +1216,6 @@ export default class MainBase extends Vue implements ControlInterface {
                     this.formState.next({ type: 'remove', data: data });
                     this.data.ismodify = false;
                     this.$Notice.success({ title: '', desc: (data.srfmajortext ? data.srfmajortext : '') + '&nbsp;删除成功！' });
-                    this.sendAccMessage(data, 'ZT_ACTION', 'remove');
                     resolve(response);
                 }
             }).catch((error: any) => {
@@ -1306,6 +1310,10 @@ export default class MainBase extends Vue implements ControlInterface {
                 // 准备提交参数
                 if(this.viewparams){
                     Object.assign(arg,{viewparams:this.viewparams});
+                }
+                // 强制补充srfwfmemo
+                if(this.srfwfmemo){
+                    Object.assign(arg,{srfwfmemo:this.srfwfmemo});
                 }
                 const result: Promise<any> = this.service.wfsubmit(_this.WFSubmitAction, JSON.parse(JSON.stringify(this.context)),arg, this.showBusyIndicator,localdata);
                 result.then((response: any) => {
@@ -1518,26 +1526,6 @@ export default class MainBase extends Vue implements ControlInterface {
     public updateDefault(){                    
     }
 
-
-    /**
-     * 向本地消息中心发送数据变更信息
-     *
-     * @protected
-     * @param {*} data
-     * @param {string} deName
-     * @param {('create' | 'update' | 'remove')} type
-     * @memberof Main
-     */
-    protected sendAccMessage(data: any, deName: string, type: 'create' | 'update' | 'remove'): void {
-        switch (type) {
-            case 'create':
-                return this.$acc.send.create(data, deName);
-            case 'update':
-                return this.$acc.send.update(data, deName);
-            case 'remove':
-                return this.$acc.send.remove(data, deName);
-        }
-    }
     
 }
 </script>

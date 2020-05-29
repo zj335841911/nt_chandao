@@ -17,7 +17,7 @@ export default class AppDepartmentSelect extends Vue {
      * @type {*}
      * @memberof AppDepartmentSelect
      */
-    @Prop({default:'/ibzorganizations/{orgid}/ibzdepartments/picker'}) public url?: any;
+    @Prop() public url?: any;
 
     /**
      * 过滤项
@@ -108,7 +108,7 @@ export default class AppDepartmentSelect extends Vue {
     public searchNodesData(){
       // 处理过滤参数，生成url
       let param = this.handleFilter();
-      let _url = this.url.replace(/{orgid}/,param)
+      let _url = this.url.replace('${orgid}',param)
       if(this.oldurl === _url){
           return;
       }
@@ -120,7 +120,6 @@ export default class AppDepartmentSelect extends Vue {
         return;
       }
       this.$http.get(_url).then((response: any) => {
-          console.log(response)
           this.Nodesdata = response.data;
           this.$store.commit('addDepData', { srfkey: this.filter, orgData: response.data });
       }).catch((response: any) => {
@@ -200,11 +199,11 @@ export default class AppDepartmentSelect extends Vue {
         if(this.fillMap && Object.keys(this.fillMap).length > 0){
             Object.keys(this.fillMap).forEach((attribute:string) => {
                 let _name = this.fillMap[attribute];
-                let _value = selectArr.map((item:any) => item[attribute]);
-                this.$emit('select-change',{name: this.fillMap[attribute], value: _value.join(",")})
+                let values = selectArr.map((item:any) => item[attribute]);
+                let _value = $event === "[]" ? null : values.join(",");
+                this.$emit('select-change',{name: this.fillMap[attribute], value: _value})
             });
         }
-
     }
 }
 </script>

@@ -204,6 +204,14 @@ export default {
 		},
 	},
 	testleftsidebarlistviewtoolbar_toolbar: {
+		deuiaction3_testmanager: {
+			caption: '管理',
+			tip: '管理',
+		},
+		seperator1: {
+			caption: '',
+			tip: '',
+		},
 		deuiaction2: {
 			caption: '刷新',
 			tip: '刷新',

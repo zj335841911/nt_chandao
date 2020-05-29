@@ -1,3 +1,4 @@
+ 
 <template>
 <studio-view viewName="productmaintabexpview" viewTitle="产品" class='detabexpview product-main-tab-exp-view'>
     <view_tabexppanel 
@@ -448,6 +449,28 @@ export default class ProductMainTabExpViewBase extends Vue {
             }
         }
     }
+    
+    /**
+     * 加载模型
+     * 
+     * @memberof ProductMainTabExpViewBase
+     */
+    public loadModel(){
+        if(this.context.product){
+            this.appEntityService.getDataInfo(JSON.parse(JSON.stringify(this.context)),{},false).then((response:any) =>{
+                if (!response || response.status !== 200) {
+                    return;
+                }
+                const { data: _data } = response;
+                if (_data.name) {
+                    Object.assign(this.model, { dataInfo: _data.name });
+                    this.$tabPageExp.setCurPageCaption(this.model.srfCaption, this.model.srfTitle, this.model.dataInfo);
+                    Object.assign(this.model, { srfTitle: `${this.$t(this.model.srfTitle)} - ${this.model.dataInfo}` });
+                }
+            })
+        }
+    }
+
 
 }
 </script>

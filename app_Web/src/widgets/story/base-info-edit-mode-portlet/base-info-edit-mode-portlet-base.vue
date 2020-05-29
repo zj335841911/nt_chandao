@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet base-info-edit-mode' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : 'auto',}">
+    <div class='portlet base-info-edit-mode ' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : '1px',}">
         <div class="portlet-without-title">
         <story-main-view9-edit-mode :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></story-main-view9-edit-mode>
         </div>
@@ -131,11 +131,12 @@ export default class StoryBaseInfo_EditModeBase extends Vue implements ControlIn
 
 
 
+
     /**
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof BaseInfo_EditMode
+     * @memberof BaseInfo_EditModeBase
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -143,7 +144,7 @@ export default class StoryBaseInfo_EditModeBase extends Vue implements ControlIn
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof BaseInfo_EditMode
+     * @memberof BaseInfo_EditModeBase
      */
     public getDatas(): any[] {
         return [];
@@ -153,7 +154,7 @@ export default class StoryBaseInfo_EditModeBase extends Vue implements ControlIn
      * 获取单项树
      *
      * @returns {*}
-     * @memberof BaseInfo_EditMode
+     * @memberof BaseInfo_EditModeBase
      */
     public getData(): any {
         return {};
@@ -162,7 +163,7 @@ export default class StoryBaseInfo_EditModeBase extends Vue implements ControlIn
     /**
      * vue 生命周期
      *
-     * @memberof BaseInfo_EditMode
+     * @memberof BaseInfo_EditModeBase
      */
     public created() {
         this.afterCreated();
@@ -171,7 +172,7 @@ export default class StoryBaseInfo_EditModeBase extends Vue implements ControlIn
     /**
      * 执行created后的逻辑
      *
-     *  @memberof BaseInfo_EditMode
+     *  @memberof BaseInfo_EditModeBase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -190,7 +191,7 @@ export default class StoryBaseInfo_EditModeBase extends Vue implements ControlIn
     /**
      * vue 生命周期
      *
-     * @memberof BaseInfo_EditMode
+     * @memberof BaseInfo_EditModeBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -199,7 +200,7 @@ export default class StoryBaseInfo_EditModeBase extends Vue implements ControlIn
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof BaseInfo_EditMode
+     * @memberof BaseInfo_EditModeBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {

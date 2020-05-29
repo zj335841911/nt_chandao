@@ -1,6 +1,7 @@
 <template>
-    <div class='portlet action-history' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : 'auto',}">
+    <div class='portlet action-history ' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : '300px',}">
         <p class='portlet-title'>
+            <i class=''></i>
             历史记录
         </p>
         <div class="portlet-with-title">
@@ -134,11 +135,12 @@ export default class ActionActionHistoryBase extends Vue implements ControlInter
 
 
 
+
     /**
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof ActionHistory
+     * @memberof ActionHistoryBase
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -146,7 +148,7 @@ export default class ActionActionHistoryBase extends Vue implements ControlInter
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof ActionHistory
+     * @memberof ActionHistoryBase
      */
     public getDatas(): any[] {
         return [];
@@ -156,7 +158,7 @@ export default class ActionActionHistoryBase extends Vue implements ControlInter
      * 获取单项树
      *
      * @returns {*}
-     * @memberof ActionHistory
+     * @memberof ActionHistoryBase
      */
     public getData(): any {
         return {};
@@ -165,7 +167,7 @@ export default class ActionActionHistoryBase extends Vue implements ControlInter
     /**
      * vue 生命周期
      *
-     * @memberof ActionHistory
+     * @memberof ActionHistoryBase
      */
     public created() {
         this.afterCreated();
@@ -174,7 +176,7 @@ export default class ActionActionHistoryBase extends Vue implements ControlInter
     /**
      * 执行created后的逻辑
      *
-     *  @memberof ActionHistory
+     *  @memberof ActionHistoryBase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -193,7 +195,7 @@ export default class ActionActionHistoryBase extends Vue implements ControlInter
     /**
      * vue 生命周期
      *
-     * @memberof ActionHistory
+     * @memberof ActionHistoryBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -202,7 +204,7 @@ export default class ActionActionHistoryBase extends Vue implements ControlInter
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof ActionHistory
+     * @memberof ActionHistoryBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {

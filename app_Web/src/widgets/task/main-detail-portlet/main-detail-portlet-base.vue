@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet main-detail' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : 'auto',}">
+    <div class='portlet main-detail ' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : '1px',}">
         <div class="portlet-without-title">
         <task-main-detail-view9 :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></task-main-detail-view9>
         </div>
@@ -131,11 +131,12 @@ export default class TaskMainDetailBase extends Vue implements ControlInterface 
 
 
 
+
     /**
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof MainDetail
+     * @memberof MainDetailBase
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -143,7 +144,7 @@ export default class TaskMainDetailBase extends Vue implements ControlInterface 
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof MainDetail
+     * @memberof MainDetailBase
      */
     public getDatas(): any[] {
         return [];
@@ -153,7 +154,7 @@ export default class TaskMainDetailBase extends Vue implements ControlInterface 
      * 获取单项树
      *
      * @returns {*}
-     * @memberof MainDetail
+     * @memberof MainDetailBase
      */
     public getData(): any {
         return {};
@@ -162,7 +163,7 @@ export default class TaskMainDetailBase extends Vue implements ControlInterface 
     /**
      * vue 生命周期
      *
-     * @memberof MainDetail
+     * @memberof MainDetailBase
      */
     public created() {
         this.afterCreated();
@@ -171,7 +172,7 @@ export default class TaskMainDetailBase extends Vue implements ControlInterface 
     /**
      * 执行created后的逻辑
      *
-     *  @memberof MainDetail
+     *  @memberof MainDetailBase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -190,7 +191,7 @@ export default class TaskMainDetailBase extends Vue implements ControlInterface 
     /**
      * vue 生命周期
      *
-     * @memberof MainDetail
+     * @memberof MainDetailBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -199,7 +200,7 @@ export default class TaskMainDetailBase extends Vue implements ControlInterface 
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof MainDetail
+     * @memberof MainDetailBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {

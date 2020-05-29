@@ -1,6 +1,7 @@
 <template>
-    <div class='portlet product-status-chart' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : '350px',}">
+    <div class='portlet product-status-chart ' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : '370px',}">
         <p class='portlet-title'>
+            <i class=''></i>
             产品总览
         </p>
         <div class="portlet-with-title">
@@ -144,11 +145,12 @@ export default class ProductProductStatusChartBase extends Vue implements Contro
 
 
 
+
     /**
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof ProductStatusChart
+     * @memberof ProductStatusChartBase
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -156,7 +158,7 @@ export default class ProductProductStatusChartBase extends Vue implements Contro
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof ProductStatusChart
+     * @memberof ProductStatusChartBase
      */
     public getDatas(): any[] {
         return [];
@@ -166,7 +168,7 @@ export default class ProductProductStatusChartBase extends Vue implements Contro
      * 获取单项树
      *
      * @returns {*}
-     * @memberof ProductStatusChart
+     * @memberof ProductStatusChartBase
      */
     public getData(): any {
         return {};
@@ -175,7 +177,7 @@ export default class ProductProductStatusChartBase extends Vue implements Contro
     /**
      * vue 生命周期
      *
-     * @memberof ProductStatusChart
+     * @memberof ProductStatusChartBase
      */
     public created() {
         this.afterCreated();
@@ -184,7 +186,7 @@ export default class ProductProductStatusChartBase extends Vue implements Contro
     /**
      * 执行created后的逻辑
      *
-     *  @memberof ProductStatusChart
+     *  @memberof ProductStatusChartBase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -203,7 +205,7 @@ export default class ProductProductStatusChartBase extends Vue implements Contro
     /**
      * vue 生命周期
      *
-     * @memberof ProductStatusChart
+     * @memberof ProductStatusChartBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -212,7 +214,7 @@ export default class ProductProductStatusChartBase extends Vue implements Contro
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof ProductStatusChart
+     * @memberof ProductStatusChartBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {

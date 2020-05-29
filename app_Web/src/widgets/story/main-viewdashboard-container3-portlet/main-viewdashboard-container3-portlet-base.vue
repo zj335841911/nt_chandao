@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet-container main-viewdashboard-container3' :style="{}">
+    <div class='portlet-container main-viewdashboard-container3 ' :style="{}">
             <i-col :md="{ span: 24, offset: 0 }">
                 <div class="portlet-without-title">
                                   <view_dashboard_sysportlet2 
@@ -140,11 +140,12 @@ export default class StoryMainViewdashboard_container3Base extends Vue implement
 
 
 
+
     /**
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof MainViewdashboard_container3
+     * @memberof MainViewdashboard_container3Base
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -152,7 +153,7 @@ export default class StoryMainViewdashboard_container3Base extends Vue implement
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof MainViewdashboard_container3
+     * @memberof MainViewdashboard_container3Base
      */
     public getDatas(): any[] {
         return [];
@@ -162,7 +163,7 @@ export default class StoryMainViewdashboard_container3Base extends Vue implement
      * 获取单项树
      *
      * @returns {*}
-     * @memberof MainViewdashboard_container3
+     * @memberof MainViewdashboard_container3Base
      */
     public getData(): any {
         return {};
@@ -171,7 +172,7 @@ export default class StoryMainViewdashboard_container3Base extends Vue implement
     /**
      * vue 生命周期
      *
-     * @memberof MainViewdashboard_container3
+     * @memberof MainViewdashboard_container3Base
      */
     public created() {
         this.afterCreated();
@@ -180,7 +181,7 @@ export default class StoryMainViewdashboard_container3Base extends Vue implement
     /**
      * 执行created后的逻辑
      *
-     *  @memberof MainViewdashboard_container3
+     *  @memberof MainViewdashboard_container3Base
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -199,7 +200,7 @@ export default class StoryMainViewdashboard_container3Base extends Vue implement
     /**
      * vue 生命周期
      *
-     * @memberof MainViewdashboard_container3
+     * @memberof MainViewdashboard_container3Base
      */
     public destroyed() {
         this.afterDestroy();
@@ -208,7 +209,7 @@ export default class StoryMainViewdashboard_container3Base extends Vue implement
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof MainViewdashboard_container3
+     * @memberof MainViewdashboard_container3Base
      */
     public afterDestroy() {
         if (this.viewStateEvent) {

@@ -22,6 +22,7 @@
 </studio-view>
 </template>
 
+
 <script lang='tsx'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { UIActionTool,Util } from '@/utils';
@@ -30,6 +31,8 @@ import ActionService from '@/service/action/action-service';
 
 import ListViewEngine from '@engine/view/list-view-engine';
 
+
+import CodeListService from "@service/app/codelist-service";
 
 
 @Component({
@@ -199,6 +202,7 @@ export default class ActionProductTrendsListViewBase extends Vue {
      * @memberof ActionProductTrendsListViewBase
      */
     public viewState: Subject<ViewState> = new Subject();
+
 
 
     /**
@@ -418,6 +422,7 @@ export default class ActionProductTrendsListViewBase extends Vue {
             _this.loadModel();
         }
         
+
     }
 
 
@@ -618,6 +623,8 @@ export default class ActionProductTrendsListViewBase extends Vue {
             refs.list.load({});
         }
     }
+
+
 
 }
 </script>

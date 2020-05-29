@@ -1,6 +1,7 @@
 <template>
-    <div class='portlet project-status-bar' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : '350px',}">
+    <div class='portlet project-status-bar ' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : '370px',}">
         <p class='portlet-title'>
+            <i class=''></i>
             项目总览
         </p>
         <div class="portlet-with-title">
@@ -144,11 +145,12 @@ export default class ProjectProjectStatusBarBase extends Vue implements ControlI
 
 
 
+
     /**
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof ProjectStatusBar
+     * @memberof ProjectStatusBarBase
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -156,7 +158,7 @@ export default class ProjectProjectStatusBarBase extends Vue implements ControlI
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof ProjectStatusBar
+     * @memberof ProjectStatusBarBase
      */
     public getDatas(): any[] {
         return [];
@@ -166,7 +168,7 @@ export default class ProjectProjectStatusBarBase extends Vue implements ControlI
      * 获取单项树
      *
      * @returns {*}
-     * @memberof ProjectStatusBar
+     * @memberof ProjectStatusBarBase
      */
     public getData(): any {
         return {};
@@ -175,7 +177,7 @@ export default class ProjectProjectStatusBarBase extends Vue implements ControlI
     /**
      * vue 生命周期
      *
-     * @memberof ProjectStatusBar
+     * @memberof ProjectStatusBarBase
      */
     public created() {
         this.afterCreated();
@@ -184,7 +186,7 @@ export default class ProjectProjectStatusBarBase extends Vue implements ControlI
     /**
      * 执行created后的逻辑
      *
-     *  @memberof ProjectStatusBar
+     *  @memberof ProjectStatusBarBase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -203,7 +205,7 @@ export default class ProjectProjectStatusBarBase extends Vue implements ControlI
     /**
      * vue 生命周期
      *
-     * @memberof ProjectStatusBar
+     * @memberof ProjectStatusBarBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -212,7 +214,7 @@ export default class ProjectProjectStatusBarBase extends Vue implements ControlI
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof ProjectStatusBar
+     * @memberof ProjectStatusBarBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {

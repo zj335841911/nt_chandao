@@ -14,10 +14,22 @@ export default class ProjectStatusBarModel {
 	 */
 	public getDataItems(): any[] {
 		return [
-      {
-        name:'query',
-        prop:'query'
-      },
+			{
+			name:'size',
+			prop:'size'
+			},
+			{
+			name:'query',
+			prop:'query'
+			},
+			{
+			name:'page',
+			prop:'page'
+			},
+			{
+			name:'sort',
+			prop:'sort'
+			}
 		]
 	}
 

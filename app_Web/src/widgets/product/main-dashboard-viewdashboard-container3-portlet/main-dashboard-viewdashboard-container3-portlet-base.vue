@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet-container main-dashboard-viewdashboard-container3' :style="{}">
+    <div class='portlet-container main-dashboard-viewdashboard-container3 ' :style="{}">
             <i-col :md="{ span: 24, offset: 0 }">
                 <div class="portlet-without-title">
                                   <view_dashboard_sysportlet3 
@@ -140,11 +140,12 @@ export default class ProductMainDashboardViewdashboard_container3Base extends Vu
 
 
 
+
     /**
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof MainDashboardViewdashboard_container3
+     * @memberof MainDashboardViewdashboard_container3Base
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -152,7 +153,7 @@ export default class ProductMainDashboardViewdashboard_container3Base extends Vu
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof MainDashboardViewdashboard_container3
+     * @memberof MainDashboardViewdashboard_container3Base
      */
     public getDatas(): any[] {
         return [];
@@ -162,7 +163,7 @@ export default class ProductMainDashboardViewdashboard_container3Base extends Vu
      * 获取单项树
      *
      * @returns {*}
-     * @memberof MainDashboardViewdashboard_container3
+     * @memberof MainDashboardViewdashboard_container3Base
      */
     public getData(): any {
         return {};
@@ -171,7 +172,7 @@ export default class ProductMainDashboardViewdashboard_container3Base extends Vu
     /**
      * vue 生命周期
      *
-     * @memberof MainDashboardViewdashboard_container3
+     * @memberof MainDashboardViewdashboard_container3Base
      */
     public created() {
         this.afterCreated();
@@ -180,7 +181,7 @@ export default class ProductMainDashboardViewdashboard_container3Base extends Vu
     /**
      * 执行created后的逻辑
      *
-     *  @memberof MainDashboardViewdashboard_container3
+     *  @memberof MainDashboardViewdashboard_container3Base
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -199,7 +200,7 @@ export default class ProductMainDashboardViewdashboard_container3Base extends Vu
     /**
      * vue 生命周期
      *
-     * @memberof MainDashboardViewdashboard_container3
+     * @memberof MainDashboardViewdashboard_container3Base
      */
     public destroyed() {
         this.afterDestroy();
@@ -208,7 +209,7 @@ export default class ProductMainDashboardViewdashboard_container3Base extends Vu
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof MainDashboardViewdashboard_container3
+     * @memberof MainDashboardViewdashboard_container3Base
      */
     public afterDestroy() {
         if (this.viewStateEvent) {

@@ -233,7 +233,7 @@ export default class ExpBase extends Vue implements ControlInterface {
      * @type {number}
      * @memberof Exp
      */
-    public limit: number = 20;
+    public limit: number = 1000;
 
     /**
      * 总条数
@@ -386,7 +386,9 @@ export default class ExpBase extends Vue implements ControlInterface {
         const parentdata: any = {};
         this.$emit('beforeload', parentdata);
         Object.assign(arg, parentdata);
-        Object.assign(arg,{viewparams:this.viewparams});
+        let tempViewParams:any = parentdata.viewparams?parentdata.viewparams:{};
+        Object.assign(tempViewParams,JSON.parse(JSON.stringify(this.viewparams)));
+        Object.assign(arg,{viewparams:tempViewParams});
         const post: Promise<any> = this.service.search(this.fetchAction, this.context?JSON.parse(JSON.stringify(this.context)):{}, arg, this.showBusyIndicator);
         post.then((response: any) => {
             if (!response || response.status !== 200) {

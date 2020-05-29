@@ -1,6 +1,7 @@
 <template>
-    <div class='portlet burn-down' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : '300px',}">
+    <div class='portlet burn-down ' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : '300px',}">
         <p class='portlet-title'>
+            <i class=''></i>
             燃尽图
         </p>
         <div class="portlet-with-title">
@@ -134,11 +135,12 @@ export default class ProjectBurnDownBase extends Vue implements ControlInterface
 
 
 
+
     /**
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof BurnDown
+     * @memberof BurnDownBase
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -146,7 +148,7 @@ export default class ProjectBurnDownBase extends Vue implements ControlInterface
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof BurnDown
+     * @memberof BurnDownBase
      */
     public getDatas(): any[] {
         return [];
@@ -156,7 +158,7 @@ export default class ProjectBurnDownBase extends Vue implements ControlInterface
      * 获取单项树
      *
      * @returns {*}
-     * @memberof BurnDown
+     * @memberof BurnDownBase
      */
     public getData(): any {
         return {};
@@ -165,7 +167,7 @@ export default class ProjectBurnDownBase extends Vue implements ControlInterface
     /**
      * vue 生命周期
      *
-     * @memberof BurnDown
+     * @memberof BurnDownBase
      */
     public created() {
         this.afterCreated();
@@ -174,7 +176,7 @@ export default class ProjectBurnDownBase extends Vue implements ControlInterface
     /**
      * 执行created后的逻辑
      *
-     *  @memberof BurnDown
+     *  @memberof BurnDownBase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -193,7 +195,7 @@ export default class ProjectBurnDownBase extends Vue implements ControlInterface
     /**
      * vue 生命周期
      *
-     * @memberof BurnDown
+     * @memberof BurnDownBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -202,7 +204,7 @@ export default class ProjectBurnDownBase extends Vue implements ControlInterface
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof BurnDown
+     * @memberof BurnDownBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {

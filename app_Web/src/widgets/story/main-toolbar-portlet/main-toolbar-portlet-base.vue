@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet main-toolbar' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : 'auto',}">
+    <div class='portlet main-toolbar ' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : '1px',}">
         <div class="portlet-without-title">
             <app-actionbar :items="actionBarModelData" @itemClick="handleItemClick"></app-actionbar>
         </div>
@@ -271,7 +271,7 @@ export default class StoryMainToolbarBase extends Vue implements ControlInterfac
      * 操作栏模型数据
      *
      * @returns {any[]}
-     * @memberof MainToolbar
+     * @memberof MainToolbarBase
      */
     public actionBarModelData:any[] =[
         { viewlogicname:"dashboard_sysportlet3_u797d4ad_click",
@@ -288,7 +288,7 @@ export default class StoryMainToolbarBase extends Vue implements ControlInterfac
     /**
      * 触发界面行为
      *
-     * @memberof MainToolbar
+     * @memberof MainToolbarBase
      */
     public handleItemClick($event:any){
         if(Object.is($event,'dashboard_sysportlet3_u797d4ad_click')){
@@ -302,11 +302,12 @@ export default class StoryMainToolbarBase extends Vue implements ControlInterfac
         }
     }
 
+
     /**
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof MainToolbar
+     * @memberof MainToolbarBase
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -314,7 +315,7 @@ export default class StoryMainToolbarBase extends Vue implements ControlInterfac
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof MainToolbar
+     * @memberof MainToolbarBase
      */
     public getDatas(): any[] {
         return [];
@@ -324,7 +325,7 @@ export default class StoryMainToolbarBase extends Vue implements ControlInterfac
      * 获取单项树
      *
      * @returns {*}
-     * @memberof MainToolbar
+     * @memberof MainToolbarBase
      */
     public getData(): any {
         return {};
@@ -333,7 +334,7 @@ export default class StoryMainToolbarBase extends Vue implements ControlInterfac
     /**
      * vue 生命周期
      *
-     * @memberof MainToolbar
+     * @memberof MainToolbarBase
      */
     public created() {
         this.afterCreated();
@@ -342,7 +343,7 @@ export default class StoryMainToolbarBase extends Vue implements ControlInterfac
     /**
      * 执行created后的逻辑
      *
-     *  @memberof MainToolbar
+     *  @memberof MainToolbarBase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -361,7 +362,7 @@ export default class StoryMainToolbarBase extends Vue implements ControlInterfac
     /**
      * vue 生命周期
      *
-     * @memberof MainToolbar
+     * @memberof MainToolbarBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -370,7 +371,7 @@ export default class StoryMainToolbarBase extends Vue implements ControlInterfac
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof MainToolbar
+     * @memberof MainToolbarBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {

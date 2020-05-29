@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet product-info' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : 'auto',}">
+    <div class='portlet product-info ' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : '300px',}">
         <div class="portlet-without-title">
         <product-dashboard-info-main-view9 :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></product-dashboard-info-main-view9>
         </div>
@@ -131,11 +131,12 @@ export default class ProductProductInfoBase extends Vue implements ControlInterf
 
 
 
+
     /**
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof ProductInfo
+     * @memberof ProductInfoBase
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -143,7 +144,7 @@ export default class ProductProductInfoBase extends Vue implements ControlInterf
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof ProductInfo
+     * @memberof ProductInfoBase
      */
     public getDatas(): any[] {
         return [];
@@ -153,7 +154,7 @@ export default class ProductProductInfoBase extends Vue implements ControlInterf
      * 获取单项树
      *
      * @returns {*}
-     * @memberof ProductInfo
+     * @memberof ProductInfoBase
      */
     public getData(): any {
         return {};
@@ -162,7 +163,7 @@ export default class ProductProductInfoBase extends Vue implements ControlInterf
     /**
      * vue 生命周期
      *
-     * @memberof ProductInfo
+     * @memberof ProductInfoBase
      */
     public created() {
         this.afterCreated();
@@ -171,7 +172,7 @@ export default class ProductProductInfoBase extends Vue implements ControlInterf
     /**
      * 执行created后的逻辑
      *
-     *  @memberof ProductInfo
+     *  @memberof ProductInfoBase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -190,7 +191,7 @@ export default class ProductProductInfoBase extends Vue implements ControlInterf
     /**
      * vue 生命周期
      *
-     * @memberof ProductInfo
+     * @memberof ProductInfoBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -199,7 +200,7 @@ export default class ProductProductInfoBase extends Vue implements ControlInterf
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof ProductInfo
+     * @memberof ProductInfoBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {

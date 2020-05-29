@@ -1,6 +1,7 @@
 <template>
-    <div class='portlet assigned-to-me-story' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : 'auto',}">
+    <div class='portlet assigned-to-me-story ' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : '1px',}">
         <p class='portlet-title'>
+            <i class=''></i>
             指派给我的需求
         </p>
         <div class="portlet-with-title">
@@ -134,11 +135,12 @@ export default class StoryAssignedToMeStoryBase extends Vue implements ControlIn
 
 
 
+
     /**
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof AssignedToMeStory
+     * @memberof AssignedToMeStoryBase
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -146,7 +148,7 @@ export default class StoryAssignedToMeStoryBase extends Vue implements ControlIn
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof AssignedToMeStory
+     * @memberof AssignedToMeStoryBase
      */
     public getDatas(): any[] {
         return [];
@@ -156,7 +158,7 @@ export default class StoryAssignedToMeStoryBase extends Vue implements ControlIn
      * 获取单项树
      *
      * @returns {*}
-     * @memberof AssignedToMeStory
+     * @memberof AssignedToMeStoryBase
      */
     public getData(): any {
         return {};
@@ -165,7 +167,7 @@ export default class StoryAssignedToMeStoryBase extends Vue implements ControlIn
     /**
      * vue 生命周期
      *
-     * @memberof AssignedToMeStory
+     * @memberof AssignedToMeStoryBase
      */
     public created() {
         this.afterCreated();
@@ -174,7 +176,7 @@ export default class StoryAssignedToMeStoryBase extends Vue implements ControlIn
     /**
      * 执行created后的逻辑
      *
-     *  @memberof AssignedToMeStory
+     *  @memberof AssignedToMeStoryBase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -193,7 +195,7 @@ export default class StoryAssignedToMeStoryBase extends Vue implements ControlIn
     /**
      * vue 生命周期
      *
-     * @memberof AssignedToMeStory
+     * @memberof AssignedToMeStoryBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -202,7 +204,7 @@ export default class StoryAssignedToMeStoryBase extends Vue implements ControlIn
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof AssignedToMeStory
+     * @memberof AssignedToMeStoryBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {

@@ -17,7 +17,7 @@ import ProjectStatusBarService from './project-status-bar-chart-service';
 import echarts from 'echarts';
 import moment from "moment"; 
 import CodeListService from "@service/app/codelist-service";
-import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,ChartBarSeries} from '@/model/chart-detail';
+import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,ChartBarSeries,ChartRadarSeries} from '@/model/chart-detail';
 
 
 @Component({
@@ -384,7 +384,8 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
         const parentdata: any = {};
         this.$emit('beforeload', parentdata);
         Object.assign(arg, parentdata);
-        Object.assign(arg,{viewparams:this.viewparams});
+        Object.assign(arg,{viewparams:this.viewparams,page:0,size:1000});
+        Object.assign(arg,{size:-1});
         this.service.search(this.fetchAction,JSON.parse(JSON.stringify(this.context)),arg,this.showBusyIndicator).then((res) => {
             if (res) {
                this.transformToBasicChartSetData(res.data,() =>{_this.drawCharts()});
@@ -447,19 +448,28 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
                 }
                 //设置多序列
                 let tempSeries:any = this.seriesModel[seriesName];
-                if(tempSeries && tempSeries.seriesIdField && tempSeries.seriesValues.length > 0){
-                    const returnIndex:number = this.chartOption.series.findIndex((item:any) =>{
-                        return Object.is(item.id,seriesName);
+                // 雷达图
+                if(tempSeries.type && Object.is(tempSeries.type,'radar') && tempSeries.seriesIdField && tempSeries.seriesValues.length > 0){
+                    let tempIndicator:any = [];
+                    tempSeries.seriesValues.forEach((item:any) =>{
+                        let singleIndicatorObj:any = {name:item,max:100};
+                        tempIndicator.push(singleIndicatorObj);
                     })
-                    this.chartOption.series.splice(returnIndex,1);
-                    let tempSeriesArray:Array<any> = [];
-                    tempSeries.seriesValues.forEach((seriesvalueItem:any) =>{
-                        let tempSeriesTemp:any = JSON.parse(JSON.stringify(tempSeries.seriesTemp));
-                        Object.assign(tempSeriesTemp,{name:tempSeries.seriesMap[seriesvalueItem],datasetIndex:tempSeries.seriesIndex,encode:{x:tempSeries.categorField,y:`${seriesvalueItem}`}});
-                        this.chartOption.series.push(tempSeriesTemp);
-                    })
-                    
-
+                    this.chartOption.radar = {'indicator':tempIndicator};
+                }else{
+                    // 非雷达图
+                    if(tempSeries && tempSeries.seriesIdField && tempSeries.seriesValues.length > 0){
+                        const returnIndex:number = this.chartOption.series.findIndex((item:any) =>{
+                            return Object.is(item.id,seriesName);
+                        })
+                        this.chartOption.series.splice(returnIndex,1);
+                        let tempSeriesArray:Array<any> = [];
+                        tempSeries.seriesValues.forEach((seriesvalueItem:any) =>{
+                            let tempSeriesTemp:any = JSON.parse(JSON.stringify(tempSeries.seriesTemp));
+                            Object.assign(tempSeriesTemp,{name:tempSeries.seriesMap[seriesvalueItem],datasetIndex:tempSeries.seriesIndex,encode:{x:tempSeries.categorField,y:`${seriesvalueItem}`}});
+                            this.chartOption.series.push(tempSeriesTemp);
+                        })
+                    }
                 }
             })
         }
@@ -473,7 +483,13 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
 
     /**
      * 实体数据集转化为图表数据集
-     *    
+     * 
+     * 1.获取图表所有代码表值
+     * 2.查询集合映射图表数据集
+     * 3.补全图表数据集
+     * 4.图表数据集分组求和
+     * 5.排序图表数据集
+     * 
      * @param {*} data 实体数据集
      * @param {Function} callback 回调
      * @memberof Db_projectstatusportlet_chartBase
@@ -486,6 +502,15 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
         let allCodeList:any = await this.getChartAllCodeList();
         if(Object.values(this.seriesModel).length > 0){
             Object.values(this.seriesModel).forEach((singleSeries:any,index:number) =>{
+                // 值属性为srfcount设置{srfcount:1}到data
+                let valueField = singleSeries.dataSetFields.find((datasetField:any) =>{
+                    return datasetField.name === singleSeries.valueField;
+                }); 
+                if(valueField && valueField.name && Object.is(valueField.name,"srfcount")){
+                    data.forEach((singleData:any) =>{
+                        Object.assign(singleData,{srfcount:1});
+                    })
+                }
                 // 分组属性
                 let groupField = singleSeries.dataSetFields.find((datasetField:any) =>{
                     return datasetField.name === singleSeries.categorField;
@@ -533,6 +558,9 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
 
     /**
      * 构建图表序列数据集合
+     * 
+     * 1.分组求和
+     * 2.排序求和数组
      * 
      * @param {Array<any>} data 传入数据
      * @param {Array<any>} item 单个序列
@@ -693,6 +721,13 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
             })
         }
         returnArray = this.sortReturnArray(returnArray,groupFieldModel,allCodeList);
+        // 雷达图数据格式处理
+        if(Object.is(item.type,'radar')){
+            returnArray.forEach((item:any) =>{
+                item.type = item[groupField[0]];
+                delete item[groupField[0]];
+            })
+        }
         console.log(JSON.stringify(returnArray));
         return returnArray;
     }
@@ -725,6 +760,9 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
                     returnArray.push(item);
                 }
             })
+            returnArray.forEach((item:any) =>{
+                delete item.hasused;
+            })
         }else{
             // 分组为年份
             if(Object.is(groupField[0].groupMode,"YEAR")){
@@ -742,7 +780,20 @@ export default class ProjectStatusBarBase extends Vue implements ControlInterfac
                     return moment(a[groupField[0].name]).unix() - moment(b[groupField[0].name]).unix();
                 });
             }else{
-                returnArray = arr;
+                let groupFieldName:string = groupField[0].name;
+                let isConvert:boolean = true;
+                arr.forEach((item:any) =>{
+                    if(isNaN(item[groupFieldName])){
+                        isConvert = false;
+                    }
+                })
+                if(isConvert){
+                    returnArray = arr.sort((a:any, b:any) => {
+                        return a[groupFieldName] - b[groupFieldName];
+                    });
+                }else{
+                    returnArray = arr;
+                }
             }
         }
         return returnArray;

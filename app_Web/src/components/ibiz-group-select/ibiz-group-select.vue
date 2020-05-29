@@ -33,12 +33,20 @@ export default class IBizGroupSelect extends Vue {
     @Prop() name!: string;
 
     /**
+     * 树加载地址
+     *
+     * @type {*}
+     * @memberof IBizGroupSelect
+     */  
+    @Prop() treeurl?:boolean;
+
+    /**
      * 数据接口地址
      *
      * @type {*}
      * @memberof IBizGroupSelect
      */  
-    @Prop() url?: string;
+    @Prop() url!: string;
 
     /**
      * 多选
@@ -166,10 +174,24 @@ export default class IBizGroupSelect extends Vue {
             title: '分组选择'
         };
         const context: any = JSON.parse(JSON.stringify(this.context));
+        let filtervalue:string = "";
+        if(this.filter){
+            if(this.data[this.filter]){
+                filtervalue = this.data[this.filter];
+            }else if(context[this.filter]){
+                filtervalue = context[this.filter];
+            }else{
+                filtervalue = context.srforgid;
+            }
+        }else{
+            filtervalue = context.srforgid;
+        }
         const param: any = {};
         Object.assign(param, {
-            hasfilter: this.filter ? true : false,
-            filtervalue: this.filter ? this.data[this.filter] : '',
+            showtree: this.treeurl?true:false,
+            url:this.url,
+            treeurl:this.treeurl,
+            filtervalue: filtervalue,
             multiple: this.multiple,
             selects: this.selects
         });
@@ -189,7 +211,6 @@ export default class IBizGroupSelect extends Vue {
      * @memberof IBizGroupSelect
      */  
     public openViewClose(result: any) {
-        console.log(result)
         this.selects = [];
         if (result.datas && result.datas.length > 0) {
             this.selects = result.datas
