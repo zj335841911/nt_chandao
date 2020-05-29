@@ -10,19 +10,19 @@
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productplan.main_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
         <i-col v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='title' :itemRules="this.rules.title" class='' :caption="$t('entities.productplan.main_form.details.title')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='title' :itemRules="this.rules.title" class='' :caption="$t('entities.productplan.main_form.details.title')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box v-model="data.title"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.title.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.begin.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='begin' :itemRules="this.rules.begin" class='' :caption="$t('entities.productplan.main_form.details.begin')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.begin.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='begin' :itemRules="this.rules.begin" class='' :caption="$t('entities.productplan.main_form.details.begin')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.begin.error" :isEmptyCaption="false" labelPos="LEFT">
     <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.begin" :disabled="detailsModel.begin.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.begin = val1 }"></date-picker>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.end.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='end' :itemRules="this.rules.end" class='' :caption="$t('entities.productplan.main_form.details.end')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.end.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='end' :itemRules="this.rules.end" class='' :caption="$t('entities.productplan.main_form.details.end')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.end.error" :isEmptyCaption="false" labelPos="LEFT">
     <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.end" :disabled="detailsModel.end.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.end = val1 }"></date-picker>
 </app-form-item>
 
@@ -33,7 +33,7 @@
 
 </i-col>
 <i-col v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.productplan.main_form.details.desc')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.productplan.main_form.details.desc')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="LEFT">
     <div class="ivu-input-wrapper ivu-input-wrapper-default ivu-input-type">
     <textarea class="ivu-input" :rows="10" v-model="data.desc" :disabled="detailsModel.desc.disabled" style="height:200px;"></textarea>
 </div>

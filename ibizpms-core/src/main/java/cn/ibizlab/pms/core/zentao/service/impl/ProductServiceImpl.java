@@ -188,8 +188,8 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     public boolean create(Product et) {
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductHelper.create((JSONObject) JSONObject.toJSON(et), rst);
-        if (bRst) {
-            this.get(rst.getEtId());
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
         }
 	    return bRst;
     }

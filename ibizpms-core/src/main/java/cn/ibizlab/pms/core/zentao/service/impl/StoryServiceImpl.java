@@ -85,19 +85,18 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     @Override
     @Transactional
     public boolean create(Story et) {
-        fillParentData(et);
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.create((JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return bRst;
     }
 
     @Override
     public void createBatch(List<Story> list) {
-        list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
-    }
 
+    }
     @Override
     public boolean checkKey(Story et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
