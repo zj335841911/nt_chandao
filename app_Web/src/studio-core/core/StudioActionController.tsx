@@ -64,7 +64,7 @@ export class StudioActionController {
      * @type {boolean}
      * @memberof StudioActionController
      */
-    public isShowTool: boolean = false;
+    public isShowTool: boolean = Object.is(window.localStorage.getItem('isShowViewConfigActions' + Environment.AppName), 'true');;
 
     /**
      * Creates an instance of StudioActionController.
@@ -204,6 +204,7 @@ export class StudioActionController {
      */
     public showToolChange(): void {
         this.isShowTool = !this.isShowTool;
+        window.localStorage.setItem('isShowViewConfigActions' + Environment.AppName, this.isShowTool ? 'true' : 'false');
     }
 
     /**
