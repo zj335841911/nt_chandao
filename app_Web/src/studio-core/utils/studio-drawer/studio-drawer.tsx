@@ -1,4 +1,4 @@
-import { Vue, Component } from 'vue-property-decorator';
+import { Vue, Component, Watch } from 'vue-property-decorator';
 import { CreateElement } from 'vue/types/umd';
 import { Subject, Observable } from 'rxjs';
 import { Util } from '@/utils';
@@ -63,6 +63,18 @@ export class StudioDrawer extends Vue {
     protected isShow: boolean = false;
 
     /**
+     * 监控模态展示状态变更
+     *
+     * @memberof StudioDrawer
+     */
+    @Watch('isShow')
+    public isShowWatch(newVal: boolean, oldVal: boolean): void {
+        if (newVal !== oldVal && oldVal === false) {
+            this.$store.commit('updateZIndex', this.zIndex - 1);
+        }
+    }
+
+    /**
      * 视图层级
      *
      * @protected
@@ -122,7 +134,7 @@ export class StudioDrawer extends Vue {
             if (!this.isShow) {
                 const zIndex: number = this.$store.getters.getZIndex();
                 if (zIndex) {
-                    this.zIndex = zIndex + 100;
+                    this.zIndex = zIndex + 1;
                     this.$store.commit('updateZIndex', this.zIndex);
                 }
                 setTimeout(() => this.isShow = true, 50);

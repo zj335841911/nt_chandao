@@ -178,7 +178,7 @@ export default class AppModalCompponent extends Vue {
         };
         const zIndex = this.$store.getters.getZIndex();
         if (zIndex) {
-            this.zIndex = zIndex + 100;
+            this.zIndex = zIndex + 1;
             this.$store.commit('updateZIndex', this.zIndex);
         }
         this.isShow = true;
@@ -192,7 +192,7 @@ export default class AppModalCompponent extends Vue {
     public beforeDestroy() {
         if (this.zIndex) {
             const zIndex: any = this.zIndex;
-            this.$store.commit('updateZIndex', zIndex - 100);
+            this.$store.commit('updateZIndex', zIndex - 1);
         }
     }
 

@@ -11,7 +11,7 @@ export const rootstate: any = {
     selectFont: '',
     appdata: '',
     localdata: {},
-    zIndex: 1000,
+    zIndex: 300,
     viewSplit: {},
     copyDataMap:{},
     orgDataMap:{},
