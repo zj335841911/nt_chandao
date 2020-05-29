@@ -231,7 +231,7 @@ export default class SidebarBase extends Vue implements ControlInterface {
      * @type {number}
      * @memberof Sidebar
      */
-    public limit: number = 20;
+    public limit: number = 1000;
 
     /**
      * 总条数

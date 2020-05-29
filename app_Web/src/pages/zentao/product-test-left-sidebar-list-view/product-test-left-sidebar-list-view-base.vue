@@ -7,7 +7,11 @@
     <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
                 <div class='toolbar-container'>
-            <i-button :title="$t('entities.product.testleftsidebarlistviewtoolbar_toolbar.deuiaction2.tip')" v-show="toolBarModels.deuiaction2.visabled" :disabled="toolBarModels.deuiaction2.disabled" class='' @click="toolbar_click({ tag: 'deuiaction2' }, $event)">
+            <i-button :title="$t('entities.product.testleftsidebarlistviewtoolbar_toolbar.deuiaction3_testmanager.tip')" v-show="toolBarModels.deuiaction3_testmanager.visabled" :disabled="toolBarModels.deuiaction3_testmanager.disabled" class='' @click="toolbar_click({ tag: 'deuiaction3_testmanager' }, $event)">
+                    <i class='fa fa-list'></i>
+                    <span class='caption'>{{$t('entities.product.testleftsidebarlistviewtoolbar_toolbar.deuiaction3_testmanager.caption')}}</span>
+                </i-button>
+            <span class='seperator'>|</span>    <i-button :title="$t('entities.product.testleftsidebarlistviewtoolbar_toolbar.deuiaction2.tip')" v-show="toolBarModels.deuiaction2.visabled" :disabled="toolBarModels.deuiaction2.disabled" class='' @click="toolbar_click({ tag: 'deuiaction2' }, $event)">
                     <i class='fa fa-refresh'></i>
                     <span class='caption'>{{$t('entities.product.testleftsidebarlistviewtoolbar_toolbar.deuiaction2.caption')}}</span>
                 </i-button>
@@ -44,6 +48,7 @@ import ProductService from '@/service/product/product-service';
 import ListViewEngine from '@engine/view/list-view-engine';
 
 
+import ProductUIService from '@/uiservice/product/product-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -222,6 +227,9 @@ export default class ProductTestLeftSidebarListViewBase extends Vue {
      * @memberof ProductTestLeftSidebarListView
      */
     public toolBarModels: any = {
+        deuiaction3_testmanager: { name: 'deuiaction3_testmanager', caption: '管理', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'TestManager', target: 'NONE' } },
+
+        seperator1: {  name: 'seperator1', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
         deuiaction2: { name: 'deuiaction2', caption: '刷新', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Refresh', target: '' } },
 
     };
@@ -458,6 +466,9 @@ export default class ProductTestLeftSidebarListViewBase extends Vue {
      * @memberof ProductTestLeftSidebarListViewBase
      */
     public toolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction3_testmanager')) {
+            this.toolbar_deuiaction3_testmanager_click(null, '', $event2);
+        }
         if (Object.is($event.tag, 'deuiaction2')) {
             this.toolbar_deuiaction2_click(null, '', $event2);
         }
@@ -524,6 +535,36 @@ export default class ProductTestLeftSidebarListViewBase extends Vue {
     }
 
 
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public toolbar_deuiaction3_testmanager_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        
+        let contextJO:any = {};
+        xData = this.$refs.list;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:ProductUIService  = new ProductUIService();
+        curUIService.Product_TestManager(datas,contextJO, paramJO,  $event, xData,this,"Product");
+    }
 
     /**
      * 逻辑事件

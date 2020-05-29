@@ -250,7 +250,7 @@ export default class GetRoadmapYearBase extends Vue implements ControlInterface 
      * @type {number}
      * @memberof GetRoadmapYear
      */
-    public limit: number = 20;
+    public limit: number = 1000;
 
     /**
      * 总条数

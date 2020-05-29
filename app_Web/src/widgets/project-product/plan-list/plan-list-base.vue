@@ -233,7 +233,7 @@ export default class PlanBase extends Vue implements ControlInterface {
      * @type {number}
      * @memberof Plan
      */
-    public limit: number = 20;
+    public limit: number = 1000;
 
     /**
      * 总条数
