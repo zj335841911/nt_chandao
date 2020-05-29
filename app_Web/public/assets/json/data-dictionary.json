@@ -28,33 +28,6 @@
         ]
     }, 
     {
-        "srfkey": "Task__closed_reason",
-        "emptytext": "未定义",
-        "codelisttype":"static",
-        "items": [
-             {
-                "id": "done",
-                "label": "已完成",
-                "text": "已完成",
-                "data":"",
-                "codename":"Done",
-                "value": "done",
-                
-                "disabled": false
-            }
-            , {
-                "id": "cancel",
-                "label": "已取消",
-                "text": "已取消",
-                "data":"",
-                "codename":"Cancel",
-                "value": "cancel",
-                
-                "disabled": false
-            }
-        ]
-    }, 
-    {
         "srfkey": "Bug__status",
         "emptytext": "未定义",
         "codelisttype":"static",
@@ -167,14 +140,6 @@
                 "disabled": false
             }
         ]
-    }, 
-    {
-        "srfkey": "UserRealName",
-        "emptytext": "未定义",
-        "codelisttype":"dynamic",
-        "appdataentity":"User",
-        "appdedataset":"FetchDefault",
-        "items": []
     }, 
     {
         "srfkey": "Task__type",
@@ -312,171 +277,6 @@
         ]
     }, 
     {
-        "srfkey": "Product__type",
-        "emptytext": "未定义",
-        "codelisttype":"static",
-        "items": [
-             {
-                "id": "normal",
-                "label": "正常",
-                "text": "正常",
-                "data":"",
-                "codename":"Normal",
-                "color": "blue",
-                "value": "normal",
-                
-                "disabled": false
-            }
-            , {
-                "id": "branch",
-                "label": "多分支",
-                "text": "多分支",
-                "data":"",
-                "codename":"Branch",
-                "value": "branch",
-                
-                "disabled": false
-            }
-            , {
-                "id": "platform",
-                "label": "多平台",
-                "text": "多平台",
-                "data":"",
-                "codename":"Platform",
-                "value": "platform",
-                
-                "disabled": false
-            }
-        ]
-    }, 
-    {
-        "srfkey": "Story__quickpacket",
-        "emptytext": "未定义",
-        "codelisttype":"static",
-        "items": [
-             {
-                "id": "ALL",
-                "label": "所有",
-                "text": "所有",
-                "data":"",
-                "codename":"All",
-                "value": "ALL",
-                
-                "disabled": false
-            }
-            , {
-                "id": "UNCLOSED",
-                "label": "未关闭",
-                "text": "未关闭",
-                "data":{"n_stage_noteq":"closed"},
-                "codename":"Unclosed",
-                "value": "UNCLOSED",
-                
-                "disabled": false
-            }
-            , {
-                "id": "TOME",
-                "label": "指给我",
-                "text": "指给我",
-                "data":{"n_assignedto_eq":"%SRFUSERID%"},
-                "codename":"Tome",
-                "value": "TOME",
-                
-                "disabled": false
-            }
-            , {
-                "id": "ICREATE",
-                "label": "我创建",
-                "text": "我创建",
-                "data":{"n_openedby_eq":"%SRFUSERID%"},
-                "codename":"Icreate",
-                "value": "ICREATE",
-                
-                "disabled": false
-            }
-            , {
-                "id": "IREVIEW",
-                "label": "我评审",
-                "text": "我评审",
-                "data":{"n_reviewedby_eq":"%SRFUSERID%"},
-                "codename":"Ireview",
-                "value": "IREVIEW",
-                
-                "disabled": false
-            }
-            , {
-                "id": "DRAFT",
-                "label": "草稿",
-                "text": "草稿",
-                "data":{"n_status_eq":"draft"},
-                "codename":"Draft",
-                "value": "DRAFT",
-                
-                "disabled": false
-            }
-            , {
-                "id": "MORE",
-                "label": "更多",
-                "text": "更多",
-                "data":"",
-                "codename":"More",
-                "value": "MORE",
-                
-                "disabled": false
-            }
-            , {
-                "id": "ICLOSE",
-                "label": "我关闭",
-                "text": "我关闭",
-                "data":{"n_closedby_eq":"%SRFUSERID%"},
-                "codename":"Iclose",
-                "value": "ICLOSE",
-                "pvalue": "MORE",
-                "disabled": false
-            }
-            , {
-                "id": "ACTIVED",
-                "label": "激活",
-                "text": "激活",
-                "data":{"n_status_eq":"active"},
-                "codename":"Actived",
-                "value": "ACTIVED",
-                "pvalue": "MORE",
-                "disabled": false
-            }
-            , {
-                "id": "CHANGED",
-                "label": "已变更",
-                "text": "已变更",
-                "data":{"n_status_eq":"changed"},
-                "codename":"Changed",
-                "value": "CHANGED",
-                "pvalue": "MORE",
-                "disabled": false
-            }
-            , {
-                "id": "TOBECLOSED",
-                "label": "待关闭",
-                "text": "待关闭",
-                "data":{"n_stage_eq":"released"},
-                "codename":"Tobeclosed",
-                "value": "TOBECLOSED",
-                "pvalue": "MORE",
-                "disabled": false
-            }
-            , {
-                "id": "CLOSED",
-                "label": "已关闭",
-                "text": "已关闭",
-                "data":{"n_status_eq":"closed"},
-                "codename":"Closed",
-                "value": "CLOSED",
-                "pvalue": "MORE",
-                "disabled": false
-            }
-        ]
-    }, 
-    {
         "srfkey": "Product__acl",
         "emptytext": "未定义",
         "codelisttype":"static",
@@ -508,224 +308,6 @@
                 "data":"",
                 "codename":"Custom",
                 "value": "custom",
-                
-                "disabled": false
-            }
-        ]
-    }, 
-    {
-        "srfkey": "Project__type",
-        "emptytext": "未定义",
-        "codelisttype":"static",
-        "items": [
-             {
-                "id": "sprint",
-                "label": "短期项目",
-                "text": "短期项目",
-                "data":"",
-                "codename":"Sprint",
-                "value": "sprint",
-                
-                "disabled": false
-            }
-            , {
-                "id": "waterfall",
-                "label": "长期项目",
-                "text": "长期项目",
-                "data":"",
-                "codename":"Waterfall",
-                "value": "waterfall",
-                
-                "disabled": false
-            }
-            , {
-                "id": "ops",
-                "label": "运维项目",
-                "text": "运维项目",
-                "data":"",
-                "codename":"Ops",
-                "value": "ops",
-                
-                "disabled": false
-            }
-        ]
-    }, 
-    {
-        "srfkey": "Story__stage",
-        "emptytext": "未定义",
-        "codelisttype":"static",
-        "items": [
-             {
-                "id": "wait",
-                "label": "未开始",
-                "text": "未开始",
-                "data":"",
-                "codename":"Wait",
-                "value": "wait",
-                
-                "disabled": false
-            }
-            , {
-                "id": "planned",
-                "label": "已计划",
-                "text": "已计划",
-                "data":"",
-                "codename":"Planned",
-                "value": "planned",
-                
-                "disabled": false
-            }
-            , {
-                "id": "projected",
-                "label": "已立项",
-                "text": "已立项",
-                "data":"",
-                "codename":"Projected",
-                "value": "projected",
-                
-                "disabled": false
-            }
-            , {
-                "id": "developing",
-                "label": "研发中",
-                "text": "研发中",
-                "data":"",
-                "codename":"Developing",
-                "value": "developing",
-                
-                "disabled": false
-            }
-            , {
-                "id": "developed",
-                "label": "研发完毕",
-                "text": "研发完毕",
-                "data":"",
-                "codename":"Developed",
-                "value": "developed",
-                
-                "disabled": false
-            }
-            , {
-                "id": "testing",
-                "label": "测试中",
-                "text": "测试中",
-                "data":"",
-                "codename":"Testing",
-                "value": "testing",
-                
-                "disabled": false
-            }
-            , {
-                "id": "tested",
-                "label": "测试完毕",
-                "text": "测试完毕",
-                "data":"",
-                "codename":"Tested",
-                "value": "tested",
-                
-                "disabled": false
-            }
-            , {
-                "id": "verified",
-                "label": "已验收",
-                "text": "已验收",
-                "data":"",
-                "codename":"Verified",
-                "value": "verified",
-                
-                "disabled": false
-            }
-            , {
-                "id": "released",
-                "label": "已发布",
-                "text": "已发布",
-                "data":"",
-                "codename":"Released",
-                "value": "released",
-                
-                "disabled": false
-            }
-            , {
-                "id": "closed",
-                "label": "已关闭",
-                "text": "已关闭",
-                "data":"",
-                "codename":"Closed",
-                "value": "closed",
-                
-                "disabled": false
-            }
-        ]
-    }, 
-    {
-        "srfkey": "Story__status",
-        "emptytext": "未定义",
-        "codelisttype":"static",
-        "items": [
-             {
-                "id": "draft",
-                "label": "草稿",
-                "text": "草稿",
-                "data":"",
-                "codename":"Draft",
-                "value": "draft",
-                
-                "disabled": false
-            }
-            , {
-                "id": "active",
-                "label": "激活",
-                "text": "激活",
-                "data":"",
-                "codename":"Active",
-                "value": "active",
-                
-                "disabled": false
-            }
-            , {
-                "id": "closed",
-                "label": "已关闭",
-                "text": "已关闭",
-                "data":"",
-                "codename":"Closed",
-                "value": "closed",
-                
-                "disabled": false
-            }
-            , {
-                "id": "changed",
-                "label": "已变更",
-                "text": "已变更",
-                "data":"",
-                "codename":"Changed",
-                "value": "changed",
-                
-                "disabled": false
-            }
-        ]
-    }, 
-    {
-        "srfkey": "Action__read",
-        "emptytext": "未定义",
-        "codelisttype":"static",
-        "items": [
-             {
-                "id": "0",
-                "label": "0",
-                "text": "0",
-                "data":"",
-                "codename":"Item_0",
-                "value": "0",
-                
-                "disabled": false
-            }
-            , {
-                "id": "1",
-                "label": "1",
-                "text": "1",
-                "data":"",
-                "codename":"Item_1",
-                "value": "1",
                 
                 "disabled": false
             }
@@ -1459,180 +1041,6 @@
         ]
     }, 
     {
-        "srfkey": "YesNo3",
-        "emptytext": "未定义",
-        "codelisttype":"static",
-        "items": [
-             {
-                "id": "yes",
-                "label": "是",
-                "text": "是",
-                "data":"",
-                "codename":"Yes",
-                "value": "yes",
-                
-                "disabled": false
-            }
-            , {
-                "id": "no",
-                "label": "否",
-                "text": "否",
-                "data":"",
-                "codename":"No",
-                "value": "no",
-                
-                "disabled": false
-            }
-        ]
-    }, 
-    {
-        "srfkey": "Story__source",
-        "emptytext": "未定义",
-        "codelisttype":"static",
-        "items": [
-             {
-                "id": "customer",
-                "label": "客户",
-                "text": "客户",
-                "data":"",
-                "codename":"Customer",
-                "value": "customer",
-                
-                "disabled": false
-            }
-            , {
-                "id": "user",
-                "label": "用户",
-                "text": "用户",
-                "data":"",
-                "codename":"User",
-                "value": "user",
-                
-                "disabled": false
-            }
-            , {
-                "id": "po",
-                "label": "产品经理",
-                "text": "产品经理",
-                "data":"",
-                "codename":"Po",
-                "value": "po",
-                
-                "disabled": false
-            }
-            , {
-                "id": "market",
-                "label": "市场",
-                "text": "市场",
-                "data":"",
-                "codename":"Market",
-                "value": "market",
-                
-                "disabled": false
-            }
-            , {
-                "id": "service",
-                "label": "客服",
-                "text": "客服",
-                "data":"",
-                "codename":"Service",
-                "value": "service",
-                
-                "disabled": false
-            }
-            , {
-                "id": "operation",
-                "label": "运营",
-                "text": "运营",
-                "data":"",
-                "codename":"Operation",
-                "value": "operation",
-                
-                "disabled": false
-            }
-            , {
-                "id": "support",
-                "label": "技术支持",
-                "text": "技术支持",
-                "data":"",
-                "codename":"Support",
-                "value": "support",
-                
-                "disabled": false
-            }
-            , {
-                "id": "competitor",
-                "label": "竞争对手",
-                "text": "竞争对手",
-                "data":"",
-                "codename":"Competitor",
-                "value": "competitor",
-                
-                "disabled": false
-            }
-            , {
-                "id": "partner",
-                "label": "合作伙伴",
-                "text": "合作伙伴",
-                "data":"",
-                "codename":"Partner",
-                "value": "partner",
-                
-                "disabled": false
-            }
-            , {
-                "id": "dev",
-                "label": "开发人员",
-                "text": "开发人员",
-                "data":"",
-                "codename":"Dev",
-                "value": "dev",
-                
-                "disabled": false
-            }
-            , {
-                "id": "tester",
-                "label": "测试人员",
-                "text": "测试人员",
-                "data":"",
-                "codename":"Tester",
-                "value": "tester",
-                
-                "disabled": false
-            }
-            , {
-                "id": "bug",
-                "label": "Bug",
-                "text": "Bug",
-                "data":"",
-                "codename":"Bug",
-                "value": "bug",
-                
-                "disabled": false
-            }
-            , {
-                "id": "forum",
-                "label": "论坛",
-                "text": "论坛",
-                "data":"",
-                "codename":"Forum",
-                "value": "forum",
-                
-                "disabled": false
-            }
-            , {
-                "id": "other",
-                "label": "其它",
-                "text": "其它",
-                "data":"",
-                "codename":"Other",
-                "value": "other",
-                
-                "disabled": false
-            }
-        ]
-    }, 
-    {
         "srfkey": "Action__object_type",
         "emptytext": "未定义",
         "codelisttype":"static",
@@ -1870,73 +1278,6 @@
         ]
     }, 
     {
-        "srfkey": "Task__status",
-        "emptytext": "未定义",
-        "codelisttype":"static",
-        "items": [
-             {
-                "id": "wait",
-                "label": "未开始",
-                "text": "未开始",
-                "data":"",
-                "codename":"Wait",
-                "value": "wait",
-                
-                "disabled": false
-            }
-            , {
-                "id": "doing",
-                "label": "进行中",
-                "text": "进行中",
-                "data":"",
-                "codename":"Doing",
-                "value": "doing",
-                
-                "disabled": false
-            }
-            , {
-                "id": "done",
-                "label": "已完成",
-                "text": "已完成",
-                "data":"",
-                "codename":"Done",
-                "value": "done",
-                
-                "disabled": false
-            }
-            , {
-                "id": "pause",
-                "label": "已暂停",
-                "text": "已暂停",
-                "data":"",
-                "codename":"Pause",
-                "value": "pause",
-                
-                "disabled": false
-            }
-            , {
-                "id": "cancel",
-                "label": "已取消",
-                "text": "已取消",
-                "data":"",
-                "codename":"Cancel",
-                "value": "cancel",
-                
-                "disabled": false
-            }
-            , {
-                "id": "closed",
-                "label": "已关闭",
-                "text": "已关闭",
-                "data":"",
-                "codename":"Closed",
-                "value": "closed",
-                
-                "disabled": false
-            }
-        ]
-    }, 
-    {
         "srfkey": "Task__pri",
         "emptytext": "未定义",
         "codelisttype":"static",
@@ -2031,33 +1372,6 @@
         ]
     }, 
     {
-        "srfkey": "YesNo2",
-        "emptytext": "未定义",
-        "codelisttype":"static",
-        "items": [
-             {
-                "id": "1",
-                "label": "是",
-                "text": "是",
-                "data":"",
-                "codename":"Item_1",
-                "value": 1,
-                
-                "disabled": false
-            }
-            , {
-                "id": "0",
-                "label": "否",
-                "text": "否",
-                "data":"",
-                "codename":"Item_0",
-                "value": 0,
-                
-                "disabled": false
-            }
-        ]
-    }, 
-    {
         "srfkey": "Release__status",
         "emptytext": "未定义",
         "codelisttype":"static",
@@ -2080,6 +1394,786 @@
                 "data":"",
                 "codename":"Terminate",
                 "value": "terminate",
+                
+                "disabled": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "Task__closed_reason",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "done",
+                "label": "已完成",
+                "text": "已完成",
+                "data":"",
+                "codename":"Done",
+                "value": "done",
+                
+                "disabled": false
+            }
+            , {
+                "id": "cancel",
+                "label": "已取消",
+                "text": "已取消",
+                "data":"",
+                "codename":"Cancel",
+                "value": "cancel",
+                
+                "disabled": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "UserRealName",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"User",
+        "appdedataset":"FetchDefault",
+        "items": []
+    }, 
+    {
+        "srfkey": "Product__type",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "normal",
+                "label": "正常",
+                "text": "正常",
+                "data":"",
+                "codename":"Normal",
+                "color": "blue",
+                "value": "normal",
+                
+                "disabled": false
+            }
+            , {
+                "id": "branch",
+                "label": "多分支",
+                "text": "多分支",
+                "data":"",
+                "codename":"Branch",
+                "value": "branch",
+                
+                "disabled": false
+            }
+            , {
+                "id": "platform",
+                "label": "多平台",
+                "text": "多平台",
+                "data":"",
+                "codename":"Platform",
+                "value": "platform",
+                
+                "disabled": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "Testcase__status",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "wait",
+                "label": "待评审",
+                "text": "待评审",
+                "data":"",
+                "codename":"Wait",
+                "value": "wait",
+                
+                "disabled": false
+            }
+            , {
+                "id": "normal",
+                "label": "正常",
+                "text": "正常",
+                "data":"",
+                "codename":"Normal",
+                "value": "normal",
+                
+                "disabled": false
+            }
+            , {
+                "id": "blocked",
+                "label": "被阻塞",
+                "text": "被阻塞",
+                "data":"",
+                "codename":"Blocked",
+                "value": "blocked",
+                
+                "disabled": false
+            }
+            , {
+                "id": "investigate",
+                "label": "研究中",
+                "text": "研究中",
+                "data":"",
+                "codename":"Investigate",
+                "value": "investigate",
+                
+                "disabled": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "Story__quickpacket",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "ALL",
+                "label": "所有",
+                "text": "所有",
+                "data":"",
+                "codename":"All",
+                "value": "ALL",
+                
+                "disabled": false
+            }
+            , {
+                "id": "UNCLOSED",
+                "label": "未关闭",
+                "text": "未关闭",
+                "data":{"n_stage_noteq":"closed"},
+                "codename":"Unclosed",
+                "value": "UNCLOSED",
+                
+                "disabled": false
+            }
+            , {
+                "id": "TOME",
+                "label": "指给我",
+                "text": "指给我",
+                "data":{"n_assignedto_eq":"%SRFUSERID%"},
+                "codename":"Tome",
+                "value": "TOME",
+                
+                "disabled": false
+            }
+            , {
+                "id": "ICREATE",
+                "label": "我创建",
+                "text": "我创建",
+                "data":{"n_openedby_eq":"%SRFUSERID%"},
+                "codename":"Icreate",
+                "value": "ICREATE",
+                
+                "disabled": false
+            }
+            , {
+                "id": "IREVIEW",
+                "label": "我评审",
+                "text": "我评审",
+                "data":{"n_reviewedby_eq":"%SRFUSERID%"},
+                "codename":"Ireview",
+                "value": "IREVIEW",
+                
+                "disabled": false
+            }
+            , {
+                "id": "DRAFT",
+                "label": "草稿",
+                "text": "草稿",
+                "data":{"n_status_eq":"draft"},
+                "codename":"Draft",
+                "value": "DRAFT",
+                
+                "disabled": false
+            }
+            , {
+                "id": "MORE",
+                "label": "更多",
+                "text": "更多",
+                "data":"",
+                "codename":"More",
+                "value": "MORE",
+                
+                "disabled": false
+            }
+            , {
+                "id": "ICLOSE",
+                "label": "我关闭",
+                "text": "我关闭",
+                "data":{"n_closedby_eq":"%SRFUSERID%"},
+                "codename":"Iclose",
+                "value": "ICLOSE",
+                "pvalue": "MORE",
+                "disabled": false
+            }
+            , {
+                "id": "ACTIVED",
+                "label": "激活",
+                "text": "激活",
+                "data":{"n_status_eq":"active"},
+                "codename":"Actived",
+                "value": "ACTIVED",
+                "pvalue": "MORE",
+                "disabled": false
+            }
+            , {
+                "id": "CHANGED",
+                "label": "已变更",
+                "text": "已变更",
+                "data":{"n_status_eq":"changed"},
+                "codename":"Changed",
+                "value": "CHANGED",
+                "pvalue": "MORE",
+                "disabled": false
+            }
+            , {
+                "id": "TOBECLOSED",
+                "label": "待关闭",
+                "text": "待关闭",
+                "data":{"n_stage_eq":"released"},
+                "codename":"Tobeclosed",
+                "value": "TOBECLOSED",
+                "pvalue": "MORE",
+                "disabled": false
+            }
+            , {
+                "id": "CLOSED",
+                "label": "已关闭",
+                "text": "已关闭",
+                "data":{"n_status_eq":"closed"},
+                "codename":"Closed",
+                "value": "CLOSED",
+                "pvalue": "MORE",
+                "disabled": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "Project__type",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "sprint",
+                "label": "短期项目",
+                "text": "短期项目",
+                "data":"",
+                "codename":"Sprint",
+                "value": "sprint",
+                
+                "disabled": false
+            }
+            , {
+                "id": "waterfall",
+                "label": "长期项目",
+                "text": "长期项目",
+                "data":"",
+                "codename":"Waterfall",
+                "value": "waterfall",
+                
+                "disabled": false
+            }
+            , {
+                "id": "ops",
+                "label": "运维项目",
+                "text": "运维项目",
+                "data":"",
+                "codename":"Ops",
+                "value": "ops",
+                
+                "disabled": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "Story__stage",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "wait",
+                "label": "未开始",
+                "text": "未开始",
+                "data":"",
+                "codename":"Wait",
+                "value": "wait",
+                
+                "disabled": false
+            }
+            , {
+                "id": "planned",
+                "label": "已计划",
+                "text": "已计划",
+                "data":"",
+                "codename":"Planned",
+                "value": "planned",
+                
+                "disabled": false
+            }
+            , {
+                "id": "projected",
+                "label": "已立项",
+                "text": "已立项",
+                "data":"",
+                "codename":"Projected",
+                "value": "projected",
+                
+                "disabled": false
+            }
+            , {
+                "id": "developing",
+                "label": "研发中",
+                "text": "研发中",
+                "data":"",
+                "codename":"Developing",
+                "value": "developing",
+                
+                "disabled": false
+            }
+            , {
+                "id": "developed",
+                "label": "研发完毕",
+                "text": "研发完毕",
+                "data":"",
+                "codename":"Developed",
+                "value": "developed",
+                
+                "disabled": false
+            }
+            , {
+                "id": "testing",
+                "label": "测试中",
+                "text": "测试中",
+                "data":"",
+                "codename":"Testing",
+                "value": "testing",
+                
+                "disabled": false
+            }
+            , {
+                "id": "tested",
+                "label": "测试完毕",
+                "text": "测试完毕",
+                "data":"",
+                "codename":"Tested",
+                "value": "tested",
+                
+                "disabled": false
+            }
+            , {
+                "id": "verified",
+                "label": "已验收",
+                "text": "已验收",
+                "data":"",
+                "codename":"Verified",
+                "value": "verified",
+                
+                "disabled": false
+            }
+            , {
+                "id": "released",
+                "label": "已发布",
+                "text": "已发布",
+                "data":"",
+                "codename":"Released",
+                "value": "released",
+                
+                "disabled": false
+            }
+            , {
+                "id": "closed",
+                "label": "已关闭",
+                "text": "已关闭",
+                "data":"",
+                "codename":"Closed",
+                "value": "closed",
+                
+                "disabled": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "Story__status",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "draft",
+                "label": "草稿",
+                "text": "草稿",
+                "data":"",
+                "codename":"Draft",
+                "value": "draft",
+                
+                "disabled": false
+            }
+            , {
+                "id": "active",
+                "label": "激活",
+                "text": "激活",
+                "data":"",
+                "codename":"Active",
+                "value": "active",
+                
+                "disabled": false
+            }
+            , {
+                "id": "closed",
+                "label": "已关闭",
+                "text": "已关闭",
+                "data":"",
+                "codename":"Closed",
+                "value": "closed",
+                
+                "disabled": false
+            }
+            , {
+                "id": "changed",
+                "label": "已变更",
+                "text": "已变更",
+                "data":"",
+                "codename":"Changed",
+                "value": "changed",
+                
+                "disabled": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "Action__read",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "0",
+                "label": "0",
+                "text": "0",
+                "data":"",
+                "codename":"Item_0",
+                "value": "0",
+                
+                "disabled": false
+            }
+            , {
+                "id": "1",
+                "label": "1",
+                "text": "1",
+                "data":"",
+                "codename":"Item_1",
+                "value": "1",
+                
+                "disabled": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "YesNo3",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "yes",
+                "label": "是",
+                "text": "是",
+                "data":"",
+                "codename":"Yes",
+                "value": "yes",
+                
+                "disabled": false
+            }
+            , {
+                "id": "no",
+                "label": "否",
+                "text": "否",
+                "data":"",
+                "codename":"No",
+                "value": "no",
+                
+                "disabled": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "Story__source",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "customer",
+                "label": "客户",
+                "text": "客户",
+                "data":"",
+                "codename":"Customer",
+                "value": "customer",
+                
+                "disabled": false
+            }
+            , {
+                "id": "user",
+                "label": "用户",
+                "text": "用户",
+                "data":"",
+                "codename":"User",
+                "value": "user",
+                
+                "disabled": false
+            }
+            , {
+                "id": "po",
+                "label": "产品经理",
+                "text": "产品经理",
+                "data":"",
+                "codename":"Po",
+                "value": "po",
+                
+                "disabled": false
+            }
+            , {
+                "id": "market",
+                "label": "市场",
+                "text": "市场",
+                "data":"",
+                "codename":"Market",
+                "value": "market",
+                
+                "disabled": false
+            }
+            , {
+                "id": "service",
+                "label": "客服",
+                "text": "客服",
+                "data":"",
+                "codename":"Service",
+                "value": "service",
+                
+                "disabled": false
+            }
+            , {
+                "id": "operation",
+                "label": "运营",
+                "text": "运营",
+                "data":"",
+                "codename":"Operation",
+                "value": "operation",
+                
+                "disabled": false
+            }
+            , {
+                "id": "support",
+                "label": "技术支持",
+                "text": "技术支持",
+                "data":"",
+                "codename":"Support",
+                "value": "support",
+                
+                "disabled": false
+            }
+            , {
+                "id": "competitor",
+                "label": "竞争对手",
+                "text": "竞争对手",
+                "data":"",
+                "codename":"Competitor",
+                "value": "competitor",
+                
+                "disabled": false
+            }
+            , {
+                "id": "partner",
+                "label": "合作伙伴",
+                "text": "合作伙伴",
+                "data":"",
+                "codename":"Partner",
+                "value": "partner",
+                
+                "disabled": false
+            }
+            , {
+                "id": "dev",
+                "label": "开发人员",
+                "text": "开发人员",
+                "data":"",
+                "codename":"Dev",
+                "value": "dev",
+                
+                "disabled": false
+            }
+            , {
+                "id": "tester",
+                "label": "测试人员",
+                "text": "测试人员",
+                "data":"",
+                "codename":"Tester",
+                "value": "tester",
+                
+                "disabled": false
+            }
+            , {
+                "id": "bug",
+                "label": "Bug",
+                "text": "Bug",
+                "data":"",
+                "codename":"Bug",
+                "value": "bug",
+                
+                "disabled": false
+            }
+            , {
+                "id": "forum",
+                "label": "论坛",
+                "text": "论坛",
+                "data":"",
+                "codename":"Forum",
+                "value": "forum",
+                
+                "disabled": false
+            }
+            , {
+                "id": "other",
+                "label": "其它",
+                "text": "其它",
+                "data":"",
+                "codename":"Other",
+                "value": "other",
+                
+                "disabled": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "Task__status",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "wait",
+                "label": "未开始",
+                "text": "未开始",
+                "data":"",
+                "codename":"Wait",
+                "value": "wait",
+                
+                "disabled": false
+            }
+            , {
+                "id": "doing",
+                "label": "进行中",
+                "text": "进行中",
+                "data":"",
+                "codename":"Doing",
+                "value": "doing",
+                
+                "disabled": false
+            }
+            , {
+                "id": "done",
+                "label": "已完成",
+                "text": "已完成",
+                "data":"",
+                "codename":"Done",
+                "value": "done",
+                
+                "disabled": false
+            }
+            , {
+                "id": "pause",
+                "label": "已暂停",
+                "text": "已暂停",
+                "data":"",
+                "codename":"Pause",
+                "value": "pause",
+                
+                "disabled": false
+            }
+            , {
+                "id": "cancel",
+                "label": "已取消",
+                "text": "已取消",
+                "data":"",
+                "codename":"Cancel",
+                "value": "cancel",
+                
+                "disabled": false
+            }
+            , {
+                "id": "closed",
+                "label": "已关闭",
+                "text": "已关闭",
+                "data":"",
+                "codename":"Closed",
+                "value": "closed",
+                
+                "disabled": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "Testcase__pri",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "1",
+                "label": "1",
+                "text": "1",
+                "data":"",
+                "codename":"Item_1",
+                "value": 1,
+                
+                "disabled": false
+            }
+            , {
+                "id": "2",
+                "label": "2",
+                "text": "2",
+                "data":"",
+                "codename":"Item_2",
+                "value": 2,
+                
+                "disabled": false
+            }
+            , {
+                "id": "3",
+                "label": "3",
+                "text": "3",
+                "data":"",
+                "codename":"Item_3",
+                "value": 3,
+                
+                "disabled": false
+            }
+            , {
+                "id": "4",
+                "label": "4",
+                "text": "4",
+                "data":"",
+                "codename":"Item_4",
+                "value": 4,
+                
+                "disabled": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "YesNo2",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "1",
+                "label": "是",
+                "text": "是",
+                "data":"",
+                "codename":"Item_1",
+                "value": 1,
+                
+                "disabled": false
+            }
+            , {
+                "id": "0",
+                "label": "否",
+                "text": "否",
+                "data":"",
+                "codename":"Item_0",
+                "value": 0,
                 
                 "disabled": false
             }

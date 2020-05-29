@@ -77,6 +77,10 @@ export default {
                 caption: '项目主页',
                 title: '项目主页',
             },
+            testportalview: {
+                caption: '测试主页',
+                title: '测试主页',
+            },
         },
         utilview:{
             importview:"Import Data",

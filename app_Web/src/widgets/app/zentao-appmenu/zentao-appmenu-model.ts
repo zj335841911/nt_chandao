@@ -89,9 +89,9 @@ export default class ZentaoModel {
                 	iconcls: '',
                 	icon: '',
                 	textcls: '',
-                	appfunctag: 'Auto3',
+                	appfunctag: '_3',
                 	appfuncyype: 'APPVIEW',
-                	viewname: 'product-test-grid-view',
+                	viewname: 'test-portal-view',
                 	resourcetag: '',
                 }
                 ,
@@ -173,7 +173,7 @@ export default class ZentaoModel {
                 	iconcls: 'fa fa-cogs',
                 	icon: '',
                 	textcls: '',
-                	appfunctag: '_3',
+                	appfunctag: '_4',
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'product-test-left-sidebar-list-view',
                 	resourcetag: '',
@@ -231,7 +231,7 @@ export default class ZentaoModel {
 	 */
 	private funcs: any[] = [
         {
-            appfunctag: '_3',
+            appfunctag: '_4',
             appfuncyype: 'APPVIEW',
             openmode: '',
             codename: 'producttestleftsidebarlistview',
@@ -240,18 +240,6 @@ export default class ZentaoModel {
             parameters: [
                 { pathName: 'products', parameterName: 'product' },
                 { pathName: 'testleftsidebarlistview', parameterName: 'testleftsidebarlistview' },
-            ],
-        },
-        {
-            appfunctag: 'Auto3',
-            appfuncyype: 'APPVIEW',
-            openmode: '',
-            codename: 'producttestgridview',
-            deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/products/:product?/testgridview/:testgridview?',
-            parameters: [
-                { pathName: 'products', parameterName: 'product' },
-                { pathName: 'testgridview', parameterName: 'testgridview' },
             ],
         },
         {
@@ -298,6 +286,17 @@ export default class ZentaoModel {
             routepath: '/ibizpms/:ibizpms?/productportalview/:productportalview?',
             parameters: [
                 { pathName: 'productportalview', parameterName: 'productportalview' },
+            ],
+        },
+        {
+            appfunctag: '_3',
+            appfuncyype: 'APPVIEW',
+            openmode: '',
+            codename: 'testportalview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/testportalview/:testportalview?',
+            parameters: [
+                { pathName: 'testportalview', parameterName: 'testportalview' },
             ],
         },
 	];

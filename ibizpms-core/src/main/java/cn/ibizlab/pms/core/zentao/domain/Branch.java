@@ -29,7 +29,6 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 /**
  * 实体[产品的分支和平台信息]
  */
-@Builder
 @Getter
 @Setter
 @NoArgsConstructor

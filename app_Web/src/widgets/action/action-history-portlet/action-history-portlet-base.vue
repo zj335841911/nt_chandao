@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet action-history ' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : 'auto',}">
+    <div class='portlet action-history ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
         <p class='portlet-title'>
             <i class=''></i>
             历史记录

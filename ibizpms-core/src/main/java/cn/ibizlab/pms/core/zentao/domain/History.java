@@ -29,7 +29,6 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 /**
  * 实体[操作历史]
  */
-@Builder
 @Getter
 @Setter
 @NoArgsConstructor

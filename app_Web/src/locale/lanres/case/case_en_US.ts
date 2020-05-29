@@ -48,6 +48,10 @@ export default {
 			caption: "测试用例",
       title: '测试用例',
 		},
+		gridview9: {
+			caption: "测试用例",
+      title: '测试用例',
+		},
 		gridview: {
 			caption: "测试用例",
       title: '测试用例',
@@ -74,7 +78,18 @@ export default {
 	},
 	main_grid: {
 		columns: {
+			pri: "P",
 			title: "用例标题",
+			status: "状态",
+		},
+		uiactions: {
+		},
+	},
+	main2_grid: {
+		columns: {
+			pri: "P",
+			title: "用例标题",
+			status: "状态",
 		},
 		uiactions: {
 		},

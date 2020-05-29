@@ -23,8 +23,22 @@
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
+            <template v-if="getColumnState('pri')">
+                <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.case.main_grid.columns.pri')" :width="70"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.case.main_grid.columns.pri')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template >
+            <codelist :value="row.pri" tag='Testcase__pri' codelistType='STATIC' ></codelist>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="getColumnState('title')">
-                <el-table-column show-overflow-tooltip :prop="'title'" :label="$t('entities.case.main_grid.columns.title')" :width="150"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'title'" :label="$t('entities.case.main_grid.columns.title')" :min-width="1"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.case.main_grid.columns.title')}}
@@ -32,6 +46,20 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <span>{{row.title}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('status')">
+                <el-table-column show-overflow-tooltip :prop="'status'" :label="$t('entities.case.main_grid.columns.status')" :width="80"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.case.main_grid.columns.status')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template >
+            <codelist :value="row.status" tag='Testcase__status' codelistType='STATIC' ></codelist>
+                        </template>
                     </template>
                 </el-table-column>
             </template>
@@ -513,9 +541,23 @@ export default class MainBase extends Vue implements ControlInterface {
      */
     public allColumns: any[] = [
         {
+            name: 'pri',
+            label: 'P',
+            langtag: 'entities.case.main_grid.columns.pri',
+            show: true,
+            util: 'PX'
+        },
+        {
             name: 'title',
             label: '用例标题',
             langtag: 'entities.case.main_grid.columns.title',
+            show: true,
+            util: 'STAR'
+        },
+        {
+            name: 'status',
+            label: '状态',
+            langtag: 'entities.case.main_grid.columns.status',
             show: true,
             util: 'PX'
         },
@@ -906,6 +948,22 @@ export default class MainBase extends Vue implements ControlInterface {
      */
     public async formatExcelData(filterVal:any, jsonData:any) {
         let codelistColumns:Array<any> = [
+          {
+            name: 'pri',
+            srfkey: 'Testcase__pri',
+            codelistType : 'STATIC',
+            renderMode: 'other',
+            textSeparator: '、',
+            valueSeparator: ',',
+          },
+          {
+            name: 'status',
+            srfkey: 'Testcase__status',
+            codelistType : 'STATIC',
+            renderMode: 'other',
+            textSeparator: '、',
+            valueSeparator: ',',
+          },
         ];
         let _this = this;
         for (const codelist of codelistColumns) {

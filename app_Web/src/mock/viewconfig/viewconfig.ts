@@ -159,6 +159,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskMainGridView9_Child",
             "viewtag": "2e0d4fb0f3e1ba1ba5bea16a5553cc21"
         },
+        "testtaskgridview9_untested": {
+            "title": "测试版本表格视图",
+            "caption": "测试版本",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "TestTaskGridView9_UnTested",
+            "viewtag": "3091670967914b91fb4b6f46751dcd7e"
+        },
         "taskmaininfoview9": {
             "title": "任务编辑视图",
             "caption": "任务",
@@ -398,6 +406,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "StoryMainView_EditMode",
             "viewtag": "7e14015af219d302f7d81ff40cdcc418"
+        },
+        "casegridview9": {
+            "title": "测试用例表格视图",
+            "caption": "测试用例",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "CaseGridView9",
+            "viewtag": "7f9b2e4d5b622528df75121b824b6fcc"
         },
         "buggridview9_assignedtome": {
             "title": "Bug表格视图",

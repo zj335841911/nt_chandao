@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet main-info ' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : 'auto',}">
+    <div class='portlet main-info ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
         <div class="portlet-without-title">
         <task-main-info-view9 :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></task-main-info-view9>
         </div>

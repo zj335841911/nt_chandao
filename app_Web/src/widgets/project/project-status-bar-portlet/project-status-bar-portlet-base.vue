@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet project-status-bar ' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : '370px',}">
+    <div class='portlet project-status-bar ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : '370px',}">
         <p class='portlet-title'>
             <i class=''></i>
             项目总览

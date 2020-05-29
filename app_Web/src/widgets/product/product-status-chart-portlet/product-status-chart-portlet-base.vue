@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet product-status-chart ' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : '370px',}">
+    <div class='portlet product-status-chart ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : '370px',}">
         <p class='portlet-title'>
             <i class=''></i>
             产品总览

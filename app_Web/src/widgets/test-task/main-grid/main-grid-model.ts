@@ -32,6 +32,11 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
           name: 'project',
           prop: 'project',
           dataType: 'PICKUP',
@@ -60,6 +65,16 @@ export default class MainModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
+        },
+        {
+          name: 'end',
+          prop: 'end',
+          dataType: 'DATE',
+        },
+        {
+          name: 'begin',
+          prop: 'begin',
+          dataType: 'DATE',
         },
         {
           name: 'testtask',

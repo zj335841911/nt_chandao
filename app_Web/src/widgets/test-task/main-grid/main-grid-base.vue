@@ -23,8 +23,32 @@
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
+            <template v-if="getColumnState('id')">
+                <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.testtask.main_grid.columns.id')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.testtask.main_grid.columns.id')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.id}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('product')">
+                <el-table-column show-overflow-tooltip :prop="'product'" :label="$t('entities.testtask.main_grid.columns.product')" :width="250"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.testtask.main_grid.columns.product')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.product}}</span>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.testtask.main_grid.columns.name')" :width="150"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.testtask.main_grid.columns.name')" :width="250"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.testtask.main_grid.columns.name')}}
@@ -32,6 +56,54 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <span>{{row.name}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('project')">
+                <el-table-column show-overflow-tooltip :prop="'project'" :label="$t('entities.testtask.main_grid.columns.project')" :width="250"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.testtask.main_grid.columns.project')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.project}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('build')">
+                <el-table-column show-overflow-tooltip :prop="'build'" :label="$t('entities.testtask.main_grid.columns.build')" :width="80"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.testtask.main_grid.columns.build')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.build}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('begin')">
+                <el-table-column show-overflow-tooltip :prop="'begin'" :label="$t('entities.testtask.main_grid.columns.begin')" :width="160"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.testtask.main_grid.columns.begin')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <app-format-data format="YYYY-MM-DD" :data="row.begin"></app-format-data>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('end')">
+                <el-table-column show-overflow-tooltip :prop="'end'" :label="$t('entities.testtask.main_grid.columns.end')" :width="160"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.testtask.main_grid.columns.end')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <app-format-data format="YYYY-MM-DD" :data="row.end"></app-format-data>
                     </template>
                 </el-table-column>
             </template>
@@ -513,9 +585,51 @@ export default class MainBase extends Vue implements ControlInterface {
      */
     public allColumns: any[] = [
         {
+            name: 'id',
+            label: 'ID',
+            langtag: 'entities.testtask.main_grid.columns.id',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'product',
+            label: '所属产品',
+            langtag: 'entities.testtask.main_grid.columns.product',
+            show: true,
+            util: 'PX'
+        },
+        {
             name: 'name',
             label: '名称',
             langtag: 'entities.testtask.main_grid.columns.name',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'project',
+            label: '所属项目',
+            langtag: 'entities.testtask.main_grid.columns.project',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'build',
+            label: '版本',
+            langtag: 'entities.testtask.main_grid.columns.build',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'begin',
+            label: '开始日期',
+            langtag: 'entities.testtask.main_grid.columns.begin',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'end',
+            label: '结束日期',
+            langtag: 'entities.testtask.main_grid.columns.end',
             show: true,
             util: 'PX'
         },

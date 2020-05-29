@@ -19,6 +19,10 @@ export default {
     project: '所属项目',
   },
 	views: {
+		gridview9_untested: {
+			caption: "测试版本",
+      title: '测试版本',
+		},
 		editview: {
 			caption: "测试版本",
       title: '测试版本',
@@ -49,7 +53,26 @@ export default {
 	},
 	main_grid: {
 		columns: {
+			id: "ID",
+			product: "所属产品",
 			name: "名称",
+			project: "所属项目",
+			build: "版本",
+			begin: "开始日期",
+			end: "结束日期",
+		},
+		uiactions: {
+		},
+	},
+	main2_grid: {
+		columns: {
+			id: "ID",
+			product: "所属产品",
+			name: "名称",
+			project: "所属项目",
+			build: "版本",
+			begin: "开始日期",
+			end: "结束日期",
 		},
 		uiactions: {
 		},

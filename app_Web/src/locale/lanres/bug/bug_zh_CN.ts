@@ -290,6 +290,4 @@ export default {
 			tip: '刷新',
 		},
 	},
-	gridview9_assignedtometoolbar_toolbar: {
-	},
 };

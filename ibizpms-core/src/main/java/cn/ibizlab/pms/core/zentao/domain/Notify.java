@@ -29,7 +29,6 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 /**
  * 实体[通知]
  */
-@Builder
 @Getter
 @Setter
 @NoArgsConstructor

@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet get-roadmap ' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : '300px',}">
+    <div class='portlet get-roadmap ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : '300px',}">
         <p class='portlet-title'>
             <i class=''></i>
             产品路线图

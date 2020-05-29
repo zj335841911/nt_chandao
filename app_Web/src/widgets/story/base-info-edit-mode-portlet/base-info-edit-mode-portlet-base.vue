@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet base-info-edit-mode ' :style="{'height': isAdaptiveSize ? 'clac(100% - 16px)' : 'auto',}">
+    <div class='portlet base-info-edit-mode ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
         <div class="portlet-without-title">
         <story-main-view9-edit-mode :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></story-main-view9-edit-mode>
         </div>

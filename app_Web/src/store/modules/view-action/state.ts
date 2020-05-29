@@ -131,7 +131,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '7af111f4c127f7032c3e12e8c5fc0045',
-                '1d697dd8e47a4781be8f690bcc5f7800',
+                'D1283E46-401A-4CFD-A7A1-BF5B90197463',
                 'CC49500F-030F-458F-82DF-F88F6973DF64',
                 'A49E5FD9-FC90-434B-9E13-192873F6F2AC',
                 '7c79a923d0cdd1a5bc41a34367809077',
@@ -156,6 +156,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'ea141fddc78fd1af4d06e494baf12cc1',
+            ],
+        },
+        {
+            viewtag: '3091670967914b91fb4b6f46751dcd7e',
+            viewmodule: 'zentao',
+            viewname: 'TestTaskGridView9_UnTested',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '5b139a407fa34f386f3f784f33841184',
             ],
         },
         {
@@ -457,6 +467,26 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '7f9b2e4d5b622528df75121b824b6fcc',
+            viewmodule: 'zentao',
+            viewname: 'CaseGridView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '02b7ecd8e994b90558a9d6c23705f600',
+            ],
+        },
+        {
+            viewtag: '81893d14e76cac341d4218a9c5ef185d',
+            viewmodule: 'zentao',
+            viewname: 'BugGridView9_AssignedToMe',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '46517a803b2470cd0bef27aeda0dbcaf',
+            ],
+        },
+        {
             viewtag: '81b0cee2fedff8f4902c0d735714e5af',
             viewmodule: 'zentao',
             viewname: 'ProductPlanGridView',
@@ -737,6 +767,18 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'D1283E46-401A-4CFD-A7A1-BF5B90197463',
+            viewmodule: 'Ungroup',
+            viewname: 'TestPortalView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '7f9b2e4d5b622528df75121b824b6fcc',
+                '3091670967914b91fb4b6f46751dcd7e',
+                '81893d14e76cac341d4218a9c5ef185d',
             ],
         },
         {

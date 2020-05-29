@@ -27,6 +27,36 @@ export default class MainModel {
     }else{
 		  return [
         {
+          name: 'module',
+          prop: 'module',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'frombug',
+          prop: 'frombug',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'srfmajortext',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'srfkey',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
           name: 'product',
           prop: 'product',
           dataType: 'PICKUP',
@@ -37,9 +67,9 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
         },
         {
           name: 'title',
@@ -52,34 +82,14 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'frombug',
-          prop: 'frombug',
+          name: 'fromcaseid',
+          prop: 'fromcaseid',
           dataType: 'PICKUP',
         },
         {
           name: 'branch',
           prop: 'branch',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'fromcaseid',
-          prop: 'fromcaseid',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
         },
         {
           name: 'case',

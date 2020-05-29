@@ -29,7 +29,6 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 /**
  * 实体[产品生命周期]
  */
-@Builder
 @Getter
 @Setter
 @NoArgsConstructor
