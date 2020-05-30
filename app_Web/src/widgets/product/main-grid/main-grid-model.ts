@@ -75,32 +75,6 @@ export default class MainModel {
           name: 'product',
           prop: 'id',
         },
-      {
-        name: 'n_acl_eq',
-        prop: 'n_acl_eq',
-        dataType: 'SSCODELIST',
-      },
-      {
-        name: 'n_line_eq',
-        prop: 'n_line_eq',
-        dataType: 'PICKUP',
-      },
-      {
-        name: 'n_linename_like',
-        prop: 'n_linename_like',
-        dataType: 'PICKUPTEXT',
-      },
-      {
-        name: 'n_linename_eq',
-        prop: 'n_linename_eq',
-        dataType: 'PICKUPTEXT',
-      },
-      {
-        name: 'n_name_like',
-        prop: 'n_name_like',
-        dataType: 'TEXT',
-      },
-
         {
           name:'size',
           prop:'size'

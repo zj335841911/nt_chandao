@@ -75,7 +75,6 @@ export default class MainModel {
           name: 'project',
           prop: 'id',
         },
-
         {
           name:'size',
           prop:'size'

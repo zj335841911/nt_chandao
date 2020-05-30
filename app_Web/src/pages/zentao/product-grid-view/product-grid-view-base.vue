@@ -3,78 +3,18 @@
     <template slot='title'>
     <span class='caption-info'>{{$t(model.srfTitle)}}</span>
     </template>
-    <i-input slot="quickSearch" v-show="!isExpandSearchForm" v-model="query" search @on-search="onSearch($event)"/>
+    <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
                 <div class='toolbar-container'>
-            <i-button :title="$t('entities.product.gridviewtoolbar_toolbar.tbitem3.tip')" v-show="toolBarModels.tbitem3.visabled" :disabled="toolBarModels.tbitem3.disabled" class='' @click="toolbar_click({ tag: 'tbitem3' }, $event)">
-                    <i class='fa fa-file-text-o'></i>
-                    <span class='caption'>{{$t('entities.product.gridviewtoolbar_toolbar.tbitem3.caption')}}</span>
-                </i-button>
-            <i-button :title="$t('entities.product.gridviewtoolbar_toolbar.tbitem4.tip')" v-show="toolBarModels.tbitem4.visabled" :disabled="toolBarModels.tbitem4.disabled" class='' @click="toolbar_click({ tag: 'tbitem4' }, $event)">
-                    <i class='fa fa-edit'></i>
-                    <span class='caption'>{{$t('entities.product.gridviewtoolbar_toolbar.tbitem4.caption')}}</span>
-                </i-button>
-            <i-button :title="$t('entities.product.gridviewtoolbar_toolbar.tbitem6.tip')" v-show="toolBarModels.tbitem6.visabled" :disabled="toolBarModels.tbitem6.disabled" class='' @click="toolbar_click({ tag: 'tbitem6' }, $event)">
-                    <i class='fa fa-copy'></i>
-                    <span class='caption'>{{$t('entities.product.gridviewtoolbar_toolbar.tbitem6.caption')}}</span>
-                </i-button>
-            <span class='seperator'>|</span>    <i-button :title="$t('entities.product.gridviewtoolbar_toolbar.tbitem8.tip')" v-show="toolBarModels.tbitem8.visabled" :disabled="toolBarModels.tbitem8.disabled" class='' @click="toolbar_click({ tag: 'tbitem8' }, $event)">
+            <i-button :title="$t('entities.product.gridviewtoolbar_toolbar.deuiaction4.tip')" v-show="toolBarModels.deuiaction4.visabled" :disabled="toolBarModels.deuiaction4.disabled" class='' @click="toolbar_click({ tag: 'deuiaction4' }, $event)">
                     <i class='fa fa-remove'></i>
-                    <span class='caption'>{{$t('entities.product.gridviewtoolbar_toolbar.tbitem8.caption')}}</span>
+                    <span class='caption'>{{$t('entities.product.gridviewtoolbar_toolbar.deuiaction4.caption')}}</span>
                 </i-button>
-            <span class='seperator'>|</span>    <app-export-excel :item="toolBarModels.tbitem13" :caption="$t('entities.product.gridviewtoolbar_toolbar.tbitem13.caption')" @exportexcel="toolbar_click({ tag: 'tbitem13' }, $event)"></app-export-excel>
-            <span class='seperator'>|</span>    <dropdown v-show="toolBarModels.tbitem16.visabled" :transfer="true" trigger='hover'>
-                <i-button class='' title="$t('entities.product.gridviewtoolbar_toolbar.tbitem16.tip')">
-                    <i class=''></i>
-                    <span class='caption'>{{$t('entities.product.gridviewtoolbar_toolbar.tbitem16.caption')}}</span>
-                    <icon type="ios-arrow-down"></icon>
-                </i-button>
-                <dropdown-menu slot='list'>
-                    <dropdown-item>
-                            <i-button :title="$t('entities.product.gridviewtoolbar_toolbar.tbitem21.tip')" v-show="toolBarModels.tbitem21.visabled" :disabled="toolBarModels.tbitem21.disabled" class='' @click="toolbar_click({ tag: 'tbitem21' }, $event)">
-                    <i class='fa fa-download'></i>
-                    <span class='caption'>{{$t('entities.product.gridviewtoolbar_toolbar.tbitem21.caption')}}</span>
-                </i-button>
-            
-            
-                    </dropdown-item>
-                    <dropdown-item>
-                            <i-button :title="$t('entities.product.gridviewtoolbar_toolbar.tbitem23.tip')" v-show="toolBarModels.tbitem23.visabled" :disabled="toolBarModels.tbitem23.disabled" class='' @click="toolbar_click({ tag: 'tbitem23' }, $event)">
-                    <i class='fa fa-upload'></i>
-                    <span class='caption'>{{$t('entities.product.gridviewtoolbar_toolbar.tbitem23.caption')}}</span>
-                </i-button>
-            
-            
-                    </dropdown-item>
-                </dropdown-menu>
-            </dropdown>
-            <span class='seperator'>|</span>    <i-button :title="$t('entities.product.gridviewtoolbar_toolbar.tbitem19.tip')" v-show="toolBarModels.tbitem19.visabled" :disabled="toolBarModels.tbitem19.disabled" class='' @click="toolbar_click({ tag: 'tbitem19' }, $event)">
-                    <i class='fa fa-filter'></i>
-                    <span class='caption'>{{$t('entities.product.gridviewtoolbar_toolbar.tbitem19.caption')}}</span>
-                </i-button>
-            <i-button :title="$t('entities.product.gridviewtoolbar_toolbar.tbitem18.tip')" v-show="toolBarModels.tbitem18.visabled" :disabled="toolBarModels.tbitem18.disabled" class='' @click="toolbar_click({ tag: 'tbitem18' }, $event)">
-                    <i class='fa fa-question'></i>
-                    <span class='caption'>{{$t('entities.product.gridviewtoolbar_toolbar.tbitem18.caption')}}</span>
+            <span class='seperator'>|</span>    <i-button :title="$t('entities.product.gridviewtoolbar_toolbar.deuiaction2.tip')" v-show="toolBarModels.deuiaction2.visabled" :disabled="toolBarModels.deuiaction2.disabled" class='' @click="toolbar_click({ tag: 'deuiaction2' }, $event)">
+                    <i class='fa fa-refresh'></i>
+                    <span class='caption'>{{$t('entities.product.gridviewtoolbar_toolbar.deuiaction2.caption')}}</span>
                 </i-button>
         </div>
-    </template>
-    <template slot="searchForm">
-                <view_searchform 
-            :viewState="viewState"  
-            :viewparams="viewparams" 
-            :context="context" 
-            :showBusyIndicator="true"
-            v-show="isExpandSearchForm"
-            loaddraftAction="FilterGetDraft"
-            loadAction="FilterGet"
-        
-            name="searchform"  
-            ref='searchform' 
-            @save="searchform_save($event)"  
-            @search="searchform_search($event)"  
-            @load="searchform_load($event)"  
-            @closeview="closeView($event)">
-        </view_searchform>
     </template>
     <view_grid 
         :viewState="viewState"  
@@ -260,7 +200,6 @@ export default class ProductGridViewBase extends Vue {
     public containerModel: any = {
         view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
         view_grid: { name: 'grid', type: 'GRID' },
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
     };
 
     /**
@@ -294,29 +233,10 @@ export default class ProductGridViewBase extends Vue {
      * @memberof ProductGridView
      */
     public toolBarModels: any = {
-        tbitem3: { name: 'tbitem3', caption: '新建', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'New', target: '' } },
+        deuiaction4: { name: 'deuiaction4', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Remove', target: 'MULTIKEY' } },
 
-        tbitem4: { name: 'tbitem4', caption: '编辑', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Edit', target: 'SINGLEKEY' } },
-
-        tbitem6: { name: 'tbitem6', caption: '拷贝', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Copy', target: 'SINGLEKEY' } },
-
-        tbitem7: {  name: 'tbitem7', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
-        tbitem8: { name: 'tbitem8', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Remove', target: 'MULTIKEY' } },
-
-        tbitem9: {  name: 'tbitem9', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
-        tbitem13: { name: 'tbitem13', caption: '导出', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000  },
-
-        tbitem10: {  name: 'tbitem10', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
-        tbitem16: { name: 'tbitem16', caption: '其它', disabled: false, type: 'ITEMS', visabled: true, dataaccaction: '', uiaction: { } }, 
- tbitem21: { name: 'tbitem21', caption: '导出数据模型', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'ExportModel', target: '' } },
-
- tbitem23: { name: 'tbitem23', caption: '数据导入', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Import', target: '' } },
-
-
-        tbitem17: {  name: 'tbitem17', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
-        tbitem19: { name: 'tbitem19', caption: '过滤', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '' } },
-
-        tbitem18: { name: 'tbitem18', caption: '帮助', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Help', target: '' } },
+        seperator1: {  name: 'seperator1', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
+        deuiaction2: { name: 'deuiaction2', caption: '刷新', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Refresh', target: '' } },
 
     };
 
@@ -349,7 +269,6 @@ export default class ProductGridViewBase extends Vue {
                 this.newdata(args,fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
-            searchform: this.$refs.searchform,
             keyPSDEField: 'product',
             majorPSDEField: 'name',
             isLoadDefault: true,
@@ -565,44 +484,11 @@ export default class ProductGridViewBase extends Vue {
      * @memberof ProductGridViewBase
      */
     public toolbar_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'tbitem3')) {
-            this.toolbar_tbitem3_click(null, '', $event2);
+        if (Object.is($event.tag, 'deuiaction4')) {
+            this.toolbar_deuiaction4_click(null, '', $event2);
         }
-        if (Object.is($event.tag, 'tbitem4')) {
-            this.toolbar_tbitem4_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'tbitem5')) {
-            this.toolbar_tbitem5_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'tbitem6')) {
-            this.toolbar_tbitem6_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'tbitem24')) {
-            this.toolbar_tbitem24_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'tbitem25')) {
-            this.toolbar_tbitem25_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'tbitem8')) {
-            this.toolbar_tbitem8_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'tbitem13')) {
-            this.toolbar_tbitem13_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'tbitem11')) {
-            this.toolbar_tbitem11_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'tbitem21')) {
-            this.toolbar_tbitem21_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'tbitem23')) {
-            this.toolbar_tbitem23_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'tbitem19')) {
-            this.toolbar_tbitem19_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'tbitem18')) {
-            this.toolbar_tbitem18_click(null, '', $event2);
+        if (Object.is($event.tag, 'deuiaction2')) {
+            this.toolbar_deuiaction2_click(null, '', $event2);
         }
     }
 
@@ -667,42 +553,6 @@ export default class ProductGridViewBase extends Vue {
     }
 
 
-    /**
-     * searchform 部件 save 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof ProductGridViewBase
-     */
-    public searchform_save($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('searchform', 'save', $event);
-    }
-
-
-    /**
-     * searchform 部件 search 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof ProductGridViewBase
-     */
-    public searchform_search($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('searchform', 'search', $event);
-    }
-
-
-    /**
-     * searchform 部件 load 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof ProductGridViewBase
-     */
-    public searchform_load($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('searchform', 'load', $event);
-    }
-
-
 
     /**
      * 逻辑事件
@@ -712,181 +562,7 @@ export default class ProductGridViewBase extends Vue {
      * @param {*} [$event]
      * @memberof 
      */
-    public toolbar_tbitem3_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.New(datas, contextJO,paramJO,  $event, xData,this,"Product");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_tbitem4_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.Edit(datas, contextJO,paramJO,  $event, xData,this,"Product");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_tbitem5_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.View(datas, contextJO,paramJO,  $event, xData,this,"Product");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_tbitem6_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.Copy(datas, contextJO,paramJO,  $event, xData,this,"Product");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_tbitem24_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.ToggleRowEdit(datas, contextJO,paramJO,  $event, xData,this,"Product");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_tbitem25_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.NewRow(datas, contextJO,paramJO,  $event, xData,this,"Product");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_tbitem8_click(params: any = {}, tag?: any, $event?: any) {
+    public toolbar_deuiaction4_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];
@@ -915,7 +591,7 @@ export default class ProductGridViewBase extends Vue {
      * @param {*} [$event]
      * @memberof 
      */
-    public toolbar_tbitem13_click(params: any = {}, tag?: any, $event?: any) {
+    public toolbar_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];
@@ -933,152 +609,7 @@ export default class ProductGridViewBase extends Vue {
           datas = [params];
         }
         // 界面行为
-        this.ExportExcel(datas, contextJO,paramJO,  $event, xData,this,"Product");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_tbitem11_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.Print(datas, contextJO,paramJO,  $event, xData,this,"Product");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_tbitem21_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.ExportModel(datas, contextJO,paramJO,  $event, xData,this,"Product");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_tbitem23_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.Import(datas, contextJO,paramJO,  $event, xData,this,"Product");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_tbitem19_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.ToggleFilter(datas, contextJO,paramJO,  $event, xData,this,"Product");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_tbitem18_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.Help(datas, contextJO,paramJO,  $event, xData,this,"Product");
+        this.Refresh(datas, contextJO,paramJO,  $event, xData,this,"Product");
     }
 
     /**
@@ -1159,146 +690,6 @@ export default class ProductGridViewBase extends Vue {
 
 
     /**
-     * 新建
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof ProductGridViewBase
-     */
-    public New(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-         const _this: any = this;
-        if (_this.newdata && _this.newdata instanceof Function) {
-            const data: any = {};
-            _this.newdata([{ ...data }],[{ ...data }], params, $event, xData);
-        } else {
-            _this.$Notice.error({ title: '错误', desc: 'newdata 视图处理逻辑不存在，请添加!' });
-        }
-    }
-    /**
-     * 编辑
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof ProductGridViewBase
-     */
-    public Edit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        if (args.length === 0) {
-            return;
-        }
-        const _this: any = this;
-        if (_this.opendata && _this.opendata instanceof Function) {
-            const data: any = { };
-            if (args.length > 0) {
-                Object.assign(data, { product: args[0].product })
-            }
-            _this.opendata([{ ...data }], params, $event, xData);
-        } else {
-            _this.$Notice.error({ title: '错误', desc: 'opendata 视图处理逻辑不存在，请添加!' });
-        }
-    }
-    /**
-     * 查看
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof ProductGridViewBase
-     */
-    public View(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        if (args.length === 0) {
-            return;
-        }
-        const _this: any = this;
-        if (_this.opendata && _this.opendata instanceof Function) {
-            const data: any = { };
-            if (args.length > 0) {
-                Object.assign(data, { product: args[0].product })
-            }
-            _this.opendata([{ ...data }], params, $event, xData);
-        } else {
-            _this.$Notice.error({ title: '错误', desc: 'opendata 视图处理逻辑不存在，请添加!' });
-        }
-    }
-    /**
-     * 拷贝
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof ProductGridViewBase
-     */
-    public Copy(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        if (args.length === 0) {
-            return;
-        }
-        const _this: any = this;
-        if (_this.newdata && _this.newdata instanceof Function) {
-            const data: any = {};
-            if (args.length > 0) {
-                Object.assign(data, { srfsourcekey: args[0].srfkey })
-                actionContext.$store.commit('addCopyData', { srfkey: args[0].srfkey, copyData: args[0] });
-            }
-            _this.newdata([{ ...data }],[{ ...data }],params, $event, xData);
-        } else if (xData && xData.copy instanceof Function) {
-            if (args.length > 0) {
-                actionContext.$store.commit('addCopyData', { srfkey: args[0].srfkey, copyData: args[0] });
-            }
-            xData.copy(args[0].srfkey);
-        } else {
-            _this.$Notice.error({ title: '错误', desc: 'opendata 视图处理逻辑不存在，请添加!' });
-        }
-    }
-    /**
-     * 行编辑
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof ProductGridViewBase
-     */
-    public ToggleRowEdit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        xData.actualIsOpenEdit = !xData.actualIsOpenEdit;
-    }
-    /**
-     * 新建行
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof ProductGridViewBase
-     */
-    public NewRow(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        const data: any = {};
-        if (_this.newRow && _this.newRow instanceof Function) {
-            _this.newRow([{ ...data }], params, $event, xData);
-        } else if(xData.newRow && xData.newRow instanceof Function) {
-            xData.newRow([{ ...data }], params, $event, xData);
-        }else{
-            _this.$Notice.error({ title: '错误', desc: 'newRow 视图处理逻辑不存在，请添加!' });
-        }
-    }
-    /**
      * 删除
      *
      * @param {any[]} args 当前数据
@@ -1318,7 +709,7 @@ export default class ProductGridViewBase extends Vue {
     }
 
     /**
-     * 导出
+     * 刷新
      *
      * @param {any[]} args 当前数据
      * @param {any} contextJO 行为附加上下文
@@ -1328,93 +719,13 @@ export default class ProductGridViewBase extends Vue {
      * @param {*} [actionContext]  执行行为上下文
      * @memberof ProductGridViewBase
      */
-    public ExportExcel(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public Refresh(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         const _this: any = this;
-        if (!xData || !(xData.exportExcel instanceof Function) || !$event) {
-            return ;
+        if (xData && xData.refresh && xData.refresh instanceof Function) {
+            xData.refresh(args);
+        } else if (_this.refresh && _this.refresh instanceof Function) {
+            _this.refresh(args);
         }
-        xData.exportExcel($event.exportparms);
-    }
-    /**
-     * 打印
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof ProductGridViewBase
-     */
-    public Print(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        let _this:any = this;
-        if (!xData || !(xData.print instanceof Function) || !$event) {
-            return ;
-        }
-        xData.print();
-    }
-    /**
-     * 导出数据模型
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof ProductGridViewBase
-     */
-    public ExportModel(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        this.$Notice.error({ title: '错误', desc: '导出数据模型未支持' });
-    }
-    /**
-     * 数据导入
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof ProductGridViewBase
-     */
-    public Import(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        if (!xData || !(xData.importExcel instanceof Function) || !$event) {
-            return ;
-        }
-        xData.importExcel(params);
-    }
-    /**
-     * 过滤
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof ProductGridViewBase
-     */
-    public ToggleFilter(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        if (_this.hasOwnProperty('isExpandSearchForm')) {
-            _this.isExpandSearchForm = !_this.isExpandSearchForm;
-        }
-    }
-    /**
-     * 帮助
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof ProductGridViewBase
-     */
-    public Help(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        this.$Notice.error({ title: '错误', desc: '帮助未支持' });
     }
 
     /**
