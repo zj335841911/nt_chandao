@@ -16,6 +16,8 @@ export default class ExpModel {
 		return [
 			{
 				name: 'srfmajortext',
+				prop: 'name',
+				dataType: 'TEXT',
 			},
 			{
 				name: 'srfkey',
