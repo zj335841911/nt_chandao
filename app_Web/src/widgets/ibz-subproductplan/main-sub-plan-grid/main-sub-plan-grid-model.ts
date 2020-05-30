@@ -77,6 +77,11 @@ export default class MainSubPlanModel {
           dataType: 'DATE',
         },
         {
+          name: 'productplan',
+          prop: 'id',
+          dataType: 'FONTKEY',
+        },
+        {
           name: 'ibz_subproductplan',
           prop: 'id',
         },

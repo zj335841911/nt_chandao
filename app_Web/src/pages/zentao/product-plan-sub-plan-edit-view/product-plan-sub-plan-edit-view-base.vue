@@ -477,33 +477,6 @@ export default class ProductPlanSubPlanEditViewBase extends Vue {
         }
     }
 
-    /**
-     * 销毁视图回调
-     *
-     * @memberof ProductPlanSubPlanEditViewBase
-     */
-    public destroyed(){
-        this.afterDestroyed();
-    }
-
-    /**
-     * 执行destroyed后的逻辑
-     * 
-     * @memberof ProductPlanSubPlanEditViewBase
-     */
-    public afterDestroyed(){
-        if(this.viewDefaultUsage){
-            let localStoreLength = Object.keys(localStorage);
-            if(localStoreLength.length > 0){
-                localStoreLength.forEach((item:string) =>{
-                if(item.startsWith(this.context.srfsessionid)){
-                    localStorage.removeItem(item);
-                }
-                })
-            }
-        }
-    }
-
 
 }
 </script>

@@ -54,7 +54,6 @@ export default class IBZ_SUBPRODUCTPLANServiceBase extends EntityService {
         if(context.productplan && context.ibz_subproductplan){
             return Http.getInstance().get(`/productplans/${context.productplan}/ibz_subproductplans/${context.ibz_subproductplan}/select`,isloading);
         }
-            return Http.getInstance().get(`/ibz_subproductplans/${context.ibz_subproductplan}/select`,isloading);
     }
 
     /**
@@ -73,10 +72,6 @@ export default class IBZ_SUBPRODUCTPLANServiceBase extends EntityService {
         if(context.productplan && context.ibz_subproductplan){
             return Http.getInstance().post(`/productplans/${context.productplan}/ibz_subproductplans/${context.ibz_subproductplan}/save`,data,isloading);
         }
-        let masterData:any = {};
-        Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().post(`/ibz_subproductplans/${context.ibz_subproductplan}/save`,data,isloading);
-            return res;
     }
 
     /**
@@ -107,17 +102,6 @@ export default class IBZ_SUBPRODUCTPLANServiceBase extends EntityService {
             }
             return Http.getInstance().post(`/productplans/${context.productplan}/ibz_subproductplans`,data,isloading);
         }
-        let masterData:any = {};
-        Object.assign(data,masterData);
-        if(!data.srffrontuf || data.srffrontuf !== "1"){
-            data[this.APPDEKEY] = null;
-        }
-        if(data.srffrontuf){
-            delete data.srffrontuf;
-        }
-        let tempContext:any = JSON.parse(JSON.stringify(context));
-        let res:any = await Http.getInstance().post(`/ibz_subproductplans`,data,isloading);
-        return res;
     }
 
     /**
@@ -136,8 +120,6 @@ export default class IBZ_SUBPRODUCTPLANServiceBase extends EntityService {
         if(context.productplan && context.ibz_subproductplan){
             return Http.getInstance().delete(`/productplans/${context.productplan}/ibz_subproductplans/${context.ibz_subproductplan}`,isloading);
         }
-            return Http.getInstance().delete(`/ibz_subproductplans/${context.ibz_subproductplan}`,isloading);
-
     }
 
     /**
@@ -156,7 +138,6 @@ export default class IBZ_SUBPRODUCTPLANServiceBase extends EntityService {
         if(context.productplan && context.ibz_subproductplan){
             return Http.getInstance().post(`/productplans/${context.productplan}/ibz_subproductplans/${context.ibz_subproductplan}/checkkey`,data,isloading);
         }
-            return Http.getInstance().post(`/ibz_subproductplans/${context.ibz_subproductplan}/checkkey`,data,isloading);
     }
 
     /**
@@ -175,9 +156,6 @@ export default class IBZ_SUBPRODUCTPLANServiceBase extends EntityService {
         if(context.productplan && true){
             return Http.getInstance().get(`/productplans/${context.productplan}/ibz_subproductplans/getdraft`,isloading);
         }
-        let res:any = await  Http.getInstance().get(`/ibz_subproductplans/getdraft`,isloading);
-        res.data.ibz_subproductplan = data.ibz_subproductplan;
-        return res;
     }
 
     /**
@@ -196,10 +174,6 @@ export default class IBZ_SUBPRODUCTPLANServiceBase extends EntityService {
         if(context.productplan && context.ibz_subproductplan){
             return Http.getInstance().put(`/productplans/${context.productplan}/ibz_subproductplans/${context.ibz_subproductplan}`,data,isloading);
         }
-        let masterData:any = {};
-        Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().put(`/ibz_subproductplans/${context.ibz_subproductplan}`,data,isloading);
-            return res;
     }
 
     /**
@@ -218,9 +192,6 @@ export default class IBZ_SUBPRODUCTPLANServiceBase extends EntityService {
         if(context.productplan && context.ibz_subproductplan){
             return Http.getInstance().get(`/productplans/${context.productplan}/ibz_subproductplans/${context.ibz_subproductplan}`,isloading);
         }
-            let res:any = await Http.getInstance().get(`/ibz_subproductplans/${context.ibz_subproductplan}`,isloading);
-            return res;
-
     }
 
     /**
@@ -241,8 +212,6 @@ export default class IBZ_SUBPRODUCTPLANServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/productplans/${context.productplan}/ibz_subproductplans/fetchdefault`,tempData,isloading);
         }
-        let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/ibz_subproductplans/fetchdefault`,tempData,isloading);
     }
 
     /**
@@ -263,7 +232,5 @@ export default class IBZ_SUBPRODUCTPLANServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/productplans/${context.productplan}/ibz_subproductplans/fetchcurproductplan`,tempData,isloading);
         }
-        let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/ibz_subproductplans/fetchcurproductplan`,tempData,isloading);
     }
 }

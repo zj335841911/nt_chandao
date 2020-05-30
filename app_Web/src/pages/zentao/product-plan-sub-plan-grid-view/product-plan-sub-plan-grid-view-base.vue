@@ -667,11 +667,9 @@ export default class ProductPlanSubPlanGridViewBase extends Vue {
             Object.assign(curViewParam,args[0]);
         }
         let deResParameters: any[] = [];
-        if(curViewParam.productplan && true){
-            deResParameters = [
+        deResParameters = [
             { pathName: 'productplans', parameterName: 'productplan' },
-            ]
-        }
+        ];
         const parameters: any[] = [
             { pathName: 'ibz_subproductplans', parameterName: 'ibz_subproductplan' },
         ];
@@ -715,11 +713,9 @@ export default class ProductPlanSubPlanGridViewBase extends Vue {
             Object.assign(curViewParam,args[0]);
         }
         let deResParameters: any[] = [];
-        if(curViewParam.productplan && true){
-            deResParameters = [
+        deResParameters = [
             { pathName: 'productplans', parameterName: 'productplan' },
-            ]
-        }
+        ];
         const parameters: any[] = [
             { pathName: 'ibz_subproductplans', parameterName: 'ibz_subproductplan' },
         ];
@@ -819,33 +815,6 @@ export default class ProductPlanSubPlanGridViewBase extends Vue {
             _view.$emit('close', [args]);
         } else if (_view.$tabPageExp) {
             _view.$tabPageExp.onClose(_view.$route.fullPath);
-        }
-    }
-
-    /**
-     * 销毁视图回调
-     *
-     * @memberof ProductPlanSubPlanGridViewBase
-     */
-    public destroyed(){
-        this.afterDestroyed();
-    }
-
-    /**
-     * 执行destroyed后的逻辑
-     * 
-     * @memberof ProductPlanSubPlanGridViewBase
-     */
-    public afterDestroyed(){
-        if(this.viewDefaultUsage){
-            let localStoreLength = Object.keys(localStorage);
-            if(localStoreLength.length > 0){
-                localStoreLength.forEach((item:string) =>{
-                if(item.startsWith(this.context.srfsessionid)){
-                    localStorage.removeItem(item);
-                }
-                })
-            }
         }
     }
 
