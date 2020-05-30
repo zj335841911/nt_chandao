@@ -18,6 +18,10 @@ export default {
 			caption: "产品计划",
       title: '产品计划',
 		},
+		subplangridview: {
+			caption: "产品计划",
+      title: '产品计划',
+		},
 		subplaneditview: {
 			caption: "子计划",
       title: '子计划',
@@ -51,6 +55,34 @@ export default {
 		uiactions: {
 			saveandexit: "Save And Close",
 			exit: "关闭",
+		},
+	},
+	mainsubplan_grid: {
+		columns: {
+			id: "编号",
+			title: "名称",
+			begin: "开始日期",
+			end: "结束日期",
+		},
+		uiactions: {
+		},
+	},
+	subplangridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "New",
+			tip: "New",
+		},
+		deuiaction4: {
+			caption: "Remove",
+			tip: "Remove {0}",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
 		},
 	},
 	subplancreateviewtoolbar_toolbar: {

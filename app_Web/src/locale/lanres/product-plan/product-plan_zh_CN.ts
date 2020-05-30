@@ -21,10 +21,6 @@ export default {
 			caption: '产品计划',
       title: '产品计划',
 		},
-		subplangridview: {
-			caption: '产品计划',
-      title: '产品计划',
-		},
 		gridview: {
 			caption: '产品计划',
       title: '产品计划',
@@ -90,16 +86,6 @@ export default {
 		uiactions: {
 		},
 	},
-	mainsubplan_grid: {
-		columns: {
-			id: '编号',
-			title: '名称',
-			begin: '开始日期',
-			end: '结束日期',
-		},
-		uiactions: {
-		},
-	},
 	gridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: '新建',
@@ -126,24 +112,6 @@ export default {
 		deuiaction1: {
 			caption: '保存并关闭',
 			tip: '保存并关闭',
-		},
-	},
-	subplangridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: '新建',
-			tip: '新建',
-		},
-		deuiaction4: {
-			caption: '删除',
-			tip: '删除',
-		},
-		seperator1: {
-			caption: '',
-			tip: '',
-		},
-		deuiaction2: {
-			caption: '刷新',
-			tip: '刷新',
 		},
 	},
 };

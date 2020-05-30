@@ -3,17 +3,17 @@
     <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
                 <div class='toolbar-container'>
-            <i-button :title="$t('entities.productplan.subplangridviewtoolbar_toolbar.deuiaction1.tip')" v-show="toolBarModels.deuiaction1.visabled" :disabled="toolBarModels.deuiaction1.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1' }, $event)">
+            <i-button :title="$t('entities.ibz_subproductplan.subplangridviewtoolbar_toolbar.deuiaction1.tip')" v-show="toolBarModels.deuiaction1.visabled" :disabled="toolBarModels.deuiaction1.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1' }, $event)">
                     <i class='fa fa-plus'></i>
-                    <span class='caption'>{{$t('entities.productplan.subplangridviewtoolbar_toolbar.deuiaction1.caption')}}</span>
+                    <span class='caption'>{{$t('entities.ibz_subproductplan.subplangridviewtoolbar_toolbar.deuiaction1.caption')}}</span>
                 </i-button>
-            <i-button :title="$t('entities.productplan.subplangridviewtoolbar_toolbar.deuiaction4.tip')" v-show="toolBarModels.deuiaction4.visabled" :disabled="toolBarModels.deuiaction4.disabled" class='' @click="toolbar_click({ tag: 'deuiaction4' }, $event)">
+            <i-button :title="$t('entities.ibz_subproductplan.subplangridviewtoolbar_toolbar.deuiaction4.tip')" v-show="toolBarModels.deuiaction4.visabled" :disabled="toolBarModels.deuiaction4.disabled" class='' @click="toolbar_click({ tag: 'deuiaction4' }, $event)">
                     <i class='fa fa-remove'></i>
-                    <span class='caption'>{{$t('entities.productplan.subplangridviewtoolbar_toolbar.deuiaction4.caption')}}</span>
+                    <span class='caption'>{{$t('entities.ibz_subproductplan.subplangridviewtoolbar_toolbar.deuiaction4.caption')}}</span>
                 </i-button>
-            <span class='seperator'>|</span>    <i-button :title="$t('entities.productplan.subplangridviewtoolbar_toolbar.deuiaction2.tip')" v-show="toolBarModels.deuiaction2.visabled" :disabled="toolBarModels.deuiaction2.disabled" class='' @click="toolbar_click({ tag: 'deuiaction2' }, $event)">
+            <span class='seperator'>|</span>    <i-button :title="$t('entities.ibz_subproductplan.subplangridviewtoolbar_toolbar.deuiaction2.tip')" v-show="toolBarModels.deuiaction2.visabled" :disabled="toolBarModels.deuiaction2.disabled" class='' @click="toolbar_click({ tag: 'deuiaction2' }, $event)">
                     <i class='fa fa-refresh'></i>
-                    <span class='caption'>{{$t('entities.productplan.subplangridviewtoolbar_toolbar.deuiaction2.caption')}}</span>
+                    <span class='caption'>{{$t('entities.ibz_subproductplan.subplangridviewtoolbar_toolbar.deuiaction2.caption')}}</span>
                 </i-button>
         </div>
     </template>
@@ -51,7 +51,7 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { UIActionTool,Util } from '@/utils';
 import { Subject } from 'rxjs';
-import ProductPlanService from '@/service/product-plan/product-plan-service';
+import IBZ_SUBPRODUCTPLANService from '@/service/ibz-subproductplan/ibz-subproductplan-service';
 
 import GridViewEngine from '@engine/view/grid-view-engine';
 
@@ -68,10 +68,10 @@ export default class ProductPlanSubPlanGridViewBase extends Vue {
     /**
      * 实体服务对象
      *
-     * @type {ProductPlanService}
+     * @type {IBZ_SUBPRODUCTPLANService}
      * @memberof ProductPlanSubPlanGridViewBase
      */
-    public appEntityService: ProductPlanService = new ProductPlanService;
+    public appEntityService: IBZ_SUBPRODUCTPLANService = new IBZ_SUBPRODUCTPLANService;
 
 
     /**
@@ -151,9 +151,9 @@ export default class ProductPlanSubPlanGridViewBase extends Vue {
      * @memberof ProductPlanSubPlanGridViewBase
      */
     public model: any = {
-        srfCaption: 'entities.productplan.views.subplangridview.caption',
-        srfTitle: 'entities.productplan.views.subplangridview.title',
-        srfSubTitle: 'entities.productplan.views.subplangridview.subtitle',
+        srfCaption: 'entities.ibz_subproductplan.views.subplangridview.caption',
+        srfTitle: 'entities.ibz_subproductplan.views.subplangridview.title',
+        srfSubTitle: 'entities.ibz_subproductplan.views.subplangridview.subtitle',
         dataInfo: ''
     }
 
@@ -272,7 +272,7 @@ export default class ProductPlanSubPlanGridViewBase extends Vue {
                 this.newdata(args,fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
-            keyPSDEField: 'productplan',
+            keyPSDEField: 'ibz_subproductplan',
             majorPSDEField: 'title',
             isLoadDefault: true,
         });
@@ -586,7 +586,7 @@ export default class ProductPlanSubPlanGridViewBase extends Vue {
           datas = [params];
         }
         // 界面行为
-        this.New(datas, contextJO,paramJO,  $event, xData,this,"ProductPlan");
+        this.New(datas, contextJO,paramJO,  $event, xData,this,"IBZ_SUBPRODUCTPLAN");
     }
 
     /**
@@ -615,7 +615,7 @@ export default class ProductPlanSubPlanGridViewBase extends Vue {
           datas = [params];
         }
         // 界面行为
-        this.Remove(datas, contextJO,paramJO,  $event, xData,this,"ProductPlan");
+        this.Remove(datas, contextJO,paramJO,  $event, xData,this,"IBZ_SUBPRODUCTPLAN");
     }
 
     /**
@@ -644,7 +644,7 @@ export default class ProductPlanSubPlanGridViewBase extends Vue {
           datas = [params];
         }
         // 界面行为
-        this.Refresh(datas, contextJO,paramJO,  $event, xData,this,"ProductPlan");
+        this.Refresh(datas, contextJO,paramJO,  $event, xData,this,"IBZ_SUBPRODUCTPLAN");
     }
 
     /**

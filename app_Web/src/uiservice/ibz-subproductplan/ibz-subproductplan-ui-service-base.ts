@@ -80,6 +80,7 @@ export default class IBZ_SUBPRODUCTPLANUIServiceBase extends UIService {
      */  
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'subplancreateview',srfappde:'ibz_subproductplans'});
+        this.allViewMap.set(':',{viewname:'subplangridview',srfappde:'ibz_subproductplans'});
         this.allViewMap.set(':',{viewname:'subplaneditview',srfappde:'ibz_subproductplans'});
     }
 
