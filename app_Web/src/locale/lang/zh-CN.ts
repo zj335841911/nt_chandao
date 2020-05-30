@@ -2,7 +2,7 @@ import productplan_zh_CN from '@locale/lanres/product-plan/product-plan_zh_CN';
 import projectproduct_zh_CN from '@locale/lanres/project-product/project-product_zh_CN';
 import case_zh_CN from '@locale/lanres/case/case_zh_CN';
 import product_zh_CN from '@locale/lanres/product/product_zh_CN';
-import ibz_subproductplan_zh_CN from '@locale/lanres/ibz-subproductplan/ibz-subproductplan_zh_CN';
+import subproductplan_zh_CN from '@locale/lanres/sub-product-plan/sub-product-plan_zh_CN';
 import storyspec_zh_CN from '@locale/lanres/story-spec/story-spec_zh_CN';
 import branch_zh_CN from '@locale/lanres/branch/branch_zh_CN';
 import action_zh_CN from '@locale/lanres/action/action_zh_CN';
@@ -107,7 +107,7 @@ export default {
         projectproduct: projectproduct_zh_CN,
         case: case_zh_CN,
         product: product_zh_CN,
-        ibz_subproductplan: ibz_subproductplan_zh_CN,
+        subproductplan: subproductplan_zh_CN,
         storyspec: storyspec_zh_CN,
         branch: branch_zh_CN,
         action: action_zh_CN,

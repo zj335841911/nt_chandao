@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import ProductPlanSubPlanGridViewBase from './product-plan-sub-plan-grid-view-base.vue';
 
-import view_grid from '@widgets/ibz-subproductplan/main-sub-plan-grid/main-sub-plan-grid.vue';
+import view_grid from '@widgets/sub-product-plan/main-sub-plan-grid/main-sub-plan-grid.vue';
 @Component({
     components: {
         view_grid, 

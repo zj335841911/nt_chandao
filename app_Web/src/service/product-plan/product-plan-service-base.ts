@@ -83,11 +83,11 @@ export default class ProductPlanServiceBase extends EntityService {
             }
         }
         masterData.bugs = bugsData;
-        let ibz_subproductplansData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibz_subproductplans'),'undefined')){
-            ibz_subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibz_subproductplans') as any);
-            if(ibz_subproductplansData && ibz_subproductplansData.length && ibz_subproductplansData.length > 0){
-                ibz_subproductplansData.forEach((item:any) => {
+        let subproductplansData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans'),'undefined')){
+            subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans') as any);
+            if(subproductplansData && subproductplansData.length && subproductplansData.length > 0){
+                subproductplansData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
@@ -97,11 +97,11 @@ export default class ProductPlanServiceBase extends EntityService {
                 });
             }
         }
-        masterData.ibz_subproductplans = ibz_subproductplansData;
+        masterData.subproductplans = subproductplansData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/productplans/${context.productplan}/save`,data,isloading);
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibz_subproductplans',JSON.stringify(res.data.ibz_subproductplans));
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
             return res;
     }
 
@@ -140,11 +140,11 @@ export default class ProductPlanServiceBase extends EntityService {
             }
         }
         masterData.bugs = bugsData;
-        let ibz_subproductplansData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibz_subproductplans'),'undefined')){
-            ibz_subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibz_subproductplans') as any);
-            if(ibz_subproductplansData && ibz_subproductplansData.length && ibz_subproductplansData.length > 0){
-                ibz_subproductplansData.forEach((item:any) => {
+        let subproductplansData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans'),'undefined')){
+            subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans') as any);
+            if(subproductplansData && subproductplansData.length && subproductplansData.length > 0){
+                subproductplansData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
@@ -154,7 +154,7 @@ export default class ProductPlanServiceBase extends EntityService {
                 });
             }
         }
-        masterData.ibz_subproductplans = ibz_subproductplansData;
+        masterData.subproductplans = subproductplansData;
         Object.assign(data,masterData);
         if(!data.srffrontuf || data.srffrontuf !== "1"){
             data[this.APPDEKEY] = null;
@@ -165,7 +165,7 @@ export default class ProductPlanServiceBase extends EntityService {
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/productplans`,data,isloading);
         this.tempStorage.setItem(tempContext.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
-        this.tempStorage.setItem(tempContext.srfsessionkey+'_ibz_subproductplans',JSON.stringify(res.data.ibz_subproductplans));
+        this.tempStorage.setItem(tempContext.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
         return res;
     }
 
@@ -218,7 +218,7 @@ export default class ProductPlanServiceBase extends EntityService {
         let res:any = await  Http.getInstance().get(`/productplans/getdraft`,isloading);
         res.data.productplan = data.productplan;
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibz_subproductplans',JSON.stringify(res.data.ibz_subproductplans));
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
         return res;
     }
 
@@ -251,11 +251,11 @@ export default class ProductPlanServiceBase extends EntityService {
             }
         }
         masterData.bugs = bugsData;
-        let ibz_subproductplansData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibz_subproductplans'),'undefined')){
-            ibz_subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibz_subproductplans') as any);
-            if(ibz_subproductplansData && ibz_subproductplansData.length && ibz_subproductplansData.length > 0){
-                ibz_subproductplansData.forEach((item:any) => {
+        let subproductplansData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans'),'undefined')){
+            subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans') as any);
+            if(subproductplansData && subproductplansData.length && subproductplansData.length > 0){
+                subproductplansData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
@@ -265,11 +265,11 @@ export default class ProductPlanServiceBase extends EntityService {
                 });
             }
         }
-        masterData.ibz_subproductplans = ibz_subproductplansData;
+        masterData.subproductplans = subproductplansData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/productplans/${context.productplan}`,data,isloading);
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibz_subproductplans',JSON.stringify(res.data.ibz_subproductplans));
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
             return res;
     }
 
@@ -288,7 +288,7 @@ export default class ProductPlanServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().get(`/productplans/${context.productplan}`,isloading);
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
-            this.tempStorage.setItem(context.srfsessionkey+'_ibz_subproductplans',JSON.stringify(res.data.ibz_subproductplans));
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
             return res;
 
     }

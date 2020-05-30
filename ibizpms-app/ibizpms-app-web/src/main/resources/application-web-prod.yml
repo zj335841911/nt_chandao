@@ -20,7 +20,7 @@ zuul:
       serviceId: pms-webapi
       stripPrefix: false
     ibz_subproductplan:
-      path: /ibz_subproductplans/**
+      path: /subproductplans/**
       serviceId: pms-webapi
       stripPrefix: false
     zt_storyspec:

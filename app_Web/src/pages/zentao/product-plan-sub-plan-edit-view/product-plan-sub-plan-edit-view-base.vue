@@ -32,7 +32,7 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { UIActionTool,Util } from '@/utils';
 import { Subject } from 'rxjs';
-import IBZ_SUBPRODUCTPLANService from '@/service/ibz-subproductplan/ibz-subproductplan-service';
+import SubProductPlanService from '@/service/sub-product-plan/sub-product-plan-service';
 
 import EditViewEngine from '@engine/view/edit-view-engine';
 
@@ -47,10 +47,10 @@ export default class ProductPlanSubPlanEditViewBase extends Vue {
     /**
      * 实体服务对象
      *
-     * @type {IBZ_SUBPRODUCTPLANService}
+     * @type {SubProductPlanService}
      * @memberof ProductPlanSubPlanEditViewBase
      */
-    public appEntityService: IBZ_SUBPRODUCTPLANService = new IBZ_SUBPRODUCTPLANService;
+    public appEntityService: SubProductPlanService = new SubProductPlanService;
 
 
     /**
@@ -130,9 +130,9 @@ export default class ProductPlanSubPlanEditViewBase extends Vue {
      * @memberof ProductPlanSubPlanEditViewBase
      */
     public model: any = {
-        srfCaption: 'entities.ibz_subproductplan.views.subplaneditview.caption',
-        srfTitle: 'entities.ibz_subproductplan.views.subplaneditview.title',
-        srfSubTitle: 'entities.ibz_subproductplan.views.subplaneditview.subtitle',
+        srfCaption: 'entities.subproductplan.views.subplaneditview.caption',
+        srfTitle: 'entities.subproductplan.views.subplaneditview.title',
+        srfSubTitle: 'entities.subproductplan.views.subplaneditview.subtitle',
         dataInfo: ''
     }
 
@@ -228,7 +228,7 @@ export default class ProductPlanSubPlanEditViewBase extends Vue {
             view: this,
             form: this.$refs.form,
             p2k: '0',
-            keyPSDEField: 'ibz_subproductplan',
+            keyPSDEField: 'subproductplan',
             majorPSDEField: 'title',
             isLoadDefault: true,
         });
