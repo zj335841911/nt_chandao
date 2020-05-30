@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import BugGridView9_AssignedToMeBase from './bug-grid-view9-assigned-to-me-base.vue';
 
-import view_grid from '@widgets/bug/main-grid/main-grid.vue';
+import view_grid from '@widgets/bug/main2-grid/main2-grid.vue';
 @Component({
     components: {
         view_grid, 

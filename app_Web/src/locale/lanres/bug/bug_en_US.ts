@@ -138,6 +138,16 @@ export default {
 		uiactions: {
 		},
 	},
+	main2_grid: {
+		columns: {
+			id: "ID",
+			pri: "级别",
+			title: "Bug标题",
+			status: "状态",
+		},
+		uiactions: {
+		},
+	},
 	default_searchform: {
 		details: {
 			formpage1: "常规条件", 
