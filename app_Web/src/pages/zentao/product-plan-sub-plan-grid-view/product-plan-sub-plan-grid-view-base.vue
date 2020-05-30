@@ -666,7 +666,12 @@ export default class ProductPlanSubPlanGridViewBase extends Vue {
         if(args.length >0){
             Object.assign(curViewParam,args[0]);
         }
-        const deResParameters: any[] = [];
+        let deResParameters: any[] = [];
+        if(curViewParam.productplan && true){
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
         const parameters: any[] = [
             { pathName: 'ibz_subproductplans', parameterName: 'ibz_subproductplan' },
         ];
@@ -709,7 +714,12 @@ export default class ProductPlanSubPlanGridViewBase extends Vue {
         if(args.length >0){
             Object.assign(curViewParam,args[0]);
         }
-        const deResParameters: any[] = [];
+        let deResParameters: any[] = [];
+        if(curViewParam.productplan && true){
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
         const parameters: any[] = [
             { pathName: 'ibz_subproductplans', parameterName: 'ibz_subproductplan' },
         ];
