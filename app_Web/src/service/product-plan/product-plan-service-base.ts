@@ -260,4 +260,22 @@ export default class ProductPlanServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return Http.getInstance().get(`/productplans/fetchdefault`,tempData,isloading);
     }
+
+    /**
+     * FetchCurProductPlan接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async FetchCurProductPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/products/${context.product}/productplans/fetchcurproductplan`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/productplans/fetchcurproductplan`,tempData,isloading);
+    }
 }

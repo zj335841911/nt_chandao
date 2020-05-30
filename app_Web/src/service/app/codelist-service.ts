@@ -1,3 +1,4 @@
+import CurProductPlan from '@/codelist/cur-product-plan';   
 import UserRealName from '@/codelist/user-real-name';   
 import { Store } from 'vuex';
 
@@ -41,6 +42,14 @@ export default class CodeListService {
      */
     public static codelistCache:Map<string,any> = new Map();
 
+
+    /**
+     * 代码表--当前用户产品计划（动态）
+     *
+     * @type {CurProductPlan}
+     * @memberof CodeListService
+     */
+    public CurProductPlan: CurProductPlan = new CurProductPlan();
 
     /**
      * 代码表--用户真实名称（动态）

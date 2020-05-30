@@ -158,6 +158,27 @@ public class ProductPlanResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productplanMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-CurProductPlan-all')")
+	@ApiOperation(value = "获取CurProductPlan", tags = {"产品计划" } ,notes = "获取CurProductPlan")
+    @RequestMapping(method= RequestMethod.GET , value="/productplans/fetchcurproductplan")
+	public ResponseEntity<List<ProductPlanDTO>> fetchCurProductPlan(ProductPlanSearchContext context) {
+        Page<ProductPlan> domains = productplanService.searchCurProductPlan(context) ;
+        List<ProductPlanDTO> list = productplanMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-CurProductPlan-all')")
+	@ApiOperation(value = "查询CurProductPlan", tags = {"产品计划" } ,notes = "查询CurProductPlan")
+    @RequestMapping(method= RequestMethod.POST , value="/productplans/searchcurproductplan")
+	public ResponseEntity<Page<ProductPlanDTO>> searchCurProductPlan(@RequestBody ProductPlanSearchContext context) {
+        Page<ProductPlan> domains = productplanService.searchCurProductPlan(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(productplanMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Save-all')")
     @ApiOperation(value = "根据产品保存产品计划", tags = {"产品计划" },  notes = "根据产品保存产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/save")
@@ -287,6 +308,29 @@ public class ProductPlanResource {
 	public ResponseEntity<Page<ProductPlanDTO>> searchProductPlanDefaultByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductPlanSearchContext context) {
         context.setN_product_eq(product_id);
         Page<ProductPlan> domains = productplanService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(productplanMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-CurProductPlan-all')")
+	@ApiOperation(value = "根据产品获取CurProductPlan", tags = {"产品计划" } ,notes = "根据产品获取CurProductPlan")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productplans/fetchcurproductplan")
+	public ResponseEntity<List<ProductPlanDTO>> fetchProductPlanCurProductPlanByProduct(@PathVariable("product_id") BigInteger product_id,ProductPlanSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<ProductPlan> domains = productplanService.searchCurProductPlan(context) ;
+        List<ProductPlanDTO> list = productplanMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-CurProductPlan-all')")
+	@ApiOperation(value = "根据产品查询CurProductPlan", tags = {"产品计划" } ,notes = "根据产品查询CurProductPlan")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productplans/searchcurproductplan")
+	public ResponseEntity<Page<ProductPlanDTO>> searchProductPlanCurProductPlanByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductPlanSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<ProductPlan> domains = productplanService.searchCurProductPlan(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productplanMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

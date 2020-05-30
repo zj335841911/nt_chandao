@@ -55,7 +55,7 @@
 <i-col v-show="detailsModel.plan.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='plan' :itemRules="this.rules.plan" class='' :caption="$t('entities.story.main_form.details.plan')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.plan.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='plan'
-:value="data.plan" style=""></app-span>
+:value="data.plan" tag='CurProductPlan' codelistType='DYNAMIC' style=""></app-span>
 </app-form-item>
 
 </i-col>

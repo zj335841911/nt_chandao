@@ -37,6 +37,7 @@ public interface IProductPlanService extends IService<ProductPlan>{
     void updateBatch(List<ProductPlan> list) ;
     ProductPlan get(BigInteger key) ;
     Page<ProductPlan> searchDefault(ProductPlanSearchContext context) ;
+    Page<ProductPlan> searchCurProductPlan(ProductPlanSearchContext context) ;
     List<ProductPlan> selectByBranch(BigInteger id) ;
     void removeByBranch(BigInteger id) ;
     List<ProductPlan> selectByProduct(BigInteger id) ;

@@ -1286,6 +1286,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "CurProductPlan",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"ProductPlan",
+        "appdedataset":"FetchCurProductPlan",
+        "items": []
+    },
+    {
         srfkey: 'Task__pri',
         emptytext: '未定义',
         "codelisttype":"static",

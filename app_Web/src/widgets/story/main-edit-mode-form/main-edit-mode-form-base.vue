@@ -60,9 +60,7 @@
 </i-col>
 <i-col v-show="detailsModel.plan.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='plan' :itemRules="this.rules.plan" class='' :caption="$t('entities.story.main_editmode_form.details.plan')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.plan.error" :isEmptyCaption="false" labelPos="LEFT">
-    <div class="ivu-input-wrapper ivu-input-wrapper-default ivu-input-type">
-    <textarea class="ivu-input" :rows="10" v-model="data.plan" :disabled="detailsModel.plan.disabled" style="height:200px;"></textarea>
-</div>
+     <dropdown-list v-model="data.plan" :data="data" :itemParam="{}" :disabled="detailsModel.plan.disabled"  tag='CurProductPlan' codelistType='DYNAMIC' placeholder='请选择...' style=""></dropdown-list>
 </app-form-item>
 
 </i-col>

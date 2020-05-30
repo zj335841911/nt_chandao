@@ -54,22 +54,7 @@
 </i-col>
 <i-col v-show="detailsModel.plan.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='plan' :itemRules="this.rules.plan" class='' :caption="$t('entities.story.main_newmode_form.details.plan')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.plan.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam='{ }' 
-  :disabled="detailsModel.plan.disabled"
-  name='plan' 
-  :service="service"
-  :acParams="{ }"
-  valueitem='' 
-  :value="data.plan" 
-  editortype="dropdown" 
-  style="" 
-  @formitemvaluechange="onFormItemValueChange">
-</app-picker>
+     <dropdown-list v-model="data.plan" :data="data" :itemParam="{}" :disabled="detailsModel.plan.disabled"  tag='CurProductPlan' codelistType='DYNAMIC' placeholder='请选择...' style=""></dropdown-list>
 </app-form-item>
 
 </i-col>

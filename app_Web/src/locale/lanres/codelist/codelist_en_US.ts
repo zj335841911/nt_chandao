@@ -145,6 +145,9 @@ export default {
         'webhook': 'Webhook',
         empty: '',
     },
+    CurProductPlan: {
+        empty: '',
+    },
     Task__pri: {
         1: '1',
         2: '2',
