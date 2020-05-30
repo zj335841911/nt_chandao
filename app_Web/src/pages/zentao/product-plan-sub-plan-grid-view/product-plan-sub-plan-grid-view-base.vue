@@ -133,6 +133,7 @@ export default class ProductPlanSubPlanGridViewBase extends Vue {
 	 * @memberof ProductPlanSubPlanGridViewBase
 	 */
     public customViewNavContexts:any ={
+    "ZT_PRODUCTPLAN":{"isRawValue":false,"value":"SRFPARENTKEY"}
     };
 
 	/**
@@ -341,6 +342,7 @@ export default class ProductPlanSubPlanGridViewBase extends Vue {
      * @memberof ProductPlanSubPlanGridViewBase
      */
 	public handleCustomViewData(){
+        this.handleviewRes();
 		if(Object.keys(this.customViewNavContexts).length > 0){
 			Object.keys(this.customViewNavContexts).forEach((item:any) =>{
 				let tempContext:any = {};
@@ -411,6 +413,16 @@ export default class ProductPlanSubPlanGridViewBase extends Vue {
 		}
 	}
 	
+    /**
+     * 处理指定视图控制关系将父键转为父实体上下文
+     *
+     * @memberof ProductPlanSubPlanGridViewBase
+     */
+    public handleviewRes(){
+    if(this.context.srfparentkey){
+        Object.assign(this.context,{'productplan':this.context.srfparentkey});
+    }
+    }
 
     /**
      * Vue声明周期
