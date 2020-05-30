@@ -415,6 +415,39 @@
     }
 }
 
+// 列表导航视图
+.delistexpview.studio-view.view-container {
+
+    .app-list-exp-bar.ivu-split-wrapper {
+
+        .list-exp-bar-content {
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+
+            >.app-list {
+
+                .app-list-item.isSelect {
+                    position: relative;
+                    background-color: unset;
+                }
+
+                .app-list-item.isSelect::before {
+                    position: absolute;
+                    left: 0;
+                    top: 1px;
+                    bottom: 1px;
+                    content: ' ';
+                    border-left: 3px solid var(--view-background-color-active);
+                }
+            }
+        }
+
+        .right-pane.ivu-split-pane {
+            padding: 0px 0px 0px 5px;
+        }
+    }
+}
 
 // 模态样式
 .ivu-modal-wrap.app-modal {
