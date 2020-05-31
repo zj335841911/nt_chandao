@@ -702,7 +702,7 @@ export default class ProductPlanSubPlanGridViewBase extends Vue {
             viewname: 'product-plan-sub-plan-create-view', 
             height: 500, 
             width: 800,  
-            title: this.$t('entities.productplan.views.subplancreateview.title'),
+            title: this.$t('entities.subproductplan.views.subplancreateview.title'),
         };
         openPopupModal(view, data);
     }
@@ -748,7 +748,7 @@ export default class ProductPlanSubPlanGridViewBase extends Vue {
             viewname: 'product-plan-sub-plan-edit-view', 
             height: 0, 
             width: 0,  
-            title: this.$t('entities.productplan.views.subplaneditview.title'),
+            title: this.$t('entities.subproductplan.views.subplaneditview.title'),
             placement: 'DRAWER_TOP',
         };
         openDrawer(view, data);
