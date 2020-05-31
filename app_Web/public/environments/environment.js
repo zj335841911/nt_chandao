@@ -6,9 +6,9 @@ window.Environment = {
     // 配置平台地址
     StudioUrl: "http://studio.ibizlab.cn/slnstudio/",
     // 方案标识
-    SlnId: "CFA3E6DC-69B0-4404-8022-23C3D42E3737",
+    SlnId: "506FF789-2742-4C35-A91D-E3990C379D41",
     // 系统标识
-    SysId: "981F7CF9-C496-45F4-BA23-91756ABE8C93",
+    SysId: "3A921F6B-613D-4975-ACD6-79565D82E1DE",
     // 前端应用标识
-    AppId: "099d82e95c4bdee6c16b358aaa6f0518"
+    AppId: "67ca55365f7abcc05c30f4fba9f8ee37"
 }
