@@ -1857,9 +1857,6 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
      * @memberof MainSubPlan
      */
     public createDefault(){                    
-        if (this.data.hasOwnProperty('parent')) {
-            this.data['parent'] = this.viewparams['pproductplan'];
-        }
     }
 
     /**
