@@ -26,11 +26,11 @@ export const Environment = {
     // 配置平台地址
     StudioUrl: "http://neko.org.cn:3333/",
     // 方案标识
-    SlnId: "AFFB70EF-A2CF-470A-B1AE-38156EAF4A50",
+    SlnId: "506FF789-2742-4C35-A91D-E3990C379D41",
     // 系统标识
-    SysId: "8A26FD38-06D7-495C-88B1-77238F3AB96D",
+    SysId: "3A921F6B-613D-4975-ACD6-79565D82E1DE",
     // 前端应用标识
-    AppId: "0df1f39e51db7152428a905a11c28a16",
+    AppId: "67ca55365f7abcc05c30f4fba9f8ee37",
     // 项目发布文件地址
     PublishProjectUrl: 'https://oauth2:0fc5b56b52f5ad87efd3850b6536e034@gitee.com/ibizlab/iBizPMS.git',
     // ibiz开放平台地址
