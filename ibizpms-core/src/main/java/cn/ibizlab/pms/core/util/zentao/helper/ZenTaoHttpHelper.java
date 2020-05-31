@@ -57,7 +57,11 @@ public class ZenTaoHttpHelper {
         if (body == null || body.isEmpty()) {
             return null;
         }
-        jo = JSONObject.parseObject(body);
+        if (body.startsWith("<html>")) {
+            jo.put("html", body);
+        } else {
+            jo = JSONObject.parseObject(body);
+        }
         return jo;
     }
 

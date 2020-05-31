@@ -68,12 +68,20 @@ public class ZTStoryHelper {
 
     private final static HttpMethod ACTION_HTTPMETHOD_CREATE = HttpMethod.POST;
     private final static HttpMethod ACTION_HTTPMETHOD_BATCHCREATE = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_EDIT = HttpMethod.POST;
 
     // ----------
     // 接口行为POST参数
     // ----------
 
     private final static Map<String, Object> ACTION_PARAMS_CREATE = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_EDIT = new HashMap<>();
+
+    // ----------
+    // 接口行为URL参数
+    // ----------
+
+    private final static List<String> ACTION_URL_PARAMS_EDIT = new ArrayList<>();
 
     // ----------
     // 接口行为POST参数设置
@@ -87,8 +95,8 @@ public class ZTStoryHelper {
         ACTION_PARAMS_CREATE.put("module", 0);
         ACTION_PARAMS_CREATE.put("plan", null);
         ACTION_PARAMS_CREATE.put("source", null);
-        ACTION_PARAMS_CREATE.put("sourceNote", null);
-        ACTION_PARAMS_CREATE.put("reviewedBy", null);
+        ACTION_PARAMS_CREATE.put("sourcenote", null);
+        ACTION_PARAMS_CREATE.put("reviewedby", null);
         ACTION_PARAMS_CREATE.put("pri", 3);
         ACTION_PARAMS_CREATE.put("estimate", 0);
         ACTION_PARAMS_CREATE.put("spec", null);
@@ -98,6 +106,38 @@ public class ZTStoryHelper {
         ACTION_PARAMS_CREATE.put("keywords", null);
         ACTION_PARAMS_CREATE.put("type", "story");
 
+        // EDIT
+        ACTION_PARAMS_EDIT.put("product", 0);
+        ACTION_PARAMS_EDIT.put("branch", 0);
+        ACTION_PARAMS_EDIT.put("module", 0);
+        ACTION_PARAMS_EDIT.put("plan", null);
+        ACTION_PARAMS_EDIT.put("parent", 0);
+        ACTION_PARAMS_EDIT.put("status", null);
+        ACTION_PARAMS_EDIT.put("source", null);
+        ACTION_PARAMS_EDIT.put("sourcenote", null);
+        ACTION_PARAMS_EDIT.put("reviewedby", null);
+        ACTION_PARAMS_EDIT.put("pri", 3);
+        ACTION_PARAMS_EDIT.put("estimate", 0);
+        ACTION_PARAMS_EDIT.put("color", null);
+        ACTION_PARAMS_EDIT.put("mailto", null);
+        ACTION_PARAMS_EDIT.put("linkstories", null);
+        ACTION_PARAMS_EDIT.put("assignedto", null);
+        ACTION_PARAMS_EDIT.put("keywords", null);
+        ACTION_PARAMS_EDIT.put("comment", "story");
+        // 变更日期，编辑不会修改
+//        ACTION_PARAMS_EDIT.put("lastediteddate", null);
+        // 联系单（前端计算进入mailto）
+//        ACTION_PARAMS_EDIT.put("contactlistmenu", null);
+
+    }
+
+    // ----------
+    // 接口行为URL参数设置
+    // ----------
+
+    static {
+        // EDIT
+        ACTION_URL_PARAMS_EDIT.add("id");
     }
 
     // ----------
@@ -133,7 +173,24 @@ public class ZTStoryHelper {
         rst.setSuccess(true);
         rst.setResult(rstJO);
         rst.setMessage(rstJO.getString("message"));
-        String locate = rstJO.getString("locate");
+        return true;
+    }
+
+    final static public boolean edit(JSONObject jo, ZTResult rst) {
+        // 后期从session获取，前期使用admin
+        String account = ZenTaoConstants.ZT_TMP_USERNAME;
+        String urlParams = "";
+        if (ACTION_URL_PARAMS_EDIT != null && ACTION_URL_PARAMS_EDIT.size() > 0) {
+            for (String key : ACTION_URL_PARAMS_EDIT) {
+                urlParams += "-" + jo.get(key);
+            }
+        }
+        String url = MODULE_NAME + "-" + ACTION_EDIT + urlParams + ZenTaoConstants.ZT_URL_EXT;
+        JSONObject rstJO = new JSONObject();
+        rstJO = ZenTaoHttpHelper.doRequest(account, url, ACTION_HTTPMETHOD_EDIT, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_EDIT));
+        rst.setSuccess(true);
+        rst.setResult(rstJO);
+        rst.setMessage(rstJO.getString("html"));
         return true;
     }
 
