@@ -597,7 +597,7 @@
         "viewname": "StoryGridView9_SubStory",
         "viewfilename": "story-grid-view9-sub-story",
         "viewtag": "956ad42e59e60cd8b49e7035147e25cf",
-        "memo": ""
+        "memo": "视图参数中指定了过滤条件"
     },
     "actionprojecttrendslistview9": {
         "title": "产品动态",

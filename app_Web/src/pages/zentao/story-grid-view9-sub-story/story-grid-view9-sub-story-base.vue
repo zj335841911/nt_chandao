@@ -128,6 +128,7 @@ export default class StoryGridView9_SubStoryBase extends Vue {
 	 * @memberof StoryGridView9_SubStoryBase
 	 */
     public customViewParams:any ={
+    "n_parent_eq":{"isRawValue":true,"value":"srfparentkey"}
     };
 
     /**
