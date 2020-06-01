@@ -26,7 +26,7 @@ export class AppLayout extends Vue {
             <div class="app-layout-content-warp">
                 {this.$slots.default}
             </div>
-            <div class="app-layout-footer-warp">
+            <div class="app-layout-footer-warp" v-notification-signal>
                 {this.$slots.footer}
             </div>
         </div>;

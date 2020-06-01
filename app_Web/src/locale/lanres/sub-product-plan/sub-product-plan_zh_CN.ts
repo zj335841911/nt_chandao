@@ -85,10 +85,6 @@ export default {
 		},
 	},
 	subplancreateviewtoolbar_toolbar: {
-		deuiaction2: {
-			caption: '保存',
-			tip: '保存',
-		},
 		deuiaction1: {
 			caption: '保存并关闭',
 			tip: '保存并关闭',

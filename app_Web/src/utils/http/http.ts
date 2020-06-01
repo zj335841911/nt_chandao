@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import qs from 'qs';
 import axios from 'axios';
-import { Environment } from '@/environments/environment';
+import { nsc } from '@/studio-core/directives/notification-signal/notification-signal';
+
 /**
  * Http net 对象
  * 调用 getInstance() 获取实例
@@ -180,7 +181,7 @@ export class Http {
      */
     private beginLoading(): void {
         if (this.loadingCount === 0) {
-            Vue.prototype.$Spin.show();
+            nsc.loading();
         }
         this.loadingCount++;
     }
@@ -197,7 +198,7 @@ export class Http {
         }
         setTimeout(() => {
             if (this.loadingCount === 0) {
-                Vue.prototype.$Spin.hide();
+                nsc.loadingEnd();
             }
         }, 500);
     }

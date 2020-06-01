@@ -11,6 +11,7 @@ import { StudioView } from './components/studio-view/studio-view';
 import { StudioEmbedView } from './components/studio-embed-view/studio-embed-view';
 import { ViewConfigActions } from './components/view-config-actions/view-config-actions';
 import { acc } from './message-center/app-communications-center';
+import { NotificationSignal } from './directives/notification-signal/notification-signal';
 
 // 注册Vue插件
 export const StudioCore = {
@@ -30,5 +31,6 @@ export const StudioCore = {
         v.component('studio-view', StudioView);
         v.component('studio-embed-view', StudioEmbedView);
         v.component('view-config-actions', ViewConfigActions);
+        v.directive('notification-signal', NotificationSignal);
     }
 };

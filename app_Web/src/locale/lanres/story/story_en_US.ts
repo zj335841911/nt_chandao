@@ -290,10 +290,6 @@ export default {
 		},
 	},
 	plansubeditviewtoolbar_toolbar: {
-		deuiaction2: {
-			caption: "Save",
-			tip: "Save",
-		},
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
@@ -314,10 +310,6 @@ export default {
 		},
 	},
 	editviewtoolbar_toolbar: {
-		deuiaction2: {
-			caption: "Save",
-			tip: "Save",
-		},
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
