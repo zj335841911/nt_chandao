@@ -25,6 +25,9 @@ export default class ZentaoBase extends Vue {
                 case 'Auto5': 
                     this.clickAuto5(item);
                     return;
+                case '_3': 
+                    this.click_3(item);
+                    return;
                 case 'Auto2': 
                     this.clickAuto2(item);
                     return;
@@ -74,6 +77,24 @@ export default class ZentaoBase extends Vue {
         const parameters: any[] = [
             { pathName: 'projects', parameterName: 'project' },
             { pathName: 'leftsidebarlistview', parameterName: 'leftsidebarlistview' },
+        ];
+        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
+        this.$router.push(path);
+    }
+    
+    /**
+     * iBiz软件生产过程
+     *
+     * @param {*} [item={}]
+     * @memberof Zentao
+     */
+    public click_3(item: any = {}) {
+        const viewparam: any = {};
+        Object.assign(viewparam, {});
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'htmlview', parameterName: 'htmlview' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
         this.$router.push(path);

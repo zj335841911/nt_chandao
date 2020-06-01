@@ -1,6 +1,6 @@
 <template>
-<studio-view viewName="producthtmlview" viewTitle="iBiz开放平台" class='dehtmlview product-html-view'>
-    <iframe class="iframe-container" src="https://www.ibizlab.cn/about/index.html"/>
+<studio-view viewName="producthtmlview" viewTitle="iBiz软件生产过程" class='dehtmlview product-html-view'>
+    <iframe class="iframe-container" src="./assets/html/iBizPMS.html"/>
 </studio-view>
 </template>
 

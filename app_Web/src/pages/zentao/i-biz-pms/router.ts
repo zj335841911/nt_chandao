@@ -373,6 +373,19 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-plan-main-edit-view/product-plan-main-edit-view.vue'),
                 },
                 {
+                    path: 'products/:product?/htmlview/:htmlview?',
+                    meta: {
+                        caption: 'entities.product.views.htmlview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'htmlview', parameterName: 'htmlview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-html-view/product-html-view.vue'),
+                },
+                {
                     path: 'actions/:action?/projecttrendslistview/:projecttrendslistview?',
                     meta: {
                         caption: 'entities.action.views.projecttrendslistview.caption',
@@ -1796,19 +1809,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-edit-view/case-edit-view.vue'),
                 },
                 {
-                    path: 'products/:product?/testtabexpview/:testtabexpview?',
-                    meta: {
-                        caption: 'entities.product.views.testtabexpview.caption',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'testtabexpview', parameterName: 'testtabexpview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/product-test-tab-exp-view/product-test-tab-exp-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/gridview9_assignedtome/:gridview9_assignedtome?',
                     meta: {
                         caption: 'entities.story.views.gridview9_assignedtome.caption',
@@ -1834,6 +1834,19 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/story-grid-view9-assigned-to-me/story-grid-view9-assigned-to-me.vue'),
+                },
+                {
+                    path: 'products/:product?/testtabexpview/:testtabexpview?',
+                    meta: {
+                        caption: 'entities.product.views.testtabexpview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'testtabexpview', parameterName: 'testtabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-test-tab-exp-view/product-test-tab-exp-view.vue'),
                 },
                 {
                     path: 'projects/:project?/projectproducts/:projectproduct?/listview9/:listview9?',
@@ -2248,6 +2261,18 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/ibiz/product-life-road-map-list-view/product-life-road-map-list-view.vue'),
+    },
+    {
+        path: '/products/:product?/htmlview/:htmlview?',
+        meta: {
+            caption: 'entities.product.views.htmlview.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'htmlview', parameterName: 'htmlview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/product-html-view/product-html-view.vue'),
     },
     {
         path: '/products/:product?/productplans/:productplan?/maintabexp/:maintabexp?',

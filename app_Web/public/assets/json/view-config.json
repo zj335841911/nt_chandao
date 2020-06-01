@@ -60,8 +60,8 @@
         "memo": "视图参数转换"
     },
     "producthtmlview": {
-        "title": "iBiz开放平台",
-        "caption": "iBiz开放平台",
+        "title": "iBiz软件生产过程",
+        "caption": "iBiz软件生产过程",
         "viewtype": "DEHTMLVIEW",
         "viewmodule": "zentao",
         "viewname": "ProductHtmlView",

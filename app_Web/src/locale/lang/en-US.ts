@@ -93,6 +93,7 @@ export default {
                 menuitem3: '产品主页',
                 menuitem2: '项目主页',
                 menuitem1: '测试主页',
+                menuitem7: 'iBiz软件生产过程',
                 left_exp: '左侧分页导航',
                 menuitem4: '产品',
                 menuitem5: '项目',
