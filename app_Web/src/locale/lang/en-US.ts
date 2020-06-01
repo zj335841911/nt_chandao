@@ -66,8 +66,8 @@ export default {
         // 非实体视图
         views: {
             ibizpms: {
-                caption: 'iBiz项目管理',
-                title: 'iBiz项目管理',
+                caption: 'iBiz软件生产管理',
+                title: 'iBiz软件生产管理',
             },
             productportalview: {
                 caption: '产品主页',

@@ -128,8 +128,8 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "1e7347f3fffc87077dd7f0156125b918"
         },
         "ibizpms": {
-            "title": "iBiz项目管理",
-            "caption": "iBiz项目管理",
+            "title": "iBiz软件生产管理",
+            "caption": "iBiz软件生产管理",
             "viewtype": "APPINDEXVIEW",
             "viewmodule": "zentao",
             "viewname": "iBizPMS",

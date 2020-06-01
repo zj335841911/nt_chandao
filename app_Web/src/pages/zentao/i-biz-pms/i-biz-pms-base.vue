@@ -240,7 +240,7 @@ export default class IBizPMSBase extends Vue {
           <app-header>
             <template slot="header_left">
               <div class="title">
-                iBiz项目管理
+                iBiz软件生产管理
               </div>
             </template>
             <template slot="header_right">

@@ -150,8 +150,8 @@
         "memo": ""
     },
     "ibizpms": {
-        "title": "iBiz项目管理",
-        "caption": "iBiz项目管理",
+        "title": "iBiz软件生产管理",
+        "caption": "iBiz软件生产管理",
         "viewtype": "APPINDEXVIEW",
         "viewmodule": "zentao",
         "viewname": "iBizPMS",
