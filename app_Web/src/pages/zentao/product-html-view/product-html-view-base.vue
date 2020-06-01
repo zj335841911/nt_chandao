@@ -3,7 +3,7 @@
     <template slot='title'>
     <span class='caption-info'>{{$t(model.srfTitle)}}</span>
     </template>
-    <iframe class="iframe-container" :src="https://www.ibizlab.cn/about/index.html"/>
+    <iframe class="iframe-container" src="https://www.ibizlab.cn/about/index.html"/>
 </studio-view>
 </template>
 
