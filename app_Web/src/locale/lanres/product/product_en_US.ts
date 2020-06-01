@@ -31,8 +31,8 @@ export default {
       title: '产品',
 		},
 		htmlview: {
-			caption: "iBiz软件生产过程",
-      title: 'iBiz软件生产过程',
+			caption: "iBiz软件生产管理",
+      title: 'iBiz软件生产管理',
 		},
 		testdashboardview: {
 			caption: "产品",

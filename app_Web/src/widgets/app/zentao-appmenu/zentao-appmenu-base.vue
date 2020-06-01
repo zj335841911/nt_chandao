@@ -83,7 +83,7 @@ export default class ZentaoBase extends Vue {
     }
     
     /**
-     * iBiz软件生产过程
+     * iBiz软件生产管理
      *
      * @param {*} [item={}]
      * @memberof Zentao
