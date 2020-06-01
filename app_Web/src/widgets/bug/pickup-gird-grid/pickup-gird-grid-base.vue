@@ -71,15 +71,7 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='bug' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'bug-main-dashboard-view', height: 0,width: 0,title: $t('entities.bug.views.maindashboardview.title'),placement: '', isRedirectView: false,deResParameters: [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-            ,parameters: [
-            { pathName: 'bugs', parameterName: 'bug' },
-            { pathName: 'maindashboardview', parameterName: 'maindashboardview' }
-            ]}" valueitem="srfkey">
-                            <span>{{row.title}}</span>
-                        </app-column-link >
+                        <span>{{row.title}}</span>
                     </template>
                 </el-table-column>
             </template>
