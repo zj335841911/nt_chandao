@@ -10,7 +10,7 @@ import java.util.Map;
 //@Component
 final public class ZenTaoConstants {
 //    @Value("${zentao.url:http://172.16.100.202/zentao/}")
-    public static String ZT_URL = "http://172.16.100.202/zentao/";
+    public static String ZT_URL = "http://172.16.102.102/zentao/";
     final public static String ZT_URL_EXT = ".json";
     final public static String ZT_TMP_USERNAME = "admin";
     final public static String ZT_TMP_PASSWORD = "ibiz@123";

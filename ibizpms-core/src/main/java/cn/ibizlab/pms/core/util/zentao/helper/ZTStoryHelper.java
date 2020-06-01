@@ -123,7 +123,7 @@ public class ZTStoryHelper {
         ACTION_PARAMS_EDIT.put("linkstories", null);
         ACTION_PARAMS_EDIT.put("assignedto", null);
         ACTION_PARAMS_EDIT.put("keywords", null);
-        ACTION_PARAMS_EDIT.put("comment", "story");
+        ACTION_PARAMS_EDIT.put("comment", null);
         // 变更日期，编辑不会修改
 //        ACTION_PARAMS_EDIT.put("lastediteddate", null);
         // 联系单（前端计算进入mailto）
@@ -194,4 +194,54 @@ public class ZTStoryHelper {
         return true;
     }
 
+
+    public static void main(String[] args) {
+        // create
+//        JSONObject jo = new JSONObject();
+//        jo.put("product", 4);
+//        jo.put("branch", 3);
+//        jo.put("title", "API建立需求7");
+//        jo.put("module", 0);
+//        jo.put("plan", 7);
+//        jo.put("source", "market");
+//        jo.put("sourcenote", "客户需求");
+//        jo.put("reviewedby", "admin");
+//        jo.put("pri", 3);
+//        jo.put("estimate", 0);
+//        jo.put("spec", "API建立需求描述7");
+//        jo.put("verify", "API建立需求验收标准7");
+//        jo.put("color", "#2dbdb2");
+//        jo.put("mailto", "admin,xiechenlong");
+//        jo.put("keywords", "API建立需求");
+//        jo.put("type", "story");
+//        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+//        boolean bRst = create(jo, rst);
+
+        // edit
+        JSONObject jo = new JSONObject();
+        jo.put("id", 200);
+        jo.put("product", 4);
+        jo.put("branch", 3);
+        jo.put("module", 198);
+        jo.put("color", "#2dbdb2");
+        jo.put("plan", 7);
+        jo.put("status", "draft");
+        jo.put("source", "market");
+        jo.put("sourcenote", "客户需求");
+        jo.put("reviewedby", "admin,xiechenlong");
+        jo.put("pri", 3);
+        jo.put("estimate", 10);
+        jo.put("parent", 65);
+        jo.put("mailto", "admin,xiechenlong,crimson");
+        jo.put("keywords", "API建立需求");
+        jo.put("linkstories", "66,67");
+        jo.put("comment", "API编辑需求");
+
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = edit(jo, rst);
+
+//        if (!bRst) {
+        System.out.println(rst.getMessage());
+//        }
+    }
 }
