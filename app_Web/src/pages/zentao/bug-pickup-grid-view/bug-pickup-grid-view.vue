@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import BugPickupGridViewBase from './bug-pickup-grid-view-base.vue';
 
-import view_grid from '@widgets/bug/main-grid/main-grid.vue';
+import view_grid from '@widgets/bug/pickup-gird-grid/pickup-gird-grid.vue';
 @Component({
     components: {
         view_grid, 

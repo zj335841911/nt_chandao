@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import StoryPickupGridViewBase from './story-pickup-grid-view-base.vue';
 
-import view_grid from '@widgets/story/main-grid/main-grid.vue';
+import view_grid from '@widgets/story/pickup-grid-grid/pickup-grid-grid.vue';
 @Component({
     components: {
         view_grid, 
