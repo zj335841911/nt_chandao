@@ -184,7 +184,7 @@ export class NotificationSignalController {
      * @memberof NotificationSignalController
      */
     public loading(): void {
-        if (this.loadingCount === 0) {
+        if (this.loadingCount === 0 && this.el) {
             if (!this.isLoading) {
                 this.active();
                 this.loadingWidth = 0;
@@ -228,7 +228,7 @@ export class NotificationSignalController {
         if (this.loadingCount > 0) {
             this.loadingCount--;
         }
-        if (this.loadingCount === 0) {
+        if (this.loadingCount === 0 && this.el) {
             this.clearLoadingInterval();
             this.setElWidth(100);
             this.clearLoadingEndTimer();
