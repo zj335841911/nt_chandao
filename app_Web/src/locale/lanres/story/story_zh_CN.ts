@@ -41,6 +41,8 @@ export default {
     duplicatestory: '重复需求ID',
     branch: '平台/分支',
     tobug: '转Bug',
+    spec: '需求描述',
+    verify: '验收标准',
   },
 	views: {
 		mainview: {

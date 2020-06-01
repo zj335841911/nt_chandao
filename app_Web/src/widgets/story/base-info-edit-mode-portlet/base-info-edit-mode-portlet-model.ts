@@ -138,6 +138,12 @@ export default class BaseInfo_EditModeModel {
       {
         name: 'tobug',
       },
+      {
+        name: 'spec',
+      },
+      {
+        name: 'verify',
+      },
     ]
   }
 

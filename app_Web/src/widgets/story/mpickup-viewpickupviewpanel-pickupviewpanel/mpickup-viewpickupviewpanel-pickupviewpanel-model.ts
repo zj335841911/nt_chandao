@@ -138,6 +138,12 @@ export default class MPickupViewpickupviewpanelModel {
       {
         name: 'tobug',
       },
+      {
+        name: 'spec',
+      },
+      {
+        name: 'verify',
+      },
     ]
   }
 

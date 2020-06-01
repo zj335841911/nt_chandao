@@ -356,6 +356,22 @@ public class StoryDTO extends DTOBase implements Serializable {
     @JsonProperty("tobug")
     private BigInteger tobug;
 
+    /**
+     * 属性 [SPEC]
+     *
+     */
+    @JSONField(name = "spec")
+    @JsonProperty("spec")
+    private String spec;
+
+    /**
+     * 属性 [VERIFY]
+     *
+     */
+    @JSONField(name = "verify")
+    @JsonProperty("verify")
+    private String verify;
+
 
     /**
      * 设置 [ASSIGNEDTO]

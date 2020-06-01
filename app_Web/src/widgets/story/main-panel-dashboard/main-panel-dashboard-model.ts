@@ -138,6 +138,12 @@ export default class MainPanelModel {
       {
         name: 'tobug',
       },
+      {
+        name: 'spec',
+      },
+      {
+        name: 'verify',
+      },
     ]
   }
 

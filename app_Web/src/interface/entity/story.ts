@@ -333,4 +333,20 @@ export interface Story {
      * @memberof Story
      */
     tobug?: any;
+
+    /**
+     * 需求描述
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    spec?: any;
+
+    /**
+     * 验收标准
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    verify?: any;
 }

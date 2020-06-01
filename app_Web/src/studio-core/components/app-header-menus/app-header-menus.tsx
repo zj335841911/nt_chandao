@@ -1,4 +1,5 @@
 import { Vue, Component, Prop, Emit } from 'vue-property-decorator';
+import { Util } from '@/utils';
 import './app-header-menus.less';
 
 /**
@@ -29,6 +30,44 @@ export class AppHeaderMenus extends Vue {
      */
     @Emit('menu-click')
     public menuClick(item: any): any { }
+
+    /**
+     * 组件创建完毕
+     *
+     * @memberof AppHeaderMenus
+     */
+    public mounted(): void {
+        this.$nextTick(() => {
+            const openDefault = this.findDefaultOpen(this.menus);
+            if (openDefault) {
+                this.menuClick(openDefault);
+            }
+        });
+    }
+
+    /**
+     * 查找默认打开视图
+     *
+     * @protected
+     * @param {any[]} items
+     * @returns {*}
+     * @memberof AppHeaderMenus
+     */
+    protected findDefaultOpen(items: any[]): any {
+        if (items) {
+            return items.find((item: any) => {
+                let data: any;
+                if (item && item.items && Util.typeOf(item.items) === 'array') {
+                    data = this.findDefaultOpen(item.items);
+                } else {
+                    if (item.opendefault === true) {
+                        data = item;
+                    }
+                }
+                return data;
+            });
+        }
+    }
 
     /**
      * 菜单项选中

@@ -138,6 +138,12 @@ export default class BaseInfoModel {
       {
         name: 'tobug',
       },
+      {
+        name: 'spec',
+      },
+      {
+        name: 'verify',
+      },
     ]
   }
 

@@ -343,6 +343,20 @@ public class Story extends EntityMP implements Serializable {
     @JSONField(name = "tobug")
     @JsonProperty("tobug")
     private BigInteger tobug;
+    /**
+     * 需求描述
+     */
+    @TableField(exist = false)
+    @JSONField(name = "spec")
+    @JsonProperty("spec")
+    private String spec;
+    /**
+     * 验收标准
+     */
+    @TableField(exist = false)
+    @JSONField(name = "verify")
+    @JsonProperty("verify")
+    private String verify;
 
     /**
      * 

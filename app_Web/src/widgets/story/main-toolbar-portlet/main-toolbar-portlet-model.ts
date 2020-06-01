@@ -138,6 +138,12 @@ export default class MainToolbarModel {
       {
         name: 'tobug',
       },
+      {
+        name: 'spec',
+      },
+      {
+        name: 'verify',
+      },
     ]
   }
 

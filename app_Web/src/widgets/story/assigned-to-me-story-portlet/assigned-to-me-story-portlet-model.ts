@@ -138,6 +138,12 @@ export default class AssignedToMeStoryModel {
       {
         name: 'tobug',
       },
+      {
+        name: 'spec',
+      },
+      {
+        name: 'verify',
+      },
     ]
   }
 

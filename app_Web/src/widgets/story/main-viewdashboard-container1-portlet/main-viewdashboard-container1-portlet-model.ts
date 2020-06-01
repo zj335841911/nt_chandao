@@ -138,6 +138,12 @@ export default class MainViewdashboard_container1Model {
       {
         name: 'tobug',
       },
+      {
+        name: 'spec',
+      },
+      {
+        name: 'verify',
+      },
     ]
   }
 
