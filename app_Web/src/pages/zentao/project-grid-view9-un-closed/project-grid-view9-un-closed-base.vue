@@ -634,7 +634,7 @@ export default class ProjectGridView9_UnClosedBase extends Vue {
      * @type {boolean}
      * @memberof ProjectGridView9_UnClosedBase
      */
-    public isSingleSelect: boolean = false;
+    public isSingleSelect: boolean = true;
 
 
     /**

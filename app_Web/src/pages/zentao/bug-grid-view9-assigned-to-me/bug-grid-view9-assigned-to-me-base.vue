@@ -632,7 +632,7 @@ export default class BugGridView9_AssignedToMeBase extends Vue {
      * @type {boolean}
      * @memberof BugGridView9_AssignedToMeBase
      */
-    public isSingleSelect: boolean = false;
+    public isSingleSelect: boolean = true;
 
 
     /**

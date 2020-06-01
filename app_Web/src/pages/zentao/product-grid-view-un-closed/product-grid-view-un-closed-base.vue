@@ -634,7 +634,7 @@ export default class ProductGridView_UnClosedBase extends Vue {
      * @type {boolean}
      * @memberof ProductGridView_UnClosedBase
      */
-    public isSingleSelect: boolean = false;
+    public isSingleSelect: boolean = true;
 
 
     /**
