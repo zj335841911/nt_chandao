@@ -95,27 +95,6 @@ export default class ZentaoModel {
                 	resourcetag: '',
                 }
                 ,
-                		        {
-                	id: 'AAADCE5D-2685-4C0A-9251-8731E49443A0',
-                	name: 'menuitem7',
-                	text: 'iBiz开放平台',
-                	type: 'MENUITEM',
-                	counterid: '',
-                	tooltip: 'iBiz开放平台',
-                	expanded: false,
-                	separator: false,
-                	hidden: false,
-                	hidesidebar: false,
-                	opendefault: true,
-                	iconcls: '',
-                	icon: '',
-                	textcls: '',
-                	appfunctag: '_3',
-                	appfuncyype: 'APPVIEW',
-                	viewname: 'product-html-view',
-                	resourcetag: '',
-                }
-                ,
         	],
         }
         ,
@@ -273,18 +252,6 @@ export default class ZentaoModel {
             parameters: [
                 { pathName: 'projects', parameterName: 'project' },
                 { pathName: 'leftsidebarlistview', parameterName: 'leftsidebarlistview' },
-            ],
-        },
-        {
-            appfunctag: '_3',
-            appfuncyype: 'APPVIEW',
-            openmode: '',
-            codename: 'producthtmlview',
-            deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/products/:product?/htmlview/:htmlview?',
-            parameters: [
-                { pathName: 'products', parameterName: 'product' },
-                { pathName: 'htmlview', parameterName: 'htmlview' },
             ],
         },
         {

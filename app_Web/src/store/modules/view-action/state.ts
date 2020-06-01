@@ -63,15 +63,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '0846a45e5ffdd4d8f857575cfa955dce',
-            viewmodule: 'zentao',
-            viewname: 'ProductHtmlView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: '08ca1b1e6234a0d038e1fbf52478ea7f',
             viewmodule: 'zentao',
             viewname: 'ProductPlanMainTabExp',
@@ -145,7 +136,6 @@ export const viewstate: any = {
                 'A49E5FD9-FC90-434B-9E13-192873F6F2AC',
                 '7c79a923d0cdd1a5bc41a34367809077',
                 '8ca39819b87c5e3e8669fcd7409cf9a2',
-                '0846a45e5ffdd4d8f857575cfa955dce',
             ],
         },
         {
