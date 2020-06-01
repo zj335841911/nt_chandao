@@ -72,7 +72,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('actions')">
-                <el-table-column :column-key="'actions'" :label="$t('entities.productplan.main_grid.columns.actions')" :width="250"  :align="'right'">
+                <el-table-column :column-key="'actions'" :label="$t('entities.productplan.main_grid.columns.actions')" :width="235"  :align="'right'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.productplan.main_grid.columns.actions')}}
