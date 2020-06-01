@@ -1,8 +1,5 @@
 <template>
 <studio-view viewName="producthtmlview" viewTitle="iBiz开放平台介绍" class='dehtmlview product-html-view'>
-    <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
-    </template>
     <iframe class="iframe-container" src="https://www.ibizlab.cn/about/index.html"/>
 </studio-view>
 </template>
