@@ -72,7 +72,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('actions')">
-                <el-table-column :column-key="'actions'" :label="$t('entities.productplan.main_grid.columns.actions')" :width="300"  :align="'right'">
+                <el-table-column :column-key="'actions'" :label="$t('entities.productplan.main_grid.columns.actions')" :width="220"  :align="'right'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.productplan.main_grid.columns.actions')}}
@@ -82,12 +82,12 @@
                         <span>
                             
                             <a @click="uiAction(scope.row, 'RelationStory', $event)">
-                              <i class=''></i>
+                              <i class='fa fa-link'></i>
                               {{$t('entities.productplan.main_grid.uiactions.relationstory')}}
                             </a>
                             <divider type='vertical'></divider>
                             <a @click="uiAction(scope.row, 'RelationBug', $event)">
-                              <i class=''></i>
+                              <i class='fa fa-bug'></i>
                               {{$t('entities.productplan.main_grid.uiactions.relationbug')}}
                             </a>
                             <divider type='vertical'></divider>
