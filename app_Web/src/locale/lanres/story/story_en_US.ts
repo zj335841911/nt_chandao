@@ -186,7 +186,7 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			parent: "父需求", 
-			version: "版本", 
+			version: "版本#", 
 			spec: "需求描述", 
 			verify: "验收标准", 
 			id: "编号", 

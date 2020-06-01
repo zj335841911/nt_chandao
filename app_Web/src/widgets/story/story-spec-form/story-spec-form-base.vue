@@ -1,14 +1,15 @@
 <template>
-    <i-form :model="this.data" class='app-form' ref='form'  id='story_storyspec' style="">
+    <i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='story_storyspec' style="">
     <input style="display:none;" />
     <row >
             
 <i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.storyspec_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.storyspec_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
-        <i-col v-show="detailsModel.version.visible" :style="{}"  :lg="{ span: 4, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+        <i-col v-show="detailsModel.version.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='version' :itemRules="this.rules.version" class='' :caption="$t('entities.story.storyspec_form.details.version')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.version.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.version"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.version.disabled" type='number'  style=""></input-box>
+    <app-span   name='version'
+:value="data.version" style="width:70px;"></app-span>
 </app-form-item>
 
 </i-col>
@@ -456,10 +457,10 @@ export default class StorySpecBase extends Vue implements ControlInterface {
             { required: false, type: 'number', message: '父需求 值不能为空', trigger: 'blur' },
         ],
         version: [
-            { type: 'number', message: '版本 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '版本 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '版本 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '版本 值不能为空', trigger: 'blur' },
+            { type: 'number', message: '版本# 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '版本# 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '版本# 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '版本# 值不能为空', trigger: 'blur' },
         ],
         spec: [
             { type: 'string', message: '需求描述 值必须为字符串类型', trigger: 'change' },
@@ -510,7 +511,7 @@ export default class StorySpecBase extends Vue implements ControlInterface {
 , 
         parent: new FormItemModel({ caption: '父需求', detailType: 'FORMITEM', name: 'parent', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        version: new FormItemModel({ caption: '版本', detailType: 'FORMITEM', name: 'version', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        version: new FormItemModel({ caption: '版本#', detailType: 'FORMITEM', name: 'version', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         spec: new FormItemModel({ caption: '需求描述', detailType: 'FORMITEM', name: 'spec', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
