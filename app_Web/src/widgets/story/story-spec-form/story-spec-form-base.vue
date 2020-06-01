@@ -15,15 +15,13 @@
 </i-col>
 <i-col v-show="detailsModel.spec.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='spec' :itemRules="this.rules.spec" class='' :caption="$t('entities.story.storyspec_form.details.spec')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.spec.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='spec'
-:value="data.spec" style=""></app-span>
+    <span v-html="data.spec"></span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.verify.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='verify' :itemRules="this.rules.verify" class='' :caption="$t('entities.story.storyspec_form.details.verify')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.verify.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='verify'
-:value="data.verify" style=""></app-span>
+    <span v-html="data.verify"></span>
 </app-form-item>
 
 </i-col>
