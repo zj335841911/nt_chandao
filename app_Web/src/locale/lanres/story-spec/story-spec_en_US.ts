@@ -27,8 +27,8 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
-			verify: "验收标准", 
 			spec: "需求描述	", 
+			verify: "验收标准", 
 			id: "虚拟主键", 
 		},
 		uiactions: {
