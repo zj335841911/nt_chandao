@@ -492,7 +492,7 @@ export default class ExpService extends ControlService {
 
             Object.assign(treeNode, { id: strNodeId });
 
-            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { expanded: true });
             Object.assign(treeNode, { leaf: false });
             Object.assign(treeNode, { navparams: '{}' });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
@@ -643,7 +643,7 @@ export default class ExpService extends ControlService {
                         strNodeId += this.TREENODE_SEPARATOR;
                         strNodeId += strId;
                         Object.assign(treeNode, { id: strNodeId });
-                        Object.assign(treeNode, { expanded: filter.isautoexpand });
+                        Object.assign(treeNode, { expanded: bFirst });
                         Object.assign(treeNode, { leaf: false });
                         let objLeafFlag = entity.isleaf;
                         if (objLeafFlag != null ) {
@@ -955,7 +955,7 @@ export default class ExpService extends ControlService {
                         strNodeId += this.TREENODE_SEPARATOR;
                         strNodeId += strId;
                         Object.assign(treeNode, { id: strNodeId });
-                        Object.assign(treeNode, { expanded: filter.isautoexpand });
+                        Object.assign(treeNode, { expanded: bFirst });
                         Object.assign(treeNode, { leaf: false });
                         let objLeafFlag = entity.isleaf;
                         if (objLeafFlag != null ) {

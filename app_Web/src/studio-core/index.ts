@@ -1,3 +1,4 @@
+// 组件 Start
 import { AppLayout } from './components/layout/app-layout/app-layout';
 import { AppHeader } from './components/layout/app-header/app-header';
 import { AppHeaderMenus } from './components/app-header-menus/app-header-menus';
@@ -10,8 +11,14 @@ import { UserInfo } from './components/user-info/user-info';
 import { StudioView } from './components/studio-view/studio-view';
 import { StudioEmbedView } from './components/studio-embed-view/studio-embed-view';
 import { ViewConfigActions } from './components/view-config-actions/view-config-actions';
+import HtmlContainer from './components/html-container/html-container.vue';
+// 组件 End
+// 服务 Start
 import { acc } from './message-center/app-communications-center';
+// 服务 End
+// 指令 Start
 import { NotificationSignal } from './directives/notification-signal/notification-signal';
+// 指令 End
 
 // 注册Vue插件
 export const StudioCore = {
@@ -32,5 +39,6 @@ export const StudioCore = {
         v.component('studio-embed-view', StudioEmbedView);
         v.component('view-config-actions', ViewConfigActions);
         v.directive('notification-signal', NotificationSignal);
+        v.directive('html-container', HtmlContainer);
     }
 };
