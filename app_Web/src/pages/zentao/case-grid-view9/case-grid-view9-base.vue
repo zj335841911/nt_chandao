@@ -632,7 +632,7 @@ export default class CaseGridView9Base extends Vue {
      * @type {boolean}
      * @memberof CaseGridView9Base
      */
-    public isSingleSelect: boolean = false;
+    public isSingleSelect: boolean = true;
 
 
     /**

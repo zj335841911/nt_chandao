@@ -658,7 +658,7 @@ export default class StoryGridView9_AssignedToMeBase extends Vue {
      * @type {boolean}
      * @memberof StoryGridView9_AssignedToMeBase
      */
-    public isSingleSelect: boolean = false;
+    public isSingleSelect: boolean = true;
 
 
     /**
