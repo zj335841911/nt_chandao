@@ -1,6 +1,6 @@
 
-create schema if not exists a_LAB01_9c2ce5707;
-set schema a_LAB01_9c2ce5707;
+create schema if not exists zentao;
+set schema zentao;
 
 
 
