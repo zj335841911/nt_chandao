@@ -80,7 +80,6 @@ export default class MainModel {
           name: 'testtask',
           prop: 'id',
         },
-
         {
           name:'size',
           prop:'size'

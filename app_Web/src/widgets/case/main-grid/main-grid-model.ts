@@ -95,7 +95,6 @@ export default class MainModel {
           name: 'case',
           prop: 'id',
         },
-
         {
           name:'size',
           prop:'size'

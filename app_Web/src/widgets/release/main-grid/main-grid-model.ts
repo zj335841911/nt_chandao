@@ -85,7 +85,6 @@ export default class MainModel {
           name: 'release',
           prop: 'id',
         },
-
         {
           name:'size',
           prop:'size'

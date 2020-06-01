@@ -257,7 +257,7 @@
         "viewname": "BugEditView",
         "viewfilename": "bug-edit-view",
         "viewtag": "46517a803b2470cd0bef27aeda0dbcaf",
-        "memo": ""
+        "memo": "临时充当主信息展示页面"
     },
     "storyeditview": {
         "title": "story编辑视图",

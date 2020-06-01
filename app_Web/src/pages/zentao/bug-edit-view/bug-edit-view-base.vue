@@ -1,8 +1,5 @@
 <template>
 <studio-view viewName="bugeditview" viewTitle="bug编辑视图" class='deeditview bug-edit-view'>
-    <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
-    </template>
     <template slot="toolbar">
                 <div class='toolbar-container'>
             <i-button :title="$t('entities.bug.editviewtoolbar_toolbar.tbitem3.tip')" v-show="toolBarModels.tbitem3.visabled" :disabled="toolBarModels.tbitem3.disabled" class='' @click="toolbar_click({ tag: 'tbitem3' }, $event)">
