@@ -489,7 +489,7 @@ export default class StorySpecBase extends Vue implements ControlInterface {
     public detailsModel: any = {
         group1: new FormGroupPanelModel({ caption: '需求描述信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.story.storyspec_form', extractMode: 'ITEM', details: [] } })
 , 
-        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
+        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: false, isShowCaption: true, form: this })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
@@ -700,6 +700,14 @@ export default class StorySpecBase extends Vue implements ControlInterface {
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
 
+        if (Object.is(name, '') || Object.is(name, 'parent')) {
+            let ret = false;
+            const _parent = this.data.parent;
+            if (this.$verify.testCond(_parent, 'EQ', '-1')) {
+                ret = true;
+            }
+            this.detailsModel.druipart1.setVisible(ret);
+        }
 
 
 
