@@ -530,7 +530,7 @@
         "memo": ""
     },
     "projectgridview": {
-        "title": "project表格视图",
+        "title": "项目",
         "caption": "项目",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "zentao",
@@ -910,7 +910,7 @@
         "memo": ""
     },
     "projecteditview": {
-        "title": "project编辑视图",
+        "title": "项目",
         "caption": "项目",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "zentao",

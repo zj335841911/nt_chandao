@@ -1892,6 +1892,33 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-grid-view/bug-grid-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/plansubgridview/:plansubgridview?',
+                    meta: {
+                        caption: 'entities.story.views.plansubgridview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'plansubgridview', parameterName: 'plansubgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-plan-sub-grid-view/story-plan-sub-grid-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/plansubgridview/:plansubgridview?',
+                    meta: {
+                        caption: 'entities.story.views.plansubgridview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'plansubgridview', parameterName: 'plansubgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-plan-sub-grid-view/story-plan-sub-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/productplans/:productplan?/subproductplans/:subproductplan?/subplaneditview/:subplaneditview?',
                     meta: {
                         caption: 'entities.productplan.views.subplaneditview.caption',
@@ -1932,33 +1959,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/product-plan-sub-plan-edit-view/product-plan-sub-plan-edit-view.vue'),
-                },
-                {
-                    path: 'products/:product?/stories/:story?/plansubgridview/:plansubgridview?',
-                    meta: {
-                        caption: 'entities.story.views.plansubgridview.caption',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'plansubgridview', parameterName: 'plansubgridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/story-plan-sub-grid-view/story-plan-sub-grid-view.vue'),
-                },
-                {
-                    path: 'stories/:story?/plansubgridview/:plansubgridview?',
-                    meta: {
-                        caption: 'entities.story.views.plansubgridview.caption',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'plansubgridview', parameterName: 'plansubgridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/story-plan-sub-grid-view/story-plan-sub-grid-view.vue'),
                 },
                 {
                     path: 'products/:product?/cases/:case?/gridview/:gridview?',

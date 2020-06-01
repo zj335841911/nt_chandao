@@ -432,7 +432,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "81b0cee2fedff8f4902c0d735714e5af"
         },
         "projectgridview": {
-            "title": "project表格视图",
+            "title": "项目",
             "caption": "项目",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",
@@ -736,7 +736,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "f7a278d765ff0f85a2c59cbb2485fa30"
         },
         "projecteditview": {
-            "title": "project编辑视图",
+            "title": "项目",
             "caption": "项目",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",

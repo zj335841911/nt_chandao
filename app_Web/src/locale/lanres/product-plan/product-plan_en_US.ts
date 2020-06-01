@@ -83,8 +83,12 @@ export default {
 			title: "名称",
 			begin: "开始日期",
 			end: "结束日期",
+			actions: "操作",
 		},
 		uiactions: {
+			relationstory: "关联需求",
+			relationbug: "关联Bug",
+			newsubplan: "子计划",
 		},
 	},
 	gridviewtoolbar_toolbar: {

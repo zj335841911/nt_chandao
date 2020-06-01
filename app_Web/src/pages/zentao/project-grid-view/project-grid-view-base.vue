@@ -1,5 +1,5 @@
 <template>
-<studio-view viewName="projectgridview" viewTitle="project表格视图" class='degridview project-grid-view'>
+<studio-view viewName="projectgridview" viewTitle="项目" class='degridview project-grid-view'>
     <template slot='title'>
     <span class='caption-info'>{{$t(model.srfTitle)}}</span>
     </template>
