@@ -335,6 +335,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskTaskTypeGanttView",
             "viewtag": "5ef23f01b2cffa48351b3272dfeeaf14"
         },
+        "storymainview9_storyspec": {
+            "title": "需求编辑视图",
+            "caption": "需求",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "StoryMainView9_StorySpec",
+            "viewtag": "61f32b2b422e8f1a9825e1f704464a8c"
+        },
         "productmaintabexpview": {
             "title": "产品",
             "caption": "产品",
@@ -470,6 +478,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "StoryMainView9",
             "viewtag": "94e0ee1a97736ff4d28b88a46cd395b7"
+        },
+        "storygridview9_substory": {
+            "title": "需求表格视图",
+            "caption": "子需求",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "StoryGridView9_SubStory",
+            "viewtag": "956ad42e59e60cd8b49e7035147e25cf"
         },
         "actionprojecttrendslistview9": {
             "title": "产品动态",

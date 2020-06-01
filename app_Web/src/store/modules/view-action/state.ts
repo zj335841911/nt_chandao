@@ -214,9 +214,9 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'd0c00941809a9dee4e44db3cca606f0a',
                 '7e14015af219d302f7d81ff40cdcc418',
                 '94e0ee1a97736ff4d28b88a46cd395b7',
+                '61f32b2b422e8f1a9825e1f704464a8c',
                 '770a170098d148e438a7666b248e6519',
             ],
         },
@@ -369,6 +369,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '61f32b2b422e8f1a9825e1f704464a8c',
+            viewmodule: 'zentao',
+            viewname: 'StoryMainView9_StorySpec',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '956ad42e59e60cd8b49e7035147e25cf',
+            ],
+        },
+        {
             viewtag: '6c7b582273d0726bcf77214807cfe40c',
             viewmodule: 'zentao',
             viewname: 'ProductMainTabExpView',
@@ -469,8 +479,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'd0c00941809a9dee4e44db3cca606f0a',
                 '538555af88ea31549a5bc7dbf1e6286a',
+                '61f32b2b422e8f1a9825e1f704464a8c',
                 '770a170098d148e438a7666b248e6519',
             ],
         },
@@ -552,6 +562,18 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '6c7b582273d0726bcf77214807cfe40c',
+            ],
+        },
+        {
+            viewtag: '956ad42e59e60cd8b49e7035147e25cf',
+            viewmodule: 'zentao',
+            viewname: 'StoryGridView9_SubStory',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '7e14015af219d302f7d81ff40cdcc418',
+                '4863a523ac490ebce771717756f0c6a8',
+                '02b7ecd8e994b90558a9d6c23705f600',
             ],
         },
         {
@@ -766,15 +788,6 @@ export const viewstate: any = {
             viewtag: 'd0454a2ae9eb44aca3613b27169f3b18',
             viewmodule: 'zentao',
             viewname: 'ProjectProductListView9',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
-            viewtag: 'd0c00941809a9dee4e44db3cca606f0a',
-            viewmodule: 'zentao',
-            viewname: 'StorySpecMainView9',
             viewaction: '',
             viewdatachange: false,
             refviews: [

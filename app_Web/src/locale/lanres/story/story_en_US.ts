@@ -70,6 +70,10 @@ export default {
 			caption: "需求",
       title: '需求',
 		},
+		mainview9_storyspec: {
+			caption: "需求",
+      title: '需求',
+		},
 		mainview_editmode: {
 			caption: "需求",
       title: '需求',
@@ -77,6 +81,10 @@ export default {
 		mainview9: {
 			caption: "需求",
       title: '需求',
+		},
+		gridview9_substory: {
+			caption: "子需求",
+      title: '子需求',
 		},
 		maingridview: {
 			caption: "需求",
@@ -165,6 +173,27 @@ export default {
 		uiactions: {
 		},
 	},
+	storyspec_form: {
+		details: {
+			group1: "需求描述信息", 
+			druipart1: "", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "需求名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			parent: "父需求", 
+			version: "版本", 
+			spec: "需求描述", 
+			verify: "验收标准", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
 	main_form: {
 		details: {
 			group1: "story基本信息", 
@@ -228,6 +257,23 @@ export default {
 			modulename: "所属模块名称",
 		},
 		uiactions: {
+		},
+	},
+	main3_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "需求名称",
+			assignedto: "指派给",
+			estimate: "预计工时",
+			status: "当前状态",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+			changestorydetail: "变更需求",
+			closestory: "关闭",
+			openbaseinfoeditview: "编辑",
+			opencasecreateview: "建用例",
 		},
 	},
 	main_grid: {
@@ -307,6 +353,12 @@ export default {
 			tip: "Save And Close Window",
 		},
 	},
+	editviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+	},
 	maingridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "New",
@@ -319,12 +371,6 @@ export default {
 		deuiaction2: {
 			caption: "Edit",
 			tip: "Edit {0}",
-		},
-	},
-	editviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
 		},
 	},
 	main2gridviewtoolbar_toolbar: {
