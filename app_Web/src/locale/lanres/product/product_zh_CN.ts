@@ -30,8 +30,8 @@ export default {
       title: '产品',
 		},
 		htmlview: {
-			caption: 'iBiz开放平台介绍',
-      title: 'iBiz开放平台介绍',
+			caption: 'iBiz开放平台',
+      title: 'iBiz开放平台',
 		},
 		testdashboardview: {
 			caption: '产品',

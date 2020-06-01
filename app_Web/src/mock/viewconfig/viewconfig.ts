@@ -56,8 +56,8 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "07327890c326f9c806b9343f0c660fc1"
         },
         "producthtmlview": {
-            "title": "iBiz开放平台介绍",
-            "caption": "iBiz开放平台介绍",
+            "title": "iBiz开放平台",
+            "caption": "iBiz开放平台",
             "viewtype": "DEHTMLVIEW",
             "viewmodule": "zentao",
             "viewname": "ProductHtmlView",

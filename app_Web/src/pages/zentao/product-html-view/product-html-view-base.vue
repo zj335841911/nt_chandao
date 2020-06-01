@@ -1,5 +1,5 @@
 <template>
-<studio-view viewName="producthtmlview" viewTitle="iBiz开放平台介绍" class='dehtmlview product-html-view'>
+<studio-view viewName="producthtmlview" viewTitle="iBiz开放平台" class='dehtmlview product-html-view'>
     <iframe class="iframe-container" src="https://www.ibizlab.cn/about/index.html"/>
 </studio-view>
 </template>
