@@ -98,10 +98,10 @@ export default class ZentaoModel {
                 		        {
                 	id: 'AAADCE5D-2685-4C0A-9251-8731E49443A0',
                 	name: 'menuitem7',
-                	text: 'iBiz软件生产过程',
+                	text: 'iBiz软件生产管理',
                 	type: 'MENUITEM',
                 	counterid: '',
-                	tooltip: 'iBiz软件生产过程',
+                	tooltip: 'iBiz软件生产管理',
                 	expanded: false,
                 	separator: false,
                 	hidden: false,

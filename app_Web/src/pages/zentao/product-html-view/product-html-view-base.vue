@@ -1,5 +1,5 @@
 <template>
-<studio-view viewName="producthtmlview" viewTitle="iBiz软件生产过程" class='dehtmlview product-html-view'>
+<studio-view viewName="producthtmlview" viewTitle="iBiz软件生产管理" class='dehtmlview product-html-view'>
     <iframe class="iframe-container" src="./assets/html/iBizPMS.html"/>
 </studio-view>
 </template>
