@@ -29,6 +29,10 @@ export default {
 			caption: '产品',
       title: '产品',
 		},
+		htmlview: {
+			caption: '产品',
+      title: '产品',
+		},
 		testdashboardview: {
 			caption: '产品',
       title: '产品',

@@ -89,9 +89,30 @@ export default class ZentaoModel {
                 	iconcls: '',
                 	icon: '',
                 	textcls: '',
-                	appfunctag: '_3',
+                	appfunctag: '_4',
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'test-portal-view',
+                	resourcetag: '',
+                }
+                ,
+                		        {
+                	id: 'AAADCE5D-2685-4C0A-9251-8731E49443A0',
+                	name: 'menuitem7',
+                	text: 'iBiz开放平台',
+                	type: 'MENUITEM',
+                	counterid: '',
+                	tooltip: 'iBiz开放平台',
+                	expanded: false,
+                	separator: false,
+                	hidden: false,
+                	hidesidebar: false,
+                	opendefault: true,
+                	iconcls: '',
+                	icon: '',
+                	textcls: '',
+                	appfunctag: '_3',
+                	appfuncyype: 'APPVIEW',
+                	viewname: 'product-html-view',
                 	resourcetag: '',
                 }
                 ,
@@ -173,7 +194,7 @@ export default class ZentaoModel {
                 	iconcls: 'fa fa-cogs',
                 	icon: '',
                 	textcls: '',
-                	appfunctag: '_4',
+                	appfunctag: '_5',
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'product-test-left-sidebar-list-view',
                 	resourcetag: '',
@@ -231,7 +252,7 @@ export default class ZentaoModel {
 	 */
 	private funcs: any[] = [
         {
-            appfunctag: '_4',
+            appfunctag: '_5',
             appfuncyype: 'APPVIEW',
             openmode: '',
             codename: 'producttestleftsidebarlistview',
@@ -252,6 +273,18 @@ export default class ZentaoModel {
             parameters: [
                 { pathName: 'projects', parameterName: 'project' },
                 { pathName: 'leftsidebarlistview', parameterName: 'leftsidebarlistview' },
+            ],
+        },
+        {
+            appfunctag: '_3',
+            appfuncyype: 'APPVIEW',
+            openmode: '',
+            codename: 'producthtmlview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/products/:product?/htmlview/:htmlview?',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'htmlview', parameterName: 'htmlview' },
             ],
         },
         {
@@ -289,7 +322,7 @@ export default class ZentaoModel {
             ],
         },
         {
-            appfunctag: '_3',
+            appfunctag: '_4',
             appfuncyype: 'APPVIEW',
             openmode: '',
             codename: 'testportalview',

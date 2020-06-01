@@ -177,7 +177,7 @@
             {
                "appid":"Web",
                "appname":"iBiz项目管理",
-               "appmenu":[{"menuid":"zentao", "menuname":"zentao", "menuitem":[{ "id":"top_menus" , "name":"顶部菜单" , "items":[{ "id":"menuitem3" , "name":"产品主页" },{ "id":"menuitem2" , "name":"项目主页" },{ "id":"menuitem1" , "name":"测试主页" }]},{ "id":"left_exp" , "name":"左侧分页导航" , "items":[{ "id":"menuitem4" , "name":"产品" },{ "id":"menuitem5" , "name":"项目" },{ "id":"menuitem6" , "name":"测试" }]},{ "id":"bottom_exp" , "name":"底部导航区" },{ "id":"footer_center" , "name":"底部中间菜单" }] }]
+               "appmenu":[{"menuid":"zentao", "menuname":"zentao", "menuitem":[{ "id":"top_menus" , "name":"顶部菜单" , "items":[{ "id":"menuitem3" , "name":"产品主页" },{ "id":"menuitem2" , "name":"项目主页" },{ "id":"menuitem1" , "name":"测试主页" },{ "id":"menuitem7" , "name":"iBiz开放平台" }]},{ "id":"left_exp" , "name":"左侧分页导航" , "items":[{ "id":"menuitem4" , "name":"产品" },{ "id":"menuitem5" , "name":"项目" },{ "id":"menuitem6" , "name":"测试" }]},{ "id":"bottom_exp" , "name":"底部导航区" },{ "id":"footer_center" , "name":"底部中间菜单" }] }]
             }
             ]
     }

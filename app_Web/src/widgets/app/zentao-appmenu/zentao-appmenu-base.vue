@@ -19,11 +19,14 @@ export default class ZentaoBase extends Vue {
     private click(item: any) {
         if (item) {
             switch (item.appfunctag) {
-                case '_4': 
-                    this.click_4(item);
+                case '_5': 
+                    this.click_5(item);
                     return;
                 case 'Auto5': 
                     this.clickAuto5(item);
+                    return;
+                case '_3': 
+                    this.click_3(item);
                     return;
                 case 'Auto2': 
                     this.clickAuto2(item);
@@ -34,8 +37,8 @@ export default class ZentaoBase extends Vue {
                 case 'Auto1': 
                     this.clickAuto1(item);
                     return;
-                case '_3': 
-                    this.click_3(item);
+                case '_4': 
+                    this.click_4(item);
                     return;
                 default:
                     console.warn('未指定应用功能');
@@ -49,7 +52,7 @@ export default class ZentaoBase extends Vue {
      * @param {*} [item={}]
      * @memberof Zentao
      */
-    public click_4(item: any = {}) {
+    public click_5(item: any = {}) {
         const viewparam: any = {};
         Object.assign(viewparam, {});
         const deResParameters: any[] = [];
@@ -74,6 +77,24 @@ export default class ZentaoBase extends Vue {
         const parameters: any[] = [
             { pathName: 'projects', parameterName: 'project' },
             { pathName: 'leftsidebarlistview', parameterName: 'leftsidebarlistview' },
+        ];
+        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
+        this.$router.push(path);
+    }
+    
+    /**
+     * iBiz开放平台介绍
+     *
+     * @param {*} [item={}]
+     * @memberof Zentao
+     */
+    public click_3(item: any = {}) {
+        const viewparam: any = {};
+        Object.assign(viewparam, {});
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'htmlview', parameterName: 'htmlview' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
         this.$router.push(path);
@@ -137,7 +158,7 @@ export default class ZentaoBase extends Vue {
      * @param {*} [item={}]
      * @memberof Zentao
      */
-    public click_3(item: any = {}) {
+    public click_4(item: any = {}) {
         const viewparam: any = {};
         Object.assign(viewparam, {});
         const deResParameters: any[] = [];

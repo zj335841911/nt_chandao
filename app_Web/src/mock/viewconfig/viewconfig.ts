@@ -55,6 +55,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductLifeRoadMapListView",
             "viewtag": "07327890c326f9c806b9343f0c660fc1"
         },
+        "producthtmlview": {
+            "title": "iBiz开放平台介绍",
+            "caption": "产品",
+            "viewtype": "DEHTMLVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProductHtmlView",
+            "viewtag": "0846a45e5ffdd4d8f857575cfa955dce"
+        },
         "productplanmaintabexp": {
             "title": "计划",
             "caption": "产品计划",
