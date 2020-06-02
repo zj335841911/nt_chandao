@@ -158,8 +158,9 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     @Override
     @Transactional
     public boolean update(Product et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductHelper.edit((JSONObject) JSONObject.toJSON(et), rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductHelper.edit((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
@@ -185,8 +186,9 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     @Override
     @Transactional
     public boolean create(Product et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductHelper.create((JSONObject) JSONObject.toJSON(et), rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductHelper.create((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
