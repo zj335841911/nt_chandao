@@ -23,8 +23,8 @@ export default {
       title: '公司',
 		},
 		maintabexpview: {
-			caption: "公司",
-      title: '公司',
+			caption: "组织权限",
+      title: '组织权限',
 		},
 	},
 	deptexp_treeview: {

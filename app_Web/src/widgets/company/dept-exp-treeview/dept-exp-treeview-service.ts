@@ -253,6 +253,13 @@ export default class DeptExpService extends ControlService {
                         Object.assign(treeNode, { id: strNodeId });
                         Object.assign(treeNode, { expanded: filter.isautoexpand });
                         Object.assign(treeNode, { leaf: false });
+                        let objLeafFlag = entity.isleaf;
+                        if (objLeafFlag != null ) {
+                            let strLeafFlag: string = objLeafFlag.toString().toLowerCase();
+                            if (Object.is(strLeafFlag, '1') || Object.is(strLeafFlag, 'true')){
+                                Object.assign(treeNode, { leaf: true });
+                            }
+                        }
                         Object.assign(treeNode, { navfilter: "n_parent_eq" });
                         Object.assign(treeNode, { navparams: '{}' });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
@@ -385,7 +392,7 @@ export default class DeptExpService extends ControlService {
 
             Object.assign(treeNode, { id: strNodeId });
 
-            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { expanded: true });
             Object.assign(treeNode, { leaf: false });
             Object.assign(treeNode, { navparams: '{}' });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
@@ -533,6 +540,13 @@ export default class DeptExpService extends ControlService {
                         Object.assign(treeNode, { id: strNodeId });
                         Object.assign(treeNode, { expanded: filter.isautoexpand });
                         Object.assign(treeNode, { leaf: false });
+                        let objLeafFlag = entity.isleaf;
+                        if (objLeafFlag != null ) {
+                            let strLeafFlag: string = objLeafFlag.toString().toLowerCase();
+                            if (Object.is(strLeafFlag, '1') || Object.is(strLeafFlag, 'true')){
+                                Object.assign(treeNode, { leaf: true });
+                            }
+                        }
                         Object.assign(treeNode, { navfilter: "n_parent_eq" });
                         Object.assign(treeNode, { navparams: '{}' });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });

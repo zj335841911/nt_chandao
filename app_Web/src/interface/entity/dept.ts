@@ -85,4 +85,12 @@ export interface Dept {
      * @memberof Dept
      */
     parent?: any;
+
+    /**
+     * 无子部门
+     *
+     * @returns {*}
+     * @memberof Dept
+     */
+    isleaf?: any;
 }

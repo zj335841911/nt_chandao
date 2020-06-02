@@ -15,6 +15,7 @@ import './entity/sub-product-plans/sub-product-plans';
 import './entity/story-specs/story-specs';
 import './entity/branchs/branchs';
 import './entity/actions/actions';
+import './entity/groups/groups';
 import './entity/case-steps/case-steps';
 import './entity/depts/depts';
 import './entity/companys/companys';

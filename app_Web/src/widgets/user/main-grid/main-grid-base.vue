@@ -59,6 +59,20 @@
                     </template>
                 </el-table-column>
             </template>
+            <template v-if="getColumnState('role')">
+                <el-table-column show-overflow-tooltip :prop="'role'" :label="$t('entities.user.main_grid.columns.role')" :width="150"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.user.main_grid.columns.role')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template >
+            <codelist :value="row.role" tag='Role' codelistType='DYNAMIC' ></codelist>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="getColumnState('email')">
                 <el-table-column show-overflow-tooltip :prop="'email'" :label="$t('entities.user.main_grid.columns.email')" :width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
@@ -72,7 +86,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('gender')">
-                <el-table-column show-overflow-tooltip :prop="'gender'" :label="$t('entities.user.main_grid.columns.gender')" :width="70"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'gender'" :label="$t('entities.user.main_grid.columns.gender')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.user.main_grid.columns.gender')}}
@@ -106,6 +120,18 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <span>{{row.qq}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('address')">
+                <el-table-column show-overflow-tooltip :prop="'address'" :label="$t('entities.user.main_grid.columns.address')" :min-width="1"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.user.main_grid.columns.address')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.address}}</span>
                     </template>
                 </el-table-column>
             </template>
@@ -756,6 +782,13 @@ export default class MainBase extends Vue implements ControlInterface {
             util: 'PX'
         },
         {
+            name: 'role',
+            label: '职位',
+            langtag: 'entities.user.main_grid.columns.role',
+            show: true,
+            util: 'PX'
+        },
+        {
             name: 'email',
             label: '邮箱',
             langtag: 'entities.user.main_grid.columns.email',
@@ -782,6 +815,13 @@ export default class MainBase extends Vue implements ControlInterface {
             langtag: 'entities.user.main_grid.columns.qq',
             show: true,
             util: 'PX'
+        },
+        {
+            name: 'address',
+            label: '通讯地址',
+            langtag: 'entities.user.main_grid.columns.address',
+            show: true,
+            util: 'STAR'
         },
         {
             name: 'last',
@@ -1191,6 +1231,14 @@ export default class MainBase extends Vue implements ControlInterface {
      */
     public async formatExcelData(filterVal:any, jsonData:any) {
         let codelistColumns:Array<any> = [
+          {
+            name: 'role',
+            srfkey: 'Role',
+            codelistType : 'DYNAMIC',
+            renderMode: 'other',
+            textSeparator: '、',
+            valueSeparator: ',',
+          },
           {
             name: 'gender',
             srfkey: 'User__gender',

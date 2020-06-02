@@ -27,11 +27,6 @@ export default class MainModel {
     }else{
 		  return [
         {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
           name: 'phone',
           prop: 'phone',
           dataType: 'TEXT',
@@ -39,31 +34,6 @@ export default class MainModel {
         {
           name: 'last',
           prop: 'last',
-          dataType: 'INT',
-        },
-        {
-          name: 'email',
-          prop: 'email',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'gender',
-          prop: 'gender',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'account',
-          prop: 'account',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'realname',
-          prop: 'realname',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'visits',
-          prop: 'visits',
           dataType: 'INT',
         },
         {
@@ -80,6 +50,46 @@ export default class MainModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
+        },
+        {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'email',
+          prop: 'email',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'address',
+          prop: 'address',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'account',
+          prop: 'account',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'role',
+          prop: 'role',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'gender',
+          prop: 'gender',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'realname',
+          prop: 'realname',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'visits',
+          prop: 'visits',
+          dataType: 'INT',
         },
         {
           name: 'qq',

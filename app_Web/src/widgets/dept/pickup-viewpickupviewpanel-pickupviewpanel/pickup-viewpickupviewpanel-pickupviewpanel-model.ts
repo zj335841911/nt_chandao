@@ -45,6 +45,9 @@ export default class PickupViewpickupviewpanelModel {
       {
         name: 'parent',
       },
+      {
+        name: 'isleaf',
+      },
     ]
   }
 

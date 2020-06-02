@@ -1154,22 +1154,22 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "codelisttype":"static",
         items: [
             {
-                id: 'f',
+                id: '女',
                 label: 'f',
                 text: 'f',
                 "data":"",
-                "codename":"F",
-                value: 'f',
+                "codename":"Item_1",
+                value: '女',
                 
                 disabled: false,
             },
             {
-                id: 'm',
+                id: '男',
                 label: 'm',
                 text: 'm',
                 "data":"",
-                "codename":"M",
-                value: 'm',
+                "codename":"Item_2",
+                value: '男',
                 
                 disabled: false,
             },
@@ -2919,6 +2919,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 disabled: false,
             },
         ]
+    },
+    {
+        "srfkey": "Role",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Group",
+        "appdedataset":"FetchDefault",
+        "items": []
     },
     {
         srfkey: 'Bug__pri',

@@ -279,6 +279,16 @@
         "viewtag": "3f2ca3e560d9082bb56fbf7667a57a66",
         "memo": ""
     },
+    "bugbuglifeeditview9": {
+        "title": "Bug的一生",
+        "caption": "Bug",
+        "viewtype": "DEEDITVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "BugBugLifeEditView9",
+        "viewfilename": "bug-bug-life-edit-view9",
+        "viewtag": "443935a0b9d0fa8daf3131956a8bacc9",
+        "memo": ""
+    },
     "bugeditview": {
         "title": "bug编辑视图",
         "caption": "Bug",
@@ -401,7 +411,7 @@
     },
     "companymaintabexpview": {
         "title": "组织权限",
-        "caption": "公司",
+        "caption": "组织权限",
         "viewtype": "DETABEXPVIEW",
         "viewmodule": "zentao",
         "viewname": "CompanyMainTabExpView",
@@ -1017,6 +1027,16 @@
         "viewname": "TaskEditView",
         "viewfilename": "task-edit-view",
         "viewtag": "ea141fddc78fd1af4d06e494baf12cc1",
+        "memo": ""
+    },
+    "bugdashboardmaineditview9": {
+        "title": "主信息",
+        "caption": "Bug",
+        "viewtype": "DEEDITVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "BugDashboardMainEditView9",
+        "viewfilename": "bug-dashboard-main-edit-view9",
+        "viewtag": "ec9a5987de12c718961f243f4034efea",
         "memo": ""
     },
     "casestepgridview": {

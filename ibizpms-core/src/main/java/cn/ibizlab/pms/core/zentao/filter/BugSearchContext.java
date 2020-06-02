@@ -27,6 +27,27 @@ import cn.ibizlab.pms.core.zentao.domain.Bug;
 @Data
 public class BugSearchContext extends QueryWrapperContext<Bug> {
 
+	private String n_assignedto_eq;//[指派给]
+	public void setN_assignedto_eq(String n_assignedto_eq) {
+        this.n_assignedto_eq = n_assignedto_eq;
+        if(!ObjectUtils.isEmpty(this.n_assignedto_eq)){
+            this.getSelectCond().eq("assignedto", n_assignedto_eq);
+        }
+    }
+	private Integer n_confirmed_eq;//[是否确认]
+	public void setN_confirmed_eq(Integer n_confirmed_eq) {
+        this.n_confirmed_eq = n_confirmed_eq;
+        if(!ObjectUtils.isEmpty(this.n_confirmed_eq)){
+            this.getSelectCond().eq("confirmed", n_confirmed_eq);
+        }
+    }
+	private String n_openedby_eq;//[由谁创建]
+	public void setN_openedby_eq(String n_openedby_eq) {
+        this.n_openedby_eq = n_openedby_eq;
+        if(!ObjectUtils.isEmpty(this.n_openedby_eq)){
+            this.getSelectCond().eq("openedby", n_openedby_eq);
+        }
+    }
     @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
     @JSONField(format="yyyy-MM-dd")
 	private Timestamp n_deadline_lt;//[截止日期]
@@ -48,6 +69,13 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
         this.n_status_noteq = n_status_noteq;
         if(!ObjectUtils.isEmpty(this.n_status_noteq)){
             this.getSelectCond().ne("status", n_status_noteq);
+        }
+    }
+	private String n_resolvedby_eq;//[解决者]
+	public void setN_resolvedby_eq(String n_resolvedby_eq) {
+        this.n_resolvedby_eq = n_resolvedby_eq;
+        if(!ObjectUtils.isEmpty(this.n_resolvedby_eq)){
+            this.getSelectCond().eq("resolvedby", n_resolvedby_eq);
         }
     }
 	private String n_title_like;//[Bug标题]

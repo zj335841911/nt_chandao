@@ -103,6 +103,14 @@ public class DeptDTO extends DTOBase implements Serializable {
     @JsonProperty("parent")
     private BigInteger parent;
 
+    /**
+     * 属性 [ISLEAF]
+     *
+     */
+    @JSONField(name = "isleaf")
+    @JsonProperty("isleaf")
+    private String isleaf;
+
 
     /**
      * 设置 [MANAGER]

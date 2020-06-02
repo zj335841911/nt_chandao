@@ -132,8 +132,8 @@ export default {
         empty: '',
     },
     User__gender: {
-        'f': 'f',
-        'm': 'm',
+        '女': 'f',
+        '男': 'm',
         empty: '',
     },
     Action__object_type: {
@@ -361,6 +361,9 @@ export default {
     YesNo2: {
         1: '是',
         0: '否',
+        empty: '',
+    },
+    Role: {
         empty: '',
     },
     Bug__pri: {

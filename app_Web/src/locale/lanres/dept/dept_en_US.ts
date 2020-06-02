@@ -11,6 +11,7 @@ export default {
     name: '部门名称',
     parentname: '上级部门',
     parent: 'parent',
+    isleaf: '无子部门',
   },
 	views: {
 		pickupview: {

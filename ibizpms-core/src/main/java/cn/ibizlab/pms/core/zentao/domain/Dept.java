@@ -111,6 +111,13 @@ public class Dept extends EntityMP implements Serializable {
     @JSONField(name = "parent")
     @JsonProperty("parent")
     private BigInteger parent;
+    /**
+     * 无子部门
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isleaf")
+    @JsonProperty("isleaf")
+    private String isleaf;
 
     /**
      * 

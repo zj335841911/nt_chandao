@@ -1,5 +1,6 @@
 import CurProductPlan from '@/codelist/cur-product-plan';   
 import UserRealName from '@/codelist/user-real-name';   
+import Role from '@/codelist/role';   
 import { Store } from 'vuex';
 
 /**
@@ -58,6 +59,14 @@ export default class CodeListService {
      * @memberof CodeListService
      */
     public UserRealName: UserRealName = new UserRealName();
+
+    /**
+     * 代码表--群组（动态）
+     *
+     * @type {Role}
+     * @memberof CodeListService
+     */
+    public Role: Role = new Role();
 
     /**
      * 获取动态代码表

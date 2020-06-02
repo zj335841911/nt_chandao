@@ -231,6 +231,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryMainView",
             "viewtag": "3f2ca3e560d9082bb56fbf7667a57a66"
         },
+        "bugbuglifeeditview9": {
+            "title": "Bug的一生",
+            "caption": "Bug",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "BugBugLifeEditView9",
+            "viewtag": "443935a0b9d0fa8daf3131956a8bacc9"
+        },
         "bugeditview": {
             "title": "bug编辑视图",
             "caption": "Bug",
@@ -329,7 +337,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "companymaintabexpview": {
             "title": "组织权限",
-            "caption": "公司",
+            "caption": "组织权限",
             "viewtype": "DETABEXPVIEW",
             "viewmodule": "zentao",
             "viewname": "CompanyMainTabExpView",
@@ -822,6 +830,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TaskEditView",
             "viewtag": "ea141fddc78fd1af4d06e494baf12cc1"
+        },
+        "bugdashboardmaineditview9": {
+            "title": "主信息",
+            "caption": "Bug",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "BugDashboardMainEditView9",
+            "viewtag": "ec9a5987de12c718961f243f4034efea"
         },
         "casestepgridview": {
             "title": "casestep表格视图",

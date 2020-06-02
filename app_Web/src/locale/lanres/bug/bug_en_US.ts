@@ -77,6 +77,10 @@ export default {
 			caption: "关联Bug",
       title: '关联Bug',
 		},
+		buglifeeditview9: {
+			caption: "Bug",
+      title: 'Bug',
+		},
 		editview: {
 			caption: "Bug",
       title: 'Bug',
@@ -90,6 +94,10 @@ export default {
       title: 'Bug',
 		},
 		gridview: {
+			caption: "Bug",
+      title: 'Bug',
+		},
+		dashboardmaineditview9: {
 			caption: "Bug",
       title: 'Bug',
 		},
@@ -150,6 +158,67 @@ export default {
 		uiactions: {
 		},
 	},
+	dashboardmain_form: {
+		details: {
+			group1: "Bug基本信息", 
+			formpage1: "基本信息", 
+			grouppanel1: "分组面板", 
+			formpage2: "项目/需求/任务", 
+			srfupdatedate: "修改日期", 
+			srforikey: "", 
+			srfkey: "Bug编号", 
+			srfmajortext: "Bug标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			product: "所属产品", 
+			productname: "产品", 
+			title: "Bug标题", 
+			module: "所属模块", 
+			plan: "所属计划", 
+			type: "Bug类型", 
+			severity: "严重程度", 
+			pri: "优先级", 
+			status: "Bug状态", 
+			activatedcount: "激活次数", 
+			activateddate: "激活日期", 
+			confirmed: "是否确认", 
+			assignedto: "当前指派", 
+			deadline: "截止日期", 
+			os: "操作系统", 
+			browser: "浏览器", 
+			keywords: "关键词", 
+			mailto: "抄送给", 
+			project: "所属项目", 
+			projectname: "项目", 
+			story: "相关需求", 
+			task: "相关任务", 
+			id: "Bug编号", 
+		},
+		uiactions: {
+		},
+	},
+	dashboardbuglife_form: {
+		details: {
+			group1: "Bug基本信息", 
+			formpage1: "Bug的一生", 
+			formpage2: "其他相关", 
+			srfupdatedate: "修改日期", 
+			srforikey: "", 
+			srfkey: "Bug编号", 
+			srfmajortext: "Bug标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			openedby: "由谁创建", 
+			openedbuild: "影响版本", 
+			id: "Bug编号", 
+		},
+		uiactions: {
+		},
+	},
 	pickupgird_grid: {
 		columns: {
 			id: "Bug编号",
@@ -205,69 +274,9 @@ export default {
 		},
 	},
 	editviewtoolbar_toolbar: {
-		tbitem3: {
-			caption: "Save",
-			tip: "Save",
-		},
-		tbitem4: {
-			caption: "Save And New",
-			tip: "Save And New",
-		},
-		tbitem5: {
+		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
-		},
-		tbitem6: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem7: {
-			caption: "Remove And Close",
-			tip: "Remove And Close Window",
-		},
-		tbitem8: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem12: {
-			caption: "New",
-			tip: "New",
-		},
-		tbitem13: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem14: {
-			caption: "Copy",
-			tip: "Copy {0}",
-		},
-		tbitem16: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem23: {
-			caption: "第一个记录",
-			tip: "第一个记录",
-		},
-		tbitem24: {
-			caption: "上一个记录",
-			tip: "上一个记录",
-		},
-		tbitem25: {
-			caption: "下一个记录",
-			tip: "下一个记录",
-		},
-		tbitem26: {
-			caption: "最后一个记录",
-			tip: "最后一个记录",
-		},
-		tbitem21: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem22: {
-			caption: "Help",
-			tip: "Help",
 		},
 	},
 	plansubgridviewtoolbar_toolbar: {

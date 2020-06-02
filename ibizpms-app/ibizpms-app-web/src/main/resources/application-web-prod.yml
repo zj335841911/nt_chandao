@@ -35,6 +35,10 @@ zuul:
       path: /actions/**
       serviceId: pms-webapi
       stripPrefix: false
+    zt_group:
+      path: /groups/**
+      serviceId: pms-webapi
+      stripPrefix: false
     zt_casestep:
       path: /casesteps/**
       serviceId: pms-webapi

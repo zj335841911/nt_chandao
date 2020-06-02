@@ -341,7 +341,7 @@ export default class DeptExpBase extends Vue implements ControlInterface {
      * @type {boolean}
      * @memberof DeptExp
      */
-    public isOutputIconDefault: boolean = true;
+    public isOutputIconDefault: boolean = false;
 
 
     /**
