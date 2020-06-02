@@ -1,6 +1,7 @@
 export const PageComponents = {
     install(Vue: any, opt: any) {
-                Vue.component('story-main-grid-view', () => import('@pages/zentao/story-main-grid-view/story-main-grid-view.vue'));
+                Vue.component('bug-steps-info-edit-view', () => import('@pages/zentao/bug-steps-info-edit-view/bug-steps-info-edit-view.vue'));
+        Vue.component('story-main-grid-view', () => import('@pages/zentao/story-main-grid-view/story-main-grid-view.vue'));
         Vue.component('test-task-grid-view9-un-tested', () => import('@pages/zentao/test-task-grid-view9-un-tested/test-task-grid-view9-un-tested.vue'));
         Vue.component('story-pickup-grid-view', () => import('@pages/zentao/story-pickup-grid-view/story-pickup-grid-view.vue'));
         Vue.component('dept-pickup-grid-view', () => import('@pages/zentao/dept-pickup-grid-view/dept-pickup-grid-view.vue'));
@@ -46,6 +47,7 @@ export const PageComponents = {
         Vue.component('test-task-edit-view', () => import('@pages/zentao/test-task-edit-view/test-task-edit-view.vue'));
         Vue.component('story-main-view9-story-spec', () => import('@pages/zentao/story-main-view9-story-spec/story-main-view9-story-spec.vue'));
         Vue.component('product-bug-tree-exp-view', () => import('@pages/zentao/product-bug-tree-exp-view/product-bug-tree-exp-view.vue'));
+        Vue.component('bug-main-dashboard-view', () => import('@pages/zentao/bug-main-dashboard-view/bug-main-dashboard-view.vue'));
         Vue.component('product-main-dashboard-view', () => import('@pages/zentao/product-main-dashboard-view/product-main-dashboard-view.vue'));
         Vue.component('bug-mpickup-view', () => import('@pages/zentao/bug-mpickup-view/bug-mpickup-view.vue'));
         Vue.component('bug-grid-view', () => import('@pages/zentao/bug-grid-view/bug-grid-view.vue'));
@@ -72,6 +74,8 @@ export const PageComponents = {
         Vue.component('product-module-edit-view', () => import('@pages/zentao/product-module-edit-view/product-module-edit-view.vue'));
         Vue.component('project-pickup-view', () => import('@pages/zentao/project-pickup-view/project-pickup-view.vue'));
         Vue.component('project-grid-view9-un-closed', () => import('@pages/zentao/project-grid-view9-un-closed/project-grid-view9-un-closed.vue'));
+        Vue.component('bug-bug-life-edit-view9', () => import('@pages/zentao/bug-bug-life-edit-view9/bug-bug-life-edit-view9.vue'));
+        Vue.component('bug-dashboard-main-edit-view9', () => import('@pages/zentao/bug-dashboard-main-edit-view9/bug-dashboard-main-edit-view9.vue'));
         Vue.component('task-edit-view', () => import('@pages/zentao/task-edit-view/task-edit-view.vue'));
         Vue.component('product-list-exp-view', () => import('@pages/zentao/product-list-exp-view/product-list-exp-view.vue'));
         Vue.component('project-task-tree-exp-view', () => import('@pages/zentao/project-task-tree-exp-view/project-task-tree-exp-view.vue'));

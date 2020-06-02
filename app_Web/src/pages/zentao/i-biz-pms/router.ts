@@ -35,6 +35,62 @@ const router = new Router({
             component: () => import('@pages/zentao/i-biz-pms/i-biz-pms.vue'),
             children: [
                 {
+                    path: 'products/:product?/productplans/:productplan?/bugs/:bug?/stepsinfoeditview/:stepsinfoeditview?',
+                    meta: {
+                        caption: 'entities.bug.views.stepsinfoeditview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'stepsinfoeditview', parameterName: 'stepsinfoeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-steps-info-edit-view/bug-steps-info-edit-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/bugs/:bug?/stepsinfoeditview/:stepsinfoeditview?',
+                    meta: {
+                        caption: 'entities.bug.views.stepsinfoeditview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'stepsinfoeditview', parameterName: 'stepsinfoeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-steps-info-edit-view/bug-steps-info-edit-view.vue'),
+                },
+                {
+                    path: 'products/:product?/bugs/:bug?/stepsinfoeditview/:stepsinfoeditview?',
+                    meta: {
+                        caption: 'entities.bug.views.stepsinfoeditview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'stepsinfoeditview', parameterName: 'stepsinfoeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-steps-info-edit-view/bug-steps-info-edit-view.vue'),
+                },
+                {
+                    path: 'bugs/:bug?/stepsinfoeditview/:stepsinfoeditview?',
+                    meta: {
+                        caption: 'entities.bug.views.stepsinfoeditview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'stepsinfoeditview', parameterName: 'stepsinfoeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-steps-info-edit-view/bug-steps-info-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/maingridview/:maingridview?',
                     meta: {
                         caption: 'entities.story.views.maingridview.caption',
@@ -955,6 +1011,62 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-bug-tree-exp-view/product-bug-tree-exp-view.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/bugs/:bug?/maindashboardview/:maindashboardview?',
+                    meta: {
+                        caption: 'entities.bug.views.maindashboardview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'maindashboardview', parameterName: 'maindashboardview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-main-dashboard-view/bug-main-dashboard-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/bugs/:bug?/maindashboardview/:maindashboardview?',
+                    meta: {
+                        caption: 'entities.bug.views.maindashboardview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'maindashboardview', parameterName: 'maindashboardview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-main-dashboard-view/bug-main-dashboard-view.vue'),
+                },
+                {
+                    path: 'products/:product?/bugs/:bug?/maindashboardview/:maindashboardview?',
+                    meta: {
+                        caption: 'entities.bug.views.maindashboardview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'maindashboardview', parameterName: 'maindashboardview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-main-dashboard-view/bug-main-dashboard-view.vue'),
+                },
+                {
+                    path: 'bugs/:bug?/maindashboardview/:maindashboardview?',
+                    meta: {
+                        caption: 'entities.bug.views.maindashboardview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'maindashboardview', parameterName: 'maindashboardview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-main-dashboard-view/bug-main-dashboard-view.vue'),
+                },
+                {
                     path: 'products/:product?/maindashboardview/:maindashboardview?',
                     meta: {
                         caption: 'entities.product.views.maindashboardview.caption',
@@ -1660,6 +1772,118 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/project-grid-view9-un-closed/project-grid-view9-un-closed.vue'),
+                },
+                {
+                    path: 'products/:product?/productplans/:productplan?/bugs/:bug?/buglifeeditview9/:buglifeeditview9?',
+                    meta: {
+                        caption: 'entities.bug.views.buglifeeditview9.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'buglifeeditview9', parameterName: 'buglifeeditview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-bug-life-edit-view9/bug-bug-life-edit-view9.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/bugs/:bug?/buglifeeditview9/:buglifeeditview9?',
+                    meta: {
+                        caption: 'entities.bug.views.buglifeeditview9.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'buglifeeditview9', parameterName: 'buglifeeditview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-bug-life-edit-view9/bug-bug-life-edit-view9.vue'),
+                },
+                {
+                    path: 'products/:product?/bugs/:bug?/buglifeeditview9/:buglifeeditview9?',
+                    meta: {
+                        caption: 'entities.bug.views.buglifeeditview9.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'buglifeeditview9', parameterName: 'buglifeeditview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-bug-life-edit-view9/bug-bug-life-edit-view9.vue'),
+                },
+                {
+                    path: 'bugs/:bug?/buglifeeditview9/:buglifeeditview9?',
+                    meta: {
+                        caption: 'entities.bug.views.buglifeeditview9.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'buglifeeditview9', parameterName: 'buglifeeditview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-bug-life-edit-view9/bug-bug-life-edit-view9.vue'),
+                },
+                {
+                    path: 'products/:product?/productplans/:productplan?/bugs/:bug?/dashboardmaineditview9/:dashboardmaineditview9?',
+                    meta: {
+                        caption: 'entities.bug.views.dashboardmaineditview9.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'dashboardmaineditview9', parameterName: 'dashboardmaineditview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-dashboard-main-edit-view9/bug-dashboard-main-edit-view9.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/bugs/:bug?/dashboardmaineditview9/:dashboardmaineditview9?',
+                    meta: {
+                        caption: 'entities.bug.views.dashboardmaineditview9.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'dashboardmaineditview9', parameterName: 'dashboardmaineditview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-dashboard-main-edit-view9/bug-dashboard-main-edit-view9.vue'),
+                },
+                {
+                    path: 'products/:product?/bugs/:bug?/dashboardmaineditview9/:dashboardmaineditview9?',
+                    meta: {
+                        caption: 'entities.bug.views.dashboardmaineditview9.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'dashboardmaineditview9', parameterName: 'dashboardmaineditview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-dashboard-main-edit-view9/bug-dashboard-main-edit-view9.vue'),
+                },
+                {
+                    path: 'bugs/:bug?/dashboardmaineditview9/:dashboardmaineditview9?',
+                    meta: {
+                        caption: 'entities.bug.views.dashboardmaineditview9.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'dashboardmaineditview9', parameterName: 'dashboardmaineditview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-dashboard-main-edit-view9/bug-dashboard-main-edit-view9.vue'),
                 },
                 {
                     path: 'projects/:project?/tasks/:task?/editview/:editview?',
@@ -2493,6 +2717,58 @@ const router = new Router({
         component: () => import('@pages/zentao/project-task-tree-exp-view/project-task-tree-exp-view.vue'),
     },
     {
+        path: '/products/:product?/productplans/:productplan?/bugs/:bug?/maindashboardview/:maindashboardview?',
+        meta: {
+            caption: 'entities.bug.views.maindashboardview.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'maindashboardview', parameterName: 'maindashboardview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-main-dashboard-view/bug-main-dashboard-view.vue'),
+    },
+    {
+        path: '/productplans/:productplan?/bugs/:bug?/maindashboardview/:maindashboardview?',
+        meta: {
+            caption: 'entities.bug.views.maindashboardview.caption',
+            parameters: [
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'maindashboardview', parameterName: 'maindashboardview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-main-dashboard-view/bug-main-dashboard-view.vue'),
+    },
+    {
+        path: '/products/:product?/bugs/:bug?/maindashboardview/:maindashboardview?',
+        meta: {
+            caption: 'entities.bug.views.maindashboardview.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'maindashboardview', parameterName: 'maindashboardview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-main-dashboard-view/bug-main-dashboard-view.vue'),
+    },
+    {
+        path: '/bugs/:bug?/maindashboardview/:maindashboardview?',
+        meta: {
+            caption: 'entities.bug.views.maindashboardview.caption',
+            parameters: [
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'maindashboardview', parameterName: 'maindashboardview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-main-dashboard-view/bug-main-dashboard-view.vue'),
+    },
+    {
         path: '/depts/:dept?/pickupview/:pickupview?',
         meta: {
             caption: 'entities.dept.views.pickupview.caption',
@@ -2819,6 +3095,58 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/zentao/story-main-view/story-main-view.vue'),
+    },
+    {
+        path: '/products/:product?/productplans/:productplan?/bugs/:bug?/buglifeeditview9/:buglifeeditview9?',
+        meta: {
+            caption: 'entities.bug.views.buglifeeditview9.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'buglifeeditview9', parameterName: 'buglifeeditview9' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-bug-life-edit-view9/bug-bug-life-edit-view9.vue'),
+    },
+    {
+        path: '/productplans/:productplan?/bugs/:bug?/buglifeeditview9/:buglifeeditview9?',
+        meta: {
+            caption: 'entities.bug.views.buglifeeditview9.caption',
+            parameters: [
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'buglifeeditview9', parameterName: 'buglifeeditview9' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-bug-life-edit-view9/bug-bug-life-edit-view9.vue'),
+    },
+    {
+        path: '/products/:product?/bugs/:bug?/buglifeeditview9/:buglifeeditview9?',
+        meta: {
+            caption: 'entities.bug.views.buglifeeditview9.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'buglifeeditview9', parameterName: 'buglifeeditview9' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-bug-life-edit-view9/bug-bug-life-edit-view9.vue'),
+    },
+    {
+        path: '/bugs/:bug?/buglifeeditview9/:buglifeeditview9?',
+        meta: {
+            caption: 'entities.bug.views.buglifeeditview9.caption',
+            parameters: [
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'buglifeeditview9', parameterName: 'buglifeeditview9' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-bug-life-edit-view9/bug-bug-life-edit-view9.vue'),
     },
     {
         path: '/products/:product?/productplans/:productplan?/bugs/:bug?/editview/:editview?',
@@ -3283,6 +3611,58 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/zentao/story-main-view9-story-spec/story-main-view9-story-spec.vue'),
+    },
+    {
+        path: '/products/:product?/productplans/:productplan?/bugs/:bug?/stepsinfoeditview/:stepsinfoeditview?',
+        meta: {
+            caption: 'entities.bug.views.stepsinfoeditview.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'stepsinfoeditview', parameterName: 'stepsinfoeditview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-steps-info-edit-view/bug-steps-info-edit-view.vue'),
+    },
+    {
+        path: '/productplans/:productplan?/bugs/:bug?/stepsinfoeditview/:stepsinfoeditview?',
+        meta: {
+            caption: 'entities.bug.views.stepsinfoeditview.caption',
+            parameters: [
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'stepsinfoeditview', parameterName: 'stepsinfoeditview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-steps-info-edit-view/bug-steps-info-edit-view.vue'),
+    },
+    {
+        path: '/products/:product?/bugs/:bug?/stepsinfoeditview/:stepsinfoeditview?',
+        meta: {
+            caption: 'entities.bug.views.stepsinfoeditview.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'stepsinfoeditview', parameterName: 'stepsinfoeditview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-steps-info-edit-view/bug-steps-info-edit-view.vue'),
+    },
+    {
+        path: '/bugs/:bug?/stepsinfoeditview/:stepsinfoeditview?',
+        meta: {
+            caption: 'entities.bug.views.stepsinfoeditview.caption',
+            parameters: [
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'stepsinfoeditview', parameterName: 'stepsinfoeditview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-steps-info-edit-view/bug-steps-info-edit-view.vue'),
     },
     {
         path: '/products/:product?/maintabexpview/:maintabexpview?',
@@ -4233,6 +4613,58 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/zentao/task-edit-view/task-edit-view.vue'),
+    },
+    {
+        path: '/products/:product?/productplans/:productplan?/bugs/:bug?/dashboardmaineditview9/:dashboardmaineditview9?',
+        meta: {
+            caption: 'entities.bug.views.dashboardmaineditview9.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'dashboardmaineditview9', parameterName: 'dashboardmaineditview9' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-dashboard-main-edit-view9/bug-dashboard-main-edit-view9.vue'),
+    },
+    {
+        path: '/productplans/:productplan?/bugs/:bug?/dashboardmaineditview9/:dashboardmaineditview9?',
+        meta: {
+            caption: 'entities.bug.views.dashboardmaineditview9.caption',
+            parameters: [
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'dashboardmaineditview9', parameterName: 'dashboardmaineditview9' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-dashboard-main-edit-view9/bug-dashboard-main-edit-view9.vue'),
+    },
+    {
+        path: '/products/:product?/bugs/:bug?/dashboardmaineditview9/:dashboardmaineditview9?',
+        meta: {
+            caption: 'entities.bug.views.dashboardmaineditview9.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'dashboardmaineditview9', parameterName: 'dashboardmaineditview9' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-dashboard-main-edit-view9/bug-dashboard-main-edit-view9.vue'),
+    },
+    {
+        path: '/bugs/:bug?/dashboardmaineditview9/:dashboardmaineditview9?',
+        meta: {
+            caption: 'entities.bug.views.dashboardmaineditview9.caption',
+            parameters: [
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'dashboardmaineditview9', parameterName: 'dashboardmaineditview9' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-dashboard-main-edit-view9/bug-dashboard-main-edit-view9.vue'),
     },
     {
         path: '/projects/:project?/dashboardinfoview/:dashboardinfoview?',

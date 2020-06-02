@@ -105,6 +105,19 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '1540523a668e920d831510cfbec2c5e2',
+            viewmodule: 'zentao',
+            viewname: 'BugMainDashboardView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '6558930042f15c2297572f51d7e77df5',
+                '443935a0b9d0fa8daf3131956a8bacc9',
+                'ec9a5987de12c718961f243f4034efea',
+                '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
             viewtag: '16b54862dad958907853dc7eb084a0c0',
             viewmodule: 'zentao',
             viewname: 'DeptPickupView',
@@ -248,6 +261,15 @@ export const viewstate: any = {
                 '94e0ee1a97736ff4d28b88a46cd395b7',
                 '61f32b2b422e8f1a9825e1f704464a8c',
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: '443935a0b9d0fa8daf3131956a8bacc9',
+            viewmodule: 'zentao',
+            viewname: 'BugBugLifeEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -449,6 +471,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '956ad42e59e60cd8b49e7035147e25cf',
+            ],
+        },
+        {
+            viewtag: '6558930042f15c2297572f51d7e77df5',
+            viewmodule: 'zentao',
+            viewname: 'BugStepsInfoEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -870,6 +901,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '1540523a668e920d831510cfbec2c5e2',
                 '46517a803b2470cd0bef27aeda0dbcaf',
             ],
         },
@@ -984,6 +1016,17 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'ec9a5987de12c718961f243f4034efea',
+            viewmodule: 'zentao',
+            viewname: 'BugDashboardMainEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '5a8a29268a7563b62fc0160233958830',
+                '7df0f0deee91304e0350f00baa8a92d6',
             ],
         },
         {

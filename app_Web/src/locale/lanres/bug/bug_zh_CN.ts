@@ -101,6 +101,24 @@ export default {
       title: 'Bug',
 		},
 	},
+	stepsinfo_form: {
+		details: {
+			group1: 'Bug基本信息', 
+			formpage1: '基本信息', 
+			srfupdatedate: '修改日期', 
+			srforikey: '', 
+			srfkey: 'Bug编号', 
+			srfmajortext: 'Bug标题', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			steps: '', 
+			id: 'Bug编号', 
+		},
+		uiactions: {
+		},
+	},
 	main_form: {
 		details: {
 			grouppanel1: '分组面板', 
@@ -134,24 +152,6 @@ export default {
 			task: '相关任务', 
 			mailto: '抄送给', 
 			keywords: '关键词', 
-			id: 'Bug编号', 
-		},
-		uiactions: {
-		},
-	},
-	stepsinfo_form: {
-		details: {
-			group1: 'Bug基本信息', 
-			formpage1: '基本信息', 
-			srfupdatedate: '修改日期', 
-			srforikey: '', 
-			srfkey: 'Bug编号', 
-			srfmajortext: 'Bug标题', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			steps: '', 
 			id: 'Bug编号', 
 		},
 		uiactions: {
