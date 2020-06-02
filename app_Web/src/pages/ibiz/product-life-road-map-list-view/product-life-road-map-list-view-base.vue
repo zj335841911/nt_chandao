@@ -305,7 +305,9 @@ export default class ProductLifeRoadMapListViewBase extends Vue {
         Object.defineProperty(this.context, 'srfcurdate', {
             get: function() {
                 return new Date().toLocaleString(undefined, { hour12: false });
-            }
+            },
+            enumerable : true,
+            configurable : true
         });
 		if(Object.keys(this.customViewNavContexts).length > 0){
 			Object.keys(this.customViewNavContexts).forEach((item:any) =>{
