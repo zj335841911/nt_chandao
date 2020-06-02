@@ -1543,6 +1543,123 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: 'Bug__quickpacket',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'All',
+                label: '所有',
+                text: '所有',
+                "data":{},
+                "codename":"All",
+                value: 'All',
+                
+                disabled: false,
+            },
+            {
+                id: 'UNCLOSED',
+                label: '未关闭',
+                text: '未关闭',
+                "data":{"n_status_noteq":"closed"},
+                "codename":"Unclosed",
+                value: 'UNCLOSED',
+                
+                disabled: false,
+            },
+            {
+                id: 'ICREATE',
+                label: '由我创建',
+                text: '由我创建',
+                "data":{"n_openedby_eq":"%SRFUSERID%"},
+                "codename":"Icreate",
+                value: 'ICREATE',
+                
+                disabled: false,
+            },
+            {
+                id: 'TOME',
+                label: '指派给我',
+                text: '指派给我',
+                "data":{"n_assignedto_eq":"%SRFUSERID%"},
+                "codename":"Tome",
+                value: 'TOME',
+                
+                disabled: false,
+            },
+            {
+                id: 'BYME',
+                label: '由我解决',
+                text: '由我解决',
+                "data":{"n_resolvedby_eq":"%SRFUSERID%"},
+                "codename":"Byme",
+                value: 'BYME',
+                
+                disabled: false,
+            },
+            {
+                id: 'WAITCLOSED',
+                label: '待关闭',
+                text: '待关闭',
+                "data":{"n_status_eq":"closed"},
+                "codename":"Waitclosed",
+                value: 'WAITCLOSED',
+                
+                disabled: false,
+            },
+            {
+                id: 'UNRESOLVED',
+                label: '未解决',
+                text: '未解决',
+                "data":{"n_status_eq":"resolved"},
+                "codename":"Unresolved",
+                value: 'UNRESOLVED',
+                
+                disabled: false,
+            },
+            {
+                id: 'MORE',
+                label: '更多',
+                text: '更多',
+                "data":"",
+                "codename":"More",
+                value: 'MORE',
+                
+                disabled: false,
+            },
+            {
+                id: 'UNCONFIRMED',
+                label: '未确认',
+                text: '未确认',
+                "data":{"n_confirmed_eq": 0},
+                "codename":"Unconfirmed",
+                value: 'UNCONFIRMED',
+                "pvalue": "MORE",
+                disabled: false,
+            },
+            {
+                id: 'UNASSIGNED',
+                label: '未指派',
+                text: '未指派',
+                "data":{"n_assignedto_eq":""},
+                "codename":"Unassigned",
+                value: 'UNASSIGNED',
+                "pvalue": "MORE",
+                disabled: false,
+            },
+            {
+                id: 'EXPIREDBUG',
+                label: '过期Bug',
+                text: '过期Bug',
+                "data":{"n_deadline_lt": "%srfcurdate%"},
+                "codename":"Expiredbug",
+                value: 'EXPIREDBUG',
+                "pvalue": "MORE",
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Task__closed_reason',
         emptytext: '未定义',
         "codelisttype":"static",
