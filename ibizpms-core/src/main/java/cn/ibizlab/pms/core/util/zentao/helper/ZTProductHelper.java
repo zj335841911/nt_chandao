@@ -111,13 +111,10 @@ public class ZTProductHelper {
     // 接口实现
     // ----------
 
-    final static public boolean create(JSONObject jo, ZTResult rst) {
-        // 后期从session获取，前期使用admin
-        String account = ZenTaoConstants.ZT_TMP_USERNAME;
+    final static public boolean create(String zentaoSid, JSONObject jo, ZTResult rst) {
         String url = MODULE_NAME + "-" + ACTION_CREATE + ZenTaoConstants.ZT_URL_EXT;
         // 注意，后期如果API返回结构都是一样的，再做抽象（当前使用到的参照标本数量不足）
-        JSONObject rstJO = new JSONObject();
-        rstJO = ZenTaoHttpHelper.doRequest(account, url, ACTION_HTTPMETHOD_CREATE, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_CREATE));
+        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_CREATE, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_CREATE));
         if ("fail".equals(rstJO.getString("result"))) {
             JSONObject message = rstJO.getJSONObject("message");
             List<String> msgList = new ArrayList<>();
@@ -147,9 +144,9 @@ public class ZTProductHelper {
         return true;
     }
 
-    final static public boolean edit(JSONObject jo, ZTResult rst) {
+    final static public boolean edit(String zentaoSid, JSONObject jo, ZTResult rst) {
         // 后期从session获取，前期使用admin
-        String account = ZenTaoConstants.ZT_TMP_USERNAME;
+        String account = "";
         String urlParams = "";
         if (ACTION_URL_PARAMS_EDIT != null && ACTION_URL_PARAMS_EDIT.size() > 0) {
             for (String key : ACTION_URL_PARAMS_EDIT) {
@@ -158,7 +155,7 @@ public class ZTProductHelper {
         }
         String url = MODULE_NAME + "-" + ACTION_EDIT  + urlParams + ZenTaoConstants.ZT_URL_EXT;
         JSONObject rstJO = new JSONObject();
-        rstJO = ZenTaoHttpHelper.doRequest(account, url, ACTION_HTTPMETHOD_EDIT, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_EDIT));
+        rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_EDIT, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_EDIT));
         if ("fail".equals(rstJO.getString("result"))) {
             JSONObject message = rstJO.getJSONObject("message");
             List<String> msgList = new ArrayList<>();

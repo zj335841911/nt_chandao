@@ -1,5 +1,6 @@
 package cn.ibizlab.pms.core.util.zentao.helper;
 
+import cn.ibizlab.pms.core.util.zentao.bean.ZTResult;
 import cn.ibizlab.pms.core.util.zentao.constants.ZenTaoConstants;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,32 +62,53 @@ public class ZTUserHelper {
     private final static HttpMethod ACTION_HTTPMETHOD_LOGIN = HttpMethod.POST;
 
     // ----------
+    // 接口行为POST参数
+    // ----------
+
+    private final static Map<String, Object> ACTION_PARAMS_LOGIN = new HashMap<>();
+
+    // ----------
+    // 接口行为POST参数设置
+    // ----------
+
+    static {
+        // LOGIN
+        ACTION_PARAMS_LOGIN.put("account", null);
+        ACTION_PARAMS_LOGIN.put("password", null);
+
+    }
+
+    // ----------
     // 接口实现
     // ----------
 
-    final static public boolean login(JSONObject rst) {
-        // 后期从session获取，前期使用admin
-        String account = ZenTaoConstants.ZT_TMP_USERNAME;
-        String password = ZenTaoConstants.ZT_TMP_PASSWORD;
-        if (account == null || account.isEmpty()) {
+    final static public boolean login(String zentaosid, JSONObject jo, ZTResult rst) {
+        if (jo.getString("account") == null || jo.getString("account").isEmpty()) {
+            return false;
+        }
+        if (jo.getString("password") == null || jo.getString("password").isEmpty()) {
             return false;
         }
         String url = MODULE_NAME + "-" + ACTION_LOGIN + ZenTaoConstants.ZT_URL_EXT;
-        JSONObject jo = new JSONObject();
-        jo.put("account", account);
-        jo.put("password", password);
-        rst = ZenTaoHttpHelper.doRequest(account, url, ACTION_HTTPMETHOD_LOGIN, jo, ZenTaoConstants.ZT_ACTION_TYPE_LOGIN);
-        if (!"success".equals(rst.getString("status"))) {
+
+        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaosid, url, ACTION_HTTPMETHOD_LOGIN, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_LOGIN));
+        rst.setResult(rstJO);
+        if (!"success".equals(rstJO.getString("status"))) {
+            rst.setSuccess(false);
             return false;
         }
-        if (!rst.containsKey("user")) {
+        if (!rstJO.containsKey("user")) {
+            rst.setSuccess(false);
             return false;
         }
-        JSONObject user = rst.getJSONObject("user");
+        JSONObject user = rstJO.getJSONObject("user");
         if (!user.containsKey("account")) {
+            rst.setSuccess(false);
             return false;
         }
-        return account.equals(user.getString("account"));
+        boolean bRst = jo.getString("account").equals(user.getString("account"));
+        rst.setSuccess(bRst);
+        return bRst;
     }
 
 }

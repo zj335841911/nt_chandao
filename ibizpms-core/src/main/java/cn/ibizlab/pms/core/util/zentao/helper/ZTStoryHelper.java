@@ -144,12 +144,9 @@ public class ZTStoryHelper {
     // 接口实现
     // ----------
 
-    final static public boolean create(JSONObject jo, ZTResult rst) {
-        // 后期从session获取，前期使用admin
-        String account = ZenTaoConstants.ZT_TMP_USERNAME;
+    final static public boolean create(String zentaoSid, JSONObject jo, ZTResult rst) {
         String url = MODULE_NAME + "-" + ACTION_CREATE + ZenTaoConstants.ZT_URL_EXT;
-        JSONObject rstJO = new JSONObject();
-        rstJO = ZenTaoHttpHelper.doRequest(account, url, ACTION_HTTPMETHOD_CREATE, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_CREATE));
+        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_CREATE, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_CREATE));
         if ("fail".equals(rstJO.getString("result"))) {
             JSONObject message = rstJO.getJSONObject("message");
             List<String> msgList = new ArrayList<>();
@@ -176,9 +173,7 @@ public class ZTStoryHelper {
         return true;
     }
 
-    final static public boolean edit(JSONObject jo, ZTResult rst) {
-        // 后期从session获取，前期使用admin
-        String account = ZenTaoConstants.ZT_TMP_USERNAME;
+    final static public boolean edit(String zentaoSid, JSONObject jo, ZTResult rst) {
         String urlParams = "";
         if (ACTION_URL_PARAMS_EDIT != null && ACTION_URL_PARAMS_EDIT.size() > 0) {
             for (String key : ACTION_URL_PARAMS_EDIT) {
@@ -186,62 +181,11 @@ public class ZTStoryHelper {
             }
         }
         String url = MODULE_NAME + "-" + ACTION_EDIT + urlParams + ZenTaoConstants.ZT_URL_EXT;
-        JSONObject rstJO = new JSONObject();
-        rstJO = ZenTaoHttpHelper.doRequest(account, url, ACTION_HTTPMETHOD_EDIT, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_EDIT));
+        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_EDIT, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_EDIT));
         rst.setSuccess(true);
         rst.setResult(rstJO);
         rst.setMessage(rstJO.getString("html"));
         return true;
     }
 
-
-    public static void main(String[] args) {
-        // create
-//        JSONObject jo = new JSONObject();
-//        jo.put("product", 4);
-//        jo.put("branch", 3);
-//        jo.put("title", "API建立需求7");
-//        jo.put("module", 0);
-//        jo.put("plan", 7);
-//        jo.put("source", "market");
-//        jo.put("sourcenote", "客户需求");
-//        jo.put("reviewedby", "admin");
-//        jo.put("pri", 3);
-//        jo.put("estimate", 0);
-//        jo.put("spec", "API建立需求描述7");
-//        jo.put("verify", "API建立需求验收标准7");
-//        jo.put("color", "#2dbdb2");
-//        jo.put("mailto", "admin,xiechenlong");
-//        jo.put("keywords", "API建立需求");
-//        jo.put("type", "story");
-//        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-//        boolean bRst = create(jo, rst);
-
-        // edit
-        JSONObject jo = new JSONObject();
-        jo.put("id", 200);
-        jo.put("product", 4);
-        jo.put("branch", 3);
-        jo.put("module", 198);
-        jo.put("color", "#2dbdb2");
-        jo.put("plan", 7);
-        jo.put("status", "draft");
-        jo.put("source", "market");
-        jo.put("sourcenote", "客户需求");
-        jo.put("reviewedby", "admin,xiechenlong");
-        jo.put("pri", 3);
-        jo.put("estimate", 10);
-        jo.put("parent", 65);
-        jo.put("mailto", "admin,xiechenlong,crimson");
-        jo.put("keywords", "API建立需求");
-        jo.put("linkstories", "66,67");
-        jo.put("comment", "API编辑需求");
-
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = edit(jo, rst);
-
-//        if (!bRst) {
-        System.out.println(rst.getMessage());
-//        }
-    }
 }

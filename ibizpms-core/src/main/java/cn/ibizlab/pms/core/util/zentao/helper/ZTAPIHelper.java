@@ -1,5 +1,6 @@
 package cn.ibizlab.pms.core.util.zentao.helper;
 
+import cn.ibizlab.pms.core.util.zentao.bean.ZTResult;
 import cn.ibizlab.pms.core.util.zentao.constants.ZenTaoConstants;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,23 +42,24 @@ public class ZTAPIHelper {
     // 接口实现
     // ----------
 
-    final static public boolean getSessionID(JSONObject rst) {
-        // 后期从session获取，前期使用admin
-        String account = ZenTaoConstants.ZT_TMP_USERNAME;
+    final static public boolean getSessionID(ZTResult rst) {
         String url = MODULE_NAME + "-" + ACTION_GETSESSIONID + ZenTaoConstants.ZT_URL_EXT;
-        rst = ZenTaoHttpHelper.doRequest(account, url, ACTION_HTTPMETHOD_GETSESSIONID, ZenTaoConstants.ZT_ACTION_TYPE_GETSESSION);
-        if (!"success".equals(rst.getString("status"))) {
+        JSONObject rstJO = ZenTaoHttpHelper.doRequest(null, url, ACTION_HTTPMETHOD_GETSESSIONID);
+        rst.setResult(rstJO);
+        if (!"success".equals(rstJO.getString("status"))) {
+            rst.setSuccess(false);
             return false;
         }
-        if (!rst.containsKey("data")) {
+        if (!rstJO.containsKey("data")) {
+            rst.setSuccess(false);
             return false;
         }
-        String dataStr = rst.getString("data");
+        String dataStr = rstJO.getString("data");
         if (!dataStr.contains("zentaosid")) {
+            rst.setSuccess(false);
             return false;
         }
-        JSONObject data = JSONObject.parseObject(dataStr);
-        return account.equals(data.getString("sessionID"));
+        return true;
     }
 
 }
