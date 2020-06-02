@@ -302,6 +302,11 @@ export default class ProductLifeRoadMapListViewBase extends Vue {
      * @memberof ProductLifeRoadMapListViewBase
      */
 	public handleCustomViewData(){
+        Object.defineProperty(this.context, 'srfcurdate', {
+            get: function() {
+                return new Date().toLocaleString(undefined, { hour12: false });
+            }
+        });
 		if(Object.keys(this.customViewNavContexts).length > 0){
 			Object.keys(this.customViewNavContexts).forEach((item:any) =>{
 				let tempContext:any = {};

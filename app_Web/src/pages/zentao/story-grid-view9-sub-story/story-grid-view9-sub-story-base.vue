@@ -311,6 +311,11 @@ export default class StoryGridView9_SubStoryBase extends Vue {
      * @memberof StoryGridView9_SubStoryBase
      */
 	public handleCustomViewData(){
+        Object.defineProperty(this.context, 'srfcurdate', {
+            get: function() {
+                return new Date().toLocaleString(undefined, { hour12: false });
+            }
+        });
 		if(Object.keys(this.customViewNavContexts).length > 0){
 			Object.keys(this.customViewNavContexts).forEach((item:any) =>{
 				let tempContext:any = {};

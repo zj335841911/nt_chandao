@@ -25,6 +25,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '025443fdc6ac693e261108fbdf1b40ab',
+            viewmodule: 'zentao',
+            viewname: 'CompanyDeptTreeExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '5c2b20935d511794aeca60376bd81fef',
+            ],
+        },
+        {
             viewtag: '02b7ecd8e994b90558a9d6c23705f600',
             viewmodule: 'zentao',
             viewname: 'CaseEditView',
@@ -95,6 +105,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '16b54862dad958907853dc7eb084a0c0',
+            viewmodule: 'zentao',
+            viewname: 'DeptPickupView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e644f7976b08c3d7f14fd7e1d5329da8',
+            ],
+        },
+        {
             viewtag: '170c1d558f26cf37236390b28f8aca82',
             viewmodule: 'zentao',
             viewname: 'ProductPlanSubPlanCreateView',
@@ -145,6 +165,7 @@ export const viewstate: any = {
                 'A49E5FD9-FC90-434B-9E13-192873F6F2AC',
                 '7c79a923d0cdd1a5bc41a34367809077',
                 '8ca39819b87c5e3e8669fcd7409cf9a2',
+                '56084e37dc061358abd4a3f5340b27e9',
                 '0846a45e5ffdd4d8f857575cfa955dce',
             ],
         },
@@ -208,6 +229,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '3b346aee2b79b7b6b59bc870b4c67f72',
+            viewmodule: 'zentao',
+            viewname: 'ProjectPickupGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '3f2ca3e560d9082bb56fbf7667a57a66',
             viewmodule: 'zentao',
             viewname: 'StoryMainView',
@@ -227,6 +257,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '5a8a29268a7563b62fc0160233958830',
+                '7df0f0deee91304e0350f00baa8a92d6',
             ],
         },
         {
@@ -247,6 +279,16 @@ export const viewstate: any = {
             refviews: [
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 '4863a523ac490ebce771717756f0c6a8',
+            ],
+        },
+        {
+            viewtag: '4cb497e84dfabd873bc62d5386d5551f',
+            viewmodule: 'zentao',
+            viewname: 'CompanyDeptUserTreeExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'd364bfbf7092ee45cd0acae49fac77ab',
             ],
         },
         {
@@ -319,6 +361,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '56084e37dc061358abd4a3f5340b27e9',
+            viewmodule: 'zentao',
+            viewname: 'CompanyMainTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '4cb497e84dfabd873bc62d5386d5551f',
+                '025443fdc6ac693e261108fbdf1b40ab',
+            ],
+        },
+        {
             viewtag: '569cd532c6b545ffc53cf5fb93427028',
             viewmodule: 'zentao',
             viewname: 'StoryPickupGridView',
@@ -351,12 +404,32 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '5a8a29268a7563b62fc0160233958830',
+            viewmodule: 'zentao',
+            viewname: 'ProjectPickupView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3b346aee2b79b7b6b59bc870b4c67f72',
+            ],
+        },
+        {
             viewtag: '5b139a407fa34f386f3f784f33841184',
             viewmodule: 'zentao',
             viewname: 'TestTaskEditView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: '5c2b20935d511794aeca60376bd81fef',
+            viewmodule: 'zentao',
+            viewname: 'DeptMainGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'bae11f9447355ecc9e2cdff2490e6d11',
             ],
         },
         {
@@ -473,6 +546,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '7df0f0deee91304e0350f00baa8a92d6',
+            viewmodule: 'zentao',
+            viewname: 'ProductPickupView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '8d53a973712c13f448efb8e2182ccc0b',
+            ],
+        },
+        {
             viewtag: '7e14015af219d302f7d81ff40cdcc418',
             viewmodule: 'zentao',
             viewname: 'StoryMainView_EditMode',
@@ -519,6 +602,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '83b1f6c353e9383e36b8d58eec845267',
+            viewmodule: 'zentao',
+            viewname: 'UserEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '846ddf8e555650608d4f75c4595c1270',
             viewmodule: 'zentao',
             viewname: 'ProjectGridView',
@@ -552,6 +644,15 @@ export const viewstate: any = {
                 '6c7b582273d0726bcf77214807cfe40c',
                 '7caeaef893043533e8f388d25523328c',
                 'e042a1dee405b0a853f315b39a375783',
+            ],
+        },
+        {
+            viewtag: '8d53a973712c13f448efb8e2182ccc0b',
+            viewmodule: 'zentao',
+            viewname: 'ProductPickupGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -731,6 +832,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'bae11f9447355ecc9e2cdff2490e6d11',
+            viewmodule: 'zentao',
+            viewname: 'DeptEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '16b54862dad958907853dc7eb084a0c0',
+            ],
+        },
+        {
             viewtag: 'bc36be2ee4a78e69c13665a8ad03ab6a',
             viewmodule: 'zentao',
             viewname: 'ProductMainDashboardView',
@@ -806,6 +917,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'd364bfbf7092ee45cd0acae49fac77ab',
+            viewmodule: 'zentao',
+            viewname: 'UserMainGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '83b1f6c353e9383e36b8d58eec845267',
+            ],
+        },
+        {
             viewtag: 'd4cb26555e6d81a172652580cf7d9f7f',
             viewmodule: 'zentao',
             viewname: 'BranchPMEditView',
@@ -845,6 +966,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '00ac056d598228619b6c0dbfcd603e4c',
+            ],
+        },
+        {
+            viewtag: 'e644f7976b08c3d7f14fd7e1d5329da8',
+            viewmodule: 'zentao',
+            viewname: 'DeptPickupGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

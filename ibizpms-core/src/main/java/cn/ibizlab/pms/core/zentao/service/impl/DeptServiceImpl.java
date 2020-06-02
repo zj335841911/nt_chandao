@@ -171,6 +171,15 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements ID
         return new PageImpl<Dept>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 根部门
+     */
+    @Override
+    public Page<Dept> searchRoot(DeptSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Dept> pages=baseMapper.searchRoot(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Dept>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
     /**

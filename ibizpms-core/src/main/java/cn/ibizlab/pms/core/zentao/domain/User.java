@@ -39,28 +39,28 @@ public class User extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * password
+     * 密码
      */
     @TableField(value = "password")
     @JSONField(name = "password")
     @JsonProperty("password")
     private String password;
     /**
-     * address
+     * 通讯地址
      */
     @TableField(value = "address")
     @JSONField(name = "address")
     @JsonProperty("address")
     private String address;
     /**
-     * weixin
+     * 微信
      */
     @TableField(value = "weixin")
     @JSONField(name = "weixin")
     @JsonProperty("weixin")
     private String weixin;
     /**
-     * dingding
+     * 钉钉
      */
     @TableField(value = "dingding")
     @JSONField(name = "dingding")
@@ -89,7 +89,7 @@ public class User extends EntityMP implements Serializable {
     @JsonProperty("ranzhi")
     private String ranzhi;
     /**
-     * account
+     * 账户
      */
     @TableField(value = "account")
     @JSONField(name = "account")
@@ -120,7 +120,7 @@ public class User extends EntityMP implements Serializable {
     @JsonProperty("scorelevel")
     private Integer scorelevel;
     /**
-     * realname
+     * 真实姓名
      */
     @TableField(value = "realname")
     @JSONField(name = "realname")
@@ -134,7 +134,7 @@ public class User extends EntityMP implements Serializable {
     @JsonProperty("zipcode")
     private String zipcode;
     /**
-     * dept
+     * 所属部门
      */
     @DEField(defaultValue = "0")
     @TableField(value = "dept")
@@ -149,7 +149,7 @@ public class User extends EntityMP implements Serializable {
     @JsonProperty("commiter")
     private String commiter;
     /**
-     * role
+     * 职位
      */
     @TableField(value = "role")
     @JSONField(name = "role")
@@ -165,7 +165,7 @@ public class User extends EntityMP implements Serializable {
     @JsonProperty("deleted")
     private String deleted;
     /**
-     * last
+     * 最后登录
      */
     @DEField(defaultValue = "0")
     @TableField(value = "last")
@@ -202,14 +202,14 @@ public class User extends EntityMP implements Serializable {
     @JsonProperty("score")
     private Integer score;
     /**
-     * gender
+     * 性别
      */
     @TableField(value = "gender")
     @JSONField(name = "gender")
     @JsonProperty("gender")
     private String gender;
     /**
-     * mobile
+     * 手机
      */
     @TableField(value = "mobile")
     @JSONField(name = "mobile")
@@ -224,7 +224,7 @@ public class User extends EntityMP implements Serializable {
     @JsonProperty("clientlang")
     private String clientlang;
     /**
-     * visits
+     * 访问次数
      */
     @DEField(defaultValue = "0")
     @TableField(value = "visits")
@@ -232,7 +232,7 @@ public class User extends EntityMP implements Serializable {
     @JsonProperty("visits")
     private Integer visits;
     /**
-     * join
+     * 入职日期
      */
     @DEField(defaultValue = "0000-00-00")
     @TableField(value = "join")
@@ -241,7 +241,7 @@ public class User extends EntityMP implements Serializable {
     @JsonProperty("join")
     private Timestamp join;
     /**
-     * email
+     * 邮箱
      */
     @TableField(value = "email")
     @JSONField(name = "email")
@@ -271,14 +271,14 @@ public class User extends EntityMP implements Serializable {
     @JsonProperty("nickname")
     private String nickname;
     /**
-     * phone
+     * 电话
      */
     @TableField(value = "phone")
     @JSONField(name = "phone")
     @JsonProperty("phone")
     private String phone;
     /**
-     * id
+     * ID
      */
     @DEField(isKeyField=true)
     @TableId(value= "id",type=IdType.UUID)
@@ -286,7 +286,7 @@ public class User extends EntityMP implements Serializable {
     @JsonProperty("id")
     private BigInteger id;
     /**
-     * qq
+     * QQ
      */
     @TableField(value = "qq")
     @JSONField(name = "qq")
@@ -296,28 +296,28 @@ public class User extends EntityMP implements Serializable {
 
 
     /**
-     * 设置 [password]
+     * 设置 [密码]
      */
     public void setPassword(String password){
         this.password = password ;
         this.modify("password",password);
     }
     /**
-     * 设置 [address]
+     * 设置 [通讯地址]
      */
     public void setAddress(String address){
         this.address = address ;
         this.modify("address",address);
     }
     /**
-     * 设置 [weixin]
+     * 设置 [微信]
      */
     public void setWeixin(String weixin){
         this.weixin = weixin ;
         this.modify("weixin",weixin);
     }
     /**
-     * 设置 [dingding]
+     * 设置 [钉钉]
      */
     public void setDingding(String dingding){
         this.dingding = dingding ;
@@ -345,7 +345,7 @@ public class User extends EntityMP implements Serializable {
         this.modify("ranzhi",ranzhi);
     }
     /**
-     * 设置 [account]
+     * 设置 [账户]
      */
     public void setAccount(String account){
         this.account = account ;
@@ -373,7 +373,7 @@ public class User extends EntityMP implements Serializable {
         this.modify("scorelevel",scorelevel);
     }
     /**
-     * 设置 [realname]
+     * 设置 [真实姓名]
      */
     public void setRealname(String realname){
         this.realname = realname ;
@@ -387,7 +387,7 @@ public class User extends EntityMP implements Serializable {
         this.modify("zipcode",zipcode);
     }
     /**
-     * 设置 [dept]
+     * 设置 [所属部门]
      */
     public void setDept(Integer dept){
         this.dept = dept ;
@@ -401,14 +401,14 @@ public class User extends EntityMP implements Serializable {
         this.modify("commiter",commiter);
     }
     /**
-     * 设置 [role]
+     * 设置 [职位]
      */
     public void setRole(String role){
         this.role = role ;
         this.modify("role",role);
     }
     /**
-     * 设置 [last]
+     * 设置 [最后登录]
      */
     public void setLast(Integer last){
         this.last = last ;
@@ -443,14 +443,14 @@ public class User extends EntityMP implements Serializable {
         this.modify("score",score);
     }
     /**
-     * 设置 [gender]
+     * 设置 [性别]
      */
     public void setGender(String gender){
         this.gender = gender ;
         this.modify("gender",gender);
     }
     /**
-     * 设置 [mobile]
+     * 设置 [手机]
      */
     public void setMobile(String mobile){
         this.mobile = mobile ;
@@ -464,21 +464,21 @@ public class User extends EntityMP implements Serializable {
         this.modify("clientlang",clientlang);
     }
     /**
-     * 设置 [visits]
+     * 设置 [访问次数]
      */
     public void setVisits(Integer visits){
         this.visits = visits ;
         this.modify("visits",visits);
     }
     /**
-     * 设置 [join]
+     * 设置 [入职日期]
      */
     public void setJoin(Timestamp join){
         this.join = join ;
         this.modify("join",join);
     }
     /**
-     * 设置 [email]
+     * 设置 [邮箱]
      */
     public void setEmail(String email){
         this.email = email ;
@@ -506,14 +506,14 @@ public class User extends EntityMP implements Serializable {
         this.modify("nickname",nickname);
     }
     /**
-     * 设置 [phone]
+     * 设置 [电话]
      */
     public void setPhone(String phone){
         this.phone = phone ;
         this.modify("phone",phone);
     }
     /**
-     * 设置 [qq]
+     * 设置 [QQ]
      */
     public void setQq(String qq){
         this.qq = qq ;

@@ -39,7 +39,7 @@ public class Dept extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * manager
+     * 负责人
      */
     @TableField(value = "manager")
     @JSONField(name = "manager")
@@ -91,14 +91,14 @@ public class Dept extends EntityMP implements Serializable {
     @JsonProperty("id")
     private BigInteger id;
     /**
-     * name
+     * 部门名称
      */
     @TableField(value = "name")
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
     /**
-     * parent
+     * 上级部门
      */
     @TableField(exist = false)
     @JSONField(name = "parentname")
@@ -123,7 +123,7 @@ public class Dept extends EntityMP implements Serializable {
 
 
     /**
-     * 设置 [manager]
+     * 设置 [负责人]
      */
     public void setManager(String manager){
         this.manager = manager ;
@@ -165,7 +165,7 @@ public class Dept extends EntityMP implements Serializable {
         this.modify("position",position);
     }
     /**
-     * 设置 [name]
+     * 设置 [部门名称]
      */
     public void setName(String name){
         this.name = name ;

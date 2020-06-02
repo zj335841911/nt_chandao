@@ -27,21 +27,21 @@ import cn.ibizlab.pms.core.zentao.domain.Dept;
 @Data
 public class DeptSearchContext extends QueryWrapperContext<Dept> {
 
-	private String n_name_like;//[name]
+	private String n_name_like;//[部门名称]
 	public void setN_name_like(String n_name_like) {
         this.n_name_like = n_name_like;
         if(!ObjectUtils.isEmpty(this.n_name_like)){
             this.getSelectCond().like("name", n_name_like);
         }
     }
-	private String n_parentname_eq;//[parent]
+	private String n_parentname_eq;//[上级部门]
 	public void setN_parentname_eq(String n_parentname_eq) {
         this.n_parentname_eq = n_parentname_eq;
         if(!ObjectUtils.isEmpty(this.n_parentname_eq)){
             this.getSelectCond().eq("parentname", n_parentname_eq);
         }
     }
-	private String n_parentname_like;//[parent]
+	private String n_parentname_like;//[上级部门]
 	public void setN_parentname_like(String n_parentname_like) {
         this.n_parentname_like = n_parentname_like;
         if(!ObjectUtils.isEmpty(this.n_parentname_like)){

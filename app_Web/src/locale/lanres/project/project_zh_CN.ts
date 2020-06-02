@@ -46,7 +46,15 @@ export default {
 			caption: '项目',
       title: '项目',
 		},
+		pickupgridview: {
+			caption: '项目',
+      title: '项目',
+		},
 		curproductgridview: {
+			caption: '项目',
+      title: '项目',
+		},
+		pickupview: {
 			caption: '项目',
       title: '项目',
 		},
@@ -166,6 +174,13 @@ export default {
 			code: '项目代号',
 			status: '项目状态',
 			end: '结束日期',
+		},
+		uiactions: {
+		},
+	},
+	default_searchform: {
+		details: {
+			formpage1: '常规条件', 
 		},
 		uiactions: {
 		},

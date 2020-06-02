@@ -66,7 +66,15 @@ export default {
 			caption: "产品",
       title: '产品',
 		},
+		pickupview: {
+			caption: "产品",
+      title: '产品',
+		},
 		leftsidebarlistview: {
+			caption: "产品",
+      title: '产品',
+		},
+		pickupgridview: {
 			caption: "产品",
       title: '产品',
 		},
@@ -145,7 +153,7 @@ export default {
 		uiactions: {
 		},
 	},
-	test_grid: {
+	main_grid: {
 		columns: {
 			name: "产品名称",
 			code: "产品代号",
@@ -156,7 +164,7 @@ export default {
 		uiactions: {
 		},
 	},
-	main_grid: {
+	test_grid: {
 		columns: {
 			name: "产品名称",
 			code: "产品代号",

@@ -134,6 +134,29 @@ export default {
 		uiactions: {
 		},
 	},
+	storyspec_form: {
+		details: {
+			grouppanel1: "需求描述", 
+			grouppanel2: "验收标准", 
+			group1: "需求描述信息", 
+			druipart1: "", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "需求名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			parent: "父需求", 
+			version: "版本#", 
+			spec: "需求描述", 
+			verify: "验收标准", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
 	main_editmode_form: {
 		details: {
 			group1: "story基本信息", 
@@ -169,29 +192,6 @@ export default {
 			id: "编号", 
 			product: "所属产品", 
 			module: "所属模块", 
-		},
-		uiactions: {
-		},
-	},
-	storyspec_form: {
-		details: {
-			grouppanel1: "需求描述", 
-			grouppanel2: "验收标准", 
-			group1: "需求描述信息", 
-			druipart1: "", 
-			formpage1: "基本信息", 
-			srforikey: "", 
-			srfkey: "编号", 
-			srfmajortext: "需求名称", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			parent: "父需求", 
-			version: "版本#", 
-			spec: "需求描述", 
-			verify: "验收标准", 
-			id: "编号", 
 		},
 		uiactions: {
 		},
@@ -237,26 +237,6 @@ export default {
 			lastediteddate: "于", 
 			id: "编号", 
 			product: "所属产品", 
-		},
-		uiactions: {
-		},
-	},
-	main_plansub_grid: {
-		columns: {
-			id: "ID",
-			pri: "P",
-			title: "需求名称",
-			modulename: "所属模块名称",
-		},
-		uiactions: {
-		},
-	},
-	pickupgrid_grid: {
-		columns: {
-			id: "ID",
-			pri: "P",
-			title: "需求名称",
-			modulename: "所属模块名称",
 		},
 		uiactions: {
 		},
@@ -307,6 +287,26 @@ export default {
 			opencasecreateview: "建用例",
 		},
 	},
+	pickupgrid_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "需求名称",
+			modulename: "所属模块名称",
+		},
+		uiactions: {
+		},
+	},
+	main_plansub_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "需求名称",
+			modulename: "所属模块名称",
+		},
+		uiactions: {
+		},
+	},
 	main9_grid: {
 		columns: {
 			pri: "P",
@@ -321,38 +321,6 @@ export default {
 			formpage1: "常规条件", 
 		},
 		uiactions: {
-		},
-	},
-	plansubgridviewtoolbar_toolbar: {
-		deuiaction3_planrelationstory: {
-			caption: "关联需求",
-			tip: "关联需求",
-		},
-		seperator2: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
-		},
-		deuiaction4: {
-			caption: "Remove",
-			tip: "Remove {0}",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-	},
-	plansubeditviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
 		},
 	},
 	editviewtoolbar_toolbar: {
@@ -431,6 +399,38 @@ export default {
 		tbitem18: {
 			caption: "Help",
 			tip: "Help",
+		},
+	},
+	plansubgridviewtoolbar_toolbar: {
+		deuiaction3_planrelationstory: {
+			caption: "关联需求",
+			tip: "关联需求",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "New",
+			tip: "New",
+		},
+		deuiaction4: {
+			caption: "Remove",
+			tip: "Remove {0}",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
+	plansubeditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
 		},
 	},
 };

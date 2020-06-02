@@ -7,7 +7,7 @@
 export interface User {
 
     /**
-     * password
+     * 密码
      *
      * @returns {*}
      * @memberof User
@@ -15,7 +15,7 @@ export interface User {
     password?: any;
 
     /**
-     * address
+     * 通讯地址
      *
      * @returns {*}
      * @memberof User
@@ -23,7 +23,7 @@ export interface User {
     address?: any;
 
     /**
-     * weixin
+     * 微信
      *
      * @returns {*}
      * @memberof User
@@ -31,7 +31,7 @@ export interface User {
     weixin?: any;
 
     /**
-     * dingding
+     * 钉钉
      *
      * @returns {*}
      * @memberof User
@@ -63,7 +63,7 @@ export interface User {
     ranzhi?: any;
 
     /**
-     * account
+     * 账户
      *
      * @returns {*}
      * @memberof User
@@ -95,7 +95,7 @@ export interface User {
     scorelevel?: any;
 
     /**
-     * realname
+     * 真实姓名
      *
      * @returns {*}
      * @memberof User
@@ -111,7 +111,7 @@ export interface User {
     zipcode?: any;
 
     /**
-     * dept
+     * 所属部门
      *
      * @returns {*}
      * @memberof User
@@ -127,7 +127,7 @@ export interface User {
     commiter?: any;
 
     /**
-     * role
+     * 职位
      *
      * @returns {*}
      * @memberof User
@@ -143,7 +143,7 @@ export interface User {
     deleted?: any;
 
     /**
-     * last
+     * 最后登录
      *
      * @returns {*}
      * @memberof User
@@ -183,7 +183,7 @@ export interface User {
     score?: any;
 
     /**
-     * gender
+     * 性别
      *
      * @returns {*}
      * @memberof User
@@ -191,7 +191,7 @@ export interface User {
     gender?: any;
 
     /**
-     * mobile
+     * 手机
      *
      * @returns {*}
      * @memberof User
@@ -207,7 +207,7 @@ export interface User {
     clientlang?: any;
 
     /**
-     * visits
+     * 访问次数
      *
      * @returns {*}
      * @memberof User
@@ -215,7 +215,7 @@ export interface User {
     visits?: any;
 
     /**
-     * join
+     * 入职日期
      *
      * @returns {*}
      * @memberof User
@@ -223,7 +223,7 @@ export interface User {
     join?: any;
 
     /**
-     * email
+     * 邮箱
      *
      * @returns {*}
      * @memberof User
@@ -255,7 +255,7 @@ export interface User {
     nickname?: any;
 
     /**
-     * phone
+     * 电话
      *
      * @returns {*}
      * @memberof User
@@ -263,7 +263,7 @@ export interface User {
     phone?: any;
 
     /**
-     * id
+     * ID
      *
      * @returns {*}
      * @memberof User
@@ -271,7 +271,7 @@ export interface User {
     id?: any;
 
     /**
-     * qq
+     * QQ
      *
      * @returns {*}
      * @memberof User

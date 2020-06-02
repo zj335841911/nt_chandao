@@ -46,6 +46,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: '激活',
                 "data":"",
                 "codename":"Active",
+                "color": "rgba(0, 157, 255, 1)",
                 value: 'active',
                 
                 disabled: false,
@@ -56,6 +57,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: '已解决',
                 "data":"",
                 "codename":"Resolved",
+                "color": "rgba(1, 217, 19, 1)",
                 value: 'resolved',
                 
                 disabled: false,
@@ -66,6 +68,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: '已关闭',
                 "data":"",
                 "codename":"Closed",
+                "color": "rgba(151, 152, 141, 1)",
                 value: 'closed',
                 
                 disabled: false,
@@ -279,6 +282,103 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Item_4",
                 value: 4,
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'Bug__type',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'codeerror',
+                label: '代码错误',
+                text: '代码错误',
+                "data":"",
+                "codename":"Codeerror",
+                value: 'codeerror',
+                
+                disabled: false,
+            },
+            {
+                id: 'config',
+                label: '配置相关',
+                text: '配置相关',
+                "data":"",
+                "codename":"Config",
+                value: 'config',
+                
+                disabled: false,
+            },
+            {
+                id: 'install',
+                label: '安装部署',
+                text: '安装部署',
+                "data":"",
+                "codename":"Install",
+                value: 'install',
+                
+                disabled: false,
+            },
+            {
+                id: 'security',
+                label: '安全相关',
+                text: '安全相关',
+                "data":"",
+                "codename":"Security",
+                value: 'security',
+                
+                disabled: false,
+            },
+            {
+                id: 'performance',
+                label: '性能问题',
+                text: '性能问题',
+                "data":"",
+                "codename":"Performance",
+                value: 'performance',
+                
+                disabled: false,
+            },
+            {
+                id: 'standard',
+                label: '标准规范',
+                text: '标准规范',
+                "data":"",
+                "codename":"Standard",
+                value: 'standard',
+                
+                disabled: false,
+            },
+            {
+                id: 'automation',
+                label: '测试脚本',
+                text: '测试脚本',
+                "data":"",
+                "codename":"Automation",
+                value: 'automation',
+                
+                disabled: false,
+            },
+            {
+                id: 'designdefect',
+                label: '设计缺陷',
+                text: '设计缺陷',
+                "data":"",
+                "codename":"Designdefect",
+                value: 'designdefect',
+                
+                disabled: false,
+            },
+            {
+                id: 'others',
+                label: '其他',
+                text: '其他',
+                "data":"",
+                "codename":"Others",
+                value: 'others',
                 
                 disabled: false,
             },
@@ -1049,6 +1149,33 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: 'User__gender',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'f',
+                label: 'f',
+                text: 'f',
+                "data":"",
+                "codename":"F",
+                value: 'f',
+                
+                disabled: false,
+            },
+            {
+                id: 'm',
+                label: 'm',
+                text: 'm',
+                "data":"",
+                "codename":"M",
+                value: 'm',
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Action__object_type',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -1443,6 +1570,223 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: 'Bug__os',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'all',
+                label: '全部',
+                text: '全部',
+                "data":"",
+                "codename":"All",
+                value: 'all',
+                
+                disabled: false,
+            },
+            {
+                id: 'windows',
+                label: 'Windows',
+                text: 'Windows',
+                "data":"",
+                "codename":"Windows",
+                value: 'windows',
+                
+                disabled: false,
+            },
+            {
+                id: 'win10',
+                label: 'Windows 10',
+                text: 'Windows 10',
+                "data":"",
+                "codename":"Win10",
+                value: 'win10',
+                
+                disabled: false,
+            },
+            {
+                id: 'win8',
+                label: 'Windows 8',
+                text: 'Windows 8',
+                "data":"",
+                "codename":"Win8",
+                value: 'win8',
+                
+                disabled: false,
+            },
+            {
+                id: 'win7',
+                label: 'Windows 7',
+                text: 'Windows 7',
+                "data":"",
+                "codename":"Win7",
+                value: 'win7',
+                
+                disabled: false,
+            },
+            {
+                id: 'vista',
+                label: 'Windows Vista',
+                text: 'Windows Vista',
+                "data":"",
+                "codename":"Vista",
+                value: 'vista',
+                
+                disabled: false,
+            },
+            {
+                id: 'winxp',
+                label: 'Windows XP',
+                text: 'Windows XP',
+                "data":"",
+                "codename":"Winxp",
+                value: 'winxp',
+                
+                disabled: false,
+            },
+            {
+                id: 'win2012',
+                label: 'Windows 2012',
+                text: 'Windows 2012',
+                "data":"",
+                "codename":"Win2012",
+                value: 'win2012',
+                
+                disabled: false,
+            },
+            {
+                id: 'win2008',
+                label: 'Windows 2008',
+                text: 'Windows 2008',
+                "data":"",
+                "codename":"Win2008",
+                value: 'win2008',
+                
+                disabled: false,
+            },
+            {
+                id: 'win2003',
+                label: 'Windows 2003',
+                text: 'Windows 2003',
+                "data":"",
+                "codename":"Win2003",
+                value: 'win2003',
+                
+                disabled: false,
+            },
+            {
+                id: 'win2000',
+                label: 'Windows 2000',
+                text: 'Windows 2000',
+                "data":"",
+                "codename":"Win2000",
+                value: 'win2000',
+                
+                disabled: false,
+            },
+            {
+                id: 'android',
+                label: 'Android',
+                text: 'Android',
+                "data":"",
+                "codename":"Android",
+                value: 'android',
+                
+                disabled: false,
+            },
+            {
+                id: 'ios',
+                label: 'IOS',
+                text: 'IOS',
+                "data":"",
+                "codename":"Ios",
+                value: 'ios',
+                
+                disabled: false,
+            },
+            {
+                id: 'wp8',
+                label: 'WP8',
+                text: 'WP8',
+                "data":"",
+                "codename":"Wp8",
+                value: 'wp8',
+                
+                disabled: false,
+            },
+            {
+                id: 'wp7',
+                label: 'WP7',
+                text: 'WP7',
+                "data":"",
+                "codename":"Wp7",
+                value: 'wp7',
+                
+                disabled: false,
+            },
+            {
+                id: 'symbian',
+                label: 'Symbian',
+                text: 'Symbian',
+                "data":"",
+                "codename":"Symbian",
+                value: 'symbian',
+                
+                disabled: false,
+            },
+            {
+                id: 'linux',
+                label: 'Linux',
+                text: 'Linux',
+                "data":"",
+                "codename":"Linux",
+                value: 'linux',
+                
+                disabled: false,
+            },
+            {
+                id: 'freebsd',
+                label: 'FreeBSD',
+                text: 'FreeBSD',
+                "data":"",
+                "codename":"Freebsd",
+                value: 'freebsd',
+                
+                disabled: false,
+            },
+            {
+                id: 'osx',
+                label: 'OS X',
+                text: 'OS X',
+                "data":"",
+                "codename":"Osx",
+                value: 'osx',
+                
+                disabled: false,
+            },
+            {
+                id: 'unix',
+                label: 'Unix',
+                text: 'Unix',
+                "data":"",
+                "codename":"Unix",
+                value: 'unix',
+                
+                disabled: false,
+            },
+            {
+                id: 'others',
+                label: '其他',
+                text: '其他',
+                "data":"",
+                "codename":"Others",
+                value: 'others',
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         "srfkey": "UserRealName",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -1483,6 +1827,53 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Platform",
                 value: 'platform',
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'Bug__severity',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: '1',
+                label: '1',
+                text: '1',
+                "data":"",
+                "codename":"Item_1",
+                value: 1,
+                
+                disabled: false,
+            },
+            {
+                id: '2',
+                label: '2',
+                text: '2',
+                "data":"",
+                "codename":"Item_2",
+                value: 2,
+                
+                disabled: false,
+            },
+            {
+                id: '3',
+                label: '3',
+                text: '3',
+                "data":"",
+                "codename":"Item_3",
+                value: 3,
+                
+                disabled: false,
+            },
+            {
+                id: '4',
+                label: '4',
+                text: '4',
+                "data":"",
+                "codename":"Item_4",
+                value: 4,
                 
                 disabled: false,
             },
@@ -1658,6 +2049,223 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "codename":"Closed",
                 value: 'CLOSED',
                 "pvalue": "MORE",
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'Bug__browser',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'all',
+                label: '全部',
+                text: '全部',
+                "data":"",
+                "codename":"All",
+                value: 'all',
+                
+                disabled: false,
+            },
+            {
+                id: 'ie',
+                label: 'IE系列',
+                text: 'IE系列',
+                "data":"",
+                "codename":"Ie",
+                value: 'ie',
+                
+                disabled: false,
+            },
+            {
+                id: 'ie11',
+                label: 'IE11',
+                text: 'IE11',
+                "data":"",
+                "codename":"Ie11",
+                value: 'ie11',
+                
+                disabled: false,
+            },
+            {
+                id: 'ie10',
+                label: 'IE10',
+                text: 'IE10',
+                "data":"",
+                "codename":"Ie10",
+                value: 'ie10',
+                
+                disabled: false,
+            },
+            {
+                id: 'ie9',
+                label: 'IE9',
+                text: 'IE9',
+                "data":"",
+                "codename":"Ie9",
+                value: 'ie9',
+                
+                disabled: false,
+            },
+            {
+                id: 'ie8',
+                label: 'IE8',
+                text: 'IE8',
+                "data":"",
+                "codename":"Ie8",
+                value: 'ie8',
+                
+                disabled: false,
+            },
+            {
+                id: 'ie7',
+                label: 'IE7',
+                text: 'IE7',
+                "data":"",
+                "codename":"Ie7",
+                value: 'ie7',
+                
+                disabled: false,
+            },
+            {
+                id: 'ie6',
+                label: 'IE6',
+                text: 'IE6',
+                "data":"",
+                "codename":"Ie6",
+                value: 'ie6',
+                
+                disabled: false,
+            },
+            {
+                id: 'chrome',
+                label: 'chrome',
+                text: 'chrome',
+                "data":"",
+                "codename":"Chrome",
+                value: 'chrome',
+                
+                disabled: false,
+            },
+            {
+                id: 'firefox',
+                label: 'firefox系列',
+                text: 'firefox系列',
+                "data":"",
+                "codename":"Firefox",
+                value: 'firefox',
+                
+                disabled: false,
+            },
+            {
+                id: 'firefox4',
+                label: 'firefox4',
+                text: 'firefox4',
+                "data":"",
+                "codename":"Firefox4",
+                value: 'firefox4',
+                
+                disabled: false,
+            },
+            {
+                id: 'firefox3',
+                label: 'firefox3',
+                text: 'firefox3',
+                "data":"",
+                "codename":"Firefox3",
+                value: 'firefox3',
+                
+                disabled: false,
+            },
+            {
+                id: 'firefox2',
+                label: 'firefox2',
+                text: 'firefox2',
+                "data":"",
+                "codename":"Firefox2",
+                value: 'firefox2',
+                
+                disabled: false,
+            },
+            {
+                id: 'opera',
+                label: 'opera系列',
+                text: 'opera系列',
+                "data":"",
+                "codename":"Opera",
+                value: 'opera',
+                
+                disabled: false,
+            },
+            {
+                id: 'opera11',
+                label: 'opera11',
+                text: 'opera11',
+                "data":"",
+                "codename":"Opera11",
+                value: 'opera11',
+                
+                disabled: false,
+            },
+            {
+                id: 'oprea10',
+                label: 'oprea10',
+                text: 'oprea10',
+                "data":"",
+                "codename":"Oprea10",
+                value: 'oprea10',
+                
+                disabled: false,
+            },
+            {
+                id: 'opera9',
+                label: 'opera9',
+                text: 'opera9',
+                "data":"",
+                "codename":"Opera9",
+                value: 'opera9',
+                
+                disabled: false,
+            },
+            {
+                id: 'safari',
+                label: 'safari',
+                text: 'safari',
+                "data":"",
+                "codename":"Safari",
+                value: 'safari',
+                
+                disabled: false,
+            },
+            {
+                id: 'maxthon',
+                label: '傲游',
+                text: '傲游',
+                "data":"",
+                "codename":"Maxthon",
+                value: 'maxthon',
+                
+                disabled: false,
+            },
+            {
+                id: 'uc',
+                label: 'UC',
+                text: 'UC',
+                "data":"",
+                "codename":"Uc",
+                value: 'uc',
+                
+                disabled: false,
+            },
+            {
+                id: 'others',
+                label: '其他',
+                text: '其他',
+                "data":"",
+                "codename":"Others",
+                value: 'others',
+                
                 disabled: false,
             },
         ]

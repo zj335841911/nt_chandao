@@ -90,7 +90,9 @@ export default class ProductUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'maintabexpview',srfappde:'products'});
         this.allViewMap.set(':',{viewname:'testleftsidebarlistview',srfappde:'products'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'products'});
+        this.allViewMap.set('PICKUPVIEW:',{viewname:'pickupview',srfappde:'products'});
         this.allViewMap.set(':',{viewname:'leftsidebarlistview',srfappde:'products'});
+        this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'products'});
         this.allViewMap.set(':',{viewname:'dashboardinfomainview9',srfappde:'products'});
         this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'products'});
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'products'});

@@ -341,6 +341,11 @@ export default class BugGridViewBase extends Vue {
      * @memberof BugGridViewBase
      */
 	public handleCustomViewData(){
+        Object.defineProperty(this.context, 'srfcurdate', {
+            get: function() {
+                return new Date().toLocaleString(undefined, { hour12: false });
+            }
+        });
 		if(Object.keys(this.customViewNavContexts).length > 0){
 			Object.keys(this.customViewNavContexts).forEach((item:any) =>{
 				let tempContext:any = {};
@@ -693,7 +698,7 @@ export default class BugGridViewBase extends Vue {
             height: 0, 
             width: 0,  
             title: this.$t('entities.bug.views.editview.title'),
-            placement: 'DRAWER_TOP',
+            placement: 'DRAWER_RIGHT',
         };
         openDrawer(view, data);
     }

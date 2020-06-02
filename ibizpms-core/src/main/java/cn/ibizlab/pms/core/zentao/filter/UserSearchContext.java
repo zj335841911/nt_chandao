@@ -34,7 +34,7 @@ public class UserSearchContext extends QueryWrapperContext<User> {
             this.getSelectCond().eq("clientstatus", n_clientstatus_eq);
         }
     }
-	private String n_gender_eq;//[gender]
+	private String n_gender_eq;//[性别]
 	public void setN_gender_eq(String n_gender_eq) {
         this.n_gender_eq = n_gender_eq;
         if(!ObjectUtils.isEmpty(this.n_gender_eq)){

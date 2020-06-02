@@ -81,6 +81,10 @@ export default {
 			caption: "Bug",
       title: 'Bug',
 		},
+		stepsinfoeditview: {
+			caption: "重现步骤",
+      title: '重现步骤',
+		},
 		gridview9_assignedtome: {
 			caption: "Bug",
       title: 'Bug',
@@ -92,10 +96,10 @@ export default {
 	},
 	main_form: {
 		details: {
+			grouppanel1: "分组面板", 
+			grouppanel2: "分组面板", 
 			group1: "bug基本信息", 
 			formpage1: "基本信息", 
-			group2: "操作信息", 
-			formpage2: "其它", 
 			srfupdatedate: "修改日期", 
 			srforikey: "", 
 			srfkey: "Bug编号", 
@@ -104,13 +108,49 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			productname: "产品", 
+			product: "所属产品", 
+			module: "所属模块", 
+			project: "所属项目", 
+			projectname: "项目", 
+			openedbuild: "影响版本", 
+			assignedto: "指派给", 
+			deadline: "截止日期", 
+			type: "Bug类型", 
+			os: "操作系统", 
+			browser: "浏览器", 
 			title: "Bug标题", 
+			severity: "严重程度", 
+			pri: "优先级", 
+			steps: "重现步骤", 
+			story: "相关需求", 
+			task: "相关任务", 
+			mailto: "抄送给", 
+			keywords: "关键词", 
 			id: "Bug编号", 
 		},
 		uiactions: {
 		},
 	},
-	main_grid: {
+	stepsinfo_form: {
+		details: {
+			group1: "Bug基本信息", 
+			formpage1: "基本信息", 
+			srfupdatedate: "修改日期", 
+			srforikey: "", 
+			srfkey: "Bug编号", 
+			srfmajortext: "Bug标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			steps: "", 
+			id: "Bug编号", 
+		},
+		uiactions: {
+		},
+	},
+	pickupgird_grid: {
 		columns: {
 			id: "Bug编号",
 			pri: "P",
@@ -120,8 +160,6 @@ export default {
 			openedby: "由谁创建",
 			openeddate: "创建日期",
 			assignedto: "指派给",
-			resolution: "方案",
-			uagridcolumn1: "操作",
 		},
 		uiactions: {
 		},
@@ -140,7 +178,7 @@ export default {
 		uiactions: {
 		},
 	},
-	pickupgird_grid: {
+	main_grid: {
 		columns: {
 			id: "Bug编号",
 			pri: "P",
@@ -150,6 +188,8 @@ export default {
 			openedby: "由谁创建",
 			openeddate: "创建日期",
 			assignedto: "指派给",
+			resolution: "方案",
+			uagridcolumn1: "操作",
 		},
 		uiactions: {
 		},
@@ -230,10 +270,14 @@ export default {
 			tip: "Help",
 		},
 	},
-	gridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
+	plansubgridviewtoolbar_toolbar: {
+		deuiaction3_planrelationbug: {
+			caption: "关联Bug",
+			tip: "关联Bug",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
 		},
 		deuiaction4: {
 			caption: "Remove",
@@ -248,14 +292,10 @@ export default {
 			tip: "刷新",
 		},
 	},
-	plansubgridviewtoolbar_toolbar: {
-		deuiaction3_planrelationbug: {
-			caption: "关联Bug",
-			tip: "关联Bug",
-		},
-		seperator2: {
-			caption: "",
-			tip: "",
+	gridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "New",
+			tip: "New",
 		},
 		deuiaction4: {
 			caption: "Remove",

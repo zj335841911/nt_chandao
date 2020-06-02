@@ -27,11 +27,27 @@ import cn.ibizlab.pms.core.zentao.domain.Bug;
 @Data
 public class BugSearchContext extends QueryWrapperContext<Bug> {
 
+    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd")
+	private Timestamp n_deadline_lt;//[截止日期]
+	public void setN_deadline_lt(Timestamp n_deadline_lt) {
+        this.n_deadline_lt = n_deadline_lt;
+        if(!ObjectUtils.isEmpty(this.n_deadline_lt)){
+            this.getSelectCond().lt("deadline", n_deadline_lt);
+        }
+    }
 	private String n_status_eq;//[Bug状态]
 	public void setN_status_eq(String n_status_eq) {
         this.n_status_eq = n_status_eq;
         if(!ObjectUtils.isEmpty(this.n_status_eq)){
             this.getSelectCond().eq("status", n_status_eq);
+        }
+    }
+	private String n_status_noteq;//[Bug状态]
+	public void setN_status_noteq(String n_status_noteq) {
+        this.n_status_noteq = n_status_noteq;
+        if(!ObjectUtils.isEmpty(this.n_status_noteq)){
+            this.getSelectCond().ne("status", n_status_noteq);
         }
     }
 	private String n_title_like;//[Bug标题]

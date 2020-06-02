@@ -37,6 +37,7 @@ public interface IDeptService extends IService<Dept>{
     Dept get(BigInteger key) ;
     boolean checkKey(Dept et) ;
     Page<Dept> searchDefault(DeptSearchContext context) ;
+    Page<Dept> searchRoot(DeptSearchContext context) ;
     List<Dept> selectByParent(BigInteger id) ;
     void removeByParent(BigInteger id) ;
     /**

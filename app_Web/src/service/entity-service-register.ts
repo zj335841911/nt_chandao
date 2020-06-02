@@ -48,6 +48,8 @@ export class EntityServiceRegister {
         this.allEntityService.set('branch', () => import('@/service/branch/branch-service'));
         this.allEntityService.set('action', () => import('@/service/action/action-service'));
         this.allEntityService.set('casestep', () => import('@/service/case-step/case-step-service'));
+        this.allEntityService.set('dept', () => import('@/service/dept/dept-service'));
+        this.allEntityService.set('company', () => import('@/service/company/company-service'));
         this.allEntityService.set('story', () => import('@/service/story/story-service'));
         this.allEntityService.set('project', () => import('@/service/project/project-service'));
         this.allEntityService.set('history', () => import('@/service/history/history-service'));

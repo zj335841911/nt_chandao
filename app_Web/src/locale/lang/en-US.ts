@@ -7,6 +7,8 @@ import storyspec_en_US from '@locale/lanres/story-spec/story-spec_en_US';
 import branch_en_US from '@locale/lanres/branch/branch_en_US';
 import action_en_US from '@locale/lanres/action/action_en_US';
 import casestep_en_US from '@locale/lanres/case-step/case-step_en_US';
+import dept_en_US from '@locale/lanres/dept/dept_en_US';
+import company_en_US from '@locale/lanres/company/company_en_US';
 import story_en_US from '@locale/lanres/story/story_en_US';
 import project_en_US from '@locale/lanres/project/project_en_US';
 import history_en_US from '@locale/lanres/history/history_en_US';
@@ -93,6 +95,7 @@ export default {
                 menuitem3: '产品主页',
                 menuitem2: '项目主页',
                 menuitem1: '测试主页',
+                menuitem8: '组织权限',
                 menuitem7: 'iBiz软件生产管理',
                 left_exp: '左侧分页导航',
                 menuitem4: '产品',
@@ -113,6 +116,8 @@ export default {
         branch: branch_en_US,
         action: action_en_US,
         casestep: casestep_en_US,
+        dept: dept_en_US,
+        company: company_en_US,
         story: story_en_US,
         project: project_en_US,
         history: history_en_US,

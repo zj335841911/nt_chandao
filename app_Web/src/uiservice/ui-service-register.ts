@@ -48,6 +48,8 @@ export class UIServiceRegister {
         this.allUIService.set('branch', () => import('@/uiservice/branch/branch-ui-service'));
         this.allUIService.set('action', () => import('@/uiservice/action/action-ui-service'));
         this.allUIService.set('casestep', () => import('@/uiservice/case-step/case-step-ui-service'));
+        this.allUIService.set('dept', () => import('@/uiservice/dept/dept-ui-service'));
+        this.allUIService.set('company', () => import('@/uiservice/company/company-ui-service'));
         this.allUIService.set('story', () => import('@/uiservice/story/story-ui-service'));
         this.allUIService.set('project', () => import('@/uiservice/project/project-ui-service'));
         this.allUIService.set('history', () => import('@/uiservice/history/history-ui-service'));

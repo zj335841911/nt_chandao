@@ -93,24 +93,6 @@ export default {
 		uiactions: {
 		},
 	},
-	gridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: '新建',
-			tip: '新建',
-		},
-		deuiaction4: {
-			caption: '删除',
-			tip: '删除',
-		},
-		seperator1: {
-			caption: '',
-			tip: '',
-		},
-		deuiaction2: {
-			caption: '刷新',
-			tip: '刷新',
-		},
-	},
 	editviewtoolbar_toolbar: {
 		tbitem3: {
 			caption: '保存',
@@ -175,6 +157,24 @@ export default {
 		tbitem22: {
 			caption: '帮助',
 			tip: '帮助',
+		},
+	},
+	gridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: '新建',
+			tip: '新建',
+		},
+		deuiaction4: {
+			caption: '删除',
+			tip: '删除',
+		},
+		seperator1: {
+			caption: '',
+			tip: '',
+		},
+		deuiaction2: {
+			caption: '刷新',
+			tip: '刷新',
 		},
 	},
 };
