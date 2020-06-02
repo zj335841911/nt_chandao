@@ -267,6 +267,7 @@ export default class UserMainGridViewBase extends Vue {
             },
             grid: this.$refs.grid,
             keyPSDEField: 'user',
+            majorPSDEField: 'realname',
             isLoadDefault: true,
         });
     }

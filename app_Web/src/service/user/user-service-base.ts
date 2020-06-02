@@ -31,7 +31,7 @@ export default class UserServiceBase extends EntityService {
         this.APPLYDEKEY ='user';
         this.APPDEKEY = 'id';
         this.APPDENAME = 'users';
-        this.APPDETEXT = '';
+        this.APPDETEXT = 'realname';
         this.APPNAME = 'web';
         this.SYSTEMNAME = 'pms';
     }

@@ -314,6 +314,7 @@ export default class UserEditViewBase extends Vue {
             form: this.$refs.form,
             p2k: '0',
             keyPSDEField: 'user',
+            majorPSDEField: 'realname',
             isLoadDefault: true,
         });
     }

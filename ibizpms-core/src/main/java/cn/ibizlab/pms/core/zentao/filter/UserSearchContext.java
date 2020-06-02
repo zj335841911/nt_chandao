@@ -49,6 +49,9 @@ public class UserSearchContext extends QueryWrapperContext<User> {
 	{
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
+            this.getSelectCond().and( wrapper ->
+                     wrapper.like("realname", query)   
+            );
 		 }
 	}
 }

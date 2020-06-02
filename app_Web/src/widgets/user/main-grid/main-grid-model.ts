@@ -67,6 +67,11 @@ export default class MainModel {
           dataType: 'INT',
         },
         {
+          name: 'srfmajortext',
+          prop: 'realname',
+          dataType: 'TEXT',
+        },
+        {
           name: 'srfdataaccaction',
           prop: 'id',
           dataType: 'ACID',

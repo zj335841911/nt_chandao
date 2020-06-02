@@ -53,6 +53,7 @@ export default {
 			formpage1: '基本信息', 
 			srforikey: '', 
 			srfkey: 'ID', 
+			srfmajortext: '真实姓名', 
 			srftempmode: '', 
 			srfuf: '', 
 			srfdeid: '', 
