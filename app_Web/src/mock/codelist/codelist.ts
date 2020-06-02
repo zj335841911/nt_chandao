@@ -2241,6 +2241,93 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 disabled: false,
             },
         ]
+    },
+    {
+        srfkey: 'Bug__resolution',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'bydesign',
+                label: '设计如此',
+                text: '设计如此',
+                "data":"",
+                "codename":"Bydesign",
+                value: 'bydesign',
+                
+                disabled: false,
+            },
+            {
+                id: 'duplicate',
+                label: '重复Bug',
+                text: '重复Bug',
+                "data":"",
+                "codename":"Duplicate",
+                value: 'duplicate',
+                
+                disabled: false,
+            },
+            {
+                id: 'external',
+                label: '外部原因',
+                text: '外部原因',
+                "data":"",
+                "codename":"External",
+                value: 'external',
+                
+                disabled: false,
+            },
+            {
+                id: 'fixed',
+                label: '已解决',
+                text: '已解决',
+                "data":"",
+                "codename":"Fixed",
+                value: 'fixed',
+                
+                disabled: false,
+            },
+            {
+                id: 'notrepro',
+                label: '无法重现',
+                text: '无法重现',
+                "data":"",
+                "codename":"Notrepro",
+                value: 'notrepro',
+                
+                disabled: false,
+            },
+            {
+                id: 'postponed',
+                label: '延期处理',
+                text: '延期处理',
+                "data":"",
+                "codename":"Postponed",
+                value: 'postponed',
+                
+                disabled: false,
+            },
+            {
+                id: 'willnotfix',
+                label: '不予解决',
+                text: '不予解决',
+                "data":"",
+                "codename":"Willnotfix",
+                value: 'willnotfix',
+                
+                disabled: false,
+            },
+            {
+                id: 'tostory',
+                label: '转为需求',
+                text: '转为需求',
+                "data":"",
+                "codename":"Tostory",
+                value: 'tostory',
+                
+                disabled: false,
+            },
+        ]
     }
     ]];
 });

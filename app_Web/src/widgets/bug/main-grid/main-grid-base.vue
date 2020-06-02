@@ -105,7 +105,9 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.openedby}}</span>
+                        <template >
+            <codelist :value="row.openedby" tag='UserRealName' codelistType='DYNAMIC' ></codelist>
+                        </template>
                     </template>
                 </el-table-column>
             </template>
@@ -129,7 +131,36 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.assignedto}}</span>
+                        <template >
+            <codelist :value="row.assignedto" tag='UserRealName' codelistType='DYNAMIC' ></codelist>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('resolution')">
+                <el-table-column show-overflow-tooltip :prop="'resolution'" :label="$t('entities.bug.main_grid.columns.resolution')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.bug.main_grid.columns.resolution')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template >
+            <codelist :value="row.resolution" tag='Bug__resolution' codelistType='STATIC' ></codelist>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('uagridcolumn1')">
+                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.bug.main_grid.columns.uagridcolumn1')" :width="100"  :align="'right'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.bug.main_grid.columns.uagridcolumn1')}}
+                      </span>
+                    </template>
+                    <template slot-scope="scope">
+                        <span>
+                        </span>
                     </template>
                 </el-table-column>
             </template>
@@ -666,6 +697,20 @@ export default class MainBase extends Vue implements ControlInterface {
             show: true,
             util: 'PX'
         },
+        {
+            name: 'resolution',
+            label: '方案',
+            langtag: 'entities.bug.main_grid.columns.resolution',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'uagridcolumn1',
+            label: '操作',
+            langtag: 'entities.bug.main_grid.columns.uagridcolumn1',
+            show: true,
+            util: 'PX'
+        },
     ]
 
     /**
@@ -1072,6 +1117,30 @@ export default class MainBase extends Vue implements ControlInterface {
           {
             name: 'status',
             srfkey: 'Bug__status',
+            codelistType : 'STATIC',
+            renderMode: 'other',
+            textSeparator: '、',
+            valueSeparator: ',',
+          },
+          {
+            name: 'openedby',
+            srfkey: 'UserRealName',
+            codelistType : 'DYNAMIC',
+            renderMode: 'other',
+            textSeparator: '、',
+            valueSeparator: ',',
+          },
+          {
+            name: 'assignedto',
+            srfkey: 'UserRealName',
+            codelistType : 'DYNAMIC',
+            renderMode: 'other',
+            textSeparator: '、',
+            valueSeparator: ',',
+          },
+          {
+            name: 'resolution',
+            srfkey: 'Bug__resolution',
             codelistType : 'STATIC',
             renderMode: 'other',
             textSeparator: '、',

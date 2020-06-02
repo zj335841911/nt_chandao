@@ -120,6 +120,8 @@ export default {
 			openedby: "由谁创建",
 			openeddate: "创建日期",
 			assignedto: "指派给",
+			resolution: "方案",
+			uagridcolumn1: "操作",
 		},
 		uiactions: {
 		},

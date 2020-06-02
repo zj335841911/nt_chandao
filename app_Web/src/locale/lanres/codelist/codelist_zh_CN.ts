@@ -284,4 +284,15 @@ export default {
         4: '4',
         empty: '',
     },
+    Bug__resolution: {
+        'bydesign': '设计如此',
+        'duplicate': '重复Bug',
+        'external': '外部原因',
+        'fixed': '已解决',
+        'notrepro': '无法重现',
+        'postponed': '延期处理',
+        'willnotfix': '不予解决',
+        'tostory': '转为需求',
+        empty: '',
+    },
 };
