@@ -1,5 +1,5 @@
 <template>
-    <i-form :model="this.data" class='app-form' ref='form'  id='bug_dashboardbuglife' style="">
+    <i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='bug_dashboardbuglife' style="">
     <input style="display:none;" />
     <row >
     <tabs :animated="false" size="small" name='dashboardbuglife' :value="detailsModel.form.activiedPage" 
@@ -14,17 +14,47 @@
                 }">
                     
 <i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.dashboardbuglife_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.dashboardbuglife_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
         <i-col v-show="detailsModel.openedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='openedby' :itemRules="this.rules.openedby" class='' :caption="$t('entities.bug.dashboardbuglife_form.details.openedby')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.openedby.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.openedby"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.openedby.disabled" type='text'  style=""></input-box>
+    <app-form-item name='openedby' :itemRules="this.rules.openedby" class='' :caption="$t('entities.bug.dashboardbuglife_form.details.openedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.openedby.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-span   name='openedby'
+:value="data.openedby" style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.openedbuild.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='openedbuild' :itemRules="this.rules.openedbuild" class='' :caption="$t('entities.bug.dashboardbuglife_form.details.openedbuild')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.openedbuild.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.openedbuild"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.openedbuild.disabled" type='text'  style=""></input-box>
+    <app-form-item name='openedbuild' :itemRules="this.rules.openedbuild" class='' :caption="$t('entities.bug.dashboardbuglife_form.details.openedbuild')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.openedbuild.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-span   name='openedbuild'
+:value="data.openedbuild" style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.resolvedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='resolvedby' :itemRules="this.rules.resolvedby" class='' :caption="$t('entities.bug.dashboardbuglife_form.details.resolvedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resolvedby.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-span   name='resolvedby'
+:value="data.resolvedby" style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.resolution.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='resolution' :itemRules="this.rules.resolution" class='' :caption="$t('entities.bug.dashboardbuglife_form.details.resolution')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resolution.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-span   name='resolution'
+:value="data.resolution" tag='Bug__resolution' codelistType='STATIC' style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.closedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='closedby' :itemRules="this.rules.closedby" class='' :caption="$t('entities.bug.dashboardbuglife_form.details.closedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.closedby.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-span   name='closedby'
+:value="data.closedby" style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.lasteditedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='lasteditedby' :itemRules="this.rules.lasteditedby" class='' :caption="$t('entities.bug.dashboardbuglife_form.details.lasteditedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.lasteditedby.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-span   name='lasteditedby'
+:value="data.lasteditedby" style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -45,6 +75,21 @@
                     ])
                 }">
                     
+<i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.dashboardbuglife_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <row>
+        <i-col v-show="detailsModel.linkbug.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='linkbug' :itemRules="this.rules.linkbug" class='' :caption="$t('entities.bug.dashboardbuglife_form.details.linkbug')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.linkbug.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-span   name='linkbug'
+:value="data.linkbug" style=""></app-span>
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
 
 
             </tab-pane> 
@@ -355,6 +400,12 @@ export default class DashboardBugLifeBase extends Vue implements ControlInterfac
         srfsourcekey: null,
         openedby: null,
         openedbuild: null,
+        resolvedby: null,
+        resolvedbuild: null,
+        resolution: null,
+        closedby: null,
+        lasteditedby: null,
+        linkbug: null,
         id: null,
         bug:null,
     };
@@ -458,6 +509,42 @@ export default class DashboardBugLifeBase extends Vue implements ControlInterfac
             { required: false, type: 'string', message: '影响版本 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '影响版本 值不能为空', trigger: 'blur' },
         ],
+        resolvedby: [
+            { type: 'string', message: '由谁解决 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '由谁解决 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '由谁解决 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '由谁解决 值不能为空', trigger: 'blur' },
+        ],
+        resolvedbuild: [
+            { type: 'number', message: '解决版本 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '解决版本 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '解决版本 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '解决版本 值不能为空', trigger: 'blur' },
+        ],
+        resolution: [
+            { type: 'string', message: '解决方案 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '解决方案 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '解决方案 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '解决方案 值不能为空', trigger: 'blur' },
+        ],
+        closedby: [
+            { type: 'string', message: '由谁关闭 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '由谁关闭 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '由谁关闭 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '由谁关闭 值不能为空', trigger: 'blur' },
+        ],
+        lasteditedby: [
+            { type: 'string', message: '最后修改者 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '最后修改者 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '最后修改者 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '最后修改者 值不能为空', trigger: 'blur' },
+        ],
+        linkbug: [
+            { type: 'string', message: '相关Bug 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '相关Bug 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '相关Bug 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '相关Bug 值不能为空', trigger: 'blur' },
+        ],
         id: [
             { type: 'number', message: 'Bug编号 值必须为数值类型', trigger: 'change' },
             { type: 'number', message: 'Bug编号 值必须为数值类型', trigger: 'blur' },
@@ -476,6 +563,8 @@ export default class DashboardBugLifeBase extends Vue implements ControlInterfac
         group1: new FormGroupPanelModel({ caption: 'Bug基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.bug.dashboardbuglife_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: 'Bug的一生', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
+, 
+        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.bug.dashboardbuglife_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage2: new FormPageModel({ caption: '其他相关', detailType: 'FORMPAGE', name: 'formpage2', visible: true, isShowCaption: true, form: this })
 , 
@@ -498,6 +587,18 @@ export default class DashboardBugLifeBase extends Vue implements ControlInterfac
         openedby: new FormItemModel({ caption: '由谁创建', detailType: 'FORMITEM', name: 'openedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         openedbuild: new FormItemModel({ caption: '影响版本', detailType: 'FORMITEM', name: 'openedbuild', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        resolvedby: new FormItemModel({ caption: '由谁解决', detailType: 'FORMITEM', name: 'resolvedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        resolvedbuild: new FormItemModel({ caption: '解决版本', detailType: 'FORMITEM', name: 'resolvedbuild', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        resolution: new FormItemModel({ caption: '解决方案', detailType: 'FORMITEM', name: 'resolution', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        closedby: new FormItemModel({ caption: '由谁关闭', detailType: 'FORMITEM', name: 'closedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        lasteditedby: new FormItemModel({ caption: '最后修改者', detailType: 'FORMITEM', name: 'lasteditedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+, 
+        linkbug: new FormItemModel({ caption: '相关Bug', detailType: 'FORMITEM', name: 'linkbug', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: 'Bug编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -625,6 +726,78 @@ export default class DashboardBugLifeBase extends Vue implements ControlInterfac
     }
 
     /**
+     * 监控表单属性 resolvedby 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof DashboardBugLife
+     */
+    @Watch('data.resolvedby')
+    onResolvedbyChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'resolvedby', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 resolvedbuild 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof DashboardBugLife
+     */
+    @Watch('data.resolvedbuild')
+    onResolvedbuildChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'resolvedbuild', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 resolution 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof DashboardBugLife
+     */
+    @Watch('data.resolution')
+    onResolutionChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'resolution', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 closedby 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof DashboardBugLife
+     */
+    @Watch('data.closedby')
+    onClosedbyChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'closedby', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 lasteditedby 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof DashboardBugLife
+     */
+    @Watch('data.lasteditedby')
+    onLasteditedbyChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'lasteditedby', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 linkbug 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof DashboardBugLife
+     */
+    @Watch('data.linkbug')
+    onLinkbugChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'linkbug', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
@@ -672,6 +845,13 @@ export default class DashboardBugLifeBase extends Vue implements ControlInterfac
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
+
+
+
+
+
+
 
 
 

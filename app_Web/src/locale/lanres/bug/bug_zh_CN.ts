@@ -202,6 +202,7 @@ export default {
 		details: {
 			group1: 'Bug基本信息', 
 			formpage1: 'Bug的一生', 
+			grouppanel1: '分组面板', 
 			formpage2: '其他相关', 
 			srfupdatedate: '修改日期', 
 			srforikey: '', 
@@ -213,6 +214,12 @@ export default {
 			srfsourcekey: '', 
 			openedby: '由谁创建', 
 			openedbuild: '影响版本', 
+			resolvedby: '由谁解决', 
+			resolvedbuild: '解决版本', 
+			resolution: '解决方案', 
+			closedby: '由谁关闭', 
+			lasteditedby: '最后修改者', 
+			linkbug: '相关Bug', 
 			id: 'Bug编号', 
 		},
 		uiactions: {

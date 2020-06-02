@@ -1,5 +1,5 @@
 <template>
-    <i-form :model="this.data" class='app-form' ref='form'  id='bug_dashboardmain' style="">
+    <i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='bug_dashboardmain' style="">
     <input style="display:none;" />
     <row >
     <tabs :animated="false" size="small" name='dashboardmain' :value="detailsModel.form.activiedPage" 
@@ -14,10 +14,10 @@
                 }">
                     
 <i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.dashboardmain_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.dashboardmain_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
         <i-col v-show="detailsModel.productname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='productname' :itemRules="this.rules.productname" class='' :caption="$t('entities.bug.dashboardmain_form.details.productname')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.productname.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='productname' :itemRules="this.rules.productname" class='' :caption="$t('entities.bug.dashboardmain_form.details.productname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.productname.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-picker 
   :formState="formState"
   :data="data"
@@ -28,102 +28,111 @@
   name='productname'
   deMajorField='name'
   deKeyField='product'
-  :service="service"
-  :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchDefault'}"
   valueitem='product' 
-  :value="data.productname" 
-  editortype="" 
-  :pickupView="{ viewname: 'product-pickup-view', title: $t('entities.product.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'products', parameterName: 'product' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
+  :value="data.productname"  
+  editortype="linkonly" 
+  :linkview="{ viewname: 'ProductMainTabExpView', title: $t('entities.product.views.maintabexpview.title'), deResParameters: [], parameters: [{ pathName: 'products', parameterName: 'product' }, { pathName: 'maintabexpview', parameterName: 'maintabexpview' } ], width: 0, height: 0, placement: '', isRedirectView: false }" 
   style=""  
   @formitemvaluechange="onFormItemValueChange">
 </app-picker>
-
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='title' :itemRules="this.rules.title" class='' :caption="$t('entities.bug.dashboardmain_form.details.title')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.title"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.title.disabled" type='text'  style=""></input-box>
+    <app-form-item name='title' :itemRules="this.rules.title" class='' :caption="$t('entities.bug.dashboardmain_form.details.title')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-span   name='title'
+:value="data.title" style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='type' :itemRules="this.rules.type" class='' :caption="$t('entities.bug.dashboardmain_form.details.type')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list v-model="data.type" :data="data" :itemParam="{}" :disabled="detailsModel.type.disabled"  tag='Bug__type' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
+    <app-form-item name='type' :itemRules="this.rules.type" class='' :caption="$t('entities.bug.dashboardmain_form.details.type')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-span   name='type'
+:value="data.type" tag='Bug__type' codelistType='STATIC' style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.severity.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='severity' :itemRules="this.rules.severity" class='' :caption="$t('entities.bug.dashboardmain_form.details.severity')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.severity.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list v-model="data.severity" :data="data" :itemParam="{}" :disabled="detailsModel.severity.disabled"  tag='Bug__severity' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
+    <app-form-item name='severity' :itemRules="this.rules.severity" class='' :caption="$t('entities.bug.dashboardmain_form.details.severity')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.severity.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-span   name='severity'
+:value="data.severity" tag='Bug__severity' codelistType='STATIC' style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.pri.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='pri' :itemRules="this.rules.pri" class='' :caption="$t('entities.bug.dashboardmain_form.details.pri')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.pri.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list v-model="data.pri" :data="data" :itemParam="{}" :disabled="detailsModel.pri.disabled"  tag='Bug__pri' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
+    <app-form-item name='pri' :itemRules="this.rules.pri" class='' :caption="$t('entities.bug.dashboardmain_form.details.pri')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.pri.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-span   name='pri'
+:value="data.pri" tag='Bug__pri' codelistType='STATIC' style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.status.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='status' :itemRules="this.rules.status" class='' :caption="$t('entities.bug.dashboardmain_form.details.status')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.status.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list v-model="data.status" :data="data" :itemParam="{}" :disabled="detailsModel.status.disabled"  tag='Bug__status' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
+    <app-form-item name='status' :itemRules="this.rules.status" class='' :caption="$t('entities.bug.dashboardmain_form.details.status')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.status.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-span   name='status'
+:value="data.status" tag='Bug__status' codelistType='STATIC' style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.activatedcount.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='activatedcount' :itemRules="this.rules.activatedcount" class='' :caption="$t('entities.bug.dashboardmain_form.details.activatedcount')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.activatedcount.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.activatedcount"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.activatedcount.disabled" type='number'  style=""></input-box>
+    <app-form-item name='activatedcount' :itemRules="this.rules.activatedcount" class='' :caption="$t('entities.bug.dashboardmain_form.details.activatedcount')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.activatedcount.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-span   name='activatedcount'
+:value="data.activatedcount" style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.activateddate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='activateddate' :itemRules="this.rules.activateddate" class='' :caption="$t('entities.bug.dashboardmain_form.details.activateddate')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.activateddate.error" :isEmptyCaption="false" labelPos="LEFT">
-    <date-picker type="datetime" :transfer="true" format="yyyy-MM-dd HH:mm:ss" placeholder="请选择时间..." :value="data.activateddate" :disabled="detailsModel.activateddate.disabled" style="min-width: 150px; width:160px;" @on-change="(val1, val2) => { this.data.activateddate = val1 }"></date-picker>
+    <app-form-item name='activateddate' :itemRules="this.rules.activateddate" class='' :caption="$t('entities.bug.dashboardmain_form.details.activateddate')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.activateddate.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-span   name='activateddate'
+:value="data.activateddate" style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.confirmed.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='confirmed' :itemRules="this.rules.confirmed" class='' :caption="$t('entities.bug.dashboardmain_form.details.confirmed')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.confirmed.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list v-model="data.confirmed" :data="data" :itemParam="{}" :disabled="detailsModel.confirmed.disabled"  tag='YesNo2' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
+    <app-form-item name='confirmed' :itemRules="this.rules.confirmed" class='' :caption="$t('entities.bug.dashboardmain_form.details.confirmed')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.confirmed.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-span   name='confirmed'
+:value="data.confirmed" tag='YesNo2' codelistType='STATIC' style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.assignedto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='assignedto' :itemRules="this.rules.assignedto" class='' :caption="$t('entities.bug.dashboardmain_form.details.assignedto')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.assignedto.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.assignedto"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.assignedto.disabled" type='text'  style=""></input-box>
+    <app-form-item name='assignedto' :itemRules="this.rules.assignedto" class='' :caption="$t('entities.bug.dashboardmain_form.details.assignedto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.assignedto.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-span   name='assignedto'
+:value="data.assignedto" style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.deadline.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='deadline' :itemRules="this.rules.deadline" class='' :caption="$t('entities.bug.dashboardmain_form.details.deadline')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.deadline.error" :isEmptyCaption="false" labelPos="LEFT">
-    <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.deadline" :disabled="detailsModel.deadline.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.deadline = val1 }"></date-picker>
+    <app-form-item name='deadline' :itemRules="this.rules.deadline" class='' :caption="$t('entities.bug.dashboardmain_form.details.deadline')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.deadline.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-span   name='deadline'
+:value="data.deadline" style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.os.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='os' :itemRules="this.rules.os" class='' :caption="$t('entities.bug.dashboardmain_form.details.os')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.os.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list v-model="data.os" :data="data" :itemParam="{}" :disabled="detailsModel.os.disabled"  tag='Bug__os' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
+    <app-form-item name='os' :itemRules="this.rules.os" class='' :caption="$t('entities.bug.dashboardmain_form.details.os')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.os.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-span   name='os'
+:value="data.os" tag='Bug__os' codelistType='STATIC' style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.browser.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='browser' :itemRules="this.rules.browser" class='' :caption="$t('entities.bug.dashboardmain_form.details.browser')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.browser.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list v-model="data.browser" :data="data" :itemParam="{}" :disabled="detailsModel.browser.disabled"  tag='Bug__browser' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
+    <app-form-item name='browser' :itemRules="this.rules.browser" class='' :caption="$t('entities.bug.dashboardmain_form.details.browser')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.browser.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-span   name='browser'
+:value="data.browser" tag='Bug__browser' codelistType='STATIC' style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.keywords.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='keywords' :itemRules="this.rules.keywords" class='' :caption="$t('entities.bug.dashboardmain_form.details.keywords')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.keywords.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.keywords"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.keywords.disabled" type='text'  style=""></input-box>
+    <app-form-item name='keywords' :itemRules="this.rules.keywords" class='' :caption="$t('entities.bug.dashboardmain_form.details.keywords')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.keywords.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-span   name='keywords'
+:value="data.keywords" style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.mailto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='mailto' :itemRules="this.rules.mailto" class='' :caption="$t('entities.bug.dashboardmain_form.details.mailto')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.mailto.error" :isEmptyCaption="false" labelPos="LEFT">
-    <div class="ivu-input-wrapper ivu-input-wrapper-default ivu-input-type">
-    <textarea class="ivu-input" :rows="10" v-model="data.mailto" :disabled="detailsModel.mailto.disabled" style="height:200px;"></textarea>
-</div>
+    <app-form-item name='mailto' :itemRules="this.rules.mailto" class='' :caption="$t('entities.bug.dashboardmain_form.details.mailto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.mailto.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-span   name='mailto'
+:value="data.mailto" style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -145,10 +154,10 @@
                 }">
                     
 <i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.dashboardmain_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.dashboardmain_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
         <i-col v-show="detailsModel.projectname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='projectname' :itemRules="this.rules.projectname" class='' :caption="$t('entities.bug.dashboardmain_form.details.projectname')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.projectname.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='projectname' :itemRules="this.rules.projectname" class='' :caption="$t('entities.bug.dashboardmain_form.details.projectname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.projectname.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-picker 
   :formState="formState"
   :data="data"
@@ -159,16 +168,13 @@
   name='projectname'
   deMajorField='name'
   deKeyField='project'
-  :service="service"
-  :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchDefault'}"
   valueitem='project' 
-  :value="data.projectname" 
-  editortype="" 
-  :pickupView="{ viewname: 'project-pickup-view', title: $t('entities.project.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'projects', parameterName: 'project' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
+  :value="data.projectname"  
+  editortype="linkonly" 
+  :linkview="{ viewname: 'ProjectMainTabExpView', title: $t('entities.project.views.maintabexpview.title'), deResParameters: [], parameters: [{ pathName: 'projects', parameterName: 'project' }, { pathName: 'maintabexpview', parameterName: 'maintabexpview' } ], width: 0, height: 0, placement: '', isRedirectView: false }" 
   style=""  
   @formitemvaluechange="onFormItemValueChange">
 </app-picker>
-
 </app-form-item>
 
 </i-col>
@@ -613,8 +619,8 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
         title: [
             { type: 'string', message: 'Bug标题 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: 'Bug标题 值必须为字符串类型', trigger: 'blur' },
-            { required: true, type: 'string', message: 'Bug标题 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: 'Bug标题 值不能为空', trigger: 'blur' },
+            { required: false, type: 'string', message: 'Bug标题 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: 'Bug标题 值不能为空', trigger: 'blur' },
         ],
         module: [
             { type: 'number', message: '所属模块 值必须为数值类型', trigger: 'change' },
@@ -635,16 +641,16 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: 'Bug类型 值不能为空', trigger: 'blur' },
         ],
         severity: [
-            { type: 'number', message: '严重程度 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '严重程度 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '严重程度 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '严重程度 值不能为空', trigger: 'blur' },
+            { type: 'string', message: '严重程度 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '严重程度 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '严重程度 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '严重程度 值不能为空', trigger: 'blur' },
         ],
         pri: [
-            { type: 'number', message: '优先级 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '优先级 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '优先级 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '优先级 值不能为空', trigger: 'blur' },
+            { type: 'string', message: '优先级 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '优先级 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '优先级 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '优先级 值不能为空', trigger: 'blur' },
         ],
         status: [
             { type: 'string', message: 'Bug状态 值必须为字符串类型', trigger: 'change' },
@@ -665,10 +671,10 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '激活日期 值不能为空', trigger: 'blur' },
         ],
         confirmed: [
-            { type: 'number', message: '是否确认 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '是否确认 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '是否确认 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '是否确认 值不能为空', trigger: 'blur' },
+            { type: 'string', message: '是否确认 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '是否确认 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '是否确认 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '是否确认 值不能为空', trigger: 'blur' },
         ],
         assignedto: [
             { type: 'string', message: '当前指派 值必须为字符串类型', trigger: 'change' },

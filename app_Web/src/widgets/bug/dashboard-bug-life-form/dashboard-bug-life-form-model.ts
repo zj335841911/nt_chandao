@@ -66,6 +66,36 @@ export default class DashboardBugLifeModel {
         dataType: 'TEXT',
       },
       {
+        name: 'resolvedby',
+        prop: 'resolvedby',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'resolvedbuild',
+        prop: 'resolvedbuild',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'resolution',
+        prop: 'resolution',
+        dataType: 'SSCODELIST',
+      },
+      {
+        name: 'closedby',
+        prop: 'closedby',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'lasteditedby',
+        prop: 'lasteditedby',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'linkbug',
+        prop: 'linkbug',
+        dataType: 'TEXT',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

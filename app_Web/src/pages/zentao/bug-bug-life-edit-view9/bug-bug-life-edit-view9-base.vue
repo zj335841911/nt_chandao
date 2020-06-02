@@ -1,8 +1,5 @@
 <template>
 <studio-embed-view viewName="bugbuglifeeditview9" viewTitle="Bug的一生" class='deeditview9 bug-bug-life-edit-view9'>
-    <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
-    </template>
     <view_form 
                 :viewState="viewState"  
                 :viewparams="viewparams" 
