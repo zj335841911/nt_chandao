@@ -174,6 +174,8 @@ export default {
 	},
 	storyspec_form: {
 		details: {
+			grouppanel1: '需求描述', 
+			grouppanel2: '验收标准', 
 			group1: '需求描述信息', 
 			druipart1: '', 
 			formpage1: '基本信息', 

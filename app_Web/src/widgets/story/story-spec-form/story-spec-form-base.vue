@@ -13,16 +13,32 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.spec.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='spec' :itemRules="this.rules.spec" class='' :caption="$t('entities.story.storyspec_form.details.spec')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.spec.error" :isEmptyCaption="false" labelPos="LEFT">
+<i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.storyspec_form.details.grouppanel1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <row>
+        <i-col v-show="detailsModel.spec.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='spec' :itemRules="this.rules.spec" class='' :caption="$t('entities.story.storyspec_form.details.spec')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.spec.error" :isEmptyCaption="false" labelPos="NONE">
     <span v-html="data.spec"></span>
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.verify.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='verify' :itemRules="this.rules.verify" class='' :caption="$t('entities.story.storyspec_form.details.verify')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.verify.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.storyspec_form.details.grouppanel2')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <row>
+        <i-col v-show="detailsModel.verify.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='verify' :itemRules="this.rules.verify" class='' :caption="$t('entities.story.storyspec_form.details.verify')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.verify.error" :isEmptyCaption="false" labelPos="NONE">
     <span v-html="data.verify"></span>
 </app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
 
 </i-col>
     
@@ -487,6 +503,10 @@ export default class StorySpecBase extends Vue implements ControlInterface {
      * @memberof StorySpec
      */
     public detailsModel: any = {
+        grouppanel1: new FormGroupPanelModel({ caption: '需求描述', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.story.storyspec_form', extractMode: 'ITEM', details: [] } })
+, 
+        grouppanel2: new FormGroupPanelModel({ caption: '验收标准', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.story.storyspec_form', extractMode: 'ITEM', details: [] } })
+, 
         group1: new FormGroupPanelModel({ caption: '需求描述信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.story.storyspec_form', extractMode: 'ITEM', details: [] } })
 , 
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: false, isShowCaption: true, form: this })
@@ -511,9 +531,9 @@ export default class StorySpecBase extends Vue implements ControlInterface {
 , 
         version: new FormItemModel({ caption: '版本#', detailType: 'FORMITEM', name: 'version', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        spec: new FormItemModel({ caption: '需求描述', detailType: 'FORMITEM', name: 'spec', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        spec: new FormItemModel({ caption: '需求描述', detailType: 'FORMITEM', name: 'spec', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
-        verify: new FormItemModel({ caption: '验收标准', detailType: 'FORMITEM', name: 'verify', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        verify: new FormItemModel({ caption: '验收标准', detailType: 'FORMITEM', name: 'verify', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -699,6 +719,8 @@ export default class StorySpecBase extends Vue implements ControlInterface {
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
+
 
         if (Object.is(name, '') || Object.is(name, 'parent')) {
             let ret = false;
