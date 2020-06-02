@@ -1,8 +1,5 @@
 <template>
 <studio-view viewName="bugstepsinfoeditview" viewTitle="Bug编辑视图" class='deeditview bug-steps-info-edit-view'>
-    <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
-    </template>
     <view_form 
                 :viewState="viewState"  
                 :viewparams="viewparams" 
