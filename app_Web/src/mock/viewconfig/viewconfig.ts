@@ -529,7 +529,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "usereditview": {
             "title": "user编辑视图",
-            "caption": "用户",
+            "caption": "用户信息",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",
             "viewname": "UserEditView",
