@@ -165,6 +165,7 @@ export default {
 	dashboardmainedit_form: {
 		details: {
 			druipart1: "", 
+			grouppanel6: "历史记录", 
 			grouppanel1: "分组面板", 
 			grouppanel3: "基本信息", 
 			grouppanel4: "项目/需求/任务", 
