@@ -1,53 +1,7 @@
 <template>
   <div class='tabviewpanel'>
         <tabs :value="activiedTabViewPanel" :animated="false" class='tabexppanel' name='maintabexpviewtabexppanel' @on-click="tabPanelClick">
-        <tab-pane :index="0" name='tabviewpanel4' tab='maintabexpviewtabexppanel' class=''  
-            :label="(h) =>{
-                return h('div', [
-                    h('span', '公司'),
-                    h('Badge', {
-                        props: {
-                            count: undefined,
-                            type: 'primary'
-                        }
-                    })
-                ])
-            }" >
-            <view_tabviewpanel4 
-    :viewState="viewState"  
-    :viewparams="viewparams" 
-    :context="context" 
-v-if="isInit.tabviewpanel4"
-@viewpanelDatasChange = "tabViewPanelDatasChange"
-    name="tabviewpanel4"  
-    ref='tabviewpanel4' 
-    @closeview="closeView($event)">
-</view_tabviewpanel4>
-        </tab-pane>
-        <tab-pane :index="1" name='tabviewpanel3' tab='maintabexpviewtabexppanel' class=''  
-            :label="(h) =>{
-                return h('div', [
-                    h('span', '权限'),
-                    h('Badge', {
-                        props: {
-                            count: undefined,
-                            type: 'primary'
-                        }
-                    })
-                ])
-            }" >
-            <view_tabviewpanel3 
-    :viewState="viewState"  
-    :viewparams="viewparams" 
-    :context="context" 
-v-if="isInit.tabviewpanel3"
-@viewpanelDatasChange = "tabViewPanelDatasChange"
-    name="tabviewpanel3"  
-    ref='tabviewpanel3' 
-    @closeview="closeView($event)">
-</view_tabviewpanel3>
-        </tab-pane>
-        <tab-pane :index="2" name='tabviewpanel' tab='maintabexpviewtabexppanel' class=''  
+        <tab-pane :index="0" name='tabviewpanel' tab='maintabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '用户'),
@@ -70,7 +24,7 @@ v-if="isInit.tabviewpanel"
     @closeview="closeView($event)">
 </view_tabviewpanel>
         </tab-pane>
-        <tab-pane :index="3" name='tabviewpanel2' tab='maintabexpviewtabexppanel' class=''  
+        <tab-pane :index="1" name='tabviewpanel2' tab='maintabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '部门'),
@@ -92,6 +46,52 @@ v-if="isInit.tabviewpanel2"
     ref='tabviewpanel2' 
     @closeview="closeView($event)">
 </view_tabviewpanel2>
+        </tab-pane>
+        <tab-pane :index="2" name='tabviewpanel3' tab='maintabexpviewtabexppanel' class=''  
+            :label="(h) =>{
+                return h('div', [
+                    h('span', '权限'),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel3 
+    :viewState="viewState"  
+    :viewparams="viewparams" 
+    :context="context" 
+v-if="isInit.tabviewpanel3"
+@viewpanelDatasChange = "tabViewPanelDatasChange"
+    name="tabviewpanel3"  
+    ref='tabviewpanel3' 
+    @closeview="closeView($event)">
+</view_tabviewpanel3>
+        </tab-pane>
+        <tab-pane :index="3" name='tabviewpanel4' tab='maintabexpviewtabexppanel' class=''  
+            :label="(h) =>{
+                return h('div', [
+                    h('span', '公司'),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel4 
+    :viewState="viewState"  
+    :viewparams="viewparams" 
+    :context="context" 
+v-if="isInit.tabviewpanel4"
+@viewpanelDatasChange = "tabViewPanelDatasChange"
+    name="tabviewpanel4"  
+    ref='tabviewpanel4' 
+    @closeview="closeView($event)">
+</view_tabviewpanel4>
         </tab-pane>
     </tabs>
   </div>
@@ -227,10 +227,10 @@ export default class MainTabExpViewtabexppanelBase extends Vue implements Contro
      * @memberof MainTabExpViewtabexppanel
      */
     public isInit: any = {
-        tabviewpanel4:  true ,
-        tabviewpanel3:  false ,
-        tabviewpanel:  false ,
+        tabviewpanel:  true ,
         tabviewpanel2:  false ,
+        tabviewpanel3:  false ,
+        tabviewpanel4:  false ,
     }
 
     /**
@@ -268,7 +268,7 @@ export default class MainTabExpViewtabexppanelBase extends Vue implements Contro
      * @type {string}
      * @memberof MainTabExpViewtabexppanel
      */
-    public activiedTabViewPanel: string = 'tabviewpanel4';
+    public activiedTabViewPanel: string = 'tabviewpanel';
 
     /**
      * 分页视图面板数据变更

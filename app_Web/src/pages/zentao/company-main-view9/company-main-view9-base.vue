@@ -224,7 +224,7 @@ export default class CompanyMainView9Base extends Vue {
         this.engine.init({
             view: this,
             form: this.$refs.form,
-            p2k: '0',
+            p2k: '1',
             keyPSDEField: 'company',
             majorPSDEField: 'name',
             isLoadDefault: true,
