@@ -59,7 +59,7 @@ export default class MainModel {
         {
           name: 'openedby',
           prop: 'openedby',
-          dataType: 'SSCODELIST',
+          dataType: 'TEXT',
         },
         {
           name: 'duplicatebug',

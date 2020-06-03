@@ -68,7 +68,7 @@ export default class MainModel {
       {
         name: 'plan',
         prop: 'plan',
-        dataType: 'SSCODELIST',
+        dataType: 'LONGTEXT',
       },
       {
         name: 'source',

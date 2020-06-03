@@ -279,6 +279,9 @@ export default class ProductGridView_UnClosedBase extends Vue {
             if(this.context && this.context.srfparentkey){
                 Object.assign(this.viewparams,{srfparentkey:this.context.srfparentkey});
             }
+            if(this.$store.getters.getAppData() && this.$store.getters.getAppData().context){
+                Object.assign(this.context,this.$store.getters.getAppData().context);
+            }
             this.handleCustomViewData();
             return;
         }
@@ -308,13 +311,6 @@ export default class ProductGridView_UnClosedBase extends Vue {
      * @memberof ProductGridView_UnClosedBase
      */
 	public handleCustomViewData(){
-        Object.defineProperty(this.context, 'srfcurdate', {
-            get: function() {
-                return new Date().toLocaleString(undefined, { hour12: false });
-            },
-            enumerable : true,
-            configurable : true
-        });
 		if(Object.keys(this.customViewNavContexts).length > 0){
 			Object.keys(this.customViewNavContexts).forEach((item:any) =>{
 				let tempContext:any = {};

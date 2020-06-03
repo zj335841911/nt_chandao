@@ -71,6 +71,18 @@ public class StoryResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Change-all')")
+    @ApiOperation(value = "变更", tags = {"需求" },  notes = "变更")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/change")
+    @Transactional
+    public ResponseEntity<StoryDTO> change(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
+        Story story = storyMapping.toDomain(storydto);
+        story.setId(story_id);
+        story = storyService.change(story);
+        storydto = storyMapping.toDto(story);
+        return ResponseEntity.status(HttpStatus.OK).body(storydto);
+    }
+
     @ApiOperation(value = "检查需求", tags = {"需求" },  notes = "检查需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody StoryDTO storydto) {
@@ -188,6 +200,18 @@ public class StoryResource {
         }
         storyService.createBatch(domainlist);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Change-all')")
+    @ApiOperation(value = "根据产品需求", tags = {"需求" },  notes = "根据产品需求")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/change")
+    @Transactional
+    public ResponseEntity<StoryDTO> changeByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
+        Story domain = storyMapping.toDomain(storydto);
+        domain.setProduct(product_id);
+        domain = storyService.change(domain) ;
+        storydto = storyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(storydto);
     }
 
     @ApiOperation(value = "根据产品检查需求", tags = {"需求" },  notes = "根据产品检查需求")

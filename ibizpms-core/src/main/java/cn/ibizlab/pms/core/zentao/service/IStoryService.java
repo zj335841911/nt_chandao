@@ -28,6 +28,7 @@ public interface IStoryService extends IService<Story>{
     Story getDraft(Story et) ;
     boolean create(Story et) ;
     void createBatch(List<Story> list) ;
+    Story change(Story et) ;
     boolean checkKey(Story et) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;

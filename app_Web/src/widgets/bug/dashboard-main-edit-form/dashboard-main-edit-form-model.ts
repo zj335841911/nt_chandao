@@ -173,7 +173,7 @@ export default class DashboardMainEditModel {
       {
         name: 'openedby',
         prop: 'openedby',
-        dataType: 'SSCODELIST',
+        dataType: 'TEXT',
       },
       {
         name: 'openedbuild',
@@ -183,7 +183,7 @@ export default class DashboardMainEditModel {
       {
         name: 'resolvedby',
         prop: 'resolvedby',
-        dataType: 'SSCODELIST',
+        dataType: 'TEXT',
       },
       {
         name: 'resolvedbuild',
@@ -198,7 +198,7 @@ export default class DashboardMainEditModel {
       {
         name: 'closedby',
         prop: 'closedby',
-        dataType: 'SSCODELIST',
+        dataType: 'TEXT',
       },
       {
         name: 'lasteditedby',

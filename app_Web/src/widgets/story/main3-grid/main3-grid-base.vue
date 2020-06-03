@@ -67,7 +67,9 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.assignedto}}</span>
+                        <template >
+            <codelist :value="row.assignedto" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                        </template>
                     </template>
                 </el-table-column>
             </template>
@@ -1132,6 +1134,14 @@ export default class Main3Base extends Vue implements ControlInterface {
             renderMode: 'other',
             textSeparator: '、',
             valueSeparator: ',',
+          },
+          {
+            name: 'assignedto',
+            srfkey: 'UserRealName',
+            codelistType : 'DYNAMIC',
+            textSeparator: ',',
+            renderMode: 'string',
+            valueSeparator: ",",
           },
           {
             name: 'status',

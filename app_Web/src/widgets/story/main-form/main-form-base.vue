@@ -141,7 +141,7 @@
         <i-col v-show="detailsModel.openedby.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='openedby' :itemRules="this.rules.openedby" class='' :caption="$t('entities.story.main_form.details.openedby')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.openedby.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='openedby'
-:value="data.openedby" style=""></app-span>
+:value="data.openedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -163,7 +163,7 @@
         <i-col v-show="detailsModel.assignedto.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='assignedto' :itemRules="this.rules.assignedto" class='' :caption="$t('entities.story.main_form.details.assignedto')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.assignedto.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='assignedto'
-:value="data.assignedto" style=""></app-span>
+:value="data.assignedto" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -196,7 +196,7 @@
 <i-col v-show="detailsModel.closedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='closedby' :itemRules="this.rules.closedby" class='' :caption="$t('entities.story.main_form.details.closedby')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.closedby.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='closedby'
-:value="data.closedby" style=""></app-span>
+:value="data.closedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -220,7 +220,7 @@
         <i-col v-show="detailsModel.lasteditedby.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='lasteditedby' :itemRules="this.rules.lasteditedby" class='' :caption="$t('entities.story.main_form.details.lasteditedby')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.lasteditedby.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='lasteditedby'
-:value="data.lasteditedby" style=""></app-span>
+:value="data.lasteditedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," style=""></app-span>
 </app-form-item>
 
 </i-col>

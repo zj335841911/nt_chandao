@@ -105,6 +105,22 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * Change接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async Change(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story){
+            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/change`,data,isloading);
+        }
+            return Http.getInstance().post(`/stories/${context.story}/change`,data,isloading);
+    }
+
+    /**
      * CheckKey接口方法
      *
      * @param {*} [context={}]
