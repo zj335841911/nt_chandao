@@ -109,6 +109,7 @@ export default class CompanyMainView9Base extends Vue {
 	 * @memberof CompanyMainView9Base
 	 */
     public customViewNavContexts:any ={
+    "COMPANY":{"isRawValue":true,"value":"1"}
     };
 
 	/**
@@ -224,7 +225,7 @@ export default class CompanyMainView9Base extends Vue {
         this.engine.init({
             view: this,
             form: this.$refs.form,
-            p2k: '1',
+            p2k: '0',
             keyPSDEField: 'company',
             majorPSDEField: 'name',
             isLoadDefault: true,
