@@ -87,6 +87,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectTaskTreeExpView",
             "viewtag": "103bc77ad54de2476db1d4e9c788cd4e"
         },
+        "bugmaineditview": {
+            "title": "Bug编辑视图",
+            "caption": "Bug",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugMainEditView",
+            "viewtag": "122af527bf38b47ddc53c882847b490e"
+        },
         "bugmaindashboardview": {
             "title": "Bug数据看板视图",
             "caption": "Bug",
@@ -527,6 +535,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductPlanGridView",
             "viewtag": "81b0cee2fedff8f4902c0d735714e5af"
         },
+        "groupmaingridview": {
+            "title": "group表格视图",
+            "caption": "群组",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "GroupMainGridView",
+            "viewtag": "8399a93b13ffd4ecea6c65e7804a1353"
+        },
         "usereditview": {
             "title": "user编辑视图",
             "caption": "用户信息",
@@ -774,6 +790,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "Ungroup",
             "viewname": "TestPortalView",
             "viewtag": "D1283E46-401A-4CFD-A7A1-BF5B90197463"
+        },
+        "groupeditview": {
+            "title": "group编辑视图",
+            "caption": "分组信息",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "GroupEditView",
+            "viewtag": "d2de1e2449f8c1cf2e0310f5477eef4b"
         },
         "usermaingridview": {
             "title": "user表格视图",

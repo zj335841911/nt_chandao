@@ -14,6 +14,7 @@ import { UIActionTool,Util } from '@/utils';
 import BugService from '@/service/bug/bug-service';
 import BugDashboardActionsService from './bug-dashboard-actions-portlet-service';
 
+import BugUIService from '@/uiservice/bug/bug-ui-service';
 
 
 @Component({
@@ -101,6 +102,35 @@ export default class BugBugDashboardActionsBase extends Vue implements ControlIn
     public appEntityService: BugService = new BugService({ $store: this.$store });
     
 
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet5_u1d352f4_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:BugUIService  = new BugUIService();
+        curUIService.Bug_MainEdit(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+    }
+
 
     /**
      * 关闭视图
@@ -137,6 +167,9 @@ export default class BugBugDashboardActionsBase extends Vue implements ControlIn
      * @memberof BugDashboardActionsBase
      */
     public actionBarModelData:any[] =[
+        { viewlogicname:"dashboard_sysportlet5_u1d352f4_click",
+        actionName:"编辑",
+        }
     ];
 
     /**
@@ -145,6 +178,9 @@ export default class BugBugDashboardActionsBase extends Vue implements ControlIn
      * @memberof BugDashboardActionsBase
      */
     public handleItemClick($event:any){
+        if(Object.is($event,'dashboard_sysportlet5_u1d352f4_click')){
+            this.dashboard_sysportlet5_u1d352f4_click(null);
+        }
     }
 
 

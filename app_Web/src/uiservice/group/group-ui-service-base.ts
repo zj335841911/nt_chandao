@@ -79,6 +79,8 @@ export default class GroupUIServiceBase extends UIService {
      * @memberof  GroupUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'maingridview',srfappde:'groups'});
+        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'groups'});
     }
 
     /**

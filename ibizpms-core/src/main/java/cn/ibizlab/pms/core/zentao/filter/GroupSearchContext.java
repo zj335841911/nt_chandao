@@ -27,7 +27,7 @@ import cn.ibizlab.pms.core.zentao.domain.Group;
 @Data
 public class GroupSearchContext extends QueryWrapperContext<Group> {
 
-	private String n_name_like;//[name]
+	private String n_name_like;//[分组名称]
 	public void setN_name_like(String n_name_like) {
         this.n_name_like = n_name_like;
         if(!ObjectUtils.isEmpty(this.n_name_like)){

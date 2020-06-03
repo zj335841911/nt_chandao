@@ -15,7 +15,7 @@ export interface Group {
     acl?: any;
 
     /**
-     * desc
+     * 分组描述
      *
      * @returns {*}
      * @memberof Group
@@ -23,7 +23,7 @@ export interface Group {
     desc?: any;
 
     /**
-     * id
+     * ID
      *
      * @returns {*}
      * @memberof Group
@@ -31,7 +31,7 @@ export interface Group {
     id?: any;
 
     /**
-     * name
+     * 分组名称
      *
      * @returns {*}
      * @memberof Group

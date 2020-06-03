@@ -46,14 +46,14 @@ public class Group extends EntityMP implements Serializable {
     @JsonProperty("acl")
     private String acl;
     /**
-     * desc
+     * 分组描述
      */
     @TableField(value = "desc")
     @JSONField(name = "desc")
     @JsonProperty("desc")
     private String desc;
     /**
-     * id
+     * ID
      */
     @DEField(isKeyField=true)
     @TableId(value= "id",type=IdType.UUID)
@@ -61,7 +61,7 @@ public class Group extends EntityMP implements Serializable {
     @JsonProperty("id")
     private BigInteger id;
     /**
-     * name
+     * 分组名称
      */
     @TableField(value = "name")
     @JSONField(name = "name")
@@ -85,14 +85,14 @@ public class Group extends EntityMP implements Serializable {
         this.modify("acl",acl);
     }
     /**
-     * 设置 [desc]
+     * 设置 [分组描述]
      */
     public void setDesc(String desc){
         this.desc = desc ;
         this.modify("desc",desc);
     }
     /**
-     * 设置 [name]
+     * 设置 [分组名称]
      */
     public void setName(String name){
         this.name = name ;

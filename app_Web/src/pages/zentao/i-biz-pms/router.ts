@@ -1301,6 +1301,62 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-plan-grid-view/product-plan-grid-view.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/bugs/:bug?/maineditview/:maineditview?',
+                    meta: {
+                        caption: 'entities.bug.views.maineditview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'maineditview', parameterName: 'maineditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-main-edit-view/bug-main-edit-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/bugs/:bug?/maineditview/:maineditview?',
+                    meta: {
+                        caption: 'entities.bug.views.maineditview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'maineditview', parameterName: 'maineditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-main-edit-view/bug-main-edit-view.vue'),
+                },
+                {
+                    path: 'products/:product?/bugs/:bug?/maineditview/:maineditview?',
+                    meta: {
+                        caption: 'entities.bug.views.maineditview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'maineditview', parameterName: 'maineditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-main-edit-view/bug-main-edit-view.vue'),
+                },
+                {
+                    path: 'bugs/:bug?/maineditview/:maineditview?',
+                    meta: {
+                        caption: 'entities.bug.views.maineditview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'maineditview', parameterName: 'maineditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-main-edit-view/bug-main-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/mainview/:mainview?',
                     meta: {
                         caption: 'entities.story.views.mainview.caption',
@@ -2715,6 +2771,58 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/zentao/project-task-tree-exp-view/project-task-tree-exp-view.vue'),
+    },
+    {
+        path: '/products/:product?/productplans/:productplan?/bugs/:bug?/maineditview/:maineditview?',
+        meta: {
+            caption: 'entities.bug.views.maineditview.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'maineditview', parameterName: 'maineditview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-main-edit-view/bug-main-edit-view.vue'),
+    },
+    {
+        path: '/productplans/:productplan?/bugs/:bug?/maineditview/:maineditview?',
+        meta: {
+            caption: 'entities.bug.views.maineditview.caption',
+            parameters: [
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'maineditview', parameterName: 'maineditview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-main-edit-view/bug-main-edit-view.vue'),
+    },
+    {
+        path: '/products/:product?/bugs/:bug?/maineditview/:maineditview?',
+        meta: {
+            caption: 'entities.bug.views.maineditview.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'maineditview', parameterName: 'maineditview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-main-edit-view/bug-main-edit-view.vue'),
+    },
+    {
+        path: '/bugs/:bug?/maineditview/:maineditview?',
+        meta: {
+            caption: 'entities.bug.views.maineditview.caption',
+            parameters: [
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'maineditview', parameterName: 'maineditview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-main-edit-view/bug-main-edit-view.vue'),
     },
     {
         path: '/products/:product?/productplans/:productplan?/bugs/:bug?/maindashboardview/:maindashboardview?',

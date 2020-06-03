@@ -27,14 +27,14 @@ import cn.ibizlab.pms.core.zentao.domain.Company;
 @Data
 public class CompanySearchContext extends QueryWrapperContext<Company> {
 
-	private String n_name_like;//[name]
+	private String n_name_like;//[公司名称]
 	public void setN_name_like(String n_name_like) {
         this.n_name_like = n_name_like;
         if(!ObjectUtils.isEmpty(this.n_name_like)){
             this.getSelectCond().like("name", n_name_like);
         }
     }
-	private String n_guest_eq;//[guest]
+	private String n_guest_eq;//[匿名登陆]
 	public void setN_guest_eq(String n_guest_eq) {
         this.n_guest_eq = n_guest_eq;
         if(!ObjectUtils.isEmpty(this.n_guest_eq)){

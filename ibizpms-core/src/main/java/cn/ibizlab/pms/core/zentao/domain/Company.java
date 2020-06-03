@@ -46,7 +46,7 @@ public class Company extends EntityMP implements Serializable {
     @JsonProperty("admins")
     private String admins;
     /**
-     * fax
+     * 传真
      */
     @TableField(value = "fax")
     @JSONField(name = "fax")
@@ -62,7 +62,7 @@ public class Company extends EntityMP implements Serializable {
     @JsonProperty("deleted")
     private String deleted;
     /**
-     * website
+     * 官网
      */
     @TableField(value = "website")
     @JSONField(name = "website")
@@ -77,42 +77,42 @@ public class Company extends EntityMP implements Serializable {
     @JsonProperty("id")
     private BigInteger id;
     /**
-     * zipcode
+     * 邮政编码
      */
     @TableField(value = "zipcode")
     @JSONField(name = "zipcode")
     @JsonProperty("zipcode")
     private String zipcode;
     /**
-     * address
+     * 通讯地址
      */
     @TableField(value = "address")
     @JSONField(name = "address")
     @JsonProperty("address")
     private String address;
     /**
-     * backyard
+     * 内网
      */
     @TableField(value = "backyard")
     @JSONField(name = "backyard")
     @JsonProperty("backyard")
     private String backyard;
     /**
-     * name
+     * 公司名称
      */
     @TableField(value = "name")
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
     /**
-     * guest
+     * 匿名登陆
      */
     @TableField(value = "guest")
     @JSONField(name = "guest")
     @JsonProperty("guest")
     private String guest;
     /**
-     * phone
+     * 联系电话
      */
     @TableField(value = "phone")
     @JSONField(name = "phone")
@@ -129,56 +129,56 @@ public class Company extends EntityMP implements Serializable {
         this.modify("admins",admins);
     }
     /**
-     * 设置 [fax]
+     * 设置 [传真]
      */
     public void setFax(String fax){
         this.fax = fax ;
         this.modify("fax",fax);
     }
     /**
-     * 设置 [website]
+     * 设置 [官网]
      */
     public void setWebsite(String website){
         this.website = website ;
         this.modify("website",website);
     }
     /**
-     * 设置 [zipcode]
+     * 设置 [邮政编码]
      */
     public void setZipcode(String zipcode){
         this.zipcode = zipcode ;
         this.modify("zipcode",zipcode);
     }
     /**
-     * 设置 [address]
+     * 设置 [通讯地址]
      */
     public void setAddress(String address){
         this.address = address ;
         this.modify("address",address);
     }
     /**
-     * 设置 [backyard]
+     * 设置 [内网]
      */
     public void setBackyard(String backyard){
         this.backyard = backyard ;
         this.modify("backyard",backyard);
     }
     /**
-     * 设置 [name]
+     * 设置 [公司名称]
      */
     public void setName(String name){
         this.name = name ;
         this.modify("name",name);
     }
     /**
-     * 设置 [guest]
+     * 设置 [匿名登陆]
      */
     public void setGuest(String guest){
         this.guest = guest ;
         this.modify("guest",guest);
     }
     /**
-     * 设置 [phone]
+     * 设置 [联系电话]
      */
     public void setPhone(String phone){
         this.phone = phone ;

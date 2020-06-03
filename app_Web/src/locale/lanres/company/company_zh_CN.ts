@@ -1,16 +1,16 @@
 export default {
   fields: {
     admins: 'admins',
-    fax: 'fax',
+    fax: '传真',
     deleted: '逻辑删除标志',
-    website: 'website',
+    website: '官网',
     id: 'id',
-    zipcode: 'zipcode',
-    address: 'address',
-    backyard: 'backyard',
-    name: 'name',
-    guest: 'guest',
-    phone: 'phone',
+    zipcode: '邮政编码',
+    address: '通讯地址',
+    backyard: '内网',
+    name: '公司名称',
+    guest: '匿名登陆',
+    phone: '联系电话',
   },
 	views: {
 		depttreeexpview: {

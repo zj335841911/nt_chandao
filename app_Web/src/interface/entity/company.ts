@@ -15,7 +15,7 @@ export interface Company {
     admins?: any;
 
     /**
-     * fax
+     * 传真
      *
      * @returns {*}
      * @memberof Company
@@ -31,7 +31,7 @@ export interface Company {
     deleted?: any;
 
     /**
-     * website
+     * 官网
      *
      * @returns {*}
      * @memberof Company
@@ -47,7 +47,7 @@ export interface Company {
     id?: any;
 
     /**
-     * zipcode
+     * 邮政编码
      *
      * @returns {*}
      * @memberof Company
@@ -55,7 +55,7 @@ export interface Company {
     zipcode?: any;
 
     /**
-     * address
+     * 通讯地址
      *
      * @returns {*}
      * @memberof Company
@@ -63,7 +63,7 @@ export interface Company {
     address?: any;
 
     /**
-     * backyard
+     * 内网
      *
      * @returns {*}
      * @memberof Company
@@ -71,7 +71,7 @@ export interface Company {
     backyard?: any;
 
     /**
-     * name
+     * 公司名称
      *
      * @returns {*}
      * @memberof Company
@@ -79,7 +79,7 @@ export interface Company {
     name?: any;
 
     /**
-     * guest
+     * 匿名登陆
      *
      * @returns {*}
      * @memberof Company
@@ -87,7 +87,7 @@ export interface Company {
     guest?: any;
 
     /**
-     * phone
+     * 联系电话
      *
      * @returns {*}
      * @memberof Company

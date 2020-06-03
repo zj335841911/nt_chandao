@@ -1,23 +1,65 @@
 <template>
-    <i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='bug_dashboardmain' style="">
+    <i-form :model="this.data" class='app-form' ref='form'  id='bug_dashboardmainedit' style="">
     <input style="display:none;" />
     <row >
-    <tabs :animated="false" size="small" name='dashboardmain' :value="detailsModel.form.activiedPage" 
-        @on-click="detailsModel.form.clickPage($event)">
-            <tab-pane v-show="detailsModel.formpage1.visible" name='formpage1' :index="0" tab='dashboardmain' class=''  
-                :label="(h) =>{
-                    return h('span',{
-                        class:'caption'
-                    },[
-                    $t('entities.bug.dashboardmain_form.details.formpage1')
-                    ])
-                }">
-                    
+            
 <i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.dashboardmain_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.dashboardmainedit_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+        <i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.dashboardmainedit_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+        <i-col v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='title' :itemRules="this.rules.title" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.title')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.title"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.title.disabled" type='text'  style=""></input-box>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.steps.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='steps' :itemRules="this.rules.steps" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.steps')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.steps.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-rich-text-editor :formState="formState" :value="data.steps" @change="(val) =>{this.data.steps =val}" :disabled="detailsModel.steps.disabled"  name="steps" style=""></app-rich-text-editor>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem='bug' 
+    :parentdata='{"srfparentdename":"ZT_BUG","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    parameterName='bug'
+    parentName="Bug"  
+    refviewtype='DELISTVIEW' 
+    refreshitems='' 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname='action-histroy-list-view' 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved($event)"
+    style=";overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.dashboardmainedit_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+        <i-col v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.dashboardmainedit_form.details.grouppanel3')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+        <i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.dashboardmainedit_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
         <i-col v-show="detailsModel.productname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='productname' :itemRules="this.rules.productname" class='' :caption="$t('entities.bug.dashboardmain_form.details.productname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.productname.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='productname' :itemRules="this.rules.productname" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.productname')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.productname.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-picker 
   :formState="formState"
   :data="data"
@@ -28,109 +70,99 @@
   name='productname'
   deMajorField='name'
   deKeyField='product'
+  :service="service"
+  :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchDefault'}"
   valueitem='product' 
-  :value="data.productname"  
-  editortype="linkonly" 
-  :linkview="{ viewname: 'ProductMainTabExpView', title: $t('entities.product.views.maintabexpview.title'), deResParameters: [], parameters: [{ pathName: 'products', parameterName: 'product' }, { pathName: 'maintabexpview', parameterName: 'maintabexpview' } ], width: 0, height: 0, placement: '', isRedirectView: false }" 
+  :value="data.productname" 
+  editortype="" 
+  :pickupView="{ viewname: 'product-pickup-view', title: $t('entities.product.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'products', parameterName: 'product' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
   style=""  
   @formitemvaluechange="onFormItemValueChange">
 </app-picker>
+
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='title' :itemRules="this.rules.title" class='' :caption="$t('entities.bug.dashboardmain_form.details.title')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='title'
-:value="data.title" style=""></app-span>
+    <app-form-item name='title' :itemRules="this.rules.title" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.title')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.title"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.title.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='type' :itemRules="this.rules.type" class='' :caption="$t('entities.bug.dashboardmain_form.details.type')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='type'
-:value="data.type" tag='Bug__type' codelistType='STATIC' style=""></app-span>
+    <app-form-item name='type' :itemRules="this.rules.type" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.type')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="LEFT">
+     <dropdown-list v-model="data.type" :data="data" :itemParam="{}" :disabled="detailsModel.type.disabled"  tag='Bug__type' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.severity.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='severity' :itemRules="this.rules.severity" class='' :caption="$t('entities.bug.dashboardmain_form.details.severity')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.severity.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='severity'
-:value="data.severity" tag='Bug__severity' codelistType='STATIC' style=""></app-span>
+    <app-form-item name='severity' :itemRules="this.rules.severity" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.severity')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.severity.error" :isEmptyCaption="false" labelPos="LEFT">
+     <dropdown-list v-model="data.severity" :data="data" :itemParam="{}" :disabled="detailsModel.severity.disabled"  tag='Bug__severity' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.pri.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='pri' :itemRules="this.rules.pri" class='' :caption="$t('entities.bug.dashboardmain_form.details.pri')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.pri.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='pri'
-:value="data.pri" tag='Bug__pri' codelistType='STATIC' style=""></app-span>
+    <app-form-item name='pri' :itemRules="this.rules.pri" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.pri')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.pri.error" :isEmptyCaption="false" labelPos="LEFT">
+     <dropdown-list v-model="data.pri" :data="data" :itemParam="{}" :disabled="detailsModel.pri.disabled"  tag='Bug__pri' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.status.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='status' :itemRules="this.rules.status" class='' :caption="$t('entities.bug.dashboardmain_form.details.status')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.status.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='status'
-:value="data.status" tag='Bug__status' codelistType='STATIC' style=""></app-span>
+    <app-form-item name='status' :itemRules="this.rules.status" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.status')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.status.error" :isEmptyCaption="false" labelPos="LEFT">
+     <dropdown-list v-model="data.status" :data="data" :itemParam="{}" :disabled="detailsModel.status.disabled"  tag='Bug__status' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.activatedcount.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='activatedcount' :itemRules="this.rules.activatedcount" class='' :caption="$t('entities.bug.dashboardmain_form.details.activatedcount')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.activatedcount.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='activatedcount'
-:value="data.activatedcount" style=""></app-span>
+    <app-form-item name='activatedcount' :itemRules="this.rules.activatedcount" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.activatedcount')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.activatedcount.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.activatedcount"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.activatedcount.disabled" type='number'  style=""></input-box>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.activateddate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='activateddate' :itemRules="this.rules.activateddate" class='' :caption="$t('entities.bug.dashboardmain_form.details.activateddate')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.activateddate.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='activateddate'
-:value="data.activateddate" style=""></app-span>
+    <app-form-item name='activateddate' :itemRules="this.rules.activateddate" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.activateddate')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.activateddate.error" :isEmptyCaption="false" labelPos="LEFT">
+    <date-picker type="datetime" :transfer="true" format="yyyy-MM-dd HH:mm:ss" placeholder="请选择时间..." :value="data.activateddate" :disabled="detailsModel.activateddate.disabled" style="min-width: 150px; width:160px;" @on-change="(val1, val2) => { this.data.activateddate = val1 }"></date-picker>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.confirmed.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='confirmed' :itemRules="this.rules.confirmed" class='' :caption="$t('entities.bug.dashboardmain_form.details.confirmed')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.confirmed.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='confirmed'
-:value="data.confirmed" tag='YesNo2' codelistType='STATIC' style=""></app-span>
+    <app-form-item name='confirmed' :itemRules="this.rules.confirmed" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.confirmed')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.confirmed.error" :isEmptyCaption="false" labelPos="LEFT">
+     <dropdown-list v-model="data.confirmed" :data="data" :itemParam="{}" :disabled="detailsModel.confirmed.disabled"  tag='YesNo2' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.assignedto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='assignedto' :itemRules="this.rules.assignedto" class='' :caption="$t('entities.bug.dashboardmain_form.details.assignedto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.assignedto.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='assignedto'
-:value="data.assignedto" style=""></app-span>
+    <app-form-item name='assignedto' :itemRules="this.rules.assignedto" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.assignedto')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.assignedto.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.assignedto"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.assignedto.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.deadline.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='deadline' :itemRules="this.rules.deadline" class='' :caption="$t('entities.bug.dashboardmain_form.details.deadline')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.deadline.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='deadline'
-:value="data.deadline" style=""></app-span>
+    <app-form-item name='deadline' :itemRules="this.rules.deadline" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.deadline')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.deadline.error" :isEmptyCaption="false" labelPos="LEFT">
+    <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.deadline" :disabled="detailsModel.deadline.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.deadline = val1 }"></date-picker>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.os.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='os' :itemRules="this.rules.os" class='' :caption="$t('entities.bug.dashboardmain_form.details.os')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.os.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='os'
-:value="data.os" tag='Bug__os' codelistType='STATIC' style=""></app-span>
+    <app-form-item name='os' :itemRules="this.rules.os" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.os')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.os.error" :isEmptyCaption="false" labelPos="LEFT">
+     <dropdown-list v-model="data.os" :data="data" :itemParam="{}" :disabled="detailsModel.os.disabled"  tag='Bug__os' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.browser.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='browser' :itemRules="this.rules.browser" class='' :caption="$t('entities.bug.dashboardmain_form.details.browser')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.browser.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='browser'
-:value="data.browser" tag='Bug__browser' codelistType='STATIC' style=""></app-span>
+    <app-form-item name='browser' :itemRules="this.rules.browser" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.browser')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.browser.error" :isEmptyCaption="false" labelPos="LEFT">
+     <dropdown-list v-model="data.browser" :data="data" :itemParam="{}" :disabled="detailsModel.browser.disabled"  tag='Bug__browser' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.keywords.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='keywords' :itemRules="this.rules.keywords" class='' :caption="$t('entities.bug.dashboardmain_form.details.keywords')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.keywords.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='keywords'
-:value="data.keywords" style=""></app-span>
+    <app-form-item name='keywords' :itemRules="this.rules.keywords" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.keywords')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.keywords.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.keywords"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.keywords.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.mailto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='mailto' :itemRules="this.rules.mailto" class='' :caption="$t('entities.bug.dashboardmain_form.details.mailto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.mailto.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='mailto' :itemRules="this.rules.mailto" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.mailto')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.mailto.error" :isEmptyCaption="false" labelPos="LEFT">
     <dropdown-list-mpicker v-model="data.mailto" :itemParam="{}" :disabled="detailsModel.mailto.disabled"  tag='UserRealName' codelistType='DYNAMIC'  placeholder='请选择...' style=""></dropdown-list-mpicker>
 </app-form-item>
 
@@ -140,23 +172,16 @@
 </app-form-group>
 
 </i-col>
+    
+    </row>
+</app-form-group>
 
-
-            </tab-pane> 
-            <tab-pane v-show="detailsModel.formpage2.visible" name='formpage2' :index="1" tab='dashboardmain' class=''  
-                :label="(h) =>{
-                    return h('span',{
-                        class:'caption'
-                    },[
-                    $t('entities.bug.dashboardmain_form.details.formpage2')
-                    ])
-                }">
-                    
-<i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.dashboardmain_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+</i-col>
+<i-col v-show="detailsModel.grouppanel4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel4.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.dashboardmainedit_form.details.grouppanel4')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
         <i-col v-show="detailsModel.projectname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='projectname' :itemRules="this.rules.projectname" class='' :caption="$t('entities.bug.dashboardmain_form.details.projectname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.projectname.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='projectname' :itemRules="this.rules.projectname" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.projectname')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.projectname.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-picker 
   :formState="formState"
   :data="data"
@@ -167,14 +192,79 @@
   name='projectname'
   deMajorField='name'
   deKeyField='project'
+  :service="service"
+  :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchDefault'}"
   valueitem='project' 
-  :value="data.projectname"  
-  editortype="linkonly" 
-  :linkview="{ viewname: 'ProjectMainTabExpView', title: $t('entities.project.views.maintabexpview.title'), deResParameters: [], parameters: [{ pathName: 'projects', parameterName: 'project' }, { pathName: 'maintabexpview', parameterName: 'maintabexpview' } ], width: 0, height: 0, placement: '', isRedirectView: false }" 
+  :value="data.projectname" 
+  editortype="" 
+  :pickupView="{ viewname: 'project-pickup-view', title: $t('entities.project.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'projects', parameterName: 'project' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
   style=""  
   @formitemvaluechange="onFormItemValueChange">
 </app-picker>
+
 </app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col v-show="detailsModel.grouppanel5.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel5.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.dashboardmainedit_form.details.grouppanel5')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+        <i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.dashboardmainedit_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+        <i-col v-show="detailsModel.openedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='openedby' :itemRules="this.rules.openedby" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.openedby')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.openedby.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.openedby"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.openedby.disabled" type='text'  style=""></input-box>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.openedbuild.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='openedbuild' :itemRules="this.rules.openedbuild" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.openedbuild')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.openedbuild.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.openedbuild"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.openedbuild.disabled" type='text'  style=""></input-box>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.resolvedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='resolvedby' :itemRules="this.rules.resolvedby" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.resolvedby')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.resolvedby.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.resolvedby"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.resolvedby.disabled" type='text'  style=""></input-box>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.resolution.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='resolution' :itemRules="this.rules.resolution" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.resolution')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.resolution.error" :isEmptyCaption="false" labelPos="LEFT">
+     <dropdown-list v-model="data.resolution" :data="data" :itemParam="{}" :disabled="detailsModel.resolution.disabled"  tag='Bug__resolution' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.closedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='closedby' :itemRules="this.rules.closedby" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.closedby')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.closedby.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.closedby"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.closedby.disabled" type='text'  style=""></input-box>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.lasteditedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='lasteditedby' :itemRules="this.rules.lasteditedby" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.lasteditedby')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.lasteditedby.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.lasteditedby"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.lasteditedby.disabled" type='text'  style=""></input-box>
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+    
+    </row>
+</app-form-group>
 
 </i-col>
     
@@ -184,8 +274,6 @@
 </i-col>
 
 
-            </tab-pane> 
-    </tabs>
     </row>
 </i-form>
 </template>
@@ -197,7 +285,7 @@ import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import { UIActionTool,Util } from '@/utils';
 import BugService from '@/service/bug/bug-service';
-import DashboardMainService from './dashboard-main-form-service';
+import DashboardMainEditService from './dashboard-main-edit-form-service';
 
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -208,13 +296,13 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
       
     }
 })
-export default class DashboardMainBase extends Vue implements ControlInterface {
+export default class DashboardMainEditBase extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Prop() public name?: string;
 
@@ -222,7 +310,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Prop() public viewState!: Subject<ViewState>;
 
@@ -230,7 +318,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 应用上下文
      *
      * @type {*}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Prop() public context: any;
 
@@ -238,7 +326,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 视图参数
      *
      * @type {*}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Prop() public viewparams: any;
 
@@ -247,7 +335,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @public
      * @type {(Subscription | undefined)}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public viewStateEvent: Subscription | undefined;
 
@@ -255,7 +343,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public getControlType(): string {
         return 'FORM'
@@ -267,23 +355,23 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 计数器服务对象集合
      *
      * @type {Array<*>}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */    
     public counterServiceArray:Array<any> = [];
 
     /**
      * 建构部件服务对象
      *
-     * @type {DashboardMainService}
-     * @memberof DashboardMain
+     * @type {DashboardMainEditService}
+     * @memberof DashboardMainEdit
      */
-    public service: DashboardMainService = new DashboardMainService({ $store: this.$store });
+    public service: DashboardMainEditService = new DashboardMainEditService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {BugService}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public appEntityService: BugService = new BugService({ $store: this.$store });
     
@@ -293,7 +381,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 关闭视图
      *
      * @param {any} args
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public closeView(args: any): void {
         let _this: any = this;
@@ -303,7 +391,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
     /**
      *  计数器刷新
      *
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public counterRefresh(){
         const _this:any =this;
@@ -320,7 +408,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
     /**
      * 工作流审批意见控件绑定值
      *
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public srfwfmemo:string = "";
     
@@ -328,7 +416,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public getDatas(): any[] {
         return [this.data];
@@ -338,7 +426,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public getData(): any {
         return this.data;
@@ -348,7 +436,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 是否默认保存
      *
      * @type {boolean}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Prop({ default: false }) public autosave?: boolean;
 
@@ -356,7 +444,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Prop({ default: true }) public showBusyIndicator?: boolean;
 
@@ -364,7 +452,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 部件行为--submit
      *
      * @type {string}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Prop() public WFSubmitAction!: string;
     
@@ -372,7 +460,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 部件行为--start
      *
      * @type {string}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Prop() public WFStartAction!: string;
     
@@ -380,7 +468,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 部件行为--update
      *
      * @type {string}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Prop() public updateAction!: string;
     
@@ -388,7 +476,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 部件行为--remove
      *
      * @type {string}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Prop() public removeAction!: string;
     
@@ -396,7 +484,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 部件行为--loaddraft
      *
      * @type {string}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Prop() public loaddraftAction!: string;
     
@@ -404,7 +492,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 部件行为--load
      *
      * @type {string}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Prop() public loadAction!: string;
     
@@ -412,7 +500,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Prop() public createAction!: string;
 
@@ -420,7 +508,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Prop() public searchAction!: string;
 
@@ -428,7 +516,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 视图标识
      *
      * @type {string}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Prop() public viewtag!: string;
 
@@ -436,7 +524,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 表单状态
      *
      * @type {Subject<any>}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public formState: Subject<any> = new Subject();
 
@@ -444,7 +532,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 忽略表单项值变化
      *
      * @type {boolean}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public ignorefieldvaluechange: boolean = false;
 
@@ -453,7 +541,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @public
      * @type {Subject<any>}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public dataChang: Subject<any> = new Subject();
 
@@ -462,7 +550,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @public
      * @type {(Subscription | undefined)}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public dataChangEvent: Subscription | undefined;
 
@@ -471,7 +559,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @public
      * @type {*}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public oldData: any = {};
 
@@ -479,7 +567,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 表单数据对象
      *
      * @type {*}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public data: any = {
         srfupdatedate: null,
@@ -490,6 +578,8 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        title: null,
+        steps: null,
         product: null,
         productname: null,
         title: null,
@@ -512,6 +602,13 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
         projectname: null,
         story: null,
         task: null,
+        openedby: null,
+        openedbuild: null,
+        resolvedby: null,
+        resolvedbuild: null,
+        resolution: null,
+        closedby: null,
+        lasteditedby: null,
         id: null,
         bug:null,
     };
@@ -520,7 +617,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
       * 当前执行的行为逻辑
       *
       * @type {string}
-      * @memberof DashboardMain
+      * @memberof DashboardMainEdit
       */
     public currentAction: string = "";
 
@@ -528,7 +625,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
       * 关系界面计数器
       *
       * @type {number}
-      * @memberof DashboardMain
+      * @memberof DashboardMainEdit
       */
     public drcounter: number = 0;
 
@@ -536,7 +633,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
       * 需要等待关系界面保存时，第一次调用save参数的备份
       *
       * @type {number}
-      * @memberof DashboardMain
+      * @memberof DashboardMainEdit
       */
     public drsaveopt: any = {};
 
@@ -544,7 +641,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
       * 表单保存回调存储对象
       *
       * @type {any}
-      * @memberof DashboardMain
+      * @memberof DashboardMainEdit
       */
     public saveState:any ;
 
@@ -552,7 +649,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 属性值规则
      *
      * @type {*}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public rules: any = {
         srfupdatedate: [
@@ -603,6 +700,18 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
+        title: [
+            { type: 'string', message: 'Bug标题 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: 'Bug标题 值必须为字符串类型', trigger: 'blur' },
+            { required: true, type: 'string', message: 'Bug标题 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: 'Bug标题 值不能为空', trigger: 'blur' },
+        ],
+        steps: [
+            { type: 'string', message: '重现步骤 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '重现步骤 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '重现步骤 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '重现步骤 值不能为空', trigger: 'blur' },
+        ],
         product: [
             { type: 'number', message: '所属产品 值必须为数值类型', trigger: 'change' },
             { type: 'number', message: '所属产品 值必须为数值类型', trigger: 'blur' },
@@ -618,8 +727,8 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
         title: [
             { type: 'string', message: 'Bug标题 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: 'Bug标题 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: 'Bug标题 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: 'Bug标题 值不能为空', trigger: 'blur' },
+            { required: true, type: 'string', message: 'Bug标题 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: 'Bug标题 值不能为空', trigger: 'blur' },
         ],
         module: [
             { type: 'number', message: '所属模块 值必须为数值类型', trigger: 'change' },
@@ -640,16 +749,16 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: 'Bug类型 值不能为空', trigger: 'blur' },
         ],
         severity: [
-            { type: 'string', message: '严重程度 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '严重程度 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '严重程度 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '严重程度 值不能为空', trigger: 'blur' },
+            { type: 'number', message: '严重程度 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '严重程度 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '严重程度 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '严重程度 值不能为空', trigger: 'blur' },
         ],
         pri: [
-            { type: 'string', message: '优先级 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '优先级 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '优先级 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '优先级 值不能为空', trigger: 'blur' },
+            { type: 'number', message: '优先级 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '优先级 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '优先级 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '优先级 值不能为空', trigger: 'blur' },
         ],
         status: [
             { type: 'string', message: 'Bug状态 值必须为字符串类型', trigger: 'change' },
@@ -670,10 +779,10 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '激活日期 值不能为空', trigger: 'blur' },
         ],
         confirmed: [
-            { type: 'string', message: '是否确认 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '是否确认 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '是否确认 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '是否确认 值不能为空', trigger: 'blur' },
+            { type: 'number', message: '是否确认 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '是否确认 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '是否确认 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '是否确认 值不能为空', trigger: 'blur' },
         ],
         assignedto: [
             { type: 'string', message: '当前指派 值必须为字符串类型', trigger: 'change' },
@@ -735,6 +844,48 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
             { required: false, type: 'number', message: '相关任务 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: '相关任务 值不能为空', trigger: 'blur' },
         ],
+        openedby: [
+            { type: 'string', message: '由谁创建 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '由谁创建 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '由谁创建 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '由谁创建 值不能为空', trigger: 'blur' },
+        ],
+        openedbuild: [
+            { type: 'string', message: '影响版本 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '影响版本 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '影响版本 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '影响版本 值不能为空', trigger: 'blur' },
+        ],
+        resolvedby: [
+            { type: 'string', message: '由谁解决 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '由谁解决 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '由谁解决 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '由谁解决 值不能为空', trigger: 'blur' },
+        ],
+        resolvedbuild: [
+            { type: 'number', message: '解决版本 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '解决版本 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '解决版本 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '解决版本 值不能为空', trigger: 'blur' },
+        ],
+        resolution: [
+            { type: 'string', message: '解决方案 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '解决方案 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '解决方案 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '解决方案 值不能为空', trigger: 'blur' },
+        ],
+        closedby: [
+            { type: 'string', message: '由谁关闭 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '由谁关闭 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '由谁关闭 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '由谁关闭 值不能为空', trigger: 'blur' },
+        ],
+        lasteditedby: [
+            { type: 'string', message: '最后修改者 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '最后修改者 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '最后修改者 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '最后修改者 值不能为空', trigger: 'blur' },
+        ],
         id: [
             { type: 'number', message: 'Bug编号 值必须为数值类型', trigger: 'change' },
             { type: 'number', message: 'Bug编号 值必须为数值类型', trigger: 'blur' },
@@ -747,16 +898,28 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public detailsModel: any = {
-        group1: new FormGroupPanelModel({ caption: 'Bug基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.bug.dashboardmain_form', extractMode: 'ITEM', details: [] } })
+        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
+, 
+        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.bug.dashboardmainedit_form', extractMode: 'ITEM', details: [] } })
+, 
+        group1: new FormGroupPanelModel({ caption: 'Bug基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.bug.dashboardmainedit_form', extractMode: 'ITEM', details: [] } })
+, 
+        grouppanel3: new FormGroupPanelModel({ caption: '基本信息', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.bug.dashboardmainedit_form', extractMode: 'ITEM', details: [] } })
+, 
+        grouppanel4: new FormGroupPanelModel({ caption: '项目/需求/任务', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.bug.dashboardmainedit_form', extractMode: 'ITEM', details: [] } })
+, 
+        group1: new FormGroupPanelModel({ caption: 'Bug基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.bug.dashboardmainedit_form', extractMode: 'ITEM', details: [] } })
+, 
+        grouppanel5: new FormGroupPanelModel({ caption: 'Bug的一生', detailType: 'GROUPPANEL', name: 'grouppanel5', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.bug.dashboardmainedit_form', extractMode: 'ITEM', details: [] } })
+, 
+        grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.bug.dashboardmainedit_form', extractMode: 'ITEM', details: [] } })
+, 
+        group1: new FormGroupPanelModel({ caption: 'Bug基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.bug.dashboardmainedit_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
-, 
-        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.bug.dashboardmain_form', extractMode: 'ITEM', details: [] } })
-, 
-        formpage2: new FormPageModel({ caption: '项目/需求/任务', detailType: 'FORMPAGE', name: 'formpage2', visible: true, isShowCaption: true, form: this })
 , 
         srfupdatedate: new FormItemModel({ caption: '修改日期', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -773,6 +936,10 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
         srfdeid: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfdeid', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        title: new FormItemModel({ caption: 'Bug标题', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        steps: new FormItemModel({ caption: '重现步骤', detailType: 'FORMITEM', name: 'steps', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         product: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -818,9 +985,22 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
 , 
         task: new FormItemModel({ caption: '相关任务', detailType: 'FORMITEM', name: 'task', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        openedby: new FormItemModel({ caption: '由谁创建', detailType: 'FORMITEM', name: 'openedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        openedbuild: new FormItemModel({ caption: '影响版本', detailType: 'FORMITEM', name: 'openedbuild', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        resolvedby: new FormItemModel({ caption: '由谁解决', detailType: 'FORMITEM', name: 'resolvedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        resolvedbuild: new FormItemModel({ caption: '解决版本', detailType: 'FORMITEM', name: 'resolvedbuild', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        resolution: new FormItemModel({ caption: '解决方案', detailType: 'FORMITEM', name: 'resolution', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        closedby: new FormItemModel({ caption: '由谁关闭', detailType: 'FORMITEM', name: 'closedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        lasteditedby: new FormItemModel({ caption: '最后修改者', detailType: 'FORMITEM', name: 'lasteditedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+, 
         id: new FormItemModel({ caption: 'Bug编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
-        form: new FormTabPanelModel({ caption: 'form', detailType: 'TABPANEL', name: 'form', visible: true, isShowCaption: true, form: this, tabPages: [{ name: 'formpage1', index: 0, visible: true }, { name: 'formpage2', index: 1, visible: true }] }),
     };
 
     /**
@@ -828,7 +1008,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.srfupdatedate')
     onSrfupdatedateChange(newVal: any, oldVal: any) {
@@ -840,7 +1020,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.srforikey')
     onSrforikeyChange(newVal: any, oldVal: any) {
@@ -852,7 +1032,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.srfkey')
     onSrfkeyChange(newVal: any, oldVal: any) {
@@ -864,7 +1044,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.srfmajortext')
     onSrfmajortextChange(newVal: any, oldVal: any) {
@@ -876,7 +1056,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.srftempmode')
     onSrftempmodeChange(newVal: any, oldVal: any) {
@@ -888,7 +1068,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.srfuf')
     onSrfufChange(newVal: any, oldVal: any) {
@@ -900,7 +1080,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.srfdeid')
     onSrfdeidChange(newVal: any, oldVal: any) {
@@ -912,7 +1092,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.srfsourcekey')
     onSrfsourcekeyChange(newVal: any, oldVal: any) {
@@ -920,11 +1100,35 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 title 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof DashboardMainEdit
+     */
+    @Watch('data.title')
+    onTitleChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'title', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 steps 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof DashboardMainEdit
+     */
+    @Watch('data.steps')
+    onStepsChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'steps', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 product 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.product')
     onProductChange(newVal: any, oldVal: any) {
@@ -936,7 +1140,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.productname')
     onProductnameChange(newVal: any, oldVal: any) {
@@ -948,7 +1152,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.title')
     onTitleChange(newVal: any, oldVal: any) {
@@ -960,7 +1164,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.module')
     onModuleChange(newVal: any, oldVal: any) {
@@ -972,7 +1176,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.plan')
     onPlanChange(newVal: any, oldVal: any) {
@@ -984,7 +1188,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.type')
     onTypeChange(newVal: any, oldVal: any) {
@@ -996,7 +1200,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.severity')
     onSeverityChange(newVal: any, oldVal: any) {
@@ -1008,7 +1212,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.pri')
     onPriChange(newVal: any, oldVal: any) {
@@ -1020,7 +1224,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.status')
     onStatusChange(newVal: any, oldVal: any) {
@@ -1032,7 +1236,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.activatedcount')
     onActivatedcountChange(newVal: any, oldVal: any) {
@@ -1044,7 +1248,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.activateddate')
     onActivateddateChange(newVal: any, oldVal: any) {
@@ -1056,7 +1260,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.confirmed')
     onConfirmedChange(newVal: any, oldVal: any) {
@@ -1068,7 +1272,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.assignedto')
     onAssignedtoChange(newVal: any, oldVal: any) {
@@ -1080,7 +1284,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.deadline')
     onDeadlineChange(newVal: any, oldVal: any) {
@@ -1092,7 +1296,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.os')
     onOsChange(newVal: any, oldVal: any) {
@@ -1104,7 +1308,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.browser')
     onBrowserChange(newVal: any, oldVal: any) {
@@ -1116,7 +1320,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.keywords')
     onKeywordsChange(newVal: any, oldVal: any) {
@@ -1128,7 +1332,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.mailto')
     onMailtoChange(newVal: any, oldVal: any) {
@@ -1140,7 +1344,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.project')
     onProjectChange(newVal: any, oldVal: any) {
@@ -1152,7 +1356,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.projectname')
     onProjectnameChange(newVal: any, oldVal: any) {
@@ -1164,7 +1368,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.story')
     onStoryChange(newVal: any, oldVal: any) {
@@ -1176,7 +1380,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.task')
     onTaskChange(newVal: any, oldVal: any) {
@@ -1184,11 +1388,95 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 openedby 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof DashboardMainEdit
+     */
+    @Watch('data.openedby')
+    onOpenedbyChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'openedby', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 openedbuild 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof DashboardMainEdit
+     */
+    @Watch('data.openedbuild')
+    onOpenedbuildChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'openedbuild', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 resolvedby 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof DashboardMainEdit
+     */
+    @Watch('data.resolvedby')
+    onResolvedbyChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'resolvedby', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 resolvedbuild 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof DashboardMainEdit
+     */
+    @Watch('data.resolvedbuild')
+    onResolvedbuildChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'resolvedbuild', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 resolution 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof DashboardMainEdit
+     */
+    @Watch('data.resolution')
+    onResolutionChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'resolution', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 closedby 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof DashboardMainEdit
+     */
+    @Watch('data.closedby')
+    onClosedbyChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'closedby', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 lasteditedby 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof DashboardMainEdit
+     */
+    @Watch('data.lasteditedby')
+    onLasteditedbyChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'lasteditedby', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     @Watch('data.id')
     onIdChange(newVal: any, oldVal: any) {
@@ -1201,7 +1489,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @public
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
     }
@@ -1227,10 +1515,25 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @public
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1274,7 +1577,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * @public
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
      * @returns {void}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public formDataChange({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
         if (this.ignorefieldvaluechange) {
@@ -1291,7 +1594,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * @public
      * @param {*} [data={}]
      * @param {string} [action]
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public onFormLoad(data: any = {},action:string): void {
         if(Object.is(action,"save") || Object.is(action,"autoSave") || Object.is(action,"submit"))
@@ -1312,7 +1615,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} [_datas={}]
      * @param {string} [action]
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public fillForm(_datas: any = {},action:string): void {
         this.ignorefieldvaluechange = true;
@@ -1337,7 +1640,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @public
      * @param {*} data
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public setFormEnableCond(data: any): void {
         Object.values(this.detailsModel).forEach((detail: any) => {
@@ -1353,7 +1656,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 重置草稿表单状态
      *
      * @public
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public resetDraftFormStates(): void {
         const form: any = this.$refs.form;
@@ -1365,7 +1668,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
     /**
      * 重置校验结果
      *
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public resetValidates(): void {
         Object.values(this.detailsModel).forEach((detail: any) => {
@@ -1381,7 +1684,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 填充校验结果 （后台）
      *
      * @param {any[]} fieldErrors
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public fillValidates(fieldErrors: any[]): void {
         fieldErrors.forEach((error: any) => {
@@ -1399,7 +1702,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 表单校验状态
      *
      * @returns {boolean} 
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public formValidateStatus(): boolean {
         const form: any = this.$refs.form;
@@ -1414,7 +1717,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 获取全部值
      *
      * @returns {*}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public getValues(): any {
         return this.data;
@@ -1425,7 +1728,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {{ name: string, value: any }} $event
      * @returns {void}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public onFormItemValueChange($event: { name: string, value: any }): void {
         if (!$event) {
@@ -1443,7 +1746,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * @param {string} name
      * @param {*} value
      * @returns {void}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public setDataItemValue(name: string, value: any): void {
         if (!name || Object.is(name, '') || !this.data.hasOwnProperty(name)) {
@@ -1461,7 +1764,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 分组界面行为事件
      *
      * @param {*} $event
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public groupUIActionClick($event: any): void {
         if (!$event) {
@@ -1473,7 +1776,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
     /**
      * Vue声明周期(处理组件的输入属性)
      *
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public created(): void {
         this.afterCreated();
@@ -1482,7 +1785,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof DashboardMain
+     *  @memberof DashboardMainEdit
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -1539,7 +1842,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
     /**
      * vue 生命周期
      *
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public destroyed() {
         this.afterDestroy();
@@ -1548,7 +1851,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -1563,7 +1866,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 拷贝内容
      *
      * @param {*} [arg={}]
-     * @memberof @memberof DashboardMain
+     * @memberof @memberof DashboardMainEdit
      */
     public copy(srfkey: string): void {
         let copyData = this.$store.getters.getCopyData(srfkey);
@@ -1581,18 +1884,18 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
 
     /**
      *打印
-     *@memberof @memberof DashboardMain
+     *@memberof @memberof DashboardMainEdit
      */
     public print(){
         let _this:any = this;
-        _this.$print({id:'bug_dashboardmain',popTitle:'看板视图基本信息'});
+        _this.$print({id:'bug_dashboardmainedit',popTitle:'看板主信息编辑'});
     }
 
     /**
      * 部件刷新
      *
      * @param {any[]} args
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public refresh(args: any[]): void {
         let arg: any = {};
@@ -1614,7 +1917,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @param {*} [arg={}]
      * @returns {void}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public autoLoad(arg: any = {}): void {
         if (arg.srfkey && !Object.is(arg.srfkey, '')) {
@@ -1635,11 +1938,11 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      *
      * @public
      * @param {*} [opt={}]
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public load(opt: any = {}): void {
         if(!this.loadAction){
-            this.$Notice.error({ title: '错误', desc: 'BugDashboardMainEditView9视图表单loadAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'BugMainEditView视图表单loadAction参数未配置' });
             return;
         }
         const arg: any = { ...opt };
@@ -1670,11 +1973,11 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 加载草稿
      *
      * @param {*} [opt={}]
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public loadDraft(opt: any = {}): void {
         if(!this.loaddraftAction){
-            this.$Notice.error({ title: '错误', desc: 'BugDashboardMainEditView9视图表单loaddraftAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'BugMainEditView视图表单loaddraftAction参数未配置' });
             return;
         }
         const arg: any = { ...opt } ;
@@ -1724,7 +2027,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 自动保存
      *
      * @param {*} [opt={}]
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public autoSave(opt: any = {}): void {
         if (!this.formValidateStatus()) {
@@ -1736,7 +2039,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
         const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
         if(!action){
             let actionName:any = Object.is(data.srfuf, '1')?"updateAction":"createAction";
-            this.$Notice.error({ title: '错误', desc: 'BugDashboardMainEditView9视图表单'+actionName+'参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'BugMainEditView视图表单'+actionName+'参数未配置' });
             return;
         }
         Object.assign(arg,{viewparams:this.viewparams});
@@ -1775,7 +2078,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * @param {boolean} [showResultInfo] 
      * @param {boolean} [ifStateNext] formState是否下发通知
      * @returns {Promise<any>}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public async save(opt: any = {}, showResultInfo?: boolean, ifStateNext: boolean = true): Promise<any> {
         return new Promise((resolve: any, reject: any) => {
@@ -1789,7 +2092,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
             Object.assign(arg, data);
             Object.assign(arg, this.context);
             if (ifStateNext) {
-                this.drcounter = 0;
+                this.drcounter = 1;
                 if(this.drcounter !== 0){
                     this.drsaveopt = opt;
                     this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存
@@ -1800,7 +2103,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
             const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
             if(!action){
                 let actionName:any = Object.is(data.srfuf, '1')?"updateAction":"createAction";
-                this.$Notice.error({ title: '错误', desc: 'BugDashboardMainEditView9视图表单'+actionName+'参数未配置' });
+                this.$Notice.error({ title: '错误', desc: 'BugMainEditView视图表单'+actionName+'参数未配置' });
                 return;
             }
             Object.assign(arg,{viewparams:this.viewparams});
@@ -1850,7 +2153,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
     public remove(opt:Array<any> = [],showResultInfo?: boolean): Promise<any> {
         return new Promise((resolve: any, reject: any) => {
             if(!this.removeAction){
-                this.$Notice.error({ title: '错误', desc: 'BugDashboardMainEditView9视图表单removeAction参数未配置' });
+                this.$Notice.error({ title: '错误', desc: 'BugMainEditView视图表单removeAction参数未配置' });
                 return;
             }
             const arg: any = opt[0];
@@ -1879,7 +2182,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * @param {*} [data={}]
      * @param {*} [localdata={}]
      * @returns {Promise<any>}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public async wfstart(data: any,localdata?:any): Promise<any> {
         return new Promise((resolve: any, reject: any) => {
@@ -1935,7 +2238,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * @param {*} [data={}]
      * @param {*} [localdata={}]
      * @returns {Promise<any>}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public async wfsubmit(data: any,localdata?:any): Promise<any> {
         return new Promise((resolve: any, reject: any) => {
@@ -2011,7 +2314,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * @param {string[]} updateDetails 更新项
      * @param {boolean} [showloading] 是否显示加载状态
      * @returns {void}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public updateFormItems(mode: string, data: any = {}, updateDetails: string[], showloading?: boolean): void {
         if (!mode || (mode && Object.is(mode, ''))) {
@@ -2056,7 +2359,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 回车事件
      *
      * @param {*} $event
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public onEnter($event: any): void {
     }
@@ -2065,7 +2368,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 保存并退出
      *
      * @param {any[]} args
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public saveAndExit(data:any[]):Promise<any>{
         let _this = this;
@@ -2090,7 +2393,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 保存并新建
      *
      * @param {any[]} args
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public saveAndNew(data:any[]):Promise<any>{
         let _this = this;
@@ -2113,7 +2416,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
      * 删除并退出
      *
      * @param {any[]} args
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public removeAndExit(data:any[]):Promise<any>{
         let _this = this;
@@ -2137,7 +2440,7 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
     * 关系界面数据保存完成
     *
     * @param {any} $event
-    * @memberof DashboardMain
+    * @memberof DashboardMainEdit
     */
     public drdatasaved($event:any){
         let _this = this;
@@ -2161,14 +2464,14 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
 
     /**
      * 新建默认值
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public createDefault(){                    
     }
 
     /**
      * 更新默认值
-     * @memberof DashboardMain
+     * @memberof DashboardMainEdit
      */
     public updateDefault(){                    
     }
@@ -2178,5 +2481,5 @@ export default class DashboardMainBase extends Vue implements ControlInterface {
 </script>
 
 <style lang='less'>
-@import './dashboard-main-form.less';
+@import './dashboard-main-edit-form.less';
 </style>
