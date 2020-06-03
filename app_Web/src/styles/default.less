@@ -387,6 +387,12 @@ div::-webkit-scrollbar-thumb {
         }
 
         >.ivu-select-item:hover {
+            color: #fff;
+            background: var(--form-editor-active-color);
+        }
+
+        >.ivu-select-item.ivu-select-item-selected, >.ivu-select-item.ivu-select-item-focus {
+            color: #fff;
             background: var(--form-editor-active-color);
         }
     }
@@ -601,6 +607,33 @@ div::-webkit-scrollbar-thumb {
                 .el-upload--picture-card:hover, .el-upload:focus {
                     border-color: var(--form-editor-active-color);
                     color: var(--form-editor-active-color);
+                }
+            }
+
+            // 下拉选择多选
+            .dropdown-list-mpicker.ivu-select {
+                color: var(--form-label-font-color);
+
+                >.ivu-select-selection {
+                    background: var(--form-editor-background-color);
+                    border-color: transparent;
+
+                    .ivu-select-placeholder {
+                        color: var(--form-editor-placeholder-font-color);
+                    }
+
+                    .ivu-tag {
+                        background: var(--form-editor-background-color);
+                        border-color: var(--form-editor-active-color);
+                        
+                        .ivu-tag-text {
+                            color: var(--form-editor-font-color);
+                        }
+                    }
+                }
+
+                >.ivu-select-selection:hover {
+                    border-color: var(--form-editor-active-color);
                 }
             }
         }

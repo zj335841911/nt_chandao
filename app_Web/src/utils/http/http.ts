@@ -1,4 +1,3 @@
-import Vue from 'vue';
 import qs from 'qs';
 import axios from 'axios';
 import { nsc } from '@/studio-core/directives/notification-signal/notification-signal';
@@ -20,14 +19,6 @@ export class Http {
      * @memberof Http
      */
     private static readonly instance: Http = new Http();
-
-    /**
-     * 统计加载
-     *
-     * @type {number}
-     * @memberof Http
-     */
-    private loadingCount: number = 0;
 
     /**
      * Creates an instance of Http.
@@ -180,10 +171,7 @@ export class Http {
      * @memberof Http
      */
     private beginLoading(): void {
-        if (this.loadingCount === 0) {
-            nsc.loading();
-        }
-        this.loadingCount++;
+        nsc.loading();
     }
 
     /**
@@ -193,14 +181,7 @@ export class Http {
      * @memberof Http
      */
     private endLoading(): void {
-        if (this.loadingCount > 0) {
-            this.loadingCount--;
-        }
-        setTimeout(() => {
-            if (this.loadingCount === 0) {
-                nsc.loadingEnd();
-            }
-        }, 500);
+        nsc.loadingEnd();
     }
 
     /**

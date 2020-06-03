@@ -64,6 +64,7 @@ export class AuthGuard {
                                 Object.assign(localAppData,data);
                             }
                             data = JSON.parse(JSON.stringify(localAppData));
+                            this.formatAppData(data);
                         }
                         router.app.$store.commit('addAppData', data);
                         // 提交统一资源数据
@@ -75,6 +76,23 @@ export class AuthGuard {
                 resolve(true);
                 console.error("获取应用数据出现异常");
             });
+        });
+    }
+
+    /**
+     * 初始化应用数据
+     *
+     * @protected
+     * @param {*} data
+     * @memberof AuthGuard
+     */
+    protected formatAppData(data: any): void {
+        Object.defineProperty(data.context, 'srfcurdate', {
+            get: function() {
+                return new Date().toLocaleString(undefined, { hour12: false });
+            },
+            enumerable : true,
+            configurable : true
         });
     }
 
