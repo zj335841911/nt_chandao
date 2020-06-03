@@ -132,8 +132,8 @@ export default {
         empty: '',
     },
     User__gender: {
-        '女': 'f',
-        '男': 'm',
+        'f': '女',
+        'm': '男',
         empty: '',
     },
     Action__object_type: {

@@ -705,7 +705,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "depteditview": {
             "title": "dept编辑视图",
-            "caption": "部门",
+            "caption": "部门信息",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",
             "viewname": "DeptEditView",

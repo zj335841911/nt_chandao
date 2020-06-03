@@ -51,6 +51,7 @@ export default {
 			group1: "基本信息", 
 			grouppanel1: "账号信息", 
 			grouppanel2: "联系信息", 
+			grouppanel3: "用户信息", 
 			formpage1: "基本信息", 
 			srforikey: "", 
 			srfkey: "ID", 

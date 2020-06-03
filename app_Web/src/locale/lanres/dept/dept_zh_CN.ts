@@ -22,8 +22,8 @@ export default {
       title: '部门',
 		},
 		editview: {
-			caption: '部门',
-      title: '部门',
+			caption: '部门信息',
+      title: '部门信息',
 		},
 		pickupgridview: {
 			caption: '部门',

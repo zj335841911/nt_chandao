@@ -655,9 +655,9 @@ export default class UserMainGridViewBase extends Vue {
         const view: any = {
             viewname: 'user-edit-view', 
             height: 0, 
-            width: 0,  
+            width: 750,  
             title: this.$t('entities.user.views.editview.title'),
-            placement: 'DRAWER_TOP',
+            placement: 'DRAWER_RIGHT',
         };
         openDrawer(view, data);
     }
@@ -699,9 +699,9 @@ export default class UserMainGridViewBase extends Vue {
         const view: any = {
             viewname: 'user-edit-view', 
             height: 0, 
-            width: 0,  
+            width: 750,  
             title: this.$t('entities.user.views.editview.title'),
-            placement: 'DRAWER_TOP',
+            placement: 'DRAWER_RIGHT',
         };
         openDrawer(view, data);
     }

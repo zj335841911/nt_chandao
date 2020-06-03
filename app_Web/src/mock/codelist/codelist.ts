@@ -1154,22 +1154,22 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "codelisttype":"static",
         items: [
             {
-                id: '女',
-                label: 'f',
-                text: 'f',
+                id: 'f',
+                label: '女',
+                text: '女',
                 "data":"",
-                "codename":"Item_1",
-                value: '女',
+                "codename":"F",
+                value: 'f',
                 
                 disabled: false,
             },
             {
-                id: '男',
-                label: 'm',
-                text: 'm',
+                id: 'm',
+                label: '男',
+                text: '男',
                 "data":"",
-                "codename":"Item_2",
-                value: '男',
+                "codename":"M",
+                value: 'm',
                 
                 disabled: false,
             },
