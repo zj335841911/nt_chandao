@@ -88,6 +88,12 @@
 </app-form-item>
 
 </i-col>
+<i-col v-show="detailsModel.module.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='module' :itemRules="this.rules.module" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.module')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.module.error" :isEmptyCaption="false" labelPos="LEFT">
+     <dropdown-list v-model="data.module" :data="data" :itemParam="{}" :disabled="detailsModel.module.disabled"   placeholder='请选择...' style=""></dropdown-list>
+</app-form-item>
+
+</i-col>
 <i-col v-show="detailsModel.plan.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='plan' :itemRules="this.rules.plan" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.plan')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.plan.error" :isEmptyCaption="false" labelPos="LEFT">
      <dropdown-list v-model="data.plan" :data="data" :itemParam="{}" :disabled="detailsModel.plan.disabled"  tag='CurProductPlan' codelistType='DYNAMIC' placeholder='请选择...' style=""></dropdown-list>
@@ -205,6 +211,18 @@
 </app-form-item>
 
 </i-col>
+<i-col v-show="detailsModel.story.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='story' :itemRules="this.rules.story" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.story')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.story.error" :isEmptyCaption="false" labelPos="LEFT">
+    <dropdown-list-mpicker v-model="data.story" :itemParam="{}" :disabled="detailsModel.story.disabled"   placeholder='请选择...' style=""></dropdown-list-mpicker>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.task.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='task' :itemRules="this.rules.task" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.task')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.task.error" :isEmptyCaption="false" labelPos="LEFT">
+    <dropdown-list-mpicker v-model="data.task" :itemParam="{}" :disabled="detailsModel.task.disabled"   placeholder='请选择...' style=""></dropdown-list-mpicker>
+</app-form-item>
+
+</i-col>
     
     </row>
 </app-form-group>
@@ -229,6 +247,12 @@
 <i-col v-show="detailsModel.resolvedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='resolvedby' :itemRules="this.rules.resolvedby" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.resolvedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resolvedby.error" :isEmptyCaption="false" labelPos="LEFT">
      <dropdown-list v-model="data.resolvedby" :data="data" :itemParam="{}" :disabled="detailsModel.resolvedby.disabled"  tag='UserRealName' codelistType='DYNAMIC' placeholder='请选择...' style=""></dropdown-list>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.resolvedbuild.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='resolvedbuild' :itemRules="this.rules.resolvedbuild" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.resolvedbuild')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resolvedbuild.error" :isEmptyCaption="false" labelPos="LEFT">
+     <dropdown-list v-model="data.resolvedbuild" :data="data" :itemParam="{}" :disabled="detailsModel.resolvedbuild.disabled"   placeholder='请选择...' style=""></dropdown-list>
 </app-form-item>
 
 </i-col>

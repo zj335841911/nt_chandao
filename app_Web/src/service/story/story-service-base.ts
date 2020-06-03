@@ -173,6 +173,38 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * Review接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async Review(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story){
+            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/review`,data,isloading);
+        }
+            return Http.getInstance().post(`/stories/${context.story}/review`,data,isloading);
+    }
+
+    /**
+     * AssignTo接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async AssignTo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story){
+            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/assignto`,data,isloading);
+        }
+            return Http.getInstance().post(`/stories/${context.story}/assignto`,data,isloading);
+    }
+
+    /**
      * Get接口方法
      *
      * @param {*} [context={}]
@@ -207,6 +239,22 @@ export default class StoryServiceBase extends EntityService {
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/stories/${context.story}/save`,data,isloading);
             return res;
+    }
+
+    /**
+     * Close接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async Close(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story){
+            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/close`,data,isloading);
+        }
+            return Http.getInstance().post(`/stories/${context.story}/close`,data,isloading);
     }
 
     /**

@@ -98,13 +98,14 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     public void createBatch(List<Story> list) {
 
     }
-    @Override
-    @Transactional
-    public Story change(Story et) {
-        //自定义代码
-        return et;
-    }
+!!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
 
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${srfmethodname(deaction.getCodeName())}  [in template "TEMPLCODE_zh_CN" at line 3, column 20]
+----
     @Override
     public boolean checkKey(Story et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
@@ -138,6 +139,22 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     public void updateBatch(List<Story> list) {
 
     }
+!!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${srfmethodname(deaction.getCodeName())}  [in template "TEMPLCODE_zh_CN" at line 3, column 20]
+----
+!!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${srfmethodname(deaction.getCodeName())}  [in template "TEMPLCODE_zh_CN" at line 3, column 20]
+----
     @Override
     @Transactional
     public Story get(BigInteger key) {
@@ -184,6 +201,14 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         saveOrUpdateBatch(list,batchSize);
     }
 
+!!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${srfmethodname(deaction.getCodeName())}  [in template "TEMPLCODE_zh_CN" at line 3, column 20]
+----
 
 	@Override
     public List<Story> selectByModule(BigInteger id) {

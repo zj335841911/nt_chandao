@@ -122,8 +122,22 @@ export class StudioDrawer extends Vue {
      */
     protected refCloseView(view: any, i: number): any {
         const ref: any = this.$refs[view.viewname + i];
-        if (ref && ref.closeView) {
-            ref.closeView();
+        if (ref) {
+            const appview = this.$store.getters['viewaction/getAppView'](ref.viewtag);
+            if (appview && appview.viewdatachange) {
+                const title: any = this.$t('app.tabpage.sureclosetip.title');
+                const contant: any = this.$t('app.tabpage.sureclosetip.content');
+                this.$Modal.confirm({
+                    title: title,
+                    content: contant,
+                    onOk: () => {
+                        this.$store.commit('viewaction/setViewDataChange', { viewtag: ref.viewtag, viewdatachange: false });
+                        ref.closeView();
+                    }
+                });
+            } else {
+                ref.closeView();
+            }
         }
     }
 

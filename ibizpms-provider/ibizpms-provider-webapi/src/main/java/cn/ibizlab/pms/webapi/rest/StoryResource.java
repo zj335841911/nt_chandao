@@ -125,6 +125,30 @@ public class StoryResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Review-all')")
+    @ApiOperation(value = "评审", tags = {"需求" },  notes = "评审")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/review")
+    @Transactional
+    public ResponseEntity<StoryDTO> review(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
+        Story story = storyMapping.toDomain(storydto);
+        story.setId(story_id);
+        story = storyService.review(story);
+        storydto = storyMapping.toDto(story);
+        return ResponseEntity.status(HttpStatus.OK).body(storydto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-AssignTo-all')")
+    @ApiOperation(value = "指派", tags = {"需求" },  notes = "指派")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/assignto")
+    @Transactional
+    public ResponseEntity<StoryDTO> assignTo(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
+        Story story = storyMapping.toDomain(storydto);
+        story.setId(story_id);
+        story = storyService.assignTo(story);
+        storydto = storyMapping.toDto(story);
+        return ResponseEntity.status(HttpStatus.OK).body(storydto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Get-all')")
     @ApiOperation(value = "获取需求", tags = {"需求" },  notes = "获取需求")
 	@RequestMapping(method = RequestMethod.GET, value = "/stories/{story_id}")
@@ -147,6 +171,18 @@ public class StoryResource {
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<StoryDTO> storydtos) {
         storyService.saveBatch(storyMapping.toDomain(storydtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Close-all')")
+    @ApiOperation(value = "关闭", tags = {"需求" },  notes = "关闭")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/close")
+    @Transactional
+    public ResponseEntity<StoryDTO> close(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
+        Story story = storyMapping.toDomain(storydto);
+        story.setId(story_id);
+        story = storyService.close(story);
+        storydto = storyMapping.toDto(story);
+        return ResponseEntity.status(HttpStatus.OK).body(storydto);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Default-all')")
@@ -261,6 +297,30 @@ public class StoryResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Review-all')")
+    @ApiOperation(value = "根据产品需求", tags = {"需求" },  notes = "根据产品需求")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/review")
+    @Transactional
+    public ResponseEntity<StoryDTO> reviewByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
+        Story domain = storyMapping.toDomain(storydto);
+        domain.setProduct(product_id);
+        domain = storyService.review(domain) ;
+        storydto = storyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(storydto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-AssignTo-all')")
+    @ApiOperation(value = "根据产品需求", tags = {"需求" },  notes = "根据产品需求")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/assignto")
+    @Transactional
+    public ResponseEntity<StoryDTO> assignToByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
+        Story domain = storyMapping.toDomain(storydto);
+        domain.setProduct(product_id);
+        domain = storyService.assignTo(domain) ;
+        storydto = storyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(storydto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Get-all')")
     @ApiOperation(value = "根据产品获取需求", tags = {"需求" },  notes = "根据产品获取需求")
 	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/stories/{story_id}")
@@ -289,6 +349,18 @@ public class StoryResource {
         }
         storyService.saveBatch(domainlist);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Close-all')")
+    @ApiOperation(value = "根据产品需求", tags = {"需求" },  notes = "根据产品需求")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/close")
+    @Transactional
+    public ResponseEntity<StoryDTO> closeByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
+        Story domain = storyMapping.toDomain(storydto);
+        domain.setProduct(product_id);
+        domain = storyService.close(domain) ;
+        storydto = storyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(storydto);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Default-all')")
