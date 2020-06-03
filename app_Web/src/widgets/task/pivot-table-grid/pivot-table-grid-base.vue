@@ -24,10 +24,10 @@
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('id')">
-                <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.task.main_grid.columns.id')" :width="80"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.task.pivottable_grid.columns.id')" :width="80"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.task.main_grid.columns.id')}}
+                        {{$t('entities.task.pivottable_grid.columns.id')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -36,10 +36,10 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('pri')">
-                <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.task.main_grid.columns.pri')" :width="80"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.task.pivottable_grid.columns.pri')" :width="80"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.task.main_grid.columns.pri')}}
+                        {{$t('entities.task.pivottable_grid.columns.pri')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -50,10 +50,10 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.task.main_grid.columns.name')" :min-width="1"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.task.pivottable_grid.columns.name')" :min-width="1"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.task.main_grid.columns.name')}}
+                        {{$t('entities.task.pivottable_grid.columns.name')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -70,10 +70,10 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('status')">
-                <el-table-column show-overflow-tooltip :prop="'status'" :label="$t('entities.task.main_grid.columns.status')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'status'" :label="$t('entities.task.pivottable_grid.columns.status')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.task.main_grid.columns.status')}}
+                        {{$t('entities.task.pivottable_grid.columns.status')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -83,11 +83,25 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('assignedto')">
-                <el-table-column show-overflow-tooltip :prop="'assignedto'" :label="$t('entities.task.main_grid.columns.assignedto')" :width="150"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('type')">
+                <el-table-column show-overflow-tooltip :prop="'type'" :label="$t('entities.task.pivottable_grid.columns.type')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.task.main_grid.columns.assignedto')}}
+                        {{$t('entities.task.pivottable_grid.columns.type')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template >
+            <codelist :value="row.type" tag='Task__type' codelistType='STATIC' ></codelist>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('assignedto')">
+                <el-table-column show-overflow-tooltip :prop="'assignedto'" :label="$t('entities.task.pivottable_grid.columns.assignedto')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.task.pivottable_grid.columns.assignedto')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -97,25 +111,11 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('finishedby')">
-                <el-table-column show-overflow-tooltip :prop="'finishedby'" :label="$t('entities.task.main_grid.columns.finishedby')" :width="150"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.task.main_grid.columns.finishedby')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <template >
-            <codelist :value="row.finishedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
-                        </template>
-                    </template>
-                </el-table-column>
-            </template>
             <template v-if="getColumnState('estimate')">
-                <el-table-column show-overflow-tooltip :prop="'estimate'" :label="$t('entities.task.main_grid.columns.estimate')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'estimate'" :label="$t('entities.task.pivottable_grid.columns.estimate')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.task.main_grid.columns.estimate')}}
+                        {{$t('entities.task.pivottable_grid.columns.estimate')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -123,23 +123,11 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('consumed')">
-                <el-table-column show-overflow-tooltip :prop="'consumed'" :label="$t('entities.task.main_grid.columns.consumed')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.task.main_grid.columns.consumed')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <app-format-data dataType="FLOAT" precision="0" :data="row.consumed"></app-format-data>
-                    </template>
-                </el-table-column>
-            </template>
             <template v-if="getColumnState('left')">
-                <el-table-column show-overflow-tooltip :prop="'left'" :label="$t('entities.task.main_grid.columns.left')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'left'" :label="$t('entities.task.pivottable_grid.columns.left')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.task.main_grid.columns.left')}}
+                        {{$t('entities.task.pivottable_grid.columns.left')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -147,15 +135,90 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('deadline')">
-                <el-table-column show-overflow-tooltip :prop="'deadline'" :label="$t('entities.task.main_grid.columns.deadline')" :width="160"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('consumed')">
+                <el-table-column show-overflow-tooltip :prop="'consumed'" :label="$t('entities.task.pivottable_grid.columns.consumed')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.task.main_grid.columns.deadline')}}
+                        {{$t('entities.task.pivottable_grid.columns.consumed')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-format-data format="YYYY-MM-DD" :data="row.deadline"></app-format-data>
+                            <app-format-data dataType="FLOAT" precision="0" :data="row.consumed"></app-format-data>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('productname')">
+                <el-table-column show-overflow-tooltip :prop="'productname'" :label="$t('entities.task.pivottable_grid.columns.productname')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.task.pivottable_grid.columns.productname')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.productname}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('projectname')">
+                <el-table-column show-overflow-tooltip :prop="'projectname'" :label="$t('entities.task.pivottable_grid.columns.projectname')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.task.pivottable_grid.columns.projectname')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <app-column-link deKeyField='project' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'project-main-tab-exp-view', height: 0,width: 0,title: $t('entities.project.views.maintabexpview.title'),placement: '', isRedirectView: false,deResParameters: [
+            ]
+            ,parameters: [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'maintabexpview', parameterName: 'maintabexpview' }
+            ]}" valueitem="project">
+                            <span>{{row.projectname}}</span>
+                        </app-column-link >
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('storyname')">
+                <el-table-column show-overflow-tooltip :prop="'storyname'" :label="$t('entities.task.pivottable_grid.columns.storyname')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.task.pivottable_grid.columns.storyname')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.storyname}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('modulename')">
+                <el-table-column show-overflow-tooltip :prop="'modulename'" :label="$t('entities.task.pivottable_grid.columns.modulename')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.task.pivottable_grid.columns.modulename')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.modulename}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('parentname')">
+                <el-table-column show-overflow-tooltip :prop="'parentname'" :label="$t('entities.task.pivottable_grid.columns.parentname')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.task.pivottable_grid.columns.parentname')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <app-column-link deKeyField='task' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'task-main-dashboard-view', height: 0,width: 1360,title: $t('entities.task.views.maindashboardview.title'),placement: 'POPUPMODAL', isRedirectView: false,deResParameters: [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+            ,parameters: [
+            { pathName: 'tasks', parameterName: 'task' },
+            { pathName: 'maindashboardview', parameterName: 'maindashboardview' }
+            ]}" valueitem="parent">
+                            <span>{{row.parentname}}</span>
+                        </app-column-link >
                     </template>
                 </el-table-column>
             </template>
@@ -163,41 +226,6 @@
                 <el-table-column></el-table-column>
             </template>
     </el-table>
-    <row class='grid-pagination' v-show="items.length > 0">
-        <page class='pull-right' @on-change="pageOnChange($event)" 
-            @on-page-size-change="onPageSizeChange($event)"
-            :transfer="true" :total="totalrow"
-            show-sizer :current="curPage" :page-size="limit"
-            :page-size-opts="[10, 20, 30, 40, 50, 60, 70, 80, 90, 100]" show-elevator show-total>
-            <span>
-                <span class="page-column">
-                    <poptip transfer placement="top-start">
-                        <i-button icon="md-menu">{{$t('app.gridpage.choicecolumns')}}</i-button>
-                        <div slot="content">
-                            <template v-for="col in allColumns">
-                                <div :key="col.name"><el-checkbox v-model="col.show" @change="onColChange()">{{$t(col.langtag)}}</el-checkbox></div>
-                            </template>
-                        </div>
-                    </poptip>
-                </span>
-                <span v-if="selections.length > 0" class="batch-toolbar">
-                </span>
-                <span class="page-button"><i-button icon="md-refresh" :title="$t('app.gridpage.refresh')" @click="pageRefresh()"></i-button></span>&nbsp;
-                <span>
-                    {{$t('app.gridpage.show')}}&nbsp;
-                    <span>
-                        <template v-if="items.length === 1">
-                        1
-                        </template>
-                        <template v-else>
-                            <span>{{(curPage - 1) * limit + 1}}&nbsp;-&nbsp;{{totalrow > curPage * limit ? curPage * limit : totalrow}}</span>
-                        </template>
-                    </span>&nbsp;
-                    {{$t('app.gridpage.records')}}，{{$t('app.gridpage.totle')}}&nbsp;{{totalrow}}&nbsp;{{$t('app.gridpage.records')}}
-                </span>
-            </span>
-        </page>
-    </row>
   </i-form>
 </div>
 </template>
@@ -208,7 +236,7 @@ import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import { UIActionTool,Util } from '@/utils';
 import TaskService from '@/service/task/task-service';
-import MainService from './main-grid-service';
+import PivotTableService from './pivot-table-grid-service';
 
 import CodeListService from "@service/app/codelist-service";
 import { FormItemModel } from '@/model/form-detail';
@@ -219,13 +247,13 @@ import { FormItemModel } from '@/model/form-detail';
       
     }
 })
-export default class MainBase extends Vue implements ControlInterface {
+export default class PivotTableBase extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof Main
+     * @memberof PivotTable
      */
     @Prop() public name?: string;
 
@@ -233,7 +261,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof Main
+     * @memberof PivotTable
      */
     @Prop() public viewState!: Subject<ViewState>;
 
@@ -241,7 +269,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 应用上下文
      *
      * @type {*}
-     * @memberof Main
+     * @memberof PivotTable
      */
     @Prop() public context: any;
 
@@ -249,7 +277,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 视图参数
      *
      * @type {*}
-     * @memberof Main
+     * @memberof PivotTable
      */
     @Prop() public viewparams: any;
 
@@ -258,7 +286,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @public
      * @type {(Subscription | undefined)}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public viewStateEvent: Subscription | undefined;
 
@@ -266,7 +294,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public getControlType(): string {
         return 'GRID'
@@ -278,23 +306,23 @@ export default class MainBase extends Vue implements ControlInterface {
      * 计数器服务对象集合
      *
      * @type {Array<*>}
-     * @memberof Main
+     * @memberof PivotTable
      */    
     public counterServiceArray:Array<any> = [];
 
     /**
      * 建构部件服务对象
      *
-     * @type {MainService}
-     * @memberof Main
+     * @type {PivotTableService}
+     * @memberof PivotTable
      */
-    public service: MainService = new MainService({ $store: this.$store });
+    public service: PivotTableService = new PivotTableService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {TaskService}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public appEntityService: TaskService = new TaskService({ $store: this.$store });
     
@@ -304,7 +332,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 关闭视图
      *
      * @param {any} args
-     * @memberof Main
+     * @memberof PivotTable
      */
     public closeView(args: any): void {
         let _this: any = this;
@@ -314,7 +342,7 @@ export default class MainBase extends Vue implements ControlInterface {
     /**
      *  计数器刷新
      *
-     * @memberof Main
+     * @memberof PivotTable
      */
     public counterRefresh(){
         const _this:any =this;
@@ -332,7 +360,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 代码表服务对象
      *
      * @type {CodeListService}
-     * @memberof Main
+     * @memberof PivotTable
      */  
     public codeListService:CodeListService = new CodeListService({ $store: this.$store });
 
@@ -340,7 +368,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public getDatas(): any[] {
         return this.selections;
@@ -350,7 +378,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public getData(): any {
         return this.selections[0];
@@ -360,14 +388,14 @@ export default class MainBase extends Vue implements ControlInterface {
      * 打开新建数据视图
      *
      * @type {any}
-     * @memberof Main
+     * @memberof PivotTable
      */
     @Prop() public newdata: any;
     /**
      * 打开编辑数据视图
      *
      * @type {any}
-     * @memberof Main
+     * @memberof PivotTable
      */
     @Prop() public opendata: any;
 
@@ -375,7 +403,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof PivotTable
      */
     @Prop({ default: true }) public showBusyIndicator?: boolean;
 
@@ -383,7 +411,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 部件行为--update
      *
      * @type {string}
-     * @memberof Main
+     * @memberof PivotTable
      */
     @Prop() public updateAction!: string;
     
@@ -391,7 +419,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 部件行为--fetch
      *
      * @type {string}
-     * @memberof Main
+     * @memberof PivotTable
      */
     @Prop() public fetchAction!: string;
     
@@ -399,7 +427,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 部件行为--remove
      *
      * @type {string}
-     * @memberof Main
+     * @memberof PivotTable
      */
     @Prop() public removeAction!: string;
     
@@ -407,7 +435,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 部件行为--load
      *
      * @type {string}
-     * @memberof Main
+     * @memberof PivotTable
      */
     @Prop() public loadAction!: string;
     
@@ -415,7 +443,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 部件行为--loaddraft
      *
      * @type {string}
-     * @memberof Main
+     * @memberof PivotTable
      */
     @Prop() public loaddraftAction!: string;
     
@@ -423,7 +451,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof Main
+     * @memberof PivotTable
      */
     @Prop() public createAction!: string;
 
@@ -431,7 +459,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 当前页
      *
      * @type {number}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public curPage: number = 1;
 
@@ -439,7 +467,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 数据
      *
      * @type {any[]}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public items: any[] = [];
 
@@ -447,15 +475,15 @@ export default class MainBase extends Vue implements ControlInterface {
      * 是否支持分页
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof PivotTable
      */
-    public isEnablePagingBar: boolean = true;
+    public isEnablePagingBar: boolean = false;
 
     /**
      * 是否禁用排序
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public isNoSort: boolean = false;
 
@@ -463,7 +491,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 排序方向
      *
      * @type {string}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public minorSortDir: string = '';
 
@@ -471,7 +499,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 排序字段
      *
      * @type {string}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public minorSortPSDEF: string = '';
 
@@ -479,15 +507,15 @@ export default class MainBase extends Vue implements ControlInterface {
      * 分页条数
      *
      * @type {number}
-     * @memberof Main
+     * @memberof PivotTable
      */
-    public limit: number = 20;
+    public limit: number = 500;
 
     /**
      * 是否显示标题
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public isHideHeader: boolean = false;
 
@@ -495,7 +523,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 是否默认选中第一条数据
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof PivotTable
      */
     @Prop({ default: false }) public isSelectFirstDefault!: boolean;
 
@@ -503,7 +531,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 是否单选
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof PivotTable
      */
     @Prop() public isSingleSelect?: boolean;
 
@@ -511,7 +539,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 选中数据字符串
      *
      * @type {string}
-     * @memberof Main
+     * @memberof PivotTable
      */
     @Prop() public selectedData?: string;
 
@@ -520,7 +548,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof Main
+     * @memberof PivotTable
      */
     @Watch('selectedData')
     public onValueChange(newVal: any, oldVal: any) {
@@ -548,7 +576,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 2 双击激活
      *
      * @type {(number | 0 | 1 | 2)}
-     * @memberof Main
+     * @memberof PivotTable
      */
     @Prop({default: 2}) public gridRowActiveMode!: number;
 
@@ -556,7 +584,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 是否开启行编辑
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof PivotTable
      */
     @Prop({default: false}) public isOpenEdit!: boolean;
 
@@ -564,7 +592,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 实际是否开启行编辑
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public actualIsOpenEdit: boolean = this.isOpenEdit;
 
@@ -572,7 +600,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 总条数
      *
      * @type {number}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public totalrow: number = 0;
 
@@ -580,7 +608,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 选中行数据
      *
      * @type {any[]}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public selections: any[] = [];
 
@@ -588,7 +616,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 拦截行选中
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public stopRowClick: boolean = false;
 
@@ -599,7 +627,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 表格是否显示
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public isDisplay:boolean = true;
 
@@ -607,7 +635,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 部件刷新
      *
      * @param {any[]} args
-     * @memberof Main
+     * @memberof PivotTable
      */
     public refresh(args: any[]): void {
         this.load();
@@ -617,7 +645,7 @@ export default class MainBase extends Vue implements ControlInterface {
     * 选项框列宽
     *
     * @type {number}
-    * @memberof Main
+    * @memberof PivotTable
     */
     public checkboxColWidth: number = 35;
 
@@ -625,7 +653,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 是否允许拖动列宽
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public isDragendCol: boolean = false;
 
@@ -633,76 +661,104 @@ export default class MainBase extends Vue implements ControlInterface {
      * 所有列成员
      *
      * @type {any[]}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public allColumns: any[] = [
         {
             name: 'id',
-            label: 'ID',
-            langtag: 'entities.task.main_grid.columns.id',
+            label: '编号',
+            langtag: 'entities.task.pivottable_grid.columns.id',
             show: true,
             util: 'PX'
         },
         {
             name: 'pri',
             label: 'P',
-            langtag: 'entities.task.main_grid.columns.pri',
+            langtag: 'entities.task.pivottable_grid.columns.pri',
             show: true,
             util: 'PX'
         },
         {
             name: 'name',
             label: '任务名称',
-            langtag: 'entities.task.main_grid.columns.name',
+            langtag: 'entities.task.pivottable_grid.columns.name',
             show: true,
             util: 'STAR'
         },
         {
             name: 'status',
             label: '任务状态',
-            langtag: 'entities.task.main_grid.columns.status',
+            langtag: 'entities.task.pivottable_grid.columns.status',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'type',
+            label: '任务类型',
+            langtag: 'entities.task.pivottable_grid.columns.type',
             show: true,
             util: 'PX'
         },
         {
             name: 'assignedto',
             label: '指派给',
-            langtag: 'entities.task.main_grid.columns.assignedto',
-            show: true,
-            util: 'PX'
-        },
-        {
-            name: 'finishedby',
-            label: '完成者',
-            langtag: 'entities.task.main_grid.columns.finishedby',
+            langtag: 'entities.task.pivottable_grid.columns.assignedto',
             show: true,
             util: 'PX'
         },
         {
             name: 'estimate',
-            label: '预计',
-            langtag: 'entities.task.main_grid.columns.estimate',
-            show: true,
-            util: 'PX'
-        },
-        {
-            name: 'consumed',
-            label: '消耗',
-            langtag: 'entities.task.main_grid.columns.consumed',
+            label: '最初预计',
+            langtag: 'entities.task.pivottable_grid.columns.estimate',
             show: true,
             util: 'PX'
         },
         {
             name: 'left',
-            label: '剩余',
-            langtag: 'entities.task.main_grid.columns.left',
+            label: '预计剩余',
+            langtag: 'entities.task.pivottable_grid.columns.left',
             show: true,
             util: 'PX'
         },
         {
-            name: 'deadline',
-            label: '截止日期',
-            langtag: 'entities.task.main_grid.columns.deadline',
+            name: 'consumed',
+            label: '总计消耗',
+            langtag: 'entities.task.pivottable_grid.columns.consumed',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'productname',
+            label: '产品',
+            langtag: 'entities.task.pivottable_grid.columns.productname',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'projectname',
+            label: '所属项目',
+            langtag: 'entities.task.pivottable_grid.columns.projectname',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'storyname',
+            label: '相关需求',
+            langtag: 'entities.task.pivottable_grid.columns.storyname',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'modulename',
+            label: '所属模块',
+            langtag: 'entities.task.pivottable_grid.columns.modulename',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'parentname',
+            label: '父任务',
+            langtag: 'entities.task.pivottable_grid.columns.parentname',
             show: true,
             util: 'PX'
         },
@@ -712,7 +768,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 表格模型集合
      *
      * @type {*}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public gridItemsModel: any[] = [];
 
@@ -720,7 +776,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 获取表格行模型
      *
      * @type {*}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public getGridRowModel(){
         return {
@@ -732,7 +788,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 属性值规则
      *
      * @type {*}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public rules: any = {
         srfkey: [
@@ -749,7 +805,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * @param {number} rowIndex 行索引
      * @returns Promise<any>
      * 
-     * @memberof Main
+     * @memberof PivotTable
      */
     public validate(property:string, data:any, rowIndex:number):Promise<any>{
         return new Promise((resolve, reject) => {
@@ -767,7 +823,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 校验所有修改过的编辑项
      *
      * @returns Promise<any>
-     * @memberof Main
+     * @memberof PivotTable
      */
     public async validateAll(){
         let validateState = true;
@@ -789,11 +845,11 @@ export default class MainBase extends Vue implements ControlInterface {
      * 表格数据加载
      *
      * @param {*} [arg={}]
-     * @memberof Main
+     * @memberof PivotTable
      */
     public load(opt: any = {}, pageReset: boolean = false): void {
         if(!this.fetchAction){
-            this.$Notice.error({ title: '错误', desc: 'TaskMainGridView视图表格fetchAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'TaskPivotTableView视图表格fetchAction参数未配置' });
             return;
         }
         if(pageReset){
@@ -866,11 +922,11 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {any[]} datas
      * @returns {Promise<any>}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public async remove(datas: any[]): Promise<any> {
         if(!this.removeAction){
-            this.$Notice.error({ title: '错误', desc: 'TaskMainGridView视图表格removeAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'TaskPivotTableView视图表格removeAction参数未配置' });
             return;
         }
         let _datas:any[] = [];
@@ -972,11 +1028,11 @@ export default class MainBase extends Vue implements ControlInterface {
      * 批量添加
      *
      * @param {*} [arg={}]
-     * @memberof Main
+     * @memberof PivotTable
      */
     public addBatch(arg: any = {}): void {
         if(!this.fetchAction){
-            this.$Notice.error({ title: '错误', desc: 'TaskMainGridView视图表格fetchAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'TaskPivotTableView视图表格fetchAction参数未配置' });
             return;
         }
         if(!arg){
@@ -989,7 +1045,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 数据导入
      *
      * @param {*} data
-     * @memberof Main
+     * @memberof PivotTable
      */
      public importExcel(data:any ={}):void{
         //导入excel
@@ -1018,7 +1074,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 数据导出
      *
      * @param {*} data
-     * @memberof Main
+     * @memberof PivotTable
      */
     public exportExcel(data: any = {}): void {
         // 导出Excel
@@ -1089,7 +1145,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * @param {*} filterVal
      * @param {*} jsonData
      * @returns {[]}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public async formatExcelData(filterVal:any, jsonData:any) {
         let codelistColumns:Array<any> = [
@@ -1110,15 +1166,15 @@ export default class MainBase extends Vue implements ControlInterface {
             valueSeparator: ',',
           },
           {
-            name: 'assignedto',
-            srfkey: 'UserRealName',
-            codelistType : 'DYNAMIC',
-            textSeparator: ',',
-            renderMode: 'string',
-            valueSeparator: ",",
+            name: 'type',
+            srfkey: 'Task__type',
+            codelistType : 'STATIC',
+            renderMode: 'other',
+            textSeparator: '、',
+            valueSeparator: ',',
           },
           {
-            name: 'finishedby',
+            name: 'assignedto',
             srfkey: 'UserRealName',
             codelistType : 'DYNAMIC',
             textSeparator: ',',
@@ -1153,7 +1209,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * @param {any[]} items 代码表数据
      * @param {*} value
      * @returns {*}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public getCodelistValue(items: any[], value: any, codelist: any,){
         if(!value){
@@ -1206,7 +1262,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * @param {any[]} items
      * @param {*} value
      * @returns {*}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public getItem(items: any[], value: any, codelist: any): any {
         const arr: Array<any> = items.filter(item => {return item.value == value});
@@ -1223,7 +1279,7 @@ export default class MainBase extends Vue implements ControlInterface {
     /**
      * 生命周期
      *
-     * @memberof Main
+     * @memberof PivotTable
      */
     public created(): void {
         this.afterCreated();
@@ -1235,7 +1291,7 @@ export default class MainBase extends Vue implements ControlInterface {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof Main
+     *  @memberof PivotTable
      */    
     public afterCreated(){
         this.setColState();
@@ -1260,7 +1316,7 @@ export default class MainBase extends Vue implements ControlInterface {
     /**
      * vue 生命周期
      *
-     * @memberof Main
+     * @memberof PivotTable
      */
     public destroyed() {
         this.afterDestroy();
@@ -1269,7 +1325,7 @@ export default class MainBase extends Vue implements ControlInterface {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof Main
+     * @memberof PivotTable
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -1281,7 +1337,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 获取选中行胡数据
      *
      * @returns {any[]}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public getSelection(): any[] {
         return this.selections;
@@ -1292,7 +1348,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {*} $event
      * @returns {void}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public rowDBLClick($event: any): void {
         if (!$event || this.actualIsOpenEdit || Object.is(this.gridRowActiveMode,0)) {
@@ -1316,7 +1372,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {*} $event
      * @returns {void}
-     * @memberof  Main
+     * @memberof  PivotTable
      */
     public select($event: any): void {
         if (!$event) {
@@ -1331,7 +1387,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 复选框数据全部选中
      *
      * @param {*} $event
-     * @memberof  Main
+     * @memberof  PivotTable
      */
     public selectAll($event: any): void {
         if (!$event) {
@@ -1348,7 +1404,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {*} $event
      * @returns {void}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public rowClick($event: any, ifAlways: boolean = false): void {
         if (!ifAlways && (!$event || this.actualIsOpenEdit)) {
@@ -1390,7 +1446,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {*} $event
      * @returns {void}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public pageOnChange($event: any): void {
         if (!$event) {
@@ -1408,7 +1464,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {*} $event
      * @returns {void}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public onPageSizeChange($event: any): void {
         if (!$event) {
@@ -1426,7 +1482,7 @@ export default class MainBase extends Vue implements ControlInterface {
     /**
      * 分页刷新
      *
-     * @memberof Main
+     * @memberof PivotTable
      */
     public pageRefresh(): void {
         this.load({});
@@ -1436,7 +1492,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 排序变化
      *
      * @param {{ column: any, prop: any, order: any }} { column, prop, order }
-     * @memberof Main
+     * @memberof PivotTable
      */
     public onSortChange({ column, prop, order }: { column: any, prop: any, order: any }): void {
         const dir = Object.is(order, 'ascending') ? 'asc' : Object.is(order, 'descending') ? 'desc' : '';
@@ -1453,7 +1509,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {{ row: any, rowIndex: any }} { row, rowIndex }
      * @returns {string}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public onRowClassName({ row, rowIndex }: { row: any, rowIndex: any }): string {
         const index = this.selections.findIndex((select: any) => Object.is(select.srfkey, row.srfkey));
@@ -1468,7 +1524,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * @param {*} row
      * @param {*} tag
      * @param {*} $event
-     * @memberof Main
+     * @memberof PivotTable
      */
 	public uiAction(row: any, tag: any, $event: any) {
     }
@@ -1476,10 +1532,10 @@ export default class MainBase extends Vue implements ControlInterface {
     /**
      * 设置列状态
      *
-     * @memberof Main
+     * @memberof PivotTable
      */
     public setColState() {
-		const _data: any = localStorage.getItem('zt_task_main_grid');
+		const _data: any = localStorage.getItem('zt_task_pivottable_grid');
 		if (_data) {
 			let columns = JSON.parse(_data);
 			columns.forEach((col: any) => {
@@ -1494,10 +1550,10 @@ export default class MainBase extends Vue implements ControlInterface {
     /**
      * 列变化
      *
-     * @memberof Main
+     * @memberof PivotTable
      */
     public onColChange() {
-        localStorage.setItem('zt_task_main_grid', JSON.stringify(this.allColumns));
+        localStorage.setItem('zt_task_pivottable_grid', JSON.stringify(this.allColumns));
     }
 
     /**
@@ -1505,7 +1561,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {string} name
      * @returns {boolean}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public getColumnState(name: string): boolean {
         let column = this.allColumns.find((col: any) =>
@@ -1519,7 +1575,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @readonly
      * @type {boolean}
-     * @memberof Main
+     * @memberof PivotTable
      */
     get adaptiveState(): boolean {
         return !this.allColumns.find((column: any) => column.show && Object.is(column.util, 'STAR'));
@@ -1530,7 +1586,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {*} $event
      * @returns {Promise<any>}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public async save(args: any[], params?: any, $event?: any, xData?: any){
         let _this = this;
@@ -1545,7 +1601,7 @@ export default class MainBase extends Vue implements ControlInterface {
             try {
                 if(Object.is(item.rowDataState, 'create')){
                     if(!this.createAction){
-                        this.$Notice.error({ title: '错误', desc: 'TaskMainGridView视图表格createAction参数未配置' });
+                        this.$Notice.error({ title: '错误', desc: 'TaskPivotTableView视图表格createAction参数未配置' });
                     }else{
                       Object.assign(item,{viewparams:this.viewparams});
                       let response = await this.service.add(this.createAction, JSON.parse(JSON.stringify(this.context)),item, this.showBusyIndicator);
@@ -1553,7 +1609,7 @@ export default class MainBase extends Vue implements ControlInterface {
                     }
                 }else if(Object.is(item.rowDataState, 'update')){
                     if(!this.updateAction){
-                        this.$Notice.error({ title: '错误', desc: 'TaskMainGridView视图表格updateAction参数未配置' });
+                        this.$Notice.error({ title: '错误', desc: 'TaskPivotTableView视图表格updateAction参数未配置' });
                     }else{
                         Object.assign(item,{viewparams:this.viewparams});
                         if(item.task){
@@ -1587,7 +1643,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {*} $args row 行数据，rowIndex 行索引
      * @returns {void}
-     * @memberof Main
+     * @memberof PivotTable
      */
     public getRowClassName(args:{row: any,rowIndex: number}){
         let isSelected = this.selections.some((item:any)=>{
@@ -1599,5 +1655,5 @@ export default class MainBase extends Vue implements ControlInterface {
 </script>
 
 <style lang='less'>
-@import './main-grid.less';
+@import './pivot-table-grid.less';
 </style>

@@ -490,6 +490,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '64204774cc4b97f20aa3becb41b184d5',
+            viewmodule: 'zentao',
+            viewname: 'TaskPivotTableView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'ea141fddc78fd1af4d06e494baf12cc1',
+            ],
+        },
+        {
             viewtag: '6558930042f15c2297572f51d7e77df5',
             viewmodule: 'zentao',
             viewname: 'BugStepsInfoEditView',
@@ -1172,6 +1182,7 @@ export const viewstate: any = {
             refviews: [
                 '103bc77ad54de2476db1d4e9c788cd4e',
                 '5ef23f01b2cffa48351b3272dfeeaf14',
+                '64204774cc4b97f20aa3becb41b184d5',
                 '85ee867b09a2d6303c061d91374ec975',
                 '7d34636d1c24d613abf8d3fdc64ec7ba',
             ],

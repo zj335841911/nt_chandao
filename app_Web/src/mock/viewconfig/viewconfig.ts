@@ -415,6 +415,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryMainView9_StorySpec",
             "viewtag": "61f32b2b422e8f1a9825e1f704464a8c"
         },
+        "taskpivottableview": {
+            "title": "任务表格视图",
+            "caption": "任务",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskPivotTableView",
+            "viewtag": "64204774cc4b97f20aa3becb41b184d5"
+        },
         "bugstepsinfoeditview": {
             "title": "Bug编辑视图",
             "caption": "重现步骤",

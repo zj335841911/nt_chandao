@@ -1,16 +1,16 @@
 /**
- * Main 部件模型
+ * PivotTable 部件模型
  *
  * @export
- * @class MainModel
+ * @class PivotTableModel
  */
-export default class MainModel {
+export default class PivotTableModel {
 
 	/**
 	 * 是否是实体数据导出
 	 *
 	 * @returns {any[]}
-	 * @memberof MainGridMode
+	 * @memberof PivotTableGridMode
 	 */
 	public isDEExport: boolean = false;
 
@@ -18,7 +18,7 @@ export default class MainModel {
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof MainGridMode
+	 * @memberof PivotTableGridMode
 	 */
 	public getDataItems(): any[] {
     if(this.isDEExport){
@@ -30,11 +30,6 @@ export default class MainModel {
           name: 'module',
           prop: 'module',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'finishedby',
-          prop: 'finishedby',
-          dataType: 'TEXT',
         },
         {
           name: 'frombug',
@@ -52,6 +47,26 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'projectname',
+          prop: 'projectname',
+          dataType: 'PICKUPTEXT',
+        },
+        {
+          name: 'storyname',
+          prop: 'storyname',
+          dataType: 'PICKUPTEXT',
+        },
+        {
+          name: 'parentname',
+          prop: 'parentname',
+          dataType: 'PICKUPTEXT',
+        },
+        {
+          name: 'type',
+          prop: 'type',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'estimate',
           prop: 'estimate',
           dataType: 'FLOAT',
@@ -62,12 +77,12 @@ export default class MainModel {
           dataType: 'TEXT',
         },
         {
-          name: 'srfkey',
+          name: 'srfdataaccaction',
           prop: 'id',
           dataType: 'ACID',
         },
         {
-          name: 'srfdataaccaction',
+          name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
         },
@@ -85,6 +100,11 @@ export default class MainModel {
           name: 'project',
           prop: 'project',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'modulename',
+          prop: 'modulename',
+          dataType: 'PICKUPTEXT',
         },
         {
           name: 'assignedto',
@@ -112,9 +132,9 @@ export default class MainModel {
           dataType: 'FLOAT',
         },
         {
-          name: 'deadline',
-          prop: 'deadline',
-          dataType: 'DATE',
+          name: 'productname',
+          prop: 'productname',
+          dataType: 'PICKUPDATA',
         },
         {
           name: 'task',

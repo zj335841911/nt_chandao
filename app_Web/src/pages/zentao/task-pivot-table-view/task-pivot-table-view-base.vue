@@ -1,71 +1,68 @@
 <template>
-<studio-view viewName="bugmaineditview" viewTitle="Bug编辑" class='deeditview bug-main-edit-view'>
-    <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
-    </template>
-    <template slot="toolbar">
-                <div class='toolbar-container'>
-            <i-button :title="$t('entities.bug.maineditviewtoolbar_toolbar.deuiaction1.tip')" v-show="toolBarModels.deuiaction1.visabled" :disabled="toolBarModels.deuiaction1.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1' }, $event)">
-                    <i class='sx-tb-saveandclose'></i>
-                    <span class='caption'>{{$t('entities.bug.maineditviewtoolbar_toolbar.deuiaction1.caption')}}</span>
-                </i-button>
-        </div>
-    </template>
-    <view_form 
-                :viewState="viewState"  
-                :viewparams="viewparams" 
-                :context="context" 
-                :autosave="false" 
-                :viewtag="viewtag"
-                :showBusyIndicator="true"
-                updateAction="Update"
-                removeAction="Remove"
-                loaddraftAction="GetDraft"
-                loadAction="Get"
-                createAction="Create"
-                WFSubmitAction=""
-                WFStartAction=""
-                style='' 
-                name="form"  
-                ref='form' 
-                @save="form_save($event)"  
-                @remove="form_remove($event)"  
-                @load="form_load($event)"  
-                @closeview="closeView($event)">
-            </view_form>
+<studio-view viewName="taskpivottableview" viewTitle="任务表格视图" class='degridview task-pivot-table-view'>
+    <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
+    <view_grid 
+        :viewState="viewState"  
+        :viewparams="viewparams" 
+        :context="context" 
+        :isSingleSelect="isSingleSelect"
+        :showBusyIndicator="true"
+        :isOpenEdit="false"
+        :gridRowActiveMode="gridRowActiveMode"
+        @save="onSave"
+        updateAction=""
+        removeAction="Remove"
+        loaddraftAction=""
+        loadAction=""
+        createAction=""
+        fetchAction="FetchDefault"
+        :newdata="newdata"
+        :opendata="opendata"
+        name="grid"  
+        ref='grid' 
+        @selectionchange="grid_selectionchange($event)"  
+        @beforeload="grid_beforeload($event)"  
+        @rowdblclick="grid_rowdblclick($event)"  
+        @remove="grid_remove($event)"  
+        @load="grid_load($event)"  
+        @closeview="closeView($event)">
+    </view_grid>
 </studio-view>
 </template>
+
 
 <script lang='tsx'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { UIActionTool,Util } from '@/utils';
 import { Subject } from 'rxjs';
-import BugService from '@/service/bug/bug-service';
+import TaskService from '@/service/task/task-service';
 
-import EditViewEngine from '@engine/view/edit-view-engine';
+import GridViewEngine from '@engine/view/grid-view-engine';
 
+
+import CodeListService from "@service/app/codelist-service";
 
 
 @Component({
     components: {
     },
 })
-export default class BugMainEditViewBase extends Vue {
+export default class TaskPivotTableViewBase extends Vue {
 
     /**
      * 实体服务对象
      *
-     * @type {BugService}
-     * @memberof BugMainEditViewBase
+     * @type {TaskService}
+     * @memberof TaskPivotTableViewBase
      */
-    public appEntityService: BugService = new BugService;
+    public appEntityService: TaskService = new TaskService;
 
 
     /**
      * 计数器服务对象集合
      *
      * @type {Array<*>}
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */    
     public counterServiceArray:Array<any> = [];
     
@@ -74,7 +71,7 @@ export default class BugMainEditViewBase extends Vue {
      *
      * @param {*} val
      * @returns {*}
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */
     @Emit() 
     public viewDatasChange(val: any):any {
@@ -85,7 +82,7 @@ export default class BugMainEditViewBase extends Vue {
      * 传入视图上下文
      *
      * @type {string}
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */
     @Prop() public viewdata!: string;
 
@@ -93,7 +90,7 @@ export default class BugMainEditViewBase extends Vue {
      * 传入视图参数
      *
      * @type {string}
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */
     @Prop() public viewparam!: string;
 
@@ -101,7 +98,7 @@ export default class BugMainEditViewBase extends Vue {
      * 视图默认使用
      *
      * @type {boolean}
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */
     @Prop({ default: true }) public viewDefaultUsage!: boolean;
 
@@ -109,26 +106,24 @@ export default class BugMainEditViewBase extends Vue {
 	 * 视图标识
 	 *
 	 * @type {string}
-	 * @memberof BugMainEditViewBase
+	 * @memberof TaskPivotTableViewBase
 	 */
-	public viewtag: string = '122af527bf38b47ddc53c882847b490e';
+	public viewtag: string = '64204774cc4b97f20aa3becb41b184d5';
 
 	/**
 	 * 自定义视图导航上下文集合
 	 *
 	 * @type {*}
-	 * @memberof BugMainEditViewBase
+	 * @memberof TaskPivotTableViewBase
 	 */
     public customViewNavContexts:any ={
-    "OBJECTTYPE":{"isRawValue":true,"value":"bug"},
-    "SRFPARENTKEY":{"isRawValue":false,"value":"bug"}
     };
 
 	/**
 	 * 自定义视图导航参数集合
 	 *
 	 * @type {*}
-	 * @memberof BugMainEditViewBase
+	 * @memberof TaskPivotTableViewBase
 	 */
     public customViewParams:any ={
     };
@@ -137,12 +132,12 @@ export default class BugMainEditViewBase extends Vue {
      * 视图模型数据
      *
      * @type {*}
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */
     public model: any = {
-        srfCaption: 'entities.bug.views.maineditview.caption',
-        srfTitle: 'entities.bug.views.maineditview.title',
-        srfSubTitle: 'entities.bug.views.maineditview.subtitle',
+        srfCaption: 'entities.task.views.pivottableview.caption',
+        srfTitle: 'entities.task.views.pivottableview.title',
+        srfSubTitle: 'entities.task.views.pivottableview.subtitle',
         dataInfo: ''
     }
 
@@ -151,7 +146,7 @@ export default class BugMainEditViewBase extends Vue {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */
     @Watch('viewparam',{immediate: true, deep: true})
     onParamData(newVal: any, oldVal: any) {
@@ -169,7 +164,7 @@ export default class BugMainEditViewBase extends Vue {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */
     @Watch('viewdata')
     onViewData(newVal: any, oldVal: any) {
@@ -185,17 +180,16 @@ export default class BugMainEditViewBase extends Vue {
      * 容器模型
      *
      * @type {*}
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */
     public containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_grid: { name: 'grid', type: 'GRID' },
     };
 
     /**
      *  计数器刷新
      *
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */
     public counterRefresh(){
         const _this:any =this;
@@ -213,19 +207,9 @@ export default class BugMainEditViewBase extends Vue {
      *
      * @public
      * @type {Subject<{action: string, data: any}>}
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */
     public viewState: Subject<ViewState> = new Subject();
-    /**
-     * 工具栏模型
-     *
-     * @type {*}
-     * @memberof BugMainEditView
-     */
-    public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'SaveAndExit', target: '' } },
-
-    };
 
 
 
@@ -235,23 +219,28 @@ export default class BugMainEditViewBase extends Vue {
      *
      * @public
      * @type {Engine}
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */
-    public engine: EditViewEngine = new EditViewEngine();
+    public engine: GridViewEngine = new GridViewEngine();
 
     /**
      * 引擎初始化
      *
      * @public
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */
     public engineInit(): void {
         this.engine.init({
             view: this,
-            form: this.$refs.form,
-            p2k: '0',
-            keyPSDEField: 'bug',
-            majorPSDEField: 'title',
+            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
+                this.opendata(args,fullargs, params, $event, xData);
+            },
+            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
+                this.newdata(args,fullargs, params, $event, xData);
+            },
+            grid: this.$refs.grid,
+            keyPSDEField: 'task',
+            majorPSDEField: 'name',
             isLoadDefault: true,
         });
     }
@@ -260,7 +249,7 @@ export default class BugMainEditViewBase extends Vue {
      * 应用上下文
      *
      * @type {*}
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */
     public context:any = {};
 
@@ -268,7 +257,7 @@ export default class BugMainEditViewBase extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */
     public viewparams:any = {};
 
@@ -276,7 +265,7 @@ export default class BugMainEditViewBase extends Vue {
      * 解析视图参数
      *
      * @public
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */
     public parseViewParam(): void {
         for(let key in this.context){
@@ -319,7 +308,7 @@ export default class BugMainEditViewBase extends Vue {
     /**
      * 处理自定义视图数据
      *
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */
 	public handleCustomViewData(){
 		if(Object.keys(this.customViewNavContexts).length > 0){
@@ -343,7 +332,7 @@ export default class BugMainEditViewBase extends Vue {
     /**
      * 处理自定义视图数据逻辑
      *
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */
 	public handleCustomDataLogic(curNavData:any,tempData:any,item:string){
 		// 直接值直接赋值
@@ -396,7 +385,7 @@ export default class BugMainEditViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */
     public created() {
         this.afterCreated();
@@ -405,20 +394,31 @@ export default class BugMainEditViewBase extends Vue {
     /**
      * 执行created后的逻辑
      *
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */    
     public afterCreated(){
         const secondtag = this.$util.createUUID();
         this.$store.commit('viewaction/createdView', { viewtag: this.viewtag, secondtag: secondtag });
         this.viewtag = secondtag;
         this.parseViewParam();
-        
+        if(this.formDruipart){
+            this.formDruipart.subscribe((res:any) =>{
+                if(Object.is(res.action,'save')){
+                    this.viewState.next({ tag:'grid', action: 'save', data: this.viewparams });
+                }
+                if(Object.is(res.action,'load')){
+                    const _this: any = this;
+                    _this.engine.load(res.data,true);
+                }
+            });
+        }
+
     }
 
     /**
      * 销毁之前
      *
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */
     public beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
@@ -427,7 +427,7 @@ export default class BugMainEditViewBase extends Vue {
     /**
      * Vue声明周期(组件初始化完毕)
      *
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */
     public mounted() {
         this.afterMounted();
@@ -436,7 +436,7 @@ export default class BugMainEditViewBase extends Vue {
     /**
      * 执行mounted后的逻辑
      * 
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */
     public afterMounted(){
         const _this: any = this;
@@ -445,128 +445,152 @@ export default class BugMainEditViewBase extends Vue {
             _this.loadModel();
         }
         
+
     }
 
 
     /**
-     * toolbar 部件 click 事件
+     * grid 部件 selectionchange 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */
-    public toolbar_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'deuiaction1')) {
-            this.toolbar_deuiaction1_click(null, '', $event2);
-        }
+    public grid_selectionchange($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('grid', 'selectionchange', $event);
     }
 
 
     /**
-     * form 部件 save 事件
+     * grid 部件 beforeload 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */
-    public form_save($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('form', 'save', $event);
+    public grid_beforeload($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('grid', 'beforeload', $event);
     }
 
 
     /**
-     * form 部件 remove 事件
+     * grid 部件 rowdblclick 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */
-    public form_remove($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('form', 'remove', $event);
+    public grid_rowdblclick($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('grid', 'rowdblclick', $event);
     }
 
 
     /**
-     * form 部件 load 事件
+     * grid 部件 remove 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */
-    public form_load($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('form', 'load', $event);
+    public grid_remove($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('grid', 'remove', $event);
+    }
+
+
+    /**
+     * grid 部件 load 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof TaskPivotTableViewBase
+     */
+    public grid_load($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('grid', 'load', $event);
     }
 
 
 
     /**
-     * 逻辑事件
+     * 打开新建数据视图
      *
-     * @param {*} [params={}]
-     * @param {*} [tag]
+     * @param {any[]} args
+     * @param {*} [params]
+     * @param {*} [fullargs]
      * @param {*} [$event]
-     * @memberof 
+     * @param {*} [xData]
+     * @memberof TaskPivotTableView
      */
-    public toolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
+    public newdata(args: any[],fullargs?:any[], params?: any, $event?: any, xData?: any) {
+        const data: any = {};
+        if(args[0].srfsourcekey){
+            data.srfsourcekey = args[0].srfsourcekey;
+        }
+        let curViewParam = JSON.parse(JSON.stringify(this.context));
+        if(args.length >0){
+            Object.assign(curViewParam,args[0]);
+        }
+        let deResParameters: any[] = [];
+        if(curViewParam.project && true){
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+            { pathName: 'editview', parameterName: 'editview' },
+        ];
         const _this: any = this;
-        let paramJO:any = {};
-        
-        let contextJO:any = {};
-        xData = this.$refs.form;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
+        const openIndexViewTab = (data: any) => {
+            const _data: any = { w: (new Date().getTime()) };
+            Object.assign(_data, data);
+            const routePath = this.$viewTool.buildUpRoutePath(this.$route, curViewParam, deResParameters, parameters, args, _data);
+            this.$router.push(routePath);
         }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.SaveAndExit(datas, contextJO,paramJO,  $event, xData,this,"Bug");
+        openIndexViewTab(data);
     }
 
+
     /**
-     * 保存并关闭
+     * 打开编辑数据视图
      *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof BugMainEditViewBase
+     * @param {any[]} args
+     * @param {*} [params]
+     * @param {*} [fullargs]
+     * @param {*} [$event]
+     * @param {*} [xData]
+     * @memberof TaskPivotTableView
      */
-    public SaveAndExit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        if (xData && xData.saveAndExit instanceof Function) {
-            xData.saveAndExit().then((response: any) => {
-                if (!response || response.status !== 200) {
-                    return;
-                }
-                if(window.parent){
-                    window.parent.postMessage([{ ...response.data }],'*');
-                }
-            });
-        } else if (_this.saveAndExit && _this.saveAndExit instanceof Function) {
-            _this.saveAndExit().then((response: any) => {
-                if (!response || response.status !== 200) {
-                    return;
-                }
-                if(window.parent){
-                    window.parent.postMessage([{ ...response.data }],'*');
-                }
-            });
+    public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
+        const data: any = {};
+        let curViewParam = JSON.parse(JSON.stringify(this.context));
+        if(args.length >0){
+            Object.assign(curViewParam,args[0]);
         }
+        let deResParameters: any[] = [];
+        if(curViewParam.project && true){
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+            { pathName: 'editview', parameterName: 'editview' },
+        ];
+        const _this: any = this;
+        const openIndexViewTab = (data: any) => {
+            const routePath = this.$viewTool.buildUpRoutePath(this.$route, curViewParam, deResParameters, parameters, args, data);
+            this.$router.push(routePath);
+        }
+        openIndexViewTab(data);
     }
+
+
 
     /**
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */
     public closeView(args: any[]): void {
         let _view: any = this;
@@ -581,7 +605,7 @@ export default class BugMainEditViewBase extends Vue {
     /**
      * 销毁视图回调
      *
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */
     public destroyed(){
         this.afterDestroyed();
@@ -590,7 +614,7 @@ export default class BugMainEditViewBase extends Vue {
     /**
      * 执行destroyed后的逻辑
      * 
-     * @memberof BugMainEditViewBase
+     * @memberof TaskPivotTableViewBase
      */
     public afterDestroyed(){
         if(this.viewDefaultUsage){
@@ -605,10 +629,118 @@ export default class BugMainEditViewBase extends Vue {
         }
     }
 
+    /**
+     * 是否单选
+     *
+     * @type {boolean}
+     * @memberof TaskPivotTableViewBase
+     */
+    public isSingleSelect: boolean = false;
+
+
+    /**
+    * 是否嵌入关系界面
+    *
+    * @type {boolean}
+    * @memberof TaskPivotTableViewBase
+    */
+    @Prop({default:false}) public isformDruipart?: boolean;
+
+    /**
+    * 界面关系通讯对象
+    *
+    * @type {Subject<ViewState>}
+    * @memberof TaskPivotTableViewBase
+    */
+    @Prop() public formDruipart?: Subject<ViewState>;
+
+    /**
+     * 搜索值
+     *
+     * @type {string}
+     * @memberof TaskPivotTableViewBase
+     */
+    public query: string = '';
+
+    /**
+     * 是否展开搜索表单
+     *
+     * @type {boolean}
+     * @memberof TaskPivotTableViewBase
+     */
+    public isExpandSearchForm: boolean = false;
+
+    /**
+     * 表格行数据默认激活模式
+     * 0 不激活
+     * 1 单击激活
+     * 2 双击激活
+     *
+     * @type {(number | 0 | 1 | 2)}
+     * @memberof TaskPivotTableViewBase
+     */
+    public gridRowActiveMode: number | 0 | 1 | 2 = 2;
+
+    /**
+     * 快速搜索
+     *
+     * @param {*} $event
+     * @memberof TaskPivotTableViewBase
+     */
+    public onSearch($event: any): void {
+        const grid: any = this.$refs.grid;
+        if (grid) {
+            grid.load(this.context, true);
+        }
+    }
+
+    /**
+     * grid 部件 save 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ENTITYTEST1Usr2GridViewBase
+     */
+    public onSave($event: any) {
+        this.$emit('drdatasaved', $event);
+    }
+
+    /**
+     * 刷新数据
+     *
+     * @readonly
+     * @type {(number | null)}
+     * @memberof TaskPivotTableViewBase
+     */
+    get refreshdata(): number | null {
+        return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
+    }
+
+    /**
+     * 监控数据变化
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @returns
+     * @memberof TaskPivotTableViewBase
+     */
+    @Watch('refreshdata')
+    onRefreshData(newVal: any, oldVal: any) {
+        if (newVal === null || newVal === undefined) {
+            return;
+        }
+        if (newVal === 0) {
+            return;
+        }
+        const grid: any = this.$refs.grid;
+        if (grid) {
+            grid.load({});
+        }
+    }
 
 }
 </script>
 
 <style lang='less'>
-@import './bug-main-edit-view.less';
+@import './task-pivot-table-view.less';
 </style>
