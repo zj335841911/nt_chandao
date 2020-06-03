@@ -402,8 +402,10 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'abc58a7e8f6c6860ef5ea3ead20e5ffd',
                 '4cb497e84dfabd873bc62d5386d5551f',
                 '025443fdc6ac693e261108fbdf1b40ab',
+                '8399a93b13ffd4ecea6c65e7804a1353',
             ],
         },
         {
@@ -646,6 +648,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '8399a93b13ffd4ecea6c65e7804a1353',
+            viewmodule: 'zentao',
+            viewname: 'GroupMainGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'd2de1e2449f8c1cf2e0310f5477eef4b',
+            ],
+        },
+        {
             viewtag: '83b1f6c353e9383e36b8d58eec845267',
             viewmodule: 'zentao',
             viewname: 'UserEditView',
@@ -845,6 +857,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'abc58a7e8f6c6860ef5ea3ead20e5ffd',
+            viewmodule: 'zentao',
+            viewname: 'CompanyMainView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'd7f401156de51eb49cdb10a6fb9263ee',
+            ],
+        },
+        {
             viewtag: 'b5d2389c0dd12ae614b319090ecc2361',
             viewmodule: 'zentao',
             viewname: 'ProductDashboardInfoMainView9',
@@ -962,6 +984,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'd2de1e2449f8c1cf2e0310f5477eef4b',
+            viewmodule: 'zentao',
+            viewname: 'GroupEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'd364bfbf7092ee45cd0acae49fac77ab',
             viewmodule: 'zentao',
             viewname: 'UserMainGridView',
@@ -975,6 +1006,15 @@ export const viewstate: any = {
             viewtag: 'd4cb26555e6d81a172652580cf7d9f7f',
             viewmodule: 'zentao',
             viewname: 'BranchPMEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: 'd7f401156de51eb49cdb10a6fb9263ee',
+            viewmodule: 'zentao',
+            viewname: 'CompanyMainView9',
             viewaction: '',
             viewdatachange: false,
             refviews: [

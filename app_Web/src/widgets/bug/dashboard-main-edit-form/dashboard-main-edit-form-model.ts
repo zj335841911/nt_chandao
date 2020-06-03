@@ -56,6 +56,11 @@ export default class DashboardMainEditModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'title',
+        prop: 'title',
+        dataType: 'TEXT',
+      },
+      {
         name: 'steps',
         prop: 'steps',
         dataType: 'LONGTEXT',
@@ -64,11 +69,6 @@ export default class DashboardMainEditModel {
         name: 'product',
         prop: 'product',
         dataType: 'PICKUP',
-      },
-      {
-        name: 'title',
-        prop: 'title',
-        dataType: 'TEXT',
       },
       {
         name: 'productname',

@@ -5,13 +5,13 @@ import BugMainDashboardViewdashboard_container2Base from './main-dashboard-viewd
 
 import view_dashboard_sysportlet1 from '@/widgets/bug/steps-info-portlet/steps-info-portlet.vue';
 import view_dashboard_sysportlet2 from '@/widgets/bug/action-history-list-portlet/action-history-list-portlet.vue';
-import view_dashboard_sysportlet5 from '@/widgets/bug/bug-dashboard-actions-portlet/bug-dashboard-actions-portlet.vue';
+import view_dashboard_container4 from '@/widgets/bug/main-dashboard-viewdashboard-container4-portlet/main-dashboard-viewdashboard-container4-portlet.vue';
  
 @Component({
     components: {
         view_dashboard_sysportlet1, 
 view_dashboard_sysportlet2, 
-view_dashboard_sysportlet5, 
+view_dashboard_container4, 
  
     }
 })

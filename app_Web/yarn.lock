@@ -6720,10 +6720,10 @@ ibiz-vue-lib@^0.1.9:
     view-design "^4.1.0"
     vue "^2.6.11"
 
-ibiz-vue-pivottable@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/ibiz-vue-pivottable/-/ibiz-vue-pivottable-1.0.3.tgz#533e4bace74b77a72b0d5973df8334d180689964"
-  integrity sha512-BRpSusJzDEslvtMtO9EV+dLHqDmk1H56QQeg6a8/G+eObf/UK9gxcWQCZIrKZGH+dsSpdkQpYBw7UTQsBHv39Q==
+ibiz-vue-pivottable@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/ibiz-vue-pivottable/-/ibiz-vue-pivottable-1.0.4.tgz#d8d5dd222ee0378f73735df06a850dd2d887f3f5"
+  integrity sha512-Pb5tVmF5Z9SOXMYoUaGe6/AQm+cMWKJl12q1O+Tm9o2hxDDNEj+VYrB0/zyPZ+AfDF9HM0NvO0UMl0MiGFZScw==
   dependencies:
     core-js "^2.6.5"
     vue "^2.6.10"
