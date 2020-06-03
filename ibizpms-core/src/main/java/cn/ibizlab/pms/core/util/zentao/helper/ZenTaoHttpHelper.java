@@ -54,10 +54,10 @@ public class ZenTaoHttpHelper {
         // 若为空时，default值填充
         JSONObject formatJo = new JSONObject();
         for (String key : templateMap.keySet()) {
-            if (jo.get(key) == null) {
+            if (jo.get(key.toLowerCase()) == null) {
                 formatJo.put(key, templateMap.get(key));
             } else {
-                formatJo.put(key, jo.get(key));
+                formatJo.put(key, jo.get(key.toLowerCase()));
             }
         }
         return formatJo;

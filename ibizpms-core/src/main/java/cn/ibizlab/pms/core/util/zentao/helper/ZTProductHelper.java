@@ -78,9 +78,9 @@ public class ZTProductHelper {
         // CREATE
         ACTION_PARAMS_CREATE.put("name", null);
         ACTION_PARAMS_CREATE.put("code", null);
-        ACTION_PARAMS_CREATE.put("qd", null);
-        ACTION_PARAMS_CREATE.put("rd", null);
-        ACTION_PARAMS_CREATE.put("po", null);
+        ACTION_PARAMS_CREATE.put("QD", null);
+        ACTION_PARAMS_CREATE.put("RD", null);
+        ACTION_PARAMS_CREATE.put("PO", null);
         ACTION_PARAMS_CREATE.put("type", "normal");
         ACTION_PARAMS_CREATE.put("acl", "open");
         ACTION_PARAMS_CREATE.put("line", 0);
@@ -89,9 +89,9 @@ public class ZTProductHelper {
         // EDIT
         ACTION_PARAMS_EDIT.put("name", null);
         ACTION_PARAMS_EDIT.put("code", null);
-        ACTION_PARAMS_EDIT.put("qd", null);
-        ACTION_PARAMS_EDIT.put("rd", null);
-        ACTION_PARAMS_EDIT.put("po", null);
+        ACTION_PARAMS_EDIT.put("QD", null);
+        ACTION_PARAMS_EDIT.put("RD", null);
+        ACTION_PARAMS_EDIT.put("PO", null);
         ACTION_PARAMS_EDIT.put("type", "normal");
         ACTION_PARAMS_EDIT.put("acl", "open");
         ACTION_PARAMS_EDIT.put("line", 0);

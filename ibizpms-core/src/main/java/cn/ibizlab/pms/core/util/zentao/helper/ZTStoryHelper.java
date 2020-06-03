@@ -4,13 +4,11 @@ import cn.ibizlab.pms.core.util.zentao.bean.ZTResult;
 import cn.ibizlab.pms.core.util.zentao.constants.ZenTaoConstants;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import org.apache.commons.collections4.map.CaseInsensitiveMap;
 import org.springframework.http.HttpMethod;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 【禅道接口-Story】 辅助类
@@ -69,6 +67,11 @@ public class ZTStoryHelper {
     private final static HttpMethod ACTION_HTTPMETHOD_CREATE = HttpMethod.POST;
     private final static HttpMethod ACTION_HTTPMETHOD_BATCHCREATE = HttpMethod.POST;
     private final static HttpMethod ACTION_HTTPMETHOD_EDIT = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_CHANGE = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_REVIEW = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_ACTIVATE = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_ASSIGNTO = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_CLOSE = HttpMethod.POST;
 
     // ----------
     // 接口行为POST参数
@@ -76,12 +79,22 @@ public class ZTStoryHelper {
 
     private final static Map<String, Object> ACTION_PARAMS_CREATE = new HashMap<>();
     private final static Map<String, Object> ACTION_PARAMS_EDIT = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_CHANGE = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_REVIEW = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_ACTIVATE = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_ASSIGNTO = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_CLOSE = new HashMap<>();
 
     // ----------
     // 接口行为URL参数
     // ----------
 
     private final static List<String> ACTION_URL_PARAMS_EDIT = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_CHANGE = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_REVIEW = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_ACTIVATE = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_ASSIGNTO = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_CLOSE = new ArrayList<>();
 
     // ----------
     // 接口行为POST参数设置
@@ -95,8 +108,8 @@ public class ZTStoryHelper {
         ACTION_PARAMS_CREATE.put("module", 0);
         ACTION_PARAMS_CREATE.put("plan", null);
         ACTION_PARAMS_CREATE.put("source", null);
-        ACTION_PARAMS_CREATE.put("sourcenote", null);
-        ACTION_PARAMS_CREATE.put("reviewedby", null);
+        ACTION_PARAMS_CREATE.put("sourceNote", null);
+        ACTION_PARAMS_CREATE.put("reviewedBy", null);
         ACTION_PARAMS_CREATE.put("pri", 3);
         ACTION_PARAMS_CREATE.put("estimate", 0);
         ACTION_PARAMS_CREATE.put("spec", null);
@@ -114,21 +127,48 @@ public class ZTStoryHelper {
         ACTION_PARAMS_EDIT.put("parent", 0);
         ACTION_PARAMS_EDIT.put("status", null);
         ACTION_PARAMS_EDIT.put("source", null);
-        ACTION_PARAMS_EDIT.put("sourcenote", null);
-        ACTION_PARAMS_EDIT.put("reviewedby", null);
+        ACTION_PARAMS_EDIT.put("sourceNote", null);
+        ACTION_PARAMS_EDIT.put("reviewedBy", null);
         ACTION_PARAMS_EDIT.put("pri", 3);
         ACTION_PARAMS_EDIT.put("estimate", 0);
         ACTION_PARAMS_EDIT.put("color", null);
         ACTION_PARAMS_EDIT.put("mailto", null);
         ACTION_PARAMS_EDIT.put("linkstories", null);
-        ACTION_PARAMS_EDIT.put("assignedto", null);
+        ACTION_PARAMS_EDIT.put("assignedTo", null);
         ACTION_PARAMS_EDIT.put("keywords", null);
         ACTION_PARAMS_EDIT.put("comment", null);
-        // 变更日期，编辑不会修改
-//        ACTION_PARAMS_EDIT.put("lastediteddate", null);
-        // 联系单（前端计算进入mailto）
-//        ACTION_PARAMS_EDIT.put("contactlistmenu", null);
 
+        // CHANGE
+        ACTION_PARAMS_CHANGE.put("status", null);
+        ACTION_PARAMS_CREATE.put("spec", null);
+        ACTION_PARAMS_CREATE.put("verify", null);
+        ACTION_PARAMS_CHANGE.put("title", null);
+        ACTION_PARAMS_CHANGE.put("assignedTo", null);
+        ACTION_PARAMS_CHANGE.put("comment", null);
+
+        // REVIEW
+        ACTION_PARAMS_REVIEW.put("result", null);
+        ACTION_PARAMS_REVIEW.put("closedReason", null);
+        ACTION_PARAMS_REVIEW.put("pri", 3);
+        ACTION_PARAMS_REVIEW.put("estimate", 0);
+        ACTION_PARAMS_REVIEW.put("comment", null);
+        ACTION_PARAMS_REVIEW.put("preVersion", null);
+        ACTION_PARAMS_REVIEW.put("assignedTo", null);
+        ACTION_PARAMS_REVIEW.put("status", null);
+        ACTION_PARAMS_REVIEW.put("reviewedBy", null);
+
+        // ACTIVATE
+        ACTION_PARAMS_ACTIVATE.put("comment", null);
+        ACTION_PARAMS_ACTIVATE.put("assignedTo", null);
+        ACTION_PARAMS_ACTIVATE.put("status", "active");
+
+        // ASSIGNTO
+        ACTION_PARAMS_ASSIGNTO.put("comment", null);
+        ACTION_PARAMS_ASSIGNTO.put("assignedTo", null);
+
+        // CLOSE
+        ACTION_PARAMS_CLOSE.put("comment", null);
+        ACTION_PARAMS_CLOSE.put("closedReason", null);
     }
 
     // ----------
@@ -138,6 +178,21 @@ public class ZTStoryHelper {
     static {
         // EDIT
         ACTION_URL_PARAMS_EDIT.add("id");
+
+        // CHANGE
+        ACTION_URL_PARAMS_CHANGE.add("id");
+
+        // REVIEW
+        ACTION_URL_PARAMS_REVIEW.add("id");
+
+        // ACTIVATE
+        ACTION_URL_PARAMS_ACTIVATE.add("id");
+
+        // ASSIGNTO
+        ACTION_URL_PARAMS_ASSIGNTO.add("id");
+
+        // CLOSE
+        ACTION_URL_PARAMS_CLOSE.add("id");
     }
 
     // ----------
@@ -186,6 +241,96 @@ public class ZTStoryHelper {
         rst.setResult(rstJO);
         rst.setMessage(rstJO.getString("html"));
         return true;
+    }
+
+    final static public boolean change(String zentaoSid, JSONObject jo, ZTResult rst) {
+        String urlParams = "";
+        if (ACTION_URL_PARAMS_CHANGE != null && ACTION_URL_PARAMS_CHANGE.size() > 0) {
+            for (String key : ACTION_URL_PARAMS_CHANGE) {
+                urlParams += "-" + jo.get(key);
+            }
+        }
+        String url = MODULE_NAME + "-" + ACTION_CHANGE + urlParams + ZenTaoConstants.ZT_URL_EXT;
+        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_CHANGE, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_CHANGE));
+        rst.setSuccess(true);
+        rst.setResult(rstJO);
+        rst.setMessage(rstJO.getString("html"));
+        return true;
+    }
+
+    final static public boolean review(String zentaoSid, JSONObject jo, ZTResult rst) {
+        String urlParams = "";
+        if (ACTION_URL_PARAMS_REVIEW != null && ACTION_URL_PARAMS_REVIEW.size() > 0) {
+            for (String key : ACTION_URL_PARAMS_REVIEW) {
+                urlParams += "-" + jo.get(key);
+            }
+        }
+        String url = MODULE_NAME + "-" + ACTION_REVIEW + urlParams + ZenTaoConstants.ZT_URL_EXT;
+        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_REVIEW, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_REVIEW));
+        rst.setSuccess(true);
+        rst.setResult(rstJO);
+        rst.setMessage(rstJO.getString("html"));
+        return true;
+    }
+
+    final static public boolean activate(String zentaoSid, JSONObject jo, ZTResult rst) {
+        String urlParams = "";
+        if (ACTION_URL_PARAMS_ACTIVATE != null && ACTION_URL_PARAMS_ACTIVATE.size() > 0) {
+            for (String key : ACTION_URL_PARAMS_ACTIVATE) {
+                urlParams += "-" + jo.get(key);
+            }
+        }
+        String url = MODULE_NAME + "-" + ACTION_ACTIVATE + urlParams + ZenTaoConstants.ZT_URL_EXT;
+        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_ACTIVATE, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_ACTIVATE));
+        rst.setSuccess(true);
+        rst.setResult(rstJO);
+        rst.setMessage(rstJO.getString("html"));
+        return true;
+    }
+
+    final static public boolean assignTo(String zentaoSid, JSONObject jo, ZTResult rst) {
+        String urlParams = "";
+        if (ACTION_URL_PARAMS_ASSIGNTO != null && ACTION_URL_PARAMS_ASSIGNTO.size() > 0) {
+            for (String key : ACTION_URL_PARAMS_ASSIGNTO) {
+                urlParams += "-" + jo.get(key);
+            }
+        }
+        String url = MODULE_NAME + "-" + ACTION_ASSIGNTO + urlParams + ZenTaoConstants.ZT_URL_EXT;
+        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_ASSIGNTO, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_ASSIGNTO));
+        rst.setSuccess(true);
+        rst.setResult(rstJO);
+        rst.setMessage(rstJO.getString("html"));
+        return true;
+    }
+
+    final static public boolean close(String zentaoSid, JSONObject jo, ZTResult rst) {
+        String urlParams = "";
+        if (ACTION_URL_PARAMS_CLOSE != null && ACTION_URL_PARAMS_CLOSE.size() > 0) {
+            for (String key : ACTION_URL_PARAMS_CLOSE) {
+                urlParams += "-" + jo.get(key);
+            }
+        }
+        String url = MODULE_NAME + "-" + ACTION_CLOSE + urlParams + ZenTaoConstants.ZT_URL_EXT;
+        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_CLOSE, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_CLOSE));
+        rst.setSuccess(true);
+        rst.setResult(rstJO);
+        rst.setMessage(rstJO.getString("html"));
+        return true;
+    }
+
+    public static void main(String[] args) {
+        // change
+        JSONObject jo = new JSONObject();
+        jo.put("id", 116);
+        jo.put("comment", "激活");
+        jo.put("assignedto", "admin");
+
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = activate("kerbl1bv332tj7c0ebcki4oq97", jo, rst);
+
+//        if (!bRst) {
+        System.out.println(rst.getMessage());
+//        }
     }
 
 }
