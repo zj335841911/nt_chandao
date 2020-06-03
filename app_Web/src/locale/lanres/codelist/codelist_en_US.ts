@@ -308,6 +308,11 @@ export default {
         'closed': '已关闭',
         empty: '',
     },
+    Company__guest: {
+        '1': '1',
+        '0': '0',
+        empty: '',
+    },
     Story__status: {
         'draft': '草稿',
         'active': '激活',

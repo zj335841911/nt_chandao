@@ -61,14 +61,14 @@ export default class DashboardMainModel {
         dataType: 'PICKUP',
       },
       {
-        name: 'productname',
-        prop: 'productname',
-        dataType: 'PICKUPTEXT',
-      },
-      {
         name: 'title',
         prop: 'title',
         dataType: 'TEXT',
+      },
+      {
+        name: 'productname',
+        prop: 'productname',
+        dataType: 'PICKUPTEXT',
       },
       {
         name: 'module',

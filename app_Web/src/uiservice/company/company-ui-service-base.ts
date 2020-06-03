@@ -82,6 +82,9 @@ export default class CompanyUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'depttreeexpview',srfappde:'companies'});
         this.allViewMap.set(':',{viewname:'deptusertreeexpview',srfappde:'companies'});
         this.allViewMap.set(':',{viewname:'maintabexpview',srfappde:'companies'});
+        this.allViewMap.set(':',{viewname:'mainview',srfappde:'companies'});
+        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'companies'});
+        this.allViewMap.set(':',{viewname:'mainview9',srfappde:'companies'});
     }
 
     /**

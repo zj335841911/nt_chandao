@@ -695,6 +695,22 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestTaskGridView",
             "viewtag": "aae1ade339fe6a2ebe367489f6393db1"
         },
+        "companymainview": {
+            "title": "公司数据看板视图",
+            "caption": "公司信息",
+            "viewtype": "DEPORTALVIEW",
+            "viewmodule": "zentao",
+            "viewname": "CompanyMainView",
+            "viewtag": "abc58a7e8f6c6860ef5ea3ead20e5ffd"
+        },
+        "companyeditview": {
+            "title": "company编辑视图",
+            "caption": "公司信息",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "CompanyEditView",
+            "viewtag": "b39a7a76c2175803831235ae3aeef05b"
+        },
         "productdashboardinfomainview9": {
             "title": "产品信息",
             "caption": "产品",
@@ -814,6 +830,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "BranchPMEditView",
             "viewtag": "d4cb26555e6d81a172652580cf7d9f7f"
+        },
+        "companymainview9": {
+            "title": "公司编辑视图",
+            "caption": "公司",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "CompanyMainView9",
+            "viewtag": "d7f401156de51eb49cdb10a6fb9263ee"
         },
         "storymain2gridview": {
             "title": "story表格视图",

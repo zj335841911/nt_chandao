@@ -2532,6 +2532,33 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: 'Company__guest',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: '1',
+                label: '1',
+                text: '1',
+                "data":"",
+                "codename":"Item_1",
+                value: '1',
+                
+                disabled: false,
+            },
+            {
+                id: '0',
+                label: '0',
+                text: '0',
+                "data":"",
+                "codename":"Item_0",
+                value: '0',
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Story__status',
         emptytext: '未定义',
         "codelisttype":"static",

@@ -165,10 +165,10 @@ export default {
 		details: {
 			druipart1: '', 
 			grouppanel1: '分组面板', 
-			group1: 'Bug基本信息', 
+			maingroup1: 'Bug基本信息', 
 			grouppanel3: '基本信息', 
 			grouppanel4: '项目/需求/任务', 
-			group1: 'Bug基本信息', 
+			buggroup1: 'Bug基本信息', 
 			grouppanel5: 'Bug的一生', 
 			grouppanel2: '分组面板', 
 			group1: 'Bug基本信息', 
@@ -181,11 +181,10 @@ export default {
 			srfuf: '', 
 			srfdeid: '', 
 			srfsourcekey: '', 
-			title: 'Bug标题', 
 			steps: '重现步骤', 
 			product: '所属产品', 
-			productname: '产品', 
 			title: 'Bug标题', 
+			productname: '产品', 
 			module: '所属模块', 
 			plan: '所属计划', 
 			type: 'Bug类型', 
@@ -219,7 +218,7 @@ export default {
 	},
 	dashboardmain_form: {
 		details: {
-			group1: 'Bug基本信息', 
+			maingroup1: 'Bug基本信息', 
 			formpage1: '基本信息', 
 			grouppanel1: '分组面板', 
 			formpage2: '项目/需求/任务', 
@@ -232,8 +231,8 @@ export default {
 			srfdeid: '', 
 			srfsourcekey: '', 
 			product: '所属产品', 
-			productname: '产品', 
 			title: 'Bug标题', 
+			productname: '产品', 
 			module: '所属模块', 
 			plan: '所属计划', 
 			type: 'Bug类型', 
@@ -260,7 +259,7 @@ export default {
 	},
 	dashboardbuglife_form: {
 		details: {
-			group1: 'Bug基本信息', 
+			buggroup1: 'Bug基本信息', 
 			formpage1: 'Bug的一生', 
 			grouppanel1: '分组面板', 
 			formpage2: '其他相关', 
