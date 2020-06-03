@@ -1,5 +1,8 @@
 <template>
-<studio-view viewName="bugeditview" viewTitle="bug编辑视图" class='deeditview bug-edit-view'>
+<studio-view viewName="bugeditview" viewTitle="Bug" class='deeditview bug-edit-view'>
+    <template slot='title'>
+    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
+    </template>
     <template slot="toolbar">
                 <div class='toolbar-container'>
             <i-button :title="$t('entities.bug.editviewtoolbar_toolbar.deuiaction1.tip')" v-show="toolBarModels.deuiaction1.visabled" :disabled="toolBarModels.deuiaction1.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1' }, $event)">

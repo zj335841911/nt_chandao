@@ -160,6 +160,11 @@
                     </template>
                     <template slot-scope="scope">
                         <span>
+                            
+                            <a @click="uiAction(scope.row, 'MainEdit', $event)">
+                              <i class='fa fa-edit'></i>
+                              {{$t('entities.bug.main_grid.uiactions.mainedit')}}
+                            </a>
                         </span>
                     </template>
                 </el-table-column>
@@ -215,6 +220,7 @@ import { UIActionTool,Util } from '@/utils';
 import BugService from '@/service/bug/bug-service';
 import MainService from './main-grid-service';
 
+import BugUIService from '@/uiservice/bug/bug-ui-service';
 import CodeListService from "@service/app/codelist-service";
 import { FormItemModel } from '@/model/form-detail';
 
@@ -303,6 +309,35 @@ export default class MainBase extends Vue implements ControlInterface {
      */
     public appEntityService: BugService = new BugService({ $store: this.$store });
     
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u953838c_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:BugUIService  = new BugUIService();
+        curUIService.Bug_MainEdit(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+    }
 
 
     /**
@@ -1492,6 +1527,9 @@ export default class MainBase extends Vue implements ControlInterface {
      * @memberof Main
      */
 	public uiAction(row: any, tag: any, $event: any) {
+        if(Object.is('MainEdit', tag)) {
+            this.grid_uagridcolumn1_u953838c_click(row, tag, $event);
+        }
     }
 
     /**

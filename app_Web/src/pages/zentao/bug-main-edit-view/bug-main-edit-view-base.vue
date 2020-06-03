@@ -120,6 +120,7 @@ export default class BugMainEditViewBase extends Vue {
 	 * @memberof BugMainEditViewBase
 	 */
     public customViewNavContexts:any ={
+    "OBJECTTYPE":{"isRawValue":true,"value":"bug"}
     };
 
 	/**

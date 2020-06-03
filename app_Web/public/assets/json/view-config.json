@@ -107,7 +107,7 @@
         "viewname": "BugMainEditView",
         "viewfilename": "bug-main-edit-view",
         "viewtag": "122af527bf38b47ddc53c882847b490e",
-        "memo": "看板主信息编辑"
+        "memo": "主信息编辑"
     },
     "bugmaindashboardview": {
         "title": "Bug数据看板视图",
@@ -300,7 +300,7 @@
         "memo": ""
     },
     "bugeditview": {
-        "title": "bug编辑视图",
+        "title": "Bug",
         "caption": "Bug",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "zentao",

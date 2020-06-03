@@ -325,6 +325,7 @@ export default {
 			uagridcolumn1: '操作',
 		},
 		uiactions: {
+			mainedit: '编辑',
 		},
 	},
 	main2_grid: {

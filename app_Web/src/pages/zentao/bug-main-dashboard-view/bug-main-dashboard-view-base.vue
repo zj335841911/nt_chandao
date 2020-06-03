@@ -101,6 +101,7 @@ export default class BugMainDashboardViewBase extends Vue {
 	 * @memberof BugMainDashboardViewBase
 	 */
     public customViewNavContexts:any ={
+    "OBJECTTYPE":{"isRawValue":true,"value":"bug"}
     };
 
 	/**
