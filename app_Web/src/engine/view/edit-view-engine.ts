@@ -250,6 +250,7 @@ export default class EditViewEngine extends ViewEngine {
         if (viewdata  && info && !Object.is(info, '') && this.view.$tabPageExp && (viewdata.srfTitle.indexOf(" - ") === -1)) {
             this.view.$tabPageExp.setCurPageCaption(viewdata.srfCaption, viewdata.srfTitle, info);
             this.view.model.srfTitle = `${this.view.$t(viewdata.srfTitle)} - ${viewdata.dataInfo}`;
+            this.view.$emit('viewModelChange', this.view.model.srfTitle);
         }
     }
 

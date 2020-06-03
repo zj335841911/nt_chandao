@@ -88,8 +88,8 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "103bc77ad54de2476db1d4e9c788cd4e"
         },
         "bugmaineditview": {
-            "title": "Bug编辑视图",
-            "caption": "Bug",
+            "title": "Bug编辑",
+            "caption": "Bug编辑",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",
             "viewname": "BugMainEditView",

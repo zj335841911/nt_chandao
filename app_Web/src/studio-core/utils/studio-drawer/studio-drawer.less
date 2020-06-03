@@ -49,11 +49,17 @@
 
                 >.text {
                     cursor: pointer;
+                    border-bottom: 1px solid transparent;
                 }
 
                 >.text:hover {
                     color: var(--app-header-font-color-active);
-                    border-bottom: 1px solid var(--app-header-font-color-active);
+                    border-bottom-color: var(--app-header-font-color-active);
+                }
+
+                >.text.active:hover {
+                    color: unset;
+                    border-bottom-color: transparent;
                 }
             }
         }
@@ -81,16 +87,15 @@
             z-index: 1;
 
             >.studio-view.view-container {
-                position: unset;
 
                 >.view-header {
-                    height: 0px;
+                    position: absolute;
+                    right: 36px;
+                    top: -37px;
+                    width: auto;
 
-                    >.toolbar {
-                        position: absolute;
-                        top: -29px;
-                        right: 35px;
-                        height: auto;
+                    >.title {
+                        display: none;
                     }
                 }
 

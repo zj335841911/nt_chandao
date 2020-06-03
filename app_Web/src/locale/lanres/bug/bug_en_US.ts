@@ -66,8 +66,8 @@ export default {
       title: 'Bug',
 		},
 		maineditview: {
-			caption: "Bug",
-      title: 'Bug',
+			caption: "Bug编辑",
+      title: 'Bug编辑',
 		},
 		maindashboardview: {
 			caption: "Bug",

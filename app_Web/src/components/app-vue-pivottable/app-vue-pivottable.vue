@@ -18,7 +18,7 @@
 </template>
 <script lang = 'ts'>
 import { Vue, Component, Prop } from 'vue-property-decorator';
-import VuePivottableUi from 'ibiz-vue-pivottable/src/PivottableUi.js';
+import { VuePivottableUi } from 'ibiz-vue-pivottable';
 import 'ibiz-vue-pivottable/dist/vue-pivottable.css';
 
 @Component({
