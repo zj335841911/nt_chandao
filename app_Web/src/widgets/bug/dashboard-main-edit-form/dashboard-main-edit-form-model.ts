@@ -148,7 +148,7 @@ export default class DashboardMainEditModel {
       {
         name: 'mailto',
         prop: 'mailto',
-        dataType: 'LONGTEXT',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'project',

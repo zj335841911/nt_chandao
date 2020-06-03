@@ -24,21 +24,21 @@
         <i-col v-show="detailsModel.po.visible" :style="{}"  :sm="{ span: 24, offset: 0 }" :md="{ span: 24, offset: 0 }" :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='po' :itemRules="this.rules.po" class='' :caption="$t('entities.product.dashboardinfo_form.details.po')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.po.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='po'
-:value="data.po" tag='UserRealName' codelistType='DYNAMIC' style=""></app-span>
+:value="data.po" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.rd.visible" :style="{}"  :sm="{ span: 24, offset: 0 }" :md="{ span: 24, offset: 0 }" :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='rd' :itemRules="this.rules.rd" class='' :caption="$t('entities.product.dashboardinfo_form.details.rd')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.rd.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='rd'
-:value="data.rd" tag='UserRealName' codelistType='DYNAMIC' style=""></app-span>
+:value="data.rd" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.qd.visible" :style="{}"  :sm="{ span: 24, offset: 0 }" :md="{ span: 24, offset: 0 }" :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='qd' :itemRules="this.rules.qd" class='' :caption="$t('entities.product.dashboardinfo_form.details.qd')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.qd.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='qd'
-:value="data.qd" tag='UserRealName' codelistType='DYNAMIC' style=""></app-span>
+:value="data.qd" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," style=""></app-span>
 </app-form-item>
 
 </i-col>

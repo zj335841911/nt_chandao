@@ -106,7 +106,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.openedby" tag='UserRealName' codelistType='DYNAMIC' ></codelist>
+            <codelist :value="row.openedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -132,7 +132,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.assignedto" tag='UserRealName' codelistType='DYNAMIC' ></codelist>
+            <codelist :value="row.assignedto" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -1126,17 +1126,17 @@ export default class MainBase extends Vue implements ControlInterface {
             name: 'openedby',
             srfkey: 'UserRealName',
             codelistType : 'DYNAMIC',
-            renderMode: 'other',
-            textSeparator: '、',
-            valueSeparator: ',',
+            textSeparator: ',',
+            renderMode: 'string',
+            valueSeparator: ",",
           },
           {
             name: 'assignedto',
             srfkey: 'UserRealName',
             codelistType : 'DYNAMIC',
-            renderMode: 'other',
-            textSeparator: '、',
-            valueSeparator: ',',
+            textSeparator: ',',
+            renderMode: 'string',
+            valueSeparator: ",",
           },
           {
             name: 'resolution',

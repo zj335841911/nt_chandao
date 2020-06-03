@@ -162,7 +162,7 @@
 </i-col>
 <i-col v-show="detailsModel.mailto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='mailto' :itemRules="this.rules.mailto" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.mailto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.mailto.error" :isEmptyCaption="false" labelPos="LEFT">
-    <dropdown-list-mpicker v-model="data.mailto" :itemParam="{}" :disabled="detailsModel.mailto.disabled"  tag='UserRealName' codelistType='DYNAMIC'  placeholder='请选择...' style=""></dropdown-list-mpicker>
+    <dropdown-list-mpicker v-model="data.mailto" :itemParam="{}" :disabled="detailsModel.mailto.disabled"  tag='UserRealName' codelistType='DYNAMIC' valueSeparator="," placeholder='请选择...' style=""></dropdown-list-mpicker>
 </app-form-item>
 
 </i-col>
@@ -1849,7 +1849,7 @@ export default class DashboardMainEditBase extends Vue implements ControlInterfa
      */
     public print(){
         let _this:any = this;
-        _this.$print({id:'bug_dashboardmainedit',popTitle:'看板主信息编辑'});
+        _this.$print({id:'bug_dashboardmainedit',popTitle:'看板主数据编辑'});
     }
 
     /**
