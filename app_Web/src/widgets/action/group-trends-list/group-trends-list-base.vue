@@ -231,7 +231,7 @@ export default class GroupTrendsBase extends Vue implements ControlInterface {
      * @type {number}
      * @memberof GroupTrends
      */
-    public limit: number = 1000;
+    public limit: number = 300;
 
     /**
      * 总条数

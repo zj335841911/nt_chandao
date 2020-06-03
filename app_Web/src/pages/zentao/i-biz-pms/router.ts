@@ -917,6 +917,19 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-portal-view/project-portal-view.vue'),
                 },
                 {
+                    path: 'actions/:action?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.action.views.editview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'actions', parameterName: 'action' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/action-edit-view/action-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/main2gridview/:main2gridview?',
                     meta: {
                         caption: 'entities.story.views.main2gridview.caption',
@@ -942,19 +955,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/story-main2-grid-view/story-main2-grid-view.vue'),
-                },
-                {
-                    path: 'actions/:action?/editview/:editview?',
-                    meta: {
-                        caption: 'entities.action.views.editview.caption',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'actions', parameterName: 'action' },
-                            { pathName: 'editview', parameterName: 'editview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/action-edit-view/action-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/testtasks/:testtask?/editview/:editview?',
@@ -1721,6 +1721,19 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/story-mpickup-view/story-mpickup-view.vue'),
+                },
+                {
+                    path: 'actions/:action?/alltrendslistview/:alltrendslistview?',
+                    meta: {
+                        caption: 'entities.action.views.alltrendslistview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'actions', parameterName: 'action' },
+                            { pathName: 'alltrendslistview', parameterName: 'alltrendslistview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/action-all-trends-list-view/action-all-trends-list-view.vue'),
                 },
                 {
                     path: 'products/:product?/editview/:editview?',
@@ -4760,6 +4773,18 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/zentao/story-main2-grid-view/story-main2-grid-view.vue'),
+    },
+    {
+        path: '/actions/:action?/alltrendslistview/:alltrendslistview?',
+        meta: {
+            caption: 'entities.action.views.alltrendslistview.caption',
+            parameters: [
+                { pathName: 'actions', parameterName: 'action' },
+                { pathName: 'alltrendslistview', parameterName: 'alltrendslistview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/action-all-trends-list-view/action-all-trends-list-view.vue'),
     },
     {
         path: '/products/:product?/editview/:editview?',

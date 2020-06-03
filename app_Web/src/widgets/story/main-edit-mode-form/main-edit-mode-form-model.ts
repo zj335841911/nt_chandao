@@ -68,7 +68,7 @@ export default class Main_EditModeModel {
       {
         name: 'plan',
         prop: 'plan',
-        dataType: 'LONGTEXT',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'source',

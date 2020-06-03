@@ -29,6 +29,10 @@ export default {
 			caption: '系统日志',
       title: '系统日志',
 		},
+		alltrendslistview: {
+			caption: '系统日志',
+      title: '系统日志',
+		},
 		producttrendslistview: {
 			caption: '系统日志',
       title: '系统日志',

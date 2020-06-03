@@ -73,7 +73,7 @@ export default class Main_NewModeModel {
       {
         name: 'plan',
         prop: 'plan',
-        dataType: 'LONGTEXT',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'source',

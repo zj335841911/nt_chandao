@@ -4,6 +4,7 @@ import MainTabExpViewtabexppanelBase from './main-tab-exp-viewtabexppanel-tabexp
 import view_tabviewpanel from '@widgets/company/main-tab-exp-viewtabviewpanel-tabviewpanel/main-tab-exp-viewtabviewpanel-tabviewpanel.vue';
 import view_tabviewpanel2 from '@widgets/company/main-tab-exp-viewtabviewpanel2-tabviewpanel/main-tab-exp-viewtabviewpanel2-tabviewpanel.vue';
 import view_tabviewpanel3 from '@widgets/company/main-tab-exp-viewtabviewpanel3-tabviewpanel/main-tab-exp-viewtabviewpanel3-tabviewpanel.vue';
+import view_tabviewpanel5 from '@widgets/company/main-tab-exp-viewtabviewpanel5-tabviewpanel/main-tab-exp-viewtabviewpanel5-tabviewpanel.vue';
 import view_tabviewpanel4 from '@widgets/company/main-tab-exp-viewtabviewpanel4-tabviewpanel/main-tab-exp-viewtabviewpanel4-tabviewpanel.vue';
 
  
@@ -12,6 +13,7 @@ import view_tabviewpanel4 from '@widgets/company/main-tab-exp-viewtabviewpanel4-
         view_tabviewpanel, 
         view_tabviewpanel2, 
         view_tabviewpanel3, 
+        view_tabviewpanel5, 
         view_tabviewpanel4, 
          
     }

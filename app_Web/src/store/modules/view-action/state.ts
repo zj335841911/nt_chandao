@@ -406,6 +406,7 @@ export const viewstate: any = {
                 '4cb497e84dfabd873bc62d5386d5551f',
                 '025443fdc6ac693e261108fbdf1b40ab',
                 '8399a93b13ffd4ecea6c65e7804a1353',
+                'df57be69540a2e80fee7f3575162b93a',
             ],
         },
         {
@@ -1031,6 +1032,16 @@ export const viewstate: any = {
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 '4863a523ac490ebce771717756f0c6a8',
                 '02b7ecd8e994b90558a9d6c23705f600',
+            ],
+        },
+        {
+            viewtag: 'df57be69540a2e80fee7f3575162b93a',
+            viewmodule: 'zentao',
+            viewname: 'ActionAllTrendsListView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'f8b69912b3ca27b5d083c8fb1971c84a',
             ],
         },
         {

@@ -54,7 +54,7 @@ export default class PickupGirdModel {
         {
           name: 'openedby',
           prop: 'openedby',
-          dataType: 'TEXT',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'duplicatebug',

@@ -29,6 +29,7 @@ export default class TrendsModel {
 			},
 			{
 				name: 'actor',
+        codelist:{tag:'UserRealName',codelistType:'DYNAMIC'},
 			},
 			{
 				name: 'project',

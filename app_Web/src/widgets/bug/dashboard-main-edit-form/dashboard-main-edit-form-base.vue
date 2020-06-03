@@ -88,6 +88,12 @@
 </app-form-item>
 
 </i-col>
+<i-col v-show="detailsModel.plan.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='plan' :itemRules="this.rules.plan" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.plan')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.plan.error" :isEmptyCaption="false" labelPos="LEFT">
+     <dropdown-list v-model="data.plan" :data="data" :itemParam="{}" :disabled="detailsModel.plan.disabled"  tag='CurProductPlan' codelistType='DYNAMIC' placeholder='请选择...' style=""></dropdown-list>
+</app-form-item>
+
+</i-col>
 <i-col v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='type' :itemRules="this.rules.type" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.type')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="LEFT">
      <dropdown-list v-model="data.type" :data="data" :itemParam="{}" :disabled="detailsModel.type.disabled"  tag='Bug__type' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
@@ -221,7 +227,7 @@
 </i-col>
 <i-col v-show="detailsModel.resolvedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='resolvedby' :itemRules="this.rules.resolvedby" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.resolvedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resolvedby.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.resolvedby"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.resolvedby.disabled" type='text'  style=""></input-box>
+     <dropdown-list v-model="data.resolvedby" :data="data" :itemParam="{}" :disabled="detailsModel.resolvedby.disabled"  tag='UserRealName' codelistType='DYNAMIC' placeholder='请选择...' style=""></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -233,13 +239,13 @@
 </i-col>
 <i-col v-show="detailsModel.closedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='closedby' :itemRules="this.rules.closedby" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.closedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.closedby.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.closedby"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.closedby.disabled" type='text'  style=""></input-box>
+     <dropdown-list v-model="data.closedby" :data="data" :itemParam="{}" :disabled="detailsModel.closedby.disabled"  tag='UserRealName' codelistType='DYNAMIC' placeholder='请选择...' style=""></dropdown-list>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.lasteditedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='lasteditedby' :itemRules="this.rules.lasteditedby" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.lasteditedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.lasteditedby.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.lasteditedby"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.lasteditedby.disabled" type='text'  style=""></input-box>
+     <dropdown-list v-model="data.lasteditedby" :data="data" :itemParam="{}" :disabled="detailsModel.lasteditedby.disabled"  tag='UserRealName' codelistType='DYNAMIC' placeholder='请选择...' style=""></dropdown-list>
 </app-form-item>
 
 </i-col>

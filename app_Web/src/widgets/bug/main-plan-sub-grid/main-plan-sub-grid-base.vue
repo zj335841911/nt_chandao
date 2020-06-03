@@ -105,7 +105,9 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.openedby}}</span>
+                        <template >
+            <codelist :value="row.openedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                        </template>
                     </template>
                 </el-table-column>
             </template>
@@ -1076,6 +1078,14 @@ export default class Main_PlanSubBase extends Vue implements ControlInterface {
             renderMode: 'other',
             textSeparator: '、',
             valueSeparator: ',',
+          },
+          {
+            name: 'openedby',
+            srfkey: 'UserRealName',
+            codelistType : 'DYNAMIC',
+            textSeparator: ',',
+            renderMode: 'string',
+            valueSeparator: ",",
           },
         ];
         let _this = this;

@@ -847,6 +847,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryMain2GridView",
             "viewtag": "dea346284a2fbb66467c4838c1b3f577"
         },
+        "actionalltrendslistview": {
+            "title": "系统日志列表视图",
+            "caption": "系统日志",
+            "viewtype": "DELISTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ActionAllTrendsListView",
+            "viewtag": "df57be69540a2e80fee7f3575162b93a"
+        },
         "producteditview": {
             "title": "product编辑视图",
             "caption": "产品",
