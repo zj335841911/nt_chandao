@@ -98,14 +98,23 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     public void createBatch(List<Story> list) {
 
     }
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+    @Override
+    @Transactional
+    public boolean change(Story et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.change((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return bRst;
+    }
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${srfmethodname(deaction.getCodeName())}  [in template "TEMPLCODE_zh_CN" at line 3, column 20]
-----
+    @Override
+    public void changeBatch(List<Story> list) {
+
+    }
+
     @Override
     public boolean checkKey(Story et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
@@ -139,22 +148,40 @@ FTL stack trace ("~" means nesting-related):
     public void updateBatch(List<Story> list) {
 
     }
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+    @Override
+    @Transactional
+    public boolean review(Story et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.review((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return bRst;
+    }
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${srfmethodname(deaction.getCodeName())}  [in template "TEMPLCODE_zh_CN" at line 3, column 20]
-----
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+    @Override
+    public void reviewBatch(List<Story> list) {
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${srfmethodname(deaction.getCodeName())}  [in template "TEMPLCODE_zh_CN" at line 3, column 20]
-----
+    }
+
+    @Override
+    @Transactional
+    public boolean assignTo(Story et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.assignTo((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return bRst;
+    }
+
+    @Override
+    public void assignToBatch(List<Story> list) {
+
+    }
+
     @Override
     @Transactional
     public Story get(BigInteger key) {
@@ -201,14 +228,23 @@ FTL stack trace ("~" means nesting-related):
         saveOrUpdateBatch(list,batchSize);
     }
 
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+    @Override
+    @Transactional
+    public boolean close(Story et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.close((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return bRst;
+    }
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${srfmethodname(deaction.getCodeName())}  [in template "TEMPLCODE_zh_CN" at line 3, column 20]
-----
+    @Override
+    public void closeBatch(List<Story> list) {
+
+    }
+
 
 	@Override
     public List<Story> selectByModule(BigInteger id) {
