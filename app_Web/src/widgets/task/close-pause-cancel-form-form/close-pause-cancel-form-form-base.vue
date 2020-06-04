@@ -1,37 +1,19 @@
 <template>
-    <i-form :model="this.data" class='app-form' ref='form'  id='task_startform' style="">
+    <i-form :model="this.data" class='app-form' ref='form'  id='task_closepausecancelform' style="">
     <input style="display:none;" />
     <row >
             
-<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 23, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.startform_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.closepausecancelform_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
-        <i-col v-show="detailsModel.realstarted.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='realstarted' :itemRules="this.rules.realstarted" class='' :caption="$t('entities.task.startform_form.details.realstarted')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.realstarted.error" :isEmptyCaption="false" labelPos="LEFT">
-    <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.realstarted" :disabled="detailsModel.realstarted.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.realstarted = val1 }"></date-picker>
-</app-form-item>
-
-</i-col>
-<i-col v-show="detailsModel.consumed.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='consumed' :itemRules="this.rules.consumed" class='' :caption="$t('entities.task.startform_form.details.consumed')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.consumed.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.consumed"  @enter="onEnter($event)"   unit="小时"  :disabled="detailsModel.consumed.disabled" type='number'  style=""></input-box>
-</app-form-item>
-
-</i-col>
-<i-col v-show="detailsModel.left.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='left' :itemRules="this.rules.left" class='' :caption="$t('entities.task.startform_form.details.left')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.left.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.left"  @enter="onEnter($event)"   unit="小时"  :disabled="detailsModel.left.disabled" type='number'  style=""></input-box>
-</app-form-item>
-
-</i-col>
-<i-col v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='formitem' :itemRules="this.rules.formitem" class='' :caption="$t('entities.task.startform_form.details.formitem')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem.error" :isEmptyCaption="false" labelPos="LEFT">
+        <i-col v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='formitem' :itemRules="this.rules.formitem" class='' :caption="$t('entities.task.closepausecancelform_form.details.formitem')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-rich-text-editor :formState="formState" :value="data.formitem" @change="(val) =>{this.data.formitem =val}" :disabled="detailsModel.formitem.disabled"  name="formitem" style=""></app-rich-text-editor>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.startform_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.closepausecancelform_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
         <i-col v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-druipart
@@ -79,7 +61,7 @@ import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import { UIActionTool,Util } from '@/utils';
 import TaskService from '@/service/task/task-service';
-import StartFormService from './start-form-form-service';
+import ClosePauseCancelFormService from './close-pause-cancel-form-form-service';
 
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -90,13 +72,13 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
       
     }
 })
-export default class StartFormBase extends Vue implements ControlInterface {
+export default class ClosePauseCancelFormBase extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     @Prop() public name?: string;
 
@@ -104,7 +86,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     @Prop() public viewState!: Subject<ViewState>;
 
@@ -112,7 +94,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 应用上下文
      *
      * @type {*}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     @Prop() public context: any;
 
@@ -120,7 +102,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 视图参数
      *
      * @type {*}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     @Prop() public viewparams: any;
 
@@ -129,7 +111,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      *
      * @public
      * @type {(Subscription | undefined)}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public viewStateEvent: Subscription | undefined;
 
@@ -137,7 +119,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public getControlType(): string {
         return 'FORM'
@@ -149,23 +131,23 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 计数器服务对象集合
      *
      * @type {Array<*>}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */    
     public counterServiceArray:Array<any> = [];
 
     /**
      * 建构部件服务对象
      *
-     * @type {StartFormService}
-     * @memberof StartForm
+     * @type {ClosePauseCancelFormService}
+     * @memberof ClosePauseCancelForm
      */
-    public service: StartFormService = new StartFormService({ $store: this.$store });
+    public service: ClosePauseCancelFormService = new ClosePauseCancelFormService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {TaskService}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public appEntityService: TaskService = new TaskService({ $store: this.$store });
     
@@ -175,7 +157,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 关闭视图
      *
      * @param {any} args
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public closeView(args: any): void {
         let _this: any = this;
@@ -185,7 +167,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
     /**
      *  计数器刷新
      *
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public counterRefresh(){
         const _this:any =this;
@@ -202,7 +184,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
     /**
      * 工作流审批意见控件绑定值
      *
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public srfwfmemo:string = "";
     
@@ -210,7 +192,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public getDatas(): any[] {
         return [this.data];
@@ -220,7 +202,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public getData(): any {
         return this.data;
@@ -230,7 +212,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 是否默认保存
      *
      * @type {boolean}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     @Prop({ default: false }) public autosave?: boolean;
 
@@ -238,7 +220,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     @Prop({ default: true }) public showBusyIndicator?: boolean;
 
@@ -246,7 +228,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 部件行为--submit
      *
      * @type {string}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     @Prop() public WFSubmitAction!: string;
     
@@ -254,7 +236,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 部件行为--start
      *
      * @type {string}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     @Prop() public WFStartAction!: string;
     
@@ -262,7 +244,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 部件行为--update
      *
      * @type {string}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     @Prop() public updateAction!: string;
     
@@ -270,7 +252,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 部件行为--remove
      *
      * @type {string}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     @Prop() public removeAction!: string;
     
@@ -278,7 +260,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 部件行为--loaddraft
      *
      * @type {string}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     @Prop() public loaddraftAction!: string;
     
@@ -286,7 +268,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 部件行为--load
      *
      * @type {string}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     @Prop() public loadAction!: string;
     
@@ -294,7 +276,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     @Prop() public createAction!: string;
 
@@ -302,7 +284,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     @Prop() public searchAction!: string;
 
@@ -310,7 +292,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 视图标识
      *
      * @type {string}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     @Prop() public viewtag!: string;
 
@@ -318,7 +300,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 表单状态
      *
      * @type {Subject<any>}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public formState: Subject<any> = new Subject();
 
@@ -326,7 +308,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 忽略表单项值变化
      *
      * @type {boolean}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public ignorefieldvaluechange: boolean = false;
 
@@ -335,7 +317,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      *
      * @public
      * @type {Subject<any>}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public dataChang: Subject<any> = new Subject();
 
@@ -344,7 +326,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      *
      * @public
      * @type {(Subscription | undefined)}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public dataChangEvent: Subscription | undefined;
 
@@ -353,7 +335,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      *
      * @public
      * @type {*}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public oldData: any = {};
 
@@ -361,7 +343,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 表单数据对象
      *
      * @type {*}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public data: any = {
         srfupdatedate: null,
@@ -372,9 +354,6 @@ export default class StartFormBase extends Vue implements ControlInterface {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        realstarted: null,
-        consumed: null,
-        left: null,
         formitem: null,
         id: null,
         task:null,
@@ -384,7 +363,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
       * 当前执行的行为逻辑
       *
       * @type {string}
-      * @memberof StartForm
+      * @memberof ClosePauseCancelForm
       */
     public currentAction: string = "";
 
@@ -392,7 +371,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
       * 关系界面计数器
       *
       * @type {number}
-      * @memberof StartForm
+      * @memberof ClosePauseCancelForm
       */
     public drcounter: number = 0;
 
@@ -400,7 +379,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
       * 需要等待关系界面保存时，第一次调用save参数的备份
       *
       * @type {number}
-      * @memberof StartForm
+      * @memberof ClosePauseCancelForm
       */
     public drsaveopt: any = {};
 
@@ -408,7 +387,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
       * 表单保存回调存储对象
       *
       * @type {any}
-      * @memberof StartForm
+      * @memberof ClosePauseCancelForm
       */
     public saveState:any ;
 
@@ -416,7 +395,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 属性值规则
      *
      * @type {*}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public rules: any = {
         srfupdatedate: [
@@ -467,24 +446,6 @@ export default class StartFormBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
-        realstarted: [
-            { type: 'string', message: '实际开始 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '实际开始 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '实际开始 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '实际开始 值不能为空', trigger: 'blur' },
-        ],
-        consumed: [
-            { type: 'number', message: '总计消耗 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '总计消耗 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '总计消耗 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '总计消耗 值不能为空', trigger: 'blur' },
-        ],
-        left: [
-            { type: 'number', message: '预计剩余 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '预计剩余 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '预计剩余 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '预计剩余 值不能为空', trigger: 'blur' },
-        ],
         formitem: [
             { type: 'string', message: '备注 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '备注 值必须为字符串类型', trigger: 'blur' },
@@ -503,14 +464,14 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public detailsModel: any = {
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
 , 
-        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.task.startform_form', extractMode: 'ITEM', details: [] } })
+        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.task.closepausecancelform_form', extractMode: 'ITEM', details: [] } })
 , 
-        group1: new FormGroupPanelModel({ caption: '任务基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.task.startform_form', extractMode: 'ITEM', details: [] } })
+        group1: new FormGroupPanelModel({ caption: '任务基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.task.closepausecancelform_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
@@ -530,12 +491,6 @@ export default class StartFormBase extends Vue implements ControlInterface {
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        realstarted: new FormItemModel({ caption: '实际开始', detailType: 'FORMITEM', name: 'realstarted', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        consumed: new FormItemModel({ caption: '总计消耗', detailType: 'FORMITEM', name: 'consumed', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        left: new FormItemModel({ caption: '预计剩余', detailType: 'FORMITEM', name: 'left', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
         formitem: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
@@ -547,7 +502,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     @Watch('data.srfupdatedate')
     onSrfupdatedateChange(newVal: any, oldVal: any) {
@@ -559,7 +514,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     @Watch('data.srforikey')
     onSrforikeyChange(newVal: any, oldVal: any) {
@@ -571,7 +526,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     @Watch('data.srfkey')
     onSrfkeyChange(newVal: any, oldVal: any) {
@@ -583,7 +538,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     @Watch('data.srfmajortext')
     onSrfmajortextChange(newVal: any, oldVal: any) {
@@ -595,7 +550,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     @Watch('data.srftempmode')
     onSrftempmodeChange(newVal: any, oldVal: any) {
@@ -607,7 +562,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     @Watch('data.srfuf')
     onSrfufChange(newVal: any, oldVal: any) {
@@ -619,7 +574,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     @Watch('data.srfdeid')
     onSrfdeidChange(newVal: any, oldVal: any) {
@@ -631,7 +586,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     @Watch('data.srfsourcekey')
     onSrfsourcekeyChange(newVal: any, oldVal: any) {
@@ -639,47 +594,11 @@ export default class StartFormBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 realstarted 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof StartForm
-     */
-    @Watch('data.realstarted')
-    onRealstartedChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'realstarted', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 consumed 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof StartForm
-     */
-    @Watch('data.consumed')
-    onConsumedChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'consumed', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 left 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof StartForm
-     */
-    @Watch('data.left')
-    onLeftChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'left', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
      * 监控表单属性 formitem 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     @Watch('data.formitem')
     onFormitemChange(newVal: any, oldVal: any) {
@@ -691,7 +610,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     @Watch('data.id')
     onIdChange(newVal: any, oldVal: any) {
@@ -704,7 +623,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      *
      * @public
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
     }
@@ -730,13 +649,10 @@ export default class StartFormBase extends Vue implements ControlInterface {
      *
      * @public
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
-
-
-
 
 
 
@@ -759,7 +675,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * @public
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
      * @returns {void}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public formDataChange({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
         if (this.ignorefieldvaluechange) {
@@ -776,7 +692,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * @public
      * @param {*} [data={}]
      * @param {string} [action]
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public onFormLoad(data: any = {},action:string): void {
         if(Object.is(action,"save") || Object.is(action,"autoSave") || Object.is(action,"submit"))
@@ -797,7 +713,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      *
      * @param {*} [_datas={}]
      * @param {string} [action]
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public fillForm(_datas: any = {},action:string): void {
         this.ignorefieldvaluechange = true;
@@ -822,7 +738,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      *
      * @public
      * @param {*} data
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public setFormEnableCond(data: any): void {
         Object.values(this.detailsModel).forEach((detail: any) => {
@@ -838,7 +754,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 重置草稿表单状态
      *
      * @public
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public resetDraftFormStates(): void {
         const form: any = this.$refs.form;
@@ -850,7 +766,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
     /**
      * 重置校验结果
      *
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public resetValidates(): void {
         Object.values(this.detailsModel).forEach((detail: any) => {
@@ -866,7 +782,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 填充校验结果 （后台）
      *
      * @param {any[]} fieldErrors
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public fillValidates(fieldErrors: any[]): void {
         fieldErrors.forEach((error: any) => {
@@ -884,7 +800,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 表单校验状态
      *
      * @returns {boolean} 
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public formValidateStatus(): boolean {
         const form: any = this.$refs.form;
@@ -899,7 +815,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 获取全部值
      *
      * @returns {*}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public getValues(): any {
         return this.data;
@@ -910,7 +826,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      *
      * @param {{ name: string, value: any }} $event
      * @returns {void}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public onFormItemValueChange($event: { name: string, value: any }): void {
         if (!$event) {
@@ -928,7 +844,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * @param {string} name
      * @param {*} value
      * @returns {void}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public setDataItemValue(name: string, value: any): void {
         if (!name || Object.is(name, '') || !this.data.hasOwnProperty(name)) {
@@ -946,7 +862,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 分组界面行为事件
      *
      * @param {*} $event
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public groupUIActionClick($event: any): void {
         if (!$event) {
@@ -958,7 +874,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
     /**
      * Vue声明周期(处理组件的输入属性)
      *
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public created(): void {
         this.afterCreated();
@@ -967,7 +883,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof StartForm
+     *  @memberof ClosePauseCancelForm
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -1024,7 +940,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
     /**
      * vue 生命周期
      *
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public destroyed() {
         this.afterDestroy();
@@ -1033,7 +949,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -1048,7 +964,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 拷贝内容
      *
      * @param {*} [arg={}]
-     * @memberof @memberof StartForm
+     * @memberof @memberof ClosePauseCancelForm
      */
     public copy(srfkey: string): void {
         let copyData = this.$store.getters.getCopyData(srfkey);
@@ -1066,18 +982,18 @@ export default class StartFormBase extends Vue implements ControlInterface {
 
     /**
      *打印
-     *@memberof @memberof StartForm
+     *@memberof @memberof ClosePauseCancelForm
      */
     public print(){
         let _this:any = this;
-        _this.$print({id:'task_startform',popTitle:'开始表单'});
+        _this.$print({id:'task_closepausecancelform',popTitle:'关闭、暂停、取消表单'});
     }
 
     /**
      * 部件刷新
      *
      * @param {any[]} args
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public refresh(args: any[]): void {
         let arg: any = {};
@@ -1099,7 +1015,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      *
      * @param {*} [arg={}]
      * @returns {void}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public autoLoad(arg: any = {}): void {
         if (arg.srfkey && !Object.is(arg.srfkey, '')) {
@@ -1120,11 +1036,11 @@ export default class StartFormBase extends Vue implements ControlInterface {
      *
      * @public
      * @param {*} [opt={}]
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public load(opt: any = {}): void {
         if(!this.loadAction){
-            this.$Notice.error({ title: '错误', desc: 'TaskOpenTaskView视图表单loadAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'TaskClosePauseCancelView视图表单loadAction参数未配置' });
             return;
         }
         const arg: any = { ...opt };
@@ -1155,11 +1071,11 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 加载草稿
      *
      * @param {*} [opt={}]
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public loadDraft(opt: any = {}): void {
         if(!this.loaddraftAction){
-            this.$Notice.error({ title: '错误', desc: 'TaskOpenTaskView视图表单loaddraftAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'TaskClosePauseCancelView视图表单loaddraftAction参数未配置' });
             return;
         }
         const arg: any = { ...opt } ;
@@ -1209,7 +1125,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 自动保存
      *
      * @param {*} [opt={}]
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public autoSave(opt: any = {}): void {
         if (!this.formValidateStatus()) {
@@ -1221,7 +1137,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
         const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
         if(!action){
             let actionName:any = Object.is(data.srfuf, '1')?"updateAction":"createAction";
-            this.$Notice.error({ title: '错误', desc: 'TaskOpenTaskView视图表单'+actionName+'参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'TaskClosePauseCancelView视图表单'+actionName+'参数未配置' });
             return;
         }
         Object.assign(arg,{viewparams:this.viewparams});
@@ -1260,7 +1176,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * @param {boolean} [showResultInfo] 
      * @param {boolean} [ifStateNext] formState是否下发通知
      * @returns {Promise<any>}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public async save(opt: any = {}, showResultInfo?: boolean, ifStateNext: boolean = true): Promise<any> {
         return new Promise((resolve: any, reject: any) => {
@@ -1285,7 +1201,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
             const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
             if(!action){
                 let actionName:any = Object.is(data.srfuf, '1')?"updateAction":"createAction";
-                this.$Notice.error({ title: '错误', desc: 'TaskOpenTaskView视图表单'+actionName+'参数未配置' });
+                this.$Notice.error({ title: '错误', desc: 'TaskClosePauseCancelView视图表单'+actionName+'参数未配置' });
                 return;
             }
             Object.assign(arg,{viewparams:this.viewparams});
@@ -1335,7 +1251,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
     public remove(opt:Array<any> = [],showResultInfo?: boolean): Promise<any> {
         return new Promise((resolve: any, reject: any) => {
             if(!this.removeAction){
-                this.$Notice.error({ title: '错误', desc: 'TaskOpenTaskView视图表单removeAction参数未配置' });
+                this.$Notice.error({ title: '错误', desc: 'TaskClosePauseCancelView视图表单removeAction参数未配置' });
                 return;
             }
             const arg: any = opt[0];
@@ -1364,7 +1280,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * @param {*} [data={}]
      * @param {*} [localdata={}]
      * @returns {Promise<any>}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public async wfstart(data: any,localdata?:any): Promise<any> {
         return new Promise((resolve: any, reject: any) => {
@@ -1420,7 +1336,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * @param {*} [data={}]
      * @param {*} [localdata={}]
      * @returns {Promise<any>}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public async wfsubmit(data: any,localdata?:any): Promise<any> {
         return new Promise((resolve: any, reject: any) => {
@@ -1496,7 +1412,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * @param {string[]} updateDetails 更新项
      * @param {boolean} [showloading] 是否显示加载状态
      * @returns {void}
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public updateFormItems(mode: string, data: any = {}, updateDetails: string[], showloading?: boolean): void {
         if (!mode || (mode && Object.is(mode, ''))) {
@@ -1541,7 +1457,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 回车事件
      *
      * @param {*} $event
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public onEnter($event: any): void {
     }
@@ -1550,7 +1466,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 保存并退出
      *
      * @param {any[]} args
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public saveAndExit(data:any[]):Promise<any>{
         let _this = this;
@@ -1575,7 +1491,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 保存并新建
      *
      * @param {any[]} args
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public saveAndNew(data:any[]):Promise<any>{
         let _this = this;
@@ -1598,7 +1514,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
      * 删除并退出
      *
      * @param {any[]} args
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public removeAndExit(data:any[]):Promise<any>{
         let _this = this;
@@ -1622,7 +1538,7 @@ export default class StartFormBase extends Vue implements ControlInterface {
     * 关系界面数据保存完成
     *
     * @param {any} $event
-    * @memberof StartForm
+    * @memberof ClosePauseCancelForm
     */
     public drdatasaved($event:any){
         let _this = this;
@@ -1646,14 +1562,14 @@ export default class StartFormBase extends Vue implements ControlInterface {
 
     /**
      * 新建默认值
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public createDefault(){                    
     }
 
     /**
      * 更新默认值
-     * @memberof StartForm
+     * @memberof ClosePauseCancelForm
      */
     public updateDefault(){                    
     }
@@ -1663,5 +1579,5 @@ export default class StartFormBase extends Vue implements ControlInterface {
 </script>
 
 <style lang='less'>
-@import './start-form-form.less';
+@import './close-pause-cancel-form-form.less';
 </style>

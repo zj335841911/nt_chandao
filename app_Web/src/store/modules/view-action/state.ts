@@ -206,6 +206,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '21e00a7239d9737bbfda5c1608b4129c',
+            viewmodule: 'zentao',
+            viewname: 'TaskMainEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
             viewtag: '2e0d4fb0f3e1ba1ba5bea16a5553cc21',
             viewmodule: 'zentao',
             viewname: 'TaskMainGridView9_Child',
@@ -837,8 +847,11 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '575fecad655143bbd28f17c581725a4e',
+                '21e00a7239d9737bbfda5c1608b4129c',
+                'c9c256aef78723e1bf9ddc1d38667c3f',
+                'b78229d8342c2c13ddd8e403a7d853bc',
+                'abca63015fc84466991c6479f955f6d0',
                 'ea141fddc78fd1af4d06e494baf12cc1',
-                'e54694a51c2a377a8eafcbeda4d58df4',
             ],
         },
         {
@@ -882,12 +895,32 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'abca63015fc84466991c6479f955f6d0',
+            viewmodule: 'zentao',
+            viewname: 'TaskOpenTaskView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
             viewtag: 'b5d2389c0dd12ae614b319090ecc2361',
             viewmodule: 'zentao',
             viewname: 'ProductDashboardInfoMainView9',
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'b78229d8342c2c13ddd8e403a7d853bc',
+            viewmodule: 'zentao',
+            viewname: 'TaskClosePauseCancelView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
             ],
         },
         {
@@ -954,6 +987,16 @@ export const viewstate: any = {
                 '1540523a668e920d831510cfbec2c5e2',
                 '46517a803b2470cd0bef27aeda0dbcaf',
                 '122af527bf38b47ddc53c882847b490e',
+            ],
+        },
+        {
+            viewtag: 'c9c256aef78723e1bf9ddc1d38667c3f',
+            viewmodule: 'zentao',
+            viewname: 'TaskDoneView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
             ],
         },
         {
@@ -1091,16 +1134,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: 'e54694a51c2a377a8eafcbeda4d58df4',
-            viewmodule: 'zentao',
-            viewname: 'TaskStartEditView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '770a170098d148e438a7666b248e6519',
-            ],
-        },
-        {
             viewtag: 'e644f7976b08c3d7f14fd7e1d5329da8',
             viewmodule: 'zentao',
             viewname: 'DeptPickupGridView',
@@ -1116,8 +1149,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '5a8a29268a7563b62fc0160233958830',
-                'cb6c278fd7205b3de3fc041816d15dd8',
             ],
         },
         {

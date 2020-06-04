@@ -79,6 +79,7 @@ export default class TaskUIServiceBase extends UIService {
      * @memberof  TaskUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'maineditview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'maingridview9_child',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'maininfoview9',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'tasks'});
@@ -86,7 +87,9 @@ export default class TaskUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'pivottableview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'gridview9_assignedtome',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'maingridview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'starteditview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'opentaskview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'closepausecancelview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'doneview',srfappde:'tasks'});
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'maindetailview9',srfappde:'tasks'});
     }
@@ -100,7 +103,7 @@ export default class TaskUIServiceBase extends UIService {
     }
 
     /**
-     * 开始任务
+     * 开始
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
@@ -137,7 +140,7 @@ export default class TaskUIServiceBase extends UIService {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;
                 }
-                actionContext.$Notice.success({ title: '成功', desc: '开始任务成功！' });
+                actionContext.$Notice.success({ title: '成功', desc: '开始成功！' });
 
                 const _this: any = actionContext;
                 return response;
@@ -153,10 +156,190 @@ export default class TaskUIServiceBase extends UIService {
             });
         };
         const view = { 
-            viewname: 'task-start-edit-view', 
-            title: actionContext.$t('entities.task.views.starteditview.title'),
-            height: 600, 
-            width: 800, 
+            viewname: 'task-open-task-view', 
+            title: actionContext.$t('entities.task.views.opentaskview.title'),
+            height: 0, 
+            width: 0, 
+        };
+        const appmodal = actionContext.$appmodal.openModal(view,context,data);
+        appmodal.subscribe((result:any) => {
+            if (result && Object.is(result.ret, 'OK')) {
+                Object.assign(data, { srfactionparam: result.datas });
+                backend();
+            }
+        });
+    }
+
+    /**
+     * 编辑
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Task_MainEdit(args: any[], context:any = {} ,params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        let data: any = {};
+        const _args: any[] = Util.deepCopy(args);
+        const _this: any = actionContext;
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { task: '%task%' });
+        Object.assign(params, { id: '%task%' });
+        Object.assign(params, { name: '%name%' });
+        context = UIActionTool.handleContextParam(actionTarget,_args,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.project && true){
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+            { pathName: 'maineditview', parameterName: 'maineditview' },
+        ];
+        const openIndexViewTab = (data: any) => {
+            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
+            actionContext.$router.push(routePath);
+            return null;
+        }
+        openIndexViewTab(data);
+    }
+
+    /**
+     * 关闭
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Task_CloseTask(args: any[],context:any = {}, params?: any, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let data: any = {};
+        const _args: any[] = Util.deepCopy(args);
+        const _this: any = actionContext;
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { task: '%task%' });
+        Object.assign(params, { id: '%task%' });
+        Object.assign(params, { name: '%name%' });
+        context = UIActionTool.handleContextParam(actionTarget,_args,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        const backend = () => {
+            const curService:TaskService =  new TaskService();
+            curService.Get(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '关闭成功！' });
+
+                const _this: any = actionContext;
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        const view = { 
+            viewname: 'task-close-pause-cancel-view', 
+            title: actionContext.$t('entities.task.views.closepausecancelview.title'),
+            height: 0, 
+            width: 0, 
+        };
+        const appmodal = actionContext.$appmodal.openModal(view,context,data);
+        appmodal.subscribe((result:any) => {
+            if (result && Object.is(result.ret, 'OK')) {
+                Object.assign(data, { srfactionparam: result.datas });
+                backend();
+            }
+        });
+    }
+
+    /**
+     * 完成
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Task_DoneTask(args: any[],context:any = {}, params?: any, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let data: any = {};
+        const _args: any[] = Util.deepCopy(args);
+        const _this: any = actionContext;
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { task: '%task%' });
+        Object.assign(params, { id: '%task%' });
+        Object.assign(params, { name: '%name%' });
+        context = UIActionTool.handleContextParam(actionTarget,_args,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        const backend = () => {
+            const curService:TaskService =  new TaskService();
+            curService.Get(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '完成成功！' });
+
+                const _this: any = actionContext;
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        const view = { 
+            viewname: 'task-done-view', 
+            title: actionContext.$t('entities.task.views.doneview.title'),
+            height: 0, 
+            width: 0, 
         };
         const appmodal = actionContext.$appmodal.openModal(view,context,data);
         appmodal.subscribe((result:any) => {

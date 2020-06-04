@@ -173,6 +173,21 @@
                               <i class=''></i>
                               {{$t('entities.task.main_grid.uiactions.starttask')}}
                             </a>
+                            <divider type='vertical'></divider>
+                            <a @click="uiAction(scope.row, 'CloseTask', $event)">
+                              <i class=''></i>
+                              {{$t('entities.task.main_grid.uiactions.closetask')}}
+                            </a>
+                            <divider type='vertical'></divider>
+                            <a @click="uiAction(scope.row, 'DoneTask', $event)">
+                              <i class=''></i>
+                              {{$t('entities.task.main_grid.uiactions.donetask')}}
+                            </a>
+                            <divider type='vertical'></divider>
+                            <a @click="uiAction(scope.row, 'MainEdit', $event)">
+                              <i class=''></i>
+                              {{$t('entities.task.main_grid.uiactions.mainedit')}}
+                            </a>
                         </span>
                     </template>
                 </el-table-column>
@@ -345,6 +360,93 @@ export default class MainBase extends Vue implements ControlInterface {
         // 界面行为
         const curUIService:TaskUIService  = new TaskUIService();
         curUIService.Task_StartTask(datas,contextJO, paramJO,  $event, xData,this,"Task");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u164e1c8_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TaskUIService  = new TaskUIService();
+        curUIService.Task_CloseTask(datas,contextJO, paramJO,  $event, xData,this,"Task");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u2618d3d_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TaskUIService  = new TaskUIService();
+        curUIService.Task_DoneTask(datas,contextJO, paramJO,  $event, xData,this,"Task");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u90f5316_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TaskUIService  = new TaskUIService();
+        curUIService.Task_MainEdit(datas,contextJO, paramJO,  $event, xData,this,"Task");
     }
 
 
@@ -1528,6 +1630,15 @@ export default class MainBase extends Vue implements ControlInterface {
 	public uiAction(row: any, tag: any, $event: any) {
         if(Object.is('StartTask', tag)) {
             this.grid_uagridcolumn1_u7f3dc22_click(row, tag, $event);
+        }
+        if(Object.is('CloseTask', tag)) {
+            this.grid_uagridcolumn1_u164e1c8_click(row, tag, $event);
+        }
+        if(Object.is('DoneTask', tag)) {
+            this.grid_uagridcolumn1_u2618d3d_click(row, tag, $event);
+        }
+        if(Object.is('MainEdit', tag)) {
+            this.grid_uagridcolumn1_u90f5316_click(row, tag, $event);
         }
     }
 

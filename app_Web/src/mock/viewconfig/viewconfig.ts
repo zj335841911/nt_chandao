@@ -167,6 +167,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugMPickupView",
             "viewtag": "21d716ac12c793af54b112a5a3599674"
         },
+        "taskmaineditview": {
+            "title": "任务",
+            "caption": "任务",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskMainEditView",
+            "viewtag": "21e00a7239d9737bbfda5c1608b4129c"
+        },
         "moduleeditview": {
             "title": "模块",
             "caption": "模块",
@@ -719,6 +727,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CompanyMainView",
             "viewtag": "abc58a7e8f6c6860ef5ea3ead20e5ffd"
         },
+        "taskopentaskview": {
+            "title": "开始任务",
+            "caption": "开始任务",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskOpenTaskView",
+            "viewtag": "abca63015fc84466991c6479f955f6d0"
+        },
         "companyeditview": {
             "title": "company编辑视图",
             "caption": "公司信息",
@@ -734,6 +750,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ProductDashboardInfoMainView9",
             "viewtag": "b5d2389c0dd12ae614b319090ecc2361"
+        },
+        "taskclosepausecancelview": {
+            "title": "任务选项操作视图",
+            "caption": "任务",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskClosePauseCancelView",
+            "viewtag": "b78229d8342c2c13ddd8e403a7d853bc"
         },
         "storympickupview": {
             "title": "关联需求",
@@ -790,6 +814,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "BugGridView",
             "viewtag": "c9410c9f72535adf1fff569d5243edd1"
+        },
+        "taskdoneview": {
+            "title": "完成任务",
+            "caption": "完成任务",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskDoneView",
+            "viewtag": "c9c256aef78723e1bf9ddc1d38667c3f"
         },
         "modulepickupview": {
             "title": "模块选择",
@@ -902,14 +934,6 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "StoryEditView_StoryChange",
             "viewtag": "e54598b1e6d38d7c6ce8231b531b46bd"
-        },
-        "taskstarteditview": {
-            "title": "开始",
-            "caption": "任务",
-            "viewtype": "DEEDITVIEW",
-            "viewmodule": "zentao",
-            "viewname": "TaskStartEditView",
-            "viewtag": "e54694a51c2a377a8eafcbeda4d58df4"
         },
         "deptpickupgridview": {
             "title": "dept选择表格视图",
