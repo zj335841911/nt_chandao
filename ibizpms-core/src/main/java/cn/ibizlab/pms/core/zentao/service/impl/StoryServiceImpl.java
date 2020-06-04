@@ -100,19 +100,14 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     }
     @Override
     @Transactional
-    public boolean change(Story et) {
+    public Story change(Story et) {
         cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.change((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return bRst;
-    }
-
-    @Override
-    public void changeBatch(List<Story> list) {
-
+	    return et;
     }
 
     @Override
@@ -150,36 +145,26 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     }
     @Override
     @Transactional
-    public boolean review(Story et) {
+    public Story review(Story et) {
         cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.review((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return bRst;
-    }
-
-    @Override
-    public void reviewBatch(List<Story> list) {
-
+	    return et;
     }
 
     @Override
     @Transactional
-    public boolean assignTo(Story et) {
+    public Story assignTo(Story et) {
         cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.assignTo((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return bRst;
-    }
-
-    @Override
-    public void assignToBatch(List<Story> list) {
-
+	    return et;
     }
 
     @Override
@@ -230,19 +215,14 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
 
     @Override
     @Transactional
-    public boolean close(Story et) {
+    public Story close(Story et) {
         cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.close((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return bRst;
-    }
-
-    @Override
-    public void closeBatch(List<Story> list) {
-
+	    return et;
     }
 
 
