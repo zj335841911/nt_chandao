@@ -111,7 +111,7 @@ export default class TaskUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Task_StartTask(args: any[], context:any = {} ,params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public async Task_StartTask(args: any[],context:any = {}, params?: any, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
         let data: any = {};
         const _args: any[] = Util.deepCopy(args);
         const _this: any = actionContext;
@@ -125,36 +125,46 @@ export default class TaskUIServiceBase extends UIService {
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        if(context.project && true){
-            deResParameters = [
-            { pathName: 'projects', parameterName: 'project' },
-            ]
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
         }
-        const parameters: any[] = [
-            { pathName: 'tasks', parameterName: 'task' },
-        ];
-            const openPopupModal = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
-                    return result.datas;
-                });
+        const backend = () => {
+            const curService:TaskService =  new TaskService();
+            curService.Get(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '开始任务成功！' });
+
+                const _this: any = actionContext;
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        const view = { 
+            viewname: 'task-start-edit-view', 
+            title: actionContext.$t('entities.task.views.starteditview.title'),
+            height: 600, 
+            width: 800, 
+        };
+        const appmodal = actionContext.$appmodal.openModal(view,context,data);
+        appmodal.subscribe((result:any) => {
+            if (result && Object.is(result.ret, 'OK')) {
+                Object.assign(data, { srfactionparam: result.datas });
+                backend();
             }
-            const view: any = {
-                viewname: 'task-start-edit-view', 
-                height: 600, 
-                width: 800,  
-                title: actionContext.$t('entities.task.views.starteditview.title'),
-            };
-            openPopupModal(view, data);
+        });
     }
 
 

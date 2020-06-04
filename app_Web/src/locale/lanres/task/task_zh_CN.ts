@@ -203,7 +203,6 @@ export default {
 			srfuf: '', 
 			srfdeid: '', 
 			srfsourcekey: '', 
-			status: '任务状态', 
 			realstarted: '实际开始', 
 			consumed: '总计消耗', 
 			left: '预计剩余', 

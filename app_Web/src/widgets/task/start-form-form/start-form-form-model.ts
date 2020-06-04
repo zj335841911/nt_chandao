@@ -56,11 +56,6 @@ export default class StartFormModel {
         name: 'srfsourcekey',
       },
       {
-        name: 'status',
-        prop: 'status',
-        dataType: 'SSCODELIST',
-      },
-      {
         name: 'realstarted',
         prop: 'realstarted',
         dataType: 'DATE',

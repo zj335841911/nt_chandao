@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+    <process id="cn.ibizlab.pms.core.zentao.service.logic.taskopentask" isClosed="false" isExecutable="true" name="ScoreRule" processType="Private" tns:packageName="cn.ibizlab.pms.core.zentao.service.logic.taskopentask">
+        <extensionElements>
+            <tns:import name="java.util.Map" />
+            <tns:import name="org.springframework.util.StringUtils"/>
+            <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+        <tns:global identifier="taskopentaskdefault" type="cn.ibizlab.pms.core.zentao.domain.Task" />
+        </extensionElements>
+     <startEvent id="C36410C5-650C-4B91-9A62-D0DA71234151" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskopentaskprepareparam1" id="DDF22910-5A4B-47D8-8678-6253F0C8176E" implementation="http://www.jboss.org/drools/rule" name="修改状态为开始"/>
+     <endEvent id="DDF22910-5A4B-47D8-8678-6253F0C8176E_End" name="End"/>
+     <sequenceFlow id="DDF22910-5A4B-47D8-8678-6253F0C8176E_End_Line" sourceRef="DDF22910-5A4B-47D8-8678-6253F0C8176E" targetRef="DDF22910-5A4B-47D8-8678-6253F0C8176E_End"/>
+     <sequenceFlow id="4DE00E3E-3C0C-4D3D-B818-1E34DD1E0E46" sourceRef="C36410C5-650C-4B91-9A62-D0DA71234151" targetRef="DDF22910-5A4B-47D8-8678-6253F0C8176E">
+     </sequenceFlow>
+    </process>
+</definitions>
+

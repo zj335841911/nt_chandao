@@ -449,7 +449,6 @@ export default class StartFormBase extends Vue implements ControlInterface {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        status: null,
         realstarted: null,
         consumed: null,
         left: null,
@@ -545,12 +544,6 @@ export default class StartFormBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
-        status: [
-            { type: 'string', message: '任务状态 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '任务状态 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '任务状态 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '任务状态 值不能为空', trigger: 'blur' },
-        ],
         realstarted: [
             { type: 'string', message: '实际开始 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '实际开始 值必须为字符串类型', trigger: 'blur' },
@@ -618,8 +611,6 @@ export default class StartFormBase extends Vue implements ControlInterface {
         srfdeid: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfdeid', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        status: new FormItemModel({ caption: '任务状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         realstarted: new FormItemModel({ caption: '实际开始', detailType: 'FORMITEM', name: 'realstarted', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -730,18 +721,6 @@ export default class StartFormBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 status 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof StartForm
-     */
-    @Watch('data.status')
-    onStatusChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'status', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
      * 监控表单属性 realstarted 值
      *
      * @param {*} newVal
@@ -837,7 +816,6 @@ export default class StartFormBase extends Vue implements ControlInterface {
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
-
 
 
 
