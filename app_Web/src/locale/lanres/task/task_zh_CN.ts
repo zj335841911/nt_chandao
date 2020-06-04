@@ -73,6 +73,10 @@ export default {
 			caption: '任务',
       title: '任务',
 		},
+		starteditview: {
+			caption: '任务',
+      title: '任务',
+		},
 		editview: {
 			caption: '任务',
       title: '任务',
@@ -183,6 +187,33 @@ export default {
 		uiactions: {
 		},
 	},
+	startform_form: {
+		details: {
+			button1: '开始', 
+			grouppanel2: '分组面板', 
+			druipart1: '', 
+			grouppanel1: '分组面板', 
+			group1: '任务基本信息', 
+			formpage1: '基本信息', 
+			srfupdatedate: '最后修改日期', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '任务名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			status: '任务状态', 
+			realstarted: '实际开始', 
+			consumed: '总计消耗', 
+			left: '预计剩余', 
+			formitem: '备注', 
+			id: '编号', 
+		},
+		uiactions: {
+			saveandexit: '保存并关闭',
+		},
+	},
 	main2_grid: {
 		columns: {
 			id: '编号',
@@ -208,6 +239,7 @@ export default {
 			uagridcolumn1: '操作',
 		},
 		uiactions: {
+			starttask: '开始任务',
 		},
 	},
 	pivottable_grid: {

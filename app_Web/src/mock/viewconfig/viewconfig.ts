@@ -903,6 +903,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryEditView_StoryChange",
             "viewtag": "e54598b1e6d38d7c6ce8231b531b46bd"
         },
+        "taskstarteditview": {
+            "title": "开始",
+            "caption": "任务",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskStartEditView",
+            "viewtag": "e54694a51c2a377a8eafcbeda4d58df4"
+        },
         "deptpickupgridview": {
             "title": "dept选择表格视图",
             "caption": "部门",

@@ -71,6 +71,7 @@ export const PageComponents = {
         Vue.component('project-left-sidebar-list-view', () => import('@pages/zentao/project-left-sidebar-list-view/project-left-sidebar-list-view.vue'));
         Vue.component('story-mpickup-view', () => import('@pages/zentao/story-mpickup-view/story-mpickup-view.vue'));
         Vue.component('action-all-trends-list-view', () => import('@pages/zentao/action-all-trends-list-view/action-all-trends-list-view.vue'));
+        Vue.component('task-start-edit-view', () => import('@pages/zentao/task-start-edit-view/task-start-edit-view.vue'));
         Vue.component('product-edit-view', () => import('@pages/zentao/product-edit-view/product-edit-view.vue'));
         Vue.component('task-grid-view9-assigned-to-me', () => import('@pages/zentao/task-grid-view9-assigned-to-me/task-grid-view9-assigned-to-me.vue'));
         Vue.component('product-life-road-map-list-view', () => import('@pages/ibiz/product-life-road-map-list-view/product-life-road-map-list-view.vue'));

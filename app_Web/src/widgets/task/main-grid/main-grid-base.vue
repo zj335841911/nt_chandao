@@ -168,6 +168,11 @@
                     </template>
                     <template slot-scope="scope">
                         <span>
+                            
+                            <a @click="uiAction(scope.row, 'StartTask', $event)">
+                              <i class=''></i>
+                              {{$t('entities.task.main_grid.uiactions.starttask')}}
+                            </a>
                         </span>
                     </template>
                 </el-table-column>
@@ -223,6 +228,7 @@ import { UIActionTool,Util } from '@/utils';
 import TaskService from '@/service/task/task-service';
 import MainService from './main-grid-service';
 
+import TaskUIService from '@/uiservice/task/task-ui-service';
 import CodeListService from "@service/app/codelist-service";
 import { FormItemModel } from '@/model/form-detail';
 
@@ -311,6 +317,35 @@ export default class MainBase extends Vue implements ControlInterface {
      */
     public appEntityService: TaskService = new TaskService({ $store: this.$store });
     
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u7f3dc22_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TaskUIService  = new TaskUIService();
+        curUIService.Task_StartTask(datas,contextJO, paramJO,  $event, xData,this,"Task");
+    }
 
 
     /**
@@ -1491,6 +1526,9 @@ export default class MainBase extends Vue implements ControlInterface {
      * @memberof Main
      */
 	public uiAction(row: any, tag: any, $event: any) {
+        if(Object.is('StartTask', tag)) {
+            this.grid_uagridcolumn1_u7f3dc22_click(row, tag, $event);
+        }
     }
 
     /**

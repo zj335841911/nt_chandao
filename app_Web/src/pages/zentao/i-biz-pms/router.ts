@@ -1736,6 +1736,33 @@ const router = new Router({
                     component: () => import('@pages/zentao/action-all-trends-list-view/action-all-trends-list-view.vue'),
                 },
                 {
+                    path: 'projects/:project?/tasks/:task?/starteditview/:starteditview?',
+                    meta: {
+                        caption: 'entities.task.views.starteditview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'starteditview', parameterName: 'starteditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-start-edit-view/task-start-edit-view.vue'),
+                },
+                {
+                    path: 'tasks/:task?/starteditview/:starteditview?',
+                    meta: {
+                        caption: 'entities.task.views.starteditview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'starteditview', parameterName: 'starteditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-start-edit-view/task-start-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/editview/:editview?',
                     meta: {
                         caption: 'entities.product.views.editview.caption',
@@ -4913,6 +4940,31 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/zentao/story-edit-view-story-change/story-edit-view-story-change.vue'),
+    },
+    {
+        path: '/projects/:project?/tasks/:task?/starteditview/:starteditview?',
+        meta: {
+            caption: 'entities.task.views.starteditview.caption',
+            parameters: [
+                { pathName: 'projects', parameterName: 'project' },
+                { pathName: 'tasks', parameterName: 'task' },
+                { pathName: 'starteditview', parameterName: 'starteditview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/task-start-edit-view/task-start-edit-view.vue'),
+    },
+    {
+        path: '/tasks/:task?/starteditview/:starteditview?',
+        meta: {
+            caption: 'entities.task.views.starteditview.caption',
+            parameters: [
+                { pathName: 'tasks', parameterName: 'task' },
+                { pathName: 'starteditview', parameterName: 'starteditview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/task-start-edit-view/task-start-edit-view.vue'),
     },
     {
         path: '/depts/:dept?/pickupgridview/:pickupgridview?',

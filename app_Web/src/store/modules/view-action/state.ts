@@ -838,6 +838,7 @@ export const viewstate: any = {
             refviews: [
                 '575fecad655143bbd28f17c581725a4e',
                 'ea141fddc78fd1af4d06e494baf12cc1',
+                'e54694a51c2a377a8eafcbeda4d58df4',
             ],
         },
         {
@@ -1083,6 +1084,16 @@ export const viewstate: any = {
             viewtag: 'e54598b1e6d38d7c6ce8231b531b46bd',
             viewmodule: 'zentao',
             viewname: 'StoryEditView_StoryChange',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: 'e54694a51c2a377a8eafcbeda4d58df4',
+            viewmodule: 'zentao',
+            viewname: 'TaskStartEditView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
