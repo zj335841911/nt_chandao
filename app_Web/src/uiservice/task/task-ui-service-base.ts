@@ -270,8 +270,8 @@ export default class TaskUIServiceBase extends UIService {
         const view = { 
             viewname: 'task-close-pause-cancel-view', 
             title: actionContext.$t('entities.task.views.closepausecancelview.title'),
-            height: 0, 
-            width: 0, 
+            height: 600, 
+            width: 800, 
         };
         const appmodal = actionContext.$appmodal.openModal(view,context,data);
         appmodal.subscribe((result:any) => {
@@ -338,8 +338,8 @@ export default class TaskUIServiceBase extends UIService {
         const view = { 
             viewname: 'task-done-view', 
             title: actionContext.$t('entities.task.views.doneview.title'),
-            height: 0, 
-            width: 0, 
+            height: 600, 
+            width: 800, 
         };
         const appmodal = actionContext.$appmodal.openModal(view,context,data);
         appmodal.subscribe((result:any) => {
