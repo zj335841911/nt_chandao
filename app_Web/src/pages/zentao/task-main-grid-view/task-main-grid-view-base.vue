@@ -1,6 +1,9 @@
 <template>
 <studio-view viewName="taskmaingridview" viewTitle="task表格视图" class='degridview task-main-grid-view'>
     <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
+    <template slot="quickGroupSearch">
+        <app-quick-group :items="quickGroupModel" @valuechange="qucikGroupValueChange"></app-quick-group>
+    </template>
     <template slot="toolbar">
                 <div class='toolbar-container'>
             <i-button :title="$t('entities.task.maingridviewtoolbar_toolbar.deuiaction1.tip')" v-show="toolBarModels.deuiaction1.visabled" :disabled="toolBarModels.deuiaction1.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1' }, $event)">
@@ -477,7 +480,7 @@ export default class TaskMainGridViewBase extends Vue {
         if (_this.loadModel && _this.loadModel instanceof Function) {
             _this.loadModel();
         }
-        
+        _this.loadQuickGroupModel();
 
     }
 
@@ -950,6 +953,100 @@ export default class TaskMainGridViewBase extends Vue {
         }
     }
 
+
+    /**
+     * 代码表服务对象
+     *
+     * @type {CodeListService}
+     * @memberof TaskMainGridViewBase
+     */  
+    public codeListService:CodeListService = new CodeListService({ $store: this.$store });
+
+    /**
+     * 快速分组数据对象
+     *
+     * @memberof TaskMainGridViewBase
+     */
+    public qucikGroupData:any;
+
+    /**
+     * 快速分组是否有抛值
+     *
+     * @memberof TaskMainGridViewBase
+     */
+    public isEmitQuickGroupValue:boolean = false;
+
+    /**
+     * 快速分组模型
+     *
+     * @memberof TaskMainGridViewBase
+     */
+    public quickGroupModel:Array<any> = [];
+
+    /**
+     * 加载快速分组模型
+     *
+     * @memberof TaskMainGridViewBase
+     */
+    public loadQuickGroupModel(){
+        let quickGroupCodeList:any = {tag:'Task_quickpacket',codelistType:'STATIC'};
+        if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType,"STATIC")){
+            const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
+            if (codelist) {
+                this.quickGroupModel = [...this.handleDynamicData(JSON.parse(JSON.stringify(codelist.items)))];
+            } else {
+                console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
+            }
+        }else if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType,"DYNAMIC")){
+            this.codeListService.getItems(quickGroupCodeList.tag,{},{}).then((res:any) => {
+                this.quickGroupModel = res;
+            }).catch((error:any) => {
+                console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
+            });
+        }
+    }
+
+    /**
+     * 处理快速分组模型动态数据部分(%xxx%)
+     *
+     * @memberof TaskMainGridViewBase
+     */
+    public handleDynamicData(inputArray:Array<any>){
+        if(inputArray.length >0){
+            inputArray.forEach((item:any) =>{
+               if(item.data && Object.keys(item.data).length >0){
+                   Object.keys(item.data).forEach((name:any) =>{
+                        let value: any = item.data[name];
+                        if (value && typeof(value)=='string' && value.startsWith('%') && value.endsWith('%')) {
+                            const key = (value.substring(1, value.length - 1)).toLowerCase();
+                            if (this.context[key]) {
+                                value = this.context[key];
+                            } else if(this.viewparams[key]){
+                                value = this.viewparams[key];
+                            }
+                        }
+                        item.data[name] = value;
+                   })
+               }
+            })
+        }
+        return inputArray;
+    }
+
+    /**
+     * 快速分组值变化
+     *
+     * @memberof TaskMainGridViewBase
+     */
+    public qucikGroupValueChange($event:any){
+        if($event && $event.data){
+            this.qucikGroupData = $event.data;
+            if(this.isEmitQuickGroupValue){
+                this.onSearch($event);
+            }
+        }
+        this.isEmitQuickGroupValue = true;
+    }
 }
 </script>
 

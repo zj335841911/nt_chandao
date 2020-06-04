@@ -58,22 +58,22 @@
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
        <![CDATA[	SELECT t1.`BRANCH`, t1.`BUILD`, t11.`NAME` AS `BUILDNAME`, t1.`DATE`, t1.`DELETED`, t1.`ID`, t1.`MARKER`, t1.`NAME`, t1.`PRODUCT`, t1.`STATUS`, t1.`SUBSTATUS` FROM `zt_release` t1  LEFT JOIN zt_build t11 ON t1.BUILD = t11.ID  
-				 WHERE 	t1.DELETED = '0'
+				 WHERE 	t1.deleted = '0'
 			]]>
     </sql>
 
     <!--数据查询[GetList]-->
     <sql id="GetList" databaseId="mysql">
        <![CDATA[	SELECT t1.`BRANCH`, t1.`BUILD`, t11.`NAME` AS `BUILDNAME`, t1.`DATE`, t1.`DELETED`, t1.`ID`, t1.`MARKER`, t1.`NAME`, t1.`PRODUCT`, t1.`STATUS`, t1.`SUBSTATUS` FROM `zt_release` t1  LEFT JOIN zt_build t11 ON t1.BUILD = t11.ID  
-				 WHERE 	t1.DELETED = '0'
-					 AND ( t1.`PRODUCT` = #{srf.datacontext.product}  AND  <#assign _value=srfdatacontext('status','{\"ignoreempty\":true,\"defname\":\"STATUS\",\"dename\":\"ZT_RELEASE\"}')><#if _value?length gt 0>t1.`STATUS` =  ${_value}<#else>1=1</#if> )
+				 WHERE 	t1.deleted = '0'
+					 AND ( t1.`product` = #{srf.datacontext.product}  and  <#assign _value=srfdatacontext('status','{\"ignoreempty\":true,\"defname\":\"status\",\"dename\":\"zt_release\"}')><#if _value?length gt 0>t1.`status` =  ${_value}<#else>1=1</#if> )
 			]]>
     </sql>
 
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
        <![CDATA[	SELECT t1.`BRANCH`, t1.`BUGS`, t1.`BUILD`, t11.`NAME` AS `BUILDNAME`, t1.`DATE`, t1.`DELETED`, t1.`DESC`, t1.`ID`, t1.`LEFTBUGS`, t1.`MARKER`, t1.`NAME`, t1.`PRODUCT`, t1.`STATUS`, t1.`STORIES`, t1.`SUBSTATUS` FROM `zt_release` t1  LEFT JOIN zt_build t11 ON t1.BUILD = t11.ID  
-				 WHERE 	t1.DELETED = '0'
+				 WHERE 	t1.deleted = '0'
 			]]>
     </sql>
 

@@ -27,11 +27,25 @@ import cn.ibizlab.pms.core.zentao.domain.Task;
 @Data
 public class TaskSearchContext extends QueryWrapperContext<Task> {
 
+	private String n_finishedby_eq;//[由谁完成]
+	public void setN_finishedby_eq(String n_finishedby_eq) {
+        this.n_finishedby_eq = n_finishedby_eq;
+        if(!ObjectUtils.isEmpty(this.n_finishedby_eq)){
+            this.getSelectCond().eq("finishedby", n_finishedby_eq);
+        }
+    }
 	private String n_status_eq;//[任务状态]
 	public void setN_status_eq(String n_status_eq) {
         this.n_status_eq = n_status_eq;
         if(!ObjectUtils.isEmpty(this.n_status_eq)){
             this.getSelectCond().eq("status", n_status_eq);
+        }
+    }
+	private String n_status_noteq;//[任务状态]
+	public void setN_status_noteq(String n_status_noteq) {
+        this.n_status_noteq = n_status_noteq;
+        if(!ObjectUtils.isEmpty(this.n_status_noteq)){
+            this.getSelectCond().ne("status", n_status_noteq);
         }
     }
 	private String n_name_like;//[任务名称]
@@ -46,6 +60,13 @@ public class TaskSearchContext extends QueryWrapperContext<Task> {
         this.n_type_eq = n_type_eq;
         if(!ObjectUtils.isEmpty(this.n_type_eq)){
             this.getSelectCond().eq("type", n_type_eq);
+        }
+    }
+	private String n_assignedto_eq;//[指派给]
+	public void setN_assignedto_eq(String n_assignedto_eq) {
+        this.n_assignedto_eq = n_assignedto_eq;
+        if(!ObjectUtils.isEmpty(this.n_assignedto_eq)){
+            this.getSelectCond().eq("assignedto", n_assignedto_eq);
         }
     }
 	private String n_modulename_eq;//[所属模块]

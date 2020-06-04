@@ -56,9 +56,76 @@ export default class MainModel {
         name: 'srfsourcekey',
       },
       {
-        name: 'name',
-        prop: 'name',
+        name: 'projectname',
+        prop: 'projectname',
+        dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'project',
+        prop: 'project',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'type',
+        prop: 'type',
+        dataType: 'SSCODELIST',
+      },
+      {
+        name: 'module',
+        prop: 'module',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'modulename',
+        prop: 'modulename',
+        dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'formitem',
+      },
+      {
+        name: 'assignedto',
+        prop: 'assignedto',
         dataType: 'TEXT',
+      },
+      {
+        name: 'formitem1',
+      },
+      {
+        name: 'story',
+        prop: 'story',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'storyname',
+        prop: 'storyname',
+        dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'desc',
+        prop: 'desc',
+        dataType: 'LONGTEXT',
+      },
+      {
+        name: 'formitem2',
+      },
+      {
+        name: 'deadline',
+        prop: 'deadline',
+        dataType: 'DATE',
+      },
+      {
+        name: 'estsarted',
+        prop: 'eststarted',
+        dataType: 'DATE',
+      },
+      {
+        name: 'formitemex1',
+      },
+      {
+        name: 'mailto',
+        prop: 'mailto',
+        dataType: 'LONGTEXT',
       },
       {
         name: 'id',

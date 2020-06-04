@@ -1,72 +1,45 @@
 import { Http,Util,Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
-import TaskService from '@/service/task/task-service';
-import MainModel from './main-form-model';
-import ProjectService from '@/service/project/project-service';
-import ModuleService from '@/service/module/module-service';
 import StoryService from '@/service/story/story-service';
+import StorySpec_EditModeModel from './story-spec-edit-mode-form-model';
 
 
 /**
- * Main 部件服务对象
+ * StorySpec_EditMode 部件服务对象
  *
  * @export
- * @class MainService
+ * @class StorySpec_EditModeService
  */
-export default class MainService extends ControlService {
+export default class StorySpec_EditModeService extends ControlService {
 
     /**
-     * 任务服务对象
+     * 需求服务对象
      *
-     * @type {TaskService}
-     * @memberof MainService
+     * @type {StoryService}
+     * @memberof StorySpec_EditModeService
      */
-    public appEntityService: TaskService = new TaskService({ $store: this.getStore() });
+    public appEntityService: StoryService = new StoryService({ $store: this.getStore() });
 
     /**
      * 设置从数据模式
      *
      * @type {boolean}
-     * @memberof MainService
+     * @memberof StorySpec_EditModeService
      */
     public setTempMode(){
         this.isTempMode = false;
     }
 
     /**
-     * Creates an instance of MainService.
+     * Creates an instance of StorySpec_EditModeService.
      * 
      * @param {*} [opts={}]
-     * @memberof MainService
+     * @memberof StorySpec_EditModeService
      */
     constructor(opts: any = {}) {
         super(opts);
-        this.model = new MainModel();
+        this.model = new StorySpec_EditModeModel();
     }
-
-    /**
-     * 项目服务对象
-     *
-     * @type {ProjectService}
-     * @memberof MainService
-     */
-    public projectService: ProjectService = new ProjectService();
-
-    /**
-     * 模块服务对象
-     *
-     * @type {ModuleService}
-     * @memberof MainService
-     */
-    public moduleService: ModuleService = new ModuleService();
-
-    /**
-     * 需求服务对象
-     *
-     * @type {StoryService}
-     * @memberof MainService
-     */
-    public storyService: StoryService = new StoryService();
 
     /**
      * 处理数据
@@ -74,7 +47,7 @@ export default class MainService extends ControlService {
      * @private
      * @param {Promise<any>} promise
      * @returns {Promise<any>}
-     * @memberof MainService
+     * @memberof StorySpec_EditModeService
      */
     private doItems(promise: Promise<any>, deKeyField: string, deName: string): Promise<any> {
         return new Promise((resolve, reject) => {
@@ -103,19 +76,10 @@ export default class MainService extends ControlService {
      * @param {*} data
      * @param {boolean} [isloading]
      * @returns {Promise<any[]>}
-     * @memberof  MainService
+     * @memberof  StorySpec_EditModeService
      */
     @Errorlog
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
-        if (Object.is(serviceName, 'ProjectService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.projectService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'project');
-        }
-        if (Object.is(serviceName, 'ModuleService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.moduleService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'module');
-        }
-        if (Object.is(serviceName, 'StoryService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.storyService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'story');
-        }
 
         return Promise.reject([])
     }
@@ -129,7 +93,7 @@ export default class MainService extends ControlService {
      * @param {boolean} [isloading]
      * @param {*} [localdata]
      * @returns {Promise<any>}
-     * @memberof MainService
+     * @memberof StorySpec_EditModeService
      */
     @Errorlog
     public wfstart(action: string,context: any = {},data: any = {}, isloading?: boolean,localdata?:any): Promise<any> {
@@ -161,7 +125,7 @@ export default class MainService extends ControlService {
      * @param {boolean} [isloading]
      * @param {*} [localdata]
      * @returns {Promise<any>}
-     * @memberof MainService
+     * @memberof StorySpec_EditModeService
      */
     @Errorlog
     public wfsubmit(action: string,context: any = {}, data: any = {}, isloading?: boolean,localdata?:any): Promise<any> {
@@ -193,7 +157,7 @@ export default class MainService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof MainService
+     * @memberof StorySpec_EditModeService
      */
     @Errorlog
     public add(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
@@ -223,7 +187,7 @@ export default class MainService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof MainService
+     * @memberof StorySpec_EditModeService
      */
     @Errorlog
     public delete(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
@@ -252,7 +216,7 @@ export default class MainService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof MainService
+     * @memberof StorySpec_EditModeService
      */
     @Errorlog
     public update(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
@@ -282,7 +246,7 @@ export default class MainService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof MainService
+     * @memberof StorySpec_EditModeService
      */
     @Errorlog
     public get(action: string,context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
@@ -312,7 +276,7 @@ export default class MainService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof MainService
+     * @memberof StorySpec_EditModeService
      */
     @Errorlog
     public loadDraft(action: string,context: any = {}, data: any = {}, isloading?: boolean): Promise<any> {
@@ -320,7 +284,7 @@ export default class MainService extends ControlService {
         //仿真主键数据
         const PrimaryKey = Util.createUUID();
         Data.id = PrimaryKey;
-        Data.task = PrimaryKey;
+        Data.story = PrimaryKey;
         return new Promise((resolve: any, reject: any) => {
             let result: Promise<any>;
             const _appEntityService: any = this.appEntityService;
@@ -346,7 +310,7 @@ export default class MainService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof MainService
+     * @memberof StorySpec_EditModeService
      */
     @Errorlog
     public frontLogic(action:string,context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
@@ -373,7 +337,7 @@ export default class MainService extends ControlService {
      * 
      * @param action 行为 
      * @param data 数据
-     * @memberof MainService
+     * @memberof StorySpec_EditModeService
      */
     public handleRequestData(action: string,context:any, data: any = {}){
         let mode: any = this.getMode();

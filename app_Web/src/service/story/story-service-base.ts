@@ -105,6 +105,54 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * BatchChangeStage接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async BatchChangeStage(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story){
+            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchchangestage`,data,isloading);
+        }
+            return Http.getInstance().post(`/stories/${context.story}/batchchangestage`,data,isloading);
+    }
+
+    /**
+     * BatchChangePlan接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async BatchChangePlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story){
+            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchchangeplan`,data,isloading);
+        }
+            return Http.getInstance().post(`/stories/${context.story}/batchchangeplan`,data,isloading);
+    }
+
+    /**
+     * BatchClose接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async BatchClose(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story){
+            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchclose`,data,isloading);
+        }
+            return Http.getInstance().post(`/stories/${context.story}/batchclose`,data,isloading);
+    }
+
+    /**
      * Change接口方法
      *
      * @param {*} [context={}]
@@ -173,6 +221,38 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * BatchChangeBranch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async BatchChangeBranch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story){
+            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchchangebranch`,data,isloading);
+        }
+            return Http.getInstance().post(`/stories/${context.story}/batchchangebranch`,data,isloading);
+    }
+
+    /**
+     * BatchReview接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async BatchReview(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story){
+            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchreview`,data,isloading);
+        }
+            return Http.getInstance().post(`/stories/${context.story}/batchreview`,data,isloading);
+    }
+
+    /**
      * Review接口方法
      *
      * @param {*} [context={}]
@@ -202,6 +282,22 @@ export default class StoryServiceBase extends EntityService {
             return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/assignto`,data,isloading);
         }
             return Http.getInstance().post(`/stories/${context.story}/assignto`,data,isloading);
+    }
+
+    /**
+     * BatchAssignTo接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async BatchAssignTo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story){
+            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchassignto`,data,isloading);
+        }
+            return Http.getInstance().post(`/stories/${context.story}/batchassignto`,data,isloading);
     }
 
     /**
@@ -239,6 +335,22 @@ export default class StoryServiceBase extends EntityService {
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/stories/${context.story}/save`,data,isloading);
             return res;
+    }
+
+    /**
+     * BatchChangeModule接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async BatchChangeModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story){
+            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchchangemodule`,data,isloading);
+        }
+            return Http.getInstance().post(`/stories/${context.story}/batchchangemodule`,data,isloading);
     }
 
     /**

@@ -110,7 +110,7 @@ export default class StoryMainToolbarBase extends Vue implements ControlInterfac
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet3_u797d4ad_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet3_u9faaee3_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -127,7 +127,66 @@ export default class StoryMainToolbarBase extends Vue implements ControlInterfac
           datas = [params];
         }
         // 界面行为
-        this.Exit(datas, contextJO,paramJO,  $event, xData,this,"Story");
+        const curUIService:StoryUIService  = new StoryUIService();
+        curUIService.Story_ChangeStoryDetail(datas,contextJO, paramJO,  $event, xData,this,"Story");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet3_u1159f16_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:StoryUIService  = new StoryUIService();
+        curUIService.Story_AssignTo(datas,contextJO, paramJO,  $event, xData,this,"Story");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet3_u7e5d174_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:StoryUIService  = new StoryUIService();
+        curUIService.Story_CloseStory(datas,contextJO, paramJO,  $event, xData,this,"Story");
     }
 
     /**
@@ -185,24 +244,6 @@ export default class StoryMainToolbarBase extends Vue implements ControlInterfac
         }
         // 界面行为
         this.RemoveAndExit(datas, contextJO,paramJO,  $event, xData,this,"Story");
-    }
-
-    /**
-     * 关闭
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof StoryMainViewBase
-     */
-    public Exit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        this.closeView(args);
-        if(window.parent){
-            window.parent.postMessage([{ ...args }],'*');
-        }
     }
 
     /**
@@ -274,7 +315,13 @@ export default class StoryMainToolbarBase extends Vue implements ControlInterfac
      * @memberof MainToolbarBase
      */
     public actionBarModelData:any[] =[
-        { viewlogicname:"dashboard_sysportlet3_u797d4ad_click",
+        { viewlogicname:"dashboard_sysportlet3_u9faaee3_click",
+        actionName:"变更",
+        },
+        { viewlogicname:"dashboard_sysportlet3_u1159f16_click",
+        actionName:"指派",
+        },
+        { viewlogicname:"dashboard_sysportlet3_u7e5d174_click",
         actionName:"关闭",
         },
         { viewlogicname:"dashboard_sysportlet3_u80095ee_click",
@@ -291,8 +338,14 @@ export default class StoryMainToolbarBase extends Vue implements ControlInterfac
      * @memberof MainToolbarBase
      */
     public handleItemClick($event:any){
-        if(Object.is($event,'dashboard_sysportlet3_u797d4ad_click')){
-            this.dashboard_sysportlet3_u797d4ad_click(null);
+        if(Object.is($event,'dashboard_sysportlet3_u9faaee3_click')){
+            this.dashboard_sysportlet3_u9faaee3_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet3_u1159f16_click')){
+            this.dashboard_sysportlet3_u1159f16_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet3_u7e5d174_click')){
+            this.dashboard_sysportlet3_u7e5d174_click(null);
         }
         if(Object.is($event,'dashboard_sysportlet3_u80095ee_click')){
             this.dashboard_sysportlet3_u80095ee_click(null);

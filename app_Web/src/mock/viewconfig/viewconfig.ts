@@ -367,6 +367,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskMainDashboardView",
             "viewtag": "575fecad655143bbd28f17c581725a4e"
         },
+        "userpickupview": {
+            "title": "user数据选择视图",
+            "caption": "用户",
+            "viewtype": "DEPICKUPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "UserPickupView",
+            "viewtag": "57e77f1cea8cff268fbd744f326867fb"
+        },
         "productstorytreeexpview": {
             "title": "产品需求导航视图",
             "caption": "产品",
@@ -759,6 +767,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductMainDashboardView",
             "viewtag": "bc36be2ee4a78e69c13665a8ad03ab6a"
         },
+        "userpickupgridview": {
+            "title": "user选择表格视图",
+            "caption": "用户",
+            "viewtype": "DEPICKUPGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "UserPickupGridView",
+            "viewtag": "bd3043a0eb4bed8abd005228a4e729af"
+        },
         "modulepickupgridview": {
             "title": "模块选择",
             "caption": "模块",
@@ -878,6 +894,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ProductListExpView",
             "viewtag": "e396b6f39451e3bf963aec602106adf0"
+        },
+        "storyeditview_storychange": {
+            "title": "需求编辑视图",
+            "caption": "变更",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryEditView_StoryChange",
+            "viewtag": "e54598b1e6d38d7c6ce8231b531b46bd"
         },
         "deptpickupgridview": {
             "title": "dept选择表格视图",

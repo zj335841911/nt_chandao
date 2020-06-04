@@ -36,9 +36,17 @@ export default {
     qq: 'QQ',
   },
 	views: {
+		pickupview: {
+			caption: '用户',
+      title: '用户',
+		},
 		editview: {
 			caption: '用户信息',
       title: '用户信息',
+		},
+		pickupgridview: {
+			caption: '用户',
+      title: '用户',
 		},
 		maingridview: {
 			caption: '用户',
@@ -96,6 +104,13 @@ export default {
 		uiactions: {
 			edit: '编辑',
 			remove: '删除',
+		},
+	},
+	default_searchform: {
+		details: {
+			formpage1: '常规条件', 
+		},
+		uiactions: {
 		},
 	},
 	maingridviewtoolbar_toolbar: {

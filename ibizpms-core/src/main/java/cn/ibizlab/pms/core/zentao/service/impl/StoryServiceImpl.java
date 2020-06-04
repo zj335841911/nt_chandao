@@ -100,6 +100,27 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     }
     @Override
     @Transactional
+    public Story batchChangeStage(Story et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public Story batchChangePlan(Story et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public Story batchClose(Story et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
     public Story change(Story et) {
         cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
@@ -145,6 +166,20 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     }
     @Override
     @Transactional
+    public Story batchChangeBranch(Story et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public Story batchReview(Story et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
     public Story review(Story et) {
         cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
@@ -165,6 +200,13 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
             et = this.get(rst.getEtId());
         }
 	    return et;
+    }
+
+    @Override
+    @Transactional
+    public Story batchAssignTo(Story et) {
+        //自定义代码
+        return et;
     }
 
     @Override
@@ -211,6 +253,13 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     public void saveBatch(List<Story> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public Story batchChangeModule(Story et) {
+        //自定义代码
+        return et;
     }
 
     @Override

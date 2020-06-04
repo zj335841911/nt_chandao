@@ -1,135 +1,89 @@
 <template>
-    <i-form :model="this.data" class='app-form' ref='form'  id='task_main' style="">
+    <i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='story_storyspec_editmode' style="">
     <input style="display:none;" />
     <row >
             
 <i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.main_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.storyspec_editmode_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
-        <i-col v-show="detailsModel.projectname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='projectname' :itemRules="this.rules.projectname" class='' :caption="$t('entities.task.main_form.details.projectname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.projectname.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-picker 
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam='{ }' 
-  :disabled="detailsModel.projectname.disabled"
-  name='projectname'
-  deMajorField='name'
-  deKeyField='project'
-  :service="service"
-  :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchDefault'}"
-  valueitem='project' 
-  :value="data.projectname" 
-  editortype="" 
-  :pickupView="{ viewname: 'project-pickup-view', title: $t('entities.project.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'projects', parameterName: 'project' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
-  style=""  
-  @formitemvaluechange="onFormItemValueChange">
-</app-picker>
-
+        <i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.storyspec_editmode_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <row>
+        <i-col v-show="detailsModel.reviewedby.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+    <app-form-item name='reviewedby' :itemRules="this.rules.reviewedby" class='' :caption="$t('entities.story.storyspec_editmode_form.details.reviewedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.reviewedby.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-span   name='reviewedby'
+:value="data.reviewedby" style=""></app-span>
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='type' :itemRules="this.rules.type" class='' :caption="$t('entities.task.main_form.details.type')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list v-model="data.type" :data="data" :itemParam="{}" :disabled="detailsModel.type.disabled"  tag='Task__type' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
-</app-form-item>
-
-</i-col>
-<i-col v-show="detailsModel.modulename.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
-    <app-form-item name='modulename' :itemRules="this.rules.modulename" class='' :caption="$t('entities.task.main_form.details.modulename')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.modulename.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-picker 
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam='{ }' 
-  :disabled="detailsModel.modulename.disabled"
-  name='modulename'
-  deMajorField='name'
-  deKeyField='module'
-  :service="service"
-  :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchDefault'}"
-  valueitem='module' 
-  :value="data.modulename" 
-  editortype="" 
-  :pickupView="{ viewname: 'module-pickup-view', title: $t('entities.module.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'modules', parameterName: 'module' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
-  style=""  
-  @formitemvaluechange="onFormItemValueChange">
-</app-picker>
-
-</app-form-item>
-
-</i-col>
-<i-col v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
-    <app-form-item name='formitem' :itemRules="this.rules.formitem" class='' :caption="$t('entities.task.main_form.details.formitem')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem.error" :isEmptyCaption="false" labelPos="RIGHT">
-    <app-switch name='formitem' :value="this.data.formitem" @change="($event)=>{this.data.formitem = $event} " :disabled="detailsModel.formitem.disabled" style=""></app-switch>
-</app-form-item>
-
-</i-col>
-<i-col v-show="detailsModel.assignedto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
-    <app-form-item name='assignedto' :itemRules="this.rules.assignedto" class='' :caption="$t('entities.task.main_form.details.assignedto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.assignedto.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.assignedto"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.assignedto.disabled" type='text'  style=""></input-box>
-</app-form-item>
-
-</i-col>
-<i-col v-show="detailsModel.formitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
-    <app-form-item name='formitem1' :itemRules="this.rules.formitem1" class='' :caption="$t('entities.task.main_form.details.formitem1')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem1.error" :isEmptyCaption="false" labelPos="RIGHT">
-    <app-switch name='formitem1' :value="this.data.formitem1" @change="($event)=>{this.data.formitem1 = $event} " :disabled="detailsModel.formitem1.disabled" style=""></app-switch>
-</app-form-item>
-
-</i-col>
-<i-col v-show="detailsModel.storyname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='storyname' :itemRules="this.rules.storyname" class='' :caption="$t('entities.task.main_form.details.storyname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.storyname.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam='{ }' 
-  :disabled="detailsModel.storyname.disabled"
-  name='storyname' 
-  deMajorField='title'
-  deKeyField='story'
-  :service="service"
-  :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchDefault'}"
-  valueitem='story' 
-  :value="data.storyname" 
-  editortype="dropdown" 
-  style="" 
-  @formitemvaluechange="onFormItemValueChange">
-</app-picker>
-</app-form-item>
-
-</i-col>
-<i-col v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.task.main_form.details.desc')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-rich-text-editor :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled"  name="desc" style=""></app-rich-text-editor>
-</app-form-item>
-
-</i-col>
-<i-col v-show="detailsModel.formitem2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='formitem2' :itemRules="this.rules.formitem2" class='' :caption="$t('entities.task.main_form.details.formitem2')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem2.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange" :data="JSON.stringify(this.data)" name='formitem2' :value="data.formitem2" :disabled="detailsModel.formitem2.disabled" uploadparams='' exportparams='' :customparams="{}" style="overflow: auto;"></app-file-upload>
-</app-form-item>
-
-</i-col>
-<i-col v-show="detailsModel.formitemex1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='formitemex1' :itemRules="this.rules.formitemex1" class='' :caption="$t('entities.task.main_form.details.formitemex1')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitemex1.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-range-editor v-model="data.formitemex1" :activeData="data" :disabled="detailsModel.formitemex1.disabled" name="formitemex1" editorType="TEXTBOX" format="" :refFormItem="['deadline','estsarted']" @formitemvaluechange="onFormItemValueChange" style=""></app-range-editor>
-</app-form-item>
-
-</i-col>
-<i-col v-show="detailsModel.mailto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='mailto' :itemRules="this.rules.mailto" class='' :caption="$t('entities.task.main_form.details.mailto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.mailto.error" :isEmptyCaption="false" labelPos="LEFT">
-    <dropdown-list-mpicker v-model="data.mailto" :itemParam="{}" :disabled="detailsModel.mailto.disabled"  tag='UserRealName' codelistType='DYNAMIC' valueSeparator="," placeholder='请选择...' style=""></dropdown-list-mpicker>
+<i-col v-show="detailsModel.notreview.visible" :style="{'width':'150px !important'}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+    <app-form-item name='notreview' :itemRules="this.rules.notreview" class='' :caption="$t('entities.story.storyspec_editmode_form.details.notreview')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.notreview.error" :isEmptyCaption="false" labelPos="RIGHT">
+    <app-switch name='notreview' :value="this.data.notreview" @change="($event)=>{this.data.notreview = $event} " :disabled="detailsModel.notreview.disabled" style=""></app-switch>
 </app-form-item>
 
 </i-col>
     
     </row>
 </app-form-group>
+
+</i-col>
+<i-col v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='title' :itemRules="this.rules.title" class='' :caption="$t('entities.story.storyspec_editmode_form.details.title')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-span   name='title'
+:value="data.title" style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.verify.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='verify' :itemRules="this.rules.verify" class='' :caption="$t('entities.story.storyspec_editmode_form.details.verify')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.verify.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-rich-text-editor :formState="formState" :value="data.verify" @change="(val) =>{this.data.verify =val}" :disabled="detailsModel.verify.disabled"  name="verify" height={400} style="height:400px;"></app-rich-text-editor>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.spec.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='spec' :itemRules="this.rules.spec" class='' :caption="$t('entities.story.storyspec_editmode_form.details.spec')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.spec.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-rich-text-editor :formState="formState" :value="data.spec" @change="(val) =>{this.data.spec =val}" :disabled="detailsModel.spec.disabled"  name="spec" height={400} style="height:400px;"></app-rich-text-editor>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.comment.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='comment' :itemRules="this.rules.comment" class='' :caption="$t('entities.story.storyspec_editmode_form.details.comment')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.comment.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled"  name="comment" height={400} style="height:400px;"></app-rich-text-editor>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.files.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='files' :itemRules="this.rules.files" class='' :caption="$t('entities.story.storyspec_editmode_form.details.files')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.files.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange" :data="JSON.stringify(this.data)" name='files' :value="data.files" :disabled="detailsModel.files.disabled" uploadparams='' exportparams='' :customparams="{objecttype':'story',objectid:'126'}" style="overflow: auto;"></app-file-upload>
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem='story' 
+    :parentdata='{"srfparentdename":"ZT_STORY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    parameterName='story'
+    parentName="Story"  
+    refviewtype='DELISTVIEW' 
+    refreshitems='' 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname='action-histroy-list-view' 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved($event)"
+    style=";overflow: auto;">
+</app-form-druipart>
 
 </i-col>
 
@@ -144,8 +98,8 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import { UIActionTool,Util } from '@/utils';
-import TaskService from '@/service/task/task-service';
-import MainService from './main-form-service';
+import StoryService from '@/service/story/story-service';
+import StorySpec_EditModeService from './story-spec-edit-mode-form-service';
 
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -156,13 +110,13 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
       
     }
 })
-export default class MainBase extends Vue implements ControlInterface {
+export default class StorySpec_EditModeBase extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     @Prop() public name?: string;
 
@@ -170,7 +124,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     @Prop() public viewState!: Subject<ViewState>;
 
@@ -178,7 +132,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 应用上下文
      *
      * @type {*}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     @Prop() public context: any;
 
@@ -186,7 +140,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 视图参数
      *
      * @type {*}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     @Prop() public viewparams: any;
 
@@ -195,7 +149,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @public
      * @type {(Subscription | undefined)}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public viewStateEvent: Subscription | undefined;
 
@@ -203,7 +157,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public getControlType(): string {
         return 'FORM'
@@ -215,25 +169,25 @@ export default class MainBase extends Vue implements ControlInterface {
      * 计数器服务对象集合
      *
      * @type {Array<*>}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */    
     public counterServiceArray:Array<any> = [];
 
     /**
      * 建构部件服务对象
      *
-     * @type {MainService}
-     * @memberof Main
+     * @type {StorySpec_EditModeService}
+     * @memberof StorySpec_EditMode
      */
-    public service: MainService = new MainService({ $store: this.$store });
+    public service: StorySpec_EditModeService = new StorySpec_EditModeService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
-     * @type {TaskService}
-     * @memberof Main
+     * @type {StoryService}
+     * @memberof StorySpec_EditMode
      */
-    public appEntityService: TaskService = new TaskService({ $store: this.$store });
+    public appEntityService: StoryService = new StoryService({ $store: this.$store });
     
 
 
@@ -241,7 +195,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 关闭视图
      *
      * @param {any} args
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public closeView(args: any): void {
         let _this: any = this;
@@ -251,7 +205,7 @@ export default class MainBase extends Vue implements ControlInterface {
     /**
      *  计数器刷新
      *
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public counterRefresh(){
         const _this:any =this;
@@ -268,7 +222,7 @@ export default class MainBase extends Vue implements ControlInterface {
     /**
      * 工作流审批意见控件绑定值
      *
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public srfwfmemo:string = "";
     
@@ -276,7 +230,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public getDatas(): any[] {
         return [this.data];
@@ -286,7 +240,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public getData(): any {
         return this.data;
@@ -296,7 +250,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 是否默认保存
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     @Prop({ default: false }) public autosave?: boolean;
 
@@ -304,7 +258,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     @Prop({ default: true }) public showBusyIndicator?: boolean;
 
@@ -312,7 +266,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 部件行为--submit
      *
      * @type {string}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     @Prop() public WFSubmitAction!: string;
     
@@ -320,7 +274,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 部件行为--start
      *
      * @type {string}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     @Prop() public WFStartAction!: string;
     
@@ -328,7 +282,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 部件行为--update
      *
      * @type {string}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     @Prop() public updateAction!: string;
     
@@ -336,7 +290,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 部件行为--remove
      *
      * @type {string}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     @Prop() public removeAction!: string;
     
@@ -344,7 +298,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 部件行为--loaddraft
      *
      * @type {string}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     @Prop() public loaddraftAction!: string;
     
@@ -352,7 +306,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 部件行为--load
      *
      * @type {string}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     @Prop() public loadAction!: string;
     
@@ -360,7 +314,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     @Prop() public createAction!: string;
 
@@ -368,7 +322,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     @Prop() public searchAction!: string;
 
@@ -376,7 +330,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 视图标识
      *
      * @type {string}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     @Prop() public viewtag!: string;
 
@@ -384,7 +338,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 表单状态
      *
      * @type {Subject<any>}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public formState: Subject<any> = new Subject();
 
@@ -392,7 +346,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 忽略表单项值变化
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public ignorefieldvaluechange: boolean = false;
 
@@ -401,7 +355,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @public
      * @type {Subject<any>}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public dataChang: Subject<any> = new Subject();
 
@@ -410,7 +364,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @public
      * @type {(Subscription | undefined)}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public dataChangEvent: Subscription | undefined;
 
@@ -419,7 +373,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @public
      * @type {*}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public oldData: any = {};
 
@@ -427,10 +381,9 @@ export default class MainBase extends Vue implements ControlInterface {
      * 表单数据对象
      *
      * @type {*}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public data: any = {
-        srfupdatedate: null,
         srforikey: null,
         srfkey: null,
         srfmajortext: null,
@@ -438,31 +391,23 @@ export default class MainBase extends Vue implements ControlInterface {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        projectname: null,
-        project: null,
-        type: null,
-        module: null,
-        modulename: null,
-        formitem: null,
-        assignedto: null,
-        formitem1: null,
-        story: null,
-        storyname: null,
-        desc: null,
-        formitem2: null,
-        deadline: null,
-        estsarted: null,
-        formitemex1: null,
-        mailto: null,
+        version: null,
+        reviewedby: null,
+        notreview: null,
+        title: null,
+        verify: null,
+        spec: null,
+        comment: null,
+        files: null,
         id: null,
-        task:null,
+        story:null,
     };
 
     /**
       * 当前执行的行为逻辑
       *
       * @type {string}
-      * @memberof Main
+      * @memberof StorySpec_EditMode
       */
     public currentAction: string = "";
 
@@ -470,7 +415,7 @@ export default class MainBase extends Vue implements ControlInterface {
       * 关系界面计数器
       *
       * @type {number}
-      * @memberof Main
+      * @memberof StorySpec_EditMode
       */
     public drcounter: number = 0;
 
@@ -478,7 +423,7 @@ export default class MainBase extends Vue implements ControlInterface {
       * 需要等待关系界面保存时，第一次调用save参数的备份
       *
       * @type {number}
-      * @memberof Main
+      * @memberof StorySpec_EditMode
       */
     public drsaveopt: any = {};
 
@@ -486,7 +431,7 @@ export default class MainBase extends Vue implements ControlInterface {
       * 表单保存回调存储对象
       *
       * @type {any}
-      * @memberof Main
+      * @memberof StorySpec_EditMode
       */
     public saveState:any ;
 
@@ -494,15 +439,9 @@ export default class MainBase extends Vue implements ControlInterface {
      * 属性值规则
      *
      * @type {*}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public rules: any = {
-        srfupdatedate: [
-            { type: 'string', message: '最后修改日期 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '最后修改日期 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '最后修改日期 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '最后修改日期 值不能为空', trigger: 'blur' },
-        ],
         srforikey: [
             { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
@@ -516,10 +455,10 @@ export default class MainBase extends Vue implements ControlInterface {
             { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
         ],
         srfmajortext: [
-            { type: 'string', message: '任务名称 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '任务名称 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '任务名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
+            { type: 'string', message: '需求名称 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '需求名称 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '需求名称 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '需求名称 值不能为空', trigger: 'blur' },
         ],
         srftempmode: [
             { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
@@ -545,101 +484,53 @@ export default class MainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
-        projectname: [
-            { type: 'string', message: '所属项目 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '所属项目 值必须为字符串类型', trigger: 'blur' },
-            { required: true, type: 'string', message: '所属项目 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '所属项目 值不能为空', trigger: 'blur' },
+        version: [
+            { type: 'number', message: '版本# 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '版本# 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '版本# 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '版本# 值不能为空', trigger: 'blur' },
         ],
-        project: [
-            { type: 'number', message: '所属项目 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '所属项目 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '所属项目 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '所属项目 值不能为空', trigger: 'blur' },
+        reviewedby: [
+            { type: 'string', message: '由谁评审 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '由谁评审 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '由谁评审 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '由谁评审 值不能为空', trigger: 'blur' },
         ],
-        type: [
-            { type: 'string', message: '任务类型 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '任务类型 值必须为字符串类型', trigger: 'blur' },
-            { required: true, type: 'string', message: '任务类型 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '任务类型 值不能为空', trigger: 'blur' },
+        notreview: [
+            { type: 'string', message: '不需要评审 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '不需要评审 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '不需要评审 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '不需要评审 值不能为空', trigger: 'blur' },
         ],
-        module: [
-            { type: 'number', message: '所属模块 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '所属模块 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '所属模块 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '所属模块 值不能为空', trigger: 'blur' },
+        title: [
+            { type: 'string', message: '需求名称 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '需求名称 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '需求名称 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '需求名称 值不能为空', trigger: 'blur' },
         ],
-        modulename: [
-            { type: 'string', message: '所属模块 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '所属模块 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '所属模块 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '所属模块 值不能为空', trigger: 'blur' },
+        verify: [
+            { type: 'string', message: '验收标准 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '验收标准 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '验收标准 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '验收标准 值不能为空', trigger: 'blur' },
         ],
-        formitem: [
-            { type: 'string', message: '所有模块 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '所有模块 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '所有模块 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '所有模块 值不能为空', trigger: 'blur' },
+        spec: [
+            { type: 'string', message: '需求描述 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '需求描述 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '需求描述 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '需求描述 值不能为空', trigger: 'blur' },
         ],
-        assignedto: [
-            { type: 'string', message: '指派给 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '指派给 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '指派给 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '指派给 值不能为空', trigger: 'blur' },
+        comment: [
+            { type: 'string', message: '备注 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '备注 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '备注 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '备注 值不能为空', trigger: 'blur' },
         ],
-        formitem1: [
-            { type: 'string', message: '多人任务 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '多人任务 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '多人任务 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '多人任务 值不能为空', trigger: 'blur' },
-        ],
-        story: [
-            { type: 'number', message: '相关需求 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '相关需求 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '相关需求 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '相关需求 值不能为空', trigger: 'blur' },
-        ],
-        storyname: [
-            { type: 'string', message: '相关需求 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '相关需求 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '相关需求 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '相关需求 值不能为空', trigger: 'blur' },
-        ],
-        desc: [
-            { type: 'string', message: '任务描述 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '任务描述 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '任务描述 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '任务描述 值不能为空', trigger: 'blur' },
-        ],
-        formitem2: [
+        files: [
             { type: 'string', message: '附件 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '附件 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '附件 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '附件 值不能为空', trigger: 'blur' },
-        ],
-        deadline: [
-            { type: 'string', message: '截止日期 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '截止日期 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '截止日期 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '截止日期 值不能为空', trigger: 'blur' },
-        ],
-        estsarted: [
-            { type: 'string', message: '预计开始 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '预计开始 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '预计开始 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '预计开始 值不能为空', trigger: 'blur' },
-        ],
-        formitemex1: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        mailto: [
-            { type: 'string', message: '抄送给 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '抄送给 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '抄送给 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '抄送给 值不能为空', trigger: 'blur' },
         ],
         id: [
             { type: 'number', message: '编号 值必须为数值类型', trigger: 'change' },
@@ -653,20 +544,22 @@ export default class MainBase extends Vue implements ControlInterface {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public detailsModel: any = {
-        group1: new FormGroupPanelModel({ caption: 'task基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.task.main_form', extractMode: 'ITEM', details: [] } })
+        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.story.storyspec_editmode_form', extractMode: 'ITEM', details: [] } })
+, 
+        group1: new FormGroupPanelModel({ caption: '需求描述信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.story.storyspec_editmode_form', extractMode: 'ITEM', details: [] } })
+, 
+        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
-, 
-        srfupdatedate: new FormItemModel({ caption: '最后修改日期', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         srfkey: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
-        srfmajortext: new FormItemModel({ caption: '任务名称', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        srfmajortext: new FormItemModel({ caption: '需求名称', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         srftempmode: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srftempmode', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -676,60 +569,32 @@ export default class MainBase extends Vue implements ControlInterface {
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        projectname: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'projectname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        version: new FormItemModel({ caption: '版本#', detailType: 'FORMITEM', name: 'version', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        reviewedby: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'reviewedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        type: new FormItemModel({ caption: '任务类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        notreview: new FormItemModel({ caption: '不需要评审', detailType: 'FORMITEM', name: 'notreview', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        module: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'module', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        title: new FormItemModel({ caption: '需求名称', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        modulename: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'modulename', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        verify: new FormItemModel({ caption: '验收标准', detailType: 'FORMITEM', name: 'verify', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        formitem: new FormItemModel({ caption: '所有模块', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        spec: new FormItemModel({ caption: '需求描述', detailType: 'FORMITEM', name: 'spec', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        formitem1: new FormItemModel({ caption: '多人任务', detailType: 'FORMITEM', name: 'formitem1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        story: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'story', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        storyname: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'storyname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        desc: new FormItemModel({ caption: '任务描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        formitem2: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'formitem2', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        deadline: new FormItemModel({ caption: '截止日期', detailType: 'FORMITEM', name: 'deadline', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        estsarted: new FormItemModel({ caption: '预计开始', detailType: 'FORMITEM', name: 'estsarted', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        formitemex1: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
     };
 
     /**
-     * 监控表单属性 srfupdatedate 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof Main
-     */
-    @Watch('data.srfupdatedate')
-    onSrfupdatedateChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'srfupdatedate', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
      * 监控表单属性 srforikey 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     @Watch('data.srforikey')
     onSrforikeyChange(newVal: any, oldVal: any) {
@@ -741,7 +606,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     @Watch('data.srfkey')
     onSrfkeyChange(newVal: any, oldVal: any) {
@@ -753,7 +618,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     @Watch('data.srfmajortext')
     onSrfmajortextChange(newVal: any, oldVal: any) {
@@ -765,7 +630,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     @Watch('data.srftempmode')
     onSrftempmodeChange(newVal: any, oldVal: any) {
@@ -777,7 +642,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     @Watch('data.srfuf')
     onSrfufChange(newVal: any, oldVal: any) {
@@ -789,7 +654,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     @Watch('data.srfdeid')
     onSrfdeidChange(newVal: any, oldVal: any) {
@@ -801,7 +666,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     @Watch('data.srfsourcekey')
     onSrfsourcekeyChange(newVal: any, oldVal: any) {
@@ -809,195 +674,99 @@ export default class MainBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 projectname 值
+     * 监控表单属性 version 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
-    @Watch('data.projectname')
-    onProjectnameChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'projectname', newVal: newVal, oldVal: oldVal });
+    @Watch('data.version')
+    onVersionChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'version', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 project 值
+     * 监控表单属性 reviewedby 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
-    @Watch('data.project')
-    onProjectChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'project', newVal: newVal, oldVal: oldVal });
+    @Watch('data.reviewedby')
+    onReviewedbyChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'reviewedby', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 type 值
+     * 监控表单属性 notreview 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
-    @Watch('data.type')
-    onTypeChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'type', newVal: newVal, oldVal: oldVal });
+    @Watch('data.notreview')
+    onNotreviewChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'notreview', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 module 值
+     * 监控表单属性 title 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
-    @Watch('data.module')
-    onModuleChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'module', newVal: newVal, oldVal: oldVal });
+    @Watch('data.title')
+    onTitleChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'title', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 modulename 值
+     * 监控表单属性 verify 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
-    @Watch('data.modulename')
-    onModulenameChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'modulename', newVal: newVal, oldVal: oldVal });
+    @Watch('data.verify')
+    onVerifyChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'verify', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 formitem 值
+     * 监控表单属性 spec 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
-    @Watch('data.formitem')
-    onFormitemChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'formitem', newVal: newVal, oldVal: oldVal });
+    @Watch('data.spec')
+    onSpecChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'spec', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 assignedto 值
+     * 监控表单属性 comment 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
-    @Watch('data.assignedto')
-    onAssignedtoChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'assignedto', newVal: newVal, oldVal: oldVal });
+    @Watch('data.comment')
+    onCommentChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'comment', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 formitem1 值
+     * 监控表单属性 files 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
-    @Watch('data.formitem1')
-    onFormitem1Change(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'formitem1', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 story 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof Main
-     */
-    @Watch('data.story')
-    onStoryChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'story', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 storyname 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof Main
-     */
-    @Watch('data.storyname')
-    onStorynameChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'storyname', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 desc 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof Main
-     */
-    @Watch('data.desc')
-    onDescChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'desc', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 formitem2 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof Main
-     */
-    @Watch('data.formitem2')
-    onFormitem2Change(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'formitem2', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 deadline 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof Main
-     */
-    @Watch('data.deadline')
-    onDeadlineChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'deadline', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 estsarted 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof Main
-     */
-    @Watch('data.estsarted')
-    onEstsartedChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'estsarted', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 formitemex1 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof Main
-     */
-    @Watch('data.formitemex1')
-    onFormitemex1Change(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'formitemex1', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 mailto 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof Main
-     */
-    @Watch('data.mailto')
-    onMailtoChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'mailto', newVal: newVal, oldVal: oldVal });
+    @Watch('data.files')
+    onFilesChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'files', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1005,7 +774,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     @Watch('data.id')
     onIdChange(newVal: any, oldVal: any) {
@@ -1018,7 +787,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @public
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
     }
@@ -1044,17 +813,10 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @public
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
-
-
-
-
-
-
-
 
 
 
@@ -1083,7 +845,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * @public
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
      * @returns {void}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public formDataChange({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
         if (this.ignorefieldvaluechange) {
@@ -1100,13 +862,13 @@ export default class MainBase extends Vue implements ControlInterface {
      * @public
      * @param {*} [data={}]
      * @param {string} [action]
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public onFormLoad(data: any = {},action:string): void {
         if(Object.is(action,"save") || Object.is(action,"autoSave") || Object.is(action,"submit"))
         // 更新context的实体主键
-        if(data.task){
-            Object.assign(this.context,{task:data.task})
+        if(data.story){
+            Object.assign(this.context,{story:data.story})
         }
         this.setFormEnableCond(data);
         this.fillForm(data,action);
@@ -1121,7 +883,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {*} [_datas={}]
      * @param {string} [action]
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public fillForm(_datas: any = {},action:string): void {
         this.ignorefieldvaluechange = true;
@@ -1146,7 +908,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @public
      * @param {*} data
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public setFormEnableCond(data: any): void {
         Object.values(this.detailsModel).forEach((detail: any) => {
@@ -1162,7 +924,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 重置草稿表单状态
      *
      * @public
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public resetDraftFormStates(): void {
         const form: any = this.$refs.form;
@@ -1174,7 +936,7 @@ export default class MainBase extends Vue implements ControlInterface {
     /**
      * 重置校验结果
      *
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public resetValidates(): void {
         Object.values(this.detailsModel).forEach((detail: any) => {
@@ -1190,7 +952,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 填充校验结果 （后台）
      *
      * @param {any[]} fieldErrors
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public fillValidates(fieldErrors: any[]): void {
         fieldErrors.forEach((error: any) => {
@@ -1208,7 +970,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 表单校验状态
      *
      * @returns {boolean} 
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public formValidateStatus(): boolean {
         const form: any = this.$refs.form;
@@ -1223,7 +985,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 获取全部值
      *
      * @returns {*}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public getValues(): any {
         return this.data;
@@ -1234,7 +996,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {{ name: string, value: any }} $event
      * @returns {void}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public onFormItemValueChange($event: { name: string, value: any }): void {
         if (!$event) {
@@ -1252,7 +1014,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * @param {string} name
      * @param {*} value
      * @returns {void}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public setDataItemValue(name: string, value: any): void {
         if (!name || Object.is(name, '') || !this.data.hasOwnProperty(name)) {
@@ -1270,7 +1032,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 分组界面行为事件
      *
      * @param {*} $event
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public groupUIActionClick($event: any): void {
         if (!$event) {
@@ -1282,7 +1044,7 @@ export default class MainBase extends Vue implements ControlInterface {
     /**
      * Vue声明周期(处理组件的输入属性)
      *
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public created(): void {
         this.afterCreated();
@@ -1291,7 +1053,7 @@ export default class MainBase extends Vue implements ControlInterface {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof Main
+     *  @memberof StorySpec_EditMode
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -1348,7 +1110,7 @@ export default class MainBase extends Vue implements ControlInterface {
     /**
      * vue 生命周期
      *
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public destroyed() {
         this.afterDestroy();
@@ -1357,7 +1119,7 @@ export default class MainBase extends Vue implements ControlInterface {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -1372,14 +1134,14 @@ export default class MainBase extends Vue implements ControlInterface {
      * 拷贝内容
      *
      * @param {*} [arg={}]
-     * @memberof @memberof Main
+     * @memberof @memberof StorySpec_EditMode
      */
     public copy(srfkey: string): void {
         let copyData = this.$store.getters.getCopyData(srfkey);
         copyData.srfkey = Util.createUUID();
-        copyData.task = copyData.srfkey;
+        copyData.story = copyData.srfkey;
         copyData.id = copyData.srfkey;
-        Object.assign(this.context,{task:copyData.task})
+        Object.assign(this.context,{story:copyData.story})
         this.data = copyData;
         this.$nextTick(() => {
           this.formState.next({ type: 'load', data: copyData });
@@ -1390,18 +1152,18 @@ export default class MainBase extends Vue implements ControlInterface {
 
     /**
      *打印
-     *@memberof @memberof Main
+     *@memberof @memberof StorySpec_EditMode
      */
     public print(){
         let _this:any = this;
-        _this.$print({id:'task_main',popTitle:'主编辑表单'});
+        _this.$print({id:'story_storyspec_editmode',popTitle:'需求变更表单'});
     }
 
     /**
      * 部件刷新
      *
      * @param {any[]} args
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public refresh(args: any[]): void {
         let arg: any = {};
@@ -1423,7 +1185,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {*} [arg={}]
      * @returns {void}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public autoLoad(arg: any = {}): void {
         if (arg.srfkey && !Object.is(arg.srfkey, '')) {
@@ -1444,11 +1206,11 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @public
      * @param {*} [opt={}]
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public load(opt: any = {}): void {
         if(!this.loadAction){
-            this.$Notice.error({ title: '错误', desc: 'TaskEditView视图表单loadAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'StoryEditView_StoryChange视图表单loadAction参数未配置' });
             return;
         }
         const arg: any = { ...opt };
@@ -1479,11 +1241,11 @@ export default class MainBase extends Vue implements ControlInterface {
      * 加载草稿
      *
      * @param {*} [opt={}]
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public loadDraft(opt: any = {}): void {
         if(!this.loaddraftAction){
-            this.$Notice.error({ title: '错误', desc: 'TaskEditView视图表单loaddraftAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'StoryEditView_StoryChange视图表单loaddraftAction参数未配置' });
             return;
         }
         const arg: any = { ...opt } ;
@@ -1498,8 +1260,8 @@ export default class MainBase extends Vue implements ControlInterface {
             }
 
             const data = response.data;
-            if(data.task){
-                Object.assign(this.context,{task:data.task})
+            if(data.story){
+                Object.assign(this.context,{story:data.story})
             }
             this.resetDraftFormStates();
             this.onFormLoad(data,'loadDraft');
@@ -1533,7 +1295,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 自动保存
      *
      * @param {*} [opt={}]
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public autoSave(opt: any = {}): void {
         if (!this.formValidateStatus()) {
@@ -1545,7 +1307,7 @@ export default class MainBase extends Vue implements ControlInterface {
         const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
         if(!action){
             let actionName:any = Object.is(data.srfuf, '1')?"updateAction":"createAction";
-            this.$Notice.error({ title: '错误', desc: 'TaskEditView视图表单'+actionName+'参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'StoryEditView_StoryChange视图表单'+actionName+'参数未配置' });
             return;
         }
         Object.assign(arg,{viewparams:this.viewparams});
@@ -1584,7 +1346,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * @param {boolean} [showResultInfo] 
      * @param {boolean} [ifStateNext] formState是否下发通知
      * @returns {Promise<any>}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public async save(opt: any = {}, showResultInfo?: boolean, ifStateNext: boolean = true): Promise<any> {
         return new Promise((resolve: any, reject: any) => {
@@ -1598,7 +1360,7 @@ export default class MainBase extends Vue implements ControlInterface {
             Object.assign(arg, data);
             Object.assign(arg, this.context);
             if (ifStateNext) {
-                this.drcounter = 0;
+                this.drcounter = 1;
                 if(this.drcounter !== 0){
                     this.drsaveopt = opt;
                     this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存
@@ -1609,7 +1371,7 @@ export default class MainBase extends Vue implements ControlInterface {
             const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
             if(!action){
                 let actionName:any = Object.is(data.srfuf, '1')?"updateAction":"createAction";
-                this.$Notice.error({ title: '错误', desc: 'TaskEditView视图表单'+actionName+'参数未配置' });
+                this.$Notice.error({ title: '错误', desc: 'StoryEditView_StoryChange视图表单'+actionName+'参数未配置' });
                 return;
             }
             Object.assign(arg,{viewparams:this.viewparams});
@@ -1659,7 +1421,7 @@ export default class MainBase extends Vue implements ControlInterface {
     public remove(opt:Array<any> = [],showResultInfo?: boolean): Promise<any> {
         return new Promise((resolve: any, reject: any) => {
             if(!this.removeAction){
-                this.$Notice.error({ title: '错误', desc: 'TaskEditView视图表单removeAction参数未配置' });
+                this.$Notice.error({ title: '错误', desc: 'StoryEditView_StoryChange视图表单removeAction参数未配置' });
                 return;
             }
             const arg: any = opt[0];
@@ -1688,7 +1450,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * @param {*} [data={}]
      * @param {*} [localdata={}]
      * @returns {Promise<any>}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public async wfstart(data: any,localdata?:any): Promise<any> {
         return new Promise((resolve: any, reject: any) => {
@@ -1744,14 +1506,14 @@ export default class MainBase extends Vue implements ControlInterface {
      * @param {*} [data={}]
      * @param {*} [localdata={}]
      * @returns {Promise<any>}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public async wfsubmit(data: any,localdata?:any): Promise<any> {
         return new Promise((resolve: any, reject: any) => {
         const _this: any = this;
         const arg: any = data[0];
         Object.assign(arg,{viewparams:this.viewparams});
-        if (!arg.task || Object.is(arg.task, '')) {
+        if (!arg.story || Object.is(arg.story, '')) {
             return;
         }
         const post: Promise<any> = Object.is(arg.srfuf, '1')?this.service.update(this.updateAction, JSON.parse(JSON.stringify(this.context)),arg, this.showBusyIndicator):this.service.add(this.createAction,JSON.parse(JSON.stringify(this.context)),arg, this.showBusyIndicator);
@@ -1820,7 +1582,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * @param {string[]} updateDetails 更新项
      * @param {boolean} [showloading] 是否显示加载状态
      * @returns {void}
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public updateFormItems(mode: string, data: any = {}, updateDetails: string[], showloading?: boolean): void {
         if (!mode || (mode && Object.is(mode, ''))) {
@@ -1865,7 +1627,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 回车事件
      *
      * @param {*} $event
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public onEnter($event: any): void {
     }
@@ -1874,7 +1636,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 保存并退出
      *
      * @param {any[]} args
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public saveAndExit(data:any[]):Promise<any>{
         let _this = this;
@@ -1899,7 +1661,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 保存并新建
      *
      * @param {any[]} args
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public saveAndNew(data:any[]):Promise<any>{
         let _this = this;
@@ -1922,7 +1684,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 删除并退出
      *
      * @param {any[]} args
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public removeAndExit(data:any[]):Promise<any>{
         let _this = this;
@@ -1946,7 +1708,7 @@ export default class MainBase extends Vue implements ControlInterface {
     * 关系界面数据保存完成
     *
     * @param {any} $event
-    * @memberof Main
+    * @memberof StorySpec_EditMode
     */
     public drdatasaved($event:any){
         let _this = this;
@@ -1970,14 +1732,14 @@ export default class MainBase extends Vue implements ControlInterface {
 
     /**
      * 新建默认值
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public createDefault(){                    
     }
 
     /**
      * 更新默认值
-     * @memberof Main
+     * @memberof StorySpec_EditMode
      */
     public updateDefault(){                    
     }
@@ -1987,5 +1749,5 @@ export default class MainBase extends Vue implements ControlInterface {
 </script>
 
 <style lang='less'>
-@import './main-form.less';
+@import './story-spec-edit-mode-form.less';
 </style>

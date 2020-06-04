@@ -449,6 +449,16 @@
         "viewtag": "575fecad655143bbd28f17c581725a4e",
         "memo": ""
     },
+    "userpickupview": {
+        "title": "user数据选择视图",
+        "caption": "用户",
+        "viewtype": "DEPICKUPVIEW",
+        "viewmodule": "zentao",
+        "viewname": "UserPickupView",
+        "viewfilename": "user-pickup-view",
+        "viewtag": "57e77f1cea8cff268fbd744f326867fb",
+        "memo": ""
+    },
     "productstorytreeexpview": {
         "title": "产品需求导航视图",
         "caption": "产品",
@@ -939,6 +949,16 @@
         "viewtag": "bc36be2ee4a78e69c13665a8ad03ab6a",
         "memo": ""
     },
+    "userpickupgridview": {
+        "title": "user选择表格视图",
+        "caption": "用户",
+        "viewtype": "DEPICKUPGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "UserPickupGridView",
+        "viewfilename": "user-pickup-grid-view",
+        "viewtag": "bd3043a0eb4bed8abd005228a4e729af",
+        "memo": ""
+    },
     "modulepickupgridview": {
         "title": "模块选择",
         "caption": "模块",
@@ -1087,6 +1107,16 @@
         "viewname": "ProductListExpView",
         "viewfilename": "product-list-exp-view",
         "viewtag": "e396b6f39451e3bf963aec602106adf0",
+        "memo": ""
+    },
+    "storyeditview_storychange": {
+        "title": "需求编辑视图",
+        "caption": "变更",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "StoryEditView_StoryChange",
+        "viewfilename": "story-edit-view-story-change",
+        "viewtag": "e54598b1e6d38d7c6ce8231b531b46bd",
         "memo": ""
     },
     "deptpickupgridview": {

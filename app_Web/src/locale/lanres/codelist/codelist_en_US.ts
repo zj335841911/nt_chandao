@@ -184,6 +184,20 @@ export default {
         'terminate': '停止维护',
         empty: '',
     },
+    Task_quickpacket: {
+        'All': '所有',
+        'UNCLOSED': '未关闭',
+        'TOME': '指派给我',
+        'MORE': '更多',
+        'NOTSTARTED': '未开始',
+        'INPROGRESS': '进行中',
+        'UNACCOMPLISHED': '未完成',
+        'IFINISHED': '我完成',
+        'COMPLETED': '已完成',
+        'CLOSED': '已关闭',
+        'CANCELLED': '已取消',
+        empty: '',
+    },
     Bug__quickpacket: {
         'All': '所有',
         'UNCLOSED': '未关闭',
@@ -309,8 +323,8 @@ export default {
         empty: '',
     },
     Company__guest: {
-        '1': '1',
-        '0': '0',
+        '1': '允许',
+        '0': '不允许',
         empty: '',
     },
     Story__status: {

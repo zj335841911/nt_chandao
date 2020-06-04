@@ -102,6 +102,36 @@ export default {
 			caption: "需求",
       title: '需求',
 		},
+		editview_storychange: {
+			caption: "变更",
+      title: '变更',
+		},
+	},
+	storyspec_editmode_form: {
+		details: {
+			grouppanel1: "分组面板", 
+			group1: "需求描述信息", 
+			druipart1: "", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "需求名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			version: "版本#", 
+			reviewedby: "由谁评审", 
+			notreview: "不需要评审", 
+			title: "需求名称", 
+			verify: "验收标准", 
+			spec: "需求描述", 
+			comment: "备注", 
+			files: "附件", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
 	},
 	main_newmode_form: {
 		details: {
@@ -252,7 +282,7 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
-			changestorydetail: "变更需求",
+			changestorydetail: "变更",
 			closestory: "关闭",
 			openbaseinfoeditview: "编辑",
 			opencasecreateview: "建用例",
@@ -267,7 +297,7 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
-			changestorydetail: "变更需求",
+			changestorydetail: "变更",
 			closestory: "关闭",
 			openbaseinfoeditview: "编辑",
 			opencasecreateview: "建用例",
@@ -281,7 +311,7 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
-			changestorydetail: "变更需求",
+			changestorydetail: "变更",
 			closestory: "关闭",
 			openbaseinfoeditview: "编辑",
 			opencasecreateview: "建用例",
@@ -321,6 +351,12 @@ export default {
 			formpage1: "常规条件", 
 		},
 		uiactions: {
+		},
+	},
+	editview_storychangetoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
 		},
 	},
 	editviewtoolbar_toolbar: {

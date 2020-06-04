@@ -2302,6 +2302,33 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-main-view9-edit-mode/story-main-view9-edit-mode.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/editview_storychange/:editview_storychange?',
+                    meta: {
+                        caption: 'entities.story.views.editview_storychange.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'editview_storychange', parameterName: 'editview_storychange' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-edit-view-story-change/story-edit-view-story-change.vue'),
+                },
+                {
+                    path: 'stories/:story?/editview_storychange/:editview_storychange?',
+                    meta: {
+                        caption: 'entities.story.views.editview_storychange.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'editview_storychange', parameterName: 'editview_storychange' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-edit-view-story-change/story-edit-view-story-change.vue'),
+                },
+                {
                     path: 'products/:product?/testleftsidebarlistview/:testleftsidebarlistview?',
                     meta: {
                         caption: 'entities.product.views.testleftsidebarlistview.caption',
@@ -4861,6 +4888,31 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/zentao/product-list-exp-view/product-list-exp-view.vue'),
+    },
+    {
+        path: '/products/:product?/stories/:story?/editview_storychange/:editview_storychange?',
+        meta: {
+            caption: 'entities.story.views.editview_storychange.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'stories', parameterName: 'story' },
+                { pathName: 'editview_storychange', parameterName: 'editview_storychange' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/story-edit-view-story-change/story-edit-view-story-change.vue'),
+    },
+    {
+        path: '/stories/:story?/editview_storychange/:editview_storychange?',
+        meta: {
+            caption: 'entities.story.views.editview_storychange.caption',
+            parameters: [
+                { pathName: 'stories', parameterName: 'story' },
+                { pathName: 'editview_storychange', parameterName: 'editview_storychange' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/story-edit-view-story-change/story-edit-view-story-change.vue'),
     },
     {
         path: '/depts/:dept?/pickupgridview/:pickupgridview?',

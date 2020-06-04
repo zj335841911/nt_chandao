@@ -1543,6 +1543,123 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: 'Task_quickpacket',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'All',
+                label: '所有',
+                text: '所有',
+                "data":{},
+                "codename":"All",
+                value: 'All',
+                
+                disabled: false,
+            },
+            {
+                id: 'UNCLOSED',
+                label: '未关闭',
+                text: '未关闭',
+                "data":{"n_status_noteq":"closed"},
+                "codename":"Unclosed",
+                value: 'UNCLOSED',
+                
+                disabled: false,
+            },
+            {
+                id: 'TOME',
+                label: '指派给我',
+                text: '指派给我',
+                "data":{"n_assignedto_eq":"%SRFUSERID%"},
+                "codename":"Tome",
+                value: 'TOME',
+                
+                disabled: false,
+            },
+            {
+                id: 'MORE',
+                label: '更多',
+                text: '更多',
+                "data":"",
+                "codename":"More",
+                value: 'MORE',
+                
+                disabled: false,
+            },
+            {
+                id: 'NOTSTARTED',
+                label: '未开始',
+                text: '未开始',
+                "data":{"n_status_eq":"wait"},
+                "codename":"Notstarted",
+                value: 'NOTSTARTED',
+                "pvalue": "MORE",
+                disabled: false,
+            },
+            {
+                id: 'INPROGRESS',
+                label: '进行中',
+                text: '进行中',
+                "data":{"n_status_eq":"doing"},
+                "codename":"Inprogress",
+                value: 'INPROGRESS',
+                "pvalue": "MORE",
+                disabled: false,
+            },
+            {
+                id: 'UNACCOMPLISHED',
+                label: '未完成',
+                text: '未完成',
+                "data":{"n_status_noteq":"done"},
+                "codename":"Unaccomplished",
+                value: 'UNACCOMPLISHED',
+                "pvalue": "MORE",
+                disabled: false,
+            },
+            {
+                id: 'IFINISHED',
+                label: '我完成',
+                text: '我完成',
+                "data":{"n_finishedby_eq":"%SRFUSERID%"},
+                "codename":"Ifinished",
+                value: 'IFINISHED',
+                "pvalue": "MORE",
+                disabled: false,
+            },
+            {
+                id: 'COMPLETED',
+                label: '已完成',
+                text: '已完成',
+                "data":{"n_status_eq":"done"},
+                "codename":"Completed",
+                value: 'COMPLETED',
+                "pvalue": "MORE",
+                disabled: false,
+            },
+            {
+                id: 'CLOSED',
+                label: '已关闭',
+                text: '已关闭',
+                "data":{"n_status_eq":"closed"},
+                "codename":"Closed",
+                value: 'CLOSED',
+                "pvalue": "MORE",
+                disabled: false,
+            },
+            {
+                id: 'CANCELLED',
+                label: '已取消',
+                text: '已取消',
+                "data":{"n_status_eq":"cancel"},
+                "codename":"Cancelled",
+                value: 'CANCELLED',
+                "pvalue": "MORE",
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Bug__quickpacket',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -2538,8 +2655,8 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         items: [
             {
                 id: '1',
-                label: '1',
-                text: '1',
+                label: '允许',
+                text: '允许',
                 "data":"",
                 "codename":"Item_1",
                 value: '1',
@@ -2548,8 +2665,8 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
             },
             {
                 id: '0',
-                label: '0',
-                text: '0',
+                label: '不允许',
+                text: '不允许',
                 "data":"",
                 "codename":"Item_0",
                 value: '0',
@@ -2817,6 +2934,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: '未开始',
                 "data":"",
                 "codename":"Wait",
+                "color": "rgba(131, 138, 157, 1)",
                 value: 'wait',
                 
                 disabled: false,
@@ -2827,6 +2945,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: '进行中',
                 "data":"",
                 "codename":"Doing",
+                "color": "rgba(255, 93, 93, 1)",
                 value: 'doing',
                 
                 disabled: false,
@@ -2837,6 +2956,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: '已完成',
                 "data":"",
                 "codename":"Done",
+                "color": "rgba(67, 160, 71, 1)",
                 value: 'done',
                 
                 disabled: false,
@@ -2847,6 +2967,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: '已暂停',
                 "data":"",
                 "codename":"Pause",
+                "color": "rgba(255, 152, 0, 1)",
                 value: 'pause',
                 
                 disabled: false,
@@ -2857,6 +2978,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: '已取消',
                 "data":"",
                 "codename":"Cancel",
+                "color": "rgba(131, 138, 157, 1)",
                 value: 'cancel',
                 
                 disabled: false,
@@ -2867,6 +2989,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: '已关闭',
                 "data":"",
                 "codename":"Closed",
+                "color": "rgba(131, 138, 157, 1)",
                 value: 'closed',
                 
                 disabled: false,

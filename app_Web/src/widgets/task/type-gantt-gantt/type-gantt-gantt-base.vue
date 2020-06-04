@@ -296,7 +296,7 @@ export default class TypeGanttBase extends Vue implements ControlInterface {
     public getColumnValue(task: any, field: string) {
         if(Object.is(task.id.split(';')[0], 'TaskTypes')) {
             if (Object.is(field, 'text')) {
-                let codelist: any[] = this.$store.getters.getCodeList('CodeList4');
+                let codelist: any[] = this.$store.getters.getCodeList('Task__type');
                 if(codelist) {
                     return this.getCodeListItem(codelist, task[field]);
                 }

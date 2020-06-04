@@ -48,22 +48,22 @@
     <!--数据查询[ByProduct]-->
     <sql id="ByProduct" databaseId="mysql">
        <![CDATA[	SELECT t1.`ACL`, t1.`DELETED`, t1.`GROUPS`, t1.`ID`, t1.`MAIN`, t1.`NAME`, t1.`ORDER`, t1.`PRODUCT`, t1.`PROJECT`, t1.`TYPE` FROM `zt_doclib` t1  
-				 WHERE 	t1.DELETED = '0'
-					 AND ( t1.`PRODUCT` = #{srf.datacontext.product} )
+				 WHERE 	t1.deleted = '0'
+					 AND ( t1.`product` = #{srf.datacontext.product} )
 			]]>
     </sql>
 
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
        <![CDATA[	SELECT t1.`ACL`, t1.`DELETED`, t1.`GROUPS`, t1.`ID`, t1.`MAIN`, t1.`NAME`, t1.`ORDER`, t1.`PRODUCT`, t1.`PROJECT`, t1.`TYPE` FROM `zt_doclib` t1  
-				 WHERE 	t1.DELETED = '0'
+				 WHERE 	t1.deleted = '0'
 			]]>
     </sql>
 
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
        <![CDATA[	SELECT t1.`ACL`, t1.`COLLECTOR`, t1.`DELETED`, t1.`GROUPS`, t1.`ID`, t1.`MAIN`, t1.`NAME`, t1.`ORDER`, t1.`PRODUCT`, t1.`PROJECT`, t1.`TYPE`, t1.`USERS` FROM `zt_doclib` t1  
-				 WHERE 	t1.DELETED = '0'
+				 WHERE 	t1.deleted = '0'
 			]]>
     </sql>
 
