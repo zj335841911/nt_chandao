@@ -150,8 +150,8 @@ export default class TaskUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'task-start-edit-view', 
-                height: 0, 
-                width: 0,  
+                height: 600, 
+                width: 800,  
                 title: actionContext.$t('entities.task.views.starteditview.title'),
             };
             openPopupModal(view, data);
