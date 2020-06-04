@@ -2,6 +2,8 @@ zentao:
   url: http://172.16.100.202/zentao/
   needretry: false
   retrycount: 0
+  file:
+    uploadpath: ibizutil/ztupload
 ibiz:
   auth:
     service: IBZUAAZTUserService

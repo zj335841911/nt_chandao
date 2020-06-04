@@ -106,7 +106,7 @@ public class IBZUAAZTUserService implements AuthenticationUserService{
 		user.setAddr(userJO.getString("address"));
 		user.setSex(userJO.getString("gender"));
 		Map<String,Object> sessionParams = user.getSessionParams();
-		sessionParams.put("user", userJO);
+		sessionParams.put("ztuser", userJO);
 		sessionParams.put("zentaosid", zentaoSid);
 		user.setSessionParams(sessionParams);
 		// 权限默认给管理员（权限未接入之前）
