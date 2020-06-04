@@ -588,8 +588,8 @@ export default class TaskGridView9_AssignedToMeBase extends Vue {
             { pathName: 'tasks', parameterName: 'task' },
         ];
         const _this: any = this;
-        const openPopupModal = (view: any, data: any) => {
-            let container: Subject<any> = this.$appmodal.openModal(view, curViewParam, data);
+        const openDrawer = (view: any, data: any) => {
+            let container: Subject<any> = this.$appdrawer.openDrawer(view, curViewParam, data);
             container.subscribe((result: any) => {
                 if (!result || !Object.is(result.ret, 'OK')) {
                     return;
@@ -605,8 +605,9 @@ export default class TaskGridView9_AssignedToMeBase extends Vue {
             height: 0, 
             width: 1360,  
             title: this.$t('entities.task.views.maindashboardview.title'),
+            placement: 'DRAWER_TOP',
         };
-        openPopupModal(view, data);
+        openDrawer(view, data);
     }
 
 
