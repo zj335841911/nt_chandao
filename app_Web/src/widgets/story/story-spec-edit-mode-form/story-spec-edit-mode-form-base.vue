@@ -1,22 +1,21 @@
 <template>
-    <i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='story_storyspec_editmode' style="">
+    <i-form :model="this.data" class='app-form' ref='form'  id='story_storyspec_editmode' style="">
     <input style="display:none;" />
     <row >
             
-<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.storyspec_editmode_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 16, offset: 4 }" :xl="{ span: 16, offset: 4 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.storyspec_editmode_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
         <i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.storyspec_editmode_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.storyspec_editmode_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
-        <i-col v-show="detailsModel.reviewedby.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+        <i-col v-show="detailsModel.reviewedby.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='reviewedby' :itemRules="this.rules.reviewedby" class='' :caption="$t('entities.story.storyspec_editmode_form.details.reviewedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.reviewedby.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='reviewedby'
-:value="data.reviewedby" style=""></app-span>
+    <input-box v-model="data.reviewedby"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.reviewedby.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.notreview.visible" :style="{'width':'150px !important'}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col v-show="detailsModel.notreview.visible" :style="{'width':'150px !important'}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='notreview' :itemRules="this.rules.notreview" class='' :caption="$t('entities.story.storyspec_editmode_form.details.notreview')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.notreview.error" :isEmptyCaption="false" labelPos="RIGHT">
     <app-switch name='notreview' :value="this.data.notreview" @change="($event)=>{this.data.notreview = $event} " :disabled="detailsModel.notreview.disabled" style=""></app-switch>
 </app-form-item>
@@ -29,8 +28,7 @@
 </i-col>
 <i-col v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='title' :itemRules="this.rules.title" class='' :caption="$t('entities.story.storyspec_editmode_form.details.title')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='title'
-:value="data.title" style=""></app-span>
+    <input-box v-model="data.title"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.title.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
 </i-col>
@@ -58,12 +56,10 @@
 </app-form-item>
 
 </i-col>
-    
-    </row>
-</app-form-group>
-
-</i-col>
-<i-col v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.storyspec_editmode_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+        <i-col v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-druipart
     
     :formState="formState"
@@ -84,6 +80,16 @@
     @drdatasaved="drdatasaved($event)"
     style=";overflow: auto;">
 </app-form-druipart>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+    
+    </row>
+</app-form-group>
 
 </i-col>
 
@@ -505,8 +511,8 @@ export default class StorySpec_EditModeBase extends Vue implements ControlInterf
         title: [
             { type: 'string', message: '需求名称 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '需求名称 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '需求名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '需求名称 值不能为空', trigger: 'blur' },
+            { required: true, type: 'string', message: '需求名称 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '需求名称 值不能为空', trigger: 'blur' },
         ],
         verify: [
             { type: 'string', message: '验收标准 值必须为字符串类型', trigger: 'change' },
@@ -549,9 +555,11 @@ export default class StorySpec_EditModeBase extends Vue implements ControlInterf
     public detailsModel: any = {
         grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.story.storyspec_editmode_form', extractMode: 'ITEM', details: [] } })
 , 
-        group1: new FormGroupPanelModel({ caption: '需求描述信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.story.storyspec_editmode_form', extractMode: 'ITEM', details: [] } })
-, 
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
+, 
+        grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.story.storyspec_editmode_form', extractMode: 'ITEM', details: [] } })
+, 
+        group1: new FormGroupPanelModel({ caption: '需求描述信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.story.storyspec_editmode_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
@@ -817,6 +825,7 @@ export default class StorySpec_EditModeBase extends Vue implements ControlInterf
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
 
 
 

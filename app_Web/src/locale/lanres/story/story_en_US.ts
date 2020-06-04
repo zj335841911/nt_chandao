@@ -110,8 +110,9 @@ export default {
 	storyspec_editmode_form: {
 		details: {
 			grouppanel1: "分组面板", 
-			group1: "需求描述信息", 
 			druipart1: "", 
+			grouppanel2: "分组面板", 
+			group1: "需求描述信息", 
 			formpage1: "基本信息", 
 			srforikey: "", 
 			srfkey: "编号", 
