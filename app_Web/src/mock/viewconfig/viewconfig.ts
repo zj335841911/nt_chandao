@@ -279,6 +279,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryEditView",
             "viewtag": "4863a523ac490ebce771717756f0c6a8"
         },
+        "taskgridview": {
+            "title": "task表格视图",
+            "caption": "任务",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskGridView",
+            "viewtag": "4b01c8ae7e7e23b9c67dbca2ee90e41b"
+        },
         "storygridview9_assignedtome": {
             "title": "需求表格视图",
             "caption": "需求",
