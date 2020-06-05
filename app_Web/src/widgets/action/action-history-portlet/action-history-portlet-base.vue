@@ -1,10 +1,6 @@
 <template>
     <div class='portlet action-history ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
-        <p class='portlet-title'>
-            <i class=''></i>
-            历史记录
-        </p>
-        <div class="portlet-with-title">
+        <div class="portlet-without-title">
         <action-histroy-list-view :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></action-histroy-list-view>
         </div>
     </div>
