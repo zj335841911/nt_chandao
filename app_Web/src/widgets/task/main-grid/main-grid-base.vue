@@ -160,7 +160,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('uagridcolumn1')">
-                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.task.main_grid.columns.uagridcolumn1')" :width="200"  :align="'right'">
+                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.task.main_grid.columns.uagridcolumn1')" :width="225"  :align="'right'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.task.main_grid.columns.uagridcolumn1')}}
