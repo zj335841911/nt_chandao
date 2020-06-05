@@ -275,7 +275,7 @@ export default class TaskToolbarBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 关闭
+     * 返回
      *
      * @param {any[]} args 当前数据
      * @param {any} contextJO 行为附加上下文
@@ -293,7 +293,7 @@ export default class TaskToolbarBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 删除并关闭
+     * 删除
      *
      * @param {any[]} args 当前数据
      * @param {any} contextJO 行为附加上下文
@@ -362,7 +362,7 @@ export default class TaskToolbarBase extends Vue implements ControlInterface {
      */
     public actionBarModelData:any[] =[
         { viewlogicname:"dashboard_sysportlet2_udf09ee0_click",
-        actionName:"关闭",
+        actionName:"返回",
         },
         { viewlogicname:"dashboard_sysportlet2_ub4d331e_click",
         actionName:"暂停",
@@ -377,7 +377,7 @@ export default class TaskToolbarBase extends Vue implements ControlInterface {
         actionName:"编辑",
         },
         { viewlogicname:"dashboard_sysportlet2_uc22aaa2_click",
-        actionName:"删除并关闭",
+        actionName:"删除",
         }
     ];
 

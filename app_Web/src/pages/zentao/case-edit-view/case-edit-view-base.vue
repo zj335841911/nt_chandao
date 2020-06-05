@@ -268,7 +268,7 @@ export default class CaseEditViewBase extends Vue {
         tbitem5: { name: 'tbitem5', caption: '保存并关闭', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'SaveAndExit', target: '' } },
 
         tbitem6: {  name: 'tbitem6', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
-        tbitem7: { name: 'tbitem7', caption: '删除并关闭', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'RemoveAndExit', target: 'SINGLEKEY' } },
+        tbitem7: { name: 'tbitem7', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'RemoveAndExit', target: 'SINGLEKEY' } },
 
         tbitem8: {  name: 'tbitem8', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
         tbitem12: { name: 'tbitem12', caption: '新建', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'New', target: '' } },
@@ -1094,7 +1094,7 @@ export default class CaseEditViewBase extends Vue {
         }
     }
     /**
-     * 删除并关闭
+     * 删除
      *
      * @param {any[]} args 当前数据
      * @param {any} contextJO 行为附加上下文

@@ -112,8 +112,8 @@ export default {
 			tip: '',
 		},
 		tbitem7: {
-			caption: '删除并关闭',
-			tip: '删除并关闭',
+			caption: '删除',
+			tip: '删除',
 		},
 		tbitem8: {
 			caption: '-',

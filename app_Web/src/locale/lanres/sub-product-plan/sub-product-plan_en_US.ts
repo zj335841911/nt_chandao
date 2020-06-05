@@ -54,7 +54,7 @@ export default {
 		},
 		uiactions: {
 			saveandexit: "Save And Close",
-			exit: "关闭",
+			exit: "返回",
 		},
 	},
 	mainsubplan_grid: {

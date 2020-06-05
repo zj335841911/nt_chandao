@@ -278,7 +278,7 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
         }
     }
     /**
-     * 关闭
+     * 返回
      *
      * @param {any[]} args 当前数据
      * @param {any} contextJO 行为附加上下文

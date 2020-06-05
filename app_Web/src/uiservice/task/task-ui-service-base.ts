@@ -226,8 +226,8 @@ export default class TaskUIServiceBase extends UIService {
         const view = { 
             viewname: 'task-open-task-view', 
             title: actionContext.$t('entities.task.views.opentaskview.title'),
-            height: 0, 
-            width: 0, 
+            height: 600, 
+            width: 800, 
         };
         const appmodal = actionContext.$appmodal.openModal(view,context,data);
         appmodal.subscribe((result:any) => {

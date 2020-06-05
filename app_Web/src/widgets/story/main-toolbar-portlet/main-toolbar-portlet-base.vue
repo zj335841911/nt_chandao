@@ -247,7 +247,7 @@ export default class StoryMainToolbarBase extends Vue implements ControlInterfac
     }
 
     /**
-     * 删除并关闭
+     * 删除
      *
      * @param {any[]} args 当前数据
      * @param {any} contextJO 行为附加上下文
@@ -328,7 +328,7 @@ export default class StoryMainToolbarBase extends Vue implements ControlInterfac
         actionName:"编辑",
         },
         { viewlogicname:"dashboard_sysportlet3_u5ea1add_click",
-        actionName:"删除并关闭",
+        actionName:"删除",
         }
     ];
 
