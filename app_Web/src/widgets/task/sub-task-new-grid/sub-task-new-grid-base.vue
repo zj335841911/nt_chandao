@@ -60,15 +60,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-                              <app-column-link deKeyField='task' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'task-main-dashboard-view', height: 0,width: 1360,title: $t('entities.task.views.maindashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
-            { pathName: 'projects', parameterName: 'project' },
-            ]
-            ,parameters: [
-            { pathName: 'tasks', parameterName: 'task' },
-            { pathName: 'maindashboardview', parameterName: 'maindashboardview' }
-            ]}" valueitem="srfkey">
                                 <app-span name='name' editorType="TEXTBOX" :value="row.name"></app-span>
-                              </app-column-link>
                         </template>
                     </template>
                 </el-table-column>

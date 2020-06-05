@@ -405,10 +405,6 @@ export default {
 		},
 	},
 	subtasknewviewtoolbar_toolbar: {
-		deuiaction2: {
-			caption: '刷新',
-			tip: '刷新',
-		},
 	},
 	maingridviewtoolbar_toolbar: {
 		deuiaction1: {
