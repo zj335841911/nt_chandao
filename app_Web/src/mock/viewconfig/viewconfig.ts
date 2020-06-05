@@ -215,6 +215,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskMainInfoView9",
             "viewtag": "321ab2e4e87a29fef8eed086e951a006"
         },
+        "tasksubtasknewview": {
+            "title": "子任务",
+            "caption": "子任务",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskSubTaskNewView",
+            "viewtag": "35ba93bac795e0deb7297d2d471b7180"
+        },
         "projectburndownchartview": {
             "title": "燃尽图",
             "caption": "项目",

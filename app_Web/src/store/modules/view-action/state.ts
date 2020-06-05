@@ -246,6 +246,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '35ba93bac795e0deb7297d2d471b7180',
+            viewmodule: 'zentao',
+            viewname: 'TaskSubTaskNewView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'ea141fddc78fd1af4d06e494baf12cc1',
+            ],
+        },
+        {
             viewtag: '3aa4c66089ff40194c7f4ecaf627acb5',
             viewmodule: 'zentao',
             viewname: 'ProjectBurnDownChartView',
@@ -855,6 +865,7 @@ export const viewstate: any = {
                 'b78229d8342c2c13ddd8e403a7d853bc',
                 'abca63015fc84466991c6479f955f6d0',
                 'ea141fddc78fd1af4d06e494baf12cc1',
+                '35ba93bac795e0deb7297d2d471b7180',
             ],
         },
         {

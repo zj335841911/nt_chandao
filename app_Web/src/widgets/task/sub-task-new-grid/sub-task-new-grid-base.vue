@@ -23,71 +23,75 @@
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
-            <template v-if="getColumnState('id')">
-                <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.task.main_grid.columns.id')" :width="80"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('modulename')">
+                <el-table-column show-overflow-tooltip :prop="'modulename'" :label="$t('entities.task.subtasknew_grid.columns.modulename')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.task.main_grid.columns.id')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <span>{{row.id}}</span>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('pri')">
-                <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.task.main_grid.columns.pri')" :width="80"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.task.main_grid.columns.pri')}}
+                        {{$t('entities.task.subtasknew_grid.columns.modulename')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.pri" tag='Task__pri' codelistType='STATIC' ></codelist>
+                                <app-span name='modulename' editorType="PICKER" :value="row.modulename"></app-span>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('storyname')">
+                <el-table-column show-overflow-tooltip :prop="'storyname'" :label="$t('entities.task.subtasknew_grid.columns.storyname')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.task.subtasknew_grid.columns.storyname')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template >
+                                <app-span name='storyname' editorType="PICKER" :value="row.storyname"></app-span>
                         </template>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.task.main_grid.columns.name')" :min-width="1"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.task.subtasknew_grid.columns.name')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.task.main_grid.columns.name')}}
+                        {{$t('entities.task.subtasknew_grid.columns.name')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='task' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'task-main-dashboard-view', height: 0,width: 1360,title: $t('entities.task.views.maindashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+                        <template >
+                              <app-column-link deKeyField='task' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'task-main-dashboard-view', height: 0,width: 1360,title: $t('entities.task.views.maindashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
             { pathName: 'projects', parameterName: 'project' },
             ]
             ,parameters: [
             { pathName: 'tasks', parameterName: 'task' },
             { pathName: 'maindashboardview', parameterName: 'maindashboardview' }
             ]}" valueitem="srfkey">
-                            <span>{{row.name}}</span>
-                        </app-column-link >
+                                <app-span name='name' editorType="TEXTBOX" :value="row.name"></app-span>
+                              </app-column-link>
+                        </template>
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('status')">
-                <el-table-column show-overflow-tooltip :prop="'status'" :label="$t('entities.task.main_grid.columns.status')" :width="100"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('type')">
+                <el-table-column show-overflow-tooltip :prop="'type'" :label="$t('entities.task.subtasknew_grid.columns.type')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.task.main_grid.columns.status')}}
+                        {{$t('entities.task.subtasknew_grid.columns.type')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.status" tag='Task__status' codelistType='STATIC' ></codelist>
+            <codelist :value="row.type" tag='Task__type' codelistType='STATIC' ></codelist>
                         </template>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('assignedto')">
-                <el-table-column show-overflow-tooltip :prop="'assignedto'" :label="$t('entities.task.main_grid.columns.assignedto')" :width="150"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'assignedto'" :label="$t('entities.task.subtasknew_grid.columns.assignedto')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.task.main_grid.columns.assignedto')}}
+                        {{$t('entities.task.subtasknew_grid.columns.assignedto')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -97,103 +101,45 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('finishedby')">
-                <el-table-column show-overflow-tooltip :prop="'finishedby'" :label="$t('entities.task.main_grid.columns.finishedby')" :width="150"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('left')">
+                <el-table-column show-overflow-tooltip :prop="'left'" :label="$t('entities.task.subtasknew_grid.columns.left')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.task.main_grid.columns.finishedby')}}
+                        {{$t('entities.task.subtasknew_grid.columns.left')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.finishedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                                <app-span name='left' editorType="TEXTBOX" :value="row.left"></app-span>
                         </template>
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('estimate')">
-                <el-table-column show-overflow-tooltip :prop="'estimate'" :label="$t('entities.task.main_grid.columns.estimate')" :width="100"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('desc')">
+                <el-table-column show-overflow-tooltip :prop="'desc'" :label="$t('entities.task.subtasknew_grid.columns.desc')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.task.main_grid.columns.estimate')}}
+                        {{$t('entities.task.subtasknew_grid.columns.desc')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <app-format-data dataType="FLOAT" precision="0" :data="row.estimate"></app-format-data>
+                        <template >
+                                <app-span name='desc' editorType="TEXTAREA" :value="row.desc"></app-span>
+                        </template>
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('consumed')">
-                <el-table-column show-overflow-tooltip :prop="'consumed'" :label="$t('entities.task.main_grid.columns.consumed')" :width="100"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('pri')">
+                <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.task.subtasknew_grid.columns.pri')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.task.main_grid.columns.consumed')}}
+                        {{$t('entities.task.subtasknew_grid.columns.pri')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <app-format-data dataType="FLOAT" precision="0" :data="row.consumed"></app-format-data>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('left')">
-                <el-table-column show-overflow-tooltip :prop="'left'" :label="$t('entities.task.main_grid.columns.left')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.task.main_grid.columns.left')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <app-format-data dataType="FLOAT" precision="0" :data="row.left"></app-format-data>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('deadline')">
-                <el-table-column show-overflow-tooltip :prop="'deadline'" :label="$t('entities.task.main_grid.columns.deadline')" :width="160"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.task.main_grid.columns.deadline')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <app-format-data format="YYYY-MM-DD" :data="row.deadline"></app-format-data>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('uagridcolumn1')">
-                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.task.main_grid.columns.uagridcolumn1')" :width="255"  :align="'right'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.task.main_grid.columns.uagridcolumn1')}}
-                      </span>
-                    </template>
-                    <template slot-scope="scope">
-                        <span>
-                            
-                            <a @click="uiAction(scope.row, 'StartTask', $event)">
-                              <i class='fa fa-play-circle-o'></i>
-                              {{$t('entities.task.main_grid.uiactions.starttask')}}
-                            </a>
-                            <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'CloseTask', $event)">
-                              <i class='fa fa-power-off'></i>
-                              {{$t('entities.task.main_grid.uiactions.closetask')}}
-                            </a>
-                            <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'DoneTask', $event)">
-                              <i class='fa fa-check-square-o'></i>
-                              {{$t('entities.task.main_grid.uiactions.donetask')}}
-                            </a>
-                            <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'MainEdit', $event)">
-                              <i class='fa fa-edit'></i>
-                              {{$t('entities.task.main_grid.uiactions.mainedit')}}
-                            </a>
-                            <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'NewSubTask', $event)">
-                              <i class='studio-icon-subnets'></i>
-                              {{$t('entities.task.main_grid.uiactions.newsubtask')}}
-                            </a>
-                        </span>
+                        <template >
+            <codelist :value="row.pri" tag='Task__pri' codelistType='STATIC' ></codelist>
+                        </template>
                     </template>
                 </el-table-column>
             </template>
@@ -201,41 +147,6 @@
                 <el-table-column></el-table-column>
             </template>
     </el-table>
-    <row class='grid-pagination' v-show="items.length > 0">
-        <page class='pull-right' @on-change="pageOnChange($event)" 
-            @on-page-size-change="onPageSizeChange($event)"
-            :transfer="true" :total="totalrow"
-            show-sizer :current="curPage" :page-size="limit"
-            :page-size-opts="[10, 20, 30, 40, 50, 60, 70, 80, 90, 100]" show-elevator show-total>
-            <span>
-                <span class="page-column">
-                    <poptip transfer placement="top-start">
-                        <i-button icon="md-menu">{{$t('app.gridpage.choicecolumns')}}</i-button>
-                        <div slot="content">
-                            <template v-for="col in allColumns">
-                                <div :key="col.name"><el-checkbox v-model="col.show" @change="onColChange()">{{$t(col.langtag)}}</el-checkbox></div>
-                            </template>
-                        </div>
-                    </poptip>
-                </span>
-                <span v-if="selections.length > 0" class="batch-toolbar">
-                </span>
-                <span class="page-button"><i-button icon="md-refresh" :title="$t('app.gridpage.refresh')" @click="pageRefresh()"></i-button></span>&nbsp;
-                <span>
-                    {{$t('app.gridpage.show')}}&nbsp;
-                    <span>
-                        <template v-if="items.length === 1">
-                        1
-                        </template>
-                        <template v-else>
-                            <span>{{(curPage - 1) * limit + 1}}&nbsp;-&nbsp;{{totalrow > curPage * limit ? curPage * limit : totalrow}}</span>
-                        </template>
-                    </span>&nbsp;
-                    {{$t('app.gridpage.records')}}，{{$t('app.gridpage.totle')}}&nbsp;{{totalrow}}&nbsp;{{$t('app.gridpage.records')}}
-                </span>
-            </span>
-        </page>
-    </row>
   </i-form>
 </div>
 </template>
@@ -246,9 +157,8 @@ import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import { UIActionTool,Util } from '@/utils';
 import TaskService from '@/service/task/task-service';
-import MainService from './main-grid-service';
+import SubTaskNewService from './sub-task-new-grid-service';
 
-import TaskUIService from '@/uiservice/task/task-ui-service';
 import CodeListService from "@service/app/codelist-service";
 import { FormItemModel } from '@/model/form-detail';
 
@@ -258,13 +168,13 @@ import { FormItemModel } from '@/model/form-detail';
       
     }
 })
-export default class MainBase extends Vue implements ControlInterface {
+export default class SubTaskNewBase extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     @Prop() public name?: string;
 
@@ -272,7 +182,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     @Prop() public viewState!: Subject<ViewState>;
 
@@ -280,7 +190,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 应用上下文
      *
      * @type {*}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     @Prop() public context: any;
 
@@ -288,7 +198,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 视图参数
      *
      * @type {*}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     @Prop() public viewparams: any;
 
@@ -297,7 +207,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @public
      * @type {(Subscription | undefined)}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public viewStateEvent: Subscription | undefined;
 
@@ -305,7 +215,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public getControlType(): string {
         return 'GRID'
@@ -317,178 +227,33 @@ export default class MainBase extends Vue implements ControlInterface {
      * 计数器服务对象集合
      *
      * @type {Array<*>}
-     * @memberof Main
+     * @memberof SubTaskNew
      */    
     public counterServiceArray:Array<any> = [];
 
     /**
      * 建构部件服务对象
      *
-     * @type {MainService}
-     * @memberof Main
+     * @type {SubTaskNewService}
+     * @memberof SubTaskNew
      */
-    public service: MainService = new MainService({ $store: this.$store });
+    public service: SubTaskNewService = new SubTaskNewService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {TaskService}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public appEntityService: TaskService = new TaskService({ $store: this.$store });
     
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public grid_uagridcolumn1_u7f3dc22_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:TaskUIService  = new TaskUIService();
-        curUIService.Task_StartTask(datas,contextJO, paramJO,  $event, xData,this,"Task");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public grid_uagridcolumn1_u164e1c8_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:TaskUIService  = new TaskUIService();
-        curUIService.Task_CloseTask(datas,contextJO, paramJO,  $event, xData,this,"Task");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public grid_uagridcolumn1_u2618d3d_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:TaskUIService  = new TaskUIService();
-        curUIService.Task_DoneTask(datas,contextJO, paramJO,  $event, xData,this,"Task");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public grid_uagridcolumn1_u90f5316_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:TaskUIService  = new TaskUIService();
-        curUIService.Task_MainEdit(datas,contextJO, paramJO,  $event, xData,this,"Task");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public grid_uagridcolumn1_ua6566df_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:TaskUIService  = new TaskUIService();
-        curUIService.Task_NewSubTask(datas,contextJO, paramJO,  $event, xData,this,"Task");
-    }
 
 
     /**
      * 关闭视图
      *
      * @param {any} args
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public closeView(args: any): void {
         let _this: any = this;
@@ -498,7 +263,7 @@ export default class MainBase extends Vue implements ControlInterface {
     /**
      *  计数器刷新
      *
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public counterRefresh(){
         const _this:any =this;
@@ -516,7 +281,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 代码表服务对象
      *
      * @type {CodeListService}
-     * @memberof Main
+     * @memberof SubTaskNew
      */  
     public codeListService:CodeListService = new CodeListService({ $store: this.$store });
 
@@ -524,7 +289,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public getDatas(): any[] {
         return this.selections;
@@ -534,7 +299,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public getData(): any {
         return this.selections[0];
@@ -544,14 +309,14 @@ export default class MainBase extends Vue implements ControlInterface {
      * 打开新建数据视图
      *
      * @type {any}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     @Prop() public newdata: any;
     /**
      * 打开编辑数据视图
      *
      * @type {any}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     @Prop() public opendata: any;
 
@@ -559,7 +324,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     @Prop({ default: true }) public showBusyIndicator?: boolean;
 
@@ -567,7 +332,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 部件行为--update
      *
      * @type {string}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     @Prop() public updateAction!: string;
     
@@ -575,7 +340,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 部件行为--fetch
      *
      * @type {string}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     @Prop() public fetchAction!: string;
     
@@ -583,7 +348,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 部件行为--remove
      *
      * @type {string}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     @Prop() public removeAction!: string;
     
@@ -591,7 +356,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 部件行为--load
      *
      * @type {string}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     @Prop() public loadAction!: string;
     
@@ -599,7 +364,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 部件行为--loaddraft
      *
      * @type {string}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     @Prop() public loaddraftAction!: string;
     
@@ -607,7 +372,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     @Prop() public createAction!: string;
 
@@ -615,7 +380,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 当前页
      *
      * @type {number}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public curPage: number = 1;
 
@@ -623,7 +388,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 数据
      *
      * @type {any[]}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public items: any[] = [];
 
@@ -631,15 +396,15 @@ export default class MainBase extends Vue implements ControlInterface {
      * 是否支持分页
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
-    public isEnablePagingBar: boolean = true;
+    public isEnablePagingBar: boolean = false;
 
     /**
      * 是否禁用排序
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public isNoSort: boolean = false;
 
@@ -647,7 +412,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 排序方向
      *
      * @type {string}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public minorSortDir: string = '';
 
@@ -655,7 +420,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 排序字段
      *
      * @type {string}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public minorSortPSDEF: string = '';
 
@@ -663,15 +428,15 @@ export default class MainBase extends Vue implements ControlInterface {
      * 分页条数
      *
      * @type {number}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
-    public limit: number = 20;
+    public limit: number = 100;
 
     /**
      * 是否显示标题
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public isHideHeader: boolean = false;
 
@@ -679,7 +444,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 是否默认选中第一条数据
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     @Prop({ default: false }) public isSelectFirstDefault!: boolean;
 
@@ -687,7 +452,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 是否单选
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     @Prop() public isSingleSelect?: boolean;
 
@@ -695,7 +460,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 选中数据字符串
      *
      * @type {string}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     @Prop() public selectedData?: string;
 
@@ -704,7 +469,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     @Watch('selectedData')
     public onValueChange(newVal: any, oldVal: any) {
@@ -732,7 +497,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 2 双击激活
      *
      * @type {(number | 0 | 1 | 2)}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     @Prop({default: 2}) public gridRowActiveMode!: number;
 
@@ -740,7 +505,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 是否开启行编辑
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     @Prop({default: false}) public isOpenEdit!: boolean;
 
@@ -748,7 +513,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 实际是否开启行编辑
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public actualIsOpenEdit: boolean = this.isOpenEdit;
 
@@ -756,7 +521,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 总条数
      *
      * @type {number}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public totalrow: number = 0;
 
@@ -764,7 +529,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 选中行数据
      *
      * @type {any[]}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public selections: any[] = [];
 
@@ -772,7 +537,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 拦截行选中
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public stopRowClick: boolean = false;
 
@@ -783,7 +548,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 表格是否显示
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public isDisplay:boolean = true;
 
@@ -791,7 +556,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 部件刷新
      *
      * @param {any[]} args
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public refresh(args: any[]): void {
         this.load();
@@ -801,7 +566,7 @@ export default class MainBase extends Vue implements ControlInterface {
     * 选项框列宽
     *
     * @type {number}
-    * @memberof Main
+    * @memberof SubTaskNew
     */
     public checkboxColWidth: number = 35;
 
@@ -809,7 +574,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 是否允许拖动列宽
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public isDragendCol: boolean = false;
 
@@ -817,83 +582,62 @@ export default class MainBase extends Vue implements ControlInterface {
      * 所有列成员
      *
      * @type {any[]}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public allColumns: any[] = [
         {
-            name: 'id',
-            label: 'ID',
-            langtag: 'entities.task.main_grid.columns.id',
+            name: 'modulename',
+            label: '所属模块',
+            langtag: 'entities.task.subtasknew_grid.columns.modulename',
             show: true,
             util: 'PX'
         },
         {
-            name: 'pri',
-            label: 'P',
-            langtag: 'entities.task.main_grid.columns.pri',
+            name: 'storyname',
+            label: '相关需求',
+            langtag: 'entities.task.subtasknew_grid.columns.storyname',
             show: true,
             util: 'PX'
         },
         {
             name: 'name',
             label: '任务名称',
-            langtag: 'entities.task.main_grid.columns.name',
+            langtag: 'entities.task.subtasknew_grid.columns.name',
             show: true,
-            util: 'STAR'
+            util: 'PX'
         },
         {
-            name: 'status',
-            label: '任务状态',
-            langtag: 'entities.task.main_grid.columns.status',
+            name: 'type',
+            label: '任务类型',
+            langtag: 'entities.task.subtasknew_grid.columns.type',
             show: true,
             util: 'PX'
         },
         {
             name: 'assignedto',
             label: '指派给',
-            langtag: 'entities.task.main_grid.columns.assignedto',
-            show: true,
-            util: 'PX'
-        },
-        {
-            name: 'finishedby',
-            label: '完成者',
-            langtag: 'entities.task.main_grid.columns.finishedby',
-            show: true,
-            util: 'PX'
-        },
-        {
-            name: 'estimate',
-            label: '预计',
-            langtag: 'entities.task.main_grid.columns.estimate',
-            show: true,
-            util: 'PX'
-        },
-        {
-            name: 'consumed',
-            label: '消耗',
-            langtag: 'entities.task.main_grid.columns.consumed',
+            langtag: 'entities.task.subtasknew_grid.columns.assignedto',
             show: true,
             util: 'PX'
         },
         {
             name: 'left',
-            label: '剩余',
-            langtag: 'entities.task.main_grid.columns.left',
+            label: '预计',
+            langtag: 'entities.task.subtasknew_grid.columns.left',
             show: true,
             util: 'PX'
         },
         {
-            name: 'deadline',
-            label: '截止日期',
-            langtag: 'entities.task.main_grid.columns.deadline',
+            name: 'desc',
+            label: '任务描述',
+            langtag: 'entities.task.subtasknew_grid.columns.desc',
             show: true,
             util: 'PX'
         },
         {
-            name: 'uagridcolumn1',
-            label: '操作',
-            langtag: 'entities.task.main_grid.columns.uagridcolumn1',
+            name: 'pri',
+            label: '优先级',
+            langtag: 'entities.task.subtasknew_grid.columns.pri',
             show: true,
             util: 'PX'
         },
@@ -903,7 +647,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 表格模型集合
      *
      * @type {*}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public gridItemsModel: any[] = [];
 
@@ -911,10 +655,20 @@ export default class MainBase extends Vue implements ControlInterface {
      * 获取表格行模型
      *
      * @type {*}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public getGridRowModel(){
         return {
+          story: new FormItemModel(),
+          assignedto: new FormItemModel(),
+          modulename: new FormItemModel(),
+          module: new FormItemModel(),
+          pri: new FormItemModel(),
+          desc: new FormItemModel(),
+          name: new FormItemModel(),
+          left: new FormItemModel(),
+          storyname: new FormItemModel(),
+          type: new FormItemModel(),
           srfkey: new FormItemModel(),
         }
     }
@@ -923,9 +677,49 @@ export default class MainBase extends Vue implements ControlInterface {
      * 属性值规则
      *
      * @type {*}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public rules: any = {
+        story: [
+             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '值不能为空', trigger: 'blur' },
+        ],
+        assignedto: [
+             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '指派给 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '指派给 值不能为空', trigger: 'blur' },
+        ],
+        modulename: [
+             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属模块 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属模块 值不能为空', trigger: 'blur' },
+        ],
+        module: [
+             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '值不能为空', trigger: 'blur' },
+        ],
+        pri: [
+             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '优先级 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '优先级 值不能为空', trigger: 'blur' },
+        ],
+        desc: [
+             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '任务描述 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '任务描述 值不能为空', trigger: 'blur' },
+        ],
+        name: [
+             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '任务名称 值不能为空', trigger: 'change' },
+            { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '任务名称 值不能为空', trigger: 'blur' },
+        ],
+        left: [
+             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计 值不能为空', trigger: 'blur' },
+        ],
+        storyname: [
+             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '相关需求 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '相关需求 值不能为空', trigger: 'blur' },
+        ],
+        type: [
+             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '任务类型 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '任务类型 值不能为空', trigger: 'blur' },
+        ],
         srfkey: [
              { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'blur' },
@@ -940,7 +734,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * @param {number} rowIndex 行索引
      * @returns Promise<any>
      * 
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public validate(property:string, data:any, rowIndex:number):Promise<any>{
         return new Promise((resolve, reject) => {
@@ -958,7 +752,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 校验所有修改过的编辑项
      *
      * @returns Promise<any>
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public async validateAll(){
         let validateState = true;
@@ -980,11 +774,11 @@ export default class MainBase extends Vue implements ControlInterface {
      * 表格数据加载
      *
      * @param {*} [arg={}]
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public load(opt: any = {}, pageReset: boolean = false): void {
         if(!this.fetchAction){
-            this.$Notice.error({ title: '错误', desc: 'TaskMainGridView视图表格fetchAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'TaskSubTaskNewView视图表格fetchAction参数未配置' });
             return;
         }
         if(pageReset){
@@ -1057,11 +851,11 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {any[]} datas
      * @returns {Promise<any>}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public async remove(datas: any[]): Promise<any> {
         if(!this.removeAction){
-            this.$Notice.error({ title: '错误', desc: 'TaskMainGridView视图表格removeAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'TaskSubTaskNewView视图表格removeAction参数未配置' });
             return;
         }
         let _datas:any[] = [];
@@ -1163,11 +957,11 @@ export default class MainBase extends Vue implements ControlInterface {
      * 批量添加
      *
      * @param {*} [arg={}]
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public addBatch(arg: any = {}): void {
         if(!this.fetchAction){
-            this.$Notice.error({ title: '错误', desc: 'TaskMainGridView视图表格fetchAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'TaskSubTaskNewView视图表格fetchAction参数未配置' });
             return;
         }
         if(!arg){
@@ -1180,7 +974,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 数据导入
      *
      * @param {*} data
-     * @memberof Main
+     * @memberof SubTaskNew
      */
      public importExcel(data:any ={}):void{
         //导入excel
@@ -1209,7 +1003,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 数据导出
      *
      * @param {*} data
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public exportExcel(data: any = {}): void {
         // 导出Excel
@@ -1280,21 +1074,13 @@ export default class MainBase extends Vue implements ControlInterface {
      * @param {*} filterVal
      * @param {*} jsonData
      * @returns {[]}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public async formatExcelData(filterVal:any, jsonData:any) {
         let codelistColumns:Array<any> = [
           {
-            name: 'pri',
-            srfkey: 'Task__pri',
-            codelistType : 'STATIC',
-            renderMode: 'other',
-            textSeparator: '、',
-            valueSeparator: ',',
-          },
-          {
-            name: 'status',
-            srfkey: 'Task__status',
+            name: 'type',
+            srfkey: 'Task__type',
             codelistType : 'STATIC',
             renderMode: 'other',
             textSeparator: '、',
@@ -1309,12 +1095,12 @@ export default class MainBase extends Vue implements ControlInterface {
             valueSeparator: ",",
           },
           {
-            name: 'finishedby',
-            srfkey: 'UserRealName',
-            codelistType : 'DYNAMIC',
-            textSeparator: ',',
-            renderMode: 'string',
-            valueSeparator: ",",
+            name: 'pri',
+            srfkey: 'Task__pri',
+            codelistType : 'STATIC',
+            renderMode: 'other',
+            textSeparator: '、',
+            valueSeparator: ',',
           },
         ];
         let _this = this;
@@ -1344,7 +1130,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * @param {any[]} items 代码表数据
      * @param {*} value
      * @returns {*}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public getCodelistValue(items: any[], value: any, codelist: any,){
         if(!value){
@@ -1397,7 +1183,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * @param {any[]} items
      * @param {*} value
      * @returns {*}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public getItem(items: any[], value: any, codelist: any): any {
         const arr: Array<any> = items.filter(item => {return item.value == value});
@@ -1414,7 +1200,7 @@ export default class MainBase extends Vue implements ControlInterface {
     /**
      * 生命周期
      *
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public created(): void {
         this.afterCreated();
@@ -1426,7 +1212,7 @@ export default class MainBase extends Vue implements ControlInterface {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof Main
+     *  @memberof SubTaskNew
      */    
     public afterCreated(){
         this.setColState();
@@ -1451,7 +1237,7 @@ export default class MainBase extends Vue implements ControlInterface {
     /**
      * vue 生命周期
      *
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public destroyed() {
         this.afterDestroy();
@@ -1460,7 +1246,7 @@ export default class MainBase extends Vue implements ControlInterface {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -1472,7 +1258,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 获取选中行胡数据
      *
      * @returns {any[]}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public getSelection(): any[] {
         return this.selections;
@@ -1483,7 +1269,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {*} $event
      * @returns {void}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public rowDBLClick($event: any): void {
         if (!$event || this.actualIsOpenEdit || Object.is(this.gridRowActiveMode,0)) {
@@ -1507,7 +1293,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {*} $event
      * @returns {void}
-     * @memberof  Main
+     * @memberof  SubTaskNew
      */
     public select($event: any): void {
         if (!$event) {
@@ -1522,7 +1308,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 复选框数据全部选中
      *
      * @param {*} $event
-     * @memberof  Main
+     * @memberof  SubTaskNew
      */
     public selectAll($event: any): void {
         if (!$event) {
@@ -1539,7 +1325,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {*} $event
      * @returns {void}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public rowClick($event: any, ifAlways: boolean = false): void {
         if (!ifAlways && (!$event || this.actualIsOpenEdit)) {
@@ -1581,7 +1367,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {*} $event
      * @returns {void}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public pageOnChange($event: any): void {
         if (!$event) {
@@ -1599,7 +1385,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {*} $event
      * @returns {void}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public onPageSizeChange($event: any): void {
         if (!$event) {
@@ -1617,7 +1403,7 @@ export default class MainBase extends Vue implements ControlInterface {
     /**
      * 分页刷新
      *
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public pageRefresh(): void {
         this.load({});
@@ -1627,7 +1413,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * 排序变化
      *
      * @param {{ column: any, prop: any, order: any }} { column, prop, order }
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public onSortChange({ column, prop, order }: { column: any, prop: any, order: any }): void {
         const dir = Object.is(order, 'ascending') ? 'asc' : Object.is(order, 'descending') ? 'desc' : '';
@@ -1644,7 +1430,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {{ row: any, rowIndex: any }} { row, rowIndex }
      * @returns {string}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public onRowClassName({ row, rowIndex }: { row: any, rowIndex: any }): string {
         const index = this.selections.findIndex((select: any) => Object.is(select.srfkey, row.srfkey));
@@ -1659,33 +1445,18 @@ export default class MainBase extends Vue implements ControlInterface {
      * @param {*} row
      * @param {*} tag
      * @param {*} $event
-     * @memberof Main
+     * @memberof SubTaskNew
      */
 	public uiAction(row: any, tag: any, $event: any) {
-        if(Object.is('StartTask', tag)) {
-            this.grid_uagridcolumn1_u7f3dc22_click(row, tag, $event);
-        }
-        if(Object.is('CloseTask', tag)) {
-            this.grid_uagridcolumn1_u164e1c8_click(row, tag, $event);
-        }
-        if(Object.is('DoneTask', tag)) {
-            this.grid_uagridcolumn1_u2618d3d_click(row, tag, $event);
-        }
-        if(Object.is('MainEdit', tag)) {
-            this.grid_uagridcolumn1_u90f5316_click(row, tag, $event);
-        }
-        if(Object.is('NewSubTask', tag)) {
-            this.grid_uagridcolumn1_ua6566df_click(row, tag, $event);
-        }
     }
 
     /**
      * 设置列状态
      *
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public setColState() {
-		const _data: any = localStorage.getItem('zt_task_main_grid');
+		const _data: any = localStorage.getItem('zt_task_subtasknew_grid');
 		if (_data) {
 			let columns = JSON.parse(_data);
 			columns.forEach((col: any) => {
@@ -1700,10 +1471,10 @@ export default class MainBase extends Vue implements ControlInterface {
     /**
      * 列变化
      *
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public onColChange() {
-        localStorage.setItem('zt_task_main_grid', JSON.stringify(this.allColumns));
+        localStorage.setItem('zt_task_subtasknew_grid', JSON.stringify(this.allColumns));
     }
 
     /**
@@ -1711,7 +1482,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {string} name
      * @returns {boolean}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public getColumnState(name: string): boolean {
         let column = this.allColumns.find((col: any) =>
@@ -1725,7 +1496,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @readonly
      * @type {boolean}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     get adaptiveState(): boolean {
         return !this.allColumns.find((column: any) => column.show && Object.is(column.util, 'STAR'));
@@ -1736,7 +1507,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {*} $event
      * @returns {Promise<any>}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public async save(args: any[], params?: any, $event?: any, xData?: any){
         let _this = this;
@@ -1751,7 +1522,7 @@ export default class MainBase extends Vue implements ControlInterface {
             try {
                 if(Object.is(item.rowDataState, 'create')){
                     if(!this.createAction){
-                        this.$Notice.error({ title: '错误', desc: 'TaskMainGridView视图表格createAction参数未配置' });
+                        this.$Notice.error({ title: '错误', desc: 'TaskSubTaskNewView视图表格createAction参数未配置' });
                     }else{
                       Object.assign(item,{viewparams:this.viewparams});
                       let response = await this.service.add(this.createAction, JSON.parse(JSON.stringify(this.context)),item, this.showBusyIndicator);
@@ -1759,7 +1530,7 @@ export default class MainBase extends Vue implements ControlInterface {
                     }
                 }else if(Object.is(item.rowDataState, 'update')){
                     if(!this.updateAction){
-                        this.$Notice.error({ title: '错误', desc: 'TaskMainGridView视图表格updateAction参数未配置' });
+                        this.$Notice.error({ title: '错误', desc: 'TaskSubTaskNewView视图表格updateAction参数未配置' });
                     }else{
                         Object.assign(item,{viewparams:this.viewparams});
                         if(item.task){
@@ -1793,7 +1564,7 @@ export default class MainBase extends Vue implements ControlInterface {
      *
      * @param {*} $args row 行数据，rowIndex 行索引
      * @returns {void}
-     * @memberof Main
+     * @memberof SubTaskNew
      */
     public getRowClassName(args:{row: any,rowIndex: number}){
         let isSelected = this.selections.some((item:any)=>{
@@ -1805,5 +1576,5 @@ export default class MainBase extends Vue implements ControlInterface {
 </script>
 
 <style lang='less'>
-@import './main-grid.less';
+@import './sub-task-new-grid.less';
 </style>

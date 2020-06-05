@@ -57,6 +57,10 @@ export default {
 			caption: '任务',
       title: '任务',
 		},
+		subtasknewview: {
+			caption: '子任务',
+      title: '子任务',
+		},
 		maindashboardview: {
 			caption: '任务',
       title: '任务',
@@ -332,6 +336,20 @@ export default {
 		uiactions: {
 		},
 	},
+	subtasknew_grid: {
+		columns: {
+			modulename: '所属模块',
+			storyname: '相关需求',
+			name: '任务名称',
+			type: '任务类型',
+			assignedto: '指派给',
+			left: '预计',
+			desc: '任务描述',
+			pri: '优先级',
+		},
+		uiactions: {
+		},
+	},
 	main_grid: {
 		columns: {
 			id: 'ID',
@@ -351,6 +369,7 @@ export default {
 			closetask: '关闭',
 			donetask: '完成',
 			mainedit: '编辑',
+			newsubtask: '子任务',
 		},
 	},
 	pivottable_grid: {
@@ -383,6 +402,12 @@ export default {
 		deuiaction1: {
 			caption: '保存并关闭',
 			tip: '保存并关闭',
+		},
+	},
+	subtasknewviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: '刷新',
+			tip: '刷新',
 		},
 	},
 	maingridviewtoolbar_toolbar: {

@@ -2318,6 +2318,33 @@ const router = new Router({
                     component: () => import('@pages/zentao/action-product-trends-list-view9/action-product-trends-list-view9.vue'),
                 },
                 {
+                    path: 'projects/:project?/tasks/:task?/subtasknewview/:subtasknewview?',
+                    meta: {
+                        caption: 'entities.task.views.subtasknewview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'subtasknewview', parameterName: 'subtasknewview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-sub-task-new-view/task-sub-task-new-view.vue'),
+                },
+                {
+                    path: 'tasks/:task?/subtasknewview/:subtasknewview?',
+                    meta: {
+                        caption: 'entities.task.views.subtasknewview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'subtasknewview', parameterName: 'subtasknewview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-sub-task-new-view/task-sub-task-new-view.vue'),
+                },
+                {
                     path: 'products/:product?/maintabexpview/:maintabexpview?',
                     meta: {
                         caption: 'entities.product.views.maintabexpview.caption',
@@ -3394,6 +3421,31 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/zentao/task-main-info-view9/task-main-info-view9.vue'),
+    },
+    {
+        path: '/projects/:project?/tasks/:task?/subtasknewview/:subtasknewview?',
+        meta: {
+            caption: 'entities.task.views.subtasknewview.caption',
+            parameters: [
+                { pathName: 'projects', parameterName: 'project' },
+                { pathName: 'tasks', parameterName: 'task' },
+                { pathName: 'subtasknewview', parameterName: 'subtasknewview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/task-sub-task-new-view/task-sub-task-new-view.vue'),
+    },
+    {
+        path: '/tasks/:task?/subtasknewview/:subtasknewview?',
+        meta: {
+            caption: 'entities.task.views.subtasknewview.caption',
+            parameters: [
+                { pathName: 'tasks', parameterName: 'task' },
+                { pathName: 'subtasknewview', parameterName: 'subtasknewview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/task-sub-task-new-view/task-sub-task-new-view.vue'),
     },
     {
         path: '/projects/:project?/burndownchartview/:burndownchartview?',

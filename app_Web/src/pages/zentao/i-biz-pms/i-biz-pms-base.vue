@@ -251,18 +251,18 @@ export default class IBizPMSBase extends Vue {
           <view_appmenu ref='appmenu'/>
         </template>
         <app-content>
-          <template slot="content_left">
+          {this.left_exp.items ? <template slot="content_left">
             <app-content-left-exp menus={this.left_exp.items} />
-          </template>
+          </template> : null}
           <tab-page-exp></tab-page-exp>
           <div class="view-warp">
             <app-keep-alive routerList={this.$store.state.historyPathList}>
               <router-view key={this.$route.fullPath}></router-view>
             </app-keep-alive>
           </div>
-          <template slot="content_bottom">
-            {this.bottom_exp.items ? <app-content-bottom-exp menus={this.bottom_exp.items} /> : null}
-          </template>
+          {this.bottom_exp.items ? <template slot="content_bottom">
+            <app-content-bottom-exp menus={this.bottom_exp.items} />
+          </template> : null}
         </app-content>
         <template slot="footer">
           <app-footer/>

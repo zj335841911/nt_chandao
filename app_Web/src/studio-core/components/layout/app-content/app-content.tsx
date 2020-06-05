@@ -84,29 +84,41 @@ export class AppContent extends Vue {
     /**
      * 绘制内容
      *
+     * @protected
+     * @param {boolean} isSlot
+     * @returns {*}
+     * @memberof AppContent
+     */
+    protected renderContent(isSlot: boolean): any {
+        return <div slot={isSlot ? 'right' : null} class={{ 'app-content-right': true, 'hidden-bottom': (!this.uiState.layoutState.contentBottomShow || !this.$slots.content_bottom) }}>
+            <split mode="vertical" v-model={this.uiState.layoutState.contentVerticalSplit}>
+                <div slot="top" class="app-content-exp">
+                    {this.$slots.default}
+                </div>
+                {this.$slots.content_bottom ? <div slot="bottom" class="app-content-bottom">
+                    <div class="app-content-bottom-close" on-click={() => this.changeBottom(false)}>
+                        <icon type="ios-arrow-down" />
+                    </div>
+                    {this.$slots.content_bottom}
+                </div> : null}
+            </split>
+        </div>;
+    }
+
+    /**
+     * 绘制内容
+     *
      * @returns {VNode}
      * @memberof AppContent
      */
     public render(): VNode {
         return <div class="app-content">
-            <split v-model={this.uiState.layoutState.contentHorizontalSplit}>
+            {this.$slots.content_left ? <split v-model={this.uiState.layoutState.contentHorizontalSplit}>
                 <div slot="left" class="app-content-left">
                     {this.$slots.content_left}
                 </div>
-                <div slot="right" class={{ 'app-content-right': true, 'hidden-bottom': (!this.uiState.layoutState.contentBottomShow || !this.$slots.content_bottom)}}>
-                    <split mode="vertical" v-model={this.uiState.layoutState.contentVerticalSplit}>
-                        <div slot="top" class="app-content-exp">
-                            {this.$slots.default}
-                        </div>
-                        {this.$slots.content_bottom ? <div slot="bottom" class="app-content-bottom">
-                            <div class="app-content-bottom-close" on-click={() => this.changeBottom(false)}>
-                                <icon type="ios-arrow-down" />
-                            </div>
-                            {this.$slots.content_bottom}
-                        </div> : null}
-                    </split>
-                </div>
-            </split>
+                {this.renderContent(true)}
+            </split> : this.renderContent(false)}
         </div>;
     }
 

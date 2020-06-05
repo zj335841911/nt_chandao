@@ -259,6 +259,16 @@
         "viewtag": "321ab2e4e87a29fef8eed086e951a006",
         "memo": ""
     },
+    "tasksubtasknewview": {
+        "title": "子任务",
+        "caption": "子任务",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TaskSubTaskNewView",
+        "viewfilename": "task-sub-task-new-view",
+        "viewtag": "35ba93bac795e0deb7297d2d471b7180",
+        "memo": ""
+    },
     "projectburndownchartview": {
         "title": "燃尽图",
         "caption": "项目",
