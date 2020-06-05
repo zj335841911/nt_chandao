@@ -1,43 +1,38 @@
 <template>
-<div class="view-container deoptview task-open-task-view">
-    <app-studioaction :viewTitle="$t(model.srfTitle)" viewName="taskopentaskview"></app-studioaction>
-    <card class='view-card   view-no-toolbar' dis-hover :padding="0" :bordered="false">
-        <template slot='title'>
-        <span class='caption-info'>{{$t(model.srfTitle)}}</span>
-        </template>
-        <div class="content-container">
-            <view_form 
-                :viewState="viewState"  
-                :viewparams="viewparams" 
-                :context="context" 
-                :autosave="false" 
-                :viewtag="viewtag"
-                :showBusyIndicator="true"
-                updateAction="Update"
-                removeAction="Remove"
-                loaddraftAction="GetDraft"
-                loadAction="Get"
-                createAction="Create"
-                WFSubmitAction=""
-                WFStartAction=""
-                style='' 
-                name="form"  
-                ref='form' 
-                @save="form_save($event)"  
-                @remove="form_remove($event)"  
-                @load="form_load($event)"  
-                @closeview="closeView($event)">
-            </view_form>
-        </div>
-        <card dis-hover :bordered="false" class='footer'>
-          <row style=" text-align: right ">
+<studio-view viewName="taskopentaskview" viewTitle="开始任务" class='deoptview task-open-task-view'>
+    <template slot='title'>
+    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
+    </template>
+    <view_form 
+                    :viewState="viewState"  
+                    :viewparams="viewparams" 
+                    :context="context" 
+                    :autosave="false" 
+                    :viewtag="viewtag"
+                    :showBusyIndicator="true"
+                    updateAction="Update"
+                    removeAction="Remove"
+                    loaddraftAction="GetDraft"
+                    loadAction="Get"
+                    createAction="Create"
+                    WFSubmitAction=""
+                    WFStartAction=""
+                    style='' 
+                    name="form"  
+                    ref='form' 
+                    @save="form_save($event)"  
+                    @remove="form_remove($event)"  
+                    @load="form_load($event)"  
+                    @closeview="closeView($event)">
+                </view_form>
+    <template slot="footer">
+        <div class="option-view-footer-actions">
             <i-button type='primary' @click="onClickOk">{{ containerModel.view_okbtn.text }}</i-button>
-              &nbsp;&nbsp;
+            &nbsp;&nbsp;
             <i-button @click="onClickCancel">{{ containerModel.view_cancelbtn.text }}</i-button>
-          </row>
-        </card>
-    </card>
-</div>
+        </div>
+    </template>
+</studio-view>
 </template>
 
 <script lang='tsx'>

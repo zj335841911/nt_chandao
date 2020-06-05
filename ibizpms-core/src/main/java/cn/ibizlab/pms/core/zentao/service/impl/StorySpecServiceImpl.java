@@ -192,6 +192,7 @@ public class StorySpecServiceImpl extends ServiceImpl<StorySpecMapper, StorySpec
         }
     }
 
+
     @Override
     public List<JSONObject> select(String sql, Map param){
         return this.baseMapper.selectBySQL(sql,param);

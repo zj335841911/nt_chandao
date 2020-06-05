@@ -155,6 +155,7 @@ public class UserQueryServiceImpl extends ServiceImpl<UserQueryMapper, UserQuery
 
 
 
+
     @Override
     public List<JSONObject> select(String sql, Map param){
         return this.baseMapper.selectBySQL(sql,param);
