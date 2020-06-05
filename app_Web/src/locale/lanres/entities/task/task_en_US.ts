@@ -410,13 +410,13 @@ export default {
 			tip: "Save And Close Window",
 		},
 	},
+	subtasknewviewtoolbar_toolbar: {
+	},
 	maineditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
 		},
-	},
-	subtasknewviewtoolbar_toolbar: {
 	},
 	maingridviewtoolbar_toolbar: {
 		deuiaction1: {

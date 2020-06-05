@@ -409,13 +409,13 @@ export default {
 			tip: '保存并关闭',
 		},
 	},
+	subtasknewviewtoolbar_toolbar: {
+	},
 	maineditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: '保存并关闭',
 			tip: '保存并关闭',
 		},
-	},
-	subtasknewviewtoolbar_toolbar: {
 	},
 	maingridviewtoolbar_toolbar: {
 		deuiaction1: {
