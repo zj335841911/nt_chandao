@@ -177,6 +177,9 @@ export class ActionHistory extends Vue {
      */
     public render(): any {
         return <div class="action-history-wrapper">
+            <div class="action-history-header">
+                <span class="title">历史记录</span>
+            </div>
             {this.renderAction()}
         </div>;
     }

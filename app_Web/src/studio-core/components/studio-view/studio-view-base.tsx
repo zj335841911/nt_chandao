@@ -105,9 +105,9 @@ export class StudioViewBase extends Vue {
                     {this.$slots.default}
                 </div>
             </div>
-            <div class="view-footer">
+            {this.$slots.footer ? <div class="view-footer">
                 {this.$slots.footer}
-            </div>
+            </div> : null}
         </div>;
     }
 
