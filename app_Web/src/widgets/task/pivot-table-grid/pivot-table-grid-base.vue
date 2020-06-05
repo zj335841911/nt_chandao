@@ -449,7 +449,7 @@ export default class PivotTableBase extends Vue implements ControlInterface {
             show: true,
             util: 'PX',
             render: (val: any) => {
-                this.renderColValue('id', val);
+                return this.renderColValue('id', val);
             }
         },
         {
@@ -459,7 +459,7 @@ export default class PivotTableBase extends Vue implements ControlInterface {
             show: true,
             util: 'PX',
             render: (val: any) => {
-                this.renderColValue('pri', val);
+                return this.renderColValue('pri', val);
             }
         },
         {
@@ -469,7 +469,7 @@ export default class PivotTableBase extends Vue implements ControlInterface {
             show: true,
             util: 'STAR',
             render: (val: any) => {
-                this.renderColValue('name', val);
+                return this.renderColValue('name', val);
             }
         },
         {
@@ -479,7 +479,7 @@ export default class PivotTableBase extends Vue implements ControlInterface {
             show: true,
             util: 'PX',
             render: (val: any) => {
-                this.renderColValue('status', val);
+                return this.renderColValue('status', val);
             }
         },
         {
@@ -489,7 +489,7 @@ export default class PivotTableBase extends Vue implements ControlInterface {
             show: true,
             util: 'PX',
             render: (val: any) => {
-                this.renderColValue('type', val);
+                return this.renderColValue('type', val);
             }
         },
         {
@@ -499,7 +499,7 @@ export default class PivotTableBase extends Vue implements ControlInterface {
             show: true,
             util: 'PX',
             render: (val: any) => {
-                this.renderColValue('assignedto', val);
+                return this.renderColValue('assignedto', val);
             }
         },
         {
@@ -509,7 +509,7 @@ export default class PivotTableBase extends Vue implements ControlInterface {
             show: true,
             util: 'PX',
             render: (val: any) => {
-                this.renderColValue('estimate', val);
+                return this.renderColValue('estimate', val);
             }
         },
         {
@@ -519,7 +519,7 @@ export default class PivotTableBase extends Vue implements ControlInterface {
             show: true,
             util: 'PX',
             render: (val: any) => {
-                this.renderColValue('left', val);
+                return this.renderColValue('left', val);
             }
         },
         {
@@ -529,7 +529,7 @@ export default class PivotTableBase extends Vue implements ControlInterface {
             show: true,
             util: 'PX',
             render: (val: any) => {
-                this.renderColValue('consumed', val);
+                return this.renderColValue('consumed', val);
             }
         },
         {
@@ -539,7 +539,7 @@ export default class PivotTableBase extends Vue implements ControlInterface {
             show: true,
             util: 'PX',
             render: (val: any) => {
-                this.renderColValue('productname', val);
+                return this.renderColValue('productname', val);
             }
         },
         {
@@ -549,7 +549,7 @@ export default class PivotTableBase extends Vue implements ControlInterface {
             show: true,
             util: 'PX',
             render: (val: any) => {
-                this.renderColValue('projectname', val);
+                return this.renderColValue('projectname', val);
             }
         },
         {
@@ -559,7 +559,7 @@ export default class PivotTableBase extends Vue implements ControlInterface {
             show: true,
             util: 'PX',
             render: (val: any) => {
-                this.renderColValue('storyname', val);
+                return this.renderColValue('storyname', val);
             }
         },
         {
@@ -569,7 +569,7 @@ export default class PivotTableBase extends Vue implements ControlInterface {
             show: true,
             util: 'PX',
             render: (val: any) => {
-                this.renderColValue('modulename', val);
+                return this.renderColValue('modulename', val);
             }
         },
         {
@@ -579,7 +579,7 @@ export default class PivotTableBase extends Vue implements ControlInterface {
             show: true,
             util: 'PX',
             render: (val: any) => {
-                this.renderColValue('parentname', val);
+                return this.renderColValue('parentname', val);
             }
         },
     ]

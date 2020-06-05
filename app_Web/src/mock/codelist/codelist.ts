@@ -1571,7 +1571,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: 'TOME',
                 label: '指派给我',
                 text: '指派给我',
-                "data":{"n_assignedto_eq":"%SRFUSERID%"},
+                "data":{"n_assignedto_eq":"%srfloginname%"},
                 "codename":"Tome",
                 value: 'TOME',
                 
@@ -1621,7 +1621,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: 'IFINISHED',
                 label: '我完成',
                 text: '我完成',
-                "data":{"n_finishedby_eq":"%SRFUSERID%"},
+                "data":{"n_finishedby_eq":"%srfloginname%"},
                 "codename":"Ifinished",
                 value: 'IFINISHED',
                 "pvalue": "MORE",
