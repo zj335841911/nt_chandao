@@ -3,13 +3,8 @@
     <template slot='title'>
     <span class='caption-info'>{{$t(model.srfTitle)}}</span>
     </template>
-    <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
                 <div class='toolbar-container'>
-            <i-button :title="$t('entities.task.subtasknewviewtoolbar_toolbar.deuiaction2.tip')" v-show="toolBarModels.deuiaction2.visabled" :disabled="toolBarModels.deuiaction2.disabled" class='' @click="toolbar_click({ tag: 'deuiaction2' }, $event)">
-                    <i class='fa fa-refresh'></i>
-                    <span class='caption'>{{$t('entities.task.subtasknewviewtoolbar_toolbar.deuiaction2.caption')}}</span>
-                </i-button>
         </div>
     </template>
     <view_grid 
@@ -18,7 +13,7 @@
         :context="context" 
         :isSingleSelect="isSingleSelect"
         :showBusyIndicator="true"
-        :isOpenEdit="false"
+        :isOpenEdit="true"
         :gridRowActiveMode="gridRowActiveMode"
         @save="onSave"
         updateAction=""
@@ -231,8 +226,6 @@ export default class TaskSubTaskNewViewBase extends Vue {
      * @memberof TaskSubTaskNewView
      */
     public toolBarModels: any = {
-        deuiaction2: { name: 'deuiaction2', caption: '刷新', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Refresh', target: '' } },
-
     };
 
 
@@ -482,6 +475,9 @@ export default class TaskSubTaskNewViewBase extends Vue {
      * @memberof TaskSubTaskNewViewBase
      */
     public toolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.toolbar_deuiaction1_click(null, '', $event2);
+        }
         if (Object.is($event.tag, 'deuiaction2')) {
             this.toolbar_deuiaction2_click(null, '', $event2);
         }
@@ -557,6 +553,35 @@ export default class TaskSubTaskNewViewBase extends Vue {
      * @param {*} [$event]
      * @memberof 
      */
+    public toolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        
+        let contextJO:any = {};
+        xData = this.$refs.grid;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.ToggleRowEdit(datas, contextJO,paramJO,  $event, xData,this,"Task");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public toolbar_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
@@ -575,7 +600,7 @@ export default class TaskSubTaskNewViewBase extends Vue {
           datas = [params];
         }
         // 界面行为
-        this.Refresh(datas, contextJO,paramJO,  $event, xData,this,"Task");
+        this.NewRow(datas, contextJO,paramJO,  $event, xData,this,"Task");
     }
 
     /**
@@ -681,7 +706,7 @@ export default class TaskSubTaskNewViewBase extends Vue {
 
 
     /**
-     * 刷新
+     * 行编辑
      *
      * @param {any[]} args 当前数据
      * @param {any} contextJO 行为附加上下文
@@ -691,12 +716,29 @@ export default class TaskSubTaskNewViewBase extends Vue {
      * @param {*} [actionContext]  执行行为上下文
      * @memberof TaskSubTaskNewViewBase
      */
-    public Refresh(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public ToggleRowEdit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        xData.actualIsOpenEdit = !xData.actualIsOpenEdit;
+    }
+    /**
+     * 新建行
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof TaskSubTaskNewViewBase
+     */
+    public NewRow(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         const _this: any = this;
-        if (xData && xData.refresh && xData.refresh instanceof Function) {
-            xData.refresh(args);
-        } else if (_this.refresh && _this.refresh instanceof Function) {
-            _this.refresh(args);
+        const data: any = {};
+        if (_this.newRow && _this.newRow instanceof Function) {
+            _this.newRow([{ ...data }], params, $event, xData);
+        } else if(xData.newRow && xData.newRow instanceof Function) {
+            xData.newRow([{ ...data }], params, $event, xData);
+        }else{
+            _this.$Notice.error({ title: '错误', desc: 'newRow 视图处理逻辑不存在，请添加!' });
         }
     }
 

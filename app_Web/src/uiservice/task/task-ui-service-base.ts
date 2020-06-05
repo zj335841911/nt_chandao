@@ -83,6 +83,7 @@ export default class TaskUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'maingridview9_child',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'maininfoview9',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'subtasknewview',srfappde:'tasks'});
+        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'tasktypeganttview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'pivottableview',srfappde:'tasks'});
@@ -486,7 +487,7 @@ export default class TaskUIServiceBase extends UIService {
             const view: any = {
                 viewname: 'task-sub-task-new-view', 
                 height: 600, 
-                width: 800,  
+                width: 1200,  
                 title: actionContext.$t('entities.task.views.subtasknewview.title'),
             };
             openPopupModal(view, data);
