@@ -170,17 +170,17 @@
                         <span>
                             
                             <a @click="uiAction(scope.row, 'StartTask', $event)">
-                              <i class=''></i>
+                              <i class='fa fa-play-circle-o'></i>
                               {{$t('entities.task.main_grid.uiactions.starttask')}}
                             </a>
                             <divider type='vertical'></divider>
                             <a @click="uiAction(scope.row, 'CloseTask', $event)">
-                              <i class=''></i>
+                              <i class='fa fa-power-off'></i>
                               {{$t('entities.task.main_grid.uiactions.closetask')}}
                             </a>
                             <divider type='vertical'></divider>
                             <a @click="uiAction(scope.row, 'DoneTask', $event)">
-                              <i class=''></i>
+                              <i class='fa fa-check-square-o'></i>
                               {{$t('entities.task.main_grid.uiactions.donetask')}}
                             </a>
                             <divider type='vertical'></divider>

@@ -29,55 +29,9 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.project.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='project' :itemRules="this.rules.project" class='' :caption="$t('entities.task.main_form.details.project')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.project.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam='{ }' 
-  :disabled="detailsModel.project.disabled"
-  name='project' 
-  deMajorField='name'
-  deKeyField='project'
-  :service="service"
-  :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchDefault'}"
-  valueitem='' 
-  :value="data.project" 
-  editortype="dropdown" 
-  style="" 
-  @formitemvaluechange="onFormItemValueChange">
-</app-picker>
-</app-form-item>
-
-</i-col>
 <i-col v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='type' :itemRules="this.rules.type" class='' :caption="$t('entities.task.main_form.details.type')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="LEFT">
      <dropdown-list v-model="data.type" :data="data" :itemParam="{}" :disabled="detailsModel.type.disabled"  tag='Task__type' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
-</app-form-item>
-
-</i-col>
-<i-col v-show="detailsModel.module.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='module' :itemRules="this.rules.module" class='' :caption="$t('entities.task.main_form.details.module')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.module.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam='{ }' 
-  :disabled="detailsModel.module.disabled"
-  name='module' 
-  deMajorField='name'
-  deKeyField='module'
-  :service="service"
-  :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchDefault'}"
-  valueitem='' 
-  :value="data.module" 
-  editortype="dropdown" 
-  style="" 
-  @formitemvaluechange="onFormItemValueChange">
-</app-picker>
 </app-form-item>
 
 </i-col>

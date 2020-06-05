@@ -6,14 +6,7 @@
 <i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.maindetail_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
-        <i-col v-show="detailsModel.parent.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='parent' :itemRules="this.rules.parent" class='' :caption="$t('entities.task.maindetail_form.details.parent')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.parent.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='parent'
-:value="data.parent" style=""></app-span>
-</app-form-item>
-
-</i-col>
-<i-col v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.maindetail_form.details.grouppanel3')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
         <i-col v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">

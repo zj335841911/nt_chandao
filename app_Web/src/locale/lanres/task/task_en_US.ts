@@ -204,6 +204,8 @@ export default {
 	},
 	mainedit_form: {
 		details: {
+			grouppanel6: "任务描述", 
+			grouppanel7: "备注", 
 			druipart1: "", 
 			grouppanel2: "分组面板", 
 			group1: "任务基本信息", 

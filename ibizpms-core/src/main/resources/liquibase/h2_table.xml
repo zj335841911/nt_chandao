@@ -86,6 +86,9 @@
     <!--输出实体[ZT_RELATION]数据结构 -->
 
 
+    <!--输出实体[IBZ_PROJECTSTATS]数据结构 -->
+
+
     <!--输出实体[ZT_BUG]数据结构 -->
 
 
@@ -246,6 +249,7 @@
         <!--输出实体[ZT_JOB]外键关系 -->
         <!--输出实体[ZT_PROJECTSTORY]外键关系 -->
         <!--输出实体[ZT_RELATION]外键关系 -->
+        <!--输出实体[IBZ_PROJECTSTATS]外键关系 -->
         <!--输出实体[ZT_BUG]外键关系 -->
         <!--输出实体[ZT_RELEASE]外键关系 -->
         <!--输出实体[ZT_STORYSPEC]外键关系 -->

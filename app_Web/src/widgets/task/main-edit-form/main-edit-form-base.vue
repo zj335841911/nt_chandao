@@ -12,16 +12,32 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.task.mainedit_form.details.desc')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="TOP">
+<i-col v-show="detailsModel.grouppanel6.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel6.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.mainedit_form.details.grouppanel6')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+        <i-col v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.task.mainedit_form.details.desc')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="NONE">
     <app-rich-text-editor :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled"  name="desc" style=""></app-rich-text-editor>
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.desc1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='desc1' :itemRules="this.rules.desc1" class='' :caption="$t('entities.task.mainedit_form.details.desc1')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.desc1.error" :isEmptyCaption="false" labelPos="TOP">
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col v-show="detailsModel.grouppanel7.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel7.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.mainedit_form.details.grouppanel7')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+        <i-col v-show="detailsModel.desc1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='desc1' :itemRules="this.rules.desc1" class='' :caption="$t('entities.task.mainedit_form.details.desc1')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.desc1.error" :isEmptyCaption="false" labelPos="NONE">
     <app-rich-text-editor :formState="formState" :value="data.desc1" @change="(val) =>{this.data.desc1 =val}" :disabled="detailsModel.desc1.disabled"  name="desc1" style=""></app-rich-text-editor>
 </app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
 
 </i-col>
 <i-col v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
@@ -95,29 +111,6 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.project.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='project' :itemRules="this.rules.project" class='' :caption="$t('entities.task.mainedit_form.details.project')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.project.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam='{ }' 
-  :disabled="detailsModel.project.disabled"
-  name='project' 
-  deMajorField='name'
-  deKeyField='project'
-  :service="service"
-  :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchDefault'}"
-  valueitem='' 
-  :value="data.project" 
-  editortype="dropdown" 
-  style="" 
-  @formitemvaluechange="onFormItemValueChange">
-</app-picker>
-</app-form-item>
-
-</i-col>
 <i-col v-show="detailsModel.modulename.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='modulename' :itemRules="this.rules.modulename" class='' :caption="$t('entities.task.mainedit_form.details.modulename')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.modulename.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-picker  
@@ -134,29 +127,6 @@
   :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchDefault'}"
   valueitem='module' 
   :value="data.modulename" 
-  editortype="dropdown" 
-  style="" 
-  @formitemvaluechange="onFormItemValueChange">
-</app-picker>
-</app-form-item>
-
-</i-col>
-<i-col v-show="detailsModel.module.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='module' :itemRules="this.rules.module" class='' :caption="$t('entities.task.mainedit_form.details.module')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.module.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam='{ }' 
-  :disabled="detailsModel.module.disabled"
-  name='module' 
-  deMajorField='name'
-  deKeyField='module'
-  :service="service"
-  :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchDefault'}"
-  valueitem='' 
-  :value="data.module" 
   editortype="dropdown" 
   style="" 
   @formitemvaluechange="onFormItemValueChange">
@@ -203,29 +173,6 @@
   :acParams="{ serviceName: 'TaskService', interfaceName: 'FetchDefault'}"
   valueitem='parent' 
   :value="data.parentname" 
-  editortype="dropdown" 
-  style="" 
-  @formitemvaluechange="onFormItemValueChange">
-</app-picker>
-</app-form-item>
-
-</i-col>
-<i-col v-show="detailsModel.parent.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='parent' :itemRules="this.rules.parent" class='' :caption="$t('entities.task.mainedit_form.details.parent')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.parent.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam='{ }' 
-  :disabled="detailsModel.parent.disabled"
-  name='parent' 
-  deMajorField='name'
-  deKeyField='task'
-  :service="service"
-  :acParams="{ serviceName: 'TaskService', interfaceName: 'FetchDefault'}"
-  valueitem='' 
-  :value="data.parent" 
   editortype="dropdown" 
   style="" 
   @formitemvaluechange="onFormItemValueChange">
@@ -976,6 +923,10 @@ export default class MainEditBase extends Vue implements ControlInterface {
      * @memberof MainEdit
      */
     public detailsModel: any = {
+        grouppanel6: new FormGroupPanelModel({ caption: '任务描述', detailType: 'GROUPPANEL', name: 'grouppanel6', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.task.mainedit_form', extractMode: 'ITEM', details: [] } })
+, 
+        grouppanel7: new FormGroupPanelModel({ caption: '备注', detailType: 'GROUPPANEL', name: 'grouppanel7', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.task.mainedit_form', extractMode: 'ITEM', details: [] } })
+, 
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
 , 
         grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.task.mainedit_form', extractMode: 'ITEM', details: [] } })
@@ -1010,9 +961,9 @@ export default class MainEditBase extends Vue implements ControlInterface {
 , 
         name: new FormItemModel({ caption: '任务名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
-        desc: new FormItemModel({ caption: '任务描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        desc: new FormItemModel({ caption: '任务描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
-        desc1: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'desc1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        desc1: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'desc1', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
         formitem: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1562,6 +1513,8 @@ export default class MainEditBase extends Vue implements ControlInterface {
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
+
 
 
 
