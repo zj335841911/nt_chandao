@@ -220,7 +220,8 @@ export default class TypeGanttBase extends Vue implements ControlInterface {
             columns: [
                 {
                     label: '任务类型分类',
-                    value: (task: any) => {
+                    value: 'text',
+                    render: (task: any) => {
                         return this.getColumnValue(task, 'text')
                     },
                     expander: true,
@@ -228,28 +229,32 @@ export default class TypeGanttBase extends Vue implements ControlInterface {
                 },
                 {
                     label: '指派给',
-                    value: (task: any) => {
+                    value: 'assignedto',
+                    render: (task: any) => {
                         return this.getColumnValue(task, 'assignedto')
                     },
                     width: 100,
                 },
                 {
                     label: '开始时间',
-                    value: (task: any) => {
+                    value: 'start',
+                    render: (task: any) => {
                         return this.getColumnValue(task, 'start')
                     },
                     width: 100,
                 },
                 {
                     label: '结束时间',
-                    value: (task: any) => {
+                    value: 'end',
+                    render: (task: any) => {
                         return this.getColumnValue(task, 'end')
                     },
                     width: 100,
                 },
                 {
                     label: '持续时间',
-                    value: (task: any) => {
+                    value: 'taskduration',
+                    render: (task: any) => {
                         return this.getColumnValue(task, 'taskduration')
                     },
                     width: 100,
