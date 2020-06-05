@@ -52,7 +52,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.task.subtasknew_grid.columns.name')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.task.subtasknew_grid.columns.name')" :min-width="1"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.task.subtasknew_grid.columns.name')}}
@@ -604,7 +604,7 @@ export default class SubTaskNewBase extends Vue implements ControlInterface {
             label: '任务名称',
             langtag: 'entities.task.subtasknew_grid.columns.name',
             show: true,
-            util: 'PX'
+            util: 'STAR'
         },
         {
             name: 'type',
