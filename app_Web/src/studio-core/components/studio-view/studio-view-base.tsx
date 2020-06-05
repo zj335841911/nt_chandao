@@ -72,7 +72,8 @@ export class StudioViewBase extends Vue {
         const data = {
             'studio-view': true,
             'view-container': true,
-            'hidden-header': !this.isShowHeader
+            'hidden-header': !this.isShowHeader,
+            'show-footer': this.$slots.footer ? true : false
         };
         if (classNames) {
             Object.assign(data, classNames);
@@ -103,6 +104,9 @@ export class StudioViewBase extends Vue {
                 <div class="content-wrapper">
                     {this.$slots.default}
                 </div>
+            </div>
+            <div class="view-footer">
+                {this.$slots.footer}
             </div>
         </div>;
     }

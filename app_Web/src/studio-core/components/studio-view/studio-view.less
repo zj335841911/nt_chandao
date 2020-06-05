@@ -122,4 +122,25 @@
         padding: 0px;
     }
 }
+
+.studio-view.view-container.hidden-header.show-footer {
+
+    >.view-content {
+        height: calc(100% - 46px);
+    }
+}
+
+.studio-view.view-container.show-footer {
+    
+    >.view-content {
+        height: calc(100% - 82px);
+    }
+
+    >.view-footer {
+        height: 45px;
+        text-align: right;
+        padding: 6px 16px;
+        border-top: 1px solid var(--app-dividing-line-color-bright);
+    }
+}
 @import './studio-view-layout.less';
