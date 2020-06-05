@@ -486,7 +486,7 @@ export default class TaskUIServiceBase extends UIService {
             const view: any = {
                 viewname: 'task-sub-task-new-view', 
                 height: 600, 
-                width: 800,  
+                width: 1200,  
                 title: actionContext.$t('entities.task.views.subtasknewview.title'),
             };
             openPopupModal(view, data);
