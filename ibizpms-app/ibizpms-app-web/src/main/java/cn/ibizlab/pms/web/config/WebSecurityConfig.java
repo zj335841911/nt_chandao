@@ -54,6 +54,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Value("${ibiz.file.downloadpath:ibizutil/download}")
     private String downloadpath;
 
+    @Value("${ibiz.file.downloadpath:ibizutil/ztdownload}")
+    private String ztdownloadpath;
+
     @Value("${ibiz.file.previewpath:ibizutil/preview}")
     private String previewpath;
 
@@ -117,6 +120,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers( HttpMethod.GET,"/"+logoutPath).permitAll()
                 // 文件操作
                 .antMatchers("/"+downloadpath+"/**").permitAll()
+                .antMatchers("/"+ztdownloadpath+"/**").permitAll()
                 .antMatchers("/"+uploadpath).permitAll()
                 .antMatchers("/"+ztuploadpath).permitAll()
                 .antMatchers("/"+previewpath+"/**").permitAll()

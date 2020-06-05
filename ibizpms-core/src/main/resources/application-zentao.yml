@@ -2,8 +2,10 @@ zentao:
   url: http://172.16.100.202/zentao/
   needretry: false
   retrycount: 0
+  rootPath: I:/xampp/zentao/www/data/upload/1/
   file:
     uploadpath: ibizutil/ztupload
+    downloadpath: ibizutil/ztupload
 ibiz:
   auth:
     service: IBZUAAZTUserService
