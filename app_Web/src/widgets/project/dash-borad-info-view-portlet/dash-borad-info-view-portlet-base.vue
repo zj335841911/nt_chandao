@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet dash-borad-info-view ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
+    <div class='portlet dash-borad-info-view ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : '1px',}">
         <div class="portlet-without-title">
         <project-dashboard-info-view :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></project-dashboard-info-view>
         </div>

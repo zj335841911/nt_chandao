@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet un-closed-project ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
+    <div class='portlet un-closed-project ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : '1px',}">
         <p class='portlet-title'>
             <i class=''></i>
             未关闭的项目

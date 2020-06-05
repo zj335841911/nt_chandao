@@ -19,7 +19,11 @@
         <i-col v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='title' :itemRules="this.rules.title" class='' :caption="$t('entities.bug.dashboardmain_form.details.title')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='title'
-:value="data.title" style=""></app-span>
+:value="data.title"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -48,91 +52,143 @@
 <i-col v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='type' :itemRules="this.rules.type" class='' :caption="$t('entities.bug.dashboardmain_form.details.type')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='type'
-:value="data.type" tag='Bug__type' codelistType='STATIC' style=""></app-span>
+:value="data.type" tag='Bug__type' codelistType='STATIC'   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.severity.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='severity' :itemRules="this.rules.severity" class='' :caption="$t('entities.bug.dashboardmain_form.details.severity')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.severity.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='severity'
-:value="data.severity" tag='Bug__severity' codelistType='STATIC' style=""></app-span>
+:value="data.severity" tag='Bug__severity' codelistType='STATIC'   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.pri.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='pri' :itemRules="this.rules.pri" class='' :caption="$t('entities.bug.dashboardmain_form.details.pri')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.pri.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='pri'
-:value="data.pri" tag='Bug__pri' codelistType='STATIC' style=""></app-span>
+:value="data.pri" tag='Bug__pri' codelistType='STATIC'   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.status.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='status' :itemRules="this.rules.status" class='' :caption="$t('entities.bug.dashboardmain_form.details.status')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.status.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='status'
-:value="data.status" tag='Bug__status' codelistType='STATIC' style=""></app-span>
+:value="data.status" tag='Bug__status' codelistType='STATIC'   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.activatedcount.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='activatedcount' :itemRules="this.rules.activatedcount" class='' :caption="$t('entities.bug.dashboardmain_form.details.activatedcount')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.activatedcount.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='activatedcount'
-:value="data.activatedcount" style=""></app-span>
+:value="data.activatedcount"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.activateddate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='activateddate' :itemRules="this.rules.activateddate" class='' :caption="$t('entities.bug.dashboardmain_form.details.activateddate')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.activateddate.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='activateddate'
-:value="data.activateddate" style=""></app-span>
+:value="data.activateddate"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.confirmed.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='confirmed' :itemRules="this.rules.confirmed" class='' :caption="$t('entities.bug.dashboardmain_form.details.confirmed')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.confirmed.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='confirmed'
-:value="data.confirmed" tag='YesNo2' codelistType='STATIC' style=""></app-span>
+:value="data.confirmed" tag='YesNo2' codelistType='STATIC'   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.assignedto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='assignedto' :itemRules="this.rules.assignedto" class='' :caption="$t('entities.bug.dashboardmain_form.details.assignedto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.assignedto.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='assignedto'
-:value="data.assignedto" style=""></app-span>
+:value="data.assignedto"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.deadline.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='deadline' :itemRules="this.rules.deadline" class='' :caption="$t('entities.bug.dashboardmain_form.details.deadline')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.deadline.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='deadline'
-:value="data.deadline" style=""></app-span>
+:value="data.deadline"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.os.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='os' :itemRules="this.rules.os" class='' :caption="$t('entities.bug.dashboardmain_form.details.os')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.os.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='os'
-:value="data.os" tag='Bug__os' codelistType='STATIC' style=""></app-span>
+:value="data.os" tag='Bug__os' codelistType='STATIC'   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.browser.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='browser' :itemRules="this.rules.browser" class='' :caption="$t('entities.bug.dashboardmain_form.details.browser')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.browser.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='browser'
-:value="data.browser" tag='Bug__browser' codelistType='STATIC' style=""></app-span>
+:value="data.browser" tag='Bug__browser' codelistType='STATIC'   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.keywords.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='keywords' :itemRules="this.rules.keywords" class='' :caption="$t('entities.bug.dashboardmain_form.details.keywords')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.keywords.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='keywords'
-:value="data.keywords" style=""></app-span>
+:value="data.keywords"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.mailto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='mailto' :itemRules="this.rules.mailto" class='' :caption="$t('entities.bug.dashboardmain_form.details.mailto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.mailto.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='mailto'
-:value="data.mailto" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," style=""></app-span>
+:value="data.mailto" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator=","   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>

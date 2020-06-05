@@ -735,7 +735,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/productplans/:productplan?/subproductplans/:subproductplan?/subplangridview/:subplangridview?',
                     meta: {
-                        caption: 'entities.productplan.views.subplangridview.caption',
+                        caption: 'entities.subproductplan.views.subplangridview.caption',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -750,7 +750,7 @@ const router = new Router({
                 {
                     path: 'productplans/:productplan?/subproductplans/:subproductplan?/subplangridview/:subplangridview?',
                     meta: {
-                        caption: 'entities.productplan.views.subplangridview.caption',
+                        caption: 'entities.subproductplan.views.subplangridview.caption',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'productplans', parameterName: 'productplan' },
@@ -764,7 +764,7 @@ const router = new Router({
                 {
                     path: 'subproductplans/:subproductplan?/subplangridview/:subplangridview?',
                     meta: {
-                        caption: 'entities.productplan.views.subplangridview.caption',
+                        caption: 'entities.subproductplan.views.subplangridview.caption',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'subproductplans', parameterName: 'subproductplan' },
@@ -1315,7 +1315,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/productplans/:productplan?/subproductplans/:subproductplan?/subplaneditview/:subplaneditview?',
                     meta: {
-                        caption: 'entities.productplan.views.subplaneditview.caption',
+                        caption: 'entities.subproductplan.views.subplaneditview.caption',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1330,7 +1330,7 @@ const router = new Router({
                 {
                     path: 'productplans/:productplan?/subproductplans/:subproductplan?/subplaneditview/:subplaneditview?',
                     meta: {
-                        caption: 'entities.productplan.views.subplaneditview.caption',
+                        caption: 'entities.subproductplan.views.subplaneditview.caption',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'productplans', parameterName: 'productplan' },
@@ -1344,7 +1344,7 @@ const router = new Router({
                 {
                     path: 'subproductplans/:subproductplan?/subplaneditview/:subplaneditview?',
                     meta: {
-                        caption: 'entities.productplan.views.subplaneditview.caption',
+                        caption: 'entities.subproductplan.views.subplaneditview.caption',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'subproductplans', parameterName: 'subproductplan' },
@@ -2265,7 +2265,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/productplans/:productplan?/subproductplans/:subproductplan?/subplancreateview/:subplancreateview?',
                     meta: {
-                        caption: 'entities.productplan.views.subplancreateview.caption',
+                        caption: 'entities.subproductplan.views.subplancreateview.caption',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2280,7 +2280,7 @@ const router = new Router({
                 {
                     path: 'productplans/:productplan?/subproductplans/:subproductplan?/subplancreateview/:subplancreateview?',
                     meta: {
-                        caption: 'entities.productplan.views.subplancreateview.caption',
+                        caption: 'entities.subproductplan.views.subplancreateview.caption',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'productplans', parameterName: 'productplan' },
@@ -2294,7 +2294,7 @@ const router = new Router({
                 {
                     path: 'subproductplans/:subproductplan?/subplancreateview/:subplancreateview?',
                     meta: {
-                        caption: 'entities.productplan.views.subplancreateview.caption',
+                        caption: 'entities.subproductplan.views.subplancreateview.caption',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'subproductplans', parameterName: 'subproductplan' },
@@ -3118,7 +3118,7 @@ const router = new Router({
     {
         path: '/products/:product?/productplans/:productplan?/subproductplans/:subproductplan?/subplancreateview/:subplancreateview?',
         meta: {
-            caption: 'entities.productplan.views.subplancreateview.caption',
+            caption: 'entities.subproductplan.views.subplancreateview.caption',
             parameters: [
                 { pathName: 'products', parameterName: 'product' },
                 { pathName: 'productplans', parameterName: 'productplan' },
@@ -3132,7 +3132,7 @@ const router = new Router({
     {
         path: '/productplans/:productplan?/subproductplans/:subproductplan?/subplancreateview/:subplancreateview?',
         meta: {
-            caption: 'entities.productplan.views.subplancreateview.caption',
+            caption: 'entities.subproductplan.views.subplancreateview.caption',
             parameters: [
                 { pathName: 'productplans', parameterName: 'productplan' },
                 { pathName: 'subproductplans', parameterName: 'subproductplan' },
@@ -3145,7 +3145,7 @@ const router = new Router({
     {
         path: '/subproductplans/:subproductplan?/subplancreateview/:subplancreateview?',
         meta: {
-            caption: 'entities.productplan.views.subplancreateview.caption',
+            caption: 'entities.subproductplan.views.subplancreateview.caption',
             parameters: [
                 { pathName: 'subproductplans', parameterName: 'subproductplan' },
                 { pathName: 'subplancreateview', parameterName: 'subplancreateview' },
@@ -3625,7 +3625,7 @@ const router = new Router({
     {
         path: '/products/:product?/productplans/:productplan?/subproductplans/:subproductplan?/subplangridview/:subplangridview?',
         meta: {
-            caption: 'entities.productplan.views.subplangridview.caption',
+            caption: 'entities.subproductplan.views.subplangridview.caption',
             parameters: [
                 { pathName: 'products', parameterName: 'product' },
                 { pathName: 'productplans', parameterName: 'productplan' },
@@ -3639,7 +3639,7 @@ const router = new Router({
     {
         path: '/productplans/:productplan?/subproductplans/:subproductplan?/subplangridview/:subplangridview?',
         meta: {
-            caption: 'entities.productplan.views.subplangridview.caption',
+            caption: 'entities.subproductplan.views.subplangridview.caption',
             parameters: [
                 { pathName: 'productplans', parameterName: 'productplan' },
                 { pathName: 'subproductplans', parameterName: 'subproductplan' },
@@ -3652,7 +3652,7 @@ const router = new Router({
     {
         path: '/subproductplans/:subproductplan?/subplangridview/:subplangridview?',
         meta: {
-            caption: 'entities.productplan.views.subplangridview.caption',
+            caption: 'entities.subproductplan.views.subplangridview.caption',
             parameters: [
                 { pathName: 'subproductplans', parameterName: 'subproductplan' },
                 { pathName: 'subplangridview', parameterName: 'subplangridview' },
@@ -3763,7 +3763,7 @@ const router = new Router({
     {
         path: '/products/:product?/productplans/:productplan?/subproductplans/:subproductplan?/subplaneditview/:subplaneditview?',
         meta: {
-            caption: 'entities.productplan.views.subplaneditview.caption',
+            caption: 'entities.subproductplan.views.subplaneditview.caption',
             parameters: [
                 { pathName: 'products', parameterName: 'product' },
                 { pathName: 'productplans', parameterName: 'productplan' },
@@ -3777,7 +3777,7 @@ const router = new Router({
     {
         path: '/productplans/:productplan?/subproductplans/:subproductplan?/subplaneditview/:subplaneditview?',
         meta: {
-            caption: 'entities.productplan.views.subplaneditview.caption',
+            caption: 'entities.subproductplan.views.subplaneditview.caption',
             parameters: [
                 { pathName: 'productplans', parameterName: 'productplan' },
                 { pathName: 'subproductplans', parameterName: 'subproductplan' },
@@ -3790,7 +3790,7 @@ const router = new Router({
     {
         path: '/subproductplans/:subproductplan?/subplaneditview/:subplaneditview?',
         meta: {
-            caption: 'entities.productplan.views.subplaneditview.caption',
+            caption: 'entities.subproductplan.views.subplaneditview.caption',
             parameters: [
                 { pathName: 'subproductplans', parameterName: 'subproductplan' },
                 { pathName: 'subplaneditview', parameterName: 'subplaneditview' },

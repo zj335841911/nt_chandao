@@ -1,29 +1,24 @@
-.app-quick-group {
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-
-    >.app-quick-item {
-        cursor: pointer;
-        color: var(--view-font-color);
-        font-family: Segoe WPC, Segoe UI, Microsoft YaHei, sans-serif;
-        font-weight: 700;
-        font-size: 14px;
-        padding: 5px 3px;
+.app-quick-group{
+    padding: 4px;
+    background-color: #F1F1F1;
+    .app-quick-item{
         margin-right: 8px;
-
-        .app-seleted-item {
+        padding: 8px;
+        cursor: pointer;
+        .app-quick-item-label{
+            margin-left:4px;
+        }
+        .app-seleted-item{
             display: inline-block;
             font-weight: 700;
-            color: var(--view-font-color-bright);
-            border-bottom: 1px solid;
+            color: #0c64eb !important;
+            padding: 4px;
+            border-bottom: 2px solid;
         }
-
         .app-seleted-item:focus {
             outline: none;
         }
-
-        .app-quick-item-counter {
+        .app-quick-item-counter{
             border-radius: 12px;
             padding-left: 4px;
             font-size: 12px;
@@ -36,12 +31,7 @@
             background-color: #ddd;
         }
     }
-
-    >.app-quick-item:hover {
-        color: var(--view-font-color-bright);
+    .app-quick-item :hover{
+        color: #0c64eb !important;
     }
-}
-
-.app-quick-item-dropdown {
-    outline: none;
 }

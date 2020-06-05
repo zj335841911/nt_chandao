@@ -60,13 +60,33 @@
 </i-col>
 <i-col v-show="detailsModel.plan.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='plan' :itemRules="this.rules.plan" class='' :caption="$t('entities.story.main_editmode_form.details.plan')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.plan.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list v-model="data.plan" :data="data" :itemParam="{}" :disabled="detailsModel.plan.disabled"  tag='CurProductPlan' codelistType='DYNAMIC' placeholder='请选择...' style=""></dropdown-list>
+     <dropdown-list 
+    v-model="data.plan" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :itemParam="{}" 
+    :disabled="detailsModel.plan.disabled"  
+    tag='CurProductPlan' 
+    codelistType='DYNAMIC'
+    placeholder='请选择...' style="">
+ </dropdown-list>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.source.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='source' :itemRules="this.rules.source" class='' :caption="$t('entities.story.main_editmode_form.details.source')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.source.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list v-model="data.source" :data="data" :itemParam="{}" :disabled="detailsModel.source.disabled"  tag='Story__source' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
+     <dropdown-list 
+    v-model="data.source" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :itemParam="{}" 
+    :disabled="detailsModel.source.disabled"  
+    tag='Story__source' 
+    codelistType='STATIC'
+    placeholder='请选择...' style="">
+ </dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -78,19 +98,49 @@
 </i-col>
 <i-col v-show="detailsModel.status.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='status' :itemRules="this.rules.status" class='' :caption="$t('entities.story.main_editmode_form.details.status')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.status.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list v-model="data.status" :data="data" :itemParam="{}" :disabled="detailsModel.status.disabled"  tag='Story__status' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
+     <dropdown-list 
+    v-model="data.status" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :itemParam="{}" 
+    :disabled="detailsModel.status.disabled"  
+    tag='Story__status' 
+    codelistType='STATIC'
+    placeholder='请选择...' style="">
+ </dropdown-list>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.stage.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='stage' :itemRules="this.rules.stage" class='' :caption="$t('entities.story.main_editmode_form.details.stage')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.stage.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list v-model="data.stage" :data="data" :itemParam="{}" :disabled="detailsModel.stage.disabled"  tag='Story__stage' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
+     <dropdown-list 
+    v-model="data.stage" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :itemParam="{}" 
+    :disabled="detailsModel.stage.disabled"  
+    tag='Story__stage' 
+    codelistType='STATIC'
+    placeholder='请选择...' style="">
+ </dropdown-list>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.pri.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='pri' :itemRules="this.rules.pri" class='' :caption="$t('entities.story.main_editmode_form.details.pri')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.pri.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list v-model="data.pri" :data="data" :itemParam="{}" :disabled="detailsModel.pri.disabled"  tag='Story__pri' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
+     <dropdown-list 
+    v-model="data.pri" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :itemParam="{}" 
+    :disabled="detailsModel.pri.disabled"  
+    tag='Story__pri' 
+    codelistType='STATIC'
+    placeholder='请选择...' style="">
+ </dropdown-list>
 </app-form-item>
 
 </i-col>

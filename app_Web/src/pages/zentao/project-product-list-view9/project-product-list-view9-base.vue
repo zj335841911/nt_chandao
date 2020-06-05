@@ -10,6 +10,8 @@
         updateAction="Update"
         fetchAction="FetchDefault"
         :showBusyIndicator="true"
+        :newdata="newdata"
+        :opendata="opendata"
         name="list"  
         ref='list' 
         @selectionchange="list_selectionchange($event)"  
@@ -159,10 +161,12 @@ export default class ProjectProductListView9Base extends Vue {
     onViewData(newVal: any, oldVal: any) {
         const _this: any = this;
         if (!Object.is(newVal, oldVal) && _this.engine) {
-            _this.parseViewParam();
-            _this.engine.load();
+            this.$nextTick(()=>{
+              _this.parseViewParam();
+              _this.engine.load();
+              
+            });
         }
-        
     }
 
     /**

@@ -160,7 +160,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('uagridcolumn1')">
-                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.task.main_grid.columns.uagridcolumn1')" :width="225"  :align="'right'">
+                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.task.main_grid.columns.uagridcolumn1')" :width="235"  :align="'right'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.task.main_grid.columns.uagridcolumn1')}}
@@ -185,7 +185,7 @@
                             </a>
                             <divider type='vertical'></divider>
                             <a @click="uiAction(scope.row, 'MainEdit', $event)">
-                              <i class=''></i>
+                              <i class='fa fa-edit'></i>
                               {{$t('entities.task.main_grid.uiactions.mainedit')}}
                             </a>
                         </span>

@@ -12,7 +12,11 @@
         <i-col v-show="detailsModel.parentname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='parentname' :itemRules="this.rules.parentname" class='' :caption="$t('entities.subproductplan.mainsubplan_form.details.parentname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.parentname.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='parentname'
-:value="data.parentname" style=""></app-span>
+:value="data.parentname"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>

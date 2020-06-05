@@ -9,42 +9,66 @@
         <i-col v-show="detailsModel.id.visible" :style="{'width':'35px !important'}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='id' :itemRules="this.rules.id" class='' :caption="$t('entities.project.dashboardinfo_form.details.id')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.id.error" :isEmptyCaption="false" labelPos="NONE">
     <app-span   name='id'
-:value="data.id" style=""></app-span>
+:value="data.id"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.code.visible" :style="{}"  :lg="{ span: 6, offset: 0 }" :xl="{ span: 6, offset: 0 }">
     <app-form-item name='code' :itemRules="this.rules.code" class='' :caption="$t('entities.project.dashboardinfo_form.details.code')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.code.error" :isEmptyCaption="false" labelPos="NONE">
     <app-span   name='code'
-:value="data.code" style=""></app-span>
+:value="data.code"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 16, offset: 0 }" :xl="{ span: 16, offset: 0 }">
     <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.project.dashboardinfo_form.details.name')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="NONE">
     <app-span   name='name'
-:value="data.name" style=""></app-span>
+:value="data.name"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.project.dashboardinfo_form.details.desc')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="NONE">
     <app-span   name='desc'
-:value="data.desc" style=""></app-span>
+:value="data.desc"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 6, offset: 0 }" :xl="{ span: 6, offset: 0 }">
     <app-form-item name='type' :itemRules="this.rules.type" class='' :caption="$t('entities.project.dashboardinfo_form.details.type')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="NONE">
     <app-span   name='type'
-:value="data.type" tag='Project__type' codelistType='STATIC' style=""></app-span>
+:value="data.type" tag='Project__type' codelistType='STATIC'   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.status.visible" :style="{}"  :lg="{ span: 6, offset: 0 }" :xl="{ span: 6, offset: 0 }">
     <app-form-item name='status' :itemRules="this.rules.status" class='' :caption="$t('entities.project.dashboardinfo_form.details.status')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.status.error" :isEmptyCaption="false" labelPos="NONE">
     <app-span   name='status'
-:value="data.status" tag='Project__status' codelistType='STATIC' style=""></app-span>
+:value="data.status" tag='Project__status' codelistType='STATIC'   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -126,21 +150,33 @@
         <i-col v-show="detailsModel.begin.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='begin' :itemRules="this.rules.begin" class='' :caption="$t('entities.project.dashboardinfo_form.details.begin')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.begin.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='begin'
-:value="data.begin" style=""></app-span>
+:value="data.begin"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.end.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='end' :itemRules="this.rules.end" class='' :caption="$t('entities.project.dashboardinfo_form.details.end')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.end.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='end'
-:value="data.end" style=""></app-span>
+:value="data.end"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.days.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='days' :itemRules="this.rules.days" class='' :caption="$t('entities.project.dashboardinfo_form.details.days')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.days.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='days'
-:value="data.days" style=""></app-span>
+:value="data.days"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -155,21 +191,33 @@
         <i-col v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='formitem' :itemRules="this.rules.formitem" class='' :caption="$t('entities.project.dashboardinfo_form.details.formitem')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='formitem'
-:value="data.formitem" style=""></app-span>
+:value="data.formitem"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.formitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='formitem1' :itemRules="this.rules.formitem1" class='' :caption="$t('entities.project.dashboardinfo_form.details.formitem1')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem1.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='formitem1'
-:value="data.formitem1" style=""></app-span>
+:value="data.formitem1"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.formitem2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='formitem2' :itemRules="this.rules.formitem2" class='' :caption="$t('entities.project.dashboardinfo_form.details.formitem2')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem2.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='formitem2'
-:value="data.formitem2" style=""></app-span>
+:value="data.formitem2"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -189,21 +237,33 @@
         <i-col v-show="detailsModel.formitem3.visible" :style="{}"  :lg="{ span: 8, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='formitem3' :itemRules="this.rules.formitem3" class='' :caption="$t('entities.project.dashboardinfo_form.details.formitem3')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem3.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='formitem3'
-:value="data.formitem3" style=""></app-span>
+:value="data.formitem3"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.formitem4.visible" :style="{}"  :lg="{ span: 8, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='formitem4' :itemRules="this.rules.formitem4" class='' :caption="$t('entities.project.dashboardinfo_form.details.formitem4')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem4.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='formitem4'
-:value="data.formitem4" style=""></app-span>
+:value="data.formitem4"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.formitem5.visible" :style="{}"  :lg="{ span: 8, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='formitem5' :itemRules="this.rules.formitem5" class='' :caption="$t('entities.project.dashboardinfo_form.details.formitem5')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem5.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='formitem5'
-:value="data.formitem5" style=""></app-span>
+:value="data.formitem5"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -218,7 +278,11 @@
         <i-col v-show="detailsModel.acl.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='acl' :itemRules="this.rules.acl" class='' :caption="$t('entities.project.dashboardinfo_form.details.acl')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.acl.error" :isEmptyCaption="false" labelPos="NONE">
     <app-span   name='acl'
-:value="data.acl" tag='Product__acl' codelistType='STATIC' style=""></app-span>
+:value="data.acl" tag='Product__acl' codelistType='STATIC'   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>

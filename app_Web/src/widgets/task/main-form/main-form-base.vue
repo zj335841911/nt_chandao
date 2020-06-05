@@ -31,7 +31,17 @@
 </i-col>
 <i-col v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='type' :itemRules="this.rules.type" class='' :caption="$t('entities.task.main_form.details.type')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list v-model="data.type" :data="data" :itemParam="{}" :disabled="detailsModel.type.disabled"  tag='Task__type' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
+     <dropdown-list 
+    v-model="data.type" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :itemParam="{}" 
+    :disabled="detailsModel.type.disabled"  
+    tag='Task__type' 
+    codelistType='STATIC'
+    placeholder='请选择...' style="">
+ </dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -119,7 +129,17 @@
 </i-col>
 <i-col v-show="detailsModel.mailto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='mailto' :itemRules="this.rules.mailto" class='' :caption="$t('entities.task.main_form.details.mailto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.mailto.error" :isEmptyCaption="false" labelPos="LEFT">
-    <dropdown-list-mpicker v-model="data.mailto" :itemParam="{}" :disabled="detailsModel.mailto.disabled"  tag='UserRealName' codelistType='DYNAMIC' valueSeparator="," placeholder='请选择...' style=""></dropdown-list-mpicker>
+    <dropdown-list-mpicker 
+  v-model="data.mailto"
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams" 
+  :itemParam="{}" :disabled="detailsModel.mailto.disabled"  
+  tag='UserRealName' 
+  codelistType='DYNAMIC' 
+  valueSeparator=","
+  placeholder='请选择...' style="">
+</dropdown-list-mpicker>
 </app-form-item>
 
 </i-col>

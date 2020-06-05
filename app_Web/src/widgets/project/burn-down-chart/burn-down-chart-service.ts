@@ -63,57 +63,10 @@ export default class BurnDownService extends ControlService {
                 result =_appEntityService.FetchDefault(Context,Data, isloading);
             }
             result.then((response) => {
-                this.handleSeries(response);
                 resolve(response);
             }).catch(response => {
                 reject(response);
             });      
         });
-    }
-    /**
-     * 生成图表数据
-     *
-     * @param {*} response
-     * @memberof BurnDownService
-     */
-    public handleSeries(response: any) {
-        let chartOption:any = {};
-        let catalogFields: any = ["begin",];
-        let valueFields: any = [[ "id", "项目编号" ],];
-        // 数据按分类属性分组处理
-        let xFields:any = [];
-        let yFields:any = [];
-        valueFields.forEach((field: any,index: number) => {
-            yFields[index] = [];
-        });
-        response.data.forEach((item:any) => {
-            if(xFields.indexOf(item[catalogFields[0]]) > -1){
-                let num = xFields.indexOf(item[catalogFields[0]]);
-                valueFields.forEach((field: any,index: number) => {
-                    yFields[index][num] += item[field[0]];
-                });
-            }else{
-                xFields.push(item[catalogFields[0]]);
-                valueFields.forEach((field: any,index: number) => {
-                    yFields[index].push(item[field[0]]);
-                });
-            }
-        });
-        chartOption.xAxis = { data: xFields };
-        let series: any = [];
-        valueFields.forEach((field: any,index: number) => {
-            let yData: any = [];
-             xFields.forEach((item:any, num: number) => {
-                yData.push(yFields[index][num]);
-            });
-            yData.sort(function (a:any, b:any) { return a.value - b.value; });
-            series.push({
-              name:field[1],
-              type:"line",
-              data:yData,
-            });
-        });
-        chartOption.series = series;
-        response.data = chartOption;
     }
 }

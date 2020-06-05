@@ -179,10 +179,12 @@ export default class ProjectCurProductGridViewBase extends Vue {
     onViewData(newVal: any, oldVal: any) {
         const _this: any = this;
         if (!Object.is(newVal, oldVal) && _this.engine) {
-            _this.parseViewParam();
-            _this.engine.load();
+            this.$nextTick(()=>{
+              _this.parseViewParam();
+              _this.engine.load();
+              
+            });
         }
-        
     }
 
     /**
@@ -590,6 +592,7 @@ export default class ProjectCurProductGridViewBase extends Vue {
             data.srfsourcekey = args[0].srfsourcekey;
         }
         let curViewParam = JSON.parse(JSON.stringify(this.context));
+        delete curViewParam.project;
         if(args.length >0){
             Object.assign(curViewParam,args[0]);
         }

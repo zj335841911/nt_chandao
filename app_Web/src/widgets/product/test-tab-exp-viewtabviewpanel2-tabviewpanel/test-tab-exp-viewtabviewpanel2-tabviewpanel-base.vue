@@ -3,7 +3,7 @@
         <product-bug-tree-exp-view 
       class='viewcontainer2' 
       :viewdata="JSON.stringify(context)" 
-      :viewparam="JSON.stringify(viewparams)"
+      :viewparam="JSON.stringify(getNavViewParams())"
       @viewload="viewDatasChange($event)" 
       :viewDefaultUsage="false" >
     </product-bug-tree-exp-view>
@@ -153,6 +153,14 @@ export default class TestTabExpViewtabviewpanel2Base extends Vue implements Cont
      * @memberof TestTabExpViewtabviewpanel2
      */
     public isActivied: boolean = true;
+
+    /**
+     * 视图面板过滤项
+     *
+     * @type {string}
+     * @memberof TestTabExpViewtabviewpanel2
+     */
+    public navfilter: string = "";
              
     /**
      * vue 生命周期
@@ -178,6 +186,21 @@ export default class TestTabExpViewtabviewpanel2Base extends Vue implements Cont
                 this.$forceUpdate();
 
             });
+        }
+    }
+
+    /**
+     * 传入导航视图参数
+     *
+     * @memberof TestTabExpViewtabviewpanel2
+     */
+    public getNavViewParams(){
+        if(Object.is(this.navfilter,"")){
+            return this.viewparams;
+        }else{
+            let tempViewParams:any = JSON.parse(JSON.stringify(this.viewparams));
+            Object.assign(tempViewParams,{[this.navfilter]:this.context['product']});
+            return tempViewParams;
         }
     }
 

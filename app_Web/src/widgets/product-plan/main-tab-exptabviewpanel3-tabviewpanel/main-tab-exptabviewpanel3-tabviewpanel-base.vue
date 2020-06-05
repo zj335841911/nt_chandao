@@ -3,7 +3,7 @@
         <product-plan-sub-plan-grid-view 
       class='viewcontainer2' 
       :viewdata="JSON.stringify(context)" 
-      :viewparam="JSON.stringify(viewparams)"
+      :viewparam="JSON.stringify(getNavViewParams())"
       @viewload="viewDatasChange($event)" 
       :viewDefaultUsage="false" >
     </product-plan-sub-plan-grid-view>
@@ -153,6 +153,14 @@ export default class MainTabExptabviewpanel3Base extends Vue implements ControlI
      * @memberof MainTabExptabviewpanel3
      */
     public isActivied: boolean = true;
+
+    /**
+     * 视图面板过滤项
+     *
+     * @type {string}
+     * @memberof MainTabExptabviewpanel3
+     */
+    public navfilter: string = "PARENT";
              
     /**
      * vue 生命周期
@@ -178,6 +186,21 @@ export default class MainTabExptabviewpanel3Base extends Vue implements ControlI
                 this.$forceUpdate();
 
             });
+        }
+    }
+
+    /**
+     * 传入导航视图参数
+     *
+     * @memberof MainTabExptabviewpanel3
+     */
+    public getNavViewParams(){
+        if(Object.is(this.navfilter,"")){
+            return this.viewparams;
+        }else{
+            let tempViewParams:any = JSON.parse(JSON.stringify(this.viewparams));
+            Object.assign(tempViewParams,{[this.navfilter]:this.context['productplan']});
+            return tempViewParams;
         }
     }
 

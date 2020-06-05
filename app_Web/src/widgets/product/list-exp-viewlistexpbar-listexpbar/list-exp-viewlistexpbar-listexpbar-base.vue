@@ -14,6 +14,8 @@
     fetchAction="FetchDefault"
     :showBusyIndicator="true"
     :isSelectFirstDefault="true"
+    :newdata="newdata"
+    :opendata="opendata"
     name="listexpbar_list"  
     ref='listexpbar_list' 
     @selectionchange="listexpbar_list_selectionchange($event)"  
@@ -400,11 +402,11 @@ export default class ListExpViewlistexpbarBase extends Vue implements ControlInt
             return ;
         }
         const arg:any = args[0];
-        Object.assign(data,{'product':arg['product']});
-        Object.assign(data,{srfparentdename:'Product',srfparentkey:arg['product']});
         if(this.context){
             Object.assign(data,JSON.parse(JSON.stringify(this.context)));
         }
+        Object.assign(data,{'product':arg['product']});
+        Object.assign(data,{srfparentdename:'Product',srfparentkey:arg['product']});
         this.selection = {};
         Object.assign(this.selection, { view: { viewname: this.navViewName }, data:data });
         this.$emit('selectionchange',args);

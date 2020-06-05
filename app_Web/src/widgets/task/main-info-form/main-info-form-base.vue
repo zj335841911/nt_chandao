@@ -19,7 +19,11 @@
         <i-col v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.task.maininfo_form.details.name')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='name'
-:value="data.name" style=""></app-span>
+:value="data.name"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -48,49 +52,77 @@
 <i-col v-show="detailsModel.modulename.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='modulename' :itemRules="this.rules.modulename" class='' :caption="$t('entities.task.maininfo_form.details.modulename')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.modulename.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='modulename'
-:value="data.modulename" style=""></app-span>
+:value="data.modulename"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.storyname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='storyname' :itemRules="this.rules.storyname" class='' :caption="$t('entities.task.maininfo_form.details.storyname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.storyname.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='storyname'
-:value="data.storyname" style=""></app-span>
+:value="data.storyname"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.assignedto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='assignedto' :itemRules="this.rules.assignedto" class='' :caption="$t('entities.task.maininfo_form.details.assignedto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.assignedto.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='assignedto'
-:value="data.assignedto" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," style=""></app-span>
+:value="data.assignedto" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator=","   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='type' :itemRules="this.rules.type" class='' :caption="$t('entities.task.maininfo_form.details.type')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='type'
-:value="data.type" tag='Task__type' codelistType='STATIC' style=""></app-span>
+:value="data.type" tag='Task__type' codelistType='STATIC'   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.status.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='status' :itemRules="this.rules.status" class='' :caption="$t('entities.task.maininfo_form.details.status')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.status.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='status'
-:value="data.status" tag='Task__status' codelistType='STATIC' style=""></app-span>
+:value="data.status" tag='Task__status' codelistType='STATIC'   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.pri.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='pri' :itemRules="this.rules.pri" class='' :caption="$t('entities.task.maininfo_form.details.pri')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.pri.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='pri'
-:value="data.pri" tag='Task__pri' codelistType='STATIC' style=""></app-span>
+:value="data.pri" tag='Task__pri' codelistType='STATIC'   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.mailto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='mailto' :itemRules="this.rules.mailto" class='' :caption="$t('entities.task.maininfo_form.details.mailto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.mailto.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='mailto'
-:value="data.mailto" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," style=""></app-span>
+:value="data.mailto" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator=","   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -117,14 +149,22 @@
         <i-col v-show="detailsModel.openedby.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='openedby' :itemRules="this.rules.openedby" class='' :caption="$t('entities.task.maininfo_form.details.openedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.openedby.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='openedby'
-:value="data.openedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," style=""></app-span>
+:value="data.openedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator=","   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.openeddate.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='openeddate' :itemRules="this.rules.openeddate" class='' :caption="$t('entities.task.maininfo_form.details.openeddate')" uiStyle="DEFAULT" :labelWidth="35" :isShowCaption="true" :error="detailsModel.openeddate.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='openeddate'
-:value="data.openeddate" style=""></app-span>
+:value="data.openeddate"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -139,14 +179,22 @@
         <i-col v-show="detailsModel.finishedby.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='finishedby' :itemRules="this.rules.finishedby" class='' :caption="$t('entities.task.maininfo_form.details.finishedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.finishedby.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='finishedby'
-:value="data.finishedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," style=""></app-span>
+:value="data.finishedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator=","   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.finisheddate.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='finisheddate' :itemRules="this.rules.finisheddate" class='' :caption="$t('entities.task.maininfo_form.details.finisheddate')" uiStyle="DEFAULT" :labelWidth="35" :isShowCaption="true" :error="detailsModel.finisheddate.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='finisheddate'
-:value="data.finisheddate" style=""></app-span>
+:value="data.finisheddate"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -161,14 +209,22 @@
         <i-col v-show="detailsModel.canceledby.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='canceledby' :itemRules="this.rules.canceledby" class='' :caption="$t('entities.task.maininfo_form.details.canceledby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.canceledby.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='canceledby'
-:value="data.canceledby" style=""></app-span>
+:value="data.canceledby"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.canceleddate.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='canceleddate' :itemRules="this.rules.canceleddate" class='' :caption="$t('entities.task.maininfo_form.details.canceleddate')" uiStyle="DEFAULT" :labelWidth="35" :isShowCaption="true" :error="detailsModel.canceleddate.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='canceleddate'
-:value="data.canceleddate" style=""></app-span>
+:value="data.canceleddate"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -183,14 +239,22 @@
         <i-col v-show="detailsModel.closedby.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='closedby' :itemRules="this.rules.closedby" class='' :caption="$t('entities.task.maininfo_form.details.closedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.closedby.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='closedby'
-:value="data.closedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," style=""></app-span>
+:value="data.closedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator=","   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.closeddate.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='closeddate' :itemRules="this.rules.closeddate" class='' :caption="$t('entities.task.maininfo_form.details.closeddate')" uiStyle="DEFAULT" :labelWidth="35" :isShowCaption="true" :error="detailsModel.closeddate.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='closeddate'
-:value="data.closeddate" style=""></app-span>
+:value="data.closeddate"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -202,7 +266,11 @@
 <i-col v-show="detailsModel.closedreason.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='closedreason' :itemRules="this.rules.closedreason" class='' :caption="$t('entities.task.maininfo_form.details.closedreason')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.closedreason.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='closedreason'
-:value="data.closedreason" tag='Task__closed_reason' codelistType='STATIC' style=""></app-span>
+:value="data.closedreason" tag='Task__closed_reason' codelistType='STATIC'   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -212,14 +280,22 @@
         <i-col v-show="detailsModel.lasteditedby.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='lasteditedby' :itemRules="this.rules.lasteditedby" class='' :caption="$t('entities.task.maininfo_form.details.lasteditedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.lasteditedby.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='lasteditedby'
-:value="data.lasteditedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," style=""></app-span>
+:value="data.lasteditedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator=","   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.lastediteddate.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='lastediteddate' :itemRules="this.rules.lastediteddate" class='' :caption="$t('entities.task.maininfo_form.details.lastediteddate')" uiStyle="DEFAULT" :labelWidth="35" :isShowCaption="true" :error="detailsModel.lastediteddate.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='lastediteddate'
-:value="data.lastediteddate" style=""></app-span>
+:value="data.lastediteddate"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>

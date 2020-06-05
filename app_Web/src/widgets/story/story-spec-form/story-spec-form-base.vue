@@ -9,7 +9,11 @@
         <i-col v-show="detailsModel.version.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='version' :itemRules="this.rules.version" class='' :caption="$t('entities.story.storyspec_form.details.version')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.version.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='version'
-:value="data.version" style="width:70px;"></app-span>
+:value="data.version"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style="width:70px;"></app-span>
 </app-form-item>
 
 </i-col>

@@ -114,7 +114,7 @@ export default class ExpBase extends Vue implements ControlInterface {
      */
     public listexpbar_list_quicktoolbar_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {
-            this.listexpbar_list_quicktoolbar_deuiaction1_click($event, 'listexpbar_list_quicktoolbar', $event2);
+            this.listexpbar_list_quicktoolbar_deuiaction1_click(null, 'listexpbar_list_quicktoolbar', $event2);
         }
     }
     
@@ -266,6 +266,29 @@ export default class ExpBase extends Vue implements ControlInterface {
     @Prop() public fetchAction!: string;
 
     /**
+     * 打开新建数据视图
+     *
+     * @type {any}
+     * @memberof Exp
+     */
+    @Prop() public newdata: any;
+    /**
+     * 打开编辑数据视图
+     *
+     * @type {any}
+     * @memberof Exp
+     */
+    @Prop() public opendata: any;
+
+    /**
+     * this引用
+     *
+     * @type {number}
+     * @memberof Main
+     */
+    public thisRef: any = this;
+
+    /**
      * 当前页
      *
      * @type {number}
@@ -304,6 +327,14 @@ export default class ExpBase extends Vue implements ControlInterface {
      * @memberof Exp
      */
     public totalRecord: number = 0;
+
+    /**
+     * 加载的数据是否附加在items之后
+     *
+     * @type {boolean}
+     * @memberof Exp
+     */
+    public isAddBehind:boolean = false;
 
     /**
      * 排序方向
@@ -349,6 +380,7 @@ export default class ExpBase extends Vue implements ControlInterface {
             }
         })
     }
+    
 
     /**
      * Vue声明周期，组件创建完毕
@@ -406,6 +438,7 @@ export default class ExpBase extends Vue implements ControlInterface {
         if(this.totalRecord>this.items.length)
         {
             this.curPage = ++this.curPage;
+            this.isAddBehind = true;
             this.load({});
         }
     }
@@ -449,7 +482,9 @@ export default class ExpBase extends Vue implements ControlInterface {
         this.$emit('beforeload', parentdata);
         Object.assign(arg, parentdata);
         let tempViewParams:any = parentdata.viewparams?parentdata.viewparams:{};
-        Object.assign(tempViewParams,JSON.parse(JSON.stringify(this.viewparams)));
+        if(this.viewparams){
+            Object.assign(tempViewParams,JSON.parse(JSON.stringify(this.viewparams)));
+        }
         Object.assign(arg,{viewparams:tempViewParams});
         const post: Promise<any> = this.service.search(this.fetchAction, this.context?JSON.parse(JSON.stringify(this.context)):{}, arg, this.showBusyIndicator);
         post.then((response: any) => {
@@ -460,7 +495,9 @@ export default class ExpBase extends Vue implements ControlInterface {
                 return;
             }
             const data: any = response.data;
-            this.items = [];
+            if(!this.isAddBehind){
+                this.items = [];
+            }
             if (Object.keys(data).length > 0) {
                 let datas = JSON.parse(JSON.stringify(data));
                 datas.map((item: any) => {
@@ -469,6 +506,7 @@ export default class ExpBase extends Vue implements ControlInterface {
                 this.totalRecord = response.total;
                 this.items.push(...datas);
             }
+            this.isAddBehind = false;
             this.$emit('load', this.items);
             if(this.isSelectFirstDefault){
                 this.handleClick(this.items[0]);

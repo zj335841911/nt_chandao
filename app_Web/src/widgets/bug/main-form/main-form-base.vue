@@ -36,7 +36,15 @@
 </i-col>
 <i-col v-show="detailsModel.module.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='module' :itemRules="this.rules.module" class='' :caption="$t('entities.bug.main_form.details.module')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.module.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list v-model="data.module" :data="data" :itemParam="{}" :disabled="detailsModel.module.disabled"   placeholder='请选择...' style=""></dropdown-list>
+     <dropdown-list 
+    v-model="data.module" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :itemParam="{}" 
+    :disabled="detailsModel.module.disabled"  
+    placeholder='请选择...' style="">
+ </dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -85,19 +93,49 @@
 </i-col>
 <i-col v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 6, offset: 0 }">
     <app-form-item name='type' :itemRules="this.rules.type" class='' :caption="$t('entities.bug.main_form.details.type')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list v-model="data.type" :data="data" :itemParam="{}" :disabled="detailsModel.type.disabled"  tag='Bug__type' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
+     <dropdown-list 
+    v-model="data.type" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :itemParam="{}" 
+    :disabled="detailsModel.type.disabled"  
+    tag='Bug__type' 
+    codelistType='STATIC'
+    placeholder='请选择...' style="">
+ </dropdown-list>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.os.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 3, offset: 0 }">
     <app-form-item name='os' :itemRules="this.rules.os" class='' :caption="$t('entities.bug.main_form.details.os')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.os.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list v-model="data.os" :data="data" :itemParam="{}" :disabled="detailsModel.os.disabled"  tag='Bug__os' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
+     <dropdown-list 
+    v-model="data.os" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :itemParam="{}" 
+    :disabled="detailsModel.os.disabled"  
+    tag='Bug__os' 
+    codelistType='STATIC'
+    placeholder='请选择...' style="">
+ </dropdown-list>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.browser.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 3, offset: 0 }">
     <app-form-item name='browser' :itemRules="this.rules.browser" class='' :caption="$t('entities.bug.main_form.details.browser')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.browser.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list v-model="data.browser" :data="data" :itemParam="{}" :disabled="detailsModel.browser.disabled"  tag='Bug__browser' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
+     <dropdown-list 
+    v-model="data.browser" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :itemParam="{}" 
+    :disabled="detailsModel.browser.disabled"  
+    tag='Bug__browser' 
+    codelistType='STATIC'
+    placeholder='请选择...' style="">
+ </dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -114,13 +152,33 @@
 </i-col>
 <i-col v-show="detailsModel.severity.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
     <app-form-item name='severity' :itemRules="this.rules.severity" class='' :caption="$t('entities.bug.main_form.details.severity')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.severity.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list v-model="data.severity" :data="data" :itemParam="{}" :disabled="detailsModel.severity.disabled"  tag='Bug__severity' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
+     <dropdown-list 
+    v-model="data.severity" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :itemParam="{}" 
+    :disabled="detailsModel.severity.disabled"  
+    tag='Bug__severity' 
+    codelistType='STATIC'
+    placeholder='请选择...' style="">
+ </dropdown-list>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.pri.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
     <app-form-item name='pri' :itemRules="this.rules.pri" class='' :caption="$t('entities.bug.main_form.details.pri')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.pri.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list v-model="data.pri" :data="data" :itemParam="{}" :disabled="detailsModel.pri.disabled"  tag='Bug__pri' codelistType='STATIC' placeholder='请选择...' style=""></dropdown-list>
+     <dropdown-list 
+    v-model="data.pri" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :itemParam="{}" 
+    :disabled="detailsModel.pri.disabled"  
+    tag='Bug__pri' 
+    codelistType='STATIC'
+    placeholder='请选择...' style="">
+ </dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -135,7 +193,17 @@
     <row>
         <i-col v-show="detailsModel.mailto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='mailto' :itemRules="this.rules.mailto" class='' :caption="$t('entities.bug.main_form.details.mailto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.mailto.error" :isEmptyCaption="false" labelPos="LEFT">
-    <dropdown-list-mpicker v-model="data.mailto" :itemParam="{}" :disabled="detailsModel.mailto.disabled"  tag='UserRealName' codelistType='DYNAMIC' valueSeparator="," placeholder='请选择...' style=""></dropdown-list-mpicker>
+    <dropdown-list-mpicker 
+  v-model="data.mailto"
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams" 
+  :itemParam="{}" :disabled="detailsModel.mailto.disabled"  
+  tag='UserRealName' 
+  codelistType='DYNAMIC' 
+  valueSeparator=","
+  placeholder='请选择...' style="">
+</dropdown-list-mpicker>
 </app-form-item>
 
 </i-col>

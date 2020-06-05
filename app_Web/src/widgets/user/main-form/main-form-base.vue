@@ -29,13 +29,34 @@
 </i-col>
 <i-col v-show="detailsModel.role.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='role' :itemRules="this.rules.role" class='' :caption="$t('entities.user.main_form.details.role')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.role.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list v-model="data.role" :data="data" :itemParam="{}" :disabled="detailsModel.role.disabled"  tag='Role' codelistType='DYNAMIC' placeholder='请选择...' style=""></dropdown-list>
+     <dropdown-list 
+    v-model="data.role" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :itemParam="{}" 
+    :disabled="detailsModel.role.disabled"  
+    tag='Role' 
+    codelistType='DYNAMIC'
+    placeholder='请选择...' style="">
+ </dropdown-list>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.gender.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='gender' :itemRules="this.rules.gender" class='' :caption="$t('entities.user.main_form.details.gender')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.gender.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-radio-group v-model="data.gender"  :disabled="detailsModel.gender.disabled"  name="gender" tag='User__gender' codelistType='STATIC'  style=""></app-radio-group>
+    <app-radio-group 
+  v-model="data.gender"
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams"   
+  :disabled="detailsModel.gender.disabled"  
+  name="gender" 
+  :itemParam="{}" 
+  tag='User__gender' 
+  codelistType='STATIC' 
+  style="">
+</app-radio-group>
 </app-form-item>
 
 </i-col>

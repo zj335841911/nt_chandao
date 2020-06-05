@@ -447,140 +447,98 @@ export default class PivotTableBase extends Vue implements ControlInterface {
             label: '编号',
             langtag: 'entities.task.pivottable_grid.columns.id',
             show: true,
-            util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('id', val);
-            }
+            util: 'PX'
         },
         {
             name: 'pri',
             label: 'P',
             langtag: 'entities.task.pivottable_grid.columns.pri',
             show: true,
-            util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('pri', val);
-            }
+            util: 'PX'
         },
         {
             name: 'name',
             label: '任务名称',
             langtag: 'entities.task.pivottable_grid.columns.name',
             show: true,
-            util: 'STAR',
-            render: (val: any) => {
-                return this.renderColValue('name', val);
-            }
+            util: 'STAR'
         },
         {
             name: 'status',
             label: '任务状态',
             langtag: 'entities.task.pivottable_grid.columns.status',
             show: true,
-            util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('status', val);
-            }
+            util: 'PX'
         },
         {
             name: 'type',
             label: '任务类型',
             langtag: 'entities.task.pivottable_grid.columns.type',
             show: true,
-            util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('type', val);
-            }
+            util: 'PX'
         },
         {
             name: 'assignedto',
             label: '指派给',
             langtag: 'entities.task.pivottable_grid.columns.assignedto',
             show: true,
-            util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('assignedto', val);
-            }
+            util: 'PX'
         },
         {
             name: 'estimate',
             label: '最初预计',
             langtag: 'entities.task.pivottable_grid.columns.estimate',
             show: true,
-            util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('estimate', val);
-            }
+            util: 'PX'
         },
         {
             name: 'left',
             label: '预计剩余',
             langtag: 'entities.task.pivottable_grid.columns.left',
             show: true,
-            util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('left', val);
-            }
+            util: 'PX'
         },
         {
             name: 'consumed',
             label: '总计消耗',
             langtag: 'entities.task.pivottable_grid.columns.consumed',
             show: true,
-            util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('consumed', val);
-            }
+            util: 'PX'
         },
         {
             name: 'productname',
             label: '产品',
             langtag: 'entities.task.pivottable_grid.columns.productname',
             show: true,
-            util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('productname', val);
-            }
+            util: 'PX'
         },
         {
             name: 'projectname',
             label: '所属项目',
             langtag: 'entities.task.pivottable_grid.columns.projectname',
             show: true,
-            util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('projectname', val);
-            }
+            util: 'PX'
         },
         {
             name: 'storyname',
             label: '相关需求',
             langtag: 'entities.task.pivottable_grid.columns.storyname',
             show: true,
-            util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('storyname', val);
-            }
+            util: 'PX'
         },
         {
             name: 'modulename',
             label: '所属模块',
             langtag: 'entities.task.pivottable_grid.columns.modulename',
             show: true,
-            util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('modulename', val);
-            }
+            util: 'PX'
         },
         {
             name: 'parentname',
             label: '父任务',
             langtag: 'entities.task.pivottable_grid.columns.parentname',
             show: true,
-            util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('parentname', val);
-            }
+            util: 'PX'
         },
     ]
 
@@ -591,55 +549,6 @@ export default class PivotTableBase extends Vue implements ControlInterface {
      * @memberof PivotTable
      */
     public gridItemsModel: any[] = [];
-
-    /**
-     * 绘制列值
-     *
-     * @type {*}
-     * @memberof PivotTable
-     */
-    public renderColValue(name: string, value: any) {
-        if(Object.is('pri', name)) {
-            let codelist: any[] = this.$store.getters.getCodeList('Task__pri');
-            if(codelist) {
-                return this.getCodeListItem(codelist, value);
-            }
-        }
-        if(Object.is('status', name)) {
-            let codelist: any[] = this.$store.getters.getCodeList('Task__status');
-            if(codelist) {
-                return this.getCodeListItem(codelist, value);
-            }
-        }
-        if(Object.is('type', name)) {
-            let codelist: any[] = this.$store.getters.getCodeList('Task__type');
-            if(codelist) {
-                return this.getCodeListItem(codelist, value);
-            }
-        }
-        if(Object.is('assignedto', name)) {
-            let codelist: any[] = this.$store.getters.getCodeList('UserRealName');
-            if(codelist) {
-                return this.getCodeListItem(codelist, value);
-            }
-        }
-        return value;
-    }
-
-    /**
-     * 获取代码项
-     *
-     * @public
-     * @memberof PivotTable
-     */
-    public getCodeListItem(codelist: any, val: any) {
-        for(let i = 0; i < codelist.items.length; i++) {
-            if(Object.is(codelist.items[i].value, val)) {
-                return codelist.items[i].text;
-            }
-        }
-        return codelist.emptytext;
-    }
 
     /**
      * 获取表格行模型

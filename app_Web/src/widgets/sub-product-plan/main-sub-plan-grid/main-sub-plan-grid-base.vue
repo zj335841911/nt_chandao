@@ -1201,7 +1201,7 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
         }
         // 已选中则删除，没选中则添加
         let selectIndex = this.selections.findIndex((item:any)=>{
-            return Object.is(item.zt_productplan,$event.zt_productplan);
+            return Object.is(item.ibz_subproductplan,$event.ibz_subproductplan);
         });
         if (Object.is(selectIndex,-1)){
           this.selections.push(JSON.parse(JSON.stringify($event)));
@@ -1317,7 +1317,7 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
      * @memberof MainSubPlan
      */
     public setColState() {
-		const _data: any = localStorage.getItem('zt_productplan_mainsubplan_grid');
+		const _data: any = localStorage.getItem('ibz_subproductplan_mainsubplan_grid');
 		if (_data) {
 			let columns = JSON.parse(_data);
 			columns.forEach((col: any) => {
@@ -1335,7 +1335,7 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
      * @memberof MainSubPlan
      */
     public onColChange() {
-        localStorage.setItem('zt_productplan_mainsubplan_grid', JSON.stringify(this.allColumns));
+        localStorage.setItem('ibz_subproductplan_mainsubplan_grid', JSON.stringify(this.allColumns));
     }
 
     /**
