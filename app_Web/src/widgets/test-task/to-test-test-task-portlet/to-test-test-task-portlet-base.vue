@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet to-test-test-task ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : '1px',}">
+    <div class='portlet to-test-test-task ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
         <p class='portlet-title'>
             <i class=''></i>
             待测试版本

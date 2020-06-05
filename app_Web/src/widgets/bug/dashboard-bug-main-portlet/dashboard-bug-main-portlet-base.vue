@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet dashboard-bug-main ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : '1px',}">
+    <div class='portlet dashboard-bug-main ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
         <div class="portlet-without-title">
         <bug-dashboard-main-edit-view9 :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></bug-dashboard-main-edit-view9>
         </div>

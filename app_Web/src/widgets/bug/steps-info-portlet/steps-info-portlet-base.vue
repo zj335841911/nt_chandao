@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet steps-info ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : '1px',}">
+    <div class='portlet steps-info ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
         <p class='portlet-title'>
             <i class=''></i>
             重现步骤
