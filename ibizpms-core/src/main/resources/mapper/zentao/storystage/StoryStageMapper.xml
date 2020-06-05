@@ -50,12 +50,10 @@
        <![CDATA[	SELECT t1.`BRANCH`, concat(t1.`STORY`,'__',t1.`BRANCH`) AS `ID`, t1.`STAGE`, t1.`STAGEDBY`, t1.`STORY` FROM `zt_storystage` t1  
 			]]>
     </sql>
-
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
        <![CDATA[	SELECT t1.`BRANCH`, concat(t1.`STORY`,'__',t1.`BRANCH`) AS `ID`, t1.`STAGE`, t1.`STAGEDBY`, t1.`STORY` FROM `zt_storystage` t1  
 			]]>
     </sql>
-
 </mapper>
 

@@ -30,12 +30,10 @@
        <![CDATA[	SELECT t1.`BRANCH`, concat(t1.`REPO`,'__',t1.`REVISION`,'__',t1.`BRANCH`) AS `ID`, t1.`REPO`, t1.`REVISION` FROM `zt_repobranch` t1  
 			]]>
     </sql>
-
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
        <![CDATA[	SELECT t1.`BRANCH`, concat(t1.`REPO`,'__',t1.`REVISION`,'__',t1.`BRANCH`) AS `ID`, t1.`REPO`, t1.`REVISION` FROM `zt_repobranch` t1  
 			]]>
     </sql>
-
 </mapper>
 

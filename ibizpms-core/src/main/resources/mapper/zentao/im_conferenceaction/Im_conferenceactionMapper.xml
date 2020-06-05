@@ -30,12 +30,10 @@
        <![CDATA[	SELECT t1.`DATE`, t1.`ID`, t1.`RID`, t1.`TYPE`, t1.`USER` FROM `zt_im_conferenceaction` t1  
 			]]>
     </sql>
-
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
        <![CDATA[	SELECT t1.`DATE`, t1.`ID`, t1.`RID`, t1.`TYPE`, t1.`USER` FROM `zt_im_conferenceaction` t1  
 			]]>
     </sql>
-
 </mapper>
 

@@ -71,7 +71,6 @@
 					 AND ( t1.`type` = 'story' )
 			]]>
     </sql>
-
     <!--数据查询[Root]-->
     <sql id="Root" databaseId="mysql">
        <![CDATA[	SELECT t1.`BRANCH`, t1.`DELETED`, t1.`GRADE`, t1.`ID`, (CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`, t1.`NAME`, t1.`ORDER`, t1.`OWNER`, t1.`PARENT`, t1.`PATH`, t1.`ROOT`, t1.`SHORT`, t1.`TYPE` FROM `zt_module` t1  
@@ -79,7 +78,6 @@
 					 AND ( t1.`type` = 'story'  and  ( t1.`parent` is null  or  t1.`parent` = 0 ) )
 			]]>
     </sql>
-
     <!--数据查询[Root_NoBranch]-->
     <sql id="Root_NoBranch" databaseId="mysql">
        <![CDATA[	SELECT t1.`BRANCH`, t1.`DELETED`, t1.`GRADE`, t1.`ID`, (CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`, t1.`NAME`, t1.`ORDER`, t1.`OWNER`, t1.`PARENT`, t1.`PATH`, t1.`ROOT`, t1.`SHORT`, t1.`TYPE` FROM `zt_module` t1  
@@ -87,7 +85,6 @@
 					 AND ( t1.`type` = 'story'  and  t1.`branch` = 0  and  ( t1.`parent` is null  or  t1.`parent` = 0 ) )
 			]]>
     </sql>
-
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
        <![CDATA[	SELECT t1.`BRANCH`, t1.`COLLECTOR`, t1.`DELETED`, t1.`GRADE`, t1.`ID`, (CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`, t1.`NAME`, t1.`ORDER`, t1.`OWNER`, t1.`PARENT`, t1.`PATH`, t1.`ROOT`, t1.`SHORT`, t1.`TYPE` FROM `zt_module` t1  
@@ -95,6 +92,5 @@
 					 AND ( t1.`type` = 'story' )
 			]]>
     </sql>
-
 </mapper>
 

@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet toolbar  dashboard-footer-button-wrapper' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
+    <div class='portlet toolbar ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
         <div class="portlet-without-title">
             <app-actionbar :items="actionBarModelData" @itemClick="handleItemClick"></app-actionbar>
         </div>
@@ -14,6 +14,7 @@ import { UIActionTool,Util } from '@/utils';
 import TaskService from '@/service/task/task-service';
 import ToolbarService from './toolbar-portlet-service';
 
+import TaskUIService from '@/uiservice/task/task-ui-service';
 
 
 @Component({
@@ -137,6 +138,122 @@ export default class TaskToolbarBase extends Vue implements ControlInterface {
      * @param {*} [$event]
      * @memberof 
      */
+    public dashboard_sysportlet2_ub4d331e_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TaskUIService  = new TaskUIService();
+        curUIService.Task_PauseTask(datas,contextJO, paramJO,  $event, xData,this,"Task");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet2_ue3e1dd6_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TaskUIService  = new TaskUIService();
+        curUIService.Task_DoneTask(datas,contextJO, paramJO,  $event, xData,this,"Task");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet2_u10fc642_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TaskUIService  = new TaskUIService();
+        curUIService.Task_CancelTask(datas,contextJO, paramJO,  $event, xData,this,"Task");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet2_u6c059c5_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TaskUIService  = new TaskUIService();
+        curUIService.Task_MainEdit(datas,contextJO, paramJO,  $event, xData,this,"Task");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public dashboard_sysportlet2_uc22aaa2_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -247,6 +364,18 @@ export default class TaskToolbarBase extends Vue implements ControlInterface {
         { viewlogicname:"dashboard_sysportlet2_udf09ee0_click",
         actionName:"关闭",
         },
+        { viewlogicname:"dashboard_sysportlet2_ub4d331e_click",
+        actionName:"暂停",
+        },
+        { viewlogicname:"dashboard_sysportlet2_ue3e1dd6_click",
+        actionName:"完成",
+        },
+        { viewlogicname:"dashboard_sysportlet2_u10fc642_click",
+        actionName:"取消",
+        },
+        { viewlogicname:"dashboard_sysportlet2_u6c059c5_click",
+        actionName:"编辑",
+        },
         { viewlogicname:"dashboard_sysportlet2_uc22aaa2_click",
         actionName:"删除并关闭",
         }
@@ -260,6 +389,18 @@ export default class TaskToolbarBase extends Vue implements ControlInterface {
     public handleItemClick($event:any){
         if(Object.is($event,'dashboard_sysportlet2_udf09ee0_click')){
             this.dashboard_sysportlet2_udf09ee0_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet2_ub4d331e_click')){
+            this.dashboard_sysportlet2_ub4d331e_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet2_ue3e1dd6_click')){
+            this.dashboard_sysportlet2_ue3e1dd6_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet2_u10fc642_click')){
+            this.dashboard_sysportlet2_u10fc642_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet2_u6c059c5_click')){
+            this.dashboard_sysportlet2_u6c059c5_click(null);
         }
         if(Object.is($event,'dashboard_sysportlet2_uc22aaa2_click')){
             this.dashboard_sysportlet2_uc22aaa2_click(null);

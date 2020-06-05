@@ -467,6 +467,19 @@ export default class ProductServiceBase extends EntityService {
     }
 
     /**
+     * Close接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductServiceBase
+     */
+    public async Close(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            return Http.getInstance().post(`/products/${context.product}/close`,data,isloading);
+    }
+
+    /**
      * Remove接口方法
      *
      * @param {*} [context={}]

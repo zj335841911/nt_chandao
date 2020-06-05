@@ -173,6 +173,13 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     }
     @Override
     @Transactional
+    public Product close(Product et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
     public boolean remove(BigInteger key) {
         boolean result=removeById(key);
         return result ;

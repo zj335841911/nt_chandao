@@ -50,12 +50,10 @@
        <![CDATA[	SELECT t1.`CONSUMED`, t1.`DATE`, t1.`ESTIMATE`, concat(t1.`PROJECT`,'__',t1.`TASK`,'__',t1.`DATE`) AS `ID`, t1.`LEFT`, t1.`PROJECT`, t1.`TASK` FROM `zt_burn` t1  
 			]]>
     </sql>
-
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
        <![CDATA[	SELECT t1.`CONSUMED`, t1.`DATE`, t1.`ESTIMATE`, concat(t1.`PROJECT`,'__',t1.`TASK`,'__',t1.`DATE`) AS `ID`, t1.`LEFT`, t1.`PROJECT`, t1.`TASK` FROM `zt_burn` t1  
 			]]>
     </sql>
-
 </mapper>
 
