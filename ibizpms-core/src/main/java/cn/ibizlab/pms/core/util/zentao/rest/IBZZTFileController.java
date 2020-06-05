@@ -6,6 +6,7 @@ import cn.ibizlab.pms.util.domain.FileItem;
 import cn.ibizlab.pms.util.service.FileService;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.http.HttpStatus;
@@ -27,11 +28,12 @@ public class IBZZTFileController
 	private IIBZZTFileService fileService;
 
 	@PostMapping(value = "${zentao.file.uploadpath:ibizutil/ztupload}")
-	public ResponseEntity<FileItem> upload(@RequestParam("file") MultipartFile multipartFile, @RequestParam("objecttype") String objectType, @RequestParam("objectid") Integer objectId){
+	public ResponseEntity<FileItem> upload(@RequestParam("file") MultipartFile multipartFile, @RequestParam("objecttype") String objectType, @RequestParam("objectid") Integer objectId, @RequestParam("version")Integer version){
 		JSONObject params = new JSONObject();
 		params.put("isztfile", true);
 		params.put("objecttype", objectType);
 		params.put("objectid", objectId);
+		params.put("version", version);
 		return ResponseEntity.ok().body(fileService.saveFile(multipartFile, params));
 	}
 }

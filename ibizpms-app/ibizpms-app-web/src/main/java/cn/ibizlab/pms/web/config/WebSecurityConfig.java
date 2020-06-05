@@ -48,6 +48,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Value("${ibiz.file.uploadpath:ibizutil/upload}")
     private String uploadpath;
 
+    @Value("${ibiz.file.uploadpath:ibizutil/ztupload}")
+    private String ztuploadpath;
+
     @Value("${ibiz.file.downloadpath:ibizutil/download}")
     private String downloadpath;
 
@@ -115,6 +118,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // 文件操作
                 .antMatchers("/"+downloadpath+"/**").permitAll()
                 .antMatchers("/"+uploadpath).permitAll()
+                .antMatchers("/"+ztuploadpath).permitAll()
                 .antMatchers("/"+previewpath+"/**").permitAll()
                 // 所有请求都需要认证
                 .anyRequest().authenticated()

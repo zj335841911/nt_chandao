@@ -78,6 +78,7 @@ public class IBZZTFileService implements IIBZZTFileService {
 
                     String objectType = params.getString("objecttype");
                     Integer objectId = params.getInteger("objectid");
+                    Integer version = params.getInteger("version");
 
                     ztFile.setPathname(item.getId());
                     ztFile.setTitle(item.getFilename());
@@ -85,7 +86,7 @@ public class IBZZTFileService implements IIBZZTFileService {
                     ztFile.setSize(new Long(item.getSize()).intValue());
                     ztFile.setObjecttype(objectType);
                     ztFile.setObjectid(objectId);
-                    ztFile.setExtra("iBiz");
+                    ztFile.setExtra(version == null ? null : version.toString());
                     fileService.create(ztFile);
                 }
             }
