@@ -2,7 +2,6 @@ import { Http,Util,Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import TaskService from '@/service/task/task-service';
 import SubTaskNewModel from './sub-task-new-grid-model';
-import ModuleService from '@/service/module/module-service';
 import StoryService from '@/service/story/story-service';
 
 
@@ -43,14 +42,6 @@ export default class SubTaskNewService extends ControlService {
         this.model = new SubTaskNewModel();
     }
 
-
-    /**
-     * 模块服务对象
-     *
-     * @type {ModuleService}
-     * @memberof SubTaskNewService
-     */
-    public moduleService: ModuleService = new ModuleService();
 
     /**
      * 需求服务对象
