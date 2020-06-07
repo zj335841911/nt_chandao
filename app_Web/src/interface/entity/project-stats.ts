@@ -141,4 +141,20 @@ export interface ProjectStats {
      * @memberof ProjectStats
      */
     deleted?: any;
+
+    /**
+     * 工时
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    time?: any;
+
+    /**
+     * 工时类型
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    type?: any;
 }

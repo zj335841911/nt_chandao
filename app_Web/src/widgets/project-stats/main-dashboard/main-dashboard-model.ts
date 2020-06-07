@@ -66,6 +66,12 @@ export default class MainModel {
       {
         name: 'deleted',
       },
+      {
+        name: 'time',
+      },
+      {
+        name: 'type',
+      },
     ]
   }
 

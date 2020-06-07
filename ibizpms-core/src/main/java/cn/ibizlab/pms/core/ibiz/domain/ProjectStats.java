@@ -160,6 +160,20 @@ public class ProjectStats extends EntityMP implements Serializable {
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     private String deleted;
+    /**
+     * 工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "time")
+    @JsonProperty("time")
+    private Double time;
+    /**
+     * 工时类型
+     */
+    @TableField(exist = false)
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    private String type;
 
 
 

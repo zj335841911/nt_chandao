@@ -66,6 +66,12 @@ export default class TASKTIMEModel {
       {
         name: 'deleted',
       },
+      {
+        name: 'time',
+      },
+      {
+        name: 'type',
+      },
     ]
   }
 

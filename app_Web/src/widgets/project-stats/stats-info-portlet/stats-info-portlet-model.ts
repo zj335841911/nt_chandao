@@ -66,6 +66,12 @@ export default class StatsInfoModel {
       {
         name: 'deleted',
       },
+      {
+        name: 'time',
+      },
+      {
+        name: 'type',
+      },
     ]
   }
 

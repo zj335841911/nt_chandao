@@ -18,6 +18,8 @@ export default {
     closedstoryrate: '关闭需求率',
     finishbugrate: '解决Bug率',
     deleted: '已删除',
+    time: '工时',
+    type: '工时类型',
   },
 	views: {
 		maindashboardview: {
