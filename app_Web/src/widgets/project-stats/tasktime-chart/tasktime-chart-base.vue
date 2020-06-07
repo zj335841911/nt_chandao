@@ -328,10 +328,17 @@ export default class TASKTIMEBase extends Vue implements ControlInterface {
         },
         dataset:[],
         series:[
-                     !!!!模版产生代码错误:----
-        FTL stack trace ("~" means nesting-related):
-        	- Failed at: #if item.getHeight()?? && item.getHei...  [in template "TEMPLCODE_zh_CN" at line 15, column 5]
-        ----
+                     {
+            id:'tasktime',
+            name:'',
+            type:'pie',
+            datasetIndex:0,
+            
+            seriesLayoutBy:"column",
+            encode:{
+                itemName:"type",
+                value:"time"
+            }}
         ]
     };
 
