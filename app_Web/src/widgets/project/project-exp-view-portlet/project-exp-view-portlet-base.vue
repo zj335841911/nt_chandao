@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet project-exp-view ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : '300px',}">
+    <div class='portlet project-exp-view ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : '360px',}">
         <p class='portlet-title'>
             <i class=''></i>
             项目统计

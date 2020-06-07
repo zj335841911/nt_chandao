@@ -98,6 +98,7 @@ export default class ProjectStatsMainDashboardViewBase extends Vue {
 	 * @memberof ProjectStatsMainDashboardViewBase
 	 */
     public customViewNavContexts:any ={
+    "PROJECTSTATS":{"isRawValue":false,"value":"project"}
     };
 
 	/**
