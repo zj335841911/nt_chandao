@@ -1092,6 +1092,33 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-main-view9-story-spec/story-main-view9-story-spec.vue'),
                 },
                 {
+                    path: 'projects/:project?/tasks/:task?/workinfoeditview9/:workinfoeditview9?',
+                    meta: {
+                        caption: 'entities.task.views.workinfoeditview9.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'workinfoeditview9', parameterName: 'workinfoeditview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-work-info-edit-view9/task-work-info-edit-view9.vue'),
+                },
+                {
+                    path: 'tasks/:task?/workinfoeditview9/:workinfoeditview9?',
+                    meta: {
+                        caption: 'entities.task.views.workinfoeditview9.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'workinfoeditview9', parameterName: 'workinfoeditview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-work-info-edit-view9/task-work-info-edit-view9.vue'),
+                },
+                {
                     path: 'products/:product?/bugtreeexpview/:bugtreeexpview?',
                     meta: {
                         caption: 'entities.product.views.bugtreeexpview.caption',
@@ -4499,6 +4526,31 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/zentao/project-main-dashboard-view/project-main-dashboard-view.vue'),
+    },
+    {
+        path: '/projects/:project?/tasks/:task?/workinfoeditview9/:workinfoeditview9?',
+        meta: {
+            caption: 'entities.task.views.workinfoeditview9.caption',
+            parameters: [
+                { pathName: 'projects', parameterName: 'project' },
+                { pathName: 'tasks', parameterName: 'task' },
+                { pathName: 'workinfoeditview9', parameterName: 'workinfoeditview9' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/task-work-info-edit-view9/task-work-info-edit-view9.vue'),
+    },
+    {
+        path: '/tasks/:task?/workinfoeditview9/:workinfoeditview9?',
+        meta: {
+            caption: 'entities.task.views.workinfoeditview9.caption',
+            parameters: [
+                { pathName: 'tasks', parameterName: 'task' },
+                { pathName: 'workinfoeditview9', parameterName: 'workinfoeditview9' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/task-work-info-edit-view9/task-work-info-edit-view9.vue'),
     },
     {
         path: '/products/:product?/leftsidebarlistview/:leftsidebarlistview?',

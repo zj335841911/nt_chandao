@@ -473,6 +473,7 @@ export const viewstate: any = {
                 'b78229d8342c2c13ddd8e403a7d853bc',
                 '35ba93bac795e0deb7297d2d471b7180',
                 '770a170098d148e438a7666b248e6519',
+                '8ca35f54383cecb05da77cdb1a6588fd',
                 'ef6cfafd09bb61ddb6fec7840f78e97d',
             ],
         },
@@ -745,6 +746,15 @@ export const viewstate: any = {
                 'ef1a8c8701140368af895304274c602a',
                 '96ec3f978c1cc22acc532331d5dc2a41',
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: '8ca35f54383cecb05da77cdb1a6588fd',
+            viewmodule: 'zentao',
+            viewname: 'TaskWorkInfoEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

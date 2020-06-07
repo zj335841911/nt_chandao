@@ -623,6 +623,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectMainDashboardView",
             "viewtag": "85ee867b09a2d6303c061d91374ec975"
         },
+        "taskworkinfoeditview9": {
+            "title": "工时信息",
+            "caption": "工时信息",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "TaskWorkInfoEditView9",
+            "viewtag": "8ca35f54383cecb05da77cdb1a6588fd"
+        },
         "productleftsidebarlistview": {
             "title": "所有产品",
             "caption": "产品",

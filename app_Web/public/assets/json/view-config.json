@@ -769,6 +769,16 @@
         "viewtag": "85ee867b09a2d6303c061d91374ec975",
         "memo": ""
     },
+    "taskworkinfoeditview9": {
+        "title": "工时信息",
+        "caption": "工时信息",
+        "viewtype": "DEEDITVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "TaskWorkInfoEditView9",
+        "viewfilename": "task-work-info-edit-view9",
+        "viewtag": "8ca35f54383cecb05da77cdb1a6588fd",
+        "memo": ""
+    },
     "productleftsidebarlistview": {
         "title": "所有产品",
         "caption": "产品",

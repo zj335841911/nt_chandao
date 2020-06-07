@@ -1,29 +1,8 @@
 <template>
-    <div class='portlet-container main-dashboard-viewdashboard-container3 ' :style="{}">
-            <i-col :md="{ span: 24, offset: 0 }">
-                <div class="portlet-without-title">
-                                  <view_dashboard_sysportlet3 
-                      :viewState="viewState"  
-                      :viewparams="viewparams" 
-                      :context="context" 
-                      name="dashboard_sysportlet3"  
-                      ref='dashboard_sysportlet3' 
-                      @closeview="closeView($event)">
-                  </view_dashboard_sysportlet3>
-                </div>
-            </i-col>
-            <i-col :md="{ span: 24, offset: 0 }">
-                <div class="portlet-without-title">
-                                  <view_dashboard_sysportlet5 
-                      :viewState="viewState"  
-                      :viewparams="viewparams" 
-                      :context="context" 
-                      name="dashboard_sysportlet5"  
-                      ref='dashboard_sysportlet5' 
-                      @closeview="closeView($event)">
-                  </view_dashboard_sysportlet5>
-                </div>
-            </i-col>
+    <div class='portlet work-info ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : '300px',}">
+        <div class="portlet-without-title">
+        <task-work-info-edit-view9 :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></task-work-info-edit-view9>
+        </div>
     </div>
 </template>
 <script lang='tsx'>
@@ -33,7 +12,7 @@ import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import { UIActionTool,Util } from '@/utils';
 import TaskService from '@/service/task/task-service';
-import MainDashboardViewdashboard_container3Service from './main-dashboard-viewdashboard-container3-portlet-service';
+import WorkInfoService from './work-info-portlet-service';
 
 
 
@@ -42,13 +21,13 @@ import MainDashboardViewdashboard_container3Service from './main-dashboard-viewd
       
     }
 })
-export default class TaskMainDashboardViewdashboard_container3Base extends Vue implements ControlInterface {
+export default class TaskWorkInfoBase extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof MainDashboardViewdashboard_container3
+     * @memberof WorkInfo
      */
     @Prop() public name?: string;
 
@@ -56,7 +35,7 @@ export default class TaskMainDashboardViewdashboard_container3Base extends Vue i
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof MainDashboardViewdashboard_container3
+     * @memberof WorkInfo
      */
     @Prop() public viewState!: Subject<ViewState>;
 
@@ -64,7 +43,7 @@ export default class TaskMainDashboardViewdashboard_container3Base extends Vue i
      * 应用上下文
      *
      * @type {*}
-     * @memberof MainDashboardViewdashboard_container3
+     * @memberof WorkInfo
      */
     @Prop() public context: any;
 
@@ -72,7 +51,7 @@ export default class TaskMainDashboardViewdashboard_container3Base extends Vue i
      * 视图参数
      *
      * @type {*}
-     * @memberof MainDashboardViewdashboard_container3
+     * @memberof WorkInfo
      */
     @Prop() public viewparams: any;
 
@@ -81,7 +60,7 @@ export default class TaskMainDashboardViewdashboard_container3Base extends Vue i
      *
      * @public
      * @type {(Subscription | undefined)}
-     * @memberof MainDashboardViewdashboard_container3
+     * @memberof WorkInfo
      */
     public viewStateEvent: Subscription | undefined;
 
@@ -89,7 +68,7 @@ export default class TaskMainDashboardViewdashboard_container3Base extends Vue i
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof MainDashboardViewdashboard_container3
+     * @memberof WorkInfo
      */
     public getControlType(): string {
         return 'PORTLET'
@@ -101,23 +80,23 @@ export default class TaskMainDashboardViewdashboard_container3Base extends Vue i
      * 计数器服务对象集合
      *
      * @type {Array<*>}
-     * @memberof MainDashboardViewdashboard_container3
+     * @memberof WorkInfo
      */    
     public counterServiceArray:Array<any> = [];
 
     /**
      * 建构部件服务对象
      *
-     * @type {MainDashboardViewdashboard_container3Service}
-     * @memberof MainDashboardViewdashboard_container3
+     * @type {WorkInfoService}
+     * @memberof WorkInfo
      */
-    public service: MainDashboardViewdashboard_container3Service = new MainDashboardViewdashboard_container3Service({ $store: this.$store });
+    public service: WorkInfoService = new WorkInfoService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {TaskService}
-     * @memberof MainDashboardViewdashboard_container3
+     * @memberof WorkInfo
      */
     public appEntityService: TaskService = new TaskService({ $store: this.$store });
     
@@ -127,7 +106,7 @@ export default class TaskMainDashboardViewdashboard_container3Base extends Vue i
      * 关闭视图
      *
      * @param {any} args
-     * @memberof MainDashboardViewdashboard_container3
+     * @memberof WorkInfo
      */
     public closeView(args: any): void {
         let _this: any = this;
@@ -137,7 +116,7 @@ export default class TaskMainDashboardViewdashboard_container3Base extends Vue i
     /**
      *  计数器刷新
      *
-     * @memberof MainDashboardViewdashboard_container3
+     * @memberof WorkInfo
      */
     public counterRefresh(){
         const _this:any =this;
@@ -157,7 +136,7 @@ export default class TaskMainDashboardViewdashboard_container3Base extends Vue i
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof MainDashboardViewdashboard_container3Base
+     * @memberof WorkInfoBase
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -165,7 +144,7 @@ export default class TaskMainDashboardViewdashboard_container3Base extends Vue i
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof MainDashboardViewdashboard_container3Base
+     * @memberof WorkInfoBase
      */
     public getDatas(): any[] {
         return [];
@@ -175,7 +154,7 @@ export default class TaskMainDashboardViewdashboard_container3Base extends Vue i
      * 获取单项树
      *
      * @returns {*}
-     * @memberof MainDashboardViewdashboard_container3Base
+     * @memberof WorkInfoBase
      */
     public getData(): any {
         return {};
@@ -184,7 +163,7 @@ export default class TaskMainDashboardViewdashboard_container3Base extends Vue i
     /**
      * vue 生命周期
      *
-     * @memberof MainDashboardViewdashboard_container3Base
+     * @memberof WorkInfoBase
      */
     public created() {
         this.afterCreated();
@@ -193,7 +172,7 @@ export default class TaskMainDashboardViewdashboard_container3Base extends Vue i
     /**
      * 执行created后的逻辑
      *
-     *  @memberof MainDashboardViewdashboard_container3Base
+     *  @memberof WorkInfoBase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -212,7 +191,7 @@ export default class TaskMainDashboardViewdashboard_container3Base extends Vue i
     /**
      * vue 生命周期
      *
-     * @memberof MainDashboardViewdashboard_container3Base
+     * @memberof WorkInfoBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -221,7 +200,7 @@ export default class TaskMainDashboardViewdashboard_container3Base extends Vue i
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof MainDashboardViewdashboard_container3Base
+     * @memberof WorkInfoBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -233,5 +212,5 @@ export default class TaskMainDashboardViewdashboard_container3Base extends Vue i
 </script>
 
 <style lang='less'>
-@import './main-dashboard-viewdashboard-container3-portlet.less';
+@import './work-info-portlet.less';
 </style>

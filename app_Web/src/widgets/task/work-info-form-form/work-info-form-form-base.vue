@@ -1,46 +1,45 @@
 <template>
-    <i-form :model="this.data" class='app-form' ref='form'  id='task_closepausecancelform' style="">
+    <i-form :model="this.data" class='app-form' ref='form'  id='task_workinfoform' style="">
     <input style="display:none;" />
     <row >
             
-<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 23, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.closepausecancelform_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.workinfoform_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
-        <i-col v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 23, offset: 1 }">
-    <app-form-item name='formitem' :itemRules="this.rules.formitem" class='' :caption="$t('entities.task.closepausecancelform_form.details.formitem')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem.error" :isEmptyCaption="false" labelPos="TOP">
-    <app-rich-text-editor :formState="formState" :value="data.formitem" @change="(val) =>{this.data.formitem =val}" :disabled="detailsModel.formitem.disabled"  name="formitem" style=""></app-rich-text-editor>
+        <i-col v-show="detailsModel.estimate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='estimate' :itemRules="this.rules.estimate" class='' :caption="$t('entities.task.workinfoform_form.details.estimate')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.estimate.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.estimate"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.estimate.disabled" type='number'  style=""></input-box>
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 23, offset: 1 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.closepausecancelform_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
-    <row>
-        <i-col v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-druipart
-    
-    :formState="formState"
-    :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='task' 
-    :parentdata='{"srfparentdename":"ZT_TASK","SRFPARENTTYPE":"CUSTOM"}'
-    :parameters="[
-    ]"
-    :context="context"
-    :viewparams="viewparams"
-    parameterName='task'
-    parentName="Task"  
-    refviewtype='DELISTVIEW' 
-    refreshitems='' 
-    :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='action-histroy-list-view' 
-    :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
-    style=";overflow: auto;">
-</app-form-druipart>
+<i-col v-show="detailsModel.consumed.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='consumed' :itemRules="this.rules.consumed" class='' :caption="$t('entities.task.workinfoform_form.details.consumed')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.consumed.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.consumed"  @enter="onEnter($event)"   unit="小时"  :disabled="detailsModel.consumed.disabled" type='number'  style=""></input-box>
+</app-form-item>
 
 </i-col>
-    
-    </row>
-</app-form-group>
+<i-col v-show="detailsModel.left.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='left' :itemRules="this.rules.left" class='' :caption="$t('entities.task.workinfoform_form.details.left')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.left.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.left"  @enter="onEnter($event)"   unit="小时"  :disabled="detailsModel.left.disabled" type='number'  style=""></input-box>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.eststarted.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='eststarted' :itemRules="this.rules.eststarted" class='' :caption="$t('entities.task.workinfoform_form.details.eststarted')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.eststarted.error" :isEmptyCaption="false" labelPos="LEFT">
+    <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.eststarted" :disabled="detailsModel.eststarted.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.eststarted = val1 }"></date-picker>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.realstarted.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='realstarted' :itemRules="this.rules.realstarted" class='' :caption="$t('entities.task.workinfoform_form.details.realstarted')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.realstarted.error" :isEmptyCaption="false" labelPos="LEFT">
+    <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.realstarted" :disabled="detailsModel.realstarted.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.realstarted = val1 }"></date-picker>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.deadline.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='deadline' :itemRules="this.rules.deadline" class='' :caption="$t('entities.task.workinfoform_form.details.deadline')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.deadline.error" :isEmptyCaption="false" labelPos="LEFT">
+    <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.deadline" :disabled="detailsModel.deadline.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.deadline = val1 }"></date-picker>
+</app-form-item>
 
 </i-col>
     
@@ -61,7 +60,7 @@ import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import { UIActionTool,Util } from '@/utils';
 import TaskService from '@/service/task/task-service';
-import ClosePauseCancelFormService from './close-pause-cancel-form-form-service';
+import WorkInfoFormService from './work-info-form-form-service';
 
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -72,13 +71,13 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
       
     }
 })
-export default class ClosePauseCancelFormBase extends Vue implements ControlInterface {
+export default class WorkInfoFormBase extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     @Prop() public name?: string;
 
@@ -86,7 +85,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     @Prop() public viewState!: Subject<ViewState>;
 
@@ -94,7 +93,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 应用上下文
      *
      * @type {*}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     @Prop() public context: any;
 
@@ -102,7 +101,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 视图参数
      *
      * @type {*}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     @Prop() public viewparams: any;
 
@@ -111,7 +110,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      *
      * @public
      * @type {(Subscription | undefined)}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public viewStateEvent: Subscription | undefined;
 
@@ -119,7 +118,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public getControlType(): string {
         return 'FORM'
@@ -131,23 +130,23 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 计数器服务对象集合
      *
      * @type {Array<*>}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */    
     public counterServiceArray:Array<any> = [];
 
     /**
      * 建构部件服务对象
      *
-     * @type {ClosePauseCancelFormService}
-     * @memberof ClosePauseCancelForm
+     * @type {WorkInfoFormService}
+     * @memberof WorkInfoForm
      */
-    public service: ClosePauseCancelFormService = new ClosePauseCancelFormService({ $store: this.$store });
+    public service: WorkInfoFormService = new WorkInfoFormService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {TaskService}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public appEntityService: TaskService = new TaskService({ $store: this.$store });
     
@@ -157,7 +156,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 关闭视图
      *
      * @param {any} args
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public closeView(args: any): void {
         let _this: any = this;
@@ -167,7 +166,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
     /**
      *  计数器刷新
      *
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public counterRefresh(){
         const _this:any =this;
@@ -184,7 +183,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
     /**
      * 工作流审批意见控件绑定值
      *
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public srfwfmemo:string = "";
     
@@ -192,7 +191,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public getDatas(): any[] {
         return [this.data];
@@ -202,7 +201,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 获取单项树
      *
      * @returns {*}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public getData(): any {
         return this.data;
@@ -212,7 +211,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 是否默认保存
      *
      * @type {boolean}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     @Prop({ default: false }) public autosave?: boolean;
 
@@ -220,7 +219,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     @Prop({ default: true }) public showBusyIndicator?: boolean;
 
@@ -228,7 +227,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 部件行为--submit
      *
      * @type {string}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     @Prop() public WFSubmitAction!: string;
     
@@ -236,7 +235,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 部件行为--start
      *
      * @type {string}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     @Prop() public WFStartAction!: string;
     
@@ -244,7 +243,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 部件行为--update
      *
      * @type {string}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     @Prop() public updateAction!: string;
     
@@ -252,7 +251,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 部件行为--remove
      *
      * @type {string}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     @Prop() public removeAction!: string;
     
@@ -260,7 +259,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 部件行为--loaddraft
      *
      * @type {string}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     @Prop() public loaddraftAction!: string;
     
@@ -268,7 +267,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 部件行为--load
      *
      * @type {string}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     @Prop() public loadAction!: string;
     
@@ -276,7 +275,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 部件行为--create
      *
      * @type {string}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     @Prop() public createAction!: string;
 
@@ -284,7 +283,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 部件行为--create
      *
      * @type {string}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     @Prop() public searchAction!: string;
 
@@ -292,7 +291,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 视图标识
      *
      * @type {string}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     @Prop() public viewtag!: string;
 
@@ -300,7 +299,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 表单状态
      *
      * @type {Subject<any>}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public formState: Subject<any> = new Subject();
 
@@ -308,7 +307,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 忽略表单项值变化
      *
      * @type {boolean}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public ignorefieldvaluechange: boolean = false;
 
@@ -317,7 +316,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      *
      * @public
      * @type {Subject<any>}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public dataChang: Subject<any> = new Subject();
 
@@ -326,7 +325,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      *
      * @public
      * @type {(Subscription | undefined)}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public dataChangEvent: Subscription | undefined;
 
@@ -335,7 +334,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      *
      * @public
      * @type {*}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public oldData: any = {};
 
@@ -343,7 +342,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 表单数据对象
      *
      * @type {*}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public data: any = {
         srfupdatedate: null,
@@ -354,7 +353,12 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        formitem: null,
+        estimate: null,
+        consumed: null,
+        left: null,
+        eststarted: null,
+        realstarted: null,
+        deadline: null,
         id: null,
         task:null,
     };
@@ -363,7 +367,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
       * 当前执行的行为逻辑
       *
       * @type {string}
-      * @memberof ClosePauseCancelForm
+      * @memberof WorkInfoForm
       */
     public currentAction: string = "";
 
@@ -371,7 +375,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
       * 关系界面计数器
       *
       * @type {number}
-      * @memberof ClosePauseCancelForm
+      * @memberof WorkInfoForm
       */
     public drcounter: number = 0;
 
@@ -379,7 +383,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
       * 需要等待关系界面保存时，第一次调用save参数的备份
       *
       * @type {number}
-      * @memberof ClosePauseCancelForm
+      * @memberof WorkInfoForm
       */
     public drsaveopt: any = {};
 
@@ -387,7 +391,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
       * 表单保存回调存储对象
       *
       * @type {any}
-      * @memberof ClosePauseCancelForm
+      * @memberof WorkInfoForm
       */
     public saveState:any ;
 
@@ -395,7 +399,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 属性值规则
      *
      * @type {*}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public rules: any = {
         srfupdatedate: [
@@ -446,11 +450,41 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
-        formitem: [
-            { type: 'string', message: '备注 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '备注 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '备注 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '备注 值不能为空', trigger: 'blur' },
+        estimate: [
+            { type: 'number', message: '最初预计 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '最初预计 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '最初预计 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '最初预计 值不能为空', trigger: 'blur' },
+        ],
+        consumed: [
+            { type: 'number', message: '总计消耗 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '总计消耗 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '总计消耗 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '总计消耗 值不能为空', trigger: 'blur' },
+        ],
+        left: [
+            { type: 'number', message: '预计剩余 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '预计剩余 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '预计剩余 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '预计剩余 值不能为空', trigger: 'blur' },
+        ],
+        eststarted: [
+            { type: 'string', message: '预计开始 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '预计开始 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '预计开始 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '预计开始 值不能为空', trigger: 'blur' },
+        ],
+        realstarted: [
+            { type: 'string', message: '实际开始 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '实际开始 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '实际开始 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '实际开始 值不能为空', trigger: 'blur' },
+        ],
+        deadline: [
+            { type: 'string', message: '截止日期 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '截止日期 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '截止日期 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '截止日期 值不能为空', trigger: 'blur' },
         ],
         id: [
             { type: 'number', message: '编号 值必须为数值类型', trigger: 'change' },
@@ -464,14 +498,10 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 详情模型集合
      *
      * @type {*}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public detailsModel: any = {
-        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
-, 
-        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.task.closepausecancelform_form', extractMode: 'ITEM', details: [] } })
-, 
-        group1: new FormGroupPanelModel({ caption: '任务基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.task.closepausecancelform_form', extractMode: 'ITEM', details: [] } })
+        group1: new FormGroupPanelModel({ caption: '任务基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.task.workinfoform_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
@@ -491,7 +521,17 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        formitem: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        estimate: new FormItemModel({ caption: '最初预计', detailType: 'FORMITEM', name: 'estimate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        consumed: new FormItemModel({ caption: '总计消耗', detailType: 'FORMITEM', name: 'consumed', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        left: new FormItemModel({ caption: '预计剩余', detailType: 'FORMITEM', name: 'left', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        eststarted: new FormItemModel({ caption: '预计开始', detailType: 'FORMITEM', name: 'eststarted', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        realstarted: new FormItemModel({ caption: '实际开始', detailType: 'FORMITEM', name: 'realstarted', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        deadline: new FormItemModel({ caption: '截止日期', detailType: 'FORMITEM', name: 'deadline', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -502,7 +542,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     @Watch('data.srfupdatedate')
     onSrfupdatedateChange(newVal: any, oldVal: any) {
@@ -514,7 +554,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     @Watch('data.srforikey')
     onSrforikeyChange(newVal: any, oldVal: any) {
@@ -526,7 +566,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     @Watch('data.srfkey')
     onSrfkeyChange(newVal: any, oldVal: any) {
@@ -538,7 +578,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     @Watch('data.srfmajortext')
     onSrfmajortextChange(newVal: any, oldVal: any) {
@@ -550,7 +590,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     @Watch('data.srftempmode')
     onSrftempmodeChange(newVal: any, oldVal: any) {
@@ -562,7 +602,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     @Watch('data.srfuf')
     onSrfufChange(newVal: any, oldVal: any) {
@@ -574,7 +614,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     @Watch('data.srfdeid')
     onSrfdeidChange(newVal: any, oldVal: any) {
@@ -586,7 +626,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     @Watch('data.srfsourcekey')
     onSrfsourcekeyChange(newVal: any, oldVal: any) {
@@ -594,15 +634,75 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
     }
 
     /**
-     * 监控表单属性 formitem 值
+     * 监控表单属性 estimate 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
-    @Watch('data.formitem')
-    onFormitemChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'formitem', newVal: newVal, oldVal: oldVal });
+    @Watch('data.estimate')
+    onEstimateChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'estimate', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 consumed 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof WorkInfoForm
+     */
+    @Watch('data.consumed')
+    onConsumedChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'consumed', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 left 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof WorkInfoForm
+     */
+    @Watch('data.left')
+    onLeftChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'left', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 eststarted 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof WorkInfoForm
+     */
+    @Watch('data.eststarted')
+    onEststartedChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'eststarted', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 realstarted 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof WorkInfoForm
+     */
+    @Watch('data.realstarted')
+    onRealstartedChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'realstarted', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 deadline 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof WorkInfoForm
+     */
+    @Watch('data.deadline')
+    onDeadlineChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'deadline', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -610,7 +710,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     @Watch('data.id')
     onIdChange(newVal: any, oldVal: any) {
@@ -623,7 +723,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      *
      * @public
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
     }
@@ -649,10 +749,13 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      *
      * @public
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
+
+
 
 
 
@@ -675,7 +778,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * @public
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
      * @returns {void}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public formDataChange({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
         if (this.ignorefieldvaluechange) {
@@ -692,7 +795,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * @public
      * @param {*} [data={}]
      * @param {string} [action]
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public onFormLoad(data: any = {},action:string): void {
         if(Object.is(action,"save") || Object.is(action,"autoSave") || Object.is(action,"submit"))
@@ -713,7 +816,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      *
      * @param {*} [_datas={}]
      * @param {string} [action]
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public fillForm(_datas: any = {},action:string): void {
         this.ignorefieldvaluechange = true;
@@ -738,7 +841,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      *
      * @public
      * @param {*} data
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public setFormEnableCond(data: any): void {
         Object.values(this.detailsModel).forEach((detail: any) => {
@@ -754,7 +857,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 重置草稿表单状态
      *
      * @public
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public resetDraftFormStates(): void {
         const form: any = this.$refs.form;
@@ -766,7 +869,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
     /**
      * 重置校验结果
      *
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public resetValidates(): void {
         Object.values(this.detailsModel).forEach((detail: any) => {
@@ -782,7 +885,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 填充校验结果 （后台）
      *
      * @param {any[]} fieldErrors
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public fillValidates(fieldErrors: any[]): void {
         fieldErrors.forEach((error: any) => {
@@ -800,7 +903,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 表单校验状态
      *
      * @returns {boolean} 
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public formValidateStatus(): boolean {
         const form: any = this.$refs.form;
@@ -815,7 +918,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 获取全部值
      *
      * @returns {*}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public getValues(): any {
         return this.data;
@@ -826,7 +929,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      *
      * @param {{ name: string, value: any }} $event
      * @returns {void}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public onFormItemValueChange($event: { name: string, value: any }): void {
         if (!$event) {
@@ -844,7 +947,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * @param {string} name
      * @param {*} value
      * @returns {void}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public setDataItemValue(name: string, value: any): void {
         if (!name || Object.is(name, '') || !this.data.hasOwnProperty(name)) {
@@ -862,7 +965,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 分组界面行为事件
      *
      * @param {*} $event
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public groupUIActionClick($event: any): void {
         if (!$event) {
@@ -874,7 +977,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
     /**
      * Vue声明周期(处理组件的输入属性)
      *
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public created(): void {
         this.afterCreated();
@@ -883,7 +986,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
     /**
      * 执行created后的逻辑
      *
-     *  @memberof ClosePauseCancelForm
+     *  @memberof WorkInfoForm
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -940,7 +1043,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
     /**
      * vue 生命周期
      *
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public destroyed() {
         this.afterDestroy();
@@ -949,7 +1052,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -964,7 +1067,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 拷贝内容
      *
      * @param {*} [arg={}]
-     * @memberof @memberof ClosePauseCancelForm
+     * @memberof @memberof WorkInfoForm
      */
     public copy(srfkey: string): void {
         let copyData = this.$store.getters.getCopyData(srfkey);
@@ -982,18 +1085,18 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
 
     /**
      *打印
-     *@memberof @memberof ClosePauseCancelForm
+     *@memberof @memberof WorkInfoForm
      */
     public print(){
         let _this:any = this;
-        _this.$print({id:'task_closepausecancelform',popTitle:'关闭、暂停、取消表单'});
+        _this.$print({id:'task_workinfoform',popTitle:'工时信息'});
     }
 
     /**
      * 部件刷新
      *
      * @param {any[]} args
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public refresh(args: any[]): void {
         let arg: any = {};
@@ -1015,7 +1118,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      *
      * @param {*} [arg={}]
      * @returns {void}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public autoLoad(arg: any = {}): void {
         if (arg.srfkey && !Object.is(arg.srfkey, '')) {
@@ -1036,11 +1139,11 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      *
      * @public
      * @param {*} [opt={}]
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public load(opt: any = {}): void {
         if(!this.loadAction){
-            this.$Notice.error({ title: '错误', desc: 'TaskClosePauseCancelView视图表单loadAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'TaskWorkInfoEditView9视图表单loadAction参数未配置' });
             return;
         }
         const arg: any = { ...opt };
@@ -1071,11 +1174,11 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 加载草稿
      *
      * @param {*} [opt={}]
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public loadDraft(opt: any = {}): void {
         if(!this.loaddraftAction){
-            this.$Notice.error({ title: '错误', desc: 'TaskClosePauseCancelView视图表单loaddraftAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'TaskWorkInfoEditView9视图表单loaddraftAction参数未配置' });
             return;
         }
         const arg: any = { ...opt } ;
@@ -1125,7 +1228,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 自动保存
      *
      * @param {*} [opt={}]
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public autoSave(opt: any = {}): void {
         if (!this.formValidateStatus()) {
@@ -1137,7 +1240,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
         const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
         if(!action){
             let actionName:any = Object.is(data.srfuf, '1')?"updateAction":"createAction";
-            this.$Notice.error({ title: '错误', desc: 'TaskClosePauseCancelView视图表单'+actionName+'参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'TaskWorkInfoEditView9视图表单'+actionName+'参数未配置' });
             return;
         }
         Object.assign(arg,{viewparams:this.viewparams});
@@ -1176,7 +1279,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * @param {boolean} [showResultInfo] 
      * @param {boolean} [ifStateNext] formState是否下发通知
      * @returns {Promise<any>}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public async save(opt: any = {}, showResultInfo?: boolean, ifStateNext: boolean = true): Promise<any> {
         return new Promise((resolve: any, reject: any) => {
@@ -1190,7 +1293,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
             Object.assign(arg, data);
             Object.assign(arg, this.context);
             if (ifStateNext) {
-                this.drcounter = 1;
+                this.drcounter = 0;
                 if(this.drcounter !== 0){
                     this.drsaveopt = opt;
                     this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存
@@ -1201,7 +1304,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
             const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
             if(!action){
                 let actionName:any = Object.is(data.srfuf, '1')?"updateAction":"createAction";
-                this.$Notice.error({ title: '错误', desc: 'TaskClosePauseCancelView视图表单'+actionName+'参数未配置' });
+                this.$Notice.error({ title: '错误', desc: 'TaskWorkInfoEditView9视图表单'+actionName+'参数未配置' });
                 return;
             }
             Object.assign(arg,{viewparams:this.viewparams});
@@ -1251,7 +1354,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
     public remove(opt:Array<any> = [],showResultInfo?: boolean): Promise<any> {
         return new Promise((resolve: any, reject: any) => {
             if(!this.removeAction){
-                this.$Notice.error({ title: '错误', desc: 'TaskClosePauseCancelView视图表单removeAction参数未配置' });
+                this.$Notice.error({ title: '错误', desc: 'TaskWorkInfoEditView9视图表单removeAction参数未配置' });
                 return;
             }
             const arg: any = opt[0];
@@ -1280,7 +1383,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * @param {*} [data={}]
      * @param {*} [localdata={}]
      * @returns {Promise<any>}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public async wfstart(data: any,localdata?:any): Promise<any> {
         return new Promise((resolve: any, reject: any) => {
@@ -1336,7 +1439,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * @param {*} [data={}]
      * @param {*} [localdata={}]
      * @returns {Promise<any>}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public async wfsubmit(data: any,localdata?:any): Promise<any> {
         return new Promise((resolve: any, reject: any) => {
@@ -1412,7 +1515,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * @param {string[]} updateDetails 更新项
      * @param {boolean} [showloading] 是否显示加载状态
      * @returns {void}
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public updateFormItems(mode: string, data: any = {}, updateDetails: string[], showloading?: boolean): void {
         if (!mode || (mode && Object.is(mode, ''))) {
@@ -1457,7 +1560,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 回车事件
      *
      * @param {*} $event
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public onEnter($event: any): void {
     }
@@ -1466,7 +1569,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 保存并退出
      *
      * @param {any[]} args
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public saveAndExit(data:any[]):Promise<any>{
         let _this = this;
@@ -1491,7 +1594,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 保存并新建
      *
      * @param {any[]} args
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public saveAndNew(data:any[]):Promise<any>{
         let _this = this;
@@ -1514,7 +1617,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      * 删除并退出
      *
      * @param {any[]} args
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public removeAndExit(data:any[]):Promise<any>{
         let _this = this;
@@ -1538,7 +1641,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
     * 关系界面数据保存完成
     *
     * @param {any} $event
-    * @memberof ClosePauseCancelForm
+    * @memberof WorkInfoForm
     */
     public drdatasaved($event:any){
         let _this = this;
@@ -1562,14 +1665,14 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
 
     /**
      * 新建默认值
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public createDefault(){                    
     }
 
     /**
      * 更新默认值
-     * @memberof ClosePauseCancelForm
+     * @memberof WorkInfoForm
      */
     public updateDefault(){                    
     }
@@ -1579,5 +1682,5 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
 </script>
 
 <style lang='less'>
-@import './close-pause-cancel-form-form.less';
+@import './work-info-form-form.less';
 </style>

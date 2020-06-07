@@ -85,6 +85,10 @@ export default {
 			caption: '任务',
       title: '任务',
 		},
+		workinfoeditview9: {
+			caption: '工时信息',
+      title: '工时信息',
+		},
 		maingridview: {
 			caption: '任务',
       title: '任务',
@@ -329,6 +333,29 @@ export default {
 			lastediteddate: '于', 
 			id: '编号', 
 			project: '所属项目', 
+		},
+		uiactions: {
+		},
+	},
+	workinfoform_form: {
+		details: {
+			group1: '任务基本信息', 
+			formpage1: '基本信息', 
+			srfupdatedate: '最后修改日期', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '任务名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			estimate: '最初预计', 
+			consumed: '总计消耗', 
+			left: '预计剩余', 
+			eststarted: '预计开始', 
+			realstarted: '实际开始', 
+			deadline: '截止日期', 
+			id: '编号', 
 		},
 		uiactions: {
 		},
