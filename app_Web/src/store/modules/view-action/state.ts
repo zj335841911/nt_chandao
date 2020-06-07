@@ -117,6 +117,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '12661bdb476cd339554799b417c6ea48',
+            viewmodule: 'zentao',
+            viewname: 'TaskAssignTaskView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
             viewtag: '1540523a668e920d831510cfbec2c5e2',
             viewmodule: 'zentao',
             viewname: 'BugMainDashboardView',
@@ -256,6 +266,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '37df93bfc6d8126c9303eab0c5363df8',
+            viewmodule: 'ibiz',
+            viewname: 'ProjectStatsMainDashboardView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e444135470a806822b9b950e15c42a3e',
+            ],
+        },
+        {
             viewtag: '3aa4c66089ff40194c7f4ecaf627acb5',
             viewmodule: 'zentao',
             viewname: 'ProjectBurnDownChartView',
@@ -271,7 +291,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'ef1a8c8701140368af895304274c602a',
+                '37df93bfc6d8126c9303eab0c5363df8',
             ],
         },
         {
@@ -449,6 +469,7 @@ export const viewstate: any = {
                 '321ab2e4e87a29fef8eed086e951a006',
                 '21e00a7239d9737bbfda5c1608b4129c',
                 'c9c256aef78723e1bf9ddc1d38667c3f',
+                '12661bdb476cd339554799b417c6ea48',
                 'b78229d8342c2c13ddd8e403a7d853bc',
                 '35ba93bac795e0deb7297d2d471b7180',
                 '770a170098d148e438a7666b248e6519',
@@ -1136,6 +1157,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '00ac056d598228619b6c0dbfcd603e4c',
+            ],
+        },
+        {
+            viewtag: 'e444135470a806822b9b950e15c42a3e',
+            viewmodule: 'ibiz',
+            viewname: 'ProjectStatsEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

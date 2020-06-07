@@ -36,6 +36,7 @@ public interface IProjectStatsService extends IService<ProjectStats>{
     void createBatch(List<ProjectStats> list) ;
     boolean checkKey(ProjectStats et) ;
     ProjectStats getDraft(ProjectStats et) ;
+    Page<ProjectStats> searchTaskTime(ProjectStatsSearchContext context) ;
     Page<ProjectStats> searchDefault(ProjectStatsSearchContext context) ;
     /**
      *自定义查询SQL

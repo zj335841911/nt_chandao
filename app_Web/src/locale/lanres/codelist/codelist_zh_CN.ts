@@ -38,6 +38,11 @@ export default {
           4: '4',
         empty: '',
     },
+    ProjectTimeType: {
+          'CONSUMED': '消耗时间',
+          'LEFT': '剩余时间',
+        empty: '',
+    },
     Bug__type: {
           'codeerror': '代码错误',
           'config': '配置相关',

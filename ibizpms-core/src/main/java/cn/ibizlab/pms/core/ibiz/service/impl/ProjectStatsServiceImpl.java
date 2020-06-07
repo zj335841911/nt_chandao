@@ -144,6 +144,15 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
 
 
     /**
+     * 查询集合 任务工时消耗剩余查询
+     */
+    @Override
+    public Page<ProjectStats> searchTaskTime(ProjectStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchTaskTime(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<ProjectStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 DEFAULT
      */
     @Override

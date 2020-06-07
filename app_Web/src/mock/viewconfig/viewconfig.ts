@@ -95,6 +95,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugMainEditView",
             "viewtag": "122af527bf38b47ddc53c882847b490e"
         },
+        "taskassigntaskview": {
+            "title": "指派任务",
+            "caption": "指派任务",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskAssignTaskView",
+            "viewtag": "12661bdb476cd339554799b417c6ea48"
+        },
         "bugmaindashboardview": {
             "title": "Bug数据看板视图",
             "caption": "Bug",

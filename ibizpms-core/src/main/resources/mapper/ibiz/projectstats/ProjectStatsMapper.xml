@@ -16,6 +16,15 @@
     </resultMap>
 
 
+    <!--数据集合[TaskTime]-->
+	 <select id="searchTaskTime"  parameterType="cn.ibizlab.pms.core.ibiz.filter.ProjectStatsSearchContext"  resultMap="ProjectStatsResultMap">
+         select t1.* from (
+                <include refid="TaskTime" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据集合[Default]-->
 	 <select id="searchDefault"  parameterType="cn.ibizlab.pms.core.ibiz.filter.ProjectStatsSearchContext"  resultMap="ProjectStatsResultMap">
          select t1.* from (
@@ -32,7 +41,7 @@
     </sql>
     <!--数据查询[TaskTime]-->
     <sql id="TaskTime" databaseId="mysql">
-       <![CDATA[	SELECT (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `STATUS` = 'active') AS `ACTIVEBUGCNT`, (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID`) AS `BUGCNT`, (SELECT COUNT(1) FROM ZT_STORY WHERE `STATUS` =  'closed' AND FIND_IN_SET (PRODUCT, (SELECT GROUP_CONCAT(PRODUCT) FROM ZT_PROJECTPRODUCT WHERE PROJECT= t1.`ID`))) AS `CLOSEDSTORYCNT`, ((SELECT COUNT(1) FROM ZT_STORY WHERE `STATUS` =  'closed' AND FIND_IN_SET (PRODUCT, (SELECT GROUP_CONCAT(PRODUCT) FROM ZT_PROJECTPRODUCT WHERE PROJECT= t1.`ID`)))/(SELECT COUNT(1) FROM ZT_STORY WHERE FIND_IN_SET (PRODUCT, (SELECT GROUP_CONCAT(PRODUCT) FROM ZT_PROJECTPRODUCT WHERE PROJECT= t1.`ID`)))*100.00) AS `CLOSEDSTORYRATE`, ((SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND `STATUS` IN ('done','cancel','closed'))/(SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` )*100.00) AS `DONETASKRATE`, (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `STATUS` <> 'active') AS `FINISHBUGCNT`, ((SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `STATUS` <> 'active')/(SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` )*100.00) AS `FINISHBUGRATE`, (SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND `STATUS` IN ('done','cancel','closed')) AS `FINISHTASKCNT`, t1.`ID`, (SELECT COUNT(1) FROM ZT_STORY WHERE FIND_IN_SET (PRODUCT, (SELECT GROUP_CONCAT(PRODUCT) FROM ZT_PROJECTPRODUCT WHERE PROJECT= t1.`ID`))) AS `STORYCNT`, (SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID`) AS `TASKCNT`, (SELECT SUM(CONSUMED) FROM ZT_TASK WHERE PROJECT = t1.`ID`) AS `TOTALCONSUMED`, (SELECT SUM(ESTIMATE) FROM ZT_TASK WHERE PROJECT = t1.`ID`) AS `TOTALESTIMATE`, (SELECT SUM(`LEFT`) FROM ZT_TASK WHERE PROJECT = t1.`ID`) AS `TOTALLEFT`, (SELECT COUNT(1) FROM ZT_STORY WHERE `STATUS` <>  'closed' AND FIND_IN_SET (PRODUCT, (SELECT GROUP_CONCAT(PRODUCT) FROM ZT_PROJECTPRODUCT WHERE PROJECT= t1.`ID`))) AS `UNCLOSEDSTORYCNT`, (SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND `STATUS` NOT IN ('done','cancel','closed')) AS `UNDONETASKCNT` FROM `zt_project` t1  
+       <![CDATA[	SELECT t1.`ID`, (SELECT SUM(CONSUMED) FROM ZT_TASK WHERE PROJECT = t1.`ID`) AS `TIME`, 'CONSUMED' AS `TYPE` FROM `zt_project` t1  UNION ALL  SELECT t2.`ID`, (SELECT SUM(`LEFT`) FROM ZT_TASK WH ERE PROJECT = t2.`ID`) AS `TIME`, 'LEFT' AS `TYPE` FROM `zt_project` t2
 			]]>
     </sql>
     <!--数据查询[View]-->

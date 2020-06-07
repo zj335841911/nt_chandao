@@ -110,6 +110,35 @@ export default class TaskToolbarBase extends Vue implements ControlInterface {
      * @param {*} [$event]
      * @memberof 
      */
+    public dashboard_sysportlet2_ua266741_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TaskUIService  = new TaskUIService();
+        curUIService.Task_AssignTask(datas,contextJO, paramJO,  $event, xData,this,"Task");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public dashboard_sysportlet2_udf09ee0_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -390,6 +419,9 @@ export default class TaskToolbarBase extends Vue implements ControlInterface {
      * @memberof ToolbarBase
      */
     public actionBarModelData:any[] =[
+        { viewlogicname:"dashboard_sysportlet2_ua266741_click",
+        actionName:"指派",
+        },
         { viewlogicname:"dashboard_sysportlet2_udf09ee0_click",
         actionName:"返回",
         },
@@ -419,6 +451,9 @@ export default class TaskToolbarBase extends Vue implements ControlInterface {
      * @memberof ToolbarBase
      */
     public handleItemClick($event:any){
+        if(Object.is($event,'dashboard_sysportlet2_ua266741_click')){
+            this.dashboard_sysportlet2_ua266741_click(null);
+        }
         if(Object.is($event,'dashboard_sysportlet2_udf09ee0_click')){
             this.dashboard_sysportlet2_udf09ee0_click(null);
         }
