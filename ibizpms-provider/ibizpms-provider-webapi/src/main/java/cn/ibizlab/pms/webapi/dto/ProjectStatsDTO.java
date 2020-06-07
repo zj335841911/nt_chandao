@@ -1,160 +1,157 @@
-package cn.ibizlab.pms.core.ibiz.domain;
+package cn.ibizlab.pms.webapi.dto;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.math.BigInteger;
+import java.util.Map;
 import java.util.HashMap;
+import java.io.Serializable;
 import java.math.BigDecimal;
-import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.springframework.util.ObjectUtils;
-import org.springframework.util.DigestUtils;
-import cn.ibizlab.pms.util.domain.EntityBase;
-import cn.ibizlab.pms.util.annotation.DEField;
-import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
-import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
-import java.io.Serializable;
-import lombok.*;
-import org.springframework.data.annotation.Transient;
-
-
-import com.baomidou.mybatisplus.annotation.*;
-import cn.ibizlab.pms.util.domain.EntityMP;
-
+import com.alibaba.fastjson.annotation.JSONField;
+import cn.ibizlab.pms.util.domain.DTOBase;
+import lombok.Data;
 
 /**
- * 实体[项目统计]
+ * 服务DTO对象[ProjectStatsDTO]
  */
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@TableName(value = "zt_project",resultMap = "ProjectStatsResultMap")
-public class ProjectStats extends EntityMP implements Serializable {
+@Data
+public class ProjectStatsDTO extends DTOBase implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
     /**
-     * 项目编号
+     * 属性 [ID]
+     *
      */
-    @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private BigInteger id;
+
     /**
-     * 需求总数
+     * 属性 [STORYCNT]
+     *
      */
-    @TableField(exist = false)
     @JSONField(name = "storycnt")
     @JsonProperty("storycnt")
     private Integer storycnt;
+
     /**
-     * 任务总数
+     * 属性 [TASKCNT]
+     *
      */
-    @TableField(exist = false)
     @JSONField(name = "taskcnt")
     @JsonProperty("taskcnt")
     private Integer taskcnt;
+
     /**
-     * 任务最初预计总工时
+     * 属性 [TOTALESTIMATE]
+     *
      */
-    @TableField(exist = false)
     @JSONField(name = "totalestimate")
     @JsonProperty("totalestimate")
     private Double totalestimate;
+
     /**
-     * 任务消耗总工时
+     * 属性 [TOTALCONSUMED]
+     *
      */
-    @TableField(exist = false)
     @JSONField(name = "totalconsumed")
     @JsonProperty("totalconsumed")
     private Double totalconsumed;
+
     /**
-     * 任务预计剩余总工时
+     * 属性 [TOTALLEFT]
+     *
      */
-    @TableField(exist = false)
     @JSONField(name = "totalleft")
     @JsonProperty("totalleft")
     private Double totalleft;
+
     /**
-     * 未完成任务总数
+     * 属性 [UNDONETASKCNT]
+     *
      */
-    @TableField(exist = false)
     @JSONField(name = "undonetaskcnt")
     @JsonProperty("undonetaskcnt")
     private Integer undonetaskcnt;
+
     /**
-     * 关闭需求总数
+     * 属性 [CLOSEDSTORYCNT]
+     *
      */
-    @TableField(exist = false)
     @JSONField(name = "closedstorycnt")
     @JsonProperty("closedstorycnt")
     private Integer closedstorycnt;
+
     /**
-     * Bug总数
+     * 属性 [BUGCNT]
+     *
      */
-    @TableField(exist = false)
     @JSONField(name = "bugcnt")
     @JsonProperty("bugcnt")
     private Integer bugcnt;
+
     /**
-     * 未解决Bug总数
+     * 属性 [ACTIVEBUGCNT]
+     *
      */
-    @TableField(exist = false)
     @JSONField(name = "activebugcnt")
     @JsonProperty("activebugcnt")
     private Integer activebugcnt;
+
     /**
-     * 未关闭需求总数
+     * 属性 [UNCLOSEDSTORYCNT]
+     *
      */
-    @TableField(exist = false)
     @JSONField(name = "unclosedstorycnt")
     @JsonProperty("unclosedstorycnt")
     private Integer unclosedstorycnt;
+
     /**
-     * 已结束任务总数
+     * 属性 [FINISHTASKCNT]
+     *
      */
-    @TableField(exist = false)
     @JSONField(name = "finishtaskcnt")
     @JsonProperty("finishtaskcnt")
     private Integer finishtaskcnt;
+
     /**
-     * 已解决Bug总数
+     * 属性 [FINISHBUGCNT]
+     *
      */
-    @TableField(exist = false)
     @JSONField(name = "finishbugcnt")
     @JsonProperty("finishbugcnt")
     private Integer finishbugcnt;
+
     /**
-     * 完成任务率
+     * 属性 [DONETASKRATE]
+     *
      */
-    @TableField(exist = false)
     @JSONField(name = "donetaskrate")
     @JsonProperty("donetaskrate")
     private Double donetaskrate;
+
     /**
-     * 关闭需求率
+     * 属性 [CLOSEDSTORYRATE]
+     *
      */
-    @TableField(exist = false)
     @JSONField(name = "closedstoryrate")
     @JsonProperty("closedstoryrate")
     private Double closedstoryrate;
+
     /**
-     * 解决Bug率
+     * 属性 [FINISHBUGRATE]
+     *
      */
-    @TableField(exist = false)
     @JSONField(name = "finishbugrate")
     @JsonProperty("finishbugrate")
     private Double finishbugrate;
 
 
 
-
 }
-
 

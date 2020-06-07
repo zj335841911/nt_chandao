@@ -91,6 +91,10 @@ zuul:
       path: /testtasks/**
       serviceId: pms-webapi
       stripPrefix: false
+    ibz_projectstats:
+      path: /projectstats/**
+      serviceId: pms-webapi
+      stripPrefix: false
     zt_bug:
       path: /bugs/**
       serviceId: pms-webapi

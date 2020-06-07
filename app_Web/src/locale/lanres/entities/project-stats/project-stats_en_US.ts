@@ -1,0 +1,58 @@
+
+export default {
+  fields: {
+    id: '项目编号',
+    storycnt: '需求总数',
+    taskcnt: '任务总数',
+    totalestimate: '任务最初预计总工时',
+    totalconsumed: '任务消耗总工时',
+    totalleft: '任务预计剩余总工时',
+    undonetaskcnt: '未完成任务总数',
+    closedstorycnt: '关闭需求总数',
+    bugcnt: 'Bug总数',
+    activebugcnt: '未解决Bug总数',
+    unclosedstorycnt: '未关闭需求总数',
+    finishtaskcnt: '已结束任务总数',
+    finishbugcnt: '已解决Bug总数',
+    donetaskrate: '完成任务率',
+    closedstoryrate: '关闭需求率',
+    finishbugrate: '解决Bug率',
+  },
+	views: {
+		maindashboardview: {
+			caption: "项目统计",
+      title: '项目统计',
+		},
+		editview9: {
+			caption: "项目统计",
+      title: '项目统计',
+		},
+	},
+	main_form: {
+		details: {
+			grouppanel1: "任务统计", 
+			grouppanel2: "需求统计", 
+			grouppanel3: "bug统计", 
+			group1: "项目统计基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "项目编号", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			taskcnt: "总任务", 
+			donetaskrate: "", 
+			undonetaskcnt: "未完成", 
+			storycnt: "总需求", 
+			closedstoryrate: "", 
+			unclosedstorycnt: "未关闭", 
+			bugcnt: "所有", 
+			finishbugrate: "", 
+			activebugcnt: "未解决", 
+			id: "项目编号", 
+		},
+		uiactions: {
+		},
+	},
+};

@@ -29,6 +29,7 @@ import './entity/product-lifes/product-lifes';
 import './entity/tasks/tasks';
 import './entity/builds/builds';
 import './entity/test-tasks/test-tasks';
+import './entity/project-statss/project-statss';
 import './entity/bugs/bugs';
 import './entity/ibz-docs/ibz-docs';
 import './entity/releases/releases';

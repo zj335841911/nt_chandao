@@ -21,13 +21,16 @@ import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
 
-import cn.ibizlab.pms.util.domain.EntityClient;
 
 /**
- * ServiceApi [产品线] 对象
+ * [产品线] 对象
  */
-@Data
-public class ProductLine extends EntityClient implements Serializable {
+@Builder
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class ProductLine extends EntityBase implements Serializable {
 
     /**
      * 产品线名称
@@ -82,14 +85,6 @@ public class ProductLine extends EntityClient implements Serializable {
 
 
 
-
-    /**
-     * 设置 [产品线名称]
-     */
-    public void setProductlinename(String productlinename){
-        this.productlinename = productlinename ;
-        this.modify("ibz_productlinename",productlinename);
-    }
 
 }
 

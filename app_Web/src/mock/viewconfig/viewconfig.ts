@@ -223,6 +223,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskSubTaskNewView",
             "viewtag": "35ba93bac795e0deb7297d2d471b7180"
         },
+        "projectstatsmaindashboardview": {
+            "title": "项目统计数据看板视图",
+            "caption": "项目统计",
+            "viewtype": "DEPORTALVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "ProjectStatsMainDashboardView",
+            "viewtag": "37df93bfc6d8126c9303eab0c5363df8"
+        },
         "projectburndownchartview": {
             "title": "燃尽图",
             "caption": "项目",
@@ -942,6 +950,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ProductListExpView",
             "viewtag": "e396b6f39451e3bf963aec602106adf0"
+        },
+        "projectstatseditview9": {
+            "title": "项目统计编辑视图",
+            "caption": "项目统计",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "ibiz",
+            "viewname": "ProjectStatsEditView9",
+            "viewtag": "e444135470a806822b9b950e15c42a3e"
         },
         "storyeditview_storychange": {
             "title": "需求编辑视图",

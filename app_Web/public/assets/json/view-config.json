@@ -269,6 +269,16 @@
         "viewtag": "35ba93bac795e0deb7297d2d471b7180",
         "memo": ""
     },
+    "projectstatsmaindashboardview": {
+        "title": "项目统计数据看板视图",
+        "caption": "项目统计",
+        "viewtype": "DEPORTALVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProjectStatsMainDashboardView",
+        "viewfilename": "project-stats-main-dashboard-view",
+        "viewtag": "37df93bfc6d8126c9303eab0c5363df8",
+        "memo": ""
+    },
     "projectburndownchartview": {
         "title": "燃尽图",
         "caption": "项目",
@@ -1167,6 +1177,16 @@
         "viewname": "ProductListExpView",
         "viewfilename": "product-list-exp-view",
         "viewtag": "e396b6f39451e3bf963aec602106adf0",
+        "memo": ""
+    },
+    "projectstatseditview9": {
+        "title": "项目统计编辑视图",
+        "caption": "项目统计",
+        "viewtype": "DEEDITVIEW9",
+        "viewmodule": "ibiz",
+        "viewname": "ProjectStatsEditView9",
+        "viewfilename": "project-stats-edit-view9",
+        "viewtag": "e444135470a806822b9b950e15c42a3e",
         "memo": ""
     },
     "storyeditview_storychange": {
