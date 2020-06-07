@@ -32,7 +32,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-                                <app-span name='modulename' editorType="DROPDOWNLIST" :value="row.modulename"></app-span>
+                                <app-span name='modulename' editorType="PICKER" :value="row.modulename"></app-span>
                         </template>
                     </template>
                 </el-table-column>
@@ -654,6 +654,7 @@ export default class SubTaskNewBase extends Vue implements ControlInterface {
           story: new FormItemModel(),
           assignedto: new FormItemModel(),
           modulename: new FormItemModel(),
+          module: new FormItemModel(),
           pri: new FormItemModel(),
           desc: new FormItemModel(),
           name: new FormItemModel(),
@@ -682,6 +683,10 @@ export default class SubTaskNewBase extends Vue implements ControlInterface {
         modulename: [
              { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属模块 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属模块 值不能为空', trigger: 'blur' },
+        ],
+        module: [
+             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '值不能为空', trigger: 'blur' },
         ],
         pri: [
              { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '优先级 值不能为空', trigger: 'change' },

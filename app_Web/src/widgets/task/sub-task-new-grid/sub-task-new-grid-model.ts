@@ -62,14 +62,19 @@ export default class SubTaskNewModel {
           dataType: 'TEXT',
         },
         {
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
         },
         {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
+          name: 'assignedto_text',
+          prop: 'assignedto',
+          dataType: 'TEXT',
         },
         {
           name: 'project',
