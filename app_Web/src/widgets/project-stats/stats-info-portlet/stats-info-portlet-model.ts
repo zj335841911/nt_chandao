@@ -63,6 +63,9 @@ export default class StatsInfoModel {
       {
         name: 'finishbugrate',
       },
+      {
+        name: 'deleted',
+      },
     ]
   }
 

@@ -133,4 +133,12 @@ export interface ProjectStats {
      * @memberof ProjectStats
      */
     finishbugrate?: any;
+
+    /**
+     * 已删除
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    deleted?: any;
 }

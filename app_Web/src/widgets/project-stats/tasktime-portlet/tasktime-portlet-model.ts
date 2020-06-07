@@ -63,6 +63,9 @@ export default class TASKTIMEModel {
       {
         name: 'finishbugrate',
       },
+      {
+        name: 'deleted',
+      },
     ]
   }
 

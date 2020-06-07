@@ -63,6 +63,9 @@ export default class MainModel {
       {
         name: 'finishbugrate',
       },
+      {
+        name: 'deleted',
+      },
     ]
   }
 

@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet tasktime ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : '350px',}">
+    <div class='portlet tasktime ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : '280px',}">
         <div class="portlet-without-title">
         <!-- 测试 -->
               <view_dashboard_sysportlet1_chart 

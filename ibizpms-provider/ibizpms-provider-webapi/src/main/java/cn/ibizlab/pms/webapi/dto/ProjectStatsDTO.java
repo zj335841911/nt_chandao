@@ -151,6 +151,14 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     @JsonProperty("finishbugrate")
     private Double finishbugrate;
 
+    /**
+     * 属性 [DELETED]
+     *
+     */
+    @JSONField(name = "deleted")
+    @JsonProperty("deleted")
+    private String deleted;
+
 
 
 }

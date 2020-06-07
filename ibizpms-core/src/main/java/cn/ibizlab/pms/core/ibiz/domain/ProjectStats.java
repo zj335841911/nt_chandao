@@ -151,6 +151,15 @@ public class ProjectStats extends EntityMP implements Serializable {
     @JSONField(name = "finishbugrate")
     @JsonProperty("finishbugrate")
     private Double finishbugrate;
+    /**
+     * 已删除
+     */
+    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "1" , logicdelval="0")
+    @TableLogic(value= "1",delval="0")
+    @TableField(value = "deleted")
+    @JSONField(name = "deleted")
+    @JsonProperty("deleted")
+    private String deleted;
 
 
 

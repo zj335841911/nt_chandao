@@ -16,6 +16,7 @@ export default {
     donetaskrate: '完成任务率',
     closedstoryrate: '关闭需求率',
     finishbugrate: '解决Bug率',
+    deleted: '已删除',
   },
 	views: {
 		maindashboardview: {
