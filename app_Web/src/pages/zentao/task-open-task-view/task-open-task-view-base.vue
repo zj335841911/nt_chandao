@@ -119,6 +119,8 @@ export default class TaskOpenTaskViewBase extends Vue {
 	 * @memberof TaskOpenTaskViewBase
 	 */
     public customViewNavContexts:any ={
+    "OBJECTTYPE":{"isRawValue":true,"value":"task"},
+    "SRFPARENTKEY":{"isRawValue":false,"value":"task"}
     };
 
 	/**

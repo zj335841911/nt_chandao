@@ -119,6 +119,8 @@ export default class TaskClosePauseCancelViewBase extends Vue {
 	 * @memberof TaskClosePauseCancelViewBase
 	 */
     public customViewNavContexts:any ={
+    "OBJECTTYPE":{"isRawValue":true,"value":"task"},
+    "SRFPARENTKEY":{"isRawValue":false,"value":"task"}
     };
 
 	/**
