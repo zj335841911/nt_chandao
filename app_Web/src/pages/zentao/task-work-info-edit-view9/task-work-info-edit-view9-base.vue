@@ -1,8 +1,5 @@
 <template>
 <studio-embed-view viewName="taskworkinfoeditview9" viewTitle="工时信息" class='deeditview9 task-work-info-edit-view9'>
-    <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
-    </template>
     <view_form 
                 :viewState="viewState"  
                 :viewparams="viewparams" 

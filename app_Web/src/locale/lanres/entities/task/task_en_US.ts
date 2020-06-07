@@ -340,7 +340,7 @@ export default {
 	},
 	workinfoform_form: {
 		details: {
-			group1: "任务基本信息", 
+			group1: "工时信息", 
 			formpage1: "基本信息", 
 			srfupdatedate: "最后修改日期", 
 			srforikey: "", 
