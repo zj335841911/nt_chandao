@@ -245,7 +245,7 @@ export default class TASKTIMEBase extends Vue implements ControlInterface {
     
     
     categorField:'type',
-    categorCodeList:{type:'STATIC',tag:'ProjectTimeType',emptycode:'empty',emptytext:'未定义'},
+    categorCodeList:{type:'STATIC',tag:'ProjectTimeType',emptycode:'empty',emptytext:''},
     
     valueField:'time',
     seriesValues:[],
@@ -253,7 +253,7 @@ export default class TASKTIMEBase extends Vue implements ControlInterface {
     data:[],
     seriesMap:{},
     dataSetFields:[
-    {name:"type",codelist:{type:"STATIC",tag:"ProjectTimeType",emptycode:'empty',emptytext:'未定义'},isGroupField:true,groupMode:"CODELIST"},
+    {name:"type",codelist:{type:"STATIC",tag:"ProjectTimeType",emptycode:'empty',emptytext:''},isGroupField:true,groupMode:"CODELIST"},
     {name:"time",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{

@@ -42,7 +42,7 @@
     </sql>
     <!--数据查询[TaskTime]-->
     <sql id="TaskTime" databaseId="mysql">
-       <![CDATA[	SELECT t1.`ID`, (SELECT SUM(CONSUMED) FROM ZT_TASK WHERE PROJECT = t1.`ID`) AS `TIME`, 'CONSUMED' AS `TYPE` FROM `zt_project` t1 WHERE t1.`ID` =  #{srf.datacontext.projectstats}  UNION ALL  SELECT t2.`ID`, (SELECT SUM(`LEFT`) FROM ZT_TASK WHERE PROJECT = t2.`ID`) AS `TIME`, 'LEFT' AS `TYPE` FROM `zt_project` t2 WHERE t2.`ID` = #{srf.datacontext.projectstats}  
+       <![CDATA[	SELECT t1.`ID`, (SELECT SUM(CONSUMED) FROM ZT_TASK WHERE PROJECT = t1.`ID`) AS `TIME`, 'CONSUMED' AS `TYPE` FROM `zt_project` t1 WHERE t1.`ID` =  #{srf.datacontext.srfparentkey}  UNION ALL  SELECT t2.`ID`, (SELECT SUM(`LEFT`) FROM ZT_TASK WHERE PROJECT = t2.`ID`) AS `TIME`, 'LEFT' AS `TYPE` FROM `zt_project` t2 WHERE t2.`ID` = #{srf.datacontext.srfparentkey}  
 			]]>
     </sql>
     <!--数据查询[View]-->

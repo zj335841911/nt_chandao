@@ -289,7 +289,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
     },
     {
         srfkey: 'ProjectTimeType',
-        emptytext: '未定义',
+        emptytext: '',
         "codelisttype":"static",
         items: [
             {

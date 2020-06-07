@@ -281,7 +281,7 @@
     }, 
     {
         "srfkey": "ProjectTimeType",
-        "emptytext": "未定义",
+        "emptytext": "",
         "codelisttype":"static",
         "items": [
              {
