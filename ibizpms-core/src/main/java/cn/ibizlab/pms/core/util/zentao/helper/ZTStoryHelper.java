@@ -65,13 +65,21 @@ public class ZTStoryHelper {
     // ----------
 
     private final static HttpMethod ACTION_HTTPMETHOD_CREATE = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_BATCHCREATE = HttpMethod.POST;
     private final static HttpMethod ACTION_HTTPMETHOD_EDIT = HttpMethod.POST;
     private final static HttpMethod ACTION_HTTPMETHOD_CHANGE = HttpMethod.POST;
     private final static HttpMethod ACTION_HTTPMETHOD_REVIEW = HttpMethod.POST;
     private final static HttpMethod ACTION_HTTPMETHOD_ACTIVATE = HttpMethod.POST;
     private final static HttpMethod ACTION_HTTPMETHOD_ASSIGNTO = HttpMethod.POST;
     private final static HttpMethod ACTION_HTTPMETHOD_CLOSE = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_BATCHCREATE = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_BATCHEDIT = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_BATCHCHANGESTAGE = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_BATCHCHANGEBRANCH = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_BATCHCHANGEPLAN = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_BATCHCLOSE = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_BATCHREVIEW = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_BATCHCHANGEMODULE = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_BATCHASSIGNTO = HttpMethod.POST;
 
     // ----------
     // 接口行为POST参数
@@ -84,6 +92,14 @@ public class ZTStoryHelper {
     private final static Map<String, Object> ACTION_PARAMS_ACTIVATE = new HashMap<>();
     private final static Map<String, Object> ACTION_PARAMS_ASSIGNTO = new HashMap<>();
     private final static Map<String, Object> ACTION_PARAMS_CLOSE = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_BATCHCHANGESTAGE = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_BATCHCHANGEBRANCH = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_BATCHCHANGEPLAN = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_BATCHCLOSE = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_BATCHREVIEW = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_BATCHCHANGEMODULE = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_BATCHASSIGNTO = new HashMap<>();
+
 
     // ----------
     // 接口行为URL参数
@@ -95,6 +111,14 @@ public class ZTStoryHelper {
     private final static List<String> ACTION_URL_PARAMS_ACTIVATE = new ArrayList<>();
     private final static List<String> ACTION_URL_PARAMS_ASSIGNTO = new ArrayList<>();
     private final static List<String> ACTION_URL_PARAMS_CLOSE = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_BATCHCHANGESTAGE = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_BATCHCHANGEBRANCH = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_BATCHCHANGEPLAN = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_BATCHCLOSE = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_BATCHREVIEW = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_BATCHCHANGEMODULE = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_BATCHASSIGNTO = new ArrayList<>();
+
 
     // ----------
     // 接口行为POST参数设置
@@ -169,6 +193,9 @@ public class ZTStoryHelper {
         // CLOSE
         ACTION_PARAMS_CLOSE.put("comment", null);
         ACTION_PARAMS_CLOSE.put("closedReason", null);
+
+        // BATCHCHANGESTAGE
+        ACTION_PARAMS_BATCHCHANGESTAGE.put("storyIdList", null);
     }
 
     // ----------
@@ -193,6 +220,12 @@ public class ZTStoryHelper {
 
         // CLOSE
         ACTION_URL_PARAMS_CLOSE.add("id");
+
+        // BATCHCHANGESTAGE
+        ACTION_URL_PARAMS_BATCHCHANGESTAGE.add("stage");
+
+        // BATCHCHANGESTAGE
+        ACTION_URL_PARAMS_BATCHCHANGESTAGE.add("branch");
     }
 
     // ----------
@@ -316,21 +349,6 @@ public class ZTStoryHelper {
         rst.setResult(rstJO);
         rst.setMessage(rstJO.getString("html"));
         return true;
-    }
-
-    public static void main(String[] args) {
-        // change
-        JSONObject jo = new JSONObject();
-        jo.put("id", 116);
-        jo.put("comment", "激活");
-        jo.put("assignedto", "admin");
-
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = activate("kerbl1bv332tj7c0ebcki4oq97", jo, rst);
-
-//        if (!bRst) {
-        System.out.println(rst.getMessage());
-//        }
     }
 
 }

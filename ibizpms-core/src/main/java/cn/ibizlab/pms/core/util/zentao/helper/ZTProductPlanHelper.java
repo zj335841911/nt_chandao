@@ -15,7 +15,7 @@ import java.util.Map;
 /**
  * 【禅道接口-Product】 辅助类
  */
-public class ZTProductHelper {
+public class ZTProductPlanHelper {
     // ----------
     // 接口模块
     // ----------
@@ -23,32 +23,27 @@ public class ZTProductHelper {
     /**
      * 接口模块名
      */
-    private final static String MODULE_NAME = "product";
+    private final static String MODULE_NAME = "productplan";
 
     // ----------
     // 接口ACTION
     // ----------
 
-    private final static String  ACTION_INDEX= "index";
-    private final static String  ACTION_PROJECT= "project";
-    private final static String  ACTION_BROWSE= "browse";
-    private final static String  ACTION_CREATE= "create";
-    private final static String  ACTION_EDIT= "edit";
-    private final static String  ACTION_BATCHEDIT= "batchEdit";
-    private final static String  ACTION_CLOSE= "close";
-    private final static String  ACTION_VIEW= "view";
-    private final static String  ACTION_DELETE= "delete";
-    private final static String  ACTION_ROADMAP= "roadmap";
-    private final static String  ACTION_DYNAMIC= "dynamic";
-    private final static String  ACTION_AJAXGETPROJECTS= "ajaxGetProjects";
-    private final static String  ACTION_AJAXGETPLANS= "ajaxGetPlans";
-    private final static String  ACTION_AJAXGETDROPMENU= "ajaxGetDropMenu";
-    private final static String  ACTION_UPDATEORDER= "updateOrder";
-    private final static String  ACTION_SHOWERRORNONE= "showErrorNone";
-    private final static String  ACTION_ALL= "all";
-    private final static String  ACTION_EXPORT= "export";
-    private final static String  ACTION_DOC= "doc";
-    private final static String  ACTION_BUILD= "build";
+    private final static String  ACTION_COMMONACTION = "commonAction";
+    private final static String  ACTION_CREATE = "create";
+    private final static String  ACTION_EDIT = "edit";
+    private final static String  ACTION_BATCHEDIT = "batchEdit";
+    private final static String  ACTION_DELETE = "delete";
+    private final static String  ACTION_BROWSE = "browse";
+    private final static String  ACTION_VIEW = "view";
+    private final static String  ACTION_AJAXGETPRODUCTPLANS = "ajaxGetProductplans";
+    private final static String  ACTION_AJAXSTORYSORT = "ajaxStorySort";
+    private final static String  ACTION_LINKSTORY = "linkStory";
+    private final static String  ACTION_UNLINKSTORY = "unlinkStory";
+    private final static String  ACTION_BATCHUNLINKSTORY = "batchUnlinkStory";
+    private final static String  ACTION_LINKBUG = "linkBug";
+    private final static String  ACTION_UNLINKBUG = "unlinkBug";
+    private final static String  ACTION_BATCHUNLINKBUG = "batchUnlinkBug";
 
     // ----------
     // 接口行为HTTP方法（GET、POST）
@@ -56,7 +51,6 @@ public class ZTProductHelper {
 
     private final static HttpMethod ACTION_HTTPMETHOD_CREATE = HttpMethod.POST;
     private final static HttpMethod ACTION_HTTPMETHOD_EDIT = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_CLOSE = HttpMethod.POST;
 
     // ----------
     // 接口行为POST参数
@@ -64,14 +58,13 @@ public class ZTProductHelper {
 
     private final static Map<String, Object> ACTION_PARAMS_CREATE = new HashMap<>();
     private final static Map<String, Object> ACTION_PARAMS_EDIT = new HashMap<>();
-    private final static Map<String, Object> ACTION_PARAMS_CLOSE = new HashMap<>();
 
     // ----------
     // 接口行为URL参数
     // ----------
 
+    private final static List<String> ACTION_URL_PARAMS_CREATE = new ArrayList<>();
     private final static List<String> ACTION_URL_PARAMS_EDIT = new ArrayList<>();
-    private final static List<String> ACTION_URL_PARAMS_CLOSE = new ArrayList<>();
 
     // ----------
     // 接口行为POST参数设置
@@ -79,29 +72,27 @@ public class ZTProductHelper {
 
     static {
         // CREATE
-        ACTION_PARAMS_CREATE.put("name", null);
-        ACTION_PARAMS_CREATE.put("code", null);
-        ACTION_PARAMS_CREATE.put("QD", null);
-        ACTION_PARAMS_CREATE.put("RD", null);
-        ACTION_PARAMS_CREATE.put("PO", null);
-        ACTION_PARAMS_CREATE.put("type", "normal");
-        ACTION_PARAMS_CREATE.put("acl", "open");
-        ACTION_PARAMS_CREATE.put("line", 0);
-        ACTION_PARAMS_CREATE.put("status", "normal");
+        ACTION_PARAMS_CREATE.put("branch", 0);
+        ACTION_PARAMS_CREATE.put("title", null);
+        ACTION_PARAMS_CREATE.put("begin", null);
+        ACTION_PARAMS_CREATE.put("end", null);
+        ACTION_PARAMS_CREATE.put("desc", null);
+        ACTION_PARAMS_CREATE.put("product", 0);
+        ACTION_PARAMS_CREATE.put("parent", 0);
+        ACTION_PARAMS_CREATE.put("delta", null);
+        ACTION_PARAMS_CREATE.put("future", 0);
 
         // EDIT
-        ACTION_PARAMS_EDIT.put("name", null);
-        ACTION_PARAMS_EDIT.put("code", null);
-        ACTION_PARAMS_EDIT.put("QD", null);
-        ACTION_PARAMS_EDIT.put("RD", null);
-        ACTION_PARAMS_EDIT.put("PO", null);
-        ACTION_PARAMS_EDIT.put("type", "normal");
-        ACTION_PARAMS_EDIT.put("acl", "open");
-        ACTION_PARAMS_EDIT.put("line", 0);
-        ACTION_PARAMS_EDIT.put("status", "normal");
+        ACTION_PARAMS_EDIT.put("branch", 0);
+        ACTION_PARAMS_EDIT.put("title", null);
+        ACTION_PARAMS_EDIT.put("begin", null);
+        ACTION_PARAMS_EDIT.put("end", null);
+        ACTION_PARAMS_EDIT.put("desc", null);
+        ACTION_PARAMS_EDIT.put("product", 0);
+        ACTION_PARAMS_EDIT.put("parent", 0);
+        ACTION_PARAMS_CREATE.put("delta", null);
+        ACTION_PARAMS_CREATE.put("future", 0);
 
-        // CLOSE
-        ACTION_PARAMS_CLOSE.put("comment", null);
     }
 
     // ----------
@@ -109,11 +100,13 @@ public class ZTProductHelper {
     // ----------
 
     static {
+        // CREATE
+        ACTION_URL_PARAMS_CREATE.add("product");
+        ACTION_URL_PARAMS_CREATE.add("branch");
+        ACTION_URL_PARAMS_CREATE.add("parent");
+
         // EDIT
         ACTION_URL_PARAMS_EDIT.add("id");
-
-        // CLOSE
-        ACTION_URL_PARAMS_CLOSE.add("id");
 
     }
 
@@ -122,8 +115,13 @@ public class ZTProductHelper {
     // ----------
 
     final static public boolean create(String zentaoSid, JSONObject jo, ZTResult rst) {
-        String url = MODULE_NAME + "-" + ACTION_CREATE + ZenTaoConstants.ZT_URL_EXT;
-        // 注意，后期如果API返回结构都是一样的，再做抽象（当前使用到的参照标本数量不足）
+        String urlParams = "";
+        if (ACTION_URL_PARAMS_EDIT != null && ACTION_URL_PARAMS_EDIT.size() > 0) {
+            for (String key : ACTION_URL_PARAMS_EDIT) {
+                urlParams += "-" + jo.get(key);
+            }
+        }
+        String url = MODULE_NAME + "-" + ACTION_CREATE  + urlParams + ZenTaoConstants.ZT_URL_EXT;
         JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_CREATE, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_CREATE));
         if ("fail".equals(rstJO.getString("result"))) {
             JSONObject message = rstJO.getJSONObject("message");
@@ -148,9 +146,6 @@ public class ZTProductHelper {
         rst.setSuccess(true);
         rst.setResult(rstJO);
         rst.setMessage(rstJO.getString("message"));
-        String locate = rstJO.getString("locate");
-        String idStr = locate.substring("/zentao/product-browse-".length(), locate.indexOf(".json"));
-        rst.setEtId(new BigInteger(idStr));
         return true;
     }
 
@@ -162,8 +157,7 @@ public class ZTProductHelper {
             }
         }
         String url = MODULE_NAME + "-" + ACTION_EDIT  + urlParams + ZenTaoConstants.ZT_URL_EXT;
-        JSONObject rstJO = new JSONObject();
-        rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_EDIT, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_EDIT));
+        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_EDIT, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_EDIT));
         if ("fail".equals(rstJO.getString("result"))) {
             JSONObject message = rstJO.getJSONObject("message");
             List<String> msgList = new ArrayList<>();
@@ -175,7 +169,7 @@ public class ZTProductHelper {
                     }
                 }
             }
-            String msgStr = "编辑数据失败。\n";
+            String msgStr = "创建数据失败。\n";
             if (!msgList.isEmpty()) {
                 msgStr += String.join("\n", msgList);
             }
@@ -188,23 +182,8 @@ public class ZTProductHelper {
         rst.setResult(rstJO);
         rst.setMessage(rstJO.getString("message"));
         String locate = rstJO.getString("locate");
-        String idStr = locate.substring("/zentao/product-view-".length(), locate.indexOf(".json"));
+        String idStr = locate.substring("/zentao/productplan-view-".length(), locate.indexOf(".json"));
         rst.setEtId(new BigInteger(idStr));
-        return true;
-    }
-
-    final static public boolean close(String zentaoSid, JSONObject jo, ZTResult rst) {
-        String urlParams = "";
-        if (ACTION_URL_PARAMS_CLOSE != null && ACTION_URL_PARAMS_CLOSE.size() > 0) {
-            for (String key : ACTION_URL_PARAMS_CLOSE) {
-                urlParams += "-" + jo.get(key);
-            }
-        }
-        String url = MODULE_NAME + "-" + ACTION_CLOSE + urlParams + ZenTaoConstants.ZT_URL_EXT;
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_CLOSE, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_CLOSE));
-        rst.setSuccess(true);
-        rst.setResult(rstJO);
-        rst.setMessage(rstJO.getString("html"));
         return true;
     }
 
