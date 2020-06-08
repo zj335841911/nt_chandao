@@ -69,13 +69,13 @@ export class ProjectList extends Vue {
             </div>
             <template slot="action">
                 <li>
-                    需求：0
+                    需求：{p.storycnt}
                 </li>
                 <li>
-                    任务：0
+                    任务：{p.taskcnt}
                 </li>
                 <li>
-                    Bug：0
+                    Bug：{p.bugcnt}
                 </li>
             </template>
         </listItem>;

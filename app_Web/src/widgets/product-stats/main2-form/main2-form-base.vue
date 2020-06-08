@@ -6,7 +6,7 @@
 <i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <div style="height: 100%;display: flex;flex-direction: row;justify-content: center;">
-        <div  v-show="detailsModel.grouppanel1.visible" :style="{}">
+        <div  v-show="detailsModel.grouppanel1.visible" :style="{'flex-grow': '1','height': 0,}">
 <app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <div style="height: 100%;display: flex;flex-direction: column;justify-content: center;">
         <div  v-show="detailsModel.storycnt.visible" :style="{}">
@@ -112,7 +112,7 @@ style=""></app-span>
 </app-form-group>
 
 </div>
-<div  v-show="detailsModel.grouppanel2.visible" :style="{}">
+<div  v-show="detailsModel.grouppanel2.visible" :style="{'flex-grow': '1','height': 0,}">
 <app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <div style="height: 100%;display: flex;flex-direction: column;">
         <div  v-show="detailsModel.grouppanel8.visible" :style="{}">
@@ -823,9 +823,9 @@ export default class Main2Base extends Vue implements ControlInterface {
      * @memberof Main2
      */
     public detailsModel: any = {
-        button4: new FormButtonModel({ caption: '查看全部', detailType: 'BUTTON', name: 'button4', visible: true, isShowCaption: true, form: this })
+        button4: new FormButtonModel({ caption: '查看全部', detailType: 'BUTTON', name: 'button4', visible: false, isShowCaption: true, form: this })
 , 
-        button5: new FormButtonModel({ caption: '提需求', detailType: 'BUTTON', name: 'button5', visible: true, isShowCaption: true, form: this })
+        button5: new FormButtonModel({ caption: '提需求', detailType: 'BUTTON', name: 'button5', visible: false, isShowCaption: true, form: this })
 , 
         grouppanel6: new FormGroupPanelModel({ caption: '', detailType: 'GROUPPANEL', name: 'grouppanel6', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } })
 , 
@@ -857,7 +857,7 @@ export default class Main2Base extends Vue implements ControlInterface {
 , 
         grouppanel11: new FormGroupPanelModel({ caption: '发布', detailType: 'GROUPPANEL', name: 'grouppanel11', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } })
 , 
-        grouppanel2: new FormGroupPanelModel({ caption: '产品统计', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } })
+        grouppanel2: new FormGroupPanelModel({ caption: '产品统计', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: false, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } })
 , 
         group1: new FormGroupPanelModel({ caption: '统计', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } })
 , 
@@ -1209,7 +1209,23 @@ export default class Main2Base extends Vue implements ControlInterface {
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+        if (Object.is(name, '') || Object.is(name, 'storycnt')) {
+            let ret = false;
+            const _storycnt = this.data.storycnt;
+            if (this.$verify.testCond(_storycnt, 'NOTEQ', '')) {
+                ret = true;
+            }
+            this.detailsModel.button4.setVisible(ret);
+        }
 
+        if (Object.is(name, '') || Object.is(name, 'storycnt')) {
+            let ret = false;
+            const _storycnt = this.data.storycnt;
+            if (this.$verify.testCond(_storycnt, 'EQ', '')) {
+                ret = true;
+            }
+            this.detailsModel.button5.setVisible(ret);
+        }
 
 
 
@@ -1234,6 +1250,14 @@ export default class Main2Base extends Vue implements ControlInterface {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'storycnt')) {
+            let ret = false;
+            const _storycnt = this.data.storycnt;
+            if (this.$verify.testCond(_storycnt, 'NOTEQ', '')) {
+                ret = true;
+            }
+            this.detailsModel.grouppanel2.setVisible(ret);
+        }
 
 
 

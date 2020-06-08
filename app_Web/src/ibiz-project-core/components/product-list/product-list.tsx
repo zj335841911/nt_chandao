@@ -69,16 +69,16 @@ export class ProductList extends Vue {
             </div>
             <template slot="action">
                 <li>
-                    计划数：0
+                    计划数：{p.productplancnt}
                 </li>
                 <li>
-                    发布数：0
+                    发布数：{p.releasecnt}
                 </li>
                 <li>
-                    激活需求：0
+                    激活需求：{p.activestorycnt}
                 </li>
                 <li>
-                    未解决Bug：0
+                    未解决Bug：{p.activebugcnt}
                 </li>
             </template>
         </listItem>;
