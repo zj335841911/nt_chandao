@@ -13,5 +13,6 @@ export default {
     releasedstorycnt: '已发布需求数',
     unendproductplancnt: '未过期计划数',
     unendproductplanrate: '剩余计划率',
+    resprojectcnt: '关联项目数',
   },
 };

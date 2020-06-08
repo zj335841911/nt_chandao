@@ -119,6 +119,14 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
     @JsonProperty("unendproductplanrate")
     private Double unendproductplanrate;
 
+    /**
+     * 属性 [RESPROJECTCNT]
+     *
+     */
+    @JSONField(name = "resprojectcnt")
+    @JsonProperty("resprojectcnt")
+    private Integer resprojectcnt;
+
 
 
 }

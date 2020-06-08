@@ -306,9 +306,9 @@ export default class FeatureTreeExpViewtreeexpbarBase extends Vue implements Con
         }
         if (Object.is(expmode, 'ALL')) {
             return {  
-                viewname: 'bug-grid-view', 
+                viewname: 'case-feature-grid-view', 
                 parentdata: {},
-                deKeyField:'bug'
+                deKeyField:'case'
 			};
         }
         return null;

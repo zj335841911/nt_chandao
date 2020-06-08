@@ -101,4 +101,12 @@ export interface ProductStats {
      * @memberof ProductStats
      */
     unendproductplanrate?: any;
+
+    /**
+     * 关联项目数
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    resprojectcnt?: any;
 }

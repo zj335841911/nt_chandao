@@ -125,6 +125,13 @@ public class ProductStats extends EntityMP implements Serializable {
     @JSONField(name = "unendproductplanrate")
     @JsonProperty("unendproductplanrate")
     private Double unendproductplanrate;
+    /**
+     * 关联项目数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "resprojectcnt")
+    @JsonProperty("resprojectcnt")
+    private Integer resprojectcnt;
 
 
 

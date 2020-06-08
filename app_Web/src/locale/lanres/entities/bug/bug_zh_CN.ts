@@ -105,24 +105,6 @@ export default {
       title: 'Bug',
 		},
 	},
-	stepsinfo_form: {
-		details: {
-			group1: 'Bug基本信息', 
-			formpage1: '基本信息', 
-			srfupdatedate: '修改日期', 
-			srforikey: '', 
-			srfkey: 'Bug编号', 
-			srfmajortext: 'Bug标题', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			steps: '', 
-			id: 'Bug编号', 
-		},
-		uiactions: {
-		},
-	},
 	main_form: {
 		details: {
 			grouppanel1: '分组面板', 
@@ -210,6 +192,24 @@ export default {
 			resolution: '解决方案', 
 			closedby: '由谁关闭', 
 			lasteditedby: '最后修改者', 
+			id: 'Bug编号', 
+		},
+		uiactions: {
+		},
+	},
+	stepsinfo_form: {
+		details: {
+			group1: 'Bug基本信息', 
+			formpage1: '基本信息', 
+			srfupdatedate: '修改日期', 
+			srforikey: '', 
+			srfkey: 'Bug编号', 
+			srfmajortext: 'Bug标题', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			steps: '', 
 			id: 'Bug编号', 
 		},
 		uiactions: {
@@ -311,6 +311,16 @@ export default {
 		uiactions: {
 		},
 	},
+	main2_grid: {
+		columns: {
+			id: 'ID',
+			pri: '级别',
+			title: 'Bug标题',
+			status: '状态',
+		},
+		uiactions: {
+		},
+	},
 	main_grid: {
 		columns: {
 			id: 'Bug编号',
@@ -326,22 +336,6 @@ export default {
 		},
 		uiactions: {
 			mainedit: '编辑',
-		},
-	},
-	main2_grid: {
-		columns: {
-			id: 'ID',
-			pri: '级别',
-			title: 'Bug标题',
-			status: '状态',
-		},
-		uiactions: {
-		},
-	},
-	maineditviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: '保存并关闭',
-			tip: '保存并关闭',
 		},
 	},
 	editviewtoolbar_toolbar: {
@@ -370,6 +364,12 @@ export default {
 		deuiaction2: {
 			caption: '刷新',
 			tip: '刷新',
+		},
+	},
+	maineditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: '保存并关闭',
+			tip: '保存并关闭',
 		},
 	},
 	gridviewtoolbar_toolbar: {
