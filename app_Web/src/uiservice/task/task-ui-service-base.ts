@@ -83,7 +83,6 @@ export default class TaskUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'maineditview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'maingridview9_child',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'maininfoview9',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'subtasknewview',srfappde:'tasks'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'tasktypeganttview',srfappde:'tasks'});
@@ -532,13 +531,11 @@ export default class TaskUIServiceBase extends UIService {
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
         let deResParameters: any[] = [];
-        if(context.project && true){
-            deResParameters = [
-            { pathName: 'projects', parameterName: 'project' },
-            ]
-        }
-        const parameters: any[] = [
+        deResParameters = [
             { pathName: 'tasks', parameterName: 'task' },
+        ];
+        const parameters: any[] = [
+            { pathName: 'ibz_subtasks', parameterName: 'ibz_subtask' },
         ];
             const openPopupModal = (view: any, data: any) => {
                 let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
@@ -558,7 +555,7 @@ export default class TaskUIServiceBase extends UIService {
                 viewname: 'task-sub-task-new-view', 
                 height: 600, 
                 width: 1200,  
-                title: actionContext.$t('entities.task.views.subtasknewview.title'),
+                title: actionContext.$t('entities.ibz_subtask.views.subtasknewview.title'),
             };
             openPopupModal(view, data);
     }

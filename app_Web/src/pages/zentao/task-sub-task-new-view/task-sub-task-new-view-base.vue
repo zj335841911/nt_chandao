@@ -5,6 +5,18 @@
     </template>
     <template slot="toolbar">
                 <div class='toolbar-container'>
+            <i-button :title="$t('entities.ibz_subtask.subtasknewviewtoolbar_toolbar.deuiaction1.tip')" v-show="toolBarModels.deuiaction1.visabled" :disabled="toolBarModels.deuiaction1.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1' }, $event)">
+                    <i class='fa fa-table'></i>
+                    <span class='caption'>{{$t('entities.ibz_subtask.subtasknewviewtoolbar_toolbar.deuiaction1.caption')}}</span>
+                </i-button>
+            <i-button :title="$t('entities.ibz_subtask.subtasknewviewtoolbar_toolbar.deuiaction2.tip')" v-show="toolBarModels.deuiaction2.visabled" :disabled="toolBarModels.deuiaction2.disabled" class='' @click="toolbar_click({ tag: 'deuiaction2' }, $event)">
+                    <i class='fa fa-plus'></i>
+                    <span class='caption'>{{$t('entities.ibz_subtask.subtasknewviewtoolbar_toolbar.deuiaction2.caption')}}</span>
+                </i-button>
+            <i-button :title="$t('entities.ibz_subtask.subtasknewviewtoolbar_toolbar.deuiaction3.tip')" v-show="toolBarModels.deuiaction3.visabled" :disabled="toolBarModels.deuiaction3.disabled" class='' @click="toolbar_click({ tag: 'deuiaction3' }, $event)">
+                    <i class='fa fa-save'></i>
+                    <span class='caption'>{{$t('entities.ibz_subtask.subtasknewviewtoolbar_toolbar.deuiaction3.caption')}}</span>
+                </i-button>
         </div>
     </template>
     <view_grid 
@@ -16,11 +28,11 @@
         :isOpenEdit="true"
         :gridRowActiveMode="gridRowActiveMode"
         @save="onSave"
-        updateAction=""
+        updateAction="Update"
         removeAction="Remove"
-        loaddraftAction=""
-        loadAction=""
-        createAction=""
+        loaddraftAction="GetDraft"
+        loadAction="Get"
+        createAction="Create"
         fetchAction="FetchDefault"
         :newdata="newdata"
         :opendata="opendata"
@@ -41,7 +53,7 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { UIActionTool,Util } from '@/utils';
 import { Subject } from 'rxjs';
-import TaskService from '@/service/task/task-service';
+import IBZ_SUBTASKService from '@/service/ibz-subtask/ibz-subtask-service';
 
 import GridViewEngine from '@engine/view/grid-view-engine';
 
@@ -58,10 +70,10 @@ export default class TaskSubTaskNewViewBase extends Vue {
     /**
      * 实体服务对象
      *
-     * @type {TaskService}
+     * @type {IBZ_SUBTASKService}
      * @memberof TaskSubTaskNewViewBase
      */
-    public appEntityService: TaskService = new TaskService;
+    public appEntityService: IBZ_SUBTASKService = new IBZ_SUBTASKService;
 
 
     /**
@@ -141,9 +153,9 @@ export default class TaskSubTaskNewViewBase extends Vue {
      * @memberof TaskSubTaskNewViewBase
      */
     public model: any = {
-        srfCaption: 'entities.task.views.subtasknewview.caption',
-        srfTitle: 'entities.task.views.subtasknewview.title',
-        srfSubTitle: 'entities.task.views.subtasknewview.subtitle',
+        srfCaption: 'entities.ibz_subtask.views.subtasknewview.caption',
+        srfTitle: 'entities.ibz_subtask.views.subtasknewview.title',
+        srfSubTitle: 'entities.ibz_subtask.views.subtasknewview.subtitle',
         dataInfo: ''
     }
 
@@ -226,6 +238,12 @@ export default class TaskSubTaskNewViewBase extends Vue {
      * @memberof TaskSubTaskNewView
      */
     public toolBarModels: any = {
+        deuiaction1: { name: 'deuiaction1', caption: '行编辑', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'ToggleRowEdit', target: '' } },
+
+        deuiaction2: { name: 'deuiaction2', caption: '新建行', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'NewRow', target: '' } },
+
+        deuiaction3: { name: 'deuiaction3', caption: '保存行', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'SaveRow', target: '' } },
+
     };
 
 
@@ -257,7 +275,7 @@ export default class TaskSubTaskNewViewBase extends Vue {
                 this.newdata(args,fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
-            keyPSDEField: 'task',
+            keyPSDEField: 'ibz_subtask',
             majorPSDEField: 'name',
             isLoadDefault: true,
         });
@@ -574,7 +592,7 @@ export default class TaskSubTaskNewViewBase extends Vue {
           datas = [params];
         }
         // 界面行为
-        this.ToggleRowEdit(datas, contextJO,paramJO,  $event, xData,this,"Task");
+        this.ToggleRowEdit(datas, contextJO,paramJO,  $event, xData,this,"IBZ_SUBTASK");
     }
 
     /**
@@ -603,7 +621,7 @@ export default class TaskSubTaskNewViewBase extends Vue {
           datas = [params];
         }
         // 界面行为
-        this.NewRow(datas, contextJO,paramJO,  $event, xData,this,"Task");
+        this.NewRow(datas, contextJO,paramJO,  $event, xData,this,"IBZ_SUBTASK");
     }
 
     /**
@@ -632,7 +650,7 @@ export default class TaskSubTaskNewViewBase extends Vue {
           datas = [params];
         }
         // 界面行为
-        this.SaveRow(datas, contextJO,paramJO,  $event, xData,this,"Task");
+        this.SaveRow(datas, contextJO,paramJO,  $event, xData,this,"IBZ_SUBTASK");
     }
 
     /**
@@ -807,33 +825,6 @@ export default class TaskSubTaskNewViewBase extends Vue {
             _view.$emit('close', [args]);
         } else if (_view.$tabPageExp) {
             _view.$tabPageExp.onClose(_view.$route.fullPath);
-        }
-    }
-
-    /**
-     * 销毁视图回调
-     *
-     * @memberof TaskSubTaskNewViewBase
-     */
-    public destroyed(){
-        this.afterDestroyed();
-    }
-
-    /**
-     * 执行destroyed后的逻辑
-     * 
-     * @memberof TaskSubTaskNewViewBase
-     */
-    public afterDestroyed(){
-        if(this.viewDefaultUsage){
-            let localStoreLength = Object.keys(localStorage);
-            if(localStoreLength.length > 0){
-                localStoreLength.forEach((item:string) =>{
-                if(item.startsWith(this.context.srfsessionid)){
-                    localStorage.removeItem(item);
-                }
-                })
-            }
         }
     }
 

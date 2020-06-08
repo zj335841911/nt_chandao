@@ -100,6 +100,14 @@
     "datascope":[{"id":"all","name":"全部数据"}]
      }
     ,    {
+    "dename":"Task",
+    "delogicname":"任务",
+    "sysmoudle":{"id":"ZENTAO","name":"禅道模块"},
+    "dedataset":[{"id":"RootTask" , "name":"根任务"},{"id":"TypeGroup" , "name":"任务类型分组"},{"id":"Default" , "name":"DEFAULT"}],
+    "deaction":[{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Create" , "name":"Create" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}]
+     }
+    ,    {
     "dename":"Project",
     "delogicname":"项目",
     "sysmoudle":{"id":"ZENTAO","name":"禅道模块"},
@@ -146,14 +154,6 @@
     "dedataset":[{"id":"GetRoadmap" , "name":"GetRoadmap"},{"id":"Default" , "name":"DEFAULT"},{"id":"RoadMapYear" , "name":"RoadMapYear"}],
     "deaction":[{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}, {"id":"createman","name":"创建人"}]
-     }
-    ,    {
-    "dename":"Task",
-    "delogicname":"任务",
-    "sysmoudle":{"id":"ZENTAO","name":"禅道模块"},
-    "dedataset":[{"id":"RootTask" , "name":"根任务"},{"id":"TypeGroup" , "name":"任务类型分组"},{"id":"Default" , "name":"DEFAULT"}],
-    "deaction":[{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Create" , "name":"Create" , "type":"BUILTIN" }],
-    "datascope":[{"id":"all","name":"全部数据"}]
      }
     ,    {
     "dename":"Build",

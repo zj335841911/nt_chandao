@@ -62,10 +62,6 @@ export default {
 			caption: "任务",
       title: '任务',
 		},
-		subtasknewview: {
-			caption: "子任务",
-      title: '子任务',
-		},
 		gridview: {
 			caption: "任务",
       title: '任务',
@@ -394,20 +390,6 @@ export default {
 		uiactions: {
 		},
 	},
-	subtasknew_grid: {
-		columns: {
-			modulename: "所属模块",
-			storyname: "相关需求",
-			name: "任务名称",
-			type: "任务类型",
-			assignedto: "指派给",
-			left: "预计",
-			desc: "任务描述",
-			pri: "优先级",
-		},
-		uiactions: {
-		},
-	},
 	main_grid: {
 		columns: {
 			id: "ID",
@@ -462,8 +444,6 @@ export default {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
 		},
-	},
-	subtasknewviewtoolbar_toolbar: {
 	},
 	maineditviewtoolbar_toolbar: {
 		deuiaction1: {
