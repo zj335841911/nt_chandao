@@ -16,7 +16,7 @@
 </div>
 
 </i-col>
-<i-col v-show="detailsModel.storycnt.visible" :style="{}"  :lg="{ span: 8, offset: 8 }" :xl="{ span: 8, offset: 8 }">
+<i-col v-show="detailsModel.storycnt.visible" :style="{}"  :lg="{ span: 6, offset: 9 }" :xl="{ span: 6, offset: 9 }">
     <app-form-item name='storycnt' :itemRules="this.rules.storycnt" class='MainInfo' :caption="$t('entities.productstats.main2_form.details.storycnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.storycnt.error" :isEmptyCaption="false" labelPos="TOP">
     <app-span   name='storycnt'
 :value="data.storycnt"   :data="data"
@@ -861,19 +861,19 @@ export default class Main2Base extends Vue implements ControlInterface {
 , 
         productplancnt: new FormItemModel({ caption: '所有计划', detailType: 'FORMITEM', name: 'productplancnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        unendproductplanrate: new FormItemModel({ caption: '剩余计划率', detailType: 'FORMITEM', name: 'unendproductplanrate', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
+        unendproductplanrate: new FormItemModel({ caption: '剩余计划率', detailType: 'FORMITEM', name: 'unendproductplanrate', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 0 })
 , 
         unendproductplancnt: new FormItemModel({ caption: '未过期', detailType: 'FORMITEM', name: 'unendproductplancnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         resprojectcnt: new FormItemModel({ caption: '所有项目', detailType: 'FORMITEM', name: 'resprojectcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        undoneresprojectrate: new FormItemModel({ caption: '进行项目率', detailType: 'FORMITEM', name: 'undoneresprojectrate', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
+        undoneresprojectrate: new FormItemModel({ caption: '进行项目率', detailType: 'FORMITEM', name: 'undoneresprojectrate', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 0 })
 , 
         undoneresprojectcnt: new FormItemModel({ caption: '进行中', detailType: 'FORMITEM', name: 'undoneresprojectcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         releasecnt: new FormItemModel({ caption: '所有发布', detailType: 'FORMITEM', name: 'releasecnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        normalreleaserate: new FormItemModel({ caption: '维护发布率', detailType: 'FORMITEM', name: 'normalreleaserate', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
+        normalreleaserate: new FormItemModel({ caption: '维护发布率', detailType: 'FORMITEM', name: 'normalreleaserate', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 0 })
 , 
         normalreleasecnt: new FormItemModel({ caption: '维护中', detailType: 'FORMITEM', name: 'normalreleasecnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
