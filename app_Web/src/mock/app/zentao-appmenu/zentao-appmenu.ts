@@ -91,7 +91,7 @@ mock.onGet('v7/zentaoappmenu').reply((config: any) => {
 	tooltip: '组织权限',
 	expanded: false,
 	separator: false,
-	hidden: false,
+	hidden: true,
 	hidesidebar: false,
 	opendefault: false,
 	iconcls: '',

@@ -578,8 +578,8 @@ export default class ProjectGridView9_UnClosedBase extends Vue {
         }
         const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'products', parameterName: 'product' },
-            { pathName: 'maindashboardview', parameterName: 'maindashboardview' },
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'maintabexpview', parameterName: 'maintabexpview' },
         ];
         const _this: any = this;
         const openIndexViewTab = (data: any) => {
