@@ -28,9 +28,11 @@ export default {
 	},
 	main2_form: {
 		details: {
+			rawitem1: '', 
 			button4: '查看全部', 
 			button5: '提需求', 
 			grouppanel6: '', 
+			rawitem2: '', 
 			grouppanel13: '需求状态统计', 
 			grouppanel1: '产品需求统计', 
 			button1: '创建计划', 
@@ -51,7 +53,7 @@ export default {
 			srfuf: '', 
 			srfdeid: '', 
 			srfsourcekey: '', 
-			storycnt: '需求总数', 
+			storycnt: '需求数', 
 			waitstorycnt: '未开始', 
 			plannedstorycnt: '已计划', 
 			developingstorycnt: '研发中', 

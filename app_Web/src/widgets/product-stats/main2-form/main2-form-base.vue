@@ -9,8 +9,15 @@
         <i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
-        <i-col v-show="detailsModel.storycnt.visible" :style="{}"  :lg="{ span: 8, offset: 8 }" :xl="{ span: 8, offset: 8 }">
-    <app-form-item name='storycnt' :itemRules="this.rules.storycnt" class='' :caption="$t('entities.productstats.main2_form.details.storycnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.storycnt.error" :isEmptyCaption="false" labelPos="TOP">
+        <i-col v-show="detailsModel.rawitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <div class="" style="">
+    <br/>
+<br/>
+</div>
+
+</i-col>
+<i-col v-show="detailsModel.storycnt.visible" :style="{}"  :lg="{ span: 8, offset: 8 }" :xl="{ span: 8, offset: 8 }">
+    <app-form-item name='storycnt' :itemRules="this.rules.storycnt" class='MainInfo' :caption="$t('entities.productstats.main2_form.details.storycnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.storycnt.error" :isEmptyCaption="false" labelPos="TOP">
     <app-span   name='storycnt'
 :value="data.storycnt"   :data="data"
   :context="context"
@@ -42,6 +49,12 @@ style=""></app-span>
     
     </row>
 </app-form-group>
+
+</i-col>
+<i-col v-show="detailsModel.rawitem2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <div class="" style="">
+    <br/>
+</div>
 
 </i-col>
 <i-col v-show="detailsModel.grouppanel13.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
@@ -680,10 +693,10 @@ export default class Main2Base extends Vue implements ControlInterface {
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
         storycnt: [
-            { type: 'number', message: '需求总数 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '需求总数 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '需求总数 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '需求总数 值不能为空', trigger: 'blur' },
+            { type: 'number', message: '需求数 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '需求数 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '需求数 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '需求数 值不能为空', trigger: 'blur' },
         ],
         waitstorycnt: [
             { type: 'number', message: '未开始 值必须为数值类型', trigger: 'change' },
@@ -784,17 +797,21 @@ export default class Main2Base extends Vue implements ControlInterface {
      * @memberof Main2
      */
     public detailsModel: any = {
+        rawitem1: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem1', visible: true, isShowCaption: true, form: this })
+, 
         button4: new FormButtonModel({ caption: '查看全部', detailType: 'BUTTON', name: 'button4', visible: false, isShowCaption: true, form: this })
 , 
         button5: new FormButtonModel({ caption: '提需求', detailType: 'BUTTON', name: 'button5', visible: false, isShowCaption: true, form: this })
 , 
         grouppanel6: new FormGroupPanelModel({ caption: '', detailType: 'GROUPPANEL', name: 'grouppanel6', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } })
 , 
+        rawitem2: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem2', visible: true, isShowCaption: true, form: this })
+, 
         grouppanel13: new FormGroupPanelModel({ caption: '需求状态统计', detailType: 'GROUPPANEL', name: 'grouppanel13', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } })
 , 
         grouppanel1: new FormGroupPanelModel({ caption: '产品需求统计', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } })
 , 
-        button1: new FormButtonModel({ caption: '创建计划', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this })
+        button1: new FormButtonModel({ caption: '创建计划', detailType: 'BUTTON', name: 'button1', visible: false, isShowCaption: true, form: this })
 , 
         grouppanel3: new FormGroupPanelModel({ caption: '', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } })
 , 
@@ -806,7 +823,7 @@ export default class Main2Base extends Vue implements ControlInterface {
 , 
         grouppanel9: new FormGroupPanelModel({ caption: '项目', detailType: 'GROUPPANEL', name: 'grouppanel9', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } })
 , 
-        button3: new FormButtonModel({ caption: '创建发布', detailType: 'BUTTON', name: 'button3', visible: true, isShowCaption: true, form: this })
+        button3: new FormButtonModel({ caption: '创建发布', detailType: 'BUTTON', name: 'button3', visible: false, isShowCaption: true, form: this })
 , 
         grouppanel5: new FormGroupPanelModel({ caption: '', detailType: 'GROUPPANEL', name: 'grouppanel5', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } })
 , 
@@ -830,7 +847,7 @@ export default class Main2Base extends Vue implements ControlInterface {
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        storycnt: new FormItemModel({ caption: '需求总数', detailType: 'FORMITEM', name: 'storycnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        storycnt: new FormItemModel({ caption: '需求数', detailType: 'FORMITEM', name: 'storycnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         waitstorycnt: new FormItemModel({ caption: '未开始', detailType: 'FORMITEM', name: 'waitstorycnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1164,6 +1181,7 @@ export default class Main2Base extends Vue implements ControlInterface {
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
         if (Object.is(name, '') || Object.is(name, 'storycnt')) {
             let ret = false;
             const _storycnt = this.data.storycnt;
@@ -1186,6 +1204,15 @@ export default class Main2Base extends Vue implements ControlInterface {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'productplancnt')) {
+            let ret = false;
+            const _productplancnt = this.data.productplancnt;
+            if (this.$verify.testCond(_productplancnt, 'EQ', '0')) {
+                ret = true;
+            }
+            this.detailsModel.button1.setVisible(ret);
+        }
+
 
 
         if (Object.is(name, '') || Object.is(name, 'resprojectcnt')) {
@@ -1199,13 +1226,21 @@ export default class Main2Base extends Vue implements ControlInterface {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'productplancnt')) {
+            let ret = false;
+            const _productplancnt = this.data.productplancnt;
+            if (this.$verify.testCond(_productplancnt, 'EQ', '0')) {
+                ret = true;
+            }
+            this.detailsModel.button3.setVisible(ret);
+        }
 
 
 
         if (Object.is(name, '') || Object.is(name, 'storycnt')) {
             let ret = false;
             const _storycnt = this.data.storycnt;
-            if (this.$verify.testCond(_storycnt, 'NOTEQ', '')) {
+            if (this.$verify.testCond(_storycnt, 'NOTEQ', '0')) {
                 ret = true;
             }
             this.detailsModel.grouppanel2.setVisible(ret);
