@@ -69,7 +69,7 @@
 
 </i-col>
 <i-col v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
-    <app-form-item name='formitem' :itemRules="this.rules.formitem" class='' :caption="$t('entities.task.main_form.details.formitem')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem.error" :isEmptyCaption="false" labelPos="RIGHT">
+    <app-form-item name='formitem' :itemRules="this.rules.formitem" class='' :caption="$t('entities.task.main_form.details.formitem')" uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true" :error="detailsModel.formitem.error" :isEmptyCaption="false" labelPos="RIGHT">
     <app-switch name='formitem' :value="this.data.formitem" @change="($event)=>{this.data.formitem = $event} " :disabled="detailsModel.formitem.disabled" style=""></app-switch>
 </app-form-item>
 
@@ -81,7 +81,7 @@
 
 </i-col>
 <i-col v-show="detailsModel.formitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
-    <app-form-item name='formitem1' :itemRules="this.rules.formitem1" class='' :caption="$t('entities.task.main_form.details.formitem1')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem1.error" :isEmptyCaption="false" labelPos="RIGHT">
+    <app-form-item name='formitem1' :itemRules="this.rules.formitem1" class='' :caption="$t('entities.task.main_form.details.formitem1')" uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true" :error="detailsModel.formitem1.error" :isEmptyCaption="false" labelPos="RIGHT">
     <app-switch name='formitem1' :value="this.data.formitem1" @change="($event)=>{this.data.formitem1 = $event} " :disabled="detailsModel.formitem1.disabled" style=""></app-switch>
 </app-form-item>
 
@@ -646,10 +646,10 @@ export default class MainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '预计开始 值不能为空', trigger: 'blur' },
         ],
         formitemex1: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
+            { type: 'string', message: '日程规划 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '日程规划 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '日程规划 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '日程规划 值不能为空', trigger: 'blur' },
         ],
         mailto: [
             { type: 'string', message: '抄送给 值必须为字符串类型', trigger: 'change' },
@@ -720,7 +720,7 @@ export default class MainBase extends Vue implements ControlInterface {
 , 
         estsarted: new FormItemModel({ caption: '预计开始', detailType: 'FORMITEM', name: 'estsarted', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        formitemex1: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        formitemex1: new FormItemModel({ caption: '日程规划', detailType: 'FORMITEM', name: 'formitemex1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
