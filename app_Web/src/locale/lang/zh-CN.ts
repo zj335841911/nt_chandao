@@ -5,6 +5,7 @@ import product_zh_CN from '@locale/lanres/entities/product/product_zh_CN';
 import subproductplan_zh_CN from '@locale/lanres/entities/sub-product-plan/sub-product-plan_zh_CN';
 import storyspec_zh_CN from '@locale/lanres/entities/story-spec/story-spec_zh_CN';
 import branch_zh_CN from '@locale/lanres/entities/branch/branch_zh_CN';
+import productstats_zh_CN from '@locale/lanres/entities/product-stats/product-stats_zh_CN';
 import action_zh_CN from '@locale/lanres/entities/action/action_zh_CN';
 import group_zh_CN from '@locale/lanres/entities/group/group_zh_CN';
 import casestep_zh_CN from '@locale/lanres/entities/case-step/case-step_zh_CN';
@@ -117,6 +118,7 @@ export default {
         subproductplan: subproductplan_zh_CN,
         storyspec: storyspec_zh_CN,
         branch: branch_zh_CN,
+        productstats: productstats_zh_CN,
         action: action_zh_CN,
         group: group_zh_CN,
         casestep: casestep_zh_CN,

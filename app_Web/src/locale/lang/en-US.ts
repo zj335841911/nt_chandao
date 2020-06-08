@@ -5,6 +5,7 @@ import product_en_US from '@locale/lanres/entities/product/product_en_US';
 import subproductplan_en_US from '@locale/lanres/entities/sub-product-plan/sub-product-plan_en_US';
 import storyspec_en_US from '@locale/lanres/entities/story-spec/story-spec_en_US';
 import branch_en_US from '@locale/lanres/entities/branch/branch_en_US';
+import productstats_en_US from '@locale/lanres/entities/product-stats/product-stats_en_US';
 import action_en_US from '@locale/lanres/entities/action/action_en_US';
 import group_en_US from '@locale/lanres/entities/group/group_en_US';
 import casestep_en_US from '@locale/lanres/entities/case-step/case-step_en_US';
@@ -117,6 +118,7 @@ export default {
         subproductplan: subproductplan_en_US,
         storyspec: storyspec_en_US,
         branch: branch_en_US,
+        productstats: productstats_en_US,
         action: action_en_US,
         group: group_en_US,
         casestep: casestep_en_US,

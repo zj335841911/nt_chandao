@@ -46,6 +46,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('subproductplan', () => import('@/service/sub-product-plan/sub-product-plan-service'));
         this.allEntityService.set('storyspec', () => import('@/service/story-spec/story-spec-service'));
         this.allEntityService.set('branch', () => import('@/service/branch/branch-service'));
+        this.allEntityService.set('productstats', () => import('@/service/product-stats/product-stats-service'));
         this.allEntityService.set('action', () => import('@/service/action/action-service'));
         this.allEntityService.set('group', () => import('@/service/group/group-service'));
         this.allEntityService.set('casestep', () => import('@/service/case-step/case-step-service'));

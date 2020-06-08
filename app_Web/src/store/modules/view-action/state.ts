@@ -11,7 +11,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'f78c94cb0a20d7f459753a4070f8f3e7',
-                'f63aae9bc8cfe29654439743b465a942',
+                '63b82c8ee288130faca83833ec1f837c',
                 'aae1ade339fe6a2ebe367489f6393db1',
             ],
         },
@@ -318,6 +318,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '417541fa331fc089b84936b8359403fa',
+            viewmodule: 'zentao',
+            viewname: 'CaseFeatureGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '6f78b25e86923ab600a2141d50fe49fd',
+                '5890a810365fec51e801d2cffce44fde',
+            ],
+        },
+        {
             viewtag: '443935a0b9d0fa8daf3131956a8bacc9',
             viewmodule: 'zentao',
             viewname: 'BugBugLifeEditView9',
@@ -478,6 +489,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '5890a810365fec51e801d2cffce44fde',
+            viewmodule: 'zentao',
+            viewname: 'CaseFeatureNewView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '58a943454a652d4f4ce2702d6447c079',
             viewmodule: 'zentao',
             viewname: 'ProductStoryTreeExpView',
@@ -537,6 +557,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '63b82c8ee288130faca83833ec1f837c',
+            viewmodule: 'zentao',
+            viewname: 'ProductFeatureTreeExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'c9410c9f72535adf1fff569d5243edd1',
+            ],
+        },
+        {
             viewtag: '64204774cc4b97f20aa3becb41b184d5',
             viewmodule: 'zentao',
             viewname: 'TaskPivotTableView',
@@ -571,6 +601,15 @@ export const viewstate: any = {
                 '776ea44ea05316c9c6cb9d5948e993f9',
                 'bc36be2ee4a78e69c13665a8ad03ab6a',
                 'f7a278d765ff0f85a2c59cbb2485fa30',
+            ],
+        },
+        {
+            viewtag: '6f78b25e86923ab600a2141d50fe49fd',
+            viewmodule: 'zentao',
+            viewname: 'CaseFeatureDashboardView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -1240,16 +1279,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: 'f63aae9bc8cfe29654439743b465a942',
-            viewmodule: 'zentao',
-            viewname: 'CaseGridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '02b7ecd8e994b90558a9d6c23705f600',
-            ],
-        },
-        {
             viewtag: 'f78c94cb0a20d7f459753a4070f8f3e7',
             viewmodule: 'zentao',
             viewname: 'ProductBugTreeExpView',
@@ -1257,6 +1286,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'c9410c9f72535adf1fff569d5243edd1',
+                '417541fa331fc089b84936b8359403fa',
             ],
         },
         {

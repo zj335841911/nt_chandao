@@ -292,16 +292,16 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
         }
         if (Object.is(expmode, 'MODULE')) {
             return {  
-                viewname: 'bug-grid-view', 
+                viewname: 'case-feature-grid-view', 
                 parentdata: {"srfparentdefname":"n_module_eq"},
-                deKeyField:'bug'
+                deKeyField:'case'
 			};
         }
         if (Object.is(expmode, 'ROOTMODULE')) {
             return {  
-                viewname: 'bug-grid-view', 
+                viewname: 'case-feature-grid-view', 
                 parentdata: {"srfparentdefname":"n_module_eq"},
-                deKeyField:'bug'
+                deKeyField:'case'
 			};
         }
         if (Object.is(expmode, 'ALL')) {

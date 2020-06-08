@@ -1,12 +1,12 @@
 <template>
   <div class='tabviewpanel' style="height:100%;" v-if = 'isActivied' >
-        <case-grid-view 
+        <product-feature-tree-exp-view 
       class='viewcontainer2' 
       :viewdata="JSON.stringify(context)" 
       :viewparam="JSON.stringify(getNavViewParams())"
       @viewload="viewDatasChange($event)" 
       :viewDefaultUsage="false" >
-    </case-grid-view>
+    </product-feature-tree-exp-view>
   </div>
 </template>
 <script lang='tsx'>
