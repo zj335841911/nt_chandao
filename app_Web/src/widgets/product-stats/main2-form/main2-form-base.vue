@@ -2,11 +2,12 @@
     <i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='productstats_main2' style="">
     <input style="display:none;" />
     <row >
-            
-<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+        <div style="height: 100%;display: flex;">
+    
+<div  v-show="detailsModel.group1.visible" :style="{}">
+<app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <div style="height: 100%;display: flex;flex-direction: row;justify-content: center;">
-        <div  v-show="detailsModel.grouppanel1.visible" :style="{'flex-grow': '1','height': 0,}">
+        <div  v-show="detailsModel.grouppanel1.visible" :style="{}">
 <app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <div style="height: 100%;display: flex;flex-direction: column;justify-content: center;">
         <div  v-show="detailsModel.storycnt.visible" :style="{}">
@@ -112,23 +113,18 @@ style=""></app-span>
 </app-form-group>
 
 </div>
-<div  v-show="detailsModel.grouppanel2.visible" :style="{'flex-grow': '1','height': 0,}">
+<div  v-show="detailsModel.grouppanel2.visible" :style="{}">
 <app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <div style="height: 100%;display: flex;flex-direction: column;">
         <div  v-show="detailsModel.grouppanel8.visible" :style="{}">
 <app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel8.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel8')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <div style="height: 100%;display: flex;justify-content: flex-end;">
+    <div style="height: 100%;display: flex;flex-direction: row;justify-content: flex-end;">
         <div  v-show="detailsModel.grouppanel3.visible" :style="{'flex-grow': '3','height': 0,}">
 <app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel3')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <div style="height: 100%;display: flex;">
         <div  v-show="detailsModel.unendproductplanrate.visible" :style="{}">
-<app-form-item name='unendproductplanrate' :itemRules="this.rules.unendproductplanrate" class='' :caption="$t('entities.productstats.main2_form.details.unendproductplanrate')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.unendproductplanrate.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='unendproductplanrate'
-:value="data.unendproductplanrate"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+<app-form-item name='unendproductplanrate' :itemRules="this.rules.unendproductplanrate" class='' :caption="$t('entities.productstats.main2_form.details.unendproductplanrate')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.unendproductplanrate.error" :isEmptyCaption="false" labelPos="NONE">
+    <app-slider name='unendproductplanrate' :value="this.data.unendproductplanrate" @change="onFormItemValueChange" :disabled="detailsModel.unendproductplanrate.disabled" style=""></app-slider>
 </app-form-item>
 
 </div>
@@ -182,25 +178,20 @@ style=""></app-span>
 </div>
 <div  v-show="detailsModel.grouppanel9.visible" :style="{}">
 <app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel9.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel9')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <div style="height: 100%;display: flex;justify-content: flex-end;">
+    <div style="height: 100%;display: flex;flex-direction: row;justify-content: flex-end;">
         <div  v-show="detailsModel.grouppanel4.visible" :style="{'flex-grow': '3','height': 0,}">
 <app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel4.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel4')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <div style="height: 100%;display: flex;">
         <div  v-show="detailsModel.undoneresprojectrate.visible" :style="{}">
-<app-form-item name='undoneresprojectrate' :itemRules="this.rules.undoneresprojectrate" class='' :caption="$t('entities.productstats.main2_form.details.undoneresprojectrate')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.undoneresprojectrate.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='undoneresprojectrate'
-:value="data.undoneresprojectrate"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+<app-form-item name='undoneresprojectrate' :itemRules="this.rules.undoneresprojectrate" class='' :caption="$t('entities.productstats.main2_form.details.undoneresprojectrate')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.undoneresprojectrate.error" :isEmptyCaption="false" labelPos="NONE">
+    <app-slider name='undoneresprojectrate' :value="this.data.undoneresprojectrate" @change="onFormItemValueChange" :disabled="detailsModel.undoneresprojectrate.disabled" style=""></app-slider>
 </app-form-item>
 
 </div>
 <div  v-show="detailsModel.button2.visible" :style="{}">
     <i-button type="primary" @click="button2_click($event)"
          style="">
-           
+        <i class="fa fa-plus" style="margin-right: 2px;"></i>   
         <span >{{$t('entities.productstats.main2_form.details.button2')}}</span>
     </i-button>
 
@@ -247,25 +238,20 @@ style=""></app-span>
 </div>
 <div  v-show="detailsModel.grouppanel11.visible" :style="{}">
 <app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel11.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel11')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <div style="height: 100%;display: flex;justify-content: flex-end;">
+    <div style="height: 100%;display: flex;flex-direction: row;justify-content: flex-end;">
         <div  v-show="detailsModel.grouppanel5.visible" :style="{'flex-grow': '3','height': 0,}">
 <app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel5.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel5')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <div style="height: 100%;display: flex;">
         <div  v-show="detailsModel.normalreleaserate.visible" :style="{}">
-<app-form-item name='normalreleaserate' :itemRules="this.rules.normalreleaserate" class='' :caption="$t('entities.productstats.main2_form.details.normalreleaserate')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.normalreleaserate.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='normalreleaserate'
-:value="data.normalreleaserate"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+<app-form-item name='normalreleaserate' :itemRules="this.rules.normalreleaserate" class='' :caption="$t('entities.productstats.main2_form.details.normalreleaserate')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.normalreleaserate.error" :isEmptyCaption="false" labelPos="NONE">
+    <app-slider name='normalreleaserate' :value="this.data.normalreleaserate" @change="onFormItemValueChange" :disabled="detailsModel.normalreleaserate.disabled" style=""></app-slider>
 </app-form-item>
 
 </div>
 <div  v-show="detailsModel.button3.visible" :style="{}">
     <i-button type="primary" @click="button3_click($event)"
          style="">
-           
+        <i class="fa fa-plus" style="margin-right: 2px;"></i>   
         <span >{{$t('entities.productstats.main2_form.details.button3')}}</span>
     </i-button>
 
@@ -319,8 +305,9 @@ style=""></app-span>
     </div>
 </app-form-group>
 
-</i-col>
+</div>
 
+</div>
 
     </row>
 </i-form>
@@ -833,7 +820,7 @@ export default class Main2Base extends Vue implements ControlInterface {
 , 
         grouppanel1: new FormGroupPanelModel({ caption: '产品需求统计', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } })
 , 
-        button1: new FormButtonModel({ caption: '', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this })
+        button1: new FormButtonModel({ caption: '创建计划', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this })
 , 
         grouppanel3: new FormGroupPanelModel({ caption: '', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } })
 , 
@@ -841,7 +828,7 @@ export default class Main2Base extends Vue implements ControlInterface {
 , 
         grouppanel8: new FormGroupPanelModel({ caption: '计划', detailType: 'GROUPPANEL', name: 'grouppanel8', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } })
 , 
-        button2: new FormButtonModel({ caption: '', detailType: 'BUTTON', name: 'button2', visible: false, isShowCaption: true, form: this })
+        button2: new FormButtonModel({ caption: '创建项目', detailType: 'BUTTON', name: 'button2', visible: false, isShowCaption: true, form: this })
 , 
         grouppanel4: new FormGroupPanelModel({ caption: '', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } })
 , 
@@ -849,7 +836,7 @@ export default class Main2Base extends Vue implements ControlInterface {
 , 
         grouppanel9: new FormGroupPanelModel({ caption: '项目', detailType: 'GROUPPANEL', name: 'grouppanel9', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } })
 , 
-        button3: new FormButtonModel({ caption: '', detailType: 'BUTTON', name: 'button3', visible: true, isShowCaption: true, form: this })
+        button3: new FormButtonModel({ caption: '创建发布', detailType: 'BUTTON', name: 'button3', visible: true, isShowCaption: true, form: this })
 , 
         grouppanel5: new FormGroupPanelModel({ caption: '', detailType: 'GROUPPANEL', name: 'grouppanel5', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } })
 , 
@@ -887,19 +874,19 @@ export default class Main2Base extends Vue implements ControlInterface {
 , 
         releasedstorycnt: new FormItemModel({ caption: '已发布', detailType: 'FORMITEM', name: 'releasedstorycnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        unendproductplanrate: new FormItemModel({ caption: '剩余计划率', detailType: 'FORMITEM', name: 'unendproductplanrate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        unendproductplanrate: new FormItemModel({ caption: '剩余计划率', detailType: 'FORMITEM', name: 'unendproductplanrate', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
         productplancnt: new FormItemModel({ caption: '所有计划', detailType: 'FORMITEM', name: 'productplancnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         unendproductplancnt: new FormItemModel({ caption: '未过期计划数', detailType: 'FORMITEM', name: 'unendproductplancnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        undoneresprojectrate: new FormItemModel({ caption: '进行项目率', detailType: 'FORMITEM', name: 'undoneresprojectrate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        undoneresprojectrate: new FormItemModel({ caption: '进行项目率', detailType: 'FORMITEM', name: 'undoneresprojectrate', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
         resprojectcnt: new FormItemModel({ caption: '所有项目', detailType: 'FORMITEM', name: 'resprojectcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         undoneresprojectcnt: new FormItemModel({ caption: '进行中', detailType: 'FORMITEM', name: 'undoneresprojectcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        normalreleaserate: new FormItemModel({ caption: '维护发布率', detailType: 'FORMITEM', name: 'normalreleaserate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        normalreleaserate: new FormItemModel({ caption: '维护发布率', detailType: 'FORMITEM', name: 'normalreleaserate', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
         releasecnt: new FormItemModel({ caption: '所有发布', detailType: 'FORMITEM', name: 'releasecnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
