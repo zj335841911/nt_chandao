@@ -62,7 +62,7 @@ export default {
 			releasedstorycnt: "已发布", 
 			productplancnt: "所有计划", 
 			unendproductplanrate: "剩余计划率", 
-			unendproductplancnt: "未过期计划数", 
+			unendproductplancnt: "未过期", 
 			resprojectcnt: "所有项目", 
 			undoneresprojectrate: "进行项目率", 
 			undoneresprojectcnt: "进行中", 

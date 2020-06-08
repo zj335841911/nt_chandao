@@ -741,10 +741,10 @@ export default class Main2Base extends Vue implements ControlInterface {
             { required: false, type: 'number', message: '剩余计划率 值不能为空', trigger: 'blur' },
         ],
         unendproductplancnt: [
-            { type: 'number', message: '未过期计划数 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '未过期计划数 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '未过期计划数 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '未过期计划数 值不能为空', trigger: 'blur' },
+            { type: 'number', message: '未过期 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '未过期 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '未过期 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '未过期 值不能为空', trigger: 'blur' },
         ],
         resprojectcnt: [
             { type: 'number', message: '所有项目 值必须为数值类型', trigger: 'change' },
@@ -863,7 +863,7 @@ export default class Main2Base extends Vue implements ControlInterface {
 , 
         unendproductplanrate: new FormItemModel({ caption: '剩余计划率', detailType: 'FORMITEM', name: 'unendproductplanrate', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
-        unendproductplancnt: new FormItemModel({ caption: '未过期计划数', detailType: 'FORMITEM', name: 'unendproductplancnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        unendproductplancnt: new FormItemModel({ caption: '未过期', detailType: 'FORMITEM', name: 'unendproductplancnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         resprojectcnt: new FormItemModel({ caption: '所有项目', detailType: 'FORMITEM', name: 'resprojectcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
