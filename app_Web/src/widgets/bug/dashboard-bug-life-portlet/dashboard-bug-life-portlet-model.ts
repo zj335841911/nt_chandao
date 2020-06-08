@@ -115,6 +115,9 @@ export default class DashboardBugLifeModel {
         name: 'resolvedby',
       },
       {
+        name: 'resolvedbuild',
+      },
+      {
         name: 'pri',
       },
       {
@@ -185,9 +188,6 @@ export default class DashboardBugLifeModel {
       },
       {
         name: 'testtask',
-      },
-      {
-        name: 'resolvedbuild',
       },
     ]
   }

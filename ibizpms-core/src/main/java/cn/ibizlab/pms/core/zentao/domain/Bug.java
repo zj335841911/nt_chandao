@@ -286,6 +286,13 @@ public class Bug extends EntityMP implements Serializable {
     @JsonProperty("resolvedby")
     private String resolvedby;
     /**
+     * 解决版本
+     */
+    @TableField(value = "resolvedbuild")
+    @JSONField(name = "resolvedbuild")
+    @JsonProperty("resolvedbuild")
+    private String resolvedbuild;
+    /**
      * 优先级
      */
     @TableField(value = "pri")
@@ -460,13 +467,6 @@ public class Bug extends EntityMP implements Serializable {
     @JSONField(name = "testtask")
     @JsonProperty("testtask")
     private BigInteger testtask;
-    /**
-     * 解决版本
-     */
-    @TableField(value = "resolvedbuild")
-    @JSONField(name = "resolvedbuild")
-    @JsonProperty("resolvedbuild")
-    private BigInteger resolvedbuild;
 
     /**
      * 
@@ -483,14 +483,6 @@ public class Bug extends EntityMP implements Serializable {
     @JSONField(serialize = false)
     @TableField(exist = false)
     private cn.ibizlab.pms.core.zentao.domain.Bug ztduplicatebug;
-
-    /**
-     * 
-     */
-    @JsonIgnore
-    @JSONField(serialize = false)
-    @TableField(exist = false)
-    private cn.ibizlab.pms.core.zentao.domain.Build ztresolvedbuild;
 
     /**
      * 
@@ -787,6 +779,13 @@ public class Bug extends EntityMP implements Serializable {
         this.modify("resolvedby",resolvedby);
     }
     /**
+     * 设置 [解决版本]
+     */
+    public void setResolvedbuild(String resolvedbuild){
+        this.resolvedbuild = resolvedbuild ;
+        this.modify("resolvedbuild",resolvedbuild);
+    }
+    /**
      * 设置 [优先级]
      */
     public void setPri(Integer pri){
@@ -925,13 +924,6 @@ public class Bug extends EntityMP implements Serializable {
     public void setTesttask(BigInteger testtask){
         this.testtask = testtask ;
         this.modify("testtask",testtask);
-    }
-    /**
-     * 设置 [解决版本]
-     */
-    public void setResolvedbuild(BigInteger resolvedbuild){
-        this.resolvedbuild = resolvedbuild ;
-        this.modify("resolvedbuild",resolvedbuild);
     }
 
 }

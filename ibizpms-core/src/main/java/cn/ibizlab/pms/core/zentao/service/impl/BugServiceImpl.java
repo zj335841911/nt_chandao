@@ -60,9 +60,6 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     private cn.ibizlab.pms.core.zentao.service.IBranchService branchService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IBuildService buildService;
-    @Autowired
-    @Lazy
     private cn.ibizlab.pms.core.zentao.service.IEntryService entryService;
     @Autowired
     @Lazy
@@ -198,16 +195,6 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     @Override
     public void removeByDuplicatebug(BigInteger id) {
         this.remove(new QueryWrapper<Bug>().eq("duplicatebug",id));
-    }
-
-	@Override
-    public List<Bug> selectByResolvedbuild(BigInteger id) {
-        return baseMapper.selectByResolvedbuild(id);
-    }
-
-    @Override
-    public void removeByResolvedbuild(BigInteger id) {
-        this.remove(new QueryWrapper<Bug>().eq("resolvedbuild",id));
     }
 
 	@Override

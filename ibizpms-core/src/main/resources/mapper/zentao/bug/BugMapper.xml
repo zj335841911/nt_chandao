@@ -25,15 +25,12 @@
 		<result property="project" column="project" />
 		<result property="task" column="task" />
 		<result property="testtask" column="testtask" />
-		<result property="resolvedbuild" column="resolvedbuild" />
             
 		
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
 		<association property="ztrranch" javaType="cn.ibizlab.pms.core.zentao.domain.Branch" column="branch" select="cn.ibizlab.pms.core.zentao.mapper.BranchMapper.selectById" fetchType="lazy"></association>
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
 		<association property="ztduplicatebug" javaType="cn.ibizlab.pms.core.zentao.domain.Bug" column="duplicatebug" select="cn.ibizlab.pms.core.zentao.mapper.BugMapper.selectById" fetchType="lazy"></association>
-		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
-		<association property="ztresolvedbuild" javaType="cn.ibizlab.pms.core.zentao.domain.Build" column="resolvedbuild" select="cn.ibizlab.pms.core.zentao.mapper.BuildMapper.selectById" fetchType="lazy"></association>
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
 		<association property="ztcase" javaType="cn.ibizlab.pms.core.zentao.domain.Case" column="case" select="cn.ibizlab.pms.core.zentao.mapper.CaseMapper.selectById" fetchType="lazy"></association>
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
@@ -73,13 +70,6 @@
                 <include refid="Default" />
          ) t1
          where  duplicatebug=#{id}
-     </select>
-	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_BUG_ZT_BUILD_RESOLVEDBUILD] -->
-	 <select id="selectByResolvedbuild" resultMap="BugResultMap">
-         select t1.* from (
-                <include refid="Default" />
-         ) t1
-         where  resolvedbuild=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_BUG_ZT_CASE_CASEID] -->
 	 <select id="selectByIbizcase" resultMap="BugResultMap">

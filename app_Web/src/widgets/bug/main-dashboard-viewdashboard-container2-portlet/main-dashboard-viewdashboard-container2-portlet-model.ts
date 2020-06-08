@@ -115,6 +115,9 @@ export default class MainDashboardViewdashboard_container2Model {
         name: 'resolvedby',
       },
       {
+        name: 'resolvedbuild',
+      },
+      {
         name: 'pri',
       },
       {
@@ -185,9 +188,6 @@ export default class MainDashboardViewdashboard_container2Model {
       },
       {
         name: 'testtask',
-      },
-      {
-        name: 'resolvedbuild',
       },
     ]
   }

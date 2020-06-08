@@ -46,9 +46,6 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
 
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IBugService bugService;
-    @Autowired
-    @Lazy
     private cn.ibizlab.pms.core.zentao.service.IReleaseService releaseService;
     @Autowired
     @Lazy

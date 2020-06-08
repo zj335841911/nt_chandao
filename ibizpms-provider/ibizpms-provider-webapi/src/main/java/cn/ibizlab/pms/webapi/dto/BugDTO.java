@@ -295,6 +295,14 @@ public class BugDTO extends DTOBase implements Serializable {
     private String resolvedby;
 
     /**
+     * 属性 [RESOLVEDBUILD]
+     *
+     */
+    @JSONField(name = "resolvedbuild")
+    @JsonProperty("resolvedbuild")
+    private String resolvedbuild;
+
+    /**
      * 属性 [PRI]
      *
      */
@@ -485,14 +493,6 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "testtask")
     @JsonProperty("testtask")
     private BigInteger testtask;
-
-    /**
-     * 属性 [RESOLVEDBUILD]
-     *
-     */
-    @JSONField(name = "resolvedbuild")
-    @JsonProperty("resolvedbuild")
-    private BigInteger resolvedbuild;
 
 
     /**
@@ -720,6 +720,14 @@ public class BugDTO extends DTOBase implements Serializable {
     }
 
     /**
+     * 设置 [RESOLVEDBUILD]
+     */
+    public void setResolvedbuild(String  resolvedbuild){
+        this.resolvedbuild = resolvedbuild ;
+        this.modify("resolvedbuild",resolvedbuild);
+    }
+
+    /**
      * 设置 [PRI]
      */
     public void setPri(Integer  pri){
@@ -877,14 +885,6 @@ public class BugDTO extends DTOBase implements Serializable {
     public void setTesttask(BigInteger  testtask){
         this.testtask = testtask ;
         this.modify("testtask",testtask);
-    }
-
-    /**
-     * 设置 [RESOLVEDBUILD]
-     */
-    public void setResolvedbuild(BigInteger  resolvedbuild){
-        this.resolvedbuild = resolvedbuild ;
-        this.modify("resolvedbuild",resolvedbuild);
     }
 
 

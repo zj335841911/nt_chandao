@@ -41,8 +41,6 @@ public interface IBugService extends IService<Bug>{
     void removeByBranch(BigInteger id) ;
     List<Bug> selectByDuplicatebug(BigInteger id) ;
     void removeByDuplicatebug(BigInteger id) ;
-    List<Bug> selectByResolvedbuild(BigInteger id) ;
-    void removeByResolvedbuild(BigInteger id) ;
     List<Bug> selectByIbizcase(BigInteger id) ;
     void removeByIbizcase(BigInteger id) ;
     List<Bug> selectByEntry(BigInteger id) ;

@@ -115,6 +115,9 @@ export default class BugDashboardActionsModel {
         name: 'resolvedby',
       },
       {
+        name: 'resolvedbuild',
+      },
+      {
         name: 'pri',
       },
       {
@@ -185,9 +188,6 @@ export default class BugDashboardActionsModel {
       },
       {
         name: 'testtask',
-      },
-      {
-        name: 'resolvedbuild',
       },
     ]
   }

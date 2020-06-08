@@ -32,11 +32,6 @@ export default class Main_PlanSubModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'resolvedbuild',
-          prop: 'resolvedbuild',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'srfmajortext',
           prop: 'title',
           dataType: 'TEXT',

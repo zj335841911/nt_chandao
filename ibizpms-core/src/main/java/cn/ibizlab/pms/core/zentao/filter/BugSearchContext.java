@@ -78,6 +78,13 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
             this.getSelectCond().eq("resolvedby", n_resolvedby_eq);
         }
     }
+	private String n_resolvedbuild_eq;//[解决版本]
+	public void setN_resolvedbuild_eq(String n_resolvedbuild_eq) {
+        this.n_resolvedbuild_eq = n_resolvedbuild_eq;
+        if(!ObjectUtils.isEmpty(this.n_resolvedbuild_eq)){
+            this.getSelectCond().eq("resolvedbuild", n_resolvedbuild_eq);
+        }
+    }
 	private String n_title_like;//[Bug标题]
 	public void setN_title_like(String n_title_like) {
         this.n_title_like = n_title_like;
@@ -209,13 +216,6 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
         this.n_testtask_eq = n_testtask_eq;
         if(!ObjectUtils.isEmpty(this.n_testtask_eq)){
             this.getSelectCond().eq("testtask", n_testtask_eq);
-        }
-    }
-	private BigInteger n_resolvedbuild_eq;//[解决版本]
-	public void setN_resolvedbuild_eq(BigInteger n_resolvedbuild_eq) {
-        this.n_resolvedbuild_eq = n_resolvedbuild_eq;
-        if(!ObjectUtils.isEmpty(this.n_resolvedbuild_eq)){
-            this.getSelectCond().eq("resolvedbuild", n_resolvedbuild_eq);
         }
     }
 

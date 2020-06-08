@@ -66,8 +66,6 @@ public interface BugMapper extends BaseMapper<Bug>{
 
     List<Bug> selectByDuplicatebug(@Param("id") Serializable id) ;
 
-    List<Bug> selectByResolvedbuild(@Param("id") Serializable id) ;
-
     List<Bug> selectByIbizcase(@Param("id") Serializable id) ;
 
     List<Bug> selectByEntry(@Param("id") Serializable id) ;

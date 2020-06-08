@@ -33,6 +33,7 @@ export default {
     id: 'Bug编号',
     found: 'found',
     resolvedby: '解决者',
+    resolvedbuild: '解决版本',
     pri: '优先级',
     os: '操作系统',
     hardware: 'hardware',
@@ -57,7 +58,6 @@ export default {
     project: '所属项目',
     task: '相关任务',
     testtask: '测试单',
-    resolvedbuild: '解决版本',
   },
 	views: {
 		plansubgridview: {
@@ -206,8 +206,8 @@ export default {
 			openedby: '由谁创建', 
 			openedbuild: '影响版本', 
 			resolvedby: '由谁解决', 
-			resolvedbuild: '解决版本', 
 			resolution: '解决方案', 
+			resolvedbuild: '解决版本', 
 			closedby: '由谁关闭', 
 			lasteditedby: '最后修改者', 
 			id: 'Bug编号', 

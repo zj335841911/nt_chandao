@@ -186,14 +186,14 @@ export default class DashboardMainEditModel {
         dataType: 'TEXT',
       },
       {
-        name: 'resolvedbuild',
-        prop: 'resolvedbuild',
-        dataType: 'PICKUP',
-      },
-      {
         name: 'resolution',
         prop: 'resolution',
         dataType: 'SSCODELIST',
+      },
+      {
+        name: 'resolvedbuild',
+        prop: 'resolvedbuild',
+        dataType: 'TEXT',
       },
       {
         name: 'closedby',

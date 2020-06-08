@@ -376,20 +376,6 @@ style=""></app-span>
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.resolvedbuild.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='resolvedbuild' :itemRules="this.rules.resolvedbuild" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.resolvedbuild')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resolvedbuild.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list 
-    v-model="data.resolvedbuild" 
-    :data="data" 
-    :context="context"
-    :viewparams="viewparams"
-    :itemParam="{}" 
-    :disabled="detailsModel.resolvedbuild.disabled"  
-    placeholder='请选择...' style="">
- </dropdown-list>
-</app-form-item>
-
-</i-col>
 <i-col v-show="detailsModel.resolution.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='resolution' :itemRules="this.rules.resolution" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.resolution')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resolution.error" :isEmptyCaption="false" labelPos="LEFT">
      <dropdown-list 
@@ -403,6 +389,12 @@ style=""></app-span>
     codelistType='STATIC'
     placeholder='请选择...' style="">
  </dropdown-list>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.resolvedbuild.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='resolvedbuild' :itemRules="this.rules.resolvedbuild" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.resolvedbuild')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resolvedbuild.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.resolvedbuild"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.resolvedbuild.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
 </i-col>
@@ -785,8 +777,8 @@ export default class DashboardMainEditBase extends Vue implements ControlInterfa
         openedby: null,
         openedbuild: null,
         resolvedby: null,
-        resolvedbuild: null,
         resolution: null,
+        resolvedbuild: null,
         closedby: null,
         lasteditedby: null,
         id: null,
@@ -1036,17 +1028,17 @@ export default class DashboardMainEditBase extends Vue implements ControlInterfa
             { required: false, type: 'string', message: '由谁解决 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '由谁解决 值不能为空', trigger: 'blur' },
         ],
-        resolvedbuild: [
-            { type: 'number', message: '解决版本 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '解决版本 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '解决版本 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '解决版本 值不能为空', trigger: 'blur' },
-        ],
         resolution: [
             { type: 'string', message: '解决方案 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '解决方案 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '解决方案 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '解决方案 值不能为空', trigger: 'blur' },
+        ],
+        resolvedbuild: [
+            { type: 'string', message: '解决版本 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '解决版本 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '解决版本 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '解决版本 值不能为空', trigger: 'blur' },
         ],
         closedby: [
             { type: 'string', message: '由谁关闭 值必须为字符串类型', trigger: 'change' },
@@ -1161,9 +1153,9 @@ export default class DashboardMainEditBase extends Vue implements ControlInterfa
 , 
         resolvedby: new FormItemModel({ caption: '由谁解决', detailType: 'FORMITEM', name: 'resolvedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        resolvedbuild: new FormItemModel({ caption: '解决版本', detailType: 'FORMITEM', name: 'resolvedbuild', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
         resolution: new FormItemModel({ caption: '解决方案', detailType: 'FORMITEM', name: 'resolution', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        resolvedbuild: new FormItemModel({ caption: '解决版本', detailType: 'FORMITEM', name: 'resolvedbuild', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         closedby: new FormItemModel({ caption: '由谁关闭', detailType: 'FORMITEM', name: 'closedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1582,18 +1574,6 @@ export default class DashboardMainEditBase extends Vue implements ControlInterfa
     }
 
     /**
-     * 监控表单属性 resolvedbuild 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof DashboardMainEdit
-     */
-    @Watch('data.resolvedbuild')
-    onResolvedbuildChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'resolvedbuild', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
      * 监控表单属性 resolution 值
      *
      * @param {*} newVal
@@ -1603,6 +1583,18 @@ export default class DashboardMainEditBase extends Vue implements ControlInterfa
     @Watch('data.resolution')
     onResolutionChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'resolution', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 resolvedbuild 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof DashboardMainEdit
+     */
+    @Watch('data.resolvedbuild')
+    onResolvedbuildChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'resolvedbuild', newVal: newVal, oldVal: oldVal });
     }
 
     /**

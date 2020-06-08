@@ -73,7 +73,7 @@ export default class DashboardBugLifeModel {
       {
         name: 'resolvedbuild',
         prop: 'resolvedbuild',
-        dataType: 'PICKUP',
+        dataType: 'TEXT',
       },
       {
         name: 'resolution',

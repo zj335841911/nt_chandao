@@ -49,6 +49,17 @@ style=""></app-span>
 </app-form-item>
 
 </i-col>
+<i-col v-show="detailsModel.resolvedbuild.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='resolvedbuild' :itemRules="this.rules.resolvedbuild" class='' :caption="$t('entities.bug.dashboardbuglife_form.details.resolvedbuild')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resolvedbuild.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-span   name='resolvedbuild'
+:value="data.resolvedbuild"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
+</app-form-item>
+
+</i-col>
 <i-col v-show="detailsModel.resolution.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='resolution' :itemRules="this.rules.resolution" class='' :caption="$t('entities.bug.dashboardbuglife_form.details.resolution')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resolution.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='resolution'
@@ -544,10 +555,10 @@ export default class DashboardBugLifeBase extends Vue implements ControlInterfac
             { required: false, type: 'string', message: '由谁解决 值不能为空', trigger: 'blur' },
         ],
         resolvedbuild: [
-            { type: 'number', message: '解决版本 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '解决版本 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '解决版本 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '解决版本 值不能为空', trigger: 'blur' },
+            { type: 'string', message: '解决版本 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '解决版本 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '解决版本 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '解决版本 值不能为空', trigger: 'blur' },
         ],
         resolution: [
             { type: 'string', message: '解决方案 值必须为字符串类型', trigger: 'change' },
