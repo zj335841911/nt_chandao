@@ -143,6 +143,13 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
     }
 
     @Override
+    @Transactional
+    public Burn computeBurn(Burn et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
     public Burn getDraft(Burn et) {
         return et;
     }

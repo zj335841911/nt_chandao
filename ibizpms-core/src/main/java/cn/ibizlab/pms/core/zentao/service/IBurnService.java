@@ -35,6 +35,7 @@ public interface IBurnService extends IService<Burn>{
     void saveBatch(List<Burn> list) ;
     boolean update(Burn et) ;
     void updateBatch(List<Burn> list) ;
+    Burn computeBurn(Burn et) ;
     Burn getDraft(Burn et) ;
     Page<Burn> searchDefault(BurnSearchContext context) ;
     List<Burn> selectByProject(BigInteger id) ;
