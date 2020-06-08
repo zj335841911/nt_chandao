@@ -20,7 +20,7 @@ import './entity/case-steps/case-steps';
 import './entity/depts/depts';
 import './entity/companys/companys';
 import './entity/storys/storys';
-import './entity/ibz-subtasks/ibz-subtasks';
+import './entity/sub-tasks/sub-tasks';
 import './entity/projects/projects';
 import './entity/historys/historys';
 import './entity/users/users';

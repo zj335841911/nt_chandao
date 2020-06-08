@@ -5,17 +5,17 @@
     </template>
     <template slot="toolbar">
                 <div class='toolbar-container'>
-            <i-button :title="$t('entities.ibz_subtask.subtasknewviewtoolbar_toolbar.deuiaction1.tip')" v-show="toolBarModels.deuiaction1.visabled" :disabled="toolBarModels.deuiaction1.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1' }, $event)">
+            <i-button :title="$t('entities.subtask.subtasknewviewtoolbar_toolbar.deuiaction1.tip')" v-show="toolBarModels.deuiaction1.visabled" :disabled="toolBarModels.deuiaction1.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1' }, $event)">
                     <i class='fa fa-table'></i>
-                    <span class='caption'>{{$t('entities.ibz_subtask.subtasknewviewtoolbar_toolbar.deuiaction1.caption')}}</span>
+                    <span class='caption'>{{$t('entities.subtask.subtasknewviewtoolbar_toolbar.deuiaction1.caption')}}</span>
                 </i-button>
-            <i-button :title="$t('entities.ibz_subtask.subtasknewviewtoolbar_toolbar.deuiaction2.tip')" v-show="toolBarModels.deuiaction2.visabled" :disabled="toolBarModels.deuiaction2.disabled" class='' @click="toolbar_click({ tag: 'deuiaction2' }, $event)">
+            <i-button :title="$t('entities.subtask.subtasknewviewtoolbar_toolbar.deuiaction2.tip')" v-show="toolBarModels.deuiaction2.visabled" :disabled="toolBarModels.deuiaction2.disabled" class='' @click="toolbar_click({ tag: 'deuiaction2' }, $event)">
                     <i class='fa fa-plus'></i>
-                    <span class='caption'>{{$t('entities.ibz_subtask.subtasknewviewtoolbar_toolbar.deuiaction2.caption')}}</span>
+                    <span class='caption'>{{$t('entities.subtask.subtasknewviewtoolbar_toolbar.deuiaction2.caption')}}</span>
                 </i-button>
-            <i-button :title="$t('entities.ibz_subtask.subtasknewviewtoolbar_toolbar.deuiaction3.tip')" v-show="toolBarModels.deuiaction3.visabled" :disabled="toolBarModels.deuiaction3.disabled" class='' @click="toolbar_click({ tag: 'deuiaction3' }, $event)">
+            <i-button :title="$t('entities.subtask.subtasknewviewtoolbar_toolbar.deuiaction3.tip')" v-show="toolBarModels.deuiaction3.visabled" :disabled="toolBarModels.deuiaction3.disabled" class='' @click="toolbar_click({ tag: 'deuiaction3' }, $event)">
                     <i class='fa fa-save'></i>
-                    <span class='caption'>{{$t('entities.ibz_subtask.subtasknewviewtoolbar_toolbar.deuiaction3.caption')}}</span>
+                    <span class='caption'>{{$t('entities.subtask.subtasknewviewtoolbar_toolbar.deuiaction3.caption')}}</span>
                 </i-button>
         </div>
     </template>
@@ -53,7 +53,7 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { UIActionTool,Util } from '@/utils';
 import { Subject } from 'rxjs';
-import IBZ_SUBTASKService from '@/service/ibz-subtask/ibz-subtask-service';
+import SubTaskService from '@/service/sub-task/sub-task-service';
 
 import GridViewEngine from '@engine/view/grid-view-engine';
 
@@ -70,10 +70,10 @@ export default class TaskSubTaskNewViewBase extends Vue {
     /**
      * 实体服务对象
      *
-     * @type {IBZ_SUBTASKService}
+     * @type {SubTaskService}
      * @memberof TaskSubTaskNewViewBase
      */
-    public appEntityService: IBZ_SUBTASKService = new IBZ_SUBTASKService;
+    public appEntityService: SubTaskService = new SubTaskService;
 
 
     /**
@@ -153,9 +153,9 @@ export default class TaskSubTaskNewViewBase extends Vue {
      * @memberof TaskSubTaskNewViewBase
      */
     public model: any = {
-        srfCaption: 'entities.ibz_subtask.views.subtasknewview.caption',
-        srfTitle: 'entities.ibz_subtask.views.subtasknewview.title',
-        srfSubTitle: 'entities.ibz_subtask.views.subtasknewview.subtitle',
+        srfCaption: 'entities.subtask.views.subtasknewview.caption',
+        srfTitle: 'entities.subtask.views.subtasknewview.title',
+        srfSubTitle: 'entities.subtask.views.subtasknewview.subtitle',
         dataInfo: ''
     }
 
@@ -275,7 +275,7 @@ export default class TaskSubTaskNewViewBase extends Vue {
                 this.newdata(args,fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
-            keyPSDEField: 'ibz_subtask',
+            keyPSDEField: 'subtask',
             majorPSDEField: 'name',
             isLoadDefault: true,
         });
@@ -592,7 +592,7 @@ export default class TaskSubTaskNewViewBase extends Vue {
           datas = [params];
         }
         // 界面行为
-        this.ToggleRowEdit(datas, contextJO,paramJO,  $event, xData,this,"IBZ_SUBTASK");
+        this.ToggleRowEdit(datas, contextJO,paramJO,  $event, xData,this,"SubTask");
     }
 
     /**
@@ -621,7 +621,7 @@ export default class TaskSubTaskNewViewBase extends Vue {
           datas = [params];
         }
         // 界面行为
-        this.NewRow(datas, contextJO,paramJO,  $event, xData,this,"IBZ_SUBTASK");
+        this.NewRow(datas, contextJO,paramJO,  $event, xData,this,"SubTask");
     }
 
     /**
@@ -650,7 +650,7 @@ export default class TaskSubTaskNewViewBase extends Vue {
           datas = [params];
         }
         // 界面行为
-        this.SaveRow(datas, contextJO,paramJO,  $event, xData,this,"IBZ_SUBTASK");
+        this.SaveRow(datas, contextJO,paramJO,  $event, xData,this,"SubTask");
     }
 
     /**

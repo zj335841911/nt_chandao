@@ -535,7 +535,7 @@ export default class TaskUIServiceBase extends UIService {
             { pathName: 'tasks', parameterName: 'task' },
         ];
         const parameters: any[] = [
-            { pathName: 'ibz_subtasks', parameterName: 'ibz_subtask' },
+            { pathName: 'subtasks', parameterName: 'subtask' },
         ];
             const openPopupModal = (view: any, data: any) => {
                 let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
@@ -555,7 +555,7 @@ export default class TaskUIServiceBase extends UIService {
                 viewname: 'task-sub-task-new-view', 
                 height: 600, 
                 width: 1200,  
-                title: actionContext.$t('entities.ibz_subtask.views.subtasknewview.title'),
+                title: actionContext.$t('entities.subtask.views.subtasknewview.title'),
             };
             openPopupModal(view, data);
     }

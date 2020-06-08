@@ -11,7 +11,7 @@ import casestep_en_US from '@locale/lanres/entities/case-step/case-step_en_US';
 import dept_en_US from '@locale/lanres/entities/dept/dept_en_US';
 import company_en_US from '@locale/lanres/entities/company/company_en_US';
 import story_en_US from '@locale/lanres/entities/story/story_en_US';
-import ibz_subtask_en_US from '@locale/lanres/entities/ibz-subtask/ibz-subtask_en_US';
+import subtask_en_US from '@locale/lanres/entities/sub-task/sub-task_en_US';
 import project_en_US from '@locale/lanres/entities/project/project_en_US';
 import history_en_US from '@locale/lanres/entities/history/history_en_US';
 import user_en_US from '@locale/lanres/entities/user/user_en_US';
@@ -123,7 +123,7 @@ export default {
         dept: dept_en_US,
         company: company_en_US,
         story: story_en_US,
-        ibz_subtask: ibz_subtask_en_US,
+        subtask: subtask_en_US,
         project: project_en_US,
         history: history_en_US,
         user: user_en_US,

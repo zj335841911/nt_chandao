@@ -2385,14 +2385,14 @@ const router = new Router({
                     component: () => import('@pages/zentao/action-product-trends-list-view9/action-product-trends-list-view9.vue'),
                 },
                 {
-                    path: 'projects/:project?/tasks/:task?/ibz_subtasks/:ibz_subtask?/subtasknewview/:subtasknewview?',
+                    path: 'projects/:project?/tasks/:task?/subtasks/:subtask?/subtasknewview/:subtasknewview?',
                     meta: {
-                        caption: 'entities.ibz_subtask.views.subtasknewview.caption',
+                        caption: 'entities.subtask.views.subtasknewview.caption',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
                             { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'ibz_subtasks', parameterName: 'ibz_subtask' },
+                            { pathName: 'subtasks', parameterName: 'subtask' },
                             { pathName: 'subtasknewview', parameterName: 'subtasknewview' },
                         ],
                         requireAuth: true,
@@ -2400,13 +2400,13 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-sub-task-new-view/task-sub-task-new-view.vue'),
                 },
                 {
-                    path: 'tasks/:task?/ibz_subtasks/:ibz_subtask?/subtasknewview/:subtasknewview?',
+                    path: 'tasks/:task?/subtasks/:subtask?/subtasknewview/:subtasknewview?',
                     meta: {
-                        caption: 'entities.ibz_subtask.views.subtasknewview.caption',
+                        caption: 'entities.subtask.views.subtasknewview.caption',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'ibz_subtasks', parameterName: 'ibz_subtask' },
+                            { pathName: 'subtasks', parameterName: 'subtask' },
                             { pathName: 'subtasknewview', parameterName: 'subtasknewview' },
                         ],
                         requireAuth: true,
@@ -2414,12 +2414,12 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-sub-task-new-view/task-sub-task-new-view.vue'),
                 },
                 {
-                    path: 'ibz_subtasks/:ibz_subtask?/subtasknewview/:subtasknewview?',
+                    path: 'subtasks/:subtask?/subtasknewview/:subtasknewview?',
                     meta: {
-                        caption: 'entities.ibz_subtask.views.subtasknewview.caption',
+                        caption: 'entities.subtask.views.subtasknewview.caption',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibz_subtasks', parameterName: 'ibz_subtask' },
+                            { pathName: 'subtasks', parameterName: 'subtask' },
                             { pathName: 'subtasknewview', parameterName: 'subtasknewview' },
                         ],
                         requireAuth: true,
@@ -3543,13 +3543,13 @@ const router = new Router({
         component: () => import('@pages/zentao/task-main-info-view9/task-main-info-view9.vue'),
     },
     {
-        path: '/projects/:project?/tasks/:task?/ibz_subtasks/:ibz_subtask?/subtasknewview/:subtasknewview?',
+        path: '/projects/:project?/tasks/:task?/subtasks/:subtask?/subtasknewview/:subtasknewview?',
         meta: {
-            caption: 'entities.ibz_subtask.views.subtasknewview.caption',
+            caption: 'entities.subtask.views.subtasknewview.caption',
             parameters: [
                 { pathName: 'projects', parameterName: 'project' },
                 { pathName: 'tasks', parameterName: 'task' },
-                { pathName: 'ibz_subtasks', parameterName: 'ibz_subtask' },
+                { pathName: 'subtasks', parameterName: 'subtask' },
                 { pathName: 'subtasknewview', parameterName: 'subtasknewview' },
             ],
             requireAuth: true,
@@ -3557,12 +3557,12 @@ const router = new Router({
         component: () => import('@pages/zentao/task-sub-task-new-view/task-sub-task-new-view.vue'),
     },
     {
-        path: '/tasks/:task?/ibz_subtasks/:ibz_subtask?/subtasknewview/:subtasknewview?',
+        path: '/tasks/:task?/subtasks/:subtask?/subtasknewview/:subtasknewview?',
         meta: {
-            caption: 'entities.ibz_subtask.views.subtasknewview.caption',
+            caption: 'entities.subtask.views.subtasknewview.caption',
             parameters: [
                 { pathName: 'tasks', parameterName: 'task' },
-                { pathName: 'ibz_subtasks', parameterName: 'ibz_subtask' },
+                { pathName: 'subtasks', parameterName: 'subtask' },
                 { pathName: 'subtasknewview', parameterName: 'subtasknewview' },
             ],
             requireAuth: true,
@@ -3570,11 +3570,11 @@ const router = new Router({
         component: () => import('@pages/zentao/task-sub-task-new-view/task-sub-task-new-view.vue'),
     },
     {
-        path: '/ibz_subtasks/:ibz_subtask?/subtasknewview/:subtasknewview?',
+        path: '/subtasks/:subtask?/subtasknewview/:subtasknewview?',
         meta: {
-            caption: 'entities.ibz_subtask.views.subtasknewview.caption',
+            caption: 'entities.subtask.views.subtasknewview.caption',
             parameters: [
-                { pathName: 'ibz_subtasks', parameterName: 'ibz_subtask' },
+                { pathName: 'subtasks', parameterName: 'subtask' },
                 { pathName: 'subtasknewview', parameterName: 'subtasknewview' },
             ],
             requireAuth: true,

@@ -52,7 +52,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('dept', () => import('@/service/dept/dept-service'));
         this.allEntityService.set('company', () => import('@/service/company/company-service'));
         this.allEntityService.set('story', () => import('@/service/story/story-service'));
-        this.allEntityService.set('ibz_subtask', () => import('@/service/ibz-subtask/ibz-subtask-service'));
+        this.allEntityService.set('subtask', () => import('@/service/sub-task/sub-task-service'));
         this.allEntityService.set('project', () => import('@/service/project/project-service'));
         this.allEntityService.set('history', () => import('@/service/history/history-service'));
         this.allEntityService.set('user', () => import('@/service/user/user-service'));

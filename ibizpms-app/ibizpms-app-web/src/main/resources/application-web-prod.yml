@@ -56,7 +56,7 @@ zuul:
       serviceId: pms-webapi
       stripPrefix: false
     ibz_subtask:
-      path: /ibz_subtasks/**
+      path: /subtasks/**
       serviceId: pms-webapi
       stripPrefix: false
     zt_project:
