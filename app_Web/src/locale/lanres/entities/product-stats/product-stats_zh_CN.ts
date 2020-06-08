@@ -1,6 +1,6 @@
 export default {
   fields: {
-    id: '项目编号',
+    id: '产品编号',
     deleted: '已删除',
     storycnt: '需求总数',
     productplancnt: '计划总数',
@@ -11,5 +11,6 @@ export default {
     testingstorycnt: '测试中需求数',
     releasedstorycnt: '已发布需求数',
     unendproductplancnt: '未过期计划数',
+    unendproductplanrate: '剩余计划率',
   },
 };

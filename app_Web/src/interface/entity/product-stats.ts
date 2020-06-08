@@ -7,7 +7,7 @@
 export interface ProductStats {
 
     /**
-     * 项目编号
+     * 产品编号
      *
      * @returns {*}
      * @memberof ProductStats
@@ -93,4 +93,12 @@ export interface ProductStats {
      * @memberof ProductStats
      */
     unendproductplancnt?: any;
+
+    /**
+     * 剩余计划率
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    unendproductplanrate?: any;
 }

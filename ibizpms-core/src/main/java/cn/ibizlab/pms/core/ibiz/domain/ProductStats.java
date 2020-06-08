@@ -39,7 +39,7 @@ public class ProductStats extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 项目编号
+     * 产品编号
      */
     @DEField(isKeyField=true)
     @TableId(value= "id",type=IdType.AUTO)
@@ -118,6 +118,13 @@ public class ProductStats extends EntityMP implements Serializable {
     @JSONField(name = "unendproductplancnt")
     @JsonProperty("unendproductplancnt")
     private Integer unendproductplancnt;
+    /**
+     * 剩余计划率
+     */
+    @TableField(exist = false)
+    @JSONField(name = "unendproductplanrate")
+    @JsonProperty("unendproductplanrate")
+    private Double unendproductplanrate;
 
 
 

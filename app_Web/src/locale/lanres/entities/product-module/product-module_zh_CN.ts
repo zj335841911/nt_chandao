@@ -104,12 +104,4 @@ export default {
 		uiactions: {
 		},
 	},
-	bugexp_treeview: {
-		nodes: {
-			root: '默认根节点',
-			all: '全部',
-		},
-		uiactions: {
-		},
-	},
 };
