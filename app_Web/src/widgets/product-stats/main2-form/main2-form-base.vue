@@ -861,19 +861,19 @@ export default class Main2Base extends Vue implements ControlInterface {
 , 
         productplancnt: new FormItemModel({ caption: '所有计划', detailType: 'FORMITEM', name: 'productplancnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        unendproductplanrate: new FormItemModel({ caption: '剩余计划率', detailType: 'FORMITEM', name: 'unendproductplanrate', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 0 })
+        unendproductplanrate: new FormItemModel({ caption: '剩余计划率', detailType: 'FORMITEM', name: 'unendproductplanrate', visible: false, isShowCaption: false, form: this, disabled: false, enableCond: 0 })
 , 
         unendproductplancnt: new FormItemModel({ caption: '未过期', detailType: 'FORMITEM', name: 'unendproductplancnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         resprojectcnt: new FormItemModel({ caption: '所有项目', detailType: 'FORMITEM', name: 'resprojectcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        undoneresprojectrate: new FormItemModel({ caption: '进行项目率', detailType: 'FORMITEM', name: 'undoneresprojectrate', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 0 })
+        undoneresprojectrate: new FormItemModel({ caption: '进行项目率', detailType: 'FORMITEM', name: 'undoneresprojectrate', visible: false, isShowCaption: false, form: this, disabled: false, enableCond: 0 })
 , 
         undoneresprojectcnt: new FormItemModel({ caption: '进行中', detailType: 'FORMITEM', name: 'undoneresprojectcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         releasecnt: new FormItemModel({ caption: '所有发布', detailType: 'FORMITEM', name: 'releasecnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        normalreleaserate: new FormItemModel({ caption: '维护发布率', detailType: 'FORMITEM', name: 'normalreleaserate', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 0 })
+        normalreleaserate: new FormItemModel({ caption: '维护发布率', detailType: 'FORMITEM', name: 'normalreleaserate', visible: false, isShowCaption: false, form: this, disabled: false, enableCond: 0 })
 , 
         normalreleasecnt: new FormItemModel({ caption: '维护中', detailType: 'FORMITEM', name: 'normalreleasecnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1261,12 +1261,36 @@ export default class Main2Base extends Vue implements ControlInterface {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'productplancnt')) {
+            let ret = false;
+            const _productplancnt = this.data.productplancnt;
+            if (this.$verify.testCond(_productplancnt, 'NOTEQ', '0')) {
+                ret = true;
+            }
+            this.detailsModel.unendproductplanrate.setVisible(ret);
+        }
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'resprojectcnt')) {
+            let ret = false;
+            const _resprojectcnt = this.data.resprojectcnt;
+            if (this.$verify.testCond(_resprojectcnt, 'NOTEQ', '0')) {
+                ret = true;
+            }
+            this.detailsModel.undoneresprojectrate.setVisible(ret);
+        }
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'releasecnt')) {
+            let ret = false;
+            const _releasecnt = this.data.releasecnt;
+            if (this.$verify.testCond(_releasecnt, 'NOTEQ', '0')) {
+                ret = true;
+            }
+            this.detailsModel.normalreleaserate.setVisible(ret);
+        }
 
 
 
