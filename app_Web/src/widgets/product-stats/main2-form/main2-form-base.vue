@@ -2,16 +2,15 @@
     <i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='productstats_main2' style="">
     <input style="display:none;" />
     <row >
-        <div style="height: 100%;display: flex;">
-    
-<div  v-show="detailsModel.group1.visible" :style="{}">
-<app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <div style="height: 100%;display: flex;flex-direction: row;justify-content: center;">
-        <div  v-show="detailsModel.grouppanel1.visible" :style="{}">
-<app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <div style="height: 100%;display: flex;flex-direction: column;justify-content: center;">
-        <div  v-show="detailsModel.storycnt.visible" :style="{}">
-<app-form-item name='storycnt' :itemRules="this.rules.storycnt" class='' :caption="$t('entities.productstats.main2_form.details.storycnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.storycnt.error" :isEmptyCaption="false" labelPos="TOP">
+            
+<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <row>
+        <i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <row>
+        <i-col v-show="detailsModel.storycnt.visible" :style="{}"  :lg="{ span: 8, offset: 8 }" :xl="{ span: 8, offset: 8 }">
+    <app-form-item name='storycnt' :itemRules="this.rules.storycnt" class='' :caption="$t('entities.productstats.main2_form.details.storycnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.storycnt.error" :isEmptyCaption="false" labelPos="TOP">
     <app-span   name='storycnt'
 :value="data.storycnt"   :data="data"
   :context="context"
@@ -20,36 +19,36 @@
 style=""></app-span>
 </app-form-item>
 
-</div>
-<div  v-show="detailsModel.grouppanel6.visible" :style="{}">
-<app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel6.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel6')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <div style="height: 100%;display: flex;flex-direction: column;justify-content: center;">
-        <div  v-show="detailsModel.button4.visible" :style="{'width': '100px',}">
-    <i-button type="primary" @click="button4_click($event)"
+</i-col>
+<i-col v-show="detailsModel.grouppanel6.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel6.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel6')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <row>
+        <i-col v-show="detailsModel.button4.visible" :style="{}"  :lg="{ span: 8, offset: 8 }" :xl="{ span: 8, offset: 8 }">
+        <i-button type="primary" @click="button4_click($event)"
          style="">
            
         <span >{{$t('entities.productstats.main2_form.details.button4')}}</span>
     </i-button>
 
-</div>
-<div  v-show="detailsModel.button5.visible" :style="{'width': '100px',}">
-    <i-button type="primary" @click="button5_click($event)"
+</i-col>
+<i-col v-show="detailsModel.button5.visible" :style="{}"  :lg="{ span: 8, offset: 8 }" :xl="{ span: 8, offset: 8 }">
+        <i-button type="primary" @click="button5_click($event)"
          style="">
            
         <span >{{$t('entities.productstats.main2_form.details.button5')}}</span>
     </i-button>
 
-</div>
-
-    </div>
+</i-col>
+    
+    </row>
 </app-form-group>
 
-</div>
-<div  v-show="detailsModel.grouppanel13.visible" :style="{}">
-<app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel13.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel13')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <div style="height: 100%;display: flex;flex-direction: row;justify-content: flex-start;">
-        <div  v-show="detailsModel.waitstorycnt.visible" :style="{'flex-grow': '1','height': 0,}">
-<app-form-item name='waitstorycnt' :itemRules="this.rules.waitstorycnt" class='' :caption="$t('entities.productstats.main2_form.details.waitstorycnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.waitstorycnt.error" :isEmptyCaption="false" labelPos="TOP">
+</i-col>
+<i-col v-show="detailsModel.grouppanel13.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel13.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel13')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <row>
+        <i-col v-show="detailsModel.waitstorycnt.visible" :style="{}"  :lg="{ span: 4, offset: 2 }" :xl="{ span: 4, offset: 2 }">
+    <app-form-item name='waitstorycnt' :itemRules="this.rules.waitstorycnt" class='' :caption="$t('entities.productstats.main2_form.details.waitstorycnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.waitstorycnt.error" :isEmptyCaption="false" labelPos="TOP">
     <app-span   name='waitstorycnt'
 :value="data.waitstorycnt"   :data="data"
   :context="context"
@@ -58,9 +57,9 @@ style=""></app-span>
 style=""></app-span>
 </app-form-item>
 
-</div>
-<div  v-show="detailsModel.plannedstorycnt.visible" :style="{'flex-grow': '1','height': 0,}">
-<app-form-item name='plannedstorycnt' :itemRules="this.rules.plannedstorycnt" class='' :caption="$t('entities.productstats.main2_form.details.plannedstorycnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.plannedstorycnt.error" :isEmptyCaption="false" labelPos="TOP">
+</i-col>
+<i-col v-show="detailsModel.plannedstorycnt.visible" :style="{}"  :lg="{ span: 4, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+    <app-form-item name='plannedstorycnt' :itemRules="this.rules.plannedstorycnt" class='' :caption="$t('entities.productstats.main2_form.details.plannedstorycnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.plannedstorycnt.error" :isEmptyCaption="false" labelPos="TOP">
     <app-span   name='plannedstorycnt'
 :value="data.plannedstorycnt"   :data="data"
   :context="context"
@@ -69,9 +68,9 @@ style=""></app-span>
 style=""></app-span>
 </app-form-item>
 
-</div>
-<div  v-show="detailsModel.developingstorycnt.visible" :style="{'flex-grow': '1','height': 0,}">
-<app-form-item name='developingstorycnt' :itemRules="this.rules.developingstorycnt" class='' :caption="$t('entities.productstats.main2_form.details.developingstorycnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.developingstorycnt.error" :isEmptyCaption="false" labelPos="TOP">
+</i-col>
+<i-col v-show="detailsModel.developingstorycnt.visible" :style="{}"  :lg="{ span: 4, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+    <app-form-item name='developingstorycnt' :itemRules="this.rules.developingstorycnt" class='' :caption="$t('entities.productstats.main2_form.details.developingstorycnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.developingstorycnt.error" :isEmptyCaption="false" labelPos="TOP">
     <app-span   name='developingstorycnt'
 :value="data.developingstorycnt"   :data="data"
   :context="context"
@@ -80,9 +79,9 @@ style=""></app-span>
 style=""></app-span>
 </app-form-item>
 
-</div>
-<div  v-show="detailsModel.testingstorycnt.visible" :style="{'flex-grow': '1','height': 0,}">
-<app-form-item name='testingstorycnt' :itemRules="this.rules.testingstorycnt" class='' :caption="$t('entities.productstats.main2_form.details.testingstorycnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.testingstorycnt.error" :isEmptyCaption="false" labelPos="TOP">
+</i-col>
+<i-col v-show="detailsModel.testingstorycnt.visible" :style="{}"  :lg="{ span: 4, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+    <app-form-item name='testingstorycnt' :itemRules="this.rules.testingstorycnt" class='' :caption="$t('entities.productstats.main2_form.details.testingstorycnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.testingstorycnt.error" :isEmptyCaption="false" labelPos="TOP">
     <app-span   name='testingstorycnt'
 :value="data.testingstorycnt"   :data="data"
   :context="context"
@@ -91,9 +90,9 @@ style=""></app-span>
 style=""></app-span>
 </app-form-item>
 
-</div>
-<div  v-show="detailsModel.releasedstorycnt.visible" :style="{'flex-grow': '1','height': 0,}">
-<app-form-item name='releasedstorycnt' :itemRules="this.rules.releasedstorycnt" class='' :caption="$t('entities.productstats.main2_form.details.releasedstorycnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.releasedstorycnt.error" :isEmptyCaption="false" labelPos="TOP">
+</i-col>
+<i-col v-show="detailsModel.releasedstorycnt.visible" :style="{}"  :lg="{ span: 4, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+    <app-form-item name='releasedstorycnt' :itemRules="this.rules.releasedstorycnt" class='' :caption="$t('entities.productstats.main2_form.details.releasedstorycnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.releasedstorycnt.error" :isEmptyCaption="false" labelPos="TOP">
     <app-span   name='releasedstorycnt'
 :value="data.releasedstorycnt"   :data="data"
   :context="context"
@@ -102,50 +101,25 @@ style=""></app-span>
 style=""></app-span>
 </app-form-item>
 
-</div>
-
-    </div>
+</i-col>
+    
+    </row>
 </app-form-group>
 
-</div>
-
-    </div>
+</i-col>
+    
+    </row>
 </app-form-group>
 
-</div>
-<div  v-show="detailsModel.grouppanel2.visible" :style="{}">
-<app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <div style="height: 100%;display: flex;flex-direction: column;">
-        <div  v-show="detailsModel.grouppanel8.visible" :style="{}">
-<app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel8.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel8')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <div style="height: 100%;display: flex;flex-direction: row;justify-content: flex-end;">
-        <div  v-show="detailsModel.grouppanel3.visible" :style="{'flex-grow': '3','height': 0,}">
-<app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel3')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <div style="height: 100%;display: flex;">
-        <div  v-show="detailsModel.unendproductplanrate.visible" :style="{}">
-<app-form-item name='unendproductplanrate' :itemRules="this.rules.unendproductplanrate" class='' :caption="$t('entities.productstats.main2_form.details.unendproductplanrate')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.unendproductplanrate.error" :isEmptyCaption="false" labelPos="NONE">
-    <app-slider name='unendproductplanrate' :value="this.data.unendproductplanrate" @change="onFormItemValueChange" :disabled="detailsModel.unendproductplanrate.disabled" style=""></app-slider>
-</app-form-item>
-
-</div>
-<div  v-show="detailsModel.button1.visible" :style="{}">
-    <i-button type="primary" @click="button1_click($event)"
-         style="">
-        <i class="fa fa-plus" style="margin-right: 2px;"></i>   
-        <span >{{$t('entities.productstats.main2_form.details.button1')}}</span>
-    </i-button>
-
-</div>
-
-    </div>
-</app-form-group>
-
-</div>
-<div  v-show="detailsModel.grouppanel7.visible" :style="{'flex-grow': '1','height': 0,}">
-<app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel7.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel7')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <div style="height: 100%;display: flex;">
-        <div  v-show="detailsModel.productplancnt.visible" :style="{}">
-<app-form-item name='productplancnt' :itemRules="this.rules.productplancnt" class='' :caption="$t('entities.productstats.main2_form.details.productplancnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.productplancnt.error" :isEmptyCaption="false" labelPos="LEFT">
+</i-col>
+<i-col v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <row>
+        <i-col v-show="detailsModel.grouppanel8.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel8.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel8')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <row>
+        <i-col v-show="detailsModel.productplancnt.visible" :style="{}"  :lg="{ span: 8, offset: 16 }" :xl="{ span: 8, offset: 16 }">
+    <app-form-item name='productplancnt' :itemRules="this.rules.productplancnt" class='' :caption="$t('entities.productstats.main2_form.details.productplancnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.productplancnt.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='productplancnt'
 :value="data.productplancnt"   :data="data"
   :context="context"
@@ -154,9 +128,31 @@ style=""></app-span>
 style=""></app-span>
 </app-form-item>
 
-</div>
-<div  v-show="detailsModel.unendproductplancnt.visible" :style="{}">
-<app-form-item name='unendproductplancnt' :itemRules="this.rules.unendproductplancnt" class='' :caption="$t('entities.productstats.main2_form.details.unendproductplancnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.unendproductplancnt.error" :isEmptyCaption="false" labelPos="LEFT">
+</i-col>
+<i-col v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 16, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel3')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <row>
+        <i-col v-show="detailsModel.unendproductplanrate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='unendproductplanrate' :itemRules="this.rules.unendproductplanrate" class='' :caption="$t('entities.productstats.main2_form.details.unendproductplanrate')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.unendproductplanrate.error" :isEmptyCaption="false" labelPos="NONE">
+    <app-slider name='unendproductplanrate' :value="this.data.unendproductplanrate" @change="onFormItemValueChange" :disabled="detailsModel.unendproductplanrate.disabled" style=""></app-slider>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.button1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-button type="primary" @click="button1_click($event)"
+         style="">
+        <i class="fa fa-plus" style="margin-right: 2px;"></i>   
+        <span >{{$t('entities.productstats.main2_form.details.button1')}}</span>
+    </i-button>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col v-show="detailsModel.unendproductplancnt.visible" :style="{}"  :lg="{ span: 8, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+    <app-form-item name='unendproductplancnt' :itemRules="this.rules.unendproductplancnt" class='' :caption="$t('entities.productstats.main2_form.details.unendproductplancnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.unendproductplancnt.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='unendproductplancnt'
 :value="data.unendproductplancnt"   :data="data"
   :context="context"
@@ -165,47 +161,17 @@ style=""></app-span>
 style=""></app-span>
 </app-form-item>
 
-</div>
-
-    </div>
+</i-col>
+    
+    </row>
 </app-form-group>
 
-</div>
-
-    </div>
-</app-form-group>
-
-</div>
-<div  v-show="detailsModel.grouppanel9.visible" :style="{}">
-<app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel9.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel9')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <div style="height: 100%;display: flex;flex-direction: row;justify-content: flex-end;">
-        <div  v-show="detailsModel.grouppanel4.visible" :style="{'flex-grow': '3','height': 0,}">
-<app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel4.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel4')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <div style="height: 100%;display: flex;">
-        <div  v-show="detailsModel.undoneresprojectrate.visible" :style="{}">
-<app-form-item name='undoneresprojectrate' :itemRules="this.rules.undoneresprojectrate" class='' :caption="$t('entities.productstats.main2_form.details.undoneresprojectrate')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.undoneresprojectrate.error" :isEmptyCaption="false" labelPos="NONE">
-    <app-slider name='undoneresprojectrate' :value="this.data.undoneresprojectrate" @change="onFormItemValueChange" :disabled="detailsModel.undoneresprojectrate.disabled" style=""></app-slider>
-</app-form-item>
-
-</div>
-<div  v-show="detailsModel.button2.visible" :style="{}">
-    <i-button type="primary" @click="button2_click($event)"
-         style="">
-        <i class="fa fa-plus" style="margin-right: 2px;"></i>   
-        <span >{{$t('entities.productstats.main2_form.details.button2')}}</span>
-    </i-button>
-
-</div>
-
-    </div>
-</app-form-group>
-
-</div>
-<div  v-show="detailsModel.grouppanel10.visible" :style="{'flex-grow': '1','height': 0,}">
-<app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel10.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel10')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <div style="height: 100%;display: flex;">
-        <div  v-show="detailsModel.resprojectcnt.visible" :style="{}">
-<app-form-item name='resprojectcnt' :itemRules="this.rules.resprojectcnt" class='' :caption="$t('entities.productstats.main2_form.details.resprojectcnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.resprojectcnt.error" :isEmptyCaption="false" labelPos="LEFT">
+</i-col>
+<i-col v-show="detailsModel.grouppanel9.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel9.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel9')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <row>
+        <i-col v-show="detailsModel.resprojectcnt.visible" :style="{}"  :lg="{ span: 8, offset: 16 }" :xl="{ span: 8, offset: 16 }">
+    <app-form-item name='resprojectcnt' :itemRules="this.rules.resprojectcnt" class='' :caption="$t('entities.productstats.main2_form.details.resprojectcnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.resprojectcnt.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='resprojectcnt'
 :value="data.resprojectcnt"   :data="data"
   :context="context"
@@ -214,9 +180,31 @@ style=""></app-span>
 style=""></app-span>
 </app-form-item>
 
-</div>
-<div  v-show="detailsModel.undoneresprojectcnt.visible" :style="{}">
-<app-form-item name='undoneresprojectcnt' :itemRules="this.rules.undoneresprojectcnt" class='' :caption="$t('entities.productstats.main2_form.details.undoneresprojectcnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.undoneresprojectcnt.error" :isEmptyCaption="false" labelPos="LEFT">
+</i-col>
+<i-col v-show="detailsModel.grouppanel4.visible" :style="{}"  :lg="{ span: 16, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel4.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel4')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <row>
+        <i-col v-show="detailsModel.undoneresprojectrate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='undoneresprojectrate' :itemRules="this.rules.undoneresprojectrate" class='' :caption="$t('entities.productstats.main2_form.details.undoneresprojectrate')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.undoneresprojectrate.error" :isEmptyCaption="false" labelPos="NONE">
+    <app-slider name='undoneresprojectrate' :value="this.data.undoneresprojectrate" @change="onFormItemValueChange" :disabled="detailsModel.undoneresprojectrate.disabled" style=""></app-slider>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.button2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-button type="primary" @click="button2_click($event)"
+         style="">
+        <i class="fa fa-plus" style="margin-right: 2px;"></i>   
+        <span >{{$t('entities.productstats.main2_form.details.button2')}}</span>
+    </i-button>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col v-show="detailsModel.undoneresprojectcnt.visible" :style="{}"  :lg="{ span: 8, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+    <app-form-item name='undoneresprojectcnt' :itemRules="this.rules.undoneresprojectcnt" class='' :caption="$t('entities.productstats.main2_form.details.undoneresprojectcnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.undoneresprojectcnt.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='undoneresprojectcnt'
 :value="data.undoneresprojectcnt"   :data="data"
   :context="context"
@@ -225,47 +213,17 @@ style=""></app-span>
 style=""></app-span>
 </app-form-item>
 
-</div>
-
-    </div>
+</i-col>
+    
+    </row>
 </app-form-group>
 
-</div>
-
-    </div>
-</app-form-group>
-
-</div>
-<div  v-show="detailsModel.grouppanel11.visible" :style="{}">
-<app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel11.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel11')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <div style="height: 100%;display: flex;flex-direction: row;justify-content: flex-end;">
-        <div  v-show="detailsModel.grouppanel5.visible" :style="{'flex-grow': '3','height': 0,}">
-<app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel5.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel5')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <div style="height: 100%;display: flex;">
-        <div  v-show="detailsModel.normalreleaserate.visible" :style="{}">
-<app-form-item name='normalreleaserate' :itemRules="this.rules.normalreleaserate" class='' :caption="$t('entities.productstats.main2_form.details.normalreleaserate')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.normalreleaserate.error" :isEmptyCaption="false" labelPos="NONE">
-    <app-slider name='normalreleaserate' :value="this.data.normalreleaserate" @change="onFormItemValueChange" :disabled="detailsModel.normalreleaserate.disabled" style=""></app-slider>
-</app-form-item>
-
-</div>
-<div  v-show="detailsModel.button3.visible" :style="{}">
-    <i-button type="primary" @click="button3_click($event)"
-         style="">
-        <i class="fa fa-plus" style="margin-right: 2px;"></i>   
-        <span >{{$t('entities.productstats.main2_form.details.button3')}}</span>
-    </i-button>
-
-</div>
-
-    </div>
-</app-form-group>
-
-</div>
-<div  v-show="detailsModel.grouppanel12.visible" :style="{'flex-grow': '1','height': 0,}">
-<app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel12.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel12')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <div style="height: 100%;display: flex;">
-        <div  v-show="detailsModel.releasecnt.visible" :style="{}">
-<app-form-item name='releasecnt' :itemRules="this.rules.releasecnt" class='' :caption="$t('entities.productstats.main2_form.details.releasecnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.releasecnt.error" :isEmptyCaption="false" labelPos="LEFT">
+</i-col>
+<i-col v-show="detailsModel.grouppanel11.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel11.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel11')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <row>
+        <i-col v-show="detailsModel.releasecnt.visible" :style="{}"  :lg="{ span: 8, offset: 16 }" :xl="{ span: 8, offset: 16 }">
+    <app-form-item name='releasecnt' :itemRules="this.rules.releasecnt" class='' :caption="$t('entities.productstats.main2_form.details.releasecnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.releasecnt.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='releasecnt'
 :value="data.releasecnt"   :data="data"
   :context="context"
@@ -274,9 +232,31 @@ style=""></app-span>
 style=""></app-span>
 </app-form-item>
 
-</div>
-<div  v-show="detailsModel.normalreleasecnt.visible" :style="{}">
-<app-form-item name='normalreleasecnt' :itemRules="this.rules.normalreleasecnt" class='' :caption="$t('entities.productstats.main2_form.details.normalreleasecnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.normalreleasecnt.error" :isEmptyCaption="false" labelPos="LEFT">
+</i-col>
+<i-col v-show="detailsModel.grouppanel5.visible" :style="{}"  :lg="{ span: 16, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel5.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel5')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <row>
+        <i-col v-show="detailsModel.normalreleaserate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='normalreleaserate' :itemRules="this.rules.normalreleaserate" class='' :caption="$t('entities.productstats.main2_form.details.normalreleaserate')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.normalreleaserate.error" :isEmptyCaption="false" labelPos="NONE">
+    <app-slider name='normalreleaserate' :value="this.data.normalreleaserate" @change="onFormItemValueChange" :disabled="detailsModel.normalreleaserate.disabled" style=""></app-slider>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.button3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-button type="primary" @click="button3_click($event)"
+         style="">
+        <i class="fa fa-plus" style="margin-right: 2px;"></i>   
+        <span >{{$t('entities.productstats.main2_form.details.button3')}}</span>
+    </i-button>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col v-show="detailsModel.normalreleasecnt.visible" :style="{}"  :lg="{ span: 8, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+    <app-form-item name='normalreleasecnt' :itemRules="this.rules.normalreleasecnt" class='' :caption="$t('entities.productstats.main2_form.details.normalreleasecnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.normalreleasecnt.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-span   name='normalreleasecnt'
 :value="data.normalreleasecnt"   :data="data"
   :context="context"
@@ -285,29 +265,23 @@ style=""></app-span>
 style=""></app-span>
 </app-form-item>
 
-</div>
-
-    </div>
+</i-col>
+    
+    </row>
 </app-form-group>
 
-</div>
-
-    </div>
+</i-col>
+    
+    </row>
 </app-form-group>
 
-</div>
-
-    </div>
+</i-col>
+    
+    </row>
 </app-form-group>
 
-</div>
+</i-col>
 
-    </div>
-</app-form-group>
-
-</div>
-
-</div>
 
     </row>
 </i-form>
@@ -617,14 +591,14 @@ export default class Main2Base extends Vue implements ControlInterface {
         developingstorycnt: null,
         testingstorycnt: null,
         releasedstorycnt: null,
-        unendproductplanrate: null,
         productplancnt: null,
+        unendproductplanrate: null,
         unendproductplancnt: null,
-        undoneresprojectrate: null,
         resprojectcnt: null,
+        undoneresprojectrate: null,
         undoneresprojectcnt: null,
-        normalreleaserate: null,
         releasecnt: null,
+        normalreleaserate: null,
         normalreleasecnt: null,
         id: null,
         productstats:null,
@@ -741,17 +715,17 @@ export default class Main2Base extends Vue implements ControlInterface {
             { required: false, type: 'number', message: '已发布 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: '已发布 值不能为空', trigger: 'blur' },
         ],
-        unendproductplanrate: [
-            { type: 'number', message: '剩余计划率 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '剩余计划率 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '剩余计划率 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '剩余计划率 值不能为空', trigger: 'blur' },
-        ],
         productplancnt: [
             { type: 'number', message: '所有计划 值必须为数值类型', trigger: 'change' },
             { type: 'number', message: '所有计划 值必须为数值类型', trigger: 'blur' },
             { required: false, type: 'number', message: '所有计划 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: '所有计划 值不能为空', trigger: 'blur' },
+        ],
+        unendproductplanrate: [
+            { type: 'number', message: '剩余计划率 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '剩余计划率 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '剩余计划率 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '剩余计划率 值不能为空', trigger: 'blur' },
         ],
         unendproductplancnt: [
             { type: 'number', message: '未过期计划数 值必须为数值类型', trigger: 'change' },
@@ -759,17 +733,17 @@ export default class Main2Base extends Vue implements ControlInterface {
             { required: false, type: 'number', message: '未过期计划数 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: '未过期计划数 值不能为空', trigger: 'blur' },
         ],
-        undoneresprojectrate: [
-            { type: 'number', message: '进行项目率 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '进行项目率 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '进行项目率 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '进行项目率 值不能为空', trigger: 'blur' },
-        ],
         resprojectcnt: [
             { type: 'number', message: '所有项目 值必须为数值类型', trigger: 'change' },
             { type: 'number', message: '所有项目 值必须为数值类型', trigger: 'blur' },
             { required: false, type: 'number', message: '所有项目 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: '所有项目 值不能为空', trigger: 'blur' },
+        ],
+        undoneresprojectrate: [
+            { type: 'number', message: '进行项目率 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '进行项目率 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '进行项目率 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '进行项目率 值不能为空', trigger: 'blur' },
         ],
         undoneresprojectcnt: [
             { type: 'number', message: '进行中 值必须为数值类型', trigger: 'change' },
@@ -777,17 +751,17 @@ export default class Main2Base extends Vue implements ControlInterface {
             { required: false, type: 'number', message: '进行中 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: '进行中 值不能为空', trigger: 'blur' },
         ],
-        normalreleaserate: [
-            { type: 'number', message: '维护发布率 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '维护发布率 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '维护发布率 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '维护发布率 值不能为空', trigger: 'blur' },
-        ],
         releasecnt: [
             { type: 'number', message: '所有发布 值必须为数值类型', trigger: 'change' },
             { type: 'number', message: '所有发布 值必须为数值类型', trigger: 'blur' },
             { required: false, type: 'number', message: '所有发布 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: '所有发布 值不能为空', trigger: 'blur' },
+        ],
+        normalreleaserate: [
+            { type: 'number', message: '维护发布率 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '维护发布率 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '维护发布率 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '维护发布率 值不能为空', trigger: 'blur' },
         ],
         normalreleasecnt: [
             { type: 'number', message: '维护中 值必须为数值类型', trigger: 'change' },
@@ -824,23 +798,17 @@ export default class Main2Base extends Vue implements ControlInterface {
 , 
         grouppanel3: new FormGroupPanelModel({ caption: '', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } })
 , 
-        grouppanel7: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel7', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } })
-, 
         grouppanel8: new FormGroupPanelModel({ caption: '计划', detailType: 'GROUPPANEL', name: 'grouppanel8', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } })
 , 
         button2: new FormButtonModel({ caption: '创建项目', detailType: 'BUTTON', name: 'button2', visible: false, isShowCaption: true, form: this })
 , 
         grouppanel4: new FormGroupPanelModel({ caption: '', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } })
 , 
-        grouppanel10: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel10', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } })
-, 
         grouppanel9: new FormGroupPanelModel({ caption: '项目', detailType: 'GROUPPANEL', name: 'grouppanel9', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } })
 , 
         button3: new FormButtonModel({ caption: '创建发布', detailType: 'BUTTON', name: 'button3', visible: true, isShowCaption: true, form: this })
 , 
         grouppanel5: new FormGroupPanelModel({ caption: '', detailType: 'GROUPPANEL', name: 'grouppanel5', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } })
-, 
-        grouppanel12: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel12', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } })
 , 
         grouppanel11: new FormGroupPanelModel({ caption: '发布', detailType: 'GROUPPANEL', name: 'grouppanel11', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } })
 , 
@@ -874,21 +842,21 @@ export default class Main2Base extends Vue implements ControlInterface {
 , 
         releasedstorycnt: new FormItemModel({ caption: '已发布', detailType: 'FORMITEM', name: 'releasedstorycnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        unendproductplanrate: new FormItemModel({ caption: '剩余计划率', detailType: 'FORMITEM', name: 'unendproductplanrate', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
-, 
         productplancnt: new FormItemModel({ caption: '所有计划', detailType: 'FORMITEM', name: 'productplancnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        unendproductplanrate: new FormItemModel({ caption: '剩余计划率', detailType: 'FORMITEM', name: 'unendproductplanrate', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
         unendproductplancnt: new FormItemModel({ caption: '未过期计划数', detailType: 'FORMITEM', name: 'unendproductplancnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        undoneresprojectrate: new FormItemModel({ caption: '进行项目率', detailType: 'FORMITEM', name: 'undoneresprojectrate', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
-, 
         resprojectcnt: new FormItemModel({ caption: '所有项目', detailType: 'FORMITEM', name: 'resprojectcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        undoneresprojectrate: new FormItemModel({ caption: '进行项目率', detailType: 'FORMITEM', name: 'undoneresprojectrate', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
         undoneresprojectcnt: new FormItemModel({ caption: '进行中', detailType: 'FORMITEM', name: 'undoneresprojectcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        normalreleaserate: new FormItemModel({ caption: '维护发布率', detailType: 'FORMITEM', name: 'normalreleaserate', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
-, 
         releasecnt: new FormItemModel({ caption: '所有发布', detailType: 'FORMITEM', name: 'releasecnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        normalreleaserate: new FormItemModel({ caption: '维护发布率', detailType: 'FORMITEM', name: 'normalreleaserate', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
         normalreleasecnt: new FormItemModel({ caption: '维护中', detailType: 'FORMITEM', name: 'normalreleasecnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1041,18 +1009,6 @@ export default class Main2Base extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 unendproductplanrate 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof Main2
-     */
-    @Watch('data.unendproductplanrate')
-    onUnendproductplanrateChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'unendproductplanrate', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
      * 监控表单属性 productplancnt 值
      *
      * @param {*} newVal
@@ -1062,6 +1018,18 @@ export default class Main2Base extends Vue implements ControlInterface {
     @Watch('data.productplancnt')
     onProductplancntChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'productplancnt', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 unendproductplanrate 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main2
+     */
+    @Watch('data.unendproductplanrate')
+    onUnendproductplanrateChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'unendproductplanrate', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1077,18 +1045,6 @@ export default class Main2Base extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 undoneresprojectrate 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof Main2
-     */
-    @Watch('data.undoneresprojectrate')
-    onUndoneresprojectrateChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'undoneresprojectrate', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
      * 监控表单属性 resprojectcnt 值
      *
      * @param {*} newVal
@@ -1098,6 +1054,18 @@ export default class Main2Base extends Vue implements ControlInterface {
     @Watch('data.resprojectcnt')
     onResprojectcntChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'resprojectcnt', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 undoneresprojectrate 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main2
+     */
+    @Watch('data.undoneresprojectrate')
+    onUndoneresprojectrateChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'undoneresprojectrate', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1113,18 +1081,6 @@ export default class Main2Base extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 normalreleaserate 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof Main2
-     */
-    @Watch('data.normalreleaserate')
-    onNormalreleaserateChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'normalreleaserate', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
      * 监控表单属性 releasecnt 值
      *
      * @param {*} newVal
@@ -1134,6 +1090,18 @@ export default class Main2Base extends Vue implements ControlInterface {
     @Watch('data.releasecnt')
     onReleasecntChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'releasecnt', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 normalreleaserate 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main2
+     */
+    @Watch('data.normalreleaserate')
+    onNormalreleaserateChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'normalreleaserate', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1220,7 +1188,6 @@ export default class Main2Base extends Vue implements ControlInterface {
 
 
 
-
         if (Object.is(name, '') || Object.is(name, 'resprojectcnt')) {
             let ret = false;
             const _resprojectcnt = this.data.resprojectcnt;
@@ -1229,8 +1196,6 @@ export default class Main2Base extends Vue implements ControlInterface {
             }
             this.detailsModel.button2.setVisible(ret);
         }
-
-
 
 
 

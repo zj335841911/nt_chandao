@@ -76,23 +76,18 @@ export default class Main2Model {
         dataType: 'INT',
       },
       {
-        name: 'unendproductplanrate',
-        prop: 'unendproductplanrate',
-        dataType: 'FLOAT',
-      },
-      {
         name: 'productplancnt',
         prop: 'productplancnt',
         dataType: 'INT',
       },
       {
-        name: 'unendproductplancnt',
-        prop: 'unendproductplancnt',
-        dataType: 'INT',
+        name: 'unendproductplanrate',
+        prop: 'unendproductplanrate',
+        dataType: 'FLOAT',
       },
       {
-        name: 'undoneresprojectrate',
-        prop: 'undoneresprojectrate',
+        name: 'unendproductplancnt',
+        prop: 'unendproductplancnt',
         dataType: 'INT',
       },
       {
@@ -101,18 +96,23 @@ export default class Main2Model {
         dataType: 'INT',
       },
       {
+        name: 'undoneresprojectrate',
+        prop: 'undoneresprojectrate',
+        dataType: 'INT',
+      },
+      {
         name: 'undoneresprojectcnt',
         prop: 'undoneresprojectcnt',
         dataType: 'INT',
       },
       {
-        name: 'normalreleaserate',
-        prop: 'normalreleaserate',
+        name: 'releasecnt',
+        prop: 'releasecnt',
         dataType: 'INT',
       },
       {
-        name: 'releasecnt',
-        prop: 'releasecnt',
+        name: 'normalreleaserate',
+        prop: 'normalreleaserate',
         dataType: 'INT',
       },
       {
