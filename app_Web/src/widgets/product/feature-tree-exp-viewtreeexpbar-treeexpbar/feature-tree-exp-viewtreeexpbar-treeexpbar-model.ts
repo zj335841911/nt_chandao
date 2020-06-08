@@ -72,6 +72,18 @@ export default class FeatureTreeExpViewtreeexpbarModel {
       {
         name: 'line',
       },
+      {
+        name: 'activebugcnt',
+      },
+      {
+        name: 'productplancnt',
+      },
+      {
+        name: 'releasecnt',
+      },
+      {
+        name: 'activestorycnt',
+      },
     ]
   }
 

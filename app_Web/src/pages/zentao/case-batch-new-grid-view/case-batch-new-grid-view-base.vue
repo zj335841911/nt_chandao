@@ -1,9 +1,8 @@
 <template>
-<studio-view viewName="casebatchnewgridview" viewTitle="测试用例表格视图" class='degridview case-batch-new-grid-view'>
+<studio-view viewName="casebatchnewgridview" viewTitle="测试用例" class='degridview case-batch-new-grid-view'>
     <template slot='title'>
     <span class='caption-info'>{{$t(model.srfTitle)}}</span>
     </template>
-    <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
                 <div class='toolbar-container'>
             <i-button :title="$t('entities.case.batchnewgridviewtoolbar_toolbar.deuiaction1.tip')" v-show="toolBarModels.deuiaction1.visabled" :disabled="toolBarModels.deuiaction1.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1' }, $event)">

@@ -111,6 +111,15 @@ export default class PickupViewpickupviewpanelModel {
       {
         name: 'parent',
       },
+      {
+        name: 'taskcnt',
+      },
+      {
+        name: 'bugcnt',
+      },
+      {
+        name: 'storycnt',
+      },
     ]
   }
 

@@ -32,6 +32,9 @@ export default {
     qd: '测试负责人',
     parentname: 'parent',
     parent: '父项目',
+    taskcnt: '任务总数',
+    bugcnt: 'Bug总数',
+    storycnt: '需求总数',
   },
 	views: {
 		tasktreeexpview: {

@@ -72,6 +72,18 @@ export default class MainTabExpViewtabviewpanelModel {
       {
         name: 'line',
       },
+      {
+        name: 'activebugcnt',
+      },
+      {
+        name: 'productplancnt',
+      },
+      {
+        name: 'releasecnt',
+      },
+      {
+        name: 'activestorycnt',
+      },
     ]
   }
 

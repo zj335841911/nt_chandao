@@ -72,6 +72,18 @@ export default class MainDashboardViewdashboard_container3Model {
       {
         name: 'line',
       },
+      {
+        name: 'activebugcnt',
+      },
+      {
+        name: 'productplancnt',
+      },
+      {
+        name: 'releasecnt',
+      },
+      {
+        name: 'activestorycnt',
+      },
     ]
   }
 

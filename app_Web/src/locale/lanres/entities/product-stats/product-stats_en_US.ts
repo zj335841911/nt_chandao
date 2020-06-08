@@ -18,6 +18,8 @@ export default {
     undoneresprojectrate: '进行项目率',
     normalreleasecnt: '维护中发布数',
     normalreleaserate: '维护发布率',
+    activestorycnt: '激活需求数',
+    activebugcnt: '未解决Bug数',
   },
 	views: {
 		editview9: {

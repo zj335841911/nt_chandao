@@ -176,6 +176,38 @@ public class ProductDTO extends DTOBase implements Serializable {
     @JsonProperty("line")
     private BigInteger line;
 
+    /**
+     * 属性 [ACTIVEBUGCNT]
+     *
+     */
+    @JSONField(name = "activebugcnt")
+    @JsonProperty("activebugcnt")
+    private Integer activebugcnt;
+
+    /**
+     * 属性 [PRODUCTPLANCNT]
+     *
+     */
+    @JSONField(name = "productplancnt")
+    @JsonProperty("productplancnt")
+    private Integer productplancnt;
+
+    /**
+     * 属性 [RELEASECNT]
+     *
+     */
+    @JSONField(name = "releasecnt")
+    @JsonProperty("releasecnt")
+    private Integer releasecnt;
+
+    /**
+     * 属性 [ACTIVESTORYCNT]
+     *
+     */
+    @JSONField(name = "activestorycnt")
+    @JsonProperty("activestorycnt")
+    private Integer activestorycnt;
+
 
     /**
      * 设置 [QD]

@@ -160,6 +160,20 @@ public class ProductStats extends EntityMP implements Serializable {
     @JSONField(name = "normalreleaserate")
     @JsonProperty("normalreleaserate")
     private Integer normalreleaserate;
+    /**
+     * 激活需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "activestorycnt")
+    @JsonProperty("activestorycnt")
+    private Integer activestorycnt;
+    /**
+     * 未解决Bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "activebugcnt")
+    @JsonProperty("activebugcnt")
+    private Integer activebugcnt;
 
 
 

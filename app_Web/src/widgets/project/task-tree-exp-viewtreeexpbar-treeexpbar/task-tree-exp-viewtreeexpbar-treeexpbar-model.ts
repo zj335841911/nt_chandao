@@ -111,6 +111,15 @@ export default class TaskTreeExpViewtreeexpbarModel {
       {
         name: 'parent',
       },
+      {
+        name: 'taskcnt',
+      },
+      {
+        name: 'bugcnt',
+      },
+      {
+        name: 'storycnt',
+      },
     ]
   }
 

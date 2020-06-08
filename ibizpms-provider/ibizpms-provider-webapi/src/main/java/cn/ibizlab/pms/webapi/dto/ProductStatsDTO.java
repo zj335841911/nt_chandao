@@ -159,6 +159,22 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
     @JsonProperty("normalreleaserate")
     private Integer normalreleaserate;
 
+    /**
+     * 属性 [ACTIVESTORYCNT]
+     *
+     */
+    @JSONField(name = "activestorycnt")
+    @JsonProperty("activestorycnt")
+    private Integer activestorycnt;
+
+    /**
+     * 属性 [ACTIVEBUGCNT]
+     *
+     */
+    @JSONField(name = "activebugcnt")
+    @JsonProperty("activebugcnt")
+    private Integer activebugcnt;
+
 
 
 }

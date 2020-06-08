@@ -111,6 +111,15 @@ export default class MainDashboardViewdashboard_container1Model {
       {
         name: 'parent',
       },
+      {
+        name: 'taskcnt',
+      },
+      {
+        name: 'bugcnt',
+      },
+      {
+        name: 'storycnt',
+      },
     ]
   }
 

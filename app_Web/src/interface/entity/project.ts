@@ -261,4 +261,28 @@ export interface Project {
      * @memberof Project
      */
     parent?: any;
+
+    /**
+     * 任务总数
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    taskcnt?: any;
+
+    /**
+     * Bug总数
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    bugcnt?: any;
+
+    /**
+     * 需求总数
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    storycnt?: any;
 }

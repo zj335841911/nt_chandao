@@ -179,6 +179,34 @@ public class Product extends EntityMP implements Serializable {
     @JSONField(name = "line")
     @JsonProperty("line")
     private BigInteger line;
+    /**
+     * 未解决Bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "activebugcnt")
+    @JsonProperty("activebugcnt")
+    private Integer activebugcnt;
+    /**
+     * 计划总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "productplancnt")
+    @JsonProperty("productplancnt")
+    private Integer productplancnt;
+    /**
+     * 发布总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "releasecnt")
+    @JsonProperty("releasecnt")
+    private Integer releasecnt;
+    /**
+     * 激活需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "activestorycnt")
+    @JsonProperty("activestorycnt")
+    private Integer activestorycnt;
 
     /**
      * 产品线

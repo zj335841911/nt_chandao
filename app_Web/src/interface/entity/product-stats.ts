@@ -141,4 +141,20 @@ export interface ProductStats {
      * @memberof ProductStats
      */
     normalreleaserate?: any;
+
+    /**
+     * 激活需求数
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    activestorycnt?: any;
+
+    /**
+     * 未解决Bug数
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    activebugcnt?: any;
 }

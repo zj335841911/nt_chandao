@@ -19,6 +19,10 @@ export default {
     createddate: '创建日期',
     linename: '产品线',
     line: '产品线',
+    activebugcnt: '未解决Bug数',
+    productplancnt: '计划总数',
+    releasecnt: '发布总数',
+    activestorycnt: '激活需求数',
   },
 	views: {
 		testtabexpview: {

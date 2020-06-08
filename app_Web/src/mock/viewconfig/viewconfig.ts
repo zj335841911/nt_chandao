@@ -512,7 +512,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "6558930042f15c2297572f51d7e77df5"
         },
         "casebatchnewgridview": {
-            "title": "测试用例表格视图",
+            "title": "测试用例",
             "caption": "测试用例",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",
