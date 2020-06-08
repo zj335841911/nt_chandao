@@ -77,11 +77,6 @@ export default class SubTaskNewModel {
           dataType: 'TEXT',
         },
         {
-          name: 'project',
-          prop: 'project',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'modulename',
           prop: 'modulename',
           dataType: 'PICKUPTEXT',
@@ -94,6 +89,11 @@ export default class SubTaskNewModel {
         {
           name: 'story',
           prop: 'story',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'project',
+          prop: 'project',
           dataType: 'PICKUP',
         },
         {

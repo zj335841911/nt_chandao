@@ -31,31 +31,7 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <template v-if="actualIsOpenEdit">
-                            <app-form-item :error="gridItemsModel[$index][column.property].error">
-                                <app-picker  
-              :formState="viewState" 
-              :data="row"
-              :context="context"
-              :viewparams="viewparams"
-              :itemParam='{ }' 
-              :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1" 
-              name='modulename' 
-              deMajorField='name'
-              deKeyField='module'
-              :service="service"
-              :acParams="{ }"
-              valueitem='module' 
-              :value="row[column.property]" 
-              editortype="dropdown" 
-              style="" 
-              @formitemvaluechange="($event)=>{onGridItemValueChange(row,$event,$index)}">
-            </app-picker>
-                            </app-form-item>
-                        </template>
-                        <template v-if="!actualIsOpenEdit">
-                                <app-span name='modulename' editorType="PICKER" :value="row.modulename"></app-span>
-                        </template>
+                        <span>{{row.modulename}}</span>
                     </template>
                 </el-table-column>
             </template>
@@ -67,31 +43,7 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <template v-if="actualIsOpenEdit">
-                            <app-form-item :error="gridItemsModel[$index][column.property].error">
-                                <app-picker  
-              :formState="viewState" 
-              :data="row"
-              :context="context"
-              :viewparams="viewparams"
-              :itemParam='{ }' 
-              :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1" 
-              name='storyname' 
-              deMajorField='title'
-              deKeyField='story'
-              :service="service"
-              :acParams="{ }"
-              valueitem='story' 
-              :value="row[column.property]" 
-              editortype="dropdown" 
-              style="" 
-              @formitemvaluechange="($event)=>{onGridItemValueChange(row,$event,$index)}">
-            </app-picker>
-                            </app-form-item>
-                        </template>
-                        <template v-if="!actualIsOpenEdit">
-                                <app-span name='storyname' editorType="PICKER" :value="row.storyname"></app-span>
-                        </template>
+                        <span>{{row.storyname}}</span>
                     </template>
                 </el-table-column>
             </template>
@@ -198,7 +150,7 @@
                         <template v-if="actualIsOpenEdit">
                             <app-form-item :error="gridItemsModel[$index][column.property].error">
                                 <div class="ivu-input-wrapper ivu-input-wrapper-default ivu-input-type">
-                <textarea class="ivu-input" rows="10" :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1" v-model="row[column.property]" style=""  @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}"></textarea>
+                <textarea class="ivu-input" :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1" v-model="row[column.property]" style=""  @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}"></textarea>
             </div>
                             </app-form-item>
                         </template>
@@ -743,15 +695,11 @@ export default class SubTaskNewBase extends Vue implements ControlInterface {
      */
     public getGridRowModel(){
         return {
-          story: new FormItemModel(),
           assignedto: new FormItemModel(),
-          modulename: new FormItemModel(),
-          module: new FormItemModel(),
           pri: new FormItemModel(),
           desc: new FormItemModel(),
           name: new FormItemModel(),
           left: new FormItemModel(),
-          storyname: new FormItemModel(),
           type: new FormItemModel(),
           srfkey: new FormItemModel(),
         }
@@ -764,21 +712,9 @@ export default class SubTaskNewBase extends Vue implements ControlInterface {
      * @memberof SubTaskNew
      */
     public rules: any = {
-        story: [
-             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '值不能为空', trigger: 'blur' },
-        ],
         assignedto: [
              { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '指派给 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '指派给 值不能为空', trigger: 'blur' },
-        ],
-        modulename: [
-             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属模块 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属模块 值不能为空', trigger: 'blur' },
-        ],
-        module: [
-             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '值不能为空', trigger: 'blur' },
         ],
         pri: [
              { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '优先级 值不能为空', trigger: 'change' },
@@ -796,13 +732,9 @@ export default class SubTaskNewBase extends Vue implements ControlInterface {
              { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计 值不能为空', trigger: 'blur' },
         ],
-        storyname: [
-             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '相关需求 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '相关需求 值不能为空', trigger: 'blur' },
-        ],
         type: [
-             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '任务类型 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '任务类型 值不能为空', trigger: 'blur' },
+             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '任务类型 值不能为空', trigger: 'change' },
+            { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '任务类型 值不能为空', trigger: 'blur' },
         ],
         srfkey: [
              { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
