@@ -2094,6 +2094,93 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: 'Testcase__type',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'feature',
+                label: '功能测试',
+                text: '功能测试',
+                "data":"",
+                "codename":"Feature",
+                value: 'feature',
+                
+                disabled: false,
+            },
+            {
+                id: 'performance',
+                label: '性能测试',
+                text: '性能测试',
+                "data":"",
+                "codename":"Performance",
+                value: 'performance',
+                
+                disabled: false,
+            },
+            {
+                id: 'config',
+                label: '配置相关',
+                text: '配置相关',
+                "data":"",
+                "codename":"Config",
+                value: 'config',
+                
+                disabled: false,
+            },
+            {
+                id: 'install',
+                label: '安装部署',
+                text: '安装部署',
+                "data":"",
+                "codename":"Install",
+                value: 'install',
+                
+                disabled: false,
+            },
+            {
+                id: 'security',
+                label: '安全相关',
+                text: '安全相关',
+                "data":"",
+                "codename":"Security",
+                value: 'security',
+                
+                disabled: false,
+            },
+            {
+                id: 'interface',
+                label: '接口测试',
+                text: '接口测试',
+                "data":"",
+                "codename":"Interface",
+                value: 'interface',
+                
+                disabled: false,
+            },
+            {
+                id: 'unit',
+                label: '单元测试',
+                text: '单元测试',
+                "data":"",
+                "codename":"Unit",
+                value: 'unit',
+                
+                disabled: false,
+            },
+            {
+                id: 'other',
+                label: '其他',
+                text: '其他',
+                "data":"",
+                "codename":"Other",
+                value: 'other',
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Bug__severity',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -3104,6 +3191,53 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "appdataentity":"Group",
         "appdedataset":"FetchDefault",
         "items": []
+    },
+    {
+        srfkey: 'Testcase__result',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'n/a',
+                label: '忽略',
+                text: '忽略',
+                "data":"",
+                "codename":"N_a",
+                value: 'n/a',
+                
+                disabled: false,
+            },
+            {
+                id: 'pass',
+                label: '通过',
+                text: '通过',
+                "data":"",
+                "codename":"Pass",
+                value: 'pass',
+                
+                disabled: false,
+            },
+            {
+                id: 'fail',
+                label: '失败',
+                text: '失败',
+                "data":"",
+                "codename":"Fail",
+                value: 'fail',
+                
+                disabled: false,
+            },
+            {
+                id: 'blocked',
+                label: '阻塞',
+                text: '阻塞',
+                "data":"",
+                "codename":"Blocked",
+                value: 'blocked',
+                
+                disabled: false,
+            },
+        ]
     },
     {
         srfkey: 'Bug__pri',

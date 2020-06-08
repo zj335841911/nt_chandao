@@ -109,4 +109,36 @@ export interface ProductStats {
      * @memberof ProductStats
      */
     resprojectcnt?: any;
+
+    /**
+     * 未完成关联项目数
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    undoneresprojectcnt?: any;
+
+    /**
+     * 进行项目率
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    undoneresprojectrate?: any;
+
+    /**
+     * 维护中发布数
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    normalreleasecnt?: any;
+
+    /**
+     * 维护发布率
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    normalreleaserate?: any;
 }

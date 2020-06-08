@@ -132,6 +132,34 @@ public class ProductStats extends EntityMP implements Serializable {
     @JSONField(name = "resprojectcnt")
     @JsonProperty("resprojectcnt")
     private Integer resprojectcnt;
+    /**
+     * 未完成关联项目数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "undoneresprojectcnt")
+    @JsonProperty("undoneresprojectcnt")
+    private Integer undoneresprojectcnt;
+    /**
+     * 进行项目率
+     */
+    @TableField(exist = false)
+    @JSONField(name = "undoneresprojectrate")
+    @JsonProperty("undoneresprojectrate")
+    private Integer undoneresprojectrate;
+    /**
+     * 维护中发布数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "normalreleasecnt")
+    @JsonProperty("normalreleasecnt")
+    private Integer normalreleasecnt;
+    /**
+     * 维护发布率
+     */
+    @TableField(exist = false)
+    @JSONField(name = "normalreleaserate")
+    @JsonProperty("normalreleaserate")
+    private Integer normalreleaserate;
 
 
 

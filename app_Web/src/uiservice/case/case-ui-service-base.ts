@@ -80,9 +80,10 @@ export default class CaseUIServiceBase extends UIService {
      */  
     public initViewMap(){
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'cases'});
-        this.allViewMap.set(':',{viewname:'featuregridview',srfappde:'cases'});
-        this.allViewMap.set(':',{viewname:'featurenewview',srfappde:'cases'});
-        this.allViewMap.set(':',{viewname:'featuredashboardview',srfappde:'cases'});
+        this.allViewMap.set(':',{viewname:'maingridview',srfappde:'cases'});
+        this.allViewMap.set(':',{viewname:'mainnewview',srfappde:'cases'});
+        this.allViewMap.set(':',{viewname:'batchnewgridview',srfappde:'cases'});
+        this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'cases'});
         this.allViewMap.set(':',{viewname:'gridview9',srfappde:'cases'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'cases'});
     }
@@ -93,6 +94,61 @@ export default class CaseUIServiceBase extends UIService {
      * @memberof  CaseUIServiceBase
      */  
     public initDeMainStateMap(){
+    }
+
+    /**
+     * 批量新建用例
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Case_BatchNew(args: any[], context:any = {} ,params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        let data: any = {};
+        const _args: any[] = Util.deepCopy(args);
+        const _this: any = actionContext;
+        const actionTarget: string | null = 'NONE';
+        context = UIActionTool.handleContextParam(actionTarget,_args,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'cases', parameterName: 'case' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if(window.opener){
+                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
+                        window.close();
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'case-batch-new-grid-view', 
+                height: 800, 
+                width: 1200,  
+                title: actionContext.$t('entities.case.views.batchnewgridview.title'),
+            };
+            openPopupModal(view, data);
     }
 
 

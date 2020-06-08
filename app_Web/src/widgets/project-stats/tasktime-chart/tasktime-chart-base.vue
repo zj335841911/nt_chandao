@@ -385,9 +385,9 @@ export default class TASKTIMEBase extends Vue implements ControlInterface {
           let element:any =  document.getElementById(this.chartId);
           this.myChart = echarts.init(element);
         }
-        this.handleChartOPtion(codelist);
-        console.log(this.chartOption);
-        this.myChart.setOption(this.chartOption);
+        let _chartOption = this.handleChartOPtion(codelist);
+        console.log(_chartOption);
+        this.myChart.setOption(_chartOption);
         this.myChart.resize();
     }
 
@@ -397,6 +397,7 @@ export default class TASKTIMEBase extends Vue implements ControlInterface {
      * @memberof Dashboard_sysportlet1_chartBase
      */
     public handleChartOPtion(allcodelist:any){
+        let _chartOption:any = JSON.parse(JSON.stringify(this.chartOption));
         if(Object.keys(this.seriesModel).length > 0){
             let tempDataSourceMap:Map<string,any> = new Map();
             for(let i=0;i<Object.keys(this.seriesModel).length;i++){
@@ -408,12 +409,12 @@ export default class TASKTIMEBase extends Vue implements ControlInterface {
             }
             if(tempDataSourceMap.size > 0){
                 tempDataSourceMap.forEach((item:any) =>{
-                    this.chartOption.dataset.push({'source':item});
+                    _chartOption.dataset.push({'source':item});
                 })
             }
             Object.keys(this.seriesModel).forEach((seriesName:string) =>{
-                if(this.chartOption && this.chartOption.series.length > 0){
-                    this.chartOption.series.forEach((item:any) =>{
+                if(_chartOption && _chartOption.series.length > 0){
+                    _chartOption.series.forEach((item:any) =>{
                         if(this.seriesModel[seriesName].ecxObject){
                             item = Util.deepObjectMerge(item,this.seriesModel[seriesName].ecxObject);
                         }
@@ -429,25 +430,26 @@ export default class TASKTIMEBase extends Vue implements ControlInterface {
                 let tempSeries:any = this.seriesModel[seriesName];
                 // 非雷达图
                 if(tempSeries && tempSeries.seriesIdField && tempSeries.seriesValues.length > 0 && !Object.is(tempSeries.type,'radar')){
-                    const returnIndex:number = this.chartOption.series.findIndex((item:any) =>{
+                    const returnIndex:number = _chartOption.series.findIndex((item:any) =>{
                         return Object.is(item.id,seriesName);
                     })
-                    this.chartOption.series.splice(returnIndex,1);
+                    _chartOption.series.splice(returnIndex,1);
                     let tempSeriesArray:Array<any> = [];
                     tempSeries.seriesValues.forEach((seriesvalueItem:any) =>{
                         let tempSeriesTemp:any = JSON.parse(JSON.stringify(tempSeries.seriesTemp));
                         Object.assign(tempSeriesTemp,{name:tempSeries.seriesMap[seriesvalueItem],datasetIndex:tempSeries.seriesIndex,encode:{x:tempSeries.categorField,y:`${seriesvalueItem}`}});
-                        this.chartOption.series.push(tempSeriesTemp);
+                        _chartOption.series.push(tempSeriesTemp);
                     })
                 }
             })
         }
         if(Object.keys(this.chartBaseOPtion).length > 0){
-            Object.assign(this.chartOption,this.chartBaseOPtion);
+            Object.assign(_chartOption,this.chartBaseOPtion);
         }
         if(Object.keys(this.chartUserParams).length >0){
-            Object.assign(this.chartOption,this.chartUserParams);
+            Object.assign(_chartOption,this.chartUserParams);
         }
+        return _chartOption;
     }
 
     /**
@@ -713,10 +715,11 @@ export default class TASKTIMEBase extends Vue implements ControlInterface {
             let seriesValues:Array<any> = item.seriesValues;
             if(seriesValues && seriesValues.length >0){
                 seriesValues.forEach((singleSeriesName:any) =>{
-                    let singleSeriesObj:any = {type:singleSeriesName};
+                    let singleSeriesObj:any = {};
                     returnArray.forEach((item:any) =>{
                         Object.assign(singleSeriesObj,{[item[groupField[0]]]:item[singleSeriesName]});
                     })
+                    Object.assign(singleSeriesObj,{type:singleSeriesName});
                     tempReturnArray.push(singleSeriesObj);
                 })
             }

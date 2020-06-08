@@ -255,6 +255,17 @@ export default {
           'platform': '多平台',
         empty: '',
     },
+    Testcase__type: {
+          'feature': '功能测试',
+          'performance': '性能测试',
+          'config': '配置相关',
+          'install': '安装部署',
+          'security': '安全相关',
+          'interface': '接口测试',
+          'unit': '单元测试',
+          'other': '其他',
+        empty: '',
+    },
     Bug__severity: {
           1: '1',
           2: '2',
@@ -388,6 +399,13 @@ export default {
         empty: '',
     },
     Role: {
+        empty: '',
+    },
+    Testcase__result: {
+          'n/a': '忽略',
+          'pass': '通过',
+          'fail': '失败',
+          'blocked': '阻塞',
         empty: '',
     },
     Bug__pri: {

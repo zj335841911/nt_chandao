@@ -333,4 +333,28 @@ export interface Case {
      * @memberof Case
      */
     module?: any;
+
+    /**
+     * 模块名称
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    modulename?: any;
+
+    /**
+     * 需求名称
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    storyname?: any;
+
+    /**
+     * 产品名称
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    productname?: any;
 }

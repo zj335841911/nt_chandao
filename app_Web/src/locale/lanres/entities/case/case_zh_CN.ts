@@ -41,21 +41,28 @@ export default {
     product: '所属产品',
     lib: '所属库',
     module: '所属模块',
+    modulename: '模块名称',
+    storyname: '需求名称',
+    productname: '产品名称',
   },
 	views: {
 		editview: {
 			caption: '测试用例',
       title: '测试用例',
 		},
-		featuregridview: {
+		maingridview: {
 			caption: '测试用例',
       title: '测试用例',
 		},
-		featurenewview: {
+		mainnewview: {
 			caption: '功能测试',
       title: '功能测试',
 		},
-		featuredashboardview: {
+		batchnewgridview: {
+			caption: '测试用例',
+      title: '测试用例',
+		},
+		maindashboardview: {
 			caption: '功能测试',
       title: '功能测试',
 		},
@@ -66,25 +73,6 @@ export default {
 		gridview: {
 			caption: '测试用例',
       title: '测试用例',
-		},
-	},
-	mainedit_form: {
-		details: {
-			group1: '测试用例基本信息', 
-			formpage1: '基本信息', 
-			group2: '操作信息', 
-			formpage2: '其它', 
-			srforikey: '', 
-			srfkey: '用例编号', 
-			srfmajortext: '用例标题', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			title: '用例标题', 
-			id: '用例编号', 
-		},
-		uiactions: {
 		},
 	},
 	main_form: {
@@ -106,11 +94,48 @@ export default {
 		uiactions: {
 		},
 	},
-	featuregrid_grid: {
+	mainedit_form: {
+		details: {
+			group1: '测试用例基本信息', 
+			formpage1: '基本信息', 
+			group2: '操作信息', 
+			formpage2: '其它', 
+			srforikey: '', 
+			srfkey: '用例编号', 
+			srfmajortext: '用例标题', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			title: '用例标题', 
+			id: '用例编号', 
+		},
+		uiactions: {
+		},
+	},
+	maingrid_grid: {
 		columns: {
+			id: 'id',
 			pri: 'P',
 			title: '用例标题',
+			type: '用例类型',
+			openedby: '创建',
+			lastrunner: '执行人',
+			lastrundate: '执行时间',
+			lastrunresult: '结果',
 			status: '状态',
+			branch: 'B',
+			uagridcolumn1: '操作',
+		},
+		uiactions: {
+		},
+	},
+	batchnew_grid: {
+		columns: {
+			modulename: '所属模块',
+			storyname: '相关需求',
+			title: '用例标题',
+			type: '用例类型',
 		},
 		uiactions: {
 		},
@@ -133,28 +158,18 @@ export default {
 		uiactions: {
 		},
 	},
-	featuregridviewtoolbar_toolbar: {
+	batchnewgridviewtoolbar_toolbar: {
 		deuiaction1: {
-			caption: '新建',
-			tip: '新建',
-		},
-		deuiaction4: {
-			caption: '删除',
-			tip: '删除',
-		},
-		seperator1: {
-			caption: '',
-			tip: '',
+			caption: '行编辑',
+			tip: '行编辑',
 		},
 		deuiaction2: {
-			caption: '刷新',
-			tip: '刷新',
+			caption: '新建行',
+			tip: '新建行',
 		},
-	},
-	featurenewviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: '保存并关闭',
-			tip: '保存并关闭',
+		deuiaction3: {
+			caption: '保存行',
+			tip: '保存行',
 		},
 	},
 	editviewtoolbar_toolbar: {
@@ -221,6 +236,38 @@ export default {
 		tbitem22: {
 			caption: '帮助',
 			tip: '帮助',
+		},
+	},
+	maingridviewtoolbar_toolbar: {
+		deuiaction3_batchnew: {
+			caption: '批量新建用例',
+			tip: '批量新建用例',
+		},
+		seperator2: {
+			caption: '',
+			tip: '',
+		},
+		deuiaction1: {
+			caption: '新建',
+			tip: '新建',
+		},
+		deuiaction4: {
+			caption: '删除',
+			tip: '删除',
+		},
+		seperator1: {
+			caption: '',
+			tip: '',
+		},
+		deuiaction2: {
+			caption: '刷新',
+			tip: '刷新',
+		},
+	},
+	mainnewviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: '保存并关闭',
+			tip: '保存并关闭',
 		},
 	},
 	gridviewtoolbar_toolbar: {

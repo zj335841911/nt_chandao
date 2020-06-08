@@ -16,15 +16,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '00ac056d598228619b6c0dbfcd603e4c',
-            viewmodule: 'zentao',
-            viewname: 'ProductExpEditView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: '025443fdc6ac693e261108fbdf1b40ab',
             viewmodule: 'zentao',
             viewname: 'CompanyDeptTreeExpView',
@@ -294,12 +285,13 @@ export const viewstate: any = {
         {
             viewtag: '417541fa331fc089b84936b8359403fa',
             viewmodule: 'zentao',
-            viewname: 'CaseFeatureGridView',
+            viewname: 'CaseMainGridView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
                 '6f78b25e86923ab600a2141d50fe49fd',
                 '5890a810365fec51e801d2cffce44fde',
+                '66769499a681f12bd2ebff8859f1d4ea',
             ],
         },
         {
@@ -456,7 +448,7 @@ export const viewstate: any = {
         {
             viewtag: '5890a810365fec51e801d2cffce44fde',
             viewmodule: 'zentao',
-            viewname: 'CaseFeatureNewView',
+            viewname: 'CaseMainNewView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -503,6 +495,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '5d468f620cc30181773d875b3bb8be6e',
+            viewmodule: 'ibiz',
+            viewname: 'ProductStatsEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '5ef23f01b2cffa48351b3272dfeeaf14',
             viewmodule: 'zentao',
             viewname: 'TaskTaskTypeGanttView',
@@ -542,6 +543,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '66769499a681f12bd2ebff8859f1d4ea',
+            viewmodule: 'zentao',
+            viewname: 'CaseBatchNewGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '02b7ecd8e994b90558a9d6c23705f600',
+            ],
+        },
+        {
             viewtag: '6c7b582273d0726bcf77214807cfe40c',
             viewmodule: 'zentao',
             viewname: 'ProductMainTabExpView',
@@ -562,7 +573,7 @@ export const viewstate: any = {
         {
             viewtag: '6f78b25e86923ab600a2141d50fe49fd',
             viewmodule: 'zentao',
-            viewname: 'CaseFeatureDashboardView',
+            viewname: 'CaseMainDashboardView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -1150,7 +1161,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '00ac056d598228619b6c0dbfcd603e4c',
+                '5d468f620cc30181773d875b3bb8be6e',
             ],
         },
         {

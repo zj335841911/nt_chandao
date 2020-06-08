@@ -329,13 +329,13 @@
         "viewtag": "3f2ca3e560d9082bb56fbf7667a57a66",
         "memo": ""
     },
-    "casefeaturegridview": {
+    "casemaingridview": {
         "title": "功能测试",
         "caption": "测试用例",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "zentao",
-        "viewname": "CaseFeatureGridView",
-        "viewfilename": "case-feature-grid-view",
+        "viewname": "CaseMainGridView",
+        "viewfilename": "case-main-grid-view",
         "viewtag": "417541fa331fc089b84936b8359403fa",
         "memo": ""
     },
@@ -519,13 +519,13 @@
         "viewtag": "57e77f1cea8cff268fbd744f326867fb",
         "memo": ""
     },
-    "casefeaturenewview": {
+    "casemainnewview": {
         "title": "功能测试",
         "caption": "功能测试",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "zentao",
-        "viewname": "CaseFeatureNewView",
-        "viewfilename": "case-feature-new-view",
+        "viewname": "CaseMainNewView",
+        "viewfilename": "case-main-new-view",
         "viewtag": "5890a810365fec51e801d2cffce44fde",
         "memo": ""
     },
@@ -567,6 +567,16 @@
         "viewname": "DeptMainGridView",
         "viewfilename": "dept-main-grid-view",
         "viewtag": "5c2b20935d511794aeca60376bd81fef",
+        "memo": ""
+    },
+    "productstatseditview9": {
+        "title": "产品统计编辑视图",
+        "caption": "产品统计",
+        "viewtype": "DEEDITVIEW9",
+        "viewmodule": "ibiz",
+        "viewname": "ProductStatsEditView9",
+        "viewfilename": "product-stats-edit-view9",
+        "viewtag": "5d468f620cc30181773d875b3bb8be6e",
         "memo": ""
     },
     "tasktasktypeganttview": {
@@ -619,6 +629,16 @@
         "viewtag": "6558930042f15c2297572f51d7e77df5",
         "memo": ""
     },
+    "casebatchnewgridview": {
+        "title": "测试用例表格视图",
+        "caption": "测试用例",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "CaseBatchNewGridView",
+        "viewfilename": "case-batch-new-grid-view",
+        "viewtag": "66769499a681f12bd2ebff8859f1d4ea",
+        "memo": ""
+    },
     "productmaintabexpview": {
         "title": "产品",
         "caption": "产品",
@@ -629,13 +649,13 @@
         "viewtag": "6c7b582273d0726bcf77214807cfe40c",
         "memo": ""
     },
-    "casefeaturedashboardview": {
+    "casemaindashboardview": {
         "title": "功能测试",
         "caption": "功能测试",
         "viewtype": "DEPORTALVIEW",
         "viewmodule": "zentao",
-        "viewname": "CaseFeatureDashboardView",
-        "viewfilename": "case-feature-dashboard-view",
+        "viewname": "CaseMainDashboardView",
+        "viewfilename": "case-main-dashboard-view",
         "viewtag": "6f78b25e86923ab600a2141d50fe49fd",
         "memo": ""
     },

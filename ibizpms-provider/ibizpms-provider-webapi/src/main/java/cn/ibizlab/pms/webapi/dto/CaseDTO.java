@@ -356,6 +356,30 @@ public class CaseDTO extends DTOBase implements Serializable {
     @JsonProperty("module")
     private BigInteger module;
 
+    /**
+     * 属性 [MODULENAME]
+     *
+     */
+    @JSONField(name = "modulename")
+    @JsonProperty("modulename")
+    private String modulename;
+
+    /**
+     * 属性 [STORYNAME]
+     *
+     */
+    @JSONField(name = "storyname")
+    @JsonProperty("storyname")
+    private String storyname;
+
+    /**
+     * 属性 [PRODUCTNAME]
+     *
+     */
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
+
 
     /**
      * 设置 [LASTEDITEDDATE]

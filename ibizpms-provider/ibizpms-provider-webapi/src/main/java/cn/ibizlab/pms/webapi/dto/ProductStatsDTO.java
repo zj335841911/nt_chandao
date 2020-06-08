@@ -127,6 +127,38 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
     @JsonProperty("resprojectcnt")
     private Integer resprojectcnt;
 
+    /**
+     * 属性 [UNDONERESPROJECTCNT]
+     *
+     */
+    @JSONField(name = "undoneresprojectcnt")
+    @JsonProperty("undoneresprojectcnt")
+    private Integer undoneresprojectcnt;
+
+    /**
+     * 属性 [UNDONERESPROJECTRATE]
+     *
+     */
+    @JSONField(name = "undoneresprojectrate")
+    @JsonProperty("undoneresprojectrate")
+    private Integer undoneresprojectrate;
+
+    /**
+     * 属性 [NORMALRELEASECNT]
+     *
+     */
+    @JSONField(name = "normalreleasecnt")
+    @JsonProperty("normalreleasecnt")
+    private Integer normalreleasecnt;
+
+    /**
+     * 属性 [NORMALRELEASERATE]
+     *
+     */
+    @JSONField(name = "normalreleaserate")
+    @JsonProperty("normalreleaserate")
+    private Integer normalreleaserate;
+
 
 
 }

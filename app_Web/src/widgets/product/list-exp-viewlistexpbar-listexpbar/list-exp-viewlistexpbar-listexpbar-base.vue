@@ -263,7 +263,7 @@ export default class ListExpViewlistexpbarBase extends Vue implements ControlInt
      * @type {string}
      * @memberof ListExpViewlistexpbarBase
      */
-    public navViewName: string = "product-exp-edit-view";
+    public navViewName: string = "product-stats-edit-view9";
 
     /**
      * 导航视图参数
