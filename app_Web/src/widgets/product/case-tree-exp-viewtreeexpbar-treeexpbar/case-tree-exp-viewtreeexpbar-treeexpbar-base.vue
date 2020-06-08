@@ -1,5 +1,5 @@
 <template>
-    <split id="bugtreeexpviewtreeexpbar" class='app-tree-exp-bar' v-model="split" mode="horizontal" @on-move-end="onSplitChange">
+    <split id="casetreeexpviewtreeexpbar" class='app-tree-exp-bar' v-model="split" mode="horizontal" @on-move-end="onSplitChange">
         <div class="app-tree-exp-bar-left enable-search" slot='left'>
             <div class='search-content'>
                 <i-input :search="true"
@@ -49,7 +49,7 @@ import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import { UIActionTool,Util } from '@/utils';
 import ProductService from '@/service/product/product-service';
-import BugTreeExpViewtreeexpbarService from './bug-tree-exp-viewtreeexpbar-treeexpbar-service';
+import CaseTreeExpViewtreeexpbarService from './case-tree-exp-viewtreeexpbar-treeexpbar-service';
 
 
 
@@ -58,13 +58,13 @@ import BugTreeExpViewtreeexpbarService from './bug-tree-exp-viewtreeexpbar-treee
       
     }
 })
-export default class BugTreeExpViewtreeexpbarBase extends Vue implements ControlInterface {
+export default class CaseTreeExpViewtreeexpbarBase extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof BugTreeExpViewtreeexpbar
+     * @memberof CaseTreeExpViewtreeexpbar
      */
     @Prop() public name?: string;
 
@@ -72,7 +72,7 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof BugTreeExpViewtreeexpbar
+     * @memberof CaseTreeExpViewtreeexpbar
      */
     @Prop() public viewState!: Subject<ViewState>;
 
@@ -80,7 +80,7 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
      * 应用上下文
      *
      * @type {*}
-     * @memberof BugTreeExpViewtreeexpbar
+     * @memberof CaseTreeExpViewtreeexpbar
      */
     @Prop() public context: any;
 
@@ -88,7 +88,7 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
      * 视图参数
      *
      * @type {*}
-     * @memberof BugTreeExpViewtreeexpbar
+     * @memberof CaseTreeExpViewtreeexpbar
      */
     @Prop() public viewparams: any;
 
@@ -97,7 +97,7 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
      *
      * @public
      * @type {(Subscription | undefined)}
-     * @memberof BugTreeExpViewtreeexpbar
+     * @memberof CaseTreeExpViewtreeexpbar
      */
     public viewStateEvent: Subscription | undefined;
 
@@ -105,7 +105,7 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof BugTreeExpViewtreeexpbar
+     * @memberof CaseTreeExpViewtreeexpbar
      */
     public getControlType(): string {
         return 'TREEEXPBAR'
@@ -117,23 +117,23 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
      * 计数器服务对象集合
      *
      * @type {Array<*>}
-     * @memberof BugTreeExpViewtreeexpbar
+     * @memberof CaseTreeExpViewtreeexpbar
      */    
     public counterServiceArray:Array<any> = [];
 
     /**
      * 建构部件服务对象
      *
-     * @type {BugTreeExpViewtreeexpbarService}
-     * @memberof BugTreeExpViewtreeexpbar
+     * @type {CaseTreeExpViewtreeexpbarService}
+     * @memberof CaseTreeExpViewtreeexpbar
      */
-    public service: BugTreeExpViewtreeexpbarService = new BugTreeExpViewtreeexpbarService({ $store: this.$store });
+    public service: CaseTreeExpViewtreeexpbarService = new CaseTreeExpViewtreeexpbarService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {ProductService}
-     * @memberof BugTreeExpViewtreeexpbar
+     * @memberof CaseTreeExpViewtreeexpbar
      */
     public appEntityService: ProductService = new ProductService({ $store: this.$store });
 
@@ -142,7 +142,7 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof BugTreeExpViewtreeexpbar
+     * @memberof CaseTreeExpViewtreeexpbar
      */
     public treeexpbar_tree_selectionchange($event: any, $event2?: any) {
         this.treeexpbar_selectionchange($event, 'treeexpbar_tree', $event2);
@@ -153,7 +153,7 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof BugTreeExpViewtreeexpbar
+     * @memberof CaseTreeExpViewtreeexpbar
      */
     public treeexpbar_tree_load($event: any, $event2?: any) {
         this.treeexpbar_load($event, 'treeexpbar_tree', $event2);
@@ -165,7 +165,7 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
      * 关闭视图
      *
      * @param {any} args
-     * @memberof BugTreeExpViewtreeexpbar
+     * @memberof CaseTreeExpViewtreeexpbar
      */
     public closeView(args: any): void {
         let _this: any = this;
@@ -175,7 +175,7 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
     /**
      *  计数器刷新
      *
-     * @memberof BugTreeExpViewtreeexpbar
+     * @memberof CaseTreeExpViewtreeexpbar
      */
     public counterRefresh(){
         const _this:any =this;
@@ -193,7 +193,7 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
      * 视图唯一标识
      *
      * @type {boolean}
-     * @memberof BugTreeExpViewtreeexpbarBase
+     * @memberof CaseTreeExpViewtreeexpbarBase
      */
     @Prop() public viewUID!:string;
 
@@ -201,7 +201,7 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof BugTreeExpViewtreeexpbarBase
+     * @memberof CaseTreeExpViewtreeexpbarBase
      */
     public getDatas(): any[] {
         return [];
@@ -211,7 +211,7 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
      * 获取单项树
      *
      * @returns {*}
-     * @memberof BugTreeExpViewtreeexpbarBase
+     * @memberof CaseTreeExpViewtreeexpbarBase
      */
     public getData(): any {
         return {};
@@ -221,7 +221,7 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
      * 选中数据
      *
      * @type {*}
-     * @memberof BugTreeExpViewtreeexpbarBase
+     * @memberof CaseTreeExpViewtreeexpbarBase
      */
     public selection: any = {};
 
@@ -229,7 +229,7 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
      * 控件宽度
      *
      * @type {number}
-     * @memberof BugTreeExpViewtreeexpbarBase
+     * @memberof CaseTreeExpViewtreeexpbarBase
      */
     public ctrlWidth:number = 0;
 
@@ -237,7 +237,7 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
      * 过滤值
      *
      * @type {string}
-     * @memberof BugTreeExpViewtreeexpbarBase
+     * @memberof CaseTreeExpViewtreeexpbarBase
      */
     public srfnodefilter: string = '';
 
@@ -246,7 +246,7 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
      *
      * @public
      * @type {number}
-     * @memberof BugTreeExpViewtreeexpbarBase
+     * @memberof CaseTreeExpViewtreeexpbarBase
      */
     public counter:number = 0;
 
@@ -255,7 +255,7 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
      *
      * @public
      * @type {boolean}
-     * @memberof BugTreeExpViewtreeexpbarBase
+     * @memberof CaseTreeExpViewtreeexpbarBase
      */
     public istLoadDefaultRefView: boolean = false;
 
@@ -263,14 +263,14 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
      * 分割宽度
      *
      * @type {number}
-     * @memberof BugTreeExpViewtreeexpbarBase
+     * @memberof CaseTreeExpViewtreeexpbarBase
      */
     public split: number = 0.15;
 
     /**
      * split值变化事件
      *
-     * @memberof BugTreeExpViewtreeexpbarBase
+     * @memberof CaseTreeExpViewtreeexpbarBase
      */
     public onSplitChange() {
         if(this.split){
@@ -283,7 +283,7 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
      *
      * @param {*} [arg={}]
      * @returns {*}
-     * @memberof BugTreeExpViewtreeexpbarBase
+     * @memberof CaseTreeExpViewtreeexpbarBase
      */
     public getExpItemView(arg: any = {}): any {
         let expmode = arg.nodetype.toUpperCase();
@@ -292,23 +292,23 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
         }
         if (Object.is(expmode, 'MODULE')) {
             return {  
-                viewname: 'bug-grid-view', 
+                viewname: 'case-main-grid-view', 
                 parentdata: {"srfparentdefname":"n_module_eq"},
-                deKeyField:'bug'
+                deKeyField:'case'
 			};
         }
         if (Object.is(expmode, 'ROOTMODULE')) {
             return {  
-                viewname: 'bug-grid-view', 
+                viewname: 'case-main-grid-view', 
                 parentdata: {"srfparentdefname":"n_module_eq"},
-                deKeyField:'bug'
+                deKeyField:'case'
 			};
         }
         if (Object.is(expmode, 'ALL')) {
             return {  
-                viewname: 'bug-grid-view', 
+                viewname: 'case-main-grid-view', 
                 parentdata: {},
-                deKeyField:'bug'
+                deKeyField:'case'
 			};
         }
         return null;
@@ -321,7 +321,7 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
      * @param {string} [tag]
      * @param {*} [$event2]
      * @returns {void}
-     * @memberof BugTreeExpViewtreeexpbarBase
+     * @memberof CaseTreeExpViewtreeexpbarBase
      */
     public treeexpbar_selectionchange(args: any [], tag?: string, $event2?: any): void {
         if (args.length === 0) {
@@ -394,7 +394,7 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
      * @param {string} [tag]
      * @param {*} [$event2]
      * @returns {void}
-     * @memberof BugTreeExpViewtreeexpbarBase
+     * @memberof CaseTreeExpViewtreeexpbarBase
      */
     public treeexpbar_load(args: any[], tag?: string, $event2?: any): void {
         this.$emit('load',args);
@@ -403,7 +403,7 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
     /**
      * 执行搜索
      *
-     * @memberof BugTreeExpViewtreeexpbarBase
+     * @memberof CaseTreeExpViewtreeexpbarBase
      */
     public onSearch(): void {
         if (!this.viewState) {
@@ -416,7 +416,7 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
     /**
      * vue 声明周期
      *
-     * @memberof @memberof BugTreeExpViewtreeexpbarBase
+     * @memberof @memberof CaseTreeExpViewtreeexpbarBase
      */
     public created() {
         this.afterCreated();
@@ -425,7 +425,7 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
     /**
      * 执行created后的逻辑
      *
-     *  @memberof BugTreeExpViewtreeexpbarBase
+     *  @memberof CaseTreeExpViewtreeexpbarBase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -442,7 +442,7 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
     /**
     * Vue声明周期(组件渲染完毕)
     *
-    * @memberof BugTreeExpViewtreeexpbarBase
+    * @memberof CaseTreeExpViewtreeexpbarBase
     */
     public mounted() {
         this.afterMounted();     
@@ -451,13 +451,13 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
     /**
     * 执行mounted后的逻辑
     *
-    * @memberof BugTreeExpViewtreeexpbarBase
+    * @memberof CaseTreeExpViewtreeexpbarBase
     */
     public afterMounted(){ 
         if(this.$store.getters.getViewSplit(this.viewUID)){
             this.split = this.$store.getters.getViewSplit(this.viewUID);
         }else{
-            let containerWidth:number = (document.getElementById("bugtreeexpviewtreeexpbar") as any).offsetWidth;
+            let containerWidth:number = (document.getElementById("casetreeexpviewtreeexpbar") as any).offsetWidth;
             if(this.ctrlWidth){
                     this.split = this.ctrlWidth/containerWidth;
             }
@@ -469,7 +469,7 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
     /**
      * vue 生命周期
      *
-     * @memberof BugTreeExpViewtreeexpbarBase
+     * @memberof CaseTreeExpViewtreeexpbarBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -478,7 +478,7 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof BugTreeExpViewtreeexpbarBase
+     * @memberof CaseTreeExpViewtreeexpbarBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -490,7 +490,7 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
      * 视图数据变化
      *
      * @param {*} $event
-     * @memberof BugTreeExpViewtreeexpbarBase
+     * @memberof CaseTreeExpViewtreeexpbarBase
      */
     public onViewDatasChange($event: any): void {
         this.$emit('selectionchange', $event);
@@ -500,7 +500,7 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
      * 视图数据被激活
      *
      * @param {*} $event
-     * @memberof BugTreeExpViewtreeexpbarBase
+     * @memberof CaseTreeExpViewtreeexpbarBase
      */
     public viewDatasActivated($event: any): void {
         this.$emit('activated', $event);
@@ -510,7 +510,7 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
      * 视图数据加载完成
      *
      * @param {*} $event
-     * @memberof BugTreeExpViewtreeexpbarBase
+     * @memberof CaseTreeExpViewtreeexpbarBase
      */
     public onViewLoad($event: any): void {
         this.$emit('load', $event);
@@ -520,5 +520,5 @@ export default class BugTreeExpViewtreeexpbarBase extends Vue implements Control
 </script>
 
 <style lang='less'>
-@import './bug-tree-exp-viewtreeexpbar-treeexpbar.less';
+@import './case-tree-exp-viewtreeexpbar-treeexpbar.less';
 </style>

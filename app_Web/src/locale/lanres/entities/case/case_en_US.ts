@@ -165,20 +165,6 @@ export default {
 		uiactions: {
 		},
 	},
-	batchnewgridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "行编辑",
-			tip: "行编辑",
-		},
-		deuiaction2: {
-			caption: "新建行",
-			tip: "新建行",
-		},
-		deuiaction3: {
-			caption: "保存行",
-			tip: "保存行",
-		},
-	},
 	editviewtoolbar_toolbar: {
 		tbitem3: {
 			caption: "Save",
@@ -243,6 +229,20 @@ export default {
 		tbitem22: {
 			caption: "Help",
 			tip: "Help",
+		},
+	},
+	batchnewgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "行编辑",
+			tip: "行编辑",
+		},
+		deuiaction2: {
+			caption: "新建行",
+			tip: "新建行",
+		},
+		deuiaction3: {
+			caption: "保存行",
+			tip: "保存行",
 		},
 	},
 	maingridviewtoolbar_toolbar: {

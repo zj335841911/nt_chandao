@@ -487,12 +487,12 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryMainView9_StorySpec",
             "viewtag": "61f32b2b422e8f1a9825e1f704464a8c"
         },
-        "productfeaturetreeexpview": {
+        "productcasetreeexpview": {
             "title": "产品需求导航视图",
             "caption": "产品",
             "viewtype": "DETREEEXPVIEW",
             "viewmodule": "zentao",
-            "viewname": "ProductFeatureTreeExpView",
+            "viewname": "ProductCaseTreeExpView",
             "viewtag": "63b82c8ee288130faca83833ec1f837c"
         },
         "taskpivottableview": {

@@ -57,7 +57,7 @@ export default {
 			caption: '产品',
       title: '产品',
 		},
-		featuretreeexpview: {
+		casetreeexpview: {
 			caption: '产品',
       title: '产品',
 		},

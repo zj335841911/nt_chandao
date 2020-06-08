@@ -96,12 +96,38 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '122af527bf38b47ddc53c882847b490e',
+            viewmodule: 'zentao',
+            viewname: 'BugMainEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '5a8a29268a7563b62fc0160233958830',
+                '7df0f0deee91304e0350f00baa8a92d6',
+                '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
             viewtag: '12661bdb476cd339554799b417c6ea48',
             viewmodule: 'zentao',
             viewname: 'TaskAssignTaskView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: '1540523a668e920d831510cfbec2c5e2',
+            viewmodule: 'zentao',
+            viewname: 'BugMainDashboardView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '6558930042f15c2297572f51d7e77df5',
+                '122af527bf38b47ddc53c882847b490e',
+                '443935a0b9d0fa8daf3131956a8bacc9',
+                'ec9a5987de12c718961f243f4034efea',
                 '770a170098d148e438a7666b248e6519',
             ],
         },
@@ -292,6 +318,15 @@ export const viewstate: any = {
                 '6f78b25e86923ab600a2141d50fe49fd',
                 '5890a810365fec51e801d2cffce44fde',
                 '66769499a681f12bd2ebff8859f1d4ea',
+            ],
+        },
+        {
+            viewtag: '443935a0b9d0fa8daf3131956a8bacc9',
+            viewmodule: 'zentao',
+            viewname: 'BugBugLifeEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -525,7 +560,7 @@ export const viewstate: any = {
         {
             viewtag: '63b82c8ee288130faca83833ec1f837c',
             viewmodule: 'zentao',
-            viewname: 'ProductFeatureTreeExpView',
+            viewname: 'ProductCaseTreeExpView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -540,6 +575,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'ea141fddc78fd1af4d06e494baf12cc1',
+            ],
+        },
+        {
+            viewtag: '6558930042f15c2297572f51d7e77df5',
+            viewmodule: 'zentao',
+            viewname: 'BugStepsInfoEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -1031,6 +1075,18 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'c9410c9f72535adf1fff569d5243edd1',
+            viewmodule: 'zentao',
+            viewname: 'BugGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '1540523a668e920d831510cfbec2c5e2',
+                '46517a803b2470cd0bef27aeda0dbcaf',
+                '122af527bf38b47ddc53c882847b490e',
+            ],
+        },
+        {
             viewtag: 'c9c256aef78723e1bf9ddc1d38667c3f',
             viewmodule: 'zentao',
             viewname: 'TaskDoneView',
@@ -1202,6 +1258,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'ec9a5987de12c718961f243f4034efea',
+            viewmodule: 'zentao',
+            viewname: 'BugDashboardMainEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '6c7b582273d0726bcf77214807cfe40c',
+                'fd0b8748ff96edcde009d39903a9f211',
+            ],
+        },
+        {
             viewtag: 'ef1a8c8701140368af895304274c602a',
             viewmodule: 'zentao',
             viewname: 'ProjectDashboardInfoView',
@@ -1229,7 +1296,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '417541fa331fc089b84936b8359403fa',
+                'c9410c9f72535adf1fff569d5243edd1',
             ],
         },
         {
