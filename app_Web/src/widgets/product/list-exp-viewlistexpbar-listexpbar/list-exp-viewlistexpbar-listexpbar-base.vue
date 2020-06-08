@@ -242,6 +242,22 @@ export default class ListExpViewlistexpbarBase extends Vue implements ControlInt
     public split: number = 0.2;
 
     /**
+     * 打开新建数据视图
+     *
+     * @type {any}
+     * @memberof ListExpViewlistexpbar
+     */
+    @Prop() public newdata: any;
+
+    /**
+     * 打开编辑数据视图
+     *
+     * @type {any}
+     * @memberof ListExpViewlistexpbar
+     */
+    @Prop() public opendata: any;
+
+    /**
      * 导航视图名称
      *
      * @type {string}
