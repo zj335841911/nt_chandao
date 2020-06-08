@@ -233,122 +233,52 @@ public class ZTStoryHelper {
     // ----------
 
     final static public boolean create(String zentaoSid, JSONObject jo, ZTResult rst) {
-        String url = MODULE_NAME + "-" + ACTION_CREATE + ZenTaoConstants.ZT_URL_EXT;
+        String url = ZenTaoHttpHelper.formatUrl(MODULE_NAME, ACTION_CREATE, ZenTaoConstants.ZT_URL_EXT);
         JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_CREATE, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_CREATE));
-        if ("fail".equals(rstJO.getString("result"))) {
-            JSONObject message = rstJO.getJSONObject("message");
-            List<String> msgList = new ArrayList<>();
-            if (!message.isEmpty()) {
-                for (String key : message.keySet()) {
-                    JSONArray ja = message.getJSONArray(key);
-                    for (int i = 0; i < ja.size(); i++) {
-                        msgList.add(ja.getString(i));
-                    }
-                }
-            }
-            String msgStr = "创建数据失败。\n";
-            if (!msgList.isEmpty()) {
-                msgStr += String.join("\n", msgList);
-            }
-            rst.setSuccess(false);
-            rst.setResult(rstJO);
-            rst.setMessage(msgStr);
-            return false;
-        }
-        rst.setSuccess(true);
-        rst.setResult(rstJO);
-        rst.setMessage(rstJO.getString("message"));
-        return true;
+        rst = ZenTaoHttpHelper.formatResultJSON(rstJO, rst);
+        return rst.isSuccess();
     }
 
     final static public boolean edit(String zentaoSid, JSONObject jo, ZTResult rst) {
-        String urlParams = "";
-        if (ACTION_URL_PARAMS_EDIT != null && ACTION_URL_PARAMS_EDIT.size() > 0) {
-            for (String key : ACTION_URL_PARAMS_EDIT) {
-                urlParams += "-" + jo.get(key);
-            }
-        }
-        String url = MODULE_NAME + "-" + ACTION_EDIT + urlParams + ZenTaoConstants.ZT_URL_EXT;
+        String url = ZenTaoHttpHelper.formatUrl(MODULE_NAME, ACTION_EDIT, ZenTaoConstants.ZT_URL_EXT, jo, ACTION_URL_PARAMS_EDIT);
         JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_EDIT, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_EDIT));
-        rst.setSuccess(true);
-        rst.setResult(rstJO);
-        rst.setMessage(rstJO.getString("html"));
-        return true;
+        rst = ZenTaoHttpHelper.formatResultHTML(rstJO, rst);
+        return rst.isSuccess();
     }
 
     final static public boolean change(String zentaoSid, JSONObject jo, ZTResult rst) {
-        String urlParams = "";
-        if (ACTION_URL_PARAMS_CHANGE != null && ACTION_URL_PARAMS_CHANGE.size() > 0) {
-            for (String key : ACTION_URL_PARAMS_CHANGE) {
-                urlParams += "-" + jo.get(key);
-            }
-        }
-        String url = MODULE_NAME + "-" + ACTION_CHANGE + urlParams + ZenTaoConstants.ZT_URL_EXT;
+        String url = ZenTaoHttpHelper.formatUrl(MODULE_NAME, ACTION_CHANGE, ZenTaoConstants.ZT_URL_EXT, jo, ACTION_URL_PARAMS_CHANGE);
         JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_CHANGE, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_CHANGE));
-        rst.setSuccess(true);
-        rst.setResult(rstJO);
-        rst.setMessage(rstJO.getString("html"));
-        return true;
+        rst = ZenTaoHttpHelper.formatResultHTML(rstJO, rst);
+        return rst.isSuccess();
     }
 
     final static public boolean review(String zentaoSid, JSONObject jo, ZTResult rst) {
-        String urlParams = "";
-        if (ACTION_URL_PARAMS_REVIEW != null && ACTION_URL_PARAMS_REVIEW.size() > 0) {
-            for (String key : ACTION_URL_PARAMS_REVIEW) {
-                urlParams += "-" + jo.get(key);
-            }
-        }
-        String url = MODULE_NAME + "-" + ACTION_REVIEW + urlParams + ZenTaoConstants.ZT_URL_EXT;
+        String url = ZenTaoHttpHelper.formatUrl(MODULE_NAME, ACTION_REVIEW, ZenTaoConstants.ZT_URL_EXT, jo, ACTION_URL_PARAMS_REVIEW);
         JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_REVIEW, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_REVIEW));
-        rst.setSuccess(true);
-        rst.setResult(rstJO);
-        rst.setMessage(rstJO.getString("html"));
-        return true;
+        rst = ZenTaoHttpHelper.formatResultHTML(rstJO, rst);
+        return rst.isSuccess();
     }
 
     final static public boolean activate(String zentaoSid, JSONObject jo, ZTResult rst) {
-        String urlParams = "";
-        if (ACTION_URL_PARAMS_ACTIVATE != null && ACTION_URL_PARAMS_ACTIVATE.size() > 0) {
-            for (String key : ACTION_URL_PARAMS_ACTIVATE) {
-                urlParams += "-" + jo.get(key);
-            }
-        }
-        String url = MODULE_NAME + "-" + ACTION_ACTIVATE + urlParams + ZenTaoConstants.ZT_URL_EXT;
+        String url = ZenTaoHttpHelper.formatUrl(MODULE_NAME, ACTION_ACTIVATE, ZenTaoConstants.ZT_URL_EXT, jo, ACTION_URL_PARAMS_ACTIVATE);
         JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_ACTIVATE, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_ACTIVATE));
-        rst.setSuccess(true);
-        rst.setResult(rstJO);
-        rst.setMessage(rstJO.getString("html"));
-        return true;
+        rst = ZenTaoHttpHelper.formatResultHTML(rstJO, rst);
+        return rst.isSuccess();
     }
 
     final static public boolean assignTo(String zentaoSid, JSONObject jo, ZTResult rst) {
-        String urlParams = "";
-        if (ACTION_URL_PARAMS_ASSIGNTO != null && ACTION_URL_PARAMS_ASSIGNTO.size() > 0) {
-            for (String key : ACTION_URL_PARAMS_ASSIGNTO) {
-                urlParams += "-" + jo.get(key);
-            }
-        }
-        String url = MODULE_NAME + "-" + ACTION_ASSIGNTO + urlParams + ZenTaoConstants.ZT_URL_EXT;
+        String url = ZenTaoHttpHelper.formatUrl(MODULE_NAME, ACTION_ASSIGNTO, ZenTaoConstants.ZT_URL_EXT, jo, ACTION_URL_PARAMS_ASSIGNTO);
         JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_ASSIGNTO, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_ASSIGNTO));
-        rst.setSuccess(true);
-        rst.setResult(rstJO);
-        rst.setMessage(rstJO.getString("html"));
-        return true;
+        rst = ZenTaoHttpHelper.formatResultHTML(rstJO, rst);
+        return rst.isSuccess();
     }
 
     final static public boolean close(String zentaoSid, JSONObject jo, ZTResult rst) {
-        String urlParams = "";
-        if (ACTION_URL_PARAMS_CLOSE != null && ACTION_URL_PARAMS_CLOSE.size() > 0) {
-            for (String key : ACTION_URL_PARAMS_CLOSE) {
-                urlParams += "-" + jo.get(key);
-            }
-        }
-        String url = MODULE_NAME + "-" + ACTION_CLOSE + urlParams + ZenTaoConstants.ZT_URL_EXT;
+        String url = ZenTaoHttpHelper.formatUrl(MODULE_NAME, ACTION_CLOSE, ZenTaoConstants.ZT_URL_EXT, jo, ACTION_URL_PARAMS_CLOSE);
         JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_CLOSE, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_CLOSE));
-        rst.setSuccess(true);
-        rst.setResult(rstJO);
-        rst.setMessage(rstJO.getString("html"));
-        return true;
+        rst = ZenTaoHttpHelper.formatResultHTML(rstJO, rst);
+        return rst.isSuccess();
     }
 
 }

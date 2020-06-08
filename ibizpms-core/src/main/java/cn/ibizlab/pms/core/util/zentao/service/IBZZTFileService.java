@@ -32,7 +32,7 @@ public class IBZZTFileService implements IIBZZTFileService {
     @Value("${zentao.filePath:#{null}}")
     private String filePath;
 
-    @Value("${zentao.rootPath:/app/zentao/}")
+    @Value("${zentao.rootPath:/app/zentao/file/}")
     private String rootPath;
 
     @Autowired

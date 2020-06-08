@@ -43,7 +43,7 @@ public class ZTAPIHelper {
     // ----------
 
     final static public boolean getSessionID(ZTResult rst) {
-        String url = MODULE_NAME + "-" + ACTION_GETSESSIONID + ZenTaoConstants.ZT_URL_EXT;
+        String url = ZenTaoHttpHelper.formatUrl(MODULE_NAME, ACTION_GETSESSIONID, ZenTaoConstants.ZT_URL_EXT);
         JSONObject rstJO = ZenTaoHttpHelper.doRequest(null, url, ACTION_HTTPMETHOD_GETSESSIONID);
         rst.setResult(rstJO);
         if (!"success".equals(rstJO.getString("status"))) {

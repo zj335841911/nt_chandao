@@ -89,8 +89,7 @@ public class ZTUserHelper {
         if (jo.getString("password") == null || jo.getString("password").isEmpty()) {
             return false;
         }
-        String url = MODULE_NAME + "-" + ACTION_LOGIN + ZenTaoConstants.ZT_URL_EXT;
-
+        String url = ZenTaoHttpHelper.formatUrl(MODULE_NAME, ACTION_LOGIN, ZenTaoConstants.ZT_URL_EXT);
         JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaosid, url, ACTION_HTTPMETHOD_LOGIN, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_LOGIN));
         rst.setResult(rstJO);
         if (!"success".equals(rstJO.getString("status"))) {

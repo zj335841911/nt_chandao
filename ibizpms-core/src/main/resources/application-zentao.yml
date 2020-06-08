@@ -2,7 +2,8 @@ zentao:
   url: http://172.16.100.202/zentao/
   needretry: false
   retrycount: 0
-  rootPath: I:/xampp/zentao/www/data/upload/1/
+  # rootPath需要映射至禅道文件上传路径
+  rootPath: /app/zentao/file/
   file:
     uploadpath: ibizutil/ztupload
     downloadpath: ibizutil/ztupload
