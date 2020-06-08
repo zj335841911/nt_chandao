@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import CaseMainNewViewBase from './case-main-new-view-base.vue';
 
-import view_form from '@widgets/case/main-edit-form/main-edit-form.vue';
+import view_form from '@widgets/case/main-new-form/main-new-form.vue';
 @Component({
     components: {
         view_form, 

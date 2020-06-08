@@ -94,12 +94,10 @@ export default {
 		uiactions: {
 		},
 	},
-	mainedit_form: {
+	mainnew_form: {
 		details: {
 			group1: '测试用例基本信息', 
 			formpage1: '基本信息', 
-			group2: '操作信息', 
-			formpage2: '其它', 
 			srforikey: '', 
 			srfkey: '用例编号', 
 			srfmajortext: '用例标题', 
@@ -107,7 +105,15 @@ export default {
 			srfuf: '', 
 			srfdeid: '', 
 			srfsourcekey: '', 
+			product: '所属产品', 
+			productname: '产品名称', 
+			module: '所属模块', 
+			modulename: '模块名称', 
+			type: '用例类型', 
+			story: '相关需求', 
+			storyname: '需求名称', 
 			title: '用例标题', 
+			pri: '优先级', 
 			id: '用例编号', 
 		},
 		uiactions: {

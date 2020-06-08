@@ -109,7 +109,7 @@ export default class ProductStatsEditView9Base extends Vue {
 	 * @memberof ProductStatsEditView9Base
 	 */
     public customViewNavContexts:any ={
-    "PRODUCTSTATS":{"isRawValue":true,"value":"product"}
+    "PRODUCTSTATS":{"isRawValue":false,"value":"product"}
     };
 
 	/**
