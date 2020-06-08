@@ -31,6 +31,10 @@ zuul:
       path: /branches/**
       serviceId: pms-webapi
       stripPrefix: false
+    ibz_productstats:
+      path: /productstats/**
+      serviceId: pms-webapi
+      stripPrefix: false
     zt_action:
       path: /actions/**
       serviceId: pms-webapi

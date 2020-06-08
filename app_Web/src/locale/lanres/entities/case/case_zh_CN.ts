@@ -47,6 +47,18 @@ export default {
 			caption: '测试用例',
       title: '测试用例',
 		},
+		featuregridview: {
+			caption: '测试用例',
+      title: '测试用例',
+		},
+		featurenewview: {
+			caption: '功能测试',
+      title: '功能测试',
+		},
+		featuredashboardview: {
+			caption: '功能测试',
+      title: '功能测试',
+		},
 		gridview9: {
 			caption: '测试用例',
       title: '测试用例',
@@ -54,6 +66,25 @@ export default {
 		gridview: {
 			caption: '测试用例',
       title: '测试用例',
+		},
+	},
+	mainedit_form: {
+		details: {
+			group1: '测试用例基本信息', 
+			formpage1: '基本信息', 
+			group2: '操作信息', 
+			formpage2: '其它', 
+			srforikey: '', 
+			srfkey: '用例编号', 
+			srfmajortext: '用例标题', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			title: '用例标题', 
+			id: '用例编号', 
+		},
+		uiactions: {
 		},
 	},
 	main_form: {
@@ -75,7 +106,7 @@ export default {
 		uiactions: {
 		},
 	},
-	main_grid: {
+	featuregrid_grid: {
 		columns: {
 			pri: 'P',
 			title: '用例标题',
@@ -91,6 +122,39 @@ export default {
 			status: '状态',
 		},
 		uiactions: {
+		},
+	},
+	main_grid: {
+		columns: {
+			pri: 'P',
+			title: '用例标题',
+			status: '状态',
+		},
+		uiactions: {
+		},
+	},
+	featuregridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: '新建',
+			tip: '新建',
+		},
+		deuiaction4: {
+			caption: '删除',
+			tip: '删除',
+		},
+		seperator1: {
+			caption: '',
+			tip: '',
+		},
+		deuiaction2: {
+			caption: '刷新',
+			tip: '刷新',
+		},
+	},
+	featurenewviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: '保存并关闭',
+			tip: '保存并关闭',
 		},
 	},
 	editviewtoolbar_toolbar: {

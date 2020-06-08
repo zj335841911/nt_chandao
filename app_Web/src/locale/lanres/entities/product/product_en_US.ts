@@ -54,6 +54,10 @@ export default {
 			caption: "产品",
       title: '产品',
 		},
+		featuretreeexpview: {
+			caption: "产品",
+      title: '产品',
+		},
 		maintabexpview: {
 			caption: "产品",
       title: '产品',

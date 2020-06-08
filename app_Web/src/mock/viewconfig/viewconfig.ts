@@ -271,6 +271,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryMainView",
             "viewtag": "3f2ca3e560d9082bb56fbf7667a57a66"
         },
+        "casefeaturegridview": {
+            "title": "功能测试",
+            "caption": "测试用例",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "CaseFeatureGridView",
+            "viewtag": "417541fa331fc089b84936b8359403fa"
+        },
         "bugbuglifeeditview9": {
             "title": "Bug的一生",
             "caption": "Bug",
@@ -415,6 +423,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "UserPickupView",
             "viewtag": "57e77f1cea8cff268fbd744f326867fb"
         },
+        "casefeaturenewview": {
+            "title": "功能测试",
+            "caption": "功能测试",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "CaseFeatureNewView",
+            "viewtag": "5890a810365fec51e801d2cffce44fde"
+        },
         "productstorytreeexpview": {
             "title": "产品需求导航视图",
             "caption": "产品",
@@ -463,6 +479,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryMainView9_StorySpec",
             "viewtag": "61f32b2b422e8f1a9825e1f704464a8c"
         },
+        "productfeaturetreeexpview": {
+            "title": "产品需求导航视图",
+            "caption": "产品",
+            "viewtype": "DETREEEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProductFeatureTreeExpView",
+            "viewtag": "63b82c8ee288130faca83833ec1f837c"
+        },
         "taskpivottableview": {
             "title": "任务表格视图",
             "caption": "任务",
@@ -486,6 +510,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ProductMainTabExpView",
             "viewtag": "6c7b582273d0726bcf77214807cfe40c"
+        },
+        "casefeaturedashboardview": {
+            "title": "功能测试",
+            "caption": "功能测试",
+            "viewtype": "DEPORTALVIEW",
+            "viewmodule": "zentao",
+            "viewname": "CaseFeatureDashboardView",
+            "viewtag": "6f78b25e86923ab600a2141d50fe49fd"
         },
         "actionhistroylistview": {
             "title": "历史记录",

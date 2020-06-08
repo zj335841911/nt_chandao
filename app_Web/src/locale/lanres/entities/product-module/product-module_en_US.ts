@@ -80,6 +80,14 @@ export default {
 			tip: "Save And Close Window",
 		},
 	},
+	featurecaseexp_treeview: {
+		nodes: {
+			all: '全部',
+			root: '默认根节点',
+		},
+		uiactions: {
+		},
+	},
 	exp_treeview: {
 		nodes: {
 			all: '所有模块',
@@ -93,14 +101,6 @@ export default {
 		nodes: {
 			all: '所有模块',
 			root: '默认根节点',
-		},
-		uiactions: {
-		},
-	},
-	bugexp_treeview: {
-		nodes: {
-			root: '默认根节点',
-			all: '全部',
 		},
 		uiactions: {
 		},

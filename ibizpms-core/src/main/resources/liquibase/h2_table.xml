@@ -202,6 +202,9 @@
     <!--输出实体[ZT_IM_CONFERENCE]数据结构 -->
 
 
+    <!--输出实体[IBZ_PRODUCTSTATS]数据结构 -->
+
+
     <!--输出实体[ZT_ACTION]数据结构 -->
 
 
@@ -287,6 +290,7 @@
         <!--输出实体[ZT_CONFIG]外键关系 -->
         <!--输出实体[ZT_COMPANY]外键关系 -->
         <!--输出实体[ZT_IM_CONFERENCE]外键关系 -->
+        <!--输出实体[IBZ_PRODUCTSTATS]外键关系 -->
         <!--输出实体[ZT_ACTION]外键关系 -->
         <!--输出实体[ZT_ENTRY]外键关系 -->
         <!--输出实体[ZT_IM_CHAT]外键关系 -->
