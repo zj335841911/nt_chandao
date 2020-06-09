@@ -72,6 +72,9 @@ export default class MainModel {
       {
         name: 'type',
       },
+      {
+        name: 'name',
+      },
     ]
   }
 

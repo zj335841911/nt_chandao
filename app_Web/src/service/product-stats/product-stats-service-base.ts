@@ -31,7 +31,7 @@ export default class ProductStatsServiceBase extends EntityService {
         this.APPLYDEKEY ='productstats';
         this.APPDEKEY = 'id';
         this.APPDENAME = 'productstats';
-        this.APPDETEXT = '';
+        this.APPDETEXT = 'name';
         this.APPNAME = 'web';
         this.SYSTEMNAME = 'pms';
     }

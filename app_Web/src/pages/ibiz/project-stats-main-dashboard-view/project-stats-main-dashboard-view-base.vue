@@ -216,6 +216,7 @@ export default class ProjectStatsMainDashboardViewBase extends Vue {
             view: this,
             dashboard: this.$refs.dashboard,
             keyPSDEField: 'projectstats',
+            majorPSDEField: 'name',
             isLoadDefault: true,
         });
     }

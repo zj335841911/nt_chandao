@@ -175,6 +175,22 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
     @JsonProperty("activebugcnt")
     private Integer activebugcnt;
 
+    /**
+     * 属性 [NAME]
+     *
+     */
+    @JSONField(name = "name")
+    @JsonProperty("name")
+    private String name;
+
+
+    /**
+     * 设置 [NAME]
+     */
+    public void setName(String  name){
+        this.name = name ;
+        this.modify("name",name);
+    }
 
 
 }

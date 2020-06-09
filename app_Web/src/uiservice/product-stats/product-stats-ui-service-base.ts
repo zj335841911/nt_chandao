@@ -90,46 +90,261 @@ export default class ProductStatsUIServiceBase extends UIService {
     public initDeMainStateMap(){
     }
 
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+    /**
+     * 创建项目
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async ProductStats_OpenProjectCreateView(args: any[], context:any = {} ,params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        let data: any = {};
+        const _args: any[] = Util.deepCopy(args);
+        const _this: any = actionContext;
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { productstats: '%productstats%' });
+        Object.assign(params, { id: '%productstats%' });
+        Object.assign(params, { name: '%name%' });
+        context = UIActionTool.handleContextParam(actionTarget,_args,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'projects', parameterName: 'project' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if(window.opener){
+                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
+                        window.close();
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'project-edit-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.project.views.editview.title'),
+                placement: 'DRAWER_LEFT',
+            };
+            openDrawer(view, data);
+    }
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${appDataEntity.getMajorPSAppDEField(...  [in template "TEMPLCODE_zh_CN" at line 57, column 107]
-----
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+    /**
+     * 提需求
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async ProductStats_OpenStoryCreateView(args: any[], context:any = {} ,params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        let data: any = {};
+        const _args: any[] = Util.deepCopy(args);
+        const _this: any = actionContext;
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { productstats: '%productstats%' });
+        Object.assign(params, { id: '%productstats%' });
+        Object.assign(params, { name: '%name%' });
+        context = UIActionTool.handleContextParam(actionTarget,_args,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'stories', parameterName: 'story' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if(window.opener){
+                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
+                        window.close();
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'story-edit-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.story.views.editview.title'),
+                placement: 'DRAWER_RIGHT',
+            };
+            openDrawer(view, data);
+    }
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${appDataEntity.getMajorPSAppDEField(...  [in template "TEMPLCODE_zh_CN" at line 57, column 107]
-----
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+    /**
+     * 创建计划
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async ProductStats_OpenProductPlanCreateView(args: any[], context:any = {} ,params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        let data: any = {};
+        const _args: any[] = Util.deepCopy(args);
+        const _this: any = actionContext;
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { productstats: '%productstats%' });
+        Object.assign(params, { id: '%productstats%' });
+        Object.assign(params, { name: '%name%' });
+        context = UIActionTool.handleContextParam(actionTarget,_args,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'productplans', parameterName: 'productplan' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if(window.opener){
+                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
+                        window.close();
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'product-plan-edit-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.productplan.views.editview.title'),
+                placement: 'DRAWER_RIGHT',
+            };
+            openDrawer(view, data);
+    }
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${appDataEntity.getMajorPSAppDEField(...  [in template "TEMPLCODE_zh_CN" at line 57, column 107]
-----
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+    /**
+     * 创建发布
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async ProductStats_OpenReleasedCreateView(args: any[], context:any = {} ,params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        let data: any = {};
+        const _args: any[] = Util.deepCopy(args);
+        const _this: any = actionContext;
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { productstats: '%productstats%' });
+        Object.assign(params, { id: '%productstats%' });
+        Object.assign(params, { name: '%name%' });
+        context = UIActionTool.handleContextParam(actionTarget,_args,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'releases', parameterName: 'release' },
+            { pathName: 'editview', parameterName: 'editview' },
+        ];
+        const openIndexViewTab = (data: any) => {
+            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
+            actionContext.$router.push(routePath);
+            return null;
+        }
+        openIndexViewTab(data);
+    }
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${appDataEntity.getMajorPSAppDEField(...  [in template "TEMPLCODE_zh_CN" at line 57, column 107]
-----
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+    /**
+     * 查看全部
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async ProductStats_OpenProductStoryView(args: any[], context:any = {} ,params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        let data: any = {};
+        const _args: any[] = Util.deepCopy(args);
+        const _this: any = actionContext;
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { productstats: '%productstats%' });
+        Object.assign(params, { id: '%productstats%' });
+        Object.assign(params, { name: '%name%' });
+        context = UIActionTool.handleContextParam(actionTarget,_args,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'maintabexpview', parameterName: 'maintabexpview' },
+        ];
+        const openIndexViewTab = (data: any) => {
+            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
+            actionContext.$router.push(routePath);
+            return null;
+        }
+        openIndexViewTab(data);
+    }
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${appDataEntity.getMajorPSAppDEField(...  [in template "TEMPLCODE_zh_CN" at line 57, column 107]
-----
 
     /**
      * 获取指定数据的重定向页面

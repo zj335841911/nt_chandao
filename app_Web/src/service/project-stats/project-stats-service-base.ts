@@ -31,7 +31,7 @@ export default class ProjectStatsServiceBase extends EntityService {
         this.APPLYDEKEY ='projectstats';
         this.APPDEKEY = 'id';
         this.APPDENAME = 'projectstats';
-        this.APPDETEXT = '';
+        this.APPDETEXT = 'name';
         this.APPNAME = 'web';
         this.SYSTEMNAME = 'pms';
     }

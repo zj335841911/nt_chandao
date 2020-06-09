@@ -20,6 +20,7 @@ export default {
     normalreleaserate: '维护发布率',
     activestorycnt: '激活需求数',
     activebugcnt: '未解决Bug数',
+    name: '产品名称',
   },
 	views: {
 		editview9: {
@@ -50,6 +51,7 @@ export default {
 			formpage1: "基本信息", 
 			srforikey: "", 
 			srfkey: "产品编号", 
+			srfmajortext: "产品名称", 
 			srftempmode: "", 
 			srfuf: "", 
 			srfdeid: "", 

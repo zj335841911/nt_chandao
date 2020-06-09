@@ -34,6 +34,11 @@ export default class Main2Model {
         dataType: 'ACID',
       },
       {
+        name: 'srfmajortext',
+        prop: 'name',
+        dataType: 'TEXT',
+      },
+      {
         name: 'srftempmode',
       },
       {

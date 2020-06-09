@@ -174,9 +174,23 @@ public class ProductStats extends EntityMP implements Serializable {
     @JSONField(name = "activebugcnt")
     @JsonProperty("activebugcnt")
     private Integer activebugcnt;
+    /**
+     * 产品名称
+     */
+    @TableField(value = "name")
+    @JSONField(name = "name")
+    @JsonProperty("name")
+    private String name;
 
 
 
+    /**
+     * 设置 [产品名称]
+     */
+    public void setName(String name){
+        this.name = name ;
+        this.modify("name",name);
+    }
 
 }
 

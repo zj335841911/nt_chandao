@@ -740,6 +740,7 @@ export default class Main2Base extends Vue implements ControlInterface {
     public data: any = {
         srforikey: null,
         srfkey: null,
+        srfmajortext: null,
         srftempmode: null,
         srfuf: null,
         srfdeid: null,
@@ -813,6 +814,12 @@ export default class Main2Base extends Vue implements ControlInterface {
             { type: 'number', message: '产品编号 值必须为数值类型', trigger: 'blur' },
             { required: false, type: 'number', message: '产品编号 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: '产品编号 值不能为空', trigger: 'blur' },
+        ],
+        srfmajortext: [
+            { type: 'string', message: '产品名称 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '产品名称 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '产品名称 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '产品名称 值不能为空', trigger: 'blur' },
         ],
         srftempmode: [
             { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
@@ -990,6 +997,8 @@ export default class Main2Base extends Vue implements ControlInterface {
 , 
         srfkey: new FormItemModel({ caption: '产品编号', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
+        srfmajortext: new FormItemModel({ caption: '产品名称', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         srftempmode: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srftempmode', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         srfuf: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfuf', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -1054,6 +1063,18 @@ export default class Main2Base extends Vue implements ControlInterface {
     @Watch('data.srfkey')
     onSrfkeyChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'srfkey', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 srfmajortext 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main2
+     */
+    @Watch('data.srfmajortext')
+    onSrfmajortextChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'srfmajortext', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1396,6 +1417,7 @@ export default class Main2Base extends Vue implements ControlInterface {
             }
             this.detailsModel.grouppanel2.setVisible(ret);
         }
+
 
 
 

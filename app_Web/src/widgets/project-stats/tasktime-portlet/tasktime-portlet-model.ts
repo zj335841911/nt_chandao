@@ -72,6 +72,9 @@ export default class TASKTIMEModel {
       {
         name: 'type',
       },
+      {
+        name: 'name',
+      },
     ]
   }
 

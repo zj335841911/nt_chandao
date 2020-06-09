@@ -229,6 +229,7 @@ export default class ProductStatsEditView9Base extends Vue {
             form: this.$refs.form,
             p2k: '0',
             keyPSDEField: 'productstats',
+            majorPSDEField: 'name',
             isLoadDefault: true,
         });
     }

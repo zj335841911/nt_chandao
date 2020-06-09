@@ -175,6 +175,22 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     @JsonProperty("type")
     private String type;
 
+    /**
+     * 属性 [NAME]
+     *
+     */
+    @JSONField(name = "name")
+    @JsonProperty("name")
+    private String name;
+
+
+    /**
+     * 设置 [NAME]
+     */
+    public void setName(String  name){
+        this.name = name ;
+        this.modify("name",name);
+    }
 
 
 }

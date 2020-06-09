@@ -228,6 +228,7 @@ export default class ProjectStatsEditView9Base extends Vue {
             form: this.$refs.form,
             p2k: '0',
             keyPSDEField: 'projectstats',
+            majorPSDEField: 'name',
             isLoadDefault: true,
         });
     }

@@ -174,9 +174,23 @@ public class ProjectStats extends EntityMP implements Serializable {
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
+    /**
+     * 项目名称
+     */
+    @TableField(value = "name")
+    @JSONField(name = "name")
+    @JsonProperty("name")
+    private String name;
 
 
 
+    /**
+     * 设置 [项目名称]
+     */
+    public void setName(String name){
+        this.name = name ;
+        this.modify("name",name);
+    }
 
 }
 

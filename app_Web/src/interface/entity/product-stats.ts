@@ -157,4 +157,12 @@ export interface ProductStats {
      * @memberof ProductStats
      */
     activebugcnt?: any;
+
+    /**
+     * 产品名称
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    name?: any;
 }

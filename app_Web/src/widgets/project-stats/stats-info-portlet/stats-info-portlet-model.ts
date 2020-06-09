@@ -72,6 +72,9 @@ export default class StatsInfoModel {
       {
         name: 'type',
       },
+      {
+        name: 'name',
+      },
     ]
   }
 

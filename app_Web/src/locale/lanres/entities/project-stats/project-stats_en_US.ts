@@ -20,6 +20,7 @@ export default {
     deleted: '已删除',
     time: '工时',
     type: '工时类型',
+    name: '项目名称',
   },
 	views: {
 		maindashboardview: {
@@ -40,6 +41,7 @@ export default {
 			formpage1: "基本信息", 
 			srforikey: "", 
 			srfkey: "项目编号", 
+			srfmajortext: "项目名称", 
 			srftempmode: "", 
 			srfuf: "", 
 			srfdeid: "", 

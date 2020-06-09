@@ -27,6 +27,13 @@ import cn.ibizlab.pms.core.ibiz.domain.ProductStats;
 @Data
 public class ProductStatsSearchContext extends QueryWrapperContext<ProductStats> {
 
+	private String n_name_like;//[产品名称]
+	public void setN_name_like(String n_name_like) {
+        this.n_name_like = n_name_like;
+        if(!ObjectUtils.isEmpty(this.n_name_like)){
+            this.getSelectCond().like("name", n_name_like);
+        }
+    }
 
     /**
 	 * 启用快速搜索
@@ -35,6 +42,9 @@ public class ProductStatsSearchContext extends QueryWrapperContext<ProductStats>
 	{
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
+            this.getSelectCond().and( wrapper ->
+                     wrapper.like("name", query)   
+            );
 		 }
 	}
 }

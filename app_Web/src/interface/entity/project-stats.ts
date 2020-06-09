@@ -157,4 +157,12 @@ export interface ProjectStats {
      * @memberof ProjectStats
      */
     type?: any;
+
+    /**
+     * 项目名称
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    name?: any;
 }
