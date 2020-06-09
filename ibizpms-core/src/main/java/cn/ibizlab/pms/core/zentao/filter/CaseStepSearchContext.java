@@ -49,6 +49,9 @@ public class CaseStepSearchContext extends QueryWrapperContext<CaseStep> {
 	{
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
+            this.getSelectCond().and( wrapper ->
+                     wrapper.like("expect", query)   
+            );
 		 }
 	}
 }

@@ -31,7 +31,7 @@ export default class CaseStepServiceBase extends EntityService {
         this.APPLYDEKEY ='casestep';
         this.APPDEKEY = 'id';
         this.APPDENAME = 'casesteps';
-        this.APPDETEXT = '';
+        this.APPDETEXT = 'expect';
         this.APPNAME = 'web';
         this.SYSTEMNAME = 'pms';
     }

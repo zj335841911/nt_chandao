@@ -57,6 +57,11 @@ export default class MainModel {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'srfmajortext',
+          prop: 'expect',
+          dataType: 'LONGTEXT',
+        },
+        {
           name: 'srfdataaccaction',
           prop: 'id',
           dataType: 'ACID',

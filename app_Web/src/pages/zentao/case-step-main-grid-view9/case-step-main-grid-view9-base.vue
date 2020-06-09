@@ -264,6 +264,7 @@ export default class CaseStepMainGridView9Base extends Vue {
             },
             grid: this.$refs.grid,
             keyPSDEField: 'casestep',
+            majorPSDEField: 'expect',
             isLoadDefault: true,
         });
     }
