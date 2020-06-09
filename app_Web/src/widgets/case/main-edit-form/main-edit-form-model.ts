@@ -56,6 +56,97 @@ export default class MainEditModel {
         dataType: 'TEXT',
       },
       {
+        name: 'precondition',
+        prop: 'precondition',
+        dataType: 'LONGTEXT',
+      },
+      {
+        name: 'formitem',
+      },
+      {
+        name: 'formitem1',
+      },
+      {
+        name: 'product',
+        prop: 'product',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'productname',
+        prop: 'productname',
+        dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'module',
+        prop: 'module',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'modulename',
+        prop: 'modulename',
+        dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'story',
+        prop: 'story',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'storyname',
+        prop: 'storyname',
+        dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'type',
+        prop: 'type',
+        dataType: 'SSCODELIST',
+      },
+      {
+        name: 'stage',
+        prop: 'stage',
+        dataType: 'SMCODELIST',
+      },
+      {
+        name: 'pri',
+        prop: 'pri',
+        dataType: 'NSCODELIST',
+      },
+      {
+        name: 'status',
+        prop: 'status',
+        dataType: 'SSCODELIST',
+      },
+      {
+        name: 'keywords',
+        prop: 'keywords',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'linkcase',
+        prop: 'linkcase',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'openedby',
+        prop: 'openedby',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'openeddate',
+        prop: 'openeddate',
+        dataType: 'DATETIME',
+      },
+      {
+        name: 'lasteditedby',
+        prop: 'lasteditedby',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'lastediteddate',
+        prop: 'lastediteddate',
+        dataType: 'DATETIME',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

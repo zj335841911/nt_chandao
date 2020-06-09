@@ -160,6 +160,11 @@
                     </template>
                     <template slot-scope="scope">
                         <span>
+                            
+                            <a @click="uiAction(scope.row, 'MainEdit', $event)">
+                              <i class=''></i>
+                              {{$t('entities.case.maingrid_grid.uiactions.mainedit')}}
+                            </a>
                         </span>
                     </template>
                 </el-table-column>
@@ -215,6 +220,7 @@ import { UIActionTool,Util } from '@/utils';
 import CaseService from '@/service/case/case-service';
 import MainGridService from './main-grid-grid-service';
 
+import CaseUIService from '@/uiservice/case/case-ui-service';
 import CodeListService from "@service/app/codelist-service";
 import { FormItemModel } from '@/model/form-detail';
 
@@ -304,6 +310,54 @@ export default class MainGridBase extends Vue implements ControlInterface {
     public appEntityService: CaseService = new CaseService({ $store: this.$store });
     
 
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u5c4f2da_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:CaseUIService  = new CaseUIService();
+        curUIService.Case_MainEdit(datas,contextJO, paramJO,  $event, xData,this,"Case");
+    }
+
+    /**
+     * 刷新
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof CaseMainGridViewBase
+     */
+    public Refresh(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        const _this: any = this;
+        if (xData && xData.refresh && xData.refresh instanceof Function) {
+            xData.refresh(args);
+        } else if (_this.refresh && _this.refresh instanceof Function) {
+            _this.refresh(args);
+        }
+    }
 
     /**
      * 关闭视图
@@ -1483,6 +1537,9 @@ export default class MainGridBase extends Vue implements ControlInterface {
      * @memberof MainGrid
      */
 	public uiAction(row: any, tag: any, $event: any) {
+        if(Object.is('MainEdit', tag)) {
+            this.grid_uagridcolumn1_u5c4f2da_click(row, tag, $event);
+        }
     }
 
     /**

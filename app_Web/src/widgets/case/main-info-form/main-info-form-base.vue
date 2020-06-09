@@ -20,6 +20,7 @@
     paramItem='case' 
     :parentdata='{"srfparentdefname":"CASE","srfparentdename":"ZT_CASE","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_CASESTEP_ZT_CASE_CASE","SRFDER1NID":"DER1N_ZT_CASESTEP_ZT_CASE_CASE"}'
     :parameters="[
+        { pathName: 'cases', parameterName: 'case' },
     ]"
     :context="context"
     :viewparams="viewparams"

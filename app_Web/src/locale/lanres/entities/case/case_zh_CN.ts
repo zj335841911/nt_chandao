@@ -106,6 +106,49 @@ export default {
 		uiactions: {
 		},
 	},
+	mainedit_form: {
+		details: {
+			druipart1: '用例步骤', 
+			grouppanel5: '用例步骤', 
+			druipart2: '', 
+			grouppanel6: '分组面板', 
+			grouppanel1: '分组面板', 
+			grouppanel2: '基本信息', 
+			grouppanel4: '创建编辑', 
+			grouppanel3: '分组面板', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: '用例编号', 
+			srfmajortext: '用例标题', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			title: '用例标题', 
+			precondition: '前置条件', 
+			formitem: '备注', 
+			formitem1: '附件', 
+			product: '所属产品', 
+			productname: '产品名称', 
+			module: '所属模块', 
+			modulename: '模块名称', 
+			story: '相关需求', 
+			storyname: '需求名称', 
+			type: '用例类型', 
+			stage: '适用阶段', 
+			pri: '优先级', 
+			status: '用例状态', 
+			keywords: '关键词', 
+			linkcase: '相关用例', 
+			openedby: '由谁创建', 
+			openeddate: '于', 
+			lasteditedby: '最后修改者', 
+			lastediteddate: '于', 
+			id: '用例编号', 
+		},
+		uiactions: {
+		},
+	},
 	mainnew_form: {
 		details: {
 			druipart1: '用例步骤', 
@@ -188,49 +231,6 @@ export default {
 		uiactions: {
 		},
 	},
-	mainedit_form: {
-		details: {
-			druipart1: '用例步骤', 
-			grouppanel5: '用例步骤', 
-			druipart2: '', 
-			grouppanel6: '分组面板', 
-			grouppanel1: '分组面板', 
-			grouppanel2: '基本信息', 
-			grouppanel4: '创建编辑', 
-			grouppanel3: '分组面板', 
-			formpage1: '基本信息', 
-			srforikey: '', 
-			srfkey: '用例编号', 
-			srfmajortext: '用例标题', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			title: '用例标题', 
-			precondition: '前置条件', 
-			formitem: '备注', 
-			formitem1: '附件', 
-			product: '所属产品', 
-			productname: '产品名称', 
-			module: '所属模块', 
-			modulename: '模块名称', 
-			story: '相关需求', 
-			storyname: '需求名称', 
-			type: '用例类型', 
-			stage: '适用阶段', 
-			pri: '优先级', 
-			status: '用例状态', 
-			keywords: '关键词', 
-			linkcase: '相关用例', 
-			openedby: '由谁创建', 
-			openeddate: '于', 
-			lasteditedby: '最后修改者', 
-			lastediteddate: '于', 
-			id: '用例编号', 
-		},
-		uiactions: {
-		},
-	},
 	maingrid_grid: {
 		columns: {
 			id: 'id',
@@ -246,6 +246,8 @@ export default {
 			uagridcolumn1: '操作',
 		},
 		uiactions: {
+			mainedit: '编辑',
+			refresh: '刷新',
 		},
 	},
 	batchnew_grid: {
@@ -342,6 +344,12 @@ export default {
 			tip: '帮助',
 		},
 	},
+	maineditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: '保存并关闭',
+			tip: '保存并关闭',
+		},
+	},
 	batchnewgridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: '行编辑',
@@ -383,12 +391,6 @@ export default {
 		},
 	},
 	mainnewviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: '保存并关闭',
-			tip: '保存并关闭',
-		},
-	},
-	maineditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: '保存并关闭',
 			tip: '保存并关闭',

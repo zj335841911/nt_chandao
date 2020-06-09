@@ -2,24 +2,294 @@
     <i-form :model="this.data" class='app-form' ref='form'  id='case_mainedit' style="">
     <input style="display:none;" />
     <row >
-    <tabs :animated="false" size="small" name='mainedit' :value="detailsModel.form.activiedPage" 
-        @on-click="detailsModel.form.clickPage($event)">
-            <tab-pane v-show="detailsModel.formpage1.visible" name='formpage1' :index="0" tab='mainedit' class=''  
-                :label="(h) =>{
-                    return h('span',{
-                        class:'caption'
-                    },[
-                    $t('entities.case.mainedit_form.details.formpage1')
-                    ])
-                }">
-                    
-<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.case.mainedit_form.details.group1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+            
+<i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 14, offset: 1 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.case.mainedit_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
         <i-col v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='title' :itemRules="this.rules.title" class='' :caption="$t('entities.case.mainedit_form.details.title')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='title' :itemRules="this.rules.title" class='' :caption="$t('entities.case.mainedit_form.details.title')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="TOP">
     <input-box v-model="data.title"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.title.disabled" type='text'  style=""></input-box>
 </app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.precondition.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='precondition' :itemRules="this.rules.precondition" class='' :caption="$t('entities.case.mainedit_form.details.precondition')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.precondition.error" :isEmptyCaption="false" labelPos="TOP">
+    <div class="ivu-input-wrapper ivu-input-wrapper-default ivu-input-type">
+    <textarea class="ivu-input" v-model="data.precondition" :disabled="detailsModel.precondition.disabled" style=""></textarea>
+</div>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.grouppanel5.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel5.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.case.mainedit_form.details.grouppanel5')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+        <i-col v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem='case' 
+    :parentdata='{"srfparentdefname":"CASE","srfparentdename":"ZT_CASE","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_CASESTEP_ZT_CASE_CASE","SRFDER1NID":"DER1N_ZT_CASESTEP_ZT_CASE_CASE"}'
+    :parameters="[
+        { pathName: 'cases', parameterName: 'case' },
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    parameterName='case'
+    parentName="Case"  
+    refviewtype='DEGRIDVIEW9' 
+    refreshitems='' 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname='case-step-main-grid-view9' 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved($event)"
+    style=";overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='formitem' :itemRules="this.rules.formitem" class='' :caption="$t('entities.case.mainedit_form.details.formitem')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem.error" :isEmptyCaption="false" labelPos="TOP">
+    <div class="ivu-input-wrapper ivu-input-wrapper-default ivu-input-type">
+    <textarea class="ivu-input" :rows="10" v-model="data.formitem" :disabled="detailsModel.formitem.disabled" style="height:200px;"></textarea>
+</div>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.formitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='formitem1' :itemRules="this.rules.formitem1" class='' :caption="$t('entities.case.mainedit_form.details.formitem1')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem1.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange" :data="JSON.stringify(this.data)" name='formitem1' :value="data.formitem1" :disabled="detailsModel.formitem1.disabled" uploadparams='' exportparams='' :customparams="{}" style="overflow: auto;"></app-file-upload>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.grouppanel6.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel6.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.case.mainedit_form.details.grouppanel6')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+        <i-col v-show="detailsModel.druipart2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem='case' 
+    :parentdata='{"srfparentdename":"ZT_CASE","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    parameterName='case'
+    parentName="Case"  
+    refviewtype='DELISTVIEW' 
+    refreshitems='' 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname='action-histroy-list-view' 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved($event)"
+    style=";overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 7, offset: 1 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.case.mainedit_form.details.grouppanel3')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+        <i-col v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.case.mainedit_form.details.grouppanel2')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+        <i-col v-show="detailsModel.productname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='productname' :itemRules="this.rules.productname" class='' :caption="$t('entities.case.mainedit_form.details.productname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.productname.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-picker  
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam='{ }' 
+  :disabled="detailsModel.productname.disabled"
+  name='productname' 
+  deMajorField='name'
+  deKeyField='product'
+  :service="service"
+  :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchDefault'}"
+  valueitem='product' 
+  :value="data.productname" 
+  editortype="dropdown" 
+  style="" 
+  @formitemvaluechange="onFormItemValueChange">
+</app-picker>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.modulename.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='modulename' :itemRules="this.rules.modulename" class='' :caption="$t('entities.case.mainedit_form.details.modulename')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.modulename.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-picker  
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam='{ }' 
+  :disabled="detailsModel.modulename.disabled"
+  name='modulename' 
+  deMajorField='name'
+  deKeyField='module'
+  :service="service"
+  :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchDefault'}"
+  valueitem='module' 
+  :value="data.modulename" 
+  editortype="dropdown" 
+  style="" 
+  @formitemvaluechange="onFormItemValueChange">
+</app-picker>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.storyname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='storyname' :itemRules="this.rules.storyname" class='' :caption="$t('entities.case.mainedit_form.details.storyname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.storyname.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-picker  
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam='{ }' 
+  :disabled="detailsModel.storyname.disabled"
+  name='storyname' 
+  deMajorField='title'
+  deKeyField='story'
+  :service="service"
+  :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchDefault'}"
+  valueitem='story' 
+  :value="data.storyname" 
+  editortype="dropdown" 
+  style="" 
+  @formitemvaluechange="onFormItemValueChange">
+</app-picker>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='type' :itemRules="this.rules.type" class='' :caption="$t('entities.case.mainedit_form.details.type')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="LEFT">
+     <dropdown-list 
+    v-model="data.type" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :itemParam="{}" 
+    :disabled="detailsModel.type.disabled"  
+    tag='Testcase__type' 
+    codelistType='STATIC'
+    placeholder='请选择...' style="">
+ </dropdown-list>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.stage.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='stage' :itemRules="this.rules.stage" class='' :caption="$t('entities.case.mainedit_form.details.stage')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.stage.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-checkbox-list 
+  v-model="data.stage" 
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams" 
+  :disabled="detailsModel.stage.disabled" 
+  :itemParam="{}" 
+  tag='Testcase__stage' 
+  codelistType='STATIC' 
+  mode=""
+  name="stage" 
+  style="">
+</app-checkbox-list>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.pri.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='pri' :itemRules="this.rules.pri" class='' :caption="$t('entities.case.mainedit_form.details.pri')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.pri.error" :isEmptyCaption="false" labelPos="LEFT">
+     <dropdown-list 
+    v-model="data.pri" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :itemParam="{}" 
+    :disabled="detailsModel.pri.disabled"  
+    tag='Testcase__pri' 
+    codelistType='STATIC'
+    placeholder='请选择...' style="">
+ </dropdown-list>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.status.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='status' :itemRules="this.rules.status" class='' :caption="$t('entities.case.mainedit_form.details.status')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.status.error" :isEmptyCaption="false" labelPos="LEFT">
+     <dropdown-list 
+    v-model="data.status" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :itemParam="{}" 
+    :disabled="detailsModel.status.disabled"  
+    tag='Testcase__status' 
+    codelistType='STATIC'
+    placeholder='请选择...' style="">
+ </dropdown-list>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.keywords.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='keywords' :itemRules="this.rules.keywords" class='' :caption="$t('entities.case.mainedit_form.details.keywords')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.keywords.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.keywords"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.keywords.disabled" type='text'  style=""></input-box>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.linkcase.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='linkcase' :itemRules="this.rules.linkcase" class='' :caption="$t('entities.case.mainedit_form.details.linkcase')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.linkcase.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.linkcase"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.linkcase.disabled" type='text'  style=""></input-box>
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col v-show="detailsModel.grouppanel4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel4.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.case.mainedit_form.details.grouppanel4')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+        <i-col v-show="detailsModel.openedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+    <app-form-item name='openedby' :itemRules="this.rules.openedby" class='' :caption="$t('entities.case.mainedit_form.details.openedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.openedby.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.openedby"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.openedby.disabled" type='text'  style=""></input-box>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.openeddate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+    <app-form-item name='openeddate' :itemRules="this.rules.openeddate" class='' :caption="$t('entities.case.mainedit_form.details.openeddate')" uiStyle="DEFAULT" :labelWidth="35" :isShowCaption="true" :error="detailsModel.openeddate.error" :isEmptyCaption="false" labelPos="LEFT">
+    <date-picker type="datetime" :transfer="true" format="yyyy-MM-dd HH:mm:ss" placeholder="请选择时间..." :value="data.openeddate" :disabled="detailsModel.openeddate.disabled" style="min-width: 150px; width:160px;" @on-change="(val1, val2) => { this.data.openeddate = val1 }"></date-picker>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.lasteditedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+    <app-form-item name='lasteditedby' :itemRules="this.rules.lasteditedby" class='' :caption="$t('entities.case.mainedit_form.details.lasteditedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.lasteditedby.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.lasteditedby"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.lasteditedby.disabled" type='text'  style=""></input-box>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.lastediteddate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+    <app-form-item name='lastediteddate' :itemRules="this.rules.lastediteddate" class='' :caption="$t('entities.case.mainedit_form.details.lastediteddate')" uiStyle="DEFAULT" :labelWidth="35" :isShowCaption="true" :error="detailsModel.lastediteddate.error" :isEmptyCaption="false" labelPos="LEFT">
+    <date-picker type="datetime" :transfer="true" format="yyyy-MM-dd HH:mm:ss" placeholder="请选择时间..." :value="data.lastediteddate" :disabled="detailsModel.lastediteddate.disabled" style="min-width: 150px; width:160px;" @on-change="(val1, val2) => { this.data.lastediteddate = val1 }"></date-picker>
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
 
 </i-col>
     
@@ -29,28 +299,6 @@
 </i-col>
 
 
-            </tab-pane> 
-            <tab-pane v-show="detailsModel.formpage2.visible" name='formpage2' :index="1" tab='mainedit' class=''  
-                :label="(h) =>{
-                    return h('span',{
-                        class:'caption'
-                    },[
-                    $t('entities.case.mainedit_form.details.formpage2')
-                    ])
-                }">
-                    
-<i-col v-show="detailsModel.group2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.case.mainedit_form.details.group2')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
-    <row>
-            
-    </row>
-</app-form-group>
-
-</i-col>
-
-
-            </tab-pane> 
-    </tabs>
     </row>
 </i-form>
 </template>
@@ -355,6 +603,25 @@ export default class MainEditBase extends Vue implements ControlInterface {
         srfdeid: null,
         srfsourcekey: null,
         title: null,
+        precondition: null,
+        formitem: null,
+        formitem1: null,
+        product: null,
+        productname: null,
+        module: null,
+        modulename: null,
+        story: null,
+        storyname: null,
+        type: null,
+        stage: null,
+        pri: null,
+        status: null,
+        keywords: null,
+        linkcase: null,
+        openedby: null,
+        openeddate: null,
+        lasteditedby: null,
+        lastediteddate: null,
         id: null,
         case:null,
     };
@@ -446,6 +713,120 @@ export default class MainEditBase extends Vue implements ControlInterface {
             { required: true, type: 'string', message: '用例标题 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '用例标题 值不能为空', trigger: 'blur' },
         ],
+        precondition: [
+            { type: 'string', message: '前置条件 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '前置条件 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '前置条件 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '前置条件 值不能为空', trigger: 'blur' },
+        ],
+        formitem: [
+            { type: 'string', message: '备注 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '备注 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '备注 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '备注 值不能为空', trigger: 'blur' },
+        ],
+        formitem1: [
+            { type: 'string', message: '附件 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '附件 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '附件 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '附件 值不能为空', trigger: 'blur' },
+        ],
+        product: [
+            { type: 'number', message: '所属产品 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '所属产品 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '所属产品 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '所属产品 值不能为空', trigger: 'blur' },
+        ],
+        productname: [
+            { type: 'string', message: '产品名称 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '产品名称 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '产品名称 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '产品名称 值不能为空', trigger: 'blur' },
+        ],
+        module: [
+            { type: 'number', message: '所属模块 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '所属模块 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '所属模块 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '所属模块 值不能为空', trigger: 'blur' },
+        ],
+        modulename: [
+            { type: 'string', message: '模块名称 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '模块名称 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '模块名称 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '模块名称 值不能为空', trigger: 'blur' },
+        ],
+        story: [
+            { type: 'number', message: '相关需求 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '相关需求 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '相关需求 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '相关需求 值不能为空', trigger: 'blur' },
+        ],
+        storyname: [
+            { type: 'string', message: '需求名称 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '需求名称 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '需求名称 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '需求名称 值不能为空', trigger: 'blur' },
+        ],
+        type: [
+            { type: 'string', message: '用例类型 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '用例类型 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '用例类型 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '用例类型 值不能为空', trigger: 'blur' },
+        ],
+        stage: [
+            { type: 'string', message: '适用阶段 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '适用阶段 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '适用阶段 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '适用阶段 值不能为空', trigger: 'blur' },
+        ],
+        pri: [
+            { type: 'number', message: '优先级 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '优先级 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '优先级 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '优先级 值不能为空', trigger: 'blur' },
+        ],
+        status: [
+            { type: 'string', message: '用例状态 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '用例状态 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '用例状态 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '用例状态 值不能为空', trigger: 'blur' },
+        ],
+        keywords: [
+            { type: 'string', message: '关键词 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '关键词 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '关键词 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '关键词 值不能为空', trigger: 'blur' },
+        ],
+        linkcase: [
+            { type: 'string', message: '相关用例 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '相关用例 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '相关用例 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '相关用例 值不能为空', trigger: 'blur' },
+        ],
+        openedby: [
+            { type: 'string', message: '由谁创建 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '由谁创建 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '由谁创建 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '由谁创建 值不能为空', trigger: 'blur' },
+        ],
+        openeddate: [
+            { type: 'string', message: '于 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '于 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '于 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '于 值不能为空', trigger: 'blur' },
+        ],
+        lasteditedby: [
+            { type: 'string', message: '最后修改者 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '最后修改者 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '最后修改者 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '最后修改者 值不能为空', trigger: 'blur' },
+        ],
+        lastediteddate: [
+            { type: 'string', message: '于 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '于 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '于 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '于 值不能为空', trigger: 'blur' },
+        ],
         id: [
             { type: 'number', message: '用例编号 值必须为数值类型', trigger: 'change' },
             { type: 'number', message: '用例编号 值必须为数值类型', trigger: 'blur' },
@@ -461,13 +842,23 @@ export default class MainEditBase extends Vue implements ControlInterface {
      * @memberof MainEdit
      */
     public detailsModel: any = {
-        group1: new FormGroupPanelModel({ caption: '测试用例基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.case.mainedit_form', extractMode: 'ITEM', details: [] } })
+        druipart1: new FormDRUIPartModel({ caption: '用例步骤', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
+, 
+        grouppanel5: new FormGroupPanelModel({ caption: '用例步骤', detailType: 'GROUPPANEL', name: 'grouppanel5', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.case.mainedit_form', extractMode: 'ITEM', details: [] } })
+, 
+        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this })
+, 
+        grouppanel6: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel6', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.case.mainedit_form', extractMode: 'ITEM', details: [] } })
+, 
+        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.case.mainedit_form', extractMode: 'ITEM', details: [] } })
+, 
+        grouppanel2: new FormGroupPanelModel({ caption: '基本信息', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.case.mainedit_form', extractMode: 'ITEM', details: [] } })
+, 
+        grouppanel4: new FormGroupPanelModel({ caption: '创建编辑', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.case.mainedit_form', extractMode: 'ITEM', details: [] } })
+, 
+        grouppanel3: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.case.mainedit_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
-, 
-        group2: new FormGroupPanelModel({ caption: '操作信息', detailType: 'GROUPPANEL', name: 'group2', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.case.mainedit_form', extractMode: 'ITEM', details: [] } })
-, 
-        formpage2: new FormPageModel({ caption: '其它', detailType: 'FORMPAGE', name: 'formpage2', visible: true, isShowCaption: true, form: this })
 , 
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -485,9 +876,46 @@ export default class MainEditBase extends Vue implements ControlInterface {
 , 
         title: new FormItemModel({ caption: '用例标题', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        precondition: new FormItemModel({ caption: '前置条件', detailType: 'FORMITEM', name: 'precondition', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitem: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitem1: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'formitem1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        product: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        productname: new FormItemModel({ caption: '产品名称', detailType: 'FORMITEM', name: 'productname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        module: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'module', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        modulename: new FormItemModel({ caption: '模块名称', detailType: 'FORMITEM', name: 'modulename', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        story: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'story', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        storyname: new FormItemModel({ caption: '需求名称', detailType: 'FORMITEM', name: 'storyname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        type: new FormItemModel({ caption: '用例类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        stage: new FormItemModel({ caption: '适用阶段', detailType: 'FORMITEM', name: 'stage', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        status: new FormItemModel({ caption: '用例状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        keywords: new FormItemModel({ caption: '关键词', detailType: 'FORMITEM', name: 'keywords', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        linkcase: new FormItemModel({ caption: '相关用例', detailType: 'FORMITEM', name: 'linkcase', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        openedby: new FormItemModel({ caption: '由谁创建', detailType: 'FORMITEM', name: 'openedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        openeddate: new FormItemModel({ caption: '于', detailType: 'FORMITEM', name: 'openeddate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        lasteditedby: new FormItemModel({ caption: '最后修改者', detailType: 'FORMITEM', name: 'lasteditedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+, 
+        lastediteddate: new FormItemModel({ caption: '于', detailType: 'FORMITEM', name: 'lastediteddate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+, 
         id: new FormItemModel({ caption: '用例编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
-        form: new FormTabPanelModel({ caption: 'form', detailType: 'TABPANEL', name: 'form', visible: true, isShowCaption: true, form: this, tabPages: [{ name: 'formpage1', index: 0, visible: true }, { name: 'formpage2', index: 1, visible: true }] }),
     };
 
     /**
@@ -587,6 +1015,234 @@ export default class MainEditBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 precondition 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MainEdit
+     */
+    @Watch('data.precondition')
+    onPreconditionChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'precondition', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitem 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MainEdit
+     */
+    @Watch('data.formitem')
+    onFormitemChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitem', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitem1 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MainEdit
+     */
+    @Watch('data.formitem1')
+    onFormitem1Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitem1', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 product 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MainEdit
+     */
+    @Watch('data.product')
+    onProductChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'product', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 productname 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MainEdit
+     */
+    @Watch('data.productname')
+    onProductnameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'productname', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 module 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MainEdit
+     */
+    @Watch('data.module')
+    onModuleChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'module', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 modulename 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MainEdit
+     */
+    @Watch('data.modulename')
+    onModulenameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'modulename', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 story 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MainEdit
+     */
+    @Watch('data.story')
+    onStoryChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'story', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 storyname 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MainEdit
+     */
+    @Watch('data.storyname')
+    onStorynameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'storyname', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 type 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MainEdit
+     */
+    @Watch('data.type')
+    onTypeChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'type', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 stage 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MainEdit
+     */
+    @Watch('data.stage')
+    onStageChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'stage', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 pri 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MainEdit
+     */
+    @Watch('data.pri')
+    onPriChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'pri', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 status 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MainEdit
+     */
+    @Watch('data.status')
+    onStatusChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'status', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 keywords 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MainEdit
+     */
+    @Watch('data.keywords')
+    onKeywordsChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'keywords', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 linkcase 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MainEdit
+     */
+    @Watch('data.linkcase')
+    onLinkcaseChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'linkcase', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 openedby 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MainEdit
+     */
+    @Watch('data.openedby')
+    onOpenedbyChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'openedby', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 openeddate 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MainEdit
+     */
+    @Watch('data.openeddate')
+    onOpeneddateChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'openeddate', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 lasteditedby 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MainEdit
+     */
+    @Watch('data.lasteditedby')
+    onLasteditedbyChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'lasteditedby', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 lastediteddate 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MainEdit
+     */
+    @Watch('data.lastediteddate')
+    onLastediteddateChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'lastediteddate', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
@@ -634,6 +1290,30 @@ export default class MainEditBase extends Vue implements ControlInterface {
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1020,7 +1700,7 @@ export default class MainEditBase extends Vue implements ControlInterface {
      */
     public load(opt: any = {}): void {
         if(!this.loadAction){
-            this.$Notice.error({ title: '错误', desc: 'CaseMainNewView视图表单loadAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'CaseMainEditView视图表单loadAction参数未配置' });
             return;
         }
         const arg: any = { ...opt };
@@ -1055,7 +1735,7 @@ export default class MainEditBase extends Vue implements ControlInterface {
      */
     public loadDraft(opt: any = {}): void {
         if(!this.loaddraftAction){
-            this.$Notice.error({ title: '错误', desc: 'CaseMainNewView视图表单loaddraftAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'CaseMainEditView视图表单loaddraftAction参数未配置' });
             return;
         }
         const arg: any = { ...opt } ;
@@ -1117,7 +1797,7 @@ export default class MainEditBase extends Vue implements ControlInterface {
         const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
         if(!action){
             let actionName:any = Object.is(data.srfuf, '1')?"updateAction":"createAction";
-            this.$Notice.error({ title: '错误', desc: 'CaseMainNewView视图表单'+actionName+'参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'CaseMainEditView视图表单'+actionName+'参数未配置' });
             return;
         }
         Object.assign(arg,{viewparams:this.viewparams});
@@ -1170,7 +1850,7 @@ export default class MainEditBase extends Vue implements ControlInterface {
             Object.assign(arg, data);
             Object.assign(arg, this.context);
             if (ifStateNext) {
-                this.drcounter = 0;
+                this.drcounter = 2;
                 if(this.drcounter !== 0){
                     this.drsaveopt = opt;
                     this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存
@@ -1181,7 +1861,7 @@ export default class MainEditBase extends Vue implements ControlInterface {
             const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
             if(!action){
                 let actionName:any = Object.is(data.srfuf, '1')?"updateAction":"createAction";
-                this.$Notice.error({ title: '错误', desc: 'CaseMainNewView视图表单'+actionName+'参数未配置' });
+                this.$Notice.error({ title: '错误', desc: 'CaseMainEditView视图表单'+actionName+'参数未配置' });
                 return;
             }
             Object.assign(arg,{viewparams:this.viewparams});
@@ -1231,7 +1911,7 @@ export default class MainEditBase extends Vue implements ControlInterface {
     public remove(opt:Array<any> = [],showResultInfo?: boolean): Promise<any> {
         return new Promise((resolve: any, reject: any) => {
             if(!this.removeAction){
-                this.$Notice.error({ title: '错误', desc: 'CaseMainNewView视图表单removeAction参数未配置' });
+                this.$Notice.error({ title: '错误', desc: 'CaseMainEditView视图表单removeAction参数未配置' });
                 return;
             }
             const arg: any = opt[0];

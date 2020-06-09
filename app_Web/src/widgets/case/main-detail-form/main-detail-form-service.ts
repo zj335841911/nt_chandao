@@ -2,7 +2,6 @@ import { Http,Util,Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import CaseService from '@/service/case/case-service';
 import MainDetailModel from './main-detail-form-model';
-import ProductService from '@/service/product/product-service';
 
 
 /**
@@ -43,14 +42,6 @@ export default class MainDetailService extends ControlService {
     }
 
     /**
-     * 产品服务对象
-     *
-     * @type {ProductService}
-     * @memberof MainDetailService
-     */
-    public productService: ProductService = new ProductService();
-
-    /**
      * 处理数据
      *
      * @private
@@ -89,9 +80,6 @@ export default class MainDetailService extends ControlService {
      */
     @Errorlog
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
-        if (Object.is(serviceName, 'ProductService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.productService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'product');
-        }
 
         return Promise.reject([])
     }

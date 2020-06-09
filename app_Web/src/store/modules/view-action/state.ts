@@ -315,6 +315,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '8e070a3e9ad67b127db723463198f9ac',
                 '6f78b25e86923ab600a2141d50fe49fd',
                 '5890a810365fec51e801d2cffce44fde',
                 '66769499a681f12bd2ebff8859f1d4ea',
@@ -637,6 +638,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '8e070a3e9ad67b127db723463198f9ac',
                 'b54ba4ee901e1a450acac8723a4ae97a',
                 '770a170098d148e438a7666b248e6519',
                 '4a5cfcdc473166f49cea6c9628865006',
@@ -848,6 +850,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '8e070a3e9ad67b127db723463198f9ac',
+            viewmodule: 'zentao',
+            viewname: 'CaseMainEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
+                'f592519df78de708bd8199a52e5f584d',
+            ],
+        },
+        {
             viewtag: '94e0ee1a97736ff4d28b88a46cd395b7',
             viewmodule: 'zentao',
             viewname: 'StoryMainView9',
@@ -1027,7 +1040,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '6c7b582273d0726bcf77214807cfe40c',
             ],
         },
         {

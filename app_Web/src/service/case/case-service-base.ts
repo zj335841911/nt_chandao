@@ -69,6 +69,7 @@ export default class CaseServiceBase extends EntityService {
         }
         let res:any = await  Http.getInstance().get(`/cases/getdraft`,isloading);
         res.data.case = data.case;
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
         return res;
     }
 
@@ -86,8 +87,24 @@ export default class CaseServiceBase extends EntityService {
             return Http.getInstance().post(`/products/${context.product}/cases/${context.case}/save`,data,isloading);
         }
         let masterData:any = {};
+        let casestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
+            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
+            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+                casestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.casesteps = casestepsData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/cases/${context.case}/save`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
             return res;
     }
 
@@ -111,6 +128,21 @@ export default class CaseServiceBase extends EntityService {
             return Http.getInstance().post(`/products/${context.product}/cases`,data,isloading);
         }
         let masterData:any = {};
+        let casestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
+            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
+            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+                casestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.casesteps = casestepsData;
         Object.assign(data,masterData);
         if(!data.srffrontuf || data.srffrontuf !== "1"){
             data[this.APPDEKEY] = null;
@@ -120,6 +152,7 @@ export default class CaseServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/cases`,data,isloading);
+        this.tempStorage.setItem(tempContext.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
         return res;
     }
 
@@ -170,6 +203,7 @@ export default class CaseServiceBase extends EntityService {
             return Http.getInstance().get(`/products/${context.product}/cases/${context.case}`,isloading);
         }
             let res:any = await Http.getInstance().get(`/cases/${context.case}`,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
             return res;
 
     }
@@ -188,8 +222,24 @@ export default class CaseServiceBase extends EntityService {
             return Http.getInstance().put(`/products/${context.product}/cases/${context.case}`,data,isloading);
         }
         let masterData:any = {};
+        let casestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
+            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
+            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+                casestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.casesteps = casestepsData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/cases/${context.case}`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
             return res;
     }
 

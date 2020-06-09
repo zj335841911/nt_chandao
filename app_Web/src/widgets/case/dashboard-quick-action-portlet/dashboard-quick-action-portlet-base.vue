@@ -14,6 +14,7 @@ import { UIActionTool,Util } from '@/utils';
 import CaseService from '@/service/case/case-service';
 import DashboardQuickActionService from './dashboard-quick-action-portlet-service';
 
+import CaseUIService from '@/uiservice/case/case-ui-service';
 
 
 @Component({
@@ -130,6 +131,35 @@ export default class CaseDashboardQuickActionBase extends Vue implements Control
     }
 
     /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet4_u4c22fea_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:CaseUIService  = new CaseUIService();
+        curUIService.Case_MainEdit(datas,contextJO, paramJO,  $event, xData,this,"Case");
+    }
+
+    /**
      * 返回
      *
      * @param {any[]} args 当前数据
@@ -147,6 +177,25 @@ export default class CaseDashboardQuickActionBase extends Vue implements Control
         }
     }
 
+    /**
+     * 刷新
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof CaseMainDashboardViewBase
+     */
+    public Refresh(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        const _this: any = this;
+        if (xData && xData.refresh && xData.refresh instanceof Function) {
+            xData.refresh(args);
+        } else if (_this.refresh && _this.refresh instanceof Function) {
+            _this.refresh(args);
+        }
+    }
 
     /**
      * 关闭视图
@@ -185,6 +234,9 @@ export default class CaseDashboardQuickActionBase extends Vue implements Control
     public actionBarModelData:any[] =[
         { viewlogicname:"dashboard_sysportlet4_u947bac5_click",
         actionName:"返回",
+        },
+        { viewlogicname:"dashboard_sysportlet4_u4c22fea_click",
+        actionName:"编辑",
         }
     ];
 
@@ -196,6 +248,9 @@ export default class CaseDashboardQuickActionBase extends Vue implements Control
     public handleItemClick($event:any){
         if(Object.is($event,'dashboard_sysportlet4_u947bac5_click')){
             this.dashboard_sysportlet4_u947bac5_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet4_u4c22fea_click')){
+            this.dashboard_sysportlet4_u4c22fea_click(null);
         }
     }
 

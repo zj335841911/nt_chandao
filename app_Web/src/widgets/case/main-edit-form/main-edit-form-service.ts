@@ -2,6 +2,9 @@ import { Http,Util,Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import CaseService from '@/service/case/case-service';
 import MainEditModel from './main-edit-form-model';
+import ProductService from '@/service/product/product-service';
+import ModuleService from '@/service/module/module-service';
+import StoryService from '@/service/story/story-service';
 
 
 /**
@@ -42,6 +45,30 @@ export default class MainEditService extends ControlService {
     }
 
     /**
+     * 产品服务对象
+     *
+     * @type {ProductService}
+     * @memberof MainEditService
+     */
+    public productService: ProductService = new ProductService();
+
+    /**
+     * 模块服务对象
+     *
+     * @type {ModuleService}
+     * @memberof MainEditService
+     */
+    public moduleService: ModuleService = new ModuleService();
+
+    /**
+     * 需求服务对象
+     *
+     * @type {StoryService}
+     * @memberof MainEditService
+     */
+    public storyService: StoryService = new StoryService();
+
+    /**
      * 处理数据
      *
      * @private
@@ -80,6 +107,15 @@ export default class MainEditService extends ControlService {
      */
     @Errorlog
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
+        if (Object.is(serviceName, 'ProductService') && Object.is(interfaceName, 'FetchDefault')) {
+            return this.doItems(this.productService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'product');
+        }
+        if (Object.is(serviceName, 'ModuleService') && Object.is(interfaceName, 'FetchDefault')) {
+            return this.doItems(this.moduleService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'module');
+        }
+        if (Object.is(serviceName, 'StoryService') && Object.is(interfaceName, 'FetchDefault')) {
+            return this.doItems(this.storyService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'story');
+        }
 
         return Promise.reject([])
     }

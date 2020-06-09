@@ -2,6 +2,7 @@ export const PageComponents = {
     install(Vue: any, opt: any) {
                 Vue.component('bug-steps-info-edit-view', () => import('@pages/zentao/bug-steps-info-edit-view/bug-steps-info-edit-view.vue'));
         Vue.component('story-main-grid-view', () => import('@pages/zentao/story-main-grid-view/story-main-grid-view.vue'));
+        Vue.component('case-main-edit-view', () => import('@pages/zentao/case-main-edit-view/case-main-edit-view.vue'));
         Vue.component('story-pickup-grid-view', () => import('@pages/zentao/story-pickup-grid-view/story-pickup-grid-view.vue'));
         Vue.component('test-task-grid-view9-un-tested', () => import('@pages/zentao/test-task-grid-view9-un-tested/test-task-grid-view9-un-tested.vue'));
         Vue.component('dept-pickup-grid-view', () => import('@pages/zentao/dept-pickup-grid-view/dept-pickup-grid-view.vue'));

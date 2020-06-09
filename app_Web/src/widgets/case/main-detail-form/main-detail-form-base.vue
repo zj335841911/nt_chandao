@@ -8,23 +8,12 @@
     <row>
         <i-col v-show="detailsModel.productname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='productname' :itemRules="this.rules.productname" class='' :caption="$t('entities.case.maindetail_form.details.productname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.productname.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-picker 
-  :formState="formState"
-  :data="data"
+    <app-span   name='productname'
+:value="data.productname"   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :itemParam='{ }' 
-  :disabled="detailsModel.productname.disabled"
-  name='productname'
-  deMajorField='name'
-  deKeyField='product'
-  valueitem='product' 
-  :value="data.productname"  
-  editortype="linkonly" 
-  :linkview="{ viewname: 'ProductMainTabExpView', title: $t('entities.product.views.maintabexpview.title'), deResParameters: [], parameters: [{ pathName: 'products', parameterName: 'product' }, { pathName: 'maintabexpview', parameterName: 'maintabexpview' } ], width: 0, height: 0, placement: '', isRedirectView: false }" 
-  style=""  
-  @formitemvaluechange="onFormItemValueChange">
-</app-picker>
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
