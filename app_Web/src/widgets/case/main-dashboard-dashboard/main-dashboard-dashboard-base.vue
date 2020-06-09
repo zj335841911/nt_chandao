@@ -4,6 +4,22 @@
       <app-build @handleClick="handleClick"></app-build>
     </row>
     <row v-if="!isHasCustomized">
+          <div style = ''>
+      <i-col :md="{ span: 24, offset: 0 }">
+        <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+          <span>
+                      <view_dashboard_container1 
+              :viewState="viewState"  
+              :viewparams="viewparams" 
+              :context="context" 
+              name="dashboard_container1"  
+              ref='dashboard_container1' 
+              @closeview="closeView($event)">
+          </view_dashboard_container1>
+          </span>
+        </card>
+      </i-col>
+      </div>
     </row>
     <row v-if="isHasCustomized" style="width: 100%;min-height: calc(100% - 40px);">
       <div class="portlet-container" style="position: relative;width:100%;">

@@ -280,6 +280,73 @@
         ]
     }, 
     {
+        "srfkey": "Testcase__stage",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "unittest",
+                "label": "单元测试阶段",
+                "text": "单元测试阶段",
+                "data":"",
+                "codename":"Unittest",
+                "value": "unittest",
+                
+                "disabled": false
+            }
+            , {
+                "id": "feature",
+                "label": "功能测试阶段",
+                "text": "功能测试阶段",
+                "data":"",
+                "codename":"Feature",
+                "value": "feature",
+                
+                "disabled": false
+            }
+            , {
+                "id": "intergrate",
+                "label": "集成测试阶段",
+                "text": "集成测试阶段",
+                "data":"",
+                "codename":"Intergrate",
+                "value": "intergrate",
+                
+                "disabled": false
+            }
+            , {
+                "id": "system",
+                "label": "系统测试阶段",
+                "text": "系统测试阶段",
+                "data":"",
+                "codename":"System",
+                "value": "system",
+                
+                "disabled": false
+            }
+            , {
+                "id": "smoke",
+                "label": "冒烟测试阶段",
+                "text": "冒烟测试阶段",
+                "data":"",
+                "codename":"Smoke",
+                "value": "smoke",
+                
+                "disabled": false
+            }
+            , {
+                "id": "bvt",
+                "label": "版本验证阶段",
+                "text": "版本验证阶段",
+                "data":"",
+                "codename":"Bvt",
+                "value": "bvt",
+                
+                "disabled": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "ProjectTimeType",
         "emptytext": "",
         "codelisttype":"static",

@@ -303,6 +303,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryEditView",
             "viewtag": "4863a523ac490ebce771717756f0c6a8"
         },
+        "casemaininfoeditview9": {
+            "title": "测试用例编辑视图",
+            "caption": "测试用例",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "CaseMainInfoEditView9",
+            "viewtag": "4a5cfcdc473166f49cea6c9628865006"
+        },
         "taskgridview": {
             "title": "task表格视图",
             "caption": "任务",
@@ -830,6 +838,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "CompanyEditView",
             "viewtag": "b39a7a76c2175803831235ae3aeef05b"
+        },
+        "casemaindetaileditview9": {
+            "title": "测试用例编辑视图",
+            "caption": "测试用例",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "CaseMainDetailEditView9",
+            "viewtag": "b54ba4ee901e1a450acac8723a4ae97a"
         },
         "productdashboardinfomainview9": {
             "title": "产品信息",

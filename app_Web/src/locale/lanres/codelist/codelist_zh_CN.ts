@@ -38,6 +38,15 @@ export default {
           4: '4',
         empty: '',
     },
+    Testcase__stage: {
+          'unittest': '单元测试阶段',
+          'feature': '功能测试阶段',
+          'intergrate': '集成测试阶段',
+          'system': '系统测试阶段',
+          'smoke': '冒烟测试阶段',
+          'bvt': '版本验证阶段',
+        empty: '',
+    },
     ProjectTimeType: {
           'CONSUMED': '消耗时间',
           'LEFT': '剩余时间',

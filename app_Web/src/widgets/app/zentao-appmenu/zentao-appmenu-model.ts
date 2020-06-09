@@ -96,6 +96,27 @@ export default class ZentaoModel {
                 }
                 ,
                 		        {
+                	id: 'A87F7E2C-C6A9-4F9B-9E6B-D166D7D31E1B',
+                	name: 'menuitem8',
+                	text: '组织权限',
+                	type: 'MENUITEM',
+                	counterid: '',
+                	tooltip: '组织权限',
+                	expanded: false,
+                	separator: false,
+                	hidden: true,
+                	hidesidebar: false,
+                	opendefault: false,
+                	iconcls: '',
+                	icon: '',
+                	textcls: '',
+                	appfunctag: '_3',
+                	appfuncyype: 'APPVIEW',
+                	viewname: 'company-main-tab-exp-view',
+                	resourcetag: '',
+                }
+                ,
+                		        {
                 	id: 'AAADCE5D-2685-4C0A-9251-8731E49443A0',
                 	name: 'menuitem7',
                 	text: 'iBiz软件生产管理',
@@ -251,6 +272,18 @@ export default class ZentaoModel {
 	 * @memberof ZentaoModel
 	 */
 	private funcs: any[] = [
+        {
+            appfunctag: '_3',
+            appfuncyype: 'APPVIEW',
+            openmode: '',
+            codename: 'companymaintabexpview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/companies/:company?/maintabexpview/:maintabexpview?',
+            parameters: [
+                { pathName: 'companies', parameterName: 'company' },
+                { pathName: 'maintabexpview', parameterName: 'maintabexpview' },
+            ],
+        },
         {
             appfunctag: '_6',
             appfuncyype: 'APPVIEW',

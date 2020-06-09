@@ -71,6 +71,11 @@ export default {
 			id: '产品编号', 
 		},
 		uiactions: {
+			openproductstoryview: '查看全部',
+			openstorycreateview: '提需求',
+			openproductplancreateview: '创建计划',
+			openprojectcreateview: '创建项目',
+			openreleasedcreateview: '创建发布',
 		},
 	},
 };

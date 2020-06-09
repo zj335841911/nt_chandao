@@ -699,7 +699,7 @@ export default class ProductPlanGridViewBase extends Vue {
             height: 0, 
             width: 0,  
             title: this.$t('entities.productplan.views.editview.title'),
-            placement: 'DRAWER_LEFT',
+            placement: 'DRAWER_RIGHT',
         };
         openDrawer(view, data);
     }

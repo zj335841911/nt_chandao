@@ -19,6 +19,9 @@ export default class ZentaoBase extends Vue {
     private click(item: any) {
         if (item) {
             switch (item.appfunctag) {
+                case '_3': 
+                    this.click_3(item);
+                    return;
                 case '_6': 
                     this.click_6(item);
                     return;
@@ -44,6 +47,24 @@ export default class ZentaoBase extends Vue {
                     console.warn('未指定应用功能');
             }
         }
+    }
+    
+    /**
+     * 组织权限
+     *
+     * @param {*} [item={}]
+     * @memberof Zentao
+     */
+    public click_3(item: any = {}) {
+        const viewparam: any = {};
+        Object.assign(viewparam, {});
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'companies', parameterName: 'company' },
+            { pathName: 'maintabexpview', parameterName: 'maintabexpview' },
+        ];
+        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
+        this.$router.push(path);
     }
     
     /**

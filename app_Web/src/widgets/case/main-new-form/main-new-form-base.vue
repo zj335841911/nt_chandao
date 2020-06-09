@@ -101,7 +101,7 @@
 
 </i-col>
 <i-col v-show="detailsModel.pri.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
-    <app-form-item name='pri' :itemRules="this.rules.pri" class='' :caption="$t('entities.case.mainnew_form.details.pri')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.pri.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='pri' :itemRules="this.rules.pri" class='' :caption="$t('entities.case.mainnew_form.details.pri')" uiStyle="DEFAULT" :labelWidth="60" :isShowCaption="true" :error="detailsModel.pri.error" :isEmptyCaption="false" labelPos="LEFT">
      <dropdown-list 
     v-model="data.pri" 
     :data="data" 
