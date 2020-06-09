@@ -75,6 +75,10 @@ export default {
 			caption: "测试用例",
       title: '测试用例',
 		},
+		maineditview: {
+			caption: "测试用例",
+      title: '测试用例',
+		},
 		maindetaileditview9: {
 			caption: "测试用例",
       title: '测试用例',
@@ -180,6 +184,25 @@ export default {
 			openeddate: "于", 
 			lasteditedby: "最后修改者", 
 			lastediteddate: "于", 
+			id: "用例编号", 
+		},
+		uiactions: {
+		},
+	},
+	mainedit_form: {
+		details: {
+			group1: "测试用例基本信息", 
+			formpage1: "基本信息", 
+			group2: "操作信息", 
+			formpage2: "其它", 
+			srforikey: "", 
+			srfkey: "用例编号", 
+			srfmajortext: "用例标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			title: "用例标题", 
 			id: "用例编号", 
 		},
 		uiactions: {
@@ -337,6 +360,12 @@ export default {
 		},
 	},
 	mainnewviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+	},
+	maineditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",

@@ -859,6 +859,16 @@
         "viewtag": "8d53a973712c13f448efb8e2182ccc0b",
         "memo": ""
     },
+    "casemaineditview": {
+        "title": "测试用例",
+        "caption": "测试用例",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "CaseMainEditView",
+        "viewfilename": "case-main-edit-view",
+        "viewtag": "8e070a3e9ad67b127db723463198f9ac",
+        "memo": ""
+    },
     "storymainview9": {
         "title": "需求编辑视图",
         "caption": "需求",
