@@ -355,6 +355,43 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: 'Casestep__type',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'step',
+                label: 'step',
+                text: 'step',
+                "data":"",
+                "codename":"Step",
+                value: 'step',
+                
+                disabled: false,
+            },
+            {
+                id: 'group',
+                label: 'group',
+                text: 'group',
+                "data":"",
+                "codename":"Group",
+                value: 'group',
+                
+                disabled: false,
+            },
+            {
+                id: 'item',
+                label: 'item',
+                text: 'item',
+                "data":"",
+                "codename":"Item",
+                value: 'item',
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'ProjectTimeType',
         emptytext: '',
         "codelisttype":"static",

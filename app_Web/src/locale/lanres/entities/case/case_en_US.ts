@@ -105,6 +105,7 @@ export default {
 	},
 	mainnew_form: {
 		details: {
+			druipart1: "用例步骤", 
 			grouppanel1: "分组面板", 
 			group1: "测试用例基本信息", 
 			formpage1: "基本信息", 
@@ -125,7 +126,6 @@ export default {
 			title: "用例标题", 
 			pri: "优先级", 
 			precondition: "前置条件", 
-			formitem: "用例步骤", 
 			keywords: "关键词", 
 			formitem1: "附件", 
 			id: "用例编号", 
@@ -135,6 +135,7 @@ export default {
 	},
 	maininfo_form: {
 		details: {
+			druipart1: "用例步骤", 
 			group1: "测试用例基本信息", 
 			formpage1: "基本信息", 
 			srforikey: "", 
@@ -145,7 +146,6 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			precondition: "前置条件", 
-			formitem: "用例步骤", 
 			id: "用例编号", 
 		},
 		uiactions: {

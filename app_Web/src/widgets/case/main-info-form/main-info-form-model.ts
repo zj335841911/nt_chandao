@@ -56,9 +56,6 @@ export default class MainInfoModel {
         dataType: 'LONGTEXT',
       },
       {
-        name: 'formitem',
-      },
-      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

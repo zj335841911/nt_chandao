@@ -47,6 +47,12 @@ export default {
           'bvt': '版本验证阶段',
         empty: '',
     },
+    Casestep__type: {
+          'step': 'step',
+          'group': 'group',
+          'item': 'item',
+        empty: '',
+    },
     ProjectTimeType: {
           'CONSUMED': '消耗时间',
           'LEFT': '剩余时间',

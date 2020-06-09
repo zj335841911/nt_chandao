@@ -116,7 +116,7 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.precondition.visible" :style="{'height': '100px !important',}"  :lg="{ span: 24, offset: 0 }">
+<i-col v-show="detailsModel.precondition.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='precondition' :itemRules="this.rules.precondition" class='' :caption="$t('entities.case.mainnew_form.details.precondition')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.precondition.error" :isEmptyCaption="false" labelPos="LEFT">
     <div class="ivu-input-wrapper ivu-input-wrapper-default ivu-input-type">
     <textarea class="ivu-input" v-model="data.precondition" :disabled="detailsModel.precondition.disabled" style=""></textarea>
@@ -124,10 +124,27 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='formitem' :itemRules="this.rules.formitem" class='' :caption="$t('entities.case.mainnew_form.details.formitem')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.formitem"  @enter="onEnter($event)"    :disabled="detailsModel.formitem.disabled" type='text'  style=""></input-box>
-</app-form-item>
+<i-col v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem='case' 
+    :parentdata='{"srfparentdefname":"CASE","srfparentdename":"ZT_CASE","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_CASESTEP_ZT_CASE_CASE","SRFDER1NID":"DER1N_ZT_CASESTEP_ZT_CASE_CASE"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    parameterName='case'
+    parentName="Case"  
+    refviewtype='DEGRIDVIEW9' 
+    refreshitems='' 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname='case-step-main-grid-view9' 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved($event)"
+    style=";overflow: auto;">
+</app-form-druipart>
 
 </i-col>
 <i-col v-show="detailsModel.keywords.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
@@ -467,7 +484,6 @@ export default class MainNewBase extends Vue implements ControlInterface {
         title: null,
         pri: null,
         precondition: null,
-        formitem: null,
         keywords: null,
         formitem1: null,
         id: null,
@@ -615,12 +631,6 @@ export default class MainNewBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '前置条件 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '前置条件 值不能为空', trigger: 'blur' },
         ],
-        formitem: [
-            { type: 'string', message: '用例步骤 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '用例步骤 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '用例步骤 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '用例步骤 值不能为空', trigger: 'blur' },
-        ],
         keywords: [
             { type: 'string', message: '关键词 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '关键词 值必须为字符串类型', trigger: 'blur' },
@@ -648,6 +658,8 @@ export default class MainNewBase extends Vue implements ControlInterface {
      * @memberof MainNew
      */
     public detailsModel: any = {
+        druipart1: new FormDRUIPartModel({ caption: '用例步骤', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
+, 
         grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.case.mainnew_form', extractMode: 'ITEM', details: [] } })
 , 
         group1: new FormGroupPanelModel({ caption: '测试用例基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.case.mainnew_form', extractMode: 'ITEM', details: [] } })
@@ -687,8 +699,6 @@ export default class MainNewBase extends Vue implements ControlInterface {
         pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         precondition: new FormItemModel({ caption: '前置条件', detailType: 'FORMITEM', name: 'precondition', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        formitem: new FormItemModel({ caption: '用例步骤', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         keywords: new FormItemModel({ caption: '关键词', detailType: 'FORMITEM', name: 'keywords', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -900,18 +910,6 @@ export default class MainNewBase extends Vue implements ControlInterface {
     @Watch('data.precondition')
     onPreconditionChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'precondition', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 formitem 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MainNew
-     */
-    @Watch('data.formitem')
-    onFormitemChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'formitem', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1533,7 +1531,7 @@ export default class MainNewBase extends Vue implements ControlInterface {
             Object.assign(arg, data);
             Object.assign(arg, this.context);
             if (ifStateNext) {
-                this.drcounter = 0;
+                this.drcounter = 1;
                 if(this.drcounter !== 0){
                     this.drsaveopt = opt;
                     this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存

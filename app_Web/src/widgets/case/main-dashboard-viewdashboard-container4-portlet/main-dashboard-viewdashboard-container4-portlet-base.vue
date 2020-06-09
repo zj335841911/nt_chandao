@@ -1,39 +1,15 @@
 <template>
-    <div class='portlet-container main-dashboard-viewdashboard-container2 ' :style="{}">
+    <div class='portlet-container main-dashboard-viewdashboard-container4  dashboard-footer-button-wrapper' :style="{}">
             <i-col :md="{ span: 24, offset: 0 }">
                 <div class="portlet-without-title">
-                                  <view_dashboard_sysportlet1 
+                                  <view_dashboard_sysportlet4 
                       :viewState="viewState"  
                       :viewparams="viewparams" 
                       :context="context" 
-                      name="dashboard_sysportlet1"  
-                      ref='dashboard_sysportlet1' 
+                      name="dashboard_sysportlet4"  
+                      ref='dashboard_sysportlet4' 
                       @closeview="closeView($event)">
-                  </view_dashboard_sysportlet1>
-                </div>
-            </i-col>
-            <i-col :md="{ span: 24, offset: 0 }">
-                <div class="portlet-without-title">
-                                  <view_dashboard_sysportlet3 
-                      :viewState="viewState"  
-                      :viewparams="viewparams" 
-                      :context="context" 
-                      name="dashboard_sysportlet3"  
-                      ref='dashboard_sysportlet3' 
-                      @closeview="closeView($event)">
-                  </view_dashboard_sysportlet3>
-                </div>
-            </i-col>
-            <i-col :md="{ span: 24, offset: 0 }">
-                <div class="portlet-without-title">
-                                  <view_dashboard_container4 
-                      :viewState="viewState"  
-                      :viewparams="viewparams" 
-                      :context="context" 
-                      name="dashboard_container4"  
-                      ref='dashboard_container4' 
-                      @closeview="closeView($event)">
-                  </view_dashboard_container4>
+                  </view_dashboard_sysportlet4>
                 </div>
             </i-col>
     </div>
@@ -45,7 +21,7 @@ import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import { UIActionTool,Util } from '@/utils';
 import CaseService from '@/service/case/case-service';
-import MainDashboardViewdashboard_container2Service from './main-dashboard-viewdashboard-container2-portlet-service';
+import MainDashboardViewdashboard_container4Service from './main-dashboard-viewdashboard-container4-portlet-service';
 
 
 
@@ -54,13 +30,13 @@ import MainDashboardViewdashboard_container2Service from './main-dashboard-viewd
       
     }
 })
-export default class CaseMainDashboardViewdashboard_container2Base extends Vue implements ControlInterface {
+export default class CaseMainDashboardViewdashboard_container4Base extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof MainDashboardViewdashboard_container2
+     * @memberof MainDashboardViewdashboard_container4
      */
     @Prop() public name?: string;
 
@@ -68,7 +44,7 @@ export default class CaseMainDashboardViewdashboard_container2Base extends Vue i
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof MainDashboardViewdashboard_container2
+     * @memberof MainDashboardViewdashboard_container4
      */
     @Prop() public viewState!: Subject<ViewState>;
 
@@ -76,7 +52,7 @@ export default class CaseMainDashboardViewdashboard_container2Base extends Vue i
      * 应用上下文
      *
      * @type {*}
-     * @memberof MainDashboardViewdashboard_container2
+     * @memberof MainDashboardViewdashboard_container4
      */
     @Prop() public context: any;
 
@@ -84,7 +60,7 @@ export default class CaseMainDashboardViewdashboard_container2Base extends Vue i
      * 视图参数
      *
      * @type {*}
-     * @memberof MainDashboardViewdashboard_container2
+     * @memberof MainDashboardViewdashboard_container4
      */
     @Prop() public viewparams: any;
 
@@ -93,7 +69,7 @@ export default class CaseMainDashboardViewdashboard_container2Base extends Vue i
      *
      * @public
      * @type {(Subscription | undefined)}
-     * @memberof MainDashboardViewdashboard_container2
+     * @memberof MainDashboardViewdashboard_container4
      */
     public viewStateEvent: Subscription | undefined;
 
@@ -101,7 +77,7 @@ export default class CaseMainDashboardViewdashboard_container2Base extends Vue i
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof MainDashboardViewdashboard_container2
+     * @memberof MainDashboardViewdashboard_container4
      */
     public getControlType(): string {
         return 'PORTLET'
@@ -113,23 +89,23 @@ export default class CaseMainDashboardViewdashboard_container2Base extends Vue i
      * 计数器服务对象集合
      *
      * @type {Array<*>}
-     * @memberof MainDashboardViewdashboard_container2
+     * @memberof MainDashboardViewdashboard_container4
      */    
     public counterServiceArray:Array<any> = [];
 
     /**
      * 建构部件服务对象
      *
-     * @type {MainDashboardViewdashboard_container2Service}
-     * @memberof MainDashboardViewdashboard_container2
+     * @type {MainDashboardViewdashboard_container4Service}
+     * @memberof MainDashboardViewdashboard_container4
      */
-    public service: MainDashboardViewdashboard_container2Service = new MainDashboardViewdashboard_container2Service({ $store: this.$store });
+    public service: MainDashboardViewdashboard_container4Service = new MainDashboardViewdashboard_container4Service({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {CaseService}
-     * @memberof MainDashboardViewdashboard_container2
+     * @memberof MainDashboardViewdashboard_container4
      */
     public appEntityService: CaseService = new CaseService({ $store: this.$store });
     
@@ -139,7 +115,7 @@ export default class CaseMainDashboardViewdashboard_container2Base extends Vue i
      * 关闭视图
      *
      * @param {any} args
-     * @memberof MainDashboardViewdashboard_container2
+     * @memberof MainDashboardViewdashboard_container4
      */
     public closeView(args: any): void {
         let _this: any = this;
@@ -149,7 +125,7 @@ export default class CaseMainDashboardViewdashboard_container2Base extends Vue i
     /**
      *  计数器刷新
      *
-     * @memberof MainDashboardViewdashboard_container2
+     * @memberof MainDashboardViewdashboard_container4
      */
     public counterRefresh(){
         const _this:any =this;
@@ -169,7 +145,7 @@ export default class CaseMainDashboardViewdashboard_container2Base extends Vue i
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof MainDashboardViewdashboard_container2Base
+     * @memberof MainDashboardViewdashboard_container4Base
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -177,7 +153,7 @@ export default class CaseMainDashboardViewdashboard_container2Base extends Vue i
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof MainDashboardViewdashboard_container2Base
+     * @memberof MainDashboardViewdashboard_container4Base
      */
     public getDatas(): any[] {
         return [];
@@ -187,7 +163,7 @@ export default class CaseMainDashboardViewdashboard_container2Base extends Vue i
      * 获取单项树
      *
      * @returns {*}
-     * @memberof MainDashboardViewdashboard_container2Base
+     * @memberof MainDashboardViewdashboard_container4Base
      */
     public getData(): any {
         return {};
@@ -196,7 +172,7 @@ export default class CaseMainDashboardViewdashboard_container2Base extends Vue i
     /**
      * vue 生命周期
      *
-     * @memberof MainDashboardViewdashboard_container2Base
+     * @memberof MainDashboardViewdashboard_container4Base
      */
     public created() {
         this.afterCreated();
@@ -205,7 +181,7 @@ export default class CaseMainDashboardViewdashboard_container2Base extends Vue i
     /**
      * 执行created后的逻辑
      *
-     *  @memberof MainDashboardViewdashboard_container2Base
+     *  @memberof MainDashboardViewdashboard_container4Base
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -224,7 +200,7 @@ export default class CaseMainDashboardViewdashboard_container2Base extends Vue i
     /**
      * vue 生命周期
      *
-     * @memberof MainDashboardViewdashboard_container2Base
+     * @memberof MainDashboardViewdashboard_container4Base
      */
     public destroyed() {
         this.afterDestroy();
@@ -233,7 +209,7 @@ export default class CaseMainDashboardViewdashboard_container2Base extends Vue i
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof MainDashboardViewdashboard_container2Base
+     * @memberof MainDashboardViewdashboard_container4Base
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -245,5 +221,5 @@ export default class CaseMainDashboardViewdashboard_container2Base extends Vue i
 </script>
 
 <style lang='less'>
-@import './main-dashboard-viewdashboard-container2-portlet.less';
+@import './main-dashboard-viewdashboard-container4-portlet.less';
 </style>

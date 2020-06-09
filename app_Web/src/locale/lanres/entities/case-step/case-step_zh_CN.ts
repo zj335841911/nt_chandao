@@ -9,34 +9,21 @@ export default {
     parent: '分组用例步骤的组编号',
   },
 	views: {
-		editview: {
-			caption: '用例步骤',
-      title: '用例步骤',
-		},
 		gridview: {
 			caption: '用例步骤',
       title: '用例步骤',
 		},
-	},
-	main_form: {
-		details: {
-			group1: 'casestep基本信息', 
-			formpage1: '基本信息', 
-			group2: '操作信息', 
-			formpage2: '其它', 
-			srforikey: '', 
-			srfkey: '编号', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			id: '编号', 
-		},
-		uiactions: {
+		maingridview9: {
+			caption: '用例步骤',
+      title: '用例步骤',
 		},
 	},
 	main_grid: {
 		columns: {
+			id: '编号',
+			desc: '步骤',
+			type: '用例步骤类型',
+			expect: '预期',
 		},
 		uiactions: {
 		},
@@ -48,70 +35,10 @@ export default {
 		uiactions: {
 		},
 	},
-	editviewtoolbar_toolbar: {
-		tbitem3: {
-			caption: '保存',
-			tip: '保存',
-		},
-		tbitem4: {
-			caption: '保存并新建',
-			tip: '保存并新建',
-		},
-		tbitem5: {
-			caption: '保存并关闭',
-			tip: '保存并关闭',
-		},
-		tbitem6: {
-			caption: '-',
-			tip: '',
-		},
-		tbitem7: {
-			caption: '删除',
-			tip: '删除',
-		},
-		tbitem8: {
-			caption: '-',
-			tip: '',
-		},
-		tbitem12: {
-			caption: '新建',
-			tip: '新建',
-		},
-		tbitem13: {
-			caption: '-',
-			tip: '',
-		},
-		tbitem14: {
-			caption: '拷贝',
-			tip: '拷贝',
-		},
-		tbitem16: {
-			caption: '-',
-			tip: '',
-		},
-		tbitem23: {
-			caption: '第一个记录',
-			tip: '第一个记录',
-		},
-		tbitem24: {
-			caption: '上一个记录',
-			tip: '上一个记录',
-		},
-		tbitem25: {
-			caption: '下一个记录',
-			tip: '下一个记录',
-		},
-		tbitem26: {
-			caption: '最后一个记录',
-			tip: '最后一个记录',
-		},
-		tbitem21: {
-			caption: '-',
-			tip: '',
-		},
-		tbitem22: {
-			caption: '帮助',
-			tip: '帮助',
+	maingridview9toolbar_toolbar: {
+		deuiaction2: {
+			caption: '刷新',
+			tip: '刷新',
 		},
 	},
 	gridviewtoolbar_toolbar: {

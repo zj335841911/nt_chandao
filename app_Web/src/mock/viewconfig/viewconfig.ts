@@ -343,14 +343,6 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductPlanSubPlanGridView",
             "viewtag": "500950593bf64e5516bdb9b7db29b747"
         },
-        "casestepeditview": {
-            "title": "casestep编辑视图",
-            "caption": "用例步骤",
-            "viewtype": "DEEDITVIEW",
-            "viewmodule": "zentao",
-            "viewname": "CaseStepEditView",
-            "viewtag": "512c3cf0ef884c051097236e7d79814c"
-        },
         "projectcurproductgridview": {
             "title": "project表格视图",
             "caption": "项目",
@@ -1094,6 +1086,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TaskMainDetailView9",
             "viewtag": "ef6cfafd09bb61ddb6fec7840f78e97d"
+        },
+        "casestepmaingridview9": {
+            "title": "用例步骤",
+            "caption": "用例步骤",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "CaseStepMainGridView9",
+            "viewtag": "f592519df78de708bd8199a52e5f584d"
         },
         "casegridview": {
             "title": "case表格视图",

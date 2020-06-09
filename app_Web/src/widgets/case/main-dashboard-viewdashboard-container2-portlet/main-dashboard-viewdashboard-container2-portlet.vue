@@ -5,11 +5,13 @@ import CaseMainDashboardViewdashboard_container2Base from './main-dashboard-view
 
 import view_dashboard_sysportlet1 from '@/widgets/case/main-info-portlet/main-info-portlet.vue';
 import view_dashboard_sysportlet3 from '@/widgets/action/action-history-portlet/action-history-portlet.vue';
+import view_dashboard_container4 from '@/widgets/case/main-dashboard-viewdashboard-container4-portlet/main-dashboard-viewdashboard-container4-portlet.vue';
  
 @Component({
     components: {
         view_dashboard_sysportlet1, 
 view_dashboard_sysportlet3, 
+view_dashboard_container4, 
  
     }
 })

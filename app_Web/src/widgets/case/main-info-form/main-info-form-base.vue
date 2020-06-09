@@ -12,10 +12,27 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='formitem' :itemRules="this.rules.formitem" class='' :caption="$t('entities.case.maininfo_form.details.formitem')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.formitem"  @enter="onEnter($event)"    :disabled="detailsModel.formitem.disabled" type='text'  style=""></input-box>
-</app-form-item>
+<i-col v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem='case' 
+    :parentdata='{"srfparentdefname":"CASE","srfparentdename":"ZT_CASE","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_CASESTEP_ZT_CASE_CASE","SRFDER1NID":"DER1N_ZT_CASESTEP_ZT_CASE_CASE"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    parameterName='case'
+    parentName="Case"  
+    refviewtype='DEGRIDVIEW9' 
+    refreshitems='' 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname='case-step-main-grid-view9' 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved($event)"
+    style=";overflow: auto;">
+</app-form-druipart>
 
 </i-col>
     
@@ -329,7 +346,6 @@ export default class MainInfoBase extends Vue implements ControlInterface {
         srfdeid: null,
         srfsourcekey: null,
         precondition: null,
-        formitem: null,
         id: null,
         case:null,
     };
@@ -421,12 +437,6 @@ export default class MainInfoBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '前置条件 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '前置条件 值不能为空', trigger: 'blur' },
         ],
-        formitem: [
-            { type: 'string', message: '用例步骤 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '用例步骤 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '用例步骤 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '用例步骤 值不能为空', trigger: 'blur' },
-        ],
         id: [
             { type: 'number', message: '用例编号 值必须为数值类型', trigger: 'change' },
             { type: 'number', message: '用例编号 值必须为数值类型', trigger: 'blur' },
@@ -442,6 +452,8 @@ export default class MainInfoBase extends Vue implements ControlInterface {
      * @memberof MainInfo
      */
     public detailsModel: any = {
+        druipart1: new FormDRUIPartModel({ caption: '用例步骤', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
+, 
         group1: new FormGroupPanelModel({ caption: '测试用例基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.case.maininfo_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
@@ -461,8 +473,6 @@ export default class MainInfoBase extends Vue implements ControlInterface {
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         precondition: new FormItemModel({ caption: '前置条件', detailType: 'FORMITEM', name: 'precondition', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        formitem: new FormItemModel({ caption: '用例步骤', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '用例编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -562,18 +572,6 @@ export default class MainInfoBase extends Vue implements ControlInterface {
     @Watch('data.precondition')
     onPreconditionChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'precondition', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 formitem 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MainInfo
-     */
-    @Watch('data.formitem')
-    onFormitemChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'formitem', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1159,7 +1157,7 @@ export default class MainInfoBase extends Vue implements ControlInterface {
             Object.assign(arg, data);
             Object.assign(arg, this.context);
             if (ifStateNext) {
-                this.drcounter = 0;
+                this.drcounter = 1;
                 if(this.drcounter !== 0){
                     this.drsaveopt = opt;
                     this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存

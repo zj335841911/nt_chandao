@@ -419,16 +419,6 @@
         "viewtag": "500950593bf64e5516bdb9b7db29b747",
         "memo": ""
     },
-    "casestepeditview": {
-        "title": "casestep编辑视图",
-        "caption": "用例步骤",
-        "viewtype": "DEEDITVIEW",
-        "viewmodule": "zentao",
-        "viewname": "CaseStepEditView",
-        "viewfilename": "case-step-edit-view",
-        "viewtag": "512c3cf0ef884c051097236e7d79814c",
-        "memo": ""
-    },
     "projectcurproductgridview": {
         "title": "project表格视图",
         "caption": "项目",
@@ -1357,6 +1347,16 @@
         "viewname": "TaskMainDetailView9",
         "viewfilename": "task-main-detail-view9",
         "viewtag": "ef6cfafd09bb61ddb6fec7840f78e97d",
+        "memo": ""
+    },
+    "casestepmaingridview9": {
+        "title": "用例步骤",
+        "caption": "用例步骤",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "CaseStepMainGridView9",
+        "viewfilename": "case-step-main-grid-view9",
+        "viewtag": "f592519df78de708bd8199a52e5f584d",
         "memo": ""
     },
     "casegridview": {

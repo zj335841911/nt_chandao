@@ -101,9 +101,6 @@ export default class MainNewModel {
         dataType: 'LONGTEXT',
       },
       {
-        name: 'formitem',
-      },
-      {
         name: 'keywords',
         prop: 'keywords',
         dataType: 'TEXT',
