@@ -190,6 +190,10 @@ export default {
 	},
 	mainedit_form: {
 		details: {
+			druipart1: '用例步骤', 
+			grouppanel5: '用例步骤', 
+			druipart2: '', 
+			grouppanel6: '分组面板', 
 			grouppanel1: '分组面板', 
 			grouppanel2: '基本信息', 
 			grouppanel4: '创建编辑', 
@@ -202,6 +206,10 @@ export default {
 			srfuf: '', 
 			srfdeid: '', 
 			srfsourcekey: '', 
+			title: '用例标题', 
+			precondition: '前置条件', 
+			formitem: '备注', 
+			formitem1: '附件', 
 			product: '所属产品', 
 			productname: '产品名称', 
 			module: '所属模块', 
@@ -215,7 +223,9 @@ export default {
 			keywords: '关键词', 
 			linkcase: '相关用例', 
 			openedby: '由谁创建', 
-			openeddate: '创建日期', 
+			openeddate: '于', 
+			lasteditedby: '最后修改者', 
+			lastediteddate: '于', 
 			id: '用例编号', 
 		},
 		uiactions: {
