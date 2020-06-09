@@ -42,7 +42,8 @@ public class ZenTaoHttpHelper {
             url += "?zentaosid=" + zentaoSid;
         }
         JSONObject jo = new JSONObject();
-        HttpHeaders httpHeaders = HttpUtil.getHttpHeaders(MediaType.APPLICATION_FORM_URLENCODED);
+        HttpHeaders httpHeaders = HttpUtil.getHttpHeaders(MediaType.MULTIPART_FORM_DATA);
+//        HttpHeaders httpHeaders = HttpUtil.getHttpHeaders(MediaType.APPLICATION_FORM_URLENCODED);
         ResponseEntity<String> responseEntity = HttpUtil.doRequest(url, httpMethod, httpHeaders, paramMap, String.class);
         String body = responseEntity.getBody();
         if (body == null || body.isEmpty()) {
@@ -60,10 +61,11 @@ public class ZenTaoHttpHelper {
         // 若为空时，default值填充
         JSONObject formatJo = new JSONObject();
         for (String key : templateMap.keySet()) {
-            if (jo.get(key.toLowerCase()) == null) {
+            Object value = jo.get(key.toLowerCase()) == null ? jo.get(key.toLowerCase()) : jo.get(key);
+            if (value == null) {
                 formatJo.put(key, templateMap.get(key));
             } else {
-                formatJo.put(key, jo.get(key.toLowerCase()));
+                formatJo.put(key, value);
             }
         }
         return formatJo;

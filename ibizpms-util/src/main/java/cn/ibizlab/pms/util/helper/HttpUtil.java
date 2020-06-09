@@ -9,6 +9,8 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import java.nio.charset.Charset;
+import java.util.Arrays;
+import java.util.List;
 
 final public class HttpUtil {
 
@@ -85,7 +87,13 @@ final public class HttpUtil {
         }
         MultiValueMap<String,Object> params = new LinkedMultiValueMap<String,Object>();
         for (String key : jo.keySet()) {
-            params.add(key, jo.get(key));
+            Object joObj = jo.get(key);
+            if (joObj != null && (joObj instanceof Iterable || joObj instanceof Arrays)) {
+                List array = Arrays.asList(jo.get(key));
+                params.put(key, array);
+                continue;
+            }
+            params.add(key, joObj);
         }
         return params;
     }
