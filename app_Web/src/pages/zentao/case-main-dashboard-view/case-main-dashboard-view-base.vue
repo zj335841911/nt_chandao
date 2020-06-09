@@ -101,6 +101,8 @@ export default class CaseMainDashboardViewBase extends Vue {
 	 * @memberof CaseMainDashboardViewBase
 	 */
     public customViewNavContexts:any ={
+    "OBJECTTYPE":{"isRawValue":true,"value":"case"},
+    "SRFPARENTKEY":{"isRawValue":false,"value":"case"}
     };
 
 	/**
