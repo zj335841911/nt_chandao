@@ -17,6 +17,15 @@ services:
     volumes:
       - "nfs109:/app/file"
 
+volumes:
+  nfs109:
+    driver: local
+    driver_opts:
+      type: "nfs"
+      o: "addr=172.16.240.109,rw"
+      device: ":/nfs"
+
+
 networks:
   agent_network:
     driver: overlay

@@ -3,9 +3,23 @@ services:
   ibizpms-app-web:
     image: registry.cn-shanghai.aliyuncs.com/ibizsys/ibizpms-app-web:latest
     ports:
-      - "8080:8080"
+      - "10120:10120"
     networks:
       - agent_network
+    environment:
+      - SPRING_CLOUD_NACOS_DISCOVERY_IP=172.16.240.110
+      - SERVER_PORT=10120
+      - SPRING_CLOUD_NACOS_DISCOVERY_SERVER-ADDR=172.16.240.110:8848
+      - SPRING_REDIS_HOST=172.16.100.243
+      - SPRING_REDIS_PORT=6379
+      - SPRING_REDIS_DATABASE=0
+      - SPRING_DATASOURCE_USERNAME=zentao
+      - SPRING_DATASOURCE_PASSWORD=123456
+      - SPRING_DATASOURCE_URL=jdbc:mysql://172.16.100.202:3306/zentao?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
+      - SPRING_DATASOURCE_DRIVER-CLASS-NAME=com.mysql.jdbc.Driver
+      - SPRING_DATASOURCE_DEFAULTSCHEMA=zentao
+      - CAS=https://passport.ibizlab.cn
+      - NACOS=172.16.240.110:8848
     deploy:
       resources:
            limits:
@@ -16,6 +30,15 @@ services:
       replicas: 1
     volumes:
       - "nfs109:/app/file"
+
+volumes:
+  nfs109:
+    driver: local
+    driver_opts:
+      type: "nfs"
+      o: "addr=172.16.240.109,rw"
+      device: ":/nfs"
+
       
 networks:
   agent_network:
