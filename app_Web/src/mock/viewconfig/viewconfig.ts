@@ -535,6 +535,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseMainDashboardView",
             "viewtag": "6f78b25e86923ab600a2141d50fe49fd"
         },
+        "taskkanbanview": {
+            "title": "任务看板视图",
+            "caption": "任务",
+            "viewtype": "DEKANBANVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskKanbanView",
+            "viewtag": "7088260bcd6a0303378af2f8e207f479"
+        },
         "actionhistroylistview": {
             "title": "历史记录",
             "caption": "系统日志",

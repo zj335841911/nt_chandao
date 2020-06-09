@@ -645,6 +645,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '7088260bcd6a0303378af2f8e207f479',
+            viewmodule: 'zentao',
+            viewname: 'TaskKanbanView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'ea141fddc78fd1af4d06e494baf12cc1',
+            ],
+        },
+        {
             viewtag: '770a170098d148e438a7666b248e6519',
             viewmodule: 'zentao',
             viewname: 'ActionHistroyListView',
@@ -1387,6 +1397,7 @@ export const viewstate: any = {
                 '103bc77ad54de2476db1d4e9c788cd4e',
                 '5ef23f01b2cffa48351b3272dfeeaf14',
                 '64204774cc4b97f20aa3becb41b184d5',
+                '7088260bcd6a0303378af2f8e207f479',
                 '85ee867b09a2d6303c061d91374ec975',
                 '7d34636d1c24d613abf8d3fdc64ec7ba',
             ],

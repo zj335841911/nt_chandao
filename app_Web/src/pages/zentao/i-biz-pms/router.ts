@@ -616,19 +616,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-main-detail-view9/task-main-detail-view9.vue'),
                 },
                 {
-                    path: 'products/:product?/storytreeexpview/:storytreeexpview?',
-                    meta: {
-                        caption: 'entities.product.views.storytreeexpview.caption',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'storytreeexpview', parameterName: 'storytreeexpview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/product-story-tree-exp-view/product-story-tree-exp-view.vue'),
-                },
-                {
                     path: 'projects/:project?/burndownchartview/:burndownchartview?',
                     meta: {
                         caption: 'entities.project.views.burndownchartview.caption',
@@ -640,6 +627,19 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/project-burn-down-chart-view/project-burn-down-chart-view.vue'),
+                },
+                {
+                    path: 'products/:product?/storytreeexpview/:storytreeexpview?',
+                    meta: {
+                        caption: 'entities.product.views.storytreeexpview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'storytreeexpview', parameterName: 'storytreeexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-story-tree-exp-view/product-story-tree-exp-view.vue'),
                 },
                 {
                     path: 'projects/:project?/pickupgridview/:pickupgridview?',
@@ -1978,6 +1978,33 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/story-mpickup-view/story-mpickup-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/kanbanview/:kanbanview?',
+                    meta: {
+                        caption: 'entities.task.views.kanbanview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'kanbanview', parameterName: 'kanbanview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-kanban-view/task-kanban-view.vue'),
+                },
+                {
+                    path: 'tasks/:task?/kanbanview/:kanbanview?',
+                    meta: {
+                        caption: 'entities.task.views.kanbanview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'kanbanview', parameterName: 'kanbanview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-kanban-view/task-kanban-view.vue'),
                 },
                 {
                     path: 'actions/:action?/alltrendslistview/:alltrendslistview?',
@@ -4612,6 +4639,31 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/zentao/case-main-dashboard-view/case-main-dashboard-view.vue'),
+    },
+    {
+        path: '/projects/:project?/tasks/:task?/kanbanview/:kanbanview?',
+        meta: {
+            caption: 'entities.task.views.kanbanview.caption',
+            parameters: [
+                { pathName: 'projects', parameterName: 'project' },
+                { pathName: 'tasks', parameterName: 'task' },
+                { pathName: 'kanbanview', parameterName: 'kanbanview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/task-kanban-view/task-kanban-view.vue'),
+    },
+    {
+        path: '/tasks/:task?/kanbanview/:kanbanview?',
+        meta: {
+            caption: 'entities.task.views.kanbanview.caption',
+            parameters: [
+                { pathName: 'tasks', parameterName: 'task' },
+                { pathName: 'kanbanview', parameterName: 'kanbanview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/task-kanban-view/task-kanban-view.vue'),
     },
     {
         path: '/actions/:action?/histroylistview/:histroylistview?',

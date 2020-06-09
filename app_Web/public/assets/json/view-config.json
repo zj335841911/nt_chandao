@@ -659,6 +659,16 @@
         "viewtag": "6f78b25e86923ab600a2141d50fe49fd",
         "memo": ""
     },
+    "taskkanbanview": {
+        "title": "任务看板视图",
+        "caption": "任务",
+        "viewtype": "DEKANBANVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TaskKanbanView",
+        "viewfilename": "task-kanban-view",
+        "viewtag": "7088260bcd6a0303378af2f8e207f479",
+        "memo": ""
+    },
     "actionhistroylistview": {
         "title": "历史记录",
         "caption": "系统日志",

@@ -47,7 +47,30 @@ v-if="isInit.tabviewpanel2"
     @closeview="closeView($event)">
 </view_tabviewpanel2>
         </tab-pane>
-        <tab-pane :index="2" name='tabviewpanel5' tab='maintabexpviewtabexppanel' class=''  
+        <tab-pane :index="2" name='tabviewpanel6' tab='maintabexpviewtabexppanel' class=''  
+            :label="(h) =>{
+                return h('div', [
+                    h('span', '看板'),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel6 
+    :viewState="viewState"  
+    :viewparams="viewparams" 
+    :context="context" 
+v-if="isInit.tabviewpanel6"
+@viewpanelDatasChange = "tabViewPanelDatasChange"
+    name="tabviewpanel6"  
+    ref='tabviewpanel6' 
+    @closeview="closeView($event)">
+</view_tabviewpanel6>
+        </tab-pane>
+        <tab-pane :index="3" name='tabviewpanel5' tab='maintabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '透视表'),
@@ -70,7 +93,7 @@ v-if="isInit.tabviewpanel5"
     @closeview="closeView($event)">
 </view_tabviewpanel5>
         </tab-pane>
-        <tab-pane :index="3" name='tabviewpanel4' tab='maintabexpviewtabexppanel' class=''  
+        <tab-pane :index="4" name='tabviewpanel4' tab='maintabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '甘特图'),
@@ -93,7 +116,7 @@ v-if="isInit.tabviewpanel4"
     @closeview="closeView($event)">
 </view_tabviewpanel4>
         </tab-pane>
-        <tab-pane :index="4" name='tabviewpanel3' tab='maintabexpviewtabexppanel' class=''  
+        <tab-pane :index="5" name='tabviewpanel3' tab='maintabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '动态'),
@@ -252,6 +275,7 @@ export default class MainTabExpViewtabexppanelBase extends Vue implements Contro
     public isInit: any = {
         tabviewpanel:  true ,
         tabviewpanel2:  false ,
+        tabviewpanel6:  false ,
         tabviewpanel5:  false ,
         tabviewpanel4:  false ,
         tabviewpanel3:  false ,
