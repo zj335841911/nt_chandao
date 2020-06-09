@@ -1,6 +1,6 @@
 <template>
     <div class='portlet-container main-dashboard-viewdashboard-container1 ' :style="{}">
-            <i-col :xs="{ span: 12, offset: 0 }" :sm="{ span: 12, offset: 0 }" :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }">
+            <i-col :md="{ span: 24, offset: 0 }" :lg="{ span: 16, offset: 0 }">
                 <div class="portlet-without-title">
                                   <view_dashboard_container2 
                       :viewState="viewState"  
@@ -12,7 +12,7 @@
                   </view_dashboard_container2>
                 </div>
             </i-col>
-            <i-col :xs="{ span: 12, offset: 0 }" :sm="{ span: 12, offset: 0 }" :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }">
+            <i-col :md="{ span: 24, offset: 0 }" :lg="{ span: 8, offset: 0 }">
                 <div class="portlet-without-title">
                                   <view_dashboard_container3 
                       :viewState="viewState"  
