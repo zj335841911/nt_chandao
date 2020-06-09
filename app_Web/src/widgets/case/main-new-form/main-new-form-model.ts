@@ -96,6 +96,22 @@ export default class MainNewModel {
         dataType: 'NSCODELIST',
       },
       {
+        name: 'precondition',
+        prop: 'precondition',
+        dataType: 'LONGTEXT',
+      },
+      {
+        name: 'formitem',
+      },
+      {
+        name: 'keywords',
+        prop: 'keywords',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'formitem1',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

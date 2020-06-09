@@ -1226,10 +1226,10 @@ export default class Main2Base extends Vue implements ControlInterface {
 
 
 
-        if (Object.is(name, '') || Object.is(name, 'productplancnt')) {
+        if (Object.is(name, '') || Object.is(name, 'releasecnt')) {
             let ret = false;
-            const _productplancnt = this.data.productplancnt;
-            if (this.$verify.testCond(_productplancnt, 'EQ', '0')) {
+            const _releasecnt = this.data.releasecnt;
+            if (this.$verify.testCond(_releasecnt, 'EQ', '0')) {
                 ret = true;
             }
             this.detailsModel.button3.setVisible(ret);

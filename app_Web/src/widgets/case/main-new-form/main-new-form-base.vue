@@ -68,7 +68,10 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.storyname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 24, offset: 0 }">
+<i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.case.mainnew_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+        <i-col v-show="detailsModel.storyname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='storyname' :itemRules="this.rules.storyname" class='' :caption="$t('entities.case.mainnew_form.details.storyname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.storyname.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-picker  
   :formState="formState"
@@ -111,6 +114,37 @@
     placeholder='请选择...' style="">
  </dropdown-list>
 </app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.precondition.visible" :style="{'height': '100px !important',}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='precondition' :itemRules="this.rules.precondition" class='' :caption="$t('entities.case.mainnew_form.details.precondition')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.precondition.error" :isEmptyCaption="false" labelPos="LEFT">
+    <div class="ivu-input-wrapper ivu-input-wrapper-default ivu-input-type">
+    <textarea class="ivu-input" v-model="data.precondition" :disabled="detailsModel.precondition.disabled" style=""></textarea>
+</div>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='formitem' :itemRules="this.rules.formitem" class='' :caption="$t('entities.case.mainnew_form.details.formitem')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.formitem"  @enter="onEnter($event)"    :disabled="detailsModel.formitem.disabled" type='text'  style=""></input-box>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.keywords.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='keywords' :itemRules="this.rules.keywords" class='' :caption="$t('entities.case.mainnew_form.details.keywords')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.keywords.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.keywords"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.keywords.disabled" type='text'  style=""></input-box>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.formitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='formitem1' :itemRules="this.rules.formitem1" class='' :caption="$t('entities.case.mainnew_form.details.formitem1')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem1.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange" :data="JSON.stringify(this.data)" name='formitem1' :value="data.formitem1" :disabled="detailsModel.formitem1.disabled" uploadparams='' exportparams='' :customparams="{}" style="overflow: auto;"></app-file-upload>
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
 
 </i-col>
     
@@ -432,6 +466,10 @@ export default class MainNewBase extends Vue implements ControlInterface {
         storyname: null,
         title: null,
         pri: null,
+        precondition: null,
+        formitem: null,
+        keywords: null,
+        formitem1: null,
         id: null,
         case:null,
     };
@@ -571,6 +609,30 @@ export default class MainNewBase extends Vue implements ControlInterface {
             { required: false, type: 'number', message: '优先级 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: '优先级 值不能为空', trigger: 'blur' },
         ],
+        precondition: [
+            { type: 'string', message: '前置条件 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '前置条件 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '前置条件 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '前置条件 值不能为空', trigger: 'blur' },
+        ],
+        formitem: [
+            { type: 'string', message: '用例步骤 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '用例步骤 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '用例步骤 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '用例步骤 值不能为空', trigger: 'blur' },
+        ],
+        keywords: [
+            { type: 'string', message: '关键词 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '关键词 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '关键词 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '关键词 值不能为空', trigger: 'blur' },
+        ],
+        formitem1: [
+            { type: 'string', message: '附件 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '附件 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '附件 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '附件 值不能为空', trigger: 'blur' },
+        ],
         id: [
             { type: 'number', message: '用例编号 值必须为数值类型', trigger: 'change' },
             { type: 'number', message: '用例编号 值必须为数值类型', trigger: 'blur' },
@@ -586,6 +648,8 @@ export default class MainNewBase extends Vue implements ControlInterface {
      * @memberof MainNew
      */
     public detailsModel: any = {
+        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.case.mainnew_form', extractMode: 'ITEM', details: [] } })
+, 
         group1: new FormGroupPanelModel({ caption: '测试用例基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.case.mainnew_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
@@ -621,6 +685,14 @@ export default class MainNewBase extends Vue implements ControlInterface {
         title: new FormItemModel({ caption: '用例标题', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        precondition: new FormItemModel({ caption: '前置条件', detailType: 'FORMITEM', name: 'precondition', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitem: new FormItemModel({ caption: '用例步骤', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        keywords: new FormItemModel({ caption: '关键词', detailType: 'FORMITEM', name: 'keywords', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitem1: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'formitem1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '用例编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -819,6 +891,54 @@ export default class MainNewBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 precondition 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MainNew
+     */
+    @Watch('data.precondition')
+    onPreconditionChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'precondition', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitem 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MainNew
+     */
+    @Watch('data.formitem')
+    onFormitemChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitem', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 keywords 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MainNew
+     */
+    @Watch('data.keywords')
+    onKeywordsChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'keywords', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitem1 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MainNew
+     */
+    @Watch('data.formitem1')
+    onFormitem1Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitem1', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
@@ -866,6 +986,11 @@ export default class MainNewBase extends Vue implements ControlInterface {
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
+
+
+
+
 
 
 
