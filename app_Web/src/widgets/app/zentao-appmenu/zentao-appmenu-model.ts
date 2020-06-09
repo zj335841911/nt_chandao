@@ -104,7 +104,7 @@ export default class ZentaoModel {
                 	tooltip: '组织权限',
                 	expanded: false,
                 	separator: false,
-                	hidden: true,
+                	hidden: false,
                 	hidesidebar: false,
                 	opendefault: false,
                 	iconcls: '',
