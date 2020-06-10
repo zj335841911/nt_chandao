@@ -61,7 +61,19 @@ public class ZenTaoHttpHelper {
         // 若为空时，default值填充
         JSONObject formatJo = new JSONObject();
         for (String key : templateMap.keySet()) {
-            Object value = jo.get(key.toLowerCase()) == null ? jo.get(key.toLowerCase()) : jo.get(key);
+            Object value = null;
+            if (jo.containsKey(key) || jo.containsKey(key.toLowerCase())) {
+                value = jo.get(key.toLowerCase()) != null ? jo.get(key.toLowerCase()) : jo.get(key);
+            } else {
+                // 数组字段（参数带[]模式。非[]模式，则走普通处理）
+                if (key.endsWith("[]")) {
+                    String tmpKey = key.substring(0, key.length() - 2);
+                    if (jo.containsKey(tmpKey) || jo.containsKey(tmpKey.toLowerCase())) {
+                        value = jo.get(tmpKey.toLowerCase()) != null ? jo.get(tmpKey.toLowerCase()) : jo.get(tmpKey);
+                    }
+                }
+            }
+
             if (value == null) {
                 formatJo.put(key, templateMap.get(key));
             } else {

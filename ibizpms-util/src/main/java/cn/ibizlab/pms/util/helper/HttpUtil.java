@@ -9,6 +9,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -68,7 +69,6 @@ final public class HttpUtil {
         }
         if (headers == null) {
             headers = new HttpHeaders();
-//            headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
         }
         MultiValueMap<String, Object> params = covertJSONToMultiValueMap(paramMap);
         HttpEntity<MultiValueMap<String, Object>> entity = null;
@@ -88,9 +88,11 @@ final public class HttpUtil {
         MultiValueMap<String,Object> params = new LinkedMultiValueMap<String,Object>();
         for (String key : jo.keySet()) {
             Object joObj = jo.get(key);
-            if (joObj != null && (joObj instanceof Iterable || joObj instanceof Arrays)) {
-                List array = Arrays.asList(jo.get(key));
-                params.put(key, array);
+            if (key.endsWith("[]") && joObj != null && (joObj instanceof Iterable || joObj instanceof Arrays)) {
+                List array = (List) jo.get(key);
+                for (int i = 0; i < array.size(); i++) {
+                    params.add(key.substring(0, key.length() - 2) + "[" + i + "]", array.get(i));
+                }
                 continue;
             }
             params.add(key, joObj);
