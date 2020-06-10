@@ -482,7 +482,6 @@ export const viewstate: any = {
             refviews: [
                 '1540523a668e920d831510cfbec2c5e2',
                 '46517a803b2470cd0bef27aeda0dbcaf',
-                '122af527bf38b47ddc53c882847b490e',
             ],
         },
         {
@@ -1099,7 +1098,6 @@ export const viewstate: any = {
             refviews: [
                 '1540523a668e920d831510cfbec2c5e2',
                 '46517a803b2470cd0bef27aeda0dbcaf',
-                '122af527bf38b47ddc53c882847b490e',
             ],
         },
         {

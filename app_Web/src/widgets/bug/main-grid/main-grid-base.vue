@@ -678,7 +678,7 @@ export default class MainBase extends Vue implements ControlInterface {
     public allColumns: any[] = [
         {
             name: 'id',
-            label: 'Bug编号',
+            label: 'ID',
             langtag: 'entities.bug.main_grid.columns.id',
             show: true,
             util: 'PX'
@@ -692,7 +692,7 @@ export default class MainBase extends Vue implements ControlInterface {
         },
         {
             name: 'confirmed',
-            label: '是否确认',
+            label: '确认',
             langtag: 'entities.bug.main_grid.columns.confirmed',
             show: true,
             util: 'PX'

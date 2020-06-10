@@ -49,20 +49,6 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('confirmed')">
-                <el-table-column show-overflow-tooltip :prop="'confirmed'" :label="$t('entities.bug.main_plansub_grid.columns.confirmed')" :width="80"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.bug.main_plansub_grid.columns.confirmed')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <template >
-            <codelist :value="row.confirmed" tag='YesNo2' codelistType='STATIC' ></codelist>
-                        </template>
-                    </template>
-                </el-table-column>
-            </template>
             <template v-if="getColumnState('title')">
                 <el-table-column show-overflow-tooltip :prop="'title'" :label="$t('entities.bug.main_plansub_grid.columns.title')" :min-width="1"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
@@ -614,7 +600,7 @@ export default class Main_PlanSubBase extends Vue implements ControlInterface {
     public allColumns: any[] = [
         {
             name: 'id',
-            label: 'Bug编号',
+            label: 'ID',
             langtag: 'entities.bug.main_plansub_grid.columns.id',
             show: true,
             util: 'PX'
@@ -623,13 +609,6 @@ export default class Main_PlanSubBase extends Vue implements ControlInterface {
             name: 'pri',
             label: 'P',
             langtag: 'entities.bug.main_plansub_grid.columns.pri',
-            show: true,
-            util: 'PX'
-        },
-        {
-            name: 'confirmed',
-            label: '是否确认',
-            langtag: 'entities.bug.main_plansub_grid.columns.confirmed',
             show: true,
             util: 'PX'
         },
@@ -755,7 +734,7 @@ export default class Main_PlanSubBase extends Vue implements ControlInterface {
      */
     public load(opt: any = {}, pageReset: boolean = false): void {
         if(!this.fetchAction){
-            this.$Notice.error({ title: '错误', desc: 'BugPlanSubGridView视图表格fetchAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'BugReleaseSubGridView_Done视图表格fetchAction参数未配置' });
             return;
         }
         if(pageReset){
@@ -832,7 +811,7 @@ export default class Main_PlanSubBase extends Vue implements ControlInterface {
      */
     public async remove(datas: any[]): Promise<any> {
         if(!this.removeAction){
-            this.$Notice.error({ title: '错误', desc: 'BugPlanSubGridView视图表格removeAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'BugReleaseSubGridView_Done视图表格removeAction参数未配置' });
             return;
         }
         let _datas:any[] = [];
@@ -938,7 +917,7 @@ export default class Main_PlanSubBase extends Vue implements ControlInterface {
      */
     public addBatch(arg: any = {}): void {
         if(!this.fetchAction){
-            this.$Notice.error({ title: '错误', desc: 'BugPlanSubGridView视图表格fetchAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'BugReleaseSubGridView_Done视图表格fetchAction参数未配置' });
             return;
         }
         if(!arg){
@@ -1058,14 +1037,6 @@ export default class Main_PlanSubBase extends Vue implements ControlInterface {
           {
             name: 'pri',
             srfkey: 'Bug__pri',
-            codelistType : 'STATIC',
-            renderMode: 'other',
-            textSeparator: '、',
-            valueSeparator: ',',
-          },
-          {
-            name: 'confirmed',
-            srfkey: 'YesNo2',
             codelistType : 'STATIC',
             renderMode: 'other',
             textSeparator: '、',
@@ -1507,7 +1478,7 @@ export default class Main_PlanSubBase extends Vue implements ControlInterface {
             try {
                 if(Object.is(item.rowDataState, 'create')){
                     if(!this.createAction){
-                        this.$Notice.error({ title: '错误', desc: 'BugPlanSubGridView视图表格createAction参数未配置' });
+                        this.$Notice.error({ title: '错误', desc: 'BugReleaseSubGridView_Done视图表格createAction参数未配置' });
                     }else{
                       Object.assign(item,{viewparams:this.viewparams});
                       let response = await this.service.add(this.createAction, JSON.parse(JSON.stringify(this.context)),item, this.showBusyIndicator);
@@ -1515,7 +1486,7 @@ export default class Main_PlanSubBase extends Vue implements ControlInterface {
                     }
                 }else if(Object.is(item.rowDataState, 'update')){
                     if(!this.updateAction){
-                        this.$Notice.error({ title: '错误', desc: 'BugPlanSubGridView视图表格updateAction参数未配置' });
+                        this.$Notice.error({ title: '错误', desc: 'BugReleaseSubGridView_Done视图表格updateAction参数未配置' });
                     }else{
                         Object.assign(item,{viewparams:this.viewparams});
                         if(item.bug){

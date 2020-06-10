@@ -31,7 +31,7 @@
         loaddraftAction=""
         loadAction=""
         createAction=""
-        fetchAction="FetchDefault"
+        fetchAction="FetchReleaseBugs"
         :newdata="newdata"
         :opendata="opendata"
         name="grid"  

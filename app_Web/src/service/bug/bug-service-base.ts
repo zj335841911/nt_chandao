@@ -254,6 +254,58 @@ export default class BugServiceBase extends EntityService {
     }
 
     /**
+     * FetchReleaseBugs接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async FetchReleaseBugs(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/bugs/fetchreleasebugs`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/productplans/${context.productplan}/bugs/fetchreleasebugs`,tempData,isloading);
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/products/${context.product}/bugs/fetchreleasebugs`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/bugs/fetchreleasebugs`,tempData,isloading);
+    }
+
+    /**
+     * FetchReleaseLeftBugs接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async FetchReleaseLeftBugs(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/bugs/fetchreleaseleftbugs`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/productplans/${context.productplan}/bugs/fetchreleaseleftbugs`,tempData,isloading);
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/products/${context.product}/bugs/fetchreleaseleftbugs`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/bugs/fetchreleaseleftbugs`,tempData,isloading);
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]

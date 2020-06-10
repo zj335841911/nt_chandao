@@ -319,6 +319,24 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
 
 
     /**
+     * 查询集合 发布关联Bug（已解决）
+     */
+    @Override
+    public Page<Bug> searchReleaseBugs(BugSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Bug> pages=baseMapper.searchReleaseBugs(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Bug>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 发布关联Bug（已解决）
+     */
+    @Override
+    public Page<Bug> searchReleaseLeftBugs(BugSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Bug> pages=baseMapper.searchReleaseLeftBugs(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Bug>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 DEFAULT
      */
     @Override

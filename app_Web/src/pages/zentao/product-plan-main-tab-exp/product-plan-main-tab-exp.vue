@@ -9,7 +9,7 @@ import view_tabexppanel from '@widgets/product-plan/main-tab-exptabexppanel-tabe
     },
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
         });
     },
 })

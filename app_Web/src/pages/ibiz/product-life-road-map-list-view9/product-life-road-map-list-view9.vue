@@ -11,7 +11,7 @@ import view_list from '@widgets/product-life/get-roadmap-year-list/get-roadmap-y
     },
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
         });
     },
 })

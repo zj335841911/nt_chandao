@@ -9,7 +9,7 @@ import view_treeexpbar from '@widgets/product/case-tree-exp-viewtreeexpbar-treee
     },
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
         });
     },
 })

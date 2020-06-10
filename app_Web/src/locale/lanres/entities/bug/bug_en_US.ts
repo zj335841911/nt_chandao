@@ -308,9 +308,21 @@ export default {
 	},
 	main_plansub_grid: {
 		columns: {
-			id: "Bug编号",
+			id: "ID",
 			pri: "P",
-			confirmed: "是否确认",
+			title: "Bug标题",
+			status: "Bug状态",
+			openedby: "由谁创建",
+			openeddate: "创建日期",
+			assignedto: "指派给",
+		},
+		uiactions: {
+		},
+	},
+	main_releasesub_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
 			title: "Bug标题",
 			status: "Bug状态",
 			openedby: "由谁创建",
@@ -322,9 +334,9 @@ export default {
 	},
 	main_grid: {
 		columns: {
-			id: "Bug编号",
+			id: "ID",
 			pri: "P",
-			confirmed: "是否确认",
+			confirmed: "确认",
 			title: "Bug标题",
 			status: "Bug状态",
 			openedby: "由谁创建",

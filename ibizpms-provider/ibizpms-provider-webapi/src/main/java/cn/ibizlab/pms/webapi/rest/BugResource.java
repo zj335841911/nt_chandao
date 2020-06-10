@@ -137,6 +137,48 @@ public class BugResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseBugs-all')")
+	@ApiOperation(value = "获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "获取发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.GET , value="/bugs/fetchreleasebugs")
+	public ResponseEntity<List<BugDTO>> fetchReleaseBugs(BugSearchContext context) {
+        Page<Bug> domains = bugService.searchReleaseBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseBugs-all')")
+	@ApiOperation(value = "查询发布关联Bug（已解决）", tags = {"Bug" } ,notes = "查询发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/bugs/searchreleasebugs")
+	public ResponseEntity<Page<BugDTO>> searchReleaseBugs(@RequestBody BugSearchContext context) {
+        Page<Bug> domains = bugService.searchReleaseBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLeftBugs-all')")
+	@ApiOperation(value = "获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "获取发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.GET , value="/bugs/fetchreleaseleftbugs")
+	public ResponseEntity<List<BugDTO>> fetchReleaseLeftBugs(BugSearchContext context) {
+        Page<Bug> domains = bugService.searchReleaseLeftBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLeftBugs-all')")
+	@ApiOperation(value = "查询发布关联Bug（已解决）", tags = {"Bug" } ,notes = "查询发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/bugs/searchreleaseleftbugs")
+	public ResponseEntity<Page<BugDTO>> searchReleaseLeftBugs(@RequestBody BugSearchContext context) {
+        Page<Bug> domains = bugService.searchReleaseLeftBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Default-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"Bug" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/bugs/fetchdefault")
@@ -267,6 +309,52 @@ public class BugResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseBugs-all')")
+	@ApiOperation(value = "根据产品获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品获取发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/bugs/fetchreleasebugs")
+	public ResponseEntity<List<BugDTO>> fetchBugReleaseBugsByProduct(@PathVariable("product_id") BigInteger product_id,BugSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Bug> domains = bugService.searchReleaseBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseBugs-all')")
+	@ApiOperation(value = "根据产品查询发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品查询发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/bugs/searchreleasebugs")
+	public ResponseEntity<Page<BugDTO>> searchBugReleaseBugsByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BugSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Bug> domains = bugService.searchReleaseBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLeftBugs-all')")
+	@ApiOperation(value = "根据产品获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品获取发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/bugs/fetchreleaseleftbugs")
+	public ResponseEntity<List<BugDTO>> fetchBugReleaseLeftBugsByProduct(@PathVariable("product_id") BigInteger product_id,BugSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Bug> domains = bugService.searchReleaseLeftBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLeftBugs-all')")
+	@ApiOperation(value = "根据产品查询发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品查询发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/bugs/searchreleaseleftbugs")
+	public ResponseEntity<Page<BugDTO>> searchBugReleaseLeftBugsByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BugSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Bug> domains = bugService.searchReleaseLeftBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Default-all')")
 	@ApiOperation(value = "根据产品获取DEFAULT", tags = {"Bug" } ,notes = "根据产品获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/bugs/fetchdefault")
@@ -399,6 +487,52 @@ public class BugResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseBugs-all')")
+	@ApiOperation(value = "根据产品计划获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品计划获取发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.GET , value="/productplans/{productplan_id}/bugs/fetchreleasebugs")
+	public ResponseEntity<List<BugDTO>> fetchBugReleaseBugsByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id,BugSearchContext context) {
+        context.setN_plan_eq(productplan_id);
+        Page<Bug> domains = bugService.searchReleaseBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseBugs-all')")
+	@ApiOperation(value = "根据产品计划查询发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品计划查询发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/productplans/{productplan_id}/bugs/searchreleasebugs")
+	public ResponseEntity<Page<BugDTO>> searchBugReleaseBugsByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugSearchContext context) {
+        context.setN_plan_eq(productplan_id);
+        Page<Bug> domains = bugService.searchReleaseBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLeftBugs-all')")
+	@ApiOperation(value = "根据产品计划获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品计划获取发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.GET , value="/productplans/{productplan_id}/bugs/fetchreleaseleftbugs")
+	public ResponseEntity<List<BugDTO>> fetchBugReleaseLeftBugsByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id,BugSearchContext context) {
+        context.setN_plan_eq(productplan_id);
+        Page<Bug> domains = bugService.searchReleaseLeftBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLeftBugs-all')")
+	@ApiOperation(value = "根据产品计划查询发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品计划查询发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/productplans/{productplan_id}/bugs/searchreleaseleftbugs")
+	public ResponseEntity<Page<BugDTO>> searchBugReleaseLeftBugsByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugSearchContext context) {
+        context.setN_plan_eq(productplan_id);
+        Page<Bug> domains = bugService.searchReleaseLeftBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Default-all')")
 	@ApiOperation(value = "根据产品计划获取DEFAULT", tags = {"Bug" } ,notes = "根据产品计划获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/productplans/{productplan_id}/bugs/fetchdefault")
@@ -531,6 +665,52 @@ public class BugResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseBugs-all')")
+	@ApiOperation(value = "根据产品产品计划获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品产品计划获取发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productplans/{productplan_id}/bugs/fetchreleasebugs")
+	public ResponseEntity<List<BugDTO>> fetchBugReleaseBugsByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id,BugSearchContext context) {
+        context.setN_plan_eq(productplan_id);
+        Page<Bug> domains = bugService.searchReleaseBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseBugs-all')")
+	@ApiOperation(value = "根据产品产品计划查询发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品产品计划查询发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productplans/{productplan_id}/bugs/searchreleasebugs")
+	public ResponseEntity<Page<BugDTO>> searchBugReleaseBugsByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugSearchContext context) {
+        context.setN_plan_eq(productplan_id);
+        Page<Bug> domains = bugService.searchReleaseBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLeftBugs-all')")
+	@ApiOperation(value = "根据产品产品计划获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品产品计划获取发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productplans/{productplan_id}/bugs/fetchreleaseleftbugs")
+	public ResponseEntity<List<BugDTO>> fetchBugReleaseLeftBugsByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id,BugSearchContext context) {
+        context.setN_plan_eq(productplan_id);
+        Page<Bug> domains = bugService.searchReleaseLeftBugs(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLeftBugs-all')")
+	@ApiOperation(value = "根据产品产品计划查询发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品产品计划查询发布关联Bug（已解决）")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productplans/{productplan_id}/bugs/searchreleaseleftbugs")
+	public ResponseEntity<Page<BugDTO>> searchBugReleaseLeftBugsByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugSearchContext context) {
+        context.setN_plan_eq(productplan_id);
+        Page<Bug> domains = bugService.searchReleaseLeftBugs(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Default-all')")
 	@ApiOperation(value = "根据产品产品计划获取DEFAULT", tags = {"Bug" } ,notes = "根据产品产品计划获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productplans/{productplan_id}/bugs/fetchdefault")
