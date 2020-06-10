@@ -58,6 +58,8 @@ public class ZenTaoHttpHelper {
     }
 
     final static public JSONObject formatJSON(JSONObject jo, Map<String, Object> templateMap) {
+        // 数组解析
+        jo = formatArrayIntoPJSON(jo);
         // 若为空时，default值填充
         JSONObject formatJo = new JSONObject();
         for (String key : templateMap.keySet()) {
@@ -81,6 +83,107 @@ public class ZenTaoHttpHelper {
             }
         }
         return formatJo;
+    }
+
+    /**
+     * 解析JSON中对象数组中对象属性至该JSON下<br>
+     *     解析对象为JSON中 srfarray<1、2、3、4...> 属性(srfarray必须命名为该命名，各个srfarray中对象属性必须唯一)<br>
+     *     解析前源JSON：
+     *     {<br>
+     *         pfield1 : xxx,<br>
+     *         pfield2 : xxx,<br>
+     *         pfield3 : [xxx,xxx,xxx],<br>
+     *         srfarray : <br>
+     *         [<br>
+     *              {<br>
+     *                 field1: xxx,<br>
+     *                  field2: xxx<br>
+     *              }.<br>
+     *              {<br>
+     *                  field1: xxx,<br>
+     *                  field2: xxx<br>
+     *              }<br>
+     *         ],
+     *         srfarray1 :
+     *         [<br>
+     *              {<br>
+     *                 field3 : xxx,<br>
+     *                  field4 : xxx<br>
+     *              }.<br>
+     *              {<br>
+     *                  field3 : xxx,<br>
+     *                  field4 : xxx<br>
+     *              }<br>
+     *         ],
+     *         srfarray2 :
+     *         [<br>
+     *              {<br>
+     *                 field5 : xxx,<br>
+     *                  field6 : xxx<br>
+     *              }.<br>
+     *              {<br>
+     *                  field5 : xxx,<br>
+     *                  field6 : xxx<br>
+     *              }<br>
+     *         ]
+     *     }
+     *     解析后目标JSON：
+     *     {<br>
+     *         pfield1 : xxx,<br>
+     *         pfield2 : xxx,<br>
+     *         pfield3 : [xxx,xxx,xxx],<br>
+     *         field1[] : [xxx,xxx],<br>
+     *         field2[] : [xxx,xxx],<br>
+     *         field3[] : [xxx,xxx],<br>
+     *         field4[] : [xxx,xxx],<br>
+     *         field5[] : [xxx,xxx],<br>
+     *         field6[] : [xxx,xxx]<br>
+     *     }
+     *
+     * @param jo
+     * @return
+     */
+    final static public JSONObject formatArrayIntoPJSON(JSONObject jo) {
+        if (jo == null) {
+            return null;
+        }
+
+        final String[] parseWordArr = {"srfarray"};
+
+        List<JSONArray> jaList = new ArrayList<>();
+        for (String key : jo.keySet()) {
+            for (String parseWord : parseWordArr) {
+                String regex = "^" + parseWord + "\\d*$";
+                if (key.toLowerCase().matches(regex)) {
+                    jaList.add(jo.getJSONArray(key));
+                    continue;
+                }
+            }
+        }
+        JSONObject arrayJson = new JSONObject();
+        for (JSONArray ja : jaList) {
+            if (ja == null || ja.size() == 0) {
+                continue;
+            }
+            for (int i = 0; i < ja.size(); i++) {
+                JSONObject jaO = ja.getJSONObject(i);
+                if (jaO == null || jaO.isEmpty()) {
+                    continue;
+                }
+                for (String key : jaO.keySet()) {
+                    List list = new ArrayList();
+                    if (arrayJson.containsKey(key)) {
+                        list = arrayJson.getJSONArray(key);
+                    }
+                    list.add(jaO.get(key));
+                    arrayJson.put(key, list);
+                }
+            }
+        }
+        if (!arrayJson.isEmpty()) {
+            jo.putAll(arrayJson);
+        }
+        return jo;
     }
 
     final static public String formatUrlParams(List<String> urlParams, JSONObject jo) {

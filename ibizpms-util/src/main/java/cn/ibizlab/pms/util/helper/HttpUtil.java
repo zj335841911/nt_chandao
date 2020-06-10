@@ -88,12 +88,14 @@ final public class HttpUtil {
         MultiValueMap<String,Object> params = new LinkedMultiValueMap<String,Object>();
         for (String key : jo.keySet()) {
             Object joObj = jo.get(key);
-            if (key.endsWith("[]") && joObj != null && (joObj instanceof Iterable || joObj instanceof Arrays)) {
-                List array = (List) jo.get(key);
-                for (int i = 0; i < array.size(); i++) {
-                    params.add(key.substring(0, key.length() - 2) + "[" + i + "]", array.get(i));
+            if (key.endsWith("[]") && joObj != null) {
+                if (joObj instanceof Iterable || joObj instanceof Arrays) {
+                    List array = (List) jo.get(key);
+                    for (int i = 0; i < array.size(); i++) {
+                        params.add(key.substring(0, key.length() - 2) + "[" + i + "]", array.get(i));
+                    }
+                    continue;
                 }
-                continue;
             }
             params.add(key, joObj);
         }
