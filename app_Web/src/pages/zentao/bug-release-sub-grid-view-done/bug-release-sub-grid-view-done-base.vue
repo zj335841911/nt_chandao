@@ -142,7 +142,6 @@ export default class BugReleaseSubGridView_DoneBase extends Vue {
 	 * @memberof BugReleaseSubGridView_DoneBase
 	 */
     public customViewParams:any ={
-    "n_status_noteq":{"isRawValue":true,"value":"active"}
     };
 
     /**
