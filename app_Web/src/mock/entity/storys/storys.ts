@@ -1143,9 +1143,9 @@ mock.onPost(new RegExp(/^\/stories\/?([a-zA-Z0-9\-\;]{0,35})\/close$/)).reply((c
 });
 
 
-// FetchGetReleaseStories
-mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/fetchgetreleasestories$/)).reply((config: any) => {
-    console.groupCollapsed("实体:story 方法: FetchGetReleaseStories");
+// FetchReleaseStories
+mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/fetchreleasestories$/)).reply((config: any) => {
+    console.groupCollapsed("实体:story 方法: FetchReleaseStories");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
@@ -1153,7 +1153,7 @@ mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/fetchgetre
     }
     const paramArray:Array<any> = ['id'];
     let tempValue: any = {};
-    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/fetchgetreleasestories$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/fetchreleasestories$/).exec(config.url);
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
             Object.defineProperty(tempValue, item, {
@@ -1187,9 +1187,9 @@ mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/fetchgetre
     return [status, items];
 });
     
-// FetchGetReleaseStories
-mock.onGet(new RegExp(/^\/stories\/fetchgetreleasestories$/)).reply((config: any) => {
-    console.groupCollapsed("实体:story 方法: FetchGetReleaseStories");
+// FetchReleaseStories
+mock.onGet(new RegExp(/^\/stories\/fetchreleasestories$/)).reply((config: any) => {
+    console.groupCollapsed("实体:story 方法: FetchReleaseStories");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
@@ -1202,9 +1202,9 @@ mock.onGet(new RegExp(/^\/stories\/fetchgetreleasestories$/)).reply((config: any
     return [status, mockDatas ? mockDatas : []];
 });
 
-// FetchGetReleaseStories
-mock.onGet(new RegExp(/^\/stories\/fetchgetreleasestories(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
-    console.groupCollapsed("实体:story 方法: FetchGetReleaseStories");
+// FetchReleaseStories
+mock.onGet(new RegExp(/^\/stories\/fetchreleasestories(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:story 方法: FetchReleaseStories");
     console.table({url:config.url, method: config.method, data:config.data});
     if(config.url.includes('page')){
         let url = config.url.split('?')[1];

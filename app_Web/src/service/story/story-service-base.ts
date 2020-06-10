@@ -370,7 +370,7 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
-     * FetchGetReleaseStories接口方法
+     * FetchReleaseStories接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -378,13 +378,13 @@ export default class StoryServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof StoryServiceBase
      */
-    public async FetchGetReleaseStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async FetchReleaseStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/stories/fetchgetreleasestories`,tempData,isloading);
+            return Http.getInstance().get(`/products/${context.product}/stories/fetchreleasestories`,tempData,isloading);
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/stories/fetchgetreleasestories`,tempData,isloading);
+        return Http.getInstance().get(`/stories/fetchreleasestories`,tempData,isloading);
     }
 
     /**

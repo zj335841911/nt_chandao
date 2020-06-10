@@ -269,11 +269,11 @@ public class StoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-GetReleaseStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ReleaseStories-all')")
 	@ApiOperation(value = "获取获取产品发布相关需求", tags = {"需求" } ,notes = "获取获取产品发布相关需求")
-    @RequestMapping(method= RequestMethod.GET , value="/stories/fetchgetreleasestories")
-	public ResponseEntity<List<StoryDTO>> fetchGetReleaseStories(StorySearchContext context) {
-        Page<Story> domains = storyService.searchGetReleaseStories(context) ;
+    @RequestMapping(method= RequestMethod.GET , value="/stories/fetchreleasestories")
+	public ResponseEntity<List<StoryDTO>> fetchReleaseStories(StorySearchContext context) {
+        Page<Story> domains = storyService.searchReleaseStories(context) ;
         List<StoryDTO> list = storyMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
                 .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
@@ -282,11 +282,11 @@ public class StoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-GetReleaseStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ReleaseStories-all')")
 	@ApiOperation(value = "查询获取产品发布相关需求", tags = {"需求" } ,notes = "查询获取产品发布相关需求")
-    @RequestMapping(method= RequestMethod.POST , value="/stories/searchgetreleasestories")
-	public ResponseEntity<Page<StoryDTO>> searchGetReleaseStories(@RequestBody StorySearchContext context) {
-        Page<Story> domains = storyService.searchGetReleaseStories(context) ;
+    @RequestMapping(method= RequestMethod.POST , value="/stories/searchreleasestories")
+	public ResponseEntity<Page<StoryDTO>> searchReleaseStories(@RequestBody StorySearchContext context) {
+        Page<Story> domains = storyService.searchReleaseStories(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(storyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -573,12 +573,12 @@ public class StoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-GetReleaseStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ReleaseStories-all')")
 	@ApiOperation(value = "根据产品获取获取产品发布相关需求", tags = {"需求" } ,notes = "根据产品获取获取产品发布相关需求")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/fetchgetreleasestories")
-	public ResponseEntity<List<StoryDTO>> fetchStoryGetReleaseStoriesByProduct(@PathVariable("product_id") BigInteger product_id,StorySearchContext context) {
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/fetchreleasestories")
+	public ResponseEntity<List<StoryDTO>> fetchStoryReleaseStoriesByProduct(@PathVariable("product_id") BigInteger product_id,StorySearchContext context) {
         context.setN_product_eq(product_id);
-        Page<Story> domains = storyService.searchGetReleaseStories(context) ;
+        Page<Story> domains = storyService.searchReleaseStories(context) ;
         List<StoryDTO> list = storyMapping.toDto(domains.getContent());
 	    return ResponseEntity.status(HttpStatus.OK)
                 .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
@@ -587,12 +587,12 @@ public class StoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-GetReleaseStories-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ReleaseStories-all')")
 	@ApiOperation(value = "根据产品查询获取产品发布相关需求", tags = {"需求" } ,notes = "根据产品查询获取产品发布相关需求")
-    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/searchgetreleasestories")
-	public ResponseEntity<Page<StoryDTO>> searchStoryGetReleaseStoriesByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody StorySearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/searchreleasestories")
+	public ResponseEntity<Page<StoryDTO>> searchStoryReleaseStoriesByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody StorySearchContext context) {
         context.setN_product_eq(product_id);
-        Page<Story> domains = storyService.searchGetReleaseStories(context) ;
+        Page<Story> domains = storyService.searchReleaseStories(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(storyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
