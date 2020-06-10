@@ -47,7 +47,9 @@ public interface IStoryService extends IService<Story>{
     void saveBatch(List<Story> list) ;
     Story batchChangeModule(Story et) ;
     Story close(Story et) ;
+    Page<Story> searchGetReleaseStories(StorySearchContext context) ;
     Page<Story> searchDefault(StorySearchContext context) ;
+    Page<Story> searchGetProductStories(StorySearchContext context) ;
     List<Story> selectByModule(BigInteger id) ;
     void removeByModule(BigInteger id) ;
     List<Story> selectByBranch(BigInteger id) ;

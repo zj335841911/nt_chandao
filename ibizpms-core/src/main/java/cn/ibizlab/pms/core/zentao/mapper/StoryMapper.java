@@ -19,7 +19,9 @@ import com.alibaba.fastjson.JSONObject;
 
 public interface StoryMapper extends BaseMapper<Story>{
 
+    Page<Story> searchGetReleaseStories(IPage page, @Param("srf") StorySearchContext context, @Param("ew") Wrapper<Story> wrapper) ;
     Page<Story> searchDefault(IPage page, @Param("srf") StorySearchContext context, @Param("ew") Wrapper<Story> wrapper) ;
+    Page<Story> searchGetProductStories(IPage page, @Param("srf") StorySearchContext context, @Param("ew") Wrapper<Story> wrapper) ;
     @Override
     Story selectById(Serializable id);
     @Override

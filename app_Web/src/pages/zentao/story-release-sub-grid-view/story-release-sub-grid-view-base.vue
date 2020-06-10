@@ -35,7 +35,7 @@
         loaddraftAction=""
         loadAction=""
         createAction=""
-        fetchAction="FetchDefault"
+        fetchAction="FetchGetReleaseStories"
         :newdata="newdata"
         :opendata="opendata"
         name="grid"  
