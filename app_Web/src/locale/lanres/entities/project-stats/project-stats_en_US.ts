@@ -21,6 +21,8 @@ export default {
     time: '工时',
     type: '工时类型',
     name: '项目名称',
+    unconfirmedbugcnt: '未确认Bug总数',
+    unclosedbugcnt: '未关闭Bug总数',
   },
 	views: {
 		maindashboardview: {

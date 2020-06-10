@@ -75,6 +75,12 @@ export default class TASKTIMEModel {
       {
         name: 'name',
       },
+      {
+        name: 'unconfirmedbugcnt',
+      },
+      {
+        name: 'unclosedbugcnt',
+      },
     ]
   }
 

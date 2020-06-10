@@ -165,4 +165,20 @@ export interface ProjectStats {
      * @memberof ProjectStats
      */
     name?: any;
+
+    /**
+     * 未确认Bug总数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    unconfirmedbugcnt?: any;
+
+    /**
+     * 未关闭Bug总数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    unclosedbugcnt?: any;
 }
