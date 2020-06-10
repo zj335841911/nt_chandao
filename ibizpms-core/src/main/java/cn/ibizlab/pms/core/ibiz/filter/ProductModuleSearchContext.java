@@ -31,28 +31,28 @@ public class ProductModuleSearchContext extends QueryWrapperContext<ProductModul
 	public void setN_name_like(String n_name_like) {
         this.n_name_like = n_name_like;
         if(!ObjectUtils.isEmpty(this.n_name_like)){
-            this.getSelectCond().like("name", n_name_like);
+            this.getSearchCond().like("name", n_name_like);
         }
     }
 	private Integer n_branch_eq;//[branch]
 	public void setN_branch_eq(Integer n_branch_eq) {
         this.n_branch_eq = n_branch_eq;
         if(!ObjectUtils.isEmpty(this.n_branch_eq)){
-            this.getSelectCond().eq("branch", n_branch_eq);
+            this.getSearchCond().eq("branch", n_branch_eq);
         }
     }
 	private BigInteger n_root_eq;//[产品]
 	public void setN_root_eq(BigInteger n_root_eq) {
         this.n_root_eq = n_root_eq;
         if(!ObjectUtils.isEmpty(this.n_root_eq)){
-            this.getSelectCond().eq("root", n_root_eq);
+            this.getSearchCond().eq("root", n_root_eq);
         }
     }
 	private BigInteger n_parent_eq;//[id]
 	public void setN_parent_eq(BigInteger n_parent_eq) {
         this.n_parent_eq = n_parent_eq;
         if(!ObjectUtils.isEmpty(this.n_parent_eq)){
-            this.getSelectCond().eq("parent", n_parent_eq);
+            this.getSearchCond().eq("parent", n_parent_eq);
         }
     }
 
@@ -63,7 +63,7 @@ public class ProductModuleSearchContext extends QueryWrapperContext<ProductModul
 	{
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
-            this.getSelectCond().and( wrapper ->
+            this.getSearchCond().and( wrapper ->
                      wrapper.like("name", query)   
             );
 		 }

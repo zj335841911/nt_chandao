@@ -181,6 +181,20 @@ public class ProjectStats extends EntityMP implements Serializable {
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
+    /**
+     * 未确认Bug总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "unconfirmedbugcnt")
+    @JsonProperty("unconfirmedbugcnt")
+    private Integer unconfirmedbugcnt;
+    /**
+     * 未关闭Bug总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "unclosedbugcnt")
+    @JsonProperty("unclosedbugcnt")
+    private Integer unclosedbugcnt;
 
 
 

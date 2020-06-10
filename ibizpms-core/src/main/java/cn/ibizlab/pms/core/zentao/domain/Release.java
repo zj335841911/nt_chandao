@@ -150,6 +150,13 @@ public class Release extends EntityMP implements Serializable {
     @JSONField(name = "branch")
     @JsonProperty("branch")
     private BigInteger branch;
+    /**
+     * 产品名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
 
     /**
      * 

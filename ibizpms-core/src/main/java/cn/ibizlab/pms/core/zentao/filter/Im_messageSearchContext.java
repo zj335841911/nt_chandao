@@ -31,14 +31,14 @@ public class Im_messageSearchContext extends QueryWrapperContext<Im_message> {
 	public void setN_type_eq(String n_type_eq) {
         this.n_type_eq = n_type_eq;
         if(!ObjectUtils.isEmpty(this.n_type_eq)){
-            this.getSelectCond().eq("type", n_type_eq);
+            this.getSearchCond().eq("type", n_type_eq);
         }
     }
 	private String n_contenttype_eq;//[contentType]
 	public void setN_contenttype_eq(String n_contenttype_eq) {
         this.n_contenttype_eq = n_contenttype_eq;
         if(!ObjectUtils.isEmpty(this.n_contenttype_eq)){
-            this.getSelectCond().eq("contenttype", n_contenttype_eq);
+            this.getSearchCond().eq("contenttype", n_contenttype_eq);
         }
     }
 

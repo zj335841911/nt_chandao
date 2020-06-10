@@ -1,31 +1,36 @@
 
 <template>
-<div class='view-container dekanbanview task-kanban-view'>
-    <app-studioaction :viewTitle="$t(model.srfTitle)" viewName="taskkanbanview"></app-studioaction>
-    <card class='view-card  '  :dis-hover="true" :bordered="false">
-        <template slot='title'>
-        <span class='caption-info'>{{$t(model.srfTitle)}}</span>
-        </template>
-        <div class='content-container'>
-  <div style="margin-bottom:6px;">
-      <i-input  v-model='query' search @on-search='onSearch' placeholder="任务名称" class='pull-left' style='max-width: 400px;margin-top:6px;' />
-      <div class='pull-right'>
-    <div class='toolbar-container'>
-        <i-button :title="$t('entities.task.kanbanviewtoolbar_toolbar.deuiaction1.tip')" v-show="toolBarModels.deuiaction1.visabled" :disabled="toolBarModels.deuiaction1.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1' }, $event)">
-                <i class='fa fa-plus'></i>
-                <span class='caption'>{{$t('entities.task.kanbanviewtoolbar_toolbar.deuiaction1.caption')}}</span>
-            </i-button>
-        <span class='seperator'>|</span>    <i-button :title="$t('entities.task.kanbanviewtoolbar_toolbar.deuiaction2.tip')" v-show="toolBarModels.deuiaction2.visabled" :disabled="toolBarModels.deuiaction2.disabled" class='' @click="toolbar_click({ tag: 'deuiaction2' }, $event)">
-                <i class='fa fa-refresh'></i>
-                <span class='caption'>{{$t('entities.task.kanbanviewtoolbar_toolbar.deuiaction2.caption')}}</span>
-            </i-button>
-    </div>
-      </div>
-  </div>
-
+<studio-view viewName="taskkanbanview" viewTitle="任务看板视图" class='dekanbanview task-kanban-view'>
+    <template slot='title'>
+    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
+    </template>
+    <template slot="toolbar">
+                <div class='toolbar-container'>
+            <i-button :title="$t('entities.task.kanbanviewtoolbar_toolbar.deuiaction1.tip')" v-show="toolBarModels.deuiaction1.visabled" :disabled="toolBarModels.deuiaction1.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1' }, $event)">
+                    <i class='fa fa-plus'></i>
+                    <span class='caption'>{{$t('entities.task.kanbanviewtoolbar_toolbar.deuiaction1.caption')}}</span>
+                </i-button>
+            <span class='seperator'>|</span>    <i-button :title="$t('entities.task.kanbanviewtoolbar_toolbar.deuiaction2.tip')" v-show="toolBarModels.deuiaction2.visabled" :disabled="toolBarModels.deuiaction2.disabled" class='' @click="toolbar_click({ tag: 'deuiaction2' }, $event)">
+                    <i class='fa fa-refresh'></i>
+                    <span class='caption'>{{$t('entities.task.kanbanviewtoolbar_toolbar.deuiaction2.caption')}}</span>
+                </i-button>
         </div>
-    </card>
-</div>
+    </template>
+    <view_kanban 
+                    :viewState="viewState"  
+                    :viewparams="viewparams" 
+                    :context="context" 
+                    createAction="Create"
+                    removeAction="Remove"
+                    updateAction="Update"
+                    fetchAction="FetchDefault"
+                    updateGroupAction="Update"
+                    :showBusyIndicator="true" 
+                    name="kanban"  
+                    ref='kanban' 
+                    @closeview="closeView($event)">
+                </view_kanban>
+</studio-view>
 </template>
 
 

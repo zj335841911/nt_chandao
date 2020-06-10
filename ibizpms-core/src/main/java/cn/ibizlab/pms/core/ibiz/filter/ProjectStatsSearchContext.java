@@ -31,7 +31,7 @@ public class ProjectStatsSearchContext extends QueryWrapperContext<ProjectStats>
 	public void setN_name_like(String n_name_like) {
         this.n_name_like = n_name_like;
         if(!ObjectUtils.isEmpty(this.n_name_like)){
-            this.getSelectCond().like("name", n_name_like);
+            this.getSearchCond().like("name", n_name_like);
         }
     }
 
@@ -42,7 +42,7 @@ public class ProjectStatsSearchContext extends QueryWrapperContext<ProjectStats>
 	{
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
-            this.getSelectCond().and( wrapper ->
+            this.getSearchCond().and( wrapper ->
                      wrapper.like("name", query)   
             );
 		 }

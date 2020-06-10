@@ -31,14 +31,14 @@ public class TestSuiteSearchContext extends QueryWrapperContext<TestSuite> {
 	public void setN_name_like(String n_name_like) {
         this.n_name_like = n_name_like;
         if(!ObjectUtils.isEmpty(this.n_name_like)){
-            this.getSelectCond().like("name", n_name_like);
+            this.getSearchCond().like("name", n_name_like);
         }
     }
 	private BigInteger n_product_eq;//[所属产品]
 	public void setN_product_eq(BigInteger n_product_eq) {
         this.n_product_eq = n_product_eq;
         if(!ObjectUtils.isEmpty(this.n_product_eq)){
-            this.getSelectCond().eq("product", n_product_eq);
+            this.getSearchCond().eq("product", n_product_eq);
         }
     }
 
@@ -49,7 +49,7 @@ public class TestSuiteSearchContext extends QueryWrapperContext<TestSuite> {
 	{
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
-            this.getSelectCond().and( wrapper ->
+            this.getSearchCond().and( wrapper ->
                      wrapper.like("name", query)   
             );
 		 }

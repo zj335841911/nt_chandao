@@ -31,14 +31,14 @@ public class UserQuerySearchContext extends QueryWrapperContext<UserQuery> {
 	public void setN_shortcut_eq(String n_shortcut_eq) {
         this.n_shortcut_eq = n_shortcut_eq;
         if(!ObjectUtils.isEmpty(this.n_shortcut_eq)){
-            this.getSelectCond().eq("shortcut", n_shortcut_eq);
+            this.getSearchCond().eq("shortcut", n_shortcut_eq);
         }
     }
 	private String n_title_like;//[title]
 	public void setN_title_like(String n_title_like) {
         this.n_title_like = n_title_like;
         if(!ObjectUtils.isEmpty(this.n_title_like)){
-            this.getSelectCond().like("title", n_title_like);
+            this.getSearchCond().like("title", n_title_like);
         }
     }
 
@@ -49,7 +49,7 @@ public class UserQuerySearchContext extends QueryWrapperContext<UserQuery> {
 	{
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
-            this.getSelectCond().and( wrapper ->
+            this.getSearchCond().and( wrapper ->
                      wrapper.like("title", query)   
             );
 		 }

@@ -86,8 +86,10 @@ export default class BugUIServiceBase extends UIService {
         this.allViewMap.set('MPICKUPVIEW:',{viewname:'mpickupview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'buglifeeditview9',srfappde:'bugs'});
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'releasesubgridview_done',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'stepsinfoeditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'gridview9_assignedtome',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'releasesubgridview_undone',srfappde:'bugs'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'dashboardmaineditview9',srfappde:'bugs'});
     }

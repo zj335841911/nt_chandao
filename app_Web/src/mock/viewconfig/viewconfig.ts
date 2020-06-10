@@ -407,6 +407,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryPickupGridView",
             "viewtag": "569cd532c6b545ffc53cf5fb93427028"
         },
+        "bugreleasesubgridview_done": {
+            "title": "bug表格视图",
+            "caption": "Bug",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugReleaseSubGridView_Done",
+            "viewtag": "572e63d8153209ef20848682018326b2"
+        },
         "taskmaindashboardview": {
             "title": "任务主数据看板视图",
             "caption": "任务",
@@ -679,6 +687,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectMainDashboardView",
             "viewtag": "85ee867b09a2d6303c061d91374ec975"
         },
+        "storyreleasesubgridview": {
+            "title": "story表格视图",
+            "caption": "需求",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryReleaseSubGridView",
+            "viewtag": "87b3a9ce09500f304291ed2d69799d5e"
+        },
         "taskworkinfoeditview9": {
             "title": "工时信息",
             "caption": "工时信息",
@@ -711,6 +727,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseMainEditView",
             "viewtag": "8e070a3e9ad67b127db723463198f9ac"
         },
+        "storyreleasesubeditview": {
+            "title": "需求",
+            "caption": "需求",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryReleaseSubEditView",
+            "viewtag": "928e6614bcfbd67af3b596cf5dc5a46b"
+        },
         "storymainview9": {
             "title": "需求编辑视图",
             "caption": "需求",
@@ -742,6 +766,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ActionProductTrendsListView9",
             "viewtag": "97af408e6a6cb088c824cacd1807f353"
+        },
+        "releasemaininfoview": {
+            "title": "发布编辑视图",
+            "caption": "发布",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ReleaseMainInfoView",
+            "viewtag": "983aa1b77ca021f30978523ddef010a0"
         },
         "productliferoadmaplistview9": {
             "title": "路线图",
@@ -847,6 +879,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CompanyEditView",
             "viewtag": "b39a7a76c2175803831235ae3aeef05b"
         },
+        "bugreleasesubgridview_undone": {
+            "title": "bug表格视图",
+            "caption": "Bug",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugReleaseSubGridView_Undone",
+            "viewtag": "b507b8efc20db47d7b01d67561638cd6"
+        },
         "casemaindetaileditview9": {
             "title": "测试用例编辑视图",
             "caption": "测试用例",
@@ -950,6 +990,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ProjectPortalView",
             "viewtag": "CC49500F-030F-458F-82DF-F88F6973DF64"
+        },
+        "releasemaintabexpview": {
+            "title": "发布分页导航视图",
+            "caption": "产品发布",
+            "viewtype": "DETABEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ReleaseMainTabExpView",
+            "viewtag": "ceb630b252aac50781a373e0bef90eb2"
         },
         "projectproductlistview9": {
             "title": "项目产品列表视图",
@@ -1078,6 +1126,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "BugDashboardMainEditView9",
             "viewtag": "ec9a5987de12c718961f243f4034efea"
+        },
+        "releasequickcreateview": {
+            "title": "发布编辑视图",
+            "caption": "发布",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ReleaseQuickCreateView",
+            "viewtag": "ed51615a22255e84a3b276815ef5c96e"
         },
         "casestepgridview": {
             "title": "casestep表格视图",

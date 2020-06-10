@@ -75,6 +75,12 @@ export default class MainModel {
       {
         name: 'name',
       },
+      {
+        name: 'unconfirmedbugcnt',
+      },
+      {
+        name: 'unclosedbugcnt',
+      },
     ]
   }
 

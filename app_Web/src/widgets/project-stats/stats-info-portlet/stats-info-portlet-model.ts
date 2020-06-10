@@ -75,6 +75,12 @@ export default class StatsInfoModel {
       {
         name: 'name',
       },
+      {
+        name: 'unconfirmedbugcnt',
+      },
+      {
+        name: 'unclosedbugcnt',
+      },
     ]
   }
 

@@ -31,70 +31,70 @@ public class ProjectProductSearchContext extends QueryWrapperContext<ProjectProd
 	public void setN_productname_eq(String n_productname_eq) {
         this.n_productname_eq = n_productname_eq;
         if(!ObjectUtils.isEmpty(this.n_productname_eq)){
-            this.getSelectCond().eq("productname", n_productname_eq);
+            this.getSearchCond().eq("productname", n_productname_eq);
         }
     }
 	private String n_productname_like;//[产品]
 	public void setN_productname_like(String n_productname_like) {
         this.n_productname_like = n_productname_like;
         if(!ObjectUtils.isEmpty(this.n_productname_like)){
-            this.getSelectCond().like("productname", n_productname_like);
+            this.getSearchCond().like("productname", n_productname_like);
         }
     }
 	private String n_projectname_eq;//[项目]
 	public void setN_projectname_eq(String n_projectname_eq) {
         this.n_projectname_eq = n_projectname_eq;
         if(!ObjectUtils.isEmpty(this.n_projectname_eq)){
-            this.getSelectCond().eq("projectname", n_projectname_eq);
+            this.getSearchCond().eq("projectname", n_projectname_eq);
         }
     }
 	private String n_projectname_like;//[项目]
 	public void setN_projectname_like(String n_projectname_like) {
         this.n_projectname_like = n_projectname_like;
         if(!ObjectUtils.isEmpty(this.n_projectname_like)){
-            this.getSelectCond().like("projectname", n_projectname_like);
+            this.getSearchCond().like("projectname", n_projectname_like);
         }
     }
 	private String n_planname_eq;//[计划名称]
 	public void setN_planname_eq(String n_planname_eq) {
         this.n_planname_eq = n_planname_eq;
         if(!ObjectUtils.isEmpty(this.n_planname_eq)){
-            this.getSelectCond().eq("planname", n_planname_eq);
+            this.getSearchCond().eq("planname", n_planname_eq);
         }
     }
 	private String n_planname_like;//[计划名称]
 	public void setN_planname_like(String n_planname_like) {
         this.n_planname_like = n_planname_like;
         if(!ObjectUtils.isEmpty(this.n_planname_like)){
-            this.getSelectCond().like("planname", n_planname_like);
+            this.getSearchCond().like("planname", n_planname_like);
         }
     }
 	private BigInteger n_product_eq;//[产品]
 	public void setN_product_eq(BigInteger n_product_eq) {
         this.n_product_eq = n_product_eq;
         if(!ObjectUtils.isEmpty(this.n_product_eq)){
-            this.getSelectCond().eq("product", n_product_eq);
+            this.getSearchCond().eq("product", n_product_eq);
         }
     }
 	private BigInteger n_plan_eq;//[产品计划]
 	public void setN_plan_eq(BigInteger n_plan_eq) {
         this.n_plan_eq = n_plan_eq;
         if(!ObjectUtils.isEmpty(this.n_plan_eq)){
-            this.getSelectCond().eq("plan", n_plan_eq);
+            this.getSearchCond().eq("plan", n_plan_eq);
         }
     }
 	private BigInteger n_branch_eq;//[平台/分支]
 	public void setN_branch_eq(BigInteger n_branch_eq) {
         this.n_branch_eq = n_branch_eq;
         if(!ObjectUtils.isEmpty(this.n_branch_eq)){
-            this.getSelectCond().eq("branch", n_branch_eq);
+            this.getSearchCond().eq("branch", n_branch_eq);
         }
     }
 	private BigInteger n_project_eq;//[项目]
 	public void setN_project_eq(BigInteger n_project_eq) {
         this.n_project_eq = n_project_eq;
         if(!ObjectUtils.isEmpty(this.n_project_eq)){
-            this.getSelectCond().eq("project", n_project_eq);
+            this.getSearchCond().eq("project", n_project_eq);
         }
     }
 

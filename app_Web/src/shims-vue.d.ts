@@ -10,3 +10,4 @@ declare module '@fullcalendar/interaction';
 declare module 'vue-grid-layout';
 declare module 'vue-print-nb';
 declare module 'ibiz-vue-pivottable';
+declare module 'vuedraggable';

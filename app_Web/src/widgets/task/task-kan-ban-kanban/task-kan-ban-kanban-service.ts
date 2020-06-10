@@ -104,6 +104,34 @@ export default class TaskKanBanService extends ControlService {
         });
     }
 
-
+    /**
+     * 更新数据
+     *
+     * @param {string} action
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskKanBanService
+     */
+    @Errorlog
+    public update(action: string,context: any = {}, data: any = {}, isloading?: boolean): Promise<any> {
+        const {data:Data,context:Context} = this.handleRequestData(action,context,data,true);
+        return new Promise((resolve: any, reject: any) => {
+            const _appEntityService: any = this.appEntityService;
+            let result: Promise<any>;
+            if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
+                result = _appEntityService[action](Context,Data, isloading);
+            }else{
+                result =_appEntityService.update(Context,Data, isloading);
+            }
+            result.then((response) => {
+                this.handleResponse(action, response);
+                resolve(response);
+            }).catch(response => {
+                reject(response);
+            });      
+        });
+    }
 
 }

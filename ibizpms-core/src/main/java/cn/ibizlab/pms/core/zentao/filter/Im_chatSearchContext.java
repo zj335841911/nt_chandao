@@ -31,14 +31,14 @@ public class Im_chatSearchContext extends QueryWrapperContext<Im_chat> {
 	public void setN_public_eq(String n_public_eq) {
         this.n_public_eq = n_public_eq;
         if(!ObjectUtils.isEmpty(this.n_public_eq)){
-            this.getSelectCond().eq("public", n_public_eq);
+            this.getSearchCond().eq("public", n_public_eq);
         }
     }
 	private String n_name_like;//[name]
 	public void setN_name_like(String n_name_like) {
         this.n_name_like = n_name_like;
         if(!ObjectUtils.isEmpty(this.n_name_like)){
-            this.getSelectCond().like("name", n_name_like);
+            this.getSearchCond().like("name", n_name_like);
         }
     }
 
@@ -49,7 +49,7 @@ public class Im_chatSearchContext extends QueryWrapperContext<Im_chat> {
 	{
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
-            this.getSelectCond().and( wrapper ->
+            this.getSearchCond().and( wrapper ->
                      wrapper.like("name", query)   
             );
 		 }
