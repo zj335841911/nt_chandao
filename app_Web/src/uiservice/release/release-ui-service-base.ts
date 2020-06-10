@@ -79,8 +79,11 @@ export default class ReleaseUIServiceBase extends UIService {
      * @memberof  ReleaseUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'maininfoview',srfappde:'releases'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'releases'});
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'releases'});
+        this.allViewMap.set(':',{viewname:'maintabexpview',srfappde:'releases'});
+        this.allViewMap.set(':',{viewname:'quickcreateview',srfappde:'releases'});
     }
 
     /**

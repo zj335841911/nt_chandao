@@ -51,14 +51,44 @@ export default class MainModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'productname',
+        prop: 'productname',
+        dataType: 'PICKUPTEXT',
+      },
+      {
         name: 'name',
         prop: 'name',
         dataType: 'TEXT',
       },
       {
+        name: 'buildname',
+        prop: 'buildname',
+        dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'status',
+        prop: 'status',
+        dataType: 'SSCODELIST',
+      },
+      {
+        name: 'date',
+        prop: 'date',
+        dataType: 'DATE',
+      },
+      {
+        name: 'desc',
+        prop: 'desc',
+        dataType: 'LONGTEXT',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
+      },
+      {
+        name: 'product',
+        prop: 'product',
+        dataType: 'PICKUP',
       },
       {
         name: 'release',

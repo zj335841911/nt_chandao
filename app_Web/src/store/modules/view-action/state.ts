@@ -474,6 +474,18 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '572e63d8153209ef20848682018326b2',
+            viewmodule: 'zentao',
+            viewname: 'BugReleaseSubGridView_Done',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '1540523a668e920d831510cfbec2c5e2',
+                '46517a803b2470cd0bef27aeda0dbcaf',
+                '122af527bf38b47ddc53c882847b490e',
+            ],
+        },
+        {
             viewtag: '575fecad655143bbd28f17c581725a4e',
             viewmodule: 'zentao',
             viewname: 'TaskMainDashboardView',
@@ -914,6 +926,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '983aa1b77ca021f30978523ddef010a0',
+            viewmodule: 'zentao',
+            viewname: 'ReleaseMainInfoView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '6c7b582273d0726bcf77214807cfe40c',
+                '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
             viewtag: '985c8eb7591e5e00de8e3cda638d5727',
             viewmodule: 'ibiz',
             viewname: 'ProductLifeRoadMapListView9',
@@ -929,7 +952,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '9ddace1c12afee8da3f0254a05ba141a',
+                'ed51615a22255e84a3b276815ef5c96e',
+                'ceb630b252aac50781a373e0bef90eb2',
             ],
         },
         {
@@ -948,6 +972,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '6c7b582273d0726bcf77214807cfe40c',
+                '770a170098d148e438a7666b248e6519',
             ],
         },
         {
@@ -1041,6 +1067,18 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: 'b507b8efc20db47d7b01d67561638cd6',
+            viewmodule: 'zentao',
+            viewname: 'BugReleaseSubGridView_Undone',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '1540523a668e920d831510cfbec2c5e2',
+                '46517a803b2470cd0bef27aeda0dbcaf',
+                '122af527bf38b47ddc53c882847b490e',
             ],
         },
         {
@@ -1167,6 +1205,19 @@ export const viewstate: any = {
                 '79b3a14f0431747becc48f5b9f3aa990',
                 'a7a97014cad1917b94284db21ec968f1',
                 '3aafb12bb0db2be013c0f5ced8c7dc50',
+            ],
+        },
+        {
+            viewtag: 'ceb630b252aac50781a373e0bef90eb2',
+            viewmodule: 'zentao',
+            viewname: 'ReleaseMainTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'dea346284a2fbb66467c4838c1b3f577',
+                '572e63d8153209ef20848682018326b2',
+                'b507b8efc20db47d7b01d67561638cd6',
+                '983aa1b77ca021f30978523ddef010a0',
             ],
         },
         {
@@ -1317,6 +1368,15 @@ export const viewstate: any = {
             refviews: [
                 '6c7b582273d0726bcf77214807cfe40c',
                 'fd0b8748ff96edcde009d39903a9f211',
+            ],
+        },
+        {
+            viewtag: 'ed51615a22255e84a3b276815ef5c96e',
+            viewmodule: 'zentao',
+            viewname: 'ReleaseQuickCreateView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

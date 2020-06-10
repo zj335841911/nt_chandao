@@ -89,11 +89,19 @@ export default {
 			caption: "Bug",
       title: 'Bug',
 		},
+		releasesubgridview_done: {
+			caption: "Bug",
+      title: 'Bug',
+		},
 		stepsinfoeditview: {
 			caption: "重现步骤",
       title: '重现步骤',
 		},
 		gridview9_assignedtome: {
+			caption: "Bug",
+      title: 'Bug',
+		},
+		releasesubgridview_undone: {
 			caption: "Bug",
       title: 'Bug',
 		},
@@ -359,6 +367,42 @@ export default {
 		seperator2: {
 			caption: "",
 			tip: "",
+		},
+		deuiaction4: {
+			caption: "Remove",
+			tip: "Remove {0}",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
+	releasesubgridview_donetoolbar_toolbar: {
+		deuiaction1: {
+			caption: "New",
+			tip: "New",
+		},
+		deuiaction4: {
+			caption: "Remove",
+			tip: "Remove {0}",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
+	releasesubgridview_undonetoolbar_toolbar: {
+		deuiaction1: {
+			caption: "New",
+			tip: "New",
 		},
 		deuiaction4: {
 			caption: "Remove",

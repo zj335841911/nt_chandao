@@ -144,6 +144,14 @@ public class ReleaseDTO extends DTOBase implements Serializable {
     @JsonProperty("branch")
     private BigInteger branch;
 
+    /**
+     * 属性 [PRODUCTNAME]
+     *
+     */
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
+
 
     /**
      * 设置 [STORIES]

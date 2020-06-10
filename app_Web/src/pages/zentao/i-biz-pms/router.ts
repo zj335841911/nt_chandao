@@ -908,6 +908,33 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-portal-view/product-portal-view.vue'),
                 },
                 {
+                    path: 'products/:product?/releases/:release?/maintabexpview/:maintabexpview?',
+                    meta: {
+                        caption: 'entities.release.views.maintabexpview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'releases', parameterName: 'release' },
+                            { pathName: 'maintabexpview', parameterName: 'maintabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/release-main-tab-exp-view/release-main-tab-exp-view.vue'),
+                },
+                {
+                    path: 'releases/:release?/maintabexpview/:maintabexpview?',
+                    meta: {
+                        caption: 'entities.release.views.maintabexpview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'releases', parameterName: 'release' },
+                            { pathName: 'maintabexpview', parameterName: 'maintabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/release-main-tab-exp-view/release-main-tab-exp-view.vue'),
+                },
+                {
                     path: 'products/:product?/pickupview/:pickupview?',
                     meta: {
                         caption: 'entities.product.views.pickupview.caption',
@@ -1681,6 +1708,33 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-main-info-view9/task-main-info-view9.vue'),
                 },
                 {
+                    path: 'products/:product?/releases/:release?/quickcreateview/:quickcreateview?',
+                    meta: {
+                        caption: 'entities.release.views.quickcreateview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'releases', parameterName: 'release' },
+                            { pathName: 'quickcreateview', parameterName: 'quickcreateview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/release-quick-create-view/release-quick-create-view.vue'),
+                },
+                {
+                    path: 'releases/:release?/quickcreateview/:quickcreateview?',
+                    meta: {
+                        caption: 'entities.release.views.quickcreateview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'releases', parameterName: 'release' },
+                            { pathName: 'quickcreateview', parameterName: 'quickcreateview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/release-quick-create-view/release-quick-create-view.vue'),
+                },
+                {
                     path: 'products/:product?/productplans/:productplan?/bugs/:bug?/plansubgridview/:plansubgridview?',
                     meta: {
                         caption: 'entities.bug.views.plansubgridview.caption',
@@ -1761,6 +1815,62 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/product-case-tree-exp-view/product-case-tree-exp-view.vue'),
+                },
+                {
+                    path: 'products/:product?/productplans/:productplan?/bugs/:bug?/releasesubgridview_done/:releasesubgridview_done?',
+                    meta: {
+                        caption: 'entities.bug.views.releasesubgridview_done.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'releasesubgridview_done', parameterName: 'releasesubgridview_done' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-release-sub-grid-view-done/bug-release-sub-grid-view-done.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/bugs/:bug?/releasesubgridview_done/:releasesubgridview_done?',
+                    meta: {
+                        caption: 'entities.bug.views.releasesubgridview_done.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'releasesubgridview_done', parameterName: 'releasesubgridview_done' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-release-sub-grid-view-done/bug-release-sub-grid-view-done.vue'),
+                },
+                {
+                    path: 'products/:product?/bugs/:bug?/releasesubgridview_done/:releasesubgridview_done?',
+                    meta: {
+                        caption: 'entities.bug.views.releasesubgridview_done.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'releasesubgridview_done', parameterName: 'releasesubgridview_done' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-release-sub-grid-view-done/bug-release-sub-grid-view-done.vue'),
+                },
+                {
+                    path: 'bugs/:bug?/releasesubgridview_done/:releasesubgridview_done?',
+                    meta: {
+                        caption: 'entities.bug.views.releasesubgridview_done.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'releasesubgridview_done', parameterName: 'releasesubgridview_done' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-release-sub-grid-view-done/bug-release-sub-grid-view-done.vue'),
                 },
                 {
                     path: 'projects/:project?/projectproducts/:projectproduct?/planlistview9/:planlistview9?',
@@ -2005,6 +2115,89 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/task-kanban-view/task-kanban-view.vue'),
+                },
+                {
+                    path: 'products/:product?/productplans/:productplan?/bugs/:bug?/releasesubgridview_undone/:releasesubgridview_undone?',
+                    meta: {
+                        caption: 'entities.bug.views.releasesubgridview_undone.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'releasesubgridview_undone', parameterName: 'releasesubgridview_undone' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-release-sub-grid-view-undone/bug-release-sub-grid-view-undone.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/bugs/:bug?/releasesubgridview_undone/:releasesubgridview_undone?',
+                    meta: {
+                        caption: 'entities.bug.views.releasesubgridview_undone.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'releasesubgridview_undone', parameterName: 'releasesubgridview_undone' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-release-sub-grid-view-undone/bug-release-sub-grid-view-undone.vue'),
+                },
+                {
+                    path: 'products/:product?/bugs/:bug?/releasesubgridview_undone/:releasesubgridview_undone?',
+                    meta: {
+                        caption: 'entities.bug.views.releasesubgridview_undone.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'releasesubgridview_undone', parameterName: 'releasesubgridview_undone' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-release-sub-grid-view-undone/bug-release-sub-grid-view-undone.vue'),
+                },
+                {
+                    path: 'bugs/:bug?/releasesubgridview_undone/:releasesubgridview_undone?',
+                    meta: {
+                        caption: 'entities.bug.views.releasesubgridview_undone.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'releasesubgridview_undone', parameterName: 'releasesubgridview_undone' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-release-sub-grid-view-undone/bug-release-sub-grid-view-undone.vue'),
+                },
+                {
+                    path: 'products/:product?/releases/:release?/maininfoview/:maininfoview?',
+                    meta: {
+                        caption: 'entities.release.views.maininfoview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'releases', parameterName: 'release' },
+                            { pathName: 'maininfoview', parameterName: 'maininfoview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/release-main-info-view/release-main-info-view.vue'),
+                },
+                {
+                    path: 'releases/:release?/maininfoview/:maininfoview?',
+                    meta: {
+                        caption: 'entities.release.views.maininfoview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'releases', parameterName: 'release' },
+                            { pathName: 'maininfoview', parameterName: 'maininfoview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/release-main-info-view/release-main-info-view.vue'),
                 },
                 {
                     path: 'actions/:action?/alltrendslistview/:alltrendslistview?',
@@ -2790,19 +2983,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-main-info-edit-view9/case-main-info-edit-view9.vue'),
                 },
                 {
-                    path: 'products/:product?/testleftsidebarlistview/:testleftsidebarlistview?',
-                    meta: {
-                        caption: 'entities.product.views.testleftsidebarlistview.caption',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'testleftsidebarlistview', parameterName: 'testleftsidebarlistview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/product-test-left-sidebar-list-view/product-test-left-sidebar-list-view.vue'),
-                },
-                {
                     path: 'products/:product?/branches/:branch?/pmeditview/:pmeditview?',
                     meta: {
                         caption: 'entities.branch.views.pmeditview.caption',
@@ -2828,6 +3008,19 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/branch-pmedit-view/branch-pmedit-view.vue'),
+                },
+                {
+                    path: 'products/:product?/testleftsidebarlistview/:testleftsidebarlistview?',
+                    meta: {
+                        caption: 'entities.product.views.testleftsidebarlistview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'testleftsidebarlistview', parameterName: 'testleftsidebarlistview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-test-left-sidebar-list-view/product-test-left-sidebar-list-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/plansubeditview/:plansubeditview?',
@@ -4317,6 +4510,58 @@ const router = new Router({
         component: () => import('@pages/zentao/story-pickup-grid-view/story-pickup-grid-view.vue'),
     },
     {
+        path: '/products/:product?/productplans/:productplan?/bugs/:bug?/releasesubgridview_done/:releasesubgridview_done?',
+        meta: {
+            caption: 'entities.bug.views.releasesubgridview_done.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'releasesubgridview_done', parameterName: 'releasesubgridview_done' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-release-sub-grid-view-done/bug-release-sub-grid-view-done.vue'),
+    },
+    {
+        path: '/productplans/:productplan?/bugs/:bug?/releasesubgridview_done/:releasesubgridview_done?',
+        meta: {
+            caption: 'entities.bug.views.releasesubgridview_done.caption',
+            parameters: [
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'releasesubgridview_done', parameterName: 'releasesubgridview_done' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-release-sub-grid-view-done/bug-release-sub-grid-view-done.vue'),
+    },
+    {
+        path: '/products/:product?/bugs/:bug?/releasesubgridview_done/:releasesubgridview_done?',
+        meta: {
+            caption: 'entities.bug.views.releasesubgridview_done.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'releasesubgridview_done', parameterName: 'releasesubgridview_done' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-release-sub-grid-view-done/bug-release-sub-grid-view-done.vue'),
+    },
+    {
+        path: '/bugs/:bug?/releasesubgridview_done/:releasesubgridview_done?',
+        meta: {
+            caption: 'entities.bug.views.releasesubgridview_done.caption',
+            parameters: [
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'releasesubgridview_done', parameterName: 'releasesubgridview_done' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-release-sub-grid-view-done/bug-release-sub-grid-view-done.vue'),
+    },
+    {
         path: '/projects/:project?/tasks/:task?/maindashboardview/:maindashboardview?',
         meta: {
             caption: 'entities.task.views.maindashboardview.caption',
@@ -5111,6 +5356,31 @@ const router = new Router({
         component: () => import('@pages/zentao/action-product-trends-list-view9/action-product-trends-list-view9.vue'),
     },
     {
+        path: '/products/:product?/releases/:release?/maininfoview/:maininfoview?',
+        meta: {
+            caption: 'entities.release.views.maininfoview.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'releases', parameterName: 'release' },
+                { pathName: 'maininfoview', parameterName: 'maininfoview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/release-main-info-view/release-main-info-view.vue'),
+    },
+    {
+        path: '/releases/:release?/maininfoview/:maininfoview?',
+        meta: {
+            caption: 'entities.release.views.maininfoview.caption',
+            parameters: [
+                { pathName: 'releases', parameterName: 'release' },
+                { pathName: 'maininfoview', parameterName: 'maininfoview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/release-main-info-view/release-main-info-view.vue'),
+    },
+    {
         path: '/productlives/:productlife?/roadmaplistview9/:roadmaplistview9?',
         meta: {
             caption: 'entities.productlife.views.roadmaplistview9.caption',
@@ -5356,6 +5626,58 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/zentao/task-open-task-view/task-open-task-view.vue'),
+    },
+    {
+        path: '/products/:product?/productplans/:productplan?/bugs/:bug?/releasesubgridview_undone/:releasesubgridview_undone?',
+        meta: {
+            caption: 'entities.bug.views.releasesubgridview_undone.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'releasesubgridview_undone', parameterName: 'releasesubgridview_undone' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-release-sub-grid-view-undone/bug-release-sub-grid-view-undone.vue'),
+    },
+    {
+        path: '/productplans/:productplan?/bugs/:bug?/releasesubgridview_undone/:releasesubgridview_undone?',
+        meta: {
+            caption: 'entities.bug.views.releasesubgridview_undone.caption',
+            parameters: [
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'releasesubgridview_undone', parameterName: 'releasesubgridview_undone' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-release-sub-grid-view-undone/bug-release-sub-grid-view-undone.vue'),
+    },
+    {
+        path: '/products/:product?/bugs/:bug?/releasesubgridview_undone/:releasesubgridview_undone?',
+        meta: {
+            caption: 'entities.bug.views.releasesubgridview_undone.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'releasesubgridview_undone', parameterName: 'releasesubgridview_undone' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-release-sub-grid-view-undone/bug-release-sub-grid-view-undone.vue'),
+    },
+    {
+        path: '/bugs/:bug?/releasesubgridview_undone/:releasesubgridview_undone?',
+        meta: {
+            caption: 'entities.bug.views.releasesubgridview_undone.caption',
+            parameters: [
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'releasesubgridview_undone', parameterName: 'releasesubgridview_undone' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-release-sub-grid-view-undone/bug-release-sub-grid-view-undone.vue'),
     },
     {
         path: '/products/:product?/cases/:case?/maindetaileditview9/:maindetaileditview9?',
@@ -5604,6 +5926,31 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/zentao/project-portal-view/project-portal-view.vue'),
+    },
+    {
+        path: '/products/:product?/releases/:release?/maintabexpview/:maintabexpview?',
+        meta: {
+            caption: 'entities.release.views.maintabexpview.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'releases', parameterName: 'release' },
+                { pathName: 'maintabexpview', parameterName: 'maintabexpview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/release-main-tab-exp-view/release-main-tab-exp-view.vue'),
+    },
+    {
+        path: '/releases/:release?/maintabexpview/:maintabexpview?',
+        meta: {
+            caption: 'entities.release.views.maintabexpview.caption',
+            parameters: [
+                { pathName: 'releases', parameterName: 'release' },
+                { pathName: 'maintabexpview', parameterName: 'maintabexpview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/release-main-tab-exp-view/release-main-tab-exp-view.vue'),
     },
     {
         path: '/projects/:project?/projectproducts/:projectproduct?/listview9/:listview9?',
@@ -5901,6 +6248,31 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/zentao/bug-dashboard-main-edit-view9/bug-dashboard-main-edit-view9.vue'),
+    },
+    {
+        path: '/products/:product?/releases/:release?/quickcreateview/:quickcreateview?',
+        meta: {
+            caption: 'entities.release.views.quickcreateview.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'releases', parameterName: 'release' },
+                { pathName: 'quickcreateview', parameterName: 'quickcreateview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/release-quick-create-view/release-quick-create-view.vue'),
+    },
+    {
+        path: '/releases/:release?/quickcreateview/:quickcreateview?',
+        meta: {
+            caption: 'entities.release.views.quickcreateview.caption',
+            parameters: [
+                { pathName: 'releases', parameterName: 'release' },
+                { pathName: 'quickcreateview', parameterName: 'quickcreateview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/release-quick-create-view/release-quick-create-view.vue'),
     },
     {
         path: '/projects/:project?/dashboardinfoview/:dashboardinfoview?',
