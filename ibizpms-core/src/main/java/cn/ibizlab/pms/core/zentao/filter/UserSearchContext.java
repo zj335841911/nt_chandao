@@ -31,21 +31,21 @@ public class UserSearchContext extends QueryWrapperContext<User> {
 	public void setN_dept_eq(Integer n_dept_eq) {
         this.n_dept_eq = n_dept_eq;
         if(!ObjectUtils.isEmpty(this.n_dept_eq)){
-            this.getSelectCond().eq("dept", n_dept_eq);
+            this.getSearchCond().eq("dept", n_dept_eq);
         }
     }
 	private String n_clientstatus_eq;//[clientStatus]
 	public void setN_clientstatus_eq(String n_clientstatus_eq) {
         this.n_clientstatus_eq = n_clientstatus_eq;
         if(!ObjectUtils.isEmpty(this.n_clientstatus_eq)){
-            this.getSelectCond().eq("clientstatus", n_clientstatus_eq);
+            this.getSearchCond().eq("clientstatus", n_clientstatus_eq);
         }
     }
 	private String n_gender_eq;//[性别]
 	public void setN_gender_eq(String n_gender_eq) {
         this.n_gender_eq = n_gender_eq;
         if(!ObjectUtils.isEmpty(this.n_gender_eq)){
-            this.getSelectCond().eq("gender", n_gender_eq);
+            this.getSearchCond().eq("gender", n_gender_eq);
         }
     }
 
@@ -56,7 +56,7 @@ public class UserSearchContext extends QueryWrapperContext<User> {
 	{
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
-            this.getSelectCond().and( wrapper ->
+            this.getSearchCond().and( wrapper ->
                      wrapper.like("realname", query)   
             );
 		 }

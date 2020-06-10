@@ -31,14 +31,14 @@ public class TodoSearchContext extends QueryWrapperContext<Todo> {
 	public void setN_status_eq(String n_status_eq) {
         this.n_status_eq = n_status_eq;
         if(!ObjectUtils.isEmpty(this.n_status_eq)){
-            this.getSelectCond().eq("status", n_status_eq);
+            this.getSearchCond().eq("status", n_status_eq);
         }
     }
 	private String n_name_like;//[待办名称]
 	public void setN_name_like(String n_name_like) {
         this.n_name_like = n_name_like;
         if(!ObjectUtils.isEmpty(this.n_name_like)){
-            this.getSelectCond().like("name", n_name_like);
+            this.getSearchCond().like("name", n_name_like);
         }
     }
 
@@ -49,7 +49,7 @@ public class TodoSearchContext extends QueryWrapperContext<Todo> {
 	{
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
-            this.getSelectCond().and( wrapper ->
+            this.getSearchCond().and( wrapper ->
                      wrapper.like("name", query)   
             );
 		 }

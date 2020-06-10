@@ -31,14 +31,14 @@ public class CompanySearchContext extends QueryWrapperContext<Company> {
 	public void setN_name_like(String n_name_like) {
         this.n_name_like = n_name_like;
         if(!ObjectUtils.isEmpty(this.n_name_like)){
-            this.getSelectCond().like("name", n_name_like);
+            this.getSearchCond().like("name", n_name_like);
         }
     }
 	private String n_guest_eq;//[匿名登陆]
 	public void setN_guest_eq(String n_guest_eq) {
         this.n_guest_eq = n_guest_eq;
         if(!ObjectUtils.isEmpty(this.n_guest_eq)){
-            this.getSelectCond().eq("guest", n_guest_eq);
+            this.getSearchCond().eq("guest", n_guest_eq);
         }
     }
 
@@ -49,7 +49,7 @@ public class CompanySearchContext extends QueryWrapperContext<Company> {
 	{
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
-            this.getSelectCond().and( wrapper ->
+            this.getSearchCond().and( wrapper ->
                      wrapper.like("name", query)   
             );
 		 }

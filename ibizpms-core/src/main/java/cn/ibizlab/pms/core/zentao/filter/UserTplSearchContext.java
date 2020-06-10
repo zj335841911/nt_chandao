@@ -31,14 +31,14 @@ public class UserTplSearchContext extends QueryWrapperContext<UserTpl> {
 	public void setN_title_like(String n_title_like) {
         this.n_title_like = n_title_like;
         if(!ObjectUtils.isEmpty(this.n_title_like)){
-            this.getSelectCond().like("title", n_title_like);
+            this.getSearchCond().like("title", n_title_like);
         }
     }
 	private String n_public_eq;//[public]
 	public void setN_public_eq(String n_public_eq) {
         this.n_public_eq = n_public_eq;
         if(!ObjectUtils.isEmpty(this.n_public_eq)){
-            this.getSelectCond().eq("public", n_public_eq);
+            this.getSearchCond().eq("public", n_public_eq);
         }
     }
 
@@ -49,7 +49,7 @@ public class UserTplSearchContext extends QueryWrapperContext<UserTpl> {
 	{
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
-            this.getSelectCond().and( wrapper ->
+            this.getSearchCond().and( wrapper ->
                      wrapper.like("title", query)   
             );
 		 }

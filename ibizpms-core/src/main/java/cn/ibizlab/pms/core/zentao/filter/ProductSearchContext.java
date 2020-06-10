@@ -31,35 +31,35 @@ public class ProductSearchContext extends QueryWrapperContext<Product> {
 	public void setN_acl_eq(String n_acl_eq) {
         this.n_acl_eq = n_acl_eq;
         if(!ObjectUtils.isEmpty(this.n_acl_eq)){
-            this.getSelectCond().eq("acl", n_acl_eq);
+            this.getSearchCond().eq("acl", n_acl_eq);
         }
     }
 	private String n_name_like;//[产品名称]
 	public void setN_name_like(String n_name_like) {
         this.n_name_like = n_name_like;
         if(!ObjectUtils.isEmpty(this.n_name_like)){
-            this.getSelectCond().like("name", n_name_like);
+            this.getSearchCond().like("name", n_name_like);
         }
     }
 	private String n_linename_eq;//[产品线]
 	public void setN_linename_eq(String n_linename_eq) {
         this.n_linename_eq = n_linename_eq;
         if(!ObjectUtils.isEmpty(this.n_linename_eq)){
-            this.getSelectCond().eq("linename", n_linename_eq);
+            this.getSearchCond().eq("linename", n_linename_eq);
         }
     }
 	private String n_linename_like;//[产品线]
 	public void setN_linename_like(String n_linename_like) {
         this.n_linename_like = n_linename_like;
         if(!ObjectUtils.isEmpty(this.n_linename_like)){
-            this.getSelectCond().like("linename", n_linename_like);
+            this.getSearchCond().like("linename", n_linename_like);
         }
     }
 	private BigInteger n_line_eq;//[产品线]
 	public void setN_line_eq(BigInteger n_line_eq) {
         this.n_line_eq = n_line_eq;
         if(!ObjectUtils.isEmpty(this.n_line_eq)){
-            this.getSelectCond().eq("line", n_line_eq);
+            this.getSearchCond().eq("line", n_line_eq);
         }
     }
 
@@ -70,7 +70,7 @@ public class ProductSearchContext extends QueryWrapperContext<Product> {
 	{
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
-            this.getSelectCond().and( wrapper ->
+            this.getSearchCond().and( wrapper ->
                      wrapper.like("name", query)   
             );
 		 }

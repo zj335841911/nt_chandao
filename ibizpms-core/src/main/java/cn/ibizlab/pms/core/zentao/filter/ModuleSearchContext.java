@@ -31,35 +31,35 @@ public class ModuleSearchContext extends QueryWrapperContext<Module> {
 	public void setN_name_like(String n_name_like) {
         this.n_name_like = n_name_like;
         if(!ObjectUtils.isEmpty(this.n_name_like)){
-            this.getSelectCond().like("name", n_name_like);
+            this.getSearchCond().like("name", n_name_like);
         }
     }
 	private String n_parentname_eq;//[上级模块]
 	public void setN_parentname_eq(String n_parentname_eq) {
         this.n_parentname_eq = n_parentname_eq;
         if(!ObjectUtils.isEmpty(this.n_parentname_eq)){
-            this.getSelectCond().eq("parentname", n_parentname_eq);
+            this.getSearchCond().eq("parentname", n_parentname_eq);
         }
     }
 	private String n_parentname_like;//[上级模块]
 	public void setN_parentname_like(String n_parentname_like) {
         this.n_parentname_like = n_parentname_like;
         if(!ObjectUtils.isEmpty(this.n_parentname_like)){
-            this.getSelectCond().like("parentname", n_parentname_like);
+            this.getSearchCond().like("parentname", n_parentname_like);
         }
     }
 	private BigInteger n_branch_eq;//[平台/分支]
 	public void setN_branch_eq(BigInteger n_branch_eq) {
         this.n_branch_eq = n_branch_eq;
         if(!ObjectUtils.isEmpty(this.n_branch_eq)){
-            this.getSelectCond().eq("branch", n_branch_eq);
+            this.getSearchCond().eq("branch", n_branch_eq);
         }
     }
 	private BigInteger n_parent_eq;//[上级模块]
 	public void setN_parent_eq(BigInteger n_parent_eq) {
         this.n_parent_eq = n_parent_eq;
         if(!ObjectUtils.isEmpty(this.n_parent_eq)){
-            this.getSelectCond().eq("parent", n_parent_eq);
+            this.getSearchCond().eq("parent", n_parent_eq);
         }
     }
 
@@ -70,7 +70,7 @@ public class ModuleSearchContext extends QueryWrapperContext<Module> {
 	{
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
-            this.getSelectCond().and( wrapper ->
+            this.getSearchCond().and( wrapper ->
                      wrapper.like("name", query)   
             );
 		 }

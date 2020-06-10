@@ -31,7 +31,7 @@ public class HistorySearchContext extends QueryWrapperContext<History> {
 	public void setN_action_eq(BigInteger n_action_eq) {
         this.n_action_eq = n_action_eq;
         if(!ObjectUtils.isEmpty(this.n_action_eq)){
-            this.getSelectCond().eq("action", n_action_eq);
+            this.getSearchCond().eq("action", n_action_eq);
         }
     }
 
@@ -42,7 +42,7 @@ public class HistorySearchContext extends QueryWrapperContext<History> {
 	{
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
-            this.getSelectCond().and( wrapper ->
+            this.getSearchCond().and( wrapper ->
                      wrapper.like("diff", query)   
             );
 		 }

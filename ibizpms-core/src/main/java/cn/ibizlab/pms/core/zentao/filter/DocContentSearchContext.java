@@ -31,14 +31,14 @@ public class DocContentSearchContext extends QueryWrapperContext<DocContent> {
 	public void setN_title_like(String n_title_like) {
         this.n_title_like = n_title_like;
         if(!ObjectUtils.isEmpty(this.n_title_like)){
-            this.getSelectCond().like("title", n_title_like);
+            this.getSearchCond().like("title", n_title_like);
         }
     }
 	private BigInteger n_doc_eq;//[文档]
 	public void setN_doc_eq(BigInteger n_doc_eq) {
         this.n_doc_eq = n_doc_eq;
         if(!ObjectUtils.isEmpty(this.n_doc_eq)){
-            this.getSelectCond().eq("doc", n_doc_eq);
+            this.getSearchCond().eq("doc", n_doc_eq);
         }
     }
 
@@ -49,7 +49,7 @@ public class DocContentSearchContext extends QueryWrapperContext<DocContent> {
 	{
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
-            this.getSelectCond().and( wrapper ->
+            this.getSearchCond().and( wrapper ->
                      wrapper.like("title", query)   
             );
 		 }

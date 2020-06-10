@@ -31,7 +31,7 @@ public class TaskEstimateSearchContext extends QueryWrapperContext<TaskEstimate>
 	public void setN_task_eq(BigInteger n_task_eq) {
         this.n_task_eq = n_task_eq;
         if(!ObjectUtils.isEmpty(this.n_task_eq)){
-            this.getSelectCond().eq("task", n_task_eq);
+            this.getSearchCond().eq("task", n_task_eq);
         }
     }
 

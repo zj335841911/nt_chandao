@@ -31,14 +31,14 @@ public class CaseStepSearchContext extends QueryWrapperContext<CaseStep> {
 	public void setN_case_eq(BigInteger n_case_eq) {
         this.n_case_eq = n_case_eq;
         if(!ObjectUtils.isEmpty(this.n_case_eq)){
-            this.getSelectCond().eq("case", n_case_eq);
+            this.getSearchCond().eq("case", n_case_eq);
         }
     }
 	private BigInteger n_parent_eq;//[分组用例步骤的组编号]
 	public void setN_parent_eq(BigInteger n_parent_eq) {
         this.n_parent_eq = n_parent_eq;
         if(!ObjectUtils.isEmpty(this.n_parent_eq)){
-            this.getSelectCond().eq("parent", n_parent_eq);
+            this.getSearchCond().eq("parent", n_parent_eq);
         }
     }
 
@@ -49,7 +49,7 @@ public class CaseStepSearchContext extends QueryWrapperContext<CaseStep> {
 	{
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
-            this.getSelectCond().and( wrapper ->
+            this.getSearchCond().and( wrapper ->
                      wrapper.like("expect", query)   
             );
 		 }
