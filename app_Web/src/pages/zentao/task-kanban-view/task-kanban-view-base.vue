@@ -22,6 +22,20 @@
     </div>
       </div>
   </div>
+            <view_kanban 
+                :viewState="viewState"  
+                :viewparams="viewparams" 
+                :context="context" 
+                :isSingleSelect="isSingleSelect" 
+                createAction="Create"
+                removeAction="Remove"
+                updateAction="Update"
+                fetchAction="FetchDefault"
+                :showBusyIndicator="true" 
+                name="kanban"  
+                ref='kanban' 
+                @closeview="closeView($event)">
+            </view_kanban>
 
         </div>
     </card>
