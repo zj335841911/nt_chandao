@@ -26,7 +26,6 @@
                 :viewState="viewState"  
                 :viewparams="viewparams" 
                 :context="context" 
-                :isSingleSelect="isSingleSelect" 
                 createAction="Create"
                 removeAction="Remove"
                 updateAction="Update"
