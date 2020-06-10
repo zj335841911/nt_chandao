@@ -317,7 +317,7 @@ export default class MainTabExpViewtabexppanelBase extends Vue implements Contro
      */
     public mounted(): void {
         if (this.viewparams) {
-            const activate = this.viewparams.activate;
+            const activate = this.viewparams.srftabactivate;
             if (activate && this.isInit[activate] !== undefined) {
                 for (const key in this.isInit) {
                     if (this.isInit.hasOwnProperty(key)) {

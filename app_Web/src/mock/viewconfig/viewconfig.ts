@@ -273,7 +273,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "casemaingridview": {
             "title": "功能测试",
-            "caption": "测试用例",
+            "caption": "功能测试",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",
             "viewname": "CaseMainGridView",

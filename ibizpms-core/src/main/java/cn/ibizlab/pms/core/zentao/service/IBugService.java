@@ -36,6 +36,8 @@ public interface IBugService extends IService<Bug>{
     void removeBatch(Collection<BigInteger> idList) ;
     boolean update(Bug et) ;
     void updateBatch(List<Bug> list) ;
+    Page<Bug> searchReleaseBugs(BugSearchContext context) ;
+    Page<Bug> searchReleaseLeftBugs(BugSearchContext context) ;
     Page<Bug> searchDefault(BugSearchContext context) ;
     List<Bug> selectByBranch(BigInteger id) ;
     void removeByBranch(BigInteger id) ;

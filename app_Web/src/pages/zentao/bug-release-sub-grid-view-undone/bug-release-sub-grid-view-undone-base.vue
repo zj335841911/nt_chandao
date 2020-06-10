@@ -31,7 +31,7 @@
         loaddraftAction=""
         loadAction=""
         createAction=""
-        fetchAction="FetchDefault"
+        fetchAction="FetchReleaseLeftBugs"
         :newdata="newdata"
         :opendata="opendata"
         name="grid"  
@@ -142,7 +142,6 @@ export default class BugReleaseSubGridView_UndoneBase extends Vue {
 	 * @memberof BugReleaseSubGridView_UndoneBase
 	 */
     public customViewParams:any ={
-    "n_status_eq":{"isRawValue":true,"value":"active"}
     };
 
     /**

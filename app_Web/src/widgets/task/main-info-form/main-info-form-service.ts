@@ -3,6 +3,7 @@ import ControlService from '@/widgets/control-service';
 import TaskService from '@/service/task/task-service';
 import MainInfoModel from './main-info-form-model';
 import ProjectService from '@/service/project/project-service';
+import StoryService from '@/service/story/story-service';
 
 
 /**
@@ -51,6 +52,14 @@ export default class MainInfoService extends ControlService {
     public projectService: ProjectService = new ProjectService();
 
     /**
+     * 需求服务对象
+     *
+     * @type {StoryService}
+     * @memberof MainInfoService
+     */
+    public storyService: StoryService = new StoryService();
+
+    /**
      * 处理数据
      *
      * @private
@@ -91,6 +100,9 @@ export default class MainInfoService extends ControlService {
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
         if (Object.is(serviceName, 'ProjectService') && Object.is(interfaceName, 'FetchDefault')) {
             return this.doItems(this.projectService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'project');
+        }
+        if (Object.is(serviceName, 'StoryService') && Object.is(interfaceName, 'FetchDefault')) {
+            return this.doItems(this.storyService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'story');
         }
 
         return Promise.reject([])

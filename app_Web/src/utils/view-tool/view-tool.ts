@@ -43,7 +43,7 @@ export class ViewTool {
         // 视图常规参数
         Object.assign(viewdata, data);
         // 传入父视图的srfsessionid
-        Object.assign(viewdata, {srfsessionid:viewParam['srfsessionid']});
+        Object.assign(viewdata, { srfsessionid: viewParam['srfsessionid'] });
         return viewdata;
     }
 
@@ -82,7 +82,7 @@ export class ViewTool {
         if (param && !Object.is(param, '')) {
             return `/${_pathName}/${param}`;
         }
-        return `/${_pathName}/null`;
+        return `/${_pathName}`;
     }
 
     /**
@@ -100,13 +100,13 @@ export class ViewTool {
         let [arg] = args;
         arg = arg ? arg : {};
         deResParameters.forEach(({ pathName, parameterName }: { pathName: string, parameterName: string }) => {
-            let value:any = null;
+            let value: any = null;
             if (viewParam[parameterName] && !Object.is(viewParam[parameterName], '') && !Object.is(viewParam[parameterName], 'null')) {
                 value = viewParam[parameterName];
             } else if (arg[parameterName] && !Object.is(arg[parameterName], '') && !Object.is(arg[parameterName], 'null')) {
                 value = arg[parameterName];
             }
-            routePath = `${routePath}/${pathName}/${value}`;
+            routePath = `${routePath}/${pathName}` + value ? `/${value}` : '';
         });
         return routePath;
     }
@@ -152,8 +152,8 @@ export class ViewTool {
      * @returns {*}
      * @memberof ViewTool
      */
-    public static formatRouteParams(params: any,route:any,context:any,viewparams:any): void {
-        Object.keys(params).forEach((key: string,index:number) => {
+    public static formatRouteParams(params: any, route: any, context: any, viewparams: any): void {
+        Object.keys(params).forEach((key: string, index: number) => {
             const param: string | null | undefined = params[key];
             if (!param || Object.is(param, '') || Object.is(param, 'null')) {
                 return;
@@ -165,11 +165,11 @@ export class ViewTool {
                 Object.assign(context, { [key]: param });
             }
         });
-        if(route && route.fullPath && route.fullPath.indexOf("?") > -1){
-            const _viewparams:any = route.fullPath.slice(route.fullPath.indexOf("?")+1);
-            const _viewparamArray:Array<string> = decodeURIComponent(_viewparams).split(";")
-            if(_viewparamArray.length > 0){
-                _viewparamArray.forEach((item:any) =>{
+        if (route && route.fullPath && route.fullPath.indexOf("?") > -1) {
+            const _viewparams: any = route.fullPath.slice(route.fullPath.indexOf("?") + 1);
+            const _viewparamArray: Array<string> = decodeURIComponent(_viewparams).split(";")
+            if (_viewparamArray.length > 0) {
+                _viewparamArray.forEach((item: any) => {
                     Object.assign(viewparams, qs.parse(item));
                 })
             }

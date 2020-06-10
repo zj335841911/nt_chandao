@@ -333,6 +333,7 @@ export default {
 			lasteditedby: "最后修改", 
 			lastediteddate: "于", 
 			id: "编号", 
+			story: "相关需求", 
 			project: "所属项目", 
 		},
 		uiactions: {

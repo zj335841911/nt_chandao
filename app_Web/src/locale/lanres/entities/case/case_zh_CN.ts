@@ -51,8 +51,8 @@ export default {
       title: '测试用例',
 		},
 		maingridview: {
-			caption: '测试用例',
-      title: '测试用例',
+			caption: '功能测试',
+      title: '功能测试',
 		},
 		maininfoeditview9: {
 			caption: '测试用例',

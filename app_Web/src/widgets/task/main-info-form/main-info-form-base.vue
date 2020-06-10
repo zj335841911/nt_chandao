@@ -62,12 +62,23 @@ style=""></app-span>
 </i-col>
 <i-col v-show="detailsModel.storyname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='storyname' :itemRules="this.rules.storyname" class='' :caption="$t('entities.task.maininfo_form.details.storyname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.storyname.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='storyname'
-:value="data.storyname"   :data="data"
+    <app-picker 
+  :formState="formState"
+  :data="data"
   :context="context"
   :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+  :itemParam='{ }' 
+  :disabled="detailsModel.storyname.disabled"
+  name='storyname'
+  deMajorField='title'
+  deKeyField='story'
+  valueitem='story' 
+  :value="data.storyname"  
+  editortype="linkonly" 
+  :linkview="{ viewname: 'StoryMainView', title: $t('entities.story.views.mainview.title'), deResParameters: [{ pathName: 'products', parameterName: 'product' }, ], parameters: [{ pathName: 'stories', parameterName: 'story' }, { pathName: 'mainview', parameterName: 'mainview' } ], width: 0, height: 0, placement: 'DRAWER_TOP', isRedirectView: false }" 
+  style=""  
+  @formitemvaluechange="onFormItemValueChange">
+</app-picker>
 </app-form-item>
 
 </i-col>
@@ -633,6 +644,7 @@ export default class MainInfoBase extends Vue implements ControlInterface {
         lasteditedby: null,
         lastediteddate: null,
         id: null,
+        story: null,
         project: null,
         task:null,
     };
@@ -850,6 +862,12 @@ export default class MainInfoBase extends Vue implements ControlInterface {
             { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
         ],
+        story: [
+            { type: 'number', message: '相关需求 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '相关需求 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '相关需求 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '相关需求 值不能为空', trigger: 'blur' },
+        ],
         project: [
             { type: 'number', message: '所属项目 值必须为数值类型', trigger: 'change' },
             { type: 'number', message: '所属项目 值必须为数值类型', trigger: 'blur' },
@@ -938,6 +956,8 @@ export default class MainInfoBase extends Vue implements ControlInterface {
         lastediteddate: new FormItemModel({ caption: '于', detailType: 'FORMITEM', name: 'lastediteddate', visible: false, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+, 
+        story: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'story', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1293,6 +1313,18 @@ export default class MainInfoBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 story 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MainInfo
+     */
+    @Watch('data.story')
+    onStoryChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'story', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 project 值
      *
      * @param {*} newVal
@@ -1415,6 +1447,7 @@ export default class MainInfoBase extends Vue implements ControlInterface {
             }
             this.detailsModel.lastediteddate.setVisible(ret);
         }
+
 
 
 
