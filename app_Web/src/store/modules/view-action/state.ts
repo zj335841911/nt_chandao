@@ -842,6 +842,18 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '87b3a9ce09500f304291ed2d69799d5e',
+            viewmodule: 'zentao',
+            viewname: 'StoryReleaseSubGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '928e6614bcfbd67af3b596cf5dc5a46b',
+                'b9bdfc0e33d333ade00934745d9dc0ad',
+                '3f2ca3e560d9082bb56fbf7667a57a66',
+            ],
+        },
+        {
             viewtag: '8ca35f54383cecb05da77cdb1a6588fd',
             viewmodule: 'zentao',
             viewname: 'TaskWorkInfoEditView9',
@@ -880,6 +892,15 @@ export const viewstate: any = {
             refviews: [
                 '770a170098d148e438a7666b248e6519',
                 'f592519df78de708bd8199a52e5f584d',
+            ],
+        },
+        {
+            viewtag: '928e6614bcfbd67af3b596cf5dc5a46b',
+            viewmodule: 'zentao',
+            viewname: 'StoryReleaseSubEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -1214,7 +1235,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'dea346284a2fbb66467c4838c1b3f577',
+                '87b3a9ce09500f304291ed2d69799d5e',
                 '572e63d8153209ef20848682018326b2',
                 'b507b8efc20db47d7b01d67561638cd6',
                 '983aa1b77ca021f30978523ddef010a0',

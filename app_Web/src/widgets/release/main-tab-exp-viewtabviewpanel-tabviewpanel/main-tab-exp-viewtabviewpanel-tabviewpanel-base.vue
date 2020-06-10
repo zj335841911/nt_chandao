@@ -1,12 +1,12 @@
 <template>
   <div class='tabviewpanel' style="height:100%;" v-if = 'isActivied' >
-        <story-main2-grid-view 
+        <story-release-sub-grid-view 
       class='viewcontainer2' 
       :viewdata="JSON.stringify(context)" 
       :viewparam="JSON.stringify(getNavViewParams())"
       @viewload="viewDatasChange($event)" 
       :viewDefaultUsage="false" >
-    </story-main2-grid-view>
+    </story-release-sub-grid-view>
   </div>
 </template>
 <script lang='tsx'>

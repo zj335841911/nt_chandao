@@ -856,6 +856,33 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-main-view-edit-mode/story-main-view-edit-mode.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/releasesubeditview/:releasesubeditview?',
+                    meta: {
+                        caption: 'entities.story.views.releasesubeditview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'releasesubeditview', parameterName: 'releasesubeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-release-sub-edit-view/story-release-sub-edit-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/releasesubeditview/:releasesubeditview?',
+                    meta: {
+                        caption: 'entities.story.views.releasesubeditview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'releasesubeditview', parameterName: 'releasesubeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-release-sub-edit-view/story-release-sub-edit-view.vue'),
+                },
+                {
                     path: 'users/:user?/editview/:editview?',
                     meta: {
                         caption: 'entities.user.views.editview.caption',
@@ -2835,6 +2862,33 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/task-sub-task-new-view/task-sub-task-new-view.vue'),
+                },
+                {
+                    path: 'products/:product?/stories/:story?/releasesubgridview/:releasesubgridview?',
+                    meta: {
+                        caption: 'entities.story.views.releasesubgridview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'releasesubgridview', parameterName: 'releasesubgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-release-sub-grid-view/story-release-sub-grid-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/releasesubgridview/:releasesubgridview?',
+                    meta: {
+                        caption: 'entities.story.views.releasesubgridview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'releasesubgridview', parameterName: 'releasesubgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-release-sub-grid-view/story-release-sub-grid-view.vue'),
                 },
                 {
                     path: 'products/:product?/maintabexpview/:maintabexpview?',
@@ -5208,6 +5262,31 @@ const router = new Router({
         component: () => import('@pages/zentao/project-main-dashboard-view/project-main-dashboard-view.vue'),
     },
     {
+        path: '/products/:product?/stories/:story?/releasesubgridview/:releasesubgridview?',
+        meta: {
+            caption: 'entities.story.views.releasesubgridview.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'stories', parameterName: 'story' },
+                { pathName: 'releasesubgridview', parameterName: 'releasesubgridview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/story-release-sub-grid-view/story-release-sub-grid-view.vue'),
+    },
+    {
+        path: '/stories/:story?/releasesubgridview/:releasesubgridview?',
+        meta: {
+            caption: 'entities.story.views.releasesubgridview.caption',
+            parameters: [
+                { pathName: 'stories', parameterName: 'story' },
+                { pathName: 'releasesubgridview', parameterName: 'releasesubgridview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/story-release-sub-grid-view/story-release-sub-grid-view.vue'),
+    },
+    {
         path: '/projects/:project?/tasks/:task?/workinfoeditview9/:workinfoeditview9?',
         meta: {
             caption: 'entities.task.views.workinfoeditview9.caption',
@@ -5280,6 +5359,31 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/zentao/case-main-edit-view/case-main-edit-view.vue'),
+    },
+    {
+        path: '/products/:product?/stories/:story?/releasesubeditview/:releasesubeditview?',
+        meta: {
+            caption: 'entities.story.views.releasesubeditview.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'stories', parameterName: 'story' },
+                { pathName: 'releasesubeditview', parameterName: 'releasesubeditview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/story-release-sub-edit-view/story-release-sub-edit-view.vue'),
+    },
+    {
+        path: '/stories/:story?/releasesubeditview/:releasesubeditview?',
+        meta: {
+            caption: 'entities.story.views.releasesubeditview.caption',
+            parameters: [
+                { pathName: 'stories', parameterName: 'story' },
+                { pathName: 'releasesubeditview', parameterName: 'releasesubeditview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/story-release-sub-edit-view/story-release-sub-edit-view.vue'),
     },
     {
         path: '/products/:product?/stories/:story?/mainview9/:mainview9?',

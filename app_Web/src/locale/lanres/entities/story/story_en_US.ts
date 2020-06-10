@@ -78,6 +78,14 @@ export default {
 			caption: "需求",
       title: '需求',
 		},
+		releasesubgridview: {
+			caption: "需求",
+      title: '需求',
+		},
+		releasesubeditview: {
+			caption: "需求",
+      title: '需求',
+		},
 		mainview9: {
 			caption: "需求",
       title: '需求',
@@ -338,6 +346,16 @@ export default {
 		uiactions: {
 		},
 	},
+	main_releasesub_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "需求名称",
+			modulename: "所属模块名称",
+		},
+		uiactions: {
+		},
+	},
 	main9_grid: {
 		columns: {
 			pri: "P",
@@ -465,6 +483,38 @@ export default {
 		},
 	},
 	plansubeditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+	},
+	releasesubgridviewtoolbar_toolbar: {
+		deuiaction3_planrelationstory: {
+			caption: "关联需求",
+			tip: "关联需求",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "New",
+			tip: "New",
+		},
+		deuiaction4: {
+			caption: "Remove",
+			tip: "Remove {0}",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
+	releasesubeditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",

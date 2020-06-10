@@ -687,6 +687,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectMainDashboardView",
             "viewtag": "85ee867b09a2d6303c061d91374ec975"
         },
+        "storyreleasesubgridview": {
+            "title": "story表格视图",
+            "caption": "需求",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryReleaseSubGridView",
+            "viewtag": "87b3a9ce09500f304291ed2d69799d5e"
+        },
         "taskworkinfoeditview9": {
             "title": "工时信息",
             "caption": "工时信息",
@@ -718,6 +726,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "CaseMainEditView",
             "viewtag": "8e070a3e9ad67b127db723463198f9ac"
+        },
+        "storyreleasesubeditview": {
+            "title": "需求",
+            "caption": "需求",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryReleaseSubEditView",
+            "viewtag": "928e6614bcfbd67af3b596cf5dc5a46b"
         },
         "storymainview9": {
             "title": "需求编辑视图",
