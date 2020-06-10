@@ -161,6 +161,11 @@ export default class MainInfoModel {
         dataType: 'ACID',
       },
       {
+        name: 'story',
+        prop: 'story',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'project',
         prop: 'project',
         dataType: 'PICKUP',
