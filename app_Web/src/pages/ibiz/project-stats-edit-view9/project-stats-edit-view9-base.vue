@@ -109,6 +109,7 @@ export default class ProjectStatsEditView9Base extends Vue {
 	 * @memberof ProjectStatsEditView9Base
 	 */
     public customViewNavContexts:any ={
+    "PROJECTSTATS":{"isRawValue":false,"value":"project"}
     };
 
 	/**
