@@ -1,14 +1,16 @@
 <template>
     <div class="app-data-view-group">
                 <template v-for="(group, index) of groups">
-            <draggable :key="group + index" :list="group.items" group="kanban" class="dataview-group-content" style="width: 280px;" @change="onDragChange($event, group.name)">
-                <div slot="header" class="dataview-group-header">
+            <div :key="group + index" class="dataview-group-content" style="width: 280px;">
+                <div class="dataview-group-header" style="width: 280px;">
                     {{ getGroupText(group.name) }}
                 </div>
-                <div v-for="(item, i) in group.items" :key="i" :class="{'dataview-group-item': true, 'is-select': item.isselected}" @click="handleClick(item)">
-                    <layout_itemlayoutpanel name='itemlayoutpanel' :inputData="item"></layout_itemlayoutpanel>
-                </div>
-            </draggable>
+                <draggable :list="group.items" group="kanban" class="dataview-group-items" @change="onDragChange($event, group.name)">
+                    <div v-for="(item, i) in group.items" :key="i" :class="{'dataview-group-item': true, 'is-select': item.isselected}" @click="handleClick(item)">
+                        <layout_itemlayoutpanel name='itemlayoutpanel' :inputData="item"></layout_itemlayoutpanel>
+                    </div>
+                </draggable>
+            </div>
         </template>
   </div>
 </template>
