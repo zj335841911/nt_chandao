@@ -1,35 +1,16 @@
 <template>
-    <div>
-        <div v-if="this.uiStyle === 'STYLE2'">
-             <app-form-item2
-                :caption="caption"
-                :labelStyle="labelStyle"
-                :error="error"
-                :labelPos="labelPos"
-                :labelWidth="labelWidth"
-                :isShowCaption="isShowCaption"
-                :isEmptyCaption="isEmptyCaption"
-                :name="name"
-                :uiStyle="uiStyle"
-                :itemRules="itemRules">
-                <slot></slot>
-            </app-form-item2>
-        </div>
-        <div v-if="this.uiStyle !== 'STYLE2'">
-            <form-item
-                :prop="name"
-                :error="error"
-                :required="required"
-                :rules="rules"
-                :class="classes"
-                :label-width="this.isShowCaption ? !Object.is(this.labelPos, 'TOP') ? this.labelWidth : null : 0">
-                    <span slot='label' v-if="this.isShowCaption && this.labelWidth > 0"  :class="labelclasses">
-                        {{this.isEmptyCaption ? '' : this.caption}}
-                    </span>
-                    <slot></slot>
-            </form-item>
-        </div>
-    </div>
+    <form-item
+        :prop="name"
+        :error="error"
+        :required="required"
+        :rules="rules"
+        :class="classes"
+        :label-width="this.isShowCaption ? !Object.is(this.labelPos, 'TOP') ? this.labelWidth : null : 0">
+            <span slot='label' v-if="this.isShowCaption && this.labelWidth > 0"  :class="labelclasses">
+                {{this.isEmptyCaption ? '' : this.caption}}
+            </span>
+            <slot></slot>
+    </form-item>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
