@@ -24,6 +24,10 @@ export default class TaskKanBanModel {
         prop: 'assignedto'
       },
       {
+        name: 'deadline',
+        prop: 'deadline'
+      },
+      {
         name: 'estimate',
         prop: 'estimate'
       }

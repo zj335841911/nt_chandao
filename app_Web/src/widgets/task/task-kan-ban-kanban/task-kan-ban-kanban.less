@@ -1,9 +1,11 @@
 .app-data-view-group {
   height: 100%;
   display: flex;
+  overflow: auto;
   .dataview-group-content {
     border: 1px solid #ddd;
     border-left: 0;
+    flex-shrink: 0;
     .dataview-group-header {
       height: 36px;
       line-height: 36px;
