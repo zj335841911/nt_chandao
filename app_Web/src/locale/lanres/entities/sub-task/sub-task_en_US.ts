@@ -44,6 +44,7 @@ export default {
     frombug: '来源Bug',
     duration: '持续时间',
     module: 'id',
+    path: '模块路径',
   },
 	views: {
 		subtasknewview: {

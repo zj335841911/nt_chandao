@@ -302,6 +302,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
                 projectmodule=majorEntity;
             }
             et.setModulename(projectmodule.getName());
+            et.setPath(projectmodule.getPath());
         }
         //实体关系[DER1N_ZT_TASK_ZT_PROJECT_PROJECT]
         if(!ObjectUtils.isEmpty(et.getProject())){

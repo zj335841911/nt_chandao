@@ -360,6 +360,13 @@ public class Task extends EntityMP implements Serializable {
     @JSONField(name = "module")
     @JsonProperty("module")
     private BigInteger module;
+    /**
+     * 模块路径
+     */
+    @TableField(exist = false)
+    @JSONField(name = "path")
+    @JsonProperty("path")
+    private String path;
 
     /**
      * 

@@ -144,6 +144,9 @@ export default class MainDetailModel {
       {
         name: 'module',
       },
+      {
+        name: 'path',
+      },
     ]
   }
 

@@ -376,6 +376,14 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JsonProperty("module")
     private BigInteger module;
 
+    /**
+     * 属性 [PATH]
+     *
+     */
+    @JSONField(name = "path")
+    @JsonProperty("path")
+    private String path;
+
 
     /**
      * 设置 [CANCELEDBY]

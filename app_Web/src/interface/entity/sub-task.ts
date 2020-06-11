@@ -349,4 +349,12 @@ export interface SubTask {
      * @memberof SubTask
      */
     module?: any;
+
+    /**
+     * 模块路径
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    path?: any;
 }

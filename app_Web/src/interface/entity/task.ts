@@ -349,4 +349,12 @@ export interface Task {
      * @memberof Task
      */
     module?: any;
+
+    /**
+     * 模块路径
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    path?: any;
 }

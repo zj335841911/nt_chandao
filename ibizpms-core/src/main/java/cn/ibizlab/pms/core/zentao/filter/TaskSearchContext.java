@@ -167,6 +167,13 @@ public class TaskSearchContext extends QueryWrapperContext<Task> {
             this.getSearchCond().eq("module", n_module_eq);
         }
     }
+	private String n_path_like;//[模块路径]
+	public void setN_path_like(String n_path_like) {
+        this.n_path_like = n_path_like;
+        if(!ObjectUtils.isEmpty(this.n_path_like)){
+            this.getSearchCond().like("path", n_path_like);
+        }
+    }
 
     /**
 	 * 启用快速搜索

@@ -144,6 +144,9 @@ export default class ToolbarModel {
       {
         name: 'module',
       },
+      {
+        name: 'path',
+      },
     ]
   }
 

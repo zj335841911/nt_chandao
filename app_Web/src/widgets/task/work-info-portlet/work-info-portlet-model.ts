@@ -144,6 +144,9 @@ export default class WorkInfoModel {
       {
         name: 'module',
       },
+      {
+        name: 'path',
+      },
     ]
   }
 

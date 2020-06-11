@@ -144,6 +144,9 @@ export default class AssignToMeModel {
       {
         name: 'module',
       },
+      {
+        name: 'path',
+      },
     ]
   }
 

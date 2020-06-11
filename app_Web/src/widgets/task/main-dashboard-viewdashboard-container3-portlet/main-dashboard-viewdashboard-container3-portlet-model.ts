@@ -144,6 +144,9 @@ export default class MainDashboardViewdashboard_container3Model {
       {
         name: 'module',
       },
+      {
+        name: 'path',
+      },
     ]
   }
 

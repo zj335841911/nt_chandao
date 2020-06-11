@@ -144,6 +144,9 @@ export default class MainModel {
       {
         name: 'module',
       },
+      {
+        name: 'path',
+      },
     ]
   }
 

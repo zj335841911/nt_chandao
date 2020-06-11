@@ -144,6 +144,9 @@ export default class MainInfoModel {
       {
         name: 'module',
       },
+      {
+        name: 'path',
+      },
     ]
   }
 
