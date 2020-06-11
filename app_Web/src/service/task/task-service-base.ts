@@ -75,6 +75,38 @@ export default class TaskServiceBase extends EntityService {
     }
 
     /**
+     * Start接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskServiceBase
+     */
+    public async Start(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.task){
+            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/start`,data,isloading);
+        }
+            return Http.getInstance().post(`/tasks/${context.task}/start`,data,isloading);
+    }
+
+    /**
+     * AssignTo接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskServiceBase
+     */
+    public async AssignTo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.task){
+            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/assignto`,data,isloading);
+        }
+            return Http.getInstance().post(`/tasks/${context.task}/assignto`,data,isloading);
+    }
+
+    /**
      * Remove接口方法
      *
      * @param {*} [context={}]
@@ -124,6 +156,22 @@ export default class TaskServiceBase extends EntityService {
             let res:any = await  Http.getInstance().put(`/tasks/${context.task}`,data,isloading);
             this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks));
             return res;
+    }
+
+    /**
+     * DeleteEstimate接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskServiceBase
+     */
+    public async DeleteEstimate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.task){
+            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/deleteestimate`,data,isloading);
+        }
+            return Http.getInstance().post(`/tasks/${context.task}/deleteestimate`,data,isloading);
     }
 
     /**

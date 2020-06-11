@@ -76,6 +76,42 @@ export default class SubTaskServiceBase extends EntityService {
     }
 
     /**
+     * Start接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async Start(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.task && context.subtask){
+            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/start`,data,isloading);
+        }
+        if(context.task && context.subtask){
+            return Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/start`,data,isloading);
+        }
+    }
+
+    /**
+     * AssignTo接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async AssignTo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.task && context.subtask){
+            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/assignto`,data,isloading);
+        }
+        if(context.task && context.subtask){
+            return Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/assignto`,data,isloading);
+        }
+    }
+
+    /**
      * Remove接口方法
      *
      * @param {*} [context={}]
@@ -108,6 +144,24 @@ export default class SubTaskServiceBase extends EntityService {
         }
         if(context.task && context.subtask){
             return Http.getInstance().put(`/tasks/${context.task}/subtasks/${context.subtask}`,data,isloading);
+        }
+    }
+
+    /**
+     * DeleteEstimate接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async DeleteEstimate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.task && context.subtask){
+            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/deleteestimate`,data,isloading);
+        }
+        if(context.task && context.subtask){
+            return Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/deleteestimate`,data,isloading);
         }
     }
 

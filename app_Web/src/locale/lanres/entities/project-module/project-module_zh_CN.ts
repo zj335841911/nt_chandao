@@ -15,4 +15,12 @@ export default {
     parent: 'id',
     root: '项目',
   },
+	taskmoduleexp_treeview: {
+		nodes: {
+			all: '所有模块',
+			root: '默认根节点',
+		},
+		uiactions: {
+		},
+	},
 };
