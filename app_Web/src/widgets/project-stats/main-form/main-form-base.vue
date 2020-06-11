@@ -11,14 +11,7 @@
     <row>
         <i-col v-show="detailsModel.formitemex4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='formitemex4' :itemRules="this.rules.formitemex4" class='' :caption="$t('entities.projectstats.main_form.details.formitemex4')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex4.error" :isEmptyCaption="false" labelPos="LEFT">
-    !!!!模版产生代码错误:----
-Tip: Maybe using obj.something instead of obj.getSomething will yield the desired value.
-----
-
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${item.getCaption}  [in template "TEMPLCODE_zh_CN" at line 11, column 82]
-----
+    <ibiz-studio-progress-vue caption="已完成" stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="circle" :total="this.data.custom7" :progress="this.data.custom8"/>
 </app-form-item>
 
 </i-col>
