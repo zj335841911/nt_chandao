@@ -147,56 +147,7 @@ style=""></app-span>
     <row>
         <i-col v-show="detailsModel.formitemex1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='formitemex1' :itemRules="this.rules.formitemex1" class='' :caption="$t('entities.productstats.main2_form.details.formitemex1')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex1.error" :isEmptyCaption="false" labelPos="LEFT">
-    !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_zh_CN" in line 4, column 42:
-Encountered "</#assign>", but was expecting one of:
-    <ATTEMPT>
-    <IF>
-    <ELSE_IF>
-    <LIST>
-    <ITEMS>
-    <SEP>
-    <FOREACH>
-    <SWITCH>
-    <ASSIGN>
-    <GLOBALASSIGN>
-    <LOCALASSIGN>
-    <_INCLUDE>
-    <IMPORT>
-    <FUNCTION>
-    <MACRO>
-    <TRANSFORM>
-    <VISIT>
-    <STOP>
-    <RETURN>
-    <CALL>
-    <SETTING>
-    <COMPRESS>
-    <COMMENT>
-    <TERSE_COMMENT>
-    <NOPARSE>
-    <END_IF>
-    <ELSE>
-    <BREAK>
-    <SIMPLE_RETURN>
-    <HALT>
-    <FLUSH>
-    <TRIM>
-    <LTRIM>
-    <RTRIM>
-    <NOTRIM>
-    <SIMPLE_NESTED>
-    <NESTED>
-    <SIMPLE_RECURSE>
-    <RECURSE>
-    <FALLBACK>
-    <ESCAPE>
-    <NOESCAPE>
-    <UNIFIED_CALL>
-    <STATIC_TEXT_WS>
-    <STATIC_TEXT_NON_WS>
-    <STATIC_TEXT_FALSE_ALARM>
-    "${"
-    "#{"
+    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom1" :progress="this.data.custom2}"/>
 </app-form-item>
 
 </i-col>
@@ -248,56 +199,7 @@ style=""></app-span>
     <row>
         <i-col v-show="detailsModel.formitemex2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='formitemex2' :itemRules="this.rules.formitemex2" class='' :caption="$t('entities.productstats.main2_form.details.formitemex2')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex2.error" :isEmptyCaption="false" labelPos="LEFT">
-    !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_zh_CN" in line 4, column 42:
-Encountered "</#assign>", but was expecting one of:
-    <ATTEMPT>
-    <IF>
-    <ELSE_IF>
-    <LIST>
-    <ITEMS>
-    <SEP>
-    <FOREACH>
-    <SWITCH>
-    <ASSIGN>
-    <GLOBALASSIGN>
-    <LOCALASSIGN>
-    <_INCLUDE>
-    <IMPORT>
-    <FUNCTION>
-    <MACRO>
-    <TRANSFORM>
-    <VISIT>
-    <STOP>
-    <RETURN>
-    <CALL>
-    <SETTING>
-    <COMPRESS>
-    <COMMENT>
-    <TERSE_COMMENT>
-    <NOPARSE>
-    <END_IF>
-    <ELSE>
-    <BREAK>
-    <SIMPLE_RETURN>
-    <HALT>
-    <FLUSH>
-    <TRIM>
-    <LTRIM>
-    <RTRIM>
-    <NOTRIM>
-    <SIMPLE_NESTED>
-    <NESTED>
-    <SIMPLE_RECURSE>
-    <RECURSE>
-    <FALLBACK>
-    <ESCAPE>
-    <NOESCAPE>
-    <UNIFIED_CALL>
-    <STATIC_TEXT_WS>
-    <STATIC_TEXT_NON_WS>
-    <STATIC_TEXT_FALSE_ALARM>
-    "${"
-    "#{"
+    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom3" :progress="this.data.custom4}"/>
 </app-form-item>
 
 </i-col>
@@ -349,56 +251,7 @@ style=""></app-span>
     <row>
         <i-col v-show="detailsModel.formitemex3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='formitemex3' :itemRules="this.rules.formitemex3" class='' :caption="$t('entities.productstats.main2_form.details.formitemex3')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex3.error" :isEmptyCaption="false" labelPos="LEFT">
-    !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_zh_CN" in line 4, column 42:
-Encountered "</#assign>", but was expecting one of:
-    <ATTEMPT>
-    <IF>
-    <ELSE_IF>
-    <LIST>
-    <ITEMS>
-    <SEP>
-    <FOREACH>
-    <SWITCH>
-    <ASSIGN>
-    <GLOBALASSIGN>
-    <LOCALASSIGN>
-    <_INCLUDE>
-    <IMPORT>
-    <FUNCTION>
-    <MACRO>
-    <TRANSFORM>
-    <VISIT>
-    <STOP>
-    <RETURN>
-    <CALL>
-    <SETTING>
-    <COMPRESS>
-    <COMMENT>
-    <TERSE_COMMENT>
-    <NOPARSE>
-    <END_IF>
-    <ELSE>
-    <BREAK>
-    <SIMPLE_RETURN>
-    <HALT>
-    <FLUSH>
-    <TRIM>
-    <LTRIM>
-    <RTRIM>
-    <NOTRIM>
-    <SIMPLE_NESTED>
-    <NESTED>
-    <SIMPLE_RECURSE>
-    <RECURSE>
-    <FALLBACK>
-    <ESCAPE>
-    <NOESCAPE>
-    <UNIFIED_CALL>
-    <STATIC_TEXT_WS>
-    <STATIC_TEXT_NON_WS>
-    <STATIC_TEXT_FALSE_ALARM>
-    "${"
-    "#{"
+    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom5" :progress="this.data.custom6}"/>
 </app-form-item>
 
 </i-col>
