@@ -24,7 +24,7 @@
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel5.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.projectstats.main_form.details.grouppanel5')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
         <i-col v-show="detailsModel.totalestimate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
-    <app-form-item name='totalestimate' :itemRules="this.rules.totalestimate" class='' :caption="$t('entities.projectstats.main_form.details.totalestimate')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.totalestimate.error" :isEmptyCaption="false" labelPos="TOP">
+    <app-form-item name='totalestimate' :itemRules="this.rules.totalestimate" class='text-center' :caption="$t('entities.projectstats.main_form.details.totalestimate')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.totalestimate.error" :isEmptyCaption="false" labelPos="TOP">
     <app-span   name='totalestimate'
 :value="data.totalestimate"   :data="data"
   :context="context"
@@ -35,7 +35,7 @@ style=""></app-span>
 
 </i-col>
 <i-col v-show="detailsModel.totalconsumed.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
-    <app-form-item name='totalconsumed' :itemRules="this.rules.totalconsumed" class='' :caption="$t('entities.projectstats.main_form.details.totalconsumed')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.totalconsumed.error" :isEmptyCaption="false" labelPos="TOP">
+    <app-form-item name='totalconsumed' :itemRules="this.rules.totalconsumed" class='text-center' :caption="$t('entities.projectstats.main_form.details.totalconsumed')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.totalconsumed.error" :isEmptyCaption="false" labelPos="TOP">
     <app-span   name='totalconsumed'
 :value="data.totalconsumed"   :data="data"
   :context="context"
@@ -46,7 +46,7 @@ style=""></app-span>
 
 </i-col>
 <i-col v-show="detailsModel.totalleft.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
-    <app-form-item name='totalleft' :itemRules="this.rules.totalleft" class='' :caption="$t('entities.projectstats.main_form.details.totalleft')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.totalleft.error" :isEmptyCaption="false" labelPos="TOP">
+    <app-form-item name='totalleft' :itemRules="this.rules.totalleft" class='text-center' :caption="$t('entities.projectstats.main_form.details.totalleft')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.totalleft.error" :isEmptyCaption="false" labelPos="TOP">
     <app-span   name='totalleft'
 :value="data.totalleft"   :data="data"
   :context="context"
