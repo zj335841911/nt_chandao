@@ -180,6 +180,33 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
         return new PageImpl<ProjectModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 根模块_无分支
+     */
+    @Override
+    public Page<ProjectModule> searchRoot_NoBranch(ProjectModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchRoot_NoBranch(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<ProjectModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 根模块
+     */
+    @Override
+    public Page<ProjectModule> searchRoot(ProjectModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchRoot(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<ProjectModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 根模块
+     */
+    @Override
+    public Page<ProjectModule> searchRoot_Task(ProjectModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchRoot_Task(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<ProjectModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
 

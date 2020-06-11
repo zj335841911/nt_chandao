@@ -46,6 +46,33 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据集合[Root_NoBranch]-->
+	 <select id="searchRoot_NoBranch"  parameterType="cn.ibizlab.pms.core.ibiz.filter.ProjectModuleSearchContext"  resultMap="ProjectModuleResultMap">
+         select t1.* from (
+                <include refid="Root_NoBranch" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
+    <!--数据集合[Root]-->
+	 <select id="searchRoot"  parameterType="cn.ibizlab.pms.core.ibiz.filter.ProjectModuleSearchContext"  resultMap="ProjectModuleResultMap">
+         select t1.* from (
+                <include refid="Root" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
+    <!--数据集合[Root_Task]-->
+	 <select id="searchRoot_Task"  parameterType="cn.ibizlab.pms.core.ibiz.filter.ProjectModuleSearchContext"  resultMap="ProjectModuleResultMap">
+         select t1.* from (
+                <include refid="Root_Task" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
        <![CDATA[	SELECT t1.`BRANCH`, t1.`DELETED`, t1.`GRADE`, t1.`ID`, (CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`, t1.`NAME`, t1.`ORDER`, t1.`OWNER`, t1.`PARENT`, t1.`PATH`, t1.`ROOT`, t1.`SHORT`, t1.`TYPE` FROM `zt_module` t1  
