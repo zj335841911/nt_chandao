@@ -56,9 +56,17 @@ export default class MainModel {
         dataType: 'INT',
       },
       {
-        name: 'donetaskrate',
-        prop: 'donetaskrate',
-        dataType: 'FLOAT',
+        name: 'custom1',
+        prop: 'taskcnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'custom2',
+        prop: 'undonetaskcnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'formitemex1',
       },
       {
         name: 'undonetaskcnt',
@@ -71,9 +79,17 @@ export default class MainModel {
         dataType: 'INT',
       },
       {
-        name: 'closedstoryrate',
-        prop: 'closedstoryrate',
-        dataType: 'FLOAT',
+        name: 'custom3',
+        prop: 'storycnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'custom4',
+        prop: 'unclosedstorycnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'formitemex2',
       },
       {
         name: 'unclosedstorycnt',
@@ -86,9 +102,17 @@ export default class MainModel {
         dataType: 'INT',
       },
       {
-        name: 'finishbugrate',
-        prop: 'finishbugrate',
-        dataType: 'FLOAT',
+        name: 'custom5',
+        prop: 'bugcnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'custom6',
+        prop: 'unclosedbugcnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'formitemex3',
       },
       {
         name: 'activebugcnt',
