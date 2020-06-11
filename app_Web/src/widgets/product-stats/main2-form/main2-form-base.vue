@@ -146,7 +146,7 @@ style=""></app-span>
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel3')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
         <i-col v-show="detailsModel.formitemex1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='formitemex1' :itemRules="this.rules.formitemex1" class='' :caption="$t('entities.productstats.main2_form.details.formitemex1')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex1.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='formitemex1' :itemRules="this.rules.formitemex1" class='' :caption="$t('entities.productstats.main2_form.details.formitemex1')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.formitemex1.error" :isEmptyCaption="false" labelPos="NONE">
     <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom1" :progress="this.data.custom2"/>
 </app-form-item>
 
@@ -198,7 +198,7 @@ style=""></app-span>
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel4.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel4')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
         <i-col v-show="detailsModel.formitemex2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='formitemex2' :itemRules="this.rules.formitemex2" class='' :caption="$t('entities.productstats.main2_form.details.formitemex2')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex2.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='formitemex2' :itemRules="this.rules.formitemex2" class='' :caption="$t('entities.productstats.main2_form.details.formitemex2')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.formitemex2.error" :isEmptyCaption="false" labelPos="NONE">
     <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom3" :progress="this.data.custom4"/>
 </app-form-item>
 
@@ -250,7 +250,7 @@ style=""></app-span>
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel5.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel5')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
         <i-col v-show="detailsModel.formitemex3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='formitemex3' :itemRules="this.rules.formitemex3" class='' :caption="$t('entities.productstats.main2_form.details.formitemex3')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex3.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='formitemex3' :itemRules="this.rules.formitemex3" class='' :caption="$t('entities.productstats.main2_form.details.formitemex3')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.formitemex3.error" :isEmptyCaption="false" labelPos="NONE">
     <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom5" :progress="this.data.custom6"/>
 </app-form-item>
 
@@ -1067,7 +1067,7 @@ export default class Main2Base extends Vue implements ControlInterface {
 , 
         custom2: new FormItemModel({ caption: '未过期计划数', detailType: 'FORMITEM', name: 'custom2', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        formitemex1: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        formitemex1: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex1', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
         unendproductplancnt: new FormItemModel({ caption: '未过期', detailType: 'FORMITEM', name: 'unendproductplancnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1077,7 +1077,7 @@ export default class Main2Base extends Vue implements ControlInterface {
 , 
         custom4: new FormItemModel({ caption: '未完成关联项目数', detailType: 'FORMITEM', name: 'custom4', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        formitemex2: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex2', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        formitemex2: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex2', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
         undoneresprojectcnt: new FormItemModel({ caption: '进行中', detailType: 'FORMITEM', name: 'undoneresprojectcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1087,7 +1087,7 @@ export default class Main2Base extends Vue implements ControlInterface {
 , 
         custom6: new FormItemModel({ caption: '维护中发布数', detailType: 'FORMITEM', name: 'custom6', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        formitemex3: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex3', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        formitemex3: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex3', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
         normalreleasecnt: new FormItemModel({ caption: '维护中', detailType: 'FORMITEM', name: 'normalreleasecnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
