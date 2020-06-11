@@ -110,7 +110,9 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.builder}}</span>
+                        <template >
+            <codelist :value="row.builder" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                        </template>
                     </template>
                 </el-table-column>
             </template>
@@ -1042,6 +1044,14 @@ export default class MainBase extends Vue implements ControlInterface {
      */
     public async formatExcelData(filterVal:any, jsonData:any) {
         let codelistColumns:Array<any> = [
+          {
+            name: 'builder',
+            srfkey: 'UserRealName',
+            codelistType : 'DYNAMIC',
+            textSeparator: ',',
+            renderMode: 'string',
+            valueSeparator: ",",
+          },
         ];
         let _this = this;
         for (const codelist of codelistColumns) {

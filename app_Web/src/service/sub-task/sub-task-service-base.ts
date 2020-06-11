@@ -76,6 +76,42 @@ export default class SubTaskServiceBase extends EntityService {
     }
 
     /**
+     * Close接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async Close(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.task && context.subtask){
+            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/close`,data,isloading);
+        }
+        if(context.task && context.subtask){
+            return Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/close`,data,isloading);
+        }
+    }
+
+    /**
+     * Pause接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async Pause(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.task && context.subtask){
+            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/pause`,data,isloading);
+        }
+        if(context.task && context.subtask){
+            return Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/pause`,data,isloading);
+        }
+    }
+
+    /**
      * Start接口方法
      *
      * @param {*} [context={}]
@@ -148,6 +184,24 @@ export default class SubTaskServiceBase extends EntityService {
     }
 
     /**
+     * Cancel接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async Cancel(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.task && context.subtask){
+            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/cancel`,data,isloading);
+        }
+        if(context.task && context.subtask){
+            return Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/cancel`,data,isloading);
+        }
+    }
+
+    /**
      * DeleteEstimate接口方法
      *
      * @param {*} [context={}]
@@ -162,6 +216,42 @@ export default class SubTaskServiceBase extends EntityService {
         }
         if(context.task && context.subtask){
             return Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/deleteestimate`,data,isloading);
+        }
+    }
+
+    /**
+     * Restart接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async Restart(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.task && context.subtask){
+            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/restart`,data,isloading);
+        }
+        if(context.task && context.subtask){
+            return Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/restart`,data,isloading);
+        }
+    }
+
+    /**
+     * EditEstimate接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async EditEstimate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.task && context.subtask){
+            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/editestimate`,data,isloading);
+        }
+        if(context.task && context.subtask){
+            return Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/editestimate`,data,isloading);
         }
     }
 
@@ -198,6 +288,24 @@ export default class SubTaskServiceBase extends EntityService {
         }
         if(context.task && context.subtask){
             return Http.getInstance().get(`/tasks/${context.task}/subtasks/${context.subtask}`,isloading);
+        }
+    }
+
+    /**
+     * RecordEstimate接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async RecordEstimate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.task && context.subtask){
+            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/recordestimate`,data,isloading);
+        }
+        if(context.task && context.subtask){
+            return Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/recordestimate`,data,isloading);
         }
     }
 
@@ -246,6 +354,42 @@ export default class SubTaskServiceBase extends EntityService {
                 delete data.srffrontuf;
             }
             return Http.getInstance().post(`/tasks/${context.task}/subtasks`,data,isloading);
+        }
+    }
+
+    /**
+     * Finish接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async Finish(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.task && context.subtask){
+            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/finish`,data,isloading);
+        }
+        if(context.task && context.subtask){
+            return Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/finish`,data,isloading);
+        }
+    }
+
+    /**
+     * Activate接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async Activate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.task && context.subtask){
+            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/activate`,data,isloading);
+        }
+        if(context.task && context.subtask){
+            return Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/activate`,data,isloading);
         }
     }
 

@@ -75,6 +75,38 @@ export default class TaskServiceBase extends EntityService {
     }
 
     /**
+     * Close接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskServiceBase
+     */
+    public async Close(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.task){
+            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/close`,data,isloading);
+        }
+            return Http.getInstance().post(`/tasks/${context.task}/close`,data,isloading);
+    }
+
+    /**
+     * Pause接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskServiceBase
+     */
+    public async Pause(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.task){
+            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/pause`,data,isloading);
+        }
+            return Http.getInstance().post(`/tasks/${context.task}/pause`,data,isloading);
+    }
+
+    /**
      * Start接口方法
      *
      * @param {*} [context={}]
@@ -159,6 +191,22 @@ export default class TaskServiceBase extends EntityService {
     }
 
     /**
+     * Cancel接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskServiceBase
+     */
+    public async Cancel(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.task){
+            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/cancel`,data,isloading);
+        }
+            return Http.getInstance().post(`/tasks/${context.task}/cancel`,data,isloading);
+    }
+
+    /**
      * DeleteEstimate接口方法
      *
      * @param {*} [context={}]
@@ -172,6 +220,38 @@ export default class TaskServiceBase extends EntityService {
             return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/deleteestimate`,data,isloading);
         }
             return Http.getInstance().post(`/tasks/${context.task}/deleteestimate`,data,isloading);
+    }
+
+    /**
+     * Restart接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskServiceBase
+     */
+    public async Restart(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.task){
+            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/restart`,data,isloading);
+        }
+            return Http.getInstance().post(`/tasks/${context.task}/restart`,data,isloading);
+    }
+
+    /**
+     * EditEstimate接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskServiceBase
+     */
+    public async EditEstimate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.task){
+            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/editestimate`,data,isloading);
+        }
+            return Http.getInstance().post(`/tasks/${context.task}/editestimate`,data,isloading);
     }
 
     /**
@@ -226,6 +306,22 @@ export default class TaskServiceBase extends EntityService {
             this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks));
             return res;
 
+    }
+
+    /**
+     * RecordEstimate接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskServiceBase
+     */
+    public async RecordEstimate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.task){
+            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/recordestimate`,data,isloading);
+        }
+            return Http.getInstance().post(`/tasks/${context.task}/recordestimate`,data,isloading);
     }
 
     /**
@@ -290,6 +386,38 @@ export default class TaskServiceBase extends EntityService {
         let res:any = await Http.getInstance().post(`/tasks`,data,isloading);
         this.tempStorage.setItem(tempContext.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks));
         return res;
+    }
+
+    /**
+     * Finish接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskServiceBase
+     */
+    public async Finish(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.task){
+            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/finish`,data,isloading);
+        }
+            return Http.getInstance().post(`/tasks/${context.task}/finish`,data,isloading);
+    }
+
+    /**
+     * Activate接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskServiceBase
+     */
+    public async Activate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.task){
+            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/activate`,data,isloading);
+        }
+            return Http.getInstance().post(`/tasks/${context.task}/activate`,data,isloading);
     }
 
     /**
