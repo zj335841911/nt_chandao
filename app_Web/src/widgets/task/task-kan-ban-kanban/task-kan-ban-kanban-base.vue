@@ -604,17 +604,22 @@ export default class TaskKanBanBase extends Vue implements ControlInterface {
      */
     public updateData(opt: any) {
         const arg: any = { ...opt };
-        Object.assign(arg, this.context);
         Object.assign(arg, { viewparams: this.viewparams });
-        const post: Promise<any> = this.service.update(this.updateGroupAction, JSON.parse(JSON.stringify(this.context)),arg, this.showBusyIndicator);
+        let _context = JSON.parse(JSON.stringify(this.context));
+        Object.assign(_context, { task: opt.task });
+        const post: Promise<any> = this.service.update(this.updateGroupAction, _context, arg, this.showBusyIndicator);
         post.then((response: any) => {
             if (!response.status || response.status !== 200) {
                 if (response.data) {
                     this.$Notice.error({ title: '错误', desc: response.data.message });
                 }
+                this.setGroups();
                 return;
             }
-            this.$emit('update');
+            let item = this.items.find((item: any) => Object.is(item.srfkey, response.data.srfkey));
+            Object.assign(item, response.data);
+            this.setGroups();
+            this.$emit('update', this.items);
         }).catch((response: any) => {
             if (response && response.status  && response.data) {
                 this.$Notice.error({ title: '错误', desc: response.data.message });
@@ -760,8 +765,9 @@ export default class TaskKanBanBase extends Vue implements ControlInterface {
      */
     public onDragChange(evt: any, name: string) {
         if(evt && evt.added && evt.added.element) {
-            evt.added.element[this.groupField] = name;
-            this.updateData(evt.added.element)
+            let item: any = JSON.parse(JSON.stringify(evt.added.element))
+            item[this.groupField] = name;
+            this.updateData(item)
         }
     }
 
