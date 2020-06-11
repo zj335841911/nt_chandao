@@ -290,5 +290,137 @@ public class BuildResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(buildMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @ApiOperation(value = "根据项目检查版本", tags = {"版本" },  notes = "根据项目检查版本")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/builds/checkkey")
+    public ResponseEntity<Boolean> checkKeyByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BuildDTO builddto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(buildService.checkKey(buildMapping.toDomain(builddto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Save-all')")
+    @ApiOperation(value = "根据项目保存版本", tags = {"版本" },  notes = "根据项目保存版本")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/builds/save")
+    public ResponseEntity<Boolean> saveByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BuildDTO builddto) {
+        Build domain = buildMapping.toDomain(builddto);
+        domain.setProject(project_id);
+        return ResponseEntity.status(HttpStatus.OK).body(buildService.save(domain));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Save-all')")
+    @ApiOperation(value = "根据项目批量保存版本", tags = {"版本" },  notes = "根据项目批量保存版本")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/builds/savebatch")
+    public ResponseEntity<Boolean> saveBatchByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody List<BuildDTO> builddtos) {
+        List<Build> domainlist=buildMapping.toDomain(builddtos);
+        for(Build domain:domainlist){
+             domain.setProject(project_id);
+        }
+        buildService.saveBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Get-all')")
+    @ApiOperation(value = "根据项目获取版本", tags = {"版本" },  notes = "根据项目获取版本")
+	@RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/builds/{build_id}")
+    public ResponseEntity<BuildDTO> getByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("build_id") BigInteger build_id) {
+        Build domain = buildService.get(build_id);
+        BuildDTO dto = buildMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "根据项目获取版本草稿", tags = {"版本" },  notes = "根据项目获取版本草稿")
+    @RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/builds/getdraft")
+    public ResponseEntity<BuildDTO> getDraftByProject(@PathVariable("project_id") BigInteger project_id) {
+        Build domain = new Build();
+        domain.setProject(project_id);
+        return ResponseEntity.status(HttpStatus.OK).body(buildMapping.toDto(buildService.getDraft(domain)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Remove-all')")
+    @ApiOperation(value = "根据项目删除版本", tags = {"版本" },  notes = "根据项目删除版本")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/builds/{build_id}")
+    @Transactional
+    public ResponseEntity<Boolean> removeByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("build_id") BigInteger build_id) {
+		return ResponseEntity.status(HttpStatus.OK).body(buildService.remove(build_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Remove-all')")
+    @ApiOperation(value = "根据项目批量删除版本", tags = {"版本" },  notes = "根据项目批量删除版本")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/builds/batch")
+    public ResponseEntity<Boolean> removeBatchByProject(@RequestBody List<BigInteger> ids) {
+        buildService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Create-all')")
+    @ApiOperation(value = "根据项目建立版本", tags = {"版本" },  notes = "根据项目建立版本")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/builds")
+    @Transactional
+    public ResponseEntity<BuildDTO> createByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BuildDTO builddto) {
+        Build domain = buildMapping.toDomain(builddto);
+        domain.setProject(project_id);
+		buildService.create(domain);
+        BuildDTO dto = buildMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Create-all')")
+    @ApiOperation(value = "根据项目批量建立版本", tags = {"版本" },  notes = "根据项目批量建立版本")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/builds/batch")
+    public ResponseEntity<Boolean> createBatchByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody List<BuildDTO> builddtos) {
+        List<Build> domainlist=buildMapping.toDomain(builddtos);
+        for(Build domain:domainlist){
+            domain.setProject(project_id);
+        }
+        buildService.createBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Update-all')")
+    @ApiOperation(value = "根据项目更新版本", tags = {"版本" },  notes = "根据项目更新版本")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/builds/{build_id}")
+    @Transactional
+    public ResponseEntity<BuildDTO> updateByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("build_id") BigInteger build_id, @RequestBody BuildDTO builddto) {
+        Build domain = buildMapping.toDomain(builddto);
+        domain.setProject(project_id);
+        domain.setId(build_id);
+		buildService.update(domain);
+        BuildDTO dto = buildMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Update-all')")
+    @ApiOperation(value = "根据项目批量更新版本", tags = {"版本" },  notes = "根据项目批量更新版本")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/builds/batch")
+    public ResponseEntity<Boolean> updateBatchByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody List<BuildDTO> builddtos) {
+        List<Build> domainlist=buildMapping.toDomain(builddtos);
+        for(Build domain:domainlist){
+            domain.setProject(project_id);
+        }
+        buildService.updateBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Default-all')")
+	@ApiOperation(value = "根据项目获取DEFAULT", tags = {"版本" } ,notes = "根据项目获取DEFAULT")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/builds/fetchdefault")
+	public ResponseEntity<List<BuildDTO>> fetchBuildDefaultByProject(@PathVariable("project_id") BigInteger project_id,BuildSearchContext context) {
+        context.setN_project_eq(project_id);
+        Page<Build> domains = buildService.searchDefault(context) ;
+        List<BuildDTO> list = buildMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Default-all')")
+	@ApiOperation(value = "根据项目查询DEFAULT", tags = {"版本" } ,notes = "根据项目查询DEFAULT")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/builds/searchdefault")
+	public ResponseEntity<Page<BuildDTO>> searchBuildDefaultByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BuildSearchContext context) {
+        context.setN_project_eq(project_id);
+        Page<Build> domains = buildService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(buildMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
 }
 

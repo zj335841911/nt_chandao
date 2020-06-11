@@ -48,6 +48,9 @@ export default class BuildServiceBase extends EntityService {
      * @memberof BuildServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.build){
+            return Http.getInstance().get(`/projects/${context.project}/builds/${context.build}/select`,isloading);
+        }
         if(context.product && context.build){
             return Http.getInstance().get(`/products/${context.product}/builds/${context.build}/select`,isloading);
         }
@@ -64,6 +67,9 @@ export default class BuildServiceBase extends EntityService {
      * @memberof BuildServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.build){
+            return Http.getInstance().post(`/projects/${context.project}/builds/${context.build}/checkkey`,data,isloading);
+        }
         if(context.product && context.build){
             return Http.getInstance().post(`/products/${context.product}/builds/${context.build}/checkkey`,data,isloading);
         }
@@ -80,6 +86,9 @@ export default class BuildServiceBase extends EntityService {
      * @memberof BuildServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.build){
+            return Http.getInstance().post(`/projects/${context.project}/builds/${context.build}/save`,data,isloading);
+        }
         if(context.product && context.build){
             return Http.getInstance().post(`/products/${context.product}/builds/${context.build}/save`,data,isloading);
         }
@@ -99,6 +108,9 @@ export default class BuildServiceBase extends EntityService {
      * @memberof BuildServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.build){
+            return Http.getInstance().get(`/projects/${context.project}/builds/${context.build}`,isloading);
+        }
         if(context.product && context.build){
             return Http.getInstance().get(`/products/${context.product}/builds/${context.build}`,isloading);
         }
@@ -117,6 +129,9 @@ export default class BuildServiceBase extends EntityService {
      * @memberof BuildServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            return Http.getInstance().get(`/projects/${context.project}/builds/getdraft`,isloading);
+        }
         if(context.product && true){
             return Http.getInstance().get(`/products/${context.product}/builds/getdraft`,isloading);
         }
@@ -135,6 +150,9 @@ export default class BuildServiceBase extends EntityService {
      * @memberof BuildServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.build){
+            return Http.getInstance().delete(`/projects/${context.project}/builds/${context.build}`,isloading);
+        }
         if(context.product && context.build){
             return Http.getInstance().delete(`/products/${context.product}/builds/${context.build}`,isloading);
         }
@@ -152,6 +170,15 @@ export default class BuildServiceBase extends EntityService {
      * @memberof BuildServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            if(!data.srffrontuf || data.srffrontuf !== "1"){
+                data[this.APPDEKEY] = null;
+            }
+            if(data.srffrontuf){
+                delete data.srffrontuf;
+            }
+            return Http.getInstance().post(`/projects/${context.project}/builds`,data,isloading);
+        }
         if(context.product && true){
             if(!data.srffrontuf || data.srffrontuf !== "1"){
                 data[this.APPDEKEY] = null;
@@ -184,6 +211,9 @@ export default class BuildServiceBase extends EntityService {
      * @memberof BuildServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.build){
+            return Http.getInstance().put(`/projects/${context.project}/builds/${context.build}`,data,isloading);
+        }
         if(context.product && context.build){
             return Http.getInstance().put(`/products/${context.product}/builds/${context.build}`,data,isloading);
         }
@@ -203,6 +233,10 @@ export default class BuildServiceBase extends EntityService {
      * @memberof BuildServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/projects/${context.project}/builds/fetchdefault`,tempData,isloading);
+        }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/products/${context.product}/builds/fetchdefault`,tempData,isloading);

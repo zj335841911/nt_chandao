@@ -50,6 +50,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-steps-info-edit-view/bug-steps-info-edit-view.vue'),
                 },
                 {
+                    path: 'projects/:project?/bugs/:bug?/stepsinfoeditview/:stepsinfoeditview?',
+                    meta: {
+                        caption: 'entities.bug.views.stepsinfoeditview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'stepsinfoeditview', parameterName: 'stepsinfoeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-steps-info-edit-view/bug-steps-info-edit-view.vue'),
+                },
+                {
                     path: 'productplans/:productplan?/bugs/:bug?/stepsinfoeditview/:stepsinfoeditview?',
                     meta: {
                         caption: 'entities.bug.views.stepsinfoeditview.caption',
@@ -372,6 +386,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-pickup-grid-view/bug-pickup-grid-view.vue'),
                 },
                 {
+                    path: 'projects/:project?/bugs/:bug?/pickupgridview/:pickupgridview?',
+                    meta: {
+                        caption: 'entities.bug.views.pickupgridview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'pickupgridview', parameterName: 'pickupgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-pickup-grid-view/bug-pickup-grid-view.vue'),
+                },
+                {
                     path: 'productplans/:productplan?/bugs/:bug?/pickupgridview/:pickupgridview?',
                     meta: {
                         caption: 'entities.bug.views.pickupgridview.caption',
@@ -446,6 +474,20 @@ const router = new Router({
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
                             { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'gridview9_assignedtome', parameterName: 'gridview9_assignedtome' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-grid-view9-assigned-to-me/bug-grid-view9-assigned-to-me.vue'),
+                },
+                {
+                    path: 'projects/:project?/bugs/:bug?/gridview9_assignedtome/:gridview9_assignedtome?',
+                    meta: {
+                        caption: 'entities.bug.views.gridview9_assignedtome.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
                             { pathName: 'bugs', parameterName: 'bug' },
                             { pathName: 'gridview9_assignedtome', parameterName: 'gridview9_assignedtome' },
                         ],
@@ -1280,6 +1322,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-bug-tree-exp-view/product-bug-tree-exp-view.vue'),
                 },
                 {
+                    path: 'projects/:project?/builds/:build?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.build.views.editview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'builds', parameterName: 'build' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/build-edit-view/build-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/builds/:build?/editview/:editview?',
                     meta: {
                         caption: 'entities.build.views.editview.caption',
@@ -1314,6 +1370,20 @@ const router = new Router({
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
                             { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'maindashboardview', parameterName: 'maindashboardview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-main-dashboard-view/bug-main-dashboard-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/bugs/:bug?/maindashboardview/:maindashboardview?',
+                    meta: {
+                        caption: 'entities.bug.views.maindashboardview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
                             { pathName: 'bugs', parameterName: 'bug' },
                             { pathName: 'maindashboardview', parameterName: 'maindashboardview' },
                         ],
@@ -1445,6 +1515,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-mpickup-view/bug-mpickup-view.vue'),
                 },
                 {
+                    path: 'projects/:project?/bugs/:bug?/mpickupview/:mpickupview?',
+                    meta: {
+                        caption: 'entities.bug.views.mpickupview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'mpickupview', parameterName: 'mpickupview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-mpickup-view/bug-mpickup-view.vue'),
+                },
+                {
                     path: 'productplans/:productplan?/bugs/:bug?/mpickupview/:mpickupview?',
                     meta: {
                         caption: 'entities.bug.views.mpickupview.caption',
@@ -1493,6 +1577,20 @@ const router = new Router({
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
                             { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'gridview', parameterName: 'gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-grid-view/bug-grid-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/bugs/:bug?/gridview/:gridview?',
+                    meta: {
+                        caption: 'entities.bug.views.gridview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
                             { pathName: 'bugs', parameterName: 'bug' },
                             { pathName: 'gridview', parameterName: 'gridview' },
                         ],
@@ -1631,6 +1729,20 @@ const router = new Router({
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
                             { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'maineditview', parameterName: 'maineditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-main-edit-view/bug-main-edit-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/bugs/:bug?/maineditview/:maineditview?',
+                    meta: {
+                        caption: 'entities.bug.views.maineditview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
                             { pathName: 'bugs', parameterName: 'bug' },
                             { pathName: 'maineditview', parameterName: 'maineditview' },
                         ],
@@ -1831,6 +1943,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-plan-sub-grid-view/bug-plan-sub-grid-view.vue'),
                 },
                 {
+                    path: 'projects/:project?/bugs/:bug?/plansubgridview/:plansubgridview?',
+                    meta: {
+                        caption: 'entities.bug.views.plansubgridview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'plansubgridview', parameterName: 'plansubgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-plan-sub-grid-view/bug-plan-sub-grid-view.vue'),
+                },
+                {
                     path: 'productplans/:productplan?/bugs/:bug?/plansubgridview/:plansubgridview?',
                     meta: {
                         caption: 'entities.bug.views.plansubgridview.caption',
@@ -1905,6 +2031,20 @@ const router = new Router({
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
                             { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'releasesubgridview_done', parameterName: 'releasesubgridview_done' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-release-sub-grid-view-done/bug-release-sub-grid-view-done.vue'),
+                },
+                {
+                    path: 'projects/:project?/bugs/:bug?/releasesubgridview_done/:releasesubgridview_done?',
+                    meta: {
+                        caption: 'entities.bug.views.releasesubgridview_done.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
                             { pathName: 'bugs', parameterName: 'bug' },
                             { pathName: 'releasesubgridview_done', parameterName: 'releasesubgridview_done' },
                         ],
@@ -2090,6 +2230,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-edit-view/bug-edit-view.vue'),
                 },
                 {
+                    path: 'projects/:project?/bugs/:bug?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.bug.views.editview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-edit-view/bug-edit-view.vue'),
+                },
+                {
                     path: 'productplans/:productplan?/bugs/:bug?/editview/:editview?',
                     meta: {
                         caption: 'entities.bug.views.editview.caption',
@@ -2198,6 +2352,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-kanban-view/task-kanban-view.vue'),
                 },
                 {
+                    path: 'projects/:project?/builds/:build?/maingridview/:maingridview?',
+                    meta: {
+                        caption: 'entities.build.views.maingridview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'builds', parameterName: 'build' },
+                            { pathName: 'maingridview', parameterName: 'maingridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/build-main-grid-view/build-main-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/builds/:build?/maingridview/:maingridview?',
                     meta: {
                         caption: 'entities.build.views.maingridview.caption',
@@ -2232,6 +2400,20 @@ const router = new Router({
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
                             { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'releasesubgridview_undone', parameterName: 'releasesubgridview_undone' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-release-sub-grid-view-undone/bug-release-sub-grid-view-undone.vue'),
+                },
+                {
+                    path: 'projects/:project?/bugs/:bug?/releasesubgridview_undone/:releasesubgridview_undone?',
+                    meta: {
+                        caption: 'entities.bug.views.releasesubgridview_undone.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
                             { pathName: 'bugs', parameterName: 'bug' },
                             { pathName: 'releasesubgridview_undone', parameterName: 'releasesubgridview_undone' },
                         ],
@@ -2577,6 +2759,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-bug-life-edit-view9/bug-bug-life-edit-view9.vue'),
                 },
                 {
+                    path: 'projects/:project?/bugs/:bug?/buglifeeditview9/:buglifeeditview9?',
+                    meta: {
+                        caption: 'entities.bug.views.buglifeeditview9.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'buglifeeditview9', parameterName: 'buglifeeditview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-bug-life-edit-view9/bug-bug-life-edit-view9.vue'),
+                },
+                {
                     path: 'productplans/:productplan?/bugs/:bug?/buglifeeditview9/:buglifeeditview9?',
                     meta: {
                         caption: 'entities.bug.views.buglifeeditview9.caption',
@@ -2625,6 +2821,20 @@ const router = new Router({
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
                             { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'dashboardmaineditview9', parameterName: 'dashboardmaineditview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-dashboard-main-edit-view9/bug-dashboard-main-edit-view9.vue'),
+                },
+                {
+                    path: 'projects/:project?/bugs/:bug?/dashboardmaineditview9/:dashboardmaineditview9?',
+                    meta: {
+                        caption: 'entities.bug.views.dashboardmaineditview9.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
                             { pathName: 'bugs', parameterName: 'bug' },
                             { pathName: 'dashboardmaineditview9', parameterName: 'dashboardmaineditview9' },
                         ],
@@ -3570,6 +3780,19 @@ const router = new Router({
         component: () => import('@pages/zentao/bug-plan-sub-grid-view/bug-plan-sub-grid-view.vue'),
     },
     {
+        path: '/projects/:project?/bugs/:bug?/plansubgridview/:plansubgridview?',
+        meta: {
+            caption: 'entities.bug.views.plansubgridview.caption',
+            parameters: [
+                { pathName: 'projects', parameterName: 'project' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'plansubgridview', parameterName: 'plansubgridview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-plan-sub-grid-view/bug-plan-sub-grid-view.vue'),
+    },
+    {
         path: '/productplans/:productplan?/bugs/:bug?/plansubgridview/:plansubgridview?',
         meta: {
             caption: 'entities.bug.views.plansubgridview.caption',
@@ -3683,6 +3906,19 @@ const router = new Router({
         component: () => import('@pages/zentao/bug-main-edit-view/bug-main-edit-view.vue'),
     },
     {
+        path: '/projects/:project?/bugs/:bug?/maineditview/:maineditview?',
+        meta: {
+            caption: 'entities.bug.views.maineditview.caption',
+            parameters: [
+                { pathName: 'projects', parameterName: 'project' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'maineditview', parameterName: 'maineditview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-main-edit-view/bug-main-edit-view.vue'),
+    },
+    {
         path: '/productplans/:productplan?/bugs/:bug?/maineditview/:maineditview?',
         meta: {
             caption: 'entities.bug.views.maineditview.caption',
@@ -3752,6 +3988,19 @@ const router = new Router({
             parameters: [
                 { pathName: 'products', parameterName: 'product' },
                 { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'maindashboardview', parameterName: 'maindashboardview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-main-dashboard-view/bug-main-dashboard-view.vue'),
+    },
+    {
+        path: '/projects/:project?/bugs/:bug?/maindashboardview/:maindashboardview?',
+        meta: {
+            caption: 'entities.bug.views.maindashboardview.caption',
+            parameters: [
+                { pathName: 'projects', parameterName: 'project' },
                 { pathName: 'bugs', parameterName: 'bug' },
                 { pathName: 'maindashboardview', parameterName: 'maindashboardview' },
             ],
@@ -3900,6 +4149,19 @@ const router = new Router({
         component: () => import('@pages/zentao/bug-pickup-grid-view/bug-pickup-grid-view.vue'),
     },
     {
+        path: '/projects/:project?/bugs/:bug?/pickupgridview/:pickupgridview?',
+        meta: {
+            caption: 'entities.bug.views.pickupgridview.caption',
+            parameters: [
+                { pathName: 'projects', parameterName: 'project' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'pickupgridview', parameterName: 'pickupgridview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-pickup-grid-view/bug-pickup-grid-view.vue'),
+    },
+    {
         path: '/productplans/:productplan?/bugs/:bug?/pickupgridview/:pickupgridview?',
         meta: {
             caption: 'entities.bug.views.pickupgridview.caption',
@@ -3944,6 +4206,19 @@ const router = new Router({
             parameters: [
                 { pathName: 'products', parameterName: 'product' },
                 { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'mpickupview', parameterName: 'mpickupview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-mpickup-view/bug-mpickup-view.vue'),
+    },
+    {
+        path: '/projects/:project?/bugs/:bug?/mpickupview/:mpickupview?',
+        meta: {
+            caption: 'entities.bug.views.mpickupview.caption',
+            parameters: [
+                { pathName: 'projects', parameterName: 'project' },
                 { pathName: 'bugs', parameterName: 'bug' },
                 { pathName: 'mpickupview', parameterName: 'mpickupview' },
             ],
@@ -4229,6 +4504,19 @@ const router = new Router({
         component: () => import('@pages/zentao/bug-bug-life-edit-view9/bug-bug-life-edit-view9.vue'),
     },
     {
+        path: '/projects/:project?/bugs/:bug?/buglifeeditview9/:buglifeeditview9?',
+        meta: {
+            caption: 'entities.bug.views.buglifeeditview9.caption',
+            parameters: [
+                { pathName: 'projects', parameterName: 'project' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'buglifeeditview9', parameterName: 'buglifeeditview9' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-bug-life-edit-view9/bug-bug-life-edit-view9.vue'),
+    },
+    {
         path: '/productplans/:productplan?/bugs/:bug?/buglifeeditview9/:buglifeeditview9?',
         meta: {
             caption: 'entities.bug.views.buglifeeditview9.caption',
@@ -4273,6 +4561,19 @@ const router = new Router({
             parameters: [
                 { pathName: 'products', parameterName: 'product' },
                 { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'editview', parameterName: 'editview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-edit-view/bug-edit-view.vue'),
+    },
+    {
+        path: '/projects/:project?/bugs/:bug?/editview/:editview?',
+        meta: {
+            caption: 'entities.bug.views.editview.caption',
+            parameters: [
+                { pathName: 'projects', parameterName: 'project' },
                 { pathName: 'bugs', parameterName: 'bug' },
                 { pathName: 'editview', parameterName: 'editview' },
             ],
@@ -4634,6 +4935,19 @@ const router = new Router({
         component: () => import('@pages/zentao/bug-release-sub-grid-view-done/bug-release-sub-grid-view-done.vue'),
     },
     {
+        path: '/projects/:project?/bugs/:bug?/releasesubgridview_done/:releasesubgridview_done?',
+        meta: {
+            caption: 'entities.bug.views.releasesubgridview_done.caption',
+            parameters: [
+                { pathName: 'projects', parameterName: 'project' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'releasesubgridview_done', parameterName: 'releasesubgridview_done' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-release-sub-grid-view-done/bug-release-sub-grid-view-done.vue'),
+    },
+    {
         path: '/productplans/:productplan?/bugs/:bug?/releasesubgridview_done/:releasesubgridview_done?',
         meta: {
             caption: 'entities.bug.views.releasesubgridview_done.caption',
@@ -4888,6 +5202,19 @@ const router = new Router({
             parameters: [
                 { pathName: 'products', parameterName: 'product' },
                 { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'stepsinfoeditview', parameterName: 'stepsinfoeditview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-steps-info-edit-view/bug-steps-info-edit-view.vue'),
+    },
+    {
+        path: '/projects/:project?/bugs/:bug?/stepsinfoeditview/:stepsinfoeditview?',
+        meta: {
+            caption: 'entities.bug.views.stepsinfoeditview.caption',
+            parameters: [
+                { pathName: 'projects', parameterName: 'project' },
                 { pathName: 'bugs', parameterName: 'bug' },
                 { pathName: 'stepsinfoeditview', parameterName: 'stepsinfoeditview' },
             ],
@@ -5218,6 +5545,19 @@ const router = new Router({
         component: () => import('@pages/zentao/case-grid-view9/case-grid-view9.vue'),
     },
     {
+        path: '/projects/:project?/builds/:build?/maingridview/:maingridview?',
+        meta: {
+            caption: 'entities.build.views.maingridview.caption',
+            parameters: [
+                { pathName: 'projects', parameterName: 'project' },
+                { pathName: 'builds', parameterName: 'build' },
+                { pathName: 'maingridview', parameterName: 'maingridview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/build-main-grid-view/build-main-grid-view.vue'),
+    },
+    {
         path: '/products/:product?/builds/:build?/maingridview/:maingridview?',
         meta: {
             caption: 'entities.build.views.maingridview.caption',
@@ -5249,6 +5589,19 @@ const router = new Router({
             parameters: [
                 { pathName: 'products', parameterName: 'product' },
                 { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'gridview9_assignedtome', parameterName: 'gridview9_assignedtome' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-grid-view9-assigned-to-me/bug-grid-view9-assigned-to-me.vue'),
+    },
+    {
+        path: '/projects/:project?/bugs/:bug?/gridview9_assignedtome/:gridview9_assignedtome?',
+        meta: {
+            caption: 'entities.bug.views.gridview9_assignedtome.caption',
+            parameters: [
+                { pathName: 'projects', parameterName: 'project' },
                 { pathName: 'bugs', parameterName: 'bug' },
                 { pathName: 'gridview9_assignedtome', parameterName: 'gridview9_assignedtome' },
             ],
@@ -5852,6 +6205,19 @@ const router = new Router({
         component: () => import('@pages/zentao/bug-release-sub-grid-view-undone/bug-release-sub-grid-view-undone.vue'),
     },
     {
+        path: '/projects/:project?/bugs/:bug?/releasesubgridview_undone/:releasesubgridview_undone?',
+        meta: {
+            caption: 'entities.bug.views.releasesubgridview_undone.caption',
+            parameters: [
+                { pathName: 'projects', parameterName: 'project' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'releasesubgridview_undone', parameterName: 'releasesubgridview_undone' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-release-sub-grid-view-undone/bug-release-sub-grid-view-undone.vue'),
+    },
+    {
         path: '/productplans/:productplan?/bugs/:bug?/releasesubgridview_undone/:releasesubgridview_undone?',
         meta: {
             caption: 'entities.bug.views.releasesubgridview_undone.caption',
@@ -6044,6 +6410,19 @@ const router = new Router({
             parameters: [
                 { pathName: 'products', parameterName: 'product' },
                 { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'gridview', parameterName: 'gridview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-grid-view/bug-grid-view.vue'),
+    },
+    {
+        path: '/projects/:project?/bugs/:bug?/gridview/:gridview?',
+        meta: {
+            caption: 'entities.bug.views.gridview.caption',
+            parameters: [
+                { pathName: 'projects', parameterName: 'project' },
                 { pathName: 'bugs', parameterName: 'bug' },
                 { pathName: 'gridview', parameterName: 'gridview' },
             ],
@@ -6383,6 +6762,19 @@ const router = new Router({
         component: () => import('@pages/zentao/dept-pickup-grid-view/dept-pickup-grid-view.vue'),
     },
     {
+        path: '/projects/:project?/builds/:build?/editview/:editview?',
+        meta: {
+            caption: 'entities.build.views.editview.caption',
+            parameters: [
+                { pathName: 'projects', parameterName: 'project' },
+                { pathName: 'builds', parameterName: 'build' },
+                { pathName: 'editview', parameterName: 'editview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/build-edit-view/build-edit-view.vue'),
+    },
+    {
         path: '/products/:product?/builds/:build?/editview/:editview?',
         meta: {
             caption: 'entities.build.views.editview.caption',
@@ -6439,6 +6831,19 @@ const router = new Router({
             parameters: [
                 { pathName: 'products', parameterName: 'product' },
                 { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'dashboardmaineditview9', parameterName: 'dashboardmaineditview9' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-dashboard-main-edit-view9/bug-dashboard-main-edit-view9.vue'),
+    },
+    {
+        path: '/projects/:project?/bugs/:bug?/dashboardmaineditview9/:dashboardmaineditview9?',
+        meta: {
+            caption: 'entities.bug.views.dashboardmaineditview9.caption',
+            parameters: [
+                { pathName: 'projects', parameterName: 'project' },
                 { pathName: 'bugs', parameterName: 'bug' },
                 { pathName: 'dashboardmaineditview9', parameterName: 'dashboardmaineditview9' },
             ],
