@@ -19,8 +19,6 @@ export default class TaskKanBanModel {
 			},
 			{
 				name: 'status',
-				prop: 'status',
-				dataType: 'SSCODELIST',
 			},
 			{
 				name: 'name',
