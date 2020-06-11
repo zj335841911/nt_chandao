@@ -9,8 +9,8 @@
         <i-col v-show="detailsModel.grouppanel6.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel6.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.projectstats.main_form.details.grouppanel6')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
-        <i-col v-show="detailsModel.formitemex4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='formitemex4' :itemRules="this.rules.formitemex4" class='' :caption="$t('entities.projectstats.main_form.details.formitemex4')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex4.error" :isEmptyCaption="false" labelPos="LEFT">
+        <i-col v-show="detailsModel.formitemex4.visible" :style="{'height': '250px !important',}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='formitemex4' :itemRules="this.rules.formitemex4" class='' :caption="$t('entities.projectstats.main_form.details.formitemex4')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.formitemex4.error" :isEmptyCaption="false" labelPos="NONE">
     <ibiz-studio-progress-vue caption="已完成" stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="circle" :total="this.data.custom7" :progress="this.data.custom8"/>
 </app-form-item>
 
@@ -768,7 +768,7 @@ export default class MainBase extends Vue implements ControlInterface {
 , 
         custom8: new FormItemModel({ caption: '任务消耗总工时', detailType: 'FORMITEM', name: 'custom8', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        formitemex4: new FormItemModel({ caption: '已完成', detailType: 'FORMITEM', name: 'formitemex4', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        formitemex4: new FormItemModel({ caption: '已完成', detailType: 'FORMITEM', name: 'formitemex4', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
         totalestimate: new FormItemModel({ caption: '预计', detailType: 'FORMITEM', name: 'totalestimate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
