@@ -135,6 +135,13 @@ public class Build extends EntityMP implements Serializable {
     @JSONField(name = "project")
     @JsonProperty("project")
     private BigInteger project;
+    /**
+     * 产品名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
 
     /**
      * 

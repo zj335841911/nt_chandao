@@ -700,6 +700,20 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '7b1cc190cbffe1cd122d87a9d03b2d21',
+            viewmodule: 'zentao',
+            viewname: 'StoryCurProjectGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '7e14015af219d302f7d81ff40cdcc418',
+                '3f2ca3e560d9082bb56fbf7667a57a66',
+                '4863a523ac490ebce771717756f0c6a8',
+                'e54598b1e6d38d7c6ce8231b531b46bd',
+                '02b7ecd8e994b90558a9d6c23705f600',
+            ],
+        },
+        {
             viewtag: '7c79a923d0cdd1a5bc41a34367809077',
             viewmodule: 'zentao',
             viewname: 'ProjectLeftSidebarListView',
@@ -762,6 +776,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '02b7ecd8e994b90558a9d6c23705f600',
+            ],
+        },
+        {
+            viewtag: '8104f8c4c275f6ba17fb969edf52eb37',
+            viewmodule: 'zentao',
+            viewname: 'BuildMainGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e9d61d4506a28dec9a6f1d7b9e1fff6a',
             ],
         },
         {
@@ -1361,6 +1385,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'e9d61d4506a28dec9a6f1d7b9e1fff6a',
+            viewmodule: 'zentao',
+            viewname: 'BuildEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'ea141fddc78fd1af4d06e494baf12cc1',
             viewmodule: 'zentao',
             viewname: 'TaskEditView',
@@ -1465,10 +1498,13 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '103bc77ad54de2476db1d4e9c788cd4e',
+                'c9410c9f72535adf1fff569d5243edd1',
                 '5ef23f01b2cffa48351b3272dfeeaf14',
                 '64204774cc4b97f20aa3becb41b184d5',
                 '7088260bcd6a0303378af2f8e207f479',
+                '8104f8c4c275f6ba17fb969edf52eb37',
                 '85ee867b09a2d6303c061d91374ec975',
+                '7b1cc190cbffe1cd122d87a9d03b2d21',
                 '7d34636d1c24d613abf8d3fdc64ec7ba',
             ],
         },
