@@ -31,7 +31,7 @@
                         
                         </i-col>
                               
-                        <i-col v-show="detailsModel.assignedto.visible"  :md="{ span: 10, offset: 0 }" :lg="{ span: 10, offset: 0 }" style="" class="app-layoutpanel-field">
+                        <i-col v-show="detailsModel.assignedto.visible"  :md="{ span: 15, offset: 0 }" :lg="{ span: 15, offset: 0 }" style="" class="app-layoutpanel-field">
                             <div class="item-field">
                             
                             <div class="item-field-content">
@@ -41,7 +41,7 @@
                         
                         
                         </i-col>
-                              <i-col v-show="detailsModel.container4.visible"  :md="{ span: 8, offset: 0 }" :lg="{ span: 8, offset: 0 }" style="" class="app-layoutpanel-container">
+                              <i-col v-show="detailsModel.container4.visible"  :md="{ span: 6, offset: 0 }" :lg="{ span: 6, offset: 0 }" style="" class="app-layoutpanel-container">
                             <row style="height:100%;">
                                       
                                 <i-col v-show="detailsModel.deadline.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
