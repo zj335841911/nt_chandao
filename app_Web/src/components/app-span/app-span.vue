@@ -137,14 +137,13 @@ export default class AppSpan extends Vue {
      * @memberof AppSpan
      */
     public load(){
-        if(!this.value || this.tag){
+        if (this.value === undefined || this.value === null || this.tag) {
             return;  //代码表走codelist组件
-
-        }else if(this.editorType === "ADDRESSPICKUP"){
+        } else if(this.editorType === "ADDRESSPICKUP"){
             JSON.parse(this.value).forEach((item:any,index:number) => {
               this.text += index === 0 ? item.srfmajortext : ","+item.srfmajortext;
             });
-        }else{
+        } else {
             this.text = this.value;
         }
     }

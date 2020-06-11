@@ -14,10 +14,24 @@
                 
                 
                 </i-col>
-                      <i-col v-show="detailsModel.container2.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-container">
+                      
+                <i-col v-show="detailsModel.rawitem1.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-rowitem">
+                    <br/>
+                
+                
+                </i-col>
+                      <i-col v-show="detailsModel.container2.visible"  :md="{ span: 20, offset: 0 }" :lg="{ span: 20, offset: 0 }" style="" class="app-layoutpanel-container">
                     <row style="height:100%;">
                               
-                        <i-col v-show="detailsModel.assignedto.visible"  :md="{ span: 12, offset: 2 }" :lg="{ span: 12, offset: 2 }" style="" class="app-layoutpanel-field">
+                        <i-col v-show="detailsModel.button1.visible"  :md="{ span: 3, offset: 0 }" :lg="{ span: 3, offset: 0 }" style="" class="app-layoutpanel-button">
+                            <i-button type="primary" long @click="uiAction(null, 'AssignTask', $event)"  style="height: 24px;">
+                            <i class="fa fa-hand-o-right"></i>
+                        </i-button>
+                        
+                        
+                        </i-col>
+                              
+                        <i-col v-show="detailsModel.assignedto.visible"  :md="{ span: 15, offset: 0 }" :lg="{ span: 15, offset: 0 }" style="" class="app-layoutpanel-field">
                             <div class="item-field">
                             
                             <div class="item-field-content">
@@ -27,8 +41,27 @@
                         
                         
                         </i-col>
+                              <i-col v-show="detailsModel.container4.visible"  :md="{ span: 6, offset: 0 }" :lg="{ span: 6, offset: 0 }" style="" class="app-layoutpanel-container">
+                            <row style="height:100%;">
+                                      
+                                <i-col v-show="detailsModel.deadline.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
+                                    
+                                
+                                </i-col>
+                                      
+                                <i-col v-show="detailsModel.rawitem2.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-rowitem">
+                                    <span style="color:red;">延期</span>
+                                
+                                
+                                </i-col>
+                            </row>
+                        </i-col>
+                    </row>
+                </i-col>
+                      <i-col v-show="detailsModel.container3.visible"  :md="{ span: 4, offset: 0 }" :lg="{ span: 4, offset: 0 }" style="" class="app-layoutpanel-container">
+                    <row style="height:100%;">
                               
-                        <i-col v-show="detailsModel.estimate.visible"  :md="{ span: 2, offset: 0 }" :lg="{ span: 2, offset: 8 }" style="" class="app-layoutpanel-field">
+                        <i-col v-show="detailsModel.estimate.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
                             <div class="item-field">
                             
                             <div class="item-field-content">
@@ -54,6 +87,7 @@ import { UIActionTool,Util } from '@/utils';
 import TaskService from '@/service/task/task-service';
 import TaskKanBanService from './task-kan-ban-panel-service';
 
+import TaskUIService from '@/uiservice/task/task-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 import TaskKanBanModel from './task-kan-ban-panel-model';
 import CodeListService from "@service/app/codelist-service";
@@ -144,6 +178,35 @@ export default class TaskKanBanBase extends Vue implements ControlInterface {
     public appEntityService: TaskService = new TaskService({ $store: this.$store });
     
 
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public itemlayoutpanel_button1_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TaskUIService  = new TaskUIService();
+        curUIService.Task_AssignTask(datas,contextJO, paramJO,  $event, xData,this,"Task");
+    }
+
 
     /**
      * 关闭视图
@@ -228,9 +291,15 @@ export default class TaskKanBanBase extends Vue implements ControlInterface {
      */
     public detailsModel: any = {
         name: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        rawitem1: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        button1: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         assignedto: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        estimate: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        deadline: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        rawitem2: new FormItemModel({ visible: false, disabled: false, enableCond: 3 }), 
+        container4: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         container2: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        estimate: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        container3: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         container1: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
     };
 
@@ -243,6 +312,20 @@ export default class TaskKanBanBase extends Vue implements ControlInterface {
      */
     public panelLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
+
+
+
+
+        if (Object.is(name, '') || Object.is(name, 'deadline')) {
+            let ret = false;
+            const _deadline = this.data.deadline;
+            if (this.$verify.testCond(_deadline, 'LT', '%SRFCURDATA%')) {
+                ret = true;
+            }
+            this.detailsModel.rawitem2.setVisible(ret);
+        }
+
 
 
 
@@ -425,6 +508,9 @@ export default class TaskKanBanBase extends Vue implements ControlInterface {
      */
     public async uiAction(row: any, tag: any, $event: any) {
         await this.computePanelData();
+        if(Object.is('AssignTask', tag)) {
+            this.itemlayoutpanel_button1_click(row, tag, $event);
+        }
     }
 
     /**

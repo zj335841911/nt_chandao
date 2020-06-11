@@ -3,7 +3,70 @@
     <input style="display:none;" />
     <row >
             
-<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col v-show="detailsModel.grouppanel4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel4.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.projectstats.main_form.details.grouppanel4')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <row>
+        <i-col v-show="detailsModel.grouppanel6.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel6.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.projectstats.main_form.details.grouppanel6')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <row>
+        <i-col v-show="detailsModel.formitemex4.visible" :style="{'height': '250px !important',}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='formitemex4' :itemRules="this.rules.formitemex4" class='' :caption="$t('entities.projectstats.main_form.details.formitemex4')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.formitemex4.error" :isEmptyCaption="false" labelPos="NONE">
+    <ibiz-studio-progress-vue caption="已完成" stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="circle" :total="this.data.custom7" :progress="this.data.custom8"/>
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col v-show="detailsModel.grouppanel5.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel5.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.projectstats.main_form.details.grouppanel5')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <row>
+        <i-col v-show="detailsModel.totalestimate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+    <app-form-item name='totalestimate' :itemRules="this.rules.totalestimate" class='text-center' :caption="$t('entities.projectstats.main_form.details.totalestimate')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.totalestimate.error" :isEmptyCaption="false" labelPos="TOP">
+    <app-span   name='totalestimate'
+:value="data.totalestimate"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.totalconsumed.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+    <app-form-item name='totalconsumed' :itemRules="this.rules.totalconsumed" class='text-center' :caption="$t('entities.projectstats.main_form.details.totalconsumed')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.totalconsumed.error" :isEmptyCaption="false" labelPos="TOP">
+    <app-span   name='totalconsumed'
+:value="data.totalconsumed"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.totalleft.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+    <app-form-item name='totalleft' :itemRules="this.rules.totalleft" class='text-center' :caption="$t('entities.projectstats.main_form.details.totalleft')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.totalleft.error" :isEmptyCaption="false" labelPos="TOP">
+    <app-span   name='totalleft'
+:value="data.totalleft"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.projectstats.main_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
         <i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
@@ -20,9 +83,9 @@ style=""></app-span>
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.donetaskrate.visible" :style="{}"  :lg="{ span: 20, offset: 0 }" :xl="{ span: 20, offset: 0 }">
-    <app-form-item name='donetaskrate' :itemRules="this.rules.donetaskrate" class='' :caption="$t('entities.projectstats.main_form.details.donetaskrate')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.donetaskrate.error" :isEmptyCaption="true" labelPos="LEFT">
-    <app-slider name='donetaskrate' :value="this.data.donetaskrate" @change="onFormItemValueChange" :disabled="detailsModel.donetaskrate.disabled" style=""></app-slider>
+<i-col v-show="detailsModel.formitemex1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
+    <app-form-item name='formitemex1' :itemRules="this.rules.formitemex1" class='' :caption="$t('entities.projectstats.main_form.details.formitemex1')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex1.error" :isEmptyCaption="false" labelPos="LEFT">
+    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom1" :progress="this.data.custom2"/>
 </app-form-item>
 
 </i-col>
@@ -56,9 +119,9 @@ style=""></app-span>
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.closedstoryrate.visible" :style="{}"  :lg="{ span: 20, offset: 0 }" :xl="{ span: 20, offset: 0 }">
-    <app-form-item name='closedstoryrate' :itemRules="this.rules.closedstoryrate" class='' :caption="$t('entities.projectstats.main_form.details.closedstoryrate')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.closedstoryrate.error" :isEmptyCaption="true" labelPos="LEFT">
-    <app-slider name='closedstoryrate' :value="this.data.closedstoryrate" @change="onFormItemValueChange" :disabled="detailsModel.closedstoryrate.disabled" style=""></app-slider>
+<i-col v-show="detailsModel.formitemex2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
+    <app-form-item name='formitemex2' :itemRules="this.rules.formitemex2" class='' :caption="$t('entities.projectstats.main_form.details.formitemex2')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex2.error" :isEmptyCaption="false" labelPos="LEFT">
+    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom3" :progress="this.data.custom4"/>
 </app-form-item>
 
 </i-col>
@@ -92,9 +155,9 @@ style=""></app-span>
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.finishbugrate.visible" :style="{}"  :lg="{ span: 20, offset: 0 }" :xl="{ span: 20, offset: 0 }">
-    <app-form-item name='finishbugrate' :itemRules="this.rules.finishbugrate" class='' :caption="$t('entities.projectstats.main_form.details.finishbugrate')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.finishbugrate.error" :isEmptyCaption="true" labelPos="LEFT">
-    <app-slider name='finishbugrate' :value="this.data.finishbugrate" @change="onFormItemValueChange" :disabled="detailsModel.finishbugrate.disabled" style=""></app-slider>
+<i-col v-show="detailsModel.formitemex3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
+    <app-form-item name='formitemex3' :itemRules="this.rules.formitemex3" class='' :caption="$t('entities.projectstats.main_form.details.formitemex3')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex3.error" :isEmptyCaption="false" labelPos="LEFT">
+    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom5" :progress="this.data.custom6"/>
 </app-form-item>
 
 </i-col>
@@ -424,14 +487,26 @@ export default class MainBase extends Vue implements ControlInterface {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        custom7: null,
+        custom8: null,
+        formitemex4: null,
+        totalestimate: null,
+        totalconsumed: null,
+        totalleft: null,
         taskcnt: null,
-        donetaskrate: null,
+        custom1: null,
+        custom2: null,
+        formitemex1: null,
         undonetaskcnt: null,
         storycnt: null,
-        closedstoryrate: null,
+        custom3: null,
+        custom4: null,
+        formitemex2: null,
         unclosedstorycnt: null,
         bugcnt: null,
-        finishbugrate: null,
+        custom5: null,
+        custom6: null,
+        formitemex3: null,
         activebugcnt: null,
         id: null,
         projectstats:null,
@@ -518,17 +593,65 @@ export default class MainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
+        custom7: [
+            { type: 'number', message: '任务最初预计总工时 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '任务最初预计总工时 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '任务最初预计总工时 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '任务最初预计总工时 值不能为空', trigger: 'blur' },
+        ],
+        custom8: [
+            { type: 'number', message: '任务消耗总工时 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '任务消耗总工时 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '任务消耗总工时 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '任务消耗总工时 值不能为空', trigger: 'blur' },
+        ],
+        formitemex4: [
+            { type: 'string', message: '已完成 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '已完成 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '已完成 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '已完成 值不能为空', trigger: 'blur' },
+        ],
+        totalestimate: [
+            { type: 'number', message: '预计 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '预计 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '预计 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '预计 值不能为空', trigger: 'blur' },
+        ],
+        totalconsumed: [
+            { type: 'number', message: '消耗 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '消耗 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '消耗 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '消耗 值不能为空', trigger: 'blur' },
+        ],
+        totalleft: [
+            { type: 'number', message: '剩余 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '剩余 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '剩余 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '剩余 值不能为空', trigger: 'blur' },
+        ],
         taskcnt: [
             { type: 'number', message: '总任务 值必须为数值类型', trigger: 'change' },
             { type: 'number', message: '总任务 值必须为数值类型', trigger: 'blur' },
             { required: false, type: 'number', message: '总任务 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: '总任务 值不能为空', trigger: 'blur' },
         ],
-        donetaskrate: [
-            { type: 'number', message: ' 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: ' 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: ' 值不能为空', trigger: 'blur' },
+        custom1: [
+            { type: 'number', message: '任务总数 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '任务总数 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '任务总数 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '任务总数 值不能为空', trigger: 'blur' },
+        ],
+        custom2: [
+            { type: 'number', message: '未完成任务总数 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '未完成任务总数 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '未完成任务总数 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '未完成任务总数 值不能为空', trigger: 'blur' },
+        ],
+        formitemex1: [
+            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
         undonetaskcnt: [
             { type: 'number', message: '未完成 值必须为数值类型', trigger: 'change' },
@@ -542,11 +665,23 @@ export default class MainBase extends Vue implements ControlInterface {
             { required: false, type: 'number', message: '总需求 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: '总需求 值不能为空', trigger: 'blur' },
         ],
-        closedstoryrate: [
-            { type: 'number', message: ' 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: ' 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: ' 值不能为空', trigger: 'blur' },
+        custom3: [
+            { type: 'number', message: '需求总数 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '需求总数 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '需求总数 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '需求总数 值不能为空', trigger: 'blur' },
+        ],
+        custom4: [
+            { type: 'number', message: '未关闭需求总数 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '未关闭需求总数 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '未关闭需求总数 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '未关闭需求总数 值不能为空', trigger: 'blur' },
+        ],
+        formitemex2: [
+            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
         unclosedstorycnt: [
             { type: 'number', message: '未关闭 值必须为数值类型', trigger: 'change' },
@@ -560,11 +695,23 @@ export default class MainBase extends Vue implements ControlInterface {
             { required: false, type: 'number', message: '所有 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: '所有 值不能为空', trigger: 'blur' },
         ],
-        finishbugrate: [
-            { type: 'number', message: ' 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: ' 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: ' 值不能为空', trigger: 'blur' },
+        custom5: [
+            { type: 'number', message: 'Bug总数 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: 'Bug总数 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: 'Bug总数 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: 'Bug总数 值不能为空', trigger: 'blur' },
+        ],
+        custom6: [
+            { type: 'number', message: '未关闭Bug总数 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '未关闭Bug总数 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '未关闭Bug总数 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '未关闭Bug总数 值不能为空', trigger: 'blur' },
+        ],
+        formitemex3: [
+            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
         activebugcnt: [
             { type: 'number', message: '未解决 值必须为数值类型', trigger: 'change' },
@@ -587,6 +734,12 @@ export default class MainBase extends Vue implements ControlInterface {
      * @memberof Main
      */
     public detailsModel: any = {
+        grouppanel6: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel6', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.projectstats.main_form', extractMode: 'ITEM', details: [] } })
+, 
+        grouppanel5: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel5', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.projectstats.main_form', extractMode: 'ITEM', details: [] } })
+, 
+        grouppanel4: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.projectstats.main_form', extractMode: 'ITEM', details: [] } })
+, 
         grouppanel1: new FormGroupPanelModel({ caption: '任务统计', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.projectstats.main_form', extractMode: 'ITEM', details: [] } })
 , 
         grouppanel2: new FormGroupPanelModel({ caption: '需求统计', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.projectstats.main_form', extractMode: 'ITEM', details: [] } })
@@ -611,21 +764,45 @@ export default class MainBase extends Vue implements ControlInterface {
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        custom7: new FormItemModel({ caption: '任务最初预计总工时', detailType: 'FORMITEM', name: 'custom7', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        custom8: new FormItemModel({ caption: '任务消耗总工时', detailType: 'FORMITEM', name: 'custom8', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitemex4: new FormItemModel({ caption: '已完成', detailType: 'FORMITEM', name: 'formitemex4', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
+, 
+        totalestimate: new FormItemModel({ caption: '预计', detailType: 'FORMITEM', name: 'totalestimate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        totalconsumed: new FormItemModel({ caption: '消耗', detailType: 'FORMITEM', name: 'totalconsumed', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        totalleft: new FormItemModel({ caption: '剩余', detailType: 'FORMITEM', name: 'totalleft', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         taskcnt: new FormItemModel({ caption: '总任务', detailType: 'FORMITEM', name: 'taskcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        donetaskrate: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'donetaskrate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+        custom1: new FormItemModel({ caption: '任务总数', detailType: 'FORMITEM', name: 'custom1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        custom2: new FormItemModel({ caption: '未完成任务总数', detailType: 'FORMITEM', name: 'custom2', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitemex1: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         undonetaskcnt: new FormItemModel({ caption: '未完成', detailType: 'FORMITEM', name: 'undonetaskcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         storycnt: new FormItemModel({ caption: '总需求', detailType: 'FORMITEM', name: 'storycnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        closedstoryrate: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'closedstoryrate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+        custom3: new FormItemModel({ caption: '需求总数', detailType: 'FORMITEM', name: 'custom3', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        custom4: new FormItemModel({ caption: '未关闭需求总数', detailType: 'FORMITEM', name: 'custom4', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitemex2: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex2', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         unclosedstorycnt: new FormItemModel({ caption: '未关闭', detailType: 'FORMITEM', name: 'unclosedstorycnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         bugcnt: new FormItemModel({ caption: '所有', detailType: 'FORMITEM', name: 'bugcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        finishbugrate: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'finishbugrate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+        custom5: new FormItemModel({ caption: 'Bug总数', detailType: 'FORMITEM', name: 'custom5', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        custom6: new FormItemModel({ caption: '未关闭Bug总数', detailType: 'FORMITEM', name: 'custom6', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitemex3: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex3', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         activebugcnt: new FormItemModel({ caption: '未解决', detailType: 'FORMITEM', name: 'activebugcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -718,6 +895,78 @@ export default class MainBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 custom7 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.custom7')
+    onCustom7Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'custom7', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 custom8 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.custom8')
+    onCustom8Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'custom8', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitemex4 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.formitemex4')
+    onFormitemex4Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitemex4', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 totalestimate 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.totalestimate')
+    onTotalestimateChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'totalestimate', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 totalconsumed 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.totalconsumed')
+    onTotalconsumedChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'totalconsumed', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 totalleft 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.totalleft')
+    onTotalleftChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'totalleft', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 taskcnt 值
      *
      * @param {*} newVal
@@ -730,15 +979,39 @@ export default class MainBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 donetaskrate 值
+     * 监控表单属性 custom1 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof Main
      */
-    @Watch('data.donetaskrate')
-    onDonetaskrateChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'donetaskrate', newVal: newVal, oldVal: oldVal });
+    @Watch('data.custom1')
+    onCustom1Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'custom1', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 custom2 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.custom2')
+    onCustom2Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'custom2', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitemex1 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.formitemex1')
+    onFormitemex1Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitemex1', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -766,15 +1039,39 @@ export default class MainBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 closedstoryrate 值
+     * 监控表单属性 custom3 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof Main
      */
-    @Watch('data.closedstoryrate')
-    onClosedstoryrateChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'closedstoryrate', newVal: newVal, oldVal: oldVal });
+    @Watch('data.custom3')
+    onCustom3Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'custom3', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 custom4 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.custom4')
+    onCustom4Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'custom4', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitemex2 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.formitemex2')
+    onFormitemex2Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitemex2', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -802,15 +1099,39 @@ export default class MainBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 finishbugrate 值
+     * 监控表单属性 custom5 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof Main
      */
-    @Watch('data.finishbugrate')
-    onFinishbugrateChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'finishbugrate', newVal: newVal, oldVal: oldVal });
+    @Watch('data.custom5')
+    onCustom5Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'custom5', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 custom6 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.custom6')
+    onCustom6Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'custom6', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitemex3 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.formitemex3')
+    onFormitemex3Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitemex3', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -873,6 +1194,21 @@ export default class MainBase extends Vue implements ControlInterface {
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -32,6 +32,9 @@ export default class TaskKanBanModel {
 				name: 'estimate',
 			},
 			{
+				name: 'deadline',
+			},
+			{
 				name: 'srfmajortext',
 				prop: 'name',
 				dataType: 'TEXT',

@@ -87,11 +87,6 @@ export default class MainEditModel {
         dataType: 'PICKUPTEXT',
       },
       {
-        name: 'module',
-        prop: 'module',
-        dataType: 'PICKUP',
-      },
-      {
         name: 'storyname',
         prop: 'storyname',
         dataType: 'PICKUPTEXT',
@@ -200,6 +195,11 @@ export default class MainEditModel {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
+      },
+      {
+        name: 'module',
+        prop: 'module',
+        dataType: 'PICKUP',
       },
       {
         name: 'task',

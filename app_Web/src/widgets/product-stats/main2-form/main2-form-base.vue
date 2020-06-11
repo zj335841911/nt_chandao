@@ -145,9 +145,9 @@ style=""></app-span>
 <i-col v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 16, offset: 0 }" :xl="{ span: 16, offset: 0 }">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel3')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
-        <i-col v-show="detailsModel.unendproductplanrate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='unendproductplanrate' :itemRules="this.rules.unendproductplanrate" class='' :caption="$t('entities.productstats.main2_form.details.unendproductplanrate')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.unendproductplanrate.error" :isEmptyCaption="false" labelPos="NONE">
-    <app-slider name='unendproductplanrate' :value="this.data.unendproductplanrate" @change="onFormItemValueChange" :disabled="detailsModel.unendproductplanrate.disabled" style=""></app-slider>
+        <i-col v-show="detailsModel.formitemex1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='formitemex1' :itemRules="this.rules.formitemex1" class='' :caption="$t('entities.productstats.main2_form.details.formitemex1')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.formitemex1.error" :isEmptyCaption="false" labelPos="NONE">
+    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom1" :progress="this.data.custom2"/>
 </app-form-item>
 
 </i-col>
@@ -197,9 +197,9 @@ style=""></app-span>
 <i-col v-show="detailsModel.grouppanel4.visible" :style="{}"  :lg="{ span: 16, offset: 0 }" :xl="{ span: 16, offset: 0 }">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel4.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel4')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
-        <i-col v-show="detailsModel.undoneresprojectrate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='undoneresprojectrate' :itemRules="this.rules.undoneresprojectrate" class='' :caption="$t('entities.productstats.main2_form.details.undoneresprojectrate')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.undoneresprojectrate.error" :isEmptyCaption="false" labelPos="NONE">
-    <app-slider name='undoneresprojectrate' :value="this.data.undoneresprojectrate" @change="onFormItemValueChange" :disabled="detailsModel.undoneresprojectrate.disabled" style=""></app-slider>
+        <i-col v-show="detailsModel.formitemex2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='formitemex2' :itemRules="this.rules.formitemex2" class='' :caption="$t('entities.productstats.main2_form.details.formitemex2')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.formitemex2.error" :isEmptyCaption="false" labelPos="NONE">
+    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom3" :progress="this.data.custom4"/>
 </app-form-item>
 
 </i-col>
@@ -249,9 +249,9 @@ style=""></app-span>
 <i-col v-show="detailsModel.grouppanel5.visible" :style="{}"  :lg="{ span: 16, offset: 0 }" :xl="{ span: 16, offset: 0 }">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel5.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel5')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
-        <i-col v-show="detailsModel.normalreleaserate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='normalreleaserate' :itemRules="this.rules.normalreleaserate" class='' :caption="$t('entities.productstats.main2_form.details.normalreleaserate')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.normalreleaserate.error" :isEmptyCaption="false" labelPos="NONE">
-    <app-slider name='normalreleaserate' :value="this.data.normalreleaserate" @change="onFormItemValueChange" :disabled="detailsModel.normalreleaserate.disabled" style=""></app-slider>
+        <i-col v-show="detailsModel.formitemex3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='formitemex3' :itemRules="this.rules.formitemex3" class='' :caption="$t('entities.productstats.main2_form.details.formitemex3')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.formitemex3.error" :isEmptyCaption="false" labelPos="NONE">
+    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom5" :progress="this.data.custom6"/>
 </app-form-item>
 
 </i-col>
@@ -752,13 +752,19 @@ export default class Main2Base extends Vue implements ControlInterface {
         testingstorycnt: null,
         releasedstorycnt: null,
         productplancnt: null,
-        unendproductplanrate: null,
+        custom1: null,
+        custom2: null,
+        formitemex1: null,
         unendproductplancnt: null,
         resprojectcnt: null,
-        undoneresprojectrate: null,
+        custom3: null,
+        custom4: null,
+        formitemex2: null,
         undoneresprojectcnt: null,
         releasecnt: null,
-        normalreleaserate: null,
+        custom5: null,
+        custom6: null,
+        formitemex3: null,
         normalreleasecnt: null,
         id: null,
         productstats:null,
@@ -887,11 +893,23 @@ export default class Main2Base extends Vue implements ControlInterface {
             { required: false, type: 'number', message: '所有计划 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: '所有计划 值不能为空', trigger: 'blur' },
         ],
-        unendproductplanrate: [
-            { type: 'number', message: '剩余计划率 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '剩余计划率 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '剩余计划率 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '剩余计划率 值不能为空', trigger: 'blur' },
+        custom1: [
+            { type: 'number', message: '计划总数 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '计划总数 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '计划总数 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '计划总数 值不能为空', trigger: 'blur' },
+        ],
+        custom2: [
+            { type: 'number', message: '未过期计划数 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '未过期计划数 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '未过期计划数 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '未过期计划数 值不能为空', trigger: 'blur' },
+        ],
+        formitemex1: [
+            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
         unendproductplancnt: [
             { type: 'number', message: '未过期 值必须为数值类型', trigger: 'change' },
@@ -905,11 +923,23 @@ export default class Main2Base extends Vue implements ControlInterface {
             { required: false, type: 'number', message: '所有项目 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: '所有项目 值不能为空', trigger: 'blur' },
         ],
-        undoneresprojectrate: [
-            { type: 'number', message: '进行项目率 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '进行项目率 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '进行项目率 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '进行项目率 值不能为空', trigger: 'blur' },
+        custom3: [
+            { type: 'number', message: '关联项目数 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '关联项目数 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '关联项目数 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '关联项目数 值不能为空', trigger: 'blur' },
+        ],
+        custom4: [
+            { type: 'number', message: '未完成关联项目数 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '未完成关联项目数 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '未完成关联项目数 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '未完成关联项目数 值不能为空', trigger: 'blur' },
+        ],
+        formitemex2: [
+            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
         undoneresprojectcnt: [
             { type: 'number', message: '进行中 值必须为数值类型', trigger: 'change' },
@@ -923,11 +953,23 @@ export default class Main2Base extends Vue implements ControlInterface {
             { required: false, type: 'number', message: '所有发布 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: '所有发布 值不能为空', trigger: 'blur' },
         ],
-        normalreleaserate: [
-            { type: 'number', message: '维护发布率 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '维护发布率 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '维护发布率 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '维护发布率 值不能为空', trigger: 'blur' },
+        custom5: [
+            { type: 'number', message: '发布总数 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '发布总数 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '发布总数 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '发布总数 值不能为空', trigger: 'blur' },
+        ],
+        custom6: [
+            { type: 'number', message: '维护中发布数 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '维护中发布数 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '维护中发布数 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '维护中发布数 值不能为空', trigger: 'blur' },
+        ],
+        formitemex3: [
+            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
         normalreleasecnt: [
             { type: 'number', message: '维护中 值必须为数值类型', trigger: 'change' },
@@ -1021,19 +1063,31 @@ export default class Main2Base extends Vue implements ControlInterface {
 , 
         productplancnt: new FormItemModel({ caption: '所有计划', detailType: 'FORMITEM', name: 'productplancnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        unendproductplanrate: new FormItemModel({ caption: '剩余计划率', detailType: 'FORMITEM', name: 'unendproductplanrate', visible: false, isShowCaption: false, form: this, disabled: false, enableCond: 0 })
+        custom1: new FormItemModel({ caption: '计划总数', detailType: 'FORMITEM', name: 'custom1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        custom2: new FormItemModel({ caption: '未过期计划数', detailType: 'FORMITEM', name: 'custom2', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitemex1: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex1', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
         unendproductplancnt: new FormItemModel({ caption: '未过期', detailType: 'FORMITEM', name: 'unendproductplancnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         resprojectcnt: new FormItemModel({ caption: '所有项目', detailType: 'FORMITEM', name: 'resprojectcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        undoneresprojectrate: new FormItemModel({ caption: '进行项目率', detailType: 'FORMITEM', name: 'undoneresprojectrate', visible: false, isShowCaption: false, form: this, disabled: false, enableCond: 0 })
+        custom3: new FormItemModel({ caption: '关联项目数', detailType: 'FORMITEM', name: 'custom3', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        custom4: new FormItemModel({ caption: '未完成关联项目数', detailType: 'FORMITEM', name: 'custom4', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitemex2: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex2', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
         undoneresprojectcnt: new FormItemModel({ caption: '进行中', detailType: 'FORMITEM', name: 'undoneresprojectcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         releasecnt: new FormItemModel({ caption: '所有发布', detailType: 'FORMITEM', name: 'releasecnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        normalreleaserate: new FormItemModel({ caption: '维护发布率', detailType: 'FORMITEM', name: 'normalreleaserate', visible: false, isShowCaption: false, form: this, disabled: false, enableCond: 0 })
+        custom5: new FormItemModel({ caption: '发布总数', detailType: 'FORMITEM', name: 'custom5', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        custom6: new FormItemModel({ caption: '维护中发布数', detailType: 'FORMITEM', name: 'custom6', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitemex3: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex3', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
         normalreleasecnt: new FormItemModel({ caption: '维护中', detailType: 'FORMITEM', name: 'normalreleasecnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1210,15 +1264,39 @@ export default class Main2Base extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 unendproductplanrate 值
+     * 监控表单属性 custom1 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof Main2
      */
-    @Watch('data.unendproductplanrate')
-    onUnendproductplanrateChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'unendproductplanrate', newVal: newVal, oldVal: oldVal });
+    @Watch('data.custom1')
+    onCustom1Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'custom1', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 custom2 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main2
+     */
+    @Watch('data.custom2')
+    onCustom2Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'custom2', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitemex1 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main2
+     */
+    @Watch('data.formitemex1')
+    onFormitemex1Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitemex1', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1246,15 +1324,39 @@ export default class Main2Base extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 undoneresprojectrate 值
+     * 监控表单属性 custom3 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof Main2
      */
-    @Watch('data.undoneresprojectrate')
-    onUndoneresprojectrateChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'undoneresprojectrate', newVal: newVal, oldVal: oldVal });
+    @Watch('data.custom3')
+    onCustom3Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'custom3', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 custom4 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main2
+     */
+    @Watch('data.custom4')
+    onCustom4Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'custom4', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitemex2 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main2
+     */
+    @Watch('data.formitemex2')
+    onFormitemex2Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitemex2', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1282,15 +1384,39 @@ export default class Main2Base extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 normalreleaserate 值
+     * 监控表单属性 custom5 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof Main2
      */
-    @Watch('data.normalreleaserate')
-    onNormalreleaserateChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'normalreleaserate', newVal: newVal, oldVal: oldVal });
+    @Watch('data.custom5')
+    onCustom5Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'custom5', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 custom6 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main2
+     */
+    @Watch('data.custom6')
+    onCustom6Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'custom6', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitemex3 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main2
+     */
+    @Watch('data.formitemex3')
+    onFormitemex3Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitemex3', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1434,36 +1560,18 @@ export default class Main2Base extends Vue implements ControlInterface {
 
 
 
-        if (Object.is(name, '') || Object.is(name, 'productplancnt')) {
-            let ret = false;
-            const _productplancnt = this.data.productplancnt;
-            if (this.$verify.testCond(_productplancnt, 'NOTEQ', '0')) {
-                ret = true;
-            }
-            this.detailsModel.unendproductplanrate.setVisible(ret);
-        }
 
 
 
-        if (Object.is(name, '') || Object.is(name, 'resprojectcnt')) {
-            let ret = false;
-            const _resprojectcnt = this.data.resprojectcnt;
-            if (this.$verify.testCond(_resprojectcnt, 'NOTEQ', '0')) {
-                ret = true;
-            }
-            this.detailsModel.undoneresprojectrate.setVisible(ret);
-        }
 
 
 
-        if (Object.is(name, '') || Object.is(name, 'releasecnt')) {
-            let ret = false;
-            const _releasecnt = this.data.releasecnt;
-            if (this.$verify.testCond(_releasecnt, 'NOTEQ', '0')) {
-                ret = true;
-            }
-            this.detailsModel.normalreleaserate.setVisible(ret);
-        }
+
+
+
+
+
+
 
 
 

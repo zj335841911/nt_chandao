@@ -290,6 +290,13 @@ export default class TaskTreeExpViewtreeexpbarBase extends Vue implements Contro
         if (!expmode) {
             expmode = '';
         }
+        if (Object.is(expmode, 'PROJECTMODULE')) {
+            return {  
+                viewname: 'task-main-grid-view', 
+                parentdata: {"srfparentdefname":"n_path_like"},
+                deKeyField:'task'
+			};
+        }
         if (Object.is(expmode, 'ROOT_NOBRANCH')) {
             return {  
                 viewname: 'task-main-grid-view', 

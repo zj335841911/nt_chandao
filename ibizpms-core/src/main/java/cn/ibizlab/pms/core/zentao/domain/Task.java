@@ -323,14 +323,6 @@ public class Task extends EntityMP implements Serializable {
     @JsonProperty("project")
     private BigInteger project;
     /**
-     * 所属模块
-     */
-    @DEField(defaultValue = "0")
-    @TableField(value = "module")
-    @JSONField(name = "module")
-    @JsonProperty("module")
-    private BigInteger module;
-    /**
      * 相关需求
      */
     @DEField(defaultValue = "0")
@@ -360,6 +352,29 @@ public class Task extends EntityMP implements Serializable {
     @JSONField(name = "duration")
     @JsonProperty("duration")
     private String duration;
+    /**
+     * id
+     */
+    @DEField(defaultValue = "0")
+    @TableField(value = "module")
+    @JSONField(name = "module")
+    @JsonProperty("module")
+    private BigInteger module;
+    /**
+     * 模块路径
+     */
+    @TableField(exist = false)
+    @JSONField(name = "path")
+    @JsonProperty("path")
+    private String path;
+
+    /**
+     * 
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private cn.ibizlab.pms.core.ibiz.domain.ProjectModule projectmodule;
 
     /**
      * 
@@ -368,14 +383,6 @@ public class Task extends EntityMP implements Serializable {
     @JSONField(serialize = false)
     @TableField(exist = false)
     private cn.ibizlab.pms.core.zentao.domain.Bug ztfrombug;
-
-    /**
-     * 
-     */
-    @JsonIgnore
-    @JSONField(serialize = false)
-    @TableField(exist = false)
-    private cn.ibizlab.pms.core.zentao.domain.Module ztmodule;
 
     /**
      * 
@@ -593,13 +600,6 @@ public class Task extends EntityMP implements Serializable {
         this.modify("project",project);
     }
     /**
-     * 设置 [所属模块]
-     */
-    public void setModule(BigInteger module){
-        this.module = module ;
-        this.modify("module",module);
-    }
-    /**
      * 设置 [相关需求]
      */
     public void setStory(BigInteger story){
@@ -619,6 +619,13 @@ public class Task extends EntityMP implements Serializable {
     public void setFrombug(BigInteger frombug){
         this.frombug = frombug ;
         this.modify("frombug",frombug);
+    }
+    /**
+     * 设置 [id]
+     */
+    public void setModule(BigInteger module){
+        this.module = module ;
+        this.modify("module",module);
     }
 
 }

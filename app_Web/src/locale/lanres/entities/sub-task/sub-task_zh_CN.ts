@@ -38,11 +38,12 @@ export default {
     productname: '产品',
     parentname: '父任务',
     project: '所属项目',
-    module: '所属模块',
     story: '相关需求',
     parent: '父任务',
     frombug: '来源Bug',
     duration: '持续时间',
+    module: 'id',
+    path: '模块路径',
   },
 	views: {
 		subtasknewview: {

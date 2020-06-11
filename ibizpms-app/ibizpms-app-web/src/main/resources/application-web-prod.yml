@@ -107,6 +107,10 @@ zuul:
       path: /bugs/**
       serviceId: pms-webapi
       stripPrefix: false
+    ibz_projectmodule:
+      path: /projectmodules/**
+      serviceId: pms-webapi
+      stripPrefix: false
     ibz_doc:
       path: /ibzdocs/**
       serviceId: pms-webapi

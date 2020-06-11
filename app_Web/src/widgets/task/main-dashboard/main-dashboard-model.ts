@@ -130,9 +130,6 @@ export default class MainModel {
         name: 'project',
       },
       {
-        name: 'module',
-      },
-      {
         name: 'story',
       },
       {
@@ -143,6 +140,12 @@ export default class MainModel {
       },
       {
         name: 'duration',
+      },
+      {
+        name: 'module',
+      },
+      {
+        name: 'path',
       },
     ]
   }

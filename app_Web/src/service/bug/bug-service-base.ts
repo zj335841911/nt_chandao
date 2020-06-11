@@ -51,6 +51,9 @@ export default class BugServiceBase extends EntityService {
         if(context.product && context.productplan && context.bug){
             return Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}/select`,isloading);
         }
+        if(context.project && context.bug){
+            return Http.getInstance().get(`/projects/${context.project}/bugs/${context.bug}/select`,isloading);
+        }
         if(context.productplan && context.bug){
             return Http.getInstance().get(`/productplans/${context.productplan}/bugs/${context.bug}/select`,isloading);
         }
@@ -72,6 +75,9 @@ export default class BugServiceBase extends EntityService {
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan && context.bug){
             return Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}`,isloading);
+        }
+        if(context.project && context.bug){
+            return Http.getInstance().get(`/projects/${context.project}/bugs/${context.bug}`,isloading);
         }
         if(context.productplan && context.bug){
             return Http.getInstance().get(`/productplans/${context.productplan}/bugs/${context.bug}`,isloading);
@@ -97,6 +103,9 @@ export default class BugServiceBase extends EntityService {
         if(context.product && context.productplan && true){
             return Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/bugs/getdraft`,isloading);
         }
+        if(context.project && true){
+            return Http.getInstance().get(`/projects/${context.project}/bugs/getdraft`,isloading);
+        }
         if(context.productplan && true){
             return Http.getInstance().get(`/productplans/${context.productplan}/bugs/getdraft`,isloading);
         }
@@ -121,6 +130,9 @@ export default class BugServiceBase extends EntityService {
         if(context.product && context.productplan && context.bug){
             return Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}/checkkey`,data,isloading);
         }
+        if(context.project && context.bug){
+            return Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/checkkey`,data,isloading);
+        }
         if(context.productplan && context.bug){
             return Http.getInstance().post(`/productplans/${context.productplan}/bugs/${context.bug}/checkkey`,data,isloading);
         }
@@ -142,6 +154,9 @@ export default class BugServiceBase extends EntityService {
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan && context.bug){
             return Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}/save`,data,isloading);
+        }
+        if(context.project && context.bug){
+            return Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/save`,data,isloading);
         }
         if(context.productplan && context.bug){
             return Http.getInstance().post(`/productplans/${context.productplan}/bugs/${context.bug}/save`,data,isloading);
@@ -173,6 +188,15 @@ export default class BugServiceBase extends EntityService {
                 delete data.srffrontuf;
             }
             return Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/bugs`,data,isloading);
+        }
+        if(context.project && true){
+            if(!data.srffrontuf || data.srffrontuf !== "1"){
+                data[this.APPDEKEY] = null;
+            }
+            if(data.srffrontuf){
+                delete data.srffrontuf;
+            }
+            return Http.getInstance().post(`/projects/${context.project}/bugs`,data,isloading);
         }
         if(context.productplan && true){
             if(!data.srffrontuf || data.srffrontuf !== "1"){
@@ -218,6 +242,9 @@ export default class BugServiceBase extends EntityService {
         if(context.product && context.productplan && context.bug){
             return Http.getInstance().delete(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}`,isloading);
         }
+        if(context.project && context.bug){
+            return Http.getInstance().delete(`/projects/${context.project}/bugs/${context.bug}`,isloading);
+        }
         if(context.productplan && context.bug){
             return Http.getInstance().delete(`/productplans/${context.productplan}/bugs/${context.bug}`,isloading);
         }
@@ -240,6 +267,9 @@ export default class BugServiceBase extends EntityService {
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan && context.bug){
             return Http.getInstance().put(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}`,data,isloading);
+        }
+        if(context.project && context.bug){
+            return Http.getInstance().put(`/projects/${context.project}/bugs/${context.bug}`,data,isloading);
         }
         if(context.productplan && context.bug){
             return Http.getInstance().put(`/productplans/${context.productplan}/bugs/${context.bug}`,data,isloading);
@@ -267,6 +297,10 @@ export default class BugServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/bugs/fetchreleasebugs`,tempData,isloading);
         }
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/projects/${context.project}/bugs/fetchreleasebugs`,tempData,isloading);
+        }
         if(context.productplan && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/productplans/${context.productplan}/bugs/fetchreleasebugs`,tempData,isloading);
@@ -293,6 +327,10 @@ export default class BugServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/bugs/fetchreleaseleftbugs`,tempData,isloading);
         }
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/projects/${context.project}/bugs/fetchreleaseleftbugs`,tempData,isloading);
+        }
         if(context.productplan && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/productplans/${context.productplan}/bugs/fetchreleaseleftbugs`,tempData,isloading);
@@ -318,6 +356,10 @@ export default class BugServiceBase extends EntityService {
         if(context.product && context.productplan && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/bugs/fetchdefault`,tempData,isloading);
+        }
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/projects/${context.project}/bugs/fetchdefault`,tempData,isloading);
         }
         if(context.productplan && true){
             let tempData:any = JSON.parse(JSON.stringify(data));

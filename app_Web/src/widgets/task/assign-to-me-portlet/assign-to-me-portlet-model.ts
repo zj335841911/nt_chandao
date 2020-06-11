@@ -130,9 +130,6 @@ export default class AssignToMeModel {
         name: 'project',
       },
       {
-        name: 'module',
-      },
-      {
         name: 'story',
       },
       {
@@ -143,6 +140,12 @@ export default class AssignToMeModel {
       },
       {
         name: 'duration',
+      },
+      {
+        name: 'module',
+      },
+      {
+        name: 'path',
       },
     ]
   }

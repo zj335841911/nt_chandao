@@ -116,7 +116,76 @@ v-if="isInit.tabviewpanel4"
     @closeview="closeView($event)">
 </view_tabviewpanel4>
         </tab-pane>
-        <tab-pane :index="5" name='tabviewpanel3' tab='maintabexpviewtabexppanel' class=''  
+        <tab-pane :index="5" name='tabviewpanel7' tab='maintabexpviewtabexppanel' class=''  
+            :label="(h) =>{
+                return h('div', [
+                    h('span', '需求'),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel7 
+    :viewState="viewState"  
+    :viewparams="viewparams" 
+    :context="context" 
+v-if="isInit.tabviewpanel7"
+@viewpanelDatasChange = "tabViewPanelDatasChange"
+    name="tabviewpanel7"  
+    ref='tabviewpanel7' 
+    @closeview="closeView($event)">
+</view_tabviewpanel7>
+        </tab-pane>
+        <tab-pane :index="6" name='tabviewpanel8' tab='maintabexpviewtabexppanel' class=''  
+            :label="(h) =>{
+                return h('div', [
+                    h('span', 'Bug'),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel8 
+    :viewState="viewState"  
+    :viewparams="viewparams" 
+    :context="context" 
+v-if="isInit.tabviewpanel8"
+@viewpanelDatasChange = "tabViewPanelDatasChange"
+    name="tabviewpanel8"  
+    ref='tabviewpanel8' 
+    @closeview="closeView($event)">
+</view_tabviewpanel8>
+        </tab-pane>
+        <tab-pane :index="7" name='tabviewpanel9' tab='maintabexpviewtabexppanel' class=''  
+            :label="(h) =>{
+                return h('div', [
+                    h('span', '版本'),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel9 
+    :viewState="viewState"  
+    :viewparams="viewparams" 
+    :context="context" 
+v-if="isInit.tabviewpanel9"
+@viewpanelDatasChange = "tabViewPanelDatasChange"
+    name="tabviewpanel9"  
+    ref='tabviewpanel9' 
+    @closeview="closeView($event)">
+</view_tabviewpanel9>
+        </tab-pane>
+        <tab-pane :index="8" name='tabviewpanel3' tab='maintabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '动态'),
@@ -278,6 +347,9 @@ export default class MainTabExpViewtabexppanelBase extends Vue implements Contro
         tabviewpanel6:  false ,
         tabviewpanel5:  false ,
         tabviewpanel4:  false ,
+        tabviewpanel7:  false ,
+        tabviewpanel8:  false ,
+        tabviewpanel9:  false ,
         tabviewpanel3:  false ,
     }
 

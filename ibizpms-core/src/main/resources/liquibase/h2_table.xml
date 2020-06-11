@@ -42,13 +42,16 @@
     <!--输出实体[ZT_USERQUERY]数据结构 -->
 
 
-    <!--输出实体[ZT_REPOFILES]数据结构 -->
-
-
     <!--输出实体[ZT_TESTRESULT]数据结构 -->
 
 
+    <!--输出实体[ZT_REPOFILES]数据结构 -->
+
+
     <!--输出实体[ZT_REPOHISTORY]数据结构 -->
+
+
+    <!--输出实体[IBZ_PROJECTMODULE]数据结构 -->
 
 
 
@@ -238,9 +241,10 @@
         <!--输出实体[ZT_FILE]外键关系 -->
         <!--输出实体[ZT_IM_MESSAGE]外键关系 -->
         <!--输出实体[ZT_USERQUERY]外键关系 -->
-        <!--输出实体[ZT_REPOFILES]外键关系 -->
         <!--输出实体[ZT_TESTRESULT]外键关系 -->
+        <!--输出实体[ZT_REPOFILES]外键关系 -->
         <!--输出实体[ZT_REPOHISTORY]外键关系 -->
+        <!--输出实体[IBZ_PROJECTMODULE]外键关系 -->
         <!--输出实体[ZT_USERVIEW]外键关系 -->
         <!--输出实体[ZT_USERCONTACT]外键关系 -->
         <!--输出实体[ZT_EFFORT]外键关系 -->

@@ -74,6 +74,10 @@ export default {
 			caption: "需求",
       title: '需求',
 		},
+		curprojectgridview: {
+			caption: "需求",
+      title: '需求',
+		},
 		mainview_editmode: {
 			caption: "需求",
       title: '需求',
@@ -486,6 +490,20 @@ export default {
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
+		},
+	},
+	curprojectgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "New",
+			tip: "New",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "Edit",
+			tip: "Edit {0}",
 		},
 	},
 	releasesubgridviewtoolbar_toolbar: {

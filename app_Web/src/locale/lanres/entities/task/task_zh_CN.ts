@@ -38,11 +38,12 @@ export default {
     productname: '产品',
     parentname: '父任务',
     project: '所属项目',
-    module: '所属模块',
     story: '相关需求',
     parent: '父任务',
     frombug: '来源Bug',
     duration: '持续时间',
+    module: 'id',
+    path: '模块路径',
   },
 	views: {
 		assigntaskview: {
@@ -129,7 +130,6 @@ export default {
 			projectname: '所属项目', 
 			project: '所属项目', 
 			type: '任务类型', 
-			module: '所属模块', 
 			modulename: '所属模块', 
 			formitem: '所有模块', 
 			assignedto: '指派给', 
@@ -143,6 +143,7 @@ export default {
 			formitemex1: '日程规划', 
 			mailto: '抄送给', 
 			id: '编号', 
+			module: 'id', 
 		},
 		uiactions: {
 		},
@@ -266,7 +267,6 @@ export default {
 			projectname: '所属项目', 
 			project: '所属项目', 
 			modulename: '所属模块', 
-			module: '所属模块', 
 			storyname: '相关需求', 
 			story: '相关需求', 
 			parentname: '父任务', 
@@ -289,6 +289,7 @@ export default {
 			closedreason: '关闭原因', 
 			closeddate: '关闭时间', 
 			id: '编号', 
+			module: 'id', 
 		},
 		uiactions: {
 		},

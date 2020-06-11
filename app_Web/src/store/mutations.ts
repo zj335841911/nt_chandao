@@ -101,6 +101,9 @@ const navIgnoreParameters: RegExp = new RegExp(/(srftabactivate|srftreeexpactiva
  * @returns {number}
  */
 function findPageListIndex(list: any[], page: any): number {
+    if (page === undefined || page === null) {
+        return -1;
+    }
     return list.findIndex((item: any) => {
         // 基本路径是否一致
         if (Object.is(item.path, page.path)) {
@@ -232,7 +235,8 @@ export const setCurPageCaption = (state: any, { route, caption, info }: { route:
  */
 export const addCurPageViewtag = (state: any, { route, viewtag }: { route: any, viewtag: string }) => {
     const index = findPageListIndex(state.pageTagList, route);
-    if (index >= 0) {
+    
+    if (index >= 0 && Object.isExtensible(state.pageTagList[index])) {
         state.pageTagList[index].viewtag = viewtag;
     }
 }

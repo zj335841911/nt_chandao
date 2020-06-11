@@ -139,13 +139,6 @@ public class TaskSearchContext extends QueryWrapperContext<Task> {
             this.getSearchCond().eq("project", n_project_eq);
         }
     }
-	private BigInteger n_module_eq;//[所属模块]
-	public void setN_module_eq(BigInteger n_module_eq) {
-        this.n_module_eq = n_module_eq;
-        if(!ObjectUtils.isEmpty(this.n_module_eq)){
-            this.getSearchCond().eq("module", n_module_eq);
-        }
-    }
 	private BigInteger n_story_eq;//[相关需求]
 	public void setN_story_eq(BigInteger n_story_eq) {
         this.n_story_eq = n_story_eq;
@@ -165,6 +158,20 @@ public class TaskSearchContext extends QueryWrapperContext<Task> {
         this.n_frombug_eq = n_frombug_eq;
         if(!ObjectUtils.isEmpty(this.n_frombug_eq)){
             this.getSearchCond().eq("frombug", n_frombug_eq);
+        }
+    }
+	private BigInteger n_module_eq;//[id]
+	public void setN_module_eq(BigInteger n_module_eq) {
+        this.n_module_eq = n_module_eq;
+        if(!ObjectUtils.isEmpty(this.n_module_eq)){
+            this.getSearchCond().eq("module", n_module_eq);
+        }
+    }
+	private String n_path_like;//[模块路径]
+	public void setN_path_like(String n_path_like) {
+        this.n_path_like = n_path_like;
+        if(!ObjectUtils.isEmpty(this.n_path_like)){
+            this.getSearchCond().like("path", n_path_like);
         }
     }
 

@@ -26,10 +26,13 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface ITaskService extends IService<Task>{
 
     Task getDraft(Task et) ;
+    Task start(Task et) ;
+    Task assignTo(Task et) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
     boolean update(Task et) ;
     void updateBatch(List<Task> list) ;
+    Task deleteEstimate(Task et) ;
     boolean save(Task et) ;
     void saveBatch(List<Task> list) ;
     Task get(BigInteger key) ;
@@ -39,10 +42,10 @@ public interface ITaskService extends IService<Task>{
     Page<Task> searchRootTask(TaskSearchContext context) ;
     Page<HashMap> searchTypeGroup(TaskSearchContext context) ;
     Page<Task> searchDefault(TaskSearchContext context) ;
-    List<Task> selectByFrombug(BigInteger id) ;
-    void removeByFrombug(BigInteger id) ;
     List<Task> selectByModule(BigInteger id) ;
     void removeByModule(BigInteger id) ;
+    List<Task> selectByFrombug(BigInteger id) ;
+    void removeByFrombug(BigInteger id) ;
     List<Task> selectByProject(BigInteger id) ;
     void removeByProject(BigInteger id) ;
     List<Task> selectByStory(BigInteger id) ;

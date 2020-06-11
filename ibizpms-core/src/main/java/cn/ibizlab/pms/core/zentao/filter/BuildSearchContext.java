@@ -55,6 +55,20 @@ public class BuildSearchContext extends QueryWrapperContext<Build> {
             this.getSearchCond().eq("project", n_project_eq);
         }
     }
+	private String n_productname_eq;//[产品名称]
+	public void setN_productname_eq(String n_productname_eq) {
+        this.n_productname_eq = n_productname_eq;
+        if(!ObjectUtils.isEmpty(this.n_productname_eq)){
+            this.getSearchCond().eq("productname", n_productname_eq);
+        }
+    }
+	private String n_productname_like;//[产品名称]
+	public void setN_productname_like(String n_productname_like) {
+        this.n_productname_like = n_productname_like;
+        if(!ObjectUtils.isEmpty(this.n_productname_like)){
+            this.getSearchCond().like("productname", n_productname_like);
+        }
+    }
 
     /**
 	 * 启用快速搜索
