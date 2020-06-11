@@ -64,8 +64,8 @@ public class ProjectModule extends EntityMP implements Serializable {
     /**
      * 逻辑删除标志
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "1" , logicdelval="0")
-    @TableLogic(value= "1",delval="0")
+    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
+    @TableLogic(value= "0",delval="1")
     @TableField(value = "deleted")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
