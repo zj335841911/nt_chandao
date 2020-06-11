@@ -86,9 +86,17 @@ export default class Main2Model {
         dataType: 'INT',
       },
       {
-        name: 'unendproductplanrate',
-        prop: 'unendproductplanrate',
-        dataType: 'FLOAT',
+        name: 'total',
+        prop: 'productplancnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'progress',
+        prop: 'unendproductplancnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'formitemex1',
       },
       {
         name: 'unendproductplancnt',

@@ -12,16 +12,16 @@
     <resultMap id="TaskResultMap" type="cn.ibizlab.pms.core.zentao.domain.Task" autoMapping="true">
         <id property="id" column="id" /><!--主键字段映射-->
 		<result property="project" column="project" />
-		<result property="module" column="module" />
 		<result property="story" column="story" />
 		<result property="parent" column="parent" />
 		<result property="frombug" column="frombug" />
+		<result property="module" column="module" />
             
 		
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
-		<association property="ztfrombug" javaType="cn.ibizlab.pms.core.zentao.domain.Bug" column="frombug" select="cn.ibizlab.pms.core.zentao.mapper.BugMapper.selectById" fetchType="lazy"></association>
+		<association property="projectmodule" javaType="cn.ibizlab.pms.core.ibiz.domain.ProjectModule" column="module" select="cn.ibizlab.pms.core.ibiz.mapper.ProjectModuleMapper.selectById" fetchType="lazy"></association>
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
-		<association property="ztmodule" javaType="cn.ibizlab.pms.core.zentao.domain.Module" column="module" select="cn.ibizlab.pms.core.zentao.mapper.ModuleMapper.selectById" fetchType="lazy"></association>
+		<association property="ztfrombug" javaType="cn.ibizlab.pms.core.zentao.domain.Bug" column="frombug" select="cn.ibizlab.pms.core.zentao.mapper.BugMapper.selectById" fetchType="lazy"></association>
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
 		<association property="ztproject" javaType="cn.ibizlab.pms.core.zentao.domain.Project" column="project" select="cn.ibizlab.pms.core.zentao.mapper.ProjectMapper.selectById" fetchType="lazy"></association>
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
@@ -30,19 +30,19 @@
 		<association property="ztparent" javaType="cn.ibizlab.pms.core.zentao.domain.Task" column="parent" select="cn.ibizlab.pms.core.zentao.mapper.TaskMapper.selectById" fetchType="lazy"></association>
     </resultMap>
 
+	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_TASK_IBZ_PROJECTMODULE_MODULE] -->
+	 <select id="selectByModule" resultMap="TaskResultMap">
+         select t1.* from (
+                <include refid="Default" />
+         ) t1
+         where  module=#{id}
+     </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_TASK_ZT_BUG_FROMBUG] -->
 	 <select id="selectByFrombug" resultMap="TaskResultMap">
          select t1.* from (
                 <include refid="Default" />
          ) t1
          where  frombug=#{id}
-     </select>
-	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_TASK_ZT_MODULE_MODULE] -->
-	 <select id="selectByModule" resultMap="TaskResultMap">
-         select t1.* from (
-                <include refid="Default" />
-         ) t1
-         where  module=#{id}
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_TASK_ZT_PROJECT_PROJECT] -->
 	 <select id="selectByProject" resultMap="TaskResultMap">

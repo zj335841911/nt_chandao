@@ -24,6 +24,7 @@ import build_en_US from '@locale/lanres/entities/build/build_en_US';
 import testtask_en_US from '@locale/lanres/entities/test-task/test-task_en_US';
 import projectstats_en_US from '@locale/lanres/entities/project-stats/project-stats_en_US';
 import bug_en_US from '@locale/lanres/entities/bug/bug_en_US';
+import projectmodule_en_US from '@locale/lanres/entities/project-module/project-module_en_US';
 import ibzdoc_en_US from '@locale/lanres/entities/ibz-doc/ibz-doc_en_US';
 import release_en_US from '@locale/lanres/entities/release/release_en_US';
 import components_en_US from '@locale/lanres/components/components_en_US';
@@ -137,6 +138,7 @@ export default {
         testtask: testtask_en_US,
         projectstats: projectstats_en_US,
         bug: bug_en_US,
+        projectmodule: projectmodule_en_US,
         ibzdoc: ibzdoc_en_US,
         release: release_en_US,
     },

@@ -3,7 +3,7 @@ import ControlService from '@/widgets/control-service';
 import TaskService from '@/service/task/task-service';
 import MainEditModel from './main-edit-form-model';
 import ProjectService from '@/service/project/project-service';
-import ModuleService from '@/service/module/module-service';
+import ProjectModuleService from '@/service/project-module/project-module-service';
 import StoryService from '@/service/story/story-service';
 
 
@@ -53,12 +53,12 @@ export default class MainEditService extends ControlService {
     public projectService: ProjectService = new ProjectService();
 
     /**
-     * 模块服务对象
+     * 任务模块服务对象
      *
-     * @type {ModuleService}
+     * @type {ProjectModuleService}
      * @memberof MainEditService
      */
-    public moduleService: ModuleService = new ModuleService();
+    public projectmoduleService: ProjectModuleService = new ProjectModuleService();
 
     /**
      * 需求服务对象
@@ -110,8 +110,8 @@ export default class MainEditService extends ControlService {
         if (Object.is(serviceName, 'ProjectService') && Object.is(interfaceName, 'FetchDefault')) {
             return this.doItems(this.projectService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'project');
         }
-        if (Object.is(serviceName, 'ModuleService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.moduleService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'module');
+        if (Object.is(serviceName, 'ProjectModuleService') && Object.is(interfaceName, 'FetchDefault')) {
+            return this.doItems(this.projectmoduleService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'projectmodule');
         }
         if (Object.is(serviceName, 'StoryService') && Object.is(interfaceName, 'FetchDefault')) {
             return this.doItems(this.storyService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'story');

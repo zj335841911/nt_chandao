@@ -311,14 +311,6 @@ export interface Task {
     project?: any;
 
     /**
-     * 所属模块
-     *
-     * @returns {*}
-     * @memberof Task
-     */
-    module?: any;
-
-    /**
      * 相关需求
      *
      * @returns {*}
@@ -349,4 +341,12 @@ export interface Task {
      * @memberof Task
      */
     duration?: any;
+
+    /**
+     * id
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    module?: any;
 }

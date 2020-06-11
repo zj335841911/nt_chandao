@@ -39,10 +39,10 @@ public interface ITaskService extends IService<Task>{
     Page<Task> searchRootTask(TaskSearchContext context) ;
     Page<HashMap> searchTypeGroup(TaskSearchContext context) ;
     Page<Task> searchDefault(TaskSearchContext context) ;
-    List<Task> selectByFrombug(BigInteger id) ;
-    void removeByFrombug(BigInteger id) ;
     List<Task> selectByModule(BigInteger id) ;
     void removeByModule(BigInteger id) ;
+    List<Task> selectByFrombug(BigInteger id) ;
+    void removeByFrombug(BigInteger id) ;
     List<Task> selectByProject(BigInteger id) ;
     void removeByProject(BigInteger id) ;
     List<Task> selectByStory(BigInteger id) ;

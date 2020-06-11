@@ -311,14 +311,6 @@ export interface SubTask {
     project?: any;
 
     /**
-     * 所属模块
-     *
-     * @returns {*}
-     * @memberof SubTask
-     */
-    module?: any;
-
-    /**
      * 相关需求
      *
      * @returns {*}
@@ -349,4 +341,12 @@ export interface SubTask {
      * @memberof SubTask
      */
     duration?: any;
+
+    /**
+     * id
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    module?: any;
 }

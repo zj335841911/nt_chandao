@@ -71,11 +71,6 @@ export default class MainModel {
         dataType: 'SSCODELIST',
       },
       {
-        name: 'module',
-        prop: 'module',
-        dataType: 'PICKUP',
-      },
-      {
         name: 'modulename',
         prop: 'modulename',
         dataType: 'PICKUPTEXT',
@@ -131,6 +126,11 @@ export default class MainModel {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
+      },
+      {
+        name: 'module',
+        prop: 'module',
+        dataType: 'PICKUP',
       },
       {
         name: 'task',

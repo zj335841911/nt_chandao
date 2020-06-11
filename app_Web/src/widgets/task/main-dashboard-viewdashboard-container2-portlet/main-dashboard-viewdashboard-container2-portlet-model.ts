@@ -130,9 +130,6 @@ export default class MainDashboardViewdashboard_container2Model {
         name: 'project',
       },
       {
-        name: 'module',
-      },
-      {
         name: 'story',
       },
       {
@@ -143,6 +140,9 @@ export default class MainDashboardViewdashboard_container2Model {
       },
       {
         name: 'duration',
+      },
+      {
+        name: 'module',
       },
     ]
   }

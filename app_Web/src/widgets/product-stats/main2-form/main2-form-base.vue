@@ -145,9 +145,9 @@ style=""></app-span>
 <i-col v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 16, offset: 0 }" :xl="{ span: 16, offset: 0 }">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.main2_form.details.grouppanel3')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
-        <i-col v-show="detailsModel.unendproductplanrate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='unendproductplanrate' :itemRules="this.rules.unendproductplanrate" class='' :caption="$t('entities.productstats.main2_form.details.unendproductplanrate')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.unendproductplanrate.error" :isEmptyCaption="false" labelPos="NONE">
-    <app-slider name='unendproductplanrate' :value="this.data.unendproductplanrate" @change="onFormItemValueChange" :disabled="detailsModel.unendproductplanrate.disabled" style=""></app-slider>
+        <i-col v-show="detailsModel.formitemex1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='formitemex1' :itemRules="this.rules.formitemex1" class='' :caption="$t('entities.productstats.main2_form.details.formitemex1')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex1.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-range-editor v-model="data.formitemex1" :activeData="data" :disabled="detailsModel.formitemex1.disabled" name="formitemex1" editorType="USERCONTROL" format="" :refFormItem="['total','progress']" @formitemvaluechange="onFormItemValueChange" style=""></app-range-editor>
 </app-form-item>
 
 </i-col>
@@ -199,7 +199,7 @@ style=""></app-span>
     <row>
         <i-col v-show="detailsModel.undoneresprojectrate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='undoneresprojectrate' :itemRules="this.rules.undoneresprojectrate" class='' :caption="$t('entities.productstats.main2_form.details.undoneresprojectrate')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.undoneresprojectrate.error" :isEmptyCaption="false" labelPos="NONE">
-    <app-slider name='undoneresprojectrate' :value="this.data.undoneresprojectrate" @change="onFormItemValueChange" :disabled="detailsModel.undoneresprojectrate.disabled" style=""></app-slider>
+    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.total" :progress="this.data.progress"/>
 </app-form-item>
 
 </i-col>
@@ -752,7 +752,9 @@ export default class Main2Base extends Vue implements ControlInterface {
         testingstorycnt: null,
         releasedstorycnt: null,
         productplancnt: null,
-        unendproductplanrate: null,
+        total: null,
+        progress: null,
+        formitemex1: null,
         unendproductplancnt: null,
         resprojectcnt: null,
         undoneresprojectrate: null,
@@ -887,11 +889,23 @@ export default class Main2Base extends Vue implements ControlInterface {
             { required: false, type: 'number', message: '所有计划 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: '所有计划 值不能为空', trigger: 'blur' },
         ],
-        unendproductplanrate: [
-            { type: 'number', message: '剩余计划率 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '剩余计划率 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '剩余计划率 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '剩余计划率 值不能为空', trigger: 'blur' },
+        total: [
+            { type: 'number', message: '计划总数 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '计划总数 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '计划总数 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '计划总数 值不能为空', trigger: 'blur' },
+        ],
+        progress: [
+            { type: 'number', message: '未过期计划数 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '未过期计划数 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '未过期计划数 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '未过期计划数 值不能为空', trigger: 'blur' },
+        ],
+        formitemex1: [
+            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
         unendproductplancnt: [
             { type: 'number', message: '未过期 值必须为数值类型', trigger: 'change' },
@@ -1021,7 +1035,11 @@ export default class Main2Base extends Vue implements ControlInterface {
 , 
         productplancnt: new FormItemModel({ caption: '所有计划', detailType: 'FORMITEM', name: 'productplancnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        unendproductplanrate: new FormItemModel({ caption: '剩余计划率', detailType: 'FORMITEM', name: 'unendproductplanrate', visible: false, isShowCaption: false, form: this, disabled: false, enableCond: 0 })
+        total: new FormItemModel({ caption: '计划总数', detailType: 'FORMITEM', name: 'total', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        progress: new FormItemModel({ caption: '未过期计划数', detailType: 'FORMITEM', name: 'progress', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitemex1: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         unendproductplancnt: new FormItemModel({ caption: '未过期', detailType: 'FORMITEM', name: 'unendproductplancnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1210,15 +1228,39 @@ export default class Main2Base extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 unendproductplanrate 值
+     * 监控表单属性 total 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof Main2
      */
-    @Watch('data.unendproductplanrate')
-    onUnendproductplanrateChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'unendproductplanrate', newVal: newVal, oldVal: oldVal });
+    @Watch('data.total')
+    onTotalChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'total', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 progress 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main2
+     */
+    @Watch('data.progress')
+    onProgressChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'progress', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitemex1 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main2
+     */
+    @Watch('data.formitemex1')
+    onFormitemex1Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitemex1', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1434,14 +1476,8 @@ export default class Main2Base extends Vue implements ControlInterface {
 
 
 
-        if (Object.is(name, '') || Object.is(name, 'productplancnt')) {
-            let ret = false;
-            const _productplancnt = this.data.productplancnt;
-            if (this.$verify.testCond(_productplancnt, 'NOTEQ', '0')) {
-                ret = true;
-            }
-            this.detailsModel.unendproductplanrate.setVisible(ret);
-        }
+
+
 
 
 

@@ -60,7 +60,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     private cn.ibizlab.pms.core.zentao.service.ITaskService taskService = this;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IModuleService moduleService;
+    private cn.ibizlab.pms.core.ibiz.service.IProjectModuleService projectmoduleService;
     @Autowired
     @Lazy
     private cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
@@ -72,6 +72,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 
     @Override
     public Task getDraft(Task et) {
+        fillParentData(et);
         return et;
     }
 
@@ -90,6 +91,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Override
     @Transactional
     public boolean update(Task et) {
+        fillParentData(et);
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -98,6 +100,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 
     @Override
     public void updateBatch(List<Task> list) {
+        list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
     }
 
@@ -123,12 +126,14 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 
     @Override
     public boolean saveBatch(Collection<Task> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
     public void saveBatch(List<Task> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
@@ -153,6 +158,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Override
     @Transactional
     public boolean create(Task et) {
+        fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -161,19 +167,10 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 
     @Override
     public void createBatch(List<Task> list) {
+        list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
     }
 
-
-	@Override
-    public List<Task> selectByFrombug(BigInteger id) {
-        return baseMapper.selectByFrombug(id);
-    }
-
-    @Override
-    public void removeByFrombug(BigInteger id) {
-        this.remove(new QueryWrapper<Task>().eq("frombug",id));
-    }
 
 	@Override
     public List<Task> selectByModule(BigInteger id) {
@@ -183,6 +180,16 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Override
     public void removeByModule(BigInteger id) {
         this.remove(new QueryWrapper<Task>().eq("module",id));
+    }
+
+	@Override
+    public List<Task> selectByFrombug(BigInteger id) {
+        return baseMapper.selectByFrombug(id);
+    }
+
+    @Override
+    public void removeByFrombug(BigInteger id) {
+        this.remove(new QueryWrapper<Task>().eq("frombug",id));
     }
 
 	@Override
@@ -245,6 +252,55 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 
 
 
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(Task et){
+        //实体关系[DER1N_ZT_TASK_IBZ_PROJECTMODULE_MODULE]
+        if(!ObjectUtils.isEmpty(et.getModule())){
+            cn.ibizlab.pms.core.ibiz.domain.ProjectModule projectmodule=et.getProjectmodule();
+            if(ObjectUtils.isEmpty(projectmodule)){
+                cn.ibizlab.pms.core.ibiz.domain.ProjectModule majorEntity=projectmoduleService.get(et.getModule());
+                et.setProjectmodule(majorEntity);
+                projectmodule=majorEntity;
+            }
+            et.setModulename(projectmodule.getName());
+        }
+        //实体关系[DER1N_ZT_TASK_ZT_PROJECT_PROJECT]
+        if(!ObjectUtils.isEmpty(et.getProject())){
+            cn.ibizlab.pms.core.zentao.domain.Project ztproject=et.getZtproject();
+            if(ObjectUtils.isEmpty(ztproject)){
+                cn.ibizlab.pms.core.zentao.domain.Project majorEntity=projectService.get(et.getProject());
+                et.setZtproject(majorEntity);
+                ztproject=majorEntity;
+            }
+            et.setProjectname(ztproject.getName());
+        }
+        //实体关系[DER1N_ZT_TASK_ZT_STORY_STORY]
+        if(!ObjectUtils.isEmpty(et.getStory())){
+            cn.ibizlab.pms.core.zentao.domain.Story ztstory=et.getZtstory();
+            if(ObjectUtils.isEmpty(ztstory)){
+                cn.ibizlab.pms.core.zentao.domain.Story majorEntity=storyService.get(et.getStory());
+                et.setZtstory(majorEntity);
+                ztstory=majorEntity;
+            }
+            et.setStoryname(ztstory.getTitle());
+            et.setProduct(ztstory.getProduct());
+            et.setStoryversion(ztstory.getVersion());
+            et.setProductname(ztstory.getProductname());
+        }
+        //实体关系[DER1N__ZT_TASK__ZT_TASK__PARENT]
+        if(!ObjectUtils.isEmpty(et.getParent())){
+            cn.ibizlab.pms.core.zentao.domain.Task ztparent=et.getZtparent();
+            if(ObjectUtils.isEmpty(ztparent)){
+                cn.ibizlab.pms.core.zentao.domain.Task majorEntity=taskService.get(et.getParent());
+                et.setZtparent(majorEntity);
+                ztparent=majorEntity;
+            }
+            et.setParentname(ztparent.getName());
+        }
+    }
 
 
     @Override

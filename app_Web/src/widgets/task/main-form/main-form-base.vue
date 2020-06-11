@@ -56,9 +56,9 @@
   :disabled="detailsModel.modulename.disabled"
   name='modulename' 
   deMajorField='name'
-  deKeyField='module'
+  deKeyField='projectmodule'
   :service="service"
-  :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchDefault'}"
+  :acParams="{ serviceName: 'ProjectModuleService', interfaceName: 'FetchDefault'}"
   valueitem='module' 
   :value="data.modulename" 
   editortype="dropdown" 
@@ -457,7 +457,6 @@ export default class MainBase extends Vue implements ControlInterface {
         projectname: null,
         project: null,
         type: null,
-        module: null,
         modulename: null,
         formitem: null,
         assignedto: null,
@@ -471,6 +470,7 @@ export default class MainBase extends Vue implements ControlInterface {
         formitemex1: null,
         mailto: null,
         id: null,
+        module: null,
         task:null,
     };
 
@@ -579,12 +579,6 @@ export default class MainBase extends Vue implements ControlInterface {
             { required: true, type: 'string', message: '任务类型 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '任务类型 值不能为空', trigger: 'blur' },
         ],
-        module: [
-            { type: 'number', message: '所属模块 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '所属模块 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '所属模块 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '所属模块 值不能为空', trigger: 'blur' },
-        ],
         modulename: [
             { type: 'string', message: '所属模块 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '所属模块 值必须为字符串类型', trigger: 'blur' },
@@ -663,6 +657,12 @@ export default class MainBase extends Vue implements ControlInterface {
             { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
         ],
+        module: [
+            { type: 'number', message: 'id 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: 'id 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: 'id 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: 'id 值不能为空', trigger: 'blur' },
+        ],
     }
 
     /**
@@ -698,8 +698,6 @@ export default class MainBase extends Vue implements ControlInterface {
 , 
         type: new FormItemModel({ caption: '任务类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        module: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'module', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
         modulename: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'modulename', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         formitem: new FormItemModel({ caption: '所有模块', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -725,6 +723,8 @@ export default class MainBase extends Vue implements ControlInterface {
         mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+, 
+        module: new FormItemModel({ caption: 'id', detailType: 'FORMITEM', name: 'module', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -858,18 +858,6 @@ export default class MainBase extends Vue implements ControlInterface {
     @Watch('data.type')
     onTypeChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'type', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 module 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof Main
-     */
-    @Watch('data.module')
-    onModuleChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'module', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1026,6 +1014,18 @@ export default class MainBase extends Vue implements ControlInterface {
     @Watch('data.id')
     onIdChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 module 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.module')
+    onModuleChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'module', newVal: newVal, oldVal: oldVal });
     }
 
 

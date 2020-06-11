@@ -64,9 +64,9 @@ public interface TaskMapper extends BaseMapper<Task>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<Task> selectByFrombug(@Param("id") Serializable id) ;
-
     List<Task> selectByModule(@Param("id") Serializable id) ;
+
+    List<Task> selectByFrombug(@Param("id") Serializable id) ;
 
     List<Task> selectByProject(@Param("id") Serializable id) ;
 

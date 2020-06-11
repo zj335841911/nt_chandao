@@ -130,9 +130,6 @@ export default class WorkInfoModel {
         name: 'project',
       },
       {
-        name: 'module',
-      },
-      {
         name: 'story',
       },
       {
@@ -143,6 +140,9 @@ export default class WorkInfoModel {
       },
       {
         name: 'duration',
+      },
+      {
+        name: 'module',
       },
     ]
   }

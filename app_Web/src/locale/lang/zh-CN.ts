@@ -24,6 +24,7 @@ import build_zh_CN from '@locale/lanres/entities/build/build_zh_CN';
 import testtask_zh_CN from '@locale/lanres/entities/test-task/test-task_zh_CN';
 import projectstats_zh_CN from '@locale/lanres/entities/project-stats/project-stats_zh_CN';
 import bug_zh_CN from '@locale/lanres/entities/bug/bug_zh_CN';
+import projectmodule_zh_CN from '@locale/lanres/entities/project-module/project-module_zh_CN';
 import ibzdoc_zh_CN from '@locale/lanres/entities/ibz-doc/ibz-doc_zh_CN';
 import release_zh_CN from '@locale/lanres/entities/release/release_zh_CN';
 import components_zh_CN from '@locale/lanres/components/components_zh_CN';
@@ -137,6 +138,7 @@ export default {
         testtask: testtask_zh_CN,
         projectstats: projectstats_zh_CN,
         bug: bug_zh_CN,
+        projectmodule: projectmodule_zh_CN,
         ibzdoc: ibzdoc_zh_CN,
         release: release_zh_CN,
     },
