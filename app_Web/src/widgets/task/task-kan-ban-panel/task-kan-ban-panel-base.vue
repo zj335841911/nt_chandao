@@ -14,10 +14,16 @@
                 
                 
                 </i-col>
-                      <i-col v-show="detailsModel.container2.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-container">
+                      
+                <i-col v-show="detailsModel.rawitem1.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-rowitem">
+                    <br/>
+                
+                
+                </i-col>
+                      <i-col v-show="detailsModel.container2.visible"  :md="{ span: 20, offset: 0 }" :lg="{ span: 20, offset: 0 }" style="" class="app-layoutpanel-container">
                     <row style="height:100%;">
                               
-                        <i-col v-show="detailsModel.button1.visible"  :md="{ span: 2, offset: 0 }" :lg="{ span: 2, offset: 0 }" style="" class="app-layoutpanel-button">
+                        <i-col v-show="detailsModel.button1.visible"  :md="{ span: 3, offset: 0 }" :lg="{ span: 3, offset: 0 }" style="" class="app-layoutpanel-button">
                             <i-button type="primary" long @click="uiAction(null, 'AssignTask', $event)" >
                             <i class="fa fa-hand-o-right"></i>
                         </i-button>
@@ -25,7 +31,7 @@
                         
                         </i-col>
                               
-                        <i-col v-show="detailsModel.assignedto.visible"  :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }" style="" class="app-layoutpanel-field">
+                        <i-col v-show="detailsModel.assignedto.visible"  :md="{ span: 18, offset: 0 }" :lg="{ span: 18, offset: 0 }" style="" class="app-layoutpanel-field">
                             <div class="item-field">
                             
                             <div class="item-field-content">
@@ -35,8 +41,12 @@
                         
                         
                         </i-col>
+                    </row>
+                </i-col>
+                      <i-col v-show="detailsModel.container3.visible"  :md="{ span: 4, offset: 0 }" :lg="{ span: 4, offset: 0 }" style="" class="app-layoutpanel-container">
+                    <row style="height:100%;">
                               
-                        <i-col v-show="detailsModel.estimate.visible"  :md="{ span: 2, offset: 0 }" :lg="{ span: 2, offset: 8 }" style="" class="app-layoutpanel-field">
+                        <i-col v-show="detailsModel.estimate.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
                             <div class="item-field">
                             
                             <div class="item-field-content">
@@ -266,10 +276,12 @@ export default class TaskKanBanBase extends Vue implements ControlInterface {
      */
     public detailsModel: any = {
         name: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        rawitem1: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         button1: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         assignedto: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        estimate: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         container2: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        estimate: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        container3: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         container1: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
     };
 
@@ -282,6 +294,8 @@ export default class TaskKanBanBase extends Vue implements ControlInterface {
      */
     public panelLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
+
 
 
 
