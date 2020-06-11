@@ -35,6 +35,9 @@ export default {
 	},
 	main_form: {
 		details: {
+			grouppanel6: '分组面板', 
+			grouppanel5: '分组面板', 
+			grouppanel4: '分组面板', 
 			grouppanel1: '任务统计', 
 			grouppanel2: '需求统计', 
 			grouppanel3: 'bug统计', 
@@ -47,6 +50,12 @@ export default {
 			srfuf: '', 
 			srfdeid: '', 
 			srfsourcekey: '', 
+			custom7: '任务最初预计总工时', 
+			custom8: '任务消耗总工时', 
+			formitemex4: '已完成', 
+			totalestimate: '预计', 
+			totalconsumed: '消耗', 
+			totalleft: '剩余', 
 			taskcnt: '总任务', 
 			custom1: '任务总数', 
 			custom2: '未完成任务总数', 

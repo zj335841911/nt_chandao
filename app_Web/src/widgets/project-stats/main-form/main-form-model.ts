@@ -51,6 +51,34 @@ export default class MainModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'custom7',
+        prop: 'totalestimate',
+        dataType: 'FLOAT',
+      },
+      {
+        name: 'custom8',
+        prop: 'totalconsumed',
+        dataType: 'FLOAT',
+      },
+      {
+        name: 'formitemex4',
+      },
+      {
+        name: 'totalestimate',
+        prop: 'totalestimate',
+        dataType: 'FLOAT',
+      },
+      {
+        name: 'totalconsumed',
+        prop: 'totalconsumed',
+        dataType: 'FLOAT',
+      },
+      {
+        name: 'totalleft',
+        prop: 'totalleft',
+        dataType: 'FLOAT',
+      },
+      {
         name: 'taskcnt',
         prop: 'taskcnt',
         dataType: 'INT',

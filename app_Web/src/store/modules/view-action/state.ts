@@ -258,16 +258,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '37df93bfc6d8126c9303eab0c5363df8',
-            viewmodule: 'ibiz',
-            viewname: 'ProjectStatsMainDashboardView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'e444135470a806822b9b950e15c42a3e',
-            ],
-        },
-        {
             viewtag: '3aa4c66089ff40194c7f4ecaf627acb5',
             viewmodule: 'zentao',
             viewname: 'ProjectBurnDownChartView',
@@ -283,7 +273,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '37df93bfc6d8126c9303eab0c5363df8',
+                'e444135470a806822b9b950e15c42a3e',
             ],
         },
         {
