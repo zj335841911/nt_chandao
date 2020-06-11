@@ -410,6 +410,7 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
+			assigntask: "指派",
 			starttask: "开始",
 			closetask: "关闭",
 			donetask: "完成",

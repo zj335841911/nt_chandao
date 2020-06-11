@@ -338,14 +338,14 @@ export default class TaskKanBanBase extends Vue implements ControlInterface {
                 let res:any = await this.getAllCodeList(codelistArray,true);
                 this.dataModel.getDataItems().forEach((item:any) =>{
                     if(item.codelist){
-                        panelData[item.prop]  = res.get(item.codelist.tag).get(this.data[item.name]);
+                        panelData[item.prop]  = res.get(item.codelist.tag).get(this.inputData[item.name]);
                     }else{
-                        panelData[item.prop] = this.data[item.name];
+                        panelData[item.prop] = this.inputData[item.name];
                     }
                 })
             }else{
                 this.dataModel.getDataItems().forEach((item:any) =>{
-                    panelData[item.prop] = this.data[item.name];
+                    panelData[item.prop] = this.inputData[item.name];
                 }) 
             }
         }
@@ -474,17 +474,6 @@ export default class TaskKanBanBase extends Vue implements ControlInterface {
         if (this.parentRef.refresh && this.parentRef.refresh instanceof Function) {
             this.parentRef.refresh(opt);
         }
-    }
-
-    /**
-     * 界面行为
-     *
-     * @param {*} row
-     * @param {*} tag
-     * @param {*} $event
-     * @memberof TaskKanBan
-     */
-    public uiAction(row: any, tag: any, $event: any) {
     }
 
 }

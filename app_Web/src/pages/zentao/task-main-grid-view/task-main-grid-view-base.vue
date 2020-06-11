@@ -59,7 +59,6 @@ import TaskService from '@/service/task/task-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 
 
-import TaskUIService from '@/uiservice/task/task-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 

@@ -28,6 +28,11 @@
                     :showBusyIndicator="true" 
                     name="kanban"  
                     ref='kanban' 
+                    @selectionchange="kanban_selectionchange($event)"  
+                    @beforeload="kanban_beforeload($event)"  
+                    @rowdblclick="kanban_rowdblclick($event)"  
+                    @remove="kanban_remove($event)"  
+                    @load="kanban_load($event)"  
                     @closeview="closeView($event)">
                 </view_kanban>
 </studio-view>
@@ -40,6 +45,7 @@ import { UIActionTool,Util } from '@/utils';
 import { Subject } from 'rxjs';
 import TaskService from '@/service/task/task-service';
 
+import KanBanViewEngine from '@engine/view/kan-ban-view-engine';
 
 
 import CodeListService from "@service/app/codelist-service";
@@ -232,6 +238,14 @@ export default class TaskKanbanViewBase extends Vue {
 
 
 
+    /**
+     * 视图引擎
+     *
+     * @public
+     * @type {Engine}
+     * @memberof TaskKanbanViewBase
+     */
+    public engine: KanBanViewEngine = new KanBanViewEngine();
 
     /**
      * 引擎初始化
@@ -240,6 +254,19 @@ export default class TaskKanbanViewBase extends Vue {
      * @memberof TaskKanbanViewBase
      */
     public engineInit(): void {
+        this.engine.init({
+            view: this,
+            kanban: this.$refs.kanban,
+            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
+                this.opendata(args,fullargs, params, $event, xData);
+            },
+            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
+                this.newdata(args,fullargs, params, $event, xData);
+            },
+            keyPSDEField: 'task',
+            majorPSDEField: 'name',
+            isLoadDefault: true,
+        });
     }
 
     /**
@@ -449,6 +476,66 @@ export default class TaskKanbanViewBase extends Vue {
         if (Object.is($event.tag, 'deuiaction2')) {
             this.toolbar_deuiaction2_click(null, '', $event2);
         }
+    }
+
+
+    /**
+     * kanban 部件 selectionchange 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof TaskKanbanViewBase
+     */
+    public kanban_selectionchange($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('kanban', 'selectionchange', $event);
+    }
+
+
+    /**
+     * kanban 部件 beforeload 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof TaskKanbanViewBase
+     */
+    public kanban_beforeload($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('kanban', 'beforeload', $event);
+    }
+
+
+    /**
+     * kanban 部件 rowdblclick 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof TaskKanbanViewBase
+     */
+    public kanban_rowdblclick($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('kanban', 'rowdblclick', $event);
+    }
+
+
+    /**
+     * kanban 部件 remove 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof TaskKanbanViewBase
+     */
+    public kanban_remove($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('kanban', 'remove', $event);
+    }
+
+
+    /**
+     * kanban 部件 load 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof TaskKanbanViewBase
+     */
+    public kanban_load($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('kanban', 'load', $event);
     }
 
 
