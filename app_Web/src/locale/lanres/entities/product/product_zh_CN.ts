@@ -227,6 +227,12 @@ export default {
 			tip: '导出数据模型',
 		},
 	},
+	testlistexpviewlistexpbar_list_quicktoolbar_toolbar: {
+		deuiaction1: {
+			caption: '新建',
+			tip: '新建',
+		},
+	},
 	testleftsidebarlistviewtoolbar_toolbar: {
 		deuiaction3_testmanager: {
 			caption: '管理',
@@ -284,12 +290,6 @@ export default {
 		},
 	},
 	listexpviewlistexpbar_list_quicktoolbar_toolbar: {
-		deuiaction1: {
-			caption: '新建',
-			tip: '新建',
-		},
-	},
-	testlistexpviewlistexpbar_list_quicktoolbar_toolbar: {
 		deuiaction1: {
 			caption: '新建',
 			tip: '新建',

@@ -1,29 +1,8 @@
 <template>
-    <div class='portlet-container db-testcontainer2 ' :style="{}">
-            <i-col :md="{ span: 24, offset: 0 }">
-                <div class="portlet-without-title">
-                                  <view_db_sysportlet1 
-                      :viewState="viewState"  
-                      :viewparams="viewparams" 
-                      :context="context" 
-                      name="db_sysportlet1"  
-                      ref='db_sysportlet1' 
-                      @closeview="closeView($event)">
-                  </view_db_sysportlet1>
-                </div>
-            </i-col>
-            <i-col :md="{ span: 24, offset: 0 }">
-                <div class="portlet-without-title">
-                                  <view_db_sysportlet2 
-                      :viewState="viewState"  
-                      :viewparams="viewparams" 
-                      :context="context" 
-                      name="db_sysportlet2"  
-                      ref='db_sysportlet2' 
-                      @closeview="closeView($event)">
-                  </view_db_sysportlet2>
-                </div>
-            </i-col>
+    <div class='portlet text-exp-view ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : '300px',}">
+        <div class="portlet-without-title">
+        <product-test-list-exp-view :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></product-test-list-exp-view>
+        </div>
     </div>
 </template>
 <script lang='tsx'>
@@ -32,7 +11,8 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import { UIActionTool,Util } from '@/utils';
-import Db_testcontainer2Service from './db-testcontainer2-portlet-service';
+import ProductService from '@/service/product/product-service';
+import TextExpViewService from './text-exp-view-portlet-service';
 
 
 
@@ -41,13 +21,13 @@ import Db_testcontainer2Service from './db-testcontainer2-portlet-service';
       
     }
 })
-export default class Db_testcontainer2Base extends Vue implements ControlInterface {
+export default class ProductTextExpViewBase extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof Db_testcontainer2
+     * @memberof TextExpView
      */
     @Prop() public name?: string;
 
@@ -55,7 +35,7 @@ export default class Db_testcontainer2Base extends Vue implements ControlInterfa
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof Db_testcontainer2
+     * @memberof TextExpView
      */
     @Prop() public viewState!: Subject<ViewState>;
 
@@ -63,7 +43,7 @@ export default class Db_testcontainer2Base extends Vue implements ControlInterfa
      * 应用上下文
      *
      * @type {*}
-     * @memberof Db_testcontainer2
+     * @memberof TextExpView
      */
     @Prop() public context: any;
 
@@ -71,7 +51,7 @@ export default class Db_testcontainer2Base extends Vue implements ControlInterfa
      * 视图参数
      *
      * @type {*}
-     * @memberof Db_testcontainer2
+     * @memberof TextExpView
      */
     @Prop() public viewparams: any;
 
@@ -80,7 +60,7 @@ export default class Db_testcontainer2Base extends Vue implements ControlInterfa
      *
      * @public
      * @type {(Subscription | undefined)}
-     * @memberof Db_testcontainer2
+     * @memberof TextExpView
      */
     public viewStateEvent: Subscription | undefined;
 
@@ -88,7 +68,7 @@ export default class Db_testcontainer2Base extends Vue implements ControlInterfa
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof Db_testcontainer2
+     * @memberof TextExpView
      */
     public getControlType(): string {
         return 'PORTLET'
@@ -100,17 +80,25 @@ export default class Db_testcontainer2Base extends Vue implements ControlInterfa
      * 计数器服务对象集合
      *
      * @type {Array<*>}
-     * @memberof Db_testcontainer2
+     * @memberof TextExpView
      */    
     public counterServiceArray:Array<any> = [];
 
     /**
      * 建构部件服务对象
      *
-     * @type {Db_testcontainer2Service}
-     * @memberof Db_testcontainer2
+     * @type {TextExpViewService}
+     * @memberof TextExpView
      */
-    public service: Db_testcontainer2Service = new Db_testcontainer2Service({ $store: this.$store });
+    public service: TextExpViewService = new TextExpViewService({ $store: this.$store });
+
+    /**
+     * 实体服务对象
+     *
+     * @type {ProductService}
+     * @memberof TextExpView
+     */
+    public appEntityService: ProductService = new ProductService({ $store: this.$store });
     
 
 
@@ -118,7 +106,7 @@ export default class Db_testcontainer2Base extends Vue implements ControlInterfa
      * 关闭视图
      *
      * @param {any} args
-     * @memberof Db_testcontainer2
+     * @memberof TextExpView
      */
     public closeView(args: any): void {
         let _this: any = this;
@@ -128,7 +116,7 @@ export default class Db_testcontainer2Base extends Vue implements ControlInterfa
     /**
      *  计数器刷新
      *
-     * @memberof Db_testcontainer2
+     * @memberof TextExpView
      */
     public counterRefresh(){
         const _this:any =this;
@@ -148,7 +136,7 @@ export default class Db_testcontainer2Base extends Vue implements ControlInterfa
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof Db_testcontainer2Base
+     * @memberof TextExpViewBase
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -156,7 +144,7 @@ export default class Db_testcontainer2Base extends Vue implements ControlInterfa
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof Db_testcontainer2Base
+     * @memberof TextExpViewBase
      */
     public getDatas(): any[] {
         return [];
@@ -166,7 +154,7 @@ export default class Db_testcontainer2Base extends Vue implements ControlInterfa
      * 获取单项树
      *
      * @returns {*}
-     * @memberof Db_testcontainer2Base
+     * @memberof TextExpViewBase
      */
     public getData(): any {
         return {};
@@ -175,7 +163,7 @@ export default class Db_testcontainer2Base extends Vue implements ControlInterfa
     /**
      * vue 生命周期
      *
-     * @memberof Db_testcontainer2Base
+     * @memberof TextExpViewBase
      */
     public created() {
         this.afterCreated();
@@ -184,7 +172,7 @@ export default class Db_testcontainer2Base extends Vue implements ControlInterfa
     /**
      * 执行created后的逻辑
      *
-     *  @memberof Db_testcontainer2Base
+     *  @memberof TextExpViewBase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -203,7 +191,7 @@ export default class Db_testcontainer2Base extends Vue implements ControlInterfa
     /**
      * vue 生命周期
      *
-     * @memberof Db_testcontainer2Base
+     * @memberof TextExpViewBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -212,7 +200,7 @@ export default class Db_testcontainer2Base extends Vue implements ControlInterfa
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof Db_testcontainer2Base
+     * @memberof TextExpViewBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -224,5 +212,5 @@ export default class Db_testcontainer2Base extends Vue implements ControlInterfa
 </script>
 
 <style lang='less'>
-@import './db-testcontainer2-portlet.less';
+@import './text-exp-view-portlet.less';
 </style>

@@ -1220,6 +1220,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'c539f1585371e9943b90177eaef08b6b',
+            viewmodule: 'zentao',
+            viewname: 'ProductTestListExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '5d468f620cc30181773d875b3bb8be6e',
+            ],
+        },
+        {
             viewtag: 'c9410c9f72535adf1fff569d5243edd1',
             viewmodule: 'zentao',
             viewname: 'BugGridView',
@@ -1295,6 +1305,7 @@ export const viewstate: any = {
                 '7f9b2e4d5b622528df75121b824b6fcc',
                 '3091670967914b91fb4b6f46751dcd7e',
                 '81893d14e76cac341d4218a9c5ef185d',
+                'c539f1585371e9943b90177eaef08b6b',
             ],
         },
         {

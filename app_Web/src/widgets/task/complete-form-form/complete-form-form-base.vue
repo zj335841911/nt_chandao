@@ -1773,9 +1773,6 @@ export default class CompleteFormBase extends Vue implements ControlInterface {
      * @memberof CompleteForm
      */
     public updateDefault(){                    
-        if (this.data.hasOwnProperty('totaltime') && !this.data.totaltime) {
-            this.data['totaltime'] = 'consumed';
-        }
     }
 
     

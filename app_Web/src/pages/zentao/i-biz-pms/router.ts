@@ -1846,6 +1846,19 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-main-view/story-main-view.vue'),
                 },
                 {
+                    path: 'products/:product?/testlistexpview/:testlistexpview?',
+                    meta: {
+                        caption: 'entities.product.views.testlistexpview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'testlistexpview', parameterName: 'testlistexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-test-list-exp-view/product-test-list-exp-view.vue'),
+                },
+                {
                     path: 'groups/:group?/maingridview/:maingridview?',
                     meta: {
                         caption: 'entities.group.views.maingridview.caption',
@@ -6506,6 +6519,18 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/zentao/module-pickup-grid-view/module-pickup-grid-view.vue'),
+    },
+    {
+        path: '/products/:product?/testlistexpview/:testlistexpview?',
+        meta: {
+            caption: 'entities.product.views.testlistexpview.caption',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'testlistexpview', parameterName: 'testlistexpview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/product-test-list-exp-view/product-test-list-exp-view.vue'),
     },
     {
         path: '/products/:product?/productplans/:productplan?/bugs/:bug?/gridview/:gridview?',
