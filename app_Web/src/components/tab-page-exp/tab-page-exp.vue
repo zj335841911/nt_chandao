@@ -9,11 +9,11 @@
                     <template v-for="(meta, index) of $store.state.pageMetas">
                         <Tag ref="tagElement" :key="index" :class="isActive(index) ? 'tag-is-active' : ''" :name="index" closable @click.native="changePage(index)" @on-close="onClose(index)">
                             <div class="tag-text">
-                                <tooltip  :content="getCaption(meta.caption, meta.info)" transfer :max-width="300">
+                                <div :title="getCaption(meta.caption, meta.info)" style="max-width: 300px;">
                                     <i v-if="meta.iconCls && !Object.is(meta.iconCls, '')" :class="meta.iconCls"></i>
                                     <img v-else :src="meta.imgPath" class="text-icon" />
                                     &nbsp;{{getCaption(meta.caption, meta.info)}}
-                                </tooltip>
+                                </div>
                             </div>
                         </Tag>
                     </template>

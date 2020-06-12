@@ -6,7 +6,7 @@
                     {{ getGroupText(group.name) }}
                 </div>
                 <draggable :list="group.items" group="kanban" class="dataview-group-items" @change="onDragChange($event, group.name)">
-                    <div v-for="(item, i) in group.items" :key="i" :class="{'dataview-group-item': true, 'is-select': item.isselected}" @click="handleClick(item)">
+                    <div v-for="(item, i) in group.items" :key="i" :class="{'dataview-group-item': true, 'is-select': item.isselected}" @click="handleClick(item)" @dblclick="handleDblClick(item)">
                         <layout_itemlayoutpanel name='itemlayoutpanel' :inputData="item"></layout_itemlayoutpanel>
                     </div>
                 </draggable>
@@ -729,6 +729,12 @@ export default class TaskKanBanBase extends Vue implements ControlInterface {
      *
      */
     public handleDblClick(args: any) {
+        args.isselected = true;
+        this.items.forEach((item:any) =>{
+            if(item.srfkey !== args.srfkey){
+                item.isselected =false;
+            }
+        })
         this.$emit('rowdblclick', args);
     }
 

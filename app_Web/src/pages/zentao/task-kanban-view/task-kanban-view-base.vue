@@ -690,11 +690,11 @@ export default class TaskKanbanViewBase extends Vue {
             });
         }
         const view: any = {
-            viewname: 'task-edit-view', 
+            viewname: 'task-main-dashboard-view', 
             height: 0, 
-            width: 0,  
-            title: this.$t('entities.task.views.editview.title'),
-            placement: 'DRAWER_RIGHT',
+            width: 1360,  
+            title: this.$t('entities.task.views.maindashboardview.title'),
+            placement: 'DRAWER_TOP',
         };
         openDrawer(view, data);
     }

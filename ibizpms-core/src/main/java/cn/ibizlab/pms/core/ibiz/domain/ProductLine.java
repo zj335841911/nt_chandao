@@ -25,7 +25,6 @@ import org.springframework.data.annotation.Transient;
 /**
  * [产品线] 对象
  */
-@Builder
 @Getter
 @Setter
 @NoArgsConstructor

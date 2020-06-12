@@ -25,7 +25,6 @@ import org.springframework.data.annotation.Transient;
 /**
  * [文档] 对象
  */
-@Builder
 @Getter
 @Setter
 @NoArgsConstructor
