@@ -165,4 +165,36 @@ export interface ProductStats {
      * @memberof ProductStats
      */
     name?: any;
+
+    /**
+     * 指派给我的Bug数
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    assigntomebugcnt?: any;
+
+    /**
+     * 未关闭Bug数
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    notclosedbugcnt?: any;
+
+    /**
+     * 所有Bug树
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    bugcnt?: any;
+
+    /**
+     * 未确认Bug数
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    unconfirmbugcnt?: any;
 }

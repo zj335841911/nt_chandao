@@ -21,6 +21,10 @@ export default {
     activestorycnt: '激活需求数',
     activebugcnt: '未解决Bug数',
     name: '产品名称',
+    assigntomebugcnt: '指派给我的Bug数',
+    notclosedbugcnt: '未关闭Bug数',
+    bugcnt: '所有Bug树',
+    unconfirmbugcnt: '未确认Bug数',
   },
 	views: {
 		editview9: {

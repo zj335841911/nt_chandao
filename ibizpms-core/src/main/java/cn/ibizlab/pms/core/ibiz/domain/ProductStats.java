@@ -181,6 +181,34 @@ public class ProductStats extends EntityMP implements Serializable {
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
+    /**
+     * 指派给我的Bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "assigntomebugcnt")
+    @JsonProperty("assigntomebugcnt")
+    private Integer assigntomebugcnt;
+    /**
+     * 未关闭Bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "notclosedbugcnt")
+    @JsonProperty("notclosedbugcnt")
+    private Integer notclosedbugcnt;
+    /**
+     * 所有Bug树
+     */
+    @TableField(exist = false)
+    @JSONField(name = "bugcnt")
+    @JsonProperty("bugcnt")
+    private Integer bugcnt;
+    /**
+     * 未确认Bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "unconfirmbugcnt")
+    @JsonProperty("unconfirmbugcnt")
+    private Integer unconfirmbugcnt;
 
 
 
