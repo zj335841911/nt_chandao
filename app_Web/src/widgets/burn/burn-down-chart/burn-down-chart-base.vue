@@ -372,6 +372,26 @@ export default class BurnDownBase extends Vue implements ControlInterface {
                     {
         }
         ],
+        xAxis: [
+                    {
+              gridIndex:0,
+              position:"bottom",
+              type:'category',
+              name:'日期',
+              
+              
+        }
+        ],
+        yAxis:[
+                    {
+              gridIndex:0,
+              position:"top",
+              type:'value',
+              name:'消耗工时',
+              
+              
+        }
+        ],
         tooltip:{
             show:true
         },
@@ -385,8 +405,8 @@ export default class BurnDownBase extends Vue implements ControlInterface {
             yAxisIndex:0,
             datasetIndex:0,
             encode: {
-                x: [],      
-                y: []
+                x: ['date'],      
+                y: ['left']
             }}
         ,                     {
             id:'est',
@@ -396,8 +416,8 @@ export default class BurnDownBase extends Vue implements ControlInterface {
             yAxisIndex:1,
             datasetIndex:1,
             encode: {
-                x: [],      
-                y: []
+                x: ['date'],      
+                y: ['estimate']
             }}
         ]
     };
