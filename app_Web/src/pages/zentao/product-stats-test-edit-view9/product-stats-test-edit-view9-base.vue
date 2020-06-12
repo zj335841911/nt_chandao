@@ -119,6 +119,7 @@ export default class ProductStatsTestEditView9Base extends Vue {
 	 * @memberof ProductStatsTestEditView9Base
 	 */
     public customViewParams:any ={
+    "productstats":{"isRawValue":false,"value":"product"}
     };
 
     /**

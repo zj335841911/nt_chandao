@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet text-exp-view ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
+    <div class='portlet text-exp-view ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : '320px',}">
         <div class="portlet-without-title">
         <product-test-list-exp-view :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></product-test-list-exp-view>
         </div>
