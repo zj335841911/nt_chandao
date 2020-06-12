@@ -641,14 +641,6 @@ public class TaskDTO extends DTOBase implements Serializable {
         this.modify("module",module);
     }
 
-    /**
-     * 设置 [COMMENT]
-     */
-    public void setComment(String  comment){
-        this.comment = comment ;
-        this.modify("comment",comment);
-    }
-
 
 }
 

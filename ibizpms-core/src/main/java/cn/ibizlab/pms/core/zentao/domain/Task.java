@@ -370,7 +370,7 @@ public class Task extends EntityMP implements Serializable {
     /**
      * 备注
      */
-    @TableField(value = "comment")
+    @TableField(exist = false)
     @JSONField(name = "comment")
     @JsonProperty("comment")
     private String comment;
@@ -633,13 +633,6 @@ public class Task extends EntityMP implements Serializable {
     public void setModule(BigInteger module){
         this.module = module ;
         this.modify("module",module);
-    }
-    /**
-     * 设置 [备注]
-     */
-    public void setComment(String comment){
-        this.comment = comment ;
-        this.modify("comment",comment);
     }
 
 }
