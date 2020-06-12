@@ -287,54 +287,6 @@ export default class BurnDownBase extends Vue implements ControlInterface {
     baseOption:{
     }
     })  
-,
-        est:new ChartLineSeries({
-    name:'est',
-    
-    
-    categorField:'date',
-    
-    
-    valueField:'estimate',
-    seriesValues:[],
-    seriesIndex:1,
-    data:[],
-    seriesMap:{},
-    dataSetFields:[
-    {name:"date",codelist:null,isGroupField:true,groupMode:"DAY"},
-    {name:"estimate",codelist:null,isGroupField:false,groupMode:""}
-    ],
-    ecxObject:{
-        label:{
-            show: true,
-            position: 'inside'
-        },
-        labelLine:{
-            length: 10,
-            lineStyle: {
-                width: 1,
-                type: 'solid'
-            }
-        },
-        itemStyle:{
-            borderColor: '#fff',
-            borderWidth: 1
-        },
-        emphasis:{
-            label: {
-                fontSize: 20
-            }
-        }
-    },
-    ecObject:{
-    },
-    seriesTemp:{
-        type:'line',
-    },
-    seriesLayoutBy:"column",
-    baseOption:{
-    }
-    })  
 
     };
 
@@ -407,17 +359,6 @@ export default class BurnDownBase extends Vue implements ControlInterface {
             encode: {
                 x: ['date'],      
                 y: ['left']
-            }}
-        ,                     {
-            id:'est',
-            name:'预计消耗',
-            type:'line',
-            xAxisIndex:1,
-            yAxisIndex:1,
-            datasetIndex:1,
-            encode: {
-                x: ['date'],      
-                y: ['estimate']
             }}
         ]
     };
