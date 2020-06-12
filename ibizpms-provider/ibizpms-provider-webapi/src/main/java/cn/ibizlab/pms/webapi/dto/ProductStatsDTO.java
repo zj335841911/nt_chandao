@@ -215,6 +215,30 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
     @JsonProperty("unconfirmbugcnt")
     private Integer unconfirmbugcnt;
 
+    /**
+     * 属性 [YESTERDAYCLOSEDBUGCNT]
+     *
+     */
+    @JSONField(name = "yesterdayclosedbugcnt")
+    @JsonProperty("yesterdayclosedbugcnt")
+    private Integer yesterdayclosedbugcnt;
+
+    /**
+     * 属性 [YESTERDAYCONFIRMBUGCNT]
+     *
+     */
+    @JSONField(name = "yesterdayconfirmbugcnt")
+    @JsonProperty("yesterdayconfirmbugcnt")
+    private Integer yesterdayconfirmbugcnt;
+
+    /**
+     * 属性 [YESTERDAYRESOLVEDBUGCNT]
+     *
+     */
+    @JSONField(name = "yesterdayresolvedbugcnt")
+    @JsonProperty("yesterdayresolvedbugcnt")
+    private Integer yesterdayresolvedbugcnt;
+
 
     /**
      * 设置 [NAME]

@@ -2,18 +2,6 @@
     <div class='portlet-container db-testcontainer2 ' :style="{}">
             <i-col :md="{ span: 24, offset: 0 }">
                 <div class="portlet-without-title">
-                                  <view_db_sysportlet1 
-                      :viewState="viewState"  
-                      :viewparams="viewparams" 
-                      :context="context" 
-                      name="db_sysportlet1"  
-                      ref='db_sysportlet1' 
-                      @closeview="closeView($event)">
-                  </view_db_sysportlet1>
-                </div>
-            </i-col>
-            <i-col :md="{ span: 24, offset: 0 }">
-                <div class="portlet-without-title">
                                   <view_db_sysportlet2 
                       :viewState="viewState"  
                       :viewparams="viewparams" 
@@ -22,6 +10,18 @@
                       ref='db_sysportlet2' 
                       @closeview="closeView($event)">
                   </view_db_sysportlet2>
+                </div>
+            </i-col>
+            <i-col :md="{ span: 24, offset: 0 }">
+                <div class="portlet-without-title">
+                                  <view_db_sysportlet1 
+                      :viewState="viewState"  
+                      :viewparams="viewparams" 
+                      :context="context" 
+                      name="db_sysportlet1"  
+                      ref='db_sysportlet1' 
+                      @closeview="closeView($event)">
+                  </view_db_sysportlet1>
                 </div>
             </i-col>
     </div>

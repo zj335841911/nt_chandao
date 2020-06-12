@@ -196,7 +196,7 @@ public class ProductStats extends EntityMP implements Serializable {
     @JsonProperty("notclosedbugcnt")
     private Integer notclosedbugcnt;
     /**
-     * 所有Bug树
+     * 所有Bug数
      */
     @TableField(exist = false)
     @JSONField(name = "bugcnt")
@@ -209,6 +209,27 @@ public class ProductStats extends EntityMP implements Serializable {
     @JSONField(name = "unconfirmbugcnt")
     @JsonProperty("unconfirmbugcnt")
     private Integer unconfirmbugcnt;
+    /**
+     * 昨天关闭Bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "yesterdayclosedbugcnt")
+    @JsonProperty("yesterdayclosedbugcnt")
+    private Integer yesterdayclosedbugcnt;
+    /**
+     * 昨天确认Bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "yesterdayconfirmbugcnt")
+    @JsonProperty("yesterdayconfirmbugcnt")
+    private Integer yesterdayconfirmbugcnt;
+    /**
+     * 昨天解决Bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "yesterdayresolvedbugcnt")
+    @JsonProperty("yesterdayresolvedbugcnt")
+    private Integer yesterdayresolvedbugcnt;
 
 
 

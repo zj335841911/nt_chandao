@@ -69,6 +69,16 @@ export default class TestMain2Model {
         dataType: 'INT',
       },
       {
+        name: 'yesterdayresolvedbugcnt',
+        prop: 'yesterdayresolvedbugcnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'activebugcnt',
+        prop: 'activebugcnt',
+        dataType: 'INT',
+      },
+      {
         name: 'custom3',
         prop: 'bugcnt',
         dataType: 'INT',
@@ -82,8 +92,13 @@ export default class TestMain2Model {
         name: 'formitemex2',
       },
       {
-        name: 'activebugcnt',
-        prop: 'activebugcnt',
+        name: 'yesterdayconfirmbugcnt',
+        prop: 'yesterdayconfirmbugcnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'unconfirmbugcnt',
+        prop: 'unconfirmbugcnt',
         dataType: 'INT',
       },
       {
@@ -100,8 +115,13 @@ export default class TestMain2Model {
         name: 'formitemex3',
       },
       {
-        name: 'unconfirmbugcnt',
-        prop: 'unconfirmbugcnt',
+        name: 'yesterdayclosedbugcnt',
+        prop: 'yesterdayclosedbugcnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'notclosedbugcnt',
+        prop: 'notclosedbugcnt',
         dataType: 'INT',
       },
       {
@@ -116,11 +136,6 @@ export default class TestMain2Model {
       },
       {
         name: 'formitemex4',
-      },
-      {
-        name: 'notclosedbugcnt',
-        prop: 'notclosedbugcnt',
-        dataType: 'INT',
       },
       {
         name: 'id',

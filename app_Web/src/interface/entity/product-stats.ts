@@ -183,7 +183,7 @@ export interface ProductStats {
     notclosedbugcnt?: any;
 
     /**
-     * 所有Bug树
+     * 所有Bug数
      *
      * @returns {*}
      * @memberof ProductStats
@@ -197,4 +197,28 @@ export interface ProductStats {
      * @memberof ProductStats
      */
     unconfirmbugcnt?: any;
+
+    /**
+     * 昨天关闭Bug数
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    yesterdayclosedbugcnt?: any;
+
+    /**
+     * 昨天确认Bug数
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    yesterdayconfirmbugcnt?: any;
+
+    /**
+     * 昨天解决Bug数
+     *
+     * @returns {*}
+     * @memberof ProductStats
+     */
+    yesterdayresolvedbugcnt?: any;
 }
