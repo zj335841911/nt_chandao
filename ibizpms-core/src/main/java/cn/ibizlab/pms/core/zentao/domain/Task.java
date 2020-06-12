@@ -473,7 +473,7 @@ public class Task extends EntityMP implements Serializable {
         if (this.realstarted == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("%1$tY-%1$tm-%1$td");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(realstarted);
     }
     /**
@@ -515,7 +515,7 @@ public class Task extends EntityMP implements Serializable {
         if (this.assigneddate == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return sdf.format(assigneddate);
     }
     /**
@@ -565,7 +565,7 @@ public class Task extends EntityMP implements Serializable {
         if (this.closeddate == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return sdf.format(closeddate);
     }
     /**
@@ -607,7 +607,7 @@ public class Task extends EntityMP implements Serializable {
         if (this.eststarted == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("%1$tY-%1$tm-%1$td");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(eststarted);
     }
     /**
@@ -625,7 +625,7 @@ public class Task extends EntityMP implements Serializable {
         if (this.deadline == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("%1$tY-%1$tm-%1$td");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(deadline);
     }
     /**
@@ -667,7 +667,7 @@ public class Task extends EntityMP implements Serializable {
         if (this.canceleddate == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return sdf.format(canceleddate);
     }
     /**
@@ -685,7 +685,7 @@ public class Task extends EntityMP implements Serializable {
         if (this.finisheddate == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return sdf.format(finisheddate);
     }
     /**

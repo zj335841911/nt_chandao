@@ -464,7 +464,7 @@ public class Story extends EntityMP implements Serializable {
         if (this.assigneddate == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return sdf.format(assigneddate);
     }
     /**
@@ -514,7 +514,7 @@ public class Story extends EntityMP implements Serializable {
         if (this.revieweddate == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("%1$tY-%1$tm-%1$td");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(revieweddate);
     }
     /**
@@ -628,7 +628,7 @@ public class Story extends EntityMP implements Serializable {
         if (this.closeddate == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return sdf.format(closeddate);
     }
     /**
@@ -662,7 +662,7 @@ public class Story extends EntityMP implements Serializable {
         if (this.lastediteddate == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return sdf.format(lastediteddate);
     }
     /**

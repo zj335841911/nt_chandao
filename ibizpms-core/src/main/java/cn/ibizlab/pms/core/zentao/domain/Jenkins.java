@@ -171,7 +171,7 @@ public class Jenkins extends EntityMP implements Serializable {
         if (this.editeddate == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return sdf.format(editeddate);
     }
     /**
@@ -213,7 +213,7 @@ public class Jenkins extends EntityMP implements Serializable {
         if (this.createddate == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return sdf.format(createddate);
     }
 

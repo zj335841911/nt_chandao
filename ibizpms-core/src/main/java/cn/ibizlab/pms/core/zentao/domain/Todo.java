@@ -221,7 +221,7 @@ public class Todo extends EntityMP implements Serializable {
         if (this.closeddate == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return sdf.format(closeddate);
     }
     /**
@@ -303,7 +303,7 @@ public class Todo extends EntityMP implements Serializable {
         if (this.finisheddate == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return sdf.format(finisheddate);
     }
     /**
@@ -353,7 +353,7 @@ public class Todo extends EntityMP implements Serializable {
         if (this.assigneddate == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return sdf.format(assigneddate);
     }
     /**
@@ -379,7 +379,7 @@ public class Todo extends EntityMP implements Serializable {
         if (this.date == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("%1$tY-%1$tm-%1$td");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(date);
     }
     /**

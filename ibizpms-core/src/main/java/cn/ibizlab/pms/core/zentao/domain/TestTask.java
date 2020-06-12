@@ -200,7 +200,7 @@ public class TestTask extends EntityMP implements Serializable {
         if (this.end == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("%1$tY-%1$tm-%1$td");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(end);
     }
     /**
@@ -218,7 +218,7 @@ public class TestTask extends EntityMP implements Serializable {
         if (this.begin == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("%1$tY-%1$tm-%1$td");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(begin);
     }
     /**
