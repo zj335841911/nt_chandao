@@ -231,7 +231,7 @@ public class Team extends EntityMP implements Serializable {
         if (this.join == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        SimpleDateFormat sdf = new SimpleDateFormat("%1$tY-%1$tm-%1$td");
         return sdf.format(join);
     }
     /**

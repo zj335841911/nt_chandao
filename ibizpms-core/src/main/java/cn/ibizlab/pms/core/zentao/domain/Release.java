@@ -240,7 +240,7 @@ public class Release extends EntityMP implements Serializable {
         if (this.date == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        SimpleDateFormat sdf = new SimpleDateFormat("%1$tY-%1$tm-%1$td");
         return sdf.format(date);
     }
     /**

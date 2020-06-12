@@ -172,7 +172,7 @@ public class ProductPlan extends EntityMP implements Serializable {
         if (this.begin == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        SimpleDateFormat sdf = new SimpleDateFormat("%1$tY-%1$tm-%1$td");
         return sdf.format(begin);
     }
     /**
@@ -198,7 +198,7 @@ public class ProductPlan extends EntityMP implements Serializable {
         if (this.end == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        SimpleDateFormat sdf = new SimpleDateFormat("%1$tY-%1$tm-%1$td");
         return sdf.format(end);
     }
     /**

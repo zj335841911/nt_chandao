@@ -173,7 +173,7 @@ public class Im_chatuser extends EntityMP implements Serializable {
         if (this.join == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        SimpleDateFormat sdf = new SimpleDateFormat("%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS");
         return sdf.format(join);
     }
     /**
@@ -215,7 +215,7 @@ public class Im_chatuser extends EntityMP implements Serializable {
         if (this.quit == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        SimpleDateFormat sdf = new SimpleDateFormat("%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS");
         return sdf.format(quit);
     }
     /**
