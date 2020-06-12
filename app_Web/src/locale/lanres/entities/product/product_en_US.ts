@@ -94,6 +94,10 @@ export default {
 			caption: "产品",
       title: '产品',
 		},
+		testlistexpview: {
+			caption: "测试统计",
+      title: '测试统计',
+		},
 		editview: {
 			caption: "产品",
       title: '产品',
@@ -281,6 +285,12 @@ export default {
 		},
 	},
 	listexpviewlistexpbar_list_quicktoolbar_toolbar: {
+		deuiaction1: {
+			caption: "New",
+			tip: "New",
+		},
+	},
+	testlistexpviewlistexpbar_list_quicktoolbar_toolbar: {
 		deuiaction1: {
 			caption: "New",
 			tip: "New",

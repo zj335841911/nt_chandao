@@ -19,6 +19,10 @@ zuul:
       path: /products/**
       serviceId: pms-webapi
       stripPrefix: false
+    zt_burn:
+      path: /burns/**
+      serviceId: pms-webapi
+      stripPrefix: false
     ibz_subproductplan:
       path: /subproductplans/**
       serviceId: pms-webapi

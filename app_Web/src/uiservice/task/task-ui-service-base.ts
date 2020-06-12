@@ -139,7 +139,7 @@ export default class TaskUIServiceBase extends UIService {
         }
         const backend = () => {
             const curService:TaskService =  new TaskService();
-            curService.Get(context,data, true).then((response: any) => {
+            curService.Cancel(context,data, true).then((response: any) => {
                 if (!response || response.status !== 200) {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;
@@ -207,7 +207,7 @@ export default class TaskUIServiceBase extends UIService {
         }
         const backend = () => {
             const curService:TaskService =  new TaskService();
-            curService.Get(context,data, true).then((response: any) => {
+            curService.AssignTo(context,data, true).then((response: any) => {
                 if (!response || response.status !== 200) {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;
@@ -275,7 +275,7 @@ export default class TaskUIServiceBase extends UIService {
         }
         const backend = () => {
             const curService:TaskService =  new TaskService();
-            curService.Get(context,data, true).then((response: any) => {
+            curService.Start(context,data, true).then((response: any) => {
                 if (!response || response.status !== 200) {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;
@@ -402,7 +402,7 @@ export default class TaskUIServiceBase extends UIService {
         }
         const backend = () => {
             const curService:TaskService =  new TaskService();
-            curService.Get(context,data, true).then((response: any) => {
+            curService.Pause(context,data, true).then((response: any) => {
                 if (!response || response.status !== 200) {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;
@@ -470,7 +470,7 @@ export default class TaskUIServiceBase extends UIService {
         }
         const backend = () => {
             const curService:TaskService =  new TaskService();
-            curService.Get(context,data, true).then((response: any) => {
+            curService.Close(context,data, true).then((response: any) => {
                 if (!response || response.status !== 200) {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;
@@ -594,7 +594,7 @@ export default class TaskUIServiceBase extends UIService {
         }
         const backend = () => {
             const curService:TaskService =  new TaskService();
-            curService.Get(context,data, true).then((response: any) => {
+            curService.Finish(context,data, true).then((response: any) => {
                 if (!response || response.status !== 200) {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;

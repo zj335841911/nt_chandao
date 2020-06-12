@@ -2,6 +2,7 @@ import productplan_en_US from '@locale/lanres/entities/product-plan/product-plan
 import projectproduct_en_US from '@locale/lanres/entities/project-product/project-product_en_US';
 import case_en_US from '@locale/lanres/entities/case/case_en_US';
 import product_en_US from '@locale/lanres/entities/product/product_en_US';
+import burn_en_US from '@locale/lanres/entities/burn/burn_en_US';
 import subproductplan_en_US from '@locale/lanres/entities/sub-product-plan/sub-product-plan_en_US';
 import storyspec_en_US from '@locale/lanres/entities/story-spec/story-spec_en_US';
 import branch_en_US from '@locale/lanres/entities/branch/branch_en_US';
@@ -116,6 +117,7 @@ export default {
         projectproduct: projectproduct_en_US,
         case: case_en_US,
         product: product_en_US,
+        burn: burn_en_US,
         subproductplan: subproductplan_en_US,
         storyspec: storyspec_en_US,
         branch: branch_en_US,

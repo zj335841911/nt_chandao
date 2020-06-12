@@ -975,6 +975,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ModulePickupGridView",
             "viewtag": "bda78773fabbeee54079951afb35f954"
         },
+        "producttestlistexpview": {
+            "title": "测试统计",
+            "caption": "测试统计",
+            "viewtype": "DELISTEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProductTestListExpView",
+            "viewtag": "c539f1585371e9943b90177eaef08b6b"
+        },
         "buggridview": {
             "title": "bug表格视图",
             "caption": "Bug",

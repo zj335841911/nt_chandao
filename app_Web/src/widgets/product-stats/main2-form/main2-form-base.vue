@@ -1483,7 +1483,7 @@ export default class Main2Base extends Vue implements ControlInterface {
         if (Object.is(name, '') || Object.is(name, 'storycnt')) {
             let ret = false;
             const _storycnt = this.data.storycnt;
-            if (this.$verify.testCond(_storycnt, 'NOTEQ', '')) {
+            if (this.$verify.testCond(_storycnt, 'NOTEQ', '0')) {
                 ret = true;
             }
             this.detailsModel.button4.setVisible(ret);
@@ -1492,7 +1492,7 @@ export default class Main2Base extends Vue implements ControlInterface {
         if (Object.is(name, '') || Object.is(name, 'storycnt')) {
             let ret = false;
             const _storycnt = this.data.storycnt;
-            if (this.$verify.testCond(_storycnt, 'EQ', '')) {
+            if (this.$verify.testCond(_storycnt, 'EQ', '0')) {
                 ret = true;
             }
             this.detailsModel.button5.setVisible(ret);
