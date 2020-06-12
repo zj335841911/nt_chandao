@@ -28,7 +28,7 @@ public class ProductServiceEx extends ProductServiceImpl {
     @Override
     @Transactional
     public Product close(Product et) {
-        return et;
+        return super.close(et);
     }
 }
 

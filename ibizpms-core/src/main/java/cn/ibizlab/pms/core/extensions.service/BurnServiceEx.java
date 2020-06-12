@@ -28,7 +28,7 @@ public class BurnServiceEx extends BurnServiceImpl {
     @Override
     @Transactional
     public Burn computeBurn(Burn et) {
-        return et;
+        return super.computeBurn(et);
     }
 }
 

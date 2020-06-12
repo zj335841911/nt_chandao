@@ -21,16 +21,6 @@ public class TaskServiceEx extends TaskServiceImpl {
     }
 
     /**
-     * 自定义行为[CalcTime]用户扩展
-     * @param et
-     * @return
-     */
-    @Override
-    @Transactional
-    public Task calcTime(Task et) {
-        return et;
-    }
-    /**
      * 自定义行为[Close]用户扩展
      * @param et
      * @return
@@ -38,7 +28,7 @@ public class TaskServiceEx extends TaskServiceImpl {
     @Override
     @Transactional
     public Task close(Task et) {
-        return et;
+        return super.close(et);
     }
     /**
      * 自定义行为[Pause]用户扩展
@@ -48,7 +38,7 @@ public class TaskServiceEx extends TaskServiceImpl {
     @Override
     @Transactional
     public Task pause(Task et) {
-        return et;
+        return super.pause(et);
     }
     /**
      * 自定义行为[Start]用户扩展
@@ -58,7 +48,7 @@ public class TaskServiceEx extends TaskServiceImpl {
     @Override
     @Transactional
     public Task start(Task et) {
-        return et;
+        return super.start(et);
     }
     /**
      * 自定义行为[AssignTo]用户扩展
@@ -68,7 +58,7 @@ public class TaskServiceEx extends TaskServiceImpl {
     @Override
     @Transactional
     public Task assignTo(Task et) {
-        return et;
+        return super.assignTo(et);
     }
     /**
      * 自定义行为[Cancel]用户扩展
@@ -78,7 +68,7 @@ public class TaskServiceEx extends TaskServiceImpl {
     @Override
     @Transactional
     public Task cancel(Task et) {
-        return et;
+        return super.cancel(et);
     }
     /**
      * 自定义行为[DeleteEstimate]用户扩展
@@ -88,7 +78,7 @@ public class TaskServiceEx extends TaskServiceImpl {
     @Override
     @Transactional
     public Task deleteEstimate(Task et) {
-        return et;
+        return super.deleteEstimate(et);
     }
     /**
      * 自定义行为[Restart]用户扩展
@@ -98,7 +88,7 @@ public class TaskServiceEx extends TaskServiceImpl {
     @Override
     @Transactional
     public Task restart(Task et) {
-        return et;
+        return super.restart(et);
     }
     /**
      * 自定义行为[EditEstimate]用户扩展
@@ -108,7 +98,7 @@ public class TaskServiceEx extends TaskServiceImpl {
     @Override
     @Transactional
     public Task editEstimate(Task et) {
-        return et;
+        return super.editEstimate(et);
     }
     /**
      * 自定义行为[RecordEstimate]用户扩展
@@ -118,7 +108,7 @@ public class TaskServiceEx extends TaskServiceImpl {
     @Override
     @Transactional
     public Task recordEstimate(Task et) {
-        return et;
+        return super.recordEstimate(et);
     }
     /**
      * 自定义行为[Finish]用户扩展
@@ -128,7 +118,7 @@ public class TaskServiceEx extends TaskServiceImpl {
     @Override
     @Transactional
     public Task finish(Task et) {
-        return et;
+        return super.finish(et);
     }
     /**
      * 自定义行为[Activate]用户扩展
@@ -138,7 +128,7 @@ public class TaskServiceEx extends TaskServiceImpl {
     @Override
     @Transactional
     public Task activate(Task et) {
-        return et;
+        return super.activate(et);
     }
 }
 
