@@ -257,10 +257,7 @@ export default class BurnDownBase extends Vue implements ControlInterface {
     {name:"left",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
-        label:{
-            show: true,
-            position: 'inside'
-        },
+        label:{show: false,position: 'inside'},
         labelLine:{
             length: 10,
             lineStyle: {
@@ -313,7 +310,7 @@ export default class BurnDownBase extends Vue implements ControlInterface {
      */   
     public chartOption:any = {
         title:{
-            show:true ,
+            show:false ,
             text:'燃尽图',
             subtext:''
         },
