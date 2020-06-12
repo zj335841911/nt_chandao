@@ -6,7 +6,7 @@
 <i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.testmain2_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
-        <i-col v-show="detailsModel.formitemex1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col v-show="detailsModel.formitemex1.visible" :style="{'height': '250px !important',}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='formitemex1' :itemRules="this.rules.formitemex1" class='' :caption="$t('entities.productstats.testmain2_form.details.formitemex1')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.formitemex1.error" :isEmptyCaption="false" labelPos="NONE">
     <ibiz-studio-progress-vue caption="所有" stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="circle" :total="this.data.custom1" :progress="this.data.custom2"/>
 </app-form-item>
@@ -33,7 +33,7 @@ style=""></app-span>
     <row>
         <i-col v-show="detailsModel.formitemex2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
     <app-form-item name='formitemex2' :itemRules="this.rules.formitemex2" class='' :caption="$t('entities.productstats.testmain2_form.details.formitemex2')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex2.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-range-editor v-model="data.formitemex2" :activeData="data" :disabled="detailsModel.formitemex2.disabled" name="formitemex2" editorType="TEXTBOX" format="" :refFormItem="['custom3','custom4']" @formitemvaluechange="onFormItemValueChange" style=""></app-range-editor>
+    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom3" :progress="this.data.custom4"/>
 </app-form-item>
 
 </i-col>
@@ -50,7 +50,7 @@ style=""></app-span>
 </i-col>
 <i-col v-show="detailsModel.formitemex3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
     <app-form-item name='formitemex3' :itemRules="this.rules.formitemex3" class='' :caption="$t('entities.productstats.testmain2_form.details.formitemex3')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex3.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-range-editor v-model="data.formitemex3" :activeData="data" :disabled="detailsModel.formitemex3.disabled" name="formitemex3" editorType="TEXTBOX" format="" :refFormItem="['custom5','custom6']" @formitemvaluechange="onFormItemValueChange" style=""></app-range-editor>
+    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom5" :progress="this.data.custom6"/>
 </app-form-item>
 
 </i-col>
@@ -67,7 +67,7 @@ style=""></app-span>
 </i-col>
 <i-col v-show="detailsModel.formitemex4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
     <app-form-item name='formitemex4' :itemRules="this.rules.formitemex4" class='' :caption="$t('entities.productstats.testmain2_form.details.formitemex4')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex4.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-range-editor v-model="data.formitemex4" :activeData="data" :disabled="detailsModel.formitemex4.disabled" name="formitemex4" editorType="TEXTBOX" format="" :refFormItem="['custom7','custom8']" @formitemvaluechange="onFormItemValueChange" style=""></app-range-editor>
+    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom7" :progress="this.data.custom8"/>
 </app-form-item>
 
 </i-col>
