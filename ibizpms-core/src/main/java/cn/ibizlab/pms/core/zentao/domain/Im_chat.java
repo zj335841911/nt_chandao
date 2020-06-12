@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -158,6 +159,7 @@ public class Im_chat extends EntityMP implements Serializable {
         this.admins = admins ;
         this.modify("admins",admins);
     }
+
     /**
      * 设置 [createdBy]
      */
@@ -165,12 +167,24 @@ public class Im_chat extends EntityMP implements Serializable {
         this.createdby = createdby ;
         this.modify("createdby",createdby);
     }
+
     /**
      * 设置 [editedDate]
      */
     public void setEditeddate(Timestamp editeddate){
         this.editeddate = editeddate ;
         this.modify("editeddate",editeddate);
+    }
+
+    /**
+     * 格式化日期 [editedDate]
+     */
+    public String formatEditeddate(){
+        if (this.editeddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(editeddate);
     }
     /**
      * 设置 [dismissDate]
@@ -179,12 +193,34 @@ public class Im_chat extends EntityMP implements Serializable {
         this.dismissdate = dismissdate ;
         this.modify("dismissdate",dismissdate);
     }
+
+    /**
+     * 格式化日期 [dismissDate]
+     */
+    public String formatDismissdate(){
+        if (this.dismissdate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(dismissdate);
+    }
     /**
      * 设置 [createdDate]
      */
     public void setCreateddate(Timestamp createddate){
         this.createddate = createddate ;
         this.modify("createddate",createddate);
+    }
+
+    /**
+     * 格式化日期 [createdDate]
+     */
+    public String formatCreateddate(){
+        if (this.createddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(createddate);
     }
     /**
      * 设置 [committers]
@@ -193,6 +229,7 @@ public class Im_chat extends EntityMP implements Serializable {
         this.committers = committers ;
         this.modify("committers",committers);
     }
+
     /**
      * 设置 [public]
      */
@@ -200,6 +237,7 @@ public class Im_chat extends EntityMP implements Serializable {
         this.ibizpublic = ibizpublic ;
         this.modify("public",ibizpublic);
     }
+
     /**
      * 设置 [name]
      */
@@ -207,6 +245,7 @@ public class Im_chat extends EntityMP implements Serializable {
         this.name = name ;
         this.modify("name",name);
     }
+
     /**
      * 设置 [type]
      */
@@ -214,6 +253,7 @@ public class Im_chat extends EntityMP implements Serializable {
         this.type = type ;
         this.modify("type",type);
     }
+
     /**
      * 设置 [editedBy]
      */
@@ -221,6 +261,7 @@ public class Im_chat extends EntityMP implements Serializable {
         this.editedby = editedby ;
         this.modify("editedby",editedby);
     }
+
     /**
      * 设置 [subject]
      */
@@ -228,12 +269,24 @@ public class Im_chat extends EntityMP implements Serializable {
         this.subject = subject ;
         this.modify("subject",subject);
     }
+
     /**
      * 设置 [lastActiveTime]
      */
     public void setLastactivetime(Timestamp lastactivetime){
         this.lastactivetime = lastactivetime ;
         this.modify("lastactivetime",lastactivetime);
+    }
+
+    /**
+     * 格式化日期 [lastActiveTime]
+     */
+    public String formatLastactivetime(){
+        if (this.lastactivetime == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(lastactivetime);
     }
     /**
      * 设置 [gid]
@@ -242,6 +295,7 @@ public class Im_chat extends EntityMP implements Serializable {
         this.gid = gid ;
         this.modify("gid",gid);
     }
+
 
 }
 

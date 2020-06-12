@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -135,6 +136,7 @@ public class Cron extends EntityMP implements Serializable {
         this.status = status ;
         this.modify("status",status);
     }
+
     /**
      * 设置 [buildin]
      */
@@ -142,6 +144,7 @@ public class Cron extends EntityMP implements Serializable {
         this.buildin = buildin ;
         this.modify("buildin",buildin);
     }
+
     /**
      * 设置 [m]
      */
@@ -149,12 +152,24 @@ public class Cron extends EntityMP implements Serializable {
         this.m = m ;
         this.modify("m",m);
     }
+
     /**
      * 设置 [lastTime]
      */
     public void setLasttime(Timestamp lasttime){
         this.lasttime = lasttime ;
         this.modify("lasttime",lasttime);
+    }
+
+    /**
+     * 格式化日期 [lastTime]
+     */
+    public String formatLasttime(){
+        if (this.lasttime == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(lasttime);
     }
     /**
      * 设置 [command]
@@ -163,6 +178,7 @@ public class Cron extends EntityMP implements Serializable {
         this.command = command ;
         this.modify("command",command);
     }
+
     /**
      * 设置 [dom]
      */
@@ -170,6 +186,7 @@ public class Cron extends EntityMP implements Serializable {
         this.dom = dom ;
         this.modify("dom",dom);
     }
+
     /**
      * 设置 [mon]
      */
@@ -177,6 +194,7 @@ public class Cron extends EntityMP implements Serializable {
         this.mon = mon ;
         this.modify("mon",mon);
     }
+
     /**
      * 设置 [remark]
      */
@@ -184,6 +202,7 @@ public class Cron extends EntityMP implements Serializable {
         this.remark = remark ;
         this.modify("remark",remark);
     }
+
     /**
      * 设置 [h]
      */
@@ -191,6 +210,7 @@ public class Cron extends EntityMP implements Serializable {
         this.h = h ;
         this.modify("h",h);
     }
+
     /**
      * 设置 [type]
      */
@@ -198,6 +218,7 @@ public class Cron extends EntityMP implements Serializable {
         this.type = type ;
         this.modify("type",type);
     }
+
     /**
      * 设置 [dow]
      */
@@ -205,6 +226,7 @@ public class Cron extends EntityMP implements Serializable {
         this.dow = dow ;
         this.modify("dow",dow);
     }
+
 
 }
 

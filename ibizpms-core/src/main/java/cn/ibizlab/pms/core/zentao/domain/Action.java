@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -137,6 +138,7 @@ public class Action extends EntityMP implements Serializable {
         this.extra = extra ;
         this.modify("extra",extra);
     }
+
     /**
      * 设置 [对象类型]
      */
@@ -144,6 +146,7 @@ public class Action extends EntityMP implements Serializable {
         this.objecttype = objecttype ;
         this.modify("objecttype",objecttype);
     }
+
     /**
      * 设置 [备注]
      */
@@ -151,6 +154,7 @@ public class Action extends EntityMP implements Serializable {
         this.comment = comment ;
         this.modify("comment",comment);
     }
+
     /**
      * 设置 [已读]
      */
@@ -158,6 +162,7 @@ public class Action extends EntityMP implements Serializable {
         this.read = read ;
         this.modify("read",read);
     }
+
     /**
      * 设置 [动作]
      */
@@ -165,12 +170,24 @@ public class Action extends EntityMP implements Serializable {
         this.action = action ;
         this.modify("action",action);
     }
+
     /**
      * 设置 [日期]
      */
     public void setDate(Timestamp date){
         this.date = date ;
         this.modify("date",date);
+    }
+
+    /**
+     * 格式化日期 [日期]
+     */
+    public String formatDate(){
+        if (this.date == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(date);
     }
     /**
      * 设置 [产品]
@@ -179,6 +196,7 @@ public class Action extends EntityMP implements Serializable {
         this.product = product ;
         this.modify("product",product);
     }
+
     /**
      * 设置 [对象ID]
      */
@@ -186,6 +204,7 @@ public class Action extends EntityMP implements Serializable {
         this.objectid = objectid ;
         this.modify("objectid",objectid);
     }
+
     /**
      * 设置 [操作者]
      */
@@ -193,6 +212,7 @@ public class Action extends EntityMP implements Serializable {
         this.actor = actor ;
         this.modify("actor",actor);
     }
+
     /**
      * 设置 [项目]
      */
@@ -200,6 +220,7 @@ public class Action extends EntityMP implements Serializable {
         this.project = project ;
         this.modify("project",project);
     }
+
 
 }
 

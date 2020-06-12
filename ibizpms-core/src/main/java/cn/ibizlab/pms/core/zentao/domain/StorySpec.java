@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -105,6 +106,7 @@ public class StorySpec extends EntityMP implements Serializable {
         this.spec = spec ;
         this.modify("spec",spec);
     }
+
     /**
      * 设置 [重复需求ID]
      */
@@ -112,6 +114,7 @@ public class StorySpec extends EntityMP implements Serializable {
         this.duplicatestory = duplicatestory ;
         this.modify("duplicatestory",duplicatestory);
     }
+
     /**
      * 设置 [验收标准]
      */
@@ -119,6 +122,7 @@ public class StorySpec extends EntityMP implements Serializable {
         this.verify = verify ;
         this.modify("verify",verify);
     }
+
     /**
      * 设置 [需求名称]
      */
@@ -126,6 +130,7 @@ public class StorySpec extends EntityMP implements Serializable {
         this.title = title ;
         this.modify("title",title);
     }
+
     /**
      * 设置 [版本号]
      */
@@ -133,6 +138,7 @@ public class StorySpec extends EntityMP implements Serializable {
         this.version = version ;
         this.modify("version",version);
     }
+
     /**
      * 设置 [需求]
      */
@@ -140,6 +146,7 @@ public class StorySpec extends EntityMP implements Serializable {
         this.story = story ;
         this.modify("story",story);
     }
+
 
 }
 

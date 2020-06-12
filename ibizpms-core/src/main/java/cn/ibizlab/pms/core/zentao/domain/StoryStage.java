@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -99,6 +100,7 @@ public class StoryStage extends EntityMP implements Serializable {
         this.stagedby = stagedby ;
         this.modify("stagedby",stagedby);
     }
+
     /**
      * 设置 [所处阶段]
      */
@@ -106,6 +108,7 @@ public class StoryStage extends EntityMP implements Serializable {
         this.stage = stage ;
         this.modify("stage",stage);
     }
+
     /**
      * 设置 [需求]
      */
@@ -113,6 +116,7 @@ public class StoryStage extends EntityMP implements Serializable {
         this.story = story ;
         this.modify("story",story);
     }
+
     /**
      * 设置 [平台/分支]
      */
@@ -120,6 +124,7 @@ public class StoryStage extends EntityMP implements Serializable {
         this.branch = branch ;
         this.modify("branch",branch);
     }
+
 
 }
 

@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -136,6 +137,7 @@ public class ProjectProduct extends EntityMP implements Serializable {
         this.product = product ;
         this.modify("product",product);
     }
+
     /**
      * 设置 [产品计划]
      */
@@ -143,6 +145,7 @@ public class ProjectProduct extends EntityMP implements Serializable {
         this.plan = plan ;
         this.modify("plan",plan);
     }
+
     /**
      * 设置 [平台/分支]
      */
@@ -150,6 +153,7 @@ public class ProjectProduct extends EntityMP implements Serializable {
         this.branch = branch ;
         this.modify("branch",branch);
     }
+
     /**
      * 设置 [项目]
      */
@@ -157,6 +161,7 @@ public class ProjectProduct extends EntityMP implements Serializable {
         this.project = project ;
         this.modify("project",project);
     }
+
 
 }
 

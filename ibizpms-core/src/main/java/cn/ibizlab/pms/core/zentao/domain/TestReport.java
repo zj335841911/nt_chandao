@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -205,6 +206,7 @@ public class TestReport extends EntityMP implements Serializable {
         this.objectid = objectid ;
         this.modify("objectid",objectid);
     }
+
     /**
      * 设置 [用例]
      */
@@ -212,6 +214,7 @@ public class TestReport extends EntityMP implements Serializable {
         this.cases = cases ;
         this.modify("cases",cases);
     }
+
     /**
      * 设置 [参与人员]
      */
@@ -219,6 +222,7 @@ public class TestReport extends EntityMP implements Serializable {
         this.members = members ;
         this.modify("members",members);
     }
+
     /**
      * 设置 [测试的Bug]
      */
@@ -226,6 +230,7 @@ public class TestReport extends EntityMP implements Serializable {
         this.bugs = bugs ;
         this.modify("bugs",bugs);
     }
+
     /**
      * 设置 [测试的需求]
      */
@@ -233,6 +238,7 @@ public class TestReport extends EntityMP implements Serializable {
         this.stories = stories ;
         this.modify("stories",stories);
     }
+
     /**
      * 设置 [测试单]
      */
@@ -240,6 +246,7 @@ public class TestReport extends EntityMP implements Serializable {
         this.tasks = tasks ;
         this.modify("tasks",tasks);
     }
+
     /**
      * 设置 [标题]
      */
@@ -247,12 +254,24 @@ public class TestReport extends EntityMP implements Serializable {
         this.title = title ;
         this.modify("title",title);
     }
+
     /**
      * 设置 [开始时间]
      */
     public void setBegin(Timestamp begin){
         this.begin = begin ;
         this.modify("begin",begin);
+    }
+
+    /**
+     * 格式化日期 [开始时间]
+     */
+    public String formatBegin(){
+        if (this.begin == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(begin);
     }
     /**
      * 设置 [对象类型]
@@ -261,12 +280,24 @@ public class TestReport extends EntityMP implements Serializable {
         this.objecttype = objecttype ;
         this.modify("objecttype",objecttype);
     }
+
     /**
      * 设置 [结束时间]
      */
     public void setEnd(Timestamp end){
         this.end = end ;
         this.modify("end",end);
+    }
+
+    /**
+     * 格式化日期 [结束时间]
+     */
+    public String formatEnd(){
+        if (this.end == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(end);
     }
     /**
      * 设置 [版本信息]
@@ -275,6 +306,7 @@ public class TestReport extends EntityMP implements Serializable {
         this.builds = builds ;
         this.modify("builds",builds);
     }
+
     /**
      * 设置 [总结]
      */
@@ -282,6 +314,7 @@ public class TestReport extends EntityMP implements Serializable {
         this.report = report ;
         this.modify("report",report);
     }
+
     /**
      * 设置 [负责人]
      */
@@ -289,6 +322,7 @@ public class TestReport extends EntityMP implements Serializable {
         this.owner = owner ;
         this.modify("owner",owner);
     }
+
     /**
      * 设置 [所属产品]
      */
@@ -296,6 +330,7 @@ public class TestReport extends EntityMP implements Serializable {
         this.product = product ;
         this.modify("product",product);
     }
+
     /**
      * 设置 [所属项目]
      */
@@ -303,6 +338,7 @@ public class TestReport extends EntityMP implements Serializable {
         this.project = project ;
         this.modify("project",project);
     }
+
 
 }
 

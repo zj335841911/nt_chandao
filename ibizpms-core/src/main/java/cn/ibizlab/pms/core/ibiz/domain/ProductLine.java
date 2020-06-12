@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -79,7 +80,6 @@ public class ProductLine extends EntityBase implements Serializable {
     @JSONField(name = "createMan")
     @JsonProperty("createMan")
     private String createman;
-
 
 
 

@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -136,6 +137,7 @@ public class Dept extends EntityMP implements Serializable {
         this.manager = manager ;
         this.modify("manager",manager);
     }
+
     /**
      * 设置 [grade]
      */
@@ -143,6 +145,7 @@ public class Dept extends EntityMP implements Serializable {
         this.grade = grade ;
         this.modify("grade",grade);
     }
+
     /**
      * 设置 [function]
      */
@@ -150,6 +153,7 @@ public class Dept extends EntityMP implements Serializable {
         this.function = function ;
         this.modify("function",function);
     }
+
     /**
      * 设置 [order]
      */
@@ -157,6 +161,7 @@ public class Dept extends EntityMP implements Serializable {
         this.order = order ;
         this.modify("order",order);
     }
+
     /**
      * 设置 [path]
      */
@@ -164,6 +169,7 @@ public class Dept extends EntityMP implements Serializable {
         this.path = path ;
         this.modify("path",path);
     }
+
     /**
      * 设置 [position]
      */
@@ -171,6 +177,7 @@ public class Dept extends EntityMP implements Serializable {
         this.position = position ;
         this.modify("position",position);
     }
+
     /**
      * 设置 [部门名称]
      */
@@ -178,6 +185,7 @@ public class Dept extends EntityMP implements Serializable {
         this.name = name ;
         this.modify("name",name);
     }
+
     /**
      * 设置 [parent]
      */
@@ -185,6 +193,7 @@ public class Dept extends EntityMP implements Serializable {
         this.parent = parent ;
         this.modify("parent",parent);
     }
+
 
 }
 

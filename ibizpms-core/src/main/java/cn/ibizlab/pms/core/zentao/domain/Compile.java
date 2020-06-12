@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -145,12 +146,24 @@ public class Compile extends EntityMP implements Serializable {
         this.queue = queue ;
         this.modify("queue",queue);
     }
+
     /**
      * 设置 [createdDate]
      */
     public void setCreateddate(Timestamp createddate){
         this.createddate = createddate ;
         this.modify("createddate",createddate);
+    }
+
+    /**
+     * 格式化日期 [createdDate]
+     */
+    public String formatCreateddate(){
+        if (this.createddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(createddate);
     }
     /**
      * 设置 [atTime]
@@ -159,6 +172,7 @@ public class Compile extends EntityMP implements Serializable {
         this.attime = attime ;
         this.modify("attime",attime);
     }
+
     /**
      * 设置 [tag]
      */
@@ -166,6 +180,7 @@ public class Compile extends EntityMP implements Serializable {
         this.tag = tag ;
         this.modify("tag",tag);
     }
+
     /**
      * 设置 [testtask]
      */
@@ -173,6 +188,7 @@ public class Compile extends EntityMP implements Serializable {
         this.testtask = testtask ;
         this.modify("testtask",testtask);
     }
+
     /**
      * 设置 [job]
      */
@@ -180,6 +196,7 @@ public class Compile extends EntityMP implements Serializable {
         this.job = job ;
         this.modify("job",job);
     }
+
     /**
      * 设置 [name]
      */
@@ -187,6 +204,7 @@ public class Compile extends EntityMP implements Serializable {
         this.name = name ;
         this.modify("name",name);
     }
+
     /**
      * 设置 [logs]
      */
@@ -194,6 +212,7 @@ public class Compile extends EntityMP implements Serializable {
         this.logs = logs ;
         this.modify("logs",logs);
     }
+
     /**
      * 设置 [status]
      */
@@ -201,6 +220,7 @@ public class Compile extends EntityMP implements Serializable {
         this.status = status ;
         this.modify("status",status);
     }
+
     /**
      * 设置 [createdBy]
      */
@@ -208,6 +228,7 @@ public class Compile extends EntityMP implements Serializable {
         this.createdby = createdby ;
         this.modify("createdby",createdby);
     }
+
 
 }
 

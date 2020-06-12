@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -101,6 +102,7 @@ public class History extends EntityMP implements Serializable {
         this.diff = diff ;
         this.modify("diff",diff);
     }
+
     /**
      * 设置 [字段]
      */
@@ -108,6 +110,7 @@ public class History extends EntityMP implements Serializable {
         this.field = field ;
         this.modify("field",field);
     }
+
     /**
      * 设置 [新值]
      */
@@ -115,6 +118,7 @@ public class History extends EntityMP implements Serializable {
         this.ibiznew = ibiznew ;
         this.modify("new",ibiznew);
     }
+
     /**
      * 设置 [旧值]
      */
@@ -122,6 +126,7 @@ public class History extends EntityMP implements Serializable {
         this.old = old ;
         this.modify("old",old);
     }
+
     /**
      * 设置 [关联日志]
      */
@@ -129,6 +134,7 @@ public class History extends EntityMP implements Serializable {
         this.action = action ;
         this.modify("action",action);
     }
+
 
 }
 

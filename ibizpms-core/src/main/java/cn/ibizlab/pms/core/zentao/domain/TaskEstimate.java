@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -108,6 +109,7 @@ public class TaskEstimate extends EntityMP implements Serializable {
         this.account = account ;
         this.modify("account",account);
     }
+
     /**
      * 设置 [预计剩余]
      */
@@ -115,6 +117,7 @@ public class TaskEstimate extends EntityMP implements Serializable {
         this.left = left ;
         this.modify("left",left);
     }
+
     /**
      * 设置 [总计消耗]
      */
@@ -122,12 +125,24 @@ public class TaskEstimate extends EntityMP implements Serializable {
         this.consumed = consumed ;
         this.modify("consumed",consumed);
     }
+
     /**
      * 设置 [日期]
      */
     public void setDate(Timestamp date){
         this.date = date ;
         this.modify("date",date);
+    }
+
+    /**
+     * 格式化日期 [日期]
+     */
+    public String formatDate(){
+        if (this.date == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(date);
     }
     /**
      * 设置 [work]
@@ -136,6 +151,7 @@ public class TaskEstimate extends EntityMP implements Serializable {
         this.work = work ;
         this.modify("work",work);
     }
+
     /**
      * 设置 [任务]
      */
@@ -143,6 +159,7 @@ public class TaskEstimate extends EntityMP implements Serializable {
         this.task = task ;
         this.modify("task",task);
     }
+
 
 }
 

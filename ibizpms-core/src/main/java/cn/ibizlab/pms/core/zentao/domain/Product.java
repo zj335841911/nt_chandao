@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -225,6 +226,7 @@ public class Product extends EntityMP implements Serializable {
         this.qd = qd ;
         this.modify("qd",qd);
     }
+
     /**
      * 设置 [访问控制]
      */
@@ -232,6 +234,7 @@ public class Product extends EntityMP implements Serializable {
         this.acl = acl ;
         this.modify("acl",acl);
     }
+
     /**
      * 设置 [产品名称]
      */
@@ -239,6 +242,7 @@ public class Product extends EntityMP implements Serializable {
         this.name = name ;
         this.modify("name",name);
     }
+
     /**
      * 设置 [分组白名单]
      */
@@ -246,6 +250,7 @@ public class Product extends EntityMP implements Serializable {
         this.whitelist = whitelist ;
         this.modify("whitelist",whitelist);
     }
+
     /**
      * 设置 [发布负责人]
      */
@@ -253,6 +258,7 @@ public class Product extends EntityMP implements Serializable {
         this.rd = rd ;
         this.modify("rd",rd);
     }
+
     /**
      * 设置 [排序]
      */
@@ -260,6 +266,7 @@ public class Product extends EntityMP implements Serializable {
         this.order = order ;
         this.modify("order",order);
     }
+
     /**
      * 设置 [产品类型]
      */
@@ -267,6 +274,7 @@ public class Product extends EntityMP implements Serializable {
         this.type = type ;
         this.modify("type",type);
     }
+
     /**
      * 设置 [产品负责人]
      */
@@ -274,6 +282,7 @@ public class Product extends EntityMP implements Serializable {
         this.po = po ;
         this.modify("po",po);
     }
+
     /**
      * 设置 [产品描述	]
      */
@@ -281,6 +290,7 @@ public class Product extends EntityMP implements Serializable {
         this.desc = desc ;
         this.modify("desc",desc);
     }
+
     /**
      * 设置 [状态]
      */
@@ -288,6 +298,7 @@ public class Product extends EntityMP implements Serializable {
         this.status = status ;
         this.modify("status",status);
     }
+
     /**
      * 设置 [当前系统版本]
      */
@@ -295,6 +306,7 @@ public class Product extends EntityMP implements Serializable {
         this.createdversion = createdversion ;
         this.modify("createdversion",createdversion);
     }
+
     /**
      * 设置 [子状态]
      */
@@ -302,6 +314,7 @@ public class Product extends EntityMP implements Serializable {
         this.substatus = substatus ;
         this.modify("substatus",substatus);
     }
+
     /**
      * 设置 [产品代号]
      */
@@ -309,6 +322,7 @@ public class Product extends EntityMP implements Serializable {
         this.code = code ;
         this.modify("code",code);
     }
+
     /**
      * 设置 [产品线]
      */
@@ -316,6 +330,7 @@ public class Product extends EntityMP implements Serializable {
         this.line = line ;
         this.modify("line",line);
     }
+
 
 }
 

@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -170,6 +171,7 @@ public class ProjectModule extends EntityMP implements Serializable {
         this.type = type ;
         this.modify("type",type);
     }
+
     /**
      * 设置 [collector]
      */
@@ -177,6 +179,7 @@ public class ProjectModule extends EntityMP implements Serializable {
         this.collector = collector ;
         this.modify("collector",collector);
     }
+
     /**
      * 设置 [path]
      */
@@ -184,6 +187,7 @@ public class ProjectModule extends EntityMP implements Serializable {
         this.path = path ;
         this.modify("path",path);
     }
+
     /**
      * 设置 [owner]
      */
@@ -191,6 +195,7 @@ public class ProjectModule extends EntityMP implements Serializable {
         this.owner = owner ;
         this.modify("owner",owner);
     }
+
     /**
      * 设置 [短名称]
      */
@@ -198,6 +203,7 @@ public class ProjectModule extends EntityMP implements Serializable {
         this.ibizshort = ibizshort ;
         this.modify("short",ibizshort);
     }
+
     /**
      * 设置 [名称]
      */
@@ -205,6 +211,7 @@ public class ProjectModule extends EntityMP implements Serializable {
         this.name = name ;
         this.modify("name",name);
     }
+
     /**
      * 设置 [grade]
      */
@@ -212,6 +219,7 @@ public class ProjectModule extends EntityMP implements Serializable {
         this.grade = grade ;
         this.modify("grade",grade);
     }
+
     /**
      * 设置 [order]
      */
@@ -219,6 +227,7 @@ public class ProjectModule extends EntityMP implements Serializable {
         this.order = order ;
         this.modify("order",order);
     }
+
     /**
      * 设置 [branch]
      */
@@ -226,6 +235,7 @@ public class ProjectModule extends EntityMP implements Serializable {
         this.branch = branch ;
         this.modify("branch",branch);
     }
+
     /**
      * 设置 [id]
      */
@@ -233,6 +243,7 @@ public class ProjectModule extends EntityMP implements Serializable {
         this.parent = parent ;
         this.modify("parent",parent);
     }
+
     /**
      * 设置 [项目]
      */
@@ -240,6 +251,7 @@ public class ProjectModule extends EntityMP implements Serializable {
         this.root = root ;
         this.modify("root",root);
     }
+
 
 }
 

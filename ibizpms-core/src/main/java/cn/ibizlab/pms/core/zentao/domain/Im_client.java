@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -128,6 +129,17 @@ public class Im_client extends EntityMP implements Serializable {
         this.editeddate = editeddate ;
         this.modify("editeddate",editeddate);
     }
+
+    /**
+     * 格式化日期 [editedDate]
+     */
+    public String formatEditeddate(){
+        if (this.editeddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(editeddate);
+    }
     /**
      * 设置 [strategy]
      */
@@ -135,12 +147,24 @@ public class Im_client extends EntityMP implements Serializable {
         this.strategy = strategy ;
         this.modify("strategy",strategy);
     }
+
     /**
      * 设置 [createdDate]
      */
     public void setCreateddate(Timestamp createddate){
         this.createddate = createddate ;
         this.modify("createddate",createddate);
+    }
+
+    /**
+     * 格式化日期 [createdDate]
+     */
+    public String formatCreateddate(){
+        if (this.createddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(createddate);
     }
     /**
      * 设置 [changeLog]
@@ -149,6 +173,7 @@ public class Im_client extends EntityMP implements Serializable {
         this.changelog = changelog ;
         this.modify("changelog",changelog);
     }
+
     /**
      * 设置 [version]
      */
@@ -156,6 +181,7 @@ public class Im_client extends EntityMP implements Serializable {
         this.version = version ;
         this.modify("version",version);
     }
+
     /**
      * 设置 [downloads]
      */
@@ -163,6 +189,7 @@ public class Im_client extends EntityMP implements Serializable {
         this.downloads = downloads ;
         this.modify("downloads",downloads);
     }
+
     /**
      * 设置 [status]
      */
@@ -170,6 +197,7 @@ public class Im_client extends EntityMP implements Serializable {
         this.status = status ;
         this.modify("status",status);
     }
+
     /**
      * 设置 [desc]
      */
@@ -177,6 +205,7 @@ public class Im_client extends EntityMP implements Serializable {
         this.desc = desc ;
         this.modify("desc",desc);
     }
+
     /**
      * 设置 [createdBy]
      */
@@ -184,6 +213,7 @@ public class Im_client extends EntityMP implements Serializable {
         this.createdby = createdby ;
         this.modify("createdby",createdby);
     }
+
     /**
      * 设置 [editedBy]
      */
@@ -191,6 +221,7 @@ public class Im_client extends EntityMP implements Serializable {
         this.editedby = editedby ;
         this.modify("editedby",editedby);
     }
+
 
 }
 

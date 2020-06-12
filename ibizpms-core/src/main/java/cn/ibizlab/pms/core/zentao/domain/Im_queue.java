@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -100,12 +101,34 @@ public class Im_queue extends EntityMP implements Serializable {
         this.processdate = processdate ;
         this.modify("processdate",processdate);
     }
+
+    /**
+     * 格式化日期 [processDate]
+     */
+    public String formatProcessdate(){
+        if (this.processdate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(processdate);
+    }
     /**
      * 设置 [addDate]
      */
     public void setAdddate(Timestamp adddate){
         this.adddate = adddate ;
         this.modify("adddate",adddate);
+    }
+
+    /**
+     * 格式化日期 [addDate]
+     */
+    public String formatAdddate(){
+        if (this.adddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(adddate);
     }
     /**
      * 设置 [content]
@@ -114,6 +137,7 @@ public class Im_queue extends EntityMP implements Serializable {
         this.content = content ;
         this.modify("content",content);
     }
+
     /**
      * 设置 [type]
      */
@@ -121,6 +145,7 @@ public class Im_queue extends EntityMP implements Serializable {
         this.type = type ;
         this.modify("type",type);
     }
+
     /**
      * 设置 [status]
      */
@@ -128,6 +153,7 @@ public class Im_queue extends EntityMP implements Serializable {
         this.status = status ;
         this.modify("status",status);
     }
+
     /**
      * 设置 [result]
      */
@@ -135,6 +161,7 @@ public class Im_queue extends EntityMP implements Serializable {
         this.result = result ;
         this.modify("result",result);
     }
+
 
 }
 

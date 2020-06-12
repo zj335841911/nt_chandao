@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -156,6 +157,7 @@ public class Extension extends EntityMP implements Serializable {
         this.dirs = dirs ;
         this.modify("dirs",dirs);
     }
+
     /**
      * 设置 [status]
      */
@@ -163,6 +165,7 @@ public class Extension extends EntityMP implements Serializable {
         this.status = status ;
         this.modify("status",status);
     }
+
     /**
      * 设置 [code]
      */
@@ -170,6 +173,7 @@ public class Extension extends EntityMP implements Serializable {
         this.code = code ;
         this.modify("code",code);
     }
+
     /**
      * 设置 [depends]
      */
@@ -177,6 +181,7 @@ public class Extension extends EntityMP implements Serializable {
         this.depends = depends ;
         this.modify("depends",depends);
     }
+
     /**
      * 设置 [type]
      */
@@ -184,6 +189,7 @@ public class Extension extends EntityMP implements Serializable {
         this.type = type ;
         this.modify("type",type);
     }
+
     /**
      * 设置 [files]
      */
@@ -191,6 +197,7 @@ public class Extension extends EntityMP implements Serializable {
         this.files = files ;
         this.modify("files",files);
     }
+
     /**
      * 设置 [zentaoCompatible]
      */
@@ -198,6 +205,7 @@ public class Extension extends EntityMP implements Serializable {
         this.zentaocompatible = zentaocompatible ;
         this.modify("zentaocompatible",zentaocompatible);
     }
+
     /**
      * 设置 [license]
      */
@@ -205,6 +213,7 @@ public class Extension extends EntityMP implements Serializable {
         this.license = license ;
         this.modify("license",license);
     }
+
     /**
      * 设置 [name]
      */
@@ -212,12 +221,24 @@ public class Extension extends EntityMP implements Serializable {
         this.name = name ;
         this.modify("name",name);
     }
+
     /**
      * 设置 [installedTime]
      */
     public void setInstalledtime(Timestamp installedtime){
         this.installedtime = installedtime ;
         this.modify("installedtime",installedtime);
+    }
+
+    /**
+     * 格式化日期 [installedTime]
+     */
+    public String formatInstalledtime(){
+        if (this.installedtime == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(installedtime);
     }
     /**
      * 设置 [site]
@@ -226,6 +247,7 @@ public class Extension extends EntityMP implements Serializable {
         this.site = site ;
         this.modify("site",site);
     }
+
     /**
      * 设置 [author]
      */
@@ -233,6 +255,7 @@ public class Extension extends EntityMP implements Serializable {
         this.author = author ;
         this.modify("author",author);
     }
+
     /**
      * 设置 [desc]
      */
@@ -240,6 +263,7 @@ public class Extension extends EntityMP implements Serializable {
         this.desc = desc ;
         this.modify("desc",desc);
     }
+
     /**
      * 设置 [version]
      */
@@ -247,6 +271,7 @@ public class Extension extends EntityMP implements Serializable {
         this.version = version ;
         this.modify("version",version);
     }
+
 
 }
 

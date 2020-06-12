@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -302,6 +303,7 @@ public class User extends EntityMP implements Serializable {
         this.password = password ;
         this.modify("password",password);
     }
+
     /**
      * 设置 [通讯地址]
      */
@@ -309,6 +311,7 @@ public class User extends EntityMP implements Serializable {
         this.address = address ;
         this.modify("address",address);
     }
+
     /**
      * 设置 [微信]
      */
@@ -316,6 +319,7 @@ public class User extends EntityMP implements Serializable {
         this.weixin = weixin ;
         this.modify("weixin",weixin);
     }
+
     /**
      * 设置 [钉钉]
      */
@@ -323,6 +327,7 @@ public class User extends EntityMP implements Serializable {
         this.dingding = dingding ;
         this.modify("dingding",dingding);
     }
+
     /**
      * 设置 [fails]
      */
@@ -330,6 +335,7 @@ public class User extends EntityMP implements Serializable {
         this.fails = fails ;
         this.modify("fails",fails);
     }
+
     /**
      * 设置 [slack]
      */
@@ -337,6 +343,7 @@ public class User extends EntityMP implements Serializable {
         this.slack = slack ;
         this.modify("slack",slack);
     }
+
     /**
      * 设置 [ranzhi]
      */
@@ -344,6 +351,7 @@ public class User extends EntityMP implements Serializable {
         this.ranzhi = ranzhi ;
         this.modify("ranzhi",ranzhi);
     }
+
     /**
      * 设置 [账户]
      */
@@ -351,12 +359,24 @@ public class User extends EntityMP implements Serializable {
         this.account = account ;
         this.modify("account",account);
     }
+
     /**
      * 设置 [locked]
      */
     public void setLocked(Timestamp locked){
         this.locked = locked ;
         this.modify("locked",locked);
+    }
+
+    /**
+     * 格式化日期 [locked]
+     */
+    public String formatLocked(){
+        if (this.locked == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(locked);
     }
     /**
      * 设置 [avatar]
@@ -365,6 +385,7 @@ public class User extends EntityMP implements Serializable {
         this.avatar = avatar ;
         this.modify("avatar",avatar);
     }
+
     /**
      * 设置 [scoreLevel]
      */
@@ -372,6 +393,7 @@ public class User extends EntityMP implements Serializable {
         this.scorelevel = scorelevel ;
         this.modify("scorelevel",scorelevel);
     }
+
     /**
      * 设置 [真实姓名]
      */
@@ -379,6 +401,7 @@ public class User extends EntityMP implements Serializable {
         this.realname = realname ;
         this.modify("realname",realname);
     }
+
     /**
      * 设置 [zipcode]
      */
@@ -386,6 +409,7 @@ public class User extends EntityMP implements Serializable {
         this.zipcode = zipcode ;
         this.modify("zipcode",zipcode);
     }
+
     /**
      * 设置 [所属部门]
      */
@@ -393,6 +417,7 @@ public class User extends EntityMP implements Serializable {
         this.dept = dept ;
         this.modify("dept",dept);
     }
+
     /**
      * 设置 [commiter]
      */
@@ -400,6 +425,7 @@ public class User extends EntityMP implements Serializable {
         this.commiter = commiter ;
         this.modify("commiter",commiter);
     }
+
     /**
      * 设置 [职位]
      */
@@ -407,6 +433,7 @@ public class User extends EntityMP implements Serializable {
         this.role = role ;
         this.modify("role",role);
     }
+
     /**
      * 设置 [最后登录]
      */
@@ -414,6 +441,7 @@ public class User extends EntityMP implements Serializable {
         this.last = last ;
         this.modify("last",last);
     }
+
     /**
      * 设置 [clientStatus]
      */
@@ -421,6 +449,7 @@ public class User extends EntityMP implements Serializable {
         this.clientstatus = clientstatus ;
         this.modify("clientstatus",clientstatus);
     }
+
     /**
      * 设置 [skype]
      */
@@ -428,6 +457,7 @@ public class User extends EntityMP implements Serializable {
         this.skype = skype ;
         this.modify("skype",skype);
     }
+
     /**
      * 设置 [whatsapp]
      */
@@ -435,6 +465,7 @@ public class User extends EntityMP implements Serializable {
         this.whatsapp = whatsapp ;
         this.modify("whatsapp",whatsapp);
     }
+
     /**
      * 设置 [score]
      */
@@ -442,6 +473,7 @@ public class User extends EntityMP implements Serializable {
         this.score = score ;
         this.modify("score",score);
     }
+
     /**
      * 设置 [性别]
      */
@@ -449,6 +481,7 @@ public class User extends EntityMP implements Serializable {
         this.gender = gender ;
         this.modify("gender",gender);
     }
+
     /**
      * 设置 [手机]
      */
@@ -456,6 +489,7 @@ public class User extends EntityMP implements Serializable {
         this.mobile = mobile ;
         this.modify("mobile",mobile);
     }
+
     /**
      * 设置 [clientLang]
      */
@@ -463,6 +497,7 @@ public class User extends EntityMP implements Serializable {
         this.clientlang = clientlang ;
         this.modify("clientlang",clientlang);
     }
+
     /**
      * 设置 [访问次数]
      */
@@ -470,12 +505,24 @@ public class User extends EntityMP implements Serializable {
         this.visits = visits ;
         this.modify("visits",visits);
     }
+
     /**
      * 设置 [入职日期]
      */
     public void setJoin(Timestamp join){
         this.join = join ;
         this.modify("join",join);
+    }
+
+    /**
+     * 格式化日期 [入职日期]
+     */
+    public String formatJoin(){
+        if (this.join == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(join);
     }
     /**
      * 设置 [邮箱]
@@ -484,6 +531,7 @@ public class User extends EntityMP implements Serializable {
         this.email = email ;
         this.modify("email",email);
     }
+
     /**
      * 设置 [ip]
      */
@@ -491,12 +539,24 @@ public class User extends EntityMP implements Serializable {
         this.ip = ip ;
         this.modify("ip",ip);
     }
+
     /**
      * 设置 [birthday]
      */
     public void setBirthday(Timestamp birthday){
         this.birthday = birthday ;
         this.modify("birthday",birthday);
+    }
+
+    /**
+     * 格式化日期 [birthday]
+     */
+    public String formatBirthday(){
+        if (this.birthday == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(birthday);
     }
     /**
      * 设置 [nickname]
@@ -505,6 +565,7 @@ public class User extends EntityMP implements Serializable {
         this.nickname = nickname ;
         this.modify("nickname",nickname);
     }
+
     /**
      * 设置 [电话]
      */
@@ -512,6 +573,7 @@ public class User extends EntityMP implements Serializable {
         this.phone = phone ;
         this.modify("phone",phone);
     }
+
     /**
      * 设置 [QQ]
      */
@@ -519,6 +581,7 @@ public class User extends EntityMP implements Serializable {
         this.qq = qq ;
         this.modify("qq",qq);
     }
+
 
 }
 

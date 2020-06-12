@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -132,6 +133,7 @@ public class Effort extends EntityMP implements Serializable {
         this.user = user ;
         this.modify("user",user);
     }
+
     /**
      * 设置 [idvalue]
      */
@@ -139,6 +141,7 @@ public class Effort extends EntityMP implements Serializable {
         this.idvalue = idvalue ;
         this.modify("idvalue",idvalue);
     }
+
     /**
      * 设置 [status]
      */
@@ -146,12 +149,24 @@ public class Effort extends EntityMP implements Serializable {
         this.status = status ;
         this.modify("status",status);
     }
+
     /**
      * 设置 [end]
      */
     public void setEnd(Timestamp end){
         this.end = end ;
         this.modify("end",end);
+    }
+
+    /**
+     * 格式化日期 [end]
+     */
+    public String formatEnd(){
+        if (this.end == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(end);
     }
     /**
      * 设置 [date]
@@ -160,6 +175,17 @@ public class Effort extends EntityMP implements Serializable {
         this.date = date ;
         this.modify("date",date);
     }
+
+    /**
+     * 格式化日期 [date]
+     */
+    public String formatDate(){
+        if (this.date == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(date);
+    }
     /**
      * 设置 [name]
      */
@@ -167,6 +193,7 @@ public class Effort extends EntityMP implements Serializable {
         this.name = name ;
         this.modify("name",name);
     }
+
     /**
      * 设置 [desc]
      */
@@ -174,6 +201,7 @@ public class Effort extends EntityMP implements Serializable {
         this.desc = desc ;
         this.modify("desc",desc);
     }
+
     /**
      * 设置 [todo]
      */
@@ -181,6 +209,7 @@ public class Effort extends EntityMP implements Serializable {
         this.todo = todo ;
         this.modify("todo",todo);
     }
+
     /**
      * 设置 [type]
      */
@@ -188,12 +217,24 @@ public class Effort extends EntityMP implements Serializable {
         this.type = type ;
         this.modify("type",type);
     }
+
     /**
      * 设置 [begin]
      */
     public void setBegin(Timestamp begin){
         this.begin = begin ;
         this.modify("begin",begin);
+    }
+
+    /**
+     * 格式化日期 [begin]
+     */
+    public String formatBegin(){
+        if (this.begin == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(begin);
     }
 
 }

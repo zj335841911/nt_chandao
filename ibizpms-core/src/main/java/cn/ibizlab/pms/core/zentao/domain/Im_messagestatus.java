@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -77,6 +78,7 @@ public class Im_messagestatus extends EntityMP implements Serializable {
         this.message = message ;
         this.modify("message",message);
     }
+
     /**
      * 设置 [status]
      */
@@ -84,6 +86,7 @@ public class Im_messagestatus extends EntityMP implements Serializable {
         this.status = status ;
         this.modify("status",status);
     }
+
     /**
      * 设置 [user]
      */
@@ -91,6 +94,7 @@ public class Im_messagestatus extends EntityMP implements Serializable {
         this.user = user ;
         this.modify("user",user);
     }
+
 
 }
 

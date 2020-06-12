@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -116,6 +117,7 @@ public class Score extends EntityMP implements Serializable {
         this.method = method ;
         this.modify("method",method);
     }
+
     /**
      * 设置 [score]
      */
@@ -123,12 +125,24 @@ public class Score extends EntityMP implements Serializable {
         this.score = score ;
         this.modify("score",score);
     }
+
     /**
      * 设置 [time]
      */
     public void setTime(Timestamp time){
         this.time = time ;
         this.modify("time",time);
+    }
+
+    /**
+     * 格式化日期 [time]
+     */
+    public String formatTime(){
+        if (this.time == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(time);
     }
     /**
      * 设置 [account]
@@ -137,6 +151,7 @@ public class Score extends EntityMP implements Serializable {
         this.account = account ;
         this.modify("account",account);
     }
+
     /**
      * 设置 [before]
      */
@@ -144,6 +159,7 @@ public class Score extends EntityMP implements Serializable {
         this.before = before ;
         this.modify("before",before);
     }
+
     /**
      * 设置 [desc]
      */
@@ -151,6 +167,7 @@ public class Score extends EntityMP implements Serializable {
         this.desc = desc ;
         this.modify("desc",desc);
     }
+
     /**
      * 设置 [after]
      */
@@ -158,6 +175,7 @@ public class Score extends EntityMP implements Serializable {
         this.after = after ;
         this.modify("after",after);
     }
+
     /**
      * 设置 [module]
      */
@@ -165,6 +183,7 @@ public class Score extends EntityMP implements Serializable {
         this.module = module ;
         this.modify("module",module);
     }
+
 
 }
 

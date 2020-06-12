@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -87,6 +88,7 @@ public class Im_conferenceaction extends EntityMP implements Serializable {
         this.rid = rid ;
         this.modify("rid",rid);
     }
+
     /**
      * 设置 [type]
      */
@@ -94,6 +96,7 @@ public class Im_conferenceaction extends EntityMP implements Serializable {
         this.type = type ;
         this.modify("type",type);
     }
+
     /**
      * 设置 [user]
      */
@@ -101,12 +104,24 @@ public class Im_conferenceaction extends EntityMP implements Serializable {
         this.user = user ;
         this.modify("user",user);
     }
+
     /**
      * 设置 [date]
      */
     public void setDate(Timestamp date){
         this.date = date ;
         this.modify("date",date);
+    }
+
+    /**
+     * 格式化日期 [date]
+     */
+    public String formatDate(){
+        if (this.date == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(date);
     }
 
 }

@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -150,6 +151,7 @@ public class Team extends EntityMP implements Serializable {
         this.estimate = estimate ;
         this.modify("estimate",estimate);
     }
+
     /**
      * 设置 [总计消耗]
      */
@@ -157,6 +159,7 @@ public class Team extends EntityMP implements Serializable {
         this.consumed = consumed ;
         this.modify("consumed",consumed);
     }
+
     /**
      * 设置 [可用工时/天]
      */
@@ -164,6 +167,7 @@ public class Team extends EntityMP implements Serializable {
         this.hours = hours ;
         this.modify("hours",hours);
     }
+
     /**
      * 设置 [角色]
      */
@@ -171,6 +175,7 @@ public class Team extends EntityMP implements Serializable {
         this.role = role ;
         this.modify("role",role);
     }
+
     /**
      * 设置 [用户]
      */
@@ -178,6 +183,7 @@ public class Team extends EntityMP implements Serializable {
         this.account = account ;
         this.modify("account",account);
     }
+
     /**
      * 设置 [团队类型]
      */
@@ -185,6 +191,7 @@ public class Team extends EntityMP implements Serializable {
         this.type = type ;
         this.modify("type",type);
     }
+
     /**
      * 设置 [预计剩余]
      */
@@ -192,6 +199,7 @@ public class Team extends EntityMP implements Serializable {
         this.left = left ;
         this.modify("left",left);
     }
+
     /**
      * 设置 [排序]
      */
@@ -199,6 +207,7 @@ public class Team extends EntityMP implements Serializable {
         this.order = order ;
         this.modify("order",order);
     }
+
     /**
      * 设置 [可用工日]
      */
@@ -206,12 +215,24 @@ public class Team extends EntityMP implements Serializable {
         this.days = days ;
         this.modify("days",days);
     }
+
     /**
      * 设置 [加盟日]
      */
     public void setJoin(Timestamp join){
         this.join = join ;
         this.modify("join",join);
+    }
+
+    /**
+     * 格式化日期 [加盟日]
+     */
+    public String formatJoin(){
+        if (this.join == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(join);
     }
     /**
      * 设置 [受限用户]
@@ -220,6 +241,7 @@ public class Team extends EntityMP implements Serializable {
         this.limited = limited ;
         this.modify("limited",limited);
     }
+
     /**
      * 设置 [关联编号]
      */
@@ -227,6 +249,7 @@ public class Team extends EntityMP implements Serializable {
         this.root = root ;
         this.modify("root",root);
     }
+
 
 }
 

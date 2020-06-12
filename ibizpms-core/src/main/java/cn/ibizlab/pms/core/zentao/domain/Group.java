@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -84,6 +85,7 @@ public class Group extends EntityMP implements Serializable {
         this.acl = acl ;
         this.modify("acl",acl);
     }
+
     /**
      * 设置 [分组描述]
      */
@@ -91,6 +93,7 @@ public class Group extends EntityMP implements Serializable {
         this.desc = desc ;
         this.modify("desc",desc);
     }
+
     /**
      * 设置 [分组名称]
      */
@@ -98,6 +101,7 @@ public class Group extends EntityMP implements Serializable {
         this.name = name ;
         this.modify("name",name);
     }
+
     /**
      * 设置 [role]
      */
@@ -105,6 +109,7 @@ public class Group extends EntityMP implements Serializable {
         this.role = role ;
         this.modify("role",role);
     }
+
 
 }
 

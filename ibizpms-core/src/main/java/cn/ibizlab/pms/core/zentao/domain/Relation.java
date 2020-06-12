@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -133,6 +134,7 @@ public class Relation extends EntityMP implements Serializable {
         this.bid = bid ;
         this.modify("bid",bid);
     }
+
     /**
      * 设置 [AVersion]
      */
@@ -140,6 +142,7 @@ public class Relation extends EntityMP implements Serializable {
         this.aversion = aversion ;
         this.modify("aversion",aversion);
     }
+
     /**
      * 设置 [BType]
      */
@@ -147,6 +150,7 @@ public class Relation extends EntityMP implements Serializable {
         this.btype = btype ;
         this.modify("btype",btype);
     }
+
     /**
      * 设置 [project]
      */
@@ -154,6 +158,7 @@ public class Relation extends EntityMP implements Serializable {
         this.project = project ;
         this.modify("project",project);
     }
+
     /**
      * 设置 [extra]
      */
@@ -161,6 +166,7 @@ public class Relation extends EntityMP implements Serializable {
         this.extra = extra ;
         this.modify("extra",extra);
     }
+
     /**
      * 设置 [relation]
      */
@@ -168,6 +174,7 @@ public class Relation extends EntityMP implements Serializable {
         this.relation = relation ;
         this.modify("relation",relation);
     }
+
     /**
      * 设置 [program]
      */
@@ -175,6 +182,7 @@ public class Relation extends EntityMP implements Serializable {
         this.program = program ;
         this.modify("program",program);
     }
+
     /**
      * 设置 [BVersion]
      */
@@ -182,6 +190,7 @@ public class Relation extends EntityMP implements Serializable {
         this.bversion = bversion ;
         this.modify("bversion",bversion);
     }
+
     /**
      * 设置 [AType]
      */
@@ -189,6 +198,7 @@ public class Relation extends EntityMP implements Serializable {
         this.atype = atype ;
         this.modify("atype",atype);
     }
+
     /**
      * 设置 [product]
      */
@@ -196,6 +206,7 @@ public class Relation extends EntityMP implements Serializable {
         this.product = product ;
         this.modify("product",product);
     }
+
     /**
      * 设置 [AID]
      */
@@ -203,6 +214,7 @@ public class Relation extends EntityMP implements Serializable {
         this.aid = aid ;
         this.modify("aid",aid);
     }
+
 
 }
 

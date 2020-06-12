@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -70,6 +71,7 @@ public class UserGroup extends EntityMP implements Serializable {
         this.account = account ;
         this.modify("account",account);
     }
+
     /**
      * 设置 [group]
      */
@@ -77,6 +79,7 @@ public class UserGroup extends EntityMP implements Serializable {
         this.group = group ;
         this.modify("group",group);
     }
+
 
 }
 

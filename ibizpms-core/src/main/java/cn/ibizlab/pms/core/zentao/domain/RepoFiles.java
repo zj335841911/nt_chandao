@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -106,6 +107,7 @@ public class RepoFiles extends EntityMP implements Serializable {
         this.path = path ;
         this.modify("path",path);
     }
+
     /**
      * 设置 [type]
      */
@@ -113,6 +115,7 @@ public class RepoFiles extends EntityMP implements Serializable {
         this.type = type ;
         this.modify("type",type);
     }
+
     /**
      * 设置 [revision]
      */
@@ -120,6 +123,7 @@ public class RepoFiles extends EntityMP implements Serializable {
         this.revision = revision ;
         this.modify("revision",revision);
     }
+
     /**
      * 设置 [action]
      */
@@ -127,6 +131,7 @@ public class RepoFiles extends EntityMP implements Serializable {
         this.action = action ;
         this.modify("action",action);
     }
+
     /**
      * 设置 [repo]
      */
@@ -134,6 +139,7 @@ public class RepoFiles extends EntityMP implements Serializable {
         this.repo = repo ;
         this.modify("repo",repo);
     }
+
     /**
      * 设置 [parent]
      */
@@ -141,6 +147,7 @@ public class RepoFiles extends EntityMP implements Serializable {
         this.parent = parent ;
         this.modify("parent",parent);
     }
+
 
 }
 

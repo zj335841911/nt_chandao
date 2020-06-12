@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -176,6 +177,7 @@ public class Build extends EntityMP implements Serializable {
         this.name = name ;
         this.modify("name",name);
     }
+
     /**
      * 设置 [构建者]
      */
@@ -183,6 +185,7 @@ public class Build extends EntityMP implements Serializable {
         this.builder = builder ;
         this.modify("builder",builder);
     }
+
     /**
      * 设置 [描述]
      */
@@ -190,6 +193,7 @@ public class Build extends EntityMP implements Serializable {
         this.desc = desc ;
         this.modify("desc",desc);
     }
+
     /**
      * 设置 [源代码地址]
      */
@@ -197,6 +201,7 @@ public class Build extends EntityMP implements Serializable {
         this.scmpath = scmpath ;
         this.modify("scmpath",scmpath);
     }
+
     /**
      * 设置 [下载地址]
      */
@@ -204,6 +209,7 @@ public class Build extends EntityMP implements Serializable {
         this.filepath = filepath ;
         this.modify("filepath",filepath);
     }
+
     /**
      * 设置 [完成的需求]
      */
@@ -211,6 +217,7 @@ public class Build extends EntityMP implements Serializable {
         this.stories = stories ;
         this.modify("stories",stories);
     }
+
     /**
      * 设置 [解决的Bug]
      */
@@ -218,12 +225,24 @@ public class Build extends EntityMP implements Serializable {
         this.bugs = bugs ;
         this.modify("bugs",bugs);
     }
+
     /**
      * 设置 [打包日期]
      */
     public void setDate(Timestamp date){
         this.date = date ;
         this.modify("date",date);
+    }
+
+    /**
+     * 格式化日期 [打包日期]
+     */
+    public String formatDate(){
+        if (this.date == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(date);
     }
     /**
      * 设置 [产品]
@@ -232,6 +251,7 @@ public class Build extends EntityMP implements Serializable {
         this.product = product ;
         this.modify("product",product);
     }
+
     /**
      * 设置 [平台/分支]
      */
@@ -239,6 +259,7 @@ public class Build extends EntityMP implements Serializable {
         this.branch = branch ;
         this.modify("branch",branch);
     }
+
     /**
      * 设置 [所属项目]
      */
@@ -246,6 +267,7 @@ public class Build extends EntityMP implements Serializable {
         this.project = project ;
         this.modify("project",project);
     }
+
 
 }
 

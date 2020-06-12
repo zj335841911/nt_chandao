@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -167,6 +168,7 @@ public class TestResult extends EntityMP implements Serializable {
         this.lastrunner = lastrunner ;
         this.modify("lastrunner",lastrunner);
     }
+
     /**
      * 设置 [步骤结果]
      */
@@ -174,6 +176,7 @@ public class TestResult extends EntityMP implements Serializable {
         this.stepresults = stepresults ;
         this.modify("stepresults",stepresults);
     }
+
     /**
      * 设置 [测试结果]
      */
@@ -181,6 +184,7 @@ public class TestResult extends EntityMP implements Serializable {
         this.caseresult = caseresult ;
         this.modify("caseresult",caseresult);
     }
+
     /**
      * 设置 [结果文件]
      */
@@ -188,6 +192,7 @@ public class TestResult extends EntityMP implements Serializable {
         this.xml = xml ;
         this.modify("xml",xml);
     }
+
     /**
      * 设置 [持续时间]
      */
@@ -195,12 +200,24 @@ public class TestResult extends EntityMP implements Serializable {
         this.duration = duration ;
         this.modify("duration",duration);
     }
+
     /**
      * 设置 [测试时间]
      */
     public void setDate(Timestamp date){
         this.date = date ;
         this.modify("date",date);
+    }
+
+    /**
+     * 格式化日期 [测试时间]
+     */
+    public String formatDate(){
+        if (this.date == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(date);
     }
     /**
      * 设置 [用例版本]
@@ -209,6 +226,7 @@ public class TestResult extends EntityMP implements Serializable {
         this.version = version ;
         this.modify("version",version);
     }
+
     /**
      * 设置 [构建任务]
      */
@@ -216,6 +234,7 @@ public class TestResult extends EntityMP implements Serializable {
         this.job = job ;
         this.modify("job",job);
     }
+
     /**
      * 设置 [用例]
      */
@@ -223,6 +242,7 @@ public class TestResult extends EntityMP implements Serializable {
         this.ibizcase = ibizcase ;
         this.modify("case",ibizcase);
     }
+
     /**
      * 设置 [测试执行]
      */
@@ -230,6 +250,7 @@ public class TestResult extends EntityMP implements Serializable {
         this.run = run ;
         this.modify("run",run);
     }
+
     /**
      * 设置 [代码编译]
      */
@@ -237,6 +258,7 @@ public class TestResult extends EntityMP implements Serializable {
         this.compile = compile ;
         this.modify("compile",compile);
     }
+
 
 }
 

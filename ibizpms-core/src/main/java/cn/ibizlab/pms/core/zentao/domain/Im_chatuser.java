@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -132,6 +133,7 @@ public class Im_chatuser extends EntityMP implements Serializable {
         this.order = order ;
         this.modify("order",order);
     }
+
     /**
      * 设置 [freeze]
      */
@@ -139,6 +141,7 @@ public class Im_chatuser extends EntityMP implements Serializable {
         this.freeze = freeze ;
         this.modify("freeze",freeze);
     }
+
     /**
      * 设置 [star]
      */
@@ -146,6 +149,7 @@ public class Im_chatuser extends EntityMP implements Serializable {
         this.star = star ;
         this.modify("star",star);
     }
+
     /**
      * 设置 [hide]
      */
@@ -153,12 +157,24 @@ public class Im_chatuser extends EntityMP implements Serializable {
         this.hide = hide ;
         this.modify("hide",hide);
     }
+
     /**
      * 设置 [join]
      */
     public void setJoin(Timestamp join){
         this.join = join ;
         this.modify("join",join);
+    }
+
+    /**
+     * 格式化日期 [join]
+     */
+    public String formatJoin(){
+        if (this.join == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(join);
     }
     /**
      * 设置 [user]
@@ -167,6 +183,7 @@ public class Im_chatuser extends EntityMP implements Serializable {
         this.user = user ;
         this.modify("user",user);
     }
+
     /**
      * 设置 [mute]
      */
@@ -174,6 +191,7 @@ public class Im_chatuser extends EntityMP implements Serializable {
         this.mute = mute ;
         this.modify("mute",mute);
     }
+
     /**
      * 设置 [cgid]
      */
@@ -181,12 +199,24 @@ public class Im_chatuser extends EntityMP implements Serializable {
         this.cgid = cgid ;
         this.modify("cgid",cgid);
     }
+
     /**
      * 设置 [quit]
      */
     public void setQuit(Timestamp quit){
         this.quit = quit ;
         this.modify("quit",quit);
+    }
+
+    /**
+     * 格式化日期 [quit]
+     */
+    public String formatQuit(){
+        if (this.quit == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(quit);
     }
     /**
      * 设置 [category]
@@ -195,6 +225,7 @@ public class Im_chatuser extends EntityMP implements Serializable {
         this.category = category ;
         this.modify("category",category);
     }
+
 
 }
 

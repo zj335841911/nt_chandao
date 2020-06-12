@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -130,6 +131,7 @@ public class Block extends EntityMP implements Serializable {
         this.height = height ;
         this.modify("height",height);
     }
+
     /**
      * 设置 [params]
      */
@@ -137,6 +139,7 @@ public class Block extends EntityMP implements Serializable {
         this.params = params ;
         this.modify("params",params);
     }
+
     /**
      * 设置 [区块名称]
      */
@@ -144,6 +147,7 @@ public class Block extends EntityMP implements Serializable {
         this.title = title ;
         this.modify("title",title);
     }
+
     /**
      * 设置 [排序]
      */
@@ -151,6 +155,7 @@ public class Block extends EntityMP implements Serializable {
         this.order = order ;
         this.modify("order",order);
     }
+
     /**
      * 设置 [来源区块]
      */
@@ -158,6 +163,7 @@ public class Block extends EntityMP implements Serializable {
         this.block = block ;
         this.modify("block",block);
     }
+
     /**
      * 设置 [所属用户]
      */
@@ -165,6 +171,7 @@ public class Block extends EntityMP implements Serializable {
         this.account = account ;
         this.modify("account",account);
     }
+
     /**
      * 设置 [位置]
      */
@@ -172,6 +179,7 @@ public class Block extends EntityMP implements Serializable {
         this.grid = grid ;
         this.modify("grid",grid);
     }
+
     /**
      * 设置 [所属模块]
      */
@@ -179,6 +187,7 @@ public class Block extends EntityMP implements Serializable {
         this.module = module ;
         this.modify("module",module);
     }
+
     /**
      * 设置 [隐藏]
      */
@@ -186,6 +195,7 @@ public class Block extends EntityMP implements Serializable {
         this.hidden = hidden ;
         this.modify("hidden",hidden);
     }
+
     /**
      * 设置 [来源模块]
      */
@@ -193,6 +203,7 @@ public class Block extends EntityMP implements Serializable {
         this.source = source ;
         this.modify("source",source);
     }
+
 
 }
 

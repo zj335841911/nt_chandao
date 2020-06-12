@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -423,6 +424,7 @@ public class Story extends EntityMP implements Serializable {
         this.assignedto = assignedto ;
         this.modify("assignedto",assignedto);
     }
+
     /**
      * 设置 [细分需求]
      */
@@ -430,6 +432,7 @@ public class Story extends EntityMP implements Serializable {
         this.childstories = childstories ;
         this.modify("childstories",childstories);
     }
+
     /**
      * 设置 [所属计划]
      */
@@ -437,6 +440,7 @@ public class Story extends EntityMP implements Serializable {
         this.plan = plan ;
         this.modify("plan",plan);
     }
+
     /**
      * 设置 [版本号]
      */
@@ -444,12 +448,24 @@ public class Story extends EntityMP implements Serializable {
         this.version = version ;
         this.modify("version",version);
     }
+
     /**
      * 设置 [指派日期]
      */
     public void setAssigneddate(Timestamp assigneddate){
         this.assigneddate = assigneddate ;
         this.modify("assigneddate",assigneddate);
+    }
+
+    /**
+     * 格式化日期 [指派日期]
+     */
+    public String formatAssigneddate(){
+        if (this.assigneddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(assigneddate);
     }
     /**
      * 设置 [优先级]
@@ -458,6 +474,7 @@ public class Story extends EntityMP implements Serializable {
         this.pri = pri ;
         this.modify("pri",pri);
     }
+
     /**
      * 设置 [相关需求]
      */
@@ -465,6 +482,7 @@ public class Story extends EntityMP implements Serializable {
         this.linkstories = linkstories ;
         this.modify("linkstories",linkstories);
     }
+
     /**
      * 设置 [当前状态]
      */
@@ -472,6 +490,7 @@ public class Story extends EntityMP implements Serializable {
         this.status = status ;
         this.modify("status",status);
     }
+
     /**
      * 设置 [预计工时]
      */
@@ -479,12 +498,24 @@ public class Story extends EntityMP implements Serializable {
         this.estimate = estimate ;
         this.modify("estimate",estimate);
     }
+
     /**
      * 设置 [评审时间]
      */
     public void setRevieweddate(Timestamp revieweddate){
         this.revieweddate = revieweddate ;
         this.modify("revieweddate",revieweddate);
+    }
+
+    /**
+     * 格式化日期 [评审时间]
+     */
+    public String formatRevieweddate(){
+        if (this.revieweddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(revieweddate);
     }
     /**
      * 设置 [需求名称]
@@ -493,6 +524,7 @@ public class Story extends EntityMP implements Serializable {
         this.title = title ;
         this.modify("title",title);
     }
+
     /**
      * 设置 [来源备注]
      */
@@ -500,6 +532,7 @@ public class Story extends EntityMP implements Serializable {
         this.sourcenote = sourcenote ;
         this.modify("sourcenote",sourcenote);
     }
+
     /**
      * 设置 [由谁评审]
      */
@@ -507,6 +540,7 @@ public class Story extends EntityMP implements Serializable {
         this.reviewedby = reviewedby ;
         this.modify("reviewedby",reviewedby);
     }
+
     /**
      * 设置 [子状态]
      */
@@ -514,6 +548,7 @@ public class Story extends EntityMP implements Serializable {
         this.substatus = substatus ;
         this.modify("substatus",substatus);
     }
+
     /**
      * 设置 [设置阶段者]
      */
@@ -521,6 +556,7 @@ public class Story extends EntityMP implements Serializable {
         this.stagedby = stagedby ;
         this.modify("stagedby",stagedby);
     }
+
     /**
      * 设置 [需求来源]
      */
@@ -528,6 +564,7 @@ public class Story extends EntityMP implements Serializable {
         this.source = source ;
         this.modify("source",source);
     }
+
     /**
      * 设置 [关闭原因]
      */
@@ -535,6 +572,7 @@ public class Story extends EntityMP implements Serializable {
         this.closedreason = closedreason ;
         this.modify("closedreason",closedreason);
     }
+
     /**
      * 设置 [标题颜色]
      */
@@ -542,6 +580,7 @@ public class Story extends EntityMP implements Serializable {
         this.color = color ;
         this.modify("color",color);
     }
+
     /**
      * 设置 [抄送给]
      */
@@ -549,6 +588,7 @@ public class Story extends EntityMP implements Serializable {
         this.mailto = mailto ;
         this.modify("mailto",mailto);
     }
+
     /**
      * 设置 [关键词]
      */
@@ -556,6 +596,7 @@ public class Story extends EntityMP implements Serializable {
         this.keywords = keywords ;
         this.modify("keywords",keywords);
     }
+
     /**
      * 设置 [最后修改]
      */
@@ -563,6 +604,7 @@ public class Story extends EntityMP implements Serializable {
         this.lasteditedby = lasteditedby ;
         this.modify("lasteditedby",lasteditedby);
     }
+
     /**
      * 设置 [所处阶段]
      */
@@ -570,12 +612,24 @@ public class Story extends EntityMP implements Serializable {
         this.stage = stage ;
         this.modify("stage",stage);
     }
+
     /**
      * 设置 [关闭日期	]
      */
     public void setCloseddate(Timestamp closeddate){
         this.closeddate = closeddate ;
         this.modify("closeddate",closeddate);
+    }
+
+    /**
+     * 格式化日期 [关闭日期	]
+     */
+    public String formatCloseddate(){
+        if (this.closeddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(closeddate);
     }
     /**
      * 设置 [由谁关闭]
@@ -584,6 +638,7 @@ public class Story extends EntityMP implements Serializable {
         this.closedby = closedby ;
         this.modify("closedby",closedby);
     }
+
     /**
      * 设置 [需求类型]
      */
@@ -591,12 +646,24 @@ public class Story extends EntityMP implements Serializable {
         this.type = type ;
         this.modify("type",type);
     }
+
     /**
      * 设置 [最后修改日期]
      */
     public void setLastediteddate(Timestamp lastediteddate){
         this.lastediteddate = lastediteddate ;
         this.modify("lastediteddate",lastediteddate);
+    }
+
+    /**
+     * 格式化日期 [最后修改日期]
+     */
+    public String formatLastediteddate(){
+        if (this.lastediteddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(lastediteddate);
     }
     /**
      * 设置 [来源Bug]
@@ -605,6 +672,7 @@ public class Story extends EntityMP implements Serializable {
         this.frombug = frombug ;
         this.modify("frombug",frombug);
     }
+
     /**
      * 设置 [父需求]
      */
@@ -612,6 +680,7 @@ public class Story extends EntityMP implements Serializable {
         this.parent = parent ;
         this.modify("parent",parent);
     }
+
     /**
      * 设置 [所属模块]
      */
@@ -619,6 +688,7 @@ public class Story extends EntityMP implements Serializable {
         this.module = module ;
         this.modify("module",module);
     }
+
     /**
      * 设置 [所属产品]
      */
@@ -626,6 +696,7 @@ public class Story extends EntityMP implements Serializable {
         this.product = product ;
         this.modify("product",product);
     }
+
     /**
      * 设置 [重复需求ID]
      */
@@ -633,6 +704,7 @@ public class Story extends EntityMP implements Serializable {
         this.duplicatestory = duplicatestory ;
         this.modify("duplicatestory",duplicatestory);
     }
+
     /**
      * 设置 [平台/分支]
      */
@@ -640,6 +712,7 @@ public class Story extends EntityMP implements Serializable {
         this.branch = branch ;
         this.modify("branch",branch);
     }
+
     /**
      * 设置 [转Bug]
      */
@@ -647,6 +720,7 @@ public class Story extends EntityMP implements Serializable {
         this.tobug = tobug ;
         this.modify("tobug",tobug);
     }
+
 
 }
 

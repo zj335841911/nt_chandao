@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -589,6 +590,7 @@ public class Bug extends EntityMP implements Serializable {
         this.severity = severity ;
         this.modify("severity",severity);
     }
+
     /**
      * 设置 [需求版本]
      */
@@ -596,6 +598,7 @@ public class Bug extends EntityMP implements Serializable {
         this.storyversion = storyversion ;
         this.modify("storyversion",storyversion);
     }
+
     /**
      * 设置 [相关Bug]
      */
@@ -603,12 +606,24 @@ public class Bug extends EntityMP implements Serializable {
         this.linkbug = linkbug ;
         this.modify("linkbug",linkbug);
     }
+
     /**
      * 设置 [激活日期]
      */
     public void setActivateddate(Timestamp activateddate){
         this.activateddate = activateddate ;
         this.modify("activateddate",activateddate);
+    }
+
+    /**
+     * 格式化日期 [激活日期]
+     */
+    public String formatActivateddate(){
+        if (this.activateddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(activateddate);
     }
     /**
      * 设置 [指派给]
@@ -617,6 +632,7 @@ public class Bug extends EntityMP implements Serializable {
         this.assignedto = assignedto ;
         this.modify("assignedto",assignedto);
     }
+
     /**
      * 设置 [解决方案]
      */
@@ -624,6 +640,7 @@ public class Bug extends EntityMP implements Serializable {
         this.resolution = resolution ;
         this.modify("resolution",resolution);
     }
+
     /**
      * 设置 [result]
      */
@@ -631,6 +648,7 @@ public class Bug extends EntityMP implements Serializable {
         this.result = result ;
         this.modify("result",result);
     }
+
     /**
      * 设置 [关键词]
      */
@@ -638,6 +656,7 @@ public class Bug extends EntityMP implements Serializable {
         this.keywords = keywords ;
         this.modify("keywords",keywords);
     }
+
     /**
      * 设置 [由谁关闭]
      */
@@ -645,6 +664,7 @@ public class Bug extends EntityMP implements Serializable {
         this.closedby = closedby ;
         this.modify("closedby",closedby);
     }
+
     /**
      * 设置 [浏览器]
      */
@@ -652,6 +672,7 @@ public class Bug extends EntityMP implements Serializable {
         this.browser = browser ;
         this.modify("browser",browser);
     }
+
     /**
      * 设置 [重现步骤]
      */
@@ -659,6 +680,7 @@ public class Bug extends EntityMP implements Serializable {
         this.steps = steps ;
         this.modify("steps",steps);
     }
+
     /**
      * 设置 [v2]
      */
@@ -666,6 +688,7 @@ public class Bug extends EntityMP implements Serializable {
         this.v2 = v2 ;
         this.modify("v2",v2);
     }
+
     /**
      * 设置 [是否确认]
      */
@@ -673,6 +696,7 @@ public class Bug extends EntityMP implements Serializable {
         this.confirmed = confirmed ;
         this.modify("confirmed",confirmed);
     }
+
     /**
      * 设置 [激活次数]
      */
@@ -680,12 +704,24 @@ public class Bug extends EntityMP implements Serializable {
         this.activatedcount = activatedcount ;
         this.modify("activatedcount",activatedcount);
     }
+
     /**
      * 设置 [关闭日期]
      */
     public void setCloseddate(Timestamp closeddate){
         this.closeddate = closeddate ;
         this.modify("closeddate",closeddate);
+    }
+
+    /**
+     * 格式化日期 [关闭日期]
+     */
+    public String formatCloseddate(){
+        if (this.closeddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(closeddate);
     }
     /**
      * 设置 [抄送给]
@@ -694,12 +730,24 @@ public class Bug extends EntityMP implements Serializable {
         this.mailto = mailto ;
         this.modify("mailto",mailto);
     }
+
     /**
      * 设置 [指派日期]
      */
     public void setAssigneddate(Timestamp assigneddate){
         this.assigneddate = assigneddate ;
         this.modify("assigneddate",assigneddate);
+    }
+
+    /**
+     * 格式化日期 [指派日期]
+     */
+    public String formatAssigneddate(){
+        if (this.assigneddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(assigneddate);
     }
     /**
      * 设置 [截止日期]
@@ -708,6 +756,17 @@ public class Bug extends EntityMP implements Serializable {
         this.deadline = deadline ;
         this.modify("deadline",deadline);
     }
+
+    /**
+     * 格式化日期 [截止日期]
+     */
+    public String formatDeadline(){
+        if (this.deadline == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(deadline);
+    }
     /**
      * 设置 [标题颜色]
      */
@@ -715,12 +774,24 @@ public class Bug extends EntityMP implements Serializable {
         this.color = color ;
         this.modify("color",color);
     }
+
     /**
      * 设置 [解决日期]
      */
     public void setResolveddate(Timestamp resolveddate){
         this.resolveddate = resolveddate ;
         this.modify("resolveddate",resolveddate);
+    }
+
+    /**
+     * 格式化日期 [解决日期]
+     */
+    public String formatResolveddate(){
+        if (this.resolveddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(resolveddate);
     }
     /**
      * 设置 [Bug类型]
@@ -729,6 +800,7 @@ public class Bug extends EntityMP implements Serializable {
         this.type = type ;
         this.modify("type",type);
     }
+
     /**
      * 设置 [Bug状态]
      */
@@ -736,6 +808,7 @@ public class Bug extends EntityMP implements Serializable {
         this.status = status ;
         this.modify("status",status);
     }
+
     /**
      * 设置 [影响版本]
      */
@@ -743,6 +816,7 @@ public class Bug extends EntityMP implements Serializable {
         this.openedbuild = openedbuild ;
         this.modify("openedbuild",openedbuild);
     }
+
     /**
      * 设置 [v1]
      */
@@ -750,6 +824,7 @@ public class Bug extends EntityMP implements Serializable {
         this.v1 = v1 ;
         this.modify("v1",v1);
     }
+
     /**
      * 设置 [lines]
      */
@@ -757,6 +832,7 @@ public class Bug extends EntityMP implements Serializable {
         this.lines = lines ;
         this.modify("lines",lines);
     }
+
     /**
      * 设置 [子状态]
      */
@@ -764,6 +840,7 @@ public class Bug extends EntityMP implements Serializable {
         this.substatus = substatus ;
         this.modify("substatus",substatus);
     }
+
     /**
      * 设置 [found]
      */
@@ -771,6 +848,7 @@ public class Bug extends EntityMP implements Serializable {
         this.found = found ;
         this.modify("found",found);
     }
+
     /**
      * 设置 [解决者]
      */
@@ -778,6 +856,7 @@ public class Bug extends EntityMP implements Serializable {
         this.resolvedby = resolvedby ;
         this.modify("resolvedby",resolvedby);
     }
+
     /**
      * 设置 [解决版本]
      */
@@ -785,6 +864,7 @@ public class Bug extends EntityMP implements Serializable {
         this.resolvedbuild = resolvedbuild ;
         this.modify("resolvedbuild",resolvedbuild);
     }
+
     /**
      * 设置 [优先级]
      */
@@ -792,6 +872,7 @@ public class Bug extends EntityMP implements Serializable {
         this.pri = pri ;
         this.modify("pri",pri);
     }
+
     /**
      * 设置 [操作系统]
      */
@@ -799,6 +880,7 @@ public class Bug extends EntityMP implements Serializable {
         this.os = os ;
         this.modify("os",os);
     }
+
     /**
      * 设置 [hardware]
      */
@@ -806,6 +888,7 @@ public class Bug extends EntityMP implements Serializable {
         this.hardware = hardware ;
         this.modify("hardware",hardware);
     }
+
     /**
      * 设置 [Bug标题]
      */
@@ -813,6 +896,7 @@ public class Bug extends EntityMP implements Serializable {
         this.title = title ;
         this.modify("title",title);
     }
+
     /**
      * 设置 [用例版本]
      */
@@ -820,6 +904,7 @@ public class Bug extends EntityMP implements Serializable {
         this.caseversion = caseversion ;
         this.modify("caseversion",caseversion);
     }
+
     /**
      * 设置 [代码类型]
      */
@@ -827,6 +912,7 @@ public class Bug extends EntityMP implements Serializable {
         this.repotype = repotype ;
         this.modify("repotype",repotype);
     }
+
     /**
      * 设置 [转需求]
      */
@@ -834,6 +920,7 @@ public class Bug extends EntityMP implements Serializable {
         this.tostory = tostory ;
         this.modify("tostory",tostory);
     }
+
     /**
      * 设置 [应用]
      */
@@ -841,6 +928,7 @@ public class Bug extends EntityMP implements Serializable {
         this.entry = entry ;
         this.modify("entry",entry);
     }
+
     /**
      * 设置 [所属产品]
      */
@@ -848,6 +936,7 @@ public class Bug extends EntityMP implements Serializable {
         this.product = product ;
         this.modify("product",product);
     }
+
     /**
      * 设置 [转任务]
      */
@@ -855,6 +944,7 @@ public class Bug extends EntityMP implements Serializable {
         this.totask = totask ;
         this.modify("totask",totask);
     }
+
     /**
      * 设置 [所属计划]
      */
@@ -862,6 +952,7 @@ public class Bug extends EntityMP implements Serializable {
         this.plan = plan ;
         this.modify("plan",plan);
     }
+
     /**
      * 设置 [所属模块]
      */
@@ -869,6 +960,7 @@ public class Bug extends EntityMP implements Serializable {
         this.module = module ;
         this.modify("module",module);
     }
+
     /**
      * 设置 [平台/分支]
      */
@@ -876,6 +968,7 @@ public class Bug extends EntityMP implements Serializable {
         this.branch = branch ;
         this.modify("branch",branch);
     }
+
     /**
      * 设置 [重复ID]
      */
@@ -883,6 +976,7 @@ public class Bug extends EntityMP implements Serializable {
         this.duplicatebug = duplicatebug ;
         this.modify("duplicatebug",duplicatebug);
     }
+
     /**
      * 设置 [代码]
      */
@@ -890,6 +984,7 @@ public class Bug extends EntityMP implements Serializable {
         this.repo = repo ;
         this.modify("repo",repo);
     }
+
     /**
      * 设置 [相关需求]
      */
@@ -897,6 +992,7 @@ public class Bug extends EntityMP implements Serializable {
         this.story = story ;
         this.modify("story",story);
     }
+
     /**
      * 设置 [相关用例]
      */
@@ -904,6 +1000,7 @@ public class Bug extends EntityMP implements Serializable {
         this.ibizcase = ibizcase ;
         this.modify("case",ibizcase);
     }
+
     /**
      * 设置 [所属项目]
      */
@@ -911,6 +1008,7 @@ public class Bug extends EntityMP implements Serializable {
         this.project = project ;
         this.modify("project",project);
     }
+
     /**
      * 设置 [相关任务]
      */
@@ -918,6 +1016,7 @@ public class Bug extends EntityMP implements Serializable {
         this.task = task ;
         this.modify("task",task);
     }
+
     /**
      * 设置 [测试单]
      */
@@ -925,6 +1024,7 @@ public class Bug extends EntityMP implements Serializable {
         this.testtask = testtask ;
         this.modify("testtask",testtask);
     }
+
 
 }
 

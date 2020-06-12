@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -118,6 +119,7 @@ public class CaseStep extends EntityMP implements Serializable {
         this.type = type ;
         this.modify("type",type);
     }
+
     /**
      * 设置 [步骤]
      */
@@ -125,6 +127,7 @@ public class CaseStep extends EntityMP implements Serializable {
         this.desc = desc ;
         this.modify("desc",desc);
     }
+
     /**
      * 设置 [预期]
      */
@@ -132,6 +135,7 @@ public class CaseStep extends EntityMP implements Serializable {
         this.expect = expect ;
         this.modify("expect",expect);
     }
+
     /**
      * 设置 [用例版本]
      */
@@ -139,6 +143,7 @@ public class CaseStep extends EntityMP implements Serializable {
         this.version = version ;
         this.modify("version",version);
     }
+
     /**
      * 设置 [用例]
      */
@@ -146,6 +151,7 @@ public class CaseStep extends EntityMP implements Serializable {
         this.ibizcase = ibizcase ;
         this.modify("case",ibizcase);
     }
+
     /**
      * 设置 [分组用例步骤的组编号]
      */
@@ -153,6 +159,7 @@ public class CaseStep extends EntityMP implements Serializable {
         this.parent = parent ;
         this.modify("parent",parent);
     }
+
 
 }
 

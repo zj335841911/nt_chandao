@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -130,6 +131,7 @@ public class Im_message extends EntityMP implements Serializable {
         this.user = user ;
         this.modify("user",user);
     }
+
     /**
      * 设置 [gid]
      */
@@ -137,12 +139,24 @@ public class Im_message extends EntityMP implements Serializable {
         this.gid = gid ;
         this.modify("gid",gid);
     }
+
     /**
      * 设置 [date]
      */
     public void setDate(Timestamp date){
         this.date = date ;
         this.modify("date",date);
+    }
+
+    /**
+     * 格式化日期 [date]
+     */
+    public String formatDate(){
+        if (this.date == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(date);
     }
     /**
      * 设置 [data]
@@ -151,6 +165,7 @@ public class Im_message extends EntityMP implements Serializable {
         this.data = data ;
         this.modify("data",data);
     }
+
     /**
      * 设置 [type]
      */
@@ -158,6 +173,7 @@ public class Im_message extends EntityMP implements Serializable {
         this.type = type ;
         this.modify("type",type);
     }
+
     /**
      * 设置 [content]
      */
@@ -165,6 +181,7 @@ public class Im_message extends EntityMP implements Serializable {
         this.content = content ;
         this.modify("content",content);
     }
+
     /**
      * 设置 [cgid]
      */
@@ -172,6 +189,7 @@ public class Im_message extends EntityMP implements Serializable {
         this.cgid = cgid ;
         this.modify("cgid",cgid);
     }
+
     /**
      * 设置 [order]
      */
@@ -179,6 +197,7 @@ public class Im_message extends EntityMP implements Serializable {
         this.order = order ;
         this.modify("order",order);
     }
+
     /**
      * 设置 [contentType]
      */
@@ -186,6 +205,7 @@ public class Im_message extends EntityMP implements Serializable {
         this.contenttype = contenttype ;
         this.modify("contenttype",contenttype);
     }
+
 
 }
 

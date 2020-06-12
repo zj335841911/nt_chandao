@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -166,6 +167,7 @@ public class Repo extends EntityMP implements Serializable {
         this.scm = scm ;
         this.modify("scm",scm);
     }
+
     /**
      * 设置 [prefix]
      */
@@ -173,6 +175,7 @@ public class Repo extends EntityMP implements Serializable {
         this.prefix = prefix ;
         this.modify("prefix",prefix);
     }
+
     /**
      * 设置 [password]
      */
@@ -180,6 +183,7 @@ public class Repo extends EntityMP implements Serializable {
         this.password = password ;
         this.modify("password",password);
     }
+
     /**
      * 设置 [encoding]
      */
@@ -187,6 +191,7 @@ public class Repo extends EntityMP implements Serializable {
         this.encoding = encoding ;
         this.modify("encoding",encoding);
     }
+
     /**
      * 设置 [commits]
      */
@@ -194,6 +199,7 @@ public class Repo extends EntityMP implements Serializable {
         this.commits = commits ;
         this.modify("commits",commits);
     }
+
     /**
      * 设置 [synced]
      */
@@ -201,12 +207,24 @@ public class Repo extends EntityMP implements Serializable {
         this.synced = synced ;
         this.modify("synced",synced);
     }
+
     /**
      * 设置 [lastSync]
      */
     public void setLastsync(Timestamp lastsync){
         this.lastsync = lastsync ;
         this.modify("lastsync",lastsync);
+    }
+
+    /**
+     * 格式化日期 [lastSync]
+     */
+    public String formatLastsync(){
+        if (this.lastsync == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("defieldFormatStr");
+        return sdf.format(lastsync);
     }
     /**
      * 设置 [client]
@@ -215,6 +233,7 @@ public class Repo extends EntityMP implements Serializable {
         this.client = client ;
         this.modify("client",client);
     }
+
     /**
      * 设置 [acl]
      */
@@ -222,6 +241,7 @@ public class Repo extends EntityMP implements Serializable {
         this.acl = acl ;
         this.modify("acl",acl);
     }
+
     /**
      * 设置 [encrypt]
      */
@@ -229,6 +249,7 @@ public class Repo extends EntityMP implements Serializable {
         this.encrypt = encrypt ;
         this.modify("encrypt",encrypt);
     }
+
     /**
      * 设置 [account]
      */
@@ -236,6 +257,7 @@ public class Repo extends EntityMP implements Serializable {
         this.account = account ;
         this.modify("account",account);
     }
+
     /**
      * 设置 [desc]
      */
@@ -243,6 +265,7 @@ public class Repo extends EntityMP implements Serializable {
         this.desc = desc ;
         this.modify("desc",desc);
     }
+
     /**
      * 设置 [name]
      */
@@ -250,6 +273,7 @@ public class Repo extends EntityMP implements Serializable {
         this.name = name ;
         this.modify("name",name);
     }
+
     /**
      * 设置 [path]
      */
@@ -257,6 +281,7 @@ public class Repo extends EntityMP implements Serializable {
         this.path = path ;
         this.modify("path",path);
     }
+
 
 }
 

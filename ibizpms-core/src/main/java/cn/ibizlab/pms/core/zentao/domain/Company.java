@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -128,6 +129,7 @@ public class Company extends EntityMP implements Serializable {
         this.admins = admins ;
         this.modify("admins",admins);
     }
+
     /**
      * 设置 [传真]
      */
@@ -135,6 +137,7 @@ public class Company extends EntityMP implements Serializable {
         this.fax = fax ;
         this.modify("fax",fax);
     }
+
     /**
      * 设置 [官网]
      */
@@ -142,6 +145,7 @@ public class Company extends EntityMP implements Serializable {
         this.website = website ;
         this.modify("website",website);
     }
+
     /**
      * 设置 [邮政编码]
      */
@@ -149,6 +153,7 @@ public class Company extends EntityMP implements Serializable {
         this.zipcode = zipcode ;
         this.modify("zipcode",zipcode);
     }
+
     /**
      * 设置 [通讯地址]
      */
@@ -156,6 +161,7 @@ public class Company extends EntityMP implements Serializable {
         this.address = address ;
         this.modify("address",address);
     }
+
     /**
      * 设置 [内网]
      */
@@ -163,6 +169,7 @@ public class Company extends EntityMP implements Serializable {
         this.backyard = backyard ;
         this.modify("backyard",backyard);
     }
+
     /**
      * 设置 [公司名称]
      */
@@ -170,6 +177,7 @@ public class Company extends EntityMP implements Serializable {
         this.name = name ;
         this.modify("name",name);
     }
+
     /**
      * 设置 [匿名登陆]
      */
@@ -177,6 +185,7 @@ public class Company extends EntityMP implements Serializable {
         this.guest = guest ;
         this.modify("guest",guest);
     }
+
     /**
      * 设置 [联系电话]
      */
@@ -184,6 +193,7 @@ public class Company extends EntityMP implements Serializable {
         this.phone = phone ;
         this.modify("phone",phone);
     }
+
 
 }
 

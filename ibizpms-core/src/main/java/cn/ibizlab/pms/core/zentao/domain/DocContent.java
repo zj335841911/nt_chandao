@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -113,6 +114,7 @@ public class DocContent extends EntityMP implements Serializable {
         this.files = files ;
         this.modify("files",files);
     }
+
     /**
      * 设置 [文档正文]
      */
@@ -120,6 +122,7 @@ public class DocContent extends EntityMP implements Serializable {
         this.content = content ;
         this.modify("content",content);
     }
+
     /**
      * 设置 [文档类型]
      */
@@ -127,6 +130,7 @@ public class DocContent extends EntityMP implements Serializable {
         this.type = type ;
         this.modify("type",type);
     }
+
     /**
      * 设置 [文档标题]
      */
@@ -134,6 +138,7 @@ public class DocContent extends EntityMP implements Serializable {
         this.title = title ;
         this.modify("title",title);
     }
+
     /**
      * 设置 [文档摘要]
      */
@@ -141,6 +146,7 @@ public class DocContent extends EntityMP implements Serializable {
         this.digest = digest ;
         this.modify("digest",digest);
     }
+
     /**
      * 设置 [版本号]
      */
@@ -148,6 +154,7 @@ public class DocContent extends EntityMP implements Serializable {
         this.version = version ;
         this.modify("version",version);
     }
+
     /**
      * 设置 [文档]
      */
@@ -155,6 +162,7 @@ public class DocContent extends EntityMP implements Serializable {
         this.doc = doc ;
         this.modify("doc",doc);
     }
+
 
 }
 
