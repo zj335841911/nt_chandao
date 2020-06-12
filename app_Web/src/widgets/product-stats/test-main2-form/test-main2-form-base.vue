@@ -31,14 +31,9 @@ style=""></app-span>
 <i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.testmain2_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
-        <i-col v-show="detailsModel.yesterdayresolvedbugcnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
-    <app-form-item name='yesterdayresolvedbugcnt' :itemRules="this.rules.yesterdayresolvedbugcnt" class='' :caption="$t('entities.productstats.testmain2_form.details.yesterdayresolvedbugcnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.yesterdayresolvedbugcnt.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='yesterdayresolvedbugcnt'
-:value="data.yesterdayresolvedbugcnt"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+        <i-col v-show="detailsModel.formitemex2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
+    <app-form-item name='formitemex2' :itemRules="this.rules.formitemex2" class='' :caption="$t('entities.productstats.testmain2_form.details.formitemex2')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex2.error" :isEmptyCaption="false" labelPos="LEFT">
+    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom3" :progress="this.data.custom4"/>
 </app-form-item>
 
 </i-col>
@@ -53,20 +48,9 @@ style=""></app-span>
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.formitemex2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
-    <app-form-item name='formitemex2' :itemRules="this.rules.formitemex2" class='' :caption="$t('entities.productstats.testmain2_form.details.formitemex2')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex2.error" :isEmptyCaption="false" labelPos="LEFT">
-    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom3" :progress="this.data.custom4"/>
-</app-form-item>
-
-</i-col>
-<i-col v-show="detailsModel.yesterdayconfirmbugcnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
-    <app-form-item name='yesterdayconfirmbugcnt' :itemRules="this.rules.yesterdayconfirmbugcnt" class='' :caption="$t('entities.productstats.testmain2_form.details.yesterdayconfirmbugcnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.yesterdayconfirmbugcnt.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='yesterdayconfirmbugcnt'
-:value="data.yesterdayconfirmbugcnt"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+<i-col v-show="detailsModel.formitemex3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
+    <app-form-item name='formitemex3' :itemRules="this.rules.formitemex3" class='' :caption="$t('entities.productstats.testmain2_form.details.formitemex3')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex3.error" :isEmptyCaption="false" labelPos="LEFT">
+    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom5" :progress="this.data.custom6"/>
 </app-form-item>
 
 </i-col>
@@ -81,20 +65,9 @@ style=""></app-span>
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.formitemex3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
-    <app-form-item name='formitemex3' :itemRules="this.rules.formitemex3" class='' :caption="$t('entities.productstats.testmain2_form.details.formitemex3')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex3.error" :isEmptyCaption="false" labelPos="LEFT">
-    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom5" :progress="this.data.custom6"/>
-</app-form-item>
-
-</i-col>
-<i-col v-show="detailsModel.yesterdayclosedbugcnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
-    <app-form-item name='yesterdayclosedbugcnt' :itemRules="this.rules.yesterdayclosedbugcnt" class='' :caption="$t('entities.productstats.testmain2_form.details.yesterdayclosedbugcnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.yesterdayclosedbugcnt.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='yesterdayclosedbugcnt'
-:value="data.yesterdayclosedbugcnt"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+<i-col v-show="detailsModel.formitemex4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
+    <app-form-item name='formitemex4' :itemRules="this.rules.formitemex4" class='' :caption="$t('entities.productstats.testmain2_form.details.formitemex4')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex4.error" :isEmptyCaption="false" labelPos="LEFT">
+    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom7" :progress="this.data.custom8"/>
 </app-form-item>
 
 </i-col>
@@ -106,12 +79,6 @@ style=""></app-span>
   :viewparams="viewparams"
   :itemParam="{}" 
 style=""></app-span>
-</app-form-item>
-
-</i-col>
-<i-col v-show="detailsModel.formitemex4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
-    <app-form-item name='formitemex4' :itemRules="this.rules.formitemex4" class='' :caption="$t('entities.productstats.testmain2_form.details.formitemex4')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex4.error" :isEmptyCaption="false" labelPos="LEFT">
-    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom7" :progress="this.data.custom8"/>
 </app-form-item>
 
 </i-col>
@@ -429,21 +396,18 @@ export default class TestMain2Base extends Vue implements ControlInterface {
         custom2: null,
         formitemex1: null,
         assigntomebugcnt: null,
-        yesterdayresolvedbugcnt: null,
-        activebugcnt: null,
         custom3: null,
         custom4: null,
         formitemex2: null,
-        yesterdayconfirmbugcnt: null,
-        unconfirmbugcnt: null,
+        activebugcnt: null,
         custom5: null,
         custom6: null,
         formitemex3: null,
-        yesterdayclosedbugcnt: null,
-        notclosedbugcnt: null,
+        unconfirmbugcnt: null,
         custom7: null,
         custom8: null,
         formitemex4: null,
+        notclosedbugcnt: null,
         id: null,
         productstats:null,
     };
@@ -553,18 +517,6 @@ export default class TestMain2Base extends Vue implements ControlInterface {
             { required: false, type: 'number', message: '指派给我 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: '指派给我 值不能为空', trigger: 'blur' },
         ],
-        yesterdayresolvedbugcnt: [
-            { type: 'number', message: '昨天解决Bug数 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '昨天解决Bug数 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '昨天解决Bug数 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '昨天解决Bug数 值不能为空', trigger: 'blur' },
-        ],
-        activebugcnt: [
-            { type: 'number', message: '未解决 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '未解决 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '未解决 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '未解决 值不能为空', trigger: 'blur' },
-        ],
         custom3: [
             { type: 'number', message: '所有Bug数 值必须为数值类型', trigger: 'change' },
             { type: 'number', message: '所有Bug数 值必须为数值类型', trigger: 'blur' },
@@ -583,17 +535,11 @@ export default class TestMain2Base extends Vue implements ControlInterface {
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
-        yesterdayconfirmbugcnt: [
-            { type: 'number', message: '昨天确认Bug数 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '昨天确认Bug数 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '昨天确认Bug数 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '昨天确认Bug数 值不能为空', trigger: 'blur' },
-        ],
-        unconfirmbugcnt: [
-            { type: 'number', message: '未确认 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '未确认 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '未确认 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '未确认 值不能为空', trigger: 'blur' },
+        activebugcnt: [
+            { type: 'number', message: '未解决 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '未解决 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '未解决 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '未解决 值不能为空', trigger: 'blur' },
         ],
         custom5: [
             { type: 'number', message: '所有Bug数 值必须为数值类型', trigger: 'change' },
@@ -613,17 +559,11 @@ export default class TestMain2Base extends Vue implements ControlInterface {
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
-        yesterdayclosedbugcnt: [
-            { type: 'number', message: '昨天关闭Bug数 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '昨天关闭Bug数 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '昨天关闭Bug数 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '昨天关闭Bug数 值不能为空', trigger: 'blur' },
-        ],
-        notclosedbugcnt: [
-            { type: 'number', message: '未关闭 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '未关闭 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '未关闭 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '未关闭 值不能为空', trigger: 'blur' },
+        unconfirmbugcnt: [
+            { type: 'number', message: '未确认 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '未确认 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '未确认 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '未确认 值不能为空', trigger: 'blur' },
         ],
         custom7: [
             { type: 'number', message: '所有Bug数 值必须为数值类型', trigger: 'change' },
@@ -642,6 +582,12 @@ export default class TestMain2Base extends Vue implements ControlInterface {
             { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
+        ],
+        notclosedbugcnt: [
+            { type: 'number', message: '未关闭 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '未关闭 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '未关闭 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '未关闭 值不能为空', trigger: 'blur' },
         ],
         id: [
             { type: 'number', message: '产品编号 值必须为数值类型', trigger: 'change' },
@@ -686,19 +632,13 @@ export default class TestMain2Base extends Vue implements ControlInterface {
 , 
         assigntomebugcnt: new FormItemModel({ caption: '指派给我', detailType: 'FORMITEM', name: 'assigntomebugcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        yesterdayresolvedbugcnt: new FormItemModel({ caption: '昨天解决Bug数', detailType: 'FORMITEM', name: 'yesterdayresolvedbugcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        activebugcnt: new FormItemModel({ caption: '未解决', detailType: 'FORMITEM', name: 'activebugcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
         custom3: new FormItemModel({ caption: '所有Bug数', detailType: 'FORMITEM', name: 'custom3', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         custom4: new FormItemModel({ caption: '未解决Bug数', detailType: 'FORMITEM', name: 'custom4', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         formitemex2: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex2', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        yesterdayconfirmbugcnt: new FormItemModel({ caption: '昨天确认Bug数', detailType: 'FORMITEM', name: 'yesterdayconfirmbugcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        unconfirmbugcnt: new FormItemModel({ caption: '未确认', detailType: 'FORMITEM', name: 'unconfirmbugcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        activebugcnt: new FormItemModel({ caption: '未解决', detailType: 'FORMITEM', name: 'activebugcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         custom5: new FormItemModel({ caption: '所有Bug数', detailType: 'FORMITEM', name: 'custom5', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -706,15 +646,15 @@ export default class TestMain2Base extends Vue implements ControlInterface {
 , 
         formitemex3: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex3', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        yesterdayclosedbugcnt: new FormItemModel({ caption: '昨天关闭Bug数', detailType: 'FORMITEM', name: 'yesterdayclosedbugcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        notclosedbugcnt: new FormItemModel({ caption: '未关闭', detailType: 'FORMITEM', name: 'notclosedbugcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        unconfirmbugcnt: new FormItemModel({ caption: '未确认', detailType: 'FORMITEM', name: 'unconfirmbugcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         custom7: new FormItemModel({ caption: '所有Bug数', detailType: 'FORMITEM', name: 'custom7', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         custom8: new FormItemModel({ caption: '未关闭Bug数', detailType: 'FORMITEM', name: 'custom8', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         formitemex4: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex4', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        notclosedbugcnt: new FormItemModel({ caption: '未关闭', detailType: 'FORMITEM', name: 'notclosedbugcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '产品编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -853,30 +793,6 @@ export default class TestMain2Base extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 yesterdayresolvedbugcnt 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof TestMain2
-     */
-    @Watch('data.yesterdayresolvedbugcnt')
-    onYesterdayresolvedbugcntChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'yesterdayresolvedbugcnt', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 activebugcnt 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof TestMain2
-     */
-    @Watch('data.activebugcnt')
-    onActivebugcntChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'activebugcnt', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
      * 监控表单属性 custom3 值
      *
      * @param {*} newVal
@@ -913,27 +829,15 @@ export default class TestMain2Base extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 yesterdayconfirmbugcnt 值
+     * 监控表单属性 activebugcnt 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof TestMain2
      */
-    @Watch('data.yesterdayconfirmbugcnt')
-    onYesterdayconfirmbugcntChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'yesterdayconfirmbugcnt', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 unconfirmbugcnt 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof TestMain2
-     */
-    @Watch('data.unconfirmbugcnt')
-    onUnconfirmbugcntChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'unconfirmbugcnt', newVal: newVal, oldVal: oldVal });
+    @Watch('data.activebugcnt')
+    onActivebugcntChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'activebugcnt', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -973,27 +877,15 @@ export default class TestMain2Base extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 yesterdayclosedbugcnt 值
+     * 监控表单属性 unconfirmbugcnt 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof TestMain2
      */
-    @Watch('data.yesterdayclosedbugcnt')
-    onYesterdayclosedbugcntChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'yesterdayclosedbugcnt', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 notclosedbugcnt 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof TestMain2
-     */
-    @Watch('data.notclosedbugcnt')
-    onNotclosedbugcntChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'notclosedbugcnt', newVal: newVal, oldVal: oldVal });
+    @Watch('data.unconfirmbugcnt')
+    onUnconfirmbugcntChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'unconfirmbugcnt', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1030,6 +922,18 @@ export default class TestMain2Base extends Vue implements ControlInterface {
     @Watch('data.formitemex4')
     onFormitemex4Change(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'formitemex4', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 notclosedbugcnt 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof TestMain2
+     */
+    @Watch('data.notclosedbugcnt')
+    onNotclosedbugcntChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'notclosedbugcnt', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1080,9 +984,6 @@ export default class TestMain2Base extends Vue implements ControlInterface {
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
-
-
-
 
 
 
