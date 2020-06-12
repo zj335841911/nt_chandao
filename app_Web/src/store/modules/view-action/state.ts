@@ -267,15 +267,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '3aa4c66089ff40194c7f4ecaf627acb5',
-            viewmodule: 'zentao',
-            viewname: 'ProjectBurnDownChartView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: '3aafb12bb0db2be013c0f5ced8c7dc50',
             viewmodule: 'zentao',
             viewname: 'ProjectListExpView',
@@ -870,7 +861,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '3aa4c66089ff40194c7f4ecaf627acb5',
                 'ef1a8c8701140368af895304274c602a',
                 '96ec3f978c1cc22acc532331d5dc2a41',
                 '770a170098d148e438a7666b248e6519',

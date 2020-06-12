@@ -671,19 +671,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-main-detail-view9/task-main-detail-view9.vue'),
                 },
                 {
-                    path: 'projects/:project?/burndownchartview/:burndownchartview?',
-                    meta: {
-                        caption: 'entities.project.views.burndownchartview.caption',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'burndownchartview', parameterName: 'burndownchartview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/project-burn-down-chart-view/project-burn-down-chart-view.vue'),
-                },
-                {
                     path: 'products/:product?/storytreeexpview/:storytreeexpview?',
                     meta: {
                         caption: 'entities.product.views.storytreeexpview.caption',
@@ -4494,18 +4481,6 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/zentao/task-sub-task-new-view/task-sub-task-new-view.vue'),
-    },
-    {
-        path: '/projects/:project?/burndownchartview/:burndownchartview?',
-        meta: {
-            caption: 'entities.project.views.burndownchartview.caption',
-            parameters: [
-                { pathName: 'projects', parameterName: 'project' },
-                { pathName: 'burndownchartview', parameterName: 'burndownchartview' },
-            ],
-            requireAuth: true,
-        },
-        component: () => import('@pages/zentao/project-burn-down-chart-view/project-burn-down-chart-view.vue'),
     },
     {
         path: '/projects/:project?/listexpview/:listexpview?',

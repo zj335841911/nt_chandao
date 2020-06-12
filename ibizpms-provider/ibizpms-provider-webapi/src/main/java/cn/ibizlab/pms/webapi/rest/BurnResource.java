@@ -170,5 +170,26 @@ public class BurnResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(burnMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-ESTIMATEANDLEFT-all')")
+	@ApiOperation(value = "获取燃尽图预计（含周末）", tags = {"burn" } ,notes = "获取燃尽图预计（含周末）")
+    @RequestMapping(method= RequestMethod.GET , value="/burns/fetchestimateandleft")
+	public ResponseEntity<List<BurnDTO>> fetchESTIMATEANDLEFT(BurnSearchContext context) {
+        Page<Burn> domains = burnService.searchESTIMATEANDLEFT(context) ;
+        List<BurnDTO> list = burnMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-ESTIMATEANDLEFT-all')")
+	@ApiOperation(value = "查询燃尽图预计（含周末）", tags = {"burn" } ,notes = "查询燃尽图预计（含周末）")
+    @RequestMapping(method= RequestMethod.POST , value="/burns/searchestimateandleft")
+	public ResponseEntity<Page<BurnDTO>> searchESTIMATEANDLEFT(@RequestBody BurnSearchContext context) {
+        Page<Burn> domains = burnService.searchESTIMATEANDLEFT(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(burnMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
 }
 
