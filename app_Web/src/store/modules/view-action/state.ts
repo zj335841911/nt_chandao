@@ -217,6 +217,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '2ae3586b0dd0f70c261ba6f24adb99df',
+            viewmodule: 'zentao',
+            viewname: 'ProductStatsTestEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '2e0d4fb0f3e1ba1ba5bea16a5553cc21',
             viewmodule: 'zentao',
             viewname: 'TaskMainGridView9_Child',
@@ -1226,7 +1235,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '5d468f620cc30181773d875b3bb8be6e',
+                '2ae3586b0dd0f70c261ba6f24adb99df',
             ],
         },
         {

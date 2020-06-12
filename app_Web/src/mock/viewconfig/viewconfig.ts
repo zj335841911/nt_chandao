@@ -199,6 +199,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductChartView",
             "viewtag": "2a60d576ef50d63f5e967cef38bc8fed"
         },
+        "productstatstesteditview9": {
+            "title": "产品统计编辑视图",
+            "caption": "产品统计",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "ProductStatsTestEditView9",
+            "viewtag": "2ae3586b0dd0f70c261ba6f24adb99df"
+        },
         "taskmaingridview9_child": {
             "title": "任务表格视图",
             "caption": "任务",

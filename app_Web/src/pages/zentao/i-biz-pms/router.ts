@@ -441,6 +441,19 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-pickup-grid-view/bug-pickup-grid-view.vue'),
                 },
                 {
+                    path: 'productstats/:productstats?/testeditview9/:testeditview9?',
+                    meta: {
+                        caption: 'entities.productstats.views.testeditview9.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productstats', parameterName: 'productstats' },
+                            { pathName: 'testeditview9', parameterName: 'testeditview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-stats-test-edit-view9/product-stats-test-edit-view9.vue'),
+                },
+                {
                     path: 'companies/:company?/deptusertreeexpview/:deptusertreeexpview?',
                     meta: {
                         caption: 'entities.company.views.deptusertreeexpview.caption',
@@ -710,19 +723,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/dept-pickup-view/dept-pickup-view.vue'),
                 },
                 {
-                    path: 'projects/:project?/curproductgridview/:curproductgridview?',
-                    meta: {
-                        caption: 'entities.project.views.curproductgridview.caption',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'curproductgridview', parameterName: 'curproductgridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/project-cur-product-grid-view/project-cur-product-grid-view.vue'),
-                },
-                {
                     path: 'users/:user?/maingridview/:maingridview?',
                     meta: {
                         caption: 'entities.user.views.maingridview.caption',
@@ -734,6 +734,19 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/user-main-grid-view/user-main-grid-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/curproductgridview/:curproductgridview?',
+                    meta: {
+                        caption: 'entities.project.views.curproductgridview.caption',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'curproductgridview', parameterName: 'curproductgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/project-cur-product-grid-view/project-cur-product-grid-view.vue'),
                 },
                 {
                     path: 'projects/:project?/maintabexpview/:maintabexpview?',
@@ -4355,6 +4368,18 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/zentao/task-main-edit-view/task-main-edit-view.vue'),
+    },
+    {
+        path: '/productstats/:productstats?/testeditview9/:testeditview9?',
+        meta: {
+            caption: 'entities.productstats.views.testeditview9.caption',
+            parameters: [
+                { pathName: 'productstats', parameterName: 'productstats' },
+                { pathName: 'testeditview9', parameterName: 'testeditview9' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/product-stats-test-edit-view9/product-stats-test-edit-view9.vue'),
     },
     {
         path: '/projects/:project?/tasks/:task?/maingridview9_child/:maingridview9_child?',

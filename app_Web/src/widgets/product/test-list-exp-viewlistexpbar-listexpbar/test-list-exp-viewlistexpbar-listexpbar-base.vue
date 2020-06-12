@@ -266,7 +266,7 @@ export default class TestListExpViewlistexpbarBase extends Vue implements Contro
      * @type {string}
      * @memberof TestListExpViewlistexpbarBase
      */
-    public navViewName: string = "product-stats-edit-view9";
+    public navViewName: string = "product-stats-test-edit-view9";
 
     /**
      * 导航视图参数
