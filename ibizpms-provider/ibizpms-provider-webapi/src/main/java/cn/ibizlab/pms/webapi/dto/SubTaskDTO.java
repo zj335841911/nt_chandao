@@ -384,6 +384,14 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JsonProperty("path")
     private String path;
 
+    /**
+     * 属性 [COMMENT]
+     *
+     */
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    private String comment;
+
 
     /**
      * 设置 [CANCELEDBY]
@@ -631,6 +639,14 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     public void setModule(BigInteger  module){
         this.module = module ;
         this.modify("module",module);
+    }
+
+    /**
+     * 设置 [COMMENT]
+     */
+    public void setComment(String  comment){
+        this.comment = comment ;
+        this.modify("comment",comment);
     }
 
 

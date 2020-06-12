@@ -367,6 +367,13 @@ public class Task extends EntityMP implements Serializable {
     @JSONField(name = "path")
     @JsonProperty("path")
     private String path;
+    /**
+     * 备注
+     */
+    @TableField(value = "comment")
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    private String comment;
 
     /**
      * 
@@ -626,6 +633,13 @@ public class Task extends EntityMP implements Serializable {
     public void setModule(BigInteger module){
         this.module = module ;
         this.modify("module",module);
+    }
+    /**
+     * 设置 [备注]
+     */
+    public void setComment(String comment){
+        this.comment = comment ;
+        this.modify("comment",comment);
     }
 
 }
