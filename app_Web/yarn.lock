@@ -6709,17 +6709,17 @@ ibiz-gantt-elastic@^1.0.16:
     vue-slider-component "^3.0.40"
     vue-switches "^2.0.1"
 
-ibiz-studio-components-vue@^0.0.1-alpha.8:
-  version "0.0.1-alpha.8"
-  resolved "https://registry.yarnpkg.com/ibiz-studio-components-vue/-/ibiz-studio-components-vue-0.0.1-alpha.8.tgz#e2c395abbb251cbc5fbdf034dbd96b57a5a09edd"
-  integrity sha512-MP/qgfsYxP1nHUJzx2kRUytygjiwq5dwO5gzspU6ZIHHBY1KSjzyTbrMnYasfnaXrC3ng7h6z6Qu53SMcUIDyA==
+ibiz-studio-components-vue@^0.0.1-alpha.9:
+  version "0.0.1-alpha.9"
+  resolved "https://registry.yarnpkg.com/ibiz-studio-components-vue/-/ibiz-studio-components-vue-0.0.1-alpha.9.tgz#97a02f92e5c814be6b116c36213a95ea4b561349"
+  integrity sha512-BnKdklPkW1XuIIWTTddqBHPO88TKBM2O+lFxywk1+usXNL52enLMzAmefWE4utu5u75lqlBByepXhmC16axIzQ==
   dependencies:
-    ibiz-studio-components "^0.0.1-alpha.8"
+    ibiz-studio-components "^0.0.1-alpha.9"
 
-ibiz-studio-components@^0.0.1-alpha.8:
-  version "0.0.1-alpha.8"
-  resolved "https://registry.yarnpkg.com/ibiz-studio-components/-/ibiz-studio-components-0.0.1-alpha.8.tgz#32490f4ab2cc27121370a0b36aeb0a6e079d83df"
-  integrity sha512-/F4Z+mEjh2WLs3BHKEEh2LfauP/othfAVSDW7MK8qdqY6s0g8xUu1qdz1KnWJQFt1SIb1WXQguNARxGIBf+5VQ==
+ibiz-studio-components@^0.0.1-alpha.9:
+  version "0.0.1-alpha.9"
+  resolved "https://registry.yarnpkg.com/ibiz-studio-components/-/ibiz-studio-components-0.0.1-alpha.9.tgz#6056d8a57866284b94fa2038ab7063cd7c84aff3"
+  integrity sha512-sdt+1TPeOrf/DpsMGDeS8dc/dU0BQFNOPjGyrq7koawZ499Z6yGBNhZNMaRqhSxIf5GU0gll8hocxohlvADOsA==
 
 ibiz-vue-lib@^0.1.10:
   version "0.1.10"

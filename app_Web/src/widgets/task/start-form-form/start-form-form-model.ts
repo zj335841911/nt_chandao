@@ -71,7 +71,9 @@ export default class StartFormModel {
         dataType: 'FLOAT',
       },
       {
-        name: 'formitem',
+        name: 'comment',
+        prop: 'comment',
+        dataType: 'HTMLTEXT',
       },
       {
         name: 'id',

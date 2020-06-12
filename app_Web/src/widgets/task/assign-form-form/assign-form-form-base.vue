@@ -28,9 +28,9 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='formitem' :itemRules="this.rules.formitem" class='' :caption="$t('entities.task.assignform_form.details.formitem')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-rich-text-editor :formState="formState" :value="data.formitem" @change="(val) =>{this.data.formitem =val}" :disabled="detailsModel.formitem.disabled"  name="formitem" style=""></app-rich-text-editor>
+<i-col v-show="detailsModel.comment.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='comment' :itemRules="this.rules.comment" class='' :caption="$t('entities.task.assignform_form.details.comment')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.comment.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled"  name="comment" style=""></app-rich-text-editor>
 </app-form-item>
 
 </i-col>
@@ -378,7 +378,7 @@ export default class AssignFormBase extends Vue implements ControlInterface {
         srfsourcekey: null,
         assignedto: null,
         left: null,
-        formitem: null,
+        comment: null,
         id: null,
         task:null,
     };
@@ -482,7 +482,7 @@ export default class AssignFormBase extends Vue implements ControlInterface {
             { required: false, type: 'number', message: '预计剩余 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: '预计剩余 值不能为空', trigger: 'blur' },
         ],
-        formitem: [
+        comment: [
             { type: 'string', message: '备注 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '备注 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '备注 值不能为空', trigger: 'change' },
@@ -531,7 +531,7 @@ export default class AssignFormBase extends Vue implements ControlInterface {
 , 
         left: new FormItemModel({ caption: '预计剩余', detailType: 'FORMITEM', name: 'left', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        formitem: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -658,15 +658,15 @@ export default class AssignFormBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 formitem 值
+     * 监控表单属性 comment 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof AssignForm
      */
-    @Watch('data.formitem')
-    onFormitemChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'formitem', newVal: newVal, oldVal: oldVal });
+    @Watch('data.comment')
+    onCommentChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'comment', newVal: newVal, oldVal: oldVal });
     }
 
     /**

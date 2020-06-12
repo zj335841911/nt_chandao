@@ -147,6 +147,9 @@ export default class WorkInfoModel {
       {
         name: 'path',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

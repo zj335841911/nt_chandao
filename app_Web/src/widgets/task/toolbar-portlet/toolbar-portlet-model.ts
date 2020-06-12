@@ -147,6 +147,9 @@ export default class ToolbarModel {
       {
         name: 'path',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

@@ -357,4 +357,12 @@ export interface SubTask {
      * @memberof SubTask
      */
     path?: any;
+
+    /**
+     * 备注
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    comment?: any;
 }

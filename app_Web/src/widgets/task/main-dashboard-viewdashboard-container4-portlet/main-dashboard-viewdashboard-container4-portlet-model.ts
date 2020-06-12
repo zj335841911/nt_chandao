@@ -147,6 +147,9 @@ export default class MainDashboardViewdashboard_container4Model {
       {
         name: 'path',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

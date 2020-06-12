@@ -357,4 +357,12 @@ export interface Task {
      * @memberof Task
      */
     path?: any;
+
+    /**
+     * 备注
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    comment?: any;
 }

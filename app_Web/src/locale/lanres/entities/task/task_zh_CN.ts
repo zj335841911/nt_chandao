@@ -44,6 +44,7 @@ export default {
     duration: '持续时间',
     module: 'id',
     path: '模块路径',
+    comment: '备注',
   },
 	views: {
 		assigntaskview: {
@@ -188,7 +189,7 @@ export default {
 			srfsourcekey: '', 
 			assignedto: '指派给', 
 			left: '预计剩余', 
-			formitem: '备注', 
+			comment: '备注', 
 			id: '编号', 
 		},
 		uiactions: {
@@ -208,7 +209,7 @@ export default {
 			srfuf: '', 
 			srfdeid: '', 
 			srfsourcekey: '', 
-			formitem: '备注', 
+			comment: '备注', 
 			id: '编号', 
 		},
 		uiactions: {
@@ -229,12 +230,12 @@ export default {
 			srfdeid: '', 
 			srfsourcekey: '', 
 			consumed: '之前消耗', 
-			consumption: '本次消耗', 
-			consumed2: '总计耗时', 
+			currentconsumed: '本次消耗', 
+			totaltime: '总计耗时', 
 			assignedto: '指派给', 
 			finisheddate: '实际完成', 
 			formitem: '附件', 
-			formitem1: '备注', 
+			comment: '备注', 
 			id: '编号', 
 		},
 		uiactions: {
@@ -379,7 +380,7 @@ export default {
 			realstarted: '实际开始', 
 			consumed: '总计消耗', 
 			left: '预计剩余', 
-			formitem: '备注', 
+			comment: '备注', 
 			id: '编号', 
 		},
 		uiactions: {

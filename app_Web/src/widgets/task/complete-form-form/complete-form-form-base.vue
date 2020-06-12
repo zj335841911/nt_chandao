@@ -8,19 +8,37 @@
     <row>
         <i-col v-show="detailsModel.consumed.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='consumed' :itemRules="this.rules.consumed" class='' :caption="$t('entities.task.completeform_form.details.consumed')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.consumed.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.consumed"  @enter="onEnter($event)"   unit="小时"  :disabled="detailsModel.consumed.disabled" type='number'  style=""></input-box>
+    <app-span   name='consumed'
+:value="data.consumed"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.consumption.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='consumption' :itemRules="this.rules.consumption" class='' :caption="$t('entities.task.completeform_form.details.consumption')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.consumption.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.consumption"  @enter="onEnter($event)"    :disabled="detailsModel.consumption.disabled" type='text'  style=""></input-box>
+<i-col v-show="detailsModel.currentconsumed.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='currentconsumed' :itemRules="this.rules.currentconsumed" class='' :caption="$t('entities.task.completeform_form.details.currentconsumed')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.currentconsumed.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box 
+  v-model="data.currentconsumed"  
+  @enter="onEnter($event)"  
+  
+  :disabled="detailsModel.currentconsumed.disabled" 
+  type='number' 
+   
+  style="">
+</input-box>
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.consumed2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='consumed2' :itemRules="this.rules.consumed2" class='' :caption="$t('entities.task.completeform_form.details.consumed2')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.consumed2.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.consumed2"  @enter="onEnter($event)"   unit="小时"  :disabled="detailsModel.consumed2.disabled" type='number'  style=""></input-box>
+<i-col v-show="detailsModel.totaltime.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='totaltime' :itemRules="this.rules.totaltime" class='' :caption="$t('entities.task.completeform_form.details.totaltime')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.totaltime.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-span   name='totaltime'
+:value="data.totaltime"   :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :itemParam="{}" 
+style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -52,9 +70,9 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.formitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='formitem1' :itemRules="this.rules.formitem1" class='' :caption="$t('entities.task.completeform_form.details.formitem1')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem1.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-rich-text-editor :formState="formState" :value="data.formitem1" @change="(val) =>{this.data.formitem1 =val}" :disabled="detailsModel.formitem1.disabled"  name="formitem1" style=""></app-rich-text-editor>
+<i-col v-show="detailsModel.comment.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='comment' :itemRules="this.rules.comment" class='' :caption="$t('entities.task.completeform_form.details.comment')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.comment.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled"  name="comment" style=""></app-rich-text-editor>
 </app-form-item>
 
 </i-col>
@@ -401,12 +419,12 @@ export default class CompleteFormBase extends Vue implements ControlInterface {
         srfdeid: null,
         srfsourcekey: null,
         consumed: null,
-        consumption: null,
-        consumed2: null,
+        currentconsumed: null,
+        totaltime: null,
         assignedto: null,
         finisheddate: null,
         formitem: null,
-        formitem1: null,
+        comment: null,
         id: null,
         task:null,
     };
@@ -504,17 +522,17 @@ export default class CompleteFormBase extends Vue implements ControlInterface {
             { required: false, type: 'number', message: '之前消耗 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: '之前消耗 值不能为空', trigger: 'blur' },
         ],
-        consumption: [
+        currentconsumed: [
             { type: 'string', message: '本次消耗 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '本次消耗 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '本次消耗 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '本次消耗 值不能为空', trigger: 'blur' },
         ],
-        consumed2: [
-            { type: 'number', message: '总计耗时 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '总计耗时 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '总计耗时 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '总计耗时 值不能为空', trigger: 'blur' },
+        totaltime: [
+            { type: 'string', message: '总计耗时 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '总计耗时 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '总计耗时 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '总计耗时 值不能为空', trigger: 'blur' },
         ],
         assignedto: [
             { type: 'string', message: '指派给 值必须为字符串类型', trigger: 'change' },
@@ -534,7 +552,7 @@ export default class CompleteFormBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '附件 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '附件 值不能为空', trigger: 'blur' },
         ],
-        formitem1: [
+        comment: [
             { type: 'string', message: '备注 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '备注 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '备注 值不能为空', trigger: 'change' },
@@ -581,9 +599,9 @@ export default class CompleteFormBase extends Vue implements ControlInterface {
 , 
         consumed: new FormItemModel({ caption: '之前消耗', detailType: 'FORMITEM', name: 'consumed', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        consumption: new FormItemModel({ caption: '本次消耗', detailType: 'FORMITEM', name: 'consumption', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        currentconsumed: new FormItemModel({ caption: '本次消耗', detailType: 'FORMITEM', name: 'currentconsumed', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        consumed2: new FormItemModel({ caption: '总计耗时', detailType: 'FORMITEM', name: 'consumed2', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        totaltime: new FormItemModel({ caption: '总计耗时', detailType: 'FORMITEM', name: 'totaltime', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -591,7 +609,7 @@ export default class CompleteFormBase extends Vue implements ControlInterface {
 , 
         formitem: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        formitem1: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'formitem1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -706,27 +724,27 @@ export default class CompleteFormBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 consumption 值
+     * 监控表单属性 currentconsumed 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof CompleteForm
      */
-    @Watch('data.consumption')
-    onConsumptionChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'consumption', newVal: newVal, oldVal: oldVal });
+    @Watch('data.currentconsumed')
+    onCurrentconsumedChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'currentconsumed', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 consumed2 值
+     * 监控表单属性 totaltime 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof CompleteForm
      */
-    @Watch('data.consumed2')
-    onConsumed2Change(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'consumed2', newVal: newVal, oldVal: oldVal });
+    @Watch('data.totaltime')
+    onTotaltimeChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'totaltime', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -766,15 +784,15 @@ export default class CompleteFormBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 formitem1 值
+     * 监控表单属性 comment 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof CompleteForm
      */
-    @Watch('data.formitem1')
-    onFormitem1Change(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'formitem1', newVal: newVal, oldVal: oldVal });
+    @Watch('data.comment')
+    onCommentChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'comment', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -845,6 +863,11 @@ export default class CompleteFormBase extends Vue implements ControlInterface {
 
 
 
+
+        if(Object.is(name, 'currentconsumed')){
+            const details: string[] = ['totaltime'];
+            this.updateFormItems('CalcTime', this.data, details, true);
+        }
     }
 
     /**
@@ -1750,6 +1773,9 @@ export default class CompleteFormBase extends Vue implements ControlInterface {
      * @memberof CompleteForm
      */
     public updateDefault(){                    
+        if (this.data.hasOwnProperty('totaltime') && !this.data.totaltime) {
+            this.data['totaltime'] = 'consumed';
+        }
     }
 
     

@@ -1067,7 +1067,7 @@ export default class Main2Base extends Vue implements ControlInterface {
 , 
         custom2: new FormItemModel({ caption: '未过期计划数', detailType: 'FORMITEM', name: 'custom2', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        formitemex1: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex1', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
+        formitemex1: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex1', visible: false, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
         unendproductplancnt: new FormItemModel({ caption: '未过期', detailType: 'FORMITEM', name: 'unendproductplancnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1077,7 +1077,7 @@ export default class Main2Base extends Vue implements ControlInterface {
 , 
         custom4: new FormItemModel({ caption: '未完成关联项目数', detailType: 'FORMITEM', name: 'custom4', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        formitemex2: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex2', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
+        formitemex2: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex2', visible: false, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
         undoneresprojectcnt: new FormItemModel({ caption: '进行中', detailType: 'FORMITEM', name: 'undoneresprojectcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1087,7 +1087,7 @@ export default class Main2Base extends Vue implements ControlInterface {
 , 
         custom6: new FormItemModel({ caption: '维护中发布数', detailType: 'FORMITEM', name: 'custom6', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        formitemex3: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex3', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
+        formitemex3: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex3', visible: false, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
         normalreleasecnt: new FormItemModel({ caption: '维护中', detailType: 'FORMITEM', name: 'normalreleasecnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1562,16 +1562,40 @@ export default class Main2Base extends Vue implements ControlInterface {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'productplancnt')) {
+            let ret = false;
+            const _productplancnt = this.data.productplancnt;
+            if (this.$verify.testCond(_productplancnt, 'NOTEQ', '0')) {
+                ret = true;
+            }
+            this.detailsModel.formitemex1.setVisible(ret);
+        }
 
 
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'resprojectcnt')) {
+            let ret = false;
+            const _resprojectcnt = this.data.resprojectcnt;
+            if (this.$verify.testCond(_resprojectcnt, 'NOTEQ', '0')) {
+                ret = true;
+            }
+            this.detailsModel.formitemex2.setVisible(ret);
+        }
 
 
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'releasecnt')) {
+            let ret = false;
+            const _releasecnt = this.data.releasecnt;
+            if (this.$verify.testCond(_releasecnt, 'NOTEQ', '0')) {
+                ret = true;
+            }
+            this.detailsModel.formitemex3.setVisible(ret);
+        }
 
 
 

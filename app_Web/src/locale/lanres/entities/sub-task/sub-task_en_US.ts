@@ -45,6 +45,7 @@ export default {
     duration: '持续时间',
     module: 'id',
     path: '模块路径',
+    comment: '备注',
   },
 	views: {
 		subtasknewview: {

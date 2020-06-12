@@ -147,6 +147,9 @@ export default class MainModel {
       {
         name: 'path',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

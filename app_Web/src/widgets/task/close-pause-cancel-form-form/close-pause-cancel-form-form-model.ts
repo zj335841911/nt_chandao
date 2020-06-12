@@ -56,7 +56,9 @@ export default class ClosePauseCancelFormModel {
         name: 'srfsourcekey',
       },
       {
-        name: 'formitem',
+        name: 'comment',
+        prop: 'comment',
+        dataType: 'HTMLTEXT',
       },
       {
         name: 'id',

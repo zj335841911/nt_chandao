@@ -6,9 +6,9 @@
 <i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 23, offset: 0 }">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.closepausecancelform_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
-        <i-col v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 23, offset: 1 }">
-    <app-form-item name='formitem' :itemRules="this.rules.formitem" class='' :caption="$t('entities.task.closepausecancelform_form.details.formitem')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem.error" :isEmptyCaption="false" labelPos="TOP">
-    <app-rich-text-editor :formState="formState" :value="data.formitem" @change="(val) =>{this.data.formitem =val}" :disabled="detailsModel.formitem.disabled"  name="formitem" style=""></app-rich-text-editor>
+        <i-col v-show="detailsModel.comment.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 23, offset: 1 }">
+    <app-form-item name='comment' :itemRules="this.rules.comment" class='' :caption="$t('entities.task.closepausecancelform_form.details.comment')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.comment.error" :isEmptyCaption="false" labelPos="TOP">
+    <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled"  name="comment" style=""></app-rich-text-editor>
 </app-form-item>
 
 </i-col>
@@ -354,7 +354,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        formitem: null,
+        comment: null,
         id: null,
         task:null,
     };
@@ -446,7 +446,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
-        formitem: [
+        comment: [
             { type: 'string', message: '备注 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '备注 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '备注 值不能为空', trigger: 'change' },
@@ -491,7 +491,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        formitem: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -594,15 +594,15 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
     }
 
     /**
-     * 监控表单属性 formitem 值
+     * 监控表单属性 comment 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof ClosePauseCancelForm
      */
-    @Watch('data.formitem')
-    onFormitemChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'formitem', newVal: newVal, oldVal: oldVal });
+    @Watch('data.comment')
+    onCommentChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'comment', newVal: newVal, oldVal: oldVal });
     }
 
     /**

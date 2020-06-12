@@ -66,7 +66,9 @@ export default class AssignFormModel {
         dataType: 'FLOAT',
       },
       {
-        name: 'formitem',
+        name: 'comment',
+        prop: 'comment',
+        dataType: 'HTMLTEXT',
       },
       {
         name: 'id',

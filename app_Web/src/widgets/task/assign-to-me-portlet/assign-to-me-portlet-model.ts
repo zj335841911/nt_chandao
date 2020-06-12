@@ -147,6 +147,9 @@ export default class AssignToMeModel {
       {
         name: 'path',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

@@ -1,6 +1,5 @@
 import { Http,Util } from '@/utils';
 import EntityService from '../entity-service';
-import OpenTaskLogic from '@/service/sub-task/open-task-logic';
 
 
 
@@ -451,5 +450,19 @@ export default class SubTaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchdefault`,tempData,isloading);
         }
+    }
+
+    /**
+     * CalcTime接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async CalcTime(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // URI参数传递情况未实现
+        // URI参数传递情况未实现
     }
 }

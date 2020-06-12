@@ -147,6 +147,9 @@ export default class MainInfoModel {
       {
         name: 'path',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 
