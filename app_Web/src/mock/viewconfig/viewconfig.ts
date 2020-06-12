@@ -343,6 +343,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductPlanSubPlanGridView",
             "viewtag": "500950593bf64e5516bdb9b7db29b747"
         },
+        "taskclosetaskview": {
+            "title": "关闭任务",
+            "caption": "关闭任务",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskCloseTaskView",
+            "viewtag": "507c506d62dc910a814332e6ae242266"
+        },
         "projectcurproductgridview": {
             "title": "project表格视图",
             "caption": "项目",
@@ -855,6 +863,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectGridView9_UnClosed",
             "viewtag": "a7a97014cad1917b94284db21ec968f1"
         },
+        "taskcanceltaskview": {
+            "title": "取消任务",
+            "caption": "取消任务",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskCancelTaskView",
+            "viewtag": "a97ff9ae4f22d5974b51af2c0fae1aa2"
+        },
         "productplaneditview": {
             "title": "计划",
             "caption": "产品计划",
@@ -887,6 +903,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskOpenTaskView",
             "viewtag": "abca63015fc84466991c6479f955f6d0"
         },
+        "taskpausetaskview": {
+            "title": "暂停任务",
+            "caption": "暂停任务",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskPauseTaskView",
+            "viewtag": "b03bf2445d2e295fccbb6280b2601248"
+        },
         "companyeditview": {
             "title": "company编辑视图",
             "caption": "公司信息",
@@ -918,14 +942,6 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ProductDashboardInfoMainView9",
             "viewtag": "b5d2389c0dd12ae614b319090ecc2361"
-        },
-        "taskclosepausecancelview": {
-            "title": "任务选项操作视图",
-            "caption": "任务",
-            "viewtype": "DEOPTVIEW",
-            "viewmodule": "zentao",
-            "viewname": "TaskClosePauseCancelView",
-            "viewtag": "b78229d8342c2c13ddd8e403a7d853bc"
         },
         "storympickupview": {
             "title": "关联需求",
@@ -991,12 +1007,12 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugGridView",
             "viewtag": "c9410c9f72535adf1fff569d5243edd1"
         },
-        "taskdoneview": {
+        "taskdonetaskview": {
             "title": "完成任务",
             "caption": "完成任务",
             "viewtype": "DEOPTVIEW",
             "viewmodule": "zentao",
-            "viewname": "TaskDoneView",
+            "viewname": "TaskDoneTaskView",
             "viewtag": "c9c256aef78723e1bf9ddc1d38667c3f"
         },
         "modulepickupview": {

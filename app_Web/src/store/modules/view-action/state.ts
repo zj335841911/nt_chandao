@@ -384,6 +384,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '507c506d62dc910a814332e6ae242266',
+            viewmodule: 'zentao',
+            viewname: 'TaskCloseTaskView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
             viewtag: '522b28992d16207a0fc47340589bb2cf',
             viewmodule: 'zentao',
             viewname: 'ProjectCurProductGridView',
@@ -484,9 +494,10 @@ export const viewstate: any = {
             refviews: [
                 '321ab2e4e87a29fef8eed086e951a006',
                 '21e00a7239d9737bbfda5c1608b4129c',
+                'a97ff9ae4f22d5974b51af2c0fae1aa2',
                 'c9c256aef78723e1bf9ddc1d38667c3f',
                 '12661bdb476cd339554799b417c6ea48',
-                'b78229d8342c2c13ddd8e403a7d853bc',
+                'b03bf2445d2e295fccbb6280b2601248',
                 '35ba93bac795e0deb7297d2d471b7180',
                 '770a170098d148e438a7666b248e6519',
                 '8ca35f54383cecb05da77cdb1a6588fd',
@@ -1048,10 +1059,10 @@ export const viewstate: any = {
                 '21e00a7239d9737bbfda5c1608b4129c',
                 'c9c256aef78723e1bf9ddc1d38667c3f',
                 '12661bdb476cd339554799b417c6ea48',
-                'b78229d8342c2c13ddd8e403a7d853bc',
                 'abca63015fc84466991c6479f955f6d0',
                 'ea141fddc78fd1af4d06e494baf12cc1',
                 '35ba93bac795e0deb7297d2d471b7180',
+                '507c506d62dc910a814332e6ae242266',
             ],
         },
         {
@@ -1063,6 +1074,16 @@ export const viewstate: any = {
             refviews: [
                 'f83dac873b9215483c4bb91673284b41',
                 'fd0b8748ff96edcde009d39903a9f211',
+            ],
+        },
+        {
+            viewtag: 'a97ff9ae4f22d5974b51af2c0fae1aa2',
+            viewmodule: 'zentao',
+            viewname: 'TaskCancelTaskView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
             ],
         },
         {
@@ -1105,6 +1126,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'b03bf2445d2e295fccbb6280b2601248',
+            viewmodule: 'zentao',
+            viewname: 'TaskPauseTaskView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
             viewtag: 'b507b8efc20db47d7b01d67561638cd6',
             viewmodule: 'zentao',
             viewname: 'BugReleaseSubGridView_Undone',
@@ -1131,16 +1162,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-            ],
-        },
-        {
-            viewtag: 'b78229d8342c2c13ddd8e403a7d853bc',
-            viewmodule: 'zentao',
-            viewname: 'TaskClosePauseCancelView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '770a170098d148e438a7666b248e6519',
             ],
         },
         {
@@ -1212,7 +1233,7 @@ export const viewstate: any = {
         {
             viewtag: 'c9c256aef78723e1bf9ddc1d38667c3f',
             viewmodule: 'zentao',
-            viewname: 'TaskDoneView',
+            viewname: 'TaskDoneTaskView',
             viewaction: '',
             viewdatachange: false,
             refviews: [

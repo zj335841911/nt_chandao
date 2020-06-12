@@ -29,7 +29,6 @@ import org.springframework.data.annotation.Transient;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class IBzDoc extends EntityBase implements Serializable {
 
     /**

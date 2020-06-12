@@ -419,6 +419,16 @@
         "viewtag": "500950593bf64e5516bdb9b7db29b747",
         "memo": ""
     },
+    "taskclosetaskview": {
+        "title": "关闭任务",
+        "caption": "关闭任务",
+        "viewtype": "DEOPTVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TaskCloseTaskView",
+        "viewfilename": "task-close-task-view",
+        "viewtag": "507c506d62dc910a814332e6ae242266",
+        "memo": ""
+    },
     "projectcurproductgridview": {
         "title": "project表格视图",
         "caption": "项目",
@@ -1059,6 +1069,16 @@
         "viewtag": "a7a97014cad1917b94284db21ec968f1",
         "memo": "过滤条件在视图参数中指定"
     },
+    "taskcanceltaskview": {
+        "title": "取消任务",
+        "caption": "取消任务",
+        "viewtype": "DEOPTVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TaskCancelTaskView",
+        "viewfilename": "task-cancel-task-view",
+        "viewtag": "a97ff9ae4f22d5974b51af2c0fae1aa2",
+        "memo": ""
+    },
     "productplaneditview": {
         "title": "计划",
         "caption": "产品计划",
@@ -1099,6 +1119,16 @@
         "viewtag": "abca63015fc84466991c6479f955f6d0",
         "memo": ""
     },
+    "taskpausetaskview": {
+        "title": "暂停任务",
+        "caption": "暂停任务",
+        "viewtype": "DEOPTVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TaskPauseTaskView",
+        "viewfilename": "task-pause-task-view",
+        "viewtag": "b03bf2445d2e295fccbb6280b2601248",
+        "memo": ""
+    },
     "companyeditview": {
         "title": "company编辑视图",
         "caption": "公司信息",
@@ -1137,16 +1167,6 @@
         "viewname": "ProductDashboardInfoMainView9",
         "viewfilename": "product-dashboard-info-main-view9",
         "viewtag": "b5d2389c0dd12ae614b319090ecc2361",
-        "memo": ""
-    },
-    "taskclosepausecancelview": {
-        "title": "任务选项操作视图",
-        "caption": "任务",
-        "viewtype": "DEOPTVIEW",
-        "viewmodule": "zentao",
-        "viewname": "TaskClosePauseCancelView",
-        "viewfilename": "task-close-pause-cancel-view",
-        "viewtag": "b78229d8342c2c13ddd8e403a7d853bc",
         "memo": ""
     },
     "storympickupview": {
@@ -1229,13 +1249,13 @@
         "viewtag": "c9410c9f72535adf1fff569d5243edd1",
         "memo": ""
     },
-    "taskdoneview": {
+    "taskdonetaskview": {
         "title": "完成任务",
         "caption": "完成任务",
         "viewtype": "DEOPTVIEW",
         "viewmodule": "zentao",
-        "viewname": "TaskDoneView",
-        "viewfilename": "task-done-view",
+        "viewname": "TaskDoneTaskView",
+        "viewfilename": "task-done-task-view",
         "viewtag": "c9c256aef78723e1bf9ddc1d38667c3f",
         "memo": ""
     },

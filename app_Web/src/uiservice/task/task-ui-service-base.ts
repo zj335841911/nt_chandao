@@ -84,6 +84,7 @@ export default class TaskUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'maingridview9_child',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'maininfoview9',srfappde:'tasks'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'closetaskview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'tasktypeganttview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'pivottableview',srfappde:'tasks'});
@@ -91,9 +92,10 @@ export default class TaskUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'gridview9_assignedtome',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'workinfoeditview9',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'maingridview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'canceltaskview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'opentaskview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'closepausecancelview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'doneview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'pausetaskview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'donetaskview',srfappde:'tasks'});
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'maindetailview9',srfappde:'tasks'});
     }
@@ -118,7 +120,7 @@ export default class TaskUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Task_CancelTask(args: any[],context:any = {}, params?: any, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+    public async Task_CancelTask(args: any[], context:any = {} ,params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         let data: any = {};
         const _args: any[] = Util.deepCopy(args);
         const _this: any = actionContext;
@@ -132,46 +134,6 @@ export default class TaskUIServiceBase extends UIService {
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
-        // 直接调实体服务需要转换的数据
-        if(context && context.srfsessionid){
-          context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        const backend = () => {
-            const curService:TaskService =  new TaskService();
-            curService.Cancel(context,data, true).then((response: any) => {
-                if (!response || response.status !== 200) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.message });
-                    return;
-                }
-                actionContext.$Notice.success({ title: '成功', desc: '取消成功！' });
-
-                const _this: any = actionContext;
-                return response;
-            }).catch((response: any) => {
-                if (!response || !response.status || !response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
-                    return;
-                }
-                if (response.status === 401) {
-                    return;
-                }
-                return response;
-            });
-        };
-        const view = { 
-            viewname: 'task-close-pause-cancel-view', 
-            title: actionContext.$t('entities.task.views.closepausecancelview.title'),
-            height: 600, 
-            width: 800, 
-        };
-        const appmodal = actionContext.$appmodal.openModal(view,context,data);
-        appmodal.subscribe((result:any) => {
-            if (result && Object.is(result.ret, 'OK')) {
-                Object.assign(data, { srfactionparam: result.datas });
-                backend();
-            }
-        });
     }
 
     /**
@@ -186,7 +148,7 @@ export default class TaskUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Task_AssignTask(args: any[],context:any = {}, params?: any, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+    public async Task_AssignTask(args: any[], context:any = {} ,params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         let data: any = {};
         const _args: any[] = Util.deepCopy(args);
         const _this: any = actionContext;
@@ -200,46 +162,6 @@ export default class TaskUIServiceBase extends UIService {
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
-        // 直接调实体服务需要转换的数据
-        if(context && context.srfsessionid){
-          context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        const backend = () => {
-            const curService:TaskService =  new TaskService();
-            curService.AssignTo(context,data, true).then((response: any) => {
-                if (!response || response.status !== 200) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.message });
-                    return;
-                }
-                actionContext.$Notice.success({ title: '成功', desc: '指派成功！' });
-
-                const _this: any = actionContext;
-                return response;
-            }).catch((response: any) => {
-                if (!response || !response.status || !response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
-                    return;
-                }
-                if (response.status === 401) {
-                    return;
-                }
-                return response;
-            });
-        };
-        const view = { 
-            viewname: 'task-assign-task-view', 
-            title: actionContext.$t('entities.task.views.assigntaskview.title'),
-            height: 600, 
-            width: 800, 
-        };
-        const appmodal = actionContext.$appmodal.openModal(view,context,data);
-        appmodal.subscribe((result:any) => {
-            if (result && Object.is(result.ret, 'OK')) {
-                Object.assign(data, { srfactionparam: result.datas });
-                backend();
-            }
-        });
     }
 
     /**
@@ -254,7 +176,7 @@ export default class TaskUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Task_StartTask(args: any[],context:any = {}, params?: any, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+    public async Task_StartTask(args: any[], context:any = {} ,params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         let data: any = {};
         const _args: any[] = Util.deepCopy(args);
         const _this: any = actionContext;
@@ -268,46 +190,36 @@ export default class TaskUIServiceBase extends UIService {
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
-        // 直接调实体服务需要转换的数据
-        if(context && context.srfsessionid){
-          context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
+        let deResParameters: any[] = [];
+        if(context.project && true){
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
         }
-        const backend = () => {
-            const curService:TaskService =  new TaskService();
-            curService.Start(context,data, true).then((response: any) => {
-                if (!response || response.status !== 200) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.message });
-                    return;
-                }
-                actionContext.$Notice.success({ title: '成功', desc: '开始成功！' });
-
-                const _this: any = actionContext;
-                return response;
-            }).catch((response: any) => {
-                if (!response || !response.status || !response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
-                    return;
-                }
-                if (response.status === 401) {
-                    return;
-                }
-                return response;
-            });
-        };
-        const view = { 
-            viewname: 'task-open-task-view', 
-            title: actionContext.$t('entities.task.views.opentaskview.title'),
-            height: 600, 
-            width: 800, 
-        };
-        const appmodal = actionContext.$appmodal.openModal(view,context,data);
-        appmodal.subscribe((result:any) => {
-            if (result && Object.is(result.ret, 'OK')) {
-                Object.assign(data, { srfactionparam: result.datas });
-                backend();
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if(window.opener){
+                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
+                        window.close();
+                    }
+                    return result.datas;
+                });
             }
-        });
+            const view: any = {
+                viewname: 'task-open-task-view', 
+                height: 600, 
+                width: 800,  
+                title: actionContext.$t('entities.task.views.opentaskview.title'),
+            };
+            openPopupModal(view, data);
     }
 
     /**
@@ -381,7 +293,7 @@ export default class TaskUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Task_PauseTask(args: any[],context:any = {}, params?: any, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+    public async Task_PauseTask(args: any[], context:any = {} ,params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         let data: any = {};
         const _args: any[] = Util.deepCopy(args);
         const _this: any = actionContext;
@@ -395,46 +307,6 @@ export default class TaskUIServiceBase extends UIService {
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
-        // 直接调实体服务需要转换的数据
-        if(context && context.srfsessionid){
-          context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        const backend = () => {
-            const curService:TaskService =  new TaskService();
-            curService.Pause(context,data, true).then((response: any) => {
-                if (!response || response.status !== 200) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.message });
-                    return;
-                }
-                actionContext.$Notice.success({ title: '成功', desc: '暂停成功！' });
-
-                const _this: any = actionContext;
-                return response;
-            }).catch((response: any) => {
-                if (!response || !response.status || !response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
-                    return;
-                }
-                if (response.status === 401) {
-                    return;
-                }
-                return response;
-            });
-        };
-        const view = { 
-            viewname: 'task-close-pause-cancel-view', 
-            title: actionContext.$t('entities.task.views.closepausecancelview.title'),
-            height: 600, 
-            width: 800, 
-        };
-        const appmodal = actionContext.$appmodal.openModal(view,context,data);
-        appmodal.subscribe((result:any) => {
-            if (result && Object.is(result.ret, 'OK')) {
-                Object.assign(data, { srfactionparam: result.datas });
-                backend();
-            }
-        });
     }
 
     /**
@@ -449,7 +321,7 @@ export default class TaskUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Task_CloseTask(args: any[],context:any = {}, params?: any, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+    public async Task_CloseTask(args: any[], context:any = {} ,params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         let data: any = {};
         const _args: any[] = Util.deepCopy(args);
         const _this: any = actionContext;
@@ -463,46 +335,6 @@ export default class TaskUIServiceBase extends UIService {
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
-        // 直接调实体服务需要转换的数据
-        if(context && context.srfsessionid){
-          context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        const backend = () => {
-            const curService:TaskService =  new TaskService();
-            curService.Close(context,data, true).then((response: any) => {
-                if (!response || response.status !== 200) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.message });
-                    return;
-                }
-                actionContext.$Notice.success({ title: '成功', desc: '关闭成功！' });
-
-                const _this: any = actionContext;
-                return response;
-            }).catch((response: any) => {
-                if (!response || !response.status || !response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
-                    return;
-                }
-                if (response.status === 401) {
-                    return;
-                }
-                return response;
-            });
-        };
-        const view = { 
-            viewname: 'task-close-pause-cancel-view', 
-            title: actionContext.$t('entities.task.views.closepausecancelview.title'),
-            height: 600, 
-            width: 800, 
-        };
-        const appmodal = actionContext.$appmodal.openModal(view,context,data);
-        appmodal.subscribe((result:any) => {
-            if (result && Object.is(result.ret, 'OK')) {
-                Object.assign(data, { srfactionparam: result.datas });
-                backend();
-            }
-        });
     }
 
     /**
@@ -573,7 +405,7 @@ export default class TaskUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Task_DoneTask(args: any[],context:any = {}, params?: any, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+    public async Task_DoneTask(args: any[], context:any = {} ,params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         let data: any = {};
         const _args: any[] = Util.deepCopy(args);
         const _this: any = actionContext;
@@ -587,46 +419,6 @@ export default class TaskUIServiceBase extends UIService {
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
-        // 直接调实体服务需要转换的数据
-        if(context && context.srfsessionid){
-          context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        const backend = () => {
-            const curService:TaskService =  new TaskService();
-            curService.Finish(context,data, true).then((response: any) => {
-                if (!response || response.status !== 200) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.message });
-                    return;
-                }
-                actionContext.$Notice.success({ title: '成功', desc: '完成成功！' });
-
-                const _this: any = actionContext;
-                return response;
-            }).catch((response: any) => {
-                if (!response || !response.status || !response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
-                    return;
-                }
-                if (response.status === 401) {
-                    return;
-                }
-                return response;
-            });
-        };
-        const view = { 
-            viewname: 'task-done-view', 
-            title: actionContext.$t('entities.task.views.doneview.title'),
-            height: 600, 
-            width: 800, 
-        };
-        const appmodal = actionContext.$appmodal.openModal(view,context,data);
-        appmodal.subscribe((result:any) => {
-            if (result && Object.is(result.ret, 'OK')) {
-                Object.assign(data, { srfactionparam: result.datas });
-                backend();
-            }
-        });
     }
 
 

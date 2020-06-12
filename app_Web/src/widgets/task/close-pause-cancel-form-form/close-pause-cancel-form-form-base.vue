@@ -1040,7 +1040,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      */
     public load(opt: any = {}): void {
         if(!this.loadAction){
-            this.$Notice.error({ title: '错误', desc: 'TaskClosePauseCancelView视图表单loadAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'TaskPauseTaskView视图表单loadAction参数未配置' });
             return;
         }
         const arg: any = { ...opt };
@@ -1075,7 +1075,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
      */
     public loadDraft(opt: any = {}): void {
         if(!this.loaddraftAction){
-            this.$Notice.error({ title: '错误', desc: 'TaskClosePauseCancelView视图表单loaddraftAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'TaskPauseTaskView视图表单loaddraftAction参数未配置' });
             return;
         }
         const arg: any = { ...opt } ;
@@ -1137,7 +1137,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
         const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
         if(!action){
             let actionName:any = Object.is(data.srfuf, '1')?"updateAction":"createAction";
-            this.$Notice.error({ title: '错误', desc: 'TaskClosePauseCancelView视图表单'+actionName+'参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'TaskPauseTaskView视图表单'+actionName+'参数未配置' });
             return;
         }
         Object.assign(arg,{viewparams:this.viewparams});
@@ -1201,7 +1201,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
             const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
             if(!action){
                 let actionName:any = Object.is(data.srfuf, '1')?"updateAction":"createAction";
-                this.$Notice.error({ title: '错误', desc: 'TaskClosePauseCancelView视图表单'+actionName+'参数未配置' });
+                this.$Notice.error({ title: '错误', desc: 'TaskPauseTaskView视图表单'+actionName+'参数未配置' });
                 return;
             }
             Object.assign(arg,{viewparams:this.viewparams});
@@ -1251,7 +1251,7 @@ export default class ClosePauseCancelFormBase extends Vue implements ControlInte
     public remove(opt:Array<any> = [],showResultInfo?: boolean): Promise<any> {
         return new Promise((resolve: any, reject: any) => {
             if(!this.removeAction){
-                this.$Notice.error({ title: '错误', desc: 'TaskClosePauseCancelView视图表单removeAction参数未配置' });
+                this.$Notice.error({ title: '错误', desc: 'TaskPauseTaskView视图表单removeAction参数未配置' });
                 return;
             }
             const arg: any = opt[0];

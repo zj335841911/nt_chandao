@@ -68,6 +68,10 @@ export default {
 			caption: "任务",
       title: '任务',
 		},
+		closetaskview: {
+			caption: "关闭任务",
+      title: '关闭任务',
+		},
 		maindashboardview: {
 			caption: "任务",
       title: '任务',
@@ -96,15 +100,19 @@ export default {
 			caption: "任务",
       title: '任务',
 		},
+		canceltaskview: {
+			caption: "取消任务",
+      title: '取消任务',
+		},
 		opentaskview: {
 			caption: "开始任务",
       title: '开始任务',
 		},
-		closepausecancelview: {
-			caption: "任务",
-      title: '任务',
+		pausetaskview: {
+			caption: "暂停任务",
+      title: '暂停任务',
 		},
-		doneview: {
+		donetaskview: {
 			caption: "完成任务",
       title: '完成任务',
 		},

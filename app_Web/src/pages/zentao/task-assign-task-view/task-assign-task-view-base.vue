@@ -10,11 +10,11 @@
                     :autosave="false" 
                     :viewtag="viewtag"
                     :showBusyIndicator="true"
-                    updateAction="Update"
+                    updateAction="AssignTo"
                     removeAction="Remove"
                     loaddraftAction="GetDraft"
                     loadAction="Get"
-                    createAction="Create"
+                    createAction="AssignTo"
                     WFSubmitAction=""
                     WFStartAction=""
                     style='' 
