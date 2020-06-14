@@ -999,6 +999,16 @@
         "viewtag": "956ad42e59e60cd8b49e7035147e25cf",
         "memo": "视图参数中指定了过滤条件"
     },
+    "storymaingridview_bymodule": {
+        "title": "story表格视图",
+        "caption": "需求",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "StoryMainGridView_ByModule",
+        "viewfilename": "story-main-grid-view-by-module",
+        "viewtag": "95d25c1556e049e220af04b99b06edeb",
+        "memo": ""
+    },
     "actionprojecttrendslistview9": {
         "title": "产品动态",
         "caption": "系统日志",

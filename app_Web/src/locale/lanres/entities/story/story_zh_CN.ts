@@ -101,6 +101,10 @@ export default {
 			caption: '子需求',
       title: '需求表格视图',
 		},
+		maingridview_bymodule: {
+			caption: '需求',
+      title: 'story表格视图',
+		},
 		maingridview: {
 			caption: '需求',
       title: 'story表格视图',
@@ -319,20 +323,6 @@ export default {
 			opencasecreateview: '建用例',
 		},
 	},
-	main2_grid: {
-		columns: {
-			id: 'ID',
-			pri: 'P',
-			title: '需求名称',
-			uagridcolumn1: '操作',
-		},
-		uiactions: {
-			changestorydetail: '变更',
-			closestory: '关闭',
-			openbaseinfoeditview: '编辑',
-			opencasecreateview: '建用例',
-		},
-	},
 	pickupgrid_grid: {
 		columns: {
 			id: 'ID',
@@ -382,6 +372,20 @@ export default {
 		uiactions: {
 		},
 	},
+	main2_grid: {
+		columns: {
+			id: 'ID',
+			pri: 'P',
+			title: '需求名称',
+			uagridcolumn1: '操作',
+		},
+		uiactions: {
+			changestorydetail: '变更',
+			closestory: '关闭',
+			openbaseinfoeditview: '编辑',
+			opencasecreateview: '建用例',
+		},
+	},
 	default_searchform: {
 		details: {
 			formpage1: '常规条件', 
@@ -415,62 +419,18 @@ export default {
 			tip: '编辑',
 		},
 	},
-	main2gridviewtoolbar_toolbar: {
-		tbitem3: {
+	maingridview_bymoduletoolbar_toolbar: {
+		deuiaction1: {
 			caption: '新建',
 			tip: '新建',
 		},
-		tbitem4: {
+		seperator1: {
+			caption: '',
+			tip: '',
+		},
+		deuiaction2: {
 			caption: '编辑',
 			tip: '编辑',
-		},
-		tbitem6: {
-			caption: '拷贝',
-			tip: '拷贝',
-		},
-		tbitem7: {
-			caption: '-',
-			tip: '',
-		},
-		tbitem8: {
-			caption: '删除',
-			tip: '删除',
-		},
-		tbitem9: {
-			caption: '-',
-			tip: '',
-		},
-		tbitem13: {
-			caption: '导出',
-			tip: '导出',
-		},
-		tbitem10: {
-			caption: '-',
-			tip: '',
-		},
-		tbitem16: {
-			caption: '其它',
-			tip: '其它',
-		},
-		tbitem21: {
-			caption: '导出数据模型',
-			tip: '导出数据模型',
-		},
-		tbitem23: {
-			caption: '数据导入',
-			tip: '数据导入',
-		},
-		tbitem17: {
-			caption: '-',
-			tip: '',
-		},
-		tbitem19: {
-			caption: '过滤',
-			tip: '过滤',
-		},
-		tbitem18: {
-			caption: '帮助',
-			tip: '帮助',
 		},
 	},
 	plansubgridviewtoolbar_toolbar: {
@@ -547,6 +507,64 @@ export default {
 		deuiaction2: {
 			caption: '刷新',
 			tip: '刷新',
+		},
+	},
+	main2gridviewtoolbar_toolbar: {
+		tbitem3: {
+			caption: '新建',
+			tip: '新建',
+		},
+		tbitem4: {
+			caption: '编辑',
+			tip: '编辑',
+		},
+		tbitem6: {
+			caption: '拷贝',
+			tip: '拷贝',
+		},
+		tbitem7: {
+			caption: '-',
+			tip: '',
+		},
+		tbitem8: {
+			caption: '删除',
+			tip: '删除',
+		},
+		tbitem9: {
+			caption: '-',
+			tip: '',
+		},
+		tbitem13: {
+			caption: '导出',
+			tip: '导出',
+		},
+		tbitem10: {
+			caption: '-',
+			tip: '',
+		},
+		tbitem16: {
+			caption: '其它',
+			tip: '其它',
+		},
+		tbitem21: {
+			caption: '导出数据模型',
+			tip: '导出数据模型',
+		},
+		tbitem23: {
+			caption: '数据导入',
+			tip: '数据导入',
+		},
+		tbitem17: {
+			caption: '-',
+			tip: '',
+		},
+		tbitem19: {
+			caption: '过滤',
+			tip: '过滤',
+		},
+		tbitem18: {
+			caption: '帮助',
+			tip: '帮助',
 		},
 	},
 };

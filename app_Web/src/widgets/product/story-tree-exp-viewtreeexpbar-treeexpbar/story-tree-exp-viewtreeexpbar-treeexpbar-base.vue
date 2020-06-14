@@ -292,22 +292,22 @@ export default class StoryTreeExpViewtreeexpbarBase extends Vue implements Contr
         }
         if (Object.is(expmode, 'ROOT_NOBRANCH')) {
             return {  
-                viewname: 'story-main2-grid-view', 
-                parentdata: {"srfparentdefname":"n_path_like"},
+                viewname: 'story-main-grid-view-by-module', 
+                parentdata: {},
                 deKeyField:'story'
 			};
         }
         if (Object.is(expmode, 'MODULE')) {
             return {  
-                viewname: 'story-main2-grid-view', 
-                parentdata: {"srfparentdefname":"n_module_eq"},
+                viewname: 'story-main-grid-view-by-module', 
+                parentdata: {},
                 deKeyField:'story'
 			};
         }
         if (Object.is(expmode, 'ROOTMODULE')) {
             return {  
-                viewname: 'story-main2-grid-view', 
-                parentdata: {"srfparentdefname":"n_path_like"},
+                viewname: 'story-main-grid-view-by-module', 
+                parentdata: {},
                 deKeyField:'story'
 			};
         }

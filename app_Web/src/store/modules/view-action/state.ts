@@ -534,7 +534,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'a2c585e16c82b5dec03db7146b9a6fa4',
-                'dea346284a2fbb66467c4838c1b3f577',
+                '95d25c1556e049e220af04b99b06edeb',
             ],
         },
         {
@@ -992,6 +992,20 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '95d25c1556e049e220af04b99b06edeb',
+            viewmodule: 'zentao',
+            viewname: 'StoryMainGridView_ByModule',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '7e14015af219d302f7d81ff40cdcc418',
+                '3f2ca3e560d9082bb56fbf7667a57a66',
+                '4863a523ac490ebce771717756f0c6a8',
+                'e54598b1e6d38d7c6ce8231b531b46bd',
+                '02b7ecd8e994b90558a9d6c23705f600',
+            ],
+        },
+        {
             viewtag: '96ec3f978c1cc22acc532331d5dc2a41',
             viewmodule: 'zentao',
             viewname: 'ActionProjectTrendsListView9',
@@ -1395,20 +1409,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-            ],
-        },
-        {
-            viewtag: 'dea346284a2fbb66467c4838c1b3f577',
-            viewmodule: 'zentao',
-            viewname: 'StoryMain2GridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '7e14015af219d302f7d81ff40cdcc418',
-                '3f2ca3e560d9082bb56fbf7667a57a66',
-                '4863a523ac490ebce771717756f0c6a8',
-                'e54598b1e6d38d7c6ce8231b531b46bd',
-                '02b7ecd8e994b90558a9d6c23705f600',
             ],
         },
         {

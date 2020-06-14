@@ -807,6 +807,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryGridView9_SubStory",
             "viewtag": "956ad42e59e60cd8b49e7035147e25cf"
         },
+        "storymaingridview_bymodule": {
+            "title": "story表格视图",
+            "caption": "需求",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryMainGridView_ByModule",
+            "viewtag": "95d25c1556e049e220af04b99b06edeb"
+        },
         "actionprojecttrendslistview9": {
             "title": "产品动态",
             "caption": "系统日志",

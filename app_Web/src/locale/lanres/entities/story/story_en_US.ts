@@ -102,6 +102,10 @@ export default {
 			caption: "子需求",
       title: '需求表格视图',
 		},
+		maingridview_bymodule: {
+			caption: "需求",
+      title: 'story表格视图',
+		},
 		maingridview: {
 			caption: "需求",
       title: 'story表格视图',
@@ -320,20 +324,6 @@ export default {
 			opencasecreateview: "建用例",
 		},
 	},
-	main2_grid: {
-		columns: {
-			id: "ID",
-			pri: "P",
-			title: "需求名称",
-			uagridcolumn1: "操作",
-		},
-		uiactions: {
-			changestorydetail: "变更",
-			closestory: "关闭",
-			openbaseinfoeditview: "编辑",
-			opencasecreateview: "建用例",
-		},
-	},
 	pickupgrid_grid: {
 		columns: {
 			id: "ID",
@@ -383,6 +373,20 @@ export default {
 		uiactions: {
 		},
 	},
+	main2_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "需求名称",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+			changestorydetail: "变更",
+			closestory: "关闭",
+			openbaseinfoeditview: "编辑",
+			opencasecreateview: "建用例",
+		},
+	},
 	default_searchform: {
 		details: {
 			formpage1: "常规条件", 
@@ -416,62 +420,18 @@ export default {
 			tip: "Edit {0}",
 		},
 	},
-	main2gridviewtoolbar_toolbar: {
-		tbitem3: {
+	maingridview_bymoduletoolbar_toolbar: {
+		deuiaction1: {
 			caption: "New",
 			tip: "New",
 		},
-		tbitem4: {
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
 			caption: "Edit",
 			tip: "Edit {0}",
-		},
-		tbitem6: {
-			caption: "Copy",
-			tip: "Copy {0}",
-		},
-		tbitem7: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem8: {
-			caption: "Remove",
-			tip: "Remove {0}",
-		},
-		tbitem9: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem13: {
-			caption: "Export",
-			tip: "Export {0} Data To Excel",
-		},
-		tbitem10: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem16: {
-			caption: "其它",
-			tip: "其它",
-		},
-		tbitem21: {
-			caption: "Export Data Model",
-			tip: "导出数据模型",
-		},
-		tbitem23: {
-			caption: "数据导入",
-			tip: "数据导入",
-		},
-		tbitem17: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem19: {
-			caption: "Filter",
-			tip: "Filter",
-		},
-		tbitem18: {
-			caption: "Help",
-			tip: "Help",
 		},
 	},
 	plansubgridviewtoolbar_toolbar: {
@@ -548,6 +508,64 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+	},
+	main2gridviewtoolbar_toolbar: {
+		tbitem3: {
+			caption: "New",
+			tip: "New",
+		},
+		tbitem4: {
+			caption: "Edit",
+			tip: "Edit {0}",
+		},
+		tbitem6: {
+			caption: "Copy",
+			tip: "Copy {0}",
+		},
+		tbitem7: {
+			caption: "-",
+			tip: "",
+		},
+		tbitem8: {
+			caption: "Remove",
+			tip: "Remove {0}",
+		},
+		tbitem9: {
+			caption: "-",
+			tip: "",
+		},
+		tbitem13: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
+		tbitem10: {
+			caption: "-",
+			tip: "",
+		},
+		tbitem16: {
+			caption: "其它",
+			tip: "其它",
+		},
+		tbitem21: {
+			caption: "Export Data Model",
+			tip: "导出数据模型",
+		},
+		tbitem23: {
+			caption: "数据导入",
+			tip: "数据导入",
+		},
+		tbitem17: {
+			caption: "-",
+			tip: "",
+		},
+		tbitem19: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+		tbitem18: {
+			caption: "Help",
+			tip: "Help",
 		},
 	},
 };
