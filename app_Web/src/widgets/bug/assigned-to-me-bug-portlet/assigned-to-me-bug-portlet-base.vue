@@ -1,8 +1,10 @@
 <template>
-    <div class='portlet assigned-to-me-bug ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : '300px',}">
+    <div class='portlet assigned-to-me-bug ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'300px'),}">
         <p class='portlet-title'>
-            <i class=''></i>
+            <span>
+            
             指派给我的Bug
+            </span>
         </p>
         <div class="portlet-with-title">
         <bug-grid-view9-assigned-to-me :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></bug-grid-view9-assigned-to-me>
@@ -18,6 +20,7 @@ import { UIActionTool,Util } from '@/utils';
 import BugService from '@/service/bug/bug-service';
 import AssignedToMeBugService from './assigned-to-me-bug-portlet-service';
 
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -134,6 +137,22 @@ export default class BugAssignedToMeBugBase extends Vue implements ControlInterf
     }
 
 
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof AssignedToMeBug
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof AssignedToMeBug
+     */
+    @Prop() public width?: number;
+
 
 
     /**
@@ -212,9 +231,11 @@ export default class BugAssignedToMeBugBase extends Vue implements ControlInterf
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
 @import './assigned-to-me-bug-portlet.less';
 </style>
+

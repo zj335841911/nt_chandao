@@ -261,7 +261,7 @@ export default class DeptExpService extends ControlService {
                             }
                         }
                         Object.assign(treeNode, { navfilter: "n_parent_eq" });
-                        Object.assign(treeNode, { navparams: '{}' });
+                        Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
                         list.push(treeNode);
@@ -394,7 +394,6 @@ export default class DeptExpService extends ControlService {
 
             Object.assign(treeNode, { expanded: true });
             Object.assign(treeNode, { leaf: false });
-            Object.assign(treeNode, { navparams: '{}' });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
             list.push(treeNode);
@@ -462,7 +461,6 @@ export default class DeptExpService extends ControlService {
 
             Object.assign(treeNode, { expanded: filter.isAutoexpand });
             Object.assign(treeNode, { leaf: false });
-            Object.assign(treeNode, { navparams: '{}' });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
             list.push(treeNode);
@@ -548,7 +546,7 @@ export default class DeptExpService extends ControlService {
                             }
                         }
                         Object.assign(treeNode, { navfilter: "n_parent_eq" });
-                        Object.assign(treeNode, { navparams: '{}' });
+                        Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
                         list.push(treeNode);

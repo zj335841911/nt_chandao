@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet bug-dashboard-actions ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
+    <div class='portlet bug-dashboard-actions ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'1px'),}">
         <div class="portlet-without-title">
             <app-actionbar :items="actionBarModelData" @itemClick="handleItemClick"></app-actionbar>
         </div>
@@ -15,6 +15,7 @@ import BugService from '@/service/bug/bug-service';
 import BugDashboardActionsService from './bug-dashboard-actions-portlet-service';
 
 import BugUIService from '@/uiservice/bug/bug-ui-service';
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -117,7 +118,6 @@ export default class BugBugDashboardActionsBase extends Vue implements ControlIn
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -159,6 +159,22 @@ export default class BugBugDashboardActionsBase extends Vue implements ControlIn
         }
     }
 
+
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof BugDashboardActions
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof BugDashboardActions
+     */
+    @Prop() public width?: number;
 
     /**
      * 操作栏模型数据
@@ -260,9 +276,11 @@ export default class BugBugDashboardActionsBase extends Vue implements ControlIn
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
 @import './bug-dashboard-actions-portlet.less';
 </style>
+

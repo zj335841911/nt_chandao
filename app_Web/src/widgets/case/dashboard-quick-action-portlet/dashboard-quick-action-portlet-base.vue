@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet dashboard-quick-action ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
+    <div class='portlet dashboard-quick-action ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'1px'),}">
         <div class="portlet-without-title">
             <app-actionbar :items="actionBarModelData" @itemClick="handleItemClick"></app-actionbar>
         </div>
@@ -15,6 +15,7 @@ import CaseService from '@/service/case/case-service';
 import DashboardQuickActionService from './dashboard-quick-action-portlet-service';
 
 import CaseUIService from '@/uiservice/case/case-ui-service';
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -117,7 +118,6 @@ export default class CaseDashboardQuickActionBase extends Vue implements Control
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -145,7 +145,6 @@ export default class CaseDashboardQuickActionBase extends Vue implements Control
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -224,6 +223,22 @@ export default class CaseDashboardQuickActionBase extends Vue implements Control
         }
     }
 
+
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof DashboardQuickAction
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof DashboardQuickAction
+     */
+    @Prop() public width?: number;
 
     /**
      * 操作栏模型数据
@@ -331,9 +346,11 @@ export default class CaseDashboardQuickActionBase extends Vue implements Control
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
 @import './dashboard-quick-action-portlet.less';
 </style>
+

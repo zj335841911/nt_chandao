@@ -1275,6 +1275,7 @@ export default class Main2Base extends Vue implements ControlInterface {
      * @memberof Main2
      */
 	public uiAction(row: any, tag: any, $event: any) {
+        $event.stopPropagation();
     }
 
     /**
@@ -1398,6 +1399,14 @@ export default class Main2Base extends Vue implements ControlInterface {
             return Object.is(item.case,args.row.case);
         });
         return isSelected ? "grid-selected-row" : "";
+    }
+
+    /**
+     * 新建默认值
+     * @param {*}  row 行数据
+     * @memberof Main2
+     */
+    public createDefault(row: any){                    
     }
 }
 </script>

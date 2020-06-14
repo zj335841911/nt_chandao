@@ -20,15 +20,15 @@ export default {
 	views: {
 		gridview9_untested: {
 			caption: '测试版本',
-      title: '测试版本',
+      title: '测试版本表格视图',
 		},
 		editview: {
 			caption: '测试版本',
-      title: '测试版本',
+      title: 'testtask编辑视图',
 		},
 		gridview: {
 			caption: '测试版本',
-      title: '测试版本',
+      title: 'testtask表格视图',
 		},
 	},
 	main_form: {

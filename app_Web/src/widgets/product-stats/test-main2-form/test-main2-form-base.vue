@@ -14,12 +14,8 @@
 </i-col>
 <i-col v-show="detailsModel.assigntomebugcnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 6 }">
     <app-form-item name='assigntomebugcnt' :itemRules="this.rules.assigntomebugcnt" class='' :caption="$t('entities.productstats.testmain2_form.details.assigntomebugcnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.assigntomebugcnt.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='assigntomebugcnt'
-:value="data.assigntomebugcnt"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='assigntomebugcnt' :value="data.assigntomebugcnt" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -39,12 +35,8 @@ style=""></app-span>
 </i-col>
 <i-col v-show="detailsModel.activebugcnt.visible" :style="{'height': '64px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
     <app-form-item name='activebugcnt' :itemRules="this.rules.activebugcnt" class='text-center' :caption="$t('entities.productstats.testmain2_form.details.activebugcnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.activebugcnt.error" :isEmptyCaption="false" labelPos="TOP">
-    <app-span   name='activebugcnt'
-:value="data.activebugcnt"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='activebugcnt' :value="data.activebugcnt" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -56,12 +48,8 @@ style=""></app-span>
 </i-col>
 <i-col v-show="detailsModel.unconfirmbugcnt.visible" :style="{'height': '64px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
     <app-form-item name='unconfirmbugcnt' :itemRules="this.rules.unconfirmbugcnt" class='text-center' :caption="$t('entities.productstats.testmain2_form.details.unconfirmbugcnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.unconfirmbugcnt.error" :isEmptyCaption="false" labelPos="TOP">
-    <app-span   name='unconfirmbugcnt'
-:value="data.unconfirmbugcnt"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='unconfirmbugcnt' :value="data.unconfirmbugcnt" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -73,12 +61,8 @@ style=""></app-span>
 </i-col>
 <i-col v-show="detailsModel.notclosedbugcnt.visible" :style="{'height': '64px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
     <app-form-item name='notclosedbugcnt' :itemRules="this.rules.notclosedbugcnt" class='text-center' :caption="$t('entities.productstats.testmain2_form.details.notclosedbugcnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.notclosedbugcnt.error" :isEmptyCaption="false" labelPos="TOP">
-    <app-span   name='notclosedbugcnt'
-:value="data.notclosedbugcnt"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='notclosedbugcnt' :value="data.notclosedbugcnt" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>

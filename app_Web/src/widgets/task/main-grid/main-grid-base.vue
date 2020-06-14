@@ -92,7 +92,9 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
+                            <a @click="uiAction(row, 'AssignTask', $event)">
             <codelist :value="row.assignedto" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                            </a>
                         </template>
                     </template>
                 </el-table-column>
@@ -353,7 +355,6 @@ export default class MainBase extends Vue implements ControlInterface {
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -382,7 +383,6 @@ export default class MainBase extends Vue implements ControlInterface {
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -411,7 +411,6 @@ export default class MainBase extends Vue implements ControlInterface {
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -440,7 +439,6 @@ export default class MainBase extends Vue implements ControlInterface {
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -469,7 +467,6 @@ export default class MainBase extends Vue implements ControlInterface {
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -498,7 +495,6 @@ export default class MainBase extends Vue implements ControlInterface {
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -1691,6 +1687,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * @memberof Main
      */
 	public uiAction(row: any, tag: any, $event: any) {
+        $event.stopPropagation();
         if(Object.is('AssignTask', tag)) {
             this.grid_assignedto_click(row, tag, $event);
         }
@@ -1832,6 +1829,14 @@ export default class MainBase extends Vue implements ControlInterface {
             return Object.is(item.task,args.row.task);
         });
         return isSelected ? "grid-selected-row" : "";
+    }
+
+    /**
+     * 新建默认值
+     * @param {*}  row 行数据
+     * @memberof Main
+     */
+    public createDefault(row: any){                    
     }
 }
 </script>

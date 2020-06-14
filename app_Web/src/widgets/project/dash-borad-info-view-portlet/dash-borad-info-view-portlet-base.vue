@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet dash-borad-info-view ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
+    <div class='portlet dash-borad-info-view ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'1px'),}">
         <div class="portlet-without-title">
         <project-dashboard-info-view :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></project-dashboard-info-view>
         </div>
@@ -14,6 +14,7 @@ import { UIActionTool,Util } from '@/utils';
 import ProjectService from '@/service/project/project-service';
 import DashBoradInfoViewService from './dash-borad-info-view-portlet-service';
 
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -130,6 +131,22 @@ export default class ProjectDashBoradInfoViewBase extends Vue implements Control
     }
 
 
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof DashBoradInfoView
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof DashBoradInfoView
+     */
+    @Prop() public width?: number;
+
 
 
     /**
@@ -208,9 +225,11 @@ export default class ProjectDashBoradInfoViewBase extends Vue implements Control
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
 @import './dash-borad-info-view-portlet.less';
 </style>
+

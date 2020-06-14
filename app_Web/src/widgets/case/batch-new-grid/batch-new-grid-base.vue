@@ -1312,6 +1312,7 @@ export default class BatchNewBase extends Vue implements ControlInterface {
      * @memberof BatchNew
      */
 	public uiAction(row: any, tag: any, $event: any) {
+        $event.stopPropagation();
     }
 
     /**
@@ -1445,6 +1446,7 @@ export default class BatchNewBase extends Vue implements ControlInterface {
                 return;
             }
             const data = response.data;
+            this.createDefault(data);
             data.rowDataState = "create";
             _this.items.push(data);
             _this.gridItemsModel.push(_this.getGridRowModel());
@@ -1548,6 +1550,14 @@ export default class BatchNewBase extends Vue implements ControlInterface {
             return Object.is(item.case,args.row.case);
         });
         return isSelected ? "grid-selected-row" : "";
+    }
+
+    /**
+     * 新建默认值
+     * @param {*}  row 行数据
+     * @memberof BatchNew
+     */
+    public createDefault(row: any){                    
     }
 }
 </script>

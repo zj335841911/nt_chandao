@@ -8,12 +8,8 @@
     <row>
         <i-col v-show="detailsModel.version.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='version' :itemRules="this.rules.version" class='' :caption="$t('entities.story.storyspec_form.details.version')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.version.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='version'
-:value="data.version"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style="width:70px;"></app-span>
+    
+<app-span name='version' :value="data.version" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="width:70px;"></app-span>
 </app-form-item>
 
 </i-col>
@@ -62,6 +58,8 @@ style="width:70px;"></app-span>
     ]"
     :context="context"
     :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{}'
     parameterName='story'
     parentName="Story"  
     refviewtype='DEGRIDVIEW9' 

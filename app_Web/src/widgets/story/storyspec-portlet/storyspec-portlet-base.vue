@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet storyspec ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
+    <div class='portlet storyspec ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'1px'),}">
         <div class="portlet-without-title">
         <story-main-view9-story-spec :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></story-main-view9-story-spec>
         </div>
@@ -14,6 +14,7 @@ import { UIActionTool,Util } from '@/utils';
 import StoryService from '@/service/story/story-service';
 import StoryspecService from './storyspec-portlet-service';
 
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -130,6 +131,22 @@ export default class StoryStoryspecBase extends Vue implements ControlInterface 
     }
 
 
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof Storyspec
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof Storyspec
+     */
+    @Prop() public width?: number;
+
 
 
     /**
@@ -208,9 +225,11 @@ export default class StoryStoryspecBase extends Vue implements ControlInterface 
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
 @import './storyspec-portlet.less';
 </style>
+

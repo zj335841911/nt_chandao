@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet action-history ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
+    <div class='portlet action-history ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'1px'),}">
         <div class="portlet-without-title">
         <action-histroy-list-view :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></action-histroy-list-view>
         </div>
@@ -14,6 +14,7 @@ import { UIActionTool,Util } from '@/utils';
 import ActionService from '@/service/action/action-service';
 import ActionHistoryService from './action-history-portlet-service';
 
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -130,6 +131,22 @@ export default class ActionActionHistoryBase extends Vue implements ControlInter
     }
 
 
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof ActionHistory
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof ActionHistory
+     */
+    @Prop() public width?: number;
+
 
 
     /**
@@ -208,9 +225,11 @@ export default class ActionActionHistoryBase extends Vue implements ControlInter
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
 @import './action-history-portlet.less';
 </style>
+

@@ -1,8 +1,10 @@
 <template>
-    <div class='portlet get-roadmap ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : '300px',}">
+    <div class='portlet get-roadmap ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'300px'),}">
         <p class='portlet-title'>
-            <i class=''></i>
+            <span>
+            
             产品路线图
+            </span>
         </p>
         <div class="portlet-with-title">
         <product-life-road-map-list-view9 :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></product-life-road-map-list-view9>
@@ -18,6 +20,7 @@ import { UIActionTool,Util } from '@/utils';
 import ProductLifeService from '@/service/product-life/product-life-service';
 import GetRoadmapService from './get-roadmap-portlet-service';
 
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -134,6 +137,22 @@ export default class ProductLifeGetRoadmapBase extends Vue implements ControlInt
     }
 
 
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof GetRoadmap
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof GetRoadmap
+     */
+    @Prop() public width?: number;
+
 
 
     /**
@@ -212,9 +231,11 @@ export default class ProductLifeGetRoadmapBase extends Vue implements ControlInt
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
 @import './get-roadmap-portlet.less';
 </style>
+

@@ -1,8 +1,10 @@
 <template>
-    <div class='portlet burn-down-chart ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : '370px',}">
+    <div class='portlet burn-down-chart ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'370px'),}">
         <p class='portlet-title'>
-            <i class=''></i>
+            <span>
+            
             燃尽图
+            </span>
         </p>
         <div class="portlet-with-title">
         <!-- 测试 -->
@@ -28,6 +30,7 @@ import { UIActionTool,Util } from '@/utils';
 import BurnService from '@/service/burn/burn-service';
 import BurnDownChartService from './burn-down-chart-portlet-service';
 
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -144,6 +147,22 @@ export default class BurnBurnDownChartBase extends Vue implements ControlInterfa
     }
 
 
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof BurnDownChart
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof BurnDownChart
+     */
+    @Prop() public width?: number;
+
 
 
     /**
@@ -222,9 +241,11 @@ export default class BurnBurnDownChartBase extends Vue implements ControlInterfa
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
 @import './burn-down-chart-portlet.less';
 </style>
+

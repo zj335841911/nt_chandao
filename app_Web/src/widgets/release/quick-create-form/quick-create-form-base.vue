@@ -8,12 +8,8 @@
     <row>
         <i-col v-show="detailsModel.productname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='productname' :itemRules="this.rules.productname" class='' :caption="$t('entities.release.quickcreate_form.details.productname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.productname.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='productname'
-:value="data.productname"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='productname' :value="data.productname" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -28,12 +24,14 @@ style=""></app-span>
 </i-col>
 <i-col v-show="detailsModel.buildname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='buildname' :itemRules="this.rules.buildname" class='' :caption="$t('entities.release.quickcreate_form.details.buildname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.buildname.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-picker  
+    
+<app-picker  
   :formState="formState"
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :itemParam='{ }' 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
   :disabled="detailsModel.buildname.disabled"
   name='buildname' 
   deMajorField='name'
@@ -65,12 +63,14 @@ style=""></app-span>
     <row>
         <i-col v-show="detailsModel.marker.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='marker' :itemRules="this.rules.marker" class='' :caption="$t('entities.release.quickcreate_form.details.marker')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.marker.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list 
+    
+ <dropdown-list 
   v-model="data.marker" 
   :data="data" 
   :context="context"
   :viewparams="viewparams"
-  :itemParam="{}" 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
   :disabled="detailsModel.marker.disabled" 
   style="width:100px;width: 100px;" 
   tag='YesNo3' 

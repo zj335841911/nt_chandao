@@ -2,8 +2,8 @@
   <div class='tabviewpanel' style="height:100%;" v-if = 'isActivied' >
         <project-cur-product-grid-view 
       class='viewcontainer2' 
-      :viewdata="JSON.stringify(context)" 
-      :viewparam="JSON.stringify(getNavViewParams())"
+      :viewdata="viewdata" 
+      :viewparam="viewparam"
       @viewload="viewDatasChange($event)" 
       :viewDefaultUsage="false" >
     </project-cur-product-grid-view>
@@ -126,6 +126,7 @@ export default class MainTabExpViewtabviewpanel5Base extends Vue implements Cont
     }
 
 
+
  /**
      * 获取多项数据
      *
@@ -155,6 +156,38 @@ export default class MainTabExpViewtabviewpanel5Base extends Vue implements Cont
     public isActivied: boolean = true;
 
     /**
+     * 局部上下文
+     *
+     * @type {*}
+     * @memberof MainTabExpViewtabviewpanel5
+     */
+    public localContext: any = null;
+
+    /**
+     * 局部视图参数
+     *
+     * @type {*}
+     * @memberof MainTabExpViewtabviewpanel5
+     */
+    public localViewParam: any = null;
+
+    /**
+     * 传入上下文
+     *
+     * @type {string}
+     * @memberof TabExpViewtabviewpanel
+     */
+    public viewdata: string = JSON.stringify(this.context);
+
+    /**
+     * 传入视图参数
+     *
+     * @type {string}
+     * @memberof PickupViewpickupviewpanel
+     */
+    public viewparam: string = JSON.stringify(this.viewparams);
+
+    /**
      * 视图面板过滤项
      *
      * @type {string}
@@ -178,30 +211,37 @@ export default class MainTabExpViewtabviewpanel5Base extends Vue implements Cont
      *  @memberof MainTabExpViewtabviewpanel5
      */    
     public afterCreated(){
+        this.initNavParam();
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {
                     return;
                 }
                 this.$forceUpdate();
-
+                this.initNavParam();
             });
         }
     }
 
     /**
-     * 传入导航视图参数
+     * 初始化导航参数
      *
      * @memberof MainTabExpViewtabviewpanel5
      */
-    public getNavViewParams(){
-        if(Object.is(this.navfilter,"")){
-            return this.viewparams;
-        }else{
-            let tempViewParams:any = JSON.parse(JSON.stringify(this.viewparams));
-            Object.assign(tempViewParams,{[this.navfilter]:this.context['product']});
-            return tempViewParams;
+    public initNavParam(){
+        if(!Object.is(this.navfilter,"")){
+            Object.assign(this.viewparams,{[this.navfilter]:this.context['majorentity']})
         }
+        if(this.localContext && Object.keys(this.localContext).length >0){
+            let _context:any = this.$util.computedNavData({},this.context,this.viewparams,this.localContext);
+            Object.assign(this.context,_context);
+        }
+        if(this.localViewParam && Object.keys(this.localViewParam).length >0){
+            let _param:any = this.$util.computedNavData({},this.context,this.viewparams,this.localViewParam);
+            Object.assign(this.viewparams,_param);
+        }
+        this.viewdata =JSON.stringify(this.context);
+        this.viewparam = JSON.stringify(this.viewparams);
     }
 
     /**

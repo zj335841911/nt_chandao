@@ -21,23 +21,23 @@ export default {
 	views: {
 		maininfoview: {
 			caption: "发布",
-      title: '发布',
+      title: '发布编辑视图',
 		},
 		gridview: {
 			caption: "发布",
-      title: '发布',
+      title: 'release表格视图',
 		},
 		editview: {
 			caption: "发布",
-      title: '发布',
+      title: 'release编辑视图',
 		},
 		maintabexpview: {
 			caption: "产品发布",
-      title: '产品发布',
+      title: '发布分页导航视图',
 		},
 		quickcreateview: {
 			caption: "发布",
-      title: '发布',
+      title: '发布编辑视图',
 		},
 	},
 	quickcreate_form: {

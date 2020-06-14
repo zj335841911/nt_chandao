@@ -25,34 +25,22 @@
     <row>
         <i-col v-show="detailsModel.totalestimate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='totalestimate' :itemRules="this.rules.totalestimate" class='text-center' :caption="$t('entities.projectstats.main_form.details.totalestimate')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.totalestimate.error" :isEmptyCaption="false" labelPos="TOP">
-    <app-span   name='totalestimate'
-:value="data.totalestimate"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='totalestimate' :value="data.totalestimate" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.totalconsumed.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='totalconsumed' :itemRules="this.rules.totalconsumed" class='text-center' :caption="$t('entities.projectstats.main_form.details.totalconsumed')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.totalconsumed.error" :isEmptyCaption="false" labelPos="TOP">
-    <app-span   name='totalconsumed'
-:value="data.totalconsumed"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='totalconsumed' :value="data.totalconsumed" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.totalleft.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='totalleft' :itemRules="this.rules.totalleft" class='text-center' :caption="$t('entities.projectstats.main_form.details.totalleft')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.totalleft.error" :isEmptyCaption="false" labelPos="TOP">
-    <app-span   name='totalleft'
-:value="data.totalleft"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='totalleft' :value="data.totalleft" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -74,12 +62,8 @@ style=""></app-span>
     <row>
         <i-col v-show="detailsModel.taskcnt.visible" :style="{}"  :lg="{ span: 4, offset: 20 }" :xl="{ span: 4, offset: 20 }">
     <app-form-item name='taskcnt' :itemRules="this.rules.taskcnt" class='' :caption="$t('entities.projectstats.main_form.details.taskcnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.taskcnt.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='taskcnt'
-:value="data.taskcnt"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='taskcnt' :value="data.taskcnt" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -91,12 +75,8 @@ style=""></app-span>
 </i-col>
 <i-col v-show="detailsModel.undonetaskcnt.visible" :style="{}"  :lg="{ span: 4, offset: 0 }" :xl="{ span: 4, offset: 0 }">
     <app-form-item name='undonetaskcnt' :itemRules="this.rules.undonetaskcnt" class='' :caption="$t('entities.projectstats.main_form.details.undonetaskcnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.undonetaskcnt.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='undonetaskcnt'
-:value="data.undonetaskcnt"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='undonetaskcnt' :value="data.undonetaskcnt" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -110,12 +90,8 @@ style=""></app-span>
     <row>
         <i-col v-show="detailsModel.storycnt.visible" :style="{}"  :lg="{ span: 4, offset: 20 }" :xl="{ span: 4, offset: 20 }">
     <app-form-item name='storycnt' :itemRules="this.rules.storycnt" class='' :caption="$t('entities.projectstats.main_form.details.storycnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.storycnt.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='storycnt'
-:value="data.storycnt"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='storycnt' :value="data.storycnt" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -127,12 +103,8 @@ style=""></app-span>
 </i-col>
 <i-col v-show="detailsModel.unclosedstorycnt.visible" :style="{}"  :lg="{ span: 4, offset: 0 }" :xl="{ span: 4, offset: 0 }">
     <app-form-item name='unclosedstorycnt' :itemRules="this.rules.unclosedstorycnt" class='' :caption="$t('entities.projectstats.main_form.details.unclosedstorycnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.unclosedstorycnt.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='unclosedstorycnt'
-:value="data.unclosedstorycnt"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='unclosedstorycnt' :value="data.unclosedstorycnt" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -146,12 +118,8 @@ style=""></app-span>
     <row>
         <i-col v-show="detailsModel.bugcnt.visible" :style="{}"  :lg="{ span: 4, offset: 20 }" :xl="{ span: 4, offset: 20 }">
     <app-form-item name='bugcnt' :itemRules="this.rules.bugcnt" class='' :caption="$t('entities.projectstats.main_form.details.bugcnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.bugcnt.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='bugcnt'
-:value="data.bugcnt"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='bugcnt' :value="data.bugcnt" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -163,12 +131,8 @@ style=""></app-span>
 </i-col>
 <i-col v-show="detailsModel.activebugcnt.visible" :style="{}"  :lg="{ span: 4, offset: 0 }" :xl="{ span: 4, offset: 0 }">
     <app-form-item name='activebugcnt' :itemRules="this.rules.activebugcnt" class='' :caption="$t('entities.projectstats.main_form.details.activebugcnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.activebugcnt.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='activebugcnt'
-:value="data.activebugcnt"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='activebugcnt' :value="data.activebugcnt" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>

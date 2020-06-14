@@ -1404,6 +1404,7 @@ export default class Main_PlanSubBase extends Vue implements ControlInterface {
      * @memberof Main_PlanSub
      */
 	public uiAction(row: any, tag: any, $event: any) {
+        $event.stopPropagation();
     }
 
     /**
@@ -1527,6 +1528,14 @@ export default class Main_PlanSubBase extends Vue implements ControlInterface {
             return Object.is(item.bug,args.row.bug);
         });
         return isSelected ? "grid-selected-row" : "";
+    }
+
+    /**
+     * 新建默认值
+     * @param {*}  row 行数据
+     * @memberof Main_PlanSub
+     */
+    public createDefault(row: any){                    
     }
 }
 </script>

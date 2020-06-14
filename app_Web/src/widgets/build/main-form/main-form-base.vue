@@ -8,12 +8,14 @@
     <row>
         <i-col v-show="detailsModel.productname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='productname' :itemRules="this.rules.productname" class='' :caption="$t('entities.build.main_form.details.productname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.productname.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-picker 
+    
+<app-picker 
   :formState="formState"
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :itemParam='{ }' 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
   :disabled="detailsModel.productname.disabled"
   name='productname'
   deMajorField='name'
@@ -30,56 +32,36 @@
 </i-col>
 <i-col v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.build.main_form.details.name')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='name'
-:value="data.name"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='name' :value="data.name" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.builder.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='builder' :itemRules="this.rules.builder" class='' :caption="$t('entities.build.main_form.details.builder')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.builder.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='builder'
-:value="data.builder" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator=","   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='builder' :value="data.builder" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.date.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='date' :itemRules="this.rules.date" class='' :caption="$t('entities.build.main_form.details.date')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.date.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='date'
-:value="data.date"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='date' :value="data.date" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.scmpath.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='scmpath' :itemRules="this.rules.scmpath" class='' :caption="$t('entities.build.main_form.details.scmpath')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.scmpath.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='scmpath'
-:value="data.scmpath"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='scmpath' :value="data.scmpath" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.filepath.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='filepath' :itemRules="this.rules.filepath" class='' :caption="$t('entities.build.main_form.details.filepath')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.filepath.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='filepath'
-:value="data.filepath"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='filepath' :value="data.filepath" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -108,6 +90,8 @@ style=""></app-span>
     ]"
     :context="context"
     :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{}'
     parameterName='build'
     parentName="Build"  
     refviewtype='DELISTVIEW' 

@@ -4,22 +4,108 @@
       <app-build @handleClick="handleClick"></app-build>
     </row>
     <row v-if="!isHasCustomized">
-          <div style = ''>
       <i-col :md="{ span: 24, offset: 0 }">
         <card class="portlet-card" :bordered="false" dis-hover :padding="0">
           <span>
-                      <view_db_totalcontainer1 
-              :viewState="viewState"  
-              :viewparams="viewparams" 
-              :context="context" 
-              name="db_totalcontainer1"  
-              ref='db_totalcontainer1' 
-              @closeview="closeView($event)">
-          </view_db_totalcontainer1>
+                      <div class='portlet-container db-totalcontainer1 ' :style="{}">
+                <row>
+                  <i-col :xs="{ span: 16, offset: 0 }" :sm="{ span: 16, offset: 0 }" :md="{ span: 16, offset: 0 }" :lg="{ span: 16, offset: 0 }">
+                      <div class="portlet-without-title">
+                        <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+                        <span>
+                                        <div class='portlet-container db-leftcontainer2 ' :style="{}">
+                              <row>
+                                <i-col :md="{ span: 24, offset: 0 }">
+                                    <div class="portlet-without-title">
+                                      <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+                                      <span>
+                                                      <view_db_projectexpportlet 
+                                          :viewState="viewState"  
+                                          :viewparams="viewparams" 
+                                          :context="context" 
+                                          :height="390"
+                                          name="db_projectexpportlet"  
+                                          ref='db_projectexpportlet' 
+                                          @closeview="closeView($event)">
+                                      </view_db_projectexpportlet>
+                                      </span>
+                                    </card>
+                                    </div>
+                                </i-col>
+                                <i-col :md="{ span: 24, offset: 0 }">
+                                    <div class="portlet-without-title">
+                                      <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+                                      <span>
+                                                      <view_db_projectunclosedportlet 
+                                          :viewState="viewState"  
+                                          :viewparams="viewparams" 
+                                          :context="context" 
+                                          :height="1"
+                                          name="db_projectunclosedportlet"  
+                                          ref='db_projectunclosedportlet' 
+                                          @closeview="closeView($event)">
+                                      </view_db_projectunclosedportlet>
+                                      </span>
+                                    </card>
+                                    </div>
+                                </i-col>
+                              </row>
+                          </div>
+                        </span>
+                      </card>
+                      </div>
+                  </i-col>
+                  <i-col :xs="{ span: 8, offset: 0 }" :sm="{ span: 8, offset: 0 }" :md="{ span: 8, offset: 0 }" :lg="{ span: 8, offset: 0 }">
+                      <div class="portlet-without-title">
+                        <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+                        <span>
+                                        <div class='portlet-container db-rightcontainer3 ' :style="{}">
+                              <row>
+                                <i-col :md="{ span: 24, offset: 0 }">
+                                    <div class="portlet-without-title">
+                                      <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+                                      <span>
+                                                      <view_db_projectstatusportlet 
+                                          :viewState="viewState"  
+                                          :viewparams="viewparams" 
+                                          :context="context" 
+                                          :height="370"
+                                          name="db_projectstatusportlet"  
+                                          ref='db_projectstatusportlet' 
+                                          @closeview="closeView($event)">
+                                      </view_db_projectstatusportlet>
+                                      </span>
+                                    </card>
+                                    </div>
+                                </i-col>
+                                <i-col :md="{ span: 24, offset: 0 }">
+                                    <div class="portlet-without-title">
+                                      <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+                                      <span>
+                                                      <view_db_assignedtometaskportlet 
+                                          :viewState="viewState"  
+                                          :viewparams="viewparams" 
+                                          :context="context" 
+                                          :height="1"
+                                          name="db_assignedtometaskportlet"  
+                                          ref='db_assignedtometaskportlet' 
+                                          @closeview="closeView($event)">
+                                      </view_db_assignedtometaskportlet>
+                                      </span>
+                                    </card>
+                                    </div>
+                                </i-col>
+                              </row>
+                          </div>
+                        </span>
+                      </card>
+                      </div>
+                  </i-col>
+                </row>
+            </div>
           </span>
         </card>
       </i-col>
-      </div>
     </row>
     <row v-if="isHasCustomized" style="width: 100%;min-height: calc(100% - 40px);">
       <div class="portlet-container" style="position: relative;width:100%;">
@@ -316,7 +402,12 @@ export default class ProjectPortalView_dbBase extends Vue implements ControlInte
                 this.isHasCustomized = false;
                 this.notifyState();
               }
-            })
+            }).catch((error:any)=>{
+                console.error("加载面板模型异常");
+                console.error(error);
+                this.isHasCustomized = false;
+                this.notifyState();
+            });
           })
         }else{
           this.notifyState();

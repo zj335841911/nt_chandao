@@ -27,11 +27,11 @@ export default {
 	views: {
 		testtabexpview: {
 			caption: '测试',
-      title: '测试',
+      title: '产品主数据视图',
 		},
 		expeditview: {
 			caption: '产品',
-      title: '产品',
+      title: '产品编辑视图',
 		},
 		htmlview: {
 			caption: 'iBiz软件生产管理',
@@ -39,27 +39,27 @@ export default {
 		},
 		testdashboardview: {
 			caption: '产品',
-      title: '产品',
+      title: '产品测试数据看板视图',
 		},
 		testgridview: {
 			caption: '产品',
-      title: '产品',
+      title: 'product表格视图',
 		},
 		chartview: {
 			caption: '产品',
-      title: '产品',
+      title: '产品图表视图',
 		},
 		gridview_unclosed: {
 			caption: '未关闭产品',
-      title: '未关闭产品',
+      title: '产品表格视图',
 		},
 		storytreeexpview: {
 			caption: '产品',
-      title: '产品',
+      title: '产品需求导航视图',
 		},
 		casetreeexpview: {
 			caption: '产品',
-      title: '产品',
+      title: '产品需求导航视图',
 		},
 		maintabexpview: {
 			caption: '产品',
@@ -67,31 +67,31 @@ export default {
 		},
 		testleftsidebarlistview: {
 			caption: '测试',
-      title: '测试',
+      title: '所有产品',
 		},
 		gridview: {
 			caption: '产品',
-      title: '产品',
+      title: 'product表格视图',
 		},
 		pickupview: {
 			caption: '产品',
-      title: '产品',
+      title: 'product数据选择视图',
 		},
 		leftsidebarlistview: {
 			caption: '产品',
-      title: '产品',
+      title: '所有产品',
 		},
 		pickupgridview: {
 			caption: '产品',
-      title: '产品',
+      title: 'product选择表格视图',
 		},
 		dashboardinfomainview9: {
 			caption: '产品',
-      title: '产品',
+      title: '产品信息',
 		},
 		maindashboardview: {
 			caption: '产品',
-      title: '产品',
+      title: '产品数据看板视图',
 		},
 		testlistexpview: {
 			caption: '测试统计',
@@ -99,15 +99,15 @@ export default {
 		},
 		editview: {
 			caption: '产品',
-      title: '产品',
+      title: 'product编辑视图',
 		},
 		listexpview: {
 			caption: '产品统计',
-      title: '产品统计',
+      title: '产品列表导航视图',
 		},
 		bugtreeexpview: {
 			caption: '产品',
-      title: '产品',
+      title: '产品需求导航视图',
 		},
 	},
 	dashboardinfo_form: {

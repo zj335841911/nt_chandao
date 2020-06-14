@@ -135,7 +135,6 @@ export default class TestExpBase extends Vue implements ControlInterface {
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {

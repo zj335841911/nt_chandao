@@ -14,12 +14,14 @@
 </i-col>
 <i-col v-show="detailsModel.prodoctname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='prodoctname' :itemRules="this.rules.prodoctname" class='' :caption="$t('entities.story.main_editmode_form.details.prodoctname')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.prodoctname.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-picker  
+    
+<app-picker  
   :formState="formState"
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :itemParam='{ }' 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
   :disabled="detailsModel.prodoctname.disabled"
   name='prodoctname' 
   deMajorField='name'
@@ -37,12 +39,14 @@
 </i-col>
 <i-col v-show="detailsModel.modulename.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='modulename' :itemRules="this.rules.modulename" class='' :caption="$t('entities.story.main_editmode_form.details.modulename')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.modulename.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-picker  
+    
+<app-picker  
   :formState="formState"
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :itemParam='{ }' 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
   :disabled="detailsModel.modulename.disabled"
   name='modulename' 
   deMajorField='name'
@@ -60,12 +64,14 @@
 </i-col>
 <i-col v-show="detailsModel.plan.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='plan' :itemRules="this.rules.plan" class='' :caption="$t('entities.story.main_editmode_form.details.plan')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.plan.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list 
+    
+ <dropdown-list 
     v-model="data.plan" 
     :data="data" 
     :context="context"
     :viewparams="viewparams"
-    :itemParam="{}" 
+    :localContext ='{ }' 
+    :localParam ='{ }' 
     :disabled="detailsModel.plan.disabled"  
     tag='CurProductPlan' 
     codelistType='DYNAMIC'
@@ -76,12 +82,14 @@
 </i-col>
 <i-col v-show="detailsModel.source.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='source' :itemRules="this.rules.source" class='' :caption="$t('entities.story.main_editmode_form.details.source')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.source.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list 
+    
+ <dropdown-list 
     v-model="data.source" 
     :data="data" 
     :context="context"
     :viewparams="viewparams"
-    :itemParam="{}" 
+    :localContext ='{ }' 
+    :localParam ='{ }' 
     :disabled="detailsModel.source.disabled"  
     tag='Story__source' 
     codelistType='STATIC'
@@ -98,12 +106,14 @@
 </i-col>
 <i-col v-show="detailsModel.status.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='status' :itemRules="this.rules.status" class='' :caption="$t('entities.story.main_editmode_form.details.status')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.status.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list 
+    
+ <dropdown-list 
     v-model="data.status" 
     :data="data" 
     :context="context"
     :viewparams="viewparams"
-    :itemParam="{}" 
+    :localContext ='{ }' 
+    :localParam ='{ }' 
     :disabled="detailsModel.status.disabled"  
     tag='Story__status' 
     codelistType='STATIC'
@@ -114,12 +124,14 @@
 </i-col>
 <i-col v-show="detailsModel.stage.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='stage' :itemRules="this.rules.stage" class='' :caption="$t('entities.story.main_editmode_form.details.stage')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.stage.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list 
+    
+ <dropdown-list 
     v-model="data.stage" 
     :data="data" 
     :context="context"
     :viewparams="viewparams"
-    :itemParam="{}" 
+    :localContext ='{ }' 
+    :localParam ='{ }' 
     :disabled="detailsModel.stage.disabled"  
     tag='Story__stage' 
     codelistType='STATIC'
@@ -130,12 +142,14 @@
 </i-col>
 <i-col v-show="detailsModel.pri.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='pri' :itemRules="this.rules.pri" class='' :caption="$t('entities.story.main_editmode_form.details.pri')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.pri.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list 
+    
+ <dropdown-list 
     v-model="data.pri" 
     :data="data" 
     :context="context"
     :viewparams="viewparams"
-    :itemParam="{}" 
+    :localContext ='{ }' 
+    :localParam ='{ }' 
     :disabled="detailsModel.pri.disabled"  
     tag='Story__pri' 
     codelistType='STATIC'

@@ -12,7 +12,7 @@ export default {
 	views: {
 		gridview: {
 			caption: "用例步骤",
-      title: '用例步骤',
+      title: 'casestep表格视图',
 		},
 		maingridview9: {
 			caption: "用例步骤",

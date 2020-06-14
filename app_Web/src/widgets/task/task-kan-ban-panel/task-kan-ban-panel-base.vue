@@ -1,6 +1,6 @@
 <template>
-    <div class='panel-container'>
-    <row class="app-layoutpanel">
+    <div class='panel-container' style="">
+    <row class="app-layoutpanel" style="height:100%;">
         <i-col v-show="detailsModel.container1.visible"  style="" class="app-layoutpanel-container">
             <row style="height:100%;">
                       
@@ -76,7 +76,7 @@
             </row>
         </i-col>
     </row>
-</div>
+
 </template>
 <script lang='tsx'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
@@ -193,7 +193,6 @@ export default class TaskKanBanBase extends Vue implements ControlInterface {
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -350,28 +349,6 @@ export default class TaskKanBanBase extends Vue implements ControlInterface {
     public data:any = {};
 
     /**
-     * 面板数据对象
-     *
-     * @type {*}
-     * @memberof Mob
-     */
-    public panelData:any = null;
-
-    /**
-     * 监听数据对象
-     *
-     * @memberof TaskKanBan
-     */
-    @Watch('inputData',{immediate:true})
-    async onInputDataChange(newVal: any, oldVal: any){
-        if(newVal){
-            await this.computedUIData(newVal);
-            this.panelLogic({ name: '', newVal: null, oldVal: null });
-            this.$forceUpdate();
-        }
-    }
-
-    /**
      * 计算UI展示数据
      * 
      * @param codelistArray 代码表模型数组
@@ -421,14 +398,14 @@ export default class TaskKanBanBase extends Vue implements ControlInterface {
                 let res:any = await this.getAllCodeList(codelistArray,true);
                 this.dataModel.getDataItems().forEach((item:any) =>{
                     if(item.codelist){
-                        panelData[item.prop]  = res.get(item.codelist.tag).get(this.inputData[item.name]);
+                        panelData[item.prop]  = res.get(item.codelist.tag).get(this.data[item.name]);
                     }else{
-                        panelData[item.prop] = this.inputData[item.name];
+                        panelData[item.prop] = this.data[item.name];
                     }
                 })
             }else{
                 this.dataModel.getDataItems().forEach((item:any) =>{
-                    panelData[item.prop] = this.inputData[item.name];
+                    panelData[item.prop] = this.data[item.name];
                 }) 
             }
         }
@@ -560,6 +537,41 @@ export default class TaskKanBanBase extends Vue implements ControlInterface {
         if (this.parentRef.refresh && this.parentRef.refresh instanceof Function) {
             this.parentRef.refresh(opt);
         }
+    }
+
+    
+    /**
+     * 设置面板编辑项值变更
+     *  
+     * @param data 面板数据
+     * @param {{ name: string, value: any }} $event
+     * @returns {void}
+     * @memberof TaskKanBan
+     */
+    public onPanelItemValueChange(data: any,$event: { name: string, value: any }): void {
+        if (!$event) {
+            return;
+        }
+        if (!$event.name || Object.is($event.name, '') || !data.hasOwnProperty($event.name)) {
+            return;
+        }
+        data[$event.name] = $event.value;
+        this.panelEditItemChange(data, $event.name, $event.value);
+    }
+
+    /**
+     * 面板编辑项值变化
+     *
+     * @public
+     * @param data 面板数据
+     * @param property 编辑项名
+     * @param value 编辑项值
+     * @returns {void}
+     * @memberof TaskKanBan
+     */
+    public panelEditItemChange(data: any, property: string, value: any){
+        
+
     }
 
 }

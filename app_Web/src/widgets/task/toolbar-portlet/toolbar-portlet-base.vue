@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet toolbar ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
+    <div class='portlet toolbar ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'1px'),}">
         <div class="portlet-without-title">
             <app-actionbar :items="actionBarModelData" @itemClick="handleItemClick"></app-actionbar>
         </div>
@@ -15,6 +15,7 @@ import TaskService from '@/service/task/task-service';
 import ToolbarService from './toolbar-portlet-service';
 
 import TaskUIService from '@/uiservice/task/task-ui-service';
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -117,7 +118,6 @@ export default class TaskToolbarBase extends Vue implements ControlInterface {
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -145,7 +145,6 @@ export default class TaskToolbarBase extends Vue implements ControlInterface {
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -174,7 +173,6 @@ export default class TaskToolbarBase extends Vue implements ControlInterface {
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -203,7 +201,6 @@ export default class TaskToolbarBase extends Vue implements ControlInterface {
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -232,7 +229,6 @@ export default class TaskToolbarBase extends Vue implements ControlInterface {
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -261,7 +257,6 @@ export default class TaskToolbarBase extends Vue implements ControlInterface {
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -290,7 +285,6 @@ export default class TaskToolbarBase extends Vue implements ControlInterface {
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -319,7 +313,6 @@ export default class TaskToolbarBase extends Vue implements ControlInterface {
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -411,6 +404,22 @@ export default class TaskToolbarBase extends Vue implements ControlInterface {
         }
     }
 
+
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof Toolbar
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof Toolbar
+     */
+    @Prop() public width?: number;
 
     /**
      * 操作栏模型数据
@@ -554,9 +563,11 @@ export default class TaskToolbarBase extends Vue implements ControlInterface {
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
 @import './toolbar-portlet.less';
 </style>
+

@@ -48,19 +48,19 @@ export default {
 	views: {
 		mainview: {
 			caption: "需求",
-      title: '需求',
+      title: '需求数据看板视图',
 		},
 		editview: {
 			caption: "需求",
-      title: '需求',
+      title: 'story编辑视图',
 		},
 		gridview9_assignedtome: {
 			caption: "需求",
-      title: '需求',
+      title: '需求表格视图',
 		},
 		mainview9_editmode: {
 			caption: "需求",
-      title: '需求',
+      title: '需求编辑视图',
 		},
 		plansubeditview: {
 			caption: "需求",
@@ -72,23 +72,23 @@ export default {
 		},
 		buildsubgridview: {
 			caption: "需求",
-      title: '需求',
+      title: 'story表格视图',
 		},
 		mainview9_storyspec: {
 			caption: "需求",
-      title: '需求',
+      title: '需求编辑视图',
 		},
 		curprojectgridview: {
 			caption: "需求",
-      title: '需求',
+      title: 'story表格视图',
 		},
 		mainview_editmode: {
 			caption: "需求",
-      title: '需求',
+      title: '需求数据看板视图',
 		},
 		releasesubgridview: {
 			caption: "需求",
-      title: '需求',
+      title: 'story表格视图',
 		},
 		releasesubeditview: {
 			caption: "需求",
@@ -96,15 +96,15 @@ export default {
 		},
 		mainview9: {
 			caption: "需求",
-      title: '需求',
+      title: '需求编辑视图',
 		},
 		gridview9_substory: {
 			caption: "子需求",
-      title: '子需求',
+      title: '需求表格视图',
 		},
 		maingridview: {
 			caption: "需求",
-      title: '需求',
+      title: 'story表格视图',
 		},
 		mpickupview: {
 			caption: "关联需求",
@@ -112,15 +112,15 @@ export default {
 		},
 		plansubgridview: {
 			caption: "需求",
-      title: '需求',
+      title: 'story表格视图',
 		},
 		main2gridview: {
 			caption: "需求",
-      title: '需求',
+      title: 'story表格视图',
 		},
 		editview_storychange: {
 			caption: "变更",
-      title: '变更',
+      title: '需求编辑视图',
 		},
 	},
 	storyspec_editmode_form: {

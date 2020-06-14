@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet main-info ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
+    <div class='portlet main-info ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'1px'),}">
         <div class="portlet-without-title">
         <task-main-info-view9 :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></task-main-info-view9>
         </div>
@@ -14,6 +14,7 @@ import { UIActionTool,Util } from '@/utils';
 import TaskService from '@/service/task/task-service';
 import MainInfoService from './main-info-portlet-service';
 
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -130,6 +131,22 @@ export default class TaskMainInfoBase extends Vue implements ControlInterface {
     }
 
 
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof MainInfo
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof MainInfo
+     */
+    @Prop() public width?: number;
+
 
 
     /**
@@ -208,9 +225,11 @@ export default class TaskMainInfoBase extends Vue implements ControlInterface {
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
 @import './main-info-portlet.less';
 </style>
+

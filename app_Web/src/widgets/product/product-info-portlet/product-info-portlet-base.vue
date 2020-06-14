@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet product-info ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
+    <div class='portlet product-info ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'1px'),}">
         <div class="portlet-without-title">
         <product-dashboard-info-main-view9 :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></product-dashboard-info-main-view9>
         </div>
@@ -14,6 +14,7 @@ import { UIActionTool,Util } from '@/utils';
 import ProductService from '@/service/product/product-service';
 import ProductInfoService from './product-info-portlet-service';
 
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -130,6 +131,22 @@ export default class ProductProductInfoBase extends Vue implements ControlInterf
     }
 
 
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof ProductInfo
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof ProductInfo
+     */
+    @Prop() public width?: number;
+
 
 
     /**
@@ -208,9 +225,11 @@ export default class ProductProductInfoBase extends Vue implements ControlInterf
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
 @import './product-info-portlet.less';
 </style>
+

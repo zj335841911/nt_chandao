@@ -4,22 +4,108 @@
       <app-build @handleClick="handleClick"></app-build>
     </row>
     <row v-if="!isHasCustomized">
-          <div style = ''>
       <i-col :md="{ span: 24, offset: 0 }">
         <card class="portlet-card" :bordered="false" dis-hover :padding="0">
           <span>
-                      <view_db_testcontainer1 
-              :viewState="viewState"  
-              :viewparams="viewparams" 
-              :context="context" 
-              name="db_testcontainer1"  
-              ref='db_testcontainer1' 
-              @closeview="closeView($event)">
-          </view_db_testcontainer1>
+                      <div class='portlet-container db-testcontainer1 ' :style="{}">
+                <row>
+                  <i-col :xs="{ span: 16, offset: 0 }" :sm="{ span: 16, offset: 0 }" :md="{ span: 16, offset: 0 }" :lg="{ span: 16, offset: 0 }">
+                      <div class="portlet-without-title">
+                        <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+                        <span>
+                                        <div class='portlet-container db-testcontainer2 ' :style="{}">
+                              <row>
+                                <i-col :md="{ span: 24, offset: 0 }">
+                                    <div class="portlet-without-title">
+                                      <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+                                      <span>
+                                                      <view_db_sysportlet2 
+                                          :viewState="viewState"  
+                                          :viewparams="viewparams" 
+                                          :context="context" 
+                                          :height="320"
+                                          name="db_sysportlet2"  
+                                          ref='db_sysportlet2' 
+                                          @closeview="closeView($event)">
+                                      </view_db_sysportlet2>
+                                      </span>
+                                    </card>
+                                    </div>
+                                </i-col>
+                                <i-col :md="{ span: 24, offset: 0 }">
+                                    <div class="portlet-without-title">
+                                      <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+                                      <span>
+                                                      <view_db_sysportlet1 
+                                          :viewState="viewState"  
+                                          :viewparams="viewparams" 
+                                          :context="context" 
+                                          :height="1"
+                                          name="db_sysportlet1"  
+                                          ref='db_sysportlet1' 
+                                          @closeview="closeView($event)">
+                                      </view_db_sysportlet1>
+                                      </span>
+                                    </card>
+                                    </div>
+                                </i-col>
+                              </row>
+                          </div>
+                        </span>
+                      </card>
+                      </div>
+                  </i-col>
+                  <i-col :xs="{ span: 8, offset: 0 }" :sm="{ span: 8, offset: 0 }" :md="{ span: 8, offset: 0 }" :lg="{ span: 8, offset: 0 }">
+                      <div class="portlet-without-title">
+                        <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+                        <span>
+                                        <div class='portlet-container db-testcontainer3 ' :style="{}">
+                              <row>
+                                <i-col :md="{ span: 24, offset: 0 }">
+                                    <div class="portlet-without-title">
+                                      <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+                                      <span>
+                                                      <view_db_assigntomebugportlet1 
+                                          :viewState="viewState"  
+                                          :viewparams="viewparams" 
+                                          :context="context" 
+                                          :height="300"
+                                          name="db_assigntomebugportlet1"  
+                                          ref='db_assigntomebugportlet1' 
+                                          @closeview="closeView($event)">
+                                      </view_db_assigntomebugportlet1>
+                                      </span>
+                                    </card>
+                                    </div>
+                                </i-col>
+                                <i-col :md="{ span: 24, offset: 0 }">
+                                    <div class="portlet-without-title">
+                                      <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+                                      <span>
+                                                      <view_db_assigntomecaseportlet1 
+                                          :viewState="viewState"  
+                                          :viewparams="viewparams" 
+                                          :context="context" 
+                                          :height="1"
+                                          name="db_assigntomecaseportlet1"  
+                                          ref='db_assigntomecaseportlet1' 
+                                          @closeview="closeView($event)">
+                                      </view_db_assigntomecaseportlet1>
+                                      </span>
+                                    </card>
+                                    </div>
+                                </i-col>
+                              </row>
+                          </div>
+                        </span>
+                      </card>
+                      </div>
+                  </i-col>
+                </row>
+            </div>
           </span>
         </card>
       </i-col>
-      </div>
     </row>
     <row v-if="isHasCustomized" style="width: 100%;min-height: calc(100% - 40px);">
       <div class="portlet-container" style="position: relative;width:100%;">
@@ -316,7 +402,12 @@ export default class TestPortalView_dbBase extends Vue implements ControlInterfa
                 this.isHasCustomized = false;
                 this.notifyState();
               }
-            })
+            }).catch((error:any)=>{
+                console.error("加载面板模型异常");
+                console.error(error);
+                this.isHasCustomized = false;
+                this.notifyState();
+            });
           })
         }else{
           this.notifyState();

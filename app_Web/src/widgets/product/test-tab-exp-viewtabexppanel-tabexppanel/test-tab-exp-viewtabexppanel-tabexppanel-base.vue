@@ -15,12 +15,12 @@
             }" >
             <view_tabviewpanel2 
     :viewState="viewState"  
-    :viewparams="viewparams" 
-    :context="context" 
-v-if="isInit.tabviewpanel2"
-@viewpanelDatasChange = "tabViewPanelDatasChange"
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel2"
     name="tabviewpanel2"  
-    ref='tabviewpanel2' 
+    ref='tabviewpanel2'
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel2>
         </tab-pane>
@@ -38,12 +38,12 @@ v-if="isInit.tabviewpanel2"
             }" >
             <view_tabviewpanel3 
     :viewState="viewState"  
-    :viewparams="viewparams" 
-    :context="context" 
-v-if="isInit.tabviewpanel3"
-@viewpanelDatasChange = "tabViewPanelDatasChange"
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel3"
     name="tabviewpanel3"  
-    ref='tabviewpanel3' 
+    ref='tabviewpanel3'
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel3>
         </tab-pane>
@@ -61,12 +61,12 @@ v-if="isInit.tabviewpanel3"
             }" >
             <view_tabviewpanel4 
     :viewState="viewState"  
-    :viewparams="viewparams" 
-    :context="context" 
-v-if="isInit.tabviewpanel4"
-@viewpanelDatasChange = "tabViewPanelDatasChange"
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel4"
     name="tabviewpanel4"  
-    ref='tabviewpanel4' 
+    ref='tabviewpanel4'
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel4>
         </tab-pane>
@@ -282,6 +282,7 @@ export default class TestTabExpViewtabexppanelBase extends Vue implements Contro
                 }
                 this.action = action;
                 this.viewState.next({ tag: this.activiedTabViewPanel, action: action, data: data });
+                this.$forceUpdate();
             });
         }
     }

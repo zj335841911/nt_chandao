@@ -1,8 +1,10 @@
 <template>
-    <div class='portlet product-status-chart ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : '370px',}">
+    <div class='portlet product-status-chart ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'370px'),}">
         <p class='portlet-title'>
-            <i class=''></i>
+            <span>
+            
             产品总览
+            </span>
         </p>
         <div class="portlet-with-title">
         <!-- 测试 -->
@@ -28,6 +30,7 @@ import { UIActionTool,Util } from '@/utils';
 import ProductService from '@/service/product/product-service';
 import ProductStatusChartService from './product-status-chart-portlet-service';
 
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -144,6 +147,22 @@ export default class ProductProductStatusChartBase extends Vue implements Contro
     }
 
 
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof ProductStatusChart
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof ProductStatusChart
+     */
+    @Prop() public width?: number;
+
 
 
     /**
@@ -222,9 +241,11 @@ export default class ProductProductStatusChartBase extends Vue implements Contro
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
 @import './product-status-chart-portlet.less';
 </style>
+

@@ -1,9 +1,9 @@
 <template>
-    <split id="testlistexpviewlistexpbar" class="app-list-exp-bar" v-model="split" mode="horizontal" @on-move-end="onSplitChange">
-        <template slot='left'>
+    <split id="testlistexpviewlistexpbar" class="app-list-exp-bar " v-model="split" mode="horizontal" @on-move-end="onSplitChange">
+        <div slot='left'>
            <div class="container-header">
            </div>
-            <div class='list-exp-bar-content'>
+            <div class='list-exp-bar-content2'>
                 <view_listexpbar_list 
     :viewState="viewState"  
     :viewparams="viewparams" 
@@ -23,18 +23,21 @@
     @closeview="closeView($event)">
 </view_listexpbar_list>
             </div>
-        </template>
-        <template slot='right'>
+        </div>
+        <div slot='right'>
             <component 
               v-if="selection.view && !Object.is(this.selection.view.viewname, '')" 
               :is="selection.view.viewname"
               class="viewcontainer2"
               :viewDefaultUsage="false"
-              :viewdata="JSON.stringify(selection.data)">
+              :viewdata="JSON.stringify(selection.context)"
+              :viewparam="JSON.stringify(selection.viewparam)">
             </component>
-        </template>
+        </div>
     </split>
 </template>
+
+
 <script lang='tsx'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
@@ -182,6 +185,22 @@ export default class TestListExpViewlistexpbarBase extends Vue implements Contro
     }
 
 
+
+    /**
+     * 打开新建数据视图
+     *
+     * @type {any}
+     * @memberof TestListExpViewlistexpbarBase
+     */
+    @Prop() public newdata: any;
+    /**
+     * 打开编辑数据视图
+     *
+     * @type {any}
+     * @memberof TestListExpViewlistexpbarBase
+     */
+    @Prop() public opendata: any;
+
     /**
      * 视图唯一标识
      *
@@ -241,21 +260,6 @@ export default class TestListExpViewlistexpbarBase extends Vue implements Contro
      */
     public split: number = 0.2;
 
-    /**
-     * 打开新建数据视图
-     *
-     * @type {any}
-     * @memberof TestListExpViewlistexpbar
-     */
-    @Prop() public newdata: any;
-
-    /**
-     * 打开编辑数据视图
-     *
-     * @type {any}
-     * @memberof TestListExpViewlistexpbar
-     */
-    @Prop() public opendata: any;
 
     /**
      * 导航视图名称
@@ -280,6 +284,30 @@ export default class TestListExpViewlistexpbarBase extends Vue implements Contro
      * @memberof TestListExpViewlistexpbarBase
      */
     public navFilter: string = "";
+
+    /**
+     * 导航关系
+     *
+     * @type {string}
+     * @memberof TestListExpViewlistexpbarBase
+     */
+    public navPSDer: string = "";
+    
+    /**
+     * 导航上下文参数
+     *
+     * @type {*}
+     * @memberof TestListExpViewlistexpbarBase
+     */
+    public navigateContext:any = null;
+
+    /**
+     * 导航视图参数
+     *
+     * @type {*}
+     * @memberof TestListExpViewlistexpbarBase
+     */
+    public navigateParams:any = null;     
 
     /**
      * 显示处理提示
@@ -413,18 +441,33 @@ export default class TestListExpViewlistexpbarBase extends Vue implements Contro
      * @memberof TestListExpViewlistexpbarBase
      */
     public listexpbar_selectionchange(args: any [], tag?: string, $event2?: any): void {
-        let data:any = {};
+        let tempContext:any = {};
+        let tempViewParam:any = {};
         if (args.length === 0) {
             return ;
         }
         const arg:any = args[0];
         if(this.context){
-            Object.assign(data,JSON.parse(JSON.stringify(this.context)));
+            Object.assign(tempContext,JSON.parse(JSON.stringify(this.context)));
         }
-        Object.assign(data,{'product':arg['product']});
-        Object.assign(data,{srfparentdename:'Product',srfparentkey:arg['product']});
+        Object.assign(tempContext,{'product':arg['product']});
+        Object.assign(tempContext,{srfparentdename:'Product',srfparentkey:arg['product']});
+        if(this.navFilter && !Object.is(this.navFilter,"")){
+            Object.assign(tempViewParam,{[this.navFilter]:arg['product']});
+        }
+        if(this.navPSDer && !Object.is(this.navPSDer,"")){
+            Object.assign(tempViewParam,{[this.navPSDer]:arg['product']});
+        }
+        if(this.navigateContext && Object.keys(this.navigateContext).length >0){
+            let _context:any = this.$util.computedNavData(arg,tempContext,tempViewParam,this.navigateContext);
+            Object.assign(tempContext,_context);
+        }
+        if(this.navigateParams && Object.keys(this.navigateParams).length >0){
+            let _params:any = this.$util.computedNavData(arg,tempContext,tempViewParam,this.navigateParams);
+            Object.assign(tempViewParam,_params);
+        }
         this.selection = {};
-        Object.assign(this.selection, { view: { viewname: this.navViewName }, data:data });
+        Object.assign(this.selection, { view: { viewname: this.navViewName },context:tempContext,viewparam:tempViewParam});
         this.$emit('selectionchange',args);
         this.$forceUpdate();
     }

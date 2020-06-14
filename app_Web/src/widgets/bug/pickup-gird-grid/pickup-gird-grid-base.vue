@@ -1411,6 +1411,7 @@ export default class PickupGirdBase extends Vue implements ControlInterface {
      * @memberof PickupGird
      */
 	public uiAction(row: any, tag: any, $event: any) {
+        $event.stopPropagation();
     }
 
     /**
@@ -1534,6 +1535,14 @@ export default class PickupGirdBase extends Vue implements ControlInterface {
             return Object.is(item.bug,args.row.bug);
         });
         return isSelected ? "grid-selected-row" : "";
+    }
+
+    /**
+     * 新建默认值
+     * @param {*}  row 行数据
+     * @memberof PickupGird
+     */
+    public createDefault(row: any){                    
     }
 }
 </script>

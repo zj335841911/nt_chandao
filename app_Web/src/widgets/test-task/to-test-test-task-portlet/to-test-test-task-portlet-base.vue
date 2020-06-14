@@ -1,8 +1,10 @@
 <template>
-    <div class='portlet to-test-test-task ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
+    <div class='portlet to-test-test-task ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'1px'),}">
         <p class='portlet-title'>
-            <i class=''></i>
+            <span>
+            
             待测试版本
+            </span>
         </p>
         <div class="portlet-with-title">
         <test-task-grid-view9-un-tested :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></test-task-grid-view9-un-tested>
@@ -18,6 +20,7 @@ import { UIActionTool,Util } from '@/utils';
 import TestTaskService from '@/service/test-task/test-task-service';
 import ToTestTestTaskService from './to-test-test-task-portlet-service';
 
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -134,6 +137,22 @@ export default class TestTaskToTestTestTaskBase extends Vue implements ControlIn
     }
 
 
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof ToTestTestTask
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof ToTestTestTask
+     */
+    @Prop() public width?: number;
+
 
 
     /**
@@ -212,9 +231,11 @@ export default class TestTaskToTestTestTaskBase extends Vue implements ControlIn
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
 @import './to-test-test-task-portlet.less';
 </style>
+

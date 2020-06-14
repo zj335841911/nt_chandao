@@ -43,6 +43,8 @@
     ]"
     :context="context"
     :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{}'
     parameterName='task'
     parentName="Task"  
     refviewtype='DEGRIDVIEW9' 

@@ -66,7 +66,7 @@ export default {
 		},
 		buildsubgridview_new: {
 			caption: 'Bug',
-      title: 'Bug',
+      title: 'bug表格视图',
 		},
 		maineditview: {
 			caption: 'Bug编辑',
@@ -74,11 +74,11 @@ export default {
 		},
 		maindashboardview: {
 			caption: 'Bug',
-      title: 'Bug',
+      title: 'Bug数据看板视图',
 		},
 		pickupgridview: {
 			caption: 'Bug',
-      title: 'Bug',
+      title: 'bug选择表格视图',
 		},
 		mpickupview: {
 			caption: '关联Bug',
@@ -86,7 +86,7 @@ export default {
 		},
 		buglifeeditview9: {
 			caption: 'Bug',
-      title: 'Bug',
+      title: 'Bug的一生',
 		},
 		editview: {
 			caption: 'Bug',
@@ -94,31 +94,31 @@ export default {
 		},
 		releasesubgridview_done: {
 			caption: 'Bug',
-      title: 'Bug',
+      title: 'bug表格视图',
 		},
 		stepsinfoeditview: {
 			caption: '重现步骤',
-      title: '重现步骤',
+      title: 'Bug编辑视图',
 		},
 		gridview9_assignedtome: {
 			caption: 'Bug',
-      title: 'Bug',
+      title: 'Bug表格视图',
 		},
 		releasesubgridview_undone: {
 			caption: 'Bug',
-      title: 'Bug',
+      title: 'bug表格视图',
 		},
 		gridview: {
 			caption: 'Bug',
-      title: 'Bug',
+      title: 'bug表格视图',
 		},
 		dashboardmaineditview9: {
 			caption: 'Bug',
-      title: 'Bug',
+      title: '主信息',
 		},
 		buildsubgridview_done: {
 			caption: 'Bug',
-      title: 'Bug',
+      title: 'bug表格视图',
 		},
 	},
 	stepsinfo_form: {

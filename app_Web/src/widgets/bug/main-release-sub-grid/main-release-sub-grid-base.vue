@@ -1404,6 +1404,7 @@ export default class Main_ReleaseSubBase extends Vue implements ControlInterface
      * @memberof Main_ReleaseSub
      */
 	public uiAction(row: any, tag: any, $event: any) {
+        $event.stopPropagation();
     }
 
     /**
@@ -1527,6 +1528,14 @@ export default class Main_ReleaseSubBase extends Vue implements ControlInterface
             return Object.is(item.bug,args.row.bug);
         });
         return isSelected ? "grid-selected-row" : "";
+    }
+
+    /**
+     * 新建默认值
+     * @param {*}  row 行数据
+     * @memberof Main_ReleaseSub
+     */
+    public createDefault(row: any){                    
     }
 }
 </script>

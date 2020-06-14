@@ -29,12 +29,14 @@
 </i-col>
 <i-col v-show="detailsModel.role.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='role' :itemRules="this.rules.role" class='' :caption="$t('entities.user.main_form.details.role')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.role.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list 
+    
+ <dropdown-list 
     v-model="data.role" 
     :data="data" 
     :context="context"
     :viewparams="viewparams"
-    :itemParam="{}" 
+    :localContext ='{ }' 
+    :localParam ='{ }' 
     :disabled="detailsModel.role.disabled"  
     tag='Role' 
     codelistType='DYNAMIC'
@@ -45,14 +47,16 @@
 </i-col>
 <i-col v-show="detailsModel.gender.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='gender' :itemRules="this.rules.gender" class='' :caption="$t('entities.user.main_form.details.gender')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.gender.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-radio-group 
+    
+<app-radio-group 
   v-model="data.gender"
   :data="data" 
   :context="context"
   :viewparams="viewparams"   
   :disabled="detailsModel.gender.disabled"  
   name="gender" 
-  :itemParam="{}" 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
   tag='User__gender' 
   codelistType='STATIC' 
   style="">

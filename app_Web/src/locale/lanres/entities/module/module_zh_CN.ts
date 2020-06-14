@@ -26,11 +26,11 @@ export default {
 		},
 		pickupgridview: {
 			caption: '模块',
-      title: '模块',
+      title: '模块选择',
 		},
 		pickupview: {
 			caption: '模块',
-      title: '模块',
+      title: '模块选择',
 		},
 	},
 	main_form: {

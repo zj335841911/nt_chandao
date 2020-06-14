@@ -5,8 +5,8 @@
                 <div class="center" :style="{width : !isShowButton ? '100%' : ''}">
         <view_pickupviewpanel 
             :viewState="viewState"  
-            :viewparams="viewparams" 
-            :context="context" 
+            :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+            :context="JSON.parse(JSON.stringify(context))" 
             :isSingleSelect="isSingleSelect"
             :selectedData="selectedData"
             :isShowButton="isShowButton"
@@ -664,6 +664,7 @@ export default class BugMPickupViewBase extends Vue {
             });
             this.viewSelections = newSelections;
         });
+        this.selectedData = JSON.stringify(this.viewSelections);
     }
 
     /**
@@ -674,6 +675,7 @@ export default class BugMPickupViewBase extends Vue {
     public onCLickAllLeft():void {
         this.viewSelections = [];
         this.containerModel.view_leftbtn.disabled = true;
+        this.engine.onCtrlEvent('pickupviewpanel', 'selectionchange', []);
         this.selectedData = JSON.stringify(this.viewSelections);
     }
 
@@ -701,6 +703,7 @@ export default class BugMPickupViewBase extends Vue {
                 }
             });
         });
+        this.selectedData = JSON.stringify(this.viewSelections);
     }
 
     /**

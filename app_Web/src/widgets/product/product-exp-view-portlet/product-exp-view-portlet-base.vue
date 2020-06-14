@@ -1,8 +1,10 @@
 <template>
-    <div class='portlet product-exp-view ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : '360px',}">
+    <div class='portlet product-exp-view ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'360px'),}">
         <p class='portlet-title'>
-            <i class=''></i>
+            <span>
+            
             产品统计
+            </span>
         </p>
         <div class="portlet-with-title">
         <product-list-exp-view :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></product-list-exp-view>
@@ -18,6 +20,7 @@ import { UIActionTool,Util } from '@/utils';
 import ProductService from '@/service/product/product-service';
 import ProductExpViewService from './product-exp-view-portlet-service';
 
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -134,6 +137,22 @@ export default class ProductProductExpViewBase extends Vue implements ControlInt
     }
 
 
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof ProductExpView
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof ProductExpView
+     */
+    @Prop() public width?: number;
+
 
 
     /**
@@ -212,9 +231,11 @@ export default class ProductProductExpViewBase extends Vue implements ControlInt
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
 @import './product-exp-view-portlet.less';
 </style>
+

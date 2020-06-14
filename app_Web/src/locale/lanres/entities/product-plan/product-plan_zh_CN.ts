@@ -15,19 +15,19 @@ export default {
 	views: {
 		maintabexp: {
 			caption: '产品计划',
-      title: '产品计划',
+      title: '计划',
 		},
 		maineditview: {
 			caption: '产品计划',
-      title: '产品计划',
+      title: '计划详情',
 		},
 		gridview: {
 			caption: '产品计划',
-      title: '产品计划',
+      title: 'productplan表格视图',
 		},
 		editview: {
 			caption: '产品计划',
-      title: '产品计划',
+      title: '计划',
 		},
 	},
 	main_form: {

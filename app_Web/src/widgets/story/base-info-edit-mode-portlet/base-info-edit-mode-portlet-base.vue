@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet base-info-edit-mode ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
+    <div class='portlet base-info-edit-mode ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'1px'),}">
         <div class="portlet-without-title">
         <story-main-view9-edit-mode :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></story-main-view9-edit-mode>
         </div>
@@ -14,6 +14,7 @@ import { UIActionTool,Util } from '@/utils';
 import StoryService from '@/service/story/story-service';
 import BaseInfo_EditModeService from './base-info-edit-mode-portlet-service';
 
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -130,6 +131,22 @@ export default class StoryBaseInfo_EditModeBase extends Vue implements ControlIn
     }
 
 
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof BaseInfo_EditMode
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof BaseInfo_EditMode
+     */
+    @Prop() public width?: number;
+
 
 
     /**
@@ -208,9 +225,11 @@ export default class StoryBaseInfo_EditModeBase extends Vue implements ControlIn
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
 @import './base-info-edit-mode-portlet.less';
 </style>
+

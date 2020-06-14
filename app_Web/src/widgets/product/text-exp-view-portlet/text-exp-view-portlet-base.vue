@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet text-exp-view ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : '320px',}">
+    <div class='portlet text-exp-view ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'320px'),}">
         <div class="portlet-without-title">
         <product-test-list-exp-view :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></product-test-list-exp-view>
         </div>
@@ -14,6 +14,7 @@ import { UIActionTool,Util } from '@/utils';
 import ProductService from '@/service/product/product-service';
 import TextExpViewService from './text-exp-view-portlet-service';
 
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -130,6 +131,22 @@ export default class ProductTextExpViewBase extends Vue implements ControlInterf
     }
 
 
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof TextExpView
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof TextExpView
+     */
+    @Prop() public width?: number;
+
 
 
     /**
@@ -208,9 +225,11 @@ export default class ProductTextExpViewBase extends Vue implements ControlInterf
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
 @import './text-exp-view-portlet.less';
 </style>
+

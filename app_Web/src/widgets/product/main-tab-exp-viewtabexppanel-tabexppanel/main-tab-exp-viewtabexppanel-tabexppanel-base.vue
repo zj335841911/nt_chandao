@@ -15,12 +15,12 @@
             }" >
             <view_tabviewpanel 
     :viewState="viewState"  
-    :viewparams="viewparams" 
-    :context="context" 
-v-if="isInit.tabviewpanel"
-@viewpanelDatasChange = "tabViewPanelDatasChange"
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel"
     name="tabviewpanel"  
-    ref='tabviewpanel' 
+    ref='tabviewpanel'
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel>
         </tab-pane>
@@ -38,12 +38,12 @@ v-if="isInit.tabviewpanel"
             }" >
             <view_tabviewpanel2 
     :viewState="viewState"  
-    :viewparams="viewparams" 
-    :context="context" 
-v-if="isInit.tabviewpanel2"
-@viewpanelDatasChange = "tabViewPanelDatasChange"
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel2"
     name="tabviewpanel2"  
-    ref='tabviewpanel2' 
+    ref='tabviewpanel2'
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel2>
         </tab-pane>
@@ -61,12 +61,12 @@ v-if="isInit.tabviewpanel2"
             }" >
             <view_tabviewpanel3 
     :viewState="viewState"  
-    :viewparams="viewparams" 
-    :context="context" 
-v-if="isInit.tabviewpanel3"
-@viewpanelDatasChange = "tabViewPanelDatasChange"
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel3"
     name="tabviewpanel3"  
-    ref='tabviewpanel3' 
+    ref='tabviewpanel3'
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel3>
         </tab-pane>
@@ -84,12 +84,12 @@ v-if="isInit.tabviewpanel3"
             }" >
             <view_tabviewpanel4 
     :viewState="viewState"  
-    :viewparams="viewparams" 
-    :context="context" 
-v-if="isInit.tabviewpanel4"
-@viewpanelDatasChange = "tabViewPanelDatasChange"
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel4"
     name="tabviewpanel4"  
-    ref='tabviewpanel4' 
+    ref='tabviewpanel4'
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel4>
         </tab-pane>
@@ -107,12 +107,12 @@ v-if="isInit.tabviewpanel4"
             }" >
             <view_tabviewpanel9 
     :viewState="viewState"  
-    :viewparams="viewparams" 
-    :context="context" 
-v-if="isInit.tabviewpanel9"
-@viewpanelDatasChange = "tabViewPanelDatasChange"
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel9"
     name="tabviewpanel9"  
-    ref='tabviewpanel9' 
+    ref='tabviewpanel9'
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel9>
         </tab-pane>
@@ -130,12 +130,12 @@ v-if="isInit.tabviewpanel9"
             }" >
             <view_tabviewpanel5 
     :viewState="viewState"  
-    :viewparams="viewparams" 
-    :context="context" 
-v-if="isInit.tabviewpanel5"
-@viewpanelDatasChange = "tabViewPanelDatasChange"
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel5"
     name="tabviewpanel5"  
-    ref='tabviewpanel5' 
+    ref='tabviewpanel5'
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel5>
         </tab-pane>
@@ -153,12 +153,12 @@ v-if="isInit.tabviewpanel5"
             }" >
             <view_tabviewpanel8 
     :viewState="viewState"  
-    :viewparams="viewparams" 
-    :context="context" 
-v-if="isInit.tabviewpanel8"
-@viewpanelDatasChange = "tabViewPanelDatasChange"
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel8"
     name="tabviewpanel8"  
-    ref='tabviewpanel8' 
+    ref='tabviewpanel8'
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel8>
         </tab-pane>
@@ -176,12 +176,12 @@ v-if="isInit.tabviewpanel8"
             }" >
             <view_tabviewpanel7 
     :viewState="viewState"  
-    :viewparams="viewparams" 
-    :context="context" 
-v-if="isInit.tabviewpanel7"
-@viewpanelDatasChange = "tabViewPanelDatasChange"
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel7"
     name="tabviewpanel7"  
-    ref='tabviewpanel7' 
+    ref='tabviewpanel7'
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel7>
         </tab-pane>
@@ -199,12 +199,12 @@ v-if="isInit.tabviewpanel7"
             }" >
             <view_tabviewpanel6 
     :viewState="viewState"  
-    :viewparams="viewparams" 
-    :context="context" 
-v-if="isInit.tabviewpanel6"
-@viewpanelDatasChange = "tabViewPanelDatasChange"
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel6"
     name="tabviewpanel6"  
-    ref='tabviewpanel6' 
+    ref='tabviewpanel6'
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel6>
         </tab-pane>
@@ -426,6 +426,7 @@ export default class MainTabExpViewtabexppanelBase extends Vue implements Contro
                 }
                 this.action = action;
                 this.viewState.next({ tag: this.activiedTabViewPanel, action: action, data: data });
+                this.$forceUpdate();
             });
         }
     }

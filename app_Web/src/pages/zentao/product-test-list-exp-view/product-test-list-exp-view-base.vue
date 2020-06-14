@@ -6,6 +6,8 @@
         :context="context" 
         :showBusyIndicator="true" 
         :viewUID="viewUID"
+        :newdata="newdata"
+        :opendata="opendata"
         name="listexpbar"  
         ref='listexpbar' 
         @selectionchange="listexpbar_selectionchange($event)"  
@@ -463,6 +465,8 @@ export default class ProductTestListExpViewBase extends Vue {
      * @memberof ProductTestListExpView
      */
     public newdata(args: any[],fullargs?:any[], params?: any, $event?: any, xData?: any) {
+        let localContext:any = null;
+        let localViewParam:any =null;
     this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
     }
 
@@ -478,6 +482,8 @@ export default class ProductTestListExpViewBase extends Vue {
      * @memberof ProductTestListExpView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
+        let localContext:any = null;
+        let localViewParam:any =null;
     this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
     }
 

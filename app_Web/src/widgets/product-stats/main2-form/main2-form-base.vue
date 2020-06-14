@@ -18,12 +18,8 @@
 </i-col>
 <i-col v-show="detailsModel.storycnt.visible" :style="{}"  :lg="{ span: 6, offset: 9 }" :xl="{ span: 6, offset: 9 }">
     <app-form-item name='storycnt' :itemRules="this.rules.storycnt" class='MainInfo' :caption="$t('entities.productstats.main2_form.details.storycnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.storycnt.error" :isEmptyCaption="false" labelPos="TOP">
-    <app-span   name='storycnt'
-:value="data.storycnt"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='storycnt' :value="data.storycnt" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -62,56 +58,36 @@ style=""></app-span>
     <row>
         <i-col v-show="detailsModel.waitstorycnt.visible" :style="{}"  :lg="{ span: 4, offset: 2 }" :xl="{ span: 4, offset: 2 }">
     <app-form-item name='waitstorycnt' :itemRules="this.rules.waitstorycnt" class='' :caption="$t('entities.productstats.main2_form.details.waitstorycnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.waitstorycnt.error" :isEmptyCaption="false" labelPos="TOP">
-    <app-span   name='waitstorycnt'
-:value="data.waitstorycnt"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='waitstorycnt' :value="data.waitstorycnt" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.plannedstorycnt.visible" :style="{}"  :lg="{ span: 4, offset: 0 }" :xl="{ span: 4, offset: 0 }">
     <app-form-item name='plannedstorycnt' :itemRules="this.rules.plannedstorycnt" class='' :caption="$t('entities.productstats.main2_form.details.plannedstorycnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.plannedstorycnt.error" :isEmptyCaption="false" labelPos="TOP">
-    <app-span   name='plannedstorycnt'
-:value="data.plannedstorycnt"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='plannedstorycnt' :value="data.plannedstorycnt" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.developingstorycnt.visible" :style="{}"  :lg="{ span: 4, offset: 0 }" :xl="{ span: 4, offset: 0 }">
     <app-form-item name='developingstorycnt' :itemRules="this.rules.developingstorycnt" class='' :caption="$t('entities.productstats.main2_form.details.developingstorycnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.developingstorycnt.error" :isEmptyCaption="false" labelPos="TOP">
-    <app-span   name='developingstorycnt'
-:value="data.developingstorycnt"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='developingstorycnt' :value="data.developingstorycnt" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.testingstorycnt.visible" :style="{}"  :lg="{ span: 4, offset: 0 }" :xl="{ span: 4, offset: 0 }">
     <app-form-item name='testingstorycnt' :itemRules="this.rules.testingstorycnt" class='' :caption="$t('entities.productstats.main2_form.details.testingstorycnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.testingstorycnt.error" :isEmptyCaption="false" labelPos="TOP">
-    <app-span   name='testingstorycnt'
-:value="data.testingstorycnt"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='testingstorycnt' :value="data.testingstorycnt" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.releasedstorycnt.visible" :style="{}"  :lg="{ span: 4, offset: 0 }" :xl="{ span: 4, offset: 0 }">
     <app-form-item name='releasedstorycnt' :itemRules="this.rules.releasedstorycnt" class='' :caption="$t('entities.productstats.main2_form.details.releasedstorycnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.releasedstorycnt.error" :isEmptyCaption="false" labelPos="TOP">
-    <app-span   name='releasedstorycnt'
-:value="data.releasedstorycnt"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='releasedstorycnt' :value="data.releasedstorycnt" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -133,12 +109,8 @@ style=""></app-span>
     <row>
         <i-col v-show="detailsModel.productplancnt.visible" :style="{}"  :lg="{ span: 8, offset: 16 }" :xl="{ span: 8, offset: 16 }">
     <app-form-item name='productplancnt' :itemRules="this.rules.productplancnt" class='' :caption="$t('entities.productstats.main2_form.details.productplancnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.productplancnt.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='productplancnt'
-:value="data.productplancnt"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='productplancnt' :value="data.productplancnt" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -166,12 +138,8 @@ style=""></app-span>
 </i-col>
 <i-col v-show="detailsModel.unendproductplancnt.visible" :style="{}"  :lg="{ span: 8, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='unendproductplancnt' :itemRules="this.rules.unendproductplancnt" class='' :caption="$t('entities.productstats.main2_form.details.unendproductplancnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.unendproductplancnt.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='unendproductplancnt'
-:value="data.unendproductplancnt"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='unendproductplancnt' :value="data.unendproductplancnt" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -185,12 +153,8 @@ style=""></app-span>
     <row>
         <i-col v-show="detailsModel.resprojectcnt.visible" :style="{}"  :lg="{ span: 8, offset: 16 }" :xl="{ span: 8, offset: 16 }">
     <app-form-item name='resprojectcnt' :itemRules="this.rules.resprojectcnt" class='' :caption="$t('entities.productstats.main2_form.details.resprojectcnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.resprojectcnt.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='resprojectcnt'
-:value="data.resprojectcnt"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='resprojectcnt' :value="data.resprojectcnt" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -218,12 +182,8 @@ style=""></app-span>
 </i-col>
 <i-col v-show="detailsModel.undoneresprojectcnt.visible" :style="{}"  :lg="{ span: 8, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='undoneresprojectcnt' :itemRules="this.rules.undoneresprojectcnt" class='' :caption="$t('entities.productstats.main2_form.details.undoneresprojectcnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.undoneresprojectcnt.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='undoneresprojectcnt'
-:value="data.undoneresprojectcnt"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='undoneresprojectcnt' :value="data.undoneresprojectcnt" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -237,12 +197,8 @@ style=""></app-span>
     <row>
         <i-col v-show="detailsModel.releasecnt.visible" :style="{}"  :lg="{ span: 8, offset: 16 }" :xl="{ span: 8, offset: 16 }">
     <app-form-item name='releasecnt' :itemRules="this.rules.releasecnt" class='' :caption="$t('entities.productstats.main2_form.details.releasecnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.releasecnt.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='releasecnt'
-:value="data.releasecnt"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='releasecnt' :value="data.releasecnt" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -270,12 +226,8 @@ style=""></app-span>
 </i-col>
 <i-col v-show="detailsModel.normalreleasecnt.visible" :style="{}"  :lg="{ span: 8, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='normalreleasecnt' :itemRules="this.rules.normalreleasecnt" class='' :caption="$t('entities.productstats.main2_form.details.normalreleasecnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.normalreleasecnt.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='normalreleasecnt'
-:value="data.normalreleasecnt"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='normalreleasecnt' :value="data.normalreleasecnt" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -414,7 +366,6 @@ export default class Main2Base extends Vue implements ControlInterface {
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -443,7 +394,6 @@ export default class Main2Base extends Vue implements ControlInterface {
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -472,7 +422,6 @@ export default class Main2Base extends Vue implements ControlInterface {
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -501,7 +450,6 @@ export default class Main2Base extends Vue implements ControlInterface {
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -530,7 +478,6 @@ export default class Main2Base extends Vue implements ControlInterface {
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {

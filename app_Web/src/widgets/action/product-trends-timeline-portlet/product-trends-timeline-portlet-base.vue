@@ -1,8 +1,10 @@
 <template>
-    <div class='portlet product-trends-timeline ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : '300px',}">
+    <div class='portlet product-trends-timeline ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'300px'),}">
         <p class='portlet-title'>
-            <i class=''></i>
+            <span>
+            
             最新动态
+            </span>
         </p>
         <div class="portlet-with-title">
         <action-product-trends-list-view9 :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></action-product-trends-list-view9>
@@ -18,6 +20,7 @@ import { UIActionTool,Util } from '@/utils';
 import ActionService from '@/service/action/action-service';
 import ProductTrendsTimelineService from './product-trends-timeline-portlet-service';
 
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -134,6 +137,22 @@ export default class ActionProductTrendsTimelineBase extends Vue implements Cont
     }
 
 
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof ProductTrendsTimeline
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof ProductTrendsTimeline
+     */
+    @Prop() public width?: number;
+
 
 
     /**
@@ -212,9 +231,11 @@ export default class ActionProductTrendsTimelineBase extends Vue implements Cont
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
 @import './product-trends-timeline-portlet.less';
 </style>
+

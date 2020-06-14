@@ -8,12 +8,8 @@
     <row>
         <i-col v-show="detailsModel.consumed.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='consumed' :itemRules="this.rules.consumed" class='' :caption="$t('entities.task.completeform_form.details.consumed')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.consumed.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='consumed'
-:value="data.consumed"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='consumed' :value="data.consumed" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
@@ -33,23 +29,21 @@ style=""></app-span>
 </i-col>
 <i-col v-show="detailsModel.totaltime.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='totaltime' :itemRules="this.rules.totaltime" class='' :caption="$t('entities.task.completeform_form.details.totaltime')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.totaltime.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='totaltime'
-:value="data.totaltime"   :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+    
+<app-span name='totaltime' :value="data.totaltime" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.assignedto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='assignedto' :itemRules="this.rules.assignedto" class='' :caption="$t('entities.task.completeform_form.details.assignedto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.assignedto.error" :isEmptyCaption="false" labelPos="LEFT">
-     <dropdown-list 
+    
+ <dropdown-list 
     v-model="data.assignedto" 
     :data="data" 
     :context="context"
     :viewparams="viewparams"
-    :itemParam="{}" 
+    :localContext ='{ }' 
+    :localParam ='{ }' 
     :disabled="detailsModel.assignedto.disabled"  
     tag='UserRealName' 
     codelistType='DYNAMIC'
@@ -90,6 +84,8 @@ style=""></app-span>
     ]"
     :context="context"
     :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{}'
     parameterName='task'
     parentName="Task"  
     refviewtype='DELISTVIEW' 

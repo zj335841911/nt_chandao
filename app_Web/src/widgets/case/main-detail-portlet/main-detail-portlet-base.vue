@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet main-detail ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
+    <div class='portlet main-detail ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'1px'),}">
         <div class="portlet-without-title">
         <case-main-detail-edit-view9 :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></case-main-detail-edit-view9>
         </div>
@@ -14,6 +14,7 @@ import { UIActionTool,Util } from '@/utils';
 import CaseService from '@/service/case/case-service';
 import MainDetailService from './main-detail-portlet-service';
 
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -130,6 +131,22 @@ export default class CaseMainDetailBase extends Vue implements ControlInterface 
     }
 
 
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof MainDetail
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof MainDetail
+     */
+    @Prop() public width?: number;
+
 
 
     /**
@@ -208,9 +225,11 @@ export default class CaseMainDetailBase extends Vue implements ControlInterface 
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
 @import './main-detail-portlet.less';
 </style>
+

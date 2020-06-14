@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet dashboard-bug-life ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
+    <div class='portlet dashboard-bug-life ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'1px'),}">
         <div class="portlet-without-title">
         <bug-bug-life-edit-view9 :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></bug-bug-life-edit-view9>
         </div>
@@ -14,6 +14,7 @@ import { UIActionTool,Util } from '@/utils';
 import BugService from '@/service/bug/bug-service';
 import DashboardBugLifeService from './dashboard-bug-life-portlet-service';
 
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -130,6 +131,22 @@ export default class BugDashboardBugLifeBase extends Vue implements ControlInter
     }
 
 
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof DashboardBugLife
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof DashboardBugLife
+     */
+    @Prop() public width?: number;
+
 
 
     /**
@@ -208,9 +225,11 @@ export default class BugDashboardBugLifeBase extends Vue implements ControlInter
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
 @import './dashboard-bug-life-portlet.less';
 </style>
+

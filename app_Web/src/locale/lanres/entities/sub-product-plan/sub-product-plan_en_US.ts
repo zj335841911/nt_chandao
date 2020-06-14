@@ -16,11 +16,11 @@ export default {
 	views: {
 		subplancreateview: {
 			caption: "产品计划",
-      title: '产品计划',
+      title: '计划',
 		},
 		subplangridview: {
 			caption: "产品计划",
-      title: '产品计划',
+      title: '子计划',
 		},
 		subplaneditview: {
 			caption: "子计划",

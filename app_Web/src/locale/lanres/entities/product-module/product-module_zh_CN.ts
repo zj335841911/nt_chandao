@@ -18,11 +18,11 @@ export default {
 	views: {
 		gridview: {
 			caption: '需求模块',
-      title: '需求模块',
+      title: '产品模块表格视图',
 		},
 		editview: {
 			caption: '需求模块',
-      title: '需求模块',
+      title: '产品模块编辑视图',
 		},
 	},
 	main_form: {

@@ -1,8 +1,10 @@
 <template>
-    <div class='portlet assigned-to-me-case ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
+    <div class='portlet assigned-to-me-case ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'1px'),}">
         <p class='portlet-title'>
-            <i class=''></i>
+            <span>
+            
             指派给我的用例
+            </span>
         </p>
         <div class="portlet-with-title">
         <case-grid-view9 :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></case-grid-view9>
@@ -18,6 +20,7 @@ import { UIActionTool,Util } from '@/utils';
 import CaseService from '@/service/case/case-service';
 import AssignedToMeCaseService from './assigned-to-me-case-portlet-service';
 
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -134,6 +137,22 @@ export default class CaseAssignedToMeCaseBase extends Vue implements ControlInte
     }
 
 
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof AssignedToMeCase
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof AssignedToMeCase
+     */
+    @Prop() public width?: number;
+
 
 
     /**
@@ -212,9 +231,11 @@ export default class CaseAssignedToMeCaseBase extends Vue implements ControlInte
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
 @import './assigned-to-me-case-portlet.less';
 </style>
+

@@ -1,8 +1,10 @@
 <template>
-    <div class='portlet company-info ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
+    <div class='portlet company-info ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'1px'),}">
         <p class='portlet-title'>
-            <i class=''></i>
+            <span>
+            
             公司信息
+            </span>
         </p>
         <div class="portlet-with-title">
         <company-main-view9 :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></company-main-view9>
@@ -18,6 +20,7 @@ import { UIActionTool,Util } from '@/utils';
 import CompanyService from '@/service/company/company-service';
 import CompanyInfoService from './company-info-portlet-service';
 
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -134,6 +137,22 @@ export default class CompanyCompanyInfoBase extends Vue implements ControlInterf
     }
 
 
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof CompanyInfo
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof CompanyInfo
+     */
+    @Prop() public width?: number;
+
 
 
     /**
@@ -212,9 +231,11 @@ export default class CompanyCompanyInfoBase extends Vue implements ControlInterf
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
 @import './company-info-portlet.less';
 </style>
+

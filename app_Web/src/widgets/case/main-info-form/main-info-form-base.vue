@@ -24,6 +24,8 @@
     ]"
     :context="context"
     :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{}'
     parameterName='case'
     parentName="Case"  
     refviewtype='DEGRIDVIEW9' 

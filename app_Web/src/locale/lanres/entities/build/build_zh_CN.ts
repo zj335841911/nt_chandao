@@ -18,19 +18,19 @@ export default {
 	views: {
 		maingridview: {
 			caption: '版本',
-      title: '版本',
+      title: 'build表格视图',
 		},
 		mainview: {
 			caption: '版本',
-      title: '版本',
+      title: '版本编辑视图',
 		},
 		editview: {
 			caption: '版本',
-      title: '版本',
+      title: 'build编辑视图',
 		},
 		maintabexpview: {
 			caption: '版本',
-      title: '版本',
+      title: '版本分页导航视图',
 		},
 	},
 	main_form: {

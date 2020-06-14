@@ -31,11 +31,11 @@ export default {
 	views: {
 		testeditview9: {
 			caption: '产品统计',
-      title: '产品统计',
+      title: '产品统计编辑视图',
 		},
 		editview9: {
 			caption: '产品统计',
-      title: '产品统计',
+      title: '产品统计编辑视图',
 		},
 	},
 	testmain2_form: {

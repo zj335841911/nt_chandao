@@ -1,6 +1,7 @@
 <template>
     <div class="app-data-chart ">
-        <div class="app-charts" :id="chartId" style="height: 300px;padding: 6px 0;"></div>
+        <div v-if="isNoData" class="chart-no-data"><i class="el-icon-data-analysis"></i>暂无数据</div>
+        <div v-else class="app-charts" :id="chartId" style="height: 300px;padding: 6px 0;"></div>
   </div>
 </template>
 
@@ -208,6 +209,15 @@ export default class ProductStatusBase extends Vue implements ControlInterface {
             this.viewStateEvent.unsubscribe();
         }
     }
+
+    /**
+     * 是否无数据
+     *
+     * @public
+     * @type {boolean}
+     * @memberof Db_productstatusportlet_chartBase
+     */
+    public isNoData: boolean  = false;
 
     /**
      * 图表div绑定的id
@@ -467,8 +477,10 @@ export default class ProductStatusBase extends Vue implements ControlInterface {
      */
     public async transformToBasicChartSetData(data:any,callback:Function){
         if(!data || !Array.isArray(data) || data.length === 0){
+            this.isNoData = true;
             return;
         }
+        this.isNoData = false;
         //获取代码表值
         let allCodeList:any = await this.getChartAllCodeList();
         if(Object.values(this.seriesModel).length > 0){

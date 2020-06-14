@@ -16,31 +16,31 @@ export default {
 	views: {
 		histroylistview: {
 			caption: "系统日志",
-      title: '系统日志',
+      title: '历史记录',
 		},
 		projecttrendslistview: {
 			caption: "系统日志",
-      title: '系统日志',
+      title: '系统日志列表视图',
 		},
 		projecttrendslistview9: {
 			caption: "系统日志",
-      title: '系统日志',
+      title: '产品动态',
 		},
 		producttrendslistview9: {
 			caption: "系统日志",
-      title: '系统日志',
+      title: '产品动态',
 		},
 		alltrendslistview: {
 			caption: "系统日志",
-      title: '系统日志',
+      title: '系统日志列表视图',
 		},
 		producttrendslistview: {
 			caption: "系统日志",
-      title: '系统日志',
+      title: '系统日志列表视图',
 		},
 		editview: {
 			caption: "系统日志",
-      title: '系统日志',
+      title: 'action编辑视图',
 		},
 	},
 	main_form: {

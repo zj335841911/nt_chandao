@@ -1,8 +1,10 @@
 <template>
-    <div class='portlet assigned-to-me-story ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
+    <div class='portlet assigned-to-me-story ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'1px'),}">
         <p class='portlet-title'>
-            <i class=''></i>
+            <span>
+            
             指派给我的需求
+            </span>
         </p>
         <div class="portlet-with-title">
         <story-grid-view9-assigned-to-me :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></story-grid-view9-assigned-to-me>
@@ -18,6 +20,7 @@ import { UIActionTool,Util } from '@/utils';
 import StoryService from '@/service/story/story-service';
 import AssignedToMeStoryService from './assigned-to-me-story-portlet-service';
 
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -134,6 +137,22 @@ export default class StoryAssignedToMeStoryBase extends Vue implements ControlIn
     }
 
 
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof AssignedToMeStory
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof AssignedToMeStory
+     */
+    @Prop() public width?: number;
+
 
 
     /**
@@ -212,9 +231,11 @@ export default class StoryAssignedToMeStoryBase extends Vue implements ControlIn
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
 @import './assigned-to-me-story-portlet.less';
 </style>
+

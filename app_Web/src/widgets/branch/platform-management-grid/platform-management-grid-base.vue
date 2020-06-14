@@ -1290,6 +1290,7 @@ export default class PlatformManagementBase extends Vue implements ControlInterf
      * @memberof PlatformManagement
      */
 	public uiAction(row: any, tag: any, $event: any) {
+        $event.stopPropagation();
     }
 
     /**
@@ -1413,6 +1414,14 @@ export default class PlatformManagementBase extends Vue implements ControlInterf
             return Object.is(item.branch,args.row.branch);
         });
         return isSelected ? "grid-selected-row" : "";
+    }
+
+    /**
+     * 新建默认值
+     * @param {*}  row 行数据
+     * @memberof PlatformManagement
+     */
+    public createDefault(row: any){                    
     }
 }
 </script>

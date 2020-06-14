@@ -1,8 +1,10 @@
 <template>
-    <div class='portlet action-history-list ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
+    <div class='portlet action-history-list ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'1px'),}">
         <p class='portlet-title'>
-            <i class=''></i>
+            <span>
+            
             历史记录
+            </span>
         </p>
         <div class="portlet-with-title">
         <action-histroy-list-view :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></action-histroy-list-view>
@@ -18,6 +20,7 @@ import { UIActionTool,Util } from '@/utils';
 import BugService from '@/service/bug/bug-service';
 import ActionHistoryListService from './action-history-list-portlet-service';
 
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -134,6 +137,22 @@ export default class BugActionHistoryListBase extends Vue implements ControlInte
     }
 
 
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof ActionHistoryList
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof ActionHistoryList
+     */
+    @Prop() public width?: number;
+
 
 
     /**
@@ -212,9 +231,11 @@ export default class BugActionHistoryListBase extends Vue implements ControlInte
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
 @import './action-history-list-portlet.less';
 </style>
+

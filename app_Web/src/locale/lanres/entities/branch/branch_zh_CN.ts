@@ -13,7 +13,7 @@ export default {
 		},
 		pmeditview: {
 			caption: '产品的分支和平台信息',
-      title: '产品的分支和平台信息',
+      title: '平台管理',
 		},
 	},
 	platformmanagement_form: {

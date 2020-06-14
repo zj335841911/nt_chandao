@@ -11,7 +11,7 @@ export default {
 	views: {
 		mainview9: {
 			caption: '需求描述',
-      title: '需求描述',
+      title: '需求描述编辑视图',
 		},
 	},
 	main_form: {

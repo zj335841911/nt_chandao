@@ -70,6 +70,8 @@
     ]"
     :context="context"
     :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{}'
     parameterName='story'
     parentName="Story"  
     refviewtype='DELISTVIEW' 

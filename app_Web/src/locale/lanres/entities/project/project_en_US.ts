@@ -40,31 +40,31 @@ export default {
 	views: {
 		tasktreeexpview: {
 			caption: "项目",
-      title: '项目',
+      title: '项目任务导航视图',
 		},
 		burndownchartview: {
 			caption: "项目",
-      title: '项目',
+      title: '燃尽图',
 		},
 		listexpview: {
 			caption: "项目",
-      title: '项目',
+      title: '项目列表导航视图',
 		},
 		pickupgridview: {
 			caption: "项目",
-      title: '项目',
+      title: 'project选择表格视图',
 		},
 		curproductgridview: {
 			caption: "项目",
-      title: '项目',
+      title: 'project表格视图',
 		},
 		pickupview: {
 			caption: "项目",
-      title: '项目',
+      title: 'project数据选择视图',
 		},
 		leftsidebarlistview: {
 			caption: "项目",
-      title: '项目',
+      title: '所有项目',
 		},
 		gridview: {
 			caption: "项目",
@@ -72,15 +72,15 @@ export default {
 		},
 		maindashboardview: {
 			caption: "项目",
-      title: '项目',
+      title: '项目数据看板视图',
 		},
 		gridview9_unclosed: {
 			caption: "未关闭的项目",
-      title: '未关闭的项目',
+      title: '项目表格视图',
 		},
 		dashboardinfoview: {
 			caption: "项目",
-      title: '项目',
+      title: '项目信息',
 		},
 		editview: {
 			caption: "项目",
@@ -88,7 +88,7 @@ export default {
 		},
 		maintabexpview: {
 			caption: "项目",
-      title: '项目',
+      title: '项目导航视图',
 		},
 	},
 	dashboardinfo_form: {

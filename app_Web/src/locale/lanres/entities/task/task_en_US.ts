@@ -58,15 +58,15 @@ export default {
 		},
 		maingridview9_child: {
 			caption: "任务",
-      title: '任务',
+      title: '任务表格视图',
 		},
 		maininfoview9: {
 			caption: "任务",
-      title: '任务',
+      title: '任务编辑视图',
 		},
 		gridview: {
 			caption: "任务",
-      title: '任务',
+      title: 'task表格视图',
 		},
 		closetaskview: {
 			caption: "关闭任务",
@@ -74,23 +74,23 @@ export default {
 		},
 		maindashboardview: {
 			caption: "任务",
-      title: '任务',
+      title: '任务主数据看板视图',
 		},
 		tasktypeganttview: {
 			caption: "任务",
-      title: '任务',
+      title: '任务甘特视图',
 		},
 		pivottableview: {
 			caption: "任务",
-      title: '任务',
+      title: '任务表格视图',
 		},
 		kanbanview: {
 			caption: "任务",
-      title: '任务',
+      title: '任务看板视图',
 		},
 		gridview9_assignedtome: {
 			caption: "任务",
-      title: '任务',
+      title: '任务表格视图',
 		},
 		workinfoeditview9: {
 			caption: "工时信息",
@@ -98,7 +98,7 @@ export default {
 		},
 		maingridview: {
 			caption: "任务",
-      title: '任务',
+      title: 'task表格视图',
 		},
 		canceltaskview: {
 			caption: "取消任务",
@@ -118,11 +118,11 @@ export default {
 		},
 		editview: {
 			caption: "任务",
-      title: '任务',
+      title: 'task编辑视图',
 		},
 		maindetailview9: {
 			caption: "任务",
-      title: '任务',
+      title: '任务编辑视图',
 		},
 	},
 	main_form: {

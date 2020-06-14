@@ -15,11 +15,11 @@ export default {
 	views: {
 		depttreeexpview: {
 			caption: '公司',
-      title: '公司',
+      title: '组织部门树导航视图',
 		},
 		deptusertreeexpview: {
 			caption: '公司',
-      title: '公司',
+      title: '组织部门人员树导航视图',
 		},
 		maintabexpview: {
 			caption: '组织权限',
@@ -27,15 +27,15 @@ export default {
 		},
 		mainview: {
 			caption: '公司信息',
-      title: '公司信息',
+      title: '公司数据看板视图',
 		},
 		editview: {
 			caption: '公司信息',
-      title: '公司信息',
+      title: 'company编辑视图',
 		},
 		mainview9: {
 			caption: '公司',
-      title: '公司',
+      title: '公司编辑视图',
 		},
 	},
 	main_form: {

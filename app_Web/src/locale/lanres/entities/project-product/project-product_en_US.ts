@@ -13,11 +13,11 @@ export default {
 	views: {
 		planlistview9: {
 			caption: "关联计划",
-      title: '关联计划',
+      title: '项目产品列表视图',
 		},
 		listview9: {
 			caption: "关联产品",
-      title: '关联产品',
+      title: '项目产品列表视图',
 		},
 	},
 };

@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet main-toolbar ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
+    <div class='portlet main-toolbar ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'1px'),}">
         <div class="portlet-without-title">
             <app-actionbar :items="actionBarModelData" @itemClick="handleItemClick"></app-actionbar>
         </div>
@@ -15,6 +15,7 @@ import StoryService from '@/service/story/story-service';
 import MainToolbarService from './main-toolbar-portlet-service';
 
 import StoryUIService from '@/uiservice/story/story-ui-service';
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -117,7 +118,6 @@ export default class StoryMainToolbarBase extends Vue implements ControlInterfac
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -146,7 +146,6 @@ export default class StoryMainToolbarBase extends Vue implements ControlInterfac
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -175,7 +174,6 @@ export default class StoryMainToolbarBase extends Vue implements ControlInterfac
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -204,7 +202,6 @@ export default class StoryMainToolbarBase extends Vue implements ControlInterfac
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -233,7 +230,6 @@ export default class StoryMainToolbarBase extends Vue implements ControlInterfac
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -307,6 +303,22 @@ export default class StoryMainToolbarBase extends Vue implements ControlInterfac
         }
     }
 
+
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof MainToolbar
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof MainToolbar
+     */
+    @Prop() public width?: number;
 
     /**
      * 操作栏模型数据
@@ -432,9 +444,11 @@ export default class StoryMainToolbarBase extends Vue implements ControlInterfac
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
 @import './main-toolbar-portlet.less';
 </style>
+

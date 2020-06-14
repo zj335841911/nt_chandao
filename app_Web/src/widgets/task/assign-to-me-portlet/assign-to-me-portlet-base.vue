@@ -1,8 +1,10 @@
 <template>
-    <div class='portlet assign-to-me ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
+    <div class='portlet assign-to-me ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'1px'),}">
         <p class='portlet-title'>
-            <i class=''></i>
+            <span>
+            
             指派给我的任务
+            </span>
         </p>
         <div class="portlet-with-title">
         <task-grid-view9-assigned-to-me :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></task-grid-view9-assigned-to-me>
@@ -18,6 +20,7 @@ import { UIActionTool,Util } from '@/utils';
 import TaskService from '@/service/task/task-service';
 import AssignToMeService from './assign-to-me-portlet-service';
 
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -134,6 +137,22 @@ export default class TaskAssignToMeBase extends Vue implements ControlInterface 
     }
 
 
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof AssignToMe
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof AssignToMe
+     */
+    @Prop() public width?: number;
+
 
 
     /**
@@ -212,9 +231,11 @@ export default class TaskAssignToMeBase extends Vue implements ControlInterface 
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
 @import './assign-to-me-portlet.less';
 </style>
+

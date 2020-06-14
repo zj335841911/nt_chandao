@@ -1,8 +1,10 @@
 <template>
-    <div class='portlet project-exp-view ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : '390px',}">
+    <div class='portlet project-exp-view ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'390px'),}">
         <p class='portlet-title'>
-            <i class=''></i>
+            <span>
+            
             项目统计
+            </span>
         </p>
         <div class="portlet-with-title">
         <project-list-exp-view :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></project-list-exp-view>
@@ -18,6 +20,7 @@ import { UIActionTool,Util } from '@/utils';
 import ProjectService from '@/service/project/project-service';
 import ProjectExpViewService from './project-exp-view-portlet-service';
 
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -134,6 +137,22 @@ export default class ProjectProjectExpViewBase extends Vue implements ControlInt
     }
 
 
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof ProjectExpView
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof ProjectExpView
+     */
+    @Prop() public width?: number;
+
 
 
     /**
@@ -212,9 +231,11 @@ export default class ProjectProjectExpViewBase extends Vue implements ControlInt
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
 @import './project-exp-view-portlet.less';
 </style>
+

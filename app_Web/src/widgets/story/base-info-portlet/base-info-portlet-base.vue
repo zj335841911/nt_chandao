@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet base-info ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
+    <div class='portlet base-info ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'1px'),}">
         <div class="portlet-without-title">
         <story-main-view9 :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></story-main-view9>
         </div>
@@ -14,6 +14,7 @@ import { UIActionTool,Util } from '@/utils';
 import StoryService from '@/service/story/story-service';
 import BaseInfoService from './base-info-portlet-service';
 
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -130,6 +131,22 @@ export default class StoryBaseInfoBase extends Vue implements ControlInterface {
     }
 
 
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof BaseInfo
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof BaseInfo
+     */
+    @Prop() public width?: number;
+
 
 
     /**
@@ -208,9 +225,11 @@ export default class StoryBaseInfoBase extends Vue implements ControlInterface {
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
 @import './base-info-portlet.less';
 </style>
+

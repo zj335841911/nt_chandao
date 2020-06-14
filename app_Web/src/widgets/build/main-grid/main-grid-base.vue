@@ -130,7 +130,7 @@
             
             ----
             FTL stack trace ("~" means nesting-related):
-            	- Failed at: #if item.getPSDEUIActionGroup().getPS...  [in template "TEMPLCODE_zh_CN" at line 78, column 3]
+            	- Failed at: #if item.getPSDEUIActionGroup().getPS...  [in template "TEMPLCODE_zh_CN" at line 100, column 3]
             ----
             <template v-if="adaptiveState">
                 <el-table-column></el-table-column>
@@ -1406,6 +1406,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * @memberof Main
      */
 	public uiAction(row: any, tag: any, $event: any) {
+        $event.stopPropagation();
     }
 
     /**
@@ -1529,6 +1530,14 @@ export default class MainBase extends Vue implements ControlInterface {
             return Object.is(item.build,args.row.build);
         });
         return isSelected ? "grid-selected-row" : "";
+    }
+
+    /**
+     * 新建默认值
+     * @param {*}  row 行数据
+     * @memberof Main
+     */
+    public createDefault(row: any){                    
     }
 }
 </script>

@@ -48,7 +48,7 @@ export default {
 	views: {
 		editview: {
 			caption: '测试用例',
-      title: '测试用例',
+      title: 'case编辑视图',
 		},
 		maingridview: {
 			caption: '功能测试',
@@ -56,7 +56,7 @@ export default {
 		},
 		maininfoeditview9: {
 			caption: '测试用例',
-      title: '测试用例',
+      title: '测试用例编辑视图',
 		},
 		mainnewview: {
 			caption: '功能测试',
@@ -72,7 +72,7 @@ export default {
 		},
 		gridview9: {
 			caption: '测试用例',
-      title: '测试用例',
+      title: '测试用例表格视图',
 		},
 		maineditview: {
 			caption: '测试用例',
@@ -80,11 +80,11 @@ export default {
 		},
 		maindetaileditview9: {
 			caption: '测试用例',
-      title: '测试用例',
+      title: '测试用例编辑视图',
 		},
 		gridview: {
 			caption: '测试用例',
-      title: '测试用例',
+      title: 'case表格视图',
 		},
 	},
 	main_form: {

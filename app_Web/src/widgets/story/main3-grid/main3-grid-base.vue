@@ -119,22 +119,22 @@
                             
                             <a @click="uiAction(scope.row, 'ChangeStoryDetail', $event)">
                               <i class='fa fa-exchange'></i>
-                              {{$t('entities.story.main3_grid.uiactions.changestorydetail')}}
+                              
                             </a>
                             <divider type='vertical'></divider>
                             <a @click="uiAction(scope.row, 'CloseStory', $event)">
                               <i class='fa fa-power-off'></i>
-                              {{$t('entities.story.main3_grid.uiactions.closestory')}}
+                              
                             </a>
                             <divider type='vertical'></divider>
                             <a @click="uiAction(scope.row, 'OpenBaseInfoEditView', $event)">
                               <i class='fa fa-edit'></i>
-                              {{$t('entities.story.main3_grid.uiactions.openbaseinfoeditview')}}
+                              
                             </a>
                             <divider type='vertical'></divider>
                             <a @click="uiAction(scope.row, 'OpenCaseCreateView', $event)">
                               <i class='fa fa-lightbulb-o'></i>
-                              {{$t('entities.story.main3_grid.uiactions.opencasecreateview')}}
+                              
                             </a>
                         </span>
                     </template>
@@ -261,7 +261,6 @@ export default class Main3Base extends Vue implements ControlInterface {
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -290,7 +289,6 @@ export default class Main3Base extends Vue implements ControlInterface {
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -319,7 +317,6 @@ export default class Main3Base extends Vue implements ControlInterface {
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -348,7 +345,6 @@ export default class Main3Base extends Vue implements ControlInterface {
         // _this 指向容器对象
         const _this: any = this;
         let paramJO:any = {};
-        
         let contextJO:any = {};
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
@@ -1505,6 +1501,7 @@ export default class Main3Base extends Vue implements ControlInterface {
      * @memberof Main3
      */
 	public uiAction(row: any, tag: any, $event: any) {
+        $event.stopPropagation();
         if(Object.is('ChangeStoryDetail', tag)) {
             this.grid_uagridcolumn1_u7b97712_click(row, tag, $event);
         }
@@ -1640,6 +1637,14 @@ export default class Main3Base extends Vue implements ControlInterface {
             return Object.is(item.story,args.row.story);
         });
         return isSelected ? "grid-selected-row" : "";
+    }
+
+    /**
+     * 新建默认值
+     * @param {*}  row 行数据
+     * @memberof Main3
+     */
+    public createDefault(row: any){                    
     }
 }
 </script>

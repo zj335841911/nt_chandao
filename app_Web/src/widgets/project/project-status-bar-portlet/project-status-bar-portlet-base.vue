@@ -1,8 +1,10 @@
 <template>
-    <div class='portlet project-status-bar ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : '370px',}">
+    <div class='portlet project-status-bar ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'370px'),}">
         <p class='portlet-title'>
-            <i class=''></i>
+            <span>
+            
             项目总览
+            </span>
         </p>
         <div class="portlet-with-title">
         <!-- 测试 -->
@@ -28,6 +30,7 @@ import { UIActionTool,Util } from '@/utils';
 import ProjectService from '@/service/project/project-service';
 import ProjectStatusBarService from './project-status-bar-portlet-service';
 
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -144,6 +147,22 @@ export default class ProjectProjectStatusBarBase extends Vue implements ControlI
     }
 
 
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof ProjectStatusBar
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof ProjectStatusBar
+     */
+    @Prop() public width?: number;
+
 
 
     /**
@@ -222,9 +241,11 @@ export default class ProjectProjectStatusBarBase extends Vue implements ControlI
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
 @import './project-status-bar-portlet.less';
 </style>
+

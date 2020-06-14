@@ -1,8 +1,10 @@
 <template>
-    <div class='portlet un-closed-product ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : 'auto',}">
+    <div class='portlet un-closed-product ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'1px'),}">
         <p class='portlet-title'>
-            <i class=''></i>
+            <span>
+            
             未关闭产品
+            </span>
         </p>
         <div class="portlet-with-title">
         <product-grid-view-un-closed :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></product-grid-view-un-closed>
@@ -18,6 +20,7 @@ import { UIActionTool,Util } from '@/utils';
 import ProductService from '@/service/product/product-service';
 import UnClosedProductService from './un-closed-product-portlet-service';
 
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -134,6 +137,22 @@ export default class ProductUnClosedProductBase extends Vue implements ControlIn
     }
 
 
+    /**
+     * 长度
+     *
+     * @type {number}
+     * @memberof UnClosedProduct
+     */
+    @Prop() public height?: number;
+
+    /**
+     * 宽度
+     *
+     * @type {number}
+     * @memberof UnClosedProduct
+     */
+    @Prop() public width?: number;
+
 
 
     /**
@@ -212,9 +231,11 @@ export default class ProductUnClosedProductBase extends Vue implements ControlIn
         }
     }
 
+
 }
 </script>
 
 <style lang='less'>
 @import './un-closed-product-portlet.less';
 </style>
+

@@ -4,22 +4,118 @@
       <app-build @handleClick="handleClick"></app-build>
     </row>
     <row v-if="!isHasCustomized">
-          <div style = ''>
       <i-col :md="{ span: 24, offset: 0 }">
         <card class="portlet-card" :bordered="false" dis-hover :padding="0">
           <span>
-                      <view_dashboard_container1 
-              :viewState="viewState"  
-              :viewparams="viewparams" 
-              :context="context" 
-              name="dashboard_container1"  
-              ref='dashboard_container1' 
-              @closeview="closeView($event)">
-          </view_dashboard_container1>
+                      <div class='portlet-container main-viewdashboard-container1 ' :style="{}">
+                <row>
+                  <i-col :md="{ span: 16, offset: 0 }" :lg="{ span: 16, offset: 0 }">
+                      <div class="portlet-without-title">
+                        <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+                        <span>
+                                        <div class='portlet-container main-viewdashboard-container2 ' :style="{}">
+                              <row>
+                                <i-col :md="{ span: 24, offset: 0 }">
+                                    <div class="portlet-without-title">
+                                      <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+                                      <span>
+                                                      <view_dashboard_sysportlet1 
+                                          :viewState="viewState"  
+                                          :viewparams="viewparams" 
+                                          :context="context" 
+                                          :height="1"
+                                          name="dashboard_sysportlet1"  
+                                          ref='dashboard_sysportlet1' 
+                                          @closeview="closeView($event)">
+                                      </view_dashboard_sysportlet1>
+                                      </span>
+                                    </card>
+                                    </div>
+                                </i-col>
+                                <i-col :md="{ span: 24, offset: 0 }">
+                                    <div class="portlet-without-title">
+                                      <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+                                      <span>
+                                                      <view_dashboard_sysportlet4 
+                                          :viewState="viewState"  
+                                          :viewparams="viewparams" 
+                                          :context="context" 
+                                          :height="1"
+                                          name="dashboard_sysportlet4"  
+                                          ref='dashboard_sysportlet4' 
+                                          @closeview="closeView($event)">
+                                      </view_dashboard_sysportlet4>
+                                      </span>
+                                    </card>
+                                    </div>
+                                </i-col>
+                                <i-col :md="{ span: 24, offset: 0 }">
+                                    <div class="portlet-without-title">
+                                      <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+                                      <span>
+                                                      <div class='portlet-container main-viewdashboard-container4  dashboard-footer-button-wrapper' :style="{}">
+                                            <div style = 'display : flex;  justify-content :center;  '>
+                                              <div class="portlet-without-title">
+                                                <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+                                                  <span>
+                                                                  <view_dashboard_sysportlet3 
+                                                        :viewState="viewState"  
+                                                        :viewparams="viewparams" 
+                                                        :context="context" 
+                                                        :height="1"
+                                                        name="dashboard_sysportlet3"  
+                                                        ref='dashboard_sysportlet3' 
+                                                        @closeview="closeView($event)">
+                                                    </view_dashboard_sysportlet3>
+                                                  </span>
+                                                </card>
+                                              </div>
+                                            </div>
+                                        </div>
+                                      </span>
+                                    </card>
+                                    </div>
+                                </i-col>
+                              </row>
+                          </div>
+                        </span>
+                      </card>
+                      </div>
+                  </i-col>
+                  <i-col :md="{ span: 8, offset: 0 }" :lg="{ span: 8, offset: 0 }">
+                      <div class="portlet-without-title">
+                        <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+                        <span>
+                                        <div class='portlet-container main-viewdashboard-container3 ' :style="{}">
+                              <row>
+                                <i-col :md="{ span: 24, offset: 0 }">
+                                    <div class="portlet-without-title">
+                                      <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+                                      <span>
+                                                      <view_dashboard_sysportlet2 
+                                          :viewState="viewState"  
+                                          :viewparams="viewparams" 
+                                          :context="context" 
+                                          :height="1"
+                                          name="dashboard_sysportlet2"  
+                                          ref='dashboard_sysportlet2' 
+                                          @closeview="closeView($event)">
+                                      </view_dashboard_sysportlet2>
+                                      </span>
+                                    </card>
+                                    </div>
+                                </i-col>
+                              </row>
+                          </div>
+                        </span>
+                      </card>
+                      </div>
+                  </i-col>
+                </row>
+            </div>
           </span>
         </card>
       </i-col>
-      </div>
     </row>
     <row v-if="isHasCustomized" style="width: 100%;min-height: calc(100% - 40px);">
       <div class="portlet-container" style="position: relative;width:100%;">
@@ -325,7 +421,12 @@ export default class MainPanelBase extends Vue implements ControlInterface {
                 this.isHasCustomized = false;
                 this.notifyState();
               }
-            })
+            }).catch((error:any)=>{
+                console.error("加载面板模型异常");
+                console.error(error);
+                this.isHasCustomized = false;
+                this.notifyState();
+            });
           })
         }else{
           this.notifyState();
