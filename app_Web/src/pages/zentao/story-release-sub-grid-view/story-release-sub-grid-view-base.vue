@@ -3,11 +3,7 @@
     <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
                 <div class='toolbar-container'>
-            <i-button :title="$t('entities.story.releasesubgridviewtoolbar_toolbar.deuiaction3_planrelationstory.tip')" v-show="toolBarModels.deuiaction3_planrelationstory.visabled" :disabled="toolBarModels.deuiaction3_planrelationstory.disabled" class='' @click="toolbar_click({ tag: 'deuiaction3_planrelationstory' }, $event)">
-                    <i class='fa fa-chain'></i>
-                    <span class='caption'>{{$t('entities.story.releasesubgridviewtoolbar_toolbar.deuiaction3_planrelationstory.caption')}}</span>
-                </i-button>
-            <span class='seperator'>|</span>    <i-button :title="$t('entities.story.releasesubgridviewtoolbar_toolbar.deuiaction1.tip')" v-show="toolBarModels.deuiaction1.visabled" :disabled="toolBarModels.deuiaction1.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1' }, $event)">
+            <i-button :title="$t('entities.story.releasesubgridviewtoolbar_toolbar.deuiaction1.tip')" v-show="toolBarModels.deuiaction1.visabled" :disabled="toolBarModels.deuiaction1.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1' }, $event)">
                     <i class='fa fa-plus'></i>
                     <span class='caption'>{{$t('entities.story.releasesubgridviewtoolbar_toolbar.deuiaction1.caption')}}</span>
                 </i-button>
@@ -60,7 +56,6 @@ import StoryService from '@/service/story/story-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 
 
-import StoryUIService from '@/uiservice/story/story-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -138,7 +133,6 @@ export default class StoryReleaseSubGridViewBase extends Vue {
 	 * @memberof StoryReleaseSubGridViewBase
 	 */
     public customViewNavContexts:any ={
-    "RELEASE":{"isRawValue":false,"value":"srfparentkey"}
     };
 
 	/**
@@ -148,7 +142,6 @@ export default class StoryReleaseSubGridViewBase extends Vue {
 	 * @memberof StoryReleaseSubGridViewBase
 	 */
     public customViewParams:any ={
-    "n_release_eq":{"isRawValue":false,"value":"srfparentkey"}
     };
 
     /**
@@ -243,9 +236,6 @@ export default class StoryReleaseSubGridViewBase extends Vue {
      * @memberof StoryReleaseSubGridView
      */
     public toolBarModels: any = {
-        deuiaction3_planrelationstory: { name: 'deuiaction3_planrelationstory', caption: '关联需求', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'PlanRelationStory', target: 'NONE' } },
-
-        seperator2: {  name: 'seperator2', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
         deuiaction1: { name: 'deuiaction1', caption: '新建', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'New', target: '' } },
 
         deuiaction4: { name: 'deuiaction4', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Remove', target: 'MULTIKEY' } },
@@ -502,9 +492,6 @@ export default class StoryReleaseSubGridViewBase extends Vue {
      * @memberof StoryReleaseSubGridViewBase
      */
     public toolbar_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'deuiaction3_planrelationstory')) {
-            this.toolbar_deuiaction3_planrelationstory_click(null, '', $event2);
-        }
         if (Object.is($event.tag, 'deuiaction1')) {
             this.toolbar_deuiaction1_click(null, '', $event2);
         }
@@ -577,36 +564,6 @@ export default class StoryReleaseSubGridViewBase extends Vue {
     }
 
 
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_deuiaction3_planrelationstory_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:StoryUIService  = new StoryUIService();
-        curUIService.Story_PlanRelationStory(datas,contextJO, paramJO,  $event, xData,this,"Story");
-    }
 
     /**
      * 逻辑事件

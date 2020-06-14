@@ -4,7 +4,7 @@ import { UIStateService } from '@/studio-core/service/UIStateService';
 import './app-content-left-exp.less';
 
 /**
- * 应用头部
+ * 应用左侧导航
  *
  * @export
  * @class AppContentLeftExp
@@ -23,7 +23,7 @@ export class AppContentLeftExp extends Vue {
     protected uiState: UIStateService = new UIStateService();
 
     /**
-     * 菜单
+     * 菜单数据
      *
      * @protected
      * @type {any[]}
@@ -59,7 +59,7 @@ export class AppContentLeftExp extends Vue {
     protected created(): void {
         const i: number = this.uiState.layoutState.leftExpActiveIndex;
         if (this.menus.length >= (i + 1)) {
-            this.itemClick(this.menus[i], i);
+            this.changeActiveItem(this.menus[i], i);
         }
     }
 
@@ -72,6 +72,22 @@ export class AppContentLeftExp extends Vue {
      * @memberof AppContentLeftExp
      */
     protected itemClick(item: any, index: number): void {
+        if (this.activeIndex === index) {
+            this.uiState.leftExpContentShowChange();
+        } else {
+            this.changeActiveItem(item, index);
+        }
+    }
+
+    /**
+     * 改变激活项
+     *
+     * @protected
+     * @param {*} item
+     * @param {number} index
+     * @memberof AppContentLeftExp
+     */
+    protected changeActiveItem(item: any, index: number): void {
         if (!Object.is(item.appfuncyype, 'APPVIEW')) {
             return;
         }

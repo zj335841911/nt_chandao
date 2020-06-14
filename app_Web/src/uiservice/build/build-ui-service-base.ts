@@ -80,7 +80,9 @@ export default class BuildUIServiceBase extends UIService {
      */  
     public initViewMap(){
         this.allViewMap.set('MDATAVIEW:',{viewname:'maingridview',srfappde:'builds'});
+        this.allViewMap.set(':',{viewname:'mainview',srfappde:'builds'});
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'builds'});
+        this.allViewMap.set(':',{viewname:'maintabexpview',srfappde:'builds'});
     }
 
     /**

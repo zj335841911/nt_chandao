@@ -168,6 +168,9 @@ export default class IBizPMSBase extends Vue {
     });
     this.viewtag = secondtag;
     this.parseViewParam();
+    this.$uiState.changeLayoutState({
+      styleMode: 'DEFAULT'
+    });
     this.registerFooterItems();
   }
 
@@ -234,6 +237,15 @@ export default class IBizPMSBase extends Vue {
    * 绘制内容
    */
   public render(): any {
+    const styleMode = this.$uiState.layoutState.styleMode;
+    let leftContent: any;
+    switch (styleMode) {
+      case 'DEFAULT':
+        leftContent = <app-content-left-exp menus={this.left_exp.items} />;
+        break;
+      case 'STYLE2':
+        leftContent = <app-content-left-nav-menu menus={this.left_exp.items} on-menu-click={(item: any) => this.click(item)}/>;
+    }
     return (
       <app-layout>
         <template slot="header">
@@ -252,9 +264,9 @@ export default class IBizPMSBase extends Vue {
         </template>
         <app-content>
           {this.left_exp.items ? <template slot="content_left">
-            <app-content-left-exp menus={this.left_exp.items} />
+            {leftContent}
           </template> : null}
-          <tab-page-exp></tab-page-exp>
+          {styleMode === 'DEFAULT' ? <tab-page-exp></tab-page-exp> : null}
           <div class="view-warp">
             <app-keep-alive routerList={this.$store.state.historyPathList}>
               <router-view key={this.$route.fullPath}></router-view>

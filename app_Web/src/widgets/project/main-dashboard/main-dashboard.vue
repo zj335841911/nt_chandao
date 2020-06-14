@@ -7,7 +7,7 @@ import view_dashboard_container1 from '@widgets/project/main-dashboard-viewdashb
 import view_dashboard_sysportlet4 from '@widgets/action/action-history-portlet/action-history-portlet.vue';
 import view_dashboard_sysportlet2 from '@widgets/action/project-trends-timeline-portlet/project-trends-timeline-portlet.vue';
 import view_dashboard_sysportlet3 from '@widgets/project/dash-borad-info-view-portlet/dash-borad-info-view-portlet.vue';
-import view_dashboard_sysportlet1 from '@widgets/project/burn-down-portlet/burn-down-portlet.vue';
+import view_dashboard_sysportlet1 from '@widgets/burn/burn-down-chart-portlet/burn-down-chart-portlet.vue';
 
  
 @Component({

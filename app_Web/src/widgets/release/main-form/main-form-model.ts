@@ -91,6 +91,11 @@ export default class MainModel {
         dataType: 'PICKUP',
       },
       {
+        name: 'build',
+        prop: 'build',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'release',
         prop: 'id',
         dataType: 'FONTKEY',

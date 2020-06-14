@@ -64,6 +64,10 @@ export default {
 			caption: 'Bug',
       title: 'Bug',
 		},
+		buildsubgridview_new: {
+			caption: 'Bug',
+      title: 'Bug',
+		},
 		maineditview: {
 			caption: 'Bug编辑',
       title: 'Bug编辑',
@@ -109,6 +113,10 @@ export default {
       title: 'Bug',
 		},
 		dashboardmaineditview9: {
+			caption: 'Bug',
+      title: 'Bug',
+		},
+		buildsubgridview_done: {
 			caption: 'Bug',
       title: 'Bug',
 		},
@@ -318,6 +326,19 @@ export default {
 		uiactions: {
 		},
 	},
+	main_buildsub_grid: {
+		columns: {
+			id: 'ID',
+			pri: 'P',
+			title: 'Bug标题',
+			status: 'Bug状态',
+			openedby: '由谁创建',
+			openeddate: '创建日期',
+			assignedto: '指派给',
+		},
+		uiactions: {
+		},
+	},
 	main_releasesub_grid: {
 		columns: {
 			id: 'ID',
@@ -390,6 +411,18 @@ export default {
 		deuiaction1: {
 			caption: '保存并关闭',
 			tip: '保存并关闭',
+		},
+	},
+	buildsubgridview_donetoolbar_toolbar: {
+		deuiaction2: {
+			caption: '刷新',
+			tip: '刷新',
+		},
+	},
+	buildsubgridview_newtoolbar_toolbar: {
+		deuiaction2: {
+			caption: '刷新',
+			tip: '刷新',
 		},
 	},
 	releasesubgridview_donetoolbar_toolbar: {

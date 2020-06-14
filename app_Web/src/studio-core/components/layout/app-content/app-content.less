@@ -2,6 +2,24 @@
     height: 100%;
     width: 100%;
 
+    >.ivu-split-wrapper.app-content-split.hidden-left {
+
+        >.ivu-split-horizontal {
+
+            >.left-pane.ivu-split-pane {
+                right: calc(100vw - 48px) !important;
+            }
+
+            >.ivu-split-trigger-con {
+                display: none !important;
+            }
+
+            >.right-pane.ivu-split-pane {
+                left: 48px !important;
+            }
+        }
+    }
+
     .app-content-left {
         height: 100%;
         width: 100%;
@@ -55,6 +73,32 @@
                 >.bottom-pane.ivu-split-pane {
                     display: none;
                 }
+            }
+        }
+    }
+}
+
+// 样式二布局修正
+.app-layout.style2 {
+
+    .app-content {
+        display: flex;
+
+        >.app-content-nav {
+            flex-shrink: 0;
+        }
+
+        >.app-content-right {
+            flex-grow: 1;
+        }
+    }
+
+    .app-content-right {
+
+        .app-content-exp {
+
+            >.view-warp {
+                height: 100%;
             }
         }
     }

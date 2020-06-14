@@ -1,9 +1,6 @@
 <template>
 <studio-view viewName="branchpmgridview" viewTitle="平台管理" class='degridview branch-pmgrid-view'>
-    <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
-    </template>
-    <i-input slot="quickSearch" v-show="!isExpandSearchForm" v-model="query" search @on-search="onSearch($event)"/>
+    <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
                 <div class='toolbar-container'>
             <i-button :title="$t('entities.branch.pmgridviewtoolbar_toolbar.deuiaction1.tip')" v-show="toolBarModels.deuiaction1.visabled" :disabled="toolBarModels.deuiaction1.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1' }, $event)">
@@ -15,24 +12,6 @@
                     <span class='caption'>{{$t('entities.branch.pmgridviewtoolbar_toolbar.deuiaction2.caption')}}</span>
                 </i-button>
         </div>
-    </template>
-    <template slot="searchForm">
-                <view_searchform 
-            :viewState="viewState"  
-            :viewparams="viewparams" 
-            :context="context" 
-            :showBusyIndicator="true"
-            v-show="isExpandSearchForm"
-            loaddraftAction="FilterGetDraft"
-            loadAction="FilterGet"
-        
-            name="searchform"  
-            ref='searchform' 
-            @save="searchform_save($event)"  
-            @search="searchform_search($event)"  
-            @load="searchform_load($event)"  
-            @closeview="closeView($event)">
-        </view_searchform>
     </template>
     <view_grid 
         :viewState="viewState"  
@@ -220,7 +199,6 @@ export default class BranchPMGridViewBase extends Vue {
     public containerModel: any = {
         view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
         view_grid: { name: 'grid', type: 'GRID' },
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
     };
 
     /**
@@ -290,7 +268,6 @@ export default class BranchPMGridViewBase extends Vue {
                 this.newdata(args,fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
-            searchform: this.$refs.searchform,
             keyPSDEField: 'branch',
             majorPSDEField: 'name',
             isLoadDefault: true,
@@ -575,42 +552,6 @@ export default class BranchPMGridViewBase extends Vue {
      */
     public grid_load($event: any, $event2?: any) {
         this.engine.onCtrlEvent('grid', 'load', $event);
-    }
-
-
-    /**
-     * searchform 部件 save 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof BranchPMGridViewBase
-     */
-    public searchform_save($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('searchform', 'save', $event);
-    }
-
-
-    /**
-     * searchform 部件 search 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof BranchPMGridViewBase
-     */
-    public searchform_search($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('searchform', 'search', $event);
-    }
-
-
-    /**
-     * searchform 部件 load 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof BranchPMGridViewBase
-     */
-    public searchform_load($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('searchform', 'load', $event);
     }
 
 

@@ -20,17 +20,25 @@ export default {
 			caption: '版本',
       title: '版本',
 		},
+		mainview: {
+			caption: '版本',
+      title: '版本',
+		},
 		editview: {
+			caption: '版本',
+      title: '版本',
+		},
+		maintabexpview: {
 			caption: '版本',
       title: '版本',
 		},
 	},
 	main_form: {
 		details: {
-			group1: 'build基本信息', 
+			group1: '基本信息', 
+			druipart1: '', 
+			grouppanel1: '历史记录', 
 			formpage1: '基本信息', 
-			group2: '操作信息', 
-			formpage2: '其它', 
 			srforikey: '', 
 			srfkey: 'id', 
 			srfmajortext: '名称编号', 
@@ -38,8 +46,41 @@ export default {
 			srfuf: '', 
 			srfdeid: '', 
 			srfsourcekey: '', 
+			productname: '产品', 
 			name: '名称编号', 
+			builder: '构建者', 
+			date: '打包日期', 
+			scmpath: '源代码地址', 
+			filepath: '下载地址', 
+			desc: '描述', 
 			id: 'id', 
+			product: '产品', 
+		},
+		uiactions: {
+		},
+	},
+	quickcreate_form: {
+		details: {
+			grouppanel2: '分组面板', 
+			group1: '基本信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: 'id', 
+			srfmajortext: '名称编号', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			productname: '产品', 
+			name: '名称编号', 
+			builder: '构建者', 
+			date: '打包日期', 
+			scmpath: '源代码地址', 
+			filepath: '下载地址', 
+			files: '上传发行包', 
+			desc: '描述', 
+			id: 'id', 
+			product: '产品', 
 		},
 		uiactions: {
 		},
@@ -124,69 +165,9 @@ export default {
 		},
 	},
 	editviewtoolbar_toolbar: {
-		tbitem3: {
-			caption: '保存',
-			tip: '保存',
-		},
-		tbitem4: {
-			caption: '保存并新建',
-			tip: '保存并新建',
-		},
-		tbitem5: {
+		deuiaction1: {
 			caption: '保存并关闭',
 			tip: '保存并关闭',
-		},
-		tbitem6: {
-			caption: '-',
-			tip: '',
-		},
-		tbitem7: {
-			caption: '删除',
-			tip: '删除',
-		},
-		tbitem8: {
-			caption: '-',
-			tip: '',
-		},
-		tbitem12: {
-			caption: '新建',
-			tip: '新建',
-		},
-		tbitem13: {
-			caption: '-',
-			tip: '',
-		},
-		tbitem14: {
-			caption: '拷贝',
-			tip: '拷贝',
-		},
-		tbitem16: {
-			caption: '-',
-			tip: '',
-		},
-		tbitem23: {
-			caption: '第一个记录',
-			tip: '第一个记录',
-		},
-		tbitem24: {
-			caption: '上一个记录',
-			tip: '上一个记录',
-		},
-		tbitem25: {
-			caption: '下一个记录',
-			tip: '下一个记录',
-		},
-		tbitem26: {
-			caption: '最后一个记录',
-			tip: '最后一个记录',
-		},
-		tbitem21: {
-			caption: '-',
-			tip: '',
-		},
-		tbitem22: {
-			caption: '帮助',
-			tip: '帮助',
 		},
 	},
 };

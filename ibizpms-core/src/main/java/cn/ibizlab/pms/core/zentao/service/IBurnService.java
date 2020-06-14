@@ -38,6 +38,7 @@ public interface IBurnService extends IService<Burn>{
     Burn computeBurn(Burn et) ;
     Burn getDraft(Burn et) ;
     Page<Burn> searchDefault(BurnSearchContext context) ;
+    Page<Burn> searchESTIMATEANDLEFT(BurnSearchContext context) ;
     List<Burn> selectByProject(BigInteger id) ;
     void removeByProject(BigInteger id) ;
     List<Burn> selectByTask(BigInteger id) ;

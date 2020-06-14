@@ -80,6 +80,7 @@ export default class BugUIServiceBase extends UIService {
      */  
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'plansubgridview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'buildsubgridview_new',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'maineditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'bugs'});
@@ -92,6 +93,7 @@ export default class BugUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'releasesubgridview_undone',srfappde:'bugs'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'dashboardmaineditview9',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'buildsubgridview_done',srfappde:'bugs'});
     }
 
     /**

@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import BuildEditViewBase from './build-edit-view-base.vue';
 
-import view_form from '@widgets/build/main-form/main-form.vue';
+import view_form from '@widgets/build/quick-create-form/quick-create-form.vue';
 @Component({
     components: {
         view_form, 

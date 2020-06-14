@@ -89,6 +89,7 @@ export default {
 			desc: "描述", 
 			id: "ID", 
 			product: "产品", 
+			build: "版本", 
 		},
 		uiactions: {
 		},
