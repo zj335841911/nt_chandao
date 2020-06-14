@@ -55,7 +55,15 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.buildname}}</span>
+                        <app-column-link deKeyField='build' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'build-main-tab-exp-view', height: 0,width: 0,title: $t('entities.build.views.maintabexpview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+            ,parameters: [
+            { pathName: 'builds', parameterName: 'build' },
+            { pathName: 'maintabexpview', parameterName: 'maintabexpview' }
+            ]}" valueitem="build">
+                            <span>{{row.buildname}}</span>
+                        </app-column-link >
                     </template>
                 </el-table-column>
             </template>

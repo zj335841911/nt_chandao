@@ -37,9 +37,9 @@ module.exports = {
     parallel: os.cpus().length > 1,
     chainWebpack: (config) => {
         // 删除自动计算预加载资源
-        config.plugins.delete('preload-ibizpms')
+        config.plugins.delete('preload-index')
         // 删除预加载资源
-        config.plugins.delete('prefetch-ibizpms')
+        config.plugins.delete('prefetch-index')
         config.resolve.alias
             .set('@ibizsys', resolve('src/ibizsys'))
             .set('@pages', resolve('src/pages'))

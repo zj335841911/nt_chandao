@@ -41,12 +41,23 @@ style=""></app-span>
 </i-col>
 <i-col v-show="detailsModel.buildname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='buildname' :itemRules="this.rules.buildname" class='' :caption="$t('entities.release.main_form.details.buildname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.buildname.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-span   name='buildname'
-:value="data.buildname"   :data="data"
+    <app-picker 
+  :formState="formState"
+  :data="data"
   :context="context"
   :viewparams="viewparams"
-  :itemParam="{}" 
-style=""></app-span>
+  :itemParam='{ }' 
+  :disabled="detailsModel.buildname.disabled"
+  name='buildname'
+  deMajorField='name'
+  deKeyField='build'
+  valueitem='build' 
+  :value="data.buildname"  
+  editortype="linkonly" 
+  :linkview="{ viewname: 'BuildMainTabExpView', title: $t('entities.build.views.maintabexpview.title'), deResParameters: [{ pathName: 'products', parameterName: 'product' }, ], parameters: [{ pathName: 'builds', parameterName: 'build' }, { pathName: 'maintabexpview', parameterName: 'maintabexpview' } ], width: 0, height: 0, placement: 'DRAWER_TOP', isRedirectView: false }" 
+  style=""  
+  @formitemvaluechange="onFormItemValueChange">
+</app-picker>
 </app-form-item>
 
 </i-col>
@@ -435,6 +446,7 @@ export default class MainBase extends Vue implements ControlInterface {
         desc: null,
         id: null,
         product: null,
+        build: null,
         release:null,
     };
 
@@ -567,6 +579,12 @@ export default class MainBase extends Vue implements ControlInterface {
             { required: false, type: 'number', message: '产品 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: '产品 值不能为空', trigger: 'blur' },
         ],
+        build: [
+            { type: 'number', message: '版本 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '版本 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '版本 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '版本 值不能为空', trigger: 'blur' },
+        ],
     }
 
     /**
@@ -615,6 +633,8 @@ export default class MainBase extends Vue implements ControlInterface {
         id: new FormItemModel({ caption: 'ID', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
         product: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        build: new FormItemModel({ caption: '版本', detailType: 'FORMITEM', name: 'build', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -798,6 +818,18 @@ export default class MainBase extends Vue implements ControlInterface {
         this.formDataChange({ name: 'product', newVal: newVal, oldVal: oldVal });
     }
 
+    /**
+     * 监控表单属性 build 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.build')
+    onBuildChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'build', newVal: newVal, oldVal: oldVal });
+    }
+
 
     /**
      * 重置表单项值
@@ -834,6 +866,7 @@ export default class MainBase extends Vue implements ControlInterface {
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
 
 
 

@@ -69,6 +69,10 @@ export default {
 			caption: '需求',
       title: '需求',
 		},
+		buildsubgridview: {
+			caption: '需求',
+      title: '需求',
+		},
 		mainview9_storyspec: {
 			caption: '需求',
       title: '需求',
@@ -349,6 +353,16 @@ export default {
 		uiactions: {
 		},
 	},
+	main_buildsub_grid: {
+		columns: {
+			id: 'ID',
+			pri: 'P',
+			title: '需求名称',
+			modulename: '所属模块名称',
+		},
+		uiactions: {
+		},
+	},
 	main_releasesub_grid: {
 		columns: {
 			id: 'ID',
@@ -505,15 +519,7 @@ export default {
 			tip: '编辑',
 		},
 	},
-	releasesubgridviewtoolbar_toolbar: {
-		deuiaction3_planrelationstory: {
-			caption: '关联需求',
-			tip: '关联需求',
-		},
-		seperator2: {
-			caption: '',
-			tip: '',
-		},
+	buildsubgridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: '新建',
 			tip: '新建',
@@ -535,6 +541,24 @@ export default {
 		deuiaction1: {
 			caption: '保存并关闭',
 			tip: '保存并关闭',
+		},
+	},
+	releasesubgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: '新建',
+			tip: '新建',
+		},
+		deuiaction4: {
+			caption: '删除',
+			tip: '删除',
+		},
+		seperator1: {
+			caption: '',
+			tip: '',
+		},
+		deuiaction2: {
+			caption: '刷新',
+			tip: '刷新',
 		},
 	},
 };

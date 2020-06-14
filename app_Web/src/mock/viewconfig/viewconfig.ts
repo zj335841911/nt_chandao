@@ -79,6 +79,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductPlanMainTabExp",
             "viewtag": "08ca1b1e6234a0d038e1fbf52478ea7f"
         },
+        "bugbuildsubgridview_new": {
+            "title": "bug表格视图",
+            "caption": "Bug",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugBuildSubGridView_New",
+            "viewtag": "09b6c2af7dcc4b719d4c8aad2319f1c5"
+        },
         "projecttasktreeexpview": {
             "title": "项目任务导航视图",
             "caption": "项目",
@@ -471,6 +479,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectPickupView",
             "viewtag": "5a8a29268a7563b62fc0160233958830"
         },
+        "storybuildsubgridview": {
+            "title": "story表格视图",
+            "caption": "需求",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryBuildSubGridView",
+            "viewtag": "5b1056f95f9015cdb45901308a758e25"
+        },
         "testtaskeditview": {
             "title": "testtask编辑视图",
             "caption": "测试版本",
@@ -862,6 +878,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TaskMainGridView",
             "viewtag": "a4af2d93ae66c9877ee99bfe7b93d22c"
+        },
+        "buildmainview": {
+            "title": "版本编辑视图",
+            "caption": "版本",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BuildMainView",
+            "viewtag": "a6d8bd7fa388f638832b33dddaa6df86"
         },
         "projectgridview9_unclosed": {
             "title": "项目表格视图",
@@ -1263,6 +1287,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ActionEditView",
             "viewtag": "f8b69912b3ca27b5d083c8fb1971c84a"
         },
+        "bugbuildsubgridview_done": {
+            "title": "bug表格视图",
+            "caption": "Bug",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugBuildSubGridView_Done",
+            "viewtag": "f8ffad31189703973765c5a9c4fc8a5c"
+        },
         "projectmaintabexpview": {
             "title": "项目导航视图",
             "caption": "项目",
@@ -1270,6 +1302,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ProjectMainTabExpView",
             "viewtag": "fd0b8748ff96edcde009d39903a9f211"
+        },
+        "buildmaintabexpview": {
+            "title": "版本分页导航视图",
+            "caption": "版本",
+            "viewtype": "DETABEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BuildMainTabExpView",
+            "viewtag": "fffe78c32fb25b287d0c5165d46f8dd2"
         }
     }];
 });

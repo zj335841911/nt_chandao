@@ -86,6 +86,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '09b6c2af7dcc4b719d4c8aad2319f1c5',
+            viewmodule: 'zentao',
+            viewname: 'BugBuildSubGridView_New',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '1540523a668e920d831510cfbec2c5e2',
+                '46517a803b2470cd0bef27aeda0dbcaf',
+            ],
+        },
+        {
             viewtag: '103bc77ad54de2476db1d4e9c788cd4e',
             viewmodule: 'zentao',
             viewname: 'ProjectTaskTreeExpView',
@@ -536,6 +547,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '5b1056f95f9015cdb45901308a758e25',
+            viewmodule: 'zentao',
+            viewname: 'StoryBuildSubGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '928e6614bcfbd67af3b596cf5dc5a46b',
+                '3f2ca3e560d9082bb56fbf7667a57a66',
+            ],
+        },
+        {
             viewtag: '5b139a407fa34f386f3f784f33841184',
             viewmodule: 'zentao',
             viewname: 'TestTaskEditView',
@@ -798,6 +820,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'e9d61d4506a28dec9a6f1d7b9e1fff6a',
+                'fffe78c32fb25b287d0c5165d46f8dd2',
             ],
         },
         {
@@ -874,7 +897,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '928e6614bcfbd67af3b596cf5dc5a46b',
-                'b9bdfc0e33d333ade00934745d9dc0ad',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
             ],
         },
@@ -979,6 +1001,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '6c7b582273d0726bcf77214807cfe40c',
+                'fffe78c32fb25b287d0c5165d46f8dd2',
                 '770a170098d148e438a7666b248e6519',
             ],
         },
@@ -1019,6 +1042,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '6c7b582273d0726bcf77214807cfe40c',
+                'fffe78c32fb25b287d0c5165d46f8dd2',
                 '770a170098d148e438a7666b248e6519',
             ],
         },
@@ -1063,6 +1087,17 @@ export const viewstate: any = {
                 'ea141fddc78fd1af4d06e494baf12cc1',
                 '35ba93bac795e0deb7297d2d471b7180',
                 '507c506d62dc910a814332e6ae242266',
+            ],
+        },
+        {
+            viewtag: 'a6d8bd7fa388f638832b33dddaa6df86',
+            viewmodule: 'zentao',
+            viewname: 'BuildMainView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '6c7b582273d0726bcf77214807cfe40c',
+                '770a170098d148e438a7666b248e6519',
             ],
         },
         {
@@ -1423,6 +1458,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '7df0f0deee91304e0350f00baa8a92d6',
             ],
         },
         {
@@ -1523,6 +1559,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'f8ffad31189703973765c5a9c4fc8a5c',
+            viewmodule: 'zentao',
+            viewname: 'BugBuildSubGridView_Done',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '1540523a668e920d831510cfbec2c5e2',
+                '46517a803b2470cd0bef27aeda0dbcaf',
+            ],
+        },
+        {
             viewtag: 'fd0b8748ff96edcde009d39903a9f211',
             viewmodule: 'zentao',
             viewname: 'ProjectMainTabExpView',
@@ -1538,6 +1585,19 @@ export const viewstate: any = {
                 '85ee867b09a2d6303c061d91374ec975',
                 '7b1cc190cbffe1cd122d87a9d03b2d21',
                 '7d34636d1c24d613abf8d3fdc64ec7ba',
+            ],
+        },
+        {
+            viewtag: 'fffe78c32fb25b287d0c5165d46f8dd2',
+            viewmodule: 'zentao',
+            viewname: 'BuildMainTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'a6d8bd7fa388f638832b33dddaa6df86',
+                '5b1056f95f9015cdb45901308a758e25',
+                '09b6c2af7dcc4b719d4c8aad2319f1c5',
+                'f8ffad31189703973765c5a9c4fc8a5c',
             ],
         },
     ],

@@ -44,13 +44,6 @@ export default {
 		uiactions: {
 		},
 	},
-	default_searchform: {
-		details: {
-			formpage1: "常规条件", 
-		},
-		uiactions: {
-		},
-	},
 	pmgridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "New",
