@@ -6,6 +6,7 @@ import CodeListService from '@service/app/codelist-service';
 import i18n from '@/locale';
 import BranchService from '@service/branch/branch-service';
 import ProjectProductService from '@service/project-product/project-product-service';
+import ProductModuleService from '@service/product-module/product-module-service';
 
 
 /**
@@ -72,6 +73,14 @@ export default class TaskModuleExpService extends ControlService {
     public projectproductService: ProjectProductService = new ProjectProductService({ $store: this.getStore() });
 
     /**
+     * 需求模块服务对象
+     *
+     * @type {ProductModuleService}
+     * @memberof TaskModuleExpService
+     */
+    public productmoduleService: ProductModuleService = new ProductModuleService({ $store: this.getStore() });
+
+    /**
      * 节点分隔符号
      *
      * @public
@@ -126,7 +135,7 @@ export default class TaskModuleExpService extends ControlService {
 	public TREENODE_ROOT: string = 'ROOT';
 
     /**
-     * 根模块（动态）节点分隔符号
+     * 产品根模块（动态）节点分隔符号
      *
      * @public
      * @type {string}
@@ -144,7 +153,7 @@ export default class TaskModuleExpService extends ControlService {
 	public TREENODE_MODULE: string = 'MODULE';
 
     /**
-     * 根模块无分支（动态）节点分隔符号
+     * 产品根模块无分支（动态）节点分隔符号
      *
      * @public
      * @type {string}
@@ -472,13 +481,13 @@ export default class TaskModuleExpService extends ControlService {
     @Errorlog
     public async fillBranchsNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
-			// 填充根模块（动态）
+			// 填充产品根模块（动态）
             let RootmoduleRsNavContext:any = {};
             let RootmoduleRsNavParams:any = {};
             let RootmoduleRsParams:any = {};
 			await this.fillRootmoduleNodes(context, filter, list ,RootmoduleRsNavContext,RootmoduleRsNavParams,RootmoduleRsParams);
 		} else {
-			// 填充根模块（动态）
+			// 填充产品根模块（动态）
             let RootmoduleRsNavContext:any = {};
             let RootmoduleRsNavParams:any = {};
             let RootmoduleRsParams:any = {};
@@ -616,7 +625,7 @@ export default class TaskModuleExpService extends ControlService {
     @Errorlog
     public async fillZt_productNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
-			// 填充根模块无分支（动态）
+			// 填充产品根模块无分支（动态）
             let Root_nobranchRsNavContext:any = {"PRODUCT":{"isRawValue":false,"value":"projectproduct"}};
             let Root_nobranchRsNavParams:any = {};
             let Root_nobranchRsParams:any = {};
@@ -627,7 +636,7 @@ export default class TaskModuleExpService extends ControlService {
             let BranchsRsParams:any = {};
 			await this.fillBranchsNodes(context, filter, list ,BranchsRsNavContext,BranchsRsNavParams,BranchsRsParams);
 		} else {
-			// 填充根模块无分支（动态）
+			// 填充产品根模块无分支（动态）
             let Root_nobranchRsNavContext:any = {"PRODUCT":{"isRawValue":false,"value":"projectproduct"}};
             let Root_nobranchRsNavParams:any = {};
             let Root_nobranchRsParams:any = {};
@@ -659,11 +668,6 @@ export default class TaskModuleExpService extends ControlService {
         filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
-
-            if (Object.is(filter.strNodeType, this.TREENODE_ALL)) {
-                Object.assign(searchFilter, { n_root_eq: filter.nodeid });
-            }
-
             Object.assign(searchFilter, { total: false });
             let bFirst: boolean = true;
             let records: any[] = [];
@@ -862,7 +866,7 @@ export default class TaskModuleExpService extends ControlService {
 	}
 
     /**
-     * 填充 树视图节点[根模块（动态）]
+     * 填充 树视图节点[产品根模块（动态）]
      *
      * @public
      * @param {any{}} context     
@@ -896,11 +900,11 @@ export default class TaskModuleExpService extends ControlService {
                         // 整理context
                         let strId: string = entity.id;
                         let strText: string = entity.name;
-                        Object.assign(treeNode,{srfparentdename:'ProjectModule',srfparentkey:entity.id});
+                        Object.assign(treeNode,{srfparentdename:'ProductModule',srfparentkey:entity.id});
                         let tempContext:any = JSON.parse(JSON.stringify(context));
-                        Object.assign(tempContext,{srfparentdename:'ProjectModule',srfparentkey:entity.id,projectmodule:strId})
+                        Object.assign(tempContext,{srfparentdename:'ProductModule',srfparentkey:entity.id,productmodule:strId})
                         Object.assign(treeNode,{srfappctx:tempContext});
-                        Object.assign(treeNode,{'projectmodule':strId});
+                        Object.assign(treeNode,{'productmodule':strId});
                         Object.assign(treeNode, { srfkey: strId });
                         Object.assign(treeNode, { text: strText, srfmajortext: strText });
                         let strNodeId: string = 'ROOTMODULE';
@@ -962,7 +966,7 @@ export default class TaskModuleExpService extends ControlService {
             if(context && context.srfparentkey){
                 Object.assign(searchFilter,{srfparentkey:JSON.parse(JSON.stringify(context)).srfparentkey});
             }
-            const _appEntityService: any = this.appEntityService;
+            const _appEntityService: any = this.productmoduleService;
             let list: any[] = [];
             if (_appEntityService['FetchRoot'] && _appEntityService['FetchRoot'] instanceof Function) {
                 const response: Promise<any> = _appEntityService['FetchRoot'](context, searchFilter, false);
@@ -989,7 +993,7 @@ export default class TaskModuleExpService extends ControlService {
     }
 
     /**
-     * 填充 树视图节点[根模块（动态）]子节点
+     * 填充 树视图节点[产品根模块（动态）]子节点
      *
      * @public
      * @param {any{}} context         
@@ -1181,7 +1185,7 @@ export default class TaskModuleExpService extends ControlService {
 	}
 
     /**
-     * 填充 树视图节点[根模块无分支（动态）]
+     * 填充 树视图节点[产品根模块无分支（动态）]
      *
      * @public
      * @param {any{}} context     
@@ -1215,11 +1219,11 @@ export default class TaskModuleExpService extends ControlService {
                         // 整理context
                         let strId: string = entity.id;
                         let strText: string = entity.name;
-                        Object.assign(treeNode,{srfparentdename:'ProjectModule',srfparentkey:entity.id});
+                        Object.assign(treeNode,{srfparentdename:'ProductModule',srfparentkey:entity.id});
                         let tempContext:any = JSON.parse(JSON.stringify(context));
-                        Object.assign(tempContext,{srfparentdename:'ProjectModule',srfparentkey:entity.id,projectmodule:strId})
+                        Object.assign(tempContext,{srfparentdename:'ProductModule',srfparentkey:entity.id,productmodule:strId})
                         Object.assign(treeNode,{srfappctx:tempContext});
-                        Object.assign(treeNode,{'projectmodule':strId});
+                        Object.assign(treeNode,{'productmodule':strId});
                         Object.assign(treeNode, { srfkey: strId });
                         Object.assign(treeNode, { text: strText, srfmajortext: strText });
                         let strNodeId: string = 'Root_NoBranch';
@@ -1281,7 +1285,7 @@ export default class TaskModuleExpService extends ControlService {
             if(context && context.srfparentkey){
                 Object.assign(searchFilter,{srfparentkey:JSON.parse(JSON.stringify(context)).srfparentkey});
             }
-            const _appEntityService: any = this.appEntityService;
+            const _appEntityService: any = this.productmoduleService;
             let list: any[] = [];
             if (_appEntityService['FetchRoot_NoBranch'] && _appEntityService['FetchRoot_NoBranch'] instanceof Function) {
                 const response: Promise<any> = _appEntityService['FetchRoot_NoBranch'](context, searchFilter, false);
@@ -1308,7 +1312,7 @@ export default class TaskModuleExpService extends ControlService {
     }
 
     /**
-     * 填充 树视图节点[根模块无分支（动态）]子节点
+     * 填充 树视图节点[产品根模块无分支（动态）]子节点
      *
      * @public
      * @param {any{}} context         
