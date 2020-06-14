@@ -96,6 +96,10 @@ export default {
 			caption: "工时信息",
       title: '工时信息',
 		},
+		maingridview_bymodule: {
+			caption: "任务",
+      title: 'task表格视图',
+		},
 		maingridview: {
 			caption: "任务",
       title: 'task表格视图',
@@ -468,6 +472,24 @@ export default {
 		},
 	},
 	maingridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "New",
+			tip: "New",
+		},
+		deuiaction4: {
+			caption: "Remove",
+			tip: "Remove {0}",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
+	maingridview_bymoduletoolbar_toolbar: {
 		deuiaction1: {
 			caption: "New",
 			tip: "New",

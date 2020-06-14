@@ -1744,6 +1744,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-pause-task-view/task-pause-task-view.vue'),
                 },
                 {
+                    path: 'projects/:project?/tasks/:task?/maingridview_bymodule/:maingridview_bymodule?',
+                    meta: {
+                        caption: 'entities.task.views.maingridview_bymodule.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'maingridview_bymodule', parameterName: 'maingridview_bymodule' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-main-grid-view-by-module/task-main-grid-view-by-module.vue'),
+                },
+                {
+                    path: 'tasks/:task?/maingridview_bymodule/:maingridview_bymodule?',
+                    meta: {
+                        caption: 'entities.task.views.maingridview_bymodule.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'maingridview_bymodule', parameterName: 'maingridview_bymodule' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-main-grid-view-by-module/task-main-grid-view-by-module.vue'),
+                },
+                {
                     path: 'products/:product?/cases/:case?/batchnewgridview/:batchnewgridview?',
                     meta: {
                         caption: 'entities.case.views.batchnewgridview.title',
@@ -6681,6 +6710,33 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/zentao/product-left-sidebar-list-view/product-left-sidebar-list-view.vue'),
+    },
+    {
+        path: '/projects/:project?/tasks/:task?/maingridview_bymodule/:maingridview_bymodule?',
+        meta: {
+            caption: 'entities.task.views.maingridview_bymodule.title',
+            info:'',
+            parameters: [
+                { pathName: 'projects', parameterName: 'project' },
+                { pathName: 'tasks', parameterName: 'task' },
+                { pathName: 'maingridview_bymodule', parameterName: 'maingridview_bymodule' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/task-main-grid-view-by-module/task-main-grid-view-by-module.vue'),
+    },
+    {
+        path: '/tasks/:task?/maingridview_bymodule/:maingridview_bymodule?',
+        meta: {
+            caption: 'entities.task.views.maingridview_bymodule.title',
+            info:'',
+            parameters: [
+                { pathName: 'tasks', parameterName: 'task' },
+                { pathName: 'maingridview_bymodule', parameterName: 'maingridview_bymodule' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/task-main-grid-view-by-module/task-main-grid-view-by-module.vue'),
     },
     {
         path: '/products/:product?/pickupgridview/:pickupgridview?',

@@ -103,6 +103,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '8d033e1df3a5b0e948f7b6fba22dd0ac',
                 'a4af2d93ae66c9877ee99bfe7b93d22c',
             ],
         },
@@ -919,6 +920,23 @@ export const viewstate: any = {
                 '6c7b582273d0726bcf77214807cfe40c',
                 '7caeaef893043533e8f388d25523328c',
                 'e042a1dee405b0a853f315b39a375783',
+            ],
+        },
+        {
+            viewtag: '8d033e1df3a5b0e948f7b6fba22dd0ac',
+            viewmodule: 'zentao',
+            viewname: 'TaskMainGridView_ByModule',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '575fecad655143bbd28f17c581725a4e',
+                '21e00a7239d9737bbfda5c1608b4129c',
+                'c9c256aef78723e1bf9ddc1d38667c3f',
+                '12661bdb476cd339554799b417c6ea48',
+                'abca63015fc84466991c6479f955f6d0',
+                'ea141fddc78fd1af4d06e494baf12cc1',
+                '35ba93bac795e0deb7297d2d471b7180',
+                '507c506d62dc910a814332e6ae242266',
             ],
         },
         {

@@ -292,29 +292,29 @@ export default class TaskTreeExpViewtreeexpbarBase extends Vue implements Contro
         }
         if (Object.is(expmode, 'PROJECTMODULE')) {
             return {  
-                viewname: 'task-main-grid-view', 
-                parentdata: {"srfparentdefname":"n_path_like"},
+                viewname: 'task-main-grid-view-by-module', 
+                parentdata: {},
                 deKeyField:'task'
 			};
         }
         if (Object.is(expmode, 'ROOT_NOBRANCH')) {
             return {  
-                viewname: 'task-main-grid-view', 
-                parentdata: {"srfparentdefname":"n_path_like"},
+                viewname: 'task-main-grid-view-by-module', 
+                parentdata: {},
                 deKeyField:'task'
 			};
         }
         if (Object.is(expmode, 'MODULE')) {
             return {  
-                viewname: 'task-main-grid-view', 
-                parentdata: {"srfparentdefname":"n_module_eq"},
+                viewname: 'task-main-grid-view-by-module', 
+                parentdata: {},
                 deKeyField:'task'
 			};
         }
         if (Object.is(expmode, 'ROOTMODULE')) {
             return {  
-                viewname: 'task-main-grid-view', 
-                parentdata: {"srfparentdefname":"n_path_like"},
+                viewname: 'task-main-grid-view-by-module', 
+                parentdata: {},
                 deKeyField:'task'
 			};
         }

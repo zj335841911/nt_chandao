@@ -939,6 +939,16 @@
         "viewtag": "8ca39819b87c5e3e8669fcd7409cf9a2",
         "memo": ""
     },
+    "taskmaingridview_bymodule": {
+        "title": "task表格视图",
+        "caption": "任务",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TaskMainGridView_ByModule",
+        "viewfilename": "task-main-grid-view-by-module",
+        "viewtag": "8d033e1df3a5b0e948f7b6fba22dd0ac",
+        "memo": ""
+    },
     "productpickupgridview": {
         "title": "product选择表格视图",
         "caption": "产品",

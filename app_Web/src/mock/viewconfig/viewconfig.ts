@@ -759,6 +759,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductLeftSidebarListView",
             "viewtag": "8ca39819b87c5e3e8669fcd7409cf9a2"
         },
+        "taskmaingridview_bymodule": {
+            "title": "task表格视图",
+            "caption": "任务",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskMainGridView_ByModule",
+            "viewtag": "8d033e1df3a5b0e948f7b6fba22dd0ac"
+        },
         "productpickupgridview": {
             "title": "product选择表格视图",
             "caption": "产品",
