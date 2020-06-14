@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet main-info ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'1px'),}">
+    <div class='portlet main-info ' :style="{'height': 'auto',}">
         <div class="portlet-without-title">
         <case-main-info-edit-view9 :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></case-main-info-edit-view9>
         </div>
