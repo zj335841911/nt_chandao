@@ -3,19 +3,15 @@ package cn.ibizlab.pms.core.util.zentao.helper;
 import cn.ibizlab.pms.core.util.zentao.bean.ZTResult;
 import cn.ibizlab.pms.core.util.zentao.constants.ZenTaoConstants;
 import cn.ibizlab.pms.util.helper.HttpUtil;
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import liquibase.pro.packaged.S;
-import liquibase.pro.packaged.U;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
-
 import java.math.BigInteger;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -24,7 +20,6 @@ import java.util.Map;
  * 禅道接口辅助类
  */
 public class ZenTaoHttpHelper {
-
 
     final static public JSONObject doRequest(String zentaoSid, String url, HttpMethod httpMethod){
         return doRequest(zentaoSid, url, httpMethod, null);
@@ -43,7 +38,6 @@ public class ZenTaoHttpHelper {
         }
         JSONObject jo = new JSONObject();
         HttpHeaders httpHeaders = HttpUtil.getHttpHeaders(MediaType.MULTIPART_FORM_DATA);
-//        HttpHeaders httpHeaders = HttpUtil.getHttpHeaders(MediaType.APPLICATION_FORM_URLENCODED);
         ResponseEntity<String> responseEntity = HttpUtil.doRequest(url, httpMethod, httpHeaders, paramMap, String.class);
         String body = responseEntity.getBody();
         if (body == null || body.isEmpty()) {
@@ -57,7 +51,12 @@ public class ZenTaoHttpHelper {
         return jo;
     }
 
-    final static public JSONObject formatJSON(JSONObject jo, Map<String, Object> templateMap) {
+    final static public JSONObject formatJSON(JSONObject jo, Map<String, Object> templateMap, Map<String, String> dataFormatMap) {
+        if (templateMap == null) {
+            return null;
+        }
+        // 日期格式转换
+        jo = formatDateField(jo, dataFormatMap);
         // 数组解析
         jo = formatArrayIntoPJSON(jo);
         // 若为空时，default值填充
@@ -132,12 +131,12 @@ public class ZenTaoHttpHelper {
      *         pfield1 : xxx,<br>
      *         pfield2 : xxx,<br>
      *         pfield3 : [xxx,xxx,xxx],<br>
-     *         field1[] : [xxx,xxx],<br>
-     *         field2[] : [xxx,xxx],<br>
-     *         field3[] : [xxx,xxx],<br>
-     *         field4[] : [xxx,xxx],<br>
-     *         field5[] : [xxx,xxx],<br>
-     *         field6[] : [xxx,xxx]<br>
+     *         field1 : [xxx,xxx],<br>
+     *         field2 : [xxx,xxx],<br>
+     *         field3 : [xxx,xxx],<br>
+     *         field4 : [xxx,xxx],<br>
+     *         field5 : [xxx,xxx],<br>
+     *         field6 : [xxx,xxx]<br>
      *     }
      *
      * @param jo
@@ -182,6 +181,28 @@ public class ZenTaoHttpHelper {
         }
         if (!arrayJson.isEmpty()) {
             jo.putAll(arrayJson);
+        }
+        return jo;
+    }
+
+    /**
+     * 格式化日期
+     *
+     * @param jo
+     * @return
+     */
+    final static public JSONObject formatDateField(JSONObject jo, Map<String, String> dataFormatMap) {
+        if (jo == null) {
+            return null;
+        }
+        if (dataFormatMap == null || dataFormatMap.isEmpty()) {
+            return jo;
+        }
+        for (String key : dataFormatMap.keySet()) {
+            if (jo.containsKey(key) && jo.get(key) != null) {
+                SimpleDateFormat sdf = new SimpleDateFormat(dataFormatMap.get(key));
+                jo.put(key, sdf.format(Timestamp.valueOf(jo.getString(key))));
+            }
         }
         return jo;
     }

@@ -24,6 +24,12 @@ public class ZTStoryHelper {
     private final static String MODULE_NAME = "story";
 
     // ----------
+    // 参数日期格式
+    // ----------
+
+    private final static Map<String, String> PARAMS_DATEFORMAT = new HashMap<>();
+
+    // ----------
     // 接口ACTION
     // ----------
 
@@ -232,51 +238,163 @@ public class ZTStoryHelper {
     // 接口实现
     // ----------
 
+    /**
+     * create 创建
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
     final static public boolean create(String zentaoSid, JSONObject jo, ZTResult rst) {
-        String url = ZenTaoHttpHelper.formatUrl(MODULE_NAME, ACTION_CREATE, ZenTaoConstants.ZT_URL_EXT);
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_CREATE, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_CREATE));
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_CREATE;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_CREATE;
+        Map<String, Object> actionParams = ACTION_PARAMS_CREATE;
+        List<String> actionUrlParams = null;
+
+        String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt);
+        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, actionHttpMethod, ZenTaoHttpHelper.formatJSON(jo, actionParams, PARAMS_DATEFORMAT));
         rst = ZenTaoHttpHelper.formatResultJSON(rstJO, rst);
         return rst.isSuccess();
     }
 
+    /**
+     * edit 编辑
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
     final static public boolean edit(String zentaoSid, JSONObject jo, ZTResult rst) {
-        String url = ZenTaoHttpHelper.formatUrl(MODULE_NAME, ACTION_EDIT, ZenTaoConstants.ZT_URL_EXT, jo, ACTION_URL_PARAMS_EDIT);
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_EDIT, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_EDIT));
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_EDIT;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_EDIT;
+        Map<String, Object> actionParams = ACTION_PARAMS_EDIT;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_EDIT;
+
+        String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt, jo, actionUrlParams);
+        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, actionHttpMethod, ZenTaoHttpHelper.formatJSON(jo, actionParams, PARAMS_DATEFORMAT));
         rst = ZenTaoHttpHelper.formatResultHTML(rstJO, rst);
         return rst.isSuccess();
     }
 
+    /**
+     * change 变更
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
     final static public boolean change(String zentaoSid, JSONObject jo, ZTResult rst) {
-        String url = ZenTaoHttpHelper.formatUrl(MODULE_NAME, ACTION_CHANGE, ZenTaoConstants.ZT_URL_EXT, jo, ACTION_URL_PARAMS_CHANGE);
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_CHANGE, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_CHANGE));
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_CHANGE;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_CHANGE;
+        Map<String, Object> actionParams = ACTION_PARAMS_CHANGE;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_CHANGE;
+
+        String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt, jo, actionUrlParams);
+        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, actionHttpMethod, ZenTaoHttpHelper.formatJSON(jo, actionParams, PARAMS_DATEFORMAT));
         rst = ZenTaoHttpHelper.formatResultHTML(rstJO, rst);
         return rst.isSuccess();
     }
 
+    /**
+     * review 评审
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
     final static public boolean review(String zentaoSid, JSONObject jo, ZTResult rst) {
-        String url = ZenTaoHttpHelper.formatUrl(MODULE_NAME, ACTION_REVIEW, ZenTaoConstants.ZT_URL_EXT, jo, ACTION_URL_PARAMS_REVIEW);
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_REVIEW, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_REVIEW));
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_REVIEW;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_REVIEW;
+        Map<String, Object> actionParams = ACTION_PARAMS_REVIEW;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_REVIEW;
+
+        String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt, jo, actionUrlParams);
+        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, actionHttpMethod, ZenTaoHttpHelper.formatJSON(jo, actionParams, PARAMS_DATEFORMAT));
         rst = ZenTaoHttpHelper.formatResultHTML(rstJO, rst);
         return rst.isSuccess();
     }
 
+    /**
+     * activate 激活
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
     final static public boolean activate(String zentaoSid, JSONObject jo, ZTResult rst) {
-        String url = ZenTaoHttpHelper.formatUrl(MODULE_NAME, ACTION_ACTIVATE, ZenTaoConstants.ZT_URL_EXT, jo, ACTION_URL_PARAMS_ACTIVATE);
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_ACTIVATE, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_ACTIVATE));
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_ACTIVATE;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_ACTIVATE;
+        Map<String, Object> actionParams = ACTION_PARAMS_ACTIVATE;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_ACTIVATE;
+
+        String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt, jo, actionUrlParams);
+        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, actionHttpMethod, ZenTaoHttpHelper.formatJSON(jo, actionParams, PARAMS_DATEFORMAT));
         rst = ZenTaoHttpHelper.formatResultHTML(rstJO, rst);
         return rst.isSuccess();
     }
 
+    /**
+     * assignTo 指派
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
     final static public boolean assignTo(String zentaoSid, JSONObject jo, ZTResult rst) {
-        String url = ZenTaoHttpHelper.formatUrl(MODULE_NAME, ACTION_ASSIGNTO, ZenTaoConstants.ZT_URL_EXT, jo, ACTION_URL_PARAMS_ASSIGNTO);
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_ASSIGNTO, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_ASSIGNTO));
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_ASSIGNTO;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_ASSIGNTO;
+        Map<String, Object> actionParams = ACTION_PARAMS_ASSIGNTO;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_ASSIGNTO;
+
+        String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt, jo, actionUrlParams);
+        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, actionHttpMethod, ZenTaoHttpHelper.formatJSON(jo, actionParams, PARAMS_DATEFORMAT));
         rst = ZenTaoHttpHelper.formatResultHTML(rstJO, rst);
         return rst.isSuccess();
     }
 
+    /**
+     * close 关闭
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
     final static public boolean close(String zentaoSid, JSONObject jo, ZTResult rst) {
-        String url = ZenTaoHttpHelper.formatUrl(MODULE_NAME, ACTION_CLOSE, ZenTaoConstants.ZT_URL_EXT, jo, ACTION_URL_PARAMS_CLOSE);
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_CLOSE, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_CLOSE));
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_CLOSE;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_CLOSE;
+        Map<String, Object> actionParams = ACTION_PARAMS_CLOSE;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_CLOSE;
+
+        String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt, jo, actionUrlParams);
+        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, actionHttpMethod, ZenTaoHttpHelper.formatJSON(jo, actionParams, PARAMS_DATEFORMAT));
         rst = ZenTaoHttpHelper.formatResultHTML(rstJO, rst);
         return rst.isSuccess();
     }

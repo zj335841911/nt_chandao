@@ -26,6 +26,12 @@ public class ZTProductPlanHelper {
     private final static String MODULE_NAME = "productplan";
 
     // ----------
+    // 参数日期格式
+    // ----------
+
+    private final static Map<String, String> PARAMS_DATEFORMAT = new HashMap<>();
+
+    // ----------
     // 接口ACTION
     // ----------
 
@@ -111,19 +117,59 @@ public class ZTProductPlanHelper {
     }
 
     // ----------
+    // 接口行为POST参数日期格式设置
+    // ----------
+    static {
+        PARAMS_DATEFORMAT.put("begin", "yyyy-MM-dd");
+        PARAMS_DATEFORMAT.put("end", "yyyy-MM-dd");
+    }
+
+    // ----------
     // 接口实现
     // ----------
 
+    /**
+     * create 创建
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
     final static public boolean create(String zentaoSid, JSONObject jo, ZTResult rst) {
-        String url = ZenTaoHttpHelper.formatUrl(MODULE_NAME, ACTION_CREATE, ZenTaoConstants.ZT_URL_EXT, jo, ACTION_URL_PARAMS_EDIT);
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_CREATE, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_CREATE));
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_CREATE;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_CREATE;
+        Map<String, Object> actionParams = ACTION_PARAMS_CREATE;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_CREATE;
+
+        String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt, jo, actionUrlParams);
+        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, actionHttpMethod, ZenTaoHttpHelper.formatJSON(jo, actionParams, PARAMS_DATEFORMAT));
         rst = ZenTaoHttpHelper.formatResultJSON(rstJO, rst);
         return rst.isSuccess();
     }
 
+    /**
+     * edit 编辑
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
     final static public boolean edit(String zentaoSid, JSONObject jo, ZTResult rst) {
-        String url = ZenTaoHttpHelper.formatUrl(MODULE_NAME, ACTION_EDIT, ZenTaoConstants.ZT_URL_EXT, jo, ACTION_URL_PARAMS_EDIT);
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_EDIT, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_EDIT));
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_EDIT;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_EDIT;
+        Map<String, Object> actionParams = ACTION_PARAMS_EDIT;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_EDIT;
+
+        String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt, jo, actionUrlParams);
+        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, actionHttpMethod, ZenTaoHttpHelper.formatJSON(jo, actionParams, PARAMS_DATEFORMAT));
         rst = ZenTaoHttpHelper.formatResultJSON(rstJO, rst, "/zentao/productplan-view-");
         return rst.isSuccess();
     }

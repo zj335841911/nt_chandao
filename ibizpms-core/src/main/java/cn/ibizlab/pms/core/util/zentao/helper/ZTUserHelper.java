@@ -8,6 +8,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -22,6 +23,12 @@ public class ZTUserHelper {
      * 接口模块名
      */
     private final static String MODULE_NAME = "user";
+
+    // ----------
+    // 参数日期格式
+    // ----------
+
+    private final static Map<String, String> PARAMS_DATEFORMAT = new HashMap<>();
 
     // ----------
     // 接口ACTION
@@ -89,8 +96,17 @@ public class ZTUserHelper {
         if (jo.getString("password") == null || jo.getString("password").isEmpty()) {
             return false;
         }
-        String url = ZenTaoHttpHelper.formatUrl(MODULE_NAME, ACTION_LOGIN, ZenTaoConstants.ZT_URL_EXT);
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaosid, url, ACTION_HTTPMETHOD_LOGIN, ZenTaoHttpHelper.formatJSON(jo, ACTION_PARAMS_LOGIN));
+
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_LOGIN;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_LOGIN;
+        Map<String, Object> actionParams = ACTION_PARAMS_LOGIN;
+        List<String> actionUrlParams = null;
+
+        String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt);
+        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaosid, url, actionHttpMethod, ZenTaoHttpHelper.formatJSON(jo, actionParams, PARAMS_DATEFORMAT));
         rst.setResult(rstJO);
         if (!"success".equals(rstJO.getString("status"))) {
             rst.setSuccess(false);

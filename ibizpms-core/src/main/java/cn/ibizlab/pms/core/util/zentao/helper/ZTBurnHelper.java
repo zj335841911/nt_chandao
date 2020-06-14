@@ -47,9 +47,25 @@ public class ZTBurnHelper {
     // 接口实现
     // ----------
 
+    /**
+     * computeBurn 计算燃尽
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
     final static public boolean computeBurn(String zentaoSid, JSONObject jo, ZTResult rst) {
-        String url = ZenTaoHttpHelper.formatUrl(MODULE_NAME, ACTION_COMPUTEBURN, ZT_URL_EXT);
-        ZenTaoHttpHelper.doRequest(zentaoSid, url, ACTION_HTTPMETHOD_COMPUTEBURN);
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZT_URL_EXT;
+        String actionName = ACTION_COMPUTEBURN;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_COMPUTEBURN;
+        Map<String, Object> actionParams = null;
+        List<String> actionUrlParams = null;
+
+        String url = ZenTaoHttpHelper.formatUrl(MODULE_NAME, actionName, urlExt);
+        ZenTaoHttpHelper.doRequest(zentaoSid, url, actionHttpMethod);
         rst.setSuccess(true);
         return true;
     }

@@ -8,6 +8,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -42,9 +43,23 @@ public class ZTAPIHelper {
     // 接口实现
     // ----------
 
+    /**
+     * getSessionID 获取Sesson ID
+     *
+     * @param rst
+     * @return
+     */
     final static public boolean getSessionID(ZTResult rst) {
-        String url = ZenTaoHttpHelper.formatUrl(MODULE_NAME, ACTION_GETSESSIONID, ZenTaoConstants.ZT_URL_EXT);
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(null, url, ACTION_HTTPMETHOD_GETSESSIONID);
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_GETSESSIONID;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_GETSESSIONID;
+        Map<String, Object> actionParams = null;
+        List<String> actionUrlParams = null;
+
+        String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt);
+        JSONObject rstJO = ZenTaoHttpHelper.doRequest(null, url, actionHttpMethod);
         rst.setResult(rstJO);
         if (!"success".equals(rstJO.getString("status"))) {
             rst.setSuccess(false);
