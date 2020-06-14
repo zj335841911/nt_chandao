@@ -76,7 +76,7 @@
             </row>
         </i-col>
     </row>
-
+</div>
 </template>
 <script lang='tsx'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
@@ -234,6 +234,14 @@ export default class TaskKanBanBase extends Vue implements ControlInterface {
         }
     }
 
+
+    /**
+     * 面板数据
+     *
+     * @type {*}
+     * @memberof TaskKanBan
+     */
+    public panelData: any;
 
     /**
      * 接口实现

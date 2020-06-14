@@ -142,6 +142,12 @@ export default class Login extends Vue {
 
     public mounted() {
         this.getCookie("loginname");
+        setTimeout(() => {
+            const el = document.getElementById('app-loading-x');
+            if (el) {
+                el.remove();
+            }
+        }, 300);
     }
 
     /**
@@ -213,7 +219,7 @@ export default class Login extends Vue {
      */
     public goReset(): void {
         const _this = this;
-        _this.form={loginname: 'ibzadmin', password: '123456'}
+        _this.form={loginname: 'guest', password: 'guest'}
     }
 
     /**

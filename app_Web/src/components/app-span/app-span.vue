@@ -145,7 +145,7 @@ export default class AppSpan extends Vue {
      * @memberof AppSpan
      */
     public load(){
-        if(this.value === undefined || this.value === null || this.tag){
+        if(this.tag){
             return;  //代码表走codelist组件
         }else if(this.editorType === "ADDRESSPICKUP"){
             JSON.parse(this.value).forEach((item:any,index:number) => {
