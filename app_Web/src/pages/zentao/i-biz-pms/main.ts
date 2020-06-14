@@ -16,9 +16,9 @@ import 'ibiz-vue-lib/lib/ibiz-vue-lib.css';
 import '@/styles/default.less';
 
 // 模拟数据
-if (process.env.NODE_ENV === 'development') {
-  require('@/mock');
-}
+// if (process.env.NODE_ENV === 'development') {
+//   require('@/mock');
+// }
 
 const pathToRegExp = require('path-to-regexp');
 import { AppComponents } from '@/app-register';
