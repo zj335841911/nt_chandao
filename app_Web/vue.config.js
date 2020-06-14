@@ -17,8 +17,6 @@ module.exports = {
         disableHostCheck: true,
         // proxy: "http://127.0.0.1:8080/Web",
     },
-    pages: {
-    },
     // 多核打包
     parallel: os.cpus().length > 1,
     chainWebpack: (config) => {
