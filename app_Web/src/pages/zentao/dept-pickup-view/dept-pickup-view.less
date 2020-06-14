@@ -1,0 +1,18 @@
+// 避免空文件，后台不让空文件过
+.dept-pickup-view {
+    --dept-pickup-view: 0;
+}
+
+
+
+.pickup-view {
+    >.pickupviewpanel {
+        flex-grow: 1;
+        display: flex;
+        justify-content: flex-end;
+        height: calc(100% - 64px);
+    }
+    >.footer {
+        height: 64px;
+    }
+}

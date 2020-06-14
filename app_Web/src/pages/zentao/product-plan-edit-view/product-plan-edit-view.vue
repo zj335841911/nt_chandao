@@ -1,0 +1,19 @@
+<script lang='tsx'>
+import { Component } from 'vue-property-decorator';
+import ProductPlanEditViewBase from './product-plan-edit-view-base.vue';
+
+import view_form from '@widgets/product-plan/main-form/main-form.vue';
+@Component({
+    components: {
+        view_form, 
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
+        });
+    },
+})
+export default class ProductPlanEditView extends ProductPlanEditViewBase {
+
+}
+</script>
