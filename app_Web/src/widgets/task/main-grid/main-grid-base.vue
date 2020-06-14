@@ -150,7 +150,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('deadline')">
-                <el-table-column show-overflow-tooltip :prop="'deadline'" :label="$t('entities.task.main_grid.columns.deadline')" :width="160"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'deadline'" :label="$t('entities.task.main_grid.columns.deadline')" :width="120"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.task.main_grid.columns.deadline')}}
@@ -162,7 +162,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('uagridcolumn1')">
-                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.task.main_grid.columns.uagridcolumn1')" :width="315"  :align="'right'">
+                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.task.main_grid.columns.uagridcolumn1')" :width="160"  :align="'center'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.task.main_grid.columns.uagridcolumn1')}}
@@ -173,27 +173,27 @@
                             
                             <a @click="uiAction(scope.row, 'StartTask', $event)">
                               <i class='fa fa-play-circle-o'></i>
-                              {{$t('entities.task.main_grid.uiactions.starttask')}}
+                              
                             </a>
                             <divider type='vertical'></divider>
                             <a @click="uiAction(scope.row, 'CloseTask', $event)">
                               <i class='fa fa-power-off'></i>
-                              {{$t('entities.task.main_grid.uiactions.closetask')}}
+                              
                             </a>
                             <divider type='vertical'></divider>
                             <a @click="uiAction(scope.row, 'DoneTask', $event)">
                               <i class='fa fa-check-square-o'></i>
-                              {{$t('entities.task.main_grid.uiactions.donetask')}}
+                              
                             </a>
                             <divider type='vertical'></divider>
                             <a @click="uiAction(scope.row, 'MainEdit', $event)">
                               <i class='fa fa-edit'></i>
-                              {{$t('entities.task.main_grid.uiactions.mainedit')}}
+                              
                             </a>
                             <divider type='vertical'></divider>
                             <a @click="uiAction(scope.row, 'NewSubTask', $event)">
                               <i class='iconfont studio-icon-subnets'></i>
-                              {{$t('entities.task.main_grid.uiactions.newsubtask')}}
+                              
                             </a>
                         </span>
                     </template>
