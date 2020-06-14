@@ -415,36 +415,12 @@ export default {
 		},
 	},
 	buildsubgridview_donetoolbar_toolbar: {
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
-		},
-		deuiaction4: {
-			caption: "Remove",
-			tip: "Remove {0}",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
 		},
 	},
 	buildsubgridview_newtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
-		},
-		deuiaction4: {
-			caption: "Remove",
-			tip: "Remove {0}",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
