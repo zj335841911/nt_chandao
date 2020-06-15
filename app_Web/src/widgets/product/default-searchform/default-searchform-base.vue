@@ -5,8 +5,12 @@
     <i-col span="20" class="form-content">
       <row>
                     !!!!模版产生代码错误:----
+          Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+          ----
+          
+          ----
           FTL stack trace ("~" means nesting-related):
-          	- Failed at: #if layout == "TABLE_24COL" && layoutPos  [in template "TEMPLCODE_zh_CN" at line 9, column 1]
+          	- Failed at: #if LayoutPos.getColXS() != -1  [in template "TEMPLCODE_zh_CN" at line 10, column 303]
           ----
       </row>
     </i-col>
