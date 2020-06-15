@@ -2,7 +2,7 @@
     <div class="app-data-view-group">
                 <template v-for="(group, index) of groups">
             <div :key="group + index" class="dataview-group-content" style="width: 280px;">
-                <div class="dataview-group-header" style="width: 280px;">
+                <div class="dataview-group-header">
                     {{ getGroupText(group.name) }}
                 </div>
                 <draggable :list="group.items" group="kanban" class="dataview-group-items" @change="onDragChange($event, group.name)">
