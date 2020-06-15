@@ -219,6 +219,9 @@ export class StudioDrawer extends Vue {
                 {this.showViewList.map((item, i) => {
                     const ref: any = this.$refs[item.viewname + i];
                     if (!ref) {
+                        setTimeout(() => {
+                            this.$forceUpdate();
+                        }, 300);
                         return;
                     }
                     return <span key={i}>
