@@ -8,7 +8,7 @@
     <row>
         <i-col v-show="detailsModel.precondition.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='precondition' :itemRules="this.rules.precondition" class='' :caption="$t('entities.case.maininfo_form.details.precondition')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.precondition.error" :isEmptyCaption="false" labelPos="LEFT">
-    <span v-html="data.precondition"></span>
+    <html-container :content="data.precondition"></html-container>
 </app-form-item>
 
 </i-col>

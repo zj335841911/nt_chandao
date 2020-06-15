@@ -10,5 +10,9 @@ window.Environment = {
     // 系统标识
     SysId: "3A921F6B-613D-4975-ACD6-79565D82E1DE",
     // 前端应用标识
-    AppId: "67ca55365f7abcc05c30f4fba9f8ee37"
+    AppId: "67ca55365f7abcc05c30f4fba9f8ee37",
+    // 文件导出
+    ExportFile: 'ibizutil/ztdownload',
+    // 文件上传
+    UploadFile: 'ibizutil/ztupload',
 }
