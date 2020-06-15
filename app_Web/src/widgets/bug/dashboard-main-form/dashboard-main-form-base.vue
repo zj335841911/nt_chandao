@@ -14,7 +14,7 @@
                 }">
                 !!!!模版产生代码错误:----
 FTL stack trace ("~" means nesting-related):
-	- Failed at: #assign layout = layoutPos.getLayout()  [in template "TEMPLCODE_zh_CN" at line 8, column 1]
+	- Failed at: #if layout == "TABLE_24COL" && layoutPos  [in template "TEMPLCODE_zh_CN" at line 10, column 1]
 ----
             </tab-pane> 
             <tab-pane v-show="detailsModel.formpage2.visible" name='formpage2' :index="1" tab='dashboardmain' class=''  
@@ -27,7 +27,7 @@ FTL stack trace ("~" means nesting-related):
                 }">
                 !!!!模版产生代码错误:----
 FTL stack trace ("~" means nesting-related):
-	- Failed at: #assign layout = layoutPos.getLayout()  [in template "TEMPLCODE_zh_CN" at line 8, column 1]
+	- Failed at: #if layout == "TABLE_24COL" && layoutPos  [in template "TEMPLCODE_zh_CN" at line 10, column 1]
 ----
             </tab-pane> 
     </tabs>
