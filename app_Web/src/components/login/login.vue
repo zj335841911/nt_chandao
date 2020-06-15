@@ -87,7 +87,7 @@ export default class Login extends Vue {
      * @type {*}
      * @memberof Login
      */
-    public form: any = {loginname: 'ibzadmin', password: '123456'};
+    public form: any = {loginname: 'guest', password: 'guest@123'};
 
     /**
      *　登录提示语
@@ -220,7 +220,7 @@ export default class Login extends Vue {
      */
     public goReset(): void {
         const _this = this;
-        _this.form={loginname: 'guest', password: 'guest'}
+        _this.form={loginname: 'guest', password: 'guest@123'}
     }
 
     /**
