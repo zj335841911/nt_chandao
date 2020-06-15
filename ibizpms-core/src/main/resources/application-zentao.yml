@@ -1,12 +1,12 @@
 zentao:
-  url: http://172.16.102.202/zentao/
+  url: http://172.16.102.102/zentao/
   needretry: false
   retrycount: 0
   # rootPath需要映射至禅道文件上传路径
   rootPath: /app/file/
   file:
     uploadpath: ibizutil/ztupload
-    downloadpath: ibizutil/ztupload
+#    downloadpath: ibizutil/ztdownload
 ibiz:
   auth:
     service: IBZUAAZTUserService
