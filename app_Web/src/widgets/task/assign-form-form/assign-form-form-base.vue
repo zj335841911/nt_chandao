@@ -3,10 +3,10 @@
     <input style="display:none;" />
     <row >
             
-<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 23, offset: 0 }">
+<div v-show="detailsModel.group1.visible">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.assignform_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
-        <i-col v-show="detailsModel.assignedto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <div v-show="detailsModel.assignedto.visible">
     <app-form-item name='assignedto' :itemRules="this.rules.assignedto" class='' :caption="$t('entities.task.assignform_form.details.assignedto')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.assignedto.error" :isEmptyCaption="false" labelPos="LEFT">
     
  <dropdown-list 
@@ -23,23 +23,23 @@
  </dropdown-list>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.left.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.left.visible">
     <app-form-item name='left' :itemRules="this.rules.left" class='' :caption="$t('entities.task.assignform_form.details.left')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.left.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box v-model="data.left"  @enter="onEnter($event)"   unit="小时"  :disabled="detailsModel.left.disabled" type='number'  style=""></input-box>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.comment.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.comment.visible">
     <app-form-item name='comment' :itemRules="this.rules.comment" class='' :caption="$t('entities.task.assignform_form.details.comment')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.comment.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled"  name="comment" style=""></app-rich-text-editor>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 23, offset: 1 }">
+</div>
+<div v-show="detailsModel.grouppanel1.visible">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.assignform_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
-        <i-col v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <div v-show="detailsModel.druipart1.visible">
     <app-form-druipart
     
     :formState="formState"
@@ -63,17 +63,17 @@
     style=";overflow: auto;">
 </app-form-druipart>
 
-</i-col>
+</div>
     
     </row>
 </app-form-group>
 
-</i-col>
+</div>
     
     </row>
 </app-form-group>
 
-</i-col>
+</div>
 
 
     </row>

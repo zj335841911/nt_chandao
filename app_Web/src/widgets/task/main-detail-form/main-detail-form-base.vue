@@ -3,35 +3,35 @@
     <input style="display:none;" />
     <row >
             
-<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<div v-show="detailsModel.group1.visible">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.maindetail_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
-        <i-col v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <div v-show="detailsModel.grouppanel3.visible">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.maindetail_form.details.grouppanel3')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
-        <i-col v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <div v-show="detailsModel.desc.visible">
     <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.task.maindetail_form.details.desc')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="NONE">
     <span v-html="data.desc"></span>
 </app-form-item>
 
-</i-col>
+</div>
     
     </row>
 </app-form-group>
 
-</i-col>
-<i-col v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.grouppanel2.visible">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.maindetail_form.details.grouppanel2')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
             
     </row>
 </app-form-group>
 
-</i-col>
-<i-col v-show="detailsModel.grouppanel1.visible" :style="{'height': '300px !important',}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.grouppanel1.visible">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.maindetail_form.details.grouppanel1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
-        <i-col v-show="detailsModel.druipart1.visible" :style="{'height': '200px !important',}"  :lg="{ span: 24, offset: 0 }">
+        <div v-show="detailsModel.druipart1.visible">
     <app-form-druipart
     
     :formState="formState"
@@ -56,17 +56,17 @@
     style="height:200px;overflow: auto;">
 </app-form-druipart>
 
-</i-col>
+</div>
     
     </row>
 </app-form-group>
 
-</i-col>
+</div>
     
     </row>
 </app-form-group>
 
-</i-col>
+</div>
 
 
     </row>

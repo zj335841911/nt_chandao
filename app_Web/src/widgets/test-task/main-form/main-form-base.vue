@@ -13,20 +13,20 @@
                     ])
                 }">
                     
-<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<div v-show="detailsModel.group1.visible">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.testtask.main_form.details.group1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
-        <i-col v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <div v-show="detailsModel.name.visible">
     <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.testtask.main_form.details.name')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box v-model="data.name"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.name.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
-</i-col>
+</div>
     
     </row>
 </app-form-group>
 
-</i-col>
+</div>
 
 
             </tab-pane> 
@@ -39,14 +39,14 @@
                     ])
                 }">
                     
-<i-col v-show="detailsModel.group2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<div v-show="detailsModel.group2.visible">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.testtask.main_form.details.group2')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
             
     </row>
 </app-form-group>
 
-</i-col>
+</div>
 
 
             </tab-pane> 

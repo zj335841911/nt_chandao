@@ -3,26 +3,26 @@
     <input style="display:none;" />
     <row >
             
-<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<div v-show="detailsModel.group1.visible">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.branch.platformmanagement_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
-        <i-col v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <div v-show="detailsModel.name.visible">
     <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.branch.platformmanagement_form.details.name')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box v-model="data.name"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.name.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.order.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.order.visible">
     <app-form-item name='order' :itemRules="this.rules.order" class='' :caption="$t('entities.branch.platformmanagement_form.details.order')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.order.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box v-model="data.order"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.order.disabled" type='number'  style=""></input-box>
 </app-form-item>
 
-</i-col>
+</div>
     
     </row>
 </app-form-group>
 
-</i-col>
+</div>
 
 
     </row>

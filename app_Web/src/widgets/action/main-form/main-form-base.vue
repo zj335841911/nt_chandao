@@ -13,14 +13,14 @@
                     ])
                 }">
                     
-<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<div v-show="detailsModel.group1.visible">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.action.main_form.details.group1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
             
     </row>
 </app-form-group>
 
-</i-col>
+</div>
 
 
             </tab-pane> 
@@ -33,14 +33,14 @@
                     ])
                 }">
                     
-<i-col v-show="detailsModel.group2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<div v-show="detailsModel.group2.visible">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.action.main_form.details.group2')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
             
     </row>
 </app-form-group>
 
-</i-col>
+</div>
 
 
             </tab-pane> 

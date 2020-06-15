@@ -3,16 +3,16 @@
     <input style="display:none;" />
     <row >
             
-<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<div v-show="detailsModel.group1.visible">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.case.maininfo_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
-        <i-col v-show="detailsModel.precondition.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <div v-show="detailsModel.precondition.visible">
     <app-form-item name='precondition' :itemRules="this.rules.precondition" class='' :caption="$t('entities.case.maininfo_form.details.precondition')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.precondition.error" :isEmptyCaption="false" labelPos="LEFT">
     <span v-html="data.precondition"></span>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.druipart1.visible">
     <app-form-druipart
     
     :formState="formState"
@@ -37,12 +37,12 @@
     style=";overflow: auto;">
 </app-form-druipart>
 
-</i-col>
+</div>
     
     </row>
 </app-form-group>
 
-</i-col>
+</div>
 
 
     </row>

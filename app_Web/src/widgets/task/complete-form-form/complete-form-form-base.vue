@@ -3,17 +3,17 @@
     <input style="display:none;" />
     <row >
             
-<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 23, offset: 0 }">
+<div v-show="detailsModel.group1.visible">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.completeform_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
-        <i-col v-show="detailsModel.consumed.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <div v-show="detailsModel.consumed.visible">
     <app-form-item name='consumed' :itemRules="this.rules.consumed" class='' :caption="$t('entities.task.completeform_form.details.consumed')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.consumed.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='consumed' :value="data.consumed" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.currentconsumed.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.currentconsumed.visible">
     <app-form-item name='currentconsumed' :itemRules="this.rules.currentconsumed" class='' :caption="$t('entities.task.completeform_form.details.currentconsumed')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.currentconsumed.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box 
   v-model="data.currentconsumed"  
@@ -26,15 +26,15 @@
 </input-box>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.totaltime.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.totaltime.visible">
     <app-form-item name='totaltime' :itemRules="this.rules.totaltime" class='' :caption="$t('entities.task.completeform_form.details.totaltime')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.totaltime.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='totaltime' :value="data.totaltime" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.assignedto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.assignedto.visible">
     <app-form-item name='assignedto' :itemRules="this.rules.assignedto" class='' :caption="$t('entities.task.completeform_form.details.assignedto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.assignedto.error" :isEmptyCaption="false" labelPos="LEFT">
     
  <dropdown-list 
@@ -51,29 +51,29 @@
  </dropdown-list>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.finisheddate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.finisheddate.visible">
     <app-form-item name='finisheddate' :itemRules="this.rules.finisheddate" class='' :caption="$t('entities.task.completeform_form.details.finisheddate')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.finisheddate.error" :isEmptyCaption="false" labelPos="LEFT">
     <date-picker type="datetime" :transfer="true" format="yyyy-MM-dd HH:mm:ss" placeholder="请选择时间..." :value="data.finisheddate" :disabled="detailsModel.finisheddate.disabled" style="min-width: 150px; width:160px;" @on-change="(val1, val2) => { this.data.finisheddate = val1 }"></date-picker>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.formitem.visible">
     <app-form-item name='formitem' :itemRules="this.rules.formitem" class='' :caption="$t('entities.task.completeform_form.details.formitem')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange" :data="JSON.stringify(this.data)" name='formitem' :value="data.formitem" :disabled="detailsModel.formitem.disabled" uploadparams='' exportparams='' :customparams="{}" style="overflow: auto;"></app-file-upload>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.comment.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.comment.visible">
     <app-form-item name='comment' :itemRules="this.rules.comment" class='' :caption="$t('entities.task.completeform_form.details.comment')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.comment.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled"  name="comment" style=""></app-rich-text-editor>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 23, offset: 1 }">
+</div>
+<div v-show="detailsModel.grouppanel1.visible">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.completeform_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
-        <i-col v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <div v-show="detailsModel.druipart1.visible">
     <app-form-druipart
     
     :formState="formState"
@@ -97,17 +97,17 @@
     style=";overflow: auto;">
 </app-form-druipart>
 
-</i-col>
+</div>
     
     </row>
 </app-form-group>
 
-</i-col>
+</div>
     
     </row>
 </app-form-group>
 
-</i-col>
+</div>
 
 
     </row>

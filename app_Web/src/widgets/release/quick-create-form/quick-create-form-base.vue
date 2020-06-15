@@ -3,26 +3,26 @@
     <input style="display:none;" />
     <row >
             
-<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<div v-show="detailsModel.group1.visible">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.release.quickcreate_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
-        <i-col v-show="detailsModel.productname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <div v-show="detailsModel.productname.visible">
     <app-form-item name='productname' :itemRules="this.rules.productname" class='' :caption="$t('entities.release.quickcreate_form.details.productname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.productname.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='productname' :value="data.productname" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 16, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+</div>
+<div v-show="detailsModel.grouppanel1.visible">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.release.quickcreate_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
-        <i-col v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <div v-show="detailsModel.name.visible">
     <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.release.quickcreate_form.details.name')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box v-model="data.name"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.name.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.buildname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.buildname.visible">
     <app-form-item name='buildname' :itemRules="this.rules.buildname" class='' :caption="$t('entities.release.quickcreate_form.details.buildname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.buildname.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-picker  
@@ -46,22 +46,22 @@
 </app-picker>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.date.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.date.visible">
     <app-form-item name='date' :itemRules="this.rules.date" class='' :caption="$t('entities.release.quickcreate_form.details.date')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.date.error" :isEmptyCaption="false" labelPos="LEFT">
     <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.date" :disabled="detailsModel.date.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.date = val1 }"></date-picker>
 </app-form-item>
 
-</i-col>
+</div>
     
     </row>
 </app-form-group>
 
-</i-col>
-<i-col v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 8, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+</div>
+<div v-show="detailsModel.grouppanel2.visible">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.release.quickcreate_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
-        <i-col v-show="detailsModel.marker.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <div v-show="detailsModel.marker.visible">
     <app-form-item name='marker' :itemRules="this.rules.marker" class='' :caption="$t('entities.release.quickcreate_form.details.marker')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.marker.error" :isEmptyCaption="false" labelPos="LEFT">
     
  <dropdown-list 
@@ -79,29 +79,29 @@
  </dropdown-list>
 </app-form-item>
 
-</i-col>
+</div>
     
     </row>
 </app-form-group>
 
-</i-col>
-<i-col v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.desc.visible">
     <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.release.quickcreate_form.details.desc')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-rich-text-editor :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled"  name="desc" style=""></app-rich-text-editor>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.files.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.files.visible">
     <app-form-item name='files' :itemRules="this.rules.files" class='' :caption="$t('entities.release.quickcreate_form.details.files')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.files.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange" :data="JSON.stringify(this.data)" name='files' :value="data.files" :disabled="detailsModel.files.disabled" uploadparams='' exportparams='' :customparams="{objecttype:'release',objectid:'1'}" style="overflow: auto;"></app-file-upload>
 </app-form-item>
 
-</i-col>
+</div>
     
     </row>
 </app-form-group>
 
-</i-col>
+</div>
 
 
     </row>

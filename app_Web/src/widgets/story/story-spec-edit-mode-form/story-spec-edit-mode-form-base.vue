@@ -3,63 +3,63 @@
     <input style="display:none;" />
     <row >
             
-<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 16, offset: 4 }" :xl="{ span: 16, offset: 4 }">
+<div v-show="detailsModel.group1.visible">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.storyspec_editmode_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
-        <i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <div v-show="detailsModel.grouppanel1.visible">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.storyspec_editmode_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
-        <i-col v-show="detailsModel.reviewedby.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+        <div v-show="detailsModel.reviewedby.visible">
     <app-form-item name='reviewedby' :itemRules="this.rules.reviewedby" class='' :caption="$t('entities.story.storyspec_editmode_form.details.reviewedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.reviewedby.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box v-model="data.reviewedby"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.reviewedby.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.notreview.visible" :style="{'width':'150px !important'}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+</div>
+<div v-show="detailsModel.notreview.visible">
     <app-form-item name='notreview' :itemRules="this.rules.notreview" class='' :caption="$t('entities.story.storyspec_editmode_form.details.notreview')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.notreview.error" :isEmptyCaption="false" labelPos="RIGHT">
     <app-switch name='notreview' :value="this.data.notreview" @change="($event)=>{this.data.notreview = $event} " :disabled="detailsModel.notreview.disabled" style=""></app-switch>
 </app-form-item>
 
-</i-col>
+</div>
     
     </row>
 </app-form-group>
 
-</i-col>
-<i-col v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.title.visible">
     <app-form-item name='title' :itemRules="this.rules.title" class='' :caption="$t('entities.story.storyspec_editmode_form.details.title')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box v-model="data.title"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.title.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.verify.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.verify.visible">
     <app-form-item name='verify' :itemRules="this.rules.verify" class='' :caption="$t('entities.story.storyspec_editmode_form.details.verify')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.verify.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-rich-text-editor :formState="formState" :value="data.verify" @change="(val) =>{this.data.verify =val}" :disabled="detailsModel.verify.disabled"  name="verify" height={400} style="height:400px;"></app-rich-text-editor>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.spec.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.spec.visible">
     <app-form-item name='spec' :itemRules="this.rules.spec" class='' :caption="$t('entities.story.storyspec_editmode_form.details.spec')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.spec.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-rich-text-editor :formState="formState" :value="data.spec" @change="(val) =>{this.data.spec =val}" :disabled="detailsModel.spec.disabled"  name="spec" height={400} style="height:400px;"></app-rich-text-editor>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.comment.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.comment.visible">
     <app-form-item name='comment' :itemRules="this.rules.comment" class='' :caption="$t('entities.story.storyspec_editmode_form.details.comment')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.comment.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled"  name="comment" height={400} style="height:400px;"></app-rich-text-editor>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.files.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.files.visible">
     <app-form-item name='files' :itemRules="this.rules.files" class='' :caption="$t('entities.story.storyspec_editmode_form.details.files')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.files.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange" :data="JSON.stringify(this.data)" name='files' :value="data.files" :disabled="detailsModel.files.disabled" uploadparams='' exportparams='' :customparams="{objecttype:'story',objectid:'126'}" style="overflow: auto;"></app-file-upload>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.grouppanel2.visible">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.storyspec_editmode_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
-        <i-col v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <div v-show="detailsModel.druipart1.visible">
     <app-form-druipart
     
     :formState="formState"
@@ -83,17 +83,17 @@
     style=";overflow: auto;">
 </app-form-druipart>
 
-</i-col>
+</div>
     
     </row>
 </app-form-group>
 
-</i-col>
+</div>
     
     </row>
 </app-form-group>
 
-</i-col>
+</div>
 
 
     </row>

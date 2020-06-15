@@ -3,16 +3,16 @@
     <input style="display:none;" />
     <row >
             
-<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<div v-show="detailsModel.group1.visible">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.dept.main_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
-        <i-col v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+        <div v-show="detailsModel.name.visible">
     <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.dept.main_form.details.name')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box v-model="data.name"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.name.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.parentname.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+</div>
+<div v-show="detailsModel.parentname.visible">
     <app-form-item name='parentname' :itemRules="this.rules.parentname" class='' :caption="$t('entities.dept.main_form.details.parentname')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.parentname.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-picker 
@@ -38,18 +38,18 @@
 
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.manager.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+</div>
+<div v-show="detailsModel.manager.visible">
     <app-form-item name='manager' :itemRules="this.rules.manager" class='' :caption="$t('entities.dept.main_form.details.manager')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.manager.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box v-model="data.manager"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.manager.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
-</i-col>
+</div>
     
     </row>
 </app-form-group>
 
-</i-col>
+</div>
 
 
     </row>

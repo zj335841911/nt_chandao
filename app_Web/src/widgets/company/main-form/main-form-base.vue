@@ -3,70 +3,70 @@
     <input style="display:none;" />
     <row >
             
-<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<div v-show="detailsModel.group1.visible">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.company.main_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
-        <i-col v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <div v-show="detailsModel.name.visible">
     <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.company.main_form.details.name')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='name' :value="data.name" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.phone.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.phone.visible">
     <app-form-item name='phone' :itemRules="this.rules.phone" class='' :caption="$t('entities.company.main_form.details.phone')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.phone.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='phone' :value="data.phone" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.fax.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.fax.visible">
     <app-form-item name='fax' :itemRules="this.rules.fax" class='' :caption="$t('entities.company.main_form.details.fax')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.fax.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='fax' :value="data.fax" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.address.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.address.visible">
     <app-form-item name='address' :itemRules="this.rules.address" class='' :caption="$t('entities.company.main_form.details.address')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.address.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='address' :value="data.address" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.zipcode.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.zipcode.visible">
     <app-form-item name='zipcode' :itemRules="this.rules.zipcode" class='' :caption="$t('entities.company.main_form.details.zipcode')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.zipcode.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='zipcode' :value="data.zipcode" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.website.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.website.visible">
     <app-form-item name='website' :itemRules="this.rules.website" class='' :caption="$t('entities.company.main_form.details.website')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.website.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='website' :value="data.website" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.backyard.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.backyard.visible">
     <app-form-item name='backyard' :itemRules="this.rules.backyard" class='' :caption="$t('entities.company.main_form.details.backyard')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.backyard.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='backyard' :value="data.backyard" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.guest.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.guest.visible">
     <app-form-item name='guest' :itemRules="this.rules.guest" class='' :caption="$t('entities.company.main_form.details.guest')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.guest.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='guest' :value="data.guest" tag='Company__guest' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
-</i-col>
+</div>
     
     </row>
 </app-form-group>
 
-</i-col>
+</div>
 
 
     </row>

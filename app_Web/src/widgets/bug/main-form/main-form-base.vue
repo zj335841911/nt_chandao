@@ -3,13 +3,13 @@
     <input style="display:none;" />
     <row >
             
-<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<div v-show="detailsModel.group1.visible">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.main_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
-        <i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <div v-show="detailsModel.grouppanel1.visible">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.main_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
-        <i-col v-show="detailsModel.productname.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+        <div v-show="detailsModel.productname.visible">
     <app-form-item name='productname' :itemRules="this.rules.productname" class='' :caption="$t('entities.bug.main_form.details.productname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.productname.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-picker 
@@ -35,8 +35,8 @@
 
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.module.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+</div>
+<div v-show="detailsModel.module.visible">
     <app-form-item name='module' :itemRules="this.rules.module" class='' :caption="$t('entities.bug.main_form.details.module')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.module.error" :isEmptyCaption="false" labelPos="LEFT">
     
  <dropdown-list 
@@ -51,8 +51,8 @@
  </dropdown-list>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.projectname.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+</div>
+<div v-show="detailsModel.projectname.visible">
     <app-form-item name='projectname' :itemRules="this.rules.projectname" class='' :caption="$t('entities.bug.main_form.details.projectname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.projectname.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-picker 
@@ -78,26 +78,26 @@
 
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.openedbuild.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+</div>
+<div v-show="detailsModel.openedbuild.visible">
     <app-form-item name='openedbuild' :itemRules="this.rules.openedbuild" class='' :caption="$t('entities.bug.main_form.details.openedbuild')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.openedbuild.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box v-model="data.openedbuild"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.openedbuild.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.assignedto.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+</div>
+<div v-show="detailsModel.assignedto.visible">
     <app-form-item name='assignedto' :itemRules="this.rules.assignedto" class='' :caption="$t('entities.bug.main_form.details.assignedto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.assignedto.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box v-model="data.assignedto"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.assignedto.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.deadline.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+</div>
+<div v-show="detailsModel.deadline.visible">
     <app-form-item name='deadline' :itemRules="this.rules.deadline" class='' :caption="$t('entities.bug.main_form.details.deadline')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.deadline.error" :isEmptyCaption="false" labelPos="LEFT">
     <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.deadline" :disabled="detailsModel.deadline.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.deadline = val1 }"></date-picker>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+</div>
+<div v-show="detailsModel.type.visible">
     <app-form-item name='type' :itemRules="this.rules.type" class='' :caption="$t('entities.bug.main_form.details.type')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="LEFT">
     
  <dropdown-list 
@@ -114,8 +114,8 @@
  </dropdown-list>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.os.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 3, offset: 0 }">
+</div>
+<div v-show="detailsModel.os.visible">
     <app-form-item name='os' :itemRules="this.rules.os" class='' :caption="$t('entities.bug.main_form.details.os')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.os.error" :isEmptyCaption="false" labelPos="LEFT">
     
  <dropdown-list 
@@ -132,8 +132,8 @@
  </dropdown-list>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.browser.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 3, offset: 0 }">
+</div>
+<div v-show="detailsModel.browser.visible">
     <app-form-item name='browser' :itemRules="this.rules.browser" class='' :caption="$t('entities.bug.main_form.details.browser')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.browser.error" :isEmptyCaption="false" labelPos="LEFT">
     
  <dropdown-list 
@@ -150,19 +150,19 @@
  </dropdown-list>
 </app-form-item>
 
-</i-col>
+</div>
     
     </row>
 </app-form-group>
 
-</i-col>
-<i-col v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+</div>
+<div v-show="detailsModel.title.visible">
     <app-form-item name='title' :itemRules="this.rules.title" class='' :caption="$t('entities.bug.main_form.details.title')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box v-model="data.title"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.title.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.severity.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+</div>
+<div v-show="detailsModel.severity.visible">
     <app-form-item name='severity' :itemRules="this.rules.severity" class='' :caption="$t('entities.bug.main_form.details.severity')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.severity.error" :isEmptyCaption="false" labelPos="LEFT">
     
  <dropdown-list 
@@ -179,8 +179,8 @@
  </dropdown-list>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.pri.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+</div>
+<div v-show="detailsModel.pri.visible">
     <app-form-item name='pri' :itemRules="this.rules.pri" class='' :caption="$t('entities.bug.main_form.details.pri')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.pri.error" :isEmptyCaption="false" labelPos="LEFT">
     
  <dropdown-list 
@@ -197,17 +197,17 @@
  </dropdown-list>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.steps.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.steps.visible">
     <app-form-item name='steps' :itemRules="this.rules.steps" class='' :caption="$t('entities.bug.main_form.details.steps')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.steps.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-rich-text-editor :formState="formState" :value="data.steps" @change="(val) =>{this.data.steps =val}" :disabled="detailsModel.steps.disabled"  name="steps" style=""></app-rich-text-editor>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.grouppanel2.visible">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.main_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
-        <i-col v-show="detailsModel.mailto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+        <div v-show="detailsModel.mailto.visible">
     <app-form-item name='mailto' :itemRules="this.rules.mailto" class='' :caption="$t('entities.bug.main_form.details.mailto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.mailto.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list-mpicker 
@@ -224,23 +224,23 @@
 </dropdown-list-mpicker>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.keywords.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+</div>
+<div v-show="detailsModel.keywords.visible">
     <app-form-item name='keywords' :itemRules="this.rules.keywords" class='' :caption="$t('entities.bug.main_form.details.keywords')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.keywords.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box v-model="data.keywords"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.keywords.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
-</i-col>
+</div>
     
     </row>
 </app-form-group>
 
-</i-col>
+</div>
     
     </row>
 </app-form-group>
 
-</i-col>
+</div>
 
 
     </row>

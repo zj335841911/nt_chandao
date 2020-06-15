@@ -3,10 +3,10 @@
     <input style="display:none;" />
     <row >
             
-<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<div v-show="detailsModel.group1.visible">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.case.mainnew_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
-        <i-col v-show="detailsModel.productname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+        <div v-show="detailsModel.productname.visible">
     <app-form-item name='productname' :itemRules="this.rules.productname" class='' :caption="$t('entities.case.mainnew_form.details.productname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.productname.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-picker  
@@ -30,8 +30,8 @@
 </app-picker>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.modulename.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+</div>
+<div v-show="detailsModel.modulename.visible">
     <app-form-item name='modulename' :itemRules="this.rules.modulename" class='' :caption="$t('entities.case.mainnew_form.details.modulename')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.modulename.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-picker  
@@ -55,8 +55,8 @@
 </app-picker>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+</div>
+<div v-show="detailsModel.type.visible">
     <app-form-item name='type' :itemRules="this.rules.type" class='' :caption="$t('entities.case.mainnew_form.details.type')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="LEFT">
     
  <dropdown-list 
@@ -73,11 +73,11 @@
  </dropdown-list>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.grouppanel1.visible">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.case.mainnew_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
-        <i-col v-show="detailsModel.storyname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <div v-show="detailsModel.storyname.visible">
     <app-form-item name='storyname' :itemRules="this.rules.storyname" class='' :caption="$t('entities.case.mainnew_form.details.storyname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.storyname.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-picker  
@@ -101,14 +101,14 @@
 </app-picker>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
+</div>
+<div v-show="detailsModel.title.visible">
     <app-form-item name='title' :itemRules="this.rules.title" class='' :caption="$t('entities.case.mainnew_form.details.title')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box v-model="data.title"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.title.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.pri.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+</div>
+<div v-show="detailsModel.pri.visible">
     <app-form-item name='pri' :itemRules="this.rules.pri" class='' :caption="$t('entities.case.mainnew_form.details.pri')" uiStyle="DEFAULT" :labelWidth="60" :isShowCaption="true" :error="detailsModel.pri.error" :isEmptyCaption="false" labelPos="LEFT">
     
  <dropdown-list 
@@ -125,16 +125,16 @@
  </dropdown-list>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.precondition.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.precondition.visible">
     <app-form-item name='precondition' :itemRules="this.rules.precondition" class='' :caption="$t('entities.case.mainnew_form.details.precondition')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.precondition.error" :isEmptyCaption="false" labelPos="LEFT">
     <div class="ivu-input-wrapper ivu-input-wrapper-default ivu-input-type">
     <textarea class="ivu-input" v-model="data.precondition" :disabled="detailsModel.precondition.disabled" style=""></textarea>
 </div>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.druipart1.visible">
     <app-form-druipart
     
     :formState="formState"
@@ -159,29 +159,29 @@
     style=";overflow: auto;">
 </app-form-druipart>
 
-</i-col>
-<i-col v-show="detailsModel.keywords.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.keywords.visible">
     <app-form-item name='keywords' :itemRules="this.rules.keywords" class='' :caption="$t('entities.case.mainnew_form.details.keywords')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.keywords.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box v-model="data.keywords"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.keywords.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.formitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.formitem1.visible">
     <app-form-item name='formitem1' :itemRules="this.rules.formitem1" class='' :caption="$t('entities.case.mainnew_form.details.formitem1')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem1.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange" :data="JSON.stringify(this.data)" name='formitem1' :value="data.formitem1" :disabled="detailsModel.formitem1.disabled" uploadparams='' exportparams='' :customparams="{}" style="overflow: auto;"></app-file-upload>
 </app-form-item>
 
-</i-col>
+</div>
     
     </row>
 </app-form-group>
 
-</i-col>
+</div>
     
     </row>
 </app-form-group>
 
-</i-col>
+</div>
 
 
     </row>

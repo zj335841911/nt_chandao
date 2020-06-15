@@ -4,36 +4,36 @@
   <row>
     <i-col span="20" class="form-content">
       <row>
-                    <i-col v-show="detailsModel.n_acl_eq.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+                    <div v-show="detailsModel.n_acl_eq.visible">
               <app-form-item name='n_acl_eq' :itemRules="this.rules.n_acl_eq" class='' :caption="$t('entities.product.default_searchform.details.n_acl_eq')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.n_acl_eq.error" :isEmptyCaption="false" labelPos="LEFT"> 
               <input-box v-model="data.n_acl_eq"  @enter="onEnter($event)"    :disabled="detailsModel.n_acl_eq.disabled" type='text'  style=""></input-box>
           </app-form-item>
           
-          </i-col>
-          <i-col v-show="detailsModel.n_line_eq.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+          </div>
+          <div v-show="detailsModel.n_line_eq.visible">
               <app-form-item name='n_line_eq' :itemRules="this.rules.n_line_eq" class='' :caption="$t('entities.product.default_searchform.details.n_line_eq')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.n_line_eq.error" :isEmptyCaption="false" labelPos="LEFT"> 
               <input-box v-model="data.n_line_eq"  @enter="onEnter($event)"    :disabled="detailsModel.n_line_eq.disabled" type='number'  style=""></input-box>
           </app-form-item>
           
-          </i-col>
-          <i-col v-show="detailsModel.n_linename_like.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+          </div>
+          <div v-show="detailsModel.n_linename_like.visible">
               <app-form-item name='n_linename_like' :itemRules="this.rules.n_linename_like" class='' :caption="$t('entities.product.default_searchform.details.n_linename_like')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.n_linename_like.error" :isEmptyCaption="false" labelPos="LEFT"> 
               <input-box v-model="data.n_linename_like"  @enter="onEnter($event)"    :disabled="detailsModel.n_linename_like.disabled" type='text'  style="width:100px;"></input-box>
           </app-form-item>
           
-          </i-col>
-          <i-col v-show="detailsModel.n_linename_eq.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+          </div>
+          <div v-show="detailsModel.n_linename_eq.visible">
               <app-form-item name='n_linename_eq' :itemRules="this.rules.n_linename_eq" class='' :caption="$t('entities.product.default_searchform.details.n_linename_eq')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.n_linename_eq.error" :isEmptyCaption="false" labelPos="LEFT"> 
               <input-box v-model="data.n_linename_eq"  @enter="onEnter($event)"    :disabled="detailsModel.n_linename_eq.disabled" type='text'  style=""></input-box>
           </app-form-item>
           
-          </i-col>
-          <i-col v-show="detailsModel.n_name_like.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+          </div>
+          <div v-show="detailsModel.n_name_like.visible">
               <app-form-item name='n_name_like' :itemRules="this.rules.n_name_like" class='' :caption="$t('entities.product.default_searchform.details.n_name_like')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.n_name_like.error" :isEmptyCaption="false" labelPos="LEFT"> 
               <input-box v-model="data.n_name_like"  @enter="onEnter($event)"    :disabled="detailsModel.n_name_like.disabled" type='text'  style="width:100px;"></input-box>
           </app-form-item>
           
-          </i-col>
+          </div>
       </row>
     </i-col>
     <i-col span="4" class="search-button">

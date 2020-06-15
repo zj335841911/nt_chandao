@@ -42,7 +42,7 @@ export default {
 	testmain2_form: {
 		details: {
 			group1: "产品统计基本信息", 
-			grouppanel1: "分组面板", 
+			grouppanel3: "分组面板", 
 			grouppanel2: "分组面板", 
 			formpage1: "基本信息", 
 			srforikey: "", 

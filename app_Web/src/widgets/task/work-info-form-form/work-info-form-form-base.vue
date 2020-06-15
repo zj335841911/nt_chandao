@@ -3,56 +3,56 @@
     <input style="display:none;" />
     <row >
             
-<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<div v-show="detailsModel.group1.visible">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.workinfoform_form.details.group1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
-        <i-col v-show="detailsModel.estimate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <div v-show="detailsModel.estimate.visible">
     <app-form-item name='estimate' :itemRules="this.rules.estimate" class='' :caption="$t('entities.task.workinfoform_form.details.estimate')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.estimate.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='estimate' :value="data.estimate" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.consumed.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.consumed.visible">
     <app-form-item name='consumed' :itemRules="this.rules.consumed" class='' :caption="$t('entities.task.workinfoform_form.details.consumed')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.consumed.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='consumed' :value="data.consumed" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.left.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.left.visible">
     <app-form-item name='left' :itemRules="this.rules.left" class='' :caption="$t('entities.task.workinfoform_form.details.left')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.left.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='left' :value="data.left" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.eststarted.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.eststarted.visible">
     <app-form-item name='eststarted' :itemRules="this.rules.eststarted" class='' :caption="$t('entities.task.workinfoform_form.details.eststarted')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.eststarted.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='eststarted' :value="data.eststarted" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.realstarted.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.realstarted.visible">
     <app-form-item name='realstarted' :itemRules="this.rules.realstarted" class='' :caption="$t('entities.task.workinfoform_form.details.realstarted')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.realstarted.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='realstarted' :value="data.realstarted" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.deadline.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+</div>
+<div v-show="detailsModel.deadline.visible">
     <app-form-item name='deadline' :itemRules="this.rules.deadline" class='' :caption="$t('entities.task.workinfoform_form.details.deadline')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.deadline.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='deadline' :value="data.deadline" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
-</i-col>
+</div>
     
     </row>
 </app-form-group>
 
-</i-col>
+</div>
 
 
     </row>
