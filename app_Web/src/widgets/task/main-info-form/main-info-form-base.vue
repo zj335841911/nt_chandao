@@ -13,12 +13,8 @@
                     ])
                 }">
                 !!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
-
-----
 FTL stack trace ("~" means nesting-related):
-	- Failed at: #if LayoutPos.getColXS() != -1  [in template "TEMPLCODE_zh_CN" at line 10, column 303]
+	- Failed at: #assign layout = layoutPos.getLayout()  [in template "TEMPLCODE_zh_CN" at line 8, column 1]
 ----
             </tab-pane> 
             <tab-pane v-show="detailsModel.formpage2.visible" name='formpage2' :index="1" tab='maininfo' class=''  
@@ -30,12 +26,8 @@ FTL stack trace ("~" means nesting-related):
                     ])
                 }">
                 !!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
-
-----
 FTL stack trace ("~" means nesting-related):
-	- Failed at: #if LayoutPos.getColXS() != -1  [in template "TEMPLCODE_zh_CN" at line 10, column 303]
+	- Failed at: #assign layout = layoutPos.getLayout()  [in template "TEMPLCODE_zh_CN" at line 8, column 1]
 ----
             </tab-pane> 
     </tabs>
