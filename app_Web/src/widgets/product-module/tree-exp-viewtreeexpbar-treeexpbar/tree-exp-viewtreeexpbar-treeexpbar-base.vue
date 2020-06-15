@@ -287,21 +287,21 @@ export default class TreeExpViewtreeexpbarBase extends Vue implements ControlInt
         if (Object.is(expmode, 'MODULE')) {
             return {  
                 viewname: 'product-module-grid-view', 
-                parentdata: {},
+                parentdata: {"srfparentdefname":"n_parent_eq"},
                 deKeyField:'productmodule'
 			};
         }
         if (Object.is(expmode, 'ROOT_NOBRANCH')) {
             return {  
                 viewname: 'product-module-grid-view', 
-                parentdata: {},
+                parentdata: {"srfparentdefname":"n_parent_eq"},
                 deKeyField:'productmodule'
 			};
         }
         if (Object.is(expmode, 'ROOTMODULE')) {
             return {  
                 viewname: 'product-module-grid-view', 
-                parentdata: {},
+                parentdata: {"srfparentdefname":"n_parent_eq"},
                 deKeyField:'productmodule'
 			};
         }
