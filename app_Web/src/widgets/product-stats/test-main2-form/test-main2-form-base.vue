@@ -24,50 +24,58 @@
 </app-form-group>
 
 </i-col>
-<i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.testmain2_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
-    <row>
-        <i-col v-show="detailsModel.formitemex2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
-    <app-form-item name='formitemex2' :itemRules="this.rules.formitemex2" class='' :caption="$t('entities.productstats.testmain2_form.details.formitemex2')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex2.error" :isEmptyCaption="false" labelPos="LEFT">
+<i-col v-show="detailsModel.grouppanel2.visible" :style="{'height': '250px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.testmain2_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <div style="height: 100%;display: flex;align-items: center;">
+        <div  v-show="detailsModel.grouppanel1.visible" :style="{}">
+<app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.testmain2_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <div style="height: 100%;display: flex;">
+        <div  v-show="detailsModel.formitemex2.visible" :style="{}">
+<app-form-item name='formitemex2' :itemRules="this.rules.formitemex2" class='' :caption="$t('entities.productstats.testmain2_form.details.formitemex2')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex2.error" :isEmptyCaption="false" labelPos="LEFT">
     <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom3" :progress="this.data.custom4"/>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.activebugcnt.visible" :style="{'height': '64px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
-    <app-form-item name='activebugcnt' :itemRules="this.rules.activebugcnt" class='text-center' :caption="$t('entities.productstats.testmain2_form.details.activebugcnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.activebugcnt.error" :isEmptyCaption="false" labelPos="TOP">
+</div>
+<div  v-show="detailsModel.activebugcnt.visible" :style="{'height':'64px'}">
+<app-form-item name='activebugcnt' :itemRules="this.rules.activebugcnt" class='text-center' :caption="$t('entities.productstats.testmain2_form.details.activebugcnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.activebugcnt.error" :isEmptyCaption="false" labelPos="TOP">
     
 <app-span name='activebugcnt' :value="data.activebugcnt" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.formitemex3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
-    <app-form-item name='formitemex3' :itemRules="this.rules.formitemex3" class='' :caption="$t('entities.productstats.testmain2_form.details.formitemex3')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex3.error" :isEmptyCaption="false" labelPos="LEFT">
+</div>
+<div  v-show="detailsModel.formitemex3.visible" :style="{}">
+<app-form-item name='formitemex3' :itemRules="this.rules.formitemex3" class='' :caption="$t('entities.productstats.testmain2_form.details.formitemex3')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex3.error" :isEmptyCaption="false" labelPos="LEFT">
     <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom5" :progress="this.data.custom6"/>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.unconfirmbugcnt.visible" :style="{'height': '64px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
-    <app-form-item name='unconfirmbugcnt' :itemRules="this.rules.unconfirmbugcnt" class='text-center' :caption="$t('entities.productstats.testmain2_form.details.unconfirmbugcnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.unconfirmbugcnt.error" :isEmptyCaption="false" labelPos="TOP">
+</div>
+<div  v-show="detailsModel.unconfirmbugcnt.visible" :style="{'height':'64px'}">
+<app-form-item name='unconfirmbugcnt' :itemRules="this.rules.unconfirmbugcnt" class='text-center' :caption="$t('entities.productstats.testmain2_form.details.unconfirmbugcnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.unconfirmbugcnt.error" :isEmptyCaption="false" labelPos="TOP">
     
 <app-span name='unconfirmbugcnt' :value="data.unconfirmbugcnt" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.formitemex4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
-    <app-form-item name='formitemex4' :itemRules="this.rules.formitemex4" class='' :caption="$t('entities.productstats.testmain2_form.details.formitemex4')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex4.error" :isEmptyCaption="false" labelPos="LEFT">
+</div>
+<div  v-show="detailsModel.formitemex4.visible" :style="{}">
+<app-form-item name='formitemex4' :itemRules="this.rules.formitemex4" class='' :caption="$t('entities.productstats.testmain2_form.details.formitemex4')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex4.error" :isEmptyCaption="false" labelPos="LEFT">
     <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom7" :progress="this.data.custom8"/>
 </app-form-item>
 
-</i-col>
-<i-col v-show="detailsModel.notclosedbugcnt.visible" :style="{'height': '64px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
-    <app-form-item name='notclosedbugcnt' :itemRules="this.rules.notclosedbugcnt" class='text-center' :caption="$t('entities.productstats.testmain2_form.details.notclosedbugcnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.notclosedbugcnt.error" :isEmptyCaption="false" labelPos="TOP">
+</div>
+<div  v-show="detailsModel.notclosedbugcnt.visible" :style="{'height':'64px'}">
+<app-form-item name='notclosedbugcnt' :itemRules="this.rules.notclosedbugcnt" class='text-center' :caption="$t('entities.productstats.testmain2_form.details.notclosedbugcnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.notclosedbugcnt.error" :isEmptyCaption="false" labelPos="TOP">
     
 <app-span name='notclosedbugcnt' :value="data.notclosedbugcnt" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
-</i-col>
-    
-    </row>
+</div>
+
+    </div>
+</app-form-group>
+
+</div>
+
+    </div>
 </app-form-group>
 
 </i-col>
@@ -592,6 +600,8 @@ export default class TestMain2Base extends Vue implements ControlInterface {
 , 
         grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productstats.testmain2_form', extractMode: 'ITEM', details: [] } })
 , 
+        grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productstats.testmain2_form', extractMode: 'ITEM', details: [] } })
+, 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -968,6 +978,7 @@ export default class TestMain2Base extends Vue implements ControlInterface {
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
 
 
 
