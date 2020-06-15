@@ -1,38 +1,16 @@
 <template>
 <studio-view viewName="productmodulegridview" viewTitle="产品模块表格视图" class='degridview product-module-grid-view'>
-    <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
-    </template>
-    <i-input slot="quickSearch" v-show="!isExpandSearchForm" v-model="query" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
                 <div class='toolbar-container'>
-            <i-button :title="$t('entities.productmodule.gridviewtoolbar_toolbar.deuiaction1.tip')" v-show="toolBarModels.deuiaction1.visabled" :disabled="toolBarModels.deuiaction1.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1' }, $event)">
-                    <i class='fa fa-file-text-o'></i>
-                    <span class='caption'>{{$t('entities.productmodule.gridviewtoolbar_toolbar.deuiaction1.caption')}}</span>
-                </i-button>
-            <span class='seperator'>|</span>    <i-button :title="$t('entities.productmodule.gridviewtoolbar_toolbar.deuiaction2.tip')" v-show="toolBarModels.deuiaction2.visabled" :disabled="toolBarModels.deuiaction2.disabled" class='' @click="toolbar_click({ tag: 'deuiaction2' }, $event)">
-                    <i class='fa fa-edit'></i>
+            <i-button :title="$t('entities.productmodule.gridviewtoolbar_toolbar.deuiaction2.tip')" v-show="toolBarModels.deuiaction2.visabled" :disabled="toolBarModels.deuiaction2.disabled" class='' @click="toolbar_click({ tag: 'deuiaction2' }, $event)">
+                    <i class='fa fa-plus'></i>
                     <span class='caption'>{{$t('entities.productmodule.gridviewtoolbar_toolbar.deuiaction2.caption')}}</span>
                 </i-button>
+            <i-button :title="$t('entities.productmodule.gridviewtoolbar_toolbar.deuiaction3.tip')" v-show="toolBarModels.deuiaction3.visabled" :disabled="toolBarModels.deuiaction3.disabled" class='' @click="toolbar_click({ tag: 'deuiaction3' }, $event)">
+                    <i class='fa fa-save'></i>
+                    <span class='caption'>{{$t('entities.productmodule.gridviewtoolbar_toolbar.deuiaction3.caption')}}</span>
+                </i-button>
         </div>
-    </template>
-    <template slot="searchForm">
-                <view_searchform 
-            :viewState="viewState"  
-            :viewparams="viewparams" 
-            :context="context" 
-            :showBusyIndicator="true"
-            v-show="isExpandSearchForm"
-            loaddraftAction="FilterGetDraft"
-            loadAction="FilterGet"
-        
-            name="searchform"  
-            ref='searchform' 
-            @save="searchform_save($event)"  
-            @search="searchform_search($event)"  
-            @load="searchform_load($event)"  
-            @closeview="closeView($event)">
-        </view_searchform>
     </template>
     <view_grid 
         :viewState="viewState"  
@@ -40,17 +18,15 @@
         :context="context" 
         :isSingleSelect="isSingleSelect"
         :showBusyIndicator="true"
-        :isOpenEdit="false"
+        :isOpenEdit="true"
         :gridRowActiveMode="gridRowActiveMode"
         @save="onSave"
-        updateAction=""
+        updateAction="Update"
         removeAction="Remove"
-        loaddraftAction=""
-        loadAction=""
-        createAction=""
+        loaddraftAction="GetDraft"
+        loadAction="Get"
+        createAction="Create"
         fetchAction="FetchDefault"
-        :newdata="newdata"
-        :opendata="opendata"
         name="grid"  
         ref='grid' 
         @selectionchange="grid_selectionchange($event)"  
@@ -220,7 +196,6 @@ export default class ProductModuleGridViewBase extends Vue {
     public containerModel: any = {
         view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
         view_grid: { name: 'grid', type: 'GRID' },
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
     };
 
     /**
@@ -254,10 +229,9 @@ export default class ProductModuleGridViewBase extends Vue {
      * @memberof ProductModuleGridView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '新建', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'New', target: '' } },
+        deuiaction2: { name: 'deuiaction2', caption: '新建行', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'NewRow', target: '' } },
 
-        seperator1: {  name: 'seperator1', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
-        deuiaction2: { name: 'deuiaction2', caption: '编辑', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Edit', target: 'SINGLEKEY' } },
+        deuiaction3: { name: 'deuiaction3', caption: '保存行', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'SaveRow', target: '' } },
 
     };
 
@@ -283,14 +257,7 @@ export default class ProductModuleGridViewBase extends Vue {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
-            },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
-            },
             grid: this.$refs.grid,
-            searchform: this.$refs.searchform,
             keyPSDEField: 'productmodule',
             majorPSDEField: 'name',
             isLoadDefault: true,
@@ -509,11 +476,11 @@ export default class ProductModuleGridViewBase extends Vue {
      * @memberof ProductModuleGridViewBase
      */
     public toolbar_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'deuiaction1')) {
-            this.toolbar_deuiaction1_click(null, '', $event2);
-        }
         if (Object.is($event.tag, 'deuiaction2')) {
             this.toolbar_deuiaction2_click(null, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction3')) {
+            this.toolbar_deuiaction3_click(null, '', $event2);
         }
     }
 
@@ -578,70 +545,6 @@ export default class ProductModuleGridViewBase extends Vue {
     }
 
 
-    /**
-     * searchform 部件 save 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof ProductModuleGridViewBase
-     */
-    public searchform_save($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('searchform', 'save', $event);
-    }
-
-
-    /**
-     * searchform 部件 search 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof ProductModuleGridViewBase
-     */
-    public searchform_search($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('searchform', 'search', $event);
-    }
-
-
-    /**
-     * searchform 部件 load 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof ProductModuleGridViewBase
-     */
-    public searchform_load($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('searchform', 'load', $event);
-    }
-
-
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.New(datas, contextJO,paramJO,  $event, xData,this,"ProductModule");
-    }
 
     /**
      * 逻辑事件
@@ -668,113 +571,39 @@ export default class ProductModuleGridViewBase extends Vue {
           datas = [params];
         }
         // 界面行为
-        this.Edit(datas, contextJO,paramJO,  $event, xData,this,"ProductModule");
+        this.NewRow(datas, contextJO,paramJO,  $event, xData,this,"ProductModule");
     }
 
     /**
-     * 打开新建数据视图
+     * 逻辑事件
      *
-     * @param {any[]} args
-     * @param {*} [params]
-     * @param {*} [fullargs]
+     * @param {*} [params={}]
+     * @param {*} [tag]
      * @param {*} [$event]
-     * @param {*} [xData]
-     * @memberof ProductModuleGridView
+     * @memberof 
      */
-    public newdata(args: any[],fullargs?:any[], params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
-        const data: any = {};
-        if(args[0].srfsourcekey){
-            data.srfsourcekey = args[0].srfsourcekey;
-        }
-        let tempContext = JSON.parse(JSON.stringify(this.context));
-        delete tempContext.productmodule;
-        if(args.length >0){
-            Object.assign(tempContext,args[0]);
-        }
-        let deResParameters: any[] = [];
-        deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-        ];
-        const parameters: any[] = [
-            { pathName: 'productmodules', parameterName: 'productmodule' },
-        ];
+    public toolbar_deuiaction3_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
         const _this: any = this;
-        const openDrawer = (view: any, data: any) => {
-            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
-            container.subscribe((result: any) => {
-                if (!result || !Object.is(result.ret, 'OK')) {
-                    return;
-                }
-                if (!xData || !(xData.refresh instanceof Function)) {
-                    return;
-                }
-                xData.refresh(result.datas);
-            });
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.grid;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
         }
-        const view: any = {
-            viewname: 'product-module-edit-view', 
-            height: 0, 
-            width: 0,  
-            title: this.$t('entities.productmodule.views.editview.title'),
-            placement: 'DRAWER_RIGHT',
-        };
-        openDrawer(view, data);
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.SaveRow(datas, contextJO,paramJO,  $event, xData,this,"ProductModule");
     }
 
-
     /**
-     * 打开编辑数据视图
-     *
-     * @param {any[]} args
-     * @param {*} [params]
-     * @param {*} [fullargs]
-     * @param {*} [$event]
-     * @param {*} [xData]
-     * @memberof ProductModuleGridView
-     */
-    public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
-        const data: any = {};
-        let tempContext = JSON.parse(JSON.stringify(this.context));
-        if(args.length >0){
-            Object.assign(tempContext,args[0]);
-        }
-        let deResParameters: any[] = [];
-        deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-        ];
-        const parameters: any[] = [
-            { pathName: 'productmodules', parameterName: 'productmodule' },
-        ];
-        const _this: any = this;
-        const openDrawer = (view: any, data: any) => {
-            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
-            container.subscribe((result: any) => {
-                if (!result || !Object.is(result.ret, 'OK')) {
-                    return;
-                }
-                if (!xData || !(xData.refresh instanceof Function)) {
-                    return;
-                }
-                xData.refresh(result.datas);
-            });
-        }
-        const view: any = {
-            viewname: 'product-module-edit-view', 
-            height: 0, 
-            width: 0,  
-            title: this.$t('entities.productmodule.views.editview.title'),
-            placement: 'DRAWER_RIGHT',
-        };
-        openDrawer(view, data);
-    }
-
-
-    /**
-     * 新建
+     * 新建行
      *
      * @param {any[]} args 当前数据
      * @param {any} contextJO 行为附加上下文
@@ -784,17 +613,19 @@ export default class ProductModuleGridViewBase extends Vue {
      * @param {*} [actionContext]  执行行为上下文
      * @memberof ProductModuleGridViewBase
      */
-    public New(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-         const _this: any = this;
-        if (_this.newdata && _this.newdata instanceof Function) {
-            const data: any = {};
-            _this.newdata([{ ...data }],[{ ...data }], params, $event, xData);
-        } else {
-            _this.$Notice.error({ title: '错误', desc: 'newdata 视图处理逻辑不存在，请添加!' });
+    public NewRow(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        const _this: any = this;
+        const data: any = {};
+        if (_this.newRow && _this.newRow instanceof Function) {
+            _this.newRow([{ ...data }], params, $event, xData);
+        } else if(xData.newRow && xData.newRow instanceof Function) {
+            xData.newRow([{ ...data }], params, $event, xData);
+        }else{
+            _this.$Notice.error({ title: '错误', desc: 'newRow 视图处理逻辑不存在，请添加!' });
         }
     }
     /**
-     * 编辑
+     * 保存行
      *
      * @param {any[]} args 当前数据
      * @param {any} contextJO 行为附加上下文
@@ -804,19 +635,13 @@ export default class ProductModuleGridViewBase extends Vue {
      * @param {*} [actionContext]  执行行为上下文
      * @memberof ProductModuleGridViewBase
      */
-    public Edit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        if (args.length === 0) {
-            return;
-        }
+    public SaveRow(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        // 界面行为容器对象 _this
         const _this: any = this;
-        if (_this.opendata && _this.opendata instanceof Function) {
-            const data: any = { };
-            if (args.length > 0) {
-                Object.assign(data, { productmodule: args[0].productmodule })
-            }
-            _this.opendata([{ ...data }], params, $event, xData);
-        } else {
-            _this.$Notice.error({ title: '错误', desc: 'opendata 视图处理逻辑不存在，请添加!' });
+        if (xData && xData.save instanceof Function) {
+            xData.save();
+        } else if (_this.save && _this.save instanceof Function) {
+            _this.save();
         }
     }
 
@@ -842,7 +667,7 @@ export default class ProductModuleGridViewBase extends Vue {
      * @type {boolean}
      * @memberof ProductModuleGridViewBase
      */
-    public isSingleSelect: boolean = false;
+    public isSingleSelect: boolean = true;
 
 
     /**
@@ -886,7 +711,7 @@ export default class ProductModuleGridViewBase extends Vue {
      * @type {(number | 0 | 1 | 2)}
      * @memberof ProductModuleGridViewBase
      */
-    public gridRowActiveMode: number | 0 | 1 | 2 = 2;
+    public gridRowActiveMode: number | 0 | 1 | 2 = 0;
 
     /**
      * 快速搜索

@@ -8,7 +8,7 @@
     <row>
         <i-col v-show="detailsModel.steps.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='steps' :itemRules="this.rules.steps" class='' :caption="$t('entities.bug.stepsinfo_form.details.steps')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.steps.error" :isEmptyCaption="true" labelPos="NONE">
-    <span v-html="data.steps"></span>
+    <html-container :content="data.steps"></html-container>
 </app-form-item>
 
 </i-col>

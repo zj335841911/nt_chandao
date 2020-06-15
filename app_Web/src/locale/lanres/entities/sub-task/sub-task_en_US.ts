@@ -46,6 +46,8 @@ export default {
     module: 'id',
     path: '模块路径',
     comment: '备注',
+    currentconsumed: '本次消耗',
+    totaltime: '总计耗时',
   },
 	views: {
 		subtasknewview: {
@@ -68,10 +70,6 @@ export default {
 		},
 	},
 	subtasknewviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "行编辑",
-			tip: "行编辑",
-		},
 		deuiaction2: {
 			caption: "新建行",
 			tip: "新建行",

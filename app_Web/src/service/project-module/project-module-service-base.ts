@@ -248,6 +248,24 @@ export default class ProjectModuleServiceBase extends EntityService {
     }
 
     /**
+     * FetchByPath接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectModuleServiceBase
+     */
+    public async FetchByPath(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/projects/${context.project}/projectmodules/fetchbypath`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/projectmodules/fetchbypath`,tempData,isloading);
+    }
+
+    /**
      * FetchRoot_Task接口方法
      *
      * @param {*} [context={}]

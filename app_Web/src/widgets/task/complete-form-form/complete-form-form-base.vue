@@ -18,7 +18,7 @@
     <input-box 
   v-model="data.currentconsumed"  
   @enter="onEnter($event)"  
-  
+  unit=""
   :disabled="detailsModel.currentconsumed.disabled" 
   type='number' 
    
@@ -519,16 +519,16 @@ export default class CompleteFormBase extends Vue implements ControlInterface {
             { required: false, type: 'number', message: '之前消耗 值不能为空', trigger: 'blur' },
         ],
         currentconsumed: [
-            { type: 'string', message: '本次消耗 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '本次消耗 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '本次消耗 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '本次消耗 值不能为空', trigger: 'blur' },
+            { type: 'number', message: '本次消耗 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '本次消耗 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '本次消耗 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '本次消耗 值不能为空', trigger: 'blur' },
         ],
         totaltime: [
-            { type: 'string', message: '总计耗时 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '总计耗时 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '总计耗时 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '总计耗时 值不能为空', trigger: 'blur' },
+            { type: 'number', message: '总计耗时 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '总计耗时 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '总计耗时 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '总计耗时 值不能为空', trigger: 'blur' },
         ],
         assignedto: [
             { type: 'string', message: '指派给 值必须为字符串类型', trigger: 'change' },

@@ -18,7 +18,7 @@
     <row>
         <i-col v-show="detailsModel.spec.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='spec' :itemRules="this.rules.spec" class='' :caption="$t('entities.story.storyspec_form.details.spec')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.spec.error" :isEmptyCaption="false" labelPos="NONE">
-    <span v-html="data.spec"></span>
+    <html-container :content="data.spec"></html-container>
 </app-form-item>
 
 </i-col>
@@ -32,7 +32,7 @@
     <row>
         <i-col v-show="detailsModel.verify.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='verify' :itemRules="this.rules.verify" class='' :caption="$t('entities.story.storyspec_form.details.verify')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.verify.error" :isEmptyCaption="false" labelPos="NONE">
-    <span v-html="data.verify"></span>
+    <html-container :content="data.verify"></html-container>
 </app-form-item>
 
 </i-col>

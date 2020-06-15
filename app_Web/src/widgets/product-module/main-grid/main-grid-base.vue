@@ -24,26 +24,29 @@
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.productmodule.main_grid.columns.name')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.productmodule.main_grid.columns.name')" :width="300"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.productmodule.main_grid.columns.name')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.name}}</span>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('root')">
-                <el-table-column show-overflow-tooltip :prop="'root'" :label="$t('entities.productmodule.main_grid.columns.root')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.productmodule.main_grid.columns.root')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <span>{{row.root}}</span>
+                        <template v-if="actualIsOpenEdit">
+                            <app-form-item :error="gridItemsModel[$index][column.property].error">
+                                <input-box 
+              :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1" 
+              v-model="row[column.property]" 
+              style=""
+              type="text"
+              
+              placeholder="模块名称"
+              @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
+            </input-box>
+                            </app-form-item>
+                        </template>
+                        <template v-if="!actualIsOpenEdit">
+                                <app-span name='name' editorType="TEXTBOX" :value="row.name"></app-span>
+                        </template>
                     </template>
                 </el-table-column>
             </template>
@@ -55,7 +58,40 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.short}}</span>
+                        <template v-if="actualIsOpenEdit">
+                            <app-form-item :error="gridItemsModel[$index][column.property].error">
+                                <input-box 
+              :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1" 
+              v-model="row[column.property]" 
+              style=""
+              type="text"
+              
+              placeholder="简称"
+              @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
+            </input-box>
+                            </app-form-item>
+                        </template>
+                        <template v-if="!actualIsOpenEdit">
+                                <app-span name='short' editorType="TEXTBOX" :value="row.short"></app-span>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('uagridcolumn1')">
+                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.productmodule.main_grid.columns.uagridcolumn1')" :width="50"  :align="'center'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.productmodule.main_grid.columns.uagridcolumn1')}}
+                      </span>
+                    </template>
+                    <template slot-scope="scope">
+                        <span>
+                            
+                            <a @click="uiAction(scope.row, 'Remove', $event)">
+                              <i class='fa fa-remove'></i>
+                              
+                            </a>
+                        </span>
                     </template>
                 </el-table-column>
             </template>
@@ -63,41 +99,6 @@
                 <el-table-column></el-table-column>
             </template>
     </el-table>
-    <row class='grid-pagination' v-show="items.length > 0">
-        <page class='pull-right' @on-change="pageOnChange($event)" 
-            @on-page-size-change="onPageSizeChange($event)"
-            :transfer="true" :total="totalrow"
-            show-sizer :current="curPage" :page-size="limit"
-            :page-size-opts="[10, 20, 30, 40, 50, 60, 70, 80, 90, 100]" show-elevator show-total>
-            <span>
-                <span class="page-column">
-                    <poptip transfer placement="top-start">
-                        <i-button icon="md-menu">{{$t('app.gridpage.choicecolumns')}}</i-button>
-                        <div slot="content">
-                            <template v-for="col in allColumns">
-                                <div :key="col.name"><el-checkbox v-model="col.show" @change="onColChange()">{{$t(col.langtag)}}</el-checkbox></div>
-                            </template>
-                        </div>
-                    </poptip>
-                </span>
-                <span v-if="selections.length > 0" class="batch-toolbar">
-                </span>
-                <span class="page-button"><i-button icon="md-refresh" :title="$t('app.gridpage.refresh')" @click="pageRefresh()"></i-button></span>&nbsp;
-                <span>
-                    {{$t('app.gridpage.show')}}&nbsp;
-                    <span>
-                        <template v-if="items.length === 1">
-                        1
-                        </template>
-                        <template v-else>
-                            <span>{{(curPage - 1) * limit + 1}}&nbsp;-&nbsp;{{totalrow > curPage * limit ? curPage * limit : totalrow}}</span>
-                        </template>
-                    </span>&nbsp;
-                    {{$t('app.gridpage.records')}}，{{$t('app.gridpage.totle')}}&nbsp;{{totalrow}}&nbsp;{{$t('app.gridpage.records')}}
-                </span>
-            </span>
-        </page>
-    </row>
   </i-form>
 </div>
 </template>
@@ -199,6 +200,52 @@ export default class MainBase extends Vue implements ControlInterface {
     public appEntityService: ProductModuleService = new ProductModuleService({ $store: this.$store });
     
 
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u0abbaeb_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.Remove(datas, contextJO,paramJO,  $event, xData,this,"ProductModule");
+    }
+
+    /**
+     * 删除
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof ProductModuleGridViewBase
+     */
+    public Remove(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        const _this: any = this;
+        if (!xData || !(xData.remove instanceof Function)) {
+            return ;
+        }
+        xData.remove(args);
+    }
+
 
     /**
      * 关闭视图
@@ -256,20 +303,6 @@ export default class MainBase extends Vue implements ControlInterface {
         return this.selections[0];
     }
 
-    /**
-     * 打开新建数据视图
-     *
-     * @type {any}
-     * @memberof Main
-     */
-    @Prop() public newdata: any;
-    /**
-     * 打开编辑数据视图
-     *
-     * @type {any}
-     * @memberof Main
-     */
-    @Prop() public opendata: any;
 
     /**
      * 显示处理提示
@@ -349,7 +382,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * @type {boolean}
      * @memberof Main
      */
-    public isEnablePagingBar: boolean = true;
+    public isEnablePagingBar: boolean = false;
 
     /**
      * 是否禁用排序
@@ -389,7 +422,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * @type {boolean}
      * @memberof Main
      */
-    public isHideHeader: boolean = false;
+    public isHideHeader: boolean = true;
 
     /**
      * 是否默认选中第一条数据
@@ -544,16 +577,16 @@ export default class MainBase extends Vue implements ControlInterface {
             util: 'PX'
         },
         {
-            name: 'root',
-            label: '产品',
-            langtag: 'entities.productmodule.main_grid.columns.root',
+            name: 'short',
+            label: '简称',
+            langtag: 'entities.productmodule.main_grid.columns.short',
             show: true,
             util: 'PX'
         },
         {
-            name: 'short',
-            label: '短名称',
-            langtag: 'entities.productmodule.main_grid.columns.short',
+            name: 'uagridcolumn1',
+            label: '操作',
+            langtag: 'entities.productmodule.main_grid.columns.uagridcolumn1',
             show: true,
             util: 'PX'
         },
@@ -575,6 +608,10 @@ export default class MainBase extends Vue implements ControlInterface {
      */
     public getGridRowModel(){
         return {
+          short: new FormItemModel(),
+          name: new FormItemModel(),
+          parent: new FormItemModel(),
+          type: new FormItemModel(),
           srfkey: new FormItemModel(),
         }
     }
@@ -586,6 +623,22 @@ export default class MainBase extends Vue implements ControlInterface {
      * @memberof Main
      */
     public rules: any = {
+        short: [
+             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '简称 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '简称 值不能为空', trigger: 'blur' },
+        ],
+        name: [
+             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '名称 值不能为空', trigger: 'change' },
+            { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '名称 值不能为空', trigger: 'blur' },
+        ],
+        parent: [
+             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: 'id 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: 'id 值不能为空', trigger: 'blur' },
+        ],
+        type: [
+             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '类型（story） 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '类型（story） 值不能为空', trigger: 'blur' },
+        ],
         srfkey: [
              { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: 'id 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: 'id 值不能为空', trigger: 'blur' },
@@ -1291,6 +1344,9 @@ export default class MainBase extends Vue implements ControlInterface {
      */
 	public uiAction(row: any, tag: any, $event: any) {
         $event.stopPropagation();
+        if(Object.is('Remove', tag)) {
+            this.grid_uagridcolumn1_u0abbaeb_click(row, tag, $event);
+        }
     }
 
     /**
@@ -1401,6 +1457,120 @@ export default class MainBase extends Vue implements ControlInterface {
         return successItems;
     }
 
+    /**
+     * 新建行
+     *
+     * @param {*} $event
+     * @returns {void}
+     * @memberof Main
+     */
+    public newRow(args: any[], params?: any, $event?: any, xData?: any): void {
+        if(!this.loaddraftAction){
+            this.$Notice.error({ title: '错误', desc: 'ProductModuleGridView视图表格loaddraftAction参数未配置' });
+            return;
+        }
+        let _this = this;
+        Object.assign(args[0],{viewparams:this.viewparams});
+        let post: Promise<any> = this.service.loadDraft(this.loaddraftAction, JSON.parse(JSON.stringify(this.context)), args[0], this.showBusyIndicator);
+        post.then((response: any) => {
+            if (!response.status || response.status !== 200) {
+                if (response.errorMessage) {
+                    this.$Notice.error({ title: '错误', desc: response.errorMessage });
+                }
+                return;
+            }
+            const data = response.data;
+            this.createDefault(data);
+            data.rowDataState = "create";
+            _this.items.push(data);
+            _this.gridItemsModel.push(_this.getGridRowModel());
+        }).catch((response: any) => {
+            if (response && response.status === 401) {
+                return;
+            }
+            if (!response || !response.status || !response.data) {
+                this.$Notice.error({ title: '错误', desc: '系统异常' });
+                return;
+            }
+        });
+    }
+
+    /**
+     * 表格编辑项值变更
+     *  
+     * @param row 行数据
+     * @param {{ name: string, value: any }} $event
+     * @returns {void}
+     * @memberof Main
+     */
+    public onGridItemValueChange(row: any,$event: { name: string, value: any },rowIndex: number): void {
+        if (!$event) {
+            return;
+        }
+        if (!$event.name || Object.is($event.name, '') || !row.hasOwnProperty($event.name)) {
+            return;
+        }
+        row[$event.name] = $event.value;
+        this.gridEditItemChange(row, $event.name, $event.value, rowIndex);
+    }
+
+    /**
+     * 表格编辑项值变化
+     *
+     * @public
+     * @param row 行数据
+     * @param property 列编辑项名
+     * @param row 列编辑项值
+     * @returns {void}
+     * @memberof Main
+     */
+    public gridEditItemChange(row: any, property: string, value: any, rowIndex: number){
+        row.rowDataState = row.rowDataState ? row.rowDataState : "update" ;
+        this.validate(property,row,rowIndex);
+    }
+
+    /**
+     * 表格编辑项更新
+     *
+     * @param {string} mode 界面行为名称
+     * @param {*} [data={}] 请求数据
+     * @param {string[]} updateDetails 更新项
+     * @param {boolean} [showloading] 是否显示加载状态
+     * @returns {void}
+     * @memberof Main
+     */
+    public updateGridEditItem(mode: string, data: any = {}, updateDetails: string[], showloading?: boolean): void {
+        if (!mode || (mode && Object.is(mode, ''))) {
+            return;
+        }
+        const arg: any = JSON.parse(JSON.stringify(data));
+        Object.assign(arg,{viewparams:this.viewparams});
+        const post: Promise<any> = this.service.frontLogic(mode,JSON.parse(JSON.stringify(this.context)),arg, showloading);
+        post.then((response: any) => {
+            if (!response || response.status !== 200) {
+                this.$Notice.error({ title: '错误', desc: '表单项更新失败' });
+                return;
+            }
+            const _data: any = response.data;
+            if(!_data){
+                return;
+            }
+            updateDetails.forEach((name: string) => {
+                if (!_data.hasOwnProperty(name)) {
+                    return;
+                }
+                data[name] = _data[name];
+            });
+        }).catch((response: any) => {
+            if (response && response.status === 401) {
+                return;
+            }
+            if (!response || !response.status || !response.data) {
+                this.$Notice.error({ title: '错误', desc: '系统异常' });
+                return;
+            }
+        });
+    }
 
     /**
      * 获取对应行class
@@ -1422,6 +1592,12 @@ export default class MainBase extends Vue implements ControlInterface {
      * @memberof Main
      */
     public createDefault(row: any){                    
+        if (row.hasOwnProperty('parent')) {
+            row['parent'] = this.viewparams['srfparentkey'];
+        }
+        if (row.hasOwnProperty('type')) {
+            row['type'] = 'task';
+        }
     }
 }
 </script>

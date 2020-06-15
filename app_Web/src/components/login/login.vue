@@ -87,7 +87,7 @@ export default class Login extends Vue {
      * @type {*}
      * @memberof Login
      */
-    public form: any = {loginname: 'guest', password: 'guest@123'};
+    public form: any = {loginname: 'pms_guest', password: 'guest@123'};
 
     /**
      *　登录提示语
@@ -166,7 +166,9 @@ export default class Login extends Vue {
      * @memberof Login
      */
     public handleSubmit(): void {
-        document.cookie = '';
+        let leftTime = new Date();
+        leftTime.setTime(leftTime.getSeconds() - 1000);
+        document.cookie = "ibzuaa-token=;expires=" + leftTime.toUTCString();
         const form: any = this.$refs.loginForm;
         let validatestate: boolean = true;
         form.validate((valid: boolean) => {
@@ -220,7 +222,7 @@ export default class Login extends Vue {
      */
     public goReset(): void {
         const _this = this;
-        _this.form={loginname: 'guest', password: 'guest@123'}
+        _this.form={loginname: 'pms_guest', password: 'guest@123'}
     }
 
     /**

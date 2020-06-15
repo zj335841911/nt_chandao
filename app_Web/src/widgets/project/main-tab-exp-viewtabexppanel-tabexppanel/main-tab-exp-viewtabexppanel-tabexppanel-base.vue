@@ -208,6 +208,29 @@
     @closeview="closeView($event)">
 </view_tabviewpanel3>
         </tab-pane>
+        <tab-pane :index="9" name='tabviewpanel10' tab='maintabexpviewtabexppanel' class=''  
+            :label="(h) =>{
+                return h('div', [
+                    h('span', '模块'),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel10 
+    :viewState="viewState"  
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel10"
+    name="tabviewpanel10"  
+    ref='tabviewpanel10'
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
+    @closeview="closeView($event)">
+</view_tabviewpanel10>
+        </tab-pane>
     </tabs>
   </div>
 </template>
@@ -351,6 +374,7 @@ export default class MainTabExpViewtabexppanelBase extends Vue implements Contro
         tabviewpanel8:  false ,
         tabviewpanel9:  false ,
         tabviewpanel3:  false ,
+        tabviewpanel10:  false ,
     }
 
     /**

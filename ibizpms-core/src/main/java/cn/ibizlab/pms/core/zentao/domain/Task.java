@@ -375,6 +375,20 @@ public class Task extends EntityMP implements Serializable {
     @JSONField(name = "comment")
     @JsonProperty("comment")
     private String comment;
+    /**
+     * 本次消耗
+     */
+    @TableField(exist = false)
+    @JSONField(name = "currentconsumed")
+    @JsonProperty("currentconsumed")
+    private Double currentconsumed;
+    /**
+     * 总计耗时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "totaltime")
+    @JsonProperty("totaltime")
+    private Double totaltime;
 
     /**
      * 

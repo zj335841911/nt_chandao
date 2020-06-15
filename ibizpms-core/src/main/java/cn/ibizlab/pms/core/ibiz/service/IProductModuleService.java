@@ -37,6 +37,7 @@ public interface IProductModuleService extends IService<ProductModule>{
     boolean save(ProductModule et) ;
     void saveBatch(List<ProductModule> list) ;
     Page<ProductModule> searchDefault(ProductModuleSearchContext context) ;
+    Page<ProductModule> searchByPath(ProductModuleSearchContext context) ;
     Page<ProductModule> searchRoot_NoBranch(ProductModuleSearchContext context) ;
     Page<ProductModule> searchRoot(ProductModuleSearchContext context) ;
     List<ProductModule> selectByParent(BigInteger id) ;

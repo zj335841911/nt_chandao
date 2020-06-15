@@ -44,7 +44,8 @@ export const StudioCore = {
         v.component('studio-view', StudioView);
         v.component('studio-embed-view', StudioEmbedView);
         v.component('view-config-actions', ViewConfigActions);
+        v.component('html-container', HtmlContainer);
+        // 注册指令
         v.directive('notification-signal', NotificationSignal);
-        v.directive('html-container', HtmlContainer);
     }
 };

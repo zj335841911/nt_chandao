@@ -150,6 +150,12 @@ export default class MainInfoModel {
       {
         name: 'comment',
       },
+      {
+        name: 'currentconsumed',
+      },
+      {
+        name: 'totaltime',
+      },
     ]
   }
 

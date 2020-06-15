@@ -77,7 +77,7 @@
 </i-col>
 <i-col v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.release.main_form.details.desc')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="LEFT">
-    <span v-html="data.desc"></span>
+    <html-container :content="data.desc"></html-container>
 </app-form-item>
 
 </i-col>

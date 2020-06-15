@@ -80,6 +80,7 @@ export default class ProductModuleUIServiceBase extends UIService {
      */  
     public initViewMap(){
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'productmodules'});
+        this.allViewMap.set(':',{viewname:'treeexpview',srfappde:'productmodules'});
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'productmodules'});
     }
 

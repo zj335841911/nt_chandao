@@ -181,6 +181,22 @@ export default class ProductModuleServiceBase extends EntityService {
     }
 
     /**
+     * FetchByPath接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductModuleServiceBase
+     */
+    public async FetchByPath(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/products/${context.product}/productmodules/fetchbypath`,tempData,isloading);
+        }
+    }
+
+    /**
      * FetchRoot_NoBranch接口方法
      *
      * @param {*} [context={}]

@@ -46,6 +46,15 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据集合[ByPath]-->
+	 <select id="searchByPath"  parameterType="cn.ibizlab.pms.core.ibiz.filter.ProductModuleSearchContext"  resultMap="ProductModuleResultMap">
+         select t1.* from (
+                <include refid="ByPath" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据集合[Root_NoBranch]-->
 	 <select id="searchRoot_NoBranch"  parameterType="cn.ibizlab.pms.core.ibiz.filter.ProductModuleSearchContext"  resultMap="ProductModuleResultMap">
          select t1.* from (
@@ -64,6 +73,14 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据查询[ByPath]-->
+    <sql id="ByPath" databaseId="mysql">
+       <![CDATA[	SELECT t1.`BRANCH`, t1.`DELETED`, t1.`GRADE`, t1.`ID`, (CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`, t1.`NAME`, t1.`ORDER`, t1.`OWNER`, t1.`PARENT`, t1.`PATH`, t1.`ROOT`, t1.`SHORT`, t1.`TYPE` FROM `zt_module` t1  
+				 WHERE 	t1.DELETED = '0'
+					 AND ( t1.`TYPE` = 'story' )
+					 AND FIND_IN_SET (#{srf.datacontext.srfparentkey}, t1.`PATH`)
+			]]>
+    </sql>
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
        <![CDATA[	SELECT t1.`BRANCH`, t1.`DELETED`, t1.`GRADE`, t1.`ID`, (CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`, t1.`NAME`, t1.`ORDER`, t1.`OWNER`, t1.`PARENT`, t1.`PATH`, t1.`ROOT`, t1.`SHORT`, t1.`TYPE` FROM `zt_module` t1  

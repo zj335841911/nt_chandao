@@ -11,7 +11,7 @@
     <row>
         <i-col v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.task.maindetail_form.details.desc')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="NONE">
-    <span v-html="data.desc"></span>
+    <html-container :content="data.desc"></html-container>
 </app-form-item>
 
 </i-col>
