@@ -236,14 +236,6 @@ export default class TaskKanBanBase extends Vue implements ControlInterface {
 
 
     /**
-     * 面板数据
-     *
-     * @type {*}
-     * @memberof TaskKanBan
-     */
-    public panelData: any;
-
-    /**
      * 接口实现
      *
      * @returns {any[]}
@@ -355,6 +347,28 @@ export default class TaskKanBanBase extends Vue implements ControlInterface {
      * @memberof TaskKanBan
      */
     public data:any = {};
+
+    /**
+     * 面板数据对象
+     *
+     * @type {*}
+     * @memberof Mob
+     */
+    public panelData:any = null;
+
+    /**
+     * 监听数据对象
+     *
+     * @memberof TaskKanBan
+     */
+    @Watch('inputData',{immediate:true})
+    async onInputDataChange(newVal: any, oldVal: any){
+        if(newVal){
+            await this.computedUIData(newVal);
+            this.panelLogic({ name: '', newVal: null, oldVal: null });
+            this.$forceUpdate();
+        }
+    }
 
     /**
      * 计算UI展示数据
