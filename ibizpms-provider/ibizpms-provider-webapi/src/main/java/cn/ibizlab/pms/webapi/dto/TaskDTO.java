@@ -392,6 +392,22 @@ public class TaskDTO extends DTOBase implements Serializable {
     @JsonProperty("comment")
     private String comment;
 
+    /**
+     * 属性 [CURRENTCONSUMED]
+     *
+     */
+    @JSONField(name = "currentconsumed")
+    @JsonProperty("currentconsumed")
+    private Double currentconsumed;
+
+    /**
+     * 属性 [TOTALTIME]
+     *
+     */
+    @JSONField(name = "totaltime")
+    @JsonProperty("totaltime")
+    private Double totaltime;
+
 
     /**
      * 设置 [CANCELEDBY]

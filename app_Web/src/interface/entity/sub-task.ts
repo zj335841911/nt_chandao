@@ -365,4 +365,20 @@ export interface SubTask {
      * @memberof SubTask
      */
     comment?: any;
+
+    /**
+     * 本次消耗
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    currentconsumed?: any;
+
+    /**
+     * 总计耗时
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    totaltime?: any;
 }

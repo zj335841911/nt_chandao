@@ -46,6 +46,8 @@ export default {
     module: 'id',
     path: '模块路径',
     comment: '备注',
+    currentconsumed: '本次消耗',
+    totaltime: '总计耗时',
   },
 	views: {
 		subtasknewview: {

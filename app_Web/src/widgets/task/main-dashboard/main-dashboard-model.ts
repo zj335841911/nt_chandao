@@ -150,6 +150,12 @@ export default class MainModel {
       {
         name: 'comment',
       },
+      {
+        name: 'currentconsumed',
+      },
+      {
+        name: 'totaltime',
+      },
     ]
   }
 

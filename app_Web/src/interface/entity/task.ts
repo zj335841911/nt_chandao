@@ -365,4 +365,20 @@ export interface Task {
      * @memberof Task
      */
     comment?: any;
+
+    /**
+     * 本次消耗
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    currentconsumed?: any;
+
+    /**
+     * 总计耗时
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    totaltime?: any;
 }

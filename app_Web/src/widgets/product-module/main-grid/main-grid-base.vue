@@ -39,7 +39,7 @@
               style=""
               type="text"
               
-              
+              placeholder="模块名称"
               @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
             </input-box>
                             </app-form-item>
@@ -66,7 +66,7 @@
               style=""
               type="text"
               
-              
+              placeholder="简称"
               @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
             </input-box>
                             </app-form-item>

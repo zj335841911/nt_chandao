@@ -150,6 +150,12 @@ export default class WorkInfoModel {
       {
         name: 'comment',
       },
+      {
+        name: 'currentconsumed',
+      },
+      {
+        name: 'totaltime',
+      },
     ]
   }
 

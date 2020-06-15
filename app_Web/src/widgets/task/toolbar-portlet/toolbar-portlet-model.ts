@@ -150,6 +150,12 @@ export default class ToolbarModel {
       {
         name: 'comment',
       },
+      {
+        name: 'currentconsumed',
+      },
+      {
+        name: 'totaltime',
+      },
     ]
   }
 
