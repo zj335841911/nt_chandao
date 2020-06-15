@@ -68,10 +68,6 @@ export default {
 		},
 	},
 	subtasknewviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "行编辑",
-			tip: "行编辑",
-		},
 		deuiaction2: {
 			caption: "新建行",
 			tip: "新建行",

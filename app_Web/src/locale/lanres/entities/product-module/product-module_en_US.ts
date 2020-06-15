@@ -57,33 +57,13 @@ export default {
 		},
 	},
 	gridviewtoolbar_toolbar: {
-		tbitem24: {
-			caption: "行编辑",
-			tip: "行编辑",
-		},
-		tbitem25: {
+		deuiaction2: {
 			caption: "新建行",
 			tip: "新建行",
 		},
-		tbitem26: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem8: {
-			caption: "Remove",
-			tip: "Remove {0}",
-		},
-		tbitem9: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem16: {
-			caption: "其它",
-			tip: "其它",
-		},
-		tbitem21: {
-			caption: "Export Data Model",
-			tip: "导出数据模型",
+		deuiaction3: {
+			caption: "保存行",
+			tip: "保存行",
 		},
 	},
 	editviewtoolbar_toolbar: {
