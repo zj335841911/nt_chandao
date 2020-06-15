@@ -65,7 +65,6 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, File> implements IF
     public boolean checkKey(File et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     public File getDraft(File et) {
         return et;
@@ -182,5 +181,6 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, File> implements IF
 
 
 }
+
 
 

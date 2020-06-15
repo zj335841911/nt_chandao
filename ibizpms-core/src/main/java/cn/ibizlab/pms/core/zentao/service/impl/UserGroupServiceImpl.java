@@ -109,7 +109,6 @@ public class UserGroupServiceImpl extends ServiceImpl<UserGroupMapper, UserGroup
     public boolean checkKey(UserGroup et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     public UserGroup getDraft(UserGroup et) {
         return et;
@@ -182,5 +181,6 @@ public class UserGroupServiceImpl extends ServiceImpl<UserGroupMapper, UserGroup
 
 
 }
+
 
 

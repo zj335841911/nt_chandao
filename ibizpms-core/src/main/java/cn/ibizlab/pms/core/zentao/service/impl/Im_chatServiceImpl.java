@@ -108,7 +108,6 @@ public class Im_chatServiceImpl extends ServiceImpl<Im_chatMapper, Im_chat> impl
     public boolean checkKey(Im_chat et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean create(Im_chat et) {
@@ -182,5 +181,6 @@ public class Im_chatServiceImpl extends ServiceImpl<Im_chatMapper, Im_chat> impl
 
 
 }
+
 
 

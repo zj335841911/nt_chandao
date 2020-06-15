@@ -78,7 +78,6 @@ public class Im_queueServiceImpl extends ServiceImpl<Im_queueMapper, Im_queue> i
     public boolean checkKey(Im_queue et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean save(Im_queue et) {
@@ -182,5 +181,6 @@ public class Im_queueServiceImpl extends ServiceImpl<Im_queueMapper, Im_queue> i
 
 
 }
+
 
 

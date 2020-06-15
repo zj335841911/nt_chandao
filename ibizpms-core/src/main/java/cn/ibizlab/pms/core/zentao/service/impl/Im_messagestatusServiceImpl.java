@@ -77,7 +77,6 @@ public class Im_messagestatusServiceImpl extends ServiceImpl<Im_messagestatusMap
     public boolean checkKey(Im_messagestatus et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean update(Im_messagestatus et) {
@@ -182,5 +181,6 @@ public class Im_messagestatusServiceImpl extends ServiceImpl<Im_messagestatusMap
 
 
 }
+
 
 

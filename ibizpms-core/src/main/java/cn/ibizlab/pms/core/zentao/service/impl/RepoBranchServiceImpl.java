@@ -51,7 +51,6 @@ public class RepoBranchServiceImpl extends ServiceImpl<RepoBranchMapper, RepoBra
     public boolean checkKey(RepoBranch et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean update(RepoBranch et) {
@@ -182,5 +181,6 @@ public class RepoBranchServiceImpl extends ServiceImpl<RepoBranchMapper, RepoBra
 
 
 }
+
 
 

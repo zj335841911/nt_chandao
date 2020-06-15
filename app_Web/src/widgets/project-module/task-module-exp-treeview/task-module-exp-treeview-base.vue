@@ -341,7 +341,7 @@ export default class TaskModuleExpBase extends Vue implements ControlInterface {
      * @type {boolean}
      * @memberof TaskModuleExp
      */
-    public isOutputIconDefault: boolean = true;
+    public isOutputIconDefault: boolean = false;
 
 
     /**

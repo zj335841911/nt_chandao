@@ -65,7 +65,6 @@ public class RelationServiceImpl extends ServiceImpl<RelationMapper, Relation> i
     public boolean checkKey(Relation et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean save(Relation et) {
@@ -182,5 +181,6 @@ public class RelationServiceImpl extends ServiceImpl<RelationMapper, Relation> i
 
 
 }
+
 
 

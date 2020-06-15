@@ -51,7 +51,6 @@ public class UserQueryServiceImpl extends ServiceImpl<UserQueryMapper, UserQuery
     public boolean checkKey(UserQuery et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public UserQuery get(BigInteger key) {
@@ -182,5 +181,6 @@ public class UserQueryServiceImpl extends ServiceImpl<UserQueryMapper, UserQuery
 
 
 }
+
 
 

@@ -128,7 +128,6 @@ public class ExtensionServiceImpl extends ServiceImpl<ExtensionMapper, Extension
     public boolean checkKey(Extension et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean remove(BigInteger key) {
@@ -182,5 +181,6 @@ public class ExtensionServiceImpl extends ServiceImpl<ExtensionMapper, Extension
 
 
 }
+
 
 

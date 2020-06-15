@@ -51,7 +51,6 @@ public class LangServiceImpl extends ServiceImpl<LangMapper, Lang> implements IL
     public boolean checkKey(Lang et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     public Lang getDraft(Lang et) {
         return et;
@@ -182,5 +181,6 @@ public class LangServiceImpl extends ServiceImpl<LangMapper, Lang> implements IL
 
 
 }
+
 
 

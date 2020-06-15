@@ -114,7 +114,6 @@ public class NotifyServiceImpl extends ServiceImpl<NotifyMapper, Notify> impleme
     public boolean checkKey(Notify et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean remove(BigInteger key) {
@@ -182,5 +181,6 @@ public class NotifyServiceImpl extends ServiceImpl<NotifyMapper, Notify> impleme
 
 
 }
+
 
 

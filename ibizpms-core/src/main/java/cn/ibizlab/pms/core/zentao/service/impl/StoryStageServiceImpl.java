@@ -70,7 +70,6 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
     public boolean checkKey(StoryStage et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean create(StoryStage et) {
@@ -208,5 +207,6 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
 
 
 }
+
 
 

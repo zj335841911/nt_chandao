@@ -91,7 +91,6 @@ public class CronServiceImpl extends ServiceImpl<CronMapper, Cron> implements IC
     public boolean checkKey(Cron et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public Cron get(BigInteger key) {
@@ -182,5 +181,6 @@ public class CronServiceImpl extends ServiceImpl<CronMapper, Cron> implements IC
 
 
 }
+
 
 

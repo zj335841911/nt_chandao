@@ -150,7 +150,6 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements ID
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
 
-
 	@Override
     public List<Dept> selectByParent(BigInteger id) {
         return baseMapper.selectByParent(id);
@@ -226,5 +225,6 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements ID
 
 
 }
+
 
 

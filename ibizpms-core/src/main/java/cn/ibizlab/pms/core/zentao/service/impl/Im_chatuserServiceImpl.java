@@ -110,7 +110,6 @@ public class Im_chatuserServiceImpl extends ServiceImpl<Im_chatuserMapper, Im_ch
     public boolean checkKey(Im_chatuser et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public Im_chatuser get(BigInteger key) {
@@ -182,5 +181,6 @@ public class Im_chatuserServiceImpl extends ServiceImpl<Im_chatuserMapper, Im_ch
 
 
 }
+
 
 

@@ -142,7 +142,6 @@ public class LogServiceImpl extends ServiceImpl<LogMapper, Log> implements ILogS
     }
 
 
-
     /**
      * 查询集合 DEFAULT
      */
@@ -182,5 +181,6 @@ public class LogServiceImpl extends ServiceImpl<LogMapper, Log> implements ILogS
 
 
 }
+
 
 

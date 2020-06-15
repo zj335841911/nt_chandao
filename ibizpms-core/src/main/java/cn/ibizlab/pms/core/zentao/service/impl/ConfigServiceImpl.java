@@ -142,7 +142,6 @@ public class ConfigServiceImpl extends ServiceImpl<ConfigMapper, Config> impleme
     }
 
 
-
     /**
      * 查询集合 DEFAULT
      */
@@ -182,5 +181,6 @@ public class ConfigServiceImpl extends ServiceImpl<ConfigMapper, Config> impleme
 
 
 }
+
 
 

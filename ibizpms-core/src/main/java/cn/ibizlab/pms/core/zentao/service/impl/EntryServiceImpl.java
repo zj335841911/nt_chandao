@@ -100,7 +100,6 @@ public class EntryServiceImpl extends ServiceImpl<EntryMapper, Entry> implements
     public boolean checkKey(Entry et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean save(Entry et) {
@@ -185,5 +184,6 @@ public class EntryServiceImpl extends ServiceImpl<EntryMapper, Entry> implements
 
 
 }
+
 
 

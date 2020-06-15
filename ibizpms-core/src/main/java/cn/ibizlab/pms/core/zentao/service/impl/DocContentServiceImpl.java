@@ -151,7 +151,6 @@ public class DocContentServiceImpl extends ServiceImpl<DocContentMapper, DocCont
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
 
-
 	@Override
     public List<DocContent> selectByDoc(BigInteger id) {
         return baseMapper.selectByDoc(id);
@@ -218,5 +217,6 @@ public class DocContentServiceImpl extends ServiceImpl<DocContentMapper, DocCont
 
 
 }
+
 
 

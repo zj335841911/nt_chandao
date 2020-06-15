@@ -84,7 +84,6 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
     public boolean checkKey(Burn et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean remove(String key) {
@@ -224,5 +223,6 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
 
 
 }
+
 
 

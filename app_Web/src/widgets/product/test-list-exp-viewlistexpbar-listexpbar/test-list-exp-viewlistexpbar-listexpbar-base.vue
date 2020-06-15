@@ -1,9 +1,9 @@
 <template>
-    <split id="testlistexpviewlistexpbar" class="app-list-exp-bar " v-model="split" mode="horizontal" @on-move-end="onSplitChange">
-        <div slot='left'>
+    <split id="testlistexpviewlistexpbar" class="app-list-exp-bar" v-model="split" mode="horizontal" @on-move-end="onSplitChange">
+        <template slot='left'>
            <div class="container-header">
            </div>
-            <div class='list-exp-bar-content2'>
+            <div class='list-exp-bar-content'>
                 <view_listexpbar_list 
     :viewState="viewState"  
     :viewparams="viewparams" 
@@ -23,8 +23,8 @@
     @closeview="closeView($event)">
 </view_listexpbar_list>
             </div>
-        </div>
-        <div slot='right'>
+        </template>
+        <template slot='right'>
             <component 
               v-if="selection.view && !Object.is(this.selection.view.viewname, '')" 
               :is="selection.view.viewname"
@@ -33,7 +33,7 @@
               :viewdata="JSON.stringify(selection.context)"
               :viewparam="JSON.stringify(selection.viewparam)">
             </component>
-        </div>
+        </template>
     </split>
 </template>
 

@@ -92,7 +92,6 @@ public class Im_conferenceServiceImpl extends ServiceImpl<Im_conferenceMapper, I
     public boolean checkKey(Im_conference et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean remove(BigInteger key) {
@@ -182,5 +181,6 @@ public class Im_conferenceServiceImpl extends ServiceImpl<Im_conferenceMapper, I
 
 
 }
+
 
 

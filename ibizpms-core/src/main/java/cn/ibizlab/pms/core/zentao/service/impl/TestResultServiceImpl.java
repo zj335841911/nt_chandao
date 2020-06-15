@@ -130,7 +130,6 @@ public class TestResultServiceImpl extends ServiceImpl<TestResultMapper, TestRes
     public boolean checkKey(TestResult et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public TestResult get(BigInteger key) {
@@ -257,5 +256,6 @@ public class TestResultServiceImpl extends ServiceImpl<TestResultMapper, TestRes
 
 
 }
+
 
 

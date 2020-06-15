@@ -126,7 +126,6 @@ public class BranchServiceImpl extends ServiceImpl<BranchMapper, Branch> impleme
     public boolean checkKey(Branch et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean save(Branch et) {
@@ -222,5 +221,6 @@ public class BranchServiceImpl extends ServiceImpl<BranchMapper, Branch> impleme
 
 
 }
+
 
 

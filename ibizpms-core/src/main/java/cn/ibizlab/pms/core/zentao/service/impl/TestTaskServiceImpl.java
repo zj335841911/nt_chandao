@@ -153,7 +153,6 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
 
-
 	@Override
     public List<TestTask> selectByBuild(BigInteger id) {
         return baseMapper.selectByBuild(id);
@@ -224,5 +223,6 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
 
 
 }
+
 
 

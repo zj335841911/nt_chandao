@@ -51,7 +51,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     public boolean checkKey(User et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean remove(BigInteger key) {
@@ -182,5 +181,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
 
 }
+
 
 

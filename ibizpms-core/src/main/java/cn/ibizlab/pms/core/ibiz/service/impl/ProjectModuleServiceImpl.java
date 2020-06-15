@@ -149,7 +149,6 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
 
-
 	@Override
     public List<ProjectModule> selectByParent(BigInteger id) {
         return baseMapper.selectByParent(id);
@@ -237,5 +236,6 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
 
 
 }
+
 
 

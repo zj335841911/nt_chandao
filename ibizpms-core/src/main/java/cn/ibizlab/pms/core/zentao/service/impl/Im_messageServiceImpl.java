@@ -142,7 +142,6 @@ public class Im_messageServiceImpl extends ServiceImpl<Im_messageMapper, Im_mess
     }
 
 
-
     /**
      * 查询集合 DEFAULT
      */
@@ -182,5 +181,6 @@ public class Im_messageServiceImpl extends ServiceImpl<Im_messageMapper, Im_mess
 
 
 }
+
 
 

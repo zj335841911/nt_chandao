@@ -51,7 +51,6 @@ public class Im_conferenceactionServiceImpl extends ServiceImpl<Im_conferenceact
     public boolean checkKey(Im_conferenceaction et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean create(Im_conferenceaction et) {
@@ -182,5 +181,6 @@ public class Im_conferenceactionServiceImpl extends ServiceImpl<Im_conferenceact
 
 
 }
+
 
 

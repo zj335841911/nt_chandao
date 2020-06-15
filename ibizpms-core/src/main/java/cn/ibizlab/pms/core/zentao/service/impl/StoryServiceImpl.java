@@ -135,7 +135,6 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     public boolean checkKey(Story et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean remove(BigInteger key) {
@@ -467,5 +466,6 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
 
 
 }
+
 
 

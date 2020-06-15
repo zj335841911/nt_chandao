@@ -83,7 +83,6 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
     public boolean checkKey(ProductLife et) {
         return (!ObjectUtils.isEmpty(et.getProductlifeid()))&&(!Objects.isNull(this.getById(et.getProductlifeid())));
     }
-
     @Override
     @Transactional
     public boolean save(ProductLife et) {
@@ -219,5 +218,6 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
     }
 
 }
+
 
 

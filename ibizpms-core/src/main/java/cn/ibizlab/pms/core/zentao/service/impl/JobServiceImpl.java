@@ -145,7 +145,6 @@ public class JobServiceImpl extends ServiceImpl<JobMapper, Job> implements IJobS
     }
 
 
-
     /**
      * 查询集合 DEFAULT
      */
@@ -185,5 +184,6 @@ public class JobServiceImpl extends ServiceImpl<JobMapper, Job> implements IJobS
 
 
 }
+
 
 
