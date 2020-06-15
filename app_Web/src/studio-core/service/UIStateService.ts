@@ -37,11 +37,14 @@ export class UIStateService {
             const data: any = localStorage.getItem(this.localStoreKey);
             if (data) {
                 this.fillLayoutState(JSON.parse(data));
+            } else {
+                this.fillLayoutState({});
             }
-        } catch (error) { }
+        } catch (error) {
+            this.fillLayoutState({});
+        }
         let z = this;
         on(window, 'beforeunload', () => {
-            console.log(z.layoutState)
             localStorage.setItem(this.localStoreKey, JSON.stringify(this.layoutState));
         });
     }
