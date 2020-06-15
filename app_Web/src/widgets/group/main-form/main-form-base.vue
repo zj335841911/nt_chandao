@@ -2,14 +2,31 @@
     <i-form :model="this.data" class='app-form' ref='form'  id='group_main' style="">
     <input style="display:none;" />
     <row >
-        !!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+            
+<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.group.main_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+        <i-col v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+    <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.group.main_form.details.name')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.name"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.name.disabled" type='text'  style=""></input-box>
+</app-form-item>
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if LayoutPos.getColXS() != -1  [in template "TEMPLCODE_zh_CN" at line 11, column 303]
-----
+</i-col>
+<i-col v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.group.main_form.details.desc')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="LEFT">
+    <div class="ivu-input-wrapper ivu-input-wrapper-default ivu-input-type">
+    <textarea class="ivu-input" :rows="10" v-model="data.desc" :disabled="detailsModel.desc.disabled" style="height:200px;"></textarea>
+</div>
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+
+
     </row>
 </i-form>
 </template>

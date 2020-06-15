@@ -2,14 +2,90 @@
     <i-form :model="this.data" class='app-form' ref='form'  id='subproductplan_mainsubplan' style="">
     <input style="display:none;" />
     <row >
-        !!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+            
+<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.subproductplan.mainsubplan_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+        <i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.subproductplan.mainsubplan_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+        <i-col v-show="detailsModel.parentname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='parentname' :itemRules="this.rules.parentname" class='' :caption="$t('entities.subproductplan.mainsubplan_form.details.parentname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.parentname.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='parentname' :value="data.parentname" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if LayoutPos.getColXS() != -1  [in template "TEMPLCODE_zh_CN" at line 11, column 303]
-----
+</i-col>
+<i-col v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='title' :itemRules="this.rules.title" class='' :caption="$t('entities.subproductplan.mainsubplan_form.details.title')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.title"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.title.disabled" type='text'  style=""></input-box>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.begin.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='begin' :itemRules="this.rules.begin" class='' :caption="$t('entities.subproductplan.mainsubplan_form.details.begin')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.begin.error" :isEmptyCaption="false" labelPos="LEFT">
+    <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.begin" :disabled="detailsModel.begin.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.begin = val1 }"></date-picker>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.end.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='end' :itemRules="this.rules.end" class='' :caption="$t('entities.subproductplan.mainsubplan_form.details.end')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.end.error" :isEmptyCaption="false" labelPos="LEFT">
+    <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.end" :disabled="detailsModel.end.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.end = val1 }"></date-picker>
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.subproductplan.mainsubplan_form.details.desc')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="LEFT">
+    <div class="ivu-input-wrapper ivu-input-wrapper-default ivu-input-type">
+    <textarea class="ivu-input" :rows="10" v-model="data.desc" :disabled="detailsModel.desc.disabled" style="height:200px;"></textarea>
+</div>
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.subproductplan.mainsubplan_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+        <i-col v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 11 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.subproductplan.mainsubplan_form.details.grouppanel3')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <div style="height: 100%;display: flex;justify-content: space-around;">
+        <div  v-show="detailsModel.button1.visible" :style="{}">
+    <i-button type="primary" @click="button1_click($event)"
+         style="">
+           
+        <span >{{$t('entities.subproductplan.mainsubplan_form.details.button1')}}</span>
+    </i-button>
+
+</div>
+<div  v-show="detailsModel.button2.visible" :style="{}">
+    <i-button type="primary" @click="button2_click($event)"
+         style="">
+           
+        <span >{{$t('entities.subproductplan.mainsubplan_form.details.button2')}}</span>
+    </i-button>
+
+</div>
+
+    </div>
+</app-form-group>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+
+
     </row>
 </i-form>
 </template>

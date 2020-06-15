@@ -2,14 +2,78 @@
     <i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='story_storyspec' style="">
     <input style="display:none;" />
     <row >
-        !!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+            
+<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.storyspec_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <row>
+        <i-col v-show="detailsModel.version.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='version' :itemRules="this.rules.version" class='' :caption="$t('entities.story.storyspec_form.details.version')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.version.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='version' :value="data.version" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="width:70px;"></app-span>
+</app-form-item>
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if LayoutPos.getColXS() != -1  [in template "TEMPLCODE_zh_CN" at line 11, column 303]
-----
+</i-col>
+<i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.storyspec_form.details.grouppanel1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <row>
+        <i-col v-show="detailsModel.spec.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='spec' :itemRules="this.rules.spec" class='' :caption="$t('entities.story.storyspec_form.details.spec')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.spec.error" :isEmptyCaption="false" labelPos="NONE">
+    <span v-html="data.spec"></span>
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.storyspec_form.details.grouppanel2')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <row>
+        <i-col v-show="detailsModel.verify.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='verify' :itemRules="this.rules.verify" class='' :caption="$t('entities.story.storyspec_form.details.verify')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.verify.error" :isEmptyCaption="false" labelPos="NONE">
+    <span v-html="data.verify"></span>
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col v-show="detailsModel.druipart1.visible" :style="{'height': '300px !important',}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem='story' 
+    :parentdata='{"srfparentdefname":"PARENT","srfparentdename":"ZT_STORY","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N__ZT_STORY__ZT_STORY__PARENT","SRFDER1NID":"DER1N__ZT_STORY__ZT_STORY__PARENT"}'
+    :parameters="[
+        { pathName: 'products', parameterName: 'product' },
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{}'
+    parameterName='story'
+    parentName="Story"  
+    refviewtype='DEGRIDVIEW9' 
+    refreshitems='' 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname='story-grid-view9-sub-story' 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved($event)"
+    style="height:300px;overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+
+
     </row>
 </i-form>
 </template>

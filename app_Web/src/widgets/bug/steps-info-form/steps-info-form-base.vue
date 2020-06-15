@@ -2,14 +2,23 @@
     <i-form :model="this.data" class='app-form' ref='form'  id='bug_stepsinfo' style="">
     <input style="display:none;" />
     <row >
-        !!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+            
+<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.stepsinfo_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+        <i-col v-show="detailsModel.steps.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='steps' :itemRules="this.rules.steps" class='' :caption="$t('entities.bug.stepsinfo_form.details.steps')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.steps.error" :isEmptyCaption="true" labelPos="NONE">
+    <span v-html="data.steps"></span>
+</app-form-item>
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if LayoutPos.getColXS() != -1  [in template "TEMPLCODE_zh_CN" at line 11, column 303]
-----
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+
+
     </row>
 </i-form>
 </template>

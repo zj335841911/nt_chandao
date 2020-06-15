@@ -2,14 +2,56 @@
     <i-form :model="this.data" class='app-form' ref='form'  id='dept_main' style="">
     <input style="display:none;" />
     <row >
-        !!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+            
+<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.dept.main_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+        <i-col v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+    <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.dept.main_form.details.name')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.name"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.name.disabled" type='text'  style=""></input-box>
+</app-form-item>
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if LayoutPos.getColXS() != -1  [in template "TEMPLCODE_zh_CN" at line 11, column 303]
-----
+</i-col>
+<i-col v-show="detailsModel.parentname.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+    <app-form-item name='parentname' :itemRules="this.rules.parentname" class='' :caption="$t('entities.dept.main_form.details.parentname')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.parentname.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-picker 
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.parentname.disabled"
+  name='parentname'
+  deMajorField='name'
+  deKeyField='dept'
+  :service="service"
+  :acParams="{ serviceName: 'DeptService', interfaceName: 'FetchDefault'}"
+  valueitem='parent' 
+  :value="data.parentname" 
+  editortype="" 
+  :pickupView="{ viewname: 'dept-pickup-view', title: $t('entities.dept.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'depts', parameterName: 'dept' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
+  style=""  
+  @formitemvaluechange="onFormItemValueChange">
+</app-picker>
+
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.manager.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+    <app-form-item name='manager' :itemRules="this.rules.manager" class='' :caption="$t('entities.dept.main_form.details.manager')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.manager.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.manager"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.manager.disabled" type='text'  style=""></input-box>
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+
+
     </row>
 </i-form>
 </template>
