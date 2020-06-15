@@ -1,7 +1,7 @@
 <template>
-    <div :class="classes">
+    <div class="app-form-item-wrapper">
         <template v-if="this.uiStyle === 'STYLE2'">
-            <app-form-item2
+                <app-form-item2
                 :caption="caption"
                 :labelStyle="labelStyle"
                 :error="error"
@@ -16,32 +16,28 @@
             </app-form-item2>
         </template>
         <template v-if="this.uiStyle !== 'STYLE2'">
-            <div
-                v-if="Object.is(this.labelPos,'BOTTOM') || Object.is(this.labelPos,'NONE') || !this.labelPos"
-                class="editor"
-                :style="slotstyle"
-            >
-                <form-item :prop="name" :error="error" :required="required" :rules="rules">
+            <form-item :prop="name" :error="error" :required="required" :rules="rules" :class="classes">
+                <div
+                    v-if="Object.is(this.labelPos,'BOTTOM') || Object.is(this.labelPos,'NONE') || !this.labelPos"
+                    class="editor"
+                    :style="slotstyle"
+                >
                     <slot></slot>
-                </form-item>
-            </div>
-            <span
-                v-if="!Object.is(this.labelPos,'NONE') && this.isShowCaption && this.labelWidth > 0"
-                :style="labelstyle"
-                :class="labelclasses"
-            >
-                <span v-if="required" style="color:red;">* </span>
-                {{this.isEmptyCaption ? '' : this.caption}}
-            </span>
-            <div
-                v-if="Object.is(this.labelPos,'TOP') || Object.is(this.labelPos,'LEFT') || Object.is(this.labelPos,'RIGHT')"
-                class="editor"
-                :style="slotstyle"
-            >
-                <form-item :prop="name" :error="error" :required="required" :rules="rules">
+                </div>
+                <span
+                    v-if="!Object.is(this.labelPos,'NONE') && this.isShowCaption && this.labelWidth > 0"
+                    :style="labelstyle"
+                    :class="labelclasses"
+                >
+                    {{this.isEmptyCaption ? '' : this.caption}}</span>
+                <div
+                    v-if="Object.is(this.labelPos,'TOP') || Object.is(this.labelPos,'LEFT') || Object.is(this.labelPos,'RIGHT')"
+                    class="editor"
+                    :style="slotstyle"
+                >
                     <slot></slot>
-                </form-item>
-            </div>
+                </div>
+            </form-item>
         </template>
     </div>
 </template>
