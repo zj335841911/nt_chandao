@@ -39,6 +39,7 @@ public interface IProjectModuleService extends IService<ProjectModule>{
     Page<ProjectModule> searchDefault(ProjectModuleSearchContext context) ;
     Page<ProjectModule> searchRoot_NoBranch(ProjectModuleSearchContext context) ;
     Page<ProjectModule> searchRoot(ProjectModuleSearchContext context) ;
+    Page<ProjectModule> searchByPath(ProjectModuleSearchContext context) ;
     Page<ProjectModule> searchRoot_Task(ProjectModuleSearchContext context) ;
     List<ProjectModule> selectByParent(BigInteger id) ;
     void removeByParent(BigInteger id) ;

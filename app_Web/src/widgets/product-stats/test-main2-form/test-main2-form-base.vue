@@ -24,7 +24,7 @@
 </app-form-group>
 
 </i-col>
-<i-col v-show="detailsModel.grouppanel2.visible" :style="{'height': '250px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+<i-col v-show="detailsModel.grouppanel2.visible" :style="{'height': '300px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
     <app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.testmain2_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <div style="height: 100%;display: flex;align-items: center;">
         <div  v-show="detailsModel.grouppanel3.visible" :style="{}">

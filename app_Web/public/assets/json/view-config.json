@@ -359,6 +359,16 @@
         "viewtag": "417541fa331fc089b84936b8359403fa",
         "memo": ""
     },
+    "projectmodulemaingridview": {
+        "title": "实体表格视图",
+        "caption": "任务模块",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProjectModuleMainGridView",
+        "viewfilename": "project-module-main-grid-view",
+        "viewtag": "41dab4e36aef71df5c66acca4db7d045",
+        "memo": ""
+    },
     "bugbuglifeeditview9": {
         "title": "Bug的一生",
         "caption": "Bug",
