@@ -21,5 +21,21 @@ export default class TaskService extends TaskServiceBase {
         super(opts);
     }
 
+    /**
+     * CalcTime接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskServiceBase
+     */
+    public async CalcTime(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        data.totaltime = data.consumed + data.currentconsumed;
+        return {
+            status: 200,
+            data
+        }
+    }
 
 }
