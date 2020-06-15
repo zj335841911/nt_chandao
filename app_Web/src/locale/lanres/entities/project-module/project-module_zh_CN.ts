@@ -20,6 +20,10 @@ export default {
 			caption: '任务模块',
       title: '实体表格视图',
 		},
+		treeexpview: {
+			caption: '任务模块',
+      title: '任务模块树导航视图',
+		},
 	},
 	main_grid: {
 		columns: {
@@ -96,6 +100,14 @@ export default {
 		},
 	},
 	taskmoduleexp_treeview: {
+		nodes: {
+			all: '所有模块',
+			root: '默认根节点',
+		},
+		uiactions: {
+		},
+	},
+	moduleexp_treeview: {
 		nodes: {
 			all: '所有模块',
 			root: '默认根节点',

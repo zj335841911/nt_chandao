@@ -1,12 +1,12 @@
 <template>
   <div class='tabviewpanel' style="height:100%;" v-if = 'isActivied' >
-        <product-module-grid-view 
+        <product-module-tree-exp-view 
       class='viewcontainer2' 
       :viewdata="viewdata" 
       :viewparam="viewparam"
       @viewload="viewDatasChange($event)" 
       :viewDefaultUsage="false" >
-    </product-module-grid-view>
+    </product-module-tree-exp-view>
   </div>
 </template>
 <script lang='tsx'>

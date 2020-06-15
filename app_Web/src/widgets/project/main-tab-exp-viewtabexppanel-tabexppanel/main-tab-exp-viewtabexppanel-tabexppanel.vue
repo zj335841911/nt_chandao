@@ -10,6 +10,7 @@ import view_tabviewpanel7 from '@widgets/project/main-tab-exp-viewtabviewpanel7-
 import view_tabviewpanel8 from '@widgets/project/main-tab-exp-viewtabviewpanel8-tabviewpanel/main-tab-exp-viewtabviewpanel8-tabviewpanel.vue';
 import view_tabviewpanel9 from '@widgets/project/main-tab-exp-viewtabviewpanel9-tabviewpanel/main-tab-exp-viewtabviewpanel9-tabviewpanel.vue';
 import view_tabviewpanel3 from '@widgets/project/main-tab-exp-viewtabviewpanel3-tabviewpanel/main-tab-exp-viewtabviewpanel3-tabviewpanel.vue';
+import view_tabviewpanel10 from '@widgets/project/main-tab-exp-viewtabviewpanel10-tabviewpanel/main-tab-exp-viewtabviewpanel10-tabviewpanel.vue';
 
  
 @Component({
@@ -23,6 +24,7 @@ import view_tabviewpanel3 from '@widgets/project/main-tab-exp-viewtabviewpanel3-
         view_tabviewpanel8, 
         view_tabviewpanel9, 
         view_tabviewpanel3, 
+        view_tabviewpanel10, 
          
     }
 })

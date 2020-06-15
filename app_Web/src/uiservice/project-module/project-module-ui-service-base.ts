@@ -80,6 +80,7 @@ export default class ProjectModuleUIServiceBase extends UIService {
      */  
     public initViewMap(){
         this.allViewMap.set('MDATAVIEW:',{viewname:'maingridview',srfappde:'projectmodules'});
+        this.allViewMap.set(':',{viewname:'treeexpview',srfappde:'projectmodules'});
     }
 
     /**

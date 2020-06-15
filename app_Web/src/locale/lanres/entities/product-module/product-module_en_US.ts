@@ -21,6 +21,10 @@ export default {
 			caption: "需求模块",
       title: '产品模块表格视图',
 		},
+		treeexpview: {
+			caption: "需求模块",
+      title: '需求模块树导航视图',
+		},
 		editview: {
 			caption: "需求模块",
       title: '产品模块编辑视图',
@@ -47,31 +51,39 @@ export default {
 	main_grid: {
 		columns: {
 			name: "名称",
-			root: "产品",
-			short: "短名称",
-		},
-		uiactions: {
-		},
-	},
-	default_searchform: {
-		details: {
-			formpage1: "常规条件", 
+			short: "简称",
 		},
 		uiactions: {
 		},
 	},
 	gridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
+		tbitem24: {
+			caption: "行编辑",
+			tip: "行编辑",
 		},
-		seperator1: {
-			caption: "",
+		tbitem25: {
+			caption: "新建行",
+			tip: "新建行",
+		},
+		tbitem26: {
+			caption: "-",
 			tip: "",
 		},
-		deuiaction2: {
-			caption: "Edit",
-			tip: "Edit {0}",
+		tbitem8: {
+			caption: "Remove",
+			tip: "Remove {0}",
+		},
+		tbitem9: {
+			caption: "-",
+			tip: "",
+		},
+		tbitem16: {
+			caption: "其它",
+			tip: "其它",
+		},
+		tbitem21: {
+			caption: "Export Data Model",
+			tip: "导出数据模型",
 		},
 	},
 	editviewtoolbar_toolbar: {
@@ -85,6 +97,15 @@ export default {
 			all: '所有模块',
 			branch: '平台',
 			root: '默认根节点',
+		},
+		uiactions: {
+		},
+	},
+	moduleexp_treeview: {
+		nodes: {
+			root: '默认根节点',
+			branch: '平台',
+			all: '所有模块',
 		},
 		uiactions: {
 		},

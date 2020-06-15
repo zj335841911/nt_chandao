@@ -47,6 +47,11 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'type',
+          prop: 'type',
+          dataType: 'TEXT',
+        },
+        {
           name: 'srfmajortext',
           prop: 'name',
           dataType: 'TEXT',
@@ -70,12 +75,6 @@ export default class MainModel {
           name: 'productmodule',
           prop: 'id',
         },
-      {
-        name: 'product',
-        prop: 'id',
-        dataType: 'FONTKEY',
-      },
-
         {
           name:'size',
           prop:'size'

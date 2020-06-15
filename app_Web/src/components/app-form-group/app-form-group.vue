@@ -95,12 +95,7 @@
                 </template>
             </card>
             <template v-if="isShowCaption === false">
-                <template v-if="Object.is(layoutType, 'FLEX')">
-                    <slot></slot>
-                </template>
-                <template v-if="!Object.is(layoutType, 'FLEX')">
-                    <row :gutter="10"><slot></slot></row>
-                </template>
+                <slot></slot>
             </template>
         </template>
     </div>
