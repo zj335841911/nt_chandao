@@ -40,7 +40,7 @@
                                     class="login_reset">重置
                             </i-button>
                         </form-item>
-
+<!-- 
                         <form-item>
                             <div style="text-align: center">
                                 <span class="form_tipinfo">其他登录方式</span>
@@ -53,7 +53,7 @@
                                     <img src="/assets/img/weixin.svg" class="wx-svg-container" draggable="false">
                                 </div>
                             </div>
-                        </form-item>
+                        </form-item> -->
 
                     </i-form>
                     <p class='login-tip'>
@@ -166,6 +166,7 @@ export default class Login extends Vue {
      * @memberof Login
      */
     public handleSubmit(): void {
+        document.cookie = '';
         const form: any = this.$refs.loginForm;
         let validatestate: boolean = true;
         form.validate((valid: boolean) => {

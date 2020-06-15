@@ -253,6 +253,7 @@ export default class EditViewEngine extends ViewEngine {
                 this.view.$route.meta.info = info;
             }
             this.view.model.srfTitle = `${this.view.$t(viewdata.srfTitle)} - ${viewdata.dataInfo}`;
+            this.view.$emit('viewModelChange', this.view.model.srfTitle);
         }
     }
 
