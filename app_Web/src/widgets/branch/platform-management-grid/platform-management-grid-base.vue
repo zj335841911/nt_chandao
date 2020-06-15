@@ -726,7 +726,7 @@ export default class PlatformManagementBase extends Vue implements ControlInterf
         }
         let _datas:any[] = [];
         datas.forEach((record: any, index: number) => {
-            if (!record.srfkey) {
+            if (Object.is(record.srfuf, "0")) {
                 this.items.some((val: any, num: number) =>{
                     if(JSON.stringify(val) == JSON.stringify(record)){
                         this.items.splice(num,1);
