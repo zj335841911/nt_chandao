@@ -52,8 +52,10 @@ export default {
 		columns: {
 			name: "名称",
 			short: "简称",
+			uagridcolumn1: "操作",
 		},
 		uiactions: {
+			remove: "Remove",
 		},
 	},
 	gridviewtoolbar_toolbar: {
