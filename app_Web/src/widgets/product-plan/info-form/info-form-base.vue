@@ -2,86 +2,14 @@
     <i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='productplan_info' style="">
     <input style="display:none;" />
     <row >
-            
-<div v-show="detailsModel.group1.visible">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productplan.info_form.details.group1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <row>
-        <div v-show="detailsModel.grouppanel1.visible">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productplan.info_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <row>
-        <div v-show="detailsModel.title.visible">
-    <app-form-item name='title' :itemRules="this.rules.title" class='' :caption="$t('entities.productplan.info_form.details.title')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='title' :value="data.title" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
+        !!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
 
-</div>
-<div v-show="detailsModel.begin.visible">
-    <app-form-item name='begin' :itemRules="this.rules.begin" class='' :caption="$t('entities.productplan.info_form.details.begin')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.begin.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='begin' :value="data.begin" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.end.visible">
-    <app-form-item name='end' :itemRules="this.rules.end" class='' :caption="$t('entities.productplan.info_form.details.end')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.end.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='end' :value="data.end" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-    
-    </row>
-</app-form-group>
-
-</div>
-<div v-show="detailsModel.desc.visible">
-    <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.productplan.info_form.details.desc')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='desc' :value="data.desc" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-    
-    </row>
-</app-form-group>
-
-</div>
-<div v-show="detailsModel.grouppanel2.visible">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productplan.info_form.details.grouppanel2')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <row>
-        <div v-show="detailsModel.druipart1.visible">
-    <app-form-druipart
-    
-    :formState="formState"
-    :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='productplan' 
-    :parentdata='{"srfparentdename":"ZT_PRODUCTPLAN","SRFPARENTTYPE":"CUSTOM"}'
-    :parameters="[
-    ]"
-    :context="context"
-    :viewparams="viewparams"
-    :localContext ='{}'
-    :localParam ='{}'
-    parameterName='productplan'
-    parentName="ProductPlan"  
-    refviewtype='DELISTVIEW' 
-    refreshitems='' 
-    :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='action-histroy-list-view' 
-    :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
-    style=";overflow: auto;">
-</app-form-druipart>
-
-</div>
-    
-    </row>
-</app-form-group>
-
-</div>
-
-
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: #if LayoutPos.getColXS() != -1  [in template "TEMPLCODE_zh_CN" at line 10, column 303]
+----
     </row>
 </i-form>
 </template>

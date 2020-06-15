@@ -4,36 +4,14 @@
   <row>
     <i-col span="20" class="form-content">
       <row>
-                    <div v-show="detailsModel.n_acl_eq.visible">
-              <app-form-item name='n_acl_eq' :itemRules="this.rules.n_acl_eq" class='' :caption="$t('entities.product.default_searchform.details.n_acl_eq')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.n_acl_eq.error" :isEmptyCaption="false" labelPos="LEFT"> 
-              <input-box v-model="data.n_acl_eq"  @enter="onEnter($event)"    :disabled="detailsModel.n_acl_eq.disabled" type='text'  style=""></input-box>
-          </app-form-item>
+                    !!!!模版产生代码错误:----
+          Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+          ----
           
-          </div>
-          <div v-show="detailsModel.n_line_eq.visible">
-              <app-form-item name='n_line_eq' :itemRules="this.rules.n_line_eq" class='' :caption="$t('entities.product.default_searchform.details.n_line_eq')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.n_line_eq.error" :isEmptyCaption="false" labelPos="LEFT"> 
-              <input-box v-model="data.n_line_eq"  @enter="onEnter($event)"    :disabled="detailsModel.n_line_eq.disabled" type='number'  style=""></input-box>
-          </app-form-item>
-          
-          </div>
-          <div v-show="detailsModel.n_linename_like.visible">
-              <app-form-item name='n_linename_like' :itemRules="this.rules.n_linename_like" class='' :caption="$t('entities.product.default_searchform.details.n_linename_like')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.n_linename_like.error" :isEmptyCaption="false" labelPos="LEFT"> 
-              <input-box v-model="data.n_linename_like"  @enter="onEnter($event)"    :disabled="detailsModel.n_linename_like.disabled" type='text'  style="width:100px;"></input-box>
-          </app-form-item>
-          
-          </div>
-          <div v-show="detailsModel.n_linename_eq.visible">
-              <app-form-item name='n_linename_eq' :itemRules="this.rules.n_linename_eq" class='' :caption="$t('entities.product.default_searchform.details.n_linename_eq')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.n_linename_eq.error" :isEmptyCaption="false" labelPos="LEFT"> 
-              <input-box v-model="data.n_linename_eq"  @enter="onEnter($event)"    :disabled="detailsModel.n_linename_eq.disabled" type='text'  style=""></input-box>
-          </app-form-item>
-          
-          </div>
-          <div v-show="detailsModel.n_name_like.visible">
-              <app-form-item name='n_name_like' :itemRules="this.rules.n_name_like" class='' :caption="$t('entities.product.default_searchform.details.n_name_like')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.n_name_like.error" :isEmptyCaption="false" labelPos="LEFT"> 
-              <input-box v-model="data.n_name_like"  @enter="onEnter($event)"    :disabled="detailsModel.n_name_like.disabled" type='text'  style="width:100px;"></input-box>
-          </app-form-item>
-          
-          </div>
+          ----
+          FTL stack trace ("~" means nesting-related):
+          	- Failed at: #if LayoutPos.getColXS() != -1  [in template "TEMPLCODE_zh_CN" at line 9, column 303]
+          ----
       </row>
     </i-col>
     <i-col span="4" class="search-button">

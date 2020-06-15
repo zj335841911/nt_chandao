@@ -2,111 +2,14 @@
     <i-form :model="this.data" class='app-form' ref='form'  id='project_main' style="">
     <input style="display:none;" />
     <row >
-            
-<div v-show="detailsModel.group1.visible">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.project.main_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
-    <row>
-        <div v-show="detailsModel.grouppanel1.visible">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.project.main_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
-    <row>
-        <div v-show="detailsModel.name.visible">
-    <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.project.main_form.details.name')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.name"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.name.disabled" type='text'  style=""></input-box>
-</app-form-item>
+        !!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
 
-</div>
-<div v-show="detailsModel.code.visible">
-    <app-form-item name='code' :itemRules="this.rules.code" class='' :caption="$t('entities.project.main_form.details.code')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.code.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.code"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.code.disabled" type='text'  style=""></input-box>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.formitemex1.visible">
-    <app-form-item name='formitemex1' :itemRules="this.rules.formitemex1" class='' :caption="$t('entities.project.main_form.details.formitemex1')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitemex1.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-range-editor v-model="data.formitemex1" :activeData="data" :disabled="detailsModel.formitemex1.disabled" name="formitemex1" editorType="DATEPICKEREX" format="YYYY-MM-DD HH:mm:ss" :refFormItem="['end','begin']" @formitemvaluechange="onFormItemValueChange" style=""></app-range-editor>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.days.visible">
-    <app-form-item name='days' :itemRules="this.rules.days" class='' :caption="$t('entities.project.main_form.details.days')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.days.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.days"  @enter="onEnter($event)"   unit="天"  :disabled="detailsModel.days.disabled" type='number'  style=""></input-box>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.team.visible">
-    <app-form-item name='team' :itemRules="this.rules.team" class='' :caption="$t('entities.project.main_form.details.team')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.team.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.team"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.team.disabled" type='text'  style=""></input-box>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.type.visible">
-    <app-form-item name='type' :itemRules="this.rules.type" class='' :caption="$t('entities.project.main_form.details.type')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="LEFT">
-    
- <dropdown-list 
-    v-model="data.type" 
-    :data="data" 
-    :context="context"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.type.disabled"  
-    tag='Project__type' 
-    codelistType='STATIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.formitem.visible">
-    <app-form-item name='formitem' :itemRules="this.rules.formitem" class='' :caption="$t('entities.project.main_form.details.formitem')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='formitem' :value="data.formitem" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.formitem1.visible">
-    <app-form-item name='formitem1' :itemRules="this.rules.formitem1" class='' :caption="$t('entities.project.main_form.details.formitem1')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem1.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='formitem1' :value="data.formitem1" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-    
-    </row>
-</app-form-group>
-
-</div>
-<div v-show="detailsModel.desc.visible">
-    <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.project.main_form.details.desc')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-rich-text-editor :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled"  name="desc" style=""></app-rich-text-editor>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.acl.visible">
-    <app-form-item name='acl' :itemRules="this.rules.acl" class='' :caption="$t('entities.project.main_form.details.acl')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.acl.error" :isEmptyCaption="false" labelPos="LEFT">
-    
- <dropdown-list 
-    v-model="data.acl" 
-    :data="data" 
-    :context="context"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.acl.disabled"  
-    tag='Product__acl' 
-    codelistType='STATIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
-</app-form-item>
-
-</div>
-    
-    </row>
-</app-form-group>
-
-</div>
-
-
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: #if LayoutPos.getColXS() != -1  [in template "TEMPLCODE_zh_CN" at line 10, column 303]
+----
     </row>
 </i-form>
 </template>

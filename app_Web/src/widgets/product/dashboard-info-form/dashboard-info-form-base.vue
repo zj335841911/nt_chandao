@@ -2,97 +2,14 @@
     <i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='product_dashboardinfo' style="">
     <input style="display:none;" />
     <row >
-            
-<div v-show="detailsModel.group1.visible">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.product.dashboardinfo_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <row>
-        <div v-show="detailsModel.name.visible">
-    <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.product.dashboardinfo_form.details.name')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='name' :value="data.name" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
+        !!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
 
-</div>
-    
-    </row>
-</app-form-group>
-
-</div>
-<div v-show="detailsModel.grouppanel2.visible">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.product.dashboardinfo_form.details.grouppanel2')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <row>
-        <div v-show="detailsModel.po.visible">
-    <app-form-item name='po' :itemRules="this.rules.po" class='' :caption="$t('entities.product.dashboardinfo_form.details.po')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.po.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='po' :value="data.po" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.rd.visible">
-    <app-form-item name='rd' :itemRules="this.rules.rd" class='' :caption="$t('entities.product.dashboardinfo_form.details.rd')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.rd.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='rd' :value="data.rd" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.qd.visible">
-    <app-form-item name='qd' :itemRules="this.rules.qd" class='' :caption="$t('entities.product.dashboardinfo_form.details.qd')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.qd.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='qd' :value="data.qd" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-    
-    </row>
-</app-form-group>
-
-</div>
-<div v-show="detailsModel.grouppanel3.visible">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.product.dashboardinfo_form.details.grouppanel3')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <row>
-        <div v-show="detailsModel.linename.visible">
-    <app-form-item name='linename' :itemRules="this.rules.linename" class='' :caption="$t('entities.product.dashboardinfo_form.details.linename')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.linename.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='linename' :value="data.linename" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.createdby.visible">
-    <app-form-item name='createdby' :itemRules="this.rules.createdby" class='' :caption="$t('entities.product.dashboardinfo_form.details.createdby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.createdby.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='createdby' :value="data.createdby" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.createddate.visible">
-    <app-form-item name='createddate' :itemRules="this.rules.createddate" class='' :caption="$t('entities.product.dashboardinfo_form.details.createddate')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.createddate.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='createddate' :value="data.createddate" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.acl.visible">
-    <app-form-item name='acl' :itemRules="this.rules.acl" class='' :caption="$t('entities.product.dashboardinfo_form.details.acl')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.acl.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='acl' :value="data.acl" tag='Product__acl' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-    
-    </row>
-</app-form-group>
-
-</div>
-<div v-show="detailsModel.grouppanel4.visible">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel4.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.product.dashboardinfo_form.details.grouppanel4')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <row>
-            
-    </row>
-</app-form-group>
-
-</div>
-
-
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: #if LayoutPos.getColXS() != -1  [in template "TEMPLCODE_zh_CN" at line 10, column 303]
+----
     </row>
 </i-form>
 </template>

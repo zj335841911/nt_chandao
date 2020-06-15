@@ -2,94 +2,14 @@
     <i-form :model="this.data" class='app-form' ref='form'  id='build_quickcreate' style="">
     <input style="display:none;" />
     <row >
-            
-<div v-show="detailsModel.group1.visible">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.build.quickcreate_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
-    <row>
-        <div v-show="detailsModel.grouppanel2.visible">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.build.quickcreate_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
-    <row>
-        <div v-show="detailsModel.productname.visible">
-    <app-form-item name='productname' :itemRules="this.rules.productname" class='' :caption="$t('entities.build.quickcreate_form.details.productname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.productname.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-picker 
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.productname.disabled"
-  name='productname'
-  deMajorField='name'
-  deKeyField='product'
-  :service="service"
-  :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchDefault'}"
-  valueitem='product' 
-  :value="data.productname" 
-  editortype="" 
-  :pickupView="{ viewname: 'product-pickup-view', title: $t('entities.product.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'products', parameterName: 'product' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
-  style=""  
-  @formitemvaluechange="onFormItemValueChange">
-</app-picker>
+        !!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
 
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.name.visible">
-    <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.build.quickcreate_form.details.name')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.name"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.name.disabled" type='text'  style=""></input-box>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.builder.visible">
-    <app-form-item name='builder' :itemRules="this.rules.builder" class='' :caption="$t('entities.build.quickcreate_form.details.builder')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.builder.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.builder"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.builder.disabled" type='text'  style=""></input-box>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.date.visible">
-    <app-form-item name='date' :itemRules="this.rules.date" class='' :caption="$t('entities.build.quickcreate_form.details.date')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.date.error" :isEmptyCaption="false" labelPos="LEFT">
-    <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.date" :disabled="detailsModel.date.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.date = val1 }"></date-picker>
-</app-form-item>
-
-</div>
-    
-    </row>
-</app-form-group>
-
-</div>
-<div v-show="detailsModel.scmpath.visible">
-    <app-form-item name='scmpath' :itemRules="this.rules.scmpath" class='' :caption="$t('entities.build.quickcreate_form.details.scmpath')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.scmpath.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.scmpath"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.scmpath.disabled" type='text'  style=""></input-box>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.filepath.visible">
-    <app-form-item name='filepath' :itemRules="this.rules.filepath" class='' :caption="$t('entities.build.quickcreate_form.details.filepath')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.filepath.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.filepath"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.filepath.disabled" type='text'  style=""></input-box>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.files.visible">
-    <app-form-item name='files' :itemRules="this.rules.files" class='' :caption="$t('entities.build.quickcreate_form.details.files')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.files.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange" :data="JSON.stringify(this.data)" name='files' :value="data.files" :disabled="detailsModel.files.disabled" uploadparams='' exportparams='' :customparams="{}" style="overflow: auto;"></app-file-upload>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.desc.visible">
-    <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.build.quickcreate_form.details.desc')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-rich-text-editor :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled"  name="desc" style=""></app-rich-text-editor>
-</app-form-item>
-
-</div>
-    
-    </row>
-</app-form-group>
-
-</div>
-
-
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: #if LayoutPos.getColXS() != -1  [in template "TEMPLCODE_zh_CN" at line 10, column 303]
+----
     </row>
 </i-form>
 </template>

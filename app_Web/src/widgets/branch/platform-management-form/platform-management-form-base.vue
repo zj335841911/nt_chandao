@@ -2,29 +2,14 @@
     <i-form :model="this.data" class='app-form' ref='form'  id='branch_platformmanagement' style="">
     <input style="display:none;" />
     <row >
-            
-<div v-show="detailsModel.group1.visible">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.branch.platformmanagement_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
-    <row>
-        <div v-show="detailsModel.name.visible">
-    <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.branch.platformmanagement_form.details.name')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.name"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.name.disabled" type='text'  style=""></input-box>
-</app-form-item>
+        !!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
 
-</div>
-<div v-show="detailsModel.order.visible">
-    <app-form-item name='order' :itemRules="this.rules.order" class='' :caption="$t('entities.branch.platformmanagement_form.details.order')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.order.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.order"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.order.disabled" type='number'  style=""></input-box>
-</app-form-item>
-
-</div>
-    
-    </row>
-</app-form-group>
-
-</div>
-
-
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: #if LayoutPos.getColXS() != -1  [in template "TEMPLCODE_zh_CN" at line 10, column 303]
+----
     </row>
 </i-form>
 </template>

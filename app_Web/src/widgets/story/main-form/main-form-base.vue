@@ -12,118 +12,14 @@
                     $t('entities.story.main_form.details.formpage1')
                     ])
                 }">
-                    
-<div v-show="detailsModel.group1.visible">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.main_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <row>
-        <div v-show="detailsModel.title.visible">
-    <app-form-item name='title' :itemRules="this.rules.title" class='' :caption="$t('entities.story.main_form.details.title')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='title' :value="data.title" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
+                !!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
 
-</div>
-<div v-show="detailsModel.prodoctname.visible">
-    <app-form-item name='prodoctname' :itemRules="this.rules.prodoctname" class='' :caption="$t('entities.story.main_form.details.prodoctname')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.prodoctname.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-picker 
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.prodoctname.disabled"
-  name='prodoctname'
-  deMajorField='name'
-  deKeyField='product'
-  valueitem='product' 
-  :value="data.prodoctname"  
-  editortype="linkonly" 
-  :linkview="{ viewname: 'ProductMainTabExpView', title: $t('entities.product.views.maintabexpview.title'), deResParameters: [], parameters: [{ pathName: 'products', parameterName: 'product' }, { pathName: 'maintabexpview', parameterName: 'maintabexpview' } ], width: 0, height: 0, placement: '', isRedirectView: false }" 
-  style=""  
-  @formitemvaluechange="onFormItemValueChange">
-</app-picker>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.modulename.visible">
-    <app-form-item name='modulename' :itemRules="this.rules.modulename" class='' :caption="$t('entities.story.main_form.details.modulename')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.modulename.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='modulename' :value="data.modulename" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.plan.visible">
-    <app-form-item name='plan' :itemRules="this.rules.plan" class='' :caption="$t('entities.story.main_form.details.plan')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.plan.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='plan' :value="data.plan" tag='CurProductPlan' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.source.visible">
-    <app-form-item name='source' :itemRules="this.rules.source" class='' :caption="$t('entities.story.main_form.details.source')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.source.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='source' :value="data.source" tag='Story__source' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.sourcenote.visible">
-    <app-form-item name='sourcenote' :itemRules="this.rules.sourcenote" class='' :caption="$t('entities.story.main_form.details.sourcenote')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.sourcenote.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='sourcenote' :value="data.sourcenote" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.status.visible">
-    <app-form-item name='status' :itemRules="this.rules.status" class='' :caption="$t('entities.story.main_form.details.status')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.status.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='status' :value="data.status" tag='Story__status' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.stage.visible">
-    <app-form-item name='stage' :itemRules="this.rules.stage" class='' :caption="$t('entities.story.main_form.details.stage')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.stage.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='stage' :value="data.stage" tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.pri.visible">
-    <app-form-item name='pri' :itemRules="this.rules.pri" class='' :caption="$t('entities.story.main_form.details.pri')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.pri.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='pri' :value="data.pri" tag='Story__pri' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.estimate.visible">
-    <app-form-item name='estimate' :itemRules="this.rules.estimate" class='' :caption="$t('entities.story.main_form.details.estimate')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.estimate.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='estimate' :value="data.estimate" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.keywords.visible">
-    <app-form-item name='keywords' :itemRules="this.rules.keywords" class='' :caption="$t('entities.story.main_form.details.keywords')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.keywords.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='keywords' :value="data.keywords" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.mailto.visible">
-    <app-form-item name='mailto' :itemRules="this.rules.mailto" class='' :caption="$t('entities.story.main_form.details.mailto')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.mailto.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='mailto' :value="data.mailto" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-    
-    </row>
-</app-form-group>
-
-</div>
-
-
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: #if LayoutPos.getColXS() != -1  [in template "TEMPLCODE_zh_CN" at line 10, column 303]
+----
             </tab-pane> 
             <tab-pane v-show="detailsModel.formpage2.visible" name='formpage2' :index="1" tab='main' class=''  
                 :label="(h) =>{
@@ -133,118 +29,14 @@
                     $t('entities.story.main_form.details.formpage2')
                     ])
                 }">
-                    
-<div v-show="detailsModel.group2.visible">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.main_form.details.group2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <row>
-        <div v-show="detailsModel.grouppanel1.visible">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.main_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <row>
-        <div v-show="detailsModel.openedby.visible">
-    <app-form-item name='openedby' :itemRules="this.rules.openedby" class='' :caption="$t('entities.story.main_form.details.openedby')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.openedby.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='openedby' :value="data.openedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
+                !!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
 
-</div>
-<div v-show="detailsModel.openeddate.visible">
-    <app-form-item name='openeddate' :itemRules="this.rules.openeddate" class='' :caption="$t('entities.story.main_form.details.openeddate')" uiStyle="DEFAULT" :labelWidth="35" :isShowCaption="true" :error="detailsModel.openeddate.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='openeddate' :value="data.openeddate" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-    
-    </row>
-</app-form-group>
-
-</div>
-<div v-show="detailsModel.grouppanel2.visible">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.main_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <row>
-        <div v-show="detailsModel.assignedto.visible">
-    <app-form-item name='assignedto' :itemRules="this.rules.assignedto" class='' :caption="$t('entities.story.main_form.details.assignedto')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.assignedto.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='assignedto' :value="data.assignedto" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.assigneddate.visible">
-    <app-form-item name='assigneddate' :itemRules="this.rules.assigneddate" class='' :caption="$t('entities.story.main_form.details.assigneddate')" uiStyle="DEFAULT" :labelWidth="35" :isShowCaption="true" :error="detailsModel.assigneddate.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='assigneddate' :value="data.assigneddate" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-    
-    </row>
-</app-form-group>
-
-</div>
-<div v-show="detailsModel.reviewedby.visible">
-    <app-form-item name='reviewedby' :itemRules="this.rules.reviewedby" class='' :caption="$t('entities.story.main_form.details.reviewedby')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.reviewedby.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='reviewedby' :value="data.reviewedby" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.revieweddate.visible">
-    <app-form-item name='revieweddate' :itemRules="this.rules.revieweddate" class='' :caption="$t('entities.story.main_form.details.revieweddate')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.revieweddate.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='revieweddate' :value="data.revieweddate" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.closedby.visible">
-    <app-form-item name='closedby' :itemRules="this.rules.closedby" class='' :caption="$t('entities.story.main_form.details.closedby')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.closedby.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='closedby' :value="data.closedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.closeddate.visible">
-    <app-form-item name='closeddate' :itemRules="this.rules.closeddate" class='' :caption="$t('entities.story.main_form.details.closeddate')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.closeddate.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='closeddate' :value="data.closeddate" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.closedreason.visible">
-    <app-form-item name='closedreason' :itemRules="this.rules.closedreason" class='' :caption="$t('entities.story.main_form.details.closedreason')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.closedreason.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='closedreason' :value="data.closedreason" tag='Story__closed_reason' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.grouppanel3.visible">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.main_form.details.grouppanel3')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <row>
-        <div v-show="detailsModel.lasteditedby.visible">
-    <app-form-item name='lasteditedby' :itemRules="this.rules.lasteditedby" class='' :caption="$t('entities.story.main_form.details.lasteditedby')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.lasteditedby.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='lasteditedby' :value="data.lasteditedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.lastediteddate.visible">
-    <app-form-item name='lastediteddate' :itemRules="this.rules.lastediteddate" class='' :caption="$t('entities.story.main_form.details.lastediteddate')" uiStyle="DEFAULT" :labelWidth="35" :isShowCaption="true" :error="detailsModel.lastediteddate.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='lastediteddate' :value="data.lastediteddate" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
-
-</div>
-    
-    </row>
-</app-form-group>
-
-</div>
-    
-    </row>
-</app-form-group>
-
-</div>
-
-
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: #if LayoutPos.getColXS() != -1  [in template "TEMPLCODE_zh_CN" at line 10, column 303]
+----
             </tab-pane> 
     </tabs>
     </row>

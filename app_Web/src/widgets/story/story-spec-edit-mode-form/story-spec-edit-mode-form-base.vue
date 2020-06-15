@@ -2,100 +2,14 @@
     <i-form :model="this.data" class='app-form' ref='form'  id='story_storyspec_editmode' style="">
     <input style="display:none;" />
     <row >
-            
-<div v-show="detailsModel.group1.visible">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.storyspec_editmode_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
-    <row>
-        <div v-show="detailsModel.grouppanel1.visible">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.storyspec_editmode_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
-    <row>
-        <div v-show="detailsModel.reviewedby.visible">
-    <app-form-item name='reviewedby' :itemRules="this.rules.reviewedby" class='' :caption="$t('entities.story.storyspec_editmode_form.details.reviewedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.reviewedby.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.reviewedby"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.reviewedby.disabled" type='text'  style=""></input-box>
-</app-form-item>
+        !!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
 
-</div>
-<div v-show="detailsModel.notreview.visible">
-    <app-form-item name='notreview' :itemRules="this.rules.notreview" class='' :caption="$t('entities.story.storyspec_editmode_form.details.notreview')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.notreview.error" :isEmptyCaption="false" labelPos="RIGHT">
-    <app-switch name='notreview' :value="this.data.notreview" @change="($event)=>{this.data.notreview = $event} " :disabled="detailsModel.notreview.disabled" style=""></app-switch>
-</app-form-item>
-
-</div>
-    
-    </row>
-</app-form-group>
-
-</div>
-<div v-show="detailsModel.title.visible">
-    <app-form-item name='title' :itemRules="this.rules.title" class='' :caption="$t('entities.story.storyspec_editmode_form.details.title')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.title"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.title.disabled" type='text'  style=""></input-box>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.verify.visible">
-    <app-form-item name='verify' :itemRules="this.rules.verify" class='' :caption="$t('entities.story.storyspec_editmode_form.details.verify')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.verify.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-rich-text-editor :formState="formState" :value="data.verify" @change="(val) =>{this.data.verify =val}" :disabled="detailsModel.verify.disabled"  name="verify" height={400} style="height:400px;"></app-rich-text-editor>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.spec.visible">
-    <app-form-item name='spec' :itemRules="this.rules.spec" class='' :caption="$t('entities.story.storyspec_editmode_form.details.spec')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.spec.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-rich-text-editor :formState="formState" :value="data.spec" @change="(val) =>{this.data.spec =val}" :disabled="detailsModel.spec.disabled"  name="spec" height={400} style="height:400px;"></app-rich-text-editor>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.comment.visible">
-    <app-form-item name='comment' :itemRules="this.rules.comment" class='' :caption="$t('entities.story.storyspec_editmode_form.details.comment')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.comment.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled"  name="comment" height={400} style="height:400px;"></app-rich-text-editor>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.files.visible">
-    <app-form-item name='files' :itemRules="this.rules.files" class='' :caption="$t('entities.story.storyspec_editmode_form.details.files')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.files.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange" :data="JSON.stringify(this.data)" name='files' :value="data.files" :disabled="detailsModel.files.disabled" uploadparams='' exportparams='' :customparams="{objecttype:'story',objectid:'126'}" style="overflow: auto;"></app-file-upload>
-</app-form-item>
-
-</div>
-<div v-show="detailsModel.grouppanel2.visible">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.storyspec_editmode_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
-    <row>
-        <div v-show="detailsModel.druipart1.visible">
-    <app-form-druipart
-    
-    :formState="formState"
-    :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='story' 
-    :parentdata='{"srfparentdename":"ZT_STORY","SRFPARENTTYPE":"CUSTOM"}'
-    :parameters="[
-    ]"
-    :context="context"
-    :viewparams="viewparams"
-    :localContext ='{}'
-    :localParam ='{}'
-    parameterName='story'
-    parentName="Story"  
-    refviewtype='DELISTVIEW' 
-    refreshitems='' 
-    :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='action-histroy-list-view' 
-    :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
-    style=";overflow: auto;">
-</app-form-druipart>
-
-</div>
-    
-    </row>
-</app-form-group>
-
-</div>
-    
-    </row>
-</app-form-group>
-
-</div>
-
-
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: #if LayoutPos.getColXS() != -1  [in template "TEMPLCODE_zh_CN" at line 10, column 303]
+----
     </row>
 </i-form>
 </template>
