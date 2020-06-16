@@ -1,4 +1,2 @@
 server:
   port: 8081
-zentao:
-  url: http://172.16.100.202/zentao/

@@ -1,7 +1,5 @@
 server:
   port: 10120
-zentao:
-  url: http://172.16.102.102/zentao/
 #zuul网关路由设置
 zuul:
   routes:
