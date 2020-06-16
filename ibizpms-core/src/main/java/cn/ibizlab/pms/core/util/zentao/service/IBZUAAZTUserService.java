@@ -29,7 +29,7 @@ import java.util.Map;
  * 实体[IBZUSER] 服务对象接口实现
  */
 @Service("IBZUAAZTUserService")
-@ConditionalOnExpression("${ibiz.enablePermissionValid:false}||'${ibiz.auth.service:SimpleUserService}'.equals('IBZUAAZTUserService')")
+@ConditionalOnExpression("(!${ibiz.enablePermissionValid:false})&&'${ibiz.auth.service:SimpleUserService}'.equals('IBZUAAZTUserService')")
 public class IBZUAAZTUserService implements AuthenticationUserService{
 
 	// 打通禅道与统一认证之后开放IBZUAAFeignClient

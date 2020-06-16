@@ -1,0 +1,10 @@
+zuul:
+  routes:
+    v7:
+      path: /v7/**
+      serviceId: pms-webapi
+      stripPrefix: false
+    ibizutil:
+      path: /ibizutil/**
+      serviceId: pms-webapi
+      stripPrefix: false
