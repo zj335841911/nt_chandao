@@ -173,7 +173,7 @@ public class CaseStepResource {
     @Transactional
     public ResponseEntity<CaseStepDTO> updateByCase(@PathVariable("case_id") BigInteger case_id, @PathVariable("casestep_id") BigInteger casestep_id, @RequestBody CaseStepDTO casestepdto) {
         CaseStep domain = casestepMapping.toDomain(casestepdto);
-        domain.setParent(case_id);
+        domain.setIbizcase(case_id);
         domain.setId(casestep_id);
 		casestepService.update(domain);
         CaseStepDTO dto = casestepMapping.toDto(domain);
@@ -186,7 +186,7 @@ public class CaseStepResource {
     public ResponseEntity<Boolean> updateBatchByCase(@PathVariable("case_id") BigInteger case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
         List<CaseStep> domainlist=casestepMapping.toDomain(casestepdtos);
         for(CaseStep domain:domainlist){
-            domain.setParent(case_id);
+            domain.setIbizcase(case_id);
         }
         casestepService.updateBatch(domainlist);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
@@ -196,7 +196,7 @@ public class CaseStepResource {
     @RequestMapping(method = RequestMethod.GET, value = "/cases/{case_id}/casesteps/getdraft")
     public ResponseEntity<CaseStepDTO> getDraftByCase(@PathVariable("case_id") BigInteger case_id) {
         CaseStep domain = new CaseStep();
-        domain.setParent(case_id);
+        domain.setIbizcase(case_id);
         return ResponseEntity.status(HttpStatus.OK).body(casestepMapping.toDto(casestepService.getDraft(domain)));
     }
 
@@ -211,7 +211,7 @@ public class CaseStepResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/casesteps/save")
     public ResponseEntity<Boolean> saveByCase(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepDTO casestepdto) {
         CaseStep domain = casestepMapping.toDomain(casestepdto);
-        domain.setParent(case_id);
+        domain.setIbizcase(case_id);
         return ResponseEntity.status(HttpStatus.OK).body(casestepService.save(domain));
     }
 
@@ -221,7 +221,7 @@ public class CaseStepResource {
     public ResponseEntity<Boolean> saveBatchByCase(@PathVariable("case_id") BigInteger case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
         List<CaseStep> domainlist=casestepMapping.toDomain(casestepdtos);
         for(CaseStep domain:domainlist){
-             domain.setParent(case_id);
+             domain.setIbizcase(case_id);
         }
         casestepService.saveBatch(domainlist);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
@@ -233,7 +233,7 @@ public class CaseStepResource {
     @Transactional
     public ResponseEntity<CaseStepDTO> createByCase(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepDTO casestepdto) {
         CaseStep domain = casestepMapping.toDomain(casestepdto);
-        domain.setParent(case_id);
+        domain.setIbizcase(case_id);
 		casestepService.create(domain);
         CaseStepDTO dto = casestepMapping.toDto(domain);
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
@@ -245,7 +245,7 @@ public class CaseStepResource {
     public ResponseEntity<Boolean> createBatchByCase(@PathVariable("case_id") BigInteger case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
         List<CaseStep> domainlist=casestepMapping.toDomain(casestepdtos);
         for(CaseStep domain:domainlist){
-            domain.setParent(case_id);
+            domain.setIbizcase(case_id);
         }
         casestepService.createBatch(domainlist);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
@@ -271,7 +271,7 @@ public class CaseStepResource {
 	@ApiOperation(value = "根据测试用例获取DEFAULT", tags = {"用例步骤" } ,notes = "根据测试用例获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/cases/{case_id}/casesteps/fetchdefault")
 	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepDefaultByCase(@PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
-        context.setN_parent_eq(case_id);
+        context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchDefault(context) ;
         List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -285,7 +285,7 @@ public class CaseStepResource {
 	@ApiOperation(value = "根据测试用例查询DEFAULT", tags = {"用例步骤" } ,notes = "根据测试用例查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/cases/{case_id}/casesteps/searchdefault")
 	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepDefaultByCase(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
-        context.setN_parent_eq(case_id);
+        context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchDefault(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(casestepMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
@@ -305,7 +305,7 @@ public class CaseStepResource {
     @Transactional
     public ResponseEntity<CaseStepDTO> updateByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @PathVariable("casestep_id") BigInteger casestep_id, @RequestBody CaseStepDTO casestepdto) {
         CaseStep domain = casestepMapping.toDomain(casestepdto);
-        domain.setParent(case_id);
+        domain.setIbizcase(case_id);
         domain.setId(casestep_id);
 		casestepService.update(domain);
         CaseStepDTO dto = casestepMapping.toDto(domain);
@@ -318,7 +318,7 @@ public class CaseStepResource {
     public ResponseEntity<Boolean> updateBatchByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
         List<CaseStep> domainlist=casestepMapping.toDomain(casestepdtos);
         for(CaseStep domain:domainlist){
-            domain.setParent(case_id);
+            domain.setIbizcase(case_id);
         }
         casestepService.updateBatch(domainlist);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
@@ -328,7 +328,7 @@ public class CaseStepResource {
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/cases/{case_id}/casesteps/getdraft")
     public ResponseEntity<CaseStepDTO> getDraftByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id) {
         CaseStep domain = new CaseStep();
-        domain.setParent(case_id);
+        domain.setIbizcase(case_id);
         return ResponseEntity.status(HttpStatus.OK).body(casestepMapping.toDto(casestepService.getDraft(domain)));
     }
 
@@ -343,7 +343,7 @@ public class CaseStepResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/{case_id}/casesteps/save")
     public ResponseEntity<Boolean> saveByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepDTO casestepdto) {
         CaseStep domain = casestepMapping.toDomain(casestepdto);
-        domain.setParent(case_id);
+        domain.setIbizcase(case_id);
         return ResponseEntity.status(HttpStatus.OK).body(casestepService.save(domain));
     }
 
@@ -353,7 +353,7 @@ public class CaseStepResource {
     public ResponseEntity<Boolean> saveBatchByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
         List<CaseStep> domainlist=casestepMapping.toDomain(casestepdtos);
         for(CaseStep domain:domainlist){
-             domain.setParent(case_id);
+             domain.setIbizcase(case_id);
         }
         casestepService.saveBatch(domainlist);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
@@ -365,7 +365,7 @@ public class CaseStepResource {
     @Transactional
     public ResponseEntity<CaseStepDTO> createByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepDTO casestepdto) {
         CaseStep domain = casestepMapping.toDomain(casestepdto);
-        domain.setParent(case_id);
+        domain.setIbizcase(case_id);
 		casestepService.create(domain);
         CaseStepDTO dto = casestepMapping.toDto(domain);
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
@@ -377,7 +377,7 @@ public class CaseStepResource {
     public ResponseEntity<Boolean> createBatchByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
         List<CaseStep> domainlist=casestepMapping.toDomain(casestepdtos);
         for(CaseStep domain:domainlist){
-            domain.setParent(case_id);
+            domain.setIbizcase(case_id);
         }
         casestepService.createBatch(domainlist);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
@@ -403,7 +403,7 @@ public class CaseStepResource {
 	@ApiOperation(value = "根据产品测试用例获取DEFAULT", tags = {"用例步骤" } ,notes = "根据产品测试用例获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/{case_id}/casesteps/fetchdefault")
 	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepDefaultByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
-        context.setN_parent_eq(case_id);
+        context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchDefault(context) ;
         List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -417,7 +417,7 @@ public class CaseStepResource {
 	@ApiOperation(value = "根据产品测试用例查询DEFAULT", tags = {"用例步骤" } ,notes = "根据产品测试用例查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/{case_id}/casesteps/searchdefault")
 	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepDefaultByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
-        context.setN_parent_eq(case_id);
+        context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchDefault(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(casestepMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
