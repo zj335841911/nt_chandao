@@ -27,24 +27,9 @@ export default class MainModel {
     }else{
 		  return [
         {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'project',
-          prop: 'project',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'name',
-          prop: 'name',
-          dataType: 'TEXT',
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'build',
@@ -67,14 +52,49 @@ export default class MainModel {
           dataType: 'ACID',
         },
         {
+          name: 'begin',
+          prop: 'begin',
+          dataType: 'DATE',
+        },
+        {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'project',
+          prop: 'project',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'projecttname',
+          prop: 'projecttname',
+          dataType: 'PICKUPTEXT',
+        },
+        {
+          name: 'name',
+          prop: 'name',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'owner',
+          prop: 'owner',
+          dataType: 'TEXT',
+        },
+        {
           name: 'end',
           prop: 'end',
           dataType: 'DATE',
         },
         {
-          name: 'begin',
-          prop: 'begin',
-          dataType: 'DATE',
+          name: 'productname',
+          prop: 'productname',
+          dataType: 'PICKUPTEXT',
         },
         {
           name: 'testtask',

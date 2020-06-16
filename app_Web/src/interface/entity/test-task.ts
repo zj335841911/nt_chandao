@@ -133,4 +133,20 @@ export interface TestTask {
      * @memberof TestTask
      */
     project?: any;
+
+    /**
+     * 产品
+     *
+     * @returns {*}
+     * @memberof TestTask
+     */
+    productname?: any;
+
+    /**
+     * 项目
+     *
+     * @returns {*}
+     * @memberof TestTask
+     */
+    projecttname?: any;
 }

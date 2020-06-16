@@ -35,18 +35,6 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('product')">
-                <el-table-column show-overflow-tooltip :prop="'product'" :label="$t('entities.testtask.main_grid.columns.product')" :width="250"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.testtask.main_grid.columns.product')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <span>{{row.product}}</span>
-                    </template>
-                </el-table-column>
-            </template>
             <template v-if="getColumnState('name')">
                 <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.testtask.main_grid.columns.name')" :width="250"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
@@ -59,20 +47,46 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('project')">
-                <el-table-column show-overflow-tooltip :prop="'project'" :label="$t('entities.testtask.main_grid.columns.project')" :width="250"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('productname')">
+                <el-table-column show-overflow-tooltip :prop="'productname'" :label="$t('entities.testtask.main_grid.columns.productname')" :width="250"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.testtask.main_grid.columns.project')}}
+                        {{$t('entities.testtask.main_grid.columns.productname')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.project}}</span>
+                        <app-column-link deKeyField='product' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'product-main-tab-exp-view', height: 0,width: 0,title: $t('entities.product.views.maintabexpview.title'),placement: '', isRedirectView: false,deResParameters: [
+            ]
+            ,parameters: [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'maintabexpview', parameterName: 'maintabexpview' }
+            ]}" valueitem="product">
+                            <span>{{row.productname}}</span>
+                        </app-column-link >
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('projecttname')">
+                <el-table-column show-overflow-tooltip :prop="'projecttname'" :label="$t('entities.testtask.main_grid.columns.projecttname')" :width="250"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.testtask.main_grid.columns.projecttname')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <app-column-link deKeyField='project' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'project-main-tab-exp-view', height: 0,width: 0,title: $t('entities.project.views.maintabexpview.title'),placement: '', isRedirectView: false,deResParameters: [
+            ]
+            ,parameters: [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'maintabexpview', parameterName: 'maintabexpview' }
+            ]}" valueitem="project">
+                            <span>{{row.projecttname}}</span>
+                        </app-column-link >
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('build')">
-                <el-table-column show-overflow-tooltip :prop="'build'" :label="$t('entities.testtask.main_grid.columns.build')" :width="80"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'build'" :label="$t('entities.testtask.main_grid.columns.build')" :width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.testtask.main_grid.columns.build')}}
@@ -80,6 +94,18 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <span>{{row.build}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('owner')">
+                <el-table-column show-overflow-tooltip :prop="'owner'" :label="$t('entities.testtask.main_grid.columns.owner')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.testtask.main_grid.columns.owner')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.owner}}</span>
                     </template>
                 </el-table-column>
             </template>
@@ -107,6 +133,28 @@
                     </template>
                 </el-table-column>
             </template>
+            <template v-if="getColumnState('status')">
+                <el-table-column show-overflow-tooltip :prop="'status'" :label="$t('entities.testtask.main_grid.columns.status')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.testtask.main_grid.columns.status')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template >
+            <codelist :value="row.status" tag='Testtask__status' codelistType='STATIC' ></codelist>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
+            !!!!模版产生代码错误:----
+            Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+            ----
+            
+            ----
+            FTL stack trace ("~" means nesting-related):
+            	- Failed at: #if item.getPSDEUIActionGroup().getPS...  [in template "TEMPLCODE_zh_CN" at line 100, column 3]
+            ----
             <template v-if="adaptiveState">
                 <el-table-column></el-table-column>
             </template>
@@ -592,13 +640,6 @@ export default class MainBase extends Vue implements ControlInterface {
             util: 'PX'
         },
         {
-            name: 'product',
-            label: '所属产品',
-            langtag: 'entities.testtask.main_grid.columns.product',
-            show: true,
-            util: 'PX'
-        },
-        {
             name: 'name',
             label: '名称',
             langtag: 'entities.testtask.main_grid.columns.name',
@@ -606,9 +647,16 @@ export default class MainBase extends Vue implements ControlInterface {
             util: 'PX'
         },
         {
-            name: 'project',
-            label: '所属项目',
-            langtag: 'entities.testtask.main_grid.columns.project',
+            name: 'productname',
+            label: '产品',
+            langtag: 'entities.testtask.main_grid.columns.productname',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'projecttname',
+            label: '项目',
+            langtag: 'entities.testtask.main_grid.columns.projecttname',
             show: true,
             util: 'PX'
         },
@@ -616,6 +664,13 @@ export default class MainBase extends Vue implements ControlInterface {
             name: 'build',
             label: '版本',
             langtag: 'entities.testtask.main_grid.columns.build',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'owner',
+            label: '负责人',
+            langtag: 'entities.testtask.main_grid.columns.owner',
             show: true,
             util: 'PX'
         },
@@ -630,6 +685,20 @@ export default class MainBase extends Vue implements ControlInterface {
             name: 'end',
             label: '结束日期',
             langtag: 'entities.testtask.main_grid.columns.end',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'status',
+            label: '当前状态',
+            langtag: 'entities.testtask.main_grid.columns.status',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'uagridcolumn1',
+            label: '操作',
+            langtag: 'entities.testtask.main_grid.columns.uagridcolumn1',
             show: true,
             util: 'PX'
         },
@@ -1020,6 +1089,14 @@ export default class MainBase extends Vue implements ControlInterface {
      */
     public async formatExcelData(filterVal:any, jsonData:any) {
         let codelistColumns:Array<any> = [
+          {
+            name: 'status',
+            srfkey: 'Testtask__status',
+            codelistType : 'STATIC',
+            renderMode: 'other',
+            textSeparator: '、',
+            valueSeparator: ',',
+          },
         ];
         let _this = this;
         for (const codelist of codelistColumns) {

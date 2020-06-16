@@ -16,15 +16,33 @@ export default {
     product: '所属产品',
     build: '版本',
     project: '所属项目',
+    productname: '产品',
+    projecttname: '项目',
   },
 	views: {
 		gridview9_untested: {
 			caption: '测试版本',
       title: '测试版本表格视图',
 		},
+		editview9_detail: {
+			caption: '测试版本',
+      title: '测试版本编辑视图',
+		},
+		maintabexpview: {
+			caption: '测试版本',
+      title: '测试版本分页导航视图',
+		},
 		editview: {
 			caption: '测试版本',
       title: 'testtask编辑视图',
+		},
+		editview9_info: {
+			caption: '测试版本',
+      title: '测试版本编辑视图',
+		},
+		maindashboardview: {
+			caption: '测试版本',
+      title: '测试版本数据看板视图',
 		},
 		gridview: {
 			caption: '测试版本',
@@ -50,15 +68,61 @@ export default {
 		uiactions: {
 		},
 	},
+	maindetail_form: {
+		details: {
+			grouppanel1: '描述', 
+			group1: '', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			desc: '描述', 
+			id: '编号', 
+		},
+		uiactions: {
+		},
+	},
+	maininfo_form: {
+		details: {
+			group1: '基本信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			projecttname: '所属项目', 
+			build: '版本', 
+			owner: '负责人', 
+			mailto: '抄送给', 
+			pri: '优先级', 
+			begin: '开始日期', 
+			end: '结束日期', 
+			status: '当前状态', 
+			id: '编号', 
+			project: '所属项目', 
+		},
+		uiactions: {
+		},
+	},
 	main_grid: {
 		columns: {
 			id: 'ID',
-			product: '所属产品',
 			name: '名称',
-			project: '所属项目',
+			productname: '产品',
+			projecttname: '项目',
 			build: '版本',
+			owner: '负责人',
 			begin: '开始日期',
 			end: '结束日期',
+			status: '当前状态',
+			uagridcolumn1: '操作',
 		},
 		uiactions: {
 		},
@@ -66,9 +130,9 @@ export default {
 	main2_grid: {
 		columns: {
 			id: 'ID',
-			product: '所属产品',
+			productname: '产品',
 			name: '名称',
-			project: '所属项目',
+			projecttname: '项目',
 			build: '版本',
 			begin: '开始日期',
 			end: '结束日期',

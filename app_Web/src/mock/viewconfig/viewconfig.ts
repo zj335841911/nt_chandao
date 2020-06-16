@@ -311,6 +311,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugBugLifeEditView9",
             "viewtag": "443935a0b9d0fa8daf3131956a8bacc9"
         },
+        "testtaskeditview9_detail": {
+            "title": "测试版本编辑视图",
+            "caption": "测试版本",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "TestTaskEditView9_Detail",
+            "viewtag": "451eacde0c0c638e29bdfc9cbc789c13"
+        },
         "bugeditview": {
             "title": "Bug",
             "caption": "Bug",
@@ -390,6 +398,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ProductModuleGridView",
             "viewtag": "523abe6eb852ca08fe4a3c140ff47b42"
+        },
+        "testtaskmaintabexpview": {
+            "title": "测试版本分页导航视图",
+            "caption": "测试版本",
+            "viewtype": "DETABEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestTaskMainTabExpView",
+            "viewtag": "5273dc442a49b8c4d37ba9ff008531e7"
         },
         "productgridview_unclosed": {
             "title": "产品表格视图",
@@ -583,6 +599,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseMainDashboardView",
             "viewtag": "6f78b25e86923ab600a2141d50fe49fd"
         },
+        "testtaskeditview9_info": {
+            "title": "测试版本编辑视图",
+            "caption": "测试版本",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "TestTaskEditView9_Info",
+            "viewtag": "706ea523d286cec9ae0c2509f20daa8e"
+        },
         "taskkanbanview": {
             "title": "任务看板视图",
             "caption": "任务",
@@ -654,6 +678,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ProductGridView",
             "viewtag": "7caeaef893043533e8f388d25523328c"
+        },
+        "testtaskmaindashboardview": {
+            "title": "测试版本数据看板视图",
+            "caption": "测试版本",
+            "viewtype": "DEPORTALVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestTaskMainDashboardView",
+            "viewtag": "7cba1f165fc6b4948ce752d3c3b68a34"
         },
         "actionprojecttrendslistview": {
             "title": "系统日志列表视图",

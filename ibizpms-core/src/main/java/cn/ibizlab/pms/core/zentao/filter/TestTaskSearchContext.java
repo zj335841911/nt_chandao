@@ -62,6 +62,34 @@ public class TestTaskSearchContext extends QueryWrapperContext<TestTask> {
             this.getSearchCond().eq("project", n_project_eq);
         }
     }
+	private String n_productname_eq;//[产品]
+	public void setN_productname_eq(String n_productname_eq) {
+        this.n_productname_eq = n_productname_eq;
+        if(!ObjectUtils.isEmpty(this.n_productname_eq)){
+            this.getSearchCond().eq("productname", n_productname_eq);
+        }
+    }
+	private String n_productname_like;//[产品]
+	public void setN_productname_like(String n_productname_like) {
+        this.n_productname_like = n_productname_like;
+        if(!ObjectUtils.isEmpty(this.n_productname_like)){
+            this.getSearchCond().like("productname", n_productname_like);
+        }
+    }
+	private String n_projecttname_eq;//[项目]
+	public void setN_projecttname_eq(String n_projecttname_eq) {
+        this.n_projecttname_eq = n_projecttname_eq;
+        if(!ObjectUtils.isEmpty(this.n_projecttname_eq)){
+            this.getSearchCond().eq("projecttname", n_projecttname_eq);
+        }
+    }
+	private String n_projecttname_like;//[项目]
+	public void setN_projecttname_like(String n_projecttname_like) {
+        this.n_projecttname_like = n_projecttname_like;
+        if(!ObjectUtils.isEmpty(this.n_projecttname_like)){
+            this.getSearchCond().like("projecttname", n_projecttname_like);
+        }
+    }
 
     /**
 	 * 启用快速搜索

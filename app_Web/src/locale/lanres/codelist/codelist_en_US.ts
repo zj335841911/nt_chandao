@@ -31,6 +31,13 @@ export default {
         'misc': '其他',
         empty: '',
     },
+    Testtask__pri: {
+        '1': '1',
+        '2': '2',
+        '3': '3',
+        '4': '4',
+        empty: '',
+    },
     Story__pri: {
         '1': '1',
         '2': '2',
@@ -439,6 +446,13 @@ export default {
         'postponed': '延期处理',
         'willnotfix': '不予解决',
         'tostory': '转为需求',
+        empty: '',
+    },
+    Testtask__status: {
+        'wait': '未开始',
+        'doing': '进行中',
+        'done': '已完成',
+        'blocked': '被阻塞',
         empty: '',
     },
 };

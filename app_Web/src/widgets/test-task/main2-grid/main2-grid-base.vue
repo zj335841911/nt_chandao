@@ -35,15 +35,22 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('product')">
-                <el-table-column show-overflow-tooltip :prop="'product'" :label="$t('entities.testtask.main2_grid.columns.product')" :width="200"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('productname')">
+                <el-table-column show-overflow-tooltip :prop="'productname'" :label="$t('entities.testtask.main2_grid.columns.productname')" :width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.testtask.main2_grid.columns.product')}}
+                        {{$t('entities.testtask.main2_grid.columns.productname')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.product}}</span>
+                        <app-column-link deKeyField='product' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'product-main-tab-exp-view', height: 0,width: 0,title: $t('entities.product.views.maintabexpview.title'),placement: '', isRedirectView: false,deResParameters: [
+            ]
+            ,parameters: [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'maintabexpview', parameterName: 'maintabexpview' }
+            ]}" valueitem="product">
+                            <span>{{row.productname}}</span>
+                        </app-column-link >
                     </template>
                 </el-table-column>
             </template>
@@ -59,15 +66,22 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('project')">
-                <el-table-column show-overflow-tooltip :prop="'project'" :label="$t('entities.testtask.main2_grid.columns.project')" :width="250"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('projecttname')">
+                <el-table-column show-overflow-tooltip :prop="'projecttname'" :label="$t('entities.testtask.main2_grid.columns.projecttname')" :width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.testtask.main2_grid.columns.project')}}
+                        {{$t('entities.testtask.main2_grid.columns.projecttname')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.project}}</span>
+                        <app-column-link deKeyField='project' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'project-main-tab-exp-view', height: 0,width: 0,title: $t('entities.project.views.maintabexpview.title'),placement: '', isRedirectView: false,deResParameters: [
+            ]
+            ,parameters: [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'maintabexpview', parameterName: 'maintabexpview' }
+            ]}" valueitem="project">
+                            <span>{{row.projecttname}}</span>
+                        </app-column-link >
                     </template>
                 </el-table-column>
             </template>
@@ -557,9 +571,9 @@ export default class Main2Base extends Vue implements ControlInterface {
             util: 'PX'
         },
         {
-            name: 'product',
-            label: '所属产品',
-            langtag: 'entities.testtask.main2_grid.columns.product',
+            name: 'productname',
+            label: '产品',
+            langtag: 'entities.testtask.main2_grid.columns.productname',
             show: true,
             util: 'PX'
         },
@@ -571,9 +585,9 @@ export default class Main2Base extends Vue implements ControlInterface {
             util: 'PX'
         },
         {
-            name: 'project',
-            label: '所属项目',
-            langtag: 'entities.testtask.main2_grid.columns.project',
+            name: 'projecttname',
+            label: '项目',
+            langtag: 'entities.testtask.main2_grid.columns.projecttname',
             show: true,
             util: 'PX'
         },

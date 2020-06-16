@@ -63,6 +63,12 @@ export default class ToTestTestTaskModel {
       {
         name: 'project',
       },
+      {
+        name: 'productname',
+      },
+      {
+        name: 'projecttname',
+      },
     ]
   }
 
