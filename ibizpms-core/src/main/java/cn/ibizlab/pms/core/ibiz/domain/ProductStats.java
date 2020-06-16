@@ -120,13 +120,6 @@ public class ProductStats extends EntityMP implements Serializable {
     @JsonProperty("unendproductplancnt")
     private Integer unendproductplancnt;
     /**
-     * 剩余计划率
-     */
-    @TableField(exist = false)
-    @JSONField(name = "unendproductplanrate")
-    @JsonProperty("unendproductplanrate")
-    private Double unendproductplanrate;
-    /**
      * 关联项目数
      */
     @TableField(exist = false)
@@ -141,26 +134,12 @@ public class ProductStats extends EntityMP implements Serializable {
     @JsonProperty("undoneresprojectcnt")
     private Integer undoneresprojectcnt;
     /**
-     * 进行项目率
-     */
-    @TableField(exist = false)
-    @JSONField(name = "undoneresprojectrate")
-    @JsonProperty("undoneresprojectrate")
-    private Integer undoneresprojectrate;
-    /**
      * 维护中发布数
      */
     @TableField(exist = false)
     @JSONField(name = "normalreleasecnt")
     @JsonProperty("normalreleasecnt")
     private Integer normalreleasecnt;
-    /**
-     * 维护发布率
-     */
-    @TableField(exist = false)
-    @JSONField(name = "normalreleaserate")
-    @JsonProperty("normalreleaserate")
-    private Integer normalreleaserate;
     /**
      * 激活需求数
      */
