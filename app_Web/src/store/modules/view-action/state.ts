@@ -900,7 +900,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
-                'f592519df78de708bd8199a52e5f584d',
+                'ac71a1cfaecb07640c14f75b8f202b1e',
             ],
         },
         {
@@ -1115,6 +1115,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: 'ac71a1cfaecb07640c14f75b8f202b1e',
+            viewmodule: 'zentao',
+            viewname: 'CaseStepMainGridView9_EditMode',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

@@ -43,7 +43,9 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.desc}}</span>
+                        <template >
+                                <app-span name='desc' editorType="TEXTAREA" :value="row.desc"></app-span>
+                        </template>
                     </template>
                 </el-table-column>
             </template>
@@ -69,7 +71,9 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.expect}}</span>
+                        <template >
+                                <app-span name='expect' editorType="TEXTAREA" :value="row.expect"></app-span>
+                        </template>
                     </template>
                 </el-table-column>
             </template>
@@ -77,41 +81,6 @@
                 <el-table-column></el-table-column>
             </template>
     </el-table>
-    <row class='grid-pagination' v-show="items.length > 0">
-        <page class='pull-right' @on-change="pageOnChange($event)" 
-            @on-page-size-change="onPageSizeChange($event)"
-            :transfer="true" :total="totalrow"
-            show-sizer :current="curPage" :page-size="limit"
-            :page-size-opts="[10, 20, 30, 40, 50, 60, 70, 80, 90, 100]" show-elevator show-total>
-            <span>
-                <span class="page-column">
-                    <poptip transfer placement="top-start">
-                        <i-button icon="md-menu">{{$t('app.gridpage.choicecolumns')}}</i-button>
-                        <div slot="content">
-                            <template v-for="col in allColumns">
-                                <div :key="col.name"><el-checkbox v-model="col.show" @change="onColChange()">{{$t(col.langtag)}}</el-checkbox></div>
-                            </template>
-                        </div>
-                    </poptip>
-                </span>
-                <span v-if="selections.length > 0" class="batch-toolbar">
-                </span>
-                <span class="page-button"><i-button icon="md-refresh" :title="$t('app.gridpage.refresh')" @click="pageRefresh()"></i-button></span>&nbsp;
-                <span>
-                    {{$t('app.gridpage.show')}}&nbsp;
-                    <span>
-                        <template v-if="items.length === 1">
-                        1
-                        </template>
-                        <template v-else>
-                            <span>{{(curPage - 1) * limit + 1}}&nbsp;-&nbsp;{{totalrow > curPage * limit ? curPage * limit : totalrow}}</span>
-                        </template>
-                    </span>&nbsp;
-                    {{$t('app.gridpage.records')}}，{{$t('app.gridpage.totle')}}&nbsp;{{totalrow}}&nbsp;{{$t('app.gridpage.records')}}
-                </span>
-            </span>
-        </page>
-    </row>
   </i-form>
 </div>
 </template>
@@ -363,7 +332,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * @type {boolean}
      * @memberof Main
      */
-    public isEnablePagingBar: boolean = true;
+    public isEnablePagingBar: boolean = false;
 
     /**
      * 是否禁用排序
@@ -395,7 +364,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * @type {number}
      * @memberof Main
      */
-    public limit: number = 20;
+    public limit: number = 500;
 
     /**
      * 是否显示标题
@@ -596,6 +565,9 @@ export default class MainBase extends Vue implements ControlInterface {
      */
     public getGridRowModel(){
         return {
+          expect: new FormItemModel(),
+          desc: new FormItemModel(),
+          type: new FormItemModel(),
           srfkey: new FormItemModel(),
         }
     }
@@ -607,6 +579,18 @@ export default class MainBase extends Vue implements ControlInterface {
      * @memberof Main
      */
     public rules: any = {
+        expect: [
+             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预期 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预期 值不能为空', trigger: 'blur' },
+        ],
+        desc: [
+             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '步骤 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '步骤 值不能为空', trigger: 'blur' },
+        ],
+        type: [
+             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例步骤类型 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例步骤类型 值不能为空', trigger: 'blur' },
+        ],
         srfkey: [
              { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'blur' },

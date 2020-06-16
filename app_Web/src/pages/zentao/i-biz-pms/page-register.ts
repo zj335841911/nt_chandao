@@ -135,6 +135,7 @@ export const PageComponents = {
         Vue.component('story-grid-view9-assigned-to-me', () => import('@pages/zentao/story-grid-view9-assigned-to-me/story-grid-view9-assigned-to-me.vue'));
         Vue.component('project-product-list-view9', () => import('@pages/zentao/project-product-list-view9/project-product-list-view9.vue'));
         Vue.component('story-plan-sub-grid-view', () => import('@pages/zentao/story-plan-sub-grid-view/story-plan-sub-grid-view.vue'));
+        Vue.component('case-step-main-grid-view9-edit-mode', () => import('@pages/zentao/case-step-main-grid-view9-edit-mode/case-step-main-grid-view9-edit-mode.vue'));
         Vue.component('product-grid-view-un-closed', () => import('@pages/zentao/product-grid-view-un-closed/product-grid-view-un-closed.vue'));
         Vue.component('task-main-dashboard-view', () => import('@pages/zentao/task-main-dashboard-view/task-main-dashboard-view.vue'));
     }

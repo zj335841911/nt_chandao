@@ -9,6 +9,10 @@ export default {
     parent: '分组用例步骤的组编号',
   },
 	views: {
+		maingridview9_editmode: {
+			caption: '用例步骤',
+      title: '用例步骤',
+		},
 		gridview: {
 			caption: '用例步骤',
       title: 'casestep表格视图',
@@ -33,6 +37,16 @@ export default {
 			formpage1: '常规条件', 
 		},
 		uiactions: {
+		},
+	},
+	maingridview9_editmodetoolbar_toolbar: {
+		deuiaction2: {
+			caption: '新建行',
+			tip: '新建行',
+		},
+		deuiaction3: {
+			caption: '保存行',
+			tip: '保存行',
 		},
 	},
 	maingridview9toolbar_toolbar: {

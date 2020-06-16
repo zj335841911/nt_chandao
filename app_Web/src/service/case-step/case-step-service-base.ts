@@ -244,4 +244,23 @@ export default class CaseStepServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return Http.getInstance().get(`/casesteps/fetchdefault`,tempData,isloading);
     }
+
+    /**
+     * FetchTempDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseStepServiceBase
+     */
+    public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.case && true){
+            return Http.getInstance().get(`/products/${context.product}/cases/${context.case}/casesteps/fetchdefault`,data,isloading);
+        }
+        if(context.case && true){
+            return Http.getInstance().get(`/cases/${context.case}/casesteps/fetchdefault`,data,isloading);
+        }
+        return Http.getInstance().get(`/casesteps/fetchdefault`,data,isloading);
+    }
 }

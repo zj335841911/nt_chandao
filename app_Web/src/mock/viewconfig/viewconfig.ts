@@ -967,6 +967,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskOpenTaskView",
             "viewtag": "abca63015fc84466991c6479f955f6d0"
         },
+        "casestepmaingridview9_editmode": {
+            "title": "用例步骤",
+            "caption": "用例步骤",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "CaseStepMainGridView9_EditMode",
+            "viewtag": "ac71a1cfaecb07640c14f75b8f202b1e"
+        },
         "taskpausetaskview": {
             "title": "暂停任务",
             "caption": "暂停任务",
