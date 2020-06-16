@@ -4,14 +4,14 @@ import VueRouter from 'vue-router';
 import App from '@/App.vue';
 import ElementUi from 'element-ui';
 import ViewUI from 'view-design';
-import ibizLab from 'ibiz-vue-lib';
+// import ibizLab from 'ibiz-vue-lib';
 import { Interceptors } from '@/utils';
-import  {Print} from '@/utils/print';
+import { Print } from '@/utils/print';
 import i18n from '@/locale'
 
 import 'element-ui/lib/theme-chalk/index.css';
 import 'view-design/dist/styles/iview.css';
-import 'ibiz-vue-lib/lib/ibiz-vue-lib.css';
+// import 'ibiz-vue-lib/lib/ibiz-vue-lib.css';
 
 import '@/styles/default.less';
 
@@ -33,7 +33,7 @@ Vue.config.errorHandler = function (err: any, vm: any, info: any) {
 }
 Vue.config.productionTip = false;
 Vue.use(Print);
-Vue.use(ibizLab);
+// Vue.use(ibizLab);
 Vue.use(Vuex);
 Vue.use(VueRouter);;
 Vue.use(ElementUi, {
@@ -57,14 +57,14 @@ router.beforeEach((to: any, from: any, next: any) => {
   next();
 });
 
-Interceptors.getInstance(router,store);
+Interceptors.getInstance(router, store);
 
 const init = async () => {
   new Vue({
-      i18n,
-      store,
-      router,
-      render: (h: any) => h(App),
+    i18n,
+    store,
+    router,
+    render: (h: any) => h(App),
   }).$mount('#app');
 };
 init();
