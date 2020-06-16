@@ -322,6 +322,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '451eacde0c0c638e29bdfc9cbc789c13',
+            viewmodule: 'zentao',
+            viewname: 'TestTaskEditView9_Detail',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '46517a803b2470cd0bef27aeda0dbcaf',
             viewmodule: 'zentao',
             viewname: 'BugEditView',
@@ -400,6 +409,17 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: '5273dc442a49b8c4d37ba9ff008531e7',
+            viewmodule: 'zentao',
+            viewname: 'TestTaskMainTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '417541fa331fc089b84936b8359403fa',
+                '7cba1f165fc6b4948ce752d3c3b68a34',
             ],
         },
         {
@@ -634,6 +654,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '706ea523d286cec9ae0c2509f20daa8e',
+            viewmodule: 'zentao',
+            viewname: 'TestTaskEditView9_Info',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'fd0b8748ff96edcde009d39903a9f211',
+            ],
+        },
+        {
             viewtag: '7088260bcd6a0303378af2f8e207f479',
             viewmodule: 'zentao',
             viewname: 'TaskKanbanView',
@@ -722,6 +752,18 @@ export const viewstate: any = {
             refviews: [
                 '6c7b582273d0726bcf77214807cfe40c',
                 'e042a1dee405b0a853f315b39a375783',
+            ],
+        },
+        {
+            viewtag: '7cba1f165fc6b4948ce752d3c3b68a34',
+            viewmodule: 'zentao',
+            viewname: 'TestTaskMainDashboardView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '706ea523d286cec9ae0c2509f20daa8e',
+                '770a170098d148e438a7666b248e6519',
+                '451eacde0c0c638e29bdfc9cbc789c13',
             ],
         },
         {
@@ -1105,6 +1147,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '5b139a407fa34f386f3f784f33841184',
+                '5273dc442a49b8c4d37ba9ff008531e7',
             ],
         },
         {

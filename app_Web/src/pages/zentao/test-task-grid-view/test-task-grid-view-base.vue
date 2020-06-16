@@ -718,7 +718,7 @@ export default class TestTaskGridViewBase extends Vue {
         }
         const parameters: any[] = [
             { pathName: 'testtasks', parameterName: 'testtask' },
-            { pathName: 'editview', parameterName: 'editview' },
+            { pathName: 'maintabexpview', parameterName: 'maintabexpview' },
         ];
         const _this: any = this;
         const openIndexViewTab = (data: any) => {
