@@ -128,30 +128,6 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     private Integer finishbugcnt;
 
     /**
-     * 属性 [DONETASKRATE]
-     *
-     */
-    @JSONField(name = "donetaskrate")
-    @JsonProperty("donetaskrate")
-    private Double donetaskrate;
-
-    /**
-     * 属性 [CLOSEDSTORYRATE]
-     *
-     */
-    @JSONField(name = "closedstoryrate")
-    @JsonProperty("closedstoryrate")
-    private Double closedstoryrate;
-
-    /**
-     * 属性 [FINISHBUGRATE]
-     *
-     */
-    @JSONField(name = "finishbugrate")
-    @JsonProperty("finishbugrate")
-    private Double finishbugrate;
-
-    /**
      * 属性 [DELETED]
      *
      */

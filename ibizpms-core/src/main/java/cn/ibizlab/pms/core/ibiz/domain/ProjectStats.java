@@ -132,27 +132,6 @@ public class ProjectStats extends EntityMP implements Serializable {
     @JsonProperty("finishbugcnt")
     private Integer finishbugcnt;
     /**
-     * 完成任务率
-     */
-    @TableField(exist = false)
-    @JSONField(name = "donetaskrate")
-    @JsonProperty("donetaskrate")
-    private Double donetaskrate;
-    /**
-     * 关闭需求率
-     */
-    @TableField(exist = false)
-    @JSONField(name = "closedstoryrate")
-    @JsonProperty("closedstoryrate")
-    private Double closedstoryrate;
-    /**
-     * 解决Bug率
-     */
-    @TableField(exist = false)
-    @JSONField(name = "finishbugrate")
-    @JsonProperty("finishbugrate")
-    private Double finishbugrate;
-    /**
      * 已删除
      */
     @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "1" , logicdelval="0")
