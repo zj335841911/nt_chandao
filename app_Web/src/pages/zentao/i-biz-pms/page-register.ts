@@ -32,7 +32,6 @@ export const PageComponents = {
         Vue.component('task-assign-task-view', () => import('@pages/zentao/task-assign-task-view/task-assign-task-view.vue'));
         Vue.component('story-main-view-edit-mode', () => import('@pages/zentao/story-main-view-edit-mode/story-main-view-edit-mode.vue'));
         Vue.component('story-release-sub-edit-view', () => import('@pages/zentao/story-release-sub-edit-view/story-release-sub-edit-view.vue'));
-        Vue.component('task-main-dashboard-view', () => import('@pages/zentao/task-main-dashboard-view/task-main-dashboard-view.vue'));
         Vue.component('product-portal-view', () => import('@pages/zentao/product-portal-view/product-portal-view.vue'));
         Vue.component('task-cancel-task-view', () => import('@pages/zentao/task-cancel-task-view/task-cancel-task-view.vue'));
         Vue.component('release-main-tab-exp-view', () => import('@pages/zentao/release-main-tab-exp-view/release-main-tab-exp-view.vue'));
@@ -137,5 +136,6 @@ export const PageComponents = {
         Vue.component('project-product-list-view9', () => import('@pages/zentao/project-product-list-view9/project-product-list-view9.vue'));
         Vue.component('story-plan-sub-grid-view', () => import('@pages/zentao/story-plan-sub-grid-view/story-plan-sub-grid-view.vue'));
         Vue.component('product-grid-view-un-closed', () => import('@pages/zentao/product-grid-view-un-closed/product-grid-view-un-closed.vue'));
+        Vue.component('task-main-dashboard-view', () => import('@pages/zentao/task-main-dashboard-view/task-main-dashboard-view.vue'));
     }
 };

@@ -471,7 +471,9 @@ export default class ProductPlanMainTabExpBase extends Vue {
                 const { data: _data } = response;
                 if (_data.title) {
                     Object.assign(this.model, { dataInfo: _data.title });
-                    this.$tabPageExp.setCurPageCaption(this.model.srfTitle, this.model.srfTitle, this.model.dataInfo);
+                    if (this.$tabPageExp) {
+                        this.$tabPageExp.setCurPageCaption(this.model.srfTitle, this.model.srfTitle, this.model.dataInfo);
+                    }
                     if(this.$route){
                         this.$route.meta.info = this.model.dataInfo;
                     }

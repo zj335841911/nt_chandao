@@ -16,26 +16,47 @@
             </app-form-item2>
         </template>
         <template v-if="this.uiStyle !== 'STYLE2'">
-            <form-item :prop="name" :error="error" :required="required" :rules="rules" :class="classes">
+            <form-item :ref="name" :prop="name" :error="error" :rules="rules" :class="classes">
                 <div
                     v-if="Object.is(this.labelPos,'BOTTOM') || Object.is(this.labelPos,'NONE') || !this.labelPos"
-                    class="editor"
+                    class="editor-wrapper"
                     :style="slotstyle"
                 >
-                    <slot></slot>
+                    <div class="editor-content">
+                        <slot></slot>
+                    </div>
+                    <div v-if="itemRef && itemRef.validateState === 'error'" class="editor-error-tip">
+                        <Tooltip :content="itemRef.validateMessage" placement="left" :transfer="true">
+                            <Icon type="ios-alert-outline" />
+                        </Tooltip>
+                    </div>
                 </div>
                 <span
                     v-if="!Object.is(this.labelPos,'NONE') && this.isShowCaption && this.labelWidth > 0"
                     :style="labelstyle"
                     :class="labelclasses"
                 >
-                    {{this.isEmptyCaption ? '' : this.caption}}</span>
+                    <span v-if="required" class="required">*</span>
+                    {{this.isEmptyCaption ? '' : this.caption}}
+                </span>
                 <div
                     v-if="Object.is(this.labelPos,'TOP') || Object.is(this.labelPos,'LEFT') || Object.is(this.labelPos,'RIGHT')"
-                    class="editor"
+                    class="editor-wrapper"
                     :style="slotstyle"
                 >
-                    <slot></slot>
+                    <div class="editor-content">
+                        <slot></slot>
+                    </div>
+                    <div v-if="itemRef && itemRef.validateState === 'error'" class="editor-error-tip">
+                        <Tooltip placement="left">
+                            <Icon type="ios-alert-outline" />
+                            <template slot="content">
+                              <span class="editor-error-tip-content">
+                                {{itemRef.validateMessage}}
+                              </span>
+                            </template>
+                        </Tooltip>
+                    </div>
                 </div>
             </form-item>
         </template>
@@ -149,6 +170,14 @@ export default class AppFormItem extends Vue {
   public required: boolean = false;
 
   /**
+   * 表单项实例
+   *
+   * @type {*}
+   * @memberof AppFormItem
+   */
+  public itemRef: any = null;
+
+  /**
    * 表单项值规则监控
    *
    * @param {*} newVal
@@ -249,6 +278,7 @@ export default class AppFormItem extends Vue {
    * @memberof AppFormItem
    */
   public mounted() {
+    this.itemRef = this.$refs[this.name];
     if (this.itemRules) {
       try {
         const _rules: any[] = this.itemRules;

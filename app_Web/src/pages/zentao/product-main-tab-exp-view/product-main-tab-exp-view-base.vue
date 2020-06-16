@@ -469,7 +469,9 @@ export default class ProductMainTabExpViewBase extends Vue {
                 const { data: _data } = response;
                 if (_data.name) {
                     Object.assign(this.model, { dataInfo: _data.name });
-                    this.$tabPageExp.setCurPageCaption(this.model.srfTitle, this.model.srfTitle, this.model.dataInfo);
+                    if (this.$tabPageExp) {
+                        this.$tabPageExp.setCurPageCaption(this.model.srfTitle, this.model.srfTitle, this.model.dataInfo);
+                    }
                     if(this.$route){
                         this.$route.meta.info = this.model.dataInfo;
                     }

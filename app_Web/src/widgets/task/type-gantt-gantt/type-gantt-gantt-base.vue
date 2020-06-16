@@ -102,6 +102,108 @@ export default class TypeGanttBase extends Vue implements ControlInterface {
     public appEntityService: TaskService = new TaskService({ $store: this.$store });
     
 
+    /**
+     * 打开编辑数据视图
+     *
+     * @param {any[]} args
+     * @param {*} [params]
+     * @param {*} [fullargs]
+     * @param {*} [$event]
+     * @param {*} [xData]
+     * @memberof TaskTaskTypeGanttView
+     */
+    public childtasks_opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
+        let localContext:any = null;
+        let localViewParam:any =null;
+        const data: any = {};
+        let tempContext = JSON.parse(JSON.stringify(this.context));
+        if(args.length >0){
+            Object.assign(tempContext,args[0]);
+        }
+        let deResParameters: any[] = [];
+        if(tempContext.project && true){
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+        ];
+        const _this: any = this;
+        const openDrawer = (view: any, data: any) => {
+            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
+            container.subscribe((result: any) => {
+                if (!result || !Object.is(result.ret, 'OK')) {
+                    return;
+                }
+                if (!xData || !(xData.refresh instanceof Function)) {
+                    return;
+                }
+                xData.refresh(result.datas);
+            });
+        }
+        const view: any = {
+            viewname: 'task-main-dashboard-view', 
+            height: 0, 
+            width: 1360,  
+            title: this.$t('entities.task.views.maindashboardview.title'),
+            placement: 'DRAWER_TOP',
+        };
+        openDrawer(view, data);
+    }
+
+
+    /**
+     * 打开编辑数据视图
+     *
+     * @param {any[]} args
+     * @param {*} [params]
+     * @param {*} [fullargs]
+     * @param {*} [$event]
+     * @param {*} [xData]
+     * @memberof TaskTaskTypeGanttView
+     */
+    public tasks_opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
+        let localContext:any = null;
+        let localViewParam:any =null;
+        const data: any = {};
+        let tempContext = JSON.parse(JSON.stringify(this.context));
+        if(args.length >0){
+            Object.assign(tempContext,args[0]);
+        }
+        let deResParameters: any[] = [];
+        if(tempContext.project && true){
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+        ];
+        const _this: any = this;
+        const openDrawer = (view: any, data: any) => {
+            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
+            container.subscribe((result: any) => {
+                if (!result || !Object.is(result.ret, 'OK')) {
+                    return;
+                }
+                if (!xData || !(xData.refresh instanceof Function)) {
+                    return;
+                }
+                xData.refresh(result.datas);
+            });
+        }
+        const view: any = {
+            viewname: 'task-main-dashboard-view', 
+            height: 0, 
+            width: 1360,  
+            title: this.$t('entities.task.views.maindashboardview.title'),
+            placement: 'DRAWER_TOP',
+        };
+        openDrawer(view, data);
+    }
+
+
 
     /**
      * 关闭视图
