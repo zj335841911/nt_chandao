@@ -286,6 +286,7 @@ export default class BurnDownBase extends Vue implements ControlInterface {
         }
     },
     ecObject:{
+        areaStyle:{},
     },
     seriesTemp:{
         type:'line',
@@ -312,10 +313,7 @@ export default class BurnDownBase extends Vue implements ControlInterface {
     {name:"estimate",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
-        label:{
-            show: true,
-            position: 'inside'
-        },
+        label:{show: false,position: 'inside'},
         labelLine:{
             length: 10,
             lineStyle: {

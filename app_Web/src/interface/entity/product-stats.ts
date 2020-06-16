@@ -95,14 +95,6 @@ export interface ProductStats {
     unendproductplancnt?: any;
 
     /**
-     * 剩余计划率
-     *
-     * @returns {*}
-     * @memberof ProductStats
-     */
-    unendproductplanrate?: any;
-
-    /**
      * 关联项目数
      *
      * @returns {*}
@@ -119,28 +111,12 @@ export interface ProductStats {
     undoneresprojectcnt?: any;
 
     /**
-     * 进行项目率
-     *
-     * @returns {*}
-     * @memberof ProductStats
-     */
-    undoneresprojectrate?: any;
-
-    /**
      * 维护中发布数
      *
      * @returns {*}
      * @memberof ProductStats
      */
     normalreleasecnt?: any;
-
-    /**
-     * 维护发布率
-     *
-     * @returns {*}
-     * @memberof ProductStats
-     */
-    normalreleaserate?: any;
 
     /**
      * 激活需求数

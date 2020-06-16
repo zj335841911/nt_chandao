@@ -111,30 +111,6 @@ export interface ProjectStats {
     finishbugcnt?: any;
 
     /**
-     * 完成任务率
-     *
-     * @returns {*}
-     * @memberof ProjectStats
-     */
-    donetaskrate?: any;
-
-    /**
-     * 关闭需求率
-     *
-     * @returns {*}
-     * @memberof ProjectStats
-     */
-    closedstoryrate?: any;
-
-    /**
-     * 解决Bug率
-     *
-     * @returns {*}
-     * @memberof ProjectStats
-     */
-    finishbugrate?: any;
-
-    /**
      * 已删除
      *
      * @returns {*}
