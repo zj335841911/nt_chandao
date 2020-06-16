@@ -1,5 +1,5 @@
 <template>
-    <div class="app-form-item-wrapper">
+    <div :class="classes">
         <template v-if="this.uiStyle === 'STYLE2'">
                 <app-form-item2
                 :caption="caption"
@@ -16,7 +16,7 @@
             </app-form-item2>
         </template>
         <template v-if="this.uiStyle !== 'STYLE2'">
-            <form-item :ref="name" :prop="name" :error="error" :rules="rules" :class="classes">
+            <form-item :ref="name" :prop="name" :error="error" :rules="rules">
                 <div
                     v-if="Object.is(this.labelPos,'BOTTOM') || Object.is(this.labelPos,'NONE') || !this.labelPos"
                     class="editor-wrapper"
@@ -26,8 +26,13 @@
                         <slot></slot>
                     </div>
                     <div v-if="itemRef && itemRef.validateState === 'error'" class="editor-error-tip">
-                        <Tooltip :content="itemRef.validateMessage" placement="left" :transfer="true">
+                        <Tooltip placement="left">
                             <Icon type="ios-alert-outline" />
+                            <template slot="content">
+                              <span class="editor-error-tip-content">
+                                {{itemRef.validateMessage}}
+                              </span>
+                            </template>
                         </Tooltip>
                     </div>
                 </div>
