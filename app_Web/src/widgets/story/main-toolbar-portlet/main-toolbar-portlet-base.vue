@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet main-toolbar ' :style="{'height': 'auto',}">
+    <div class='portlet main-toolbar ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'1px'),}">
         <div class="portlet-without-title">
             <app-actionbar :items="actionBarModelData" @itemClick="handleItemClick"></app-actionbar>
         </div>

@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet action-history ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'0px'),}">
+    <div class='portlet action-history ' :style="{'height': 'auto',}">
         <div class="portlet-without-title">
         <action-histroy-list-view :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></action-histroy-list-view>
         </div>
