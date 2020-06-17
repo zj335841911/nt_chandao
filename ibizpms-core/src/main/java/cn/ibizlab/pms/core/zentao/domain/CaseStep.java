@@ -111,14 +111,6 @@ public class CaseStep extends EntityMP implements Serializable {
     private cn.ibizlab.pms.core.zentao.domain.CaseStep ibizparent;
 
 
-    /**
-     * 用例步骤
-     */
-    @JsonIgnore
-    @JSONField(serialize = false)
-    @TableField(exist = false)
-    private List<cn.ibizlab.pms.core.zentao.domain.CaseStep> casestep;
-
 
     /**
      * 设置 [用例步骤类型]

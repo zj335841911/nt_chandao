@@ -678,12 +678,5 @@ public class CaseDTO extends DTOBase implements Serializable {
     }
 
 
-    /**
-     *  [ZT_CASESTEP]
-     */
-    @JsonProperty("casesteps")
-    @JSONField(name = "casesteps")
-	private List<CaseStepDTO> casestep ;
-
 }
 
