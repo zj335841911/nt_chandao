@@ -100,7 +100,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('lastrundate')">
-                <el-table-column show-overflow-tooltip :prop="'lastrundate'" :label="$t('entities.case.maingrid_grid.columns.lastrundate')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'lastrundate'" :label="$t('entities.case.maingrid_grid.columns.lastrundate')" :width="160"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.case.maingrid_grid.columns.lastrundate')}}
@@ -152,7 +152,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('uagridcolumn1')">
-                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.case.maingrid_grid.columns.uagridcolumn1')" :width="100"  :align="'right'">
+                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.case.maingrid_grid.columns.uagridcolumn1')" :width="160"  :align="'center'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.case.maingrid_grid.columns.uagridcolumn1')}}
@@ -161,9 +161,29 @@
                     <template slot-scope="scope">
                         <span>
                             
+                            <a @click="uiAction(scope.row, 'OpenTestRunResultView', $event)">
+                              <i class='fa fa-stack-overflow'></i>
+                              
+                            </a>
+                            <divider type='vertical'></divider>
+                            <a @click="uiAction(scope.row, 'Execute', $event)">
+                              <i class='fa fa-play-circle-o'></i>
+                              
+                            </a>
+                            <divider type='vertical'></divider>
                             <a @click="uiAction(scope.row, 'MainEdit', $event)">
-                              <i class=''></i>
+                              <i class='fa fa-edit'></i>
                               {{$t('entities.case.maingrid_grid.uiactions.mainedit')}}
+                            </a>
+                            <divider type='vertical'></divider>
+                            <a @click="uiAction(scope.row, 'NewBugByCaseResult', $event)">
+                              <i class='fa fa-bug'></i>
+                              
+                            </a>
+                            <divider type='vertical'></divider>
+                            <a @click="uiAction(scope.row, 'Remove', $event)">
+                              <i class='fa fa-remove'></i>
+                              
                             </a>
                         </span>
                     </template>
@@ -318,6 +338,62 @@ export default class MainGridBase extends Vue implements ControlInterface {
      * @param {*} [$event]
      * @memberof 
      */
+    public grid_uagridcolumn1_u333b640_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:CaseUIService  = new CaseUIService();
+        curUIService.Case_OpenTestRunResultView(datas,contextJO, paramJO,  $event, xData,this,"Case");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_ufc5dbb7_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:CaseUIService  = new CaseUIService();
+        curUIService.Case_Execute(datas,contextJO, paramJO,  $event, xData,this,"Case");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public grid_uagridcolumn1_u5c4f2da_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -339,6 +415,61 @@ export default class MainGridBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_uc64fb7f_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:CaseUIService  = new CaseUIService();
+        curUIService.Case_NewBugByCaseResult(datas,contextJO, paramJO,  $event, xData,this,"Case");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u5913b24_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.Remove(datas, contextJO,paramJO,  $event, xData,this,"Case");
+    }
+
+    /**
      * 刷新
      *
      * @param {any[]} args 当前数据
@@ -357,6 +488,25 @@ export default class MainGridBase extends Vue implements ControlInterface {
             _this.refresh(args);
         }
     }
+    /**
+     * 删除
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof CaseMainGridViewBase
+     */
+    public Remove(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        const _this: any = this;
+        if (!xData || !(xData.remove instanceof Function)) {
+            return ;
+        }
+        xData.remove(args);
+    }
+
 
     /**
      * 关闭视图
@@ -1537,8 +1687,20 @@ export default class MainGridBase extends Vue implements ControlInterface {
      */
 	public uiAction(row: any, tag: any, $event: any) {
         $event.stopPropagation();
+        if(Object.is('OpenTestRunResultView', tag)) {
+            this.grid_uagridcolumn1_u333b640_click(row, tag, $event);
+        }
+        if(Object.is('Execute', tag)) {
+            this.grid_uagridcolumn1_ufc5dbb7_click(row, tag, $event);
+        }
         if(Object.is('MainEdit', tag)) {
             this.grid_uagridcolumn1_u5c4f2da_click(row, tag, $event);
+        }
+        if(Object.is('NewBugByCaseResult', tag)) {
+            this.grid_uagridcolumn1_uc64fb7f_click(row, tag, $event);
+        }
+        if(Object.is('Remove', tag)) {
+            this.grid_uagridcolumn1_u5913b24_click(row, tag, $event);
         }
     }
 

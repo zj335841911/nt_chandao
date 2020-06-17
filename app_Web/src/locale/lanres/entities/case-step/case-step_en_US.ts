@@ -23,7 +23,7 @@ export default {
       title: '用例步骤',
 		},
 	},
-	main_rowedit_grid: {
+	main_grid: {
 		columns: {
 			id: "编号",
 			desc: "步骤",
@@ -33,7 +33,7 @@ export default {
 		uiactions: {
 		},
 	},
-	main_grid: {
+	main_rowedit_grid: {
 		columns: {
 			id: "编号",
 			desc: "步骤",
@@ -50,6 +50,12 @@ export default {
 		uiactions: {
 		},
 	},
+	maingridview9toolbar_toolbar: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
 	maingridview9_editmodetoolbar_toolbar: {
 		deuiaction2: {
 			caption: "新建行",
@@ -58,12 +64,6 @@ export default {
 		deuiaction3: {
 			caption: "保存行",
 			tip: "保存行",
-		},
-	},
-	maingridview9toolbar_toolbar: {
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
 		},
 	},
 	gridviewtoolbar_toolbar: {

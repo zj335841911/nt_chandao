@@ -107,6 +107,24 @@ export default {
 		uiactions: {
 		},
 	},
+	maininfo_form: {
+		details: {
+			druipart1: '用例步骤', 
+			group1: '测试用例基本信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: '用例编号', 
+			srfmajortext: '用例标题', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			precondition: '前置条件', 
+			id: '用例编号', 
+		},
+		uiactions: {
+		},
+	},
 	mainedit_form: {
 		details: {
 			druipart1: '用例步骤', 
@@ -150,54 +168,6 @@ export default {
 		uiactions: {
 		},
 	},
-	mainnew_form: {
-		details: {
-			druipart1: '用例步骤', 
-			grouppanel1: '分组面板', 
-			group1: '测试用例基本信息', 
-			formpage1: '基本信息', 
-			srforikey: '', 
-			srfkey: '用例编号', 
-			srfmajortext: '用例标题', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			product: '所属产品', 
-			productname: '产品名称', 
-			module: '所属模块', 
-			modulename: '模块名称', 
-			type: '用例类型', 
-			story: '相关需求', 
-			storyname: '需求名称', 
-			title: '用例标题', 
-			pri: '优先级', 
-			precondition: '前置条件', 
-			keywords: '关键词', 
-			formitem1: '附件', 
-			id: '用例编号', 
-		},
-		uiactions: {
-		},
-	},
-	maininfo_form: {
-		details: {
-			druipart1: '用例步骤', 
-			group1: '测试用例基本信息', 
-			formpage1: '基本信息', 
-			srforikey: '', 
-			srfkey: '用例编号', 
-			srfmajortext: '用例标题', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			precondition: '前置条件', 
-			id: '用例编号', 
-		},
-		uiactions: {
-		},
-	},
 	maindetail_form: {
 		details: {
 			grouppanel1: '相关Bug', 
@@ -232,6 +202,36 @@ export default {
 		uiactions: {
 		},
 	},
+	mainnew_form: {
+		details: {
+			druipart1: '用例步骤', 
+			grouppanel1: '分组面板', 
+			group1: '测试用例基本信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: '用例编号', 
+			srfmajortext: '用例标题', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			product: '所属产品', 
+			productname: '产品名称', 
+			module: '所属模块', 
+			modulename: '模块名称', 
+			type: '用例类型', 
+			story: '相关需求', 
+			storyname: '需求名称', 
+			title: '用例标题', 
+			pri: '优先级', 
+			precondition: '前置条件', 
+			keywords: '关键词', 
+			formitem1: '附件', 
+			id: '用例编号', 
+		},
+		uiactions: {
+		},
+	},
 	maingrid_grid: {
 		columns: {
 			id: 'id',
@@ -247,8 +247,12 @@ export default {
 			uagridcolumn1: '操作',
 		},
 		uiactions: {
+			opentestrunresultview: '结果',
+			execute: '执行',
 			mainedit: '编辑',
 			refresh: '刷新',
+			newbugbycaseresult: '转Bug',
+			remove: '删除',
 		},
 	},
 	batchnew_grid: {
