@@ -52,7 +52,7 @@ public class TestRunServiceImpl extends ServiceImpl<TestRunMapper, TestRun> impl
     private cn.ibizlab.pms.core.zentao.service.ICaseService caseService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ITaskService taskService;
+    private cn.ibizlab.pms.core.zentao.service.ITestTaskService testtaskService;
 
     private int batchSize = 500;
 

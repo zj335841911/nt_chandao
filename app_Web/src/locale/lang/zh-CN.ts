@@ -22,8 +22,11 @@ import module_zh_CN from '@locale/lanres/entities/module/module_zh_CN';
 import productlife_zh_CN from '@locale/lanres/entities/product-life/product-life_zh_CN';
 import task_zh_CN from '@locale/lanres/entities/task/task_zh_CN';
 import build_zh_CN from '@locale/lanres/entities/build/build_zh_CN';
+import testresult_zh_CN from '@locale/lanres/entities/test-result/test-result_zh_CN';
 import testtask_zh_CN from '@locale/lanres/entities/test-task/test-task_zh_CN';
+import testreport_zh_CN from '@locale/lanres/entities/test-report/test-report_zh_CN';
 import projectstats_zh_CN from '@locale/lanres/entities/project-stats/project-stats_zh_CN';
+import testrun_zh_CN from '@locale/lanres/entities/test-run/test-run_zh_CN';
 import bug_zh_CN from '@locale/lanres/entities/bug/bug_zh_CN';
 import projectmodule_zh_CN from '@locale/lanres/entities/project-module/project-module_zh_CN';
 import ibzdoc_zh_CN from '@locale/lanres/entities/ibz-doc/ibz-doc_zh_CN';
@@ -139,8 +142,11 @@ export default {
         productlife: productlife_zh_CN,
         task: task_zh_CN,
         build: build_zh_CN,
+        testresult: testresult_zh_CN,
         testtask: testtask_zh_CN,
+        testreport: testreport_zh_CN,
         projectstats: projectstats_zh_CN,
+        testrun: testrun_zh_CN,
         bug: bug_zh_CN,
         projectmodule: projectmodule_zh_CN,
         ibzdoc: ibzdoc_zh_CN,

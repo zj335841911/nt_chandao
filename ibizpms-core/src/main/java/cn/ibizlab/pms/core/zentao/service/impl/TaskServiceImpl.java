@@ -53,9 +53,6 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Autowired
     @Lazy
     private cn.ibizlab.pms.core.zentao.service.ITaskEstimateService taskestimateService;
-    @Autowired
-    @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ITestRunService testrunService;
 
     private cn.ibizlab.pms.core.zentao.service.ITaskService taskService = this;
     @Autowired

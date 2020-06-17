@@ -63,8 +63,11 @@ export class EntityServiceRegister {
         this.allEntityService.set('productlife', () => import('@/service/product-life/product-life-service'));
         this.allEntityService.set('task', () => import('@/service/task/task-service'));
         this.allEntityService.set('build', () => import('@/service/build/build-service'));
+        this.allEntityService.set('testresult', () => import('@/service/test-result/test-result-service'));
         this.allEntityService.set('testtask', () => import('@/service/test-task/test-task-service'));
+        this.allEntityService.set('testreport', () => import('@/service/test-report/test-report-service'));
         this.allEntityService.set('projectstats', () => import('@/service/project-stats/project-stats-service'));
+        this.allEntityService.set('testrun', () => import('@/service/test-run/test-run-service'));
         this.allEntityService.set('bug', () => import('@/service/bug/bug-service'));
         this.allEntityService.set('projectmodule', () => import('@/service/project-module/project-module-service'));
         this.allEntityService.set('ibzdoc', () => import('@/service/ibz-doc/ibz-doc-service'));

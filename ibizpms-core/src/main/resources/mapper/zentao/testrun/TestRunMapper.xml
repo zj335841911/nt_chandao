@@ -18,7 +18,7 @@
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
 		<association property="ztcase" javaType="cn.ibizlab.pms.core.zentao.domain.Case" column="case" select="cn.ibizlab.pms.core.zentao.mapper.CaseMapper.selectById" fetchType="lazy"></association>
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
-		<association property="zttask" javaType="cn.ibizlab.pms.core.zentao.domain.Task" column="task" select="cn.ibizlab.pms.core.zentao.mapper.TaskMapper.selectById" fetchType="lazy"></association>
+		<association property="zttesttask" javaType="cn.ibizlab.pms.core.zentao.domain.TestTask" column="task" select="cn.ibizlab.pms.core.zentao.mapper.TestTaskMapper.selectById" fetchType="lazy"></association>
     </resultMap>
 
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_TESTRUN_ZT_CASE_CASE] -->
@@ -28,7 +28,7 @@
          ) t1
          where  case=#{id}
      </select>
-	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_TESTRUN_ZT_TASK_TASK] -->
+	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_TESTRUN_ZT_TESTTASK_TASK] -->
 	 <select id="selectByTask" resultMap="TestRunResultMap">
          select t1.* from (
                 <include refid="Default" />

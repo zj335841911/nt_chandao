@@ -121,7 +121,7 @@ public class TestRun extends EntityMP implements Serializable {
     @JsonIgnore
     @JSONField(serialize = false)
     @TableField(exist = false)
-    private cn.ibizlab.pms.core.zentao.domain.Task zttask;
+    private cn.ibizlab.pms.core.zentao.domain.TestTask zttesttask;
 
 
 

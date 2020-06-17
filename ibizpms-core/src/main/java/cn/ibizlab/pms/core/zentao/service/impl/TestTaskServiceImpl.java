@@ -49,6 +49,9 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     private cn.ibizlab.pms.core.zentao.service.IBugService bugService;
     @Autowired
     @Lazy
+    private cn.ibizlab.pms.core.zentao.service.ITestRunService testrunService;
+    @Autowired
+    @Lazy
     private cn.ibizlab.pms.core.zentao.service.IBuildService buildService;
     @Autowired
     @Lazy
