@@ -32,6 +32,9 @@ import cn.ibizlab.pms.webapi.mapping.*;
 import cn.ibizlab.pms.core.zentao.domain.Case;
 import cn.ibizlab.pms.core.zentao.service.ICaseService;
 import cn.ibizlab.pms.core.zentao.filter.CaseSearchContext;
+import cn.ibizlab.pms.core.zentao.filter.CaseStepSearchContext;
+import cn.ibizlab.pms.core.zentao.domain.CaseStep;
+import cn.ibizlab.pms.core.zentao.service.ICaseStepService;
 
 @Slf4j
 @Api(tags = {"测试用例" })
@@ -45,6 +48,9 @@ public class CaseResource {
     @Autowired
     @Lazy
     public CaseMapping caseMapping;
+
+    @Autowired
+    private ICaseStepService casestepService;
 
     @ApiOperation(value = "获取测试用例草稿", tags = {"测试用例" },  notes = "获取测试用例草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/cases/getdraft")
