@@ -417,8 +417,8 @@ export default class BurnDownBase extends Vue implements ControlInterface {
             id:'est',
             name:'预计消耗',
             type:'line',
-            xAxisIndex:1,
-            yAxisIndex:1,
+            xAxisIndex:0,
+            yAxisIndex:0,
             datasetIndex:1,
             encode: {
                 x: ['date'],      
@@ -500,13 +500,13 @@ export default class BurnDownBase extends Vue implements ControlInterface {
             Object.keys(this.seriesModel).forEach((seriesName:string) =>{
                 if(_chartOption && _chartOption.series.length > 0){
                     _chartOption.series.forEach((item:any) =>{
-                        if(this.seriesModel[seriesName].ecxObject){
+                        if(this.seriesModel[seriesName].ecxObject && Object.is(seriesName,item.id)){
                             item = Util.deepObjectMerge(item,this.seriesModel[seriesName].ecxObject);
                         }
-                        if(this.seriesModel[seriesName].baseOption && Object.keys(this.seriesModel[seriesName].baseOption).length > 0){
+                        if(this.seriesModel[seriesName].baseOption && Object.keys(this.seriesModel[seriesName].baseOption).length > 0  && Object.is(seriesName,item.id)){
                             item = Util.deepObjectMerge(item,this.seriesModel[seriesName].baseOption);
                         }
-                        if(this.seriesModel[seriesName].ecObject){
+                        if(this.seriesModel[seriesName].ecObject && Object.is(seriesName,item.id)){
                             item = Util.deepObjectMerge(item,this.seriesModel[seriesName].ecObject);
                         }
                     })
