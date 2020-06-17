@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import CaseStepMainGridView9_EditModeBase from './case-step-main-grid-view9-edit-mode-base.vue';
 
-import view_grid from '@widgets/case-step/main-grid/main-grid.vue';
+import view_grid from '@widgets/case-step/main-row-edit-grid/main-row-edit-grid.vue';
 @Component({
     components: {
         view_grid, 

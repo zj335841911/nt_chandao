@@ -22,6 +22,16 @@ export default {
       title: '用例步骤',
 		},
 	},
+	main_rowedit_grid: {
+		columns: {
+			id: '编号',
+			desc: '步骤',
+			type: '类型',
+			expect: '预期',
+		},
+		uiactions: {
+		},
+	},
 	main_grid: {
 		columns: {
 			id: '编号',
