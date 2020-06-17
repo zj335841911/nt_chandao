@@ -36,7 +36,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('desc')">
-                <el-table-column show-overflow-tooltip :prop="'desc'" :label="$t('entities.casestep.main_grid.columns.desc')" :width="100"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'desc'" :label="$t('entities.casestep.main_grid.columns.desc')" :width="300"  :align="'left'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.casestep.main_grid.columns.desc')}}
@@ -64,7 +64,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('expect')">
-                <el-table-column show-overflow-tooltip :prop="'expect'" :label="$t('entities.casestep.main_grid.columns.expect')" :width="100"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'expect'" :label="$t('entities.casestep.main_grid.columns.expect')" :width="300"  :align="'left'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.casestep.main_grid.columns.expect')}}
@@ -535,7 +535,7 @@ export default class MainBase extends Vue implements ControlInterface {
         },
         {
             name: 'type',
-            label: '用例步骤类型',
+            label: '类型',
             langtag: 'entities.casestep.main_grid.columns.type',
             show: true,
             util: 'PX'
@@ -588,8 +588,8 @@ export default class MainBase extends Vue implements ControlInterface {
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '步骤 值不能为空', trigger: 'blur' },
         ],
         type: [
-             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例步骤类型 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例步骤类型 值不能为空', trigger: 'blur' },
+             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '类型 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '类型 值不能为空', trigger: 'blur' },
         ],
         srfkey: [
              { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },

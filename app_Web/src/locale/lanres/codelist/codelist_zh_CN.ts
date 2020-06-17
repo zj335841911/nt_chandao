@@ -55,9 +55,9 @@ export default {
         empty: '',
     },
     Casestep__type: {
-        'step': 'step',
-        'group': 'group',
-        'item': 'item',
+        'step': '步骤',
+        'group': '分组',
+        'item': '分组步骤',
         empty: '',
     },
     ProjectTimeType: {

@@ -27,7 +27,7 @@ export default {
 		columns: {
 			id: "编号",
 			desc: "步骤",
-			type: "用例步骤类型",
+			type: "类型",
 			expect: "预期",
 		},
 		uiactions: {

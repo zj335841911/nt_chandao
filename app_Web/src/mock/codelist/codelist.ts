@@ -408,8 +408,8 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         items: [
             {
                 id: 'step',
-                label: 'step',
-                text: 'step',
+                label: '步骤',
+                text: '步骤',
                 "data":"",
                 "codename":"Step",
                 value: 'step',
@@ -418,8 +418,8 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
             },
             {
                 id: 'group',
-                label: 'group',
-                text: 'group',
+                label: '分组',
+                text: '分组',
                 "data":"",
                 "codename":"Group",
                 value: 'group',
@@ -428,8 +428,8 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
             },
             {
                 id: 'item',
-                label: 'item',
-                text: 'item',
+                label: '分组步骤',
+                text: '分组步骤',
                 "data":"",
                 "codename":"Item",
                 value: 'item',

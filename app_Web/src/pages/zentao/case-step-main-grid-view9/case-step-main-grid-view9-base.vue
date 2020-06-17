@@ -723,7 +723,7 @@ export default class CaseStepMainGridView9Base extends Vue {
      * @type {(number | 0 | 1 | 2)}
      * @memberof CaseStepMainGridView9Base
      */
-    public gridRowActiveMode: number | 0 | 1 | 2 = 2;
+    public gridRowActiveMode: number | 0 | 1 | 2 = 0;
 
     /**
      * 快速搜索
