@@ -1,3 +1,7 @@
+// 导出装饰器
+export { VueLifeCycleProcessing } from './decorators/VueLifeCycleProcessing';
+export { SingletonMode } from './decorators/SingletonMode';
+
 // 组件 Start
 import { AppLayout } from './components/layout/app-layout/app-layout';
 import { AppHeader } from './components/layout/app-header/app-header';
@@ -9,6 +13,7 @@ import { AppContentBottomExp } from './components/layout/app-content-bottom-exp/
 import { AppFooter } from './components/layout/app-footer/app-footer';
 import { MenuIcon } from './components/menu-icon/menu-icon';
 import { UserInfo } from './components/user-info/user-info';
+import { StudioViewStyle2 } from './components/studio-view-style2/studio-view-style2';
 import { StudioView } from './components/studio-view/studio-view';
 import { StudioEmbedView } from './components/studio-embed-view/studio-embed-view';
 import { ViewConfigActions } from './components/view-config-actions/view-config-actions';
@@ -41,6 +46,7 @@ export const StudioCore = {
         v.component('app-footer', AppFooter);
         v.component('menu-icon', MenuIcon);
         v.component('user-info', UserInfo);
+        v.component('studio-view-style2', StudioViewStyle2);
         v.component('studio-view', StudioView);
         v.component('studio-embed-view', StudioEmbedView);
         v.component('view-config-actions', ViewConfigActions);

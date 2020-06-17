@@ -23,7 +23,6 @@
                                           :viewState="viewState"  
                                           :viewparams="viewparams" 
                                           :context="context" 
-                                          :height="1"
                                           name="dashboard_sysportlet1"  
                                           ref='dashboard_sysportlet1' 
                                           @closeview="closeView($event)">
@@ -40,7 +39,6 @@
                                           :viewState="viewState"  
                                           :viewparams="viewparams" 
                                           :context="context" 
-                                          :height="1"
                                           name="dashboard_sysportlet3"  
                                           ref='dashboard_sysportlet3' 
                                           @closeview="closeView($event)">
@@ -69,7 +67,6 @@
                                           :viewState="viewState"  
                                           :viewparams="viewparams" 
                                           :context="context" 
-                                          :height="1"
                                           name="dashboard_sysportlet2"  
                                           ref='dashboard_sysportlet2' 
                                           @closeview="closeView($event)">

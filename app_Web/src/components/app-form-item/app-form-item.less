@@ -1,8 +1,9 @@
 .app-form-item {
-    height: 100%;
+    height: calc(100% - 6px);
 
     .app-form-item-label {
-        min-height: 32px;
+        height: 32px;
+        line-height: 32px;
         text-decoration: none;
         display: block;
         overflow: hidden;
@@ -60,12 +61,8 @@
 
 .app-form-item.label-top, .app-form-item.label-bottom {
 
-    .app-form-item-label {
-        height: 16px;
-    }
-
     .editor-wrapper {
-        height: calc(100% - 16px);
+        height: calc(100% - 32px);
     }
 }
 

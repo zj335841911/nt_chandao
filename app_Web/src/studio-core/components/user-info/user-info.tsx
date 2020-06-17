@@ -55,14 +55,6 @@ export class UserInfo extends Vue {
             this.changeTheme(name);
             return;
         }
-        if (name === 'custom-logout') {
-            const leftTime = new Date();
-            leftTime.setTime(leftTime.getSeconds() - 1000);
-            document.cookie = "ibzuaa-token=;expires=" + leftTime.toUTCString();
-            localStorage.removeItem('token');
-            location.href = location.origin + location.pathname + '#/login?redirect=' + encodeURIComponent(location.href);
-            return;
-        }
         const item: any = this.findMenuByName(name);
         if (item) {
             this.menuClick(item);
@@ -199,15 +191,9 @@ export class UserInfo extends Vue {
                             <dropdownItem name="app-theme-blue-dark" title="黑色主题">蓝黑</dropdownItem>
                         </dropdownMenu>
                     </dropdown>
-                    <dropdown class="user-menu-child" placement="left-start">
-                        <dropdownItem name="custom-logout" title="退出登录">
-                            <icon type="md-log-out" />
-                            退出登录
-                        </dropdownItem>
-                    </dropdown>
                 </dropdownMenu>
             </template>
-        </dropdown>
+        </dropdown>;
     }
 
 }
