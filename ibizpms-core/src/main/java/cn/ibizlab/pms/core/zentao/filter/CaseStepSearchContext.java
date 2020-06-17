@@ -31,7 +31,7 @@ public class CaseStepSearchContext extends QueryWrapperContext<CaseStep> {
 	public void setN_case_eq(BigInteger n_case_eq) {
         this.n_case_eq = n_case_eq;
         if(!ObjectUtils.isEmpty(this.n_case_eq)){
-            this.getSearchCond().eq("case", n_case_eq);
+            this.getSearchCond().eq("`case`", n_case_eq);
         }
     }
 	private BigInteger n_parent_eq;//[分组用例步骤的组编号]
