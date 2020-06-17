@@ -357,4 +357,12 @@ export interface Case {
      * @memberof Case
      */
     productname?: any;
+
+    /**
+     * 用例步骤集合
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    casesteps?: any;
 }

@@ -147,6 +147,9 @@ export default class MainDashboardModel {
       {
         name: 'productname',
       },
+      {
+        name: 'casesteps',
+      },
     ]
   }
 

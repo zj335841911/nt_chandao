@@ -147,6 +147,9 @@ export default class MainInfoModel {
       {
         name: 'productname',
       },
+      {
+        name: 'casesteps',
+      },
     ]
   }
 

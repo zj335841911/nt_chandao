@@ -120,6 +120,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     public boolean create(Case et) {
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
+        casestepService.saveByIbizcase(et.getId(),et.getCasestep());
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
@@ -136,6 +137,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     @Override
     @Transactional
     public boolean remove(BigInteger key) {
+        casestepService.removeByIbizcase(key) ;
         boolean result=removeById(key);
         return result ;
     }
@@ -154,6 +156,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
             et.setId(key);
         }
         else{
+            et.setCasestep(casestepService.selectByIbizcase(key));
         }
         return et;
     }
@@ -163,6 +166,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     public boolean update(Case et) {
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
+        casestepService.saveByIbizcase(et.getId(),et.getCasestep());
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }

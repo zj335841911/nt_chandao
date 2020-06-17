@@ -424,6 +424,14 @@ public class Case extends EntityMP implements Serializable {
     private cn.ibizlab.pms.core.zentao.domain.TestSuite zttestsuite;
 
 
+    /**
+     * 用例步骤
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private List<cn.ibizlab.pms.core.zentao.domain.CaseStep> casestep;
+
 
     /**
      * 设置 [修改日期]

@@ -707,33 +707,6 @@ export default class CaseStepMainGridView9_EditModeBase extends Vue {
     }
 
     /**
-     * 销毁视图回调
-     *
-     * @memberof CaseStepMainGridView9_EditModeBase
-     */
-    public destroyed(){
-        this.afterDestroyed();
-    }
-
-    /**
-     * 执行destroyed后的逻辑
-     * 
-     * @memberof CaseStepMainGridView9_EditModeBase
-     */
-    public afterDestroyed(){
-        if(this.viewDefaultUsage){
-            let localStoreLength = Object.keys(localStorage);
-            if(localStoreLength.length > 0){
-                localStoreLength.forEach((item:string) =>{
-                if(item.startsWith(this.context.srfsessionid)){
-                    localStorage.removeItem(item);
-                }
-                })
-            }
-        }
-    }
-
-    /**
      * 是否单选
      *
      * @type {boolean}

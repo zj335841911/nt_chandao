@@ -147,6 +147,9 @@ export default class DashboardQuickActionModel {
       {
         name: 'productname',
       },
+      {
+        name: 'casesteps',
+      },
     ]
   }
 

@@ -72,6 +72,11 @@ export default class Main_RowEditModel {
           dataType: 'ACID',
         },
         {
+          name: 'case',
+          prop: 'id',
+          dataType: 'FONTKEY',
+        },
+        {
           name: 'casestep',
           prop: 'id',
         },

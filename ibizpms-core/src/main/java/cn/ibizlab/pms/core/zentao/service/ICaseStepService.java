@@ -39,8 +39,10 @@ public interface ICaseStepService extends IService<CaseStep>{
     Page<CaseStep> searchDefault(CaseStepSearchContext context) ;
     List<CaseStep> selectByIbizcase(BigInteger id) ;
     void removeByIbizcase(BigInteger id) ;
+    void saveByIbizcase(BigInteger id,List<CaseStep> list) ;
     List<CaseStep> selectByParent(BigInteger id) ;
     void removeByParent(BigInteger id) ;
+    void saveByParent(BigInteger id,List<CaseStep> list) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

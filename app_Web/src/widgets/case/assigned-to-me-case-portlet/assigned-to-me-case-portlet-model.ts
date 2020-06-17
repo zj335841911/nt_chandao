@@ -147,6 +147,9 @@ export default class AssignedToMeCaseModel {
       {
         name: 'productname',
       },
+      {
+        name: 'casesteps',
+      },
     ]
   }
 

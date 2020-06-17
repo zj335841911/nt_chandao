@@ -72,6 +72,11 @@ export default class MainModel {
           dataType: 'ACID',
         },
         {
+          name: 'case',
+          prop: 'id',
+          dataType: 'FONTKEY',
+        },
+        {
           name: 'casestep',
           prop: 'id',
         },

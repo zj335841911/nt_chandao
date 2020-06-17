@@ -1,6 +1,6 @@
 <template>
     <div class='login'>
-        <img src="/assets/img/background.png"/>
+        <img>
 
         <div class='login-con'>
             <card :bordered="false">
@@ -166,7 +166,7 @@ export default class Login extends Vue {
      * @memberof Login
      */
     public handleSubmit(): void {
-        let leftTime = new Date();
+        const leftTime = new Date();
         leftTime.setTime(leftTime.getSeconds() - 1000);
         document.cookie = "ibzuaa-token=;expires=" + leftTime.toUTCString();
         const form: any = this.$refs.loginForm;

@@ -44,6 +44,7 @@ export default {
     modulename: '模块名称',
     storyname: '需求名称',
     productname: '产品名称',
+    casesteps: '用例步骤集合',
   },
 	views: {
 		editview: {

@@ -147,6 +147,9 @@ export default class MainDetailModel {
       {
         name: 'productname',
       },
+      {
+        name: 'casesteps',
+      },
     ]
   }
 

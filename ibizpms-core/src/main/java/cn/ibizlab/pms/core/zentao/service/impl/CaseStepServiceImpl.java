@@ -61,6 +61,7 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
             et.setId(key);
         }
         else{
+            et.setCasestep(casestepService.selectByParent(key));
         }
         return et;
     }
@@ -71,6 +72,7 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
         fillParentData(et);
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
+        casestepService.saveByParent(et.getId(),et.getCasestep());
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
@@ -130,6 +132,7 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
         fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
+        casestepService.saveByParent(et.getId(),et.getCasestep());
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
@@ -164,6 +167,35 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
     }
 
 	@Override
+    public void saveByIbizcase(BigInteger id,List<CaseStep> list) {
+        if(list==null)
+            return;
+        Set<BigInteger> delIds=new HashSet<BigInteger>();
+        List<CaseStep> _update=new ArrayList<CaseStep>();
+        List<CaseStep> _create=new ArrayList<CaseStep>();
+        for(CaseStep before:selectByIbizcase(id)){
+            delIds.add(before.getId());
+        }
+        for(CaseStep sub:list) {
+            sub.setIbizcase(id);
+            if(ObjectUtils.isEmpty(sub.getId()))
+                sub.setId((BigInteger)sub.getDefaultKey(true));
+            if(delIds.contains(sub.getId())) {
+                delIds.remove(sub.getId());
+                _update.add(sub);
+            }
+            else
+                _create.add(sub);
+        }
+        if(_update.size()>0)
+            this.updateBatch(_update);
+        if(_create.size()>0)
+            this.createBatch(_create);
+        if(delIds.size()>0)
+            this.removeBatch(delIds);
+	}
+
+	@Override
     public List<CaseStep> selectByParent(BigInteger id) {
         return baseMapper.selectByParent(id);
     }
@@ -172,6 +204,35 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
     public void removeByParent(BigInteger id) {
         this.remove(new QueryWrapper<CaseStep>().eq("parent",id));
     }
+
+	@Override
+    public void saveByParent(BigInteger id,List<CaseStep> list) {
+        if(list==null)
+            return;
+        Set<BigInteger> delIds=new HashSet<BigInteger>();
+        List<CaseStep> _update=new ArrayList<CaseStep>();
+        List<CaseStep> _create=new ArrayList<CaseStep>();
+        for(CaseStep before:selectByParent(id)){
+            delIds.add(before.getId());
+        }
+        for(CaseStep sub:list) {
+            sub.setParent(id);
+            if(ObjectUtils.isEmpty(sub.getId()))
+                sub.setId((BigInteger)sub.getDefaultKey(true));
+            if(delIds.contains(sub.getId())) {
+                delIds.remove(sub.getId());
+                _update.add(sub);
+            }
+            else
+                _create.add(sub);
+        }
+        if(_update.size()>0)
+            this.updateBatch(_update);
+        if(_create.size()>0)
+            this.createBatch(_create);
+        if(delIds.size()>0)
+            this.removeBatch(delIds);
+	}
 
 
     /**
