@@ -1,12 +1,12 @@
 <template>
   <div class='tabviewpanel' style="height:100%;" v-if = 'isActivied' >
-        <case-main-grid-view 
+        <case-cur-test-task-grid-view 
       class='viewcontainer2' 
       :viewdata="viewdata" 
       :viewparam="viewparam"
       @viewload="viewDatasChange($event)" 
       :viewDefaultUsage="false" >
-    </case-main-grid-view>
+    </case-cur-test-task-grid-view>
   </div>
 </template>
 <script lang='tsx'>

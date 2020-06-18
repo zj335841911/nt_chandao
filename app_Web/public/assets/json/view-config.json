@@ -299,6 +299,16 @@
         "viewtag": "35ba93bac795e0deb7297d2d471b7180",
         "memo": ""
     },
+    "casecurtesttaskgridview": {
+        "title": "功能测试",
+        "caption": "功能测试",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "CaseCurTestTaskGridView",
+        "viewfilename": "case-cur-test-task-grid-view",
+        "viewtag": "36337c95eb6a21369e5673e64e708925",
+        "memo": ""
+    },
     "projectstatsmaindashboardview": {
         "title": "项目统计数据看板视图",
         "caption": "项目统计",

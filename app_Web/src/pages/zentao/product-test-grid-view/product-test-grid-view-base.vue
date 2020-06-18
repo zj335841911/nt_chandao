@@ -269,7 +269,7 @@ export default class ProductTestGridViewBase extends Vue {
         tbitem4: { name: 'tbitem4', caption: '编辑','isShowCaption':true,'isShowIcon':true, tooltip: '编辑', iconcls: 'fa fa-edit', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Edit', target: 'SINGLEKEY' }, class: '' },
 
         tbitem7: {  name: 'tbitem7', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
-        tbitem16: { name: 'tbitem16', caption: '其它', disabled: false, type: 'ITEMS', visabled: true, dataaccaction: '', uiaction: { }
+        tbitem16: { name: 'tbitem16', caption: '其它', disabled: false, type: 'ITEMS', visabled: true, dataaccaction: '',
     model: {
         tbitem21: { name: 'tbitem21', caption: '导出数据模型','isShowCaption':true,'isShowIcon':true, tooltip: '导出数据模型', iconcls: 'fa fa-download', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'ExportModel', target: '' }, class: '' },
 

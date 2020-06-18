@@ -309,7 +309,7 @@ export default class BuildMainGridViewBase extends Vue {
         tbitem13: { name: 'tbitem13', caption: '导出','isShowCaption':true,'isShowIcon':true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
 
         tbitem10: {  name: 'tbitem10', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
-        tbitem16: { name: 'tbitem16', caption: '其它', disabled: false, type: 'ITEMS', visabled: true, dataaccaction: '', uiaction: { }
+        tbitem16: { name: 'tbitem16', caption: '其它', disabled: false, type: 'ITEMS', visabled: true, dataaccaction: '',
     model: {
         tbitem21: { name: 'tbitem21', caption: '导出数据模型','isShowCaption':true,'isShowIcon':true, tooltip: '导出数据模型', iconcls: 'fa fa-download', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'ExportModel', target: '' }, class: '' },
 

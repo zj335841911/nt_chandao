@@ -52,6 +52,10 @@ export default {
 			caption: "测试用例",
       title: 'case编辑视图',
 		},
+		curtesttaskgridview: {
+			caption: "功能测试",
+      title: '功能测试',
+		},
 		maingridview: {
 			caption: "功能测试",
       title: '功能测试',
@@ -396,6 +400,32 @@ export default {
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
+		},
+	},
+	curtesttaskgridviewtoolbar_toolbar: {
+		deuiaction3_batchnew: {
+			caption: "批量新建用例",
+			tip: "批量新建用例",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction1: {
+			caption: "New",
+			tip: "New",
+		},
+		deuiaction4: {
+			caption: "Remove",
+			tip: "Remove {0}",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
 		},
 	},
 	gridviewtoolbar_toolbar: {

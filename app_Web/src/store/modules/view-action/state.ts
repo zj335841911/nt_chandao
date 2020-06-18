@@ -258,6 +258,19 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '36337c95eb6a21369e5673e64e708925',
+            viewmodule: 'zentao',
+            viewname: 'CaseCurTestTaskGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '8e070a3e9ad67b127db723463198f9ac',
+                '6f78b25e86923ab600a2141d50fe49fd',
+                '5890a810365fec51e801d2cffce44fde',
+                '66769499a681f12bd2ebff8859f1d4ea',
+            ],
+        },
+        {
             viewtag: '3aafb12bb0db2be013c0f5ced8c7dc50',
             viewmodule: 'zentao',
             viewname: 'ProjectListExpView',
@@ -418,7 +431,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '417541fa331fc089b84936b8359403fa',
+                '36337c95eb6a21369e5673e64e708925',
                 '7cba1f165fc6b4948ce752d3c3b68a34',
             ],
         },

@@ -247,6 +247,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskSubTaskNewView",
             "viewtag": "35ba93bac795e0deb7297d2d471b7180"
         },
+        "casecurtesttaskgridview": {
+            "title": "功能测试",
+            "caption": "功能测试",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "CaseCurTestTaskGridView",
+            "viewtag": "36337c95eb6a21369e5673e64e708925"
+        },
         "projectstatsmaindashboardview": {
             "title": "项目统计数据看板视图",
             "caption": "项目统计",

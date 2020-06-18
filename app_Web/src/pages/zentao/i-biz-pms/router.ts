@@ -4336,6 +4336,35 @@ const router = new Router({
                     },
                     component: () => import('@pages/zentao/case-step-main-grid-view9-edit-mode/case-step-main-grid-view9-edit-mode.vue'),
                 },
+                {
+                    path: 'products/:product?/cases/:case?/curtesttaskgridview/:curtesttaskgridview?',
+                    meta: {
+                        caption: 'entities.case.views.curtesttaskgridview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'curtesttaskgridview', parameterName: 'curtesttaskgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-cur-test-task-grid-view/case-cur-test-task-grid-view.vue'),
+                },
+                {
+                    path: 'cases/:case?/curtesttaskgridview/:curtesttaskgridview?',
+                    meta: {
+                        caption: 'entities.case.views.curtesttaskgridview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'curtesttaskgridview', parameterName: 'curtesttaskgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-cur-test-task-grid-view/case-cur-test-task-grid-view.vue'),
+                },
             ...indexRoutes,
             ],
         },
@@ -5177,6 +5206,33 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/zentao/task-sub-task-new-view/task-sub-task-new-view.vue'),
+    },
+    {
+        path: '/products/:product?/cases/:case?/curtesttaskgridview/:curtesttaskgridview?',
+        meta: {
+            caption: 'entities.case.views.curtesttaskgridview.title',
+            info:'',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'cases', parameterName: 'case' },
+                { pathName: 'curtesttaskgridview', parameterName: 'curtesttaskgridview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/case-cur-test-task-grid-view/case-cur-test-task-grid-view.vue'),
+    },
+    {
+        path: '/cases/:case?/curtesttaskgridview/:curtesttaskgridview?',
+        meta: {
+            caption: 'entities.case.views.curtesttaskgridview.title',
+            info:'',
+            parameters: [
+                { pathName: 'cases', parameterName: 'case' },
+                { pathName: 'curtesttaskgridview', parameterName: 'curtesttaskgridview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/case-cur-test-task-grid-view/case-cur-test-task-grid-view.vue'),
     },
     {
         path: '/projects/:project?/listexpview/:listexpview?',
