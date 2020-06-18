@@ -173,7 +173,7 @@
                             <divider type='vertical'></divider>
                             <a @click="uiAction(scope.row, 'MainEdit', $event)">
                               <i class='fa fa-edit'></i>
-                              {{$t('entities.case.maingrid_grid.uiactions.mainedit')}}
+                              
                             </a>
                             <divider type='vertical'></divider>
                             <a @click="uiAction(scope.row, 'NewBugByCaseResult', $event)">

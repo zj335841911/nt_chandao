@@ -582,7 +582,7 @@ export default class TypeGanttBase extends Vue implements ControlInterface {
      */
     public taskClick({event, data}: {event: any, data: any}) {
         const _this: any = this;
-        let key: string = data.id.split(';')[0];
+        let key: string = data.id.split(';')[0].toLowerCase();
         if(_this[key + '_opendata'] instanceof Function) {
             _this[key + '_opendata']([data]);
         }

@@ -1,0 +1,64 @@
+// 默认工具栏样式
+.toolbar-container {
+    height: 22px;
+
+    .seperator {
+        margin-right: 5px;
+    }
+
+    .ivu-btn {
+        height: 22px;
+        line-height: 21px;
+        border: 0px;
+        margin-right: 4px;
+        font-size: 12px;
+
+        >span {
+
+            >i {
+                padding-right: 3px;
+            }
+        }
+    }
+
+    .ivu-btn:active {
+        background-color: transparent;
+    }
+}
+// 模式二工具栏样式
+.toolbar-container.style2 {
+    height: 100%;
+
+    .ivu-btn {
+        height: 100%;
+        font-size: 14px;
+        padding: 0;
+        padding-left: 5px;
+
+        i {
+            font-size: 16px;
+        }
+    }
+
+    .ivu-btn:focus {
+        box-shadow: unset;
+    }
+
+    .seperator {
+        height: 100%;
+    }
+
+    .ivu-dropdown.toolbar-dropdown {
+        height: 100%;
+
+        .ivu-dropdown-rel {
+            height: 100%;
+        }
+
+        .ivu-btn {
+            .toolbar-container.style2 .ivu-btn;
+        }
+    }
+
+
+}

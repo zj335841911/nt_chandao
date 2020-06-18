@@ -263,32 +263,32 @@ export default class ActionEditViewBase extends Vue {
      * @memberof ActionEditView
      */
     public toolBarModels: any = {
-        tbitem3: { name: 'tbitem3', caption: '保存', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Save', target: '' } },
+        tbitem3: { name: 'tbitem3', caption: '保存','isShowCaption':true,'isShowIcon':true, tooltip: '保存', iconcls: 'fa fa-save', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Save', target: '' }, class: '' },
 
-        tbitem4: { name: 'tbitem4', caption: '保存并新建', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'SaveAndNew', target: '' } },
+        tbitem4: { name: 'tbitem4', caption: '保存并新建','isShowCaption':true,'isShowIcon':true, tooltip: '保存并新建', iconcls: 'sx-tb-saveandnew', icon: '../sasrfex/images/default/icon_saveandnew.png', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'SaveAndNew', target: '' }, class: '' },
 
-        tbitem5: { name: 'tbitem5', caption: '保存并关闭', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'SaveAndExit', target: '' } },
+        tbitem5: { name: 'tbitem5', caption: '保存并关闭','isShowCaption':true,'isShowIcon':true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'SaveAndExit', target: '' }, class: '' },
 
         tbitem6: {  name: 'tbitem6', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
-        tbitem7: { name: 'tbitem7', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'RemoveAndExit', target: 'SINGLEKEY' } },
+        tbitem7: { name: 'tbitem7', caption: '删除','isShowCaption':true,'isShowIcon':true, tooltip: '删除', iconcls: 'fa fa-remove', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'RemoveAndExit', target: 'SINGLEKEY' }, class: '' },
 
         tbitem8: {  name: 'tbitem8', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
-        tbitem12: { name: 'tbitem12', caption: '新建', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'New', target: '' } },
+        tbitem12: { name: 'tbitem12', caption: '新建','isShowCaption':true,'isShowIcon':true, tooltip: '新建', iconcls: 'fa fa-file-text-o', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'New', target: '' }, class: '' },
 
         tbitem13: {  name: 'tbitem13', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
-        tbitem14: { name: 'tbitem14', caption: '拷贝', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Copy', target: 'SINGLEKEY' } },
+        tbitem14: { name: 'tbitem14', caption: '拷贝','isShowCaption':true,'isShowIcon':true, tooltip: '拷贝', iconcls: 'fa fa-copy', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Copy', target: 'SINGLEKEY' }, class: '' },
 
         tbitem16: {  name: 'tbitem16', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
-        tbitem23: { name: 'tbitem23', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'FirstRecord', target: 'SINGLEKEY' } },
+        tbitem23: { name: 'tbitem23', caption: '第一个记录','isShowCaption':false,'isShowIcon':true, tooltip: '第一个记录', iconcls: 'fa fa-fast-backward', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'FirstRecord', target: 'SINGLEKEY' }, class: '' },
 
-        tbitem24: { name: 'tbitem24', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'PrevRecord', target: 'SINGLEKEY' } },
+        tbitem24: { name: 'tbitem24', caption: '上一个记录','isShowCaption':false,'isShowIcon':true, tooltip: '上一个记录', iconcls: 'fa fa-step-backward', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'PrevRecord', target: 'SINGLEKEY' }, class: '' },
 
-        tbitem25: { name: 'tbitem25', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'NextRecord', target: 'SINGLEKEY' } },
+        tbitem25: { name: 'tbitem25', caption: '下一个记录','isShowCaption':false,'isShowIcon':true, tooltip: '下一个记录', iconcls: 'fa fa-step-forward', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'NextRecord', target: 'SINGLEKEY' }, class: '' },
 
-        tbitem26: { name: 'tbitem26', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'LastRecord', target: 'SINGLEKEY' } },
+        tbitem26: { name: 'tbitem26', caption: '最后一个记录','isShowCaption':false,'isShowIcon':true, tooltip: '最后一个记录', iconcls: 'fa fa-fast-forward', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'LastRecord', target: 'SINGLEKEY' }, class: '' },
 
         tbitem21: {  name: 'tbitem21', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
-        tbitem22: { name: 'tbitem22', caption: '帮助', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Help', target: '' } },
+        tbitem22: { name: 'tbitem22', caption: '帮助','isShowCaption':true,'isShowIcon':true, tooltip: '帮助', iconcls: 'fa fa-question', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Help', target: '' }, class: '' },
 
     };
 

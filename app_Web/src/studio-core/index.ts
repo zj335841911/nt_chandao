@@ -16,6 +16,7 @@ import { UserInfo } from './components/user-info/user-info';
 import { StudioViewStyle2 } from './components/studio-view-style2/studio-view-style2';
 import { StudioView } from './components/studio-view/studio-view';
 import { StudioEmbedView } from './components/studio-embed-view/studio-embed-view';
+import { ViewToolbar } from './components/view-toolbar/view-toolbar';
 import { ViewConfigActions } from './components/view-config-actions/view-config-actions';
 import HtmlContainer from './components/html-container/html-container.vue';
 // 组件 End
@@ -49,6 +50,7 @@ export const StudioCore = {
         v.component('studio-view-style2', StudioViewStyle2);
         v.component('studio-view', StudioView);
         v.component('studio-embed-view', StudioEmbedView);
+        v.component('view-toolbar', ViewToolbar);
         v.component('view-config-actions', ViewConfigActions);
         v.component('html-container', HtmlContainer);
         // 注册指令
