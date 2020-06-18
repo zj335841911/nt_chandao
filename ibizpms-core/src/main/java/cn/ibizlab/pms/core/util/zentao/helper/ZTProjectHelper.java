@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 【禅道接口-Task】 辅助类
+ * 【禅道接口-Project】 辅助类
  */
 final public class ZTProjectHelper {
     // ----------
