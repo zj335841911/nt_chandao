@@ -96,8 +96,8 @@ final public class ZTProductPlanHelper {
         ACTION_PARAMS_EDIT.put("desc", null);
         ACTION_PARAMS_EDIT.put("product", 0);
         ACTION_PARAMS_EDIT.put("parent", 0);
-        ACTION_PARAMS_CREATE.put("delta", null);
-        ACTION_PARAMS_CREATE.put("future", 0);
+        ACTION_PARAMS_EDIT.put("delta", null);
+        ACTION_PARAMS_EDIT.put("future", 0);
 
     }
 
