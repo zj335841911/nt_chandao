@@ -446,7 +446,7 @@ div::-webkit-scrollbar-thumb {
     color: var(--view-button-color-disabled);
 }
 
-.app-form.ivu-form {
+.app-search-form.ivu-form, .app-form.ivu-form {
     color: var(--view-font-color);
 
     .ivu-tabs {
@@ -954,4 +954,17 @@ div::-webkit-scrollbar-thumb {
     }
 }
 
+.el-select-dropdown {
+    border-color: var(--form-editor-dropdown-background-color);
+    background-color: var(--form-editor-dropdown-background-color);
+    color: var(--form-editor-font-color);
+
+    .el-select-dropdown__item {
+        color: var(--form-editor-font-color);
+    }
+
+    .el-select-dropdown__item.hover, .el-select-dropdown__item:hover {
+        background-color: var(--form-editor-active-color);
+    }
+}
 @import './user.less';
