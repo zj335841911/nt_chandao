@@ -14,7 +14,7 @@ import java.util.Map;
 /**
  * 【禅道接口-User】 辅助类
  */
-public class ZTUserHelper {
+final public class ZTUserHelper {
     // ----------
     // 接口模块
     // ----------
@@ -89,7 +89,7 @@ public class ZTUserHelper {
     // 接口实现
     // ----------
 
-    final static public boolean login(String zentaosid, JSONObject jo, ZTResult rst) {
+    public static boolean login(String zentaosid, JSONObject jo, ZTResult rst) {
         if (jo.getString("account") == null || jo.getString("account").isEmpty()) {
             return false;
         }
@@ -105,25 +105,29 @@ public class ZTUserHelper {
         Map<String, Object> actionParams = ACTION_PARAMS_LOGIN;
         List<String> actionUrlParams = null;
 
-        String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt);
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaosid, url, actionHttpMethod, ZenTaoHttpHelper.formatJSON(jo, actionParams, PARAMS_DATEFORMAT));
-        rst.setResult(rstJO);
-        if (!"success".equals(rstJO.getString("status"))) {
+        try {
+            String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt);
+            JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaosid, url, actionHttpMethod, ZenTaoHttpHelper.formatJSON(jo, actionParams, PARAMS_DATEFORMAT));
+            rst.setResult(rstJO);
+            if (!"success".equals(rstJO.getString("status"))) {
+                rst.setSuccess(false);
+                return false;
+            }
+            if (!rstJO.containsKey("user")) {
+                rst.setSuccess(false);
+                return false;
+            }
+            JSONObject user = rstJO.getJSONObject("user");
+            if (!user.containsKey("account")) {
+                rst.setSuccess(false);
+                return false;
+            }
+            rst.setSuccess(jo.getString("account").equals(user.getString("account")));
+        } catch (Exception e) {
             rst.setSuccess(false);
-            return false;
+            rst.setMessage(e.getMessage() != null ? e.getMessage() : "调用禅道接口异常");
         }
-        if (!rstJO.containsKey("user")) {
-            rst.setSuccess(false);
-            return false;
-        }
-        JSONObject user = rstJO.getJSONObject("user");
-        if (!user.containsKey("account")) {
-            rst.setSuccess(false);
-            return false;
-        }
-        boolean bRst = jo.getString("account").equals(user.getString("account"));
-        rst.setSuccess(bRst);
-        return bRst;
+        return rst.isSuccess();
     }
 
 }

@@ -16,7 +16,7 @@ import java.util.Map;
  * 【禅道接口-Burn】 辅助类<br>
  *     注意：该类比较特殊，不作为参照写法（请求后缀为html，并非json）
  */
-public class ZTBurnHelper {
+final public class ZTBurnHelper {
     // ----------
     // 接口模块
     // ----------
@@ -55,7 +55,7 @@ public class ZTBurnHelper {
      * @param rst
      * @return
      */
-    final static public boolean computeBurn(String zentaoSid, JSONObject jo, ZTResult rst) {
+    public static boolean computeBurn(String zentaoSid, JSONObject jo, ZTResult rst) {
         // 参数赋值
         String moduleName = MODULE_NAME;
         String urlExt = ZT_URL_EXT;
@@ -64,9 +64,16 @@ public class ZTBurnHelper {
         Map<String, Object> actionParams = null;
         List<String> actionUrlParams = null;
 
-        String url = ZenTaoHttpHelper.formatUrl(MODULE_NAME, actionName, urlExt);
-        ZenTaoHttpHelper.doRequest(zentaoSid, url, actionHttpMethod);
-        rst.setSuccess(true);
-        return true;
+        try {
+            String url = ZenTaoHttpHelper.formatUrl(MODULE_NAME, actionName, urlExt);
+            ZenTaoHttpHelper.doRequest(zentaoSid, url, actionHttpMethod);
+            rst.setSuccess(true);
+        } catch (Exception e) {
+            // 暂无log时，输出e.printStackTrace();
+            e.printStackTrace();
+            rst.setSuccess(false);
+            rst.setMessage(e.getMessage() != null ? e.getMessage() : "调用禅道接口异常");
+        }
+        return rst.isSuccess();
     }
 }

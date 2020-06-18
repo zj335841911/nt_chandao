@@ -14,7 +14,7 @@ import java.util.Map;
 /**
  * 【禅道接口-API】 辅助类
  */
-public class ZTAPIHelper {
+final public class ZTAPIHelper {
     // ----------
     // 接口模块
     // ----------
@@ -49,7 +49,7 @@ public class ZTAPIHelper {
      * @param rst
      * @return
      */
-    final static public boolean getSessionID(ZTResult rst) {
+    public static boolean getSessionID(ZTResult rst) {
         // 参数赋值
         String moduleName = MODULE_NAME;
         String urlExt = ZenTaoConstants.ZT_URL_EXT;
@@ -58,23 +58,23 @@ public class ZTAPIHelper {
         Map<String, Object> actionParams = null;
         List<String> actionUrlParams = null;
 
-        String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt);
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(null, url, actionHttpMethod);
-        rst.setResult(rstJO);
-        if (!"success".equals(rstJO.getString("status"))) {
+        try {
+            String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt);
+            JSONObject rstJO = ZenTaoHttpHelper.doRequest(null, url, actionHttpMethod);
+            rst.setResult(rstJO);
+            if (!"success".equals(rstJO.getString("status")) || !rstJO.containsKey("data") || !rstJO.getString("data").contains("zentaosid")) {
+                rst.setMessage("禅道接口相应结果不正确");
+                rst.setSuccess(false);
+            } else {
+                rst.setSuccess(true);
+            }
+        } catch (Exception e) {
+            // 暂无log时，输出e.printStackTrace();
+            e.printStackTrace();
             rst.setSuccess(false);
-            return false;
+            rst.setMessage(e.getMessage() != null ? e.getMessage() : "调用禅道接口异常");
         }
-        if (!rstJO.containsKey("data")) {
-            rst.setSuccess(false);
-            return false;
-        }
-        String dataStr = rstJO.getString("data");
-        if (!dataStr.contains("zentaosid")) {
-            rst.setSuccess(false);
-            return false;
-        }
-        return true;
+        return rst.isSuccess();
     }
 
 }

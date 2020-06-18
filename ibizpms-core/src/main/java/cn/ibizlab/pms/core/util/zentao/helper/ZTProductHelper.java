@@ -5,6 +5,7 @@ import cn.ibizlab.pms.core.util.zentao.constants.ZenTaoConstants;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.core.parameters.P;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import java.util.Map;
 /**
  * 【禅道接口-Product】 辅助类
  */
-public class ZTProductHelper {
+final public class ZTProductHelper {
     // ----------
     // 接口模块
     // ----------
@@ -135,7 +136,7 @@ public class ZTProductHelper {
      * @param rst
      * @return
      */
-    final static public boolean create(String zentaoSid, JSONObject jo, ZTResult rst) {
+    public static boolean create(String zentaoSid, JSONObject jo, ZTResult rst) {
         // 参数赋值
         String moduleName = MODULE_NAME;
         String urlExt = ZenTaoConstants.ZT_URL_EXT;
@@ -143,11 +144,9 @@ public class ZTProductHelper {
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_CREATE;
         Map<String, Object> actionParams = ACTION_PARAMS_CREATE;
         List<String> actionUrlParams = null;
+        String returnUrlRegexPrev = "/zentao/product-browse-";
 
-        String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt);
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, actionHttpMethod, ZenTaoHttpHelper.formatJSON(jo, actionParams, PARAMS_DATEFORMAT));
-        rst = ZenTaoHttpHelper.formatResultJSON(rstJO, rst, "/zentao/product-browse-");
-        return rst.isSuccess();
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
     }
 
     /**
@@ -158,7 +157,7 @@ public class ZTProductHelper {
      * @param rst
      * @return
      */
-    final static public boolean edit(String zentaoSid, JSONObject jo, ZTResult rst) {
+    public static boolean edit(String zentaoSid, JSONObject jo, ZTResult rst) {
         // 参数赋值
         String moduleName = MODULE_NAME;
         String urlExt = ZenTaoConstants.ZT_URL_EXT;
@@ -166,11 +165,9 @@ public class ZTProductHelper {
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_EDIT;
         Map<String, Object> actionParams = ACTION_PARAMS_EDIT;
         List<String> actionUrlParams = ACTION_URL_PARAMS_EDIT;
+        String returnUrlRegexPrev = "/zentao/product-view-";
 
-        String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt, jo, actionUrlParams);
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, actionHttpMethod, ZenTaoHttpHelper.formatJSON(jo, actionParams, PARAMS_DATEFORMAT));
-        rst = ZenTaoHttpHelper.formatResultJSON(rstJO, rst, "/zentao/product-view-");
-        return rst.isSuccess();
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
     }
 
     /**
@@ -181,7 +178,7 @@ public class ZTProductHelper {
      * @param rst
      * @return
      */
-    final static public boolean close(String zentaoSid, JSONObject jo, ZTResult rst) {
+    public static boolean close(String zentaoSid, JSONObject jo, ZTResult rst) {
         // 参数赋值
         String moduleName = MODULE_NAME;
         String urlExt = ZenTaoConstants.ZT_URL_EXT;
@@ -189,11 +186,9 @@ public class ZTProductHelper {
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_CLOSE;
         Map<String, Object> actionParams = ACTION_PARAMS_CLOSE;
         List<String> actionUrlParams = ACTION_URL_PARAMS_CLOSE;
+        String returnUrlRegexPrev = null;
 
-        String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt, jo, actionUrlParams);
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, actionHttpMethod, ZenTaoHttpHelper.formatJSON(jo, actionParams, PARAMS_DATEFORMAT));
-        rst = ZenTaoHttpHelper.formatResultHTML(rstJO, rst);
-        return rst.isSuccess();
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
     }
 
 }

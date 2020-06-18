@@ -11,6 +11,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import java.math.BigInteger;
 import java.sql.Timestamp;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,14 +21,54 @@ import java.util.Map;
  * 禅道接口辅助类
  */
 public class ZenTaoHttpHelper {
+    /**
+     * 调取禅道接口
+     *
+     * @param jo 请求对象
+     * @param rst 请求结果
+     * @param zentaoSid 禅道SessionID
+     * @param urlExt 请求URL扩展名（.json、.html）
+     * @param httpMethod 请求方法（GET、POST)
+     * @param moduleName 模块名
+     * @param actionName 行为名
+     * @param urlParams URL参数
+     * @param actionParams 表单参数
+     * @param dataFormatMap 属性日期格式表
+     * @param returnUrlRegexPrev 相应URL匹配前缀（例如：/zentao/product-view-）
+     * @return true：成功，false：失败
+     */
+    public static boolean doZTRequest(JSONObject jo,
+                                            ZTResult rst,
+                                            String zentaoSid,
+                                            String urlExt,
+                                            HttpMethod httpMethod,
+                                            String moduleName,
+                                            String actionName,
+                                            List<String> urlParams,
+                                            Map<String, Object> actionParams,
+                                            Map<String, String> dataFormatMap,
+                                            String returnUrlRegexPrev
+                                            ) {
+        try {
+            String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt, jo, urlParams);
+            JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, httpMethod, formatJSON(jo, actionParams, dataFormatMap));
+            rst = ZenTaoHttpHelper.formatResult(rstJO, rst, returnUrlRegexPrev);
+        } catch (Exception e) {
+            // 暂无log时，输出e.printStackTrace();
+            e.printStackTrace();
+            rst.setSuccess(false);
+            rst.setMessage(e.getMessage() != null ? e.getMessage() : "调用禅道接口异常");
+        }
+        return rst.isSuccess();
+    }
 
-    final static public JSONObject doRequest(String zentaoSid, String url, HttpMethod httpMethod){
+    public static JSONObject doRequest(String zentaoSid, String url, HttpMethod httpMethod) throws Exception {
         return doRequest(zentaoSid, url, httpMethod, null);
     }
 
-    final static JSONObject doRequest(String zentaoSid, String url, HttpMethod httpMethod, JSONObject paramMap){
+    public static JSONObject doRequest(String zentaoSid, String url, HttpMethod httpMethod, JSONObject paramMap) throws Exception {
         if (url == null) {
-            return null;
+            throw new Exception("没有请求地址");
         }
         if (!ZenTaoConstants.ZT_URL.endsWith("/")) {
             ZenTaoConstants.ZT_URL += "/";
@@ -51,7 +92,7 @@ public class ZenTaoHttpHelper {
         return jo;
     }
 
-    final static public JSONObject formatJSON(JSONObject jo, Map<String, Object> templateMap, Map<String, String> dataFormatMap) {
+    public static JSONObject formatJSON(JSONObject jo, Map<String, Object> templateMap, Map<String, String> dataFormatMap) throws Exception {
         if (templateMap == null) {
             return null;
         }
@@ -142,7 +183,7 @@ public class ZenTaoHttpHelper {
      * @param jo
      * @return
      */
-    final static public JSONObject formatArrayIntoPJSON(JSONObject jo) {
+    public static JSONObject formatArrayIntoPJSON(JSONObject jo) {
         if (jo == null) {
             return null;
         }
@@ -155,7 +196,6 @@ public class ZenTaoHttpHelper {
                 String regex = "^" + parseWord + "\\d*$";
                 if (key.toLowerCase().matches(regex)) {
                     jaList.add(jo.getJSONArray(key));
-                    continue;
                 }
             }
         }
@@ -191,7 +231,7 @@ public class ZenTaoHttpHelper {
      * @param jo
      * @return
      */
-    final static public JSONObject formatDateField(JSONObject jo, Map<String, String> dataFormatMap) {
+    public static JSONObject formatDateField(JSONObject jo, Map<String, String> dataFormatMap) throws Exception {
         if (jo == null) {
             return null;
         }
@@ -201,13 +241,13 @@ public class ZenTaoHttpHelper {
         for (String key : dataFormatMap.keySet()) {
             if (jo.containsKey(key) && jo.get(key) != null) {
                 SimpleDateFormat sdf = new SimpleDateFormat(dataFormatMap.get(key));
-                jo.put(key, sdf.format(Timestamp.valueOf(jo.getString(key))));
+                jo.put(key, sdf.format(new Timestamp(sdf.parse(jo.getString(key)).getTime())));
             }
         }
         return jo;
     }
 
-    final static public String formatUrlParams(List<String> urlParams, JSONObject jo) {
+    public static String formatUrlParams(List<String> urlParams, JSONObject jo) {
         if (jo == null) {
             return "";
         }
@@ -223,15 +263,15 @@ public class ZenTaoHttpHelper {
         return urlParamsStr.toString();
     }
 
-    final static public String formatUrl(String moduleName, String actionName, String ext) {
+    public static String formatUrl(String moduleName, String actionName, String ext) {
         return formatUrl(moduleName, actionName, ext, null, null);
     }
 
-    final static public String formatUrl(String moduleName, String actionName, String ext, JSONObject jo) {
+    public static String formatUrl(String moduleName, String actionName, String ext, JSONObject jo) {
         return formatUrl(moduleName, actionName, ext, jo, null);
     }
 
-    final static public String formatUrl(String moduleName, String actionName, String ext, JSONObject jo, List<String> urlParams) {
+    public static String formatUrl(String moduleName, String actionName, String ext, JSONObject jo, List<String> urlParams) {
         StringBuilder url = new StringBuilder();
         if (moduleName == null || moduleName.isEmpty() || actionName == null || actionName.isEmpty()) {
             return null;
@@ -260,7 +300,7 @@ public class ZenTaoHttpHelper {
      * @param returnUrlRegexPrev
      * @return
      */
-    final static public ZTResult formatResultJSON(JSONObject rstJO, ZTResult rst, String returnUrlRegexPrev) {
+    public static ZTResult formatResultJSON(JSONObject rstJO, ZTResult rst, String returnUrlRegexPrev) {
         if ("fail".equals(rstJO.getString("result"))) {
             JSONObject message = rstJO.getJSONObject("message");
             List<String> msgList = new ArrayList<>();
@@ -293,6 +333,19 @@ public class ZenTaoHttpHelper {
     }
 
     /**
+     * 解析返回结果<br>
+     *
+     * @param rstJO
+     * @return
+     */
+    public static ZTResult formatResult(JSONObject rstJO, ZTResult rst, String returnUrlRegexPrev) {
+        if (rstJO.containsKey("html")) {
+            return formatResultHTML(rstJO, rst);
+        }
+        return formatResultJSON(rstJO, rst, returnUrlRegexPrev);
+    }
+
+    /**
      * 返回结果为JSON（返回JSON无法解析出ID）<br>
      * {<br>
      *     "result":success/fail,<br>
@@ -303,7 +356,7 @@ public class ZenTaoHttpHelper {
      * @param rstJO
      * @return
      */
-    final static public ZTResult formatResultJSON(JSONObject rstJO, ZTResult rst) {
+    public static ZTResult formatResultJSON(JSONObject rstJO, ZTResult rst) {
         return formatResultJSON(rstJO, rst, null);
     }
 
@@ -318,7 +371,7 @@ public class ZenTaoHttpHelper {
    * @param rst
    * @return
    */
-  public static final ZTResult formatResultHTML(JSONObject rstJO, ZTResult rst) {
+  public static ZTResult formatResultHTML(JSONObject rstJO, ZTResult rst) {
         rst.setSuccess(true);
         rst.setResult(rstJO);
         rst.setMessage(rstJO.getString("html"));

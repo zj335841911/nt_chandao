@@ -5,6 +5,7 @@ import cn.ibizlab.pms.core.util.zentao.constants.ZenTaoConstants;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.core.parameters.P;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import java.util.Map;
 /**
  * 【禅道接口-Task】 辅助类
  */
-public class ZTTaskHelper {
+final public class ZTTaskHelper {
     // ----------
     // 接口模块
     // ----------
@@ -338,7 +339,7 @@ public class ZTTaskHelper {
      * @param rst
      * @return
      */
-    final static public boolean create(String zentaoSid, JSONObject jo, ZTResult rst) {
+    public static boolean create(String zentaoSid, JSONObject jo, ZTResult rst) {
         // 参数赋值
         String moduleName = MODULE_NAME;
         String urlExt = ZenTaoConstants.ZT_URL_EXT;
@@ -346,11 +347,9 @@ public class ZTTaskHelper {
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_CREATE;
         Map<String, Object> actionParams = ACTION_PARAMS_CREATE;
         List<String> actionUrlParams = ACTION_URL_PARAMS_CREATE;
+        String returnUrlRegexPrev = null;
 
-        String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt, jo, actionUrlParams);
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, actionHttpMethod, ZenTaoHttpHelper.formatJSON(jo, actionParams, PARAMS_DATEFORMAT));
-        rst = ZenTaoHttpHelper.formatResultJSON(rstJO, rst);
-        return rst.isSuccess();
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
     }
 
     /**
@@ -361,7 +360,7 @@ public class ZTTaskHelper {
      * @param rst
      * @return
      */
-    final static public boolean edit(String zentaoSid, JSONObject jo, ZTResult rst) {
+    public static boolean edit(String zentaoSid, JSONObject jo, ZTResult rst) {
         // 参数赋值
         String moduleName = MODULE_NAME;
         String urlExt = ZenTaoConstants.ZT_URL_EXT;
@@ -369,11 +368,9 @@ public class ZTTaskHelper {
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_EDIT;
         Map<String, Object> actionParams = ACTION_PARAMS_EDIT;
         List<String> actionUrlParams = ACTION_URL_PARAMS_EDIT;
+        String returnUrlRegexPrev = null;
 
-        String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt, jo, actionUrlParams);
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, actionHttpMethod, ZenTaoHttpHelper.formatJSON(jo, actionParams, PARAMS_DATEFORMAT));
-        rst = ZenTaoHttpHelper.formatResultHTML(rstJO, rst);
-        return rst.isSuccess();
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
     }
 
     /**
@@ -384,7 +381,7 @@ public class ZTTaskHelper {
      * @param rst
      * @return
      */
-    final static public boolean assignTo(String zentaoSid, JSONObject jo, ZTResult rst) {
+    public static boolean assignTo(String zentaoSid, JSONObject jo, ZTResult rst) {
         // 参数赋值
         String moduleName = MODULE_NAME;
         String urlExt = ZenTaoConstants.ZT_URL_EXT;
@@ -392,11 +389,9 @@ public class ZTTaskHelper {
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_ASSIGNTO;
         Map<String, Object> actionParams = ACTION_PARAMS_ASSIGNTO;
         List<String> actionUrlParams = ACTION_URL_PARAMS_ASSIGNTO;
+        String returnUrlRegexPrev = null;
 
-        String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt, jo, actionUrlParams);
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, actionHttpMethod, ZenTaoHttpHelper.formatJSON(jo, actionParams, PARAMS_DATEFORMAT));
-        rst = ZenTaoHttpHelper.formatResultHTML(rstJO, rst);
-        return rst.isSuccess();
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
     }
 
     /**
@@ -407,7 +402,7 @@ public class ZTTaskHelper {
      * @param rst
      * @return
      */
-    final static public boolean start(String zentaoSid, JSONObject jo, ZTResult rst) {
+    public static boolean start(String zentaoSid, JSONObject jo, ZTResult rst) {
         // 参数赋值
         String moduleName = MODULE_NAME;
         String urlExt = ZenTaoConstants.ZT_URL_EXT;
@@ -415,11 +410,9 @@ public class ZTTaskHelper {
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_START;
         Map<String, Object> actionParams = ACTION_PARAMS_START;
         List<String> actionUrlParams = ACTION_URL_PARAMS_START;
+        String returnUrlRegexPrev = null;
 
-        String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt, jo, actionUrlParams);
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, actionHttpMethod, ZenTaoHttpHelper.formatJSON(jo, actionParams, PARAMS_DATEFORMAT));
-        rst = ZenTaoHttpHelper.formatResultHTML(rstJO, rst);
-        return rst.isSuccess();
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
     }
 
     /**
@@ -430,7 +423,7 @@ public class ZTTaskHelper {
      * @param rst
      * @return
      */
-    final static public boolean deleteEstimate(String zentaoSid, JSONObject jo, ZTResult rst) {
+    public static boolean deleteEstimate(String zentaoSid, JSONObject jo, ZTResult rst) {
         // 参数赋值
         String moduleName = MODULE_NAME;
         String urlExt = ZenTaoConstants.ZT_URL_EXT;
@@ -438,13 +431,11 @@ public class ZTTaskHelper {
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_DELETEESTIMATE;
         Map<String, Object> actionParams = ACTION_PARAMS_DELETEESTIMATE;
         List<String> actionUrlParams = ACTION_URL_PARAMS_DELETEESTIMATE;
+        String returnUrlRegexPrev = null;
 
         jo.put("confirm", "yes");
 
-        String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt, jo, actionUrlParams);
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, actionHttpMethod, ZenTaoHttpHelper.formatJSON(jo, actionParams, PARAMS_DATEFORMAT));
-        rst = ZenTaoHttpHelper.formatResultHTML(rstJO, rst);
-        return rst.isSuccess();
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
     }
 
     /**
@@ -455,7 +446,7 @@ public class ZTTaskHelper {
      * @param rst
      * @return
      */
-    final static public boolean recordEstimate(String zentaoSid, JSONObject jo, ZTResult rst) {
+    public static boolean recordEstimate(String zentaoSid, JSONObject jo, ZTResult rst) {
         // 参数赋值
         String moduleName = MODULE_NAME;
         String urlExt = ZenTaoConstants.ZT_URL_EXT;
@@ -463,14 +454,12 @@ public class ZTTaskHelper {
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_RECORDESTIMATE;
         Map<String, Object> actionParams = ACTION_PARAMS_RECORDESTIMATE;
         List<String> actionUrlParams = ACTION_URL_PARAMS_RECORDESTIMATE;
+        String returnUrlRegexPrev = null;
 
         jo.put("task", jo.get("id"));
         jo.remove("id");
 
-        String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt, jo, actionUrlParams);
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, actionHttpMethod, ZenTaoHttpHelper.formatJSON(jo, actionParams, PARAMS_DATEFORMAT));
-        rst = ZenTaoHttpHelper.formatResultHTML(rstJO, rst);
-        return rst.isSuccess();
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
     }
 
     /**
@@ -481,7 +470,7 @@ public class ZTTaskHelper {
      * @param rst
      * @return
      */
-    final static public boolean editEstimate(String zentaoSid, JSONObject jo, ZTResult rst) {
+    public static boolean editEstimate(String zentaoSid, JSONObject jo, ZTResult rst) {
         // 参数赋值
         String moduleName = MODULE_NAME;
         String urlExt = ZenTaoConstants.ZT_URL_EXT;
@@ -489,11 +478,9 @@ public class ZTTaskHelper {
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_EDITESTIMATE;
         Map<String, Object> actionParams = ACTION_PARAMS_EDITESTIMATE;
         List<String> actionUrlParams = ACTION_URL_PARAMS_EDITESTIMATE;
+        String returnUrlRegexPrev = null;
 
-        String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt, jo, actionUrlParams);
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, actionHttpMethod, ZenTaoHttpHelper.formatJSON(jo, actionParams, PARAMS_DATEFORMAT));
-        rst = ZenTaoHttpHelper.formatResultHTML(rstJO, rst);
-        return rst.isSuccess();
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
     }
 
     /**
@@ -504,7 +491,7 @@ public class ZTTaskHelper {
      * @param rst
      * @return
      */
-    final static public boolean pause(String zentaoSid, JSONObject jo, ZTResult rst) {
+    public static boolean pause(String zentaoSid, JSONObject jo, ZTResult rst) {
         // 参数赋值
         String moduleName = MODULE_NAME;
         String urlExt = ZenTaoConstants.ZT_URL_EXT;
@@ -512,11 +499,9 @@ public class ZTTaskHelper {
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_PAUSE;
         Map<String, Object> actionParams = ACTION_PARAMS_PAUSE;
         List<String> actionUrlParams = ACTION_URL_PARAMS_PAUSE;
+        String returnUrlRegexPrev = null;
 
-        String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt, jo, actionUrlParams);
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, actionHttpMethod, ZenTaoHttpHelper.formatJSON(jo, actionParams, PARAMS_DATEFORMAT));
-        rst = ZenTaoHttpHelper.formatResultHTML(rstJO, rst);
-        return rst.isSuccess();
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
     }
 
     /**
@@ -527,7 +512,7 @@ public class ZTTaskHelper {
      * @param rst
      * @return
      */
-    final static public boolean restart(String zentaoSid, JSONObject jo, ZTResult rst) {
+    public static boolean restart(String zentaoSid, JSONObject jo, ZTResult rst) {
         // 参数赋值
         String moduleName = MODULE_NAME;
         String urlExt = ZenTaoConstants.ZT_URL_EXT;
@@ -535,11 +520,9 @@ public class ZTTaskHelper {
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_RESTART;
         Map<String, Object> actionParams = ACTION_PARAMS_RESTART;
         List<String> actionUrlParams = ACTION_URL_PARAMS_RESTART;
+        String returnUrlRegexPrev = null;
 
-        String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt, jo, actionUrlParams);
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, actionHttpMethod, ZenTaoHttpHelper.formatJSON(jo, actionParams, PARAMS_DATEFORMAT));
-        rst = ZenTaoHttpHelper.formatResultHTML(rstJO, rst);
-        return rst.isSuccess();
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
     }
 
     /**
@@ -550,7 +533,7 @@ public class ZTTaskHelper {
      * @param rst
      * @return
      */
-    final static public boolean cancel(String zentaoSid, JSONObject jo, ZTResult rst) {
+    public static boolean cancel(String zentaoSid, JSONObject jo, ZTResult rst) {
         // 参数赋值
         String moduleName = MODULE_NAME;
         String urlExt = ZenTaoConstants.ZT_URL_EXT;
@@ -558,11 +541,9 @@ public class ZTTaskHelper {
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_CANCEL;
         Map<String, Object> actionParams = ACTION_PARAMS_CANCEL;
         List<String> actionUrlParams = ACTION_URL_PARAMS_CANCEL;
+        String returnUrlRegexPrev = null;
 
-        String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt, jo, actionUrlParams);
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, actionHttpMethod, ZenTaoHttpHelper.formatJSON(jo, actionParams, PARAMS_DATEFORMAT));
-        rst = ZenTaoHttpHelper.formatResultHTML(rstJO, rst);
-        return rst.isSuccess();
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
     }
 
     /**
@@ -573,7 +554,7 @@ public class ZTTaskHelper {
      * @param rst
      * @return
      */
-    final static public boolean activate(String zentaoSid, JSONObject jo, ZTResult rst) {
+    public static boolean activate(String zentaoSid, JSONObject jo, ZTResult rst) {
         // 参数赋值
         String moduleName = MODULE_NAME;
         String urlExt = ZenTaoConstants.ZT_URL_EXT;
@@ -581,11 +562,9 @@ public class ZTTaskHelper {
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_ACTIVATE;
         Map<String, Object> actionParams = ACTION_PARAMS_ACTIVATE;
         List<String> actionUrlParams = ACTION_URL_PARAMS_ACTIVATE;
+        String returnUrlRegexPrev = null;
 
-        String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt, jo, actionUrlParams);
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, actionHttpMethod, ZenTaoHttpHelper.formatJSON(jo, actionParams, PARAMS_DATEFORMAT));
-        rst = ZenTaoHttpHelper.formatResultHTML(rstJO, rst);
-        return rst.isSuccess();
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
     }
 
     /**
@@ -596,7 +575,7 @@ public class ZTTaskHelper {
      * @param rst
      * @return
      */
-    final static public boolean finish(String zentaoSid, JSONObject jo, ZTResult rst) {
+    public static boolean finish(String zentaoSid, JSONObject jo, ZTResult rst) {
         // 参数赋值
         String moduleName = MODULE_NAME;
         String urlExt = ZenTaoConstants.ZT_URL_EXT;
@@ -604,11 +583,9 @@ public class ZTTaskHelper {
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_FINISH;
         Map<String, Object> actionParams = ACTION_PARAMS_FINISH;
         List<String> actionUrlParams = ACTION_URL_PARAMS_FINISH;
+        String returnUrlRegexPrev = null;
 
-        String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt, jo, actionUrlParams);
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, actionHttpMethod, ZenTaoHttpHelper.formatJSON(jo, actionParams, PARAMS_DATEFORMAT));
-        rst = ZenTaoHttpHelper.formatResultHTML(rstJO, rst);
-        return rst.isSuccess();
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
     }
 
     /**
@@ -619,7 +596,7 @@ public class ZTTaskHelper {
      * @param rst
      * @return
      */
-    final static public boolean close(String zentaoSid, JSONObject jo, ZTResult rst) {
+    public static boolean close(String zentaoSid, JSONObject jo, ZTResult rst) {
         // 参数赋值
         String moduleName = MODULE_NAME;
         String urlExt = ZenTaoConstants.ZT_URL_EXT;
@@ -627,10 +604,8 @@ public class ZTTaskHelper {
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_CLOSE;
         Map<String, Object> actionParams = ACTION_PARAMS_CLOSE;
         List<String> actionUrlParams = ACTION_URL_PARAMS_CLOSE;
+        String returnUrlRegexPrev = null;
 
-        String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt, jo, actionUrlParams);
-        JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, actionHttpMethod, ZenTaoHttpHelper.formatJSON(jo, actionParams, PARAMS_DATEFORMAT));
-        rst = ZenTaoHttpHelper.formatResultHTML(rstJO, rst);
-        return rst.isSuccess();
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
     }
 }
