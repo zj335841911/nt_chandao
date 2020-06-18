@@ -1,12 +1,28 @@
 <template>
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
-
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if viewStyle != "DEFAULT"  [in template "TEMPLCODE_zh_CN" at line 53, column 19]
-----
+<studio-embed-view viewName="productstatseditview9" viewTitle="产品统计编辑视图" class='deeditview9 product-stats-edit-view9'>
+    <view_form 
+                :viewState="viewState"  
+                :viewparams="viewparams" 
+                :context="context" 
+                :autosave="false" 
+                :viewtag="viewtag"
+                :showBusyIndicator="true"
+                updateAction="Update"
+                removeAction="Remove"
+                loaddraftAction="GetDraft"
+                loadAction="Get"
+                createAction="Create"
+                WFSubmitAction=""
+                WFStartAction=""
+                style='' 
+                name="form"  
+                ref='form' 
+                @save="form_save($event)"  
+                @remove="form_remove($event)"  
+                @load="form_load($event)"  
+                @closeview="closeView($event)">
+            </view_form>
+</studio-embed-view>
 </template>
 
 <script lang='tsx'>

@@ -1,12 +1,32 @@
 <template>
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
-
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if viewStyle != "DEFAULT"  [in template "TEMPLCODE_zh_CN" at line 51, column 19]
-----
+<studio-embed-view viewName="casegridview9" viewTitle="测试用例表格视图" class='degridview9 case-grid-view9'>
+    <view_grid 
+        :viewState="viewState"  
+        :viewparams="viewparams" 
+        :context="context" 
+        :isSingleSelect="isSingleSelect"
+        :showBusyIndicator="true"
+        :isOpenEdit="false"
+        :gridRowActiveMode="gridRowActiveMode"
+        @save="onSave"
+        updateAction=""
+        removeAction="Remove"
+        loaddraftAction=""
+        loadAction=""
+        createAction=""
+        fetchAction="FetchDefault"
+        :newdata="newdata"
+        :opendata="opendata"
+        name="grid"  
+        ref='grid' 
+        @selectionchange="grid_selectionchange($event)"  
+        @beforeload="grid_beforeload($event)"  
+        @rowdblclick="grid_rowdblclick($event)"  
+        @remove="grid_remove($event)"  
+        @load="grid_load($event)"  
+        @closeview="closeView($event)">
+    </view_grid>
+</studio-embed-view>
 </template>
 
 

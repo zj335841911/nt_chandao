@@ -1,12 +1,37 @@
 <template>
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
-
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if viewStyle != "DEFAULT"  [in template "TEMPLCODE_zh_CN" at line 51, column 19]
-----
+<studio-embed-view viewName="casestepmaingridview9_editmode" viewTitle="用例步骤" class='degridview9 case-step-main-grid-view9-edit-mode'>
+    <template slot='title'>
+    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
+    </template>
+    <template slot="toolbar">
+        <view-toolbar :model="toolBarModels" @item-click="toolbar_click"/>    </template>
+    <view_grid 
+        :viewState="viewState"  
+        :viewparams="viewparams" 
+        :context="context" 
+        :isSingleSelect="isSingleSelect"
+        :showBusyIndicator="true"
+        :isOpenEdit="true"
+        :gridRowActiveMode="gridRowActiveMode"
+        @save="onSave"
+        updateAction="UpdateTemp"
+        removeAction="RemoveTemp"
+        loaddraftAction="GetDraftTemp"
+        loadAction="GetTemp"
+        createAction="CreateTemp"
+        fetchAction="FetchTempDefault"
+        :newdata="newdata"
+        :opendata="opendata"
+        name="grid"  
+        ref='grid' 
+        @selectionchange="grid_selectionchange($event)"  
+        @beforeload="grid_beforeload($event)"  
+        @rowdblclick="grid_rowdblclick($event)"  
+        @remove="grid_remove($event)"  
+        @load="grid_load($event)"  
+        @closeview="closeView($event)">
+    </view_grid>
+</studio-embed-view>
 </template>
 
 

@@ -1,22 +1,20 @@
 <template>
-<div class="view-container depickupview product-pickup-view">
-    <app-studioaction :viewTitle="$t(model.srfTitle)" viewName="productpickupview"></app-studioaction>
-    <card class='view-card view-no-caption  view-no-toolbar' :dis-hover="true" :padding="0" :bordered="false">
-        <div class="content-container pickup-view">
-            <view_pickupviewpanel 
-                :viewState="viewState"  
-                :viewparams="JSON.parse(JSON.stringify(viewparams))" 
-                :context="JSON.parse(JSON.stringify(context))" 
-                :isSingleSelect="isSingleSelect"
-                :selectedData="selectedData"
-                :isShowButton="isShowButton"
-                name="pickupviewpanel"  
-                ref='pickupviewpanel' 
-                @selectionchange="pickupviewpanel_selectionchange($event)"  
-                @activated="pickupviewpanel_activated($event)"  
-                @load="pickupviewpanel_load($event)"  
-                @closeview="closeView($event)">
-            </view_pickupviewpanel>
+<studio-view viewName="productpickupview" viewTitle="product数据选择视图" class='depickupview product-pickup-view'>
+    <div class="content-container pickup-view">
+                <view_pickupviewpanel 
+                    :viewState="viewState"  
+                    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+                    :context="JSON.parse(JSON.stringify(context))" 
+                    :isSingleSelect="isSingleSelect"
+                    :selectedData="selectedData"
+                    :isShowButton="isShowButton"
+                    name="pickupviewpanel"  
+                    ref='pickupviewpanel' 
+                    @selectionchange="pickupviewpanel_selectionchange($event)"  
+                    @activated="pickupviewpanel_activated($event)"  
+                    @load="pickupviewpanel_load($event)"  
+                    @closeview="closeView($event)">
+                </view_pickupviewpanel>
             <card v-if="isShowButton" :dis-hover="true" :bordered="false" class="footer">
                 <row :style="{ textAlign: 'right' }">
                     <i-button type="primary" :disabled="this.viewSelections.length > 0 ? false : true" @click="onClickOk">{{this.containerModel.view_okbtn.text}}</i-button>
@@ -25,8 +23,7 @@
                 </row>
             </card>
         </div>
-    </card>
-</div>
+</studio-view>
 </template>
 
 
