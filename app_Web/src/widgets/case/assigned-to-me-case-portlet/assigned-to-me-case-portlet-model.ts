@@ -150,6 +150,15 @@ export default class AssignedToMeCaseModel {
       {
         name: 'casesteps',
       },
+      {
+        name: 'tobugcnt',
+      },
+      {
+        name: 'resultcnt',
+      },
+      {
+        name: 'stepcnt',
+      },
     ]
   }
 

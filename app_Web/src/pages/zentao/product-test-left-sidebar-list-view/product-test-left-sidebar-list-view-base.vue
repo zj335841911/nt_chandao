@@ -6,17 +6,7 @@
     </template>
     <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
-                <div class='toolbar-container'>
-            <i-button :title="$t('entities.product.testleftsidebarlistviewtoolbar_toolbar.deuiaction3_testmanager.tip')" v-show="toolBarModels.deuiaction3_testmanager.visabled" :disabled="toolBarModels.deuiaction3_testmanager.disabled" class='' @click="toolbar_click({ tag: 'deuiaction3_testmanager' }, $event)">
-                    <i class='fa fa-list'></i>
-                    <span class='caption'>{{$t('entities.product.testleftsidebarlistviewtoolbar_toolbar.deuiaction3_testmanager.caption')}}</span>
-                </i-button>
-            <span class='seperator'>|</span>    <i-button :title="$t('entities.product.testleftsidebarlistviewtoolbar_toolbar.deuiaction2.tip')" v-show="toolBarModels.deuiaction2.visabled" :disabled="toolBarModels.deuiaction2.disabled" class='' @click="toolbar_click({ tag: 'deuiaction2' }, $event)">
-                    <i class='fa fa-refresh'></i>
-                    <span class='caption'>{{$t('entities.product.testleftsidebarlistviewtoolbar_toolbar.deuiaction2.caption')}}</span>
-                </i-button>
-        </div>
-    </template>
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click"/>    </template>
     <view_list 
         :viewState="viewState"  
         :viewparams="viewparams" 

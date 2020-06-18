@@ -1,14 +1,79 @@
 .studio-view.view-container.mode-style2 {
+    display: flex;
+    flex-direction: column;
+
+    .view-top {
+        flex-shrink: 0;
+        height: 40px;
+        overflow: hidden;
+        color: var(--view-font-color);
+        border-bottom: 1px solid var(--app-dividing-line-color-bright);
+    }
+
+    .view-toolbar {
+        height: 100%;
+        float: left;
+    }
+
+    .quick-search {
+        float: right;
+        padding-top: 4px;
+
+        .ivu-input.ivu-input-default.ivu-input-with-suffix {
+            height: 32px;
+            line-height: 32px;
+        }
+
+        .ivu-input-icon {
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
+        }
+    }
 
     .view-header {
-        height: 40px;
+        flex-shrink: 0;
+        height: 50px;
+        border: 0;
 
-        .toolbar {
-            float: unset;
+        >.title {
+            font-size: 20px;
+        }
 
-            .toolbar-container {
+        >.quick-search {
+            float: right;
+        }
+    }
+
+    .view-content {
+        flex-grow: 1;
+        height: auto;
+    }
+
+    .view-content.show-search-form {
+        flex-direction: row;
+        overflow: hidden;
+
+        >.search-form-wrapper {
+            flex-shrink: 0;
+            overflow-y: auto;
+            overflow-x: hidden;
+
+            .app-search-form {
+                width: 300px;
                 height: 100%;
+                border-right: 1px solid var(--app-dividing-line-color-bright);
             }
         }
+
+        >.content-wrapper {
+            flex-grow: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+    }
+
+    .view-footer {
+        flex-shrink: 0;
     }
 }

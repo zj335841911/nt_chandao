@@ -3,6 +3,7 @@
 @import '../theme/app-dark.less';
 @import '../theme/app-light.less';
 @import './var.css';
+@import './vue-transition.less';
 
 // 滚动条宽度
 div::-webkit-scrollbar {
@@ -99,18 +100,21 @@ div::-webkit-scrollbar-thumb {
 }
 
 // 默认按钮样式 Start
-.ivu-btn.ivu-btn-default, .ivu-btn.ivu-btn-primary {
+.ivu-btn.ivu-btn-default,
+.ivu-btn.ivu-btn-primary {
     color: var(--view-button-color);
     background-color: var(--view-button-background-color);
     border-color: var(--view-button-background-color);
     padding: 1px 6px;
 }
 
-.ivu-btn.ivu-btn-default:hover, .ivu-btn.ivu-btn-primary:hover {
+.ivu-btn.ivu-btn-default:hover,
+.ivu-btn.ivu-btn-primary:hover {
     background: var(--view-button-background-color-active);
 }
 
-.ivu-btn.ivu-btn-default:disabled, .ivu-btn.ivu-btn-primary:disabled {
+.ivu-btn.ivu-btn-default:disabled,
+.ivu-btn.ivu-btn-primary:disabled {
     color: var(--view-button-color-active);
     background-color: var(--view-button-background-color-disabled);
     border-color: var(--view-button-background-color-disabled);
@@ -156,7 +160,7 @@ div::-webkit-scrollbar-thumb {
             .ivu-form-item.app-form-item {
                 margin-bottom: 0;
             }
-        }        
+        }
     }
 
     .el-table::before {
@@ -173,7 +177,7 @@ div::-webkit-scrollbar-thumb {
         color: var(--view-font-color-tint);
         border: none;
 
-        .el-table__body tr.current-row > td {
+        .el-table__body tr.current-row>td {
             background-color: transparent;
         }
 
@@ -402,7 +406,8 @@ div::-webkit-scrollbar-thumb {
             background: var(--form-editor-active-color);
         }
 
-        >.ivu-select-item.ivu-select-item-selected, >.ivu-select-item.ivu-select-item-focus {
+        >.ivu-select-item.ivu-select-item-selected,
+        >.ivu-select-item.ivu-select-item-focus {
             color: #fff;
             background: var(--form-editor-active-color);
         }
@@ -433,6 +438,7 @@ div::-webkit-scrollbar-thumb {
     border-color: var(--form-editor-background-color);
     color: var(--form-editor-font-color);
 }
+
 // 基础表单项禁用颜色
 .form-edit-disabled-base-color {
     background-color: var(--view-button-background-color-disabled);
@@ -480,171 +486,172 @@ div::-webkit-scrollbar-thumb {
             .ivu-form-item-label {
                 color: var(--form-label-font-color);
             }
-    
+
             .ivu-form-item-content {
-    
+
                 // 输入框通用
                 .ivu-input {
                     &:extend(.form-edit-base-color);
                 }
-    
+
                 .ivu-input::placeholder {
                     color: var(--form-editor-placeholder-font-color);
                 }
-    
+
                 // 输入框激活
                 .ivu-input:hover {
                     border-color: var(--form-editor-active-color);
                 }
-    
+
                 // 输入框禁用
                 .ivu-input[disabled] {
                     &:extend(.form-edit-disabled-base-color);
                 }
-    
+
                 // 输入框
                 .el-input {
-    
+
                     >input {
                         &:extend(.form-edit-base-color);
                     }
-    
+
                     >input::placeholder {
                         color: var(--form-editor-placeholder-font-color);
                     }
-    
+
                     >input:hover {
                         border-color: var(--form-editor-active-color);
                     }
-    
+
                     >input[disabled] {
                         &:extend(.form-edit-disabled-base-color);
                     }
                 }
-    
+
                 // 步进器
                 .el-input-number {
                     height: 32px;
                     line-height: 32px;
                     &:extend(.form-edit-base-color);
-    
+
                     >span[role="button"] {
                         background-color: var(--view-button-background-color);
                         color: var(--view-button-color);
                         border-right-color: var(--form-editor-background-color);
                         border-left-color: var(--form-editor-background-color);
                     }
-    
+
                     >.el-input {
-    
+
                         >input {
                             height: 32px;
                             line-height: 32px;
                         }
                     }
                 }
-    
+
                 // 下拉列表框
                 .dropdown-list.ivu-select.ivu-select-default {
-    
+
                     >.ivu-select-selection {
                         &:extend(.form-edit-base-color);
-    
+
                         .ivu-select-placeholder {
                             color: var(--form-editor-placeholder-font-color);
                         }
                     }
-    
+
                     >.ivu-select-selection:hover {
                         border-color: var(--form-editor-active-color);
                     }
                 }
-    
+
                 // 选项框
                 .ivu-checkbox-wrapper.ivu-checkbox-default {
-    
+
                     >.ivu-checkbox {
-    
+
                         >.ivu-checkbox-inner {
                             &:extend(.form-edit-base-color);
                         }
                     }
-    
+
                     >.ivu-checkbox.ivu-checkbox-checked {
-    
+
                         >.ivu-checkbox-inner {
                             background-color: var(--form-editor-active-color);
                         }
                     }
                 }
-    
+
                 // 滑动输入条
                 .el-slider {
-    
+
                     >.el-slider__runway {
                         &:extend(.form-edit-base-color);
-    
+
                         >.el-slider__bar {
                             background-color: var(--form-editor-active-color);
                         }
                     }
                 }
-    
+
                 // 开关-关闭
                 .el-switch {
-    
+
                     >.el-switch__core {
                         &:extend(.form-edit-base-color);
                     }
-    
+
                     >.el-switch__core:hover {
                         border-color: var(--form-editor-active-color);
                     }
                 }
-    
+
                 // 开关-打开
                 .el-switch.is-checked {
-    
+
                     >.el-switch__core {
                         background-color: var(--form-editor-active-color);
                     }
                 }
-    
+
                 // 图片上传
                 .app-picture-upload {
-                    
+
                     .el-upload.el-upload--picture-card {
                         &:extend(.form-edit-base-color);
                     }
-    
-                    .el-upload--picture-card:hover, .el-upload:focus {
+
+                    .el-upload--picture-card:hover,
+                    .el-upload:focus {
                         border-color: var(--form-editor-active-color);
                         color: var(--form-editor-active-color);
                     }
                 }
-    
+
                 // 下拉选择多选
                 .dropdown-list-mpicker.ivu-select {
                     color: var(--form-label-font-color);
-    
+
                     >.ivu-select-selection {
                         background: var(--form-editor-background-color);
                         border-color: transparent;
-    
+
                         .ivu-select-placeholder {
                             color: var(--form-editor-placeholder-font-color);
                         }
-    
+
                         .ivu-tag {
                             background: var(--form-editor-background-color);
                             border-color: var(--form-editor-active-color);
-                            
+
                             .ivu-tag-text {
                                 color: var(--form-editor-font-color);
                             }
                         }
                     }
-    
+
                     >.ivu-select-selection:hover {
                         border-color: var(--form-editor-active-color);
                     }
@@ -683,8 +690,9 @@ div::-webkit-scrollbar-thumb {
 
     .ivu-picker-panel-body {
 
-        .ivu-date-picker-cells-cell-next-month, .ivu-date-picker-cells-cell-prev-month {
-    
+        .ivu-date-picker-cells-cell-next-month,
+        .ivu-date-picker-cells-cell-prev-month {
+
             em {
                 color: var(--form-editor-placeholder-font-color);
             }
@@ -723,6 +731,7 @@ div::-webkit-scrollbar-thumb {
         }
     }
 }
+
 // 表单样式 End
 
 // 抽屉
@@ -741,24 +750,24 @@ div::-webkit-scrollbar-thumb {
 .ivu-modal-wrap.app-modal {
 
     .ivu-modal {
-    
+
         >.ivu-modal-content {
             background-color: var(--view-background-color);
             color: var(--view-font-color);
-    
+
             >.ivu-modal-close {
                 top: 2px;
             }
-    
+
             >.ivu-modal-header {
                 padding: 7px 8px;
                 border-bottom-color: var(--app-dividing-line-color-bright);
-    
+
                 >.ivu-modal-header-inner {
                     color: var(--view-font-color);
                 }
             }
-    
+
             >.ivu-modal-body {
                 padding: 0;
 
@@ -909,4 +918,40 @@ div::-webkit-scrollbar-thumb {
 .portlet-card.ivu-card {
     background: transparent;
 }
+
+// iview下拉菜单样式
+.studio-dropdown.ivu-dropdown {
+
+    .ivu-select-dropdown {
+        margin: 0;
+        padding: 0;
+        background-color: var(--view-button-background-color);
+        color: var(--view-button-color);
+        overflow: unset;
+
+        >.ivu-dropdown-menu {
+            padding: 5px 0px;
+
+            .ivu-dropdown-item {
+                color: var(--view-button-color);
+                padding: 5px 8px;
+
+                >i {
+                    min-width: 16px;
+                }
+            }
+
+            .ivu-dropdown-item:hover {
+                background-color: var(--view-button-background-color-active);
+                color: var(--view-button-color-active);
+            }
+
+            .ivu-dropdown-item.seperator {
+                padding: 0;
+                border-bottom: 1px solid var(--view-button-color);
+            }
+        }
+    }
+}
+
 @import './user.less';

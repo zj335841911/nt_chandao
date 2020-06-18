@@ -106,7 +106,7 @@ export class ViewTool {
             } else if (arg[parameterName] && !Object.is(arg[parameterName], '') && !Object.is(arg[parameterName], 'null')) {
                 value = arg[parameterName];
             }
-            routePath = `${routePath}/${pathName}` + value !== null ? `/${value}` : '';
+            routePath = `${routePath}/${pathName}` + (value !== null ? `/${value}` : '');
         });
         return routePath;
     }

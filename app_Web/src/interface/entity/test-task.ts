@@ -149,4 +149,20 @@ export interface TestTask {
      * @memberof TestTask
      */
     projecttname?: any;
+
+    /**
+     * 版本
+     *
+     * @returns {*}
+     * @memberof TestTask
+     */
+    buildname?: any;
+
+    /**
+     * 备注
+     *
+     * @returns {*}
+     * @memberof TestTask
+     */
+    comment?: any;
 }

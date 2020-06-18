@@ -1,27 +1,13 @@
 
 <template>
-<studio-embed-view viewName="actionproducttrendslistview9" viewTitle="产品动态" class='delistview9 action-product-trends-list-view9'>
-    <view_list 
-        :viewState="viewState"  
-        :viewparams="viewparams" 
-        :context="context" 
-        createAction="Create"
-        removeAction="Remove"
-        updateAction="Update"
-        fetchAction="FetchProductTrends"
-        :showBusyIndicator="true"
-        :newdata="newdata"
-        :opendata="opendata"
-        name="list"  
-        ref='list' 
-        @selectionchange="list_selectionchange($event)"  
-        @beforeload="list_beforeload($event)"  
-        @rowdblclick="list_rowdblclick($event)"  
-        @remove="list_remove($event)"  
-        @load="list_load($event)"  
-        @closeview="closeView($event)">
-    </view_list>
-</studio-embed-view>
+!!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: #if viewStyle != "DEFAULT"  [in template "TEMPLCODE_zh_CN" at line 51, column 19]
+----
 </template>
 
 <script lang='tsx'>

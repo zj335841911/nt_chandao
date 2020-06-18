@@ -5,59 +5,7 @@
     </template>
     <i-input slot="quickSearch" v-show="!isExpandSearchForm" v-model="query" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
-                <div class='toolbar-container'>
-            <i-button :title="$t('entities.build.maingridviewtoolbar_toolbar.tbitem3.tip')" v-show="toolBarModels.tbitem3.visabled" :disabled="toolBarModels.tbitem3.disabled" class='' @click="toolbar_click({ tag: 'tbitem3' }, $event)">
-                    <i class='fa fa-file-text-o'></i>
-                    <span class='caption'>{{$t('entities.build.maingridviewtoolbar_toolbar.tbitem3.caption')}}</span>
-                </i-button>
-            <i-button :title="$t('entities.build.maingridviewtoolbar_toolbar.tbitem4.tip')" v-show="toolBarModels.tbitem4.visabled" :disabled="toolBarModels.tbitem4.disabled" class='' @click="toolbar_click({ tag: 'tbitem4' }, $event)">
-                    <i class='fa fa-edit'></i>
-                    <span class='caption'>{{$t('entities.build.maingridviewtoolbar_toolbar.tbitem4.caption')}}</span>
-                </i-button>
-            <i-button :title="$t('entities.build.maingridviewtoolbar_toolbar.tbitem6.tip')" v-show="toolBarModels.tbitem6.visabled" :disabled="toolBarModels.tbitem6.disabled" class='' @click="toolbar_click({ tag: 'tbitem6' }, $event)">
-                    <i class='fa fa-copy'></i>
-                    <span class='caption'>{{$t('entities.build.maingridviewtoolbar_toolbar.tbitem6.caption')}}</span>
-                </i-button>
-            <span class='seperator'>|</span>    <i-button :title="$t('entities.build.maingridviewtoolbar_toolbar.tbitem8.tip')" v-show="toolBarModels.tbitem8.visabled" :disabled="toolBarModels.tbitem8.disabled" class='' @click="toolbar_click({ tag: 'tbitem8' }, $event)">
-                    <i class='fa fa-remove'></i>
-                    <span class='caption'>{{$t('entities.build.maingridviewtoolbar_toolbar.tbitem8.caption')}}</span>
-                </i-button>
-            <span class='seperator'>|</span>    <app-export-excel :item="toolBarModels.tbitem13" :caption="$t('entities.build.maingridviewtoolbar_toolbar.tbitem13.caption')" @exportexcel="toolbar_click({ tag: 'tbitem13' }, $event)"></app-export-excel>
-            <span class='seperator'>|</span>    <dropdown v-show="toolBarModels.tbitem16.visabled" :transfer="true" trigger='hover'>
-                <i-button class='' title="$t('entities.build.maingridviewtoolbar_toolbar.tbitem16.tip')">
-                    <i class=''></i>
-                    <span class='caption'>{{$t('entities.build.maingridviewtoolbar_toolbar.tbitem16.caption')}}</span>
-                    <icon type="ios-arrow-down"></icon>
-                </i-button>
-                <dropdown-menu slot='list'>
-                    <dropdown-item>
-                            <i-button :title="$t('entities.build.maingridviewtoolbar_toolbar.tbitem21.tip')" v-show="toolBarModels.tbitem21.visabled" :disabled="toolBarModels.tbitem21.disabled" class='' @click="toolbar_click({ tag: 'tbitem21' }, $event)">
-                    <i class='fa fa-download'></i>
-                    <span class='caption'>{{$t('entities.build.maingridviewtoolbar_toolbar.tbitem21.caption')}}</span>
-                </i-button>
-            
-            
-                    </dropdown-item>
-                    <dropdown-item>
-                            <i-button :title="$t('entities.build.maingridviewtoolbar_toolbar.tbitem23.tip')" v-show="toolBarModels.tbitem23.visabled" :disabled="toolBarModels.tbitem23.disabled" class='' @click="toolbar_click({ tag: 'tbitem23' }, $event)">
-                    <i class='fa fa-upload'></i>
-                    <span class='caption'>{{$t('entities.build.maingridviewtoolbar_toolbar.tbitem23.caption')}}</span>
-                </i-button>
-            
-            
-                    </dropdown-item>
-                </dropdown-menu>
-            </dropdown>
-            <span class='seperator'>|</span>    <i-button :title="$t('entities.build.maingridviewtoolbar_toolbar.tbitem19.tip')" v-show="toolBarModels.tbitem19.visabled" :disabled="toolBarModels.tbitem19.disabled" class='' @click="toolbar_click({ tag: 'tbitem19' }, $event)">
-                    <i class='fa fa-filter'></i>
-                    <span class='caption'>{{$t('entities.build.maingridviewtoolbar_toolbar.tbitem19.caption')}}</span>
-                </i-button>
-            <i-button :title="$t('entities.build.maingridviewtoolbar_toolbar.tbitem18.tip')" v-show="toolBarModels.tbitem18.visabled" :disabled="toolBarModels.tbitem18.disabled" class='' @click="toolbar_click({ tag: 'tbitem18' }, $event)">
-                    <i class='fa fa-question'></i>
-                    <span class='caption'>{{$t('entities.build.maingridviewtoolbar_toolbar.tbitem18.caption')}}</span>
-                </i-button>
-        </div>
-    </template>
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click"/>    </template>
     <template slot="searchForm">
                 <view_searchform 
             :viewState="viewState"  

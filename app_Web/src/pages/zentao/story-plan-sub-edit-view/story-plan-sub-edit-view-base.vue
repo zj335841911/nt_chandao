@@ -4,13 +4,7 @@
     <span class='caption-info'>{{$t(model.srfTitle)}}</span>
     </template>
     <template slot="toolbar">
-                <div class='toolbar-container'>
-            <i-button :title="$t('entities.story.plansubeditviewtoolbar_toolbar.deuiaction1.tip')" v-show="toolBarModels.deuiaction1.visabled" :disabled="toolBarModels.deuiaction1.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1' }, $event)">
-                    <i class='sx-tb-saveandclose'></i>
-                    <span class='caption'>{{$t('entities.story.plansubeditviewtoolbar_toolbar.deuiaction1.caption')}}</span>
-                </i-button>
-        </div>
-    </template>
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click"/>    </template>
     <view_form 
                 :viewState="viewState"  
                 :viewparams="viewparams" 

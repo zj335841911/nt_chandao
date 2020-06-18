@@ -11,7 +11,9 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'f78c94cb0a20d7f459753a4070f8f3e7',
+                'a3bd82ec712d2e3ad12e716655e960fc',
                 '63b82c8ee288130faca83833ec1f837c',
+                '48600bd551aa923b5fceabcb83f65239',
                 'aae1ade339fe6a2ebe367489f6393db1',
             ],
         },
@@ -352,6 +354,16 @@ export const viewstate: any = {
             refviews: [
                 '5a8a29268a7563b62fc0160233958830',
                 '7df0f0deee91304e0350f00baa8a92d6',
+            ],
+        },
+        {
+            viewtag: '48600bd551aa923b5fceabcb83f65239',
+            viewmodule: 'zentao',
+            viewname: 'TestReportGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'f340b16bd1355b1c511d9da4b00476e2',
             ],
         },
         {
@@ -719,6 +731,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '7a983ef690626958a9897f58efe15e58',
+            viewmodule: 'zentao',
+            viewname: 'TestSuiteEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '7af111f4c127f7032c3e12e8c5fc0045',
             viewmodule: 'zentao',
             viewname: 'ProductTestLeftSidebarListView',
@@ -1083,6 +1104,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'a3bd82ec712d2e3ad12e716655e960fc',
+            viewmodule: 'zentao',
+            viewname: 'TestSuiteGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '7a983ef690626958a9897f58efe15e58',
+            ],
+        },
+        {
             viewtag: 'A49E5FD9-FC90-434B-9E13-192873F6F2AC',
             viewmodule: 'zentao',
             viewname: 'ProductPortalView',
@@ -1161,6 +1192,8 @@ export const viewstate: any = {
             refviews: [
                 '5b139a407fa34f386f3f784f33841184',
                 '5273dc442a49b8c4d37ba9ff008531e7',
+                '417541fa331fc089b84936b8359403fa',
+                '7cba1f165fc6b4948ce752d3c3b68a34',
             ],
         },
         {
@@ -1470,6 +1503,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '2e0d4fb0f3e1ba1ba5bea16a5553cc21',
+            ],
+        },
+        {
+            viewtag: 'f340b16bd1355b1c511d9da4b00476e2',
+            viewmodule: 'zentao',
+            viewname: 'TestReportEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

@@ -79,6 +79,8 @@ export default class TestReportUIServiceBase extends UIService {
      * @memberof  TestReportUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'testreports'});
+        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'testreports'});
     }
 
     /**

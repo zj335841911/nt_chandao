@@ -1,6 +1,6 @@
 <template>
   <div class='tabviewpanel'>
-        <tabs :value="activiedTabViewPanel" :animated="false" class='tabexppanel' name='testtabexpviewtabexppanel' @on-click="tabPanelClick">
+        <tabs :value="activiedTabViewPanel" class='tabexppanel' name='testtabexpviewtabexppanel' @on-click="tabPanelClick">
         <tab-pane :index="0" name='tabviewpanel2' tab='testtabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
@@ -69,6 +69,52 @@
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel4>
+        </tab-pane>
+        <tab-pane :index="3" name='tabviewpanel5' tab='testtabexpviewtabexppanel' class=''  
+            :label="(h) =>{
+                return h('div', [
+                    h('span', '报告'),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel5 
+    :viewState="viewState"  
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel5"
+    name="tabviewpanel5"  
+    ref='tabviewpanel5'
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
+    @closeview="closeView($event)">
+</view_tabviewpanel5>
+        </tab-pane>
+        <tab-pane :index="4" name='tabviewpanel6' tab='testtabexpviewtabexppanel' class=''  
+            :label="(h) =>{
+                return h('div', [
+                    h('span', '套件'),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel6 
+    :viewState="viewState"  
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel6"
+    name="tabviewpanel6"  
+    ref='tabviewpanel6'
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
+    @closeview="closeView($event)">
+</view_tabviewpanel6>
         </tab-pane>
     </tabs>
   </div>
@@ -207,6 +253,8 @@ export default class TestTabExpViewtabexppanelBase extends Vue implements Contro
         tabviewpanel2:  true ,
         tabviewpanel3:  false ,
         tabviewpanel4:  false ,
+        tabviewpanel5:  false ,
+        tabviewpanel6:  false ,
     }
 
     /**

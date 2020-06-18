@@ -178,6 +178,30 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JsonProperty("project")
     private BigInteger project;
 
+    /**
+     * 属性 [PRODUCTNAME]
+     *
+     */
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
+
+    /**
+     * 属性 [PROJECTNAME]
+     *
+     */
+    @JSONField(name = "projectname")
+    @JsonProperty("projectname")
+    private String projectname;
+
+    /**
+     * 属性 [COMMENT]
+     *
+     */
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    private String comment;
+
 
     /**
      * 设置 [OBJECTID]

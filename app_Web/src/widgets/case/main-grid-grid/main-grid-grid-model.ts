@@ -37,6 +37,11 @@ export default class MainGridModel {
           dataType: 'DATETIME',
         },
         {
+          name: 'resultcnt',
+          prop: 'resultcnt',
+          dataType: 'INT',
+        },
+        {
           name: 'frombug',
           prop: 'frombug',
           dataType: 'PICKUP',
@@ -57,12 +62,12 @@ export default class MainGridModel {
           dataType: 'TEXT',
         },
         {
-          name: 'srfkey',
+          name: 'srfdataaccaction',
           prop: 'id',
           dataType: 'ACID',
         },
         {
-          name: 'srfdataaccaction',
+          name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
         },
@@ -102,6 +107,11 @@ export default class MainGridModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'branch',
+          prop: 'branch',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'fromcaseid',
           prop: 'fromcaseid',
           dataType: 'PICKUP',
@@ -112,14 +122,19 @@ export default class MainGridModel {
           dataType: 'SSCODELIST',
         },
         {
-          name: 'branch',
-          prop: 'branch',
-          dataType: 'PICKUP',
+          name: 'casesteps',
+          prop: 'casesteps',
+          dataType: 'ONE2MANYDATA',
         },
         {
           name: 'lastrunner',
           prop: 'lastrunner',
           dataType: 'TEXT',
+        },
+        {
+          name: 'tobugcnt',
+          prop: 'tobugcnt',
+          dataType: 'INT',
         },
         {
           name: 'case',

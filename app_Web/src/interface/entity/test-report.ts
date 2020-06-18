@@ -157,4 +157,28 @@ export interface TestReport {
      * @memberof TestReport
      */
     project?: any;
+
+    /**
+     * 所属产品
+     *
+     * @returns {*}
+     * @memberof TestReport
+     */
+    productname?: any;
+
+    /**
+     * 所属项目
+     *
+     * @returns {*}
+     * @memberof TestReport
+     */
+    projectname?: any;
+
+    /**
+     * 备注
+     *
+     * @returns {*}
+     * @memberof TestReport
+     */
+    comment?: any;
 }

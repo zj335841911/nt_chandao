@@ -69,6 +69,12 @@ export default class MainDetailModel {
       {
         name: 'projecttname',
       },
+      {
+        name: 'buildname',
+      },
+      {
+        name: 'comment',
+      },
     ]
   }
 

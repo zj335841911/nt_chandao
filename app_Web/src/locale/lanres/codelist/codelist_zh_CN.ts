@@ -430,6 +430,9 @@ export default {
         'blocked': '阻塞',
         empty: '',
     },
+    TestTask: {
+        empty: '',
+    },
     Bug__pri: {
         '1': '1',
         '2': '2',

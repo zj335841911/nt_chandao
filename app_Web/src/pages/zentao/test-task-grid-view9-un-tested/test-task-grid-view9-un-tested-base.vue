@@ -1,32 +1,12 @@
 <template>
-<studio-embed-view viewName="testtaskgridview9_untested" viewTitle="测试版本表格视图" class='degridview9 test-task-grid-view9-un-tested'>
-    <view_grid 
-        :viewState="viewState"  
-        :viewparams="viewparams" 
-        :context="context" 
-        :isSingleSelect="isSingleSelect"
-        :showBusyIndicator="true"
-        :isOpenEdit="false"
-        :gridRowActiveMode="gridRowActiveMode"
-        @save="onSave"
-        updateAction=""
-        removeAction="Remove"
-        loaddraftAction=""
-        loadAction=""
-        createAction=""
-        fetchAction="FetchDefault"
-        :newdata="newdata"
-        :opendata="opendata"
-        name="grid"  
-        ref='grid' 
-        @selectionchange="grid_selectionchange($event)"  
-        @beforeload="grid_beforeload($event)"  
-        @rowdblclick="grid_rowdblclick($event)"  
-        @remove="grid_remove($event)"  
-        @load="grid_load($event)"  
-        @closeview="closeView($event)">
-    </view_grid>
-</studio-embed-view>
+!!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: #if viewStyle != "DEFAULT"  [in template "TEMPLCODE_zh_CN" at line 51, column 19]
+----
 </template>
 
 
@@ -542,16 +522,28 @@ export default class TestTaskGridView9_UnTestedBase extends Vue {
         }
         const parameters: any[] = [
             { pathName: 'testtasks', parameterName: 'testtask' },
-            { pathName: 'editview', parameterName: 'editview' },
         ];
         const _this: any = this;
-        const openIndexViewTab = (data: any) => {
-            const _data: any = { w: (new Date().getTime()) };
-            Object.assign(_data, data);
-            const routePath = this.$viewTool.buildUpRoutePath(this.$route, tempContext, deResParameters, parameters, args, _data);
-            this.$router.push(routePath);
+        const openDrawer = (view: any, data: any) => {
+            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
+            container.subscribe((result: any) => {
+                if (!result || !Object.is(result.ret, 'OK')) {
+                    return;
+                }
+                if (!xData || !(xData.refresh instanceof Function)) {
+                    return;
+                }
+                xData.refresh(result.datas);
+            });
         }
-        openIndexViewTab(data);
+        const view: any = {
+            viewname: 'test-task-edit-view', 
+            height: 0, 
+            width: 0,  
+            title: this.$t('entities.testtask.views.editview.title'),
+            placement: 'DRAWER_TOP',
+        };
+        openDrawer(view, data);
     }
 
 
@@ -581,14 +573,28 @@ export default class TestTaskGridView9_UnTestedBase extends Vue {
         }
         const parameters: any[] = [
             { pathName: 'testtasks', parameterName: 'testtask' },
-            { pathName: 'editview', parameterName: 'editview' },
         ];
         const _this: any = this;
-        const openIndexViewTab = (data: any) => {
-            const routePath = this.$viewTool.buildUpRoutePath(this.$route, tempContext, deResParameters, parameters, args, data);
-            this.$router.push(routePath);
+        const openDrawer = (view: any, data: any) => {
+            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
+            container.subscribe((result: any) => {
+                if (!result || !Object.is(result.ret, 'OK')) {
+                    return;
+                }
+                if (!xData || !(xData.refresh instanceof Function)) {
+                    return;
+                }
+                xData.refresh(result.datas);
+            });
         }
-        openIndexViewTab(data);
+        const view: any = {
+            viewname: 'test-task-edit-view', 
+            height: 0, 
+            width: 0,  
+            title: this.$t('entities.testtask.views.editview.title'),
+            placement: 'DRAWER_TOP',
+        };
+        openDrawer(view, data);
     }
 
 

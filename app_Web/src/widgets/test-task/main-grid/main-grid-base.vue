@@ -105,7 +105,9 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.owner}}</span>
+                        <template >
+            <codelist :value="row.owner" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                        </template>
                     </template>
                 </el-table-column>
             </template>
@@ -147,14 +149,39 @@
                     </template>
                 </el-table-column>
             </template>
-            !!!!模版产生代码错误:----
-            Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-            ----
-            
-            ----
-            FTL stack trace ("~" means nesting-related):
-            	- Failed at: #if item.getPSDEUIActionGroup().getPS...  [in template "TEMPLCODE_zh_CN" at line 100, column 3]
-            ----
+            <template v-if="getColumnState('uagridcolumn1')">
+                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.testtask.main_grid.columns.uagridcolumn1')" :width="250"  :align="'center'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.testtask.main_grid.columns.uagridcolumn1')}}
+                      </span>
+                    </template>
+                    <template slot-scope="scope">
+                        <span>
+                            
+                            <a @click="uiAction(scope.row, 'LinkCase', $event)">
+                              <i class='fa fa-link'></i>
+                              
+                            </a>
+                            <divider type='vertical'></divider>
+                            <a @click="uiAction(scope.row, 'OpenInfoView', $event)">
+                              <i class='fa fa-stack-exchange'></i>
+                              
+                            </a>
+                            <divider type='vertical'></divider>
+                            <a @click="uiAction(scope.row, 'Edit', $event)">
+                              <i class='fa fa-edit'></i>
+                              
+                            </a>
+                            <divider type='vertical'></divider>
+                            <a @click="uiAction(scope.row, 'Remove', $event)">
+                              <i class='fa fa-remove'></i>
+                              
+                            </a>
+                        </span>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="adaptiveState">
                 <el-table-column></el-table-column>
             </template>
@@ -206,6 +233,7 @@ import { UIActionTool,Util } from '@/utils';
 import TestTaskService from '@/service/test-task/test-task-service';
 import MainService from './main-grid-service';
 
+import TestTaskUIService from '@/uiservice/test-task/test-task-ui-service';
 import CodeListService from "@service/app/codelist-service";
 import { FormItemModel } from '@/model/form-detail';
 
@@ -294,6 +322,161 @@ export default class MainBase extends Vue implements ControlInterface {
      */
     public appEntityService: TestTaskService = new TestTaskService({ $store: this.$store });
     
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u6b02f33_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TestTaskUIService  = new TestTaskUIService();
+        curUIService.TestTask_LinkCase(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u9008f43_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TestTaskUIService  = new TestTaskUIService();
+        curUIService.TestTask_OpenInfoView(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u43e90ce_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.Edit(datas, contextJO,paramJO,  $event, xData,this,"TestTask");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u4d10156_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.Remove(datas, contextJO,paramJO,  $event, xData,this,"TestTask");
+    }
+
+    /**
+     * 编辑
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof TestTaskGridViewBase
+     */
+    public Edit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        if (args.length === 0) {
+            return;
+        }
+        const _this: any = this;
+        if (_this.opendata && _this.opendata instanceof Function) {
+            const data: any = { };
+            if (args.length > 0) {
+                Object.assign(data, { testtask: args[0].testtask })
+            }
+            _this.opendata([{ ...data }], params, $event, xData);
+        } else {
+            _this.$Notice.error({ title: '错误', desc: 'opendata 视图处理逻辑不存在，请添加!' });
+        }
+    }
+    /**
+     * 删除
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof TestTaskGridViewBase
+     */
+    public Remove(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        const _this: any = this;
+        if (!xData || !(xData.remove instanceof Function)) {
+            return ;
+        }
+        xData.remove(args);
+    }
 
 
     /**
@@ -1090,6 +1273,14 @@ export default class MainBase extends Vue implements ControlInterface {
     public async formatExcelData(filterVal:any, jsonData:any) {
         let codelistColumns:Array<any> = [
           {
+            name: 'owner',
+            srfkey: 'UserRealName',
+            codelistType : 'DYNAMIC',
+            textSeparator: ',',
+            renderMode: 'string',
+            valueSeparator: ",",
+          },
+          {
             name: 'status',
             srfkey: 'Testtask__status',
             codelistType : 'STATIC',
@@ -1444,6 +1635,18 @@ export default class MainBase extends Vue implements ControlInterface {
      */
 	public uiAction(row: any, tag: any, $event: any) {
         $event.stopPropagation();
+        if(Object.is('LinkCase', tag)) {
+            this.grid_uagridcolumn1_u6b02f33_click(row, tag, $event);
+        }
+        if(Object.is('OpenInfoView', tag)) {
+            this.grid_uagridcolumn1_u9008f43_click(row, tag, $event);
+        }
+        if(Object.is('Edit', tag)) {
+            this.grid_uagridcolumn1_u43e90ce_click(row, tag, $event);
+        }
+        if(Object.is('Remove', tag)) {
+            this.grid_uagridcolumn1_u4d10156_click(row, tag, $event);
+        }
     }
 
     /**

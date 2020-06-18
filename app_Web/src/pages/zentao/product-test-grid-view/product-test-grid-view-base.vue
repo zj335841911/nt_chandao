@@ -5,30 +5,7 @@
     </template>
     <i-input slot="quickSearch" v-show="!isExpandSearchForm" v-model="query" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
-                <div class='toolbar-container'>
-            <i-button :title="$t('entities.product.testgridviewtoolbar_toolbar.tbitem4.tip')" v-show="toolBarModels.tbitem4.visabled" :disabled="toolBarModels.tbitem4.disabled" class='' @click="toolbar_click({ tag: 'tbitem4' }, $event)">
-                    <i class='fa fa-edit'></i>
-                    <span class='caption'>{{$t('entities.product.testgridviewtoolbar_toolbar.tbitem4.caption')}}</span>
-                </i-button>
-            <span class='seperator'>|</span>    <dropdown v-show="toolBarModels.tbitem16.visabled" :transfer="true" trigger='hover'>
-                <i-button class='' title="$t('entities.product.testgridviewtoolbar_toolbar.tbitem16.tip')">
-                    <i class=''></i>
-                    <span class='caption'>{{$t('entities.product.testgridviewtoolbar_toolbar.tbitem16.caption')}}</span>
-                    <icon type="ios-arrow-down"></icon>
-                </i-button>
-                <dropdown-menu slot='list'>
-                    <dropdown-item>
-                            <i-button :title="$t('entities.product.testgridviewtoolbar_toolbar.tbitem21.tip')" v-show="toolBarModels.tbitem21.visabled" :disabled="toolBarModels.tbitem21.disabled" class='' @click="toolbar_click({ tag: 'tbitem21' }, $event)">
-                    <i class='fa fa-download'></i>
-                    <span class='caption'>{{$t('entities.product.testgridviewtoolbar_toolbar.tbitem21.caption')}}</span>
-                </i-button>
-            
-            
-                    </dropdown-item>
-                </dropdown-menu>
-            </dropdown>
-        </div>
-    </template>
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click"/>    </template>
     <template slot="searchForm">
                 <view_searchform 
             :viewState="viewState"  

@@ -2,23 +2,152 @@
     <i-form :model="this.data" class='app-form' ref='form'  id='testtask_main' style="">
     <input style="display:none;" />
     <row >
-    <tabs :animated="false" size="small" name='main' :value="detailsModel.form.activiedPage" 
-        @on-click="detailsModel.form.clickPage($event)">
-            <tab-pane v-show="detailsModel.formpage1.visible" name='formpage1' :index="0" tab='main' class=''  
-                :label="(h) =>{
-                    return h('span',{
-                        class:'caption'
-                    },[
-                    $t('entities.testtask.main_form.details.formpage1')
-                    ])
-                }">
-                    
+            
 <i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.testtask.main_form.details.group1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.testtask.main_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
-        <i-col v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.testtask.main_form.details.name')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
+        <i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 16, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.testtask.main_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+        <i-col v-show="detailsModel.projecttname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='projecttname' :itemRules="this.rules.projecttname" class='' :caption="$t('entities.testtask.main_form.details.projecttname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.projecttname.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-picker  
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.projecttname.disabled"
+  name='projecttname' 
+  deMajorField='name'
+  deKeyField='project'
+  :service="service"
+  :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchDefault'}"
+  valueitem='project' 
+  :value="data.projecttname" 
+  editortype="dropdown" 
+  style="" 
+  @formitemvaluechange="onFormItemValueChange">
+</app-picker>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.buildname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='buildname' :itemRules="this.rules.buildname" class='' :caption="$t('entities.testtask.main_form.details.buildname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.buildname.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-picker  
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.buildname.disabled"
+  name='buildname' 
+  deMajorField='name'
+  deKeyField='build'
+  :service="service"
+  :acParams="{ serviceName: 'BuildService', interfaceName: 'FetchDefault'}"
+  valueitem='build' 
+  :value="data.buildname" 
+  editortype="dropdown" 
+  style="" 
+  @formitemvaluechange="onFormItemValueChange">
+</app-picker>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.owner.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+    <app-form-item name='owner' :itemRules="this.rules.owner" class='' :caption="$t('entities.testtask.main_form.details.owner')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.owner.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.owner"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.owner.disabled" type='text'  style=""></input-box>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.pri.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+    <app-form-item name='pri' :itemRules="this.rules.pri" class='' :caption="$t('entities.testtask.main_form.details.pri')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.pri.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+ <dropdown-list 
+    v-model="data.pri" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.pri.disabled"  
+    tag='Testtask__pri' 
+    codelistType='STATIC'
+    placeholder='请选择...' style="">
+ </dropdown-list>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.testtask.main_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+        <i-col v-show="detailsModel.begin.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+    <app-form-item name='begin' :itemRules="this.rules.begin" class='' :caption="$t('entities.testtask.main_form.details.begin')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.begin.error" :isEmptyCaption="false" labelPos="LEFT">
+    <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.begin" :disabled="detailsModel.begin.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.begin = val1 }"></date-picker>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.end.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+    <app-form-item name='end' :itemRules="this.rules.end" class='' :caption="$t('entities.testtask.main_form.details.end')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.end.error" :isEmptyCaption="false" labelPos="LEFT">
+    <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.end" :disabled="detailsModel.end.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.end = val1 }"></date-picker>
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col v-show="detailsModel.status.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='status' :itemRules="this.rules.status" class='' :caption="$t('entities.testtask.main_form.details.status')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.status.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+ <dropdown-list 
+    v-model="data.status" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.status.disabled"  
+    tag='Testtask__status' 
+    codelistType='STATIC'
+    placeholder='请选择...' style="">
+ </dropdown-list>
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.testtask.main_form.details.name')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box v-model="data.name"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.name.disabled" type='text'  style=""></input-box>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.testtask.main_form.details.desc')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-rich-text-editor :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled"  name="desc" style=""></app-rich-text-editor>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.comment.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='comment' :itemRules="this.rules.comment" class='' :caption="$t('entities.testtask.main_form.details.comment')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.comment.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled"  name="comment" style=""></app-rich-text-editor>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.mailto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='mailto' :itemRules="this.rules.mailto" class='' :caption="$t('entities.testtask.main_form.details.mailto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.mailto.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+
 </app-form-item>
 
 </i-col>
@@ -29,28 +158,6 @@
 </i-col>
 
 
-            </tab-pane> 
-            <tab-pane v-show="detailsModel.formpage2.visible" name='formpage2' :index="1" tab='main' class=''  
-                :label="(h) =>{
-                    return h('span',{
-                        class:'caption'
-                    },[
-                    $t('entities.testtask.main_form.details.formpage2')
-                    ])
-                }">
-                    
-<i-col v-show="detailsModel.group2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.testtask.main_form.details.group2')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
-    <row>
-            
-    </row>
-</app-form-group>
-
-</i-col>
-
-
-            </tab-pane> 
-    </tabs>
     </row>
 </i-form>
 </template>
@@ -354,8 +461,20 @@ export default class MainBase extends Vue implements ControlInterface {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        projecttname: null,
+        buildname: null,
+        owner: null,
+        pri: null,
+        begin: null,
+        end: null,
+        status: null,
         name: null,
+        desc: null,
+        comment: null,
+        mailto: null,
         id: null,
+        project: null,
+        build: null,
         testtask:null,
     };
 
@@ -440,17 +559,89 @@ export default class MainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
+        projecttname: [
+            { type: 'string', message: '项目 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '项目 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '项目 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '项目 值不能为空', trigger: 'blur' },
+        ],
+        buildname: [
+            { type: 'string', message: '版本 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '版本 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '版本 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '版本 值不能为空', trigger: 'blur' },
+        ],
+        owner: [
+            { type: 'string', message: '负责人 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '负责人 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '负责人 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '负责人 值不能为空', trigger: 'blur' },
+        ],
+        pri: [
+            { type: 'number', message: '优先级 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '优先级 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '优先级 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '优先级 值不能为空', trigger: 'blur' },
+        ],
+        begin: [
+            { type: 'string', message: '开始日期 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '开始日期 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '开始日期 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '开始日期 值不能为空', trigger: 'blur' },
+        ],
+        end: [
+            { type: 'string', message: '结束日期 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '结束日期 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '结束日期 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '结束日期 值不能为空', trigger: 'blur' },
+        ],
+        status: [
+            { type: 'string', message: '当前状态 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '当前状态 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '当前状态 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '当前状态 值不能为空', trigger: 'blur' },
+        ],
         name: [
             { type: 'string', message: '名称 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '名称 值必须为字符串类型', trigger: 'blur' },
             { required: true, type: 'string', message: '名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '名称 值不能为空', trigger: 'blur' },
         ],
+        desc: [
+            { type: 'string', message: '描述 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '描述 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '描述 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '描述 值不能为空', trigger: 'blur' },
+        ],
+        comment: [
+            { type: 'string', message: '备注 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '备注 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '备注 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '备注 值不能为空', trigger: 'blur' },
+        ],
+        mailto: [
+            { type: 'string', message: '抄送给 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '抄送给 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '抄送给 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '抄送给 值不能为空', trigger: 'blur' },
+        ],
         id: [
             { type: 'number', message: '编号 值必须为数值类型', trigger: 'change' },
             { type: 'number', message: '编号 值必须为数值类型', trigger: 'blur' },
             { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
+        ],
+        project: [
+            { type: 'number', message: '所属项目 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '所属项目 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '所属项目 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '所属项目 值不能为空', trigger: 'blur' },
+        ],
+        build: [
+            { type: 'number', message: '版本 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '版本 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '版本 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '版本 值不能为空', trigger: 'blur' },
         ],
     }
 
@@ -461,13 +652,13 @@ export default class MainBase extends Vue implements ControlInterface {
      * @memberof Main
      */
     public detailsModel: any = {
-        group1: new FormGroupPanelModel({ caption: 'testtask基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.testtask.main_form', extractMode: 'ITEM', details: [] } })
+        grouppanel2: new FormGroupPanelModel({ caption: '起止日期', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.testtask.main_form', extractMode: 'ITEM', details: [] } })
+, 
+        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.testtask.main_form', extractMode: 'ITEM', details: [] } })
+, 
+        group1: new FormGroupPanelModel({ caption: '基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.testtask.main_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
-, 
-        group2: new FormGroupPanelModel({ caption: '操作信息', detailType: 'GROUPPANEL', name: 'group2', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.testtask.main_form', extractMode: 'ITEM', details: [] } })
-, 
-        formpage2: new FormPageModel({ caption: '其它', detailType: 'FORMPAGE', name: 'formpage2', visible: true, isShowCaption: true, form: this })
 , 
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -483,11 +674,34 @@ export default class MainBase extends Vue implements ControlInterface {
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        projecttname: new FormItemModel({ caption: '项目', detailType: 'FORMITEM', name: 'projecttname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        buildname: new FormItemModel({ caption: '版本', detailType: 'FORMITEM', name: 'buildname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        owner: new FormItemModel({ caption: '负责人', detailType: 'FORMITEM', name: 'owner', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        begin: new FormItemModel({ caption: '开始日期', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        end: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        status: new FormItemModel({ caption: '当前状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         name: new FormItemModel({ caption: '名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
-        form: new FormTabPanelModel({ caption: 'form', detailType: 'TABPANEL', name: 'form', visible: true, isShowCaption: true, form: this, tabPages: [{ name: 'formpage1', index: 0, visible: true }, { name: 'formpage2', index: 1, visible: true }] }),
+        project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        build: new FormItemModel({ caption: '版本', detailType: 'FORMITEM', name: 'build', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
     };
 
     /**
@@ -575,6 +789,90 @@ export default class MainBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 projecttname 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.projecttname')
+    onProjecttnameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'projecttname', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 buildname 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.buildname')
+    onBuildnameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'buildname', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 owner 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.owner')
+    onOwnerChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'owner', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 pri 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.pri')
+    onPriChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'pri', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 begin 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.begin')
+    onBeginChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'begin', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 end 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.end')
+    onEndChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'end', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 status 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.status')
+    onStatusChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'status', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 name 值
      *
      * @param {*} newVal
@@ -587,6 +885,42 @@ export default class MainBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 desc 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.desc')
+    onDescChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'desc', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 comment 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.comment')
+    onCommentChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'comment', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 mailto 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.mailto')
+    onMailtoChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'mailto', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
@@ -596,6 +930,30 @@ export default class MainBase extends Vue implements ControlInterface {
     @Watch('data.id')
     onIdChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 project 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.project')
+    onProjectChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'project', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 build 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.build')
+    onBuildChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'build', newVal: newVal, oldVal: oldVal });
     }
 
 
@@ -634,6 +992,18 @@ export default class MainBase extends Vue implements ControlInterface {
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

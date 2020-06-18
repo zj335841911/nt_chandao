@@ -5,17 +5,7 @@
         <app-quick-group :items="quickGroupModel" @valuechange="qucikGroupValueChange"></app-quick-group>
     </template>
     <template slot="toolbar">
-                <div class='toolbar-container'>
-            <i-button :title="$t('entities.story.maingridviewtoolbar_toolbar.deuiaction1.tip')" v-show="toolBarModels.deuiaction1.visabled" :disabled="toolBarModels.deuiaction1.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1' }, $event)">
-                    <i class='fa fa-file-text-o'></i>
-                    <span class='caption'>{{$t('entities.story.maingridviewtoolbar_toolbar.deuiaction1.caption')}}</span>
-                </i-button>
-            <span class='seperator'>|</span>    <i-button :title="$t('entities.story.maingridviewtoolbar_toolbar.deuiaction2.tip')" v-show="toolBarModels.deuiaction2.visabled" :disabled="toolBarModels.deuiaction2.disabled" class='' @click="toolbar_click({ tag: 'deuiaction2' }, $event)">
-                    <i class='fa fa-edit'></i>
-                    <span class='caption'>{{$t('entities.story.maingridviewtoolbar_toolbar.deuiaction2.caption')}}</span>
-                </i-button>
-        </div>
-    </template>
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click"/>    </template>
     <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 

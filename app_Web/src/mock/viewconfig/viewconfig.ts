@@ -335,6 +335,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugEditView",
             "viewtag": "46517a803b2470cd0bef27aeda0dbcaf"
         },
+        "testreportgridview": {
+            "title": "testreport表格视图",
+            "caption": "测试报告",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestReportGridView",
+            "viewtag": "48600bd551aa923b5fceabcb83f65239"
+        },
         "storyeditview": {
             "title": "story编辑视图",
             "caption": "需求",
@@ -647,6 +655,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskGridView9_AssignedToMe",
             "viewtag": "79b3a14f0431747becc48f5b9f3aa990"
         },
+        "testsuiteeditview": {
+            "title": "testsuite编辑视图",
+            "caption": "测试套件",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestSuiteEditView",
+            "viewtag": "7a983ef690626958a9897f58efe15e58"
+        },
         "producttestleftsidebarlistview": {
             "title": "所有产品",
             "caption": "测试",
@@ -934,6 +950,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "StoryMainGridView",
             "viewtag": "a2c585e16c82b5dec03db7146b9a6fa4"
+        },
+        "testsuitegridview": {
+            "title": "testsuite表格视图",
+            "caption": "测试套件",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestSuiteGridView",
+            "viewtag": "a3bd82ec712d2e3ad12e716655e960fc"
         },
         "productportalview": {
             "title": "产品主页",
@@ -1326,6 +1350,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TaskMainDetailView9",
             "viewtag": "ef6cfafd09bb61ddb6fec7840f78e97d"
+        },
+        "testreporteditview": {
+            "title": "testreport编辑视图",
+            "caption": "测试报告",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestReportEditView",
+            "viewtag": "f340b16bd1355b1c511d9da4b00476e2"
         },
         "casestepmaingridview9": {
             "title": "用例步骤",

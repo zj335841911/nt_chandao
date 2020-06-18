@@ -4,6 +4,31 @@
     width: 100%;
     background: var(--view-background-color);
 
+    .quick-search {
+        float: left;
+        width: 230px;
+        margin-right: 30px;
+
+        .ivu-input.ivu-input-default.ivu-input-with-suffix {
+            height: 28px;
+            line-height: 28px;
+            border: 1px solid var(--form-editor-background-color);
+            color: var(--form-editor-font-color);
+            background-color: var(--form-editor-background-color);
+        }
+
+        .ivu-input.ivu-input-default.ivu-input-with-suffix:hover {
+            border-color: var(--form-editor-active-color)
+        }
+
+        .ivu-input-icon {
+            width: 28px;
+            height: 28px;
+            line-height: 28px;
+            color: var(--view-button-color);
+        }
+    }
+
     >.view-header {
         height: 36px;
         width: 100%;
@@ -27,34 +52,6 @@
         >.quick-group-search, >.quick-search-form {
             float: left;
             height: 100%;
-        }
-
-        >.quick-search {
-            float: left;
-            width: 230px;
-            margin-right: 30px;
-
-            >.ivu-input-wrapper.ivu-input-wrapper-default.ivu-input-type-text {
-
-                >.ivu-input.ivu-input-default.ivu-input-with-suffix {
-                    height: 28px;
-                    line-height: 28px;
-                    border: 1px solid var(--form-editor-background-color);
-                    color: var(--form-editor-font-color);
-                    background-color: var(--form-editor-background-color);
-                }
-
-                >.ivu-input.ivu-input-default.ivu-input-with-suffix:hover {
-                    border-color: var(--form-editor-active-color)
-                }
-
-                >.ivu-input-icon {
-                    width: 28px;
-                    height: 28px;
-                    line-height: 28px;
-                    color: var(--view-button-color);
-                }
-            }
         }
 
         >.toolbar {

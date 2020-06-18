@@ -2,21 +2,7 @@
 <studio-view viewName="bugplansubgridview" viewTitle="Bug" class='degridview bug-plan-sub-grid-view'>
     <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
-                <div class='toolbar-container'>
-            <i-button :title="$t('entities.bug.plansubgridviewtoolbar_toolbar.deuiaction3_planrelationbug.tip')" v-show="toolBarModels.deuiaction3_planrelationbug.visabled" :disabled="toolBarModels.deuiaction3_planrelationbug.disabled" class='' @click="toolbar_click({ tag: 'deuiaction3_planrelationbug' }, $event)">
-                    <i class='fa fa-chain'></i>
-                    <span class='caption'>{{$t('entities.bug.plansubgridviewtoolbar_toolbar.deuiaction3_planrelationbug.caption')}}</span>
-                </i-button>
-            <span class='seperator'>|</span>    <i-button :title="$t('entities.bug.plansubgridviewtoolbar_toolbar.deuiaction4.tip')" v-show="toolBarModels.deuiaction4.visabled" :disabled="toolBarModels.deuiaction4.disabled" class='' @click="toolbar_click({ tag: 'deuiaction4' }, $event)">
-                    <i class='fa fa-remove'></i>
-                    <span class='caption'>{{$t('entities.bug.plansubgridviewtoolbar_toolbar.deuiaction4.caption')}}</span>
-                </i-button>
-            <span class='seperator'>|</span>    <i-button :title="$t('entities.bug.plansubgridviewtoolbar_toolbar.deuiaction2.tip')" v-show="toolBarModels.deuiaction2.visabled" :disabled="toolBarModels.deuiaction2.disabled" class='' @click="toolbar_click({ tag: 'deuiaction2' }, $event)">
-                    <i class='fa fa-refresh'></i>
-                    <span class='caption'>{{$t('entities.bug.plansubgridviewtoolbar_toolbar.deuiaction2.caption')}}</span>
-                </i-button>
-        </div>
-    </template>
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click"/>    </template>
     <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 

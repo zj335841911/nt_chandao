@@ -69,6 +69,12 @@ export default class DashboardModel {
       {
         name: 'projecttname',
       },
+      {
+        name: 'buildname',
+      },
+      {
+        name: 'comment',
+      },
     ]
   }
 

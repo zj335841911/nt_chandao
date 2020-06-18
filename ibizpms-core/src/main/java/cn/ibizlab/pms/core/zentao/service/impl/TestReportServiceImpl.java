@@ -56,6 +56,7 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
     @Override
     @Transactional
     public boolean update(TestReport et) {
+        fillParentData(et);
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -64,6 +65,7 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
 
     @Override
     public void updateBatch(List<TestReport> list) {
+        list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
     }
 
@@ -106,18 +108,21 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
 
     @Override
     public boolean saveBatch(Collection<TestReport> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
     public void saveBatch(List<TestReport> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
     @Override
     @Transactional
     public boolean create(TestReport et) {
+        fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -126,6 +131,7 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
 
     @Override
     public void createBatch(List<TestReport> list) {
+        list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
     }
 
@@ -143,6 +149,7 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
 
     @Override
     public TestReport getDraft(TestReport et) {
+        fillParentData(et);
         return et;
     }
 
@@ -179,6 +186,32 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
 
 
 
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(TestReport et){
+        //实体关系[DER1N_ZT_TESTREPORT_ZT_PRODUCT_PRODUCT]
+        if(!ObjectUtils.isEmpty(et.getProduct())){
+            cn.ibizlab.pms.core.zentao.domain.Product ztproduct=et.getZtproduct();
+            if(ObjectUtils.isEmpty(ztproduct)){
+                cn.ibizlab.pms.core.zentao.domain.Product majorEntity=productService.get(et.getProduct());
+                et.setZtproduct(majorEntity);
+                ztproduct=majorEntity;
+            }
+            et.setProductname(ztproduct.getName());
+        }
+        //实体关系[DER1N_ZT_TESTREPORT_ZT_PROJECT_PROJECT]
+        if(!ObjectUtils.isEmpty(et.getProject())){
+            cn.ibizlab.pms.core.zentao.domain.Project ztproject=et.getZtproject();
+            if(ObjectUtils.isEmpty(ztproject)){
+                cn.ibizlab.pms.core.zentao.domain.Project majorEntity=projectService.get(et.getProject());
+                et.setZtproject(majorEntity);
+                ztproject=majorEntity;
+            }
+            et.setProjectname(ztproject.getName());
+        }
+    }
 
 
     @Override

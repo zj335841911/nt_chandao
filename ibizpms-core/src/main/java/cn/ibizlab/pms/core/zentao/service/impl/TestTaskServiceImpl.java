@@ -64,6 +64,7 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
 
     @Override
     public TestTask getDraft(TestTask et) {
+        fillParentData(et);
         return et;
     }
 
@@ -102,18 +103,21 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
 
     @Override
     public boolean saveBatch(Collection<TestTask> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
     public void saveBatch(List<TestTask> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
     @Override
     @Transactional
     public boolean create(TestTask et) {
+        fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -122,12 +126,14 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
 
     @Override
     public void createBatch(List<TestTask> list) {
+        list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(TestTask et) {
+        fillParentData(et);
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -136,6 +142,7 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
 
     @Override
     public void updateBatch(List<TestTask> list) {
+        list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
     }
 
@@ -198,6 +205,42 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
 
 
 
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(TestTask et){
+        //实体关系[DER1N_ZT_TESTTASK_ZT_BUILD_BUILD]
+        if(!ObjectUtils.isEmpty(et.getBuild())){
+            cn.ibizlab.pms.core.zentao.domain.Build ztbuild=et.getZtbuild();
+            if(ObjectUtils.isEmpty(ztbuild)){
+                cn.ibizlab.pms.core.zentao.domain.Build majorEntity=buildService.get(et.getBuild());
+                et.setZtbuild(majorEntity);
+                ztbuild=majorEntity;
+            }
+            et.setBuildname(ztbuild.getName());
+        }
+        //实体关系[DER1N_ZT_TESTTASK_ZT_PRODUCT_PRODUCT]
+        if(!ObjectUtils.isEmpty(et.getProduct())){
+            cn.ibizlab.pms.core.zentao.domain.Product ztproduct=et.getZtproduct();
+            if(ObjectUtils.isEmpty(ztproduct)){
+                cn.ibizlab.pms.core.zentao.domain.Product majorEntity=productService.get(et.getProduct());
+                et.setZtproduct(majorEntity);
+                ztproduct=majorEntity;
+            }
+            et.setProductname(ztproduct.getName());
+        }
+        //实体关系[DER1N_ZT_TESTTASK_ZT_PROJECT_PROJECT]
+        if(!ObjectUtils.isEmpty(et.getProject())){
+            cn.ibizlab.pms.core.zentao.domain.Project ztproject=et.getZtproject();
+            if(ObjectUtils.isEmpty(ztproject)){
+                cn.ibizlab.pms.core.zentao.domain.Project majorEntity=projectService.get(et.getProject());
+                et.setZtproject(majorEntity);
+                ztproject=majorEntity;
+            }
+            et.setProjecttname(ztproject.getName());
+        }
+    }
 
 
     @Override

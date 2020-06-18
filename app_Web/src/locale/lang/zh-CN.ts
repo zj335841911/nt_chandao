@@ -2,6 +2,7 @@ import productplan_zh_CN from '@locale/lanres/entities/product-plan/product-plan
 import projectproduct_zh_CN from '@locale/lanres/entities/project-product/project-product_zh_CN';
 import case_zh_CN from '@locale/lanres/entities/case/case_zh_CN';
 import product_zh_CN from '@locale/lanres/entities/product/product_zh_CN';
+import suitecase_zh_CN from '@locale/lanres/entities/suite-case/suite-case_zh_CN';
 import burn_zh_CN from '@locale/lanres/entities/burn/burn_zh_CN';
 import subproductplan_zh_CN from '@locale/lanres/entities/sub-product-plan/sub-product-plan_zh_CN';
 import storyspec_zh_CN from '@locale/lanres/entities/story-spec/story-spec_zh_CN';
@@ -23,6 +24,7 @@ import productlife_zh_CN from '@locale/lanres/entities/product-life/product-life
 import task_zh_CN from '@locale/lanres/entities/task/task_zh_CN';
 import build_zh_CN from '@locale/lanres/entities/build/build_zh_CN';
 import testresult_zh_CN from '@locale/lanres/entities/test-result/test-result_zh_CN';
+import testsuite_zh_CN from '@locale/lanres/entities/test-suite/test-suite_zh_CN';
 import testtask_zh_CN from '@locale/lanres/entities/test-task/test-task_zh_CN';
 import testreport_zh_CN from '@locale/lanres/entities/test-report/test-report_zh_CN';
 import projectstats_zh_CN from '@locale/lanres/entities/project-stats/project-stats_zh_CN';
@@ -122,6 +124,7 @@ export default {
         projectproduct: projectproduct_zh_CN,
         case: case_zh_CN,
         product: product_zh_CN,
+        suitecase: suitecase_zh_CN,
         burn: burn_zh_CN,
         subproductplan: subproductplan_zh_CN,
         storyspec: storyspec_zh_CN,
@@ -143,6 +146,7 @@ export default {
         task: task_zh_CN,
         build: build_zh_CN,
         testresult: testresult_zh_CN,
+        testsuite: testsuite_zh_CN,
         testtask: testtask_zh_CN,
         testreport: testreport_zh_CN,
         projectstats: projectstats_zh_CN,

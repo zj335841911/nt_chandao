@@ -18,7 +18,7 @@ export class ViewToolbar extends Vue {
      * @type {('DEFAULT' | 'STYLE2')}
      * @memberof ViewToolbar
      */
-    @Prop({ default: 'STYLE2' })
+    @Prop({ default: 'DEFAULT' })
     public mode!: 'DEFAULT' | 'STYLE2';
 
     /**
@@ -106,6 +106,9 @@ export class ViewToolbar extends Vue {
             return;
         }
         return items.map((item: any) => {
+            if (item.type === 'SEPERATOR') {
+                return <li class="ivu-dropdown-item seperator"></li>;
+            }
             if (item.items && item.items.length > 0) {
                 return this.renderMenuGroup(item);
             }
@@ -157,11 +160,11 @@ export class ViewToolbar extends Vue {
      */
     protected renderStyle2(): any {
         return this.items.map((item: ToolbarItem) => {
+            let content: any;
             if (item.type === 'SEPERATOR') {
-                return this.renderSeperator();
-            }
-            if (!item.items) {
-                return <i-button
+                content = this.renderSeperator();
+            } else if (!item.items) {
+                content = <i-button
                     v-show={item.visabled}
                     disabled={item.disabled}
                     title={item.tooltip}
@@ -173,26 +176,27 @@ export class ViewToolbar extends Vue {
                     {item.isShowIcon ? <menu-icon item={item} /> : null}
                     {item.isShowCaption ? item.caption : ''}
                 </i-button>;
+            } else {
+                content = <dropdown v-show={item.visabled} class="studio-dropdown toolbar-dropdown" placement="bottom-start" stop-propagation>
+                    {<i-button
+                        v-show={item.visabled}
+                        disabled={item.disabled}
+                        title={item.tooltip}
+                        class={item.class}
+                        type="text"
+                        ghost
+                    >
+                        {item.isShowIcon ? <menu-icon item={item} /> : null}
+                        {item.isShowCaption ? item.caption : ''}
+                        <icon type="ios-arrow-down"/>
+                    </i-button>}
+                    <dropdownMenu slot="list">
+                        {this.renderMenuItems(item.items)}
+                    </dropdownMenu>
+                </dropdown>;
             }
-            return <dropdown v-show={item.visabled} class="toolbar-dropdown" placement="bottom-end" stop-propagation>
-                {<i-button
-                    v-show={item.visabled}
-                    disabled={item.disabled}
-                    title={item.tooltip}
-                    class={item.class}
-                    type="text"
-                    ghost
-                >
-                    {item.isShowIcon ? <menu-icon item={item} /> : null}
-                    {item.isShowCaption ? item.caption : ''}
-                    <icon type="ios-arrow-down"/>
-                </i-button>}
-                <dropdownMenu slot="list">
-                    {this.renderMenuItems(item.items)}
-                </dropdownMenu>
-            </dropdown>
+            return <div class="toolbar-item">{content}</div>
         });
-        return
     }
 
     /**

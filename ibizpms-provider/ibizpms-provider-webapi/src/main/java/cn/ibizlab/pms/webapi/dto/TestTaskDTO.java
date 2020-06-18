@@ -169,6 +169,22 @@ public class TestTaskDTO extends DTOBase implements Serializable {
     @JsonProperty("projecttname")
     private String projecttname;
 
+    /**
+     * 属性 [BUILDNAME]
+     *
+     */
+    @JSONField(name = "buildname")
+    @JsonProperty("buildname")
+    private String buildname;
+
+    /**
+     * 属性 [COMMENT]
+     *
+     */
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    private String comment;
+
 
     /**
      * 设置 [END]

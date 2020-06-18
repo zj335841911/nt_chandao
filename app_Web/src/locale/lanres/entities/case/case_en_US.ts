@@ -46,6 +46,9 @@ export default {
     storyname: '需求名称',
     productname: '产品名称',
     casesteps: '用例步骤集合',
+    tobugcnt: '转bug数',
+    resultcnt: '测试结果数',
+    stepcnt: '用例步骤数',
   },
 	views: {
 		editview: {
@@ -248,7 +251,9 @@ export default {
 			lastrundate: "执行时间",
 			lastrunresult: "结果",
 			status: "状态",
-			branch: "B",
+			tobugcnt: "B",
+			resultcnt: "R",
+			casesteps: "S",
 			uagridcolumn1: "操作",
 		},
 		uiactions: {

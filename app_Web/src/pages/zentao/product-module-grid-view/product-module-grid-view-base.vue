@@ -1,17 +1,7 @@
 <template>
 <studio-view viewName="productmodulegridview" viewTitle="产品模块表格视图" class='degridview product-module-grid-view'>
     <template slot="toolbar">
-                <div class='toolbar-container'>
-            <i-button :title="$t('entities.productmodule.gridviewtoolbar_toolbar.deuiaction2.tip')" v-show="toolBarModels.deuiaction2.visabled" :disabled="toolBarModels.deuiaction2.disabled" class='' @click="toolbar_click({ tag: 'deuiaction2' }, $event)">
-                    <i class='fa fa-plus'></i>
-                    <span class='caption'>{{$t('entities.productmodule.gridviewtoolbar_toolbar.deuiaction2.caption')}}</span>
-                </i-button>
-            <i-button :title="$t('entities.productmodule.gridviewtoolbar_toolbar.deuiaction3.tip')" v-show="toolBarModels.deuiaction3.visabled" :disabled="toolBarModels.deuiaction3.disabled" class='' @click="toolbar_click({ tag: 'deuiaction3' }, $event)">
-                    <i class='fa fa-save'></i>
-                    <span class='caption'>{{$t('entities.productmodule.gridviewtoolbar_toolbar.deuiaction3.caption')}}</span>
-                </i-button>
-        </div>
-    </template>
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click"/>    </template>
     <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 

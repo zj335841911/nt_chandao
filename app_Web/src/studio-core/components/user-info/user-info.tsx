@@ -170,7 +170,7 @@ export class UserInfo extends Vue {
      * @memberof UserInfo
      */
     public render(): any {
-        return <dropdown class="user-info-dropdown-menus" placement="bottom-end" on-on-click={(name: string) => this.onSelect(name)}>
+        return <dropdown class="studio-dropdown user-info-dropdown-menus" placement="bottom-end" on-on-click={(name: string) => this.onSelect(name)}>
             <div class="user-info">
                 <div class="user-head-sculpture">埃</div>
                 <span>

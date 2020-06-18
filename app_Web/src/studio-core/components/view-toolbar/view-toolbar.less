@@ -16,7 +16,7 @@
         >span {
 
             >i {
-                padding-right: 3px;
+                min-width: 20px;
             }
         }
     }
@@ -28,12 +28,40 @@
 // 模式二工具栏样式
 .toolbar-container.style2 {
     height: 100%;
+    border: 1px solid transparent;
+
+    .toolbar-item {
+        display: inline-block;
+        height: 100%;
+    }
+
+    .seperator {
+        margin: 0;
+    }
+
+    .ivu-btn.ivu-btn-text {
+        color: var(--view-font-color-bright);
+    }
+
+    .ivu-btn.ivu-btn-text:disabled {
+        color: rgba(var(--view-font-color-bright-rgb), 0.5);
+    }
+
+    .ivu-btn.ivu-btn-text:disabled:hover {
+        background-color: transparent;
+    }
+
+    .ivu-btn.ivu-btn-text:hover {
+        background-color: rgba(var(--view-button-background-color-active-rgb), 0.2);
+    }
 
     .ivu-btn {
         height: 100%;
         font-size: 14px;
         padding: 0;
         padding-left: 5px;
+        padding-right: 5px;
+        margin: 0;
 
         i {
             font-size: 16px;
@@ -42,10 +70,6 @@
 
     .ivu-btn:focus {
         box-shadow: unset;
-    }
-
-    .seperator {
-        height: 100%;
     }
 
     .ivu-dropdown.toolbar-dropdown {
@@ -59,6 +83,4 @@
             .toolbar-container.style2 .ivu-btn;
         }
     }
-
-
 }

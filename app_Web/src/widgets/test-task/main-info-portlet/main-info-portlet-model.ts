@@ -69,6 +69,12 @@ export default class MainInfoModel {
       {
         name: 'projecttname',
       },
+      {
+        name: 'buildname',
+      },
+      {
+        name: 'comment',
+      },
     ]
   }
 

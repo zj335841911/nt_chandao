@@ -90,6 +90,20 @@ public class TestTaskSearchContext extends QueryWrapperContext<TestTask> {
             this.getSearchCond().like("projecttname", n_projecttname_like);
         }
     }
+	private String n_buildname_eq;//[版本]
+	public void setN_buildname_eq(String n_buildname_eq) {
+        this.n_buildname_eq = n_buildname_eq;
+        if(!ObjectUtils.isEmpty(this.n_buildname_eq)){
+            this.getSearchCond().eq("buildname", n_buildname_eq);
+        }
+    }
+	private String n_buildname_like;//[版本]
+	public void setN_buildname_like(String n_buildname_like) {
+        this.n_buildname_like = n_buildname_like;
+        if(!ObjectUtils.isEmpty(this.n_buildname_like)){
+            this.getSearchCond().like("buildname", n_buildname_like);
+        }
+    }
 
     /**
 	 * 启用快速搜索

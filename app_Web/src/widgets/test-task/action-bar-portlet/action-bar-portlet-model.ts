@@ -69,6 +69,12 @@ export default class ActionBarModel {
       {
         name: 'projecttname',
       },
+      {
+        name: 'buildname',
+      },
+      {
+        name: 'comment',
+      },
     ]
   }
 

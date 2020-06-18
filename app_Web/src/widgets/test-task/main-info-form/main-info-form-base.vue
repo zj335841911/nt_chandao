@@ -33,7 +33,7 @@
 <i-col v-show="detailsModel.owner.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='owner' :itemRules="this.rules.owner" class='' :caption="$t('entities.testtask.maininfo_form.details.owner')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.owner.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<app-span name='owner' :value="data.owner" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+<app-span name='owner' :value="data.owner" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>

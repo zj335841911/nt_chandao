@@ -139,15 +139,39 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('branch')">
-                <el-table-column show-overflow-tooltip :prop="'branch'" :label="$t('entities.case.maingrid_grid.columns.branch')" :width="100"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('tobugcnt')">
+                <el-table-column show-overflow-tooltip :prop="'tobugcnt'" :label="$t('entities.case.maingrid_grid.columns.tobugcnt')" :width="50"  :align="'left'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.case.maingrid_grid.columns.branch')}}
+                        {{$t('entities.case.maingrid_grid.columns.tobugcnt')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.branch}}</span>
+                        <span>{{row.tobugcnt}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('resultcnt')">
+                <el-table-column show-overflow-tooltip :prop="'resultcnt'" :label="$t('entities.case.maingrid_grid.columns.resultcnt')" :width="50"  :align="'left'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.case.maingrid_grid.columns.resultcnt')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.resultcnt}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('casesteps')">
+                <el-table-column show-overflow-tooltip :prop="'casesteps'" :label="$t('entities.case.maingrid_grid.columns.casesteps')" :width="50"  :align="'left'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.case.maingrid_grid.columns.casesteps')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.casesteps}}</span>
                     </template>
                 </el-table-column>
             </template>
@@ -908,9 +932,23 @@ export default class MainGridBase extends Vue implements ControlInterface {
             util: 'PX'
         },
         {
-            name: 'branch',
+            name: 'tobugcnt',
             label: 'B',
-            langtag: 'entities.case.maingrid_grid.columns.branch',
+            langtag: 'entities.case.maingrid_grid.columns.tobugcnt',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'resultcnt',
+            label: 'R',
+            langtag: 'entities.case.maingrid_grid.columns.resultcnt',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'casesteps',
+            label: 'S',
+            langtag: 'entities.case.maingrid_grid.columns.casesteps',
             show: true,
             util: 'PX'
         },

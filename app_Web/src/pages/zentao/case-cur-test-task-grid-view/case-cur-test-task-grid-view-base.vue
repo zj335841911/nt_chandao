@@ -2,25 +2,7 @@
 <studio-view viewName="casecurtesttaskgridview" viewTitle="功能测试" class='degridview case-cur-test-task-grid-view'>
     <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
-                <div class='toolbar-container'>
-            <i-button :title="$t('entities.case.curtesttaskgridviewtoolbar_toolbar.deuiaction3_batchnew.tip')" v-show="toolBarModels.deuiaction3_batchnew.visabled" :disabled="toolBarModels.deuiaction3_batchnew.disabled" class='' @click="toolbar_click({ tag: 'deuiaction3_batchnew' }, $event)">
-                    <i class='fa fa-plus'></i>
-                    <span class='caption'>{{$t('entities.case.curtesttaskgridviewtoolbar_toolbar.deuiaction3_batchnew.caption')}}</span>
-                </i-button>
-            <span class='seperator'>|</span>    <i-button :title="$t('entities.case.curtesttaskgridviewtoolbar_toolbar.deuiaction1.tip')" v-show="toolBarModels.deuiaction1.visabled" :disabled="toolBarModels.deuiaction1.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1' }, $event)">
-                    <i class='fa fa-plus'></i>
-                    <span class='caption'>{{$t('entities.case.curtesttaskgridviewtoolbar_toolbar.deuiaction1.caption')}}</span>
-                </i-button>
-            <i-button :title="$t('entities.case.curtesttaskgridviewtoolbar_toolbar.deuiaction4.tip')" v-show="toolBarModels.deuiaction4.visabled" :disabled="toolBarModels.deuiaction4.disabled" class='' @click="toolbar_click({ tag: 'deuiaction4' }, $event)">
-                    <i class='fa fa-remove'></i>
-                    <span class='caption'>{{$t('entities.case.curtesttaskgridviewtoolbar_toolbar.deuiaction4.caption')}}</span>
-                </i-button>
-            <span class='seperator'>|</span>    <i-button :title="$t('entities.case.curtesttaskgridviewtoolbar_toolbar.deuiaction2.tip')" v-show="toolBarModels.deuiaction2.visabled" :disabled="toolBarModels.deuiaction2.disabled" class='' @click="toolbar_click({ tag: 'deuiaction2' }, $event)">
-                    <i class='fa fa-refresh'></i>
-                    <span class='caption'>{{$t('entities.case.curtesttaskgridviewtoolbar_toolbar.deuiaction2.caption')}}</span>
-                </i-button>
-        </div>
-    </template>
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click"/>    </template>
     <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 

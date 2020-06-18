@@ -69,6 +69,12 @@ export default class MainTabExpViewtabexppanelModel {
       {
         name: 'projecttname',
       },
+      {
+        name: 'buildname',
+      },
+      {
+        name: 'comment',
+      },
     ]
   }
 

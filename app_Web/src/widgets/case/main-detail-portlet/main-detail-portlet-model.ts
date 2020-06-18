@@ -150,6 +150,15 @@ export default class MainDetailModel {
       {
         name: 'casesteps',
       },
+      {
+        name: 'tobugcnt',
+      },
+      {
+        name: 'resultcnt',
+      },
+      {
+        name: 'stepcnt',
+      },
     ]
   }
 

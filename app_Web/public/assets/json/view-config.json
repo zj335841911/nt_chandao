@@ -409,6 +409,16 @@
         "viewtag": "46517a803b2470cd0bef27aeda0dbcaf",
         "memo": "临时充当主信息展示页面"
     },
+    "testreportgridview": {
+        "title": "testreport表格视图",
+        "caption": "测试报告",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestReportGridView",
+        "viewfilename": "test-report-grid-view",
+        "viewtag": "48600bd551aa923b5fceabcb83f65239",
+        "memo": ""
+    },
     "storyeditview": {
         "title": "story编辑视图",
         "caption": "需求",
@@ -799,6 +809,16 @@
         "viewtag": "79b3a14f0431747becc48f5b9f3aa990",
         "memo": ""
     },
+    "testsuiteeditview": {
+        "title": "testsuite编辑视图",
+        "caption": "测试套件",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestSuiteEditView",
+        "viewfilename": "test-suite-edit-view",
+        "viewtag": "7a983ef690626958a9897f58efe15e58",
+        "memo": ""
+    },
     "producttestleftsidebarlistview": {
         "title": "所有产品",
         "caption": "测试",
@@ -1157,6 +1177,16 @@
         "viewname": "StoryMainGridView",
         "viewfilename": "story-main-grid-view",
         "viewtag": "a2c585e16c82b5dec03db7146b9a6fa4",
+        "memo": ""
+    },
+    "testsuitegridview": {
+        "title": "testsuite表格视图",
+        "caption": "测试套件",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestSuiteGridView",
+        "viewfilename": "test-suite-grid-view",
+        "viewtag": "a3bd82ec712d2e3ad12e716655e960fc",
         "memo": ""
     },
     "productportalview": {
@@ -1647,6 +1677,16 @@
         "viewname": "TaskMainDetailView9",
         "viewfilename": "task-main-detail-view9",
         "viewtag": "ef6cfafd09bb61ddb6fec7840f78e97d",
+        "memo": ""
+    },
+    "testreporteditview": {
+        "title": "testreport编辑视图",
+        "caption": "测试报告",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestReportEditView",
+        "viewfilename": "test-report-edit-view",
+        "viewtag": "f340b16bd1355b1c511d9da4b00476e2",
         "memo": ""
     },
     "casestepmaingridview9": {

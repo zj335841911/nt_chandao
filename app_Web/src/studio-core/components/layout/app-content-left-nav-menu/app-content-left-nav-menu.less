@@ -1,12 +1,36 @@
+// 滚动条宽度
+.app-content-lef-nav-menu::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background: transparent;
+}
+
+// 滚动槽
+.app-content-lef-nav-menu::-webkit-scrollbar-track {
+    border-radius: 0;
+    box-shadow: none;
+    border: 0;
+}
+
+// 滚动条滑块
+.app-content-lef-nav-menu::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    box-shadow: none;
+    border: 0;
+    background-color: var(--app-scroll-bar-color);
+}
+
 .app-content-lef-nav-menu {
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
+    border-right: 1px solid var(--app-dividing-line-color-bright);
+    background-color: var(--app-header-background-color);
 
     .el-menu {
         min-height: 100%;
         background-color: var(--app-header-background-color);
-        border-right-color: var(--app-dividing-line-color-bright);
+        border: 0;
 
         .el-menu-item,
         .el-submenu>.el-submenu__title {

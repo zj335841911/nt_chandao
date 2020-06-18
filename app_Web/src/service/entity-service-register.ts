@@ -43,6 +43,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('projectproduct', () => import('@/service/project-product/project-product-service'));
         this.allEntityService.set('case', () => import('@/service/case/case-service'));
         this.allEntityService.set('product', () => import('@/service/product/product-service'));
+        this.allEntityService.set('suitecase', () => import('@/service/suite-case/suite-case-service'));
         this.allEntityService.set('burn', () => import('@/service/burn/burn-service'));
         this.allEntityService.set('subproductplan', () => import('@/service/sub-product-plan/sub-product-plan-service'));
         this.allEntityService.set('storyspec', () => import('@/service/story-spec/story-spec-service'));
@@ -64,6 +65,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('task', () => import('@/service/task/task-service'));
         this.allEntityService.set('build', () => import('@/service/build/build-service'));
         this.allEntityService.set('testresult', () => import('@/service/test-result/test-result-service'));
+        this.allEntityService.set('testsuite', () => import('@/service/test-suite/test-suite-service'));
         this.allEntityService.set('testtask', () => import('@/service/test-task/test-task-service'));
         this.allEntityService.set('testreport', () => import('@/service/test-report/test-report-service'));
         this.allEntityService.set('projectstats', () => import('@/service/project-stats/project-stats-service'));

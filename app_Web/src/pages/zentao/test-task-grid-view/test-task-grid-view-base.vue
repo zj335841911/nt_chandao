@@ -2,21 +2,7 @@
 <studio-view viewName="testtaskgridview" viewTitle="testtask表格视图" class='degridview test-task-grid-view'>
     <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
-                <div class='toolbar-container'>
-            <i-button :title="$t('entities.testtask.gridviewtoolbar_toolbar.deuiaction1.tip')" v-show="toolBarModels.deuiaction1.visabled" :disabled="toolBarModels.deuiaction1.disabled" class='' @click="toolbar_click({ tag: 'deuiaction1' }, $event)">
-                    <i class='fa fa-plus'></i>
-                    <span class='caption'>{{$t('entities.testtask.gridviewtoolbar_toolbar.deuiaction1.caption')}}</span>
-                </i-button>
-            <i-button :title="$t('entities.testtask.gridviewtoolbar_toolbar.deuiaction4.tip')" v-show="toolBarModels.deuiaction4.visabled" :disabled="toolBarModels.deuiaction4.disabled" class='' @click="toolbar_click({ tag: 'deuiaction4' }, $event)">
-                    <i class='fa fa-remove'></i>
-                    <span class='caption'>{{$t('entities.testtask.gridviewtoolbar_toolbar.deuiaction4.caption')}}</span>
-                </i-button>
-            <span class='seperator'>|</span>    <i-button :title="$t('entities.testtask.gridviewtoolbar_toolbar.deuiaction2.tip')" v-show="toolBarModels.deuiaction2.visabled" :disabled="toolBarModels.deuiaction2.disabled" class='' @click="toolbar_click({ tag: 'deuiaction2' }, $event)">
-                    <i class='fa fa-refresh'></i>
-                    <span class='caption'>{{$t('entities.testtask.gridviewtoolbar_toolbar.deuiaction2.caption')}}</span>
-                </i-button>
-        </div>
-    </template>
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click"/>    </template>
     <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 
@@ -679,16 +665,28 @@ export default class TestTaskGridViewBase extends Vue {
         }
         const parameters: any[] = [
             { pathName: 'testtasks', parameterName: 'testtask' },
-            { pathName: 'editview', parameterName: 'editview' },
         ];
         const _this: any = this;
-        const openIndexViewTab = (data: any) => {
-            const _data: any = { w: (new Date().getTime()) };
-            Object.assign(_data, data);
-            const routePath = this.$viewTool.buildUpRoutePath(this.$route, tempContext, deResParameters, parameters, args, _data);
-            this.$router.push(routePath);
+        const openDrawer = (view: any, data: any) => {
+            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
+            container.subscribe((result: any) => {
+                if (!result || !Object.is(result.ret, 'OK')) {
+                    return;
+                }
+                if (!xData || !(xData.refresh instanceof Function)) {
+                    return;
+                }
+                xData.refresh(result.datas);
+            });
         }
-        openIndexViewTab(data);
+        const view: any = {
+            viewname: 'test-task-edit-view', 
+            height: 0, 
+            width: 0,  
+            title: this.$t('entities.testtask.views.editview.title'),
+            placement: 'DRAWER_RIGHT',
+        };
+        openDrawer(view, data);
     }
 
 

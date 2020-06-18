@@ -365,4 +365,28 @@ export interface Case {
      * @memberof Case
      */
     casesteps?: any;
+
+    /**
+     * 转bug数
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    tobugcnt?: any;
+
+    /**
+     * 测试结果数
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    resultcnt?: any;
+
+    /**
+     * 用例步骤数
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    stepcnt?: any;
 }
