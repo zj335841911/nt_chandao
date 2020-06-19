@@ -193,14 +193,6 @@ public class ProjectModuleDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [ORDER]
-     */
-    public void setOrder(Integer  order){
-        this.order = order ;
-        this.modify("order",order);
-    }
-
-    /**
      * 设置 [BRANCH]
      */
     public void setBranch(Integer  branch){

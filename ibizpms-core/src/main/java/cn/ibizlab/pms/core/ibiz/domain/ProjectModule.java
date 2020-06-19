@@ -50,6 +50,7 @@ public class ProjectModule extends EntityMP implements Serializable {
     /**
      * collector
      */
+    @DEField(defaultValue = "/")
     @TableField(value = "collector")
     @JSONField(name = "collector")
     @JsonProperty("collector")
@@ -120,7 +121,7 @@ public class ProjectModule extends EntityMP implements Serializable {
     /**
      * order
      */
-    @DEField(defaultValue = "0")
+    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.ORDERVALUE)
     @TableField(value = "order")
     @JSONField(name = "order")
     @JsonProperty("order")
@@ -220,14 +221,6 @@ public class ProjectModule extends EntityMP implements Serializable {
     public void setGrade(Integer grade){
         this.grade = grade ;
         this.modify("grade",grade);
-    }
-
-    /**
-     * 设置 [order]
-     */
-    public void setOrder(Integer order){
-        this.order = order ;
-        this.modify("order",order);
     }
 
     /**
