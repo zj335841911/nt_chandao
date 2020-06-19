@@ -99,6 +99,7 @@ export default class ProductModuleTreeExpViewBase extends Vue {
 	 * @memberof ProductModuleTreeExpViewBase
 	 */
     public customViewNavContexts:any ={
+    "MODULETYPE":{"isRawValue":true,"value":"story"}
     };
 
 	/**

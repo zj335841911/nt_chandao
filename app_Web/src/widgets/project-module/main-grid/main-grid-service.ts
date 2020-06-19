@@ -283,7 +283,7 @@ export default class MainService extends ControlService {
     public mergeDefaults(response:any = {}){ 
         if(response.data){                    
             Object.assign(response.data,{'parent':'srfparentkey'});
-            Object.assign(response.data,{'type':'task'});
+            Object.assign(response.data,{'type':'moduletype'});
         }
     }
 

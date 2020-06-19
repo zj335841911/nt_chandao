@@ -1610,7 +1610,7 @@ export default class MainBase extends Vue implements ControlInterface {
             row['parent'] = this.viewparams['srfparentkey'];
         }
         if (row.hasOwnProperty('type')) {
-            row['type'] = 'task';
+            row['type'] = this.viewparams['moduletype'];
         }
     }
 }

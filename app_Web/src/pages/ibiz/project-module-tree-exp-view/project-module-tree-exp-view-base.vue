@@ -99,6 +99,7 @@ export default class ProjectModuleTreeExpViewBase extends Vue {
 	 * @memberof ProjectModuleTreeExpViewBase
 	 */
     public customViewNavContexts:any ={
+    "MODULETYPE":{"isRawValue":true,"value":"task"}
     };
 
 	/**
