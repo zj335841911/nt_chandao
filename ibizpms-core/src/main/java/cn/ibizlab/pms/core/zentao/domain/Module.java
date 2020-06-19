@@ -80,6 +80,7 @@ public class Module extends EntityMP implements Serializable {
     /**
      * 负责人
      */
+    @DEField(defaultValue = "/")
     @TableField(value = "owner")
     @JSONField(name = "owner")
     @JsonProperty("owner")
@@ -95,6 +96,7 @@ public class Module extends EntityMP implements Serializable {
     /**
      * 收藏者
      */
+    @DEField(defaultValue = "/")
     @TableField(value = "collector")
     @JSONField(name = "collector")
     @JsonProperty("collector")
@@ -102,7 +104,7 @@ public class Module extends EntityMP implements Serializable {
     /**
      * 简称
      */
-    @DEField(name = "short")
+    @DEField(defaultValue = "/")
     @TableField(value = "short")
     @JSONField(name = "ibizshort")
     @JsonProperty("ibizshort")
@@ -110,6 +112,7 @@ public class Module extends EntityMP implements Serializable {
     /**
      * 路径
      */
+    @DEField(defaultValue = "，")
     @TableField(value = "path")
     @JSONField(name = "path")
     @JsonProperty("path")

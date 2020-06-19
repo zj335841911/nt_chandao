@@ -42,6 +42,7 @@ public class ProductModule extends EntityMP implements Serializable {
     /**
      * path
      */
+    @DEField(defaultValue = ",")
     @TableField(value = "path")
     @JSONField(name = "path")
     @JsonProperty("path")
@@ -73,7 +74,7 @@ public class ProductModule extends EntityMP implements Serializable {
     /**
      * 短名称
      */
-    @DEField(name = "short")
+    @DEField(defaultValue = "/")
     @TableField(value = "short")
     @JSONField(name = "ibizshort")
     @JsonProperty("ibizshort")
@@ -105,6 +106,7 @@ public class ProductModule extends EntityMP implements Serializable {
     /**
      * owner
      */
+    @DEField(defaultValue = "/")
     @TableField(value = "owner")
     @JSONField(name = "owner")
     @JsonProperty("owner")
@@ -127,6 +129,7 @@ public class ProductModule extends EntityMP implements Serializable {
     /**
      * collector
      */
+    @DEField(defaultValue = "/")
     @TableField(value = "collector")
     @JSONField(name = "collector")
     @JsonProperty("collector")

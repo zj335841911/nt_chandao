@@ -81,6 +81,7 @@ public class ProjectModule extends EntityMP implements Serializable {
     /**
      * path
      */
+    @DEField(defaultValue = ",")
     @TableField(value = "path")
     @JSONField(name = "path")
     @JsonProperty("path")
@@ -88,6 +89,7 @@ public class ProjectModule extends EntityMP implements Serializable {
     /**
      * owner
      */
+    @DEField(defaultValue = "/")
     @TableField(value = "owner")
     @JSONField(name = "owner")
     @JsonProperty("owner")
