@@ -94,6 +94,7 @@
     <sql id="Default" databaseId="mysql">
        <![CDATA[	SELECT t1.`BRANCH`, t1.`DELETED`, t1.`GRADE`, t1.`ID`, (CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`, t1.`NAME`, t1.`ORDER`, t1.`OWNER`, t1.`PARENT`, t1.`PATH`, t1.`ROOT`, t1.`SHORT`, t1.`TYPE` FROM `zt_module` t1  
 				 WHERE 	t1.DELETED = '0'
+					 AND ( t1.`TYPE` = 'task' )
 			]]>
     </sql>
     <!--数据查询[Root]-->
