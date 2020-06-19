@@ -1,18 +1,12 @@
 <template>
     <i-form :model="this.data" class='app-search-form' ref='searchform' style="">
   <input style="display:none;"/>
-  <row>
-    <i-col span="20" class="form-content">
-      <row>
-                </row>
-    </i-col>
-    <i-col span="4" class="search-button">
-      <row v-show="Object.keys(data).length>0">
-        <i-button class='search_reset'  size="default" type="primary"  @click="onSearch">{{$t('app.searchButton.search')}}</i-button>
-        <i-button class='search_reset'  size="default"  @click="onReset">{{this.$t('app.searchButton.reset')}}</i-button>
-      </row>
-    </i-col>
-  </row>
+  <div class="search-button">
+    <i-button size="small" type="primary" ghost @click="onSearch">{{$t('app.searchButton.search')}}</i-button>
+    <i-button size="small" type="default" ghost @click="onReset">{{this.$t('app.searchButton.reset')}}</i-button>
+  </div>
+  <div class="form-content">
+          </div>
 </i-form>
 </template>
 <script lang='tsx'>

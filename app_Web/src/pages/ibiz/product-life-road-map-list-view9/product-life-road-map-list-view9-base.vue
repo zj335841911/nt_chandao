@@ -24,18 +24,21 @@
 
 <script lang='tsx'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
-import { UIActionTool,Util } from '@/utils';
 import { Subject } from 'rxjs';
+import { UIActionTool, Util } from '@/utils';
 import ProductLifeService from '@/service/product-life/product-life-service';
 
 import ListView9Engine from '@engine/view/list-view9-engine';
 
 
-
-@Component({
-    components: {
-    },
-})
+/**
+ * 路线图视图基类
+ *
+ * @export
+ * @class ProductLifeRoadMapListView9Base
+ * @extends {Vue}
+ */
+@Component({})
 export default class ProductLifeRoadMapListView9Base extends Vue {
 
     /**
@@ -44,87 +47,47 @@ export default class ProductLifeRoadMapListView9Base extends Vue {
      * @type {ProductLifeService}
      * @memberof ProductLifeRoadMapListView9Base
      */
-    public appEntityService: ProductLifeService = new ProductLifeService;
+    protected appEntityService: ProductLifeService = new ProductLifeService;
 
 
     /**
      * 计数器服务对象集合
      *
+     * @protected
      * @type {Array<*>}
      * @memberof ProductLifeRoadMapListView9Base
      */    
-    public counterServiceArray:Array<any> = [];
-    
-    /**
-     * 数据变化
-     *
-     * @param {*} val
-     * @returns {*}
-     * @memberof ProductLifeRoadMapListView9Base
-     */
-    @Emit() 
-    public viewDatasChange(val: any):any {
-        return val;
-    }
-
-    /**
-     * 传入视图上下文
-     *
-     * @type {string}
-     * @memberof ProductLifeRoadMapListView9Base
-     */
-    @Prop() public viewdata!: string;
-
-    /**
-     * 传入视图参数
-     *
-     * @type {string}
-     * @memberof ProductLifeRoadMapListView9Base
-     */
-    @Prop() public viewparam!: string;
-
-    /**
-     * 视图默认使用
-     *
-     * @type {boolean}
-     * @memberof ProductLifeRoadMapListView9Base
-     */
-    @Prop({ default: true }) public viewDefaultUsage!: boolean;
-
-	/**
-	 * 视图标识
-	 *
-	 * @type {string}
-	 * @memberof ProductLifeRoadMapListView9Base
-	 */
-	public viewtag: string = '985c8eb7591e5e00de8e3cda638d5727';
+    protected counterServiceArray: Array<any> = [];
 
 	/**
 	 * 自定义视图导航上下文集合
 	 *
+     * @protected
 	 * @type {*}
 	 * @memberof ProductLifeRoadMapListView9Base
 	 */
-    public customViewNavContexts:any ={
+    protected customViewNavContexts: any = {
     };
 
 	/**
 	 * 自定义视图导航参数集合
 	 *
+     * @protected
 	 * @type {*}
 	 * @memberof ProductLifeRoadMapListView9Base
 	 */
-    public customViewParams:any ={
-    "product":{"isRawValue":false,"value":"srfparentkey"}
+    protected customViewParams: any = {
+        'product': { isRawValue: false, value: 'srfparentkey' }
     };
 
     /**
      * 视图模型数据
      *
+     * @protected
      * @type {*}
      * @memberof ProductLifeRoadMapListView9Base
      */
-    public model: any = {
+    protected model: any = {
         srfCaption: 'entities.productlife.views.roadmaplistview9.caption',
         srfTitle: 'entities.productlife.views.roadmaplistview9.title',
         srfSubTitle: 'entities.productlife.views.roadmaplistview9.subtitle',
@@ -132,77 +95,17 @@ export default class ProductLifeRoadMapListView9Base extends Vue {
     }
 
     /**
-     * 视图参数变化
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof ProductLifeRoadMapListView9Base
-     */
-    @Watch('viewparam',{immediate: true, deep: true})
-    onParamData(newVal: any, oldVal: any) {
-        if(newVal){
-            for(let key in this.viewparams){
-                delete this.viewparams[key];
-            }
-            Object.assign(this.viewparams, JSON.parse(this.viewparam));
-            
-        } 
-    }
-
-    /**
-     * 处理应用上下文变化
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof ProductLifeRoadMapListView9Base
-     */
-    @Watch('viewdata')
-    onViewData(newVal: any, oldVal: any) {
-        const _this: any = this;
-        if (!Object.is(newVal, oldVal) && _this.engine) {
-            this.$nextTick(()=>{
-              _this.parseViewParam();
-              _this.engine.load();
-              
-            });
-        }
-    }
-
-    /**
      * 容器模型
      *
+     * @protected
      * @type {*}
      * @memberof ProductLifeRoadMapListView9Base
      */
-    public containerModel: any = {
+    protected containerModel: any = {
         view_list2: { name: 'list2', type: 'LIST' },
         view_list: { name: 'list', type: 'LIST' },
     };
 
-    /**
-     *  计数器刷新
-     *
-     * @memberof ProductLifeRoadMapListView9Base
-     */
-    public counterRefresh(){
-        const _this:any =this;
-        if(_this.counterServiceArray && _this.counterServiceArray.length >0){
-            _this.counterServiceArray.forEach((item:any) =>{
-                if(item.refreshData && item.refreshData instanceof Function){
-                    item.refreshData();
-                }
-            })
-        }
-    }
-
-    /**
-     * 视图状态订阅对象
-     *
-     * @public
-     * @type {Subject<{action: string, data: any}>}
-     * @memberof ProductLifeRoadMapListView9Base
-     */
-    public viewState: Subject<ViewState> = new Subject();
 
 
     /**
@@ -237,216 +140,15 @@ export default class ProductLifeRoadMapListView9Base extends Vue {
     }
 
     /**
-     * 应用上下文
-     *
-     * @type {*}
-     * @memberof ProductLifeRoadMapListView9Base
-     */
-    public context:any = {};
-
-    /**
-     * 视图参数
-     *
-     * @type {*}
-     * @memberof ProductLifeRoadMapListView9Base
-     */
-    public viewparams:any = {};
-
-    /**
-     * 解析视图参数
-     *
-     * @public
-     * @memberof ProductLifeRoadMapListView9Base
-     */
-    public parseViewParam(): void {
-        for(let key in this.context){
-            delete this.context[key];
-        }
-        if (!this.viewDefaultUsage && this.viewdata && !Object.is(this.viewdata, '')) {
-            Object.assign(this.context, JSON.parse(this.viewdata));
-            if(this.context && this.context.srfparentdename){
-                Object.assign(this.viewparams,{srfparentdename:this.context.srfparentdename});
-            }
-            if(this.context && this.context.srfparentkey){
-                Object.assign(this.viewparams,{srfparentkey:this.context.srfparentkey});
-            }
-            if(this.$store.getters.getAppData() && this.$store.getters.getAppData().context){
-                Object.assign(this.context,this.$store.getters.getAppData().context);
-            }
-            this.handleCustomViewData();
-            return;
-        }
-        const path = (this.$route.matched[this.$route.matched.length - 1]).path;
-        const keys: Array<any> = [];
-        const curReg = this.$pathToRegExp.pathToRegexp(path, keys);
-        const matchArray = curReg.exec(this.$route.path);
-        let tempValue: Object = {};
-        keys.forEach((item: any, index: number) => {
-            Object.defineProperty(tempValue, item.name, {
-                enumerable: true,
-                value: matchArray[index + 1]
-            });
-        });
-        this.$viewTool.formatRouteParams(tempValue,this.$route,this.context,this.viewparams);
-        if(this.$store.getters.getAppData() && this.$store.getters.getAppData().context){
-            Object.assign(this.context,this.$store.getters.getAppData().context);
-        }
-        //初始化视图唯一标识
-        Object.assign(this.context,{srfsessionid:this.$util.createUUID()});
-        this.handleCustomViewData();
-    }
-
-    /**
-     * 处理自定义视图数据
-     *
-     * @memberof ProductLifeRoadMapListView9Base
-     */
-	public handleCustomViewData(){
-		if(Object.keys(this.customViewNavContexts).length > 0){
-			Object.keys(this.customViewNavContexts).forEach((item:any) =>{
-				let tempContext:any = {};
-				let curNavContext:any = this.customViewNavContexts[item];
-				this.handleCustomDataLogic(curNavContext,tempContext,item);
-				Object.assign(this.context,tempContext);
-			})
-		}
-		if(Object.keys(this.customViewParams).length > 0){
-			Object.keys(this.customViewParams).forEach((item:any) =>{
-				let tempParam:any = {};
-				let curNavParam:any = this.customViewParams[item];
-				this.handleCustomDataLogic(curNavParam,tempParam,item);
-				Object.assign(this.viewparams,tempParam);
-			})
-		}
-	}
-
-    /**
-     * 处理自定义视图数据逻辑
-     *
-     * @memberof ProductLifeRoadMapListView9Base
-     */
-	public handleCustomDataLogic(curNavData:any,tempData:any,item:string){
-		// 直接值直接赋值
-		if(curNavData.isRawValue){
-			if(Object.is(curNavData.value,"null") || Object.is(curNavData.value,"")){
-                Object.defineProperty(tempData, item.toLowerCase(), {
-                    value: null,
-                    writable : true,
-                    enumerable : true,
-                    configurable : true
-                });
-            }else{
-                Object.defineProperty(tempData, item.toLowerCase(), {
-                    value: curNavData.value,
-                    writable : true,
-                    enumerable : true,
-                    configurable : true
-                });
-            }
-		}else{
-			// 先从导航上下文取数，没有再从导航参数（URL）取数，如果导航上下文和导航参数都没有则为null
-			if(this.context[(curNavData.value).toLowerCase()]){
-				Object.defineProperty(tempData, item.toLowerCase(), {
-					value: this.context[(curNavData.value).toLowerCase()],
-					writable : true,
-					enumerable : true,
-					configurable : true
-				});
-			}else{
-				if(this.viewparams[(curNavData.value).toLowerCase()]){
-					Object.defineProperty(tempData, item.toLowerCase(), {
-						value: this.viewparams[(curNavData.value).toLowerCase()],
-						writable : true,
-						enumerable : true,
-						configurable : true
-					});
-				}else{
-					Object.defineProperty(tempData, item.toLowerCase(), {
-						value: null,
-						writable : true,
-						enumerable : true,
-						configurable : true
-					});
-				}
-			}
-		}
-	}
-	
-
-    /**
-     * Vue声明周期
-     *
-     * @memberof ProductLifeRoadMapListView9Base
-     */
-    public created() {
-        this.afterCreated();
-    }
-
-    /**
-     * 执行created后的逻辑
-     *
-     * @memberof ProductLifeRoadMapListView9Base
-     */    
-    public afterCreated(){
-        const secondtag = this.$util.createUUID();
-        this.$store.commit('viewaction/createdView', { viewtag: this.viewtag, secondtag: secondtag });
-        this.viewtag = secondtag;
-        this.parseViewParam();
-                if(this.formDruipart){
-            this.formDruipart.subscribe((res:any) =>{
-                if(Object.is(res.action,'load')){
-                    const _this: any = this;
-                    _this.engine.load(res.data,true);
-                }
-            });
-        }
-
-    }
-
-    /**
-     * 销毁之前
-     *
-     * @memberof ProductLifeRoadMapListView9Base
-     */
-    public beforeDestroy() {
-        this.$store.commit('viewaction/removeView', this.viewtag);
-    }
-
-    /**
-     * Vue声明周期(组件初始化完毕)
-     *
-     * @memberof ProductLifeRoadMapListView9Base
-     */
-    public mounted() {
-        this.afterMounted();
-    }
-
-    /**
-     * 执行mounted后的逻辑
-     * 
-     * @memberof ProductLifeRoadMapListView9Base
-     */
-    public afterMounted(){
-        const _this: any = this;
-        _this.engineInit();
-        if (_this.loadModel && _this.loadModel instanceof Function) {
-            _this.loadModel();
-        }
-        
-    }
-
-
-    /**
      * list 部件 selectionchange 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
      * @memberof ProductLifeRoadMapListView9Base
      */
-    public list_selectionchange($event: any, $event2?: any) {
+    public list_selectionchange($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('list', 'selectionchange', $event);
     }
-
 
     /**
      * list 部件 beforeload 事件
@@ -455,10 +157,9 @@ export default class ProductLifeRoadMapListView9Base extends Vue {
      * @param {*} $event
      * @memberof ProductLifeRoadMapListView9Base
      */
-    public list_beforeload($event: any, $event2?: any) {
+    public list_beforeload($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('list', 'beforeload', $event);
     }
-
 
     /**
      * list 部件 rowdblclick 事件
@@ -467,10 +168,9 @@ export default class ProductLifeRoadMapListView9Base extends Vue {
      * @param {*} $event
      * @memberof ProductLifeRoadMapListView9Base
      */
-    public list_rowdblclick($event: any, $event2?: any) {
+    public list_rowdblclick($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('list', 'rowdblclick', $event);
     }
-
 
     /**
      * list 部件 remove 事件
@@ -479,10 +179,9 @@ export default class ProductLifeRoadMapListView9Base extends Vue {
      * @param {*} $event
      * @memberof ProductLifeRoadMapListView9Base
      */
-    public list_remove($event: any, $event2?: any) {
+    public list_remove($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('list', 'remove', $event);
     }
-
 
     /**
      * list 部件 load 事件
@@ -491,11 +190,9 @@ export default class ProductLifeRoadMapListView9Base extends Vue {
      * @param {*} $event
      * @memberof ProductLifeRoadMapListView9Base
      */
-    public list_load($event: any, $event2?: any) {
+    public list_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('list', 'load', $event);
     }
-
-
 
     /**
      * 打开新建数据视图
@@ -531,49 +228,6 @@ export default class ProductLifeRoadMapListView9Base extends Vue {
     }
 
 
-
-    /**
-     * 关闭视图
-     *
-     * @param {any[]} args
-     * @memberof ProductLifeRoadMapListView9Base
-     */
-    public closeView(args: any[]): void {
-        let _view: any = this;
-        if (_view.viewdata) {
-            _view.$emit('viewdataschange', [args]);
-            _view.$emit('close', [args]);
-        } else if (_view.$tabPageExp) {
-            _view.$tabPageExp.onClose(_view.$route.fullPath);
-        }
-    }
-
-    /**
-     * 销毁视图回调
-     *
-     * @memberof ProductLifeRoadMapListView9Base
-     */
-    public destroyed(){
-        this.afterDestroyed();
-    }
-
-    /**
-     * 执行destroyed后的逻辑
-     * 
-     * @memberof ProductLifeRoadMapListView9Base
-     */
-    public afterDestroyed(){
-        if(this.viewDefaultUsage){
-            let localStoreLength = Object.keys(localStorage);
-            if(localStoreLength.length > 0){
-                localStoreLength.forEach((item:string) =>{
-                if(item.startsWith(this.context.srfsessionid)){
-                    localStorage.removeItem(item);
-                }
-                })
-            }
-        }
-    }
 
     /**
     * 是否嵌入关系界面

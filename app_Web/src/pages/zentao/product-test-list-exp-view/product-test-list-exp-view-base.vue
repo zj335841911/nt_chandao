@@ -20,18 +20,21 @@
 
 <script lang='tsx'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
-import { UIActionTool,Util } from '@/utils';
 import { Subject } from 'rxjs';
+import { UIActionTool, Util } from '@/utils';
 import ProductService from '@/service/product/product-service';
 
 import ListExpViewEngine from '@engine/view/list-exp-view-engine';
 
 
-
-@Component({
-    components: {
-    },
-})
+/**
+ * 测试统计视图基类
+ *
+ * @export
+ * @class ProductTestListExpViewBase
+ * @extends {Vue}
+ */
+@Component({})
 export default class ProductTestListExpViewBase extends Vue {
 
     /**
@@ -40,86 +43,46 @@ export default class ProductTestListExpViewBase extends Vue {
      * @type {ProductService}
      * @memberof ProductTestListExpViewBase
      */
-    public appEntityService: ProductService = new ProductService;
+    protected appEntityService: ProductService = new ProductService;
 
 
     /**
      * 计数器服务对象集合
      *
+     * @protected
      * @type {Array<*>}
      * @memberof ProductTestListExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
-    
-    /**
-     * 数据变化
-     *
-     * @param {*} val
-     * @returns {*}
-     * @memberof ProductTestListExpViewBase
-     */
-    @Emit() 
-    public viewDatasChange(val: any):any {
-        return val;
-    }
-
-    /**
-     * 传入视图上下文
-     *
-     * @type {string}
-     * @memberof ProductTestListExpViewBase
-     */
-    @Prop() public viewdata!: string;
-
-    /**
-     * 传入视图参数
-     *
-     * @type {string}
-     * @memberof ProductTestListExpViewBase
-     */
-    @Prop() public viewparam!: string;
-
-    /**
-     * 视图默认使用
-     *
-     * @type {boolean}
-     * @memberof ProductTestListExpViewBase
-     */
-    @Prop({ default: true }) public viewDefaultUsage!: boolean;
-
-	/**
-	 * 视图标识
-	 *
-	 * @type {string}
-	 * @memberof ProductTestListExpViewBase
-	 */
-	public viewtag: string = 'c539f1585371e9943b90177eaef08b6b';
+    protected counterServiceArray: Array<any> = [];
 
 	/**
 	 * 自定义视图导航上下文集合
 	 *
+     * @protected
 	 * @type {*}
 	 * @memberof ProductTestListExpViewBase
 	 */
-    public customViewNavContexts:any ={
+    protected customViewNavContexts: any = {
     };
 
 	/**
 	 * 自定义视图导航参数集合
 	 *
+     * @protected
 	 * @type {*}
 	 * @memberof ProductTestListExpViewBase
 	 */
-    public customViewParams:any ={
+    protected customViewParams: any = {
     };
 
     /**
      * 视图模型数据
      *
+     * @protected
      * @type {*}
      * @memberof ProductTestListExpViewBase
      */
-    public model: any = {
+    protected model: any = {
         srfCaption: 'entities.product.views.testlistexpview.caption',
         srfTitle: 'entities.product.views.testlistexpview.title',
         srfSubTitle: 'entities.product.views.testlistexpview.subtitle',
@@ -127,76 +90,16 @@ export default class ProductTestListExpViewBase extends Vue {
     }
 
     /**
-     * 视图参数变化
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof ProductTestListExpViewBase
-     */
-    @Watch('viewparam',{immediate: true, deep: true})
-    onParamData(newVal: any, oldVal: any) {
-        if(newVal){
-            for(let key in this.viewparams){
-                delete this.viewparams[key];
-            }
-            Object.assign(this.viewparams, JSON.parse(this.viewparam));
-            
-        } 
-    }
-
-    /**
-     * 处理应用上下文变化
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof ProductTestListExpViewBase
-     */
-    @Watch('viewdata')
-    onViewData(newVal: any, oldVal: any) {
-        const _this: any = this;
-        if (!Object.is(newVal, oldVal) && _this.engine) {
-            this.$nextTick(()=>{
-              _this.parseViewParam();
-              _this.engine.load();
-              
-            });
-        }
-    }
-
-    /**
      * 容器模型
      *
+     * @protected
      * @type {*}
      * @memberof ProductTestListExpViewBase
      */
-    public containerModel: any = {
+    protected containerModel: any = {
         view_listexpbar: { name: 'listexpbar', type: 'LISTEXPBAR' },
     };
 
-    /**
-     *  计数器刷新
-     *
-     * @memberof ProductTestListExpViewBase
-     */
-    public counterRefresh(){
-        const _this:any =this;
-        if(_this.counterServiceArray && _this.counterServiceArray.length >0){
-            _this.counterServiceArray.forEach((item:any) =>{
-                if(item.refreshData && item.refreshData instanceof Function){
-                    item.refreshData();
-                }
-            })
-        }
-    }
-
-    /**
-     * 视图状态订阅对象
-     *
-     * @public
-     * @type {Subject<{action: string, data: any}>}
-     * @memberof ProductTestListExpViewBase
-     */
-    public viewState: Subject<ViewState> = new Subject();
 
 
 
@@ -226,208 +129,15 @@ export default class ProductTestListExpViewBase extends Vue {
     }
 
     /**
-     * 应用上下文
-     *
-     * @type {*}
-     * @memberof ProductTestListExpViewBase
-     */
-    public context:any = {};
-
-    /**
-     * 视图参数
-     *
-     * @type {*}
-     * @memberof ProductTestListExpViewBase
-     */
-    public viewparams:any = {};
-
-    /**
-     * 解析视图参数
-     *
-     * @public
-     * @memberof ProductTestListExpViewBase
-     */
-    public parseViewParam(): void {
-        for(let key in this.context){
-            delete this.context[key];
-        }
-        if (!this.viewDefaultUsage && this.viewdata && !Object.is(this.viewdata, '')) {
-            Object.assign(this.context, JSON.parse(this.viewdata));
-            if(this.context && this.context.srfparentdename){
-                Object.assign(this.viewparams,{srfparentdename:this.context.srfparentdename});
-            }
-            if(this.context && this.context.srfparentkey){
-                Object.assign(this.viewparams,{srfparentkey:this.context.srfparentkey});
-            }
-            if(this.$store.getters.getAppData() && this.$store.getters.getAppData().context){
-                Object.assign(this.context,this.$store.getters.getAppData().context);
-            }
-            this.handleCustomViewData();
-            return;
-        }
-        const path = (this.$route.matched[this.$route.matched.length - 1]).path;
-        const keys: Array<any> = [];
-        const curReg = this.$pathToRegExp.pathToRegexp(path, keys);
-        const matchArray = curReg.exec(this.$route.path);
-        let tempValue: Object = {};
-        keys.forEach((item: any, index: number) => {
-            Object.defineProperty(tempValue, item.name, {
-                enumerable: true,
-                value: matchArray[index + 1]
-            });
-        });
-        this.$viewTool.formatRouteParams(tempValue,this.$route,this.context,this.viewparams);
-        if(this.$store.getters.getAppData() && this.$store.getters.getAppData().context){
-            Object.assign(this.context,this.$store.getters.getAppData().context);
-        }
-        //初始化视图唯一标识
-        Object.assign(this.context,{srfsessionid:this.$util.createUUID()});
-        this.handleCustomViewData();
-    }
-
-    /**
-     * 处理自定义视图数据
-     *
-     * @memberof ProductTestListExpViewBase
-     */
-	public handleCustomViewData(){
-		if(Object.keys(this.customViewNavContexts).length > 0){
-			Object.keys(this.customViewNavContexts).forEach((item:any) =>{
-				let tempContext:any = {};
-				let curNavContext:any = this.customViewNavContexts[item];
-				this.handleCustomDataLogic(curNavContext,tempContext,item);
-				Object.assign(this.context,tempContext);
-			})
-		}
-		if(Object.keys(this.customViewParams).length > 0){
-			Object.keys(this.customViewParams).forEach((item:any) =>{
-				let tempParam:any = {};
-				let curNavParam:any = this.customViewParams[item];
-				this.handleCustomDataLogic(curNavParam,tempParam,item);
-				Object.assign(this.viewparams,tempParam);
-			})
-		}
-	}
-
-    /**
-     * 处理自定义视图数据逻辑
-     *
-     * @memberof ProductTestListExpViewBase
-     */
-	public handleCustomDataLogic(curNavData:any,tempData:any,item:string){
-		// 直接值直接赋值
-		if(curNavData.isRawValue){
-			if(Object.is(curNavData.value,"null") || Object.is(curNavData.value,"")){
-                Object.defineProperty(tempData, item.toLowerCase(), {
-                    value: null,
-                    writable : true,
-                    enumerable : true,
-                    configurable : true
-                });
-            }else{
-                Object.defineProperty(tempData, item.toLowerCase(), {
-                    value: curNavData.value,
-                    writable : true,
-                    enumerable : true,
-                    configurable : true
-                });
-            }
-		}else{
-			// 先从导航上下文取数，没有再从导航参数（URL）取数，如果导航上下文和导航参数都没有则为null
-			if(this.context[(curNavData.value).toLowerCase()]){
-				Object.defineProperty(tempData, item.toLowerCase(), {
-					value: this.context[(curNavData.value).toLowerCase()],
-					writable : true,
-					enumerable : true,
-					configurable : true
-				});
-			}else{
-				if(this.viewparams[(curNavData.value).toLowerCase()]){
-					Object.defineProperty(tempData, item.toLowerCase(), {
-						value: this.viewparams[(curNavData.value).toLowerCase()],
-						writable : true,
-						enumerable : true,
-						configurable : true
-					});
-				}else{
-					Object.defineProperty(tempData, item.toLowerCase(), {
-						value: null,
-						writable : true,
-						enumerable : true,
-						configurable : true
-					});
-				}
-			}
-		}
-	}
-	
-
-    /**
-     * Vue声明周期
-     *
-     * @memberof ProductTestListExpViewBase
-     */
-    public created() {
-        this.afterCreated();
-    }
-
-    /**
-     * 执行created后的逻辑
-     *
-     * @memberof ProductTestListExpViewBase
-     */    
-    public afterCreated(){
-        const secondtag = this.$util.createUUID();
-        this.$store.commit('viewaction/createdView', { viewtag: this.viewtag, secondtag: secondtag });
-        this.viewtag = secondtag;
-        this.parseViewParam();
-        
-    }
-
-    /**
-     * 销毁之前
-     *
-     * @memberof ProductTestListExpViewBase
-     */
-    public beforeDestroy() {
-        this.$store.commit('viewaction/removeView', this.viewtag);
-    }
-
-    /**
-     * Vue声明周期(组件初始化完毕)
-     *
-     * @memberof ProductTestListExpViewBase
-     */
-    public mounted() {
-        this.afterMounted();
-    }
-
-    /**
-     * 执行mounted后的逻辑
-     * 
-     * @memberof ProductTestListExpViewBase
-     */
-    public afterMounted(){
-        const _this: any = this;
-        _this.engineInit();
-        if (_this.loadModel && _this.loadModel instanceof Function) {
-            _this.loadModel();
-        }
-        
-    }
-
-
-    /**
      * listexpbar 部件 selectionchange 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
      * @memberof ProductTestListExpViewBase
      */
-    public listexpbar_selectionchange($event: any, $event2?: any) {
+    public listexpbar_selectionchange($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('listexpbar', 'selectionchange', $event);
     }
-
 
     /**
      * listexpbar 部件 activated 事件
@@ -436,10 +146,9 @@ export default class ProductTestListExpViewBase extends Vue {
      * @param {*} $event
      * @memberof ProductTestListExpViewBase
      */
-    public listexpbar_activated($event: any, $event2?: any) {
+    public listexpbar_activated($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('listexpbar', 'activated', $event);
     }
-
 
     /**
      * listexpbar 部件 load 事件
@@ -448,11 +157,9 @@ export default class ProductTestListExpViewBase extends Vue {
      * @param {*} $event
      * @memberof ProductTestListExpViewBase
      */
-    public listexpbar_load($event: any, $event2?: any) {
+    public listexpbar_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('listexpbar', 'load', $event);
     }
-
-
 
     /**
      * 打开新建数据视图
@@ -488,49 +195,6 @@ export default class ProductTestListExpViewBase extends Vue {
     }
 
 
-
-    /**
-     * 关闭视图
-     *
-     * @param {any[]} args
-     * @memberof ProductTestListExpViewBase
-     */
-    public closeView(args: any[]): void {
-        let _view: any = this;
-        if (_view.viewdata) {
-            _view.$emit('viewdataschange', [args]);
-            _view.$emit('close', [args]);
-        } else if (_view.$tabPageExp) {
-            _view.$tabPageExp.onClose(_view.$route.fullPath);
-        }
-    }
-
-    /**
-     * 销毁视图回调
-     *
-     * @memberof ProductTestListExpViewBase
-     */
-    public destroyed(){
-        this.afterDestroyed();
-    }
-
-    /**
-     * 执行destroyed后的逻辑
-     * 
-     * @memberof ProductTestListExpViewBase
-     */
-    public afterDestroyed(){
-        if(this.viewDefaultUsage){
-            let localStoreLength = Object.keys(localStorage);
-            if(localStoreLength.length > 0){
-                localStoreLength.forEach((item:string) =>{
-                if(item.startsWith(this.context.srfsessionid)){
-                    localStorage.removeItem(item);
-                }
-                })
-            }
-        }
-    }
 
     /**
      * 视图唯一标识

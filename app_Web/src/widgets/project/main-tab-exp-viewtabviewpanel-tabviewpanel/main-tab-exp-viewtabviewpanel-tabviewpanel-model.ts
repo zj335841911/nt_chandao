@@ -120,6 +120,18 @@ export default class MainTabExpViewtabviewpanelModel {
       {
         name: 'storycnt',
       },
+      {
+        name: 'products',
+      },
+      {
+        name: 'branchs',
+      },
+      {
+        name: 'plans',
+      },
+      {
+        name: 'srfarray',
+      },
     ]
   }
 

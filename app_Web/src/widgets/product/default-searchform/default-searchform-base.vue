@@ -1,10 +1,12 @@
 <template>
     <i-form :model="this.data" class='app-search-form' ref='searchform' style="">
   <input style="display:none;"/>
-  <row>
-    <i-col span="20" class="form-content">
-      <row>
-                    <i-col v-show="detailsModel.n_acl_eq.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+  <div class="search-button">
+    <i-button size="small" type="primary" ghost @click="onSearch">{{$t('app.searchButton.search')}}</i-button>
+    <i-button size="small" type="default" ghost @click="onReset">{{this.$t('app.searchButton.reset')}}</i-button>
+  </div>
+  <div class="form-content">
+                  <i-col v-show="detailsModel.n_acl_eq.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
               <app-form-item name='n_acl_eq' :itemRules="this.rules.n_acl_eq" class='' :caption="$t('entities.product.default_searchform.details.n_acl_eq')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.n_acl_eq.error" :isEmptyCaption="false" labelPos="LEFT"> 
               <input-box v-model="data.n_acl_eq"  @enter="onEnter($event)"    :disabled="detailsModel.n_acl_eq.disabled" type='text'  style=""></input-box>
           </app-form-item>
@@ -34,15 +36,7 @@
           </app-form-item>
           
           </i-col>
-      </row>
-    </i-col>
-    <i-col span="4" class="search-button">
-      <row v-show="Object.keys(data).length>0">
-        <i-button class='search_reset'  size="default" type="primary"  @click="onSearch">{{$t('app.searchButton.search')}}</i-button>
-        <i-button class='search_reset'  size="default"  @click="onReset">{{this.$t('app.searchButton.reset')}}</i-button>
-      </row>
-    </i-col>
-  </row>
+  </div>
 </i-form>
 </template>
 <script lang='tsx'>

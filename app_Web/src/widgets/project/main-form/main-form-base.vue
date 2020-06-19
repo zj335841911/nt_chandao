@@ -57,18 +57,17 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='formitem' :itemRules="this.rules.formitem" class='' :caption="$t('entities.project.main_form.details.formitem')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='formitem' :value="data.formitem" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
+<i-col v-show="detailsModel.formitemex2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    !!!!模版产生代码错误:----
+Tip: It's the step after the last dot that caused this error, not those before it.
+----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
 
-</i-col>
-<i-col v-show="detailsModel.formitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='formitem1' :itemRules="this.rules.formitem1" class='' :caption="$t('entities.project.main_form.details.formitem1')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem1.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='formitem1' :value="data.formitem1" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${formitem.getPSAppDEField().getLogic...  [in template "TEMPLCODE_zh_CN" at line 3, column 210]
+----
 
 </i-col>
     
@@ -418,8 +417,11 @@ export default class MainBase extends Vue implements ControlInterface {
         days: null,
         team: null,
         type: null,
-        formitem: null,
-        formitem1: null,
+        srfarray: null,
+        products: null,
+        branchs: null,
+        plans: null,
+        formitemex2: null,
         desc: null,
         acl: null,
         id: null,
@@ -555,17 +557,35 @@ export default class MainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '项目类型 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '项目类型 值不能为空', trigger: 'blur' },
         ],
-        formitem: [
-            { type: 'string', message: '关联产品 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '关联产品 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '关联产品 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '关联产品 值不能为空', trigger: 'blur' },
+        srfarray: [
+            { type: 'string', message: '关联数据数组 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '关联数据数组 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '关联数据数组 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '关联数据数组 值不能为空', trigger: 'blur' },
         ],
-        formitem1: [
-            { type: 'string', message: '关联计划 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '关联计划 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '关联计划 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '关联计划 值不能为空', trigger: 'blur' },
+        products: [
+            { type: 'string', message: '关联产品集合 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '关联产品集合 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '关联产品集合 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '关联产品集合 值不能为空', trigger: 'blur' },
+        ],
+        branchs: [
+            { type: 'string', message: '关联产品平台集合 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '关联产品平台集合 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '关联产品平台集合 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '关联产品平台集合 值不能为空', trigger: 'blur' },
+        ],
+        plans: [
+            { type: 'string', message: '关联产品产品计划 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '关联产品产品计划 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '关联产品产品计划 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '关联产品产品计划 值不能为空', trigger: 'blur' },
+        ],
+        formitemex2: [
+            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
         desc: [
             { type: 'string', message: '项目描述 值必须为字符串类型', trigger: 'change' },
@@ -630,9 +650,15 @@ export default class MainBase extends Vue implements ControlInterface {
 , 
         type: new FormItemModel({ caption: '项目类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        formitem: new FormItemModel({ caption: '关联产品', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        srfarray: new FormItemModel({ caption: '关联数据数组', detailType: 'FORMITEM', name: 'srfarray', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        formitem1: new FormItemModel({ caption: '关联计划', detailType: 'FORMITEM', name: 'formitem1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        products: new FormItemModel({ caption: '关联产品集合', detailType: 'FORMITEM', name: 'products', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        branchs: new FormItemModel({ caption: '关联产品平台集合', detailType: 'FORMITEM', name: 'branchs', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        plans: new FormItemModel({ caption: '关联产品产品计划', detailType: 'FORMITEM', name: 'plans', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitemex2: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex2', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         desc: new FormItemModel({ caption: '项目描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -823,27 +849,63 @@ export default class MainBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 formitem 值
+     * 监控表单属性 srfarray 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof Main
      */
-    @Watch('data.formitem')
-    onFormitemChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'formitem', newVal: newVal, oldVal: oldVal });
+    @Watch('data.srfarray')
+    onSrfarrayChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'srfarray', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 formitem1 值
+     * 监控表单属性 products 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof Main
      */
-    @Watch('data.formitem1')
-    onFormitem1Change(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'formitem1', newVal: newVal, oldVal: oldVal });
+    @Watch('data.products')
+    onProductsChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'products', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 branchs 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.branchs')
+    onBranchsChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'branchs', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 plans 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.plans')
+    onPlansChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'plans', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitemex2 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.formitemex2')
+    onFormitemex2Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitemex2', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -918,6 +980,9 @@ export default class MainBase extends Vue implements ControlInterface {
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
+
+
 
 
 

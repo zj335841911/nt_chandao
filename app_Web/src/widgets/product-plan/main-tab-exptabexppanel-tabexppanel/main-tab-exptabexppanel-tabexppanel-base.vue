@@ -1,6 +1,6 @@
 <template>
   <div class='tabviewpanel'>
-        <tabs :value="activiedTabViewPanel" class='tabexppanel' name='maintabexptabexppanel' @on-click="tabPanelClick">
+        <tabs :value="activiedTabViewPanel" :animated="false" class='tabexppanel' name='maintabexptabexppanel' @on-click="tabPanelClick">
         <tab-pane :index="0" name='tabviewpanel' tab='maintabexptabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [

@@ -120,6 +120,18 @@ export default class ProjectExpViewModel {
       {
         name: 'storycnt',
       },
+      {
+        name: 'products',
+      },
+      {
+        name: 'branchs',
+      },
+      {
+        name: 'plans',
+      },
+      {
+        name: 'srfarray',
+      },
     ]
   }
 

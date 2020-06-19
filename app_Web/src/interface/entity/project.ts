@@ -285,4 +285,36 @@ export interface Project {
      * @memberof Project
      */
     storycnt?: any;
+
+    /**
+     * 关联产品集合
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    products?: any;
+
+    /**
+     * 关联产品平台集合
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    branchs?: any;
+
+    /**
+     * 关联产品产品计划
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    plans?: any;
+
+    /**
+     * 关联数据数组
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    srfarray?: any;
 }

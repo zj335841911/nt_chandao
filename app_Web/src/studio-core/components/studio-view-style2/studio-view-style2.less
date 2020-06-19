@@ -33,11 +33,16 @@
 
     .view-header {
         flex-shrink: 0;
-        height: 50px;
+        height: auto;
         border: 0;
 
         >.title {
             font-size: 20px;
+            height: 50px;
+
+            .caption-image {
+                margin-right: 6px;
+            }
         }
 
         >.quick-search {
@@ -60,7 +65,7 @@
             overflow-x: hidden;
 
             .app-search-form {
-                width: 300px;
+                width: 250px;
                 height: 100%;
                 border-right: 1px solid var(--app-dividing-line-color-bright);
             }
@@ -77,3 +82,4 @@
         flex-shrink: 0;
     }
 }
+@import './studio-view-style2-layout.less';

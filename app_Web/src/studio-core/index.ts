@@ -1,7 +1,48 @@
 // 导出装饰器
 export { VueLifeCycleProcessing } from './decorators/VueLifeCycleProcessing';
 export { SingletonMode } from './decorators/SingletonMode';
-
+// 视图基类
+export { ViewBase } from './view/ViewBase';
+export { IndexViewBase } from './view/IndexViewBase';
+export { GridViewBase } from './view/GridViewBase';
+export { GridView9Base } from './view/GridView9Base';
+export { EditViewBase } from './view/EditViewBase';
+export { EditView9Base } from './view/EditView9Base';
+export { DashboardViewBase } from './view/DashboardViewBase';
+export { DashboardView9Base } from './view/DashboardView9Base';
+export { TabExpViewBase } from './view/TabExpViewBase';
+export { PickupViewBase } from './view/PickupViewBase';
+export { PickupGridViewBase } from './view/PickupGridViewBase';
+export { MPickupViewBase } from './view/MPickupViewBase';
+export { ListViewBase } from './view/ListViewBase';
+export { ListView9Base } from './view/ListView9Base';
+export { CalendarViewBase } from './view/CalendarViewBase';
+export { CalendarView9Base } from './view/CalendarView9Base';
+export { PortalViewBase } from './view/PortalViewBase';
+export { ChartView9Base } from './view/ChartView9Base';
+export { ChartViewBase } from './view/ChartViewBase';
+export { FormPickupDataViewBase } from './view/FormPickupDataViewBase';
+export { GridExpViewBase } from './view/GridExpViewBase';
+export { MEditView9Base } from './view/MEditView9Base';
+export { EditView2Base } from './view/EditView2Base';
+export { EditView3Base } from './view/EditView3Base';
+export { EditView4Base } from './view/EditView4Base';
+export { TabFormView9Base } from './view/TabFormView9Base';
+export { DataView9Base } from './view/DataView9Base';
+export { DataViewBase } from './view/DataViewBase';
+export { PickupView3Base } from './view/PickupView3Base';
+export { TreeExpViewBase } from './view/TreeExpViewBase';
+export { TreeView9Base } from './view/TreeView9Base';
+export { TreeViewBase } from './view/TreeViewBase';
+export { PickupTreeViewBase } from './view/PickupTreeViewBase';
+export { WizardViewBase } from './view/WizardViewBase';
+export { CalendarExpViewBase } from './view/CalendarExpViewBase';
+export { DataViewExpViewBase } from './view/DataViewExpViewBase';
+export { ListExpViewBase } from './view/ListExpViewBase';
+export { IndexPickupDataViewBase } from './view/IndexPickupDataViewBase';
+export { OptionViewBase } from './view/OptionViewBase';
+// 部件基类
+// export { AppMenusCtrlBase } from './widgets/AppMenusCtrlBase';
 // 组件 Start
 import { AppLayout } from './components/layout/app-layout/app-layout';
 import { AppHeader } from './components/layout/app-header/app-header';

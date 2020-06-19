@@ -89,10 +89,27 @@ export default class MainModel {
         dataType: 'SSCODELIST',
       },
       {
-        name: 'formitem',
+        name: 'srfarray',
+        prop: 'srfarray',
+        dataType: 'TEXT',
       },
       {
-        name: 'formitem1',
+        name: 'products',
+        prop: 'products',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'branchs',
+        prop: 'branchs',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'plans',
+        prop: 'plans',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'formitemex2',
       },
       {
         name: 'desc',
