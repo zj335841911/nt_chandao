@@ -305,6 +305,13 @@ export default class TreeExpViewtreeexpbarBase extends Vue implements ControlInt
                 deKeyField:'projectmodule'
 			};
         }
+        if (Object.is(expmode, 'MODULE2')) {
+            return {  
+                viewname: 'project-module-main-grid-view', 
+                parentdata: {"srfparentdefname":"n_parent_eq"},
+                deKeyField:'projectmodule'
+			};
+        }
         if (Object.is(expmode, 'ROOTMODULE')) {
             return {  
                 viewname: 'project-module-main-grid-view', 
