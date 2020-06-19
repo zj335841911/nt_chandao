@@ -32,9 +32,10 @@
 
 
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, GridViewBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 
 import GridViewEngine from '@engine/view/grid-view-engine';
@@ -47,10 +48,11 @@ import CodeListService from "@service/app/codelist-service";
  *
  * @export
  * @class TaskPivotTableViewBase
- * @extends {Vue}
+ * @extends {GridViewBase}
  */
 @Component({})
-export default class TaskPivotTableViewBase extends Vue {
+@VueLifeCycleProcessing()
+export default class TaskPivotTableViewBase extends GridViewBase {
 
     /**
      * 实体服务对象

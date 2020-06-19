@@ -1,4 +1,3 @@
-
 <template>
 <studio-view viewName="storymainview" viewTitle="需求数据看板视图" class='deportalview story-main-view'>
     <template slot='title'>
@@ -18,9 +17,10 @@
 </template>
 
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, DashboardViewBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 
 import PortalViewEngine from '@engine/view/portal-view-engine';
@@ -31,10 +31,11 @@ import PortalViewEngine from '@engine/view/portal-view-engine';
  *
  * @export
  * @class StoryMainViewBase
- * @extends {Vue}
+ * @extends {DashboardViewBase}
  */
 @Component({})
-export default class StoryMainViewBase extends Vue {
+@VueLifeCycleProcessing()
+export default class StoryMainViewBase extends DashboardViewBase {
 
     /**
      * 实体服务对象

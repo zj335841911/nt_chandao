@@ -46,9 +46,10 @@
 </template>
 
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, PickupViewBase } from '@/studio-core';
 import ModuleService from '@/service/module/module-service';
 
 import PickupGridViewEngine from '@engine/view/pickup-grid-view-engine';
@@ -59,10 +60,11 @@ import PickupGridViewEngine from '@engine/view/pickup-grid-view-engine';
  *
  * @export
  * @class ModulePickupGridViewBase
- * @extends {Vue}
+ * @extends {PickupViewBase}
  */
 @Component({})
-export default class ModulePickupGridViewBase extends Vue {
+@VueLifeCycleProcessing()
+export default class ModulePickupGridViewBase extends PickupViewBase {
 
     /**
      * 实体服务对象

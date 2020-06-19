@@ -1,4 +1,4 @@
- 
+
 <template>
 <studio-view viewName="buildmaintabexpview" viewTitle="版本分页导航视图" class='detabexpview build-main-tab-exp-view'>
     <template slot='title'>
@@ -16,9 +16,10 @@
 </template>
 
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, TabExpViewBase } from '@/studio-core';
 import BuildService from '@/service/build/build-service';
 
 import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
@@ -29,10 +30,11 @@ import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
  *
  * @export
  * @class BuildMainTabExpViewBase
- * @extends {Vue}
+ * @extends {TabExpViewBase}
  */
 @Component({})
-export default class BuildMainTabExpViewBase extends Vue {
+@VueLifeCycleProcessing()
+export default class BuildMainTabExpViewBase extends TabExpViewBase {
 
     /**
      * 实体服务对象
@@ -124,13 +126,13 @@ export default class BuildMainTabExpViewBase extends Vue {
     }
 
 
-
     /**
      * 加载模型
-     * 
+     *
+     * @protected
      * @memberof BuildMainTabExpViewBase
      */
-    public loadModel(){
+    protected async loadModel(): Promise<any> {
         if(this.context.build){
             this.appEntityService.getDataInfo(JSON.parse(JSON.stringify(this.context)),{},false).then((response:any) =>{
                 if (!response || response.status !== 200) {

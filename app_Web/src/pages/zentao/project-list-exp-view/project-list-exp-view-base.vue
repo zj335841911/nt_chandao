@@ -19,9 +19,10 @@
 </template>
 
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, ListExpViewBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 
 import ListExpViewEngine from '@engine/view/list-exp-view-engine';
@@ -32,10 +33,11 @@ import ListExpViewEngine from '@engine/view/list-exp-view-engine';
  *
  * @export
  * @class ProjectListExpViewBase
- * @extends {Vue}
+ * @extends {ListExpViewBase}
  */
 @Component({})
-export default class ProjectListExpViewBase extends Vue {
+@VueLifeCycleProcessing()
+export default class ProjectListExpViewBase extends ListExpViewBase {
 
     /**
      * 实体服务对象
@@ -196,13 +198,6 @@ export default class ProjectListExpViewBase extends Vue {
 
 
 
-    /**
-     * 视图唯一标识
-     *
-     * @type {string}
-     * @memberof ProjectListExpView
-     */
-    public viewUID: string = 'zentao-project-list-exp-view';
 
 }
 </script>

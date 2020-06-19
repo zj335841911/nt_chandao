@@ -24,13 +24,17 @@
 </studio-embed-view>
 </template>
 
+
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, ListView9Base } from '@/studio-core';
 import ActionService from '@/service/action/action-service';
 
 import ListView9Engine from '@engine/view/list-view9-engine';
+
+import CodeListService from "@service/app/codelist-service";
 
 
 /**
@@ -38,10 +42,11 @@ import ListView9Engine from '@engine/view/list-view9-engine';
  *
  * @export
  * @class ActionProjectTrendsListView9Base
- * @extends {Vue}
+ * @extends {ListView9Base}
  */
 @Component({})
-export default class ActionProjectTrendsListView9Base extends Vue {
+@VueLifeCycleProcessing()
+export default class ActionProjectTrendsListView9Base extends ListView9Base {
 
     /**
      * 实体服务对象
@@ -105,6 +110,7 @@ export default class ActionProjectTrendsListView9Base extends Vue {
     protected containerModel: any = {
         view_list: { name: 'list', type: 'LIST' },
     };
+
 
 
 
@@ -264,51 +270,36 @@ export default class ActionProjectTrendsListView9Base extends Vue {
     }
 
 
-
-    /**
-    * 是否嵌入关系界面
-    *
-    * @type {boolean}
-    * @memberof ActionProjectTrendsListView9Base
-    */
-    @Prop({default:false}) public isformDruipart?: boolean;
-
-    /**
-    * 界面关系通讯对象
-    *
-    * @type {Subject<ViewState>}
-    * @memberof ActionProjectTrendsListView9Base
-    */
-    @Prop() public formDruipart!: Subject<ViewState>;
-
     /**
      * 搜索值
      *
      * @type {string}
-     * @memberof ActionProjectTrendsListView9Base
+     * @memberof ActionProjectTrendsListView9
      */
-    protected query: string = '';
+    public query: string = '';
 
     /**
      * 是否展开搜索表单
      *
      * @type {boolean}
-     * @memberof ActionProjectTrendsListView9Base
+     * @memberof ActionProjectTrendsListView9
      */
-    protected isExpandSearchForm: boolean = false;
+    public isExpandSearchForm: boolean = false;
 
     /**
      * 快速搜索
      *
      * @param {*} $event
-     * @memberof ActionProjectTrendsListView9Base
+     * @memberof ActionProjectTrendsListView9
      */
-    protected onSearch($event: any): void {
+    public onSearch($event: any): void {
         const refs: any = this.$refs;
         if (refs.list) {
             refs.list.load({});
         }
     }
+
+
 
 }
 </script>

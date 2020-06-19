@@ -1,4 +1,3 @@
-
 <template>
 <studio-view viewName="bugmaindashboardview" viewTitle="Bug数据看板视图" class='deportalview bug-main-dashboard-view'>
     <template slot='title'>
@@ -18,9 +17,10 @@
 </template>
 
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, DashboardViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 
 import PortalViewEngine from '@engine/view/portal-view-engine';
@@ -31,10 +31,11 @@ import PortalViewEngine from '@engine/view/portal-view-engine';
  *
  * @export
  * @class BugMainDashboardViewBase
- * @extends {Vue}
+ * @extends {DashboardViewBase}
  */
 @Component({})
-export default class BugMainDashboardViewBase extends Vue {
+@VueLifeCycleProcessing()
+export default class BugMainDashboardViewBase extends DashboardViewBase {
 
     /**
      * 实体服务对象

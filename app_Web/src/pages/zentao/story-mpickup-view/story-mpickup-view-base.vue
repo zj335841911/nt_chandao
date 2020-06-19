@@ -59,11 +59,11 @@
 </studio-view>
 </template>
 
-
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, MPickupViewBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 
 import MPickupViewEngine from '@engine/view/mpickup-view-engine';
@@ -74,10 +74,11 @@ import MPickupViewEngine from '@engine/view/mpickup-view-engine';
  *
  * @export
  * @class StoryMPickupViewBase
- * @extends {Vue}
+ * @extends {MPickupViewBase}
  */
 @Component({})
-export default class StoryMPickupViewBase extends Vue {
+@VueLifeCycleProcessing()
+export default class StoryMPickupViewBase extends MPickupViewBase {
 
     /**
      * 实体服务对象
@@ -150,7 +151,6 @@ export default class StoryMPickupViewBase extends Vue {
 
 
 
-
     /**
      * 视图引擎
      *
@@ -209,6 +209,15 @@ export default class StoryMPickupViewBase extends Vue {
         this.engine.onCtrlEvent('pickupviewpanel', 'load', $event);
     }
 
+
+    /**
+     * 视图选中数据
+     *
+     * @type {any[]}
+     * @memberof StoryMPickupView
+     */
+    public viewSelections:any[] = [];
+
     /**
      * 是否显示按钮
      *
@@ -234,20 +243,39 @@ export default class StoryMPickupViewBase extends Vue {
     public isInitSelected:boolean = false;
     
     /**
-     * 视图选中数据
-     *
-     * @type {any[]}
-     * @memberof StoryMPickupView
-     */
-    public viewSelections:any[] = [];
-    
-    /**
      * 是否单选
      *
      * @type {boolean}
      * @memberof StoryMPickupView
      */
     public isSingleSelect: boolean = false;
+
+    /**
+     * 视图参数变更
+     *
+     * @protected
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof StoryMPickupView
+     */
+    protected viewParamChange(newVal: any, oldVal: any): void {
+        if(this.viewparams.selectedData){
+            this.selectedData = JSON.stringify(this.viewparams.selectedData);
+        }
+    }
+
+    /**
+     * 视图组件挂载完毕
+     *
+     * @protected
+     * @memberof StoryMPickupView
+     */
+    protected viewMounted(): void {
+        if(this.viewparams.selectedData){
+            this.engine.onCtrlEvent('pickupviewpanel', 'selectionchange', this.viewparams.selectedData);
+            this.onCLickRight();
+        }
+    }
 
     /**
      * 选中数据单击

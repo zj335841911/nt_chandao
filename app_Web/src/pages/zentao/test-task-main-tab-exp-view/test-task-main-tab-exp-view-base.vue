@@ -1,4 +1,4 @@
- 
+
 <template>
 <studio-view viewName="testtaskmaintabexpview" viewTitle="测试版本分页导航视图" class='detabexpview test-task-main-tab-exp-view'>
     <template slot='title'>
@@ -16,9 +16,10 @@
 </template>
 
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, TabExpViewBase } from '@/studio-core';
 import TestTaskService from '@/service/test-task/test-task-service';
 
 import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
@@ -29,10 +30,11 @@ import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
  *
  * @export
  * @class TestTaskMainTabExpViewBase
- * @extends {Vue}
+ * @extends {TabExpViewBase}
  */
 @Component({})
-export default class TestTaskMainTabExpViewBase extends Vue {
+@VueLifeCycleProcessing()
+export default class TestTaskMainTabExpViewBase extends TabExpViewBase {
 
     /**
      * 实体服务对象
@@ -124,13 +126,13 @@ export default class TestTaskMainTabExpViewBase extends Vue {
     }
 
 
-
     /**
      * 加载模型
-     * 
+     *
+     * @protected
      * @memberof TestTaskMainTabExpViewBase
      */
-    public loadModel(){
+    protected async loadModel(): Promise<any> {
         if(this.context.testtask){
             this.appEntityService.getDataInfo(JSON.parse(JSON.stringify(this.context)),{},false).then((response:any) =>{
                 if (!response || response.status !== 200) {

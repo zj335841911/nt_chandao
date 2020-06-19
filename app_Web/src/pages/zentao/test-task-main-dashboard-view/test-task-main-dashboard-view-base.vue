@@ -1,4 +1,3 @@
-
 <template>
 <studio-view viewName="testtaskmaindashboardview" viewTitle="测试版本数据看板视图" class='deportalview test-task-main-dashboard-view'>
     <view_dashboard 
@@ -15,9 +14,10 @@
 </template>
 
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, DashboardViewBase } from '@/studio-core';
 import TestTaskService from '@/service/test-task/test-task-service';
 
 import PortalViewEngine from '@engine/view/portal-view-engine';
@@ -28,10 +28,11 @@ import PortalViewEngine from '@engine/view/portal-view-engine';
  *
  * @export
  * @class TestTaskMainDashboardViewBase
- * @extends {Vue}
+ * @extends {DashboardViewBase}
  */
 @Component({})
-export default class TestTaskMainDashboardViewBase extends Vue {
+@VueLifeCycleProcessing()
+export default class TestTaskMainDashboardViewBase extends DashboardViewBase {
 
     /**
      * 实体服务对象

@@ -16,9 +16,10 @@
 </template>
 
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, TreeExpViewBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 
 import TreeExpViewEngine from '@engine/view/tree-exp-view-engine';
@@ -29,10 +30,11 @@ import TreeExpViewEngine from '@engine/view/tree-exp-view-engine';
  *
  * @export
  * @class ProjectTaskTreeExpViewBase
- * @extends {Vue}
+ * @extends {TreeExpViewBase}
  */
 @Component({})
-export default class ProjectTaskTreeExpViewBase extends Vue {
+@VueLifeCycleProcessing()
+export default class ProjectTaskTreeExpViewBase extends TreeExpViewBase {
 
     /**
      * 实体服务对象
@@ -191,7 +193,7 @@ export default class ProjectTaskTreeExpViewBase extends Vue {
     }
 
 
-    
+
     /**
      * 视图唯一标识
      *
@@ -199,7 +201,7 @@ export default class ProjectTaskTreeExpViewBase extends Vue {
      * @memberof ProjectTaskTreeExpView
      */
     public viewUID: string = 'zentao-project-task-tree-exp-view';
-    
+
 }
 </script>
 

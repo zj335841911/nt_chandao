@@ -1,4 +1,4 @@
- 
+
 <template>
 <studio-view viewName="productplanmaintabexp" viewTitle="计划" class='detabexpview product-plan-main-tab-exp tab-exp-view-header-flot'>
     <template slot='title'>
@@ -16,9 +16,10 @@
 </template>
 
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, TabExpViewBase } from '@/studio-core';
 import ProductPlanService from '@/service/product-plan/product-plan-service';
 
 import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
@@ -29,10 +30,11 @@ import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
  *
  * @export
  * @class ProductPlanMainTabExpBase
- * @extends {Vue}
+ * @extends {TabExpViewBase}
  */
 @Component({})
-export default class ProductPlanMainTabExpBase extends Vue {
+@VueLifeCycleProcessing()
+export default class ProductPlanMainTabExpBase extends TabExpViewBase {
 
     /**
      * 实体服务对象
@@ -124,13 +126,13 @@ export default class ProductPlanMainTabExpBase extends Vue {
     }
 
 
-
     /**
      * 加载模型
-     * 
+     *
+     * @protected
      * @memberof ProductPlanMainTabExpBase
      */
-    public loadModel(){
+    protected async loadModel(): Promise<any> {
         if(this.context.productplan){
             this.appEntityService.getDataInfo(JSON.parse(JSON.stringify(this.context)),{},false).then((response:any) =>{
                 if (!response || response.status !== 200) {

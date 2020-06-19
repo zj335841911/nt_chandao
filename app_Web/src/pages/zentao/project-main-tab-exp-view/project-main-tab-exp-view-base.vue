@@ -1,4 +1,4 @@
- 
+
 <template>
 <studio-view viewName="projectmaintabexpview" viewTitle="项目导航视图" class='detabexpview project-main-tab-exp-view'>
     <view_tabexppanel 
@@ -13,9 +13,10 @@
 </template>
 
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, TabExpViewBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 
 import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
@@ -26,10 +27,11 @@ import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
  *
  * @export
  * @class ProjectMainTabExpViewBase
- * @extends {Vue}
+ * @extends {TabExpViewBase}
  */
 @Component({})
-export default class ProjectMainTabExpViewBase extends Vue {
+@VueLifeCycleProcessing()
+export default class ProjectMainTabExpViewBase extends TabExpViewBase {
 
     /**
      * 实体服务对象
@@ -122,13 +124,13 @@ export default class ProjectMainTabExpViewBase extends Vue {
     }
 
 
-
     /**
      * 加载模型
-     * 
+     *
+     * @protected
      * @memberof ProjectMainTabExpViewBase
      */
-    public loadModel(){
+    protected async loadModel(): Promise<any> {
         if(this.context.project){
             this.appEntityService.getDataInfo(JSON.parse(JSON.stringify(this.context)),{},false).then((response:any) =>{
                 if (!response || response.status !== 200) {

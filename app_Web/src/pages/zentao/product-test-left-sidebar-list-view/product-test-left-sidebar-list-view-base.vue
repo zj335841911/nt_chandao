@@ -32,9 +32,10 @@
 
 
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, ListViewBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 
 import ListViewEngine from '@engine/view/list-view-engine';
@@ -48,10 +49,11 @@ import CodeListService from "@service/app/codelist-service";
  *
  * @export
  * @class ProductTestLeftSidebarListViewBase
- * @extends {Vue}
+ * @extends {ListViewBase}
  */
 @Component({})
-export default class ProductTestLeftSidebarListViewBase extends Vue {
+@VueLifeCycleProcessing()
+export default class ProductTestLeftSidebarListViewBase extends ListViewBase {
 
     /**
      * 实体服务对象

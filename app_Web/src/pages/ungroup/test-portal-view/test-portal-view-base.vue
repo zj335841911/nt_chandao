@@ -1,4 +1,3 @@
-
 <template>
 <studio-view viewName="testportalview" viewTitle="测试主页" class='appportalview test-portal-view'>
     <template slot='title'>
@@ -17,9 +16,10 @@
 </template>
 
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, PortalViewBase } from '@/studio-core';
 
 
 
@@ -28,10 +28,11 @@ import { UIActionTool, Util } from '@/utils';
  *
  * @export
  * @class TestPortalViewBase
- * @extends {Vue}
+ * @extends {PortalViewBase}
  */
 @Component({})
-export default class TestPortalViewBase extends Vue {
+@VueLifeCycleProcessing()
+export default class TestPortalViewBase extends PortalViewBase {
 
 
     /**

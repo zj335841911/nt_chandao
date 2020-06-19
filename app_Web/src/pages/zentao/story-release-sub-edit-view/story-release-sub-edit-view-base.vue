@@ -31,9 +31,10 @@
 </template>
 
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, EditViewBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 
 import EditViewEngine from '@engine/view/edit-view-engine';
@@ -44,10 +45,11 @@ import EditViewEngine from '@engine/view/edit-view-engine';
  *
  * @export
  * @class StoryReleaseSubEditViewBase
- * @extends {Vue}
+ * @extends {EditViewBase}
  */
 @Component({})
-export default class StoryReleaseSubEditViewBase extends Vue {
+@VueLifeCycleProcessing()
+export default class StoryReleaseSubEditViewBase extends EditViewBase {
 
     /**
      * 实体服务对象

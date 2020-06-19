@@ -1,4 +1,3 @@
-
 <template>
 <studio-view viewName="casemaindashboardview" viewTitle="功能测试" class='deportalview case-main-dashboard-view'>
     <template slot='title'>
@@ -18,9 +17,10 @@
 </template>
 
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, DashboardViewBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
 
 import PortalViewEngine from '@engine/view/portal-view-engine';
@@ -31,10 +31,11 @@ import PortalViewEngine from '@engine/view/portal-view-engine';
  *
  * @export
  * @class CaseMainDashboardViewBase
- * @extends {Vue}
+ * @extends {DashboardViewBase}
  */
 @Component({})
-export default class CaseMainDashboardViewBase extends Vue {
+@VueLifeCycleProcessing()
+export default class CaseMainDashboardViewBase extends DashboardViewBase {
 
     /**
      * 实体服务对象

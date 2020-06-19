@@ -36,9 +36,10 @@
 </template>
 
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, OptionViewBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 
 import OptionViewEngine from '@engine/view/option-view-engine';
@@ -49,10 +50,11 @@ import OptionViewEngine from '@engine/view/option-view-engine';
  *
  * @export
  * @class TaskPauseTaskViewBase
- * @extends {Vue}
+ * @extends {OptionViewBase}
  */
 @Component({})
-export default class TaskPauseTaskViewBase extends Vue {
+@VueLifeCycleProcessing()
+export default class TaskPauseTaskViewBase extends OptionViewBase {
 
     /**
      * 实体服务对象

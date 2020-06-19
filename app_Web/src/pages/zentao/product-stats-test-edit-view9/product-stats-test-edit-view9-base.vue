@@ -26,9 +26,10 @@
 </template>
 
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, EditView9Base } from '@/studio-core';
 import ProductStatsService from '@/service/product-stats/product-stats-service';
 
 import EditView9Engine from '@engine/view/edit-view9-engine';
@@ -39,10 +40,11 @@ import EditView9Engine from '@engine/view/edit-view9-engine';
  *
  * @export
  * @class ProductStatsTestEditView9Base
- * @extends {Vue}
+ * @extends {EditView9Base}
  */
 @Component({})
-export default class ProductStatsTestEditView9Base extends Vue {
+@VueLifeCycleProcessing()
+export default class ProductStatsTestEditView9Base extends EditView9Base {
 
     /**
      * 实体服务对象
@@ -107,7 +109,6 @@ export default class ProductStatsTestEditView9Base extends Vue {
     protected containerModel: any = {
         view_form: { name: 'form', type: 'FORM' },
     };
-
 
 
 
@@ -181,6 +182,26 @@ export default class ProductStatsTestEditView9Base extends Vue {
 
 
 
+    /**
+     * 视图组件挂载完毕
+     *
+     * @protected
+     * @memberof ViewBase
+     */
+    protected viewMounted(): void {
+        if(this.panelState){
+            this.panelState.subscribe((res:any) =>{
+                if(Object.is(res.tag,'meditviewpanel')){
+                    if(Object.is(res.action,'save')){
+                        this.viewState.next({ tag:'form', action: 'save', data:res.data});
+                    }
+                    if(Object.is(res.action,'remove')){
+                        this.viewState.next({ tag:'form', action: 'remove', data:res.data});
+                    }
+                }
+            });
+        }
+    }
 
 }
 </script>

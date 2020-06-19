@@ -26,11 +26,11 @@
 </studio-view>
 </template>
 
-
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, PickupViewBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 
 import PickupViewEngine from '@engine/view/pickup-view-engine';
@@ -41,10 +41,11 @@ import PickupViewEngine from '@engine/view/pickup-view-engine';
  *
  * @export
  * @class ProductPickupViewBase
- * @extends {Vue}
+ * @extends {PickupViewBase}
  */
 @Component({})
-export default class ProductPickupViewBase extends Vue {
+@VueLifeCycleProcessing()
+export default class ProductPickupViewBase extends PickupViewBase {
 
     /**
      * 实体服务对象
@@ -114,7 +115,6 @@ export default class ProductPickupViewBase extends Vue {
         view_allleftbtn: { name: 'allleftbtn', type: 'button', text: '全部左移', disabled: true },
         view_allrightbtn: { name: 'allrightbtn', type: 'button', text: '全部右移', disabled: true },
     };
-
 
 
 
@@ -188,7 +188,7 @@ export default class ProductPickupViewBase extends Vue {
      * 视图选中数据
      *
      * @type {any[]}
-     * @memberof ProductPickupViewBase
+     * @memberof ProductPickupView
      */
     public viewSelections:any[] = [];
 
@@ -196,7 +196,7 @@ export default class ProductPickupViewBase extends Vue {
      * 是否显示按钮
      *
      * @type {boolean}
-     * @memberof ProductPickupViewBase
+     * @memberof ProductPickupView
      */
     @Prop({default: true}) public isShowButton!: boolean;
 
@@ -204,14 +204,40 @@ export default class ProductPickupViewBase extends Vue {
      * 是否单选
      *
      * @type {boolean}
-     * @memberof ProductPickupViewBase
+     * @memberof ProductPickupView
      */
     public isSingleSelect: boolean = true;
 
     /**
+     * 视图参数变更
+     *
+     * @protected
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof ProductPickupView
+     */
+    protected viewParamChange(newVal: any, oldVal: any): void {
+        if(this.viewparams.selectedData){
+            this.selectedData = JSON.stringify(this.viewparams.selectedData);
+        }
+    }
+
+    /**
+     * 视图组件挂载完毕
+     *
+     * @protected
+     * @memberof ProductPickupView
+     */
+    protected viewMounted(): void {
+        if(this.viewparams.selectedData){
+            this.engine.onCtrlEvent('pickupviewpanel', 'selectionchange', this.viewparams.selectedData);
+        }
+    }
+
+    /**
      * 确定
      *
-     * @memberof ProductPickupViewBase
+     * @memberof ProductPickupView
      */
     public onClickOk(): void {
         this.$emit('viewdataschange', this.viewSelections);
@@ -221,7 +247,7 @@ export default class ProductPickupViewBase extends Vue {
     /**
      * 取消
      *
-     * @memberof ProductPickupViewBase
+     * @memberof ProductPickupView
      */
     public onClickCancel(): void {
         this.$emit('close', null);

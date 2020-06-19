@@ -16,9 +16,10 @@
 </template>
 
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, TreeExpViewBase } from '@/studio-core';
 import ProductModuleService from '@/service/product-module/product-module-service';
 
 import TreeExpViewEngine from '@engine/view/tree-exp-view-engine';
@@ -29,10 +30,11 @@ import TreeExpViewEngine from '@engine/view/tree-exp-view-engine';
  *
  * @export
  * @class ProductModuleTreeExpViewBase
- * @extends {Vue}
+ * @extends {TreeExpViewBase}
  */
 @Component({})
-export default class ProductModuleTreeExpViewBase extends Vue {
+@VueLifeCycleProcessing()
+export default class ProductModuleTreeExpViewBase extends TreeExpViewBase {
 
     /**
      * 实体服务对象
@@ -192,7 +194,7 @@ export default class ProductModuleTreeExpViewBase extends Vue {
     }
 
 
-    
+
     /**
      * 视图唯一标识
      *
@@ -200,7 +202,7 @@ export default class ProductModuleTreeExpViewBase extends Vue {
      * @memberof ProductModuleTreeExpView
      */
     public viewUID: string = 'ibiz-product-module-tree-exp-view';
-    
+
 }
 </script>
 

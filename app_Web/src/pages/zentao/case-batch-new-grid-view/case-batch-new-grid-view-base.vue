@@ -36,9 +36,10 @@
 
 
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, GridViewBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
 
 import GridViewEngine from '@engine/view/grid-view-engine';
@@ -51,10 +52,11 @@ import CodeListService from "@service/app/codelist-service";
  *
  * @export
  * @class CaseBatchNewGridViewBase
- * @extends {Vue}
+ * @extends {GridViewBase}
  */
 @Component({})
-export default class CaseBatchNewGridViewBase extends Vue {
+@VueLifeCycleProcessing()
+export default class CaseBatchNewGridViewBase extends GridViewBase {
 
     /**
      * 实体服务对象

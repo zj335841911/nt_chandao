@@ -26,9 +26,10 @@
 </template>
 
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, EditViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 
 import EditViewEngine from '@engine/view/edit-view-engine';
@@ -39,10 +40,11 @@ import EditViewEngine from '@engine/view/edit-view-engine';
  *
  * @export
  * @class BugStepsInfoEditViewBase
- * @extends {Vue}
+ * @extends {EditViewBase}
  */
 @Component({})
-export default class BugStepsInfoEditViewBase extends Vue {
+@VueLifeCycleProcessing()
+export default class BugStepsInfoEditViewBase extends EditViewBase {
 
     /**
      * 实体服务对象

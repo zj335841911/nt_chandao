@@ -42,6 +42,11 @@ export default class MainModel {
           dataType: 'TEXT',
         },
         {
+          name: 'owner',
+          prop: 'owner',
+          dataType: 'TEXT',
+        },
+        {
           name: 'parent',
           prop: 'parent',
           dataType: 'PICKUP',
