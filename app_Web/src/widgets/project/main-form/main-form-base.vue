@@ -58,10 +58,18 @@
 
 </i-col>
 <i-col v-show="detailsModel.formitemex2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    !!!!模版产生代码错误:----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #list formitems as formitem  [in template "TEMPLCODE_zh_CN" at line 4, column 3]
-----
+    <comb-form-item name="srfarray" :value="data.srfarray" :formItems="[{ name: '关联产品集合', prop: 'products' },{ name: '关联产品平台集合', prop: 'branchs' },{ name: '关联产品产品计划', prop: 'plans' },]">
+    <div slot="products" slot-scope="{item}">
+        <Input v-model="item.products" />
+    </div>
+    <div slot="branchs" slot-scope="{item}">
+        <Input v-model="item.branchs" />
+    </div>
+    <div slot="plans" slot-scope="{item}">
+        <Input v-model="item.plans" />
+    </div>
+</comb-form-item>
+
 
 </i-col>
     
