@@ -1,8 +1,5 @@
 <template>
 <studio-view viewName="projectmoduletreeexpview" viewTitle="任务模块树导航视图" class='detreeexpview project-module-tree-exp-view'>
-    <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
-    </template>
     <view_treeexpbar 
                     :viewState="viewState"  
                     :viewparams="viewparams" 

@@ -125,6 +125,7 @@ export default class ProductModuleGridViewBase extends Vue {
 	 * @memberof ProductModuleGridViewBase
 	 */
     public customViewParams:any ={
+    "root":{"isRawValue":false,"value":"product"}
     };
 
     /**

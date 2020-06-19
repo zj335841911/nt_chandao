@@ -71,6 +71,38 @@ export default class ReleaseServiceBase extends EntityService {
     }
 
     /**
+     * Terminate接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ReleaseServiceBase
+     */
+    public async Terminate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.release){
+            return Http.getInstance().post(`/products/${context.product}/releases/${context.release}/terminate`,data,isloading);
+        }
+            return Http.getInstance().post(`/releases/${context.release}/terminate`,data,isloading);
+    }
+
+    /**
+     * Activate接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ReleaseServiceBase
+     */
+    public async Activate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.release){
+            return Http.getInstance().post(`/products/${context.product}/releases/${context.release}/activate`,data,isloading);
+        }
+            return Http.getInstance().post(`/releases/${context.release}/activate`,data,isloading);
+    }
+
+    /**
      * Get接口方法
      *
      * @param {*} [context={}]
@@ -105,6 +137,22 @@ export default class ReleaseServiceBase extends EntityService {
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/releases/${context.release}/save`,data,isloading);
             return res;
+    }
+
+    /**
+     * ChangeStatus接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ReleaseServiceBase
+     */
+    public async ChangeStatus(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.release){
+            return Http.getInstance().post(`/products/${context.product}/releases/${context.release}/changestatus`,data,isloading);
+        }
+            return Http.getInstance().post(`/releases/${context.release}/changestatus`,data,isloading);
     }
 
     /**

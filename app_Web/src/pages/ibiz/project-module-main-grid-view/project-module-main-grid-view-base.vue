@@ -127,7 +127,8 @@ export default class ProjectModuleMainGridViewBase extends Vue {
 	 * @memberof ProjectModuleMainGridViewBase
 	 */
     public customViewParams:any ={
-    "n_type_eq":{"isRawValue":true,"value":"task"}
+    "n_type_eq":{"isRawValue":true,"value":"task"},
+    "root":{"isRawValue":false,"value":"project"}
     };
 
     /**

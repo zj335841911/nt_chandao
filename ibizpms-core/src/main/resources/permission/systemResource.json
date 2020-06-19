@@ -264,7 +264,7 @@
     "delogicname":"发布",
     "sysmoudle":{"id":"ZENTAO","name":"禅道模块"},
     "dedataset":[{"id":"Default" , "name":"DEFAULT"}],
-    "deaction":[{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" }],
+    "deaction":[{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Terminate" , "name":"状态变更（停止维护）" , "type":"USERCUSTOM" },{"id":"Activate" , "name":"状态变更（激活）" , "type":"USERCUSTOM" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"ChangeStatus" , "name":"状态变更" , "type":"USERCUSTOM" },{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}]
      }
     ],

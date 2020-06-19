@@ -26,9 +26,12 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface IReleaseService extends IService<Release>{
 
     boolean checkKey(Release et) ;
+    Release terminate(Release et) ;
+    Release activate(Release et) ;
     Release get(BigInteger key) ;
     boolean save(Release et) ;
     void saveBatch(List<Release> list) ;
+    Release changeStatus(Release et) ;
     boolean create(Release et) ;
     void createBatch(List<Release> list) ;
     Release getDraft(Release et) ;

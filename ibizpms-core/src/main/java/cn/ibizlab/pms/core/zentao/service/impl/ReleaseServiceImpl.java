@@ -62,6 +62,30 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
     }
     @Override
     @Transactional
+    public Release terminate(Release et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTReleaseHelper.terminate((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return et;
+    }
+
+    @Override
+    @Transactional
+    public Release activate(Release et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTReleaseHelper.activate((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return et;
+    }
+
+    @Override
+    @Transactional
     public Release get(BigInteger key) {
         Release et = getById(key);
         if(et==null){
@@ -106,18 +130,32 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
 
     @Override
     @Transactional
+    public Release changeStatus(Release et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTReleaseHelper.changeStatus((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return et;
+    }
+
+    @Override
+    @Transactional
     public boolean create(Release et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTReleaseHelper.create((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return bRst;
     }
 
     @Override
     public void createBatch(List<Release> list) {
-        this.saveBatch(list,batchSize);
-    }
 
+    }
     @Override
     public Release getDraft(Release et) {
         return et;
@@ -126,17 +164,19 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
     @Override
     @Transactional
     public boolean update(Release et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTReleaseHelper.edit((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return bRst;
     }
 
     @Override
     public void updateBatch(List<Release> list) {
-        updateBatchById(list,batchSize);
-    }
 
+    }
     @Override
     @Transactional
     public boolean remove(BigInteger key) {
