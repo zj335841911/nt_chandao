@@ -281,6 +281,11 @@ final public class ZTTaskHelper {
         // EDIT
         ACTION_URL_PARAMS_EDIT.add("id");
 
+        // DELETE
+        ACTION_URL_PARAMS_DELETE.add("project");
+        ACTION_URL_PARAMS_DELETE.add("id");
+        ACTION_URL_PARAMS_DELETE.add("confirm");
+
         // ASSIGNTO
         ACTION_URL_PARAMS_ASSIGNTO.add("project");
         ACTION_URL_PARAMS_ASSIGNTO.add("id");
@@ -369,6 +374,29 @@ final public class ZTTaskHelper {
         Map<String, Object> actionParams = ACTION_PARAMS_EDIT;
         List<String> actionUrlParams = ACTION_URL_PARAMS_EDIT;
         String returnUrlRegexPrev = null;
+
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
+    }
+
+    /**
+     * delete 删除
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean delete(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_DELETE;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_DELETE;
+        Map<String, Object> actionParams = ACTION_PARAMS_DELETE;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_DELETE;
+        String returnUrlRegexPrev = null;
+
+        jo.put("confirm", "yes");
 
         return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
     }

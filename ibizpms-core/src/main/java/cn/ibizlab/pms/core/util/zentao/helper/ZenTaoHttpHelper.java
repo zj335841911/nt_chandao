@@ -277,10 +277,12 @@ public class ZenTaoHttpHelper {
             return null;
         }
         url.append(moduleName);
-        url.append("-");
-        url.append(actionName);
-        if (jo != null && urlParams != null && urlParams.size() > 0) {
-            url.append(formatUrlParams(urlParams, jo));
+        if (actionName != null && !actionName.trim().isEmpty()) {
+            url.append("-");
+            url.append(actionName);
+            if (jo != null && urlParams != null && urlParams.size() > 0) {
+                url.append(formatUrlParams(urlParams, jo));
+            }
         }
         if (ext != null) {
             url.append(ext);

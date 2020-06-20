@@ -58,6 +58,7 @@ final public class ZTStoryHelper {
     private final static String  ACTION_ZEROCASE = "zeroCase";
     private final static String  ACTION_LINKSTORY = "linkStory";
     private final static String  ACTION_AJAXGETPROJECTSTORIES = "ajaxGetProjectStories";
+    private final static String  ACTION_AJAXGETPRODUCTSTORIES = "ajaxGetProductStories";
     private final static String  ACTION_AJAXSEARCHPRODUCTSTORIES = "ajaxSearchProductStories";
     private final static String  ACTION_AJAXGETDETAIL = "ajaxGetDetail";
     private final static String  ACTION_AJAXGETINFO = "ajaxGetInfo";
@@ -71,60 +72,114 @@ final public class ZTStoryHelper {
     // ----------
 
     private final static HttpMethod ACTION_HTTPMETHOD_CREATE = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_EDIT = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_CHANGE = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_REVIEW = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_ACTIVATE = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_ASSIGNTO = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_CLOSE = HttpMethod.POST;
     private final static HttpMethod ACTION_HTTPMETHOD_BATCHCREATE = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_COMMONACTION = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_EDIT = HttpMethod.POST;
     private final static HttpMethod ACTION_HTTPMETHOD_BATCHEDIT = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_BATCHCHANGESTAGE = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_BATCHCHANGEBRANCH = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_BATCHCHANGEPLAN = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_BATCHCLOSE = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_CHANGE = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_ACTIVATE = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_VIEW = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_DELETE = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_REVIEW = HttpMethod.POST;
     private final static HttpMethod ACTION_HTTPMETHOD_BATCHREVIEW = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_CLOSE = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_BATCHCLOSE = HttpMethod.POST;
     private final static HttpMethod ACTION_HTTPMETHOD_BATCHCHANGEMODULE = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_BATCHCHANGEPLAN = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_BATCHCHANGEBRANCH = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_BATCHCHANGESTAGE = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_ASSIGNTO = HttpMethod.POST;
     private final static HttpMethod ACTION_HTTPMETHOD_BATCHASSIGNTO = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_TASKS = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_BUGS = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_CASES = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_ZEROCASE = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_LINKSTORY = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETPROJECTSTORIES = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETPRODUCTSTORIES = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_AJAXSEARCHPRODUCTSTORIES = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETDETAIL = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETINFO = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_REPORT = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_EXPORT = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETUSERSTORYS = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETSTATUS = HttpMethod.POST;
 
     // ----------
     // 接口行为POST参数
     // ----------
 
     private final static Map<String, Object> ACTION_PARAMS_CREATE = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_BATCHCREATE = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_COMMONACTION = new HashMap<>();
     private final static Map<String, Object> ACTION_PARAMS_EDIT = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_BATCHEDIT = new HashMap<>();
     private final static Map<String, Object> ACTION_PARAMS_CHANGE = new HashMap<>();
-    private final static Map<String, Object> ACTION_PARAMS_REVIEW = new HashMap<>();
     private final static Map<String, Object> ACTION_PARAMS_ACTIVATE = new HashMap<>();
-    private final static Map<String, Object> ACTION_PARAMS_ASSIGNTO = new HashMap<>();
-    private final static Map<String, Object> ACTION_PARAMS_CLOSE = new HashMap<>();
-    private final static Map<String, Object> ACTION_PARAMS_BATCHCHANGESTAGE = new HashMap<>();
-    private final static Map<String, Object> ACTION_PARAMS_BATCHCHANGEBRANCH = new HashMap<>();
-    private final static Map<String, Object> ACTION_PARAMS_BATCHCHANGEPLAN = new HashMap<>();
-    private final static Map<String, Object> ACTION_PARAMS_BATCHCLOSE = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_VIEW = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_DELETE = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_REVIEW = new HashMap<>();
     private final static Map<String, Object> ACTION_PARAMS_BATCHREVIEW = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_CLOSE = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_BATCHCLOSE = new HashMap<>();
     private final static Map<String, Object> ACTION_PARAMS_BATCHCHANGEMODULE = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_BATCHCHANGEPLAN = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_BATCHCHANGEBRANCH = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_BATCHCHANGESTAGE = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_ASSIGNTO = new HashMap<>();
     private final static Map<String, Object> ACTION_PARAMS_BATCHASSIGNTO = new HashMap<>();
-
+    private final static Map<String, Object> ACTION_PARAMS_TASKS = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_BUGS = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_CASES = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_ZEROCASE = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_LINKSTORY = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_AJAXGETPROJECTSTORIES = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_AJAXGETPRODUCTSTORIES = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_AJAXSEARCHPRODUCTSTORIES = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_AJAXGETDETAIL = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_AJAXGETINFO = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_REPORT = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_EXPORT = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_AJAXGETUSERSTORYS = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_AJAXGETSTATUS = new HashMap<>();
 
     // ----------
     // 接口行为URL参数
     // ----------
 
+    private final static List<String> ACTION_URL_PARAMS_CREATE = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_BATCHCREATE = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_COMMONACTION = new ArrayList<>();
     private final static List<String> ACTION_URL_PARAMS_EDIT = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_BATCHEDIT = new ArrayList<>();
     private final static List<String> ACTION_URL_PARAMS_CHANGE = new ArrayList<>();
-    private final static List<String> ACTION_URL_PARAMS_REVIEW = new ArrayList<>();
     private final static List<String> ACTION_URL_PARAMS_ACTIVATE = new ArrayList<>();
-    private final static List<String> ACTION_URL_PARAMS_ASSIGNTO = new ArrayList<>();
-    private final static List<String> ACTION_URL_PARAMS_CLOSE = new ArrayList<>();
-    private final static List<String> ACTION_URL_PARAMS_BATCHCHANGESTAGE = new ArrayList<>();
-    private final static List<String> ACTION_URL_PARAMS_BATCHCHANGEBRANCH = new ArrayList<>();
-    private final static List<String> ACTION_URL_PARAMS_BATCHCHANGEPLAN = new ArrayList<>();
-    private final static List<String> ACTION_URL_PARAMS_BATCHCLOSE = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_VIEW = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_DELETE = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_REVIEW = new ArrayList<>();
     private final static List<String> ACTION_URL_PARAMS_BATCHREVIEW = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_CLOSE = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_BATCHCLOSE = new ArrayList<>();
     private final static List<String> ACTION_URL_PARAMS_BATCHCHANGEMODULE = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_BATCHCHANGEPLAN = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_BATCHCHANGEBRANCH = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_BATCHCHANGESTAGE = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_ASSIGNTO = new ArrayList<>();
     private final static List<String> ACTION_URL_PARAMS_BATCHASSIGNTO = new ArrayList<>();
-
+    private final static List<String> ACTION_URL_PARAMS_TASKS = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_BUGS = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_CASES = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_ZEROCASE = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_LINKSTORY = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_AJAXGETPROJECTSTORIES = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_AJAXGETPRODUCTSTORIES = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_AJAXSEARCHPRODUCTSTORIES = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_AJAXGETDETAIL = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_AJAXGETINFO = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_REPORT = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_EXPORT = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_AJAXGETUSERSTORYS = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_AJAXGETSTATUS = new ArrayList<>();
 
     // ----------
     // 接口行为POST参数设置
@@ -212,6 +267,10 @@ final public class ZTStoryHelper {
         // EDIT
         ACTION_URL_PARAMS_EDIT.add("id");
 
+        // DELETE
+        ACTION_URL_PARAMS_DELETE.add("id");
+        ACTION_URL_PARAMS_DELETE.add("confirm");
+
         // CHANGE
         ACTION_URL_PARAMS_CHANGE.add("id");
 
@@ -232,6 +291,13 @@ final public class ZTStoryHelper {
 
         // BATCHCHANGESTAGE
         ACTION_URL_PARAMS_BATCHCHANGESTAGE.add("branch");
+    }
+
+    // ----------
+    // 接口行为POST参数日期格式设置
+    // ----------
+    static {
+        PARAMS_DATEFORMAT.put("reviewedDate", "yyyy-MM-dd");
     }
 
     // ----------
@@ -276,6 +342,29 @@ final public class ZTStoryHelper {
         Map<String, Object> actionParams = ACTION_PARAMS_EDIT;
         List<String> actionUrlParams = ACTION_URL_PARAMS_EDIT;
         String returnUrlRegexPrev = null;
+
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
+    }
+
+    /**
+     * delete 删除
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean delete(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_DELETE;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_DELETE;
+        Map<String, Object> actionParams = ACTION_PARAMS_DELETE;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_DELETE;
+        String returnUrlRegexPrev = null;
+
+        jo.put("confirm", "yes");
 
         return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
     }

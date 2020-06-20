@@ -55,22 +55,61 @@ final public class ZTProductPlanHelper {
     // 接口行为HTTP方法（GET、POST）
     // ----------
 
+    private final static HttpMethod ACTION_HTTPMETHOD_COMMONACTION = HttpMethod.GET;
     private final static HttpMethod ACTION_HTTPMETHOD_CREATE = HttpMethod.POST;
     private final static HttpMethod ACTION_HTTPMETHOD_EDIT = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_BATCHEDIT = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_DELETE = HttpMethod.GET;
+    private final static HttpMethod ACTION_HTTPMETHOD_BROWSE = HttpMethod.GET;
+    private final static HttpMethod ACTION_HTTPMETHOD_VIEW = HttpMethod.GET;
+    private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETPRODUCTPLANS = HttpMethod.GET;
+    private final static HttpMethod ACTION_HTTPMETHOD_AJAXSTORYSORT = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_LINKSTORY = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_UNLINKSTORY = HttpMethod.GET;
+    private final static HttpMethod ACTION_HTTPMETHOD_BATCHUNLINKSTORY = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_LINKBUG = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_UNLINKBUG = HttpMethod.GET;
+    private final static HttpMethod ACTION_HTTPMETHOD_BATCHUNLINKBUG = HttpMethod.POST;
 
     // ----------
     // 接口行为POST参数
     // ----------
 
+    private final static Map<String, Object> ACTION_PARAMS_COMMONACTION = new HashMap<>();
     private final static Map<String, Object> ACTION_PARAMS_CREATE = new HashMap<>();
     private final static Map<String, Object> ACTION_PARAMS_EDIT = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_BATCHEDIT = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_DELETE = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_BROWSE = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_VIEW = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_AJAXGETPRODUCTPLANS = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_AJAXSTORYSORT = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_LINKSTORY = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_UNLINKSTORY = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_BATCHUNLINKSTORY = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_LINKBUG = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_UNLINKBUG = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_BATCHUNLINKBUG = new HashMap<>();
 
     // ----------
     // 接口行为URL参数
     // ----------
 
+    private final static List<String> ACTION_URL_PARAMS_COMMONACTION = new ArrayList<>();
     private final static List<String> ACTION_URL_PARAMS_CREATE = new ArrayList<>();
     private final static List<String> ACTION_URL_PARAMS_EDIT = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_BATCHEDIT = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_DELETE = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_BROWSE = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_VIEW = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_AJAXGETPRODUCTPLANS = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_AJAXSTORYSORT = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_LINKSTORY = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_UNLINKSTORY = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_BATCHUNLINKSTORY = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_LINKBUG = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_UNLINKBUG = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_BATCHUNLINKBUG = new ArrayList<>();
 
     // ----------
     // 接口行为POST参数设置
@@ -113,6 +152,10 @@ final public class ZTProductPlanHelper {
 
         // EDIT
         ACTION_URL_PARAMS_EDIT.add("id");
+
+        // DELETE
+        ACTION_URL_PARAMS_DELETE.add("id");
+        ACTION_URL_PARAMS_DELETE.add("confirm");
 
     }
 
@@ -166,6 +209,29 @@ final public class ZTProductPlanHelper {
         Map<String, Object> actionParams = ACTION_PARAMS_EDIT;
         List<String> actionUrlParams = ACTION_URL_PARAMS_EDIT;
         String returnUrlRegexPrev = "/zentao/productplan-view-";
+
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
+    }
+
+    /**
+     * delete 删除
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean delete(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_DELETE;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_DELETE;
+        Map<String, Object> actionParams = ACTION_PARAMS_DELETE;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_DELETE;
+        String returnUrlRegexPrev = null;
+
+        jo.put("confirm", "yes");
 
         return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
     }

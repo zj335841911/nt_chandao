@@ -36,49 +36,101 @@ final public class ZTProductHelper {
     // 接口ACTION
     // ----------
 
-    private final static String  ACTION_INDEX= "index";
-    private final static String  ACTION_PROJECT= "project";
-    private final static String  ACTION_BROWSE= "browse";
-    private final static String  ACTION_CREATE= "create";
-    private final static String  ACTION_EDIT= "edit";
-    private final static String  ACTION_BATCHEDIT= "batchEdit";
-    private final static String  ACTION_CLOSE= "close";
-    private final static String  ACTION_VIEW= "view";
-    private final static String  ACTION_DELETE= "delete";
-    private final static String  ACTION_ROADMAP= "roadmap";
-    private final static String  ACTION_DYNAMIC= "dynamic";
-    private final static String  ACTION_AJAXGETPROJECTS= "ajaxGetProjects";
-    private final static String  ACTION_AJAXGETPLANS= "ajaxGetPlans";
-    private final static String  ACTION_AJAXGETDROPMENU= "ajaxGetDropMenu";
-    private final static String  ACTION_UPDATEORDER= "updateOrder";
-    private final static String  ACTION_SHOWERRORNONE= "showErrorNone";
-    private final static String  ACTION_ALL= "all";
-    private final static String  ACTION_EXPORT= "export";
-    private final static String  ACTION_DOC= "doc";
-    private final static String  ACTION_BUILD= "build";
+    private final static String  ACTION_INDEX = "index";
+    private final static String  ACTION_PROJECT = "project";
+    private final static String  ACTION_BROWSE = "browse";
+    private final static String  ACTION_CREATE = "create";
+    private final static String  ACTION_EDIT = "edit";
+    private final static String  ACTION_BATCHEDIT = "batchEdit";
+    private final static String  ACTION_CLOSE = "close";
+    private final static String  ACTION_VIEW = "view";
+    private final static String  ACTION_DELETE = "delete";
+    private final static String  ACTION_ROADMAP = "roadmap";
+    private final static String  ACTION_DYNAMIC = "dynamic";
+    private final static String  ACTION_AJAXGETPROJECTS = "ajaxGetProjects";
+    private final static String  ACTION_AJAXGETPLANS = "ajaxGetPlans";
+    private final static String  ACTION_AJAXGETDROPMENU = "ajaxGetDropMenu";
+    private final static String  ACTION_UPDATEORDER = "updateOrder";
+    private final static String  ACTION_SHOWERRORNONE = "showErrorNone";
+    private final static String  ACTION_ALL = "all";
+    private final static String  ACTION_EXPORT = "export";
+    private final static String  ACTION_DOC = "doc";
+    private final static String  ACTION_BUILD = "build";
 
     // ----------
     // 接口行为HTTP方法（GET、POST）
     // ----------
 
+    private final static HttpMethod ACTION_HTTPMETHOD_INDEX = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_PROJECT = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_BROWSE = HttpMethod.POST;
     private final static HttpMethod ACTION_HTTPMETHOD_CREATE = HttpMethod.POST;
     private final static HttpMethod ACTION_HTTPMETHOD_EDIT = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_BATCHEDIT = HttpMethod.POST;
     private final static HttpMethod ACTION_HTTPMETHOD_CLOSE = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_VIEW = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_DELETE = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_ROADMAP = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_DYNAMIC = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETPROJECTS = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETPLANS = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETDROPMENU = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_UPDATEORDER = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_SHOWERRORNONE = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_ALL = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_EXPORT = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_DOC = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_BUILD = HttpMethod.POST;
 
     // ----------
     // 接口行为POST参数
     // ----------
 
+    private final static Map<String, Object> ACTION_PARAMS_INDEX = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_PROJECT = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_BROWSE = new HashMap<>();
     private final static Map<String, Object> ACTION_PARAMS_CREATE = new HashMap<>();
     private final static Map<String, Object> ACTION_PARAMS_EDIT = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_BATCHEDIT = new HashMap<>();
     private final static Map<String, Object> ACTION_PARAMS_CLOSE = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_VIEW = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_DELETE = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_ROADMAP = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_DYNAMIC = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_AJAXGETPROJECTS = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_AJAXGETPLANS = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_AJAXGETDROPMENU = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_UPDATEORDER = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_SHOWERRORNONE = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_ALL = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_EXPORT = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_DOC = new HashMap<>();
+    private final static Map<String, Object> ACTION_PARAMS_BUILD = new HashMap<>();
 
     // ----------
     // 接口行为URL参数
     // ----------
 
+    private final static List<String> ACTION_URL_PARAMS_INDEX = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_PROJECT = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_BROWSE = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_CREATE = new ArrayList<>();
     private final static List<String> ACTION_URL_PARAMS_EDIT = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_BATCHEDIT = new ArrayList<>();
     private final static List<String> ACTION_URL_PARAMS_CLOSE = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_VIEW = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_DELETE = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_ROADMAP = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_DYNAMIC = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_AJAXGETPROJECTS = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_AJAXGETPLANS = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_AJAXGETDROPMENU = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_UPDATEORDER = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_SHOWERRORNONE = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_ALL = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_EXPORT = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_DOC = new ArrayList<>();
+    private final static List<String> ACTION_URL_PARAMS_BUILD = new ArrayList<>();
 
     // ----------
     // 接口行为POST参数设置
@@ -121,6 +173,10 @@ final public class ZTProductHelper {
 
         // CLOSE
         ACTION_URL_PARAMS_CLOSE.add("id");
+
+        // DELETE
+        ACTION_URL_PARAMS_DELETE.add("id");
+        ACTION_URL_PARAMS_DELETE.add("confirm");
 
     }
 
@@ -166,6 +222,29 @@ final public class ZTProductHelper {
         Map<String, Object> actionParams = ACTION_PARAMS_EDIT;
         List<String> actionUrlParams = ACTION_URL_PARAMS_EDIT;
         String returnUrlRegexPrev = "/zentao/product-view-";
+
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
+    }
+
+    /**
+     * delete 删除
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean delete(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_DELETE;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_DELETE;
+        Map<String, Object> actionParams = ACTION_PARAMS_DELETE;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_DELETE;
+        String returnUrlRegexPrev = null;
+
+        jo.put("confirm", "yes");
 
         return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
     }
