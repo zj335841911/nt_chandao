@@ -182,14 +182,24 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     public void updateBatch(List<TestTask> list) {
 
     }
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+    @Override
+    @Transactional
+    public boolean remove(BigInteger key) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        TestTask et = this.get(key);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTestTaskHelper.delete((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        return bRst;
+    }
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${srfjavatype(keyfield.stdDataType)}  [in template "TEMPLCODE_zh_CN" at line 3, column 27]
-----
+    @Override
+    public void removeBatch(Collection<BigInteger> idList){
+        if (idList != null && !idList.isEmpty()) {
+            for (BigInteger id : idList) {
+                this.remove(id);
+            }
+        }
+    }
     @Override
     @Transactional
     public TestTask close(TestTask et) {
