@@ -103,7 +103,6 @@ export default class CaseMainDashboardViewBase extends DashboardViewBase {
     };
 
 
-
     /**
      * 视图引擎
      *

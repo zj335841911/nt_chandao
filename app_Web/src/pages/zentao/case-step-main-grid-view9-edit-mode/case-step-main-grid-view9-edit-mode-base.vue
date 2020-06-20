@@ -137,8 +137,6 @@ export default class CaseStepMainGridView9_EditModeBase extends GridView9Base {
 
 
 
-
-
     /**
      * 视图引擎
      *
@@ -377,43 +375,11 @@ export default class CaseStepMainGridView9_EditModeBase extends GridView9Base {
     /**
      * 是否单选
      *
+     * @protected
      * @type {boolean}
      * @memberof CaseStepMainGridView9_EditModeBase
      */
-    public isSingleSelect: boolean = true;
-
-
-    /**
-    * 是否嵌入关系界面
-    *
-    * @type {boolean}
-    * @memberof CaseStepMainGridView9_EditModeBase
-    */
-    @Prop({default:false}) public isformDruipart?: boolean;
-
-    /**
-    * 界面关系通讯对象
-    *
-    * @type {Subject<ViewState>}
-    * @memberof CaseStepMainGridView9_EditModeBase
-    */
-    @Prop() public formDruipart?: Subject<ViewState>;
-
-    /**
-     * 搜索值
-     *
-     * @type {string}
-     * @memberof CaseStepMainGridView9_EditModeBase
-     */
-    public query: string = '';
-
-    /**
-     * 是否展开搜索表单
-     *
-     * @type {boolean}
-     * @memberof CaseStepMainGridView9_EditModeBase
-     */
-    public isExpandSearchForm: boolean = false;
+    protected isSingleSelect: boolean = true;
 
     /**
      * 表格行数据默认激活模式
@@ -421,68 +387,11 @@ export default class CaseStepMainGridView9_EditModeBase extends GridView9Base {
      * 1 单击激活
      * 2 双击激活
      *
+     * @protected
      * @type {(number | 0 | 1 | 2)}
      * @memberof CaseStepMainGridView9_EditModeBase
      */
-    public gridRowActiveMode: number | 0 | 1 | 2 = 0;
-
-    /**
-     * 快速搜索
-     *
-     * @param {*} $event
-     * @memberof CaseStepMainGridView9_EditModeBase
-     */
-    public onSearch($event: any): void {
-        const grid: any = this.$refs.grid;
-        if (grid) {
-            grid.load(this.context, true);
-        }
-    }
-
-    /**
-     * grid 部件 save 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof ENTITYTEST1Usr2GridViewBase
-     */
-    public onSave($event: any) {
-        this.$emit('drdatasaved', $event);
-    }
-
-    /**
-     * 刷新数据
-     *
-     * @readonly
-     * @type {(number | null)}
-     * @memberof CaseStepMainGridView9_EditModeBase
-     */
-    get refreshdata(): number | null {
-        return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
-    }
-
-    /**
-     * 监控数据变化
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @returns
-     * @memberof CaseStepMainGridView9_EditModeBase
-     */
-    @Watch('refreshdata')
-    onRefreshData(newVal: any, oldVal: any) {
-        if (newVal === null || newVal === undefined) {
-            return;
-        }
-        if (newVal === 0) {
-            return;
-        }
-        const grid: any = this.$refs.grid;
-        if (grid) {
-            grid.load({});
-        }
-    }
-
+    protected gridRowActiveMode: number | 0 | 1 | 2 = 0;
 }
 </script>
 

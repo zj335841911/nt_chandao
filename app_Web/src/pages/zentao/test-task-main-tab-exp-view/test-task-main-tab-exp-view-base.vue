@@ -1,4 +1,3 @@
-
 <template>
 <studio-view viewName="testtaskmaintabexpview" viewTitle="测试版本分页导航视图" class='detabexpview test-task-main-tab-exp-view'>
     <template slot='title'>
@@ -100,7 +99,6 @@ export default class TestTaskMainTabExpViewBase extends TabExpViewBase {
     };
 
 
-
     /**
      * 视图引擎
      *
@@ -124,6 +122,7 @@ export default class TestTaskMainTabExpViewBase extends TabExpViewBase {
             isLoadDefault: true,
         });
     }
+
 
 
     /**

@@ -103,7 +103,6 @@ export default class TaskMainDashboardViewBase extends DashboardViewBase {
     };
 
 
-
     /**
      * 视图引擎
      *

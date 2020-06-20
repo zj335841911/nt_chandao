@@ -9,3 +9,15 @@ declare module "vue/types/vue" {
         $uiState: UIStateService
     }
 }
+
+declare global {
+
+    interface Object {
+        /**
+         * 清除所有属性，不改变内存地址
+         *
+         * @memberof Object
+         */
+        clearAll(): void;
+    }
+}

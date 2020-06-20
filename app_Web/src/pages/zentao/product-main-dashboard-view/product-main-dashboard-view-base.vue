@@ -98,7 +98,6 @@ export default class ProductMainDashboardViewBase extends DashboardViewBase {
     };
 
 
-
     /**
      * 视图引擎
      *

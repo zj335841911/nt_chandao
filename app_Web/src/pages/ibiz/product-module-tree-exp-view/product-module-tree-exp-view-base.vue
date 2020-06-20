@@ -101,7 +101,6 @@ export default class ProductModuleTreeExpViewBase extends TreeExpViewBase {
     };
 
 
-
     /**
      * 视图引擎
      *
@@ -202,6 +201,7 @@ export default class ProductModuleTreeExpViewBase extends TreeExpViewBase {
      * @memberof ProductModuleTreeExpView
      */
     public viewUID: string = 'ibiz-product-module-tree-exp-view';
+
 
 }
 </script>

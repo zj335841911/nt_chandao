@@ -1,4 +1,3 @@
-
 <template>
 <studio-view viewName="projectmaintabexpview" viewTitle="项目导航视图" class='detabexpview project-main-tab-exp-view'>
     <view_tabexppanel 
@@ -98,7 +97,6 @@ export default class ProjectMainTabExpViewBase extends TabExpViewBase {
     };
 
 
-
     /**
      * 视图引擎
      *
@@ -122,6 +120,7 @@ export default class ProjectMainTabExpViewBase extends TabExpViewBase {
             isLoadDefault: true,
         });
     }
+
 
 
     /**

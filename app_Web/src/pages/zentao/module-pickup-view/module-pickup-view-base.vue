@@ -117,7 +117,6 @@ export default class ModulePickupViewBase extends PickupViewBase {
     };
 
 
-
     /**
      * 视图引擎
      *
@@ -176,82 +175,6 @@ export default class ModulePickupViewBase extends PickupViewBase {
         this.engine.onCtrlEvent('pickupviewpanel', 'load', $event);
     }
 
-    /**
-     * 选中数据的字符串
-     *
-     * @type {string}
-     * @memberof ModulePickupView
-     */
-    public selectedData: string = "";
-
-    /**
-     * 视图选中数据
-     *
-     * @type {any[]}
-     * @memberof ModulePickupView
-     */
-    public viewSelections:any[] = [];
-
-    /**
-     * 是否显示按钮
-     *
-     * @type {boolean}
-     * @memberof ModulePickupView
-     */
-    @Prop({default: true}) public isShowButton!: boolean;
-
-    /**
-     * 是否单选
-     *
-     * @type {boolean}
-     * @memberof ModulePickupView
-     */
-    public isSingleSelect: boolean = true;
-
-    /**
-     * 视图参数变更
-     *
-     * @protected
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof ModulePickupView
-     */
-    protected viewParamChange(newVal: any, oldVal: any): void {
-        if(this.viewparams.selectedData){
-            this.selectedData = JSON.stringify(this.viewparams.selectedData);
-        }
-    }
-
-    /**
-     * 视图组件挂载完毕
-     *
-     * @protected
-     * @memberof ModulePickupView
-     */
-    protected viewMounted(): void {
-        if(this.viewparams.selectedData){
-            this.engine.onCtrlEvent('pickupviewpanel', 'selectionchange', this.viewparams.selectedData);
-        }
-    }
-
-    /**
-     * 确定
-     *
-     * @memberof ModulePickupView
-     */
-    public onClickOk(): void {
-        this.$emit('viewdataschange', this.viewSelections);
-        this.$emit('close', null);
-    }
-
-    /**
-     * 取消
-     *
-     * @memberof ModulePickupView
-     */
-    public onClickCancel(): void {
-        this.$emit('close', null);
-    }
 
 }
 </script>

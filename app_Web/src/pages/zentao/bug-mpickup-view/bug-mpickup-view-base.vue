@@ -150,7 +150,6 @@ export default class BugMPickupViewBase extends MPickupViewBase {
     };
 
 
-
     /**
      * 视图引擎
      *
@@ -210,205 +209,33 @@ export default class BugMPickupViewBase extends MPickupViewBase {
     }
 
 
-    /**
-     * 视图选中数据
-     *
-     * @type {any[]}
-     * @memberof BugMPickupView
-     */
-    public viewSelections:any[] = [];
-
-    /**
-     * 是否显示按钮
-     *
-     * @type {boolean}
-     * @memberof BugMPickupView
-     */
-    @Prop({default: true}) public isShowButton!: boolean;
-    
-    /**
-     * 选中数据的字符串
-     *
-     * @type {string}
-     * @memberof BugMPickupView
-     */
-    public selectedData: string = "";
-
-    /**
-     * 是否初始化已选中项
-     *
-     * @type {any[]}
-     * @memberof BugMPickupView
-     */
-    public isInitSelected:boolean = false;
-    
-    /**
-     * 是否单选
-     *
-     * @type {boolean}
-     * @memberof BugMPickupView
-     */
-    public isSingleSelect: boolean = false;
-
-    /**
-     * 视图参数变更
-     *
-     * @protected
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof BugMPickupView
-     */
-    protected viewParamChange(newVal: any, oldVal: any): void {
-        if(this.viewparams.selectedData){
-            this.selectedData = JSON.stringify(this.viewparams.selectedData);
-        }
-    }
-
-    /**
-     * 视图组件挂载完毕
-     *
-     * @protected
-     * @memberof BugMPickupView
-     */
-    protected viewMounted(): void {
-        if(this.viewparams.selectedData){
-            this.engine.onCtrlEvent('pickupviewpanel', 'selectionchange', this.viewparams.selectedData);
-            this.onCLickRight();
-        }
-    }
-
-    /**
-     * 选中数据单击
-     *
-     * @param {*} item
-     * @memberof BugMPickupView
-     */
-    public selectionsClick(item:any):void {
-        item._select = !item._select;
-        const removeSelect: boolean = this.viewSelections.some((selection: any) => selection._select);
-        this.containerModel.view_leftbtn.disabled = !removeSelect;
-    }
-
-    /**
-     * 选中树双击
-     *
-     * @param {*} item
-     * @memberof BugMPickupView
-     */
-    public selectionsDBLClick(item:any):void {
-        const index: number = this.viewSelections.findIndex((selection: any) => Object.is(selection.srfkey, item.srfkey));
-        if (index !== -1) {
-            this.viewSelections.splice(index, 1);
-        }
-        const removeSelect: boolean = this.viewSelections.some((selection: any) => selection._select);
-        this.containerModel.view_leftbtn.disabled = !removeSelect;
-        this.selectedData = JSON.stringify(this.viewSelections);
-    }
-
-    /**
-     * 删除右侧全部选中数据
-     *
-     * @memberof BugMPickupView
-     */
-    public onCLickLeft():void {
-        const _selectiions = [...JSON.parse(JSON.stringify(this.viewSelections))];
-        _selectiions.forEach((item: any) => {
-            if (!item._select) {
-                return;
-            }
-            const index = this.viewSelections.findIndex((selection: any) => Object.is(item.srfkey, selection.srfkey));
-            if (index !== -1) {
-                this.viewSelections.splice(index, 1);
-            }
-        });
-        const removeSelect: boolean = this.viewSelections.some((selection: any) => selection._select);
-        this.containerModel.view_leftbtn.disabled = !removeSelect;
-        this.selectedData = JSON.stringify(this.viewSelections);
-    }
-
-    /**
-     * 添加左侧选中数据
-     *
-     * @memberof BugMPickupView
-     */
-    public onCLickRight():void {
-        Object.values(this.containerModel).forEach((model: any) => {
-            if (!Object.is(model.type, 'PICKUPVIEWPANEL')) {
-                return;
-            }
-            let newSelections:any[] = [];
-            model.selections.forEach((item: any) => {
-                const index: number = this.viewSelections.findIndex((selection: any) => Object.is(item.srfkey, selection.srfkey));
-                if (index === -1) {
-                    let _item: any = { ...JSON.parse(JSON.stringify(item)) };
-                    Object.assign(_item, { _select: false })
-                    newSelections.push(_item);
-                }else{
-                    newSelections.push(this.viewSelections[index]);
-                }
-            });
-            this.viewSelections = newSelections;
-        });
-        this.selectedData = JSON.stringify(this.viewSelections);
-    }
-
-    /**
-     * 选中数据全部删除
-     *
-     * @memberof BugMPickupView
-     */
-    public onCLickAllLeft():void {
-        this.viewSelections = [];
-        this.containerModel.view_leftbtn.disabled = true;
-        this.engine.onCtrlEvent('pickupviewpanel', 'selectionchange', []);
-        this.selectedData = JSON.stringify(this.viewSelections);
-    }
 
     /**
      * 添加左侧面板所有数据到右侧
      *
      * @memberof BugMPickupView
      */
-    public onCLickAllRight():void {
+    public onCLickAllRight(): void {
         Object.values(this.containerModel).forEach((model: any) => {
             if (!Object.is(model.type, 'PICKUPVIEWPANEL')) {
                 return;
             }
-            if(model.datas.length>0){
-                model.datas.forEach((data:any,index:any)=>{
-                    Object.assign(data,{srfmajortext: data['title']});
+            if (model.datas.length > 0) {
+                model.datas.forEach((data: any, index: any) => {
+                    Object.assign(data, { srfmajortext: data['title'] });
                 })
             }
             model.datas.forEach((item: any) => {
                 const index: number = this.viewSelections.findIndex((selection: any) => Object.is(item.srfkey, selection.srfkey));
                 if (index === -1) {
-                    let _item: any = { ...JSON.parse(JSON.stringify(item)) };
-                    Object.assign(_item, { _select: false })
-                    this.viewSelections.push(_item);
+                    item._select = false;
+                    this.viewSelections.push(item);
                 }
             });
         });
         this.selectedData = JSON.stringify(this.viewSelections);
     }
 
-    /**
-     * 确定
-     *
-     * @memberof BugMPickupView
-     */
-    public onClickOk(): void {
-        this.$emit('viewdataschange', this.viewSelections);
-        this.$emit('close', null);
-    }
-
-    /**
-     * 取消
-     *
-     * @memberof BugMPickupView
-     */
-    public onClickCancel(): void {
-        this.$emit('close', null);
-    }
 
 }
 </script>

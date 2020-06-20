@@ -88,12 +88,14 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
 
     @Override
     public boolean saveBatch(Collection<Build> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
     public void saveBatch(List<Build> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
@@ -112,6 +114,7 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
 
     @Override
     public Build getDraft(Build et) {
+        fillParentData(et);
         return et;
     }
 
@@ -130,6 +133,7 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     @Override
     @Transactional
     public boolean create(Build et) {
+        fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -138,12 +142,14 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
 
     @Override
     public void createBatch(List<Build> list) {
+        list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(Build et) {
+        fillParentData(et);
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -152,6 +158,7 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
 
     @Override
     public void updateBatch(List<Build> list) {
+        list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
     }
 
@@ -196,6 +203,24 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
         return new PageImpl<Build>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+
+
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(Build et){
+        //实体关系[DER1N_ZT_BUILD_ZT_PRODUCT_PRODUCT]
+        if(!ObjectUtils.isEmpty(et.getProduct())){
+            cn.ibizlab.pms.core.zentao.domain.Product ztproduct=et.getZtproduct();
+            if(ObjectUtils.isEmpty(ztproduct)){
+                cn.ibizlab.pms.core.zentao.domain.Product majorEntity=productService.get(et.getProduct());
+                et.setZtproduct(majorEntity);
+                ztproduct=majorEntity;
+            }
+            et.setProductname(ztproduct.getName());
+        }
+    }
 
 
 

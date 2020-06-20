@@ -135,7 +135,7 @@ public class ProductLife extends EntityMP implements Serializable {
      * 产品生命周期标识
      */
     @DEField(name = "ibz_productlifeid" , isKeyField=true)
-    @TableId(value= "ibz_productlifeid",type=IdType.UUID)
+    @TableId(value= "ibz_productlifeid",type=IdType.ASSIGN_UUID)
     @JSONField(name = "productlifeid")
     @JsonProperty("productlifeid")
     private String productlifeid;

@@ -97,6 +97,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
 
     @Override
     public Bug getDraft(Bug et) {
+        fillParentData(et);
         return et;
     }
 
@@ -126,18 +127,21 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
 
     @Override
     public boolean saveBatch(Collection<Bug> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
     public void saveBatch(List<Bug> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
     @Override
     @Transactional
     public boolean create(Bug et) {
+        fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -146,6 +150,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
 
     @Override
     public void createBatch(List<Bug> list) {
+        list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
     }
 
@@ -164,6 +169,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     @Override
     @Transactional
     public boolean update(Bug et) {
+        fillParentData(et);
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -172,6 +178,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
 
     @Override
     public void updateBatch(List<Bug> list) {
+        list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
     }
 
@@ -362,6 +369,64 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
         return new PageImpl<Bug>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+
+
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(Bug et){
+        //实体关系[DER1N_ZT_BUG_ZT_CASE_CASEID]
+        if(!ObjectUtils.isEmpty(et.getIbizcase())){
+            cn.ibizlab.pms.core.zentao.domain.Case ztcase=et.getZtcase();
+            if(ObjectUtils.isEmpty(ztcase)){
+                cn.ibizlab.pms.core.zentao.domain.Case majorEntity=caseService.get(et.getIbizcase());
+                et.setZtcase(majorEntity);
+                ztcase=majorEntity;
+            }
+            et.setCaseversion(ztcase.getVersion());
+        }
+        //实体关系[DER1N_ZT_BUG_ZT_PRODUCT_PRODUCT]
+        if(!ObjectUtils.isEmpty(et.getProduct())){
+            cn.ibizlab.pms.core.zentao.domain.Product ztproduct=et.getZtproduct();
+            if(ObjectUtils.isEmpty(ztproduct)){
+                cn.ibizlab.pms.core.zentao.domain.Product majorEntity=productService.get(et.getProduct());
+                et.setZtproduct(majorEntity);
+                ztproduct=majorEntity;
+            }
+            et.setProductname(ztproduct.getName());
+        }
+        //实体关系[DER1N_ZT_BUG_ZT_PROJECT_PROJECT]
+        if(!ObjectUtils.isEmpty(et.getProject())){
+            cn.ibizlab.pms.core.zentao.domain.Project ztproject=et.getZtproject();
+            if(ObjectUtils.isEmpty(ztproject)){
+                cn.ibizlab.pms.core.zentao.domain.Project majorEntity=projectService.get(et.getProject());
+                et.setZtproject(majorEntity);
+                ztproject=majorEntity;
+            }
+            et.setProjectname(ztproject.getName());
+        }
+        //实体关系[DER1N_ZT_BUG_ZT_REPO_REPO]
+        if(!ObjectUtils.isEmpty(et.getRepo())){
+            cn.ibizlab.pms.core.zentao.domain.Repo ztrepo=et.getZtrepo();
+            if(ObjectUtils.isEmpty(ztrepo)){
+                cn.ibizlab.pms.core.zentao.domain.Repo majorEntity=repoService.get(et.getRepo());
+                et.setZtrepo(majorEntity);
+                ztrepo=majorEntity;
+            }
+            et.setRepotype(ztrepo.getScm());
+        }
+        //实体关系[DER1N_ZT_BUG_ZT_STORY_STORY]
+        if(!ObjectUtils.isEmpty(et.getStory())){
+            cn.ibizlab.pms.core.zentao.domain.Story ztstory=et.getZtstory();
+            if(ObjectUtils.isEmpty(ztstory)){
+                cn.ibizlab.pms.core.zentao.domain.Story majorEntity=storyService.get(et.getStory());
+                et.setZtstory(majorEntity);
+                ztstory=majorEntity;
+            }
+            et.setStoryname(ztstory.getTitle());
+        }
+    }
 
 
 

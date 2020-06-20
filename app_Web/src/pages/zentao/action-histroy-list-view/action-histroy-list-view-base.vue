@@ -114,8 +114,6 @@ export default class ActionHistroyListViewBase extends ListViewBase {
     };
 
 
-
-
     /**
      * 视图引擎
      *
@@ -270,37 +268,6 @@ export default class ActionHistroyListViewBase extends ListViewBase {
         }
         openIndexViewTab(data);
     }
-
-
-    /**
-     * 搜索值
-     *
-     * @type {string}
-     * @memberof ActionHistroyListView
-     */
-    public query: string = '';
-
-    /**
-     * 是否展开搜索表单
-     *
-     * @type {boolean}
-     * @memberof ActionHistroyListView
-     */
-    public isExpandSearchForm: boolean = false;
-
-    /**
-     * 快速搜索
-     *
-     * @param {*} $event
-     * @memberof ActionHistroyListView
-     */
-    public onSearch($event: any): void {
-        const refs: any = this.$refs;
-        if (refs.list) {
-            refs.list.load({});
-        }
-    }
-
 
 
 }

@@ -118,9 +118,6 @@ export default class TaskGridView9_AssignedToMeBase extends GridView9Base {
     };
 
 
-
-
-
     /**
      * 视图引擎
      *
@@ -312,116 +309,6 @@ export default class TaskGridView9_AssignedToMeBase extends GridView9Base {
         openDrawer(view, data);
     }
 
-
-
-    /**
-     * 是否单选
-     *
-     * @type {boolean}
-     * @memberof TaskGridView9_AssignedToMeBase
-     */
-    public isSingleSelect: boolean = false;
-
-
-    /**
-    * 是否嵌入关系界面
-    *
-    * @type {boolean}
-    * @memberof TaskGridView9_AssignedToMeBase
-    */
-    @Prop({default:false}) public isformDruipart?: boolean;
-
-    /**
-    * 界面关系通讯对象
-    *
-    * @type {Subject<ViewState>}
-    * @memberof TaskGridView9_AssignedToMeBase
-    */
-    @Prop() public formDruipart?: Subject<ViewState>;
-
-    /**
-     * 搜索值
-     *
-     * @type {string}
-     * @memberof TaskGridView9_AssignedToMeBase
-     */
-    public query: string = '';
-
-    /**
-     * 是否展开搜索表单
-     *
-     * @type {boolean}
-     * @memberof TaskGridView9_AssignedToMeBase
-     */
-    public isExpandSearchForm: boolean = false;
-
-    /**
-     * 表格行数据默认激活模式
-     * 0 不激活
-     * 1 单击激活
-     * 2 双击激活
-     *
-     * @type {(number | 0 | 1 | 2)}
-     * @memberof TaskGridView9_AssignedToMeBase
-     */
-    public gridRowActiveMode: number | 0 | 1 | 2 = 2;
-
-    /**
-     * 快速搜索
-     *
-     * @param {*} $event
-     * @memberof TaskGridView9_AssignedToMeBase
-     */
-    public onSearch($event: any): void {
-        const grid: any = this.$refs.grid;
-        if (grid) {
-            grid.load(this.context, true);
-        }
-    }
-
-    /**
-     * grid 部件 save 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof ENTITYTEST1Usr2GridViewBase
-     */
-    public onSave($event: any) {
-        this.$emit('drdatasaved', $event);
-    }
-
-    /**
-     * 刷新数据
-     *
-     * @readonly
-     * @type {(number | null)}
-     * @memberof TaskGridView9_AssignedToMeBase
-     */
-    get refreshdata(): number | null {
-        return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
-    }
-
-    /**
-     * 监控数据变化
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @returns
-     * @memberof TaskGridView9_AssignedToMeBase
-     */
-    @Watch('refreshdata')
-    onRefreshData(newVal: any, oldVal: any) {
-        if (newVal === null || newVal === undefined) {
-            return;
-        }
-        if (newVal === 0) {
-            return;
-        }
-        const grid: any = this.$refs.grid;
-        if (grid) {
-            grid.load({});
-        }
-    }
 
 }
 </script>

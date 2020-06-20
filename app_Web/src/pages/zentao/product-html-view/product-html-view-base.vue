@@ -86,7 +86,6 @@ export default class ProductHtmlViewBase extends Vue {
     };
 
 
-
     /**
      * 视图引擎
      *

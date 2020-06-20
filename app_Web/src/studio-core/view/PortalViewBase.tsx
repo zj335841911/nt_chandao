@@ -10,6 +10,14 @@ import { ViewBase } from './ViewBase';
 export class PortalViewBase extends ViewBase {
 
     /**
+     * 应用起始页面
+     *
+     * @type {boolean}
+     * @memberof PortalViewBase
+     */
+    public isDefaultPage: boolean = false;
+
+    /**
      * 组件挂载完毕
      *
      * @memberof PortalViewBase

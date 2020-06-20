@@ -128,7 +128,6 @@ export default class StoryEditViewBase extends EditViewBase {
 
 
 
-
     /**
      * 视图引擎
      *
@@ -262,7 +261,6 @@ export default class StoryEditViewBase extends EditViewBase {
             });
         }
     }
-
 
 }
 </script>

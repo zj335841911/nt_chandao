@@ -135,7 +135,6 @@ export default class ProductTestLeftSidebarListViewBase extends ListViewBase {
 
 
 
-
     /**
      * 视图引擎
      *
@@ -396,37 +395,6 @@ export default class ProductTestLeftSidebarListViewBase extends ListViewBase {
             _this.refresh(args);
         }
     }
-    /**
-     * 搜索值
-     *
-     * @type {string}
-     * @memberof ProductTestLeftSidebarListView
-     */
-    public query: string = '';
-
-    /**
-     * 是否展开搜索表单
-     *
-     * @type {boolean}
-     * @memberof ProductTestLeftSidebarListView
-     */
-    public isExpandSearchForm: boolean = false;
-
-    /**
-     * 快速搜索
-     *
-     * @param {*} $event
-     * @memberof ProductTestLeftSidebarListView
-     */
-    public onSearch($event: any): void {
-        const refs: any = this.$refs;
-        if (refs.list) {
-            refs.list.load({});
-        }
-    }
-
-
-
 }
 </script>
 

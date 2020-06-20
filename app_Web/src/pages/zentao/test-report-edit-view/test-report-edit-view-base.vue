@@ -153,7 +153,6 @@ export default class TestReportEditViewBase extends EditViewBase {
 
 
 
-
     /**
      * 视图引擎
      *
@@ -980,7 +979,6 @@ export default class TestReportEditViewBase extends EditViewBase {
     public Help(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         this.$Notice.error({ title: '错误', desc: '帮助未支持' });
     }
-
 
 }
 </script>

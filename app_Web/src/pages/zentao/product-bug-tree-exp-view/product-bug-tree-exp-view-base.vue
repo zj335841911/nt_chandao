@@ -100,7 +100,6 @@ export default class ProductBugTreeExpViewBase extends TreeExpViewBase {
     };
 
 
-
     /**
      * 视图引擎
      *
@@ -201,6 +200,7 @@ export default class ProductBugTreeExpViewBase extends TreeExpViewBase {
      * @memberof ProductBugTreeExpView
      */
     public viewUID: string = 'zentao-product-bug-tree-exp-view';
+
 
 }
 </script>

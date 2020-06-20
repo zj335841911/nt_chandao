@@ -1,4 +1,3 @@
-
 <template>
 <studio-view viewName="productmaintabexpview" viewTitle="产品" class='detabexpview product-main-tab-exp-view'>
     <view_tabexppanel 
@@ -98,7 +97,6 @@ export default class ProductMainTabExpViewBase extends TabExpViewBase {
     };
 
 
-
     /**
      * 视图引擎
      *
@@ -122,6 +120,7 @@ export default class ProductMainTabExpViewBase extends TabExpViewBase {
             isLoadDefault: true,
         });
     }
+
 
 
     /**

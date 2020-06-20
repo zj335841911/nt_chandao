@@ -9,4 +9,17 @@ import { MDViewBase } from './MDViewBase';
  */
 export class ListViewBase extends MDViewBase {
 
+    /**
+     * 快速搜索
+     *
+     * @protected
+     * @memberof ListViewBase
+     */
+    protected onSearch(): void {
+        const list: any = this.$refs.list;
+        if (list) {
+            list.load(this.context, true);
+        }
+    }
+
 }

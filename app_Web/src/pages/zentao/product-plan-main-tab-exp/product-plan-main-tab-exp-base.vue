@@ -1,4 +1,3 @@
-
 <template>
 <studio-view viewName="productplanmaintabexp" viewTitle="计划" class='detabexpview product-plan-main-tab-exp tab-exp-view-header-flot'>
     <template slot='title'>
@@ -100,7 +99,6 @@ export default class ProductPlanMainTabExpBase extends TabExpViewBase {
     };
 
 
-
     /**
      * 视图引擎
      *
@@ -124,6 +122,7 @@ export default class ProductPlanMainTabExpBase extends TabExpViewBase {
             isLoadDefault: true,
         });
     }
+
 
 
     /**

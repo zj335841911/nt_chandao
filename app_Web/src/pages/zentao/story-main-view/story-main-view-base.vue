@@ -103,7 +103,6 @@ export default class StoryMainViewBase extends DashboardViewBase {
     };
 
 
-
     /**
      * 视图引擎
      *

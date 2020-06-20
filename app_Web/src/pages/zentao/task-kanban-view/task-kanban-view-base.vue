@@ -1,4 +1,3 @@
-
 <template>
 <studio-view viewName="taskkanbanview" viewTitle="任务看板视图" class='dekanbanview task-kanban-view'>
     <template slot='title'>
@@ -30,9 +29,10 @@
 
 
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, KanBanViewBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 
 import KanBanViewEngine from '@engine/view/kan-ban-view-engine';
@@ -45,10 +45,11 @@ import CodeListService from "@service/app/codelist-service";
  *
  * @export
  * @class TaskKanbanViewBase
- * @extends {Vue}
+ * @extends {KanBanViewBase}
  */
 @Component({})
-export default class TaskKanbanViewBase extends Vue {
+@VueLifeCycleProcessing()
+export default class TaskKanbanViewBase extends KanBanViewBase {
 
     /**
      * 实体服务对象
@@ -127,7 +128,6 @@ export default class TaskKanbanViewBase extends Vue {
         deuiaction2: { name: 'deuiaction2', caption: '刷新','isShowCaption':true,'isShowIcon':true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Refresh', target: '' }, class: '' },
 
     };
-
 
 
 
@@ -435,46 +435,14 @@ export default class TaskKanbanViewBase extends Vue {
         }
     }
 
-
     /**
      * 视图唯一标识
      *
+     * @protected
      * @type {string}
      * @memberof TaskKanbanView
      */
-    public viewUID: string = 'zentao-task-kanban-view';
-
-    /**
-     * 搜索值
-     *
-     * @type {string}
-     * @memberof TaskKanbanView
-     */
-    public query: string = '';
-
-    /**
-     * 是否展开搜索表单
-     *
-     * @type {boolean}
-     * @memberof TaskKanbanView
-     */
-    public isExpandSearchForm: boolean = false;
-
-    /**
-     * 快速搜索
-     *
-     * @param {*} $event
-     * @memberof TaskKanbanView
-     */
-    public onSearch($event: any): void {
-        const refs: any = this.$refs;
-        if (refs.dataview) {
-            refs.dataview.refresh({});
-        }
-    }
-
-
-
+    protected viewUID: string = 'zentao-task-kanban-view';
 }
 </script>
 

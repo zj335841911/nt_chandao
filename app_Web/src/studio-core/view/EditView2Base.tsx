@@ -9,4 +9,11 @@ import { EditViewBase } from './EditViewBase';
  */
 export class EditView2Base extends EditViewBase {
 
+    /**
+     * 选中数据
+     *
+     * @type {*}
+     * @memberof EditView2Base
+     */
+    public selection: any = {};
 }

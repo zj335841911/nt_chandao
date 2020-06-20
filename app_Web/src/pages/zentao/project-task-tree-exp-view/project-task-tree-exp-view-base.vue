@@ -100,7 +100,6 @@ export default class ProjectTaskTreeExpViewBase extends TreeExpViewBase {
     };
 
 
-
     /**
      * 视图引擎
      *
@@ -201,6 +200,7 @@ export default class ProjectTaskTreeExpViewBase extends TreeExpViewBase {
      * @memberof ProjectTaskTreeExpView
      */
     public viewUID: string = 'zentao-project-task-tree-exp-view';
+
 
 }
 </script>

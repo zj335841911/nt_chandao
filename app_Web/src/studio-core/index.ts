@@ -1,3 +1,5 @@
+// js基础扩展
+import './utils/js-basic-extension';
 // 导出装饰器
 export { VueLifeCycleProcessing } from './decorators/VueLifeCycleProcessing';
 export { SingletonMode } from './decorators/SingletonMode';

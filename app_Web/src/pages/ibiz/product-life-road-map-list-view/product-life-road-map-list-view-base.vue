@@ -113,8 +113,6 @@ export default class ProductLifeRoadMapListViewBase extends ListViewBase {
     };
 
 
-
-
     /**
      * 视图引擎
      *
@@ -233,37 +231,6 @@ export default class ProductLifeRoadMapListViewBase extends ListViewBase {
         let localViewParam:any =null;
     this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
     }
-
-
-    /**
-     * 搜索值
-     *
-     * @type {string}
-     * @memberof ProductLifeRoadMapListView
-     */
-    public query: string = '';
-
-    /**
-     * 是否展开搜索表单
-     *
-     * @type {boolean}
-     * @memberof ProductLifeRoadMapListView
-     */
-    public isExpandSearchForm: boolean = false;
-
-    /**
-     * 快速搜索
-     *
-     * @param {*} $event
-     * @memberof ProductLifeRoadMapListView
-     */
-    public onSearch($event: any): void {
-        const refs: any = this.$refs;
-        if (refs.list) {
-            refs.list.load({});
-        }
-    }
-
 
 
 }

@@ -56,6 +56,7 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
     @Override
     @Transactional
     public boolean create(Burn et) {
+        fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -64,6 +65,7 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
 
     @Override
     public void createBatch(List<Burn> list) {
+        list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
     }
 
@@ -118,18 +120,21 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
 
     @Override
     public boolean saveBatch(Collection<Burn> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
     public void saveBatch(List<Burn> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(Burn et) {
+        fillParentData(et);
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -138,6 +143,7 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
 
     @Override
     public void updateBatch(List<Burn> list) {
+        list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
     }
 
@@ -150,6 +156,7 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
 
     @Override
     public Burn getDraft(Burn et) {
+        fillParentData(et);
         return et;
     }
 
@@ -193,6 +200,26 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
         return new PageImpl<Burn>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+
+
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(Burn et){
+        //实体关系[DER1N_ZT_BURN_ZT_TASK_TASK]
+        if(!ObjectUtils.isEmpty(et.getTask())){
+            cn.ibizlab.pms.core.zentao.domain.Task zttask=et.getZttask();
+            if(ObjectUtils.isEmpty(zttask)){
+                cn.ibizlab.pms.core.zentao.domain.Task majorEntity=taskService.get(et.getTask());
+                et.setZttask(majorEntity);
+                zttask=majorEntity;
+            }
+            et.setConsumed(zttask.getConsumed());
+            et.setLeft(zttask.getLeft());
+            et.setEstimate(zttask.getEstimate());
+        }
+    }
 
 
 

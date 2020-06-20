@@ -391,11 +391,11 @@ export default class MDViewEngine extends ViewEngine {
         }
         // 快速分组和快速搜索栏
         let otherQueryParam:any = {};
-        if(this.view && this.view.qucikGroupData){
-            Object.assign(otherQueryParam,this.view.qucikGroupData);
+        if(this.view && this.view.quickGroupData){
+            Object.assign(otherQueryParam,this.view.quickGroupData);
         }
-        if(this.view && this.view.qucikFormData){
-            Object.assign(otherQueryParam,this.view.qucikFormData);
+        if(this.view && this.view.quickFormData){
+            Object.assign(otherQueryParam,this.view.quickFormData);
         }
         Object.assign(arg,{viewparams:otherQueryParam});
     }

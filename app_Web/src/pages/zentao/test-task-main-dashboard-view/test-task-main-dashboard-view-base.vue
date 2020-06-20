@@ -100,7 +100,6 @@ export default class TestTaskMainDashboardViewBase extends DashboardViewBase {
     };
 
 
-
     /**
      * 视图引擎
      *

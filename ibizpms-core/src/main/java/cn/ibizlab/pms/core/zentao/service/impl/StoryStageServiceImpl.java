@@ -73,6 +73,7 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
     @Override
     @Transactional
     public boolean create(StoryStage et) {
+        fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -81,6 +82,7 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
 
     @Override
     public void createBatch(List<StoryStage> list) {
+        list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
     }
 
@@ -106,17 +108,20 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
 
     @Override
     public boolean saveBatch(Collection<StoryStage> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
     public void saveBatch(List<StoryStage> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
     @Override
     public StoryStage getDraft(StoryStage et) {
+        fillParentData(et);
         return et;
     }
 
@@ -135,6 +140,7 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
     @Override
     @Transactional
     public boolean update(StoryStage et) {
+        fillParentData(et);
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -143,6 +149,7 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
 
     @Override
     public void updateBatch(List<StoryStage> list) {
+        list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
     }
 
@@ -177,6 +184,25 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
         return new PageImpl<StoryStage>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+
+
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(StoryStage et){
+        //实体关系[DER1N_ZT_STORYSTAGE_ZT_STORY_STORY]
+        if(!ObjectUtils.isEmpty(et.getStory())){
+            cn.ibizlab.pms.core.zentao.domain.Story ztstory=et.getZtstory();
+            if(ObjectUtils.isEmpty(ztstory)){
+                cn.ibizlab.pms.core.zentao.domain.Story majorEntity=storyService.get(et.getStory());
+                et.setZtstory(majorEntity);
+                ztstory=majorEntity;
+            }
+            et.setStagedby(ztstory.getStagedby());
+            et.setStage(ztstory.getStage());
+        }
+    }
 
 
 

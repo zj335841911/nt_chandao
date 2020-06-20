@@ -119,12 +119,14 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
 
     @Override
     public boolean saveBatch(Collection<Release> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
     public void saveBatch(List<Release> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
@@ -158,6 +160,7 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
     }
     @Override
     public Release getDraft(Release et) {
+        fillParentData(et);
         return et;
     }
 
@@ -177,18 +180,14 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
     public void updateBatch(List<Release> list) {
 
     }
-    @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
-    }
+!!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
 
-    @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
-    }
-
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${srfjavatype(keyfield.stdDataType)}  [in template "TEMPLCODE_zh_CN" at line 3, column 27]
+----
 
 	@Override
     public List<Release> selectByBranch(BigInteger id) {
@@ -230,6 +229,34 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
         return new PageImpl<Release>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+
+
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(Release et){
+        //实体关系[DER1N_ZT_RELEASE_ZT_BUILD_BUILD]
+        if(!ObjectUtils.isEmpty(et.getBuild())){
+            cn.ibizlab.pms.core.zentao.domain.Build ztbuild=et.getZtbuild();
+            if(ObjectUtils.isEmpty(ztbuild)){
+                cn.ibizlab.pms.core.zentao.domain.Build majorEntity=buildService.get(et.getBuild());
+                et.setZtbuild(majorEntity);
+                ztbuild=majorEntity;
+            }
+            et.setBuildname(ztbuild.getName());
+        }
+        //实体关系[DER1N_ZT_RELEASE_ZT_PRODUCT_PRODUCT]
+        if(!ObjectUtils.isEmpty(et.getProduct())){
+            cn.ibizlab.pms.core.zentao.domain.Product ztproduct=et.getZtproduct();
+            if(ObjectUtils.isEmpty(ztproduct)){
+                cn.ibizlab.pms.core.zentao.domain.Product majorEntity=productService.get(et.getProduct());
+                et.setZtproduct(majorEntity);
+                ztproduct=majorEntity;
+            }
+            et.setProductname(ztproduct.getName());
+        }
+    }
 
 
 

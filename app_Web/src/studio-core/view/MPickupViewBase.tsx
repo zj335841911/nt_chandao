@@ -9,4 +9,11 @@ import { ViewBase } from './ViewBase';
  */
 export class MPickupViewBase extends ViewBase {
 
+    /**
+     * 是否单选
+     *
+     * @type {boolean}
+     * @memberof MPickupViewBase
+     */
+    public isSingleSelect: boolean = false;
 }

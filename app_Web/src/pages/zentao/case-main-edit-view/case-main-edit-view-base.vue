@@ -130,7 +130,6 @@ export default class CaseMainEditViewBase extends EditViewBase {
 
 
 
-
     /**
      * 视图引擎
      *
@@ -264,7 +263,6 @@ export default class CaseMainEditViewBase extends EditViewBase {
             });
         }
     }
-
 
 }
 </script>

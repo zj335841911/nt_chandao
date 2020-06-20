@@ -13,9 +13,10 @@
 </template>
 
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, GanttViewBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 
 
@@ -25,10 +26,11 @@ import TaskService from '@/service/task/task-service';
  *
  * @export
  * @class TaskTaskTypeGanttViewBase
- * @extends {Vue}
+ * @extends {GanttViewBase}
  */
 @Component({})
-export default class TaskTaskTypeGanttViewBase extends Vue {
+@VueLifeCycleProcessing()
+export default class TaskTaskTypeGanttViewBase extends GanttViewBase {
 
     /**
      * 实体服务对象
@@ -94,7 +96,6 @@ export default class TaskTaskTypeGanttViewBase extends Vue {
     };
 
 
-
     /**
      * 引擎初始化
      *
@@ -104,7 +105,7 @@ export default class TaskTaskTypeGanttViewBase extends Vue {
     public engineInit(): void {
     }
 
-    
+
 }
 </script>
 

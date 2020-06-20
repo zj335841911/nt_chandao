@@ -109,7 +109,6 @@ export default class BugPickupGridViewBase extends PickupViewBase {
     };
 
 
-
     /**
      * 视图引擎
      *
@@ -179,61 +178,17 @@ export default class BugPickupGridViewBase extends PickupViewBase {
         this.engine.onCtrlEvent('grid', 'load', $event);
     }
 
-    /**
-     * 选中数据字符串
-     *
-     * @type {string}
-     * @memberof BugPickupGridView
-     */
-    @Prop() public selectedData?: string;
 
-    /**
-     * 是否单选
-     *
-     * @type {boolean}
-     * @memberof BugPickupGridView
-     */
-    @Prop() public isSingleSelect?: boolean;
-
-    /**
-     * 搜索值
-     *
-     * @type {string}
-     * @memberof BugPickupGridView
-     */
-    public query: string = '';
 
     /**
      * 是否展开搜索表单
      *
+     * @protected
      * @type {boolean}
-     * @memberof BugPickupGridView
+     * @memberof BugPickupGridViewBase
      */
-    public isExpandSearchForm: boolean = true;
+    protected isExpandSearchForm: boolean = true;
 
-    /**
-     * 表格行数据默认激活模式
-     * 0 不激活
-     * 1 单击激活
-     * 2 双击激活
-     *
-     * @type {(number | 0 | 1 | 2)}
-     * @memberof BugPickupGridView
-     */
-    public gridRowActiveMode: number | 0 | 1 | 2 = 2;
-
-    /**
-     * 快速搜索
-     *
-     * @param {*} $event
-     * @memberof BugPickupGridView
-     */
-    public onSearch($event: any): void {
-        const refs: any = this.$refs;
-        if (refs.grid) {
-            refs.grid.load({});
-        }
-    }
 
 }
 </script>

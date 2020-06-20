@@ -102,6 +102,16 @@ export default class ProductTestListExpViewBase extends ListExpViewBase {
         view_listexpbar: { name: 'listexpbar', type: 'LISTEXPBAR' },
     };
 
+    /**
+     * 工具栏模型
+     *
+     * @type {*}
+     * @memberof ProductTestListExpView
+     */
+    public testlistexpviewlistexpbar_list_quicktoolbarModels: any = {
+        deuiaction1: { name: 'deuiaction1', caption: '新建','isShowCaption':true,'isShowIcon':true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'New', target: '' }, class: '' },
+
+    };
 
 
 
@@ -195,7 +205,6 @@ export default class ProductTestListExpViewBase extends ListExpViewBase {
         let localViewParam:any =null;
     this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
     }
-
 
 
 

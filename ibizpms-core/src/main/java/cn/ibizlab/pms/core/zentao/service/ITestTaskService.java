@@ -27,14 +27,18 @@ public interface ITestTaskService extends IService<TestTask>{
 
     TestTask getDraft(TestTask et) ;
     TestTask get(BigInteger key) ;
+    TestTask block(TestTask et) ;
     boolean save(TestTask et) ;
     void saveBatch(List<TestTask> list) ;
+    TestTask start(TestTask et) ;
     boolean create(TestTask et) ;
     void createBatch(List<TestTask> list) ;
+    TestTask activate(TestTask et) ;
     boolean update(TestTask et) ;
     void updateBatch(List<TestTask> list) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
+    TestTask close(TestTask et) ;
     boolean checkKey(TestTask et) ;
     Page<TestTask> searchDefault(TestTaskSearchContext context) ;
     List<TestTask> selectByBuild(BigInteger id) ;

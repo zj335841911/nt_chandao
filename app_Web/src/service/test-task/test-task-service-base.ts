@@ -91,6 +91,22 @@ export default class TestTaskServiceBase extends EntityService {
     }
 
     /**
+     * Block接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestTaskServiceBase
+     */
+    public async Block(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.testtask){
+            return Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/block`,data,isloading);
+        }
+            return Http.getInstance().post(`/testtasks/${context.testtask}/block`,data,isloading);
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]
@@ -107,6 +123,22 @@ export default class TestTaskServiceBase extends EntityService {
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/testtasks/${context.testtask}/save`,data,isloading);
             return res;
+    }
+
+    /**
+     * Start接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestTaskServiceBase
+     */
+    public async Start(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.testtask){
+            return Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/start`,data,isloading);
+        }
+            return Http.getInstance().post(`/testtasks/${context.testtask}/start`,data,isloading);
     }
 
     /**
@@ -139,6 +171,22 @@ export default class TestTaskServiceBase extends EntityService {
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/testtasks`,data,isloading);
         return res;
+    }
+
+    /**
+     * Activate接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestTaskServiceBase
+     */
+    public async Activate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.testtask){
+            return Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/activate`,data,isloading);
+        }
+            return Http.getInstance().post(`/testtasks/${context.testtask}/activate`,data,isloading);
     }
 
     /**
@@ -175,6 +223,22 @@ export default class TestTaskServiceBase extends EntityService {
         }
             return Http.getInstance().delete(`/testtasks/${context.testtask}`,isloading);
 
+    }
+
+    /**
+     * Close接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestTaskServiceBase
+     */
+    public async Close(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.testtask){
+            return Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/close`,data,isloading);
+        }
+            return Http.getInstance().post(`/testtasks/${context.testtask}/close`,data,isloading);
     }
 
     /**

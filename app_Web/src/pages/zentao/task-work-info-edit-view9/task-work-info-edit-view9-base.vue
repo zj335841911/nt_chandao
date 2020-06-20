@@ -110,7 +110,6 @@ export default class TaskWorkInfoEditView9Base extends EditView9Base {
     };
 
 
-
     /**
      * 视图引擎
      *
@@ -171,36 +170,28 @@ export default class TaskWorkInfoEditView9Base extends EditView9Base {
     }
 
 
-    /**
-    * meditview9状态下发变量
-    *
-    * @memberof IBZSAM02MobEditView
-    */
-    @Prop() public panelState ?:Subject<ViewState>;
-
-
-
 
     /**
-     * 视图组件挂载完毕
+     * 视图加载完毕
      *
      * @protected
-     * @memberof ViewBase
+     * @memberof TaskWorkInfoEditView9Base
      */
     protected viewMounted(): void {
-        if(this.panelState){
-            this.panelState.subscribe((res:any) =>{
-                if(Object.is(res.tag,'meditviewpanel')){
-                    if(Object.is(res.action,'save')){
+        if (this.panelState) {
+            this.panelState.subscribe((res:any) => {
+                if (Object.is(res.tag,'meditviewpanel')) {
+                    if (Object.is(res.action,'save')) {
                         this.viewState.next({ tag:'form', action: 'save', data:res.data});
                     }
-                    if(Object.is(res.action,'remove')){
+                    if (Object.is(res.action,'remove')) {
                         this.viewState.next({ tag:'form', action: 'remove', data:res.data});
                     }
                 }
             });
         }
     }
+
 
 }
 </script>

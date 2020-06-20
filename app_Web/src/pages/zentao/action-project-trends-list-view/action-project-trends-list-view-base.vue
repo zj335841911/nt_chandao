@@ -112,8 +112,6 @@ export default class ActionProjectTrendsListViewBase extends ListViewBase {
     };
 
 
-
-
     /**
      * 视图引擎
      *
@@ -268,37 +266,6 @@ export default class ActionProjectTrendsListViewBase extends ListViewBase {
         }
         openIndexViewTab(data);
     }
-
-
-    /**
-     * 搜索值
-     *
-     * @type {string}
-     * @memberof ActionProjectTrendsListView
-     */
-    public query: string = '';
-
-    /**
-     * 是否展开搜索表单
-     *
-     * @type {boolean}
-     * @memberof ActionProjectTrendsListView
-     */
-    public isExpandSearchForm: boolean = false;
-
-    /**
-     * 快速搜索
-     *
-     * @param {*} $event
-     * @memberof ActionProjectTrendsListView
-     */
-    public onSearch($event: any): void {
-        const refs: any = this.$refs;
-        if (refs.list) {
-            refs.list.load({});
-        }
-    }
-
 
 
 }

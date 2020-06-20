@@ -111,8 +111,6 @@ export default class ProductPlanMainEditViewBase extends EditViewBase {
     };
 
 
-
-
     /**
      * 视图引擎
      *
@@ -171,7 +169,6 @@ export default class ProductPlanMainEditViewBase extends EditViewBase {
     public form_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('form', 'load', $event);
     }
-
 
 
 }

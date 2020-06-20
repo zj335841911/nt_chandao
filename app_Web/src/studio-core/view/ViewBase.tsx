@@ -58,6 +58,15 @@ export class ViewBase extends Vue {
     public viewDefaultUsage!: boolean;
 
     /**
+     * 快速搜索值
+     *
+     * @readonly
+     * @type {string}
+     * @memberof ViewBase
+     */
+    protected query: string = '';
+
+    /**
      * 应用上下文
      *
      * @type {*}
@@ -119,6 +128,15 @@ export class ViewBase extends Vue {
     protected customViewParams: any = {};
 
     /**
+     * 部件模型
+     *
+     * @protected
+     * @type {*}
+     * @memberof ViewBase
+     */
+    protected containerModel: any = {};
+
+    /**
      * 是否为实体视图
      *
      * @protected
@@ -137,6 +155,16 @@ export class ViewBase extends Vue {
     protected isPsDer1n: boolean = false;
 
     /**
+     * 表单嵌入视图
+     *
+     * @protected
+     * @type {Subject<any>}
+     * @memberof GridViewBase
+     */
+    @Prop()
+    protected formDruipart?: Subject<any>;
+
+    /**
      * 视图参数变化
      *
      * @param {*} newVal
@@ -144,7 +172,7 @@ export class ViewBase extends Vue {
      * @memberof ViewBase
      */
     @Watch('viewparam', { immediate: true, deep: true })
-    public onParamData(newVal: any, oldVal: any) {
+    public onParamData(newVal: any, oldVal: any): void {
         if (newVal) {
             for (let key in this.viewparams) {
                 delete this.viewparams[key];
@@ -154,6 +182,16 @@ export class ViewBase extends Vue {
     }
 
     /**
+     * 视图参数变更
+     *
+     * @protected
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof ViewBase
+     */
+    protected viewParamChange(newVal: any, oldVal: any): void { }
+
+    /**
      * 处理应用上下文变化
      *
      * @param {*} newVal
@@ -161,14 +199,27 @@ export class ViewBase extends Vue {
      * @memberof ViewBase
      */
     @Watch('viewdata')
-    public onViewData(newVal: any, oldVal: any) {
-        if (!Object.is(newVal, oldVal) && this.engine) {
+    public onViewData(newVal: any, oldVal: any): void {
+        if (!Object.is(newVal, oldVal)) {
             this.$nextTick(() => {
                 this.parseViewParam();
-                this.engine.load();
+                this.viewDataChange(newVal, oldVal);
+                if (this.engine) {
+                    this.engine.load();
+                }
             });
         }
     }
+
+    /**
+     * 视图上下文变化
+     *
+     * @protected
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof ViewBase
+     */
+    protected viewDataChange(newVal: any, oldVal: any): void { }
 
     /**
      * 组件创建完毕
@@ -180,7 +231,16 @@ export class ViewBase extends Vue {
         this.$store.commit('viewaction/createdView', { viewtag: this.viewtag, secondtag: secondtag });
         this.viewtag = secondtag;
         this.parseViewParam();
+        this.viewCreated();
     }
+
+    /**
+     * 视图组件创建完毕
+     *
+     * @protected
+     * @memberof ViewBase
+     */
+    protected viewCreated(): void { }
 
     /**
      * 组件挂载完毕
@@ -190,7 +250,16 @@ export class ViewBase extends Vue {
     public mounted(): void {
         this.engineInit();
         this.loadModel();
+        this.viewMounted();
     }
+
+    /**
+     * 视图加载完毕
+     *
+     * @protected
+     * @memberof ViewBase
+     */
+    protected viewMounted(): void { }
 
     /**
      * 组件销毁之前

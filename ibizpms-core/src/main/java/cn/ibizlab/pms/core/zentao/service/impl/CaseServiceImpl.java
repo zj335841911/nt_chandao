@@ -81,6 +81,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
 
     @Override
     public Case getDraft(Case et) {
+        fillParentData(et);
         return et;
     }
 
@@ -106,18 +107,21 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
 
     @Override
     public boolean saveBatch(Collection<Case> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
     public void saveBatch(List<Case> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
     @Override
     @Transactional
     public boolean create(Case et) {
+        fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
         casestepService.saveByIbizcase(et.getId(),et.getCasestep());
@@ -127,6 +131,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
 
     @Override
     public void createBatch(List<Case> list) {
+        list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
     }
 
@@ -164,6 +169,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     @Override
     @Transactional
     public boolean update(Case et) {
+        fillParentData(et);
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
         casestepService.saveByIbizcase(et.getId(),et.getCasestep());
@@ -173,6 +179,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
 
     @Override
     public void updateBatch(List<Case> list) {
+        list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
     }
 
@@ -266,6 +273,55 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
         return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+
+
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(Case et){
+        //实体关系[DER1N_ZT_CASE_ZT_CASE_FROMCAEID]
+        if(!ObjectUtils.isEmpty(et.getFromcaseid())){
+            cn.ibizlab.pms.core.zentao.domain.Case ztfromcase=et.getZtfromcase();
+            if(ObjectUtils.isEmpty(ztfromcase)){
+                cn.ibizlab.pms.core.zentao.domain.Case majorEntity=caseService.get(et.getFromcaseid());
+                et.setZtfromcase(majorEntity);
+                ztfromcase=majorEntity;
+            }
+            et.setFromcaseversion(ztfromcase.getVersion());
+        }
+        //实体关系[DER1N_ZT_CASE_ZT_MODULE_MODULE]
+        if(!ObjectUtils.isEmpty(et.getModule())){
+            cn.ibizlab.pms.core.zentao.domain.Module ztmodule=et.getZtmodule();
+            if(ObjectUtils.isEmpty(ztmodule)){
+                cn.ibizlab.pms.core.zentao.domain.Module majorEntity=moduleService.get(et.getModule());
+                et.setZtmodule(majorEntity);
+                ztmodule=majorEntity;
+            }
+            et.setModulename(ztmodule.getName());
+        }
+        //实体关系[DER1N_ZT_CASE_ZT_PRODUCT_PRODUCT]
+        if(!ObjectUtils.isEmpty(et.getProduct())){
+            cn.ibizlab.pms.core.zentao.domain.Product ztproduct=et.getZtproduct();
+            if(ObjectUtils.isEmpty(ztproduct)){
+                cn.ibizlab.pms.core.zentao.domain.Product majorEntity=productService.get(et.getProduct());
+                et.setZtproduct(majorEntity);
+                ztproduct=majorEntity;
+            }
+            et.setProductname(ztproduct.getName());
+        }
+        //实体关系[DER1N_ZT_CASE_ZT_STORY_STORY]
+        if(!ObjectUtils.isEmpty(et.getStory())){
+            cn.ibizlab.pms.core.zentao.domain.Story ztstory=et.getZtstory();
+            if(ObjectUtils.isEmpty(ztstory)){
+                cn.ibizlab.pms.core.zentao.domain.Story majorEntity=storyService.get(et.getStory());
+                et.setZtstory(majorEntity);
+                ztstory=majorEntity;
+            }
+            et.setStoryversion(ztstory.getVersion());
+            et.setStoryname(ztstory.getTitle());
+        }
+    }
 
 
 

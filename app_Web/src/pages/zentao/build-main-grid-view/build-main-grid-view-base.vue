@@ -179,8 +179,6 @@ export default class BuildMainGridViewBase extends GridViewBase {
 
 
 
-
-
     /**
      * 视图引擎
      *
@@ -1078,116 +1076,6 @@ export default class BuildMainGridViewBase extends GridViewBase {
     public Help(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         this.$Notice.error({ title: '错误', desc: '帮助未支持' });
     }
-
-    /**
-     * 是否单选
-     *
-     * @type {boolean}
-     * @memberof BuildMainGridViewBase
-     */
-    public isSingleSelect: boolean = false;
-
-
-    /**
-    * 是否嵌入关系界面
-    *
-    * @type {boolean}
-    * @memberof BuildMainGridViewBase
-    */
-    @Prop({default:false}) public isformDruipart?: boolean;
-
-    /**
-    * 界面关系通讯对象
-    *
-    * @type {Subject<ViewState>}
-    * @memberof BuildMainGridViewBase
-    */
-    @Prop() public formDruipart?: Subject<ViewState>;
-
-    /**
-     * 搜索值
-     *
-     * @type {string}
-     * @memberof BuildMainGridViewBase
-     */
-    public query: string = '';
-
-    /**
-     * 是否展开搜索表单
-     *
-     * @type {boolean}
-     * @memberof BuildMainGridViewBase
-     */
-    public isExpandSearchForm: boolean = false;
-
-    /**
-     * 表格行数据默认激活模式
-     * 0 不激活
-     * 1 单击激活
-     * 2 双击激活
-     *
-     * @type {(number | 0 | 1 | 2)}
-     * @memberof BuildMainGridViewBase
-     */
-    public gridRowActiveMode: number | 0 | 1 | 2 = 2;
-
-    /**
-     * 快速搜索
-     *
-     * @param {*} $event
-     * @memberof BuildMainGridViewBase
-     */
-    public onSearch($event: any): void {
-        const grid: any = this.$refs.grid;
-        if (grid) {
-            grid.load(this.context, true);
-        }
-    }
-
-    /**
-     * grid 部件 save 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof ENTITYTEST1Usr2GridViewBase
-     */
-    public onSave($event: any) {
-        this.$emit('drdatasaved', $event);
-    }
-
-    /**
-     * 刷新数据
-     *
-     * @readonly
-     * @type {(number | null)}
-     * @memberof BuildMainGridViewBase
-     */
-    get refreshdata(): number | null {
-        return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
-    }
-
-    /**
-     * 监控数据变化
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @returns
-     * @memberof BuildMainGridViewBase
-     */
-    @Watch('refreshdata')
-    onRefreshData(newVal: any, oldVal: any) {
-        if (newVal === null || newVal === undefined) {
-            return;
-        }
-        if (newVal === 0) {
-            return;
-        }
-        const grid: any = this.$refs.grid;
-        if (grid) {
-            grid.load({});
-        }
-    }
-
 }
 </script>
 

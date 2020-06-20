@@ -182,18 +182,14 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
 	    return et;
     }
 
-    @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
-    }
+!!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
 
-    @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
-    }
-
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${srfjavatype(keyfield.stdDataType)}  [in template "TEMPLCODE_zh_CN" at line 3, column 27]
+----
     @Override
     @Transactional
     public boolean create(Product et) {
@@ -258,6 +254,8 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
             et.setLinename(moduleline.getName());
         }
     }
+
+
 
 
     @Override

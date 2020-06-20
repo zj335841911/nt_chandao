@@ -90,7 +90,6 @@ export default class ProductPortalViewBase extends PortalViewBase {
     };
 
 
-
     /**
      * 引擎初始化
      *
@@ -101,14 +100,8 @@ export default class ProductPortalViewBase extends PortalViewBase {
     }
 
 
-    /**
-     * 应用起始页面
-     *
-     * @type {boolean}
-     * @memberof ProductPortalView
-     */
-    public isDefaultPage: boolean = false;
-    
+
+
 }
 </script>
 

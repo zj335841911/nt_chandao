@@ -128,8 +128,6 @@ export default class TaskCloseTaskViewBase extends OptionViewBase {
     };
 
 
-
-
     /**
      * 视图引擎
      *
@@ -189,30 +187,6 @@ export default class TaskCloseTaskViewBase extends OptionViewBase {
         this.engine.onCtrlEvent('form', 'load', $event);
     }
 
-
-    /**
-     * 确定
-     *
-     * @memberof TaskCloseTaskViewBase
-     */
-    public onClickOk(): void {
-        const form: any = this.$refs.form;
-        if (!form) return;
-        form.save().then((res:any) =>{
-            if(res.status == 200){
-                this.$emit('close',[res.data]);
-            }
-        });
-    }
-
-    /**
-     * 取消
-     *
-     * @memberof TaskCloseTaskViewBase
-     */
-    public onClickCancel(): void {
-        this.$emit('close', null);
-    }
 
 }
 </script>

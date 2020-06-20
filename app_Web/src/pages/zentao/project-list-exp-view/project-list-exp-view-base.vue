@@ -103,8 +103,6 @@ export default class ProjectListExpViewBase extends ListExpViewBase {
     };
 
 
-
-
     /**
      * 视图引擎
      *
@@ -195,7 +193,6 @@ export default class ProjectListExpViewBase extends ListExpViewBase {
         let localViewParam:any =null;
     this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
     }
-
 
 
 

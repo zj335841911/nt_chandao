@@ -103,7 +103,6 @@ export default class BugMainDashboardViewBase extends DashboardViewBase {
     };
 
 
-
     /**
      * 视图引擎
      *

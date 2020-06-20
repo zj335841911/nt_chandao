@@ -9,4 +9,12 @@ import { EditViewBase } from './EditViewBase';
  */
 export class EditView4Base extends EditViewBase {
 
+    /**
+     * 表单数据
+     *
+     * @type {*}
+     * @memberof EditView4Base
+     */
+    public formData: any = {};
+
 }

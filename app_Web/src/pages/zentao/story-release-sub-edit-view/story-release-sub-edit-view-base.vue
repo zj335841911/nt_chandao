@@ -129,7 +129,6 @@ export default class StoryReleaseSubEditViewBase extends EditViewBase {
 
 
 
-
     /**
      * 视图引擎
      *
@@ -263,7 +262,6 @@ export default class StoryReleaseSubEditViewBase extends EditViewBase {
             });
         }
     }
-
 
 }
 </script>

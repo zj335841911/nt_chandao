@@ -61,6 +61,7 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
 
     @Override
     public ProjectProduct getDraft(ProjectProduct et) {
+        fillParentData(et);
         return et;
     }
 
@@ -86,12 +87,14 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
 
     @Override
     public boolean saveBatch(Collection<ProjectProduct> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
     public void saveBatch(List<ProjectProduct> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
@@ -115,6 +118,7 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
     @Override
     @Transactional
     public boolean create(ProjectProduct et) {
+        fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -123,6 +127,7 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
 
     @Override
     public void createBatch(List<ProjectProduct> list) {
+        list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
     }
 
@@ -141,6 +146,7 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
     @Override
     @Transactional
     public boolean update(ProjectProduct et) {
+        fillParentData(et);
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -149,6 +155,7 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
 
     @Override
     public void updateBatch(List<ProjectProduct> list) {
+        list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
     }
 
@@ -212,6 +219,44 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
         return new PageImpl<ProjectProduct>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+
+
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(ProjectProduct et){
+        //实体关系[DER1N_ZT_PROJECTPRODUCT_ZT_PRODUCTPLAN_PLAN]
+        if(!ObjectUtils.isEmpty(et.getPlan())){
+            cn.ibizlab.pms.core.zentao.domain.ProductPlan ztproductplan=et.getZtproductplan();
+            if(ObjectUtils.isEmpty(ztproductplan)){
+                cn.ibizlab.pms.core.zentao.domain.ProductPlan majorEntity=productplanService.get(et.getPlan());
+                et.setZtproductplan(majorEntity);
+                ztproductplan=majorEntity;
+            }
+            et.setPlanname(ztproductplan.getTitle());
+        }
+        //实体关系[DER1N_ZT_PROJECTPRODUCT_ZT_PRODUCT_PRODUCT]
+        if(!ObjectUtils.isEmpty(et.getProduct())){
+            cn.ibizlab.pms.core.zentao.domain.Product ztproduct=et.getZtproduct();
+            if(ObjectUtils.isEmpty(ztproduct)){
+                cn.ibizlab.pms.core.zentao.domain.Product majorEntity=productService.get(et.getProduct());
+                et.setZtproduct(majorEntity);
+                ztproduct=majorEntity;
+            }
+            et.setProductname(ztproduct.getName());
+        }
+        //实体关系[DER1N_ZT_PROJECTPRODUCT_ZT_PROJECT_PROJECT]
+        if(!ObjectUtils.isEmpty(et.getProject())){
+            cn.ibizlab.pms.core.zentao.domain.Project ztproject=et.getZtproject();
+            if(ObjectUtils.isEmpty(ztproject)){
+                cn.ibizlab.pms.core.zentao.domain.Project majorEntity=projectService.get(et.getProject());
+                et.setZtproject(majorEntity);
+                ztproject=majorEntity;
+            }
+            et.setProjectname(ztproject.getName());
+        }
+    }
 
 
 

@@ -83,12 +83,14 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
 
     @Override
     public boolean saveBatch(Collection<ProductPlan> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
     public void saveBatch(List<ProductPlan> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
@@ -108,24 +110,21 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     public void createBatch(List<ProductPlan> list) {
 
     }
-    @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
-    }
+!!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
 
-    @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
-    }
-
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${srfjavatype(keyfield.stdDataType)}  [in template "TEMPLCODE_zh_CN" at line 3, column 27]
+----
     @Override
     public boolean checkKey(ProductPlan et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     public ProductPlan getDraft(ProductPlan et) {
+        fillParentData(et);
         return et;
     }
 
@@ -208,6 +207,24 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
         return new PageImpl<ProductPlan>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+
+
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(ProductPlan et){
+        //实体关系[DER1N__ZT_PRODUCTPLAN__ZT_PRODUCTPLAN__PARENT]
+        if(!ObjectUtils.isEmpty(et.getParent())){
+            cn.ibizlab.pms.core.zentao.domain.ProductPlan ibizparent=et.getIbizparent();
+            if(ObjectUtils.isEmpty(ibizparent)){
+                cn.ibizlab.pms.core.zentao.domain.ProductPlan majorEntity=productplanService.get(et.getParent());
+                et.setIbizparent(majorEntity);
+                ibizparent=majorEntity;
+            }
+            et.setParentname(ibizparent.getTitle());
+        }
+    }
 
 
 
