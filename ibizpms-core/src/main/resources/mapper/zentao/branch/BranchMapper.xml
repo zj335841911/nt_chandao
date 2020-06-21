@@ -61,7 +61,7 @@
     </sql>
     <!--数据查询[DefaultBranch]-->
     <sql id="DefaultBranch" databaseId="mysql">
-       <![CDATA[	SELECT '0' AS `DELETED`, 0 AS `ID`, '所有平台'.`NAME`, 0 AS `ORDER`, 0 AS `PRODUCT` FROM `zt_branch` t1  
+       <![CDATA[	SELECT '0' AS `DELETED`, 0 AS `ID`, '所有平台' AS `NAME`, 0 AS `ORDER`, 0 AS `PRODUCT` FROM `zt_branch` t1  
 			]]>
     </sql>
     <!--数据查询[View]-->
