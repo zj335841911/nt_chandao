@@ -79,9 +79,6 @@ export default class MainModel {
         dataType: 'PICKUPTEXT',
       },
       {
-        name: 'formitem',
-      },
-      {
         name: 'report',
         prop: 'report',
         dataType: 'LONGTEXT',

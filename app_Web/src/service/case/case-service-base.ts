@@ -280,6 +280,24 @@ export default class CaseServiceBase extends EntityService {
     }
 
     /**
+     * FetchCurSuit接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchCurSuit(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/products/${context.product}/cases/fetchcursuit`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/cases/fetchcursuit`,tempData,isloading);
+    }
+
+    /**
      * FetchTempCurTestTask接口方法
      *
      * @param {*} [context={}]
@@ -290,9 +308,9 @@ export default class CaseServiceBase extends EntityService {
      */
     public async FetchTempCurTestTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
-            return Http.getInstance().get(`/products/${context.product}/cases/fetchdefault`,data,isloading);
+            return Http.getInstance().get(`/products/${context.product}/cases/fetchcursuit`,data,isloading);
         }
-        return Http.getInstance().get(`/cases/fetchdefault`,data,isloading);
+        return Http.getInstance().get(`/cases/fetchcursuit`,data,isloading);
     }
 
     /**
@@ -306,8 +324,24 @@ export default class CaseServiceBase extends EntityService {
      */
     public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
-            return Http.getInstance().get(`/products/${context.product}/cases/fetchdefault`,data,isloading);
+            return Http.getInstance().get(`/products/${context.product}/cases/fetchcursuit`,data,isloading);
         }
-        return Http.getInstance().get(`/cases/fetchdefault`,data,isloading);
+        return Http.getInstance().get(`/cases/fetchcursuit`,data,isloading);
+    }
+
+    /**
+     * FetchTempCurSuit接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchTempCurSuit(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            return Http.getInstance().get(`/products/${context.product}/cases/fetchcursuit`,data,isloading);
+        }
+        return Http.getInstance().get(`/cases/fetchcursuit`,data,isloading);
     }
 }

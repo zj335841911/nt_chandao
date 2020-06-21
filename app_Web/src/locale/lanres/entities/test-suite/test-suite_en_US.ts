@@ -13,6 +13,10 @@ export default {
     product: '所属产品',
   },
 	views: {
+		editview9: {
+			caption: "测试套件",
+      title: '测试套件编辑视图',
+		},
 		editview: {
 			caption: "测试套件",
       title: 'testsuite编辑视图',
@@ -20,6 +24,10 @@ export default {
 		gridview: {
 			caption: "测试套件",
       title: 'testsuite表格视图',
+		},
+		maindashboardview: {
+			caption: "测试套件",
+      title: '测试套件数据看板视图',
 		},
 	},
 	main_form: {
@@ -36,6 +44,24 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			name: "名称", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
+	maininfo_form: {
+		details: {
+			group1: "基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			name: "名称", 
+			desc: "描述", 
 			id: "编号", 
 		},
 		uiactions: {

@@ -62,7 +62,6 @@ export default {
 			owner: '负责人', 
 			members: '参与人员', 
 			projectname: '所属项目', 
-			formitem: '附件', 
 			report: '总结', 
 			id: '编号', 
 			project: '所属项目', 

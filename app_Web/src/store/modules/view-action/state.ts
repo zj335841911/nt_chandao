@@ -98,6 +98,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '0d5db9e736e4556dcfc45c455888a1a6',
+            viewmodule: 'zentao',
+            viewname: 'TestSuiteEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '103bc77ad54de2476db1d4e9c788cd4e',
             viewmodule: 'zentao',
             viewname: 'ProjectTaskTreeExpView',
@@ -742,6 +751,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '74e206764fd747fa31467bd5a9f371df',
+            viewmodule: 'zentao',
+            viewname: 'CaseCurSuitGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '6f78b25e86923ab600a2141d50fe49fd',
+                '5890a810365fec51e801d2cffce44fde',
+            ],
+        },
+        {
             viewtag: '770a170098d148e438a7666b248e6519',
             viewmodule: 'zentao',
             viewname: 'ActionHistroyListView',
@@ -1154,6 +1174,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '7a983ef690626958a9897f58efe15e58',
+                'c2e4200fb7c9760b4931b43561289980',
             ],
         },
         {
@@ -1360,6 +1381,18 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'c2e4200fb7c9760b4931b43561289980',
+            viewmodule: 'zentao',
+            viewname: 'TestSuiteMainDashboardView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '0d5db9e736e4556dcfc45c455888a1a6',
+                '74e206764fd747fa31467bd5a9f371df',
+                '770a170098d148e438a7666b248e6519',
             ],
         },
         {

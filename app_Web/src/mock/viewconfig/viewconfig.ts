@@ -95,6 +95,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugBuildSubGridView_New",
             "viewtag": "09b6c2af7dcc4b719d4c8aad2319f1c5"
         },
+        "testsuiteeditview9": {
+            "title": "测试套件编辑视图",
+            "caption": "测试套件",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "TestSuiteEditView9",
+            "viewtag": "0d5db9e736e4556dcfc45c455888a1a6"
+        },
         "projecttasktreeexpview": {
             "title": "项目任务导航视图",
             "caption": "项目",
@@ -663,6 +671,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskKanbanView",
             "viewtag": "7088260bcd6a0303378af2f8e207f479"
         },
+        "casecursuitgridview": {
+            "title": "功能测试",
+            "caption": "功能测试",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "CaseCurSuitGridView",
+            "viewtag": "74e206764fd747fa31467bd5a9f371df"
+        },
         "actionhistroylistview": {
             "title": "历史记录",
             "caption": "系统日志",
@@ -1174,6 +1190,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ModulePickupGridView",
             "viewtag": "bda78773fabbeee54079951afb35f954"
+        },
+        "testsuitemaindashboardview": {
+            "title": "测试套件数据看板视图",
+            "caption": "测试套件",
+            "viewtype": "DEPORTALVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestSuiteMainDashboardView",
+            "viewtag": "c2e4200fb7c9760b4931b43561289980"
         },
         "producttestlistexpview": {
             "title": "测试统计",

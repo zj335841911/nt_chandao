@@ -50,12 +50,6 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='formitem' :itemRules="this.rules.formitem" class='' :caption="$t('entities.testreport.main_form.details.formitem')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange" :data="JSON.stringify(this.data)" name='formitem' :value="data.formitem" :disabled="detailsModel.formitem.disabled" uploadparams='' exportparams='' :customparams="{}" style="overflow: auto;"></app-file-upload>
-</app-form-item>
-
-</i-col>
 <i-col v-show="detailsModel.report.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='report' :itemRules="this.rules.report" class='' :caption="$t('entities.testreport.main_form.details.report')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.report.error" :isEmptyCaption="false" labelPos="LEFT">
     <html-container :content="data.report"></html-container>
@@ -378,7 +372,6 @@ export default class MainBase extends Vue implements ControlInterface {
         owner: null,
         members: null,
         projectname: null,
-        formitem: null,
         report: null,
         id: null,
         project: null,
@@ -502,12 +495,6 @@ export default class MainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '所属项目 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '所属项目 值不能为空', trigger: 'blur' },
         ],
-        formitem: [
-            { type: 'string', message: '附件 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '附件 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '附件 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '附件 值不能为空', trigger: 'blur' },
-        ],
         report: [
             { type: 'string', message: '总结 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '总结 值必须为字符串类型', trigger: 'blur' },
@@ -564,8 +551,6 @@ export default class MainBase extends Vue implements ControlInterface {
         members: new FormItemModel({ caption: '参与人员', detailType: 'FORMITEM', name: 'members', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         projectname: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'projectname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        formitem: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         report: new FormItemModel({ caption: '总结', detailType: 'FORMITEM', name: 'report', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -732,18 +717,6 @@ export default class MainBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 formitem 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof Main
-     */
-    @Watch('data.formitem')
-    onFormitemChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'formitem', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
      * 监控表单属性 report 值
      *
      * @param {*} newVal
@@ -815,7 +788,6 @@ export default class MainBase extends Vue implements ControlInterface {
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
-
 
 
 

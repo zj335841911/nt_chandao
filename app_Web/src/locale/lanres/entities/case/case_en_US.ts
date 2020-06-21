@@ -79,6 +79,10 @@ export default {
 			caption: "功能测试",
       title: '功能测试',
 		},
+		cursuitgridview: {
+			caption: "功能测试",
+      title: '功能测试',
+		},
 		gridview9: {
 			caption: "测试用例",
       title: '测试用例表格视图',
@@ -273,6 +277,24 @@ export default {
 			type: "用例类型",
 		},
 		uiactions: {
+		},
+	},
+	maingrid_suitsub_grid: {
+		columns: {
+			id: "id",
+			pri: "P",
+			title: "用例标题",
+			type: "用例类型",
+			lastrunresult: "结果",
+			status: "状态",
+			tobugcnt: "B",
+			resultcnt: "R",
+			casesteps: "S",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+			opentestrunresultview: "结果",
+			execute: "执行",
 		},
 	},
 	main2_grid: {

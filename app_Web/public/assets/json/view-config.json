@@ -109,6 +109,16 @@
         "viewtag": "09b6c2af7dcc4b719d4c8aad2319f1c5",
         "memo": ""
     },
+    "testsuiteeditview9": {
+        "title": "测试套件编辑视图",
+        "caption": "测试套件",
+        "viewtype": "DEEDITVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "TestSuiteEditView9",
+        "viewfilename": "test-suite-edit-view9",
+        "viewtag": "0d5db9e736e4556dcfc45c455888a1a6",
+        "memo": ""
+    },
     "projecttasktreeexpview": {
         "title": "项目任务导航视图",
         "caption": "项目",
@@ -819,6 +829,16 @@
         "viewtag": "7088260bcd6a0303378af2f8e207f479",
         "memo": ""
     },
+    "casecursuitgridview": {
+        "title": "功能测试",
+        "caption": "功能测试",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "CaseCurSuitGridView",
+        "viewfilename": "case-cur-suit-grid-view",
+        "viewtag": "74e206764fd747fa31467bd5a9f371df",
+        "memo": ""
+    },
     "actionhistroylistview": {
         "title": "历史记录",
         "caption": "系统日志",
@@ -1457,6 +1477,16 @@
         "viewname": "ModulePickupGridView",
         "viewfilename": "module-pickup-grid-view",
         "viewtag": "bda78773fabbeee54079951afb35f954",
+        "memo": ""
+    },
+    "testsuitemaindashboardview": {
+        "title": "测试套件数据看板视图",
+        "caption": "测试套件",
+        "viewtype": "DEPORTALVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestSuiteMainDashboardView",
+        "viewfilename": "test-suite-main-dashboard-view",
+        "viewtag": "c2e4200fb7c9760b4931b43561289980",
         "memo": ""
     },
     "producttestlistexpview": {

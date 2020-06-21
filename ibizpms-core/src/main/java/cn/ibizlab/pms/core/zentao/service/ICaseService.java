@@ -38,6 +38,7 @@ public interface ICaseService extends IService<Case>{
     void updateBatch(List<Case> list) ;
     Page<Case> searchCurTestTask(CaseSearchContext context) ;
     Page<Case> searchDefault(CaseSearchContext context) ;
+    Page<Case> searchCurSuit(CaseSearchContext context) ;
     List<Case> selectByBranch(BigInteger id) ;
     void removeByBranch(BigInteger id) ;
     List<Case> selectByFrombug(BigInteger id) ;
