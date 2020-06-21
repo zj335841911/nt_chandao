@@ -45,6 +45,7 @@ import { UIActionTool,Util } from '@/utils';
 import ProjectModuleService from '@/service/project-module/project-module-service';
 import TreeExpViewtreeexpbarService from './tree-exp-viewtreeexpbar-treeexpbar-service';
 
+import ProjectModuleUIService from '@/uiservice/project-module/project-module-ui-service';
 
 
 @Component({
@@ -132,6 +133,22 @@ export default class TreeExpViewtreeexpbarBase extends Vue implements ControlInt
     public appEntityService: ProjectModuleService = new ProjectModuleService({ $store: this.$store });
 
     /**
+     * treeexpbar_toolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof TreeExpViewtreeexpbar
+     */
+    public treeexpbar_toolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.treeexpbar_toolbar_deuiaction1_click(null, 'treeexpbar_toolbar', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction2')) {
+            this.treeexpbar_toolbar_deuiaction2_click(null, 'treeexpbar_toolbar', $event2);
+        }
+    }
+
+    /**
      * treeexpbar_tree 部件 selectionchange 事件
      *
      * @param {*} [args={}]
@@ -154,6 +171,88 @@ export default class TreeExpViewtreeexpbarBase extends Vue implements ControlInt
     }
     
 
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public treeexpbar_toolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.treeexpbar_tree;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:ProjectModuleUIService  = new ProjectModuleUIService();
+        curUIService.ProjectModule_Fix(datas,contextJO, paramJO,  $event, xData,this,"ProjectModule");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public treeexpbar_toolbar_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.treeexpbar_tree;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.RefreshAll(datas, contextJO,paramJO,  $event, xData,this,"ProjectModule");
+    }
+
+    /**
+     * 刷新
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof ProjectModuleTreeExpViewBase
+     */
+    public RefreshAll(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        if (xData && xData.refresh_all && xData.refresh_all instanceof Function) {
+            xData.refresh_all();
+            return;
+        }
+        const _this: any = this;
+        if (_this.refresh_all && _this.refresh_all instanceof Function) {
+            _this.refresh_all();
+            return;
+        }
+        if (_this.engine) {
+            _this.engine.load();
+        }
+    }
 
     /**
      * 关闭视图

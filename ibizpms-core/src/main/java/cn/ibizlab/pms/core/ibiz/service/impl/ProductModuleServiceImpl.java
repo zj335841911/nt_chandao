@@ -53,6 +53,10 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
     @Lazy
     private cn.ibizlab.pms.core.zentao.service.IProductService productService;
 
+    @Autowired
+    @Lazy
+    private cn.ibizlab.pms.core.ibiz.service.logic.IProductModuleFixPathLogic fixpathLogic;
+
     private int batchSize = 500;
 
     @Override

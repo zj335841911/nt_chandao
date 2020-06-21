@@ -80,6 +80,18 @@ public class ModuleResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-Fix-all')")
+    @ApiOperation(value = "重建模块路径", tags = {"模块" },  notes = "重建模块路径")
+	@RequestMapping(method = RequestMethod.POST, value = "/modules/{module_id}/fix")
+    @Transactional
+    public ResponseEntity<ModuleDTO> fix(@PathVariable("module_id") BigInteger module_id, @RequestBody ModuleDTO moduledto) {
+        Module module = moduleMapping.toDomain(moduledto);
+        module.setId(module_id);
+        module = moduleService.fix(module);
+        moduledto = moduleMapping.toDto(module);
+        return ResponseEntity.status(HttpStatus.OK).body(moduledto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-Update-all')")
     @ApiOperation(value = "更新模块", tags = {"模块" },  notes = "更新模块")
 	@RequestMapping(method = RequestMethod.PUT, value = "/modules/{module_id}")

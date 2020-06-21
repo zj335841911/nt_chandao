@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+    <process id="cn.ibizlab.pms.core.ibiz.service.logic.projectmodulefixpath" isClosed="false" isExecutable="true" name="ScoreRule" processType="Private" tns:packageName="cn.ibizlab.pms.core.ibiz.service.logic.projectmodulefixpath">
+        <extensionElements>
+            <tns:import name="java.util.Map" />
+            <tns:import name="org.springframework.util.StringUtils"/>
+            <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+        <tns:global identifier="projectmodulefixpathzt_module" type="cn.ibizlab.pms.core.zentao.domain.Module" />
+        <tns:global identifier="projectmodulefixpathdefault" type="cn.ibizlab.pms.core.ibiz.domain.ProjectModule" />
+        </extensionElements>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectmodulefixpathdeaction1" id="7B1B288F-5E0C-49E0-90B8-E8DBFEDD4507" implementation="http://www.jboss.org/drools/rule" name="执行重建模块路径行为"/>
+     <endEvent id="7B1B288F-5E0C-49E0-90B8-E8DBFEDD4507_End" name="End"/>
+     <sequenceFlow id="7B1B288F-5E0C-49E0-90B8-E8DBFEDD4507_End_Line" sourceRef="7B1B288F-5E0C-49E0-90B8-E8DBFEDD4507" targetRef="7B1B288F-5E0C-49E0-90B8-E8DBFEDD4507_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectmodulefixpathprepareparam1" id="2B4B4861-84B8-40BE-946B-2A60969CE201" implementation="http://www.jboss.org/drools/rule" name="转化至模块实体"/>
+     <startEvent id="546970BC-9D81-4DBF-8D1D-67B3C13853C8" isInterrupting="true"/>
+     <sequenceFlow id="67A44EB3-0604-4F77-AE33-60745516CE39" sourceRef="2B4B4861-84B8-40BE-946B-2A60969CE201" targetRef="7B1B288F-5E0C-49E0-90B8-E8DBFEDD4507">
+     </sequenceFlow>
+     <sequenceFlow id="54770954-62D7-49F6-99D9-2F50BE7E5B59" sourceRef="546970BC-9D81-4DBF-8D1D-67B3C13853C8" targetRef="2B4B4861-84B8-40BE-946B-2A60969CE201">
+     </sequenceFlow>
+    </process>
+</definitions>
+

@@ -160,7 +160,7 @@
     "delogicname":"需求模块",
     "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
     "dedataset":[{"id":"Default" , "name":"DEFAULT"},{"id":"ByPath" , "name":"BYPATH"},{"id":"Root_NoBranch" , "name":"根模块_无分支"},{"id":"Root" , "name":"根模块"}],
-    "deaction":[{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
+    "deaction":[{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Fix" , "name":"重建模块路径" , "type":"DELOGIC" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}]
      }
     ,    {
@@ -168,7 +168,7 @@
     "delogicname":"模块",
     "sysmoudle":{"id":"ZENTAO","name":"禅道模块"},
     "dedataset":[{"id":"Line" , "name":"产品线"},{"id":"StoryModule" , "name":"需求模块"},{"id":"Default" , "name":"DEFAULT"},{"id":"DocModule" , "name":"文档目录"}],
-    "deaction":[{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" }],
+    "deaction":[{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"Fix" , "name":"重建模块路径" , "type":"USERCUSTOM" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}]
      }
     ,    {
@@ -248,7 +248,7 @@
     "delogicname":"任务模块",
     "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
     "dedataset":[{"id":"Default" , "name":"DEFAULT"},{"id":"Root_NoBranch" , "name":"根模块_无分支"},{"id":"Root" , "name":"根模块"},{"id":"ByPath" , "name":"BYPATH"},{"id":"Root_Task" , "name":"根模块"}],
-    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" }],
+    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Fix" , "name":"重建模块路径" , "type":"DELOGIC" }],
     "datascope":[{"id":"all","name":"全部数据"}]
      }
     ,    {

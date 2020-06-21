@@ -100,6 +100,20 @@ export default class ProjectModuleTreeExpViewBase extends TreeExpViewBase {
         view_treeexpbar: { name: 'treeexpbar', type: 'TREEEXPBAR' },
     };
 
+    /**
+     * 工具栏模型
+     *
+     * @type {*}
+     * @memberof ProjectModuleTreeExpView
+     */
+    public treeexpviewtreeexpbar_toolbarModels: any = {
+        deuiaction1: { name: 'deuiaction1', caption: '修复','isShowCaption':true,'isShowIcon':true, tooltip: '修复', iconcls: 'fa fa-wrench', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Fix', target: 'NONE' }, class: '' },
+
+        deuiaction2: { name: 'deuiaction2', caption: '刷新','isShowCaption':true,'isShowIcon':true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'RefreshAll', target: '' }, class: '' },
+
+    };
+
+
 
     /**
      * 视图引擎

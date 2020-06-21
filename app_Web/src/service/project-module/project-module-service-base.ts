@@ -1,5 +1,6 @@
 import { Http,Util } from '@/utils';
 import EntityService from '../entity-service';
+import FixPathLogic from '@/service/project-module/fix-path-logic';
 
 
 
@@ -281,5 +282,20 @@ export default class ProjectModuleServiceBase extends EntityService {
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
         return Http.getInstance().get(`/projectmodules/fetchroot_task`,tempData,isloading);
+    }
+
+    /**
+     * Fix接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectModuleServiceBase
+     */
+    public async Fix(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let appLogic:FixPathLogic = new FixPathLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(data))});
+        const result = await appLogic.onExecute(context,data,isloading?true:false);
+        return {status:200,data:result};
     }
 }

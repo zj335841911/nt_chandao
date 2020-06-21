@@ -1,5 +1,6 @@
 import { Http,Util } from '@/utils';
 import EntityService from '../entity-service';
+import FixPathLogic from '@/service/product-module/fix-path-logic';
 
 
 
@@ -226,5 +227,20 @@ export default class ProductModuleServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/products/${context.product}/productmodules/fetchroot`,tempData,isloading);
         }
+    }
+
+    /**
+     * Fix接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductModuleServiceBase
+     */
+    public async Fix(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let appLogic:FixPathLogic = new FixPathLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(data))});
+        const result = await appLogic.onExecute(context,data,isloading?true:false);
+        return {status:200,data:result};
     }
 }

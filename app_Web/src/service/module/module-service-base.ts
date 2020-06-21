@@ -105,6 +105,19 @@ export default class ModuleServiceBase extends EntityService {
     }
 
     /**
+     * Fix接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ModuleServiceBase
+     */
+    public async Fix(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            return Http.getInstance().post(`/modules/${context.module}/fix`,data,isloading);
+    }
+
+    /**
      * Update接口方法
      *
      * @param {*} [context={}]

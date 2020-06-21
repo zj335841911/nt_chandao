@@ -29,6 +29,7 @@ public interface IModuleService extends IService<Module>{
     boolean create(Module et) ;
     void createBatch(List<Module> list) ;
     Module get(BigInteger key) ;
+    Module fix(Module et) ;
     boolean update(Module et) ;
     void updateBatch(List<Module> list) ;
     boolean save(Module et) ;

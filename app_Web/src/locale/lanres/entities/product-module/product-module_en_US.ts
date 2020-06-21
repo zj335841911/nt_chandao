@@ -68,6 +68,16 @@ export default {
 			tip: "保存行",
 		},
 	},
+	treeexpviewtreeexpbar_toolbar_toolbar: {
+		deuiaction1: {
+			caption: "修复",
+			tip: "修复",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
