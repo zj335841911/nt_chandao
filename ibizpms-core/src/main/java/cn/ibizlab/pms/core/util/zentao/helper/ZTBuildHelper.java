@@ -119,7 +119,7 @@ final public class ZTBuildHelper {
 
         // EDIT
         ACTION_PARAMS_EDIT.put("product", 0);
-        ACTION_PARAMS_EDIT.put("product", 0);
+        ACTION_PARAMS_EDIT.put("project", 0);
         ACTION_PARAMS_EDIT.put("name", null);
         ACTION_PARAMS_EDIT.put("builder", null);
         ACTION_PARAMS_EDIT.put("scmPath", null);
