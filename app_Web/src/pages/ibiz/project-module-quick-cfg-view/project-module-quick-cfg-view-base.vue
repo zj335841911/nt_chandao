@@ -1,5 +1,5 @@
 <template>
-<studio-view viewName="projectmodulequickcfgview" viewTitle="任务模块选项操作视图" class='deoptview project-module-quick-cfg-view'>
+<studio-view viewName="projectmodulequickcfgview" viewTitle="任务模块" class='deoptview project-module-quick-cfg-view'>
     <template slot='title'>
     <span class='caption-info'>{{$t(model.srfTitle)}}</span>
     </template>
@@ -46,7 +46,7 @@ import OptionViewEngine from '@engine/view/option-view-engine';
 
 
 /**
- * 任务模块选项操作视图视图基类
+ * 任务模块视图基类
  *
  * @export
  * @class ProjectModuleQuickCfgViewBase

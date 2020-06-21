@@ -33,7 +33,19 @@
 </i-col>
 <i-col v-show="detailsModel.branch.visible" :style="{}"  :lg="{ span: 8, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='branch' :itemRules="this.rules.branch" class='' :caption="$t('entities.productmodule.main_form.details.branch')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.branch.error" :isEmptyCaption="false" labelPos="NONE">
-    <input-box v-model="data.branch"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.branch.disabled" type='number'  style=""></input-box>
+    
+ <dropdown-list 
+    v-model="data.branch" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.branch.disabled"  
+    tag='ProductBranch' 
+    codelistType='DYNAMIC'
+    placeholder='请选择...' style="">
+ </dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -498,10 +510,10 @@ export default class MainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '所属产品 值不能为空', trigger: 'blur' },
         ],
         branch: [
-            { type: 'string', message: '平台 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '平台 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '平台 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '平台 值不能为空', trigger: 'blur' },
+            { type: 'number', message: '平台 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '平台 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '平台 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '平台 值不能为空', trigger: 'blur' },
         ],
         parentname: [
             { type: 'string', message: '上级模块 值必须为字符串类型', trigger: 'change' },

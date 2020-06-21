@@ -230,7 +230,7 @@ export default class ProjectModuleUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'project-module-quick-cfg-view', 
-                height: 400, 
+                height: 350, 
                 width: 500,  
                 title: actionContext.$t('entities.projectmodule.views.quickcfgview.title'),
             };

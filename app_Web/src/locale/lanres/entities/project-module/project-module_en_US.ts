@@ -21,7 +21,7 @@ export default {
 	views: {
 		quickcfgview: {
 			caption: "任务模块",
-      title: '任务模块选项操作视图',
+      title: '任务模块',
 		},
 		maingridview: {
 			caption: "任务模块",

@@ -32,7 +32,7 @@ export default {
 		},
 		quickcfgview: {
 			caption: '需求模块',
-      title: '需求模块选项操作视图',
+      title: '需求模块',
 		},
 	},
 	main_form: {

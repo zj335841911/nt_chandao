@@ -50,7 +50,7 @@
         "memo": ""
     },
     "projectmodulequickcfgview": {
-        "title": "任务模块选项操作视图",
+        "title": "任务模块",
         "caption": "任务模块",
         "viewtype": "DEOPTVIEW",
         "viewmodule": "ibiz",
@@ -1250,7 +1250,7 @@
         "memo": ""
     },
     "productmodulequickcfgview": {
-        "title": "需求模块选项操作视图",
+        "title": "需求模块",
         "caption": "需求模块",
         "viewtype": "DEOPTVIEW",
         "viewmodule": "ibiz",

@@ -229,7 +229,7 @@ export default class ProductModuleUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'product-module-quick-cfg-view', 
-                height: 500, 
+                height: 350, 
                 width: 500,  
                 title: actionContext.$t('entities.productmodule.views.quickcfgview.title'),
             };

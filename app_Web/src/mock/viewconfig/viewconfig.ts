@@ -48,7 +48,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "03c110360a714011ed9c30b8207d3703"
         },
         "projectmodulequickcfgview": {
-            "title": "任务模块选项操作视图",
+            "title": "任务模块",
             "caption": "任务模块",
             "viewtype": "DEOPTVIEW",
             "viewmodule": "ibiz",
@@ -1008,7 +1008,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "a97ff9ae4f22d5974b51af2c0fae1aa2"
         },
         "productmodulequickcfgview": {
-            "title": "需求模块选项操作视图",
+            "title": "需求模块",
             "caption": "需求模块",
             "viewtype": "DEOPTVIEW",
             "viewmodule": "ibiz",
