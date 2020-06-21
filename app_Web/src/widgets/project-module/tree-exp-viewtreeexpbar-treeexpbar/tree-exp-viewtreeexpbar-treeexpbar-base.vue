@@ -1,9 +1,6 @@
 <template>
     <split id="treeexpviewtreeexpbar" class='app-tree-exp-bar' v-model="split" mode="horizontal" @on-move-end="onSplitChange">
-        <div class="app-tree-exp-bar-left show-title-bar" slot='left'>
-            <div class='tree-exp-bar-header'>
-                <div>模块导航</div>
-            </div>
+        <div class="app-tree-exp-bar-left" slot='left'>
             <div class='tree-exp-content'>
                             <view_treeexpbar_tree 
                 :viewState="viewState"  
