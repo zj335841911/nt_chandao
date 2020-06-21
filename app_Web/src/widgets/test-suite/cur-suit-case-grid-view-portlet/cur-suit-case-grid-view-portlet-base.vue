@@ -1,12 +1,6 @@
 <template>
     <div class='portlet cur-suit-case-grid-view ' :style="{'height': 'auto',}">
-        <p class='portlet-title'>
-            <span>
-            
-            关联套件
-            </span>
-        </p>
-        <div class="portlet-with-title">
+        <div class="portlet-without-title">
         <case-cur-suit-grid-view :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></case-cur-suit-grid-view>
         </div>
     </div>
