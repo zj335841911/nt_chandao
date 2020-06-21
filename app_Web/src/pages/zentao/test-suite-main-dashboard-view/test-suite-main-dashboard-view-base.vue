@@ -63,6 +63,8 @@ export default class TestSuiteMainDashboardViewBase extends DashboardViewBase {
 	 * @memberof TestSuiteMainDashboardViewBase
 	 */
     protected customViewNavContexts: any = {
+        'OBJECTTYPE': { isRawValue: true, value: 'testsuite' },
+        'SRFPARENTKEY': { isRawValue: false, value: 'testsuite' }
     };
 
 	/**

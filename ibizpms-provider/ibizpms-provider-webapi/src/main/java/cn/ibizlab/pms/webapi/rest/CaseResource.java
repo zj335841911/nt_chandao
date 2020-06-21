@@ -185,11 +185,11 @@ public class CaseResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-CurSuit-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-CurSuite-all')")
 	@ApiOperation(value = "获取套件关联用例", tags = {"测试用例" } ,notes = "获取套件关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/cases/fetchcursuit")
-	public ResponseEntity<List<CaseDTO>> fetchCurSuit(CaseSearchContext context) {
-        Page<Case> domains = caseService.searchCurSuit(context) ;
+    @RequestMapping(method= RequestMethod.GET , value="/cases/fetchcursuite")
+	public ResponseEntity<List<CaseDTO>> fetchCurSuite(CaseSearchContext context) {
+        Page<Case> domains = caseService.searchCurSuite(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
                 .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
@@ -198,11 +198,11 @@ public class CaseResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-CurSuit-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-CurSuite-all')")
 	@ApiOperation(value = "查询套件关联用例", tags = {"测试用例" } ,notes = "查询套件关联用例")
-    @RequestMapping(method= RequestMethod.POST , value="/cases/searchcursuit")
-	public ResponseEntity<Page<CaseDTO>> searchCurSuit(@RequestBody CaseSearchContext context) {
-        Page<Case> domains = caseService.searchCurSuit(context) ;
+    @RequestMapping(method= RequestMethod.POST , value="/cases/searchcursuite")
+	public ResponseEntity<Page<CaseDTO>> searchCurSuite(@RequestBody CaseSearchContext context) {
+        Page<Case> domains = caseService.searchCurSuite(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -361,12 +361,12 @@ public class CaseResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-CurSuit-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-CurSuite-all')")
 	@ApiOperation(value = "根据产品获取套件关联用例", tags = {"测试用例" } ,notes = "根据产品获取套件关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/fetchcursuit")
-	public ResponseEntity<List<CaseDTO>> fetchCaseCurSuitByProduct(@PathVariable("product_id") BigInteger product_id,CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/fetchcursuite")
+	public ResponseEntity<List<CaseDTO>> fetchCaseCurSuiteByProduct(@PathVariable("product_id") BigInteger product_id,CaseSearchContext context) {
         context.setN_product_eq(product_id);
-        Page<Case> domains = caseService.searchCurSuit(context) ;
+        Page<Case> domains = caseService.searchCurSuite(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
 	    return ResponseEntity.status(HttpStatus.OK)
                 .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
@@ -375,12 +375,12 @@ public class CaseResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-CurSuit-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-CurSuite-all')")
 	@ApiOperation(value = "根据产品查询套件关联用例", tags = {"测试用例" } ,notes = "根据产品查询套件关联用例")
-    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/searchcursuit")
-	public ResponseEntity<Page<CaseDTO>> searchCaseCurSuitByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/searchcursuite")
+	public ResponseEntity<Page<CaseDTO>> searchCaseCurSuiteByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody CaseSearchContext context) {
         context.setN_product_eq(product_id);
-        Page<Case> domains = caseService.searchCurSuit(context) ;
+        Page<Case> domains = caseService.searchCurSuite(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

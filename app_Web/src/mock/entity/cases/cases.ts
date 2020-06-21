@@ -606,9 +606,9 @@ mock.onGet(new RegExp(/^\/cases\/fetchdefault(\?[\w-./?%&=,]*)*$/)).reply((confi
 });
 
 
-// FetchCurSuit
-mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/cases\/fetchcursuit$/)).reply((config: any) => {
-    console.groupCollapsed("实体:case 方法: FetchCurSuit");
+// FetchCurSuite
+mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/cases\/fetchcursuite$/)).reply((config: any) => {
+    console.groupCollapsed("实体:case 方法: FetchCurSuite");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
@@ -616,7 +616,7 @@ mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/cases\/fetchcursuit
     }
     const paramArray:Array<any> = ['id'];
     let tempValue: any = {};
-    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/cases\/fetchcursuit$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/cases\/fetchcursuite$/).exec(config.url);
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
             Object.defineProperty(tempValue, item, {
@@ -650,9 +650,9 @@ mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/cases\/fetchcursuit
     return [status, items];
 });
     
-// FetchCurSuit
-mock.onGet(new RegExp(/^\/cases\/fetchcursuit$/)).reply((config: any) => {
-    console.groupCollapsed("实体:case 方法: FetchCurSuit");
+// FetchCurSuite
+mock.onGet(new RegExp(/^\/cases\/fetchcursuite$/)).reply((config: any) => {
+    console.groupCollapsed("实体:case 方法: FetchCurSuite");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
@@ -665,9 +665,9 @@ mock.onGet(new RegExp(/^\/cases\/fetchcursuit$/)).reply((config: any) => {
     return [status, mockDatas ? mockDatas : []];
 });
 
-// FetchCurSuit
-mock.onGet(new RegExp(/^\/cases\/fetchcursuit(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
-    console.groupCollapsed("实体:case 方法: FetchCurSuit");
+// FetchCurSuite
+mock.onGet(new RegExp(/^\/cases\/fetchcursuite(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:case 方法: FetchCurSuite");
     console.table({url:config.url, method: config.method, data:config.data});
     if(config.url.includes('page')){
         let url = config.url.split('?')[1];
