@@ -158,6 +158,27 @@ public class BranchResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(branchMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-CurProduct-all')")
+	@ApiOperation(value = "获取CurProduct", tags = {"产品的分支和平台信息" } ,notes = "获取CurProduct")
+    @RequestMapping(method= RequestMethod.GET , value="/branches/fetchcurproduct")
+	public ResponseEntity<List<BranchDTO>> fetchCurProduct(BranchSearchContext context) {
+        Page<Branch> domains = branchService.searchCurProduct(context) ;
+        List<BranchDTO> list = branchMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-CurProduct-all')")
+	@ApiOperation(value = "查询CurProduct", tags = {"产品的分支和平台信息" } ,notes = "查询CurProduct")
+    @RequestMapping(method= RequestMethod.POST , value="/branches/searchcurproduct")
+	public ResponseEntity<Page<BranchDTO>> searchCurProduct(@RequestBody BranchSearchContext context) {
+        Page<Branch> domains = branchService.searchCurProduct(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(branchMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @ApiOperation(value = "根据产品获取产品的分支和平台信息草稿", tags = {"产品的分支和平台信息" },  notes = "根据产品获取产品的分支和平台信息草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/branches/getdraft")
     public ResponseEntity<BranchDTO> getDraftByProduct(@PathVariable("product_id") BigInteger product_id) {
@@ -287,6 +308,29 @@ public class BranchResource {
 	public ResponseEntity<Page<BranchDTO>> searchBranchDefaultByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BranchSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Branch> domains = branchService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(branchMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-CurProduct-all')")
+	@ApiOperation(value = "根据产品获取CurProduct", tags = {"产品的分支和平台信息" } ,notes = "根据产品获取CurProduct")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/branches/fetchcurproduct")
+	public ResponseEntity<List<BranchDTO>> fetchBranchCurProductByProduct(@PathVariable("product_id") BigInteger product_id,BranchSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Branch> domains = branchService.searchCurProduct(context) ;
+        List<BranchDTO> list = branchMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-CurProduct-all')")
+	@ApiOperation(value = "根据产品查询CurProduct", tags = {"产品的分支和平台信息" } ,notes = "根据产品查询CurProduct")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/branches/searchcurproduct")
+	public ResponseEntity<Page<BranchDTO>> searchBranchCurProductByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BranchSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Branch> domains = branchService.searchCurProduct(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(branchMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

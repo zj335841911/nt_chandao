@@ -271,6 +271,9 @@ export default {
     UserRealName: {
         empty: "",
     },
+    ProductBranch: {
+        empty: "",
+    },
     Product__type: {
         'normal': "正常",
         'branch': "多分支",

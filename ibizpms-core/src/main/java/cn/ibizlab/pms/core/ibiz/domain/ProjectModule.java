@@ -98,7 +98,7 @@ public class ProjectModule extends EntityMP implements Serializable {
     /**
      * 短名称
      */
-    @DEField(name = "short")
+    @DEField(defaultValue = "/")
     @TableField(value = "short")
     @JSONField(name = "ibizshort")
     @JsonProperty("ibizshort")

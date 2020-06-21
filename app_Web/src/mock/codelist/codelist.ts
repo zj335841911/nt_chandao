@@ -2207,6 +2207,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
+        "srfkey": "ProductBranch",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Branch",
+        "appdedataset":"FetchCurProduct",
+        "items": []
+    },
+    {
         srfkey: 'Product__type',
         emptytext: '未定义',
         "codelisttype":"static",

@@ -51,6 +51,7 @@ export default {
 	main_grid: {
 		columns: {
 			name: "名称",
+			branch: "平台",
 			short: "简称",
 			uagridcolumn1: "操作",
 		},

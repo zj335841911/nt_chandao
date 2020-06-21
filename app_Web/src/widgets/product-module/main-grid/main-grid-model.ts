@@ -37,6 +37,11 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'branch_text',
+          prop: 'branch',
+          dataType: 'INT',
+        },
+        {
           name: 'name',
           prop: 'name',
           dataType: 'TEXT',
@@ -50,6 +55,11 @@ export default class MainModel {
           name: 'parent',
           prop: 'parent',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'branch',
+          prop: 'branch',
+          dataType: 'INT',
         },
         {
           name: 'type',

@@ -50,6 +50,40 @@
                     </template>
                 </el-table-column>
             </template>
+            <template v-if="getColumnState('branch')">
+                <el-table-column show-overflow-tooltip :prop="'branch'" :label="$t('entities.productmodule.main_grid.columns.branch')" :width="120"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.productmodule.main_grid.columns.branch')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template v-if="actualIsOpenEdit">
+                            <app-form-item :error="gridItemsModel[$index][column.property].error">
+                                
+             <dropdown-list 
+              v-model="row[column.property]" 
+              :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1" 
+              :data="row" 
+              :context="context"
+              :viewparams="viewparams" 
+              :localContext ='{ }' 
+              :localParam ='{ }' 
+              tag='ProductBranch' 
+              codelistType='DYNAMIC'
+              placeholder='请选择...' 
+              style="" 
+              @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
+             </dropdown-list>
+            
+                            </app-form-item>
+                        </template>
+                        <template v-if="!actualIsOpenEdit">
+            <codelist :value="row.branch" tag='ProductBranch' codelistType='DYNAMIC' ></codelist>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="getColumnState('short')">
                 <el-table-column show-overflow-tooltip :prop="'short'" :label="$t('entities.productmodule.main_grid.columns.short')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
@@ -577,6 +611,13 @@ export default class MainBase extends Vue implements ControlInterface {
             util: 'PX'
         },
         {
+            name: 'branch',
+            label: '平台',
+            langtag: 'entities.productmodule.main_grid.columns.branch',
+            show: true,
+            util: 'PX'
+        },
+        {
             name: 'short',
             label: '简称',
             langtag: 'entities.productmodule.main_grid.columns.short',
@@ -611,6 +652,7 @@ export default class MainBase extends Vue implements ControlInterface {
           short: new FormItemModel(),
           name: new FormItemModel(),
           parent: new FormItemModel(),
+          branch: new FormItemModel(),
           type: new FormItemModel(),
           srfkey: new FormItemModel(),
         }
@@ -634,6 +676,10 @@ export default class MainBase extends Vue implements ControlInterface {
         parent: [
              { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: 'id 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: 'id 值不能为空', trigger: 'blur' },
+        ],
+        branch: [
+             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '平台 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '平台 值不能为空', trigger: 'blur' },
         ],
         type: [
              { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '类型（story） 值不能为空', trigger: 'change' },
@@ -997,6 +1043,14 @@ export default class MainBase extends Vue implements ControlInterface {
      */
     public async formatExcelData(filterVal:any, jsonData:any) {
         let codelistColumns:Array<any> = [
+          {
+            name: 'branch',
+            srfkey: 'ProductBranch',
+            codelistType : 'DYNAMIC',
+            renderMode: 'other',
+            textSeparator: '、',
+            valueSeparator: ',',
+          },
         ];
         let _this = this;
         for (const codelist of codelistColumns) {

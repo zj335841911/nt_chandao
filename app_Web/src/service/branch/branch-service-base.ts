@@ -210,4 +210,22 @@ export default class BranchServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return Http.getInstance().get(`/branches/fetchdefault`,tempData,isloading);
     }
+
+    /**
+     * FetchCurProduct接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BranchServiceBase
+     */
+    public async FetchCurProduct(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/products/${context.product}/branches/fetchcurproduct`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/branches/fetchcurproduct`,tempData,isloading);
+    }
 }

@@ -191,6 +191,15 @@ public class BranchServiceImpl extends ServiceImpl<BranchMapper, Branch> impleme
         return new PageImpl<Branch>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 CurProduct
+     */
+    @Override
+    public Page<Branch> searchCurProduct(BranchSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Branch> pages=baseMapper.searchCurProduct(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Branch>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
 

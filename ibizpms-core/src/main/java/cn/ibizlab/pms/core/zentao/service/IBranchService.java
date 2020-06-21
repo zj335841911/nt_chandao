@@ -37,6 +37,7 @@ public interface IBranchService extends IService<Branch>{
     void saveBatch(List<Branch> list) ;
     Branch get(BigInteger key) ;
     Page<Branch> searchDefault(BranchSearchContext context) ;
+    Page<Branch> searchCurProduct(BranchSearchContext context) ;
     List<Branch> selectByProduct(BigInteger id) ;
     void removeByProduct(BigInteger id) ;
     /**

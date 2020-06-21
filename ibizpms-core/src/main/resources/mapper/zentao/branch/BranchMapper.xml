@@ -35,10 +35,33 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据集合[CurProduct]-->
+	 <select id="searchCurProduct"  parameterType="cn.ibizlab.pms.core.zentao.filter.BranchSearchContext"  resultMap="BranchResultMap">
+         select t1.* from (
+                <include refid="CurProduct" />
+                 union all
+                <include refid="DefaultBranch" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
+    <!--数据查询[CurProduct]-->
+    <sql id="CurProduct" databaseId="mysql">
+       <![CDATA[	SELECT t1.`DELETED`, t1.`ID`, t1.`NAME`, t1.`ORDER`, t1.`PRODUCT` FROM `zt_branch` t1  
+				 WHERE 	t1.DELETED = '0'
+					 AND ( ( t1.`PRODUCT` = #{srf.webcontext.product}  OR  t1.`PRODUCT` = #{srf.datacontext.product} ) )
+			]]>
+    </sql>
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
        <![CDATA[	SELECT t1.`DELETED`, t1.`ID`, t1.`NAME`, t1.`ORDER`, t1.`PRODUCT` FROM `zt_branch` t1  
 				 WHERE 	t1.DELETED = '0'
+			]]>
+    </sql>
+    <!--数据查询[DefaultBranch]-->
+    <sql id="DefaultBranch" databaseId="mysql">
+       <![CDATA[	SELECT '0' AS `DELETED`, 0 AS `ID`, '所有平台'.`NAME`, 0 AS `ORDER`, 0 AS `PRODUCT` FROM `zt_branch` t1  
 			]]>
     </sql>
     <!--数据查询[View]-->
