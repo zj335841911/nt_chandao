@@ -290,7 +290,7 @@ export default class ModuleExpBase extends Vue implements ControlInterface {
         }
         // 界面行为
         const curUIService:ProjectModuleUIService  = new ProjectModuleUIService();
-        curUIService.ProjectModule_Fix(datas,contextJO, paramJO,  $event, xData,this,"ProjectModule");
+        curUIService.ProjectModule_OpenQuickCfgView(datas,contextJO, paramJO,  $event, xData,this,"ProjectModule");
     }
 
     /**
@@ -403,7 +403,7 @@ export default class ModuleExpBase extends Vue implements ControlInterface {
         }
         // 界面行为
         const curUIService:ProductModuleUIService  = new ProductModuleUIService();
-        curUIService.ProductModule_Fix(datas,contextJO, paramJO,  $event, xData,this,"ProjectModule");
+        curUIService.ProductModule_OpenQuickCfgView(datas,contextJO, paramJO,  $event, xData,this,"ProjectModule");
     }
 
     /**
@@ -460,7 +460,7 @@ export default class ModuleExpBase extends Vue implements ControlInterface {
         }
         // 界面行为
         const curUIService:ProjectModuleUIService  = new ProjectModuleUIService();
-        curUIService.ProjectModule_Fix(datas,contextJO, paramJO,  $event, xData,this,"ProjectModule");
+        curUIService.ProjectModule_OpenQuickCfgView(datas,contextJO, paramJO,  $event, xData,this,"ProjectModule");
     }
 
     /**
@@ -517,7 +517,7 @@ export default class ModuleExpBase extends Vue implements ControlInterface {
         }
         // 界面行为
         const curUIService:ProductModuleUIService  = new ProductModuleUIService();
-        curUIService.ProductModule_Fix(datas,contextJO, paramJO,  $event, xData,this,"ProjectModule");
+        curUIService.ProductModule_OpenQuickCfgView(datas,contextJO, paramJO,  $event, xData,this,"ProjectModule");
     }
 
     /**
@@ -574,7 +574,7 @@ export default class ModuleExpBase extends Vue implements ControlInterface {
         }
         // 界面行为
         const curUIService:ProductModuleUIService  = new ProductModuleUIService();
-        curUIService.ProductModule_Fix(datas,contextJO, paramJO,  $event, xData,this,"ProjectModule");
+        curUIService.ProductModule_OpenQuickCfgView(datas,contextJO, paramJO,  $event, xData,this,"ProjectModule");
     }
 
     /**
@@ -1329,8 +1329,8 @@ export default class ModuleExpBase extends Vue implements ControlInterface {
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.module2_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
                             <dropdown-item name="deuiaction1">
-                        <i class='fa fa-wrench'></i>
-                        修复
+                        <i class='fa fa-edit'></i>
+                        编辑
                     </dropdown-item>
                             <dropdown-item name="deuiaction2">
                         <i class='fa fa-refresh'></i>
@@ -1373,8 +1373,8 @@ export default class ModuleExpBase extends Vue implements ControlInterface {
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.rootmodule_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
                             <dropdown-item name="deuiaction1">
-                        <i class='fa fa-wrench'></i>
-                        修复
+                        <i class='fa fa-edit'></i>
+                        编辑
                     </dropdown-item>
                             <dropdown-item name="deuiaction2">
                         <i class='fa fa-refresh'></i>
@@ -1397,8 +1397,8 @@ export default class ModuleExpBase extends Vue implements ControlInterface {
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.module_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
                             <dropdown-item name="deuiaction1">
-                        <i class='fa fa-wrench'></i>
-                        修复
+                        <i class='fa fa-edit'></i>
+                        编辑
                     </dropdown-item>
                             <dropdown-item name="deuiaction2">
                         <i class='fa fa-refresh'></i>
@@ -1421,8 +1421,8 @@ export default class ModuleExpBase extends Vue implements ControlInterface {
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.projectmodule_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
                             <dropdown-item name="deuiaction1">
-                        <i class='fa fa-wrench'></i>
-                        修复
+                        <i class='fa fa-edit'></i>
+                        编辑
                     </dropdown-item>
                             <dropdown-item name="deuiaction2">
                         <i class='fa fa-refresh'></i>
@@ -1445,8 +1445,8 @@ export default class ModuleExpBase extends Vue implements ControlInterface {
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.root_nobranch_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
                             <dropdown-item name="deuiaction1">
-                        <i class='fa fa-wrench'></i>
-                        修复
+                        <i class='fa fa-edit'></i>
+                        编辑
                     </dropdown-item>
                             <dropdown-item name="deuiaction2">
                         <i class='fa fa-refresh'></i>

@@ -91,9 +91,6 @@ export default {
 		},
 		uiactions: {
 			refreshparent: '刷新',
-			fix: '修复',
-			refreshall: '刷新',
-			fix: '修复',
 		},
 	},
 	moduleexp_treeview: {
@@ -102,10 +99,10 @@ export default {
 			root: '默认根节点',
 		},
 		uiactions: {
-			fix: '修复',
+			openquickcfgview: '编辑',
 			refreshall: '刷新',
 			refreshparent: '刷新',
-			fix: '修复',
+			openquickcfgview: '编辑',
 		},
 	},
 };

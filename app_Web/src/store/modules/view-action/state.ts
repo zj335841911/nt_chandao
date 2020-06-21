@@ -36,6 +36,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '0568d197dda832ceb89ad0442ab9f230',
+            viewmodule: 'ibiz',
+            viewname: 'ProjectModuleQuickCfgView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '07004de8a7d23e97b76460f888c8b290',
             viewmodule: 'zentao',
             viewname: 'BugPlanSubGridView',
@@ -884,6 +893,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'a9be826f6c53b091270f492be52f2519',
                 '523abe6eb852ca08fe4a3c140ff47b42',
             ],
         },
@@ -1175,6 +1185,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'a9be826f6c53b091270f492be52f2519',
+            viewmodule: 'ibiz',
+            viewname: 'ProductModuleQuickCfgView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'aad9a5713d6828d3119b811b26915215',
             viewmodule: 'zentao',
             viewname: 'ProductPlanEditView',
@@ -1283,7 +1302,9 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'a9be826f6c53b091270f492be52f2519',
                 '41dab4e36aef71df5c66acca4db7d045',
+                '0568d197dda832ceb89ad0442ab9f230',
             ],
         },
         {

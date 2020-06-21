@@ -56,8 +56,6 @@ import { UIActionTool,Util } from '@/utils';
 import ProjectModuleService from '@/service/project-module/project-module-service';
 import TaskModuleExpService from './task-module-exp-treeview-service';
 
-import ProjectModuleUIService from '@/uiservice/project-module/project-module-ui-service';
-import ProductModuleUIService from '@/uiservice/product-module/product-module-ui-service';
 
 
 @Component({
@@ -194,9 +192,6 @@ export default class TaskModuleExpBase extends Vue implements ControlInterface {
         if (Object.is($event.tag, 'deuiaction1')) {
             this.module_cm_deuiaction1_click(null, 'module_cm', $event2);
         }
-        if (Object.is($event.tag, 'deuiaction2')) {
-            this.module_cm_deuiaction2_click(null, 'module_cm', $event2);
-        }
     }
 
     /**
@@ -209,9 +204,6 @@ export default class TaskModuleExpBase extends Vue implements ControlInterface {
     public rootmodule_cm_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {
             this.rootmodule_cm_deuiaction1_click(null, 'rootmodule_cm', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction2')) {
-            this.rootmodule_cm_deuiaction2_click(null, 'rootmodule_cm', $event2);
         }
     }
 
@@ -226,9 +218,6 @@ export default class TaskModuleExpBase extends Vue implements ControlInterface {
         if (Object.is($event.tag, 'deuiaction1')) {
             this.root_nobranch_cm_deuiaction1_click(null, 'root_nobranch_cm', $event2);
         }
-        if (Object.is($event.tag, 'deuiaction2')) {
-            this.root_nobranch_cm_deuiaction2_click(null, 'root_nobranch_cm', $event2);
-        }
     }
 
     /**
@@ -241,9 +230,6 @@ export default class TaskModuleExpBase extends Vue implements ControlInterface {
     public projectmodule_cm_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {
             this.projectmodule_cm_deuiaction1_click(null, 'projectmodule_cm', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction2')) {
-            this.projectmodule_cm_deuiaction2_click(null, 'projectmodule_cm', $event2);
         }
     }
     
@@ -357,36 +343,7 @@ export default class TaskModuleExpBase extends Vue implements ControlInterface {
           datas = [params];
         }
         // 界面行为
-        const curUIService:ProjectModuleUIService  = new ProjectModuleUIService();
-        curUIService.ProjectModule_Fix(datas,contextJO, paramJO,  $event, xData,this,"ProjectModule");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public projectmodule_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.RefreshAll(datas, contextJO,paramJO,  $event, xData,this,"ProjectModule");
+        this.RefreshParent(datas, contextJO,paramJO,  $event, xData,this,"ProjectModule");
     }
 
     /**
@@ -414,36 +371,7 @@ export default class TaskModuleExpBase extends Vue implements ControlInterface {
           datas = [params];
         }
         // 界面行为
-        const curUIService:ProductModuleUIService  = new ProductModuleUIService();
-        curUIService.ProductModule_Fix(datas,contextJO, paramJO,  $event, xData,this,"ProjectModule");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public rootmodule_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.RefreshAll(datas, contextJO,paramJO,  $event, xData,this,"ProjectModule");
+        this.RefreshParent(datas, contextJO,paramJO,  $event, xData,this,"ProjectModule");
     }
 
     /**
@@ -471,36 +399,7 @@ export default class TaskModuleExpBase extends Vue implements ControlInterface {
           datas = [params];
         }
         // 界面行为
-        const curUIService:ProjectModuleUIService  = new ProjectModuleUIService();
-        curUIService.ProjectModule_Fix(datas,contextJO, paramJO,  $event, xData,this,"ProjectModule");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public module_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.RefreshAll(datas, contextJO,paramJO,  $event, xData,this,"ProjectModule");
+        this.RefreshParent(datas, contextJO,paramJO,  $event, xData,this,"ProjectModule");
     }
 
     /**
@@ -528,36 +427,7 @@ export default class TaskModuleExpBase extends Vue implements ControlInterface {
           datas = [params];
         }
         // 界面行为
-        const curUIService:ProductModuleUIService  = new ProductModuleUIService();
-        curUIService.ProductModule_Fix(datas,contextJO, paramJO,  $event, xData,this,"ProjectModule");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public root_nobranch_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.RefreshAll(datas, contextJO,paramJO,  $event, xData,this,"ProjectModule");
+        this.RefreshParent(datas, contextJO,paramJO,  $event, xData,this,"ProjectModule");
     }
 
     /**
@@ -580,31 +450,6 @@ export default class TaskModuleExpBase extends Vue implements ControlInterface {
         if (_this.refresh_parent && _this.refresh_parent instanceof Function) {
             _this.refresh_parent();
             return;
-        }
-    }
-    /**
-     * 刷新
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof ProjectTaskTreeExpViewBase
-     */
-    public RefreshAll(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        if (xData && xData.refresh_all && xData.refresh_all instanceof Function) {
-            xData.refresh_all();
-            return;
-        }
-        const _this: any = this;
-        if (_this.refresh_all && _this.refresh_all instanceof Function) {
-            _this.refresh_all();
-            return;
-        }
-        if (_this.engine) {
-            _this.engine.load();
         }
     }
 
@@ -1273,10 +1118,6 @@ export default class TaskModuleExpBase extends Vue implements ControlInterface {
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.module_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
                             <dropdown-item name="deuiaction1">
-                        <i class='fa fa-wrench'></i>
-                        修复
-                    </dropdown-item>
-                            <dropdown-item name="deuiaction2">
                         <i class='fa fa-refresh'></i>
                         刷新
                     </dropdown-item>
@@ -1297,10 +1138,6 @@ export default class TaskModuleExpBase extends Vue implements ControlInterface {
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.rootmodule_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
                             <dropdown-item name="deuiaction1">
-                        <i class='fa fa-wrench'></i>
-                        修复
-                    </dropdown-item>
-                            <dropdown-item name="deuiaction2">
                         <i class='fa fa-refresh'></i>
                         刷新
                     </dropdown-item>
@@ -1321,10 +1158,6 @@ export default class TaskModuleExpBase extends Vue implements ControlInterface {
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.root_nobranch_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
                             <dropdown-item name="deuiaction1">
-                        <i class='fa fa-wrench'></i>
-                        修复
-                    </dropdown-item>
-                            <dropdown-item name="deuiaction2">
                         <i class='fa fa-refresh'></i>
                         刷新
                     </dropdown-item>
@@ -1345,10 +1178,6 @@ export default class TaskModuleExpBase extends Vue implements ControlInterface {
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.projectmodule_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
                             <dropdown-item name="deuiaction1">
-                        <i class='fa fa-wrench'></i>
-                        修复
-                    </dropdown-item>
-                            <dropdown-item name="deuiaction2">
                         <i class='fa fa-refresh'></i>
                         刷新
                     </dropdown-item>

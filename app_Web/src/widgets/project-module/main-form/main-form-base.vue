@@ -1,13 +1,13 @@
 <template>
-    <i-form :model="this.data" class='app-form' ref='form'  id='productmodule_main' style="">
+    <i-form :model="this.data" class='app-form' ref='form'  id='projectmodule_main' style="">
     <input style="display:none;" />
     <row >
             
 <i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productmodule.main_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.projectmodule.main_form.details.group1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
-        <i-col v-show="detailsModel.rootname.visible" :style="{}"  :lg="{ span: 16, offset: 0 }" :xl="{ span: 16, offset: 0 }">
-    <app-form-item name='rootname' :itemRules="this.rules.rootname" class='' :caption="$t('entities.productmodule.main_form.details.rootname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.rootname.error" :isEmptyCaption="false" labelPos="LEFT">
+        <i-col v-show="detailsModel.rootname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='rootname' :itemRules="this.rules.rootname" class='' :caption="$t('entities.projectmodule.main_form.details.rootname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.rootname.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-picker  
   :formState="formState"
@@ -19,9 +19,9 @@
   :disabled="detailsModel.rootname.disabled"
   name='rootname' 
   deMajorField='name'
-  deKeyField='product'
+  deKeyField='project'
   :service="service"
-  :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchDefault'}"
+  :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchDefault'}"
   valueitem='root' 
   :value="data.rootname" 
   editortype="dropdown" 
@@ -31,14 +31,8 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.branch.visible" :style="{}"  :lg="{ span: 8, offset: 0 }" :xl="{ span: 8, offset: 0 }">
-    <app-form-item name='branch' :itemRules="this.rules.branch" class='' :caption="$t('entities.productmodule.main_form.details.branch')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.branch.error" :isEmptyCaption="false" labelPos="NONE">
-    <input-box v-model="data.branch"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.branch.disabled" type='number'  style=""></input-box>
-</app-form-item>
-
-</i-col>
 <i-col v-show="detailsModel.parentname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='parentname' :itemRules="this.rules.parentname" class='' :caption="$t('entities.productmodule.main_form.details.parentname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.parentname.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='parentname' :itemRules="this.rules.parentname" class='' :caption="$t('entities.projectmodule.main_form.details.parentname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.parentname.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-picker  
   :formState="formState"
@@ -50,9 +44,9 @@
   :disabled="detailsModel.parentname.disabled"
   name='parentname' 
   deMajorField='name'
-  deKeyField='productmodule'
+  deKeyField='projectmodule'
   :service="service"
-  :acParams="{ serviceName: 'ProductModuleService', interfaceName: 'FetchDefault'}"
+  :acParams="{ serviceName: 'ProjectModuleService', interfaceName: 'FetchDefault'}"
   valueitem='parent' 
   :value="data.parentname" 
   editortype="dropdown" 
@@ -63,28 +57,20 @@
 
 </i-col>
 <i-col v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.productmodule.main_form.details.name')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.projectmodule.main_form.details.name')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box v-model="data.name"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.name.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.short.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='short' :itemRules="this.rules.short" class='' :caption="$t('entities.productmodule.main_form.details.short')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.short.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='short' :itemRules="this.rules.short" class='' :caption="$t('entities.projectmodule.main_form.details.short')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.short.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box v-model="data.short"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.short.disabled" type='text'  style=""></input-box>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.order.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='order' :itemRules="this.rules.order" class='' :caption="$t('entities.productmodule.main_form.details.order')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.order.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box 
-  v-model="data.order"  
-  @enter="onEnter($event)"  
-  unit=""
-  :disabled="detailsModel.order.disabled" 
-  type='number' 
-   
-  style="">
-</input-box>
+    <app-form-item name='order' :itemRules="this.rules.order" class='' :caption="$t('entities.projectmodule.main_form.details.order')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.order.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.order"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.order.disabled" type='number'  style=""></input-box>
 </app-form-item>
 
 </i-col>
@@ -105,7 +91,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import { UIActionTool,Util } from '@/utils';
-import ProductModuleService from '@/service/product-module/product-module-service';
+import ProjectModuleService from '@/service/project-module/project-module-service';
 import MainService from './main-form-service';
 
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
@@ -191,10 +177,10 @@ export default class MainBase extends Vue implements ControlInterface {
     /**
      * 实体服务对象
      *
-     * @type {ProductModuleService}
+     * @type {ProjectModuleService}
      * @memberof Main
      */
-    public appEntityService: ProductModuleService = new ProductModuleService({ $store: this.$store });
+    public appEntityService: ProjectModuleService = new ProjectModuleService({ $store: this.$store });
     
 
 
@@ -398,16 +384,15 @@ export default class MainBase extends Vue implements ControlInterface {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        root: null,
+        parent: null,
         rootname: null,
-        branch: null,
         parentname: null,
         name: null,
         short: null,
         order: null,
         id: null,
-        root: null,
-        parent: null,
-        productmodule:null,
+        projectmodule:null,
     };
 
     /**
@@ -491,17 +476,23 @@ export default class MainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
-        rootname: [
-            { type: 'string', message: '所属产品 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '所属产品 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '所属产品 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '所属产品 值不能为空', trigger: 'blur' },
+        root: [
+            { type: 'number', message: '所属项目 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '所属项目 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '所属项目 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '所属项目 值不能为空', trigger: 'blur' },
         ],
-        branch: [
-            { type: 'string', message: '平台 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '平台 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '平台 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '平台 值不能为空', trigger: 'blur' },
+        parent: [
+            { type: 'number', message: '上级模块 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '上级模块 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '上级模块 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '上级模块 值不能为空', trigger: 'blur' },
+        ],
+        rootname: [
+            { type: 'string', message: '所属项目 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '所属项目 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '所属项目 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '所属项目 值不能为空', trigger: 'blur' },
         ],
         parentname: [
             { type: 'string', message: '上级模块 值必须为字符串类型', trigger: 'change' },
@@ -533,18 +524,6 @@ export default class MainBase extends Vue implements ControlInterface {
             { required: false, type: 'number', message: 'id 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: 'id 值不能为空', trigger: 'blur' },
         ],
-        root: [
-            { type: 'number', message: '产品 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '产品 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '产品 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '产品 值不能为空', trigger: 'blur' },
-        ],
-        parent: [
-            { type: 'number', message: 'id 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: 'id 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: 'id 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: 'id 值不能为空', trigger: 'blur' },
-        ],
     }
 
     /**
@@ -554,7 +533,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * @memberof Main
      */
     public detailsModel: any = {
-        group1: new FormGroupPanelModel({ caption: '产品模块基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productmodule.main_form', extractMode: 'ITEM', details: [] } })
+        group1: new FormGroupPanelModel({ caption: '模块信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.projectmodule.main_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
@@ -572,9 +551,11 @@ export default class MainBase extends Vue implements ControlInterface {
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        rootname: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'rootname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        root: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'root', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        branch: new FormItemModel({ caption: '平台', detailType: 'FORMITEM', name: 'branch', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
+        parent: new FormItemModel({ caption: '上级模块', detailType: 'FORMITEM', name: 'parent', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        rootname: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'rootname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
         parentname: new FormItemModel({ caption: '上级模块', detailType: 'FORMITEM', name: 'parentname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -585,10 +566,6 @@ export default class MainBase extends Vue implements ControlInterface {
         order: new FormItemModel({ caption: '排序值', detailType: 'FORMITEM', name: 'order', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: 'id', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
-, 
-        root: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'root', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        parent: new FormItemModel({ caption: 'id', detailType: 'FORMITEM', name: 'parent', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -677,6 +654,30 @@ export default class MainBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 root 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.root')
+    onRootChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'root', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 parent 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.parent')
+    onParentChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'parent', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 rootname 值
      *
      * @param {*} newVal
@@ -686,18 +687,6 @@ export default class MainBase extends Vue implements ControlInterface {
     @Watch('data.rootname')
     onRootnameChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'rootname', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 branch 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof Main
-     */
-    @Watch('data.branch')
-    onBranchChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'branch', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -760,30 +749,6 @@ export default class MainBase extends Vue implements ControlInterface {
         this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
     }
 
-    /**
-     * 监控表单属性 root 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof Main
-     */
-    @Watch('data.root')
-    onRootChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'root', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 parent 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof Main
-     */
-    @Watch('data.parent')
-    onParentChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'parent', newVal: newVal, oldVal: oldVal });
-    }
-
 
     /**
      * 重置表单项值
@@ -837,7 +802,6 @@ export default class MainBase extends Vue implements ControlInterface {
 
 
 
-
     }
 
     /**
@@ -868,8 +832,8 @@ export default class MainBase extends Vue implements ControlInterface {
     public onFormLoad(data: any = {},action:string): void {
         if(Object.is(action,"save") || Object.is(action,"autoSave") || Object.is(action,"submit"))
         // 更新context的实体主键
-        if(data.productmodule){
-            Object.assign(this.context,{productmodule:data.productmodule})
+        if(data.projectmodule){
+            Object.assign(this.context,{projectmodule:data.projectmodule})
         }
         this.setFormEnableCond(data);
         this.fillForm(data,action);
@@ -1140,9 +1104,9 @@ export default class MainBase extends Vue implements ControlInterface {
     public copy(srfkey: string): void {
         let copyData = this.$store.getters.getCopyData(srfkey);
         copyData.srfkey = Util.createUUID();
-        copyData.productmodule = copyData.srfkey;
+        copyData.projectmodule = copyData.srfkey;
         copyData.id = copyData.srfkey;
-        Object.assign(this.context,{productmodule:copyData.productmodule})
+        Object.assign(this.context,{projectmodule:copyData.projectmodule})
         this.data = copyData;
         this.$nextTick(() => {
           this.formState.next({ type: 'load', data: copyData });
@@ -1157,7 +1121,7 @@ export default class MainBase extends Vue implements ControlInterface {
      */
     public print(){
         let _this:any = this;
-        _this.$print({id:'productmodule_main',popTitle:'主编辑表单'});
+        _this.$print({id:'projectmodule_main',popTitle:'主编辑表单'});
     }
 
     /**
@@ -1211,7 +1175,7 @@ export default class MainBase extends Vue implements ControlInterface {
      */
     public load(opt: any = {}): void {
         if(!this.loadAction){
-            this.$Notice.error({ title: '错误', desc: 'ProductModuleQuickCfgView视图表单loadAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'ProjectModuleQuickCfgView视图表单loadAction参数未配置' });
             return;
         }
         const arg: any = { ...opt };
@@ -1246,7 +1210,7 @@ export default class MainBase extends Vue implements ControlInterface {
      */
     public loadDraft(opt: any = {}): void {
         if(!this.loaddraftAction){
-            this.$Notice.error({ title: '错误', desc: 'ProductModuleQuickCfgView视图表单loaddraftAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'ProjectModuleQuickCfgView视图表单loaddraftAction参数未配置' });
             return;
         }
         const arg: any = { ...opt } ;
@@ -1261,8 +1225,8 @@ export default class MainBase extends Vue implements ControlInterface {
             }
 
             const data = response.data;
-            if(data.productmodule){
-                Object.assign(this.context,{productmodule:data.productmodule})
+            if(data.projectmodule){
+                Object.assign(this.context,{projectmodule:data.projectmodule})
             }
             this.resetDraftFormStates();
             this.onFormLoad(data,'loadDraft');
@@ -1308,7 +1272,7 @@ export default class MainBase extends Vue implements ControlInterface {
         const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
         if(!action){
             let actionName:any = Object.is(data.srfuf, '1')?"updateAction":"createAction";
-            this.$Notice.error({ title: '错误', desc: 'ProductModuleQuickCfgView视图表单'+actionName+'参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'ProjectModuleQuickCfgView视图表单'+actionName+'参数未配置' });
             return;
         }
         Object.assign(arg,{viewparams:this.viewparams});
@@ -1372,7 +1336,7 @@ export default class MainBase extends Vue implements ControlInterface {
             const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
             if(!action){
                 let actionName:any = Object.is(data.srfuf, '1')?"updateAction":"createAction";
-                this.$Notice.error({ title: '错误', desc: 'ProductModuleQuickCfgView视图表单'+actionName+'参数未配置' });
+                this.$Notice.error({ title: '错误', desc: 'ProjectModuleQuickCfgView视图表单'+actionName+'参数未配置' });
                 return;
             }
             Object.assign(arg,{viewparams:this.viewparams});
@@ -1422,7 +1386,7 @@ export default class MainBase extends Vue implements ControlInterface {
     public remove(opt:Array<any> = [],showResultInfo?: boolean): Promise<any> {
         return new Promise((resolve: any, reject: any) => {
             if(!this.removeAction){
-                this.$Notice.error({ title: '错误', desc: 'ProductModuleQuickCfgView视图表单removeAction参数未配置' });
+                this.$Notice.error({ title: '错误', desc: 'ProjectModuleQuickCfgView视图表单removeAction参数未配置' });
                 return;
             }
             const arg: any = opt[0];
@@ -1514,7 +1478,7 @@ export default class MainBase extends Vue implements ControlInterface {
         const _this: any = this;
         const arg: any = data[0];
         Object.assign(arg,{viewparams:this.viewparams});
-        if (!arg.productmodule || Object.is(arg.productmodule, '')) {
+        if (!arg.projectmodule || Object.is(arg.projectmodule, '')) {
             return;
         }
         const post: Promise<any> = Object.is(arg.srfuf, '1')?this.service.update(this.updateAction, JSON.parse(JSON.stringify(this.context)),arg, this.showBusyIndicator):this.service.add(this.createAction,JSON.parse(JSON.stringify(this.context)),arg, this.showBusyIndicator);

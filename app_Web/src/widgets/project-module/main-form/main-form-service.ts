@@ -1,8 +1,8 @@
 import { Http,Util,Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
-import ProductModuleService from '@/service/product-module/product-module-service';
+import ProjectModuleService from '@/service/project-module/project-module-service';
 import MainModel from './main-form-model';
-import ProductService from '@/service/product/product-service';
+import ProjectService from '@/service/project/project-service';
 
 
 /**
@@ -14,12 +14,12 @@ import ProductService from '@/service/product/product-service';
 export default class MainService extends ControlService {
 
     /**
-     * 需求模块服务对象
+     * 任务模块服务对象
      *
-     * @type {ProductModuleService}
+     * @type {ProjectModuleService}
      * @memberof MainService
      */
-    public appEntityService: ProductModuleService = new ProductModuleService({ $store: this.getStore() });
+    public appEntityService: ProjectModuleService = new ProjectModuleService({ $store: this.getStore() });
 
     /**
      * 设置从数据模式
@@ -43,12 +43,12 @@ export default class MainService extends ControlService {
     }
 
     /**
-     * 产品服务对象
+     * 项目服务对象
      *
-     * @type {ProductService}
+     * @type {ProjectService}
      * @memberof MainService
      */
-    public productService: ProductService = new ProductService();
+    public projectService: ProjectService = new ProjectService();
 
     /**
      * 处理数据
@@ -89,11 +89,11 @@ export default class MainService extends ControlService {
      */
     @Errorlog
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
-        if (Object.is(serviceName, 'ProductService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.productService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'product');
+        if (Object.is(serviceName, 'ProjectService') && Object.is(interfaceName, 'FetchDefault')) {
+            return this.doItems(this.projectService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'project');
         }
-        if (Object.is(serviceName, 'ProductModuleService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.appEntityService.FetchDefault(JSON.parse(JSON.stringify(context)), data, isloading), 'id', 'productmodule');
+        if (Object.is(serviceName, 'ProjectModuleService') && Object.is(interfaceName, 'FetchDefault')) {
+            return this.doItems(this.appEntityService.FetchDefault(JSON.parse(JSON.stringify(context)), data, isloading), 'id', 'projectmodule');
         }
 
         return Promise.reject([])
@@ -299,7 +299,7 @@ export default class MainService extends ControlService {
         //仿真主键数据
         const PrimaryKey = Util.createUUID();
         Data.id = PrimaryKey;
-        Data.productmodule = PrimaryKey;
+        Data.projectmodule = PrimaryKey;
         return new Promise((resolve: any, reject: any) => {
             let result: Promise<any>;
             const _appEntityService: any = this.appEntityService;

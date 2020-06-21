@@ -105,8 +105,6 @@ export default {
 		},
 		uiactions: {
 			refreshparent: "刷新",
-			fix: "修复",
-			refreshall: "刷新",
 		},
 	},
 	moduleexp_treeview: {
@@ -117,7 +115,7 @@ export default {
 		},
 		uiactions: {
 			refreshparent: "刷新",
-			fix: "修复",
+			openquickcfgview: "编辑",
 			refreshall: "刷新",
 		},
 	},

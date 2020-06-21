@@ -62,6 +62,8 @@ export default class ProductServiceBase extends EntityService {
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().get(`/products/${context.product}`,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_productmodules',JSON.stringify(res.data.productmodules));
+            this.tempStorage.setItem(context.srfsessionkey+'_branches',JSON.stringify(res.data.branches));
             this.tempStorage.setItem(context.srfsessionkey+'_stories',JSON.stringify(res.data.stories));
             this.tempStorage.setItem(context.srfsessionkey+'_releases',JSON.stringify(res.data.releases));
             this.tempStorage.setItem(context.srfsessionkey+'_testreports',JSON.stringify(res.data.testreports));
@@ -71,8 +73,6 @@ export default class ProductServiceBase extends EntityService {
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
             this.tempStorage.setItem(context.srfsessionkey+'_projectproducts',JSON.stringify(res.data.projectproducts));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
-            this.tempStorage.setItem(context.srfsessionkey+'_productmodules',JSON.stringify(res.data.productmodules));
-            this.tempStorage.setItem(context.srfsessionkey+'_branches',JSON.stringify(res.data.branches));
             return res;
 
     }
@@ -88,6 +88,36 @@ export default class ProductServiceBase extends EntityService {
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let masterData:any = {};
+        let productmodulesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_productmodules'),'undefined')){
+            productmodulesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_productmodules') as any);
+            if(productmodulesData && productmodulesData.length && productmodulesData.length > 0){
+                productmodulesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.productmodules = productmodulesData;
+        let branchesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_branches'),'undefined')){
+            branchesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_branches') as any);
+            if(branchesData && branchesData.length && branchesData.length > 0){
+                branchesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.branches = branchesData;
         let storiesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_stories'),'undefined')){
             storiesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_stories') as any);
@@ -223,38 +253,10 @@ export default class ProductServiceBase extends EntityService {
             }
         }
         masterData.bugs = bugsData;
-        let productmodulesData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_productmodules'),'undefined')){
-            productmodulesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_productmodules') as any);
-            if(productmodulesData && productmodulesData.length && productmodulesData.length > 0){
-                productmodulesData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.productmodules = productmodulesData;
-        let branchesData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_branches'),'undefined')){
-            branchesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_branches') as any);
-            if(branchesData && branchesData.length && branchesData.length > 0){
-                branchesData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.branches = branchesData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/products/${context.product}/save`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_productmodules',JSON.stringify(res.data.productmodules));
+            this.tempStorage.setItem(context.srfsessionkey+'_branches',JSON.stringify(res.data.branches));
             this.tempStorage.setItem(context.srfsessionkey+'_stories',JSON.stringify(res.data.stories));
             this.tempStorage.setItem(context.srfsessionkey+'_releases',JSON.stringify(res.data.releases));
             this.tempStorage.setItem(context.srfsessionkey+'_testreports',JSON.stringify(res.data.testreports));
@@ -264,8 +266,6 @@ export default class ProductServiceBase extends EntityService {
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
             this.tempStorage.setItem(context.srfsessionkey+'_projectproducts',JSON.stringify(res.data.projectproducts));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
-            this.tempStorage.setItem(context.srfsessionkey+'_productmodules',JSON.stringify(res.data.productmodules));
-            this.tempStorage.setItem(context.srfsessionkey+'_branches',JSON.stringify(res.data.branches));
             return res;
     }
 
@@ -294,6 +294,8 @@ export default class ProductServiceBase extends EntityService {
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let res:any = await  Http.getInstance().get(`/products/getdraft`,isloading);
         res.data.product = data.product;
+            this.tempStorage.setItem(context.srfsessionkey+'_productmodules',JSON.stringify(res.data.productmodules));
+            this.tempStorage.setItem(context.srfsessionkey+'_branches',JSON.stringify(res.data.branches));
             this.tempStorage.setItem(context.srfsessionkey+'_stories',JSON.stringify(res.data.stories));
             this.tempStorage.setItem(context.srfsessionkey+'_releases',JSON.stringify(res.data.releases));
             this.tempStorage.setItem(context.srfsessionkey+'_testreports',JSON.stringify(res.data.testreports));
@@ -303,8 +305,6 @@ export default class ProductServiceBase extends EntityService {
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
             this.tempStorage.setItem(context.srfsessionkey+'_projectproducts',JSON.stringify(res.data.projectproducts));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
-            this.tempStorage.setItem(context.srfsessionkey+'_productmodules',JSON.stringify(res.data.productmodules));
-            this.tempStorage.setItem(context.srfsessionkey+'_branches',JSON.stringify(res.data.branches));
         return res;
     }
 
@@ -319,6 +319,36 @@ export default class ProductServiceBase extends EntityService {
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let masterData:any = {};
+        let productmodulesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_productmodules'),'undefined')){
+            productmodulesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_productmodules') as any);
+            if(productmodulesData && productmodulesData.length && productmodulesData.length > 0){
+                productmodulesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.productmodules = productmodulesData;
+        let branchesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_branches'),'undefined')){
+            branchesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_branches') as any);
+            if(branchesData && branchesData.length && branchesData.length > 0){
+                branchesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.branches = branchesData;
         let storiesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_stories'),'undefined')){
             storiesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_stories') as any);
@@ -454,38 +484,10 @@ export default class ProductServiceBase extends EntityService {
             }
         }
         masterData.bugs = bugsData;
-        let productmodulesData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_productmodules'),'undefined')){
-            productmodulesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_productmodules') as any);
-            if(productmodulesData && productmodulesData.length && productmodulesData.length > 0){
-                productmodulesData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.productmodules = productmodulesData;
-        let branchesData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_branches'),'undefined')){
-            branchesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_branches') as any);
-            if(branchesData && branchesData.length && branchesData.length > 0){
-                branchesData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.branches = branchesData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/products/${context.product}`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_productmodules',JSON.stringify(res.data.productmodules));
+            this.tempStorage.setItem(context.srfsessionkey+'_branches',JSON.stringify(res.data.branches));
             this.tempStorage.setItem(context.srfsessionkey+'_stories',JSON.stringify(res.data.stories));
             this.tempStorage.setItem(context.srfsessionkey+'_releases',JSON.stringify(res.data.releases));
             this.tempStorage.setItem(context.srfsessionkey+'_testreports',JSON.stringify(res.data.testreports));
@@ -495,8 +497,6 @@ export default class ProductServiceBase extends EntityService {
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
             this.tempStorage.setItem(context.srfsessionkey+'_projectproducts',JSON.stringify(res.data.projectproducts));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
-            this.tempStorage.setItem(context.srfsessionkey+'_productmodules',JSON.stringify(res.data.productmodules));
-            this.tempStorage.setItem(context.srfsessionkey+'_branches',JSON.stringify(res.data.branches));
             return res;
     }
 
@@ -538,6 +538,36 @@ export default class ProductServiceBase extends EntityService {
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let masterData:any = {};
+        let productmodulesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_productmodules'),'undefined')){
+            productmodulesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_productmodules') as any);
+            if(productmodulesData && productmodulesData.length && productmodulesData.length > 0){
+                productmodulesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.productmodules = productmodulesData;
+        let branchesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_branches'),'undefined')){
+            branchesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_branches') as any);
+            if(branchesData && branchesData.length && branchesData.length > 0){
+                branchesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.branches = branchesData;
         let storiesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_stories'),'undefined')){
             storiesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_stories') as any);
@@ -673,36 +703,6 @@ export default class ProductServiceBase extends EntityService {
             }
         }
         masterData.bugs = bugsData;
-        let productmodulesData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_productmodules'),'undefined')){
-            productmodulesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_productmodules') as any);
-            if(productmodulesData && productmodulesData.length && productmodulesData.length > 0){
-                productmodulesData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.productmodules = productmodulesData;
-        let branchesData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_branches'),'undefined')){
-            branchesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_branches') as any);
-            if(branchesData && branchesData.length && branchesData.length > 0){
-                branchesData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.branches = branchesData;
         Object.assign(data,masterData);
         if(!data.srffrontuf || data.srffrontuf !== "1"){
             data[this.APPDEKEY] = null;
@@ -712,6 +712,8 @@ export default class ProductServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/products`,data,isloading);
+        this.tempStorage.setItem(tempContext.srfsessionkey+'_productmodules',JSON.stringify(res.data.productmodules));
+        this.tempStorage.setItem(tempContext.srfsessionkey+'_branches',JSON.stringify(res.data.branches));
         this.tempStorage.setItem(tempContext.srfsessionkey+'_stories',JSON.stringify(res.data.stories));
         this.tempStorage.setItem(tempContext.srfsessionkey+'_releases',JSON.stringify(res.data.releases));
         this.tempStorage.setItem(tempContext.srfsessionkey+'_testreports',JSON.stringify(res.data.testreports));
@@ -721,8 +723,6 @@ export default class ProductServiceBase extends EntityService {
         this.tempStorage.setItem(tempContext.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
         this.tempStorage.setItem(tempContext.srfsessionkey+'_projectproducts',JSON.stringify(res.data.projectproducts));
         this.tempStorage.setItem(tempContext.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
-        this.tempStorage.setItem(tempContext.srfsessionkey+'_productmodules',JSON.stringify(res.data.productmodules));
-        this.tempStorage.setItem(tempContext.srfsessionkey+'_branches',JSON.stringify(res.data.branches));
         return res;
     }
 
