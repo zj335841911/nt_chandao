@@ -1,8 +1,5 @@
 <template>
 <studio-view viewName="buildmaingridview" viewTitle="build表格视图" class='degridview build-main-grid-view'>
-    <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
-    </template>
     <i-input slot="quickSearch" v-show="!isExpandSearchForm" v-model="query" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
                 <view-toolbar :model="toolBarModels" @item-click="toolbar_click"/>    </template>

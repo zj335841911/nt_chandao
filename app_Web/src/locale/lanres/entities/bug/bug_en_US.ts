@@ -93,6 +93,10 @@ export default {
 			caption: "Bug",
       title: 'Bug',
 		},
+		testreportsubgridview: {
+			caption: "Bug",
+      title: 'bug表格视图',
+		},
 		releasesubgridview_done: {
 			caption: "Bug",
       title: 'bug表格视图',
@@ -370,6 +374,19 @@ export default {
 			mainedit: "编辑",
 		},
 	},
+	main_reportsub_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "Bug标题",
+			openedby: "创建",
+			resolvedby: "解决者",
+			resolveddate: "解决日期",
+			status: "Bug状态",
+		},
+		uiactions: {
+		},
+	},
 	main2_grid: {
 		columns: {
 			id: "ID",
@@ -475,6 +492,12 @@ export default {
 			caption: "",
 			tip: "",
 		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
+	testreportsubgridviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",

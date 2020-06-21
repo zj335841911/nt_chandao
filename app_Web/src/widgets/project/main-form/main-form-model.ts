@@ -61,13 +61,13 @@ export default class MainModel {
         dataType: 'TEXT',
       },
       {
-        name: 'end',
-        prop: 'end',
+        name: 'begin',
+        prop: 'begin',
         dataType: 'DATE',
       },
       {
-        name: 'begin',
-        prop: 'begin',
+        name: 'end',
+        prop: 'end',
         dataType: 'DATE',
       },
       {

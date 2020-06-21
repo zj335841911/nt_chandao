@@ -1,24 +1,64 @@
 <template>
-    <i-form :model="this.data" class='app-form' ref='form'  id='testreport_main' style="">
+    <i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='testreport_main' style="">
     <input style="display:none;" />
     <row >
-    <tabs :animated="false" size="small" name='main' :value="detailsModel.form.activiedPage" 
-        @on-click="detailsModel.form.clickPage($event)">
-            <tab-pane v-show="detailsModel.formpage1.visible" name='formpage1' :index="0" tab='main' class=''  
-                :label="(h) =>{
-                    return h('span',{
-                        class:'caption'
-                    },[
-                    $t('entities.testreport.main_form.details.formpage1')
-                    ])
-                }">
-                    
+            
 <i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.testreport.main_form.details.group1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.testreport.main_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
-        <i-col v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='title' :itemRules="this.rules.title" class='' :caption="$t('entities.testreport.main_form.details.title')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.title"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.title.disabled" type='text'  style=""></input-box>
+        <i-col v-show="detailsModel.formitemex1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='formitemex1' :itemRules="this.rules.formitemex1" class='' :caption="$t('entities.testreport.main_form.details.formitemex1')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitemex1.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-range-editor v-model="data.formitemex1" :activeData="data" :disabled="detailsModel.formitemex1.disabled" name="formitemex1" editorType="SPAN" format="" :refFormItem="['begin','end']" @formitemvaluechange="onFormItemValueChange" style=""></app-range-editor>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.owner.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='owner' :itemRules="this.rules.owner" class='' :caption="$t('entities.testreport.main_form.details.owner')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.owner.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='owner' :value="data.owner" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.members.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='members' :itemRules="this.rules.members" class='' :caption="$t('entities.testreport.main_form.details.members')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.members.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='members' :value="data.members" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.projectname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='projectname' :itemRules="this.rules.projectname" class='' :caption="$t('entities.testreport.main_form.details.projectname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.projectname.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-picker 
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.projectname.disabled"
+  name='projectname'
+  deMajorField='name'
+  deKeyField='project'
+  valueitem='project' 
+  :value="data.projectname"  
+  editortype="linkonly" 
+  :linkview="{ viewname: 'ProjectMainTabExpView', title: $t('entities.project.views.maintabexpview.title'), deResParameters: [], parameters: [{ pathName: 'projects', parameterName: 'project' }, { pathName: 'maintabexpview', parameterName: 'maintabexpview' } ], width: 0, height: 0, placement: '', isRedirectView: false }" 
+  style=""  
+  @formitemvaluechange="onFormItemValueChange">
+</app-picker>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='formitem' :itemRules="this.rules.formitem" class='' :caption="$t('entities.testreport.main_form.details.formitem')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange" :data="JSON.stringify(this.data)" name='formitem' :value="data.formitem" :disabled="detailsModel.formitem.disabled" uploadparams='' exportparams='' :customparams="{}" style="overflow: auto;"></app-file-upload>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.report.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='report' :itemRules="this.rules.report" class='' :caption="$t('entities.testreport.main_form.details.report')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.report.error" :isEmptyCaption="false" labelPos="LEFT">
+    <html-container :content="data.report"></html-container>
 </app-form-item>
 
 </i-col>
@@ -29,28 +69,6 @@
 </i-col>
 
 
-            </tab-pane> 
-            <tab-pane v-show="detailsModel.formpage2.visible" name='formpage2' :index="1" tab='main' class=''  
-                :label="(h) =>{
-                    return h('span',{
-                        class:'caption'
-                    },[
-                    $t('entities.testreport.main_form.details.formpage2')
-                    ])
-                }">
-                    
-<i-col v-show="detailsModel.group2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.testreport.main_form.details.group2')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
-    <row>
-            
-    </row>
-</app-form-group>
-
-</i-col>
-
-
-            </tab-pane> 
-    </tabs>
     </row>
 </i-form>
 </template>
@@ -354,8 +372,16 @@ export default class MainBase extends Vue implements ControlInterface {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        title: null,
+        begin: null,
+        end: null,
+        formitemex1: null,
+        owner: null,
+        members: null,
+        projectname: null,
+        formitem: null,
+        report: null,
         id: null,
+        project: null,
         testreport:null,
     };
 
@@ -440,17 +466,65 @@ export default class MainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
-        title: [
-            { type: 'string', message: '标题 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '标题 值必须为字符串类型', trigger: 'blur' },
-            { required: true, type: 'string', message: '标题 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '标题 值不能为空', trigger: 'blur' },
+        begin: [
+            { type: 'string', message: '开始时间 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '开始时间 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '开始时间 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '开始时间 值不能为空', trigger: 'blur' },
+        ],
+        end: [
+            { type: 'string', message: '结束时间 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '结束时间 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '结束时间 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '结束时间 值不能为空', trigger: 'blur' },
+        ],
+        formitemex1: [
+            { type: 'string', message: '起止时间 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '起止时间 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '起止时间 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '起止时间 值不能为空', trigger: 'blur' },
+        ],
+        owner: [
+            { type: 'string', message: '负责人 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '负责人 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '负责人 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '负责人 值不能为空', trigger: 'blur' },
+        ],
+        members: [
+            { type: 'string', message: '参与人员 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '参与人员 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '参与人员 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '参与人员 值不能为空', trigger: 'blur' },
+        ],
+        projectname: [
+            { type: 'string', message: '所属项目 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '所属项目 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '所属项目 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '所属项目 值不能为空', trigger: 'blur' },
+        ],
+        formitem: [
+            { type: 'string', message: '附件 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '附件 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '附件 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '附件 值不能为空', trigger: 'blur' },
+        ],
+        report: [
+            { type: 'string', message: '总结 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '总结 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '总结 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '总结 值不能为空', trigger: 'blur' },
         ],
         id: [
             { type: 'number', message: '编号 值必须为数值类型', trigger: 'change' },
             { type: 'number', message: '编号 值必须为数值类型', trigger: 'blur' },
             { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
+        ],
+        project: [
+            { type: 'number', message: '所属项目 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '所属项目 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '所属项目 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '所属项目 值不能为空', trigger: 'blur' },
         ],
     }
 
@@ -461,13 +535,9 @@ export default class MainBase extends Vue implements ControlInterface {
      * @memberof Main
      */
     public detailsModel: any = {
-        group1: new FormGroupPanelModel({ caption: 'testreport基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.testreport.main_form', extractMode: 'ITEM', details: [] } })
+        group1: new FormGroupPanelModel({ caption: '基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.testreport.main_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
-, 
-        group2: new FormGroupPanelModel({ caption: '操作信息', detailType: 'GROUPPANEL', name: 'group2', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.testreport.main_form', extractMode: 'ITEM', details: [] } })
-, 
-        formpage2: new FormPageModel({ caption: '其它', detailType: 'FORMPAGE', name: 'formpage2', visible: true, isShowCaption: true, form: this })
 , 
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -483,11 +553,26 @@ export default class MainBase extends Vue implements ControlInterface {
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        title: new FormItemModel({ caption: '标题', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        begin: new FormItemModel({ caption: '开始时间', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        end: new FormItemModel({ caption: '结束时间', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitemex1: new FormItemModel({ caption: '起止时间', detailType: 'FORMITEM', name: 'formitemex1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        owner: new FormItemModel({ caption: '负责人', detailType: 'FORMITEM', name: 'owner', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        members: new FormItemModel({ caption: '参与人员', detailType: 'FORMITEM', name: 'members', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        projectname: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'projectname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        formitem: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        report: new FormItemModel({ caption: '总结', detailType: 'FORMITEM', name: 'report', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
-        form: new FormTabPanelModel({ caption: 'form', detailType: 'TABPANEL', name: 'form', visible: true, isShowCaption: true, form: this, tabPages: [{ name: 'formpage1', index: 0, visible: true }, { name: 'formpage2', index: 1, visible: true }] }),
+        project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
     };
 
     /**
@@ -575,15 +660,99 @@ export default class MainBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 title 值
+     * 监控表单属性 begin 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof Main
      */
-    @Watch('data.title')
-    onTitleChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'title', newVal: newVal, oldVal: oldVal });
+    @Watch('data.begin')
+    onBeginChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'begin', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 end 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.end')
+    onEndChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'end', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitemex1 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.formitemex1')
+    onFormitemex1Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitemex1', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 owner 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.owner')
+    onOwnerChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'owner', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 members 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.members')
+    onMembersChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'members', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 projectname 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.projectname')
+    onProjectnameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'projectname', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 formitem 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.formitem')
+    onFormitemChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'formitem', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 report 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.report')
+    onReportChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'report', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -596,6 +765,18 @@ export default class MainBase extends Vue implements ControlInterface {
     @Watch('data.id')
     onIdChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 project 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.project')
+    onProjectChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'project', newVal: newVal, oldVal: oldVal });
     }
 
 
@@ -634,6 +815,12 @@ export default class MainBase extends Vue implements ControlInterface {
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
+
+
+
+
+
 
 
 

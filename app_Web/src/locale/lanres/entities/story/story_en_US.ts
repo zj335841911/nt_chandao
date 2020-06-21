@@ -46,6 +46,10 @@ export default {
     verify: '验收标准',
   },
 	views: {
+		reportsubgridview: {
+			caption: "需求",
+      title: 'story表格视图',
+		},
 		mainview: {
 			caption: "需求",
       title: '需求数据看板视图',
@@ -364,6 +368,20 @@ export default {
 		uiactions: {
 		},
 	},
+	main_reportsub_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "需求名称",
+			openedby: "创建",
+			assignedto: "指派",
+			estimate: "预计",
+			status: "状态",
+			stage: "阶段",
+		},
+		uiactions: {
+		},
+	},
 	main9_grid: {
 		columns: {
 			pri: "P",
@@ -505,6 +523,12 @@ export default {
 			caption: "",
 			tip: "",
 		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
+	reportsubgridviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",

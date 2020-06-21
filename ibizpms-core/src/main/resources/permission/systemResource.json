@@ -119,7 +119,7 @@
     "dename":"Story",
     "delogicname":"需求",
     "sysmoudle":{"id":"ZENTAO","name":"禅道模块"},
-    "dedataset":[{"id":"ReleaseStories" , "name":"获取产品发布相关需求"},{"id":"ByModule" , "name":"通过模块查询"},{"id":"ProjectStories" , "name":"项目相关需求"},{"id":"BuildStories" , "name":"获取版本相关需求"},{"id":"Default" , "name":"DEFAULT"},{"id":"GetProductStories" , "name":"获取产品需求"}],
+    "dedataset":[{"id":"ReleaseStories" , "name":"获取产品发布相关需求"},{"id":"ByModule" , "name":"通过模块查询"},{"id":"ReportStories" , "name":"通过模块查询"},{"id":"ProjectStories" , "name":"项目相关需求"},{"id":"BuildStories" , "name":"获取版本相关需求"},{"id":"Default" , "name":"DEFAULT"},{"id":"GetProductStories" , "name":"获取产品需求"}],
     "deaction":[{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"BatchChangeStage" , "name":"批量变更阶段" , "type":"USERCUSTOM" },{"id":"BatchChangePlan" , "name":"批量关联计划" , "type":"USERCUSTOM" },{"id":"BatchClose" , "name":"批量关闭" , "type":"USERCUSTOM" },{"id":"Change" , "name":"变更" , "type":"USERCUSTOM" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"BatchChangeBranch" , "name":"批量变更平台/分支" , "type":"USERCUSTOM" },{"id":"BatchReview" , "name":"批量评审" , "type":"USERCUSTOM" },{"id":"Review" , "name":"评审" , "type":"USERCUSTOM" },{"id":"AssignTo" , "name":"指派" , "type":"USERCUSTOM" },{"id":"BatchAssignTo" , "name":"批量指派" , "type":"USERCUSTOM" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"BatchChangeModule" , "name":"批量变更模块" , "type":"USERCUSTOM" },{"id":"Close" , "name":"关闭" , "type":"USERCUSTOM" }],
     "datascope":[{"id":"all","name":"全部数据"}]
      }
@@ -239,7 +239,7 @@
     "dename":"Bug",
     "delogicname":"Bug",
     "sysmoudle":{"id":"ZENTAO","name":"禅道模块"},
-    "dedataset":[{"id":"ReleaseBugs" , "name":"发布关联Bug（已解决）"},{"id":"BuildOpenBugs" , "name":"版本关联Bug（已解决）"},{"id":"ReleaseLeftBugs" , "name":"发布关联Bug（已解决）"},{"id":"BuildBugs" , "name":"版本关联Bug（已解决）"},{"id":"Default" , "name":"DEFAULT"}],
+    "dedataset":[{"id":"ReportBugs" , "name":"发布关联Bug（未解决）"},{"id":"ReleaseBugs" , "name":"发布关联Bug（已解决）"},{"id":"BuildOpenBugs" , "name":"版本关联Bug（已解决）"},{"id":"ReleaseLeftBugs" , "name":"发布关联Bug（已解决）"},{"id":"BuildBugs" , "name":"版本关联Bug（已解决）"},{"id":"Default" , "name":"DEFAULT"}],
     "deaction":[{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}]
      }

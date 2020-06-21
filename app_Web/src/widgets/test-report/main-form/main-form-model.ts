@@ -51,14 +51,50 @@ export default class MainModel {
         name: 'srfsourcekey',
       },
       {
-        name: 'title',
-        prop: 'title',
+        name: 'begin',
+        prop: 'begin',
+        dataType: 'DATE',
+      },
+      {
+        name: 'end',
+        prop: 'end',
+        dataType: 'DATE',
+      },
+      {
+        name: 'formitemex1',
+      },
+      {
+        name: 'owner',
+        prop: 'owner',
         dataType: 'TEXT',
+      },
+      {
+        name: 'members',
+        prop: 'members',
+        dataType: 'LONGTEXT',
+      },
+      {
+        name: 'projectname',
+        prop: 'projectname',
+        dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'formitem',
+      },
+      {
+        name: 'report',
+        prop: 'report',
+        dataType: 'LONGTEXT',
       },
       {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
+      },
+      {
+        name: 'project',
+        prop: 'project',
+        dataType: 'PICKUP',
       },
       {
         name: 'testreport',

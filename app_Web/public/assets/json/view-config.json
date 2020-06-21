@@ -279,6 +279,16 @@
         "viewtag": "2e0d4fb0f3e1ba1ba5bea16a5553cc21",
         "memo": ""
     },
+    "storyreportsubgridview": {
+        "title": "story表格视图",
+        "caption": "需求",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "StoryReportSubGridView",
+        "viewfilename": "story-report-sub-grid-view",
+        "viewtag": "305dc1599e61a77edfa456866233516c",
+        "memo": ""
+    },
     "testtaskgridview9_untested": {
         "title": "测试版本表格视图",
         "caption": "测试版本",
@@ -357,6 +367,16 @@
         "viewname": "ProjectPickupGridView",
         "viewfilename": "project-pickup-grid-view",
         "viewtag": "3b346aee2b79b7b6b59bc870b4c67f72",
+        "memo": ""
+    },
+    "testreportmaininfoview": {
+        "title": "测试报告编辑视图",
+        "caption": "测试报告",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestReportMainInfoView",
+        "viewfilename": "test-report-main-info-view",
+        "viewtag": "3d56b0e37a56b9be1a28589c04f573fa",
         "memo": ""
     },
     "storymainview": {
@@ -497,6 +517,16 @@
         "viewname": "TaskCloseTaskView",
         "viewfilename": "task-close-task-view",
         "viewtag": "507c506d62dc910a814332e6ae242266",
+        "memo": ""
+    },
+    "bugtestreportsubgridview": {
+        "title": "bug表格视图",
+        "caption": "Bug",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BugTestReportSubGridView",
+        "viewfilename": "bug-test-report-sub-grid-view",
+        "viewtag": "51b05c15dcd26cd675a6e340f0023977",
         "memo": ""
     },
     "projectcurproductgridview": {
@@ -1649,6 +1679,16 @@
         "viewtag": "ea141fddc78fd1af4d06e494baf12cc1",
         "memo": ""
     },
+    "testreportmaintabexpview": {
+        "title": "测试报告分页导航视图",
+        "caption": "测试报告",
+        "viewtype": "DETABEXPVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestReportMainTabExpView",
+        "viewfilename": "test-report-main-tab-exp-view",
+        "viewtag": "ea7a4f0ccc237a45f39ffb2e3df7e9fd",
+        "memo": ""
+    },
     "bugdashboardmaineditview9": {
         "title": "主信息",
         "caption": "Bug",
@@ -1747,6 +1787,16 @@
         "viewname": "ActionProductTrendsListView",
         "viewfilename": "action-product-trends-list-view",
         "viewtag": "f7a278d765ff0f85a2c59cbb2485fa30",
+        "memo": ""
+    },
+    "testreporteditview_testrange": {
+        "title": "测试报告编辑视图",
+        "caption": "测试报告",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestReportEditView_TestRange",
+        "viewfilename": "test-report-edit-view-test-range",
+        "viewtag": "f810cda19770327ea00f51d89a003efe",
         "memo": ""
     },
     "projecteditview": {

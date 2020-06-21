@@ -238,6 +238,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '305dc1599e61a77edfa456866233516c',
+            viewmodule: 'zentao',
+            viewname: 'StoryReportSubGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '928e6614bcfbd67af3b596cf5dc5a46b',
+                '3f2ca3e560d9082bb56fbf7667a57a66',
+            ],
+        },
+        {
             viewtag: '3091670967914b91fb4b6f46751dcd7e',
             viewmodule: 'zentao',
             viewname: 'TestTaskGridView9_UnTested',
@@ -298,6 +309,16 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: '3d56b0e37a56b9be1a28589c04f573fa',
+            viewmodule: 'zentao',
+            viewname: 'TestReportMainInfoView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'fd0b8748ff96edcde009d39903a9f211',
             ],
         },
         {
@@ -372,6 +393,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'ea7a4f0ccc237a45f39ffb2e3df7e9fd',
                 'f340b16bd1355b1c511d9da4b00476e2',
             ],
         },
@@ -424,6 +446,17 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: '51b05c15dcd26cd675a6e340f0023977',
+            viewmodule: 'zentao',
+            viewname: 'BugTestReportSubGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '1540523a668e920d831510cfbec2c5e2',
+                '46517a803b2470cd0bef27aeda0dbcaf',
             ],
         },
         {
@@ -1486,6 +1519,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'ea7a4f0ccc237a45f39ffb2e3df7e9fd',
+            viewmodule: 'zentao',
+            viewname: 'TestReportMainTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3d56b0e37a56b9be1a28589c04f573fa',
+                'f810cda19770327ea00f51d89a003efe',
+            ],
+        },
+        {
             viewtag: 'ec9a5987de12c718961f243f4034efea',
             viewmodule: 'zentao',
             viewname: 'BugDashboardMainEditView9',
@@ -1533,6 +1577,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'fd0b8748ff96edcde009d39903a9f211',
             ],
         },
         {
@@ -1562,6 +1607,17 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'f8b69912b3ca27b5d083c8fb1971c84a',
+            ],
+        },
+        {
+            viewtag: 'f810cda19770327ea00f51d89a003efe',
+            viewmodule: 'zentao',
+            viewname: 'TestReportEditView_TestRange',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '51b05c15dcd26cd675a6e340f0023977',
+                '305dc1599e61a77edfa456866233516c',
             ],
         },
         {

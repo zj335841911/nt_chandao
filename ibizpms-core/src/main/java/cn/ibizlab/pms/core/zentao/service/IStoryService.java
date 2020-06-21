@@ -49,6 +49,7 @@ public interface IStoryService extends IService<Story>{
     Story close(Story et) ;
     Page<Story> searchReleaseStories(StorySearchContext context) ;
     Page<Story> searchByModule(StorySearchContext context) ;
+    Page<Story> searchReportStories(StorySearchContext context) ;
     Page<Story> searchProjectStories(StorySearchContext context) ;
     Page<Story> searchBuildStories(StorySearchContext context) ;
     Page<Story> searchDefault(StorySearchContext context) ;

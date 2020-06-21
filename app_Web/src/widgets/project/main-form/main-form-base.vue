@@ -23,7 +23,7 @@
 </i-col>
 <i-col v-show="detailsModel.formitemex1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='formitemex1' :itemRules="this.rules.formitemex1" class='' :caption="$t('entities.project.main_form.details.formitemex1')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitemex1.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-range-editor v-model="data.formitemex1" :activeData="data" :disabled="detailsModel.formitemex1.disabled" name="formitemex1" editorType="DATEPICKEREX" format="YYYY-MM-DD HH:mm:ss" :refFormItem="['end','begin']" @formitemvaluechange="onFormItemValueChange" style=""></app-range-editor>
+    <app-range-editor v-model="data.formitemex1" :activeData="data" :disabled="detailsModel.formitemex1.disabled" name="formitemex1" editorType="DATEPICKEREX" format="YYYY-MM-DD HH:mm:ss" :refFormItem="['begin','end']" @formitemvaluechange="onFormItemValueChange" style=""></app-range-editor>
 </app-form-item>
 
 </i-col>
@@ -413,8 +413,8 @@ export default class MainBase extends Vue implements ControlInterface {
         srfsourcekey: null,
         name: null,
         code: null,
-        end: null,
         begin: null,
+        end: null,
         formitemex1: null,
         days: null,
         team: null,
@@ -523,17 +523,17 @@ export default class MainBase extends Vue implements ControlInterface {
             { required: true, type: 'string', message: '项目代号 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '项目代号 值不能为空', trigger: 'blur' },
         ],
-        end: [
-            { type: 'string', message: '结束日期 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '结束日期 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '结束日期 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '结束日期 值不能为空', trigger: 'blur' },
-        ],
         begin: [
             { type: 'string', message: '开始时间 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '开始时间 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '开始时间 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '开始时间 值不能为空', trigger: 'blur' },
+        ],
+        end: [
+            { type: 'string', message: '结束日期 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '结束日期 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '结束日期 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '结束日期 值不能为空', trigger: 'blur' },
         ],
         formitemex1: [
             { type: 'string', message: '项目周期 值必须为字符串类型', trigger: 'change' },
@@ -640,9 +640,9 @@ export default class MainBase extends Vue implements ControlInterface {
 , 
         code: new FormItemModel({ caption: '项目代号', detailType: 'FORMITEM', name: 'code', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        end: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
         begin: new FormItemModel({ caption: '开始时间', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        end: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         formitemex1: new FormItemModel({ caption: '项目周期', detailType: 'FORMITEM', name: 'formitemex1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -779,18 +779,6 @@ export default class MainBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 end 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof Main
-     */
-    @Watch('data.end')
-    onEndChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'end', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
      * 监控表单属性 begin 值
      *
      * @param {*} newVal
@@ -800,6 +788,18 @@ export default class MainBase extends Vue implements ControlInterface {
     @Watch('data.begin')
     onBeginChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'begin', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 end 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.end')
+    onEndChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'end', newVal: newVal, oldVal: oldVal });
     }
 
     /**

@@ -25,21 +25,31 @@ export default {
     comment: '备注',
   },
 	views: {
+		maininfoview: {
+			caption: "测试报告",
+      title: '测试报告编辑视图',
+		},
 		gridview: {
 			caption: "测试报告",
       title: 'testreport表格视图',
+		},
+		maintabexpview: {
+			caption: "测试报告",
+      title: '测试报告分页导航视图',
 		},
 		editview: {
 			caption: "测试报告",
       title: 'testreport编辑视图',
 		},
+		editview_testrange: {
+			caption: "测试报告",
+      title: '测试报告编辑视图',
+		},
 	},
 	main_form: {
 		details: {
-			group1: "testreport基本信息", 
+			group1: "基本信息", 
 			formpage1: "基本信息", 
-			group2: "操作信息", 
-			formpage2: "其它", 
 			srforikey: "", 
 			srfkey: "编号", 
 			srfmajortext: "标题", 
@@ -47,7 +57,33 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
-			title: "标题", 
+			begin: "开始时间", 
+			end: "结束时间", 
+			formitemex1: "起止时间", 
+			owner: "负责人", 
+			members: "参与人员", 
+			projectname: "所属项目", 
+			formitem: "附件", 
+			report: "总结", 
+			id: "编号", 
+			project: "所属项目", 
+		},
+		uiactions: {
+		},
+	},
+	testrange_form: {
+		details: {
+			druipart1: "", 
+			druipart2: "", 
+			group1: "基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
 			id: "编号", 
 		},
 		uiactions: {
@@ -67,14 +103,6 @@ export default {
 		},
 	},
 	gridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
