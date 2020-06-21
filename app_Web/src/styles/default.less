@@ -474,7 +474,7 @@ div::-webkit-scrollbar-thumb {
 
         >.ivu-card-extra {
             right: 8px;
-            top: 7px;
+            top: 3px;
         }
 
         >.ivu-card-body {
@@ -958,7 +958,7 @@ div::-webkit-scrollbar-thumb {
         }
     }
 }
-
+// 下拉选项框样式
 .el-select-dropdown {
     border-color: var(--form-editor-dropdown-background-color);
     background-color: var(--form-editor-dropdown-background-color);
@@ -970,6 +970,47 @@ div::-webkit-scrollbar-thumb {
 
     .el-select-dropdown__item.hover, .el-select-dropdown__item:hover {
         background-color: var(--form-editor-active-color);
+    }
+}
+
+.studio-view.view-container.deeditview.from-dashboard-style {
+
+    .app-form.info-form-mode {
+
+        .app-form-group {
+    
+            .ivu-card.app-form-group {
+                border: 1px solid var(--view-dividing-line-color-bright);
+                margin-bottom: 7px;
+                background: var(--view-background-color-bright);
+    
+                .ivu-card-head {
+                    height: 38px;
+                    padding: 7px 8px;
+                    font-size: 16px;
+                    font-weight: 700;
+                    background: var(--view-background-color-bright);
+    
+                    >p {
+    
+                        >span {
+                            font-size: 16px;
+                            font-weight: 700;
+                            vertical-align: -2px;
+                        }
+                    }
+                }
+    
+                .ivu-card-extra {
+                    top: 7px;
+                }
+    
+                .ivu-card-body {
+                    background: var(--view-background-color-bright);
+                    padding: 6px 8px;
+                }
+            }
+        }
     }
 }
 @import './user.less';
