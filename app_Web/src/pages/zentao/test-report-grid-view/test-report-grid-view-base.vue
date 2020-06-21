@@ -329,14 +329,28 @@ export default class TestReportGridViewBase extends GridViewBase {
         }
         const parameters: any[] = [
             { pathName: 'testreports', parameterName: 'testreport' },
-            { pathName: 'maintabexpview', parameterName: 'maintabexpview' },
         ];
         const _this: any = this;
-        const openIndexViewTab = (data: any) => {
-            const routePath = this.$viewTool.buildUpRoutePath(this.$route, tempContext, deResParameters, parameters, args, data);
-            this.$router.push(routePath);
+        const openDrawer = (view: any, data: any) => {
+            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
+            container.subscribe((result: any) => {
+                if (!result || !Object.is(result.ret, 'OK')) {
+                    return;
+                }
+                if (!xData || !(xData.refresh instanceof Function)) {
+                    return;
+                }
+                xData.refresh(result.datas);
+            });
         }
-        openIndexViewTab(data);
+        const view: any = {
+            viewname: 'test-report-main-tab-exp-view', 
+            height: 0, 
+            width: 0,  
+            title: this.$t('entities.testreport.views.maintabexpview.title'),
+            placement: 'DRAWER_TOP',
+        };
+        openDrawer(view, data);
     }
 
 
