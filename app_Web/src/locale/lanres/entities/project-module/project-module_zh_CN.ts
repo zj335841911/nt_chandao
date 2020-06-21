@@ -7,15 +7,21 @@ export default {
     isleaf: '叶子模块',
     path: 'path',
     owner: 'owner',
-    ibizshort: '短名称',
+    ibizshort: '简称',
     name: '名称',
     grade: 'grade',
-    order: 'order',
+    order: '排序值',
     branch: 'branch',
     parent: 'id',
     root: '项目',
+    rootname: '所属项目',
+    parentname: '上级模块',
   },
 	views: {
+		quickcfgview: {
+			caption: '任务模块',
+      title: '任务模块选项操作视图',
+		},
 		maingridview: {
 			caption: '任务模块',
       title: '实体表格视图',
@@ -23,6 +29,29 @@ export default {
 		treeexpview: {
 			caption: '任务模块',
       title: '任务模块树导航视图',
+		},
+	},
+	main_form: {
+		details: {
+			group1: '模块信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: 'id', 
+			srfmajortext: '名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			root: '所属项目', 
+			parent: '上级模块', 
+			rootname: '所属项目', 
+			parentname: '上级模块', 
+			name: '名称', 
+			short: '简称', 
+			order: '排序值', 
+			id: 'id', 
+		},
+		uiactions: {
 		},
 	},
 	main_grid: {
@@ -61,6 +90,10 @@ export default {
 			root: '默认根节点',
 		},
 		uiactions: {
+			refreshparent: '刷新',
+			fix: '修复',
+			refreshall: '刷新',
+			fix: '修复',
 		},
 	},
 	moduleexp_treeview: {
@@ -69,6 +102,10 @@ export default {
 			root: '默认根节点',
 		},
 		uiactions: {
+			fix: '修复',
+			refreshall: '刷新',
+			refreshparent: '刷新',
+			fix: '修复',
 		},
 	},
 };

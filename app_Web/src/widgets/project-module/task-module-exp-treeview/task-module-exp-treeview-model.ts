@@ -57,6 +57,12 @@ export default class TaskModuleExpModel {
       {
         name: 'root',
       },
+      {
+        name: 'rootname',
+      },
+      {
+        name: 'parentname',
+      },
     ]
   }
 

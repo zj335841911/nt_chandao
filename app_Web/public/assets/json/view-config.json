@@ -49,6 +49,16 @@
         "viewtag": "03c110360a714011ed9c30b8207d3703",
         "memo": ""
     },
+    "projectmodulequickcfgview": {
+        "title": "任务模块选项操作视图",
+        "caption": "任务模块",
+        "viewtype": "DEOPTVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProjectModuleQuickCfgView",
+        "viewfilename": "project-module-quick-cfg-view",
+        "viewtag": "0568d197dda832ceb89ad0442ab9f230",
+        "memo": ""
+    },
     "bugplansubgridview": {
         "title": "Bug",
         "caption": "Bug",
@@ -1237,6 +1247,16 @@
         "viewname": "TaskCancelTaskView",
         "viewfilename": "task-cancel-task-view",
         "viewtag": "a97ff9ae4f22d5974b51af2c0fae1aa2",
+        "memo": ""
+    },
+    "productmodulequickcfgview": {
+        "title": "需求模块选项操作视图",
+        "caption": "需求模块",
+        "viewtype": "DEOPTVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProductModuleQuickCfgView",
+        "viewfilename": "product-module-quick-cfg-view",
+        "viewtag": "a9be826f6c53b091270f492be52f2519",
         "memo": ""
     },
     "productplaneditview": {

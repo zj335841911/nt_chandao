@@ -63,7 +63,7 @@ export interface ProjectModule {
     owner?: any;
 
     /**
-     * 短名称
+     * 简称
      *
      * @returns {*}
      * @memberof ProjectModule
@@ -87,7 +87,7 @@ export interface ProjectModule {
     grade?: any;
 
     /**
-     * order
+     * 排序值
      *
      * @returns {*}
      * @memberof ProjectModule
@@ -117,4 +117,20 @@ export interface ProjectModule {
      * @memberof ProjectModule
      */
     root?: any;
+
+    /**
+     * 所属项目
+     *
+     * @returns {*}
+     * @memberof ProjectModule
+     */
+    rootname?: any;
+
+    /**
+     * 上级模块
+     *
+     * @returns {*}
+     * @memberof ProjectModule
+     */
+    parentname?: any;
 }

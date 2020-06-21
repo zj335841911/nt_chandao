@@ -56,6 +56,8 @@ import { UIActionTool,Util } from '@/utils';
 import ProjectModuleService from '@/service/project-module/project-module-service';
 import ModuleExpService from './module-exp-treeview-service';
 
+import ProjectModuleUIService from '@/uiservice/project-module/project-module-ui-service';
+import ProductModuleUIService from '@/uiservice/product-module/product-module-ui-service';
 
 
 @Component({
@@ -141,8 +143,543 @@ export default class ModuleExpBase extends Vue implements ControlInterface {
      * @memberof ModuleExp
      */
     public appEntityService: ProjectModuleService = new ProjectModuleService({ $store: this.$store });
+
+    /**
+     * zt_product_cm 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ModuleExp
+     */
+    public zt_product_cm_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.zt_product_cm_deuiaction1_click(null, 'zt_product_cm', $event2);
+        }
+    }
+
+    /**
+     * branchs_cm 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ModuleExp
+     */
+    public branchs_cm_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.branchs_cm_deuiaction1_click(null, 'branchs_cm', $event2);
+        }
+    }
+
+    /**
+     * module2_cm 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ModuleExp
+     */
+    public module2_cm_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.module2_cm_deuiaction1_click(null, 'module2_cm', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction2')) {
+            this.module2_cm_deuiaction2_click(null, 'module2_cm', $event2);
+        }
+    }
+
+    /**
+     * all_cm 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ModuleExp
+     */
+    public all_cm_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.all_cm_deuiaction1_click(null, 'all_cm', $event2);
+        }
+    }
+
+    /**
+     * rootmodule_cm 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ModuleExp
+     */
+    public rootmodule_cm_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.rootmodule_cm_deuiaction1_click(null, 'rootmodule_cm', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction2')) {
+            this.rootmodule_cm_deuiaction2_click(null, 'rootmodule_cm', $event2);
+        }
+    }
+
+    /**
+     * module_cm 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ModuleExp
+     */
+    public module_cm_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.module_cm_deuiaction1_click(null, 'module_cm', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction2')) {
+            this.module_cm_deuiaction2_click(null, 'module_cm', $event2);
+        }
+    }
+
+    /**
+     * projectmodule_cm 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ModuleExp
+     */
+    public projectmodule_cm_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.projectmodule_cm_deuiaction1_click(null, 'projectmodule_cm', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction2')) {
+            this.projectmodule_cm_deuiaction2_click(null, 'projectmodule_cm', $event2);
+        }
+    }
+
+    /**
+     * root_nobranch_cm 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ModuleExp
+     */
+    public root_nobranch_cm_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.root_nobranch_cm_deuiaction1_click(null, 'root_nobranch_cm', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction2')) {
+            this.root_nobranch_cm_deuiaction2_click(null, 'root_nobranch_cm', $event2);
+        }
+    }
     
 
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public module_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:ProjectModuleUIService  = new ProjectModuleUIService();
+        curUIService.ProjectModule_Fix(datas,contextJO, paramJO,  $event, xData,this,"ProjectModule");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public module_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.RefreshAll(datas, contextJO,paramJO,  $event, xData,this,"ProjectModule");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public all_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.RefreshParent(datas, contextJO,paramJO,  $event, xData,this,"ProjectModule");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public zt_product_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.RefreshParent(datas, contextJO,paramJO,  $event, xData,this,"ProjectModule");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public root_nobranch_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:ProductModuleUIService  = new ProductModuleUIService();
+        curUIService.ProductModule_Fix(datas,contextJO, paramJO,  $event, xData,this,"ProjectModule");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public root_nobranch_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.RefreshAll(datas, contextJO,paramJO,  $event, xData,this,"ProjectModule");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public projectmodule_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:ProjectModuleUIService  = new ProjectModuleUIService();
+        curUIService.ProjectModule_Fix(datas,contextJO, paramJO,  $event, xData,this,"ProjectModule");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public projectmodule_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.RefreshAll(datas, contextJO,paramJO,  $event, xData,this,"ProjectModule");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public module2_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:ProductModuleUIService  = new ProductModuleUIService();
+        curUIService.ProductModule_Fix(datas,contextJO, paramJO,  $event, xData,this,"ProjectModule");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public module2_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.RefreshAll(datas, contextJO,paramJO,  $event, xData,this,"ProjectModule");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public rootmodule_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:ProductModuleUIService  = new ProductModuleUIService();
+        curUIService.ProductModule_Fix(datas,contextJO, paramJO,  $event, xData,this,"ProjectModule");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public rootmodule_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.RefreshAll(datas, contextJO,paramJO,  $event, xData,this,"ProjectModule");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public branchs_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.RefreshParent(datas, contextJO,paramJO,  $event, xData,this,"ProjectModule");
+    }
+
+    /**
+     * 刷新
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof ProjectModuleTreeExpViewBase
+     */
+    public RefreshAll(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        if (xData && xData.refresh_all && xData.refresh_all instanceof Function) {
+            xData.refresh_all();
+            return;
+        }
+        const _this: any = this;
+        if (_this.refresh_all && _this.refresh_all instanceof Function) {
+            _this.refresh_all();
+            return;
+        }
+        if (_this.engine) {
+            _this.engine.load();
+        }
+    }
+    /**
+     * 刷新
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof ProjectModuleTreeExpViewBase
+     */
+    public RefreshParent(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        if (xData && xData.refresh_parent && xData.refresh_parent instanceof Function) {
+            xData.refresh_parent();
+            return;
+        }
+        const _this: any = this;
+        if (_this.refresh_parent && _this.refresh_parent instanceof Function) {
+            _this.refresh_parent();
+            return;
+        }
+    }
 
     /**
      * 关闭视图
@@ -712,8 +1249,212 @@ export default class ModuleExpBase extends Vue implements ControlInterface {
             const data: any = JSON.parse(JSON.stringify(node.data));
             this.currentselectedNode = { ...data };
             const tags: string[] = data.id.split(';');
+            if (tags[0] === "ZT_PRODUCT") {
+                content = this.renderContextMenuZt_product();
+            }
+            if (tags[0] === "BRANCHS") {
+                content = this.renderContextMenuBranchs();
+            }
+            if (tags[0] === "MODULE2") {
+                content = this.renderContextMenuModule2();
+            }
+            if (tags[0] === "ALL") {
+                content = this.renderContextMenuAll();
+            }
+            if (tags[0] === "ROOTMODULE") {
+                content = this.renderContextMenuRootmodule();
+            }
+            if (tags[0] === "MODULE") {
+                content = this.renderContextMenuModule();
+            }
+            if (tags[0] === "ProjectModule") {
+                content = this.renderContextMenuProjectmodule();
+            }
+            if (tags[0] === "Root_NoBranch") {
+                content = this.renderContextMenuRoot_nobranch();
+            }
         }
         return content;
+    }
+
+    /**
+     * 绘制ZT_PRODUCT类型右键菜单
+     *
+     * @param {*} node
+     * @returns
+     * @memberof ModuleExp
+     */
+    public renderContextMenuZt_product() {
+        return (
+            <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.zt_product_cm_click({tag: $event})}>
+                <dropdown-menu slot="list">
+                            <dropdown-item name="deuiaction1">
+                        <i class='fa fa-refresh'></i>
+                        刷新
+                    </dropdown-item>
+                </dropdown-menu>
+            </dropdown>
+        );
+    }
+
+    /**
+     * 绘制BRANCHS类型右键菜单
+     *
+     * @param {*} node
+     * @returns
+     * @memberof ModuleExp
+     */
+    public renderContextMenuBranchs() {
+        return (
+            <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.branchs_cm_click({tag: $event})}>
+                <dropdown-menu slot="list">
+                            <dropdown-item name="deuiaction1">
+                        <i class='fa fa-refresh'></i>
+                        刷新
+                    </dropdown-item>
+                </dropdown-menu>
+            </dropdown>
+        );
+    }
+
+    /**
+     * 绘制MODULE2类型右键菜单
+     *
+     * @param {*} node
+     * @returns
+     * @memberof ModuleExp
+     */
+    public renderContextMenuModule2() {
+        return (
+            <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.module2_cm_click({tag: $event})}>
+                <dropdown-menu slot="list">
+                            <dropdown-item name="deuiaction1">
+                        <i class='fa fa-wrench'></i>
+                        修复
+                    </dropdown-item>
+                            <dropdown-item name="deuiaction2">
+                        <i class='fa fa-refresh'></i>
+                        刷新
+                    </dropdown-item>
+                </dropdown-menu>
+            </dropdown>
+        );
+    }
+
+    /**
+     * 绘制ALL类型右键菜单
+     *
+     * @param {*} node
+     * @returns
+     * @memberof ModuleExp
+     */
+    public renderContextMenuAll() {
+        return (
+            <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.all_cm_click({tag: $event})}>
+                <dropdown-menu slot="list">
+                            <dropdown-item name="deuiaction1">
+                        <i class='fa fa-refresh'></i>
+                        刷新
+                    </dropdown-item>
+                </dropdown-menu>
+            </dropdown>
+        );
+    }
+
+    /**
+     * 绘制ROOTMODULE类型右键菜单
+     *
+     * @param {*} node
+     * @returns
+     * @memberof ModuleExp
+     */
+    public renderContextMenuRootmodule() {
+        return (
+            <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.rootmodule_cm_click({tag: $event})}>
+                <dropdown-menu slot="list">
+                            <dropdown-item name="deuiaction1">
+                        <i class='fa fa-wrench'></i>
+                        修复
+                    </dropdown-item>
+                            <dropdown-item name="deuiaction2">
+                        <i class='fa fa-refresh'></i>
+                        刷新
+                    </dropdown-item>
+                </dropdown-menu>
+            </dropdown>
+        );
+    }
+
+    /**
+     * 绘制MODULE类型右键菜单
+     *
+     * @param {*} node
+     * @returns
+     * @memberof ModuleExp
+     */
+    public renderContextMenuModule() {
+        return (
+            <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.module_cm_click({tag: $event})}>
+                <dropdown-menu slot="list">
+                            <dropdown-item name="deuiaction1">
+                        <i class='fa fa-wrench'></i>
+                        修复
+                    </dropdown-item>
+                            <dropdown-item name="deuiaction2">
+                        <i class='fa fa-refresh'></i>
+                        刷新
+                    </dropdown-item>
+                </dropdown-menu>
+            </dropdown>
+        );
+    }
+
+    /**
+     * 绘制ProjectModule类型右键菜单
+     *
+     * @param {*} node
+     * @returns
+     * @memberof ModuleExp
+     */
+    public renderContextMenuProjectmodule() {
+        return (
+            <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.projectmodule_cm_click({tag: $event})}>
+                <dropdown-menu slot="list">
+                            <dropdown-item name="deuiaction1">
+                        <i class='fa fa-wrench'></i>
+                        修复
+                    </dropdown-item>
+                            <dropdown-item name="deuiaction2">
+                        <i class='fa fa-refresh'></i>
+                        刷新
+                    </dropdown-item>
+                </dropdown-menu>
+            </dropdown>
+        );
+    }
+
+    /**
+     * 绘制Root_NoBranch类型右键菜单
+     *
+     * @param {*} node
+     * @returns
+     * @memberof ModuleExp
+     */
+    public renderContextMenuRoot_nobranch() {
+        return (
+            <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.root_nobranch_cm_click({tag: $event})}>
+                <dropdown-menu slot="list">
+                            <dropdown-item name="deuiaction1">
+                        <i class='fa fa-wrench'></i>
+                        修复
+                    </dropdown-item>
+                            <dropdown-item name="deuiaction2">
+                        <i class='fa fa-refresh'></i>
+                        刷新
+                    </dropdown-item>
+                </dropdown-menu>
+            </dropdown>
+        );
     }
 
     /**

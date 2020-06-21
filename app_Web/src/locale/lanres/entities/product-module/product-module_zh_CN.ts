@@ -4,8 +4,8 @@ export default {
     deleted: '逻辑删除标志',
     name: '名称',
     branch: 'branch',
-    ibizshort: '短名称',
-    order: 'order',
+    ibizshort: '简称',
+    order: '排序值',
     grade: 'grade',
     type: '类型（story）',
     owner: 'owner',
@@ -14,6 +14,8 @@ export default {
     collector: 'collector',
     root: '产品',
     parent: 'id',
+    rootname: '所属产品',
+    parentname: '上级模块',
   },
 	views: {
 		gridview: {
@@ -28,6 +30,10 @@ export default {
 			caption: '需求模块',
       title: '产品模块编辑视图',
 		},
+		quickcfgview: {
+			caption: '需求模块',
+      title: '需求模块选项操作视图',
+		},
 	},
 	main_form: {
 		details: {
@@ -40,9 +46,15 @@ export default {
 			srfuf: '', 
 			srfdeid: '', 
 			srfsourcekey: '', 
+			rootname: '所属产品', 
+			branch: '平台', 
+			parentname: '上级模块', 
 			name: '名称', 
-			order: 'order', 
+			short: '简称', 
+			order: '排序值', 
 			id: 'id', 
+			root: '产品', 
+			parent: 'id', 
 		},
 		uiactions: {
 		},
@@ -91,6 +103,9 @@ export default {
 			root: '默认根节点',
 		},
 		uiactions: {
+			refreshparent: '刷新',
+			fix: '修复',
+			refreshall: '刷新',
 		},
 	},
 	moduleexp_treeview: {
@@ -100,6 +115,9 @@ export default {
 			all: '所有模块',
 		},
 		uiactions: {
+			refreshparent: '刷新',
+			fix: '修复',
+			refreshall: '刷新',
 		},
 	},
 	bugexp_treeview: {

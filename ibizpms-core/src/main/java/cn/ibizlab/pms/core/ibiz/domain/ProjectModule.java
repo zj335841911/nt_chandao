@@ -96,7 +96,7 @@ public class ProjectModule extends EntityMP implements Serializable {
     @JsonProperty("owner")
     private String owner;
     /**
-     * 短名称
+     * 简称
      */
     @DEField(defaultValue = "/")
     @TableField(value = "short")
@@ -119,7 +119,7 @@ public class ProjectModule extends EntityMP implements Serializable {
     @JsonProperty("grade")
     private Integer grade;
     /**
-     * order
+     * 排序值
      */
     @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.ORDERVALUE)
     @TableField(value = "order")
@@ -148,6 +148,20 @@ public class ProjectModule extends EntityMP implements Serializable {
     @JSONField(name = "root")
     @JsonProperty("root")
     private BigInteger root;
+    /**
+     * 所属项目
+     */
+    @TableField(exist = false)
+    @JSONField(name = "rootname")
+    @JsonProperty("rootname")
+    private String rootname;
+    /**
+     * 上级模块
+     */
+    @TableField(exist = false)
+    @JSONField(name = "parentname")
+    @JsonProperty("parentname")
+    private String parentname;
 
     /**
      * 
@@ -200,7 +214,7 @@ public class ProjectModule extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [短名称]
+     * 设置 [简称]
      */
     public void setIbizshort(String ibizshort){
         this.ibizshort = ibizshort ;

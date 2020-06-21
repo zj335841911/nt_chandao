@@ -57,6 +57,12 @@ export default class TreeExpViewtreeexpbarModel {
       {
         name: 'root',
       },
+      {
+        name: 'rootname',
+      },
+      {
+        name: 'parentname',
+      },
     ]
   }
 

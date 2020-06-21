@@ -135,6 +135,22 @@ public class ProjectModuleDTO extends DTOBase implements Serializable {
     @JsonProperty("root")
     private BigInteger root;
 
+    /**
+     * 属性 [ROOTNAME]
+     *
+     */
+    @JSONField(name = "rootname")
+    @JsonProperty("rootname")
+    private String rootname;
+
+    /**
+     * 属性 [PARENTNAME]
+     *
+     */
+    @JSONField(name = "parentname")
+    @JsonProperty("parentname")
+    private String parentname;
+
 
     /**
      * 设置 [TYPE]

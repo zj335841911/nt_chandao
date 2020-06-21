@@ -62,6 +62,7 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
     @Override
     @Transactional
     public boolean create(ProjectModule et) {
+        fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -70,17 +71,20 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
 
     @Override
     public void createBatch(List<ProjectModule> list) {
+        list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
     }
 
     @Override
     public ProjectModule getDraft(ProjectModule et) {
+        fillParentData(et);
         return et;
     }
 
     @Override
     @Transactional
     public boolean update(ProjectModule et) {
+        fillParentData(et);
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -89,6 +93,7 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
 
     @Override
     public void updateBatch(List<ProjectModule> list) {
+        list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
     }
 
@@ -114,12 +119,14 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
 
     @Override
     public boolean saveBatch(Collection<ProjectModule> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
     public void saveBatch(List<ProjectModule> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
@@ -221,6 +228,32 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
 
 
 
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(ProjectModule et){
+        //实体关系[DER1N_IBZ_PROJECTMODULE_IBZ_PROJECTMODULE_PARENT]
+        if(!ObjectUtils.isEmpty(et.getParent())){
+            cn.ibizlab.pms.core.ibiz.domain.ProjectModule parentmodule=et.getParentmodule();
+            if(ObjectUtils.isEmpty(parentmodule)){
+                cn.ibizlab.pms.core.ibiz.domain.ProjectModule majorEntity=projectmoduleService.get(et.getParent());
+                et.setParentmodule(majorEntity);
+                parentmodule=majorEntity;
+            }
+            et.setParentname(parentmodule.getName());
+        }
+        //实体关系[DER1N_IBZ_PROJECTMODULE_ZT_PROJECT_ROOT]
+        if(!ObjectUtils.isEmpty(et.getRoot())){
+            cn.ibizlab.pms.core.zentao.domain.Project ztproject=et.getZtproject();
+            if(ObjectUtils.isEmpty(ztproject)){
+                cn.ibizlab.pms.core.zentao.domain.Project majorEntity=projectService.get(et.getRoot());
+                et.setZtproject(majorEntity);
+                ztproject=majorEntity;
+            }
+            et.setRootname(ztproject.getName());
+        }
+    }
 
 
 

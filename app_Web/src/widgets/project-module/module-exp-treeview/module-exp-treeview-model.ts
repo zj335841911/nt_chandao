@@ -57,6 +57,12 @@ export default class ModuleExpModel {
       {
         name: 'root',
       },
+      {
+        name: 'rootname',
+      },
+      {
+        name: 'parentname',
+      },
     ]
   }
 
