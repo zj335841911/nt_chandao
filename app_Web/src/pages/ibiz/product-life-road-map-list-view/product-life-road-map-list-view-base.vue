@@ -66,16 +66,6 @@ export default class ProductLifeRoadMapListViewBase extends ListViewBase {
     protected counterServiceArray: Array<any> = [];
 
 	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof ProductLifeRoadMapListViewBase
-	 */
-    protected customViewNavContexts: any = {
-    };
-
-	/**
 	 * 自定义视图导航参数集合
 	 *
      * @protected
@@ -111,6 +101,16 @@ export default class ProductLifeRoadMapListViewBase extends ListViewBase {
         view_list2: { name: 'list2', type: 'LIST' },
         view_list: { name: 'list', type: 'LIST' },
     };
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '07327890c326f9c806b9343f0c660fc1';
 
 
     /**

@@ -64,26 +64,6 @@ export default class TaskMainDetailView9Base extends EditView9Base {
      */    
     protected counterServiceArray: Array<any> = [];
 
-	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof TaskMainDetailView9Base
-	 */
-    protected customViewNavContexts: any = {
-    };
-
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof TaskMainDetailView9Base
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
@@ -108,6 +88,16 @@ export default class TaskMainDetailView9Base extends EditView9Base {
     protected containerModel: any = {
         view_form: { name: 'form', type: 'FORM' },
     };
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'ef6cfafd09bb61ddb6fec7840f78e97d';
 
 
     /**

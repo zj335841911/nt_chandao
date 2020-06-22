@@ -69,26 +69,6 @@ export default class TestSuiteEditViewBase extends EditViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
-	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof TestSuiteEditViewBase
-	 */
-    protected customViewNavContexts: any = {
-    };
-
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof TestSuiteEditViewBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
@@ -151,6 +131,16 @@ export default class TestSuiteEditViewBase extends EditViewBase {
 
     };
 
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '7a983ef690626958a9897f58efe15e58';
 
 
     /**

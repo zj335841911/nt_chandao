@@ -50,26 +50,6 @@ export default class TaskTaskTypeGanttViewBase extends GanttViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
-	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof TaskTaskTypeGanttViewBase
-	 */
-    protected customViewNavContexts: any = {
-    };
-
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof TaskTaskTypeGanttViewBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
@@ -94,6 +74,16 @@ export default class TaskTaskTypeGanttViewBase extends GanttViewBase {
     protected containerModel: any = {
         view_gantt: { name: 'gantt', type: 'GANTT' },
     };
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '5ef23f01b2cffa48351b3272dfeeaf14';
 
 
     /**

@@ -75,7 +75,6 @@ export default class UserServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             return Http.getInstance().delete(`/users/${context.user}`,isloading);
-
     }
 
     /**
@@ -113,7 +112,6 @@ export default class UserServiceBase extends EntityService {
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().get(`/users/${context.user}`,isloading);
             return res;
-
     }
 
     /**

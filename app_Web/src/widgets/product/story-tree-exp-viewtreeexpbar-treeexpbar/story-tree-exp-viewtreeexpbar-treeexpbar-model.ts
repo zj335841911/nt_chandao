@@ -84,6 +84,12 @@ export default class StoryTreeExpViewtreeexpbarModel {
       {
         name: 'activestorycnt',
       },
+      {
+        name: 'unconfirmbugcnt',
+      },
+      {
+        name: 'notclosedbugcnt',
+      },
     ]
   }
 

@@ -48,85 +48,32 @@
     </div>
 </template>
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
-import { UIActionTool,Util } from '@/utils';
+import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, CtrlBase } from '@/studio-core';
 import ProjectModuleService from '@/service/project-module/project-module-service';
 import ModuleExpService from './module-exp-treeview-service';
-
 import ProjectModuleUIService from '@/uiservice/project-module/project-module-ui-service';
 import ProductModuleUIService from '@/uiservice/product-module/product-module-ui-service';
 
 
+/**
+ * treeexpbar_tree部件基类
+ *
+ * @export
+ * @class CtrlBase
+ * @extends {ModuleExpBase}
+ */
 @Component({
     components: {
       
     }
 })
-export default class ModuleExpBase extends Vue implements ControlInterface {
-
-    /**
-     * 名称
-     *
-     * @type {string}
-     * @memberof ModuleExp
-     */
-    @Prop() public name?: string;
-
-    /**
-     * 视图通讯对象
-     *
-     * @type {Subject<ViewState>}
-     * @memberof ModuleExp
-     */
-    @Prop() public viewState!: Subject<ViewState>;
-
-    /**
-     * 应用上下文
-     *
-     * @type {*}
-     * @memberof ModuleExp
-     */
-    @Prop() public context: any;
-
-    /**
-     * 视图参数
-     *
-     * @type {*}
-     * @memberof ModuleExp
-     */
-    @Prop() public viewparams: any;
-
-    /**
-     * 视图状态事件
-     *
-     * @public
-     * @type {(Subscription | undefined)}
-     * @memberof ModuleExp
-     */
-    public viewStateEvent: Subscription | undefined;
-
-    /**
-     * 获取部件类型
-     *
-     * @returns {string}
-     * @memberof ModuleExp
-     */
-    public getControlType(): string {
-        return 'TREEVIEW'
-    }
-
-
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @type {Array<*>}
-     * @memberof ModuleExp
-     */    
-    public counterServiceArray:Array<any> = [];
+@VueLifeCycleProcessing()
+export default class ModuleExpBase extends CtrlBase {
 
     /**
      * 建构部件服务对象
@@ -262,7 +209,6 @@ export default class ModuleExpBase extends Vue implements ControlInterface {
             this.root_nobranch_cm_deuiaction2_click(null, 'root_nobranch_cm', $event2);
         }
     }
-    
 
     /**
      * 逻辑事件
@@ -658,6 +604,7 @@ export default class ModuleExpBase extends Vue implements ControlInterface {
             _this.engine.load();
         }
     }
+
     /**
      * 刷新
      *
@@ -680,34 +627,6 @@ export default class ModuleExpBase extends Vue implements ControlInterface {
             return;
         }
     }
-
-    /**
-     * 关闭视图
-     *
-     * @param {any} args
-     * @memberof ModuleExp
-     */
-    public closeView(args: any): void {
-        let _this: any = this;
-        _this.$emit('closeview', [args]);
-    }
-
-    /**
-     *  计数器刷新
-     *
-     * @memberof ModuleExp
-     */
-    public counterRefresh(){
-        const _this:any =this;
-        if(_this.counterServiceArray && _this.counterServiceArray.length >0){
-            _this.counterServiceArray.forEach((item:any) =>{
-                if(item.refreshData && item.refreshData instanceof Function){
-                    item.refreshData();
-                }
-            })
-        }
-    }
-
 
     /**
      * 获取多项数据

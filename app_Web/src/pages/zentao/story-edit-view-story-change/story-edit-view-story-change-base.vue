@@ -69,26 +69,6 @@ export default class StoryEditView_StoryChangeBase extends EditViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
-	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof StoryEditView_StoryChangeBase
-	 */
-    protected customViewNavContexts: any = {
-    };
-
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof StoryEditView_StoryChangeBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
@@ -126,6 +106,16 @@ export default class StoryEditView_StoryChangeBase extends EditViewBase {
 
     };
 
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'e54598b1e6d38d7c6ce8231b531b46bd';
 
 
     /**

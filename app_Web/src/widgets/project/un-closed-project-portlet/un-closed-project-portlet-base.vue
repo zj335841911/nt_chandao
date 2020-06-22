@@ -1,5 +1,5 @@
 <template>
-    <div class='portlet un-closed-project ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'1px'),}">
+    <div class='portlet un-closed-project ' :style="{'height': 'auto',}">
         <p class='portlet-title'>
             <span>
             

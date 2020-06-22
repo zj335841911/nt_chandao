@@ -40,7 +40,6 @@
                                           :viewState="viewState"  
                                           :viewparams="viewparams" 
                                           :context="context" 
-                                          :height="1"
                                           name="db_sysportlet1"  
                                           ref='db_sysportlet1' 
                                           @closeview="closeView($event)">
@@ -86,7 +85,6 @@
                                           :viewState="viewState"  
                                           :viewparams="viewparams" 
                                           :context="context" 
-                                          :height="1"
                                           name="db_assigntomecaseportlet1"  
                                           ref='db_assigntomecaseportlet1' 
                                           @closeview="closeView($event)">
@@ -119,83 +117,30 @@
   </div>
 </template>
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
-import { UIActionTool,Util } from '@/utils';
+import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, CtrlBase } from '@/studio-core';
 import TestPortalView_dbService from './test-portal-view-db-dashboard-service';
-
 import UtilService from '@/utilservice/util-service';
 
 
+/**
+ * dashboard部件基类
+ *
+ * @export
+ * @class CtrlBase
+ * @extends {TestPortalView_dbBase}
+ */
 @Component({
     components: {
       
     }
 })
-export default class TestPortalView_dbBase extends Vue implements ControlInterface {
-
-    /**
-     * 名称
-     *
-     * @type {string}
-     * @memberof TestPortalView_db
-     */
-    @Prop() public name?: string;
-
-    /**
-     * 视图通讯对象
-     *
-     * @type {Subject<ViewState>}
-     * @memberof TestPortalView_db
-     */
-    @Prop() public viewState!: Subject<ViewState>;
-
-    /**
-     * 应用上下文
-     *
-     * @type {*}
-     * @memberof TestPortalView_db
-     */
-    @Prop() public context: any;
-
-    /**
-     * 视图参数
-     *
-     * @type {*}
-     * @memberof TestPortalView_db
-     */
-    @Prop() public viewparams: any;
-
-    /**
-     * 视图状态事件
-     *
-     * @public
-     * @type {(Subscription | undefined)}
-     * @memberof TestPortalView_db
-     */
-    public viewStateEvent: Subscription | undefined;
-
-    /**
-     * 获取部件类型
-     *
-     * @returns {string}
-     * @memberof TestPortalView_db
-     */
-    public getControlType(): string {
-        return 'DASHBOARD'
-    }
-
-
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @type {Array<*>}
-     * @memberof TestPortalView_db
-     */    
-    public counterServiceArray:Array<any> = [];
+@VueLifeCycleProcessing()
+export default class TestPortalView_dbBase extends CtrlBase {
 
     /**
      * 建构部件服务对象
@@ -204,36 +149,6 @@ export default class TestPortalView_dbBase extends Vue implements ControlInterfa
      * @memberof TestPortalView_db
      */
     public service: TestPortalView_dbService = new TestPortalView_dbService({ $store: this.$store });
-    
-
-
-    /**
-     * 关闭视图
-     *
-     * @param {any} args
-     * @memberof TestPortalView_db
-     */
-    public closeView(args: any): void {
-        let _this: any = this;
-        _this.$emit('closeview', [args]);
-    }
-
-    /**
-     *  计数器刷新
-     *
-     * @memberof TestPortalView_db
-     */
-    public counterRefresh(){
-        const _this:any =this;
-        if(_this.counterServiceArray && _this.counterServiceArray.length >0){
-            _this.counterServiceArray.forEach((item:any) =>{
-                if(item.refreshData && item.refreshData instanceof Function){
-                    item.refreshData();
-                }
-            })
-        }
-    }
-
     /**
      * 是否支持看板定制
      *

@@ -86,16 +86,6 @@ export default class TaskAssignTaskViewBase extends OptionViewBase {
         'SRFPARENTKEY': { isRawValue: false, value: 'task' }
     };
 
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof TaskAssignTaskViewBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
@@ -126,6 +116,16 @@ export default class TaskAssignTaskViewBase extends OptionViewBase {
         view_allleftbtn: { name: 'allleftbtn', type: 'button', text: '全部左移', disabled: true },
         view_allrightbtn: { name: 'allrightbtn', type: 'button', text: '全部右移', disabled: true },
     };
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '12661bdb476cd339554799b417c6ea48';
 
 
     /**

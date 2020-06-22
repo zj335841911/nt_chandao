@@ -5,85 +5,32 @@
 
 
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
-import { UIActionTool,Util } from '@/utils';
+import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, CtrlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TypeGanttService from './type-gantt-gantt-service';
-
 import GanttElastic from "ibiz-gantt-elastic/src/GanttElastic.vue";
 
 
+/**
+ * gantt部件基类
+ *
+ * @export
+ * @class CtrlBase
+ * @extends {TypeGanttBase}
+ */
 @Component({
     components: {
       GanttElastic,
 
     }
 })
-export default class TypeGanttBase extends Vue implements ControlInterface {
-
-    /**
-     * 名称
-     *
-     * @type {string}
-     * @memberof TypeGantt
-     */
-    @Prop() public name?: string;
-
-    /**
-     * 视图通讯对象
-     *
-     * @type {Subject<ViewState>}
-     * @memberof TypeGantt
-     */
-    @Prop() public viewState!: Subject<ViewState>;
-
-    /**
-     * 应用上下文
-     *
-     * @type {*}
-     * @memberof TypeGantt
-     */
-    @Prop() public context: any;
-
-    /**
-     * 视图参数
-     *
-     * @type {*}
-     * @memberof TypeGantt
-     */
-    @Prop() public viewparams: any;
-
-    /**
-     * 视图状态事件
-     *
-     * @public
-     * @type {(Subscription | undefined)}
-     * @memberof TypeGantt
-     */
-    public viewStateEvent: Subscription | undefined;
-
-    /**
-     * 获取部件类型
-     *
-     * @returns {string}
-     * @memberof TypeGantt
-     */
-    public getControlType(): string {
-        return 'GANTT'
-    }
-
-
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @type {Array<*>}
-     * @memberof TypeGantt
-     */    
-    public counterServiceArray:Array<any> = [];
+@VueLifeCycleProcessing()
+export default class TypeGanttBase extends CtrlBase {
 
     /**
      * 建构部件服务对象
@@ -100,7 +47,6 @@ export default class TypeGanttBase extends Vue implements ControlInterface {
      * @memberof TypeGantt
      */
     public appEntityService: TaskService = new TaskService({ $store: this.$store });
-    
 
     /**
      * 打开编辑数据视图
@@ -201,35 +147,6 @@ export default class TypeGanttBase extends Vue implements ControlInterface {
             placement: 'DRAWER_TOP',
         };
         openDrawer(view, data);
-    }
-
-
-
-    /**
-     * 关闭视图
-     *
-     * @param {any} args
-     * @memberof TypeGantt
-     */
-    public closeView(args: any): void {
-        let _this: any = this;
-        _this.$emit('closeview', [args]);
-    }
-
-    /**
-     *  计数器刷新
-     *
-     * @memberof TypeGantt
-     */
-    public counterRefresh(){
-        const _this:any =this;
-        if(_this.counterServiceArray && _this.counterServiceArray.length >0){
-            _this.counterServiceArray.forEach((item:any) =>{
-                if(item.refreshData && item.refreshData instanceof Function){
-                    item.refreshData();
-                }
-            })
-        }
     }
 
 

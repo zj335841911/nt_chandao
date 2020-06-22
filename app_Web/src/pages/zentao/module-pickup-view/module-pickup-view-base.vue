@@ -65,26 +65,6 @@ export default class ModulePickupViewBase extends PickupViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
-	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof ModulePickupViewBase
-	 */
-    protected customViewNavContexts: any = {
-    };
-
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof ModulePickupViewBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
@@ -115,6 +95,16 @@ export default class ModulePickupViewBase extends PickupViewBase {
         view_allleftbtn: { name: 'allleftbtn', type: 'button', text: '全部左移', disabled: true },
         view_allrightbtn: { name: 'allrightbtn', type: 'button', text: '全部右移', disabled: true },
     };
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'cb6c278fd7205b3de3fc041816d15dd8';
 
 
     /**

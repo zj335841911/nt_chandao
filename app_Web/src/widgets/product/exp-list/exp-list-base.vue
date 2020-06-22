@@ -11,83 +11,30 @@
     </div>
 </template>
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
-import { UIActionTool,Util } from '@/utils';
+import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, CtrlBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import ExpService from './exp-list-service';
 
 
-
+/**
+ * listexpbar_list部件基类
+ *
+ * @export
+ * @class CtrlBase
+ * @extends {ExpBase}
+ */
 @Component({
     components: {
       
     }
 })
-export default class ExpBase extends Vue implements ControlInterface {
-
-    /**
-     * 名称
-     *
-     * @type {string}
-     * @memberof Exp
-     */
-    @Prop() public name?: string;
-
-    /**
-     * 视图通讯对象
-     *
-     * @type {Subject<ViewState>}
-     * @memberof Exp
-     */
-    @Prop() public viewState!: Subject<ViewState>;
-
-    /**
-     * 应用上下文
-     *
-     * @type {*}
-     * @memberof Exp
-     */
-    @Prop() public context: any;
-
-    /**
-     * 视图参数
-     *
-     * @type {*}
-     * @memberof Exp
-     */
-    @Prop() public viewparams: any;
-
-    /**
-     * 视图状态事件
-     *
-     * @public
-     * @type {(Subscription | undefined)}
-     * @memberof Exp
-     */
-    public viewStateEvent: Subscription | undefined;
-
-    /**
-     * 获取部件类型
-     *
-     * @returns {string}
-     * @memberof Exp
-     */
-    public getControlType(): string {
-        return 'LIST'
-    }
-
-
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @type {Array<*>}
-     * @memberof Exp
-     */    
-    public counterServiceArray:Array<any> = [];
+@VueLifeCycleProcessing()
+export default class ExpBase extends CtrlBase {
 
     /**
      * 建构部件服务对象
@@ -117,7 +64,6 @@ export default class ExpBase extends Vue implements ControlInterface {
             this.listexpbar_list_quicktoolbar_deuiaction1_click(null, 'listexpbar_list_quicktoolbar', $event2);
         }
     }
-    
 
     /**
      * 逻辑事件
@@ -167,34 +113,6 @@ export default class ExpBase extends Vue implements ControlInterface {
             _this.$Notice.error({ title: '错误', desc: 'newdata 视图处理逻辑不存在，请添加!' });
         }
     }
-
-    /**
-     * 关闭视图
-     *
-     * @param {any} args
-     * @memberof Exp
-     */
-    public closeView(args: any): void {
-        let _this: any = this;
-        _this.$emit('closeview', [args]);
-    }
-
-    /**
-     *  计数器刷新
-     *
-     * @memberof Exp
-     */
-    public counterRefresh(){
-        const _this:any =this;
-        if(_this.counterServiceArray && _this.counterServiceArray.length >0){
-            _this.counterServiceArray.forEach((item:any) =>{
-                if(item.refreshData && item.refreshData instanceof Function){
-                    item.refreshData();
-                }
-            })
-        }
-    }
-
 
     /**
      * 获取多项数据

@@ -98,6 +98,7 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			product: "产品标识", 
 			storycnt: "需求数", 
 			waitstorycnt: "未开始", 
 			plannedstorycnt: "已计划", 

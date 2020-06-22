@@ -53,26 +53,6 @@ export default class TestReportMainTabExpViewBase extends TabExpViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
-	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof TestReportMainTabExpViewBase
-	 */
-    protected customViewNavContexts: any = {
-    };
-
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof TestReportMainTabExpViewBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
@@ -97,6 +77,16 @@ export default class TestReportMainTabExpViewBase extends TabExpViewBase {
     protected containerModel: any = {
         view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
     };
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'ea7a4f0ccc237a45f39ffb2e3df7e9fd';
 
 
     /**

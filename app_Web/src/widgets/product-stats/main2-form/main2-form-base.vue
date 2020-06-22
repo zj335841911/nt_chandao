@@ -253,86 +253,33 @@
 </template>
 
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
-import { UIActionTool,Util } from '@/utils';
+import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, CtrlBase } from '@/studio-core';
 import ProductStatsService from '@/service/product-stats/product-stats-service';
 import Main2Service from './main2-form-service';
-
 import ProductStatsUIService from '@/uiservice/product-stats/product-stats-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 
+/**
+ * form部件基类
+ *
+ * @export
+ * @class CtrlBase
+ * @extends {Main2Base}
+ */
 @Component({
     components: {
       
     }
 })
-export default class Main2Base extends Vue implements ControlInterface {
-
-    /**
-     * 名称
-     *
-     * @type {string}
-     * @memberof Main2
-     */
-    @Prop() public name?: string;
-
-    /**
-     * 视图通讯对象
-     *
-     * @type {Subject<ViewState>}
-     * @memberof Main2
-     */
-    @Prop() public viewState!: Subject<ViewState>;
-
-    /**
-     * 应用上下文
-     *
-     * @type {*}
-     * @memberof Main2
-     */
-    @Prop() public context: any;
-
-    /**
-     * 视图参数
-     *
-     * @type {*}
-     * @memberof Main2
-     */
-    @Prop() public viewparams: any;
-
-    /**
-     * 视图状态事件
-     *
-     * @public
-     * @type {(Subscription | undefined)}
-     * @memberof Main2
-     */
-    public viewStateEvent: Subscription | undefined;
-
-    /**
-     * 获取部件类型
-     *
-     * @returns {string}
-     * @memberof Main2
-     */
-    public getControlType(): string {
-        return 'FORM'
-    }
-
-
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @type {Array<*>}
-     * @memberof Main2
-     */    
-    public counterServiceArray:Array<any> = [];
+@VueLifeCycleProcessing()
+export default class Main2Base extends CtrlBase {
 
     /**
      * 建构部件服务对象
@@ -349,7 +296,6 @@ export default class Main2Base extends Vue implements ControlInterface {
      * @memberof Main2
      */
     public appEntityService: ProductStatsService = new ProductStatsService({ $store: this.$store });
-    
 
     /**
      * 逻辑事件
@@ -490,35 +436,6 @@ export default class Main2Base extends Vue implements ControlInterface {
         const curUIService:ProductStatsUIService  = new ProductStatsUIService();
         curUIService.ProductStats_OpenReleasedCreateView(datas,contextJO, paramJO,  $event, xData,this,"ProductStats");
     }
-
-
-    /**
-     * 关闭视图
-     *
-     * @param {any} args
-     * @memberof Main2
-     */
-    public closeView(args: any): void {
-        let _this: any = this;
-        _this.$emit('closeview', [args]);
-    }
-
-    /**
-     *  计数器刷新
-     *
-     * @memberof Main2
-     */
-    public counterRefresh(){
-        const _this:any =this;
-        if(_this.counterServiceArray && _this.counterServiceArray.length >0){
-            _this.counterServiceArray.forEach((item:any) =>{
-                if(item.refreshData && item.refreshData instanceof Function){
-                    item.refreshData();
-                }
-            })
-        }
-    }
-
 
     /**
      * 工作流审批意见控件绑定值
@@ -692,6 +609,7 @@ export default class Main2Base extends Vue implements ControlInterface {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        product: null,
         storycnt: null,
         waitstorycnt: null,
         plannedstorycnt: null,
@@ -797,6 +715,12 @@ export default class Main2Base extends Vue implements ControlInterface {
             { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
+        ],
+        product: [
+            { type: 'string', message: '产品标识 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '产品标识 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '产品标识 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '产品标识 值不能为空', trigger: 'blur' },
         ],
         storycnt: [
             { type: 'number', message: '需求数 值必须为数值类型', trigger: 'change' },
@@ -996,6 +920,8 @@ export default class Main2Base extends Vue implements ControlInterface {
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        product: new FormItemModel({ caption: '产品标识', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         storycnt: new FormItemModel({ caption: '需求数', detailType: 'FORMITEM', name: 'storycnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         waitstorycnt: new FormItemModel({ caption: '未开始', detailType: 'FORMITEM', name: 'waitstorycnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -1124,6 +1050,18 @@ export default class Main2Base extends Vue implements ControlInterface {
     @Watch('data.srfsourcekey')
     onSrfsourcekeyChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'srfsourcekey', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 product 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main2
+     */
+    @Watch('data.product')
+    onProductChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'product', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1490,6 +1428,7 @@ export default class Main2Base extends Vue implements ControlInterface {
             }
             this.detailsModel.grouppanel2.setVisible(ret);
         }
+
 
 
 
@@ -2494,6 +2433,9 @@ export default class Main2Base extends Vue implements ControlInterface {
      * @memberof Main2
      */
     public createDefault(){                    
+        if (this.data.hasOwnProperty('product')) {
+            this.data['product'] = this.viewparams['product'];
+        }
     }
 
     /**
@@ -2501,6 +2443,9 @@ export default class Main2Base extends Vue implements ControlInterface {
      * @memberof Main2
      */
     public updateDefault(){                    
+        if (this.data.hasOwnProperty('product') && !this.data.product) {
+            this.data['product'] = this.viewparams['product'];
+        }
     }
 
     

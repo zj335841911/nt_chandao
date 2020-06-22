@@ -117,22 +117,22 @@
                     <template slot-scope="scope">
                         <span>
                             
-                            <a @click="uiAction(scope.row, 'ChangeStoryDetail', $event)">
+                            <a title="变更需求" @click="uiAction(scope.row, 'ChangeStoryDetail', $event)">
                               <i class='fa fa-exchange'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'CloseStory', $event)">
+                            <a title="关闭需求" @click="uiAction(scope.row, 'CloseStory', $event)">
                               <i class='fa fa-power-off'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'OpenBaseInfoEditView', $event)">
+                            <a title="打开需求基本信息编辑" @click="uiAction(scope.row, 'OpenBaseInfoEditView', $event)">
                               <i class='fa fa-edit'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'OpenCaseCreateView', $event)">
+                            <a title="建用例" @click="uiAction(scope.row, 'OpenCaseCreateView', $event)">
                               <i class='fa fa-lightbulb-o'></i>
                               
                             </a>
@@ -148,86 +148,33 @@
 </div>
 </template>
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
-import { UIActionTool,Util } from '@/utils';
+import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, CtrlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import Main3Service from './main3-grid-service';
-
 import StoryUIService from '@/uiservice/story/story-ui-service';
 import CodeListService from "@service/app/codelist-service";
 import { FormItemModel } from '@/model/form-detail';
 
 
+/**
+ * grid部件基类
+ *
+ * @export
+ * @class CtrlBase
+ * @extends {Main3Base}
+ */
 @Component({
     components: {
       
     }
 })
-export default class Main3Base extends Vue implements ControlInterface {
-
-    /**
-     * 名称
-     *
-     * @type {string}
-     * @memberof Main3
-     */
-    @Prop() public name?: string;
-
-    /**
-     * 视图通讯对象
-     *
-     * @type {Subject<ViewState>}
-     * @memberof Main3
-     */
-    @Prop() public viewState!: Subject<ViewState>;
-
-    /**
-     * 应用上下文
-     *
-     * @type {*}
-     * @memberof Main3
-     */
-    @Prop() public context: any;
-
-    /**
-     * 视图参数
-     *
-     * @type {*}
-     * @memberof Main3
-     */
-    @Prop() public viewparams: any;
-
-    /**
-     * 视图状态事件
-     *
-     * @public
-     * @type {(Subscription | undefined)}
-     * @memberof Main3
-     */
-    public viewStateEvent: Subscription | undefined;
-
-    /**
-     * 获取部件类型
-     *
-     * @returns {string}
-     * @memberof Main3
-     */
-    public getControlType(): string {
-        return 'GRID'
-    }
-
-
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @type {Array<*>}
-     * @memberof Main3
-     */    
-    public counterServiceArray:Array<any> = [];
+@VueLifeCycleProcessing()
+export default class Main3Base extends CtrlBase {
 
     /**
      * 建构部件服务对象
@@ -244,7 +191,6 @@ export default class Main3Base extends Vue implements ControlInterface {
      * @memberof Main3
      */
     public appEntityService: StoryService = new StoryService({ $store: this.$store });
-    
 
     /**
      * 逻辑事件
@@ -357,35 +303,6 @@ export default class Main3Base extends Vue implements ControlInterface {
         const curUIService:StoryUIService  = new StoryUIService();
         curUIService.Story_OpenCaseCreateView(datas,contextJO, paramJO,  $event, xData,this,"Story");
     }
-
-
-    /**
-     * 关闭视图
-     *
-     * @param {any} args
-     * @memberof Main3
-     */
-    public closeView(args: any): void {
-        let _this: any = this;
-        _this.$emit('closeview', [args]);
-    }
-
-    /**
-     *  计数器刷新
-     *
-     * @memberof Main3
-     */
-    public counterRefresh(){
-        const _this:any =this;
-        if(_this.counterServiceArray && _this.counterServiceArray.length >0){
-            _this.counterServiceArray.forEach((item:any) =>{
-                if(item.refreshData && item.refreshData instanceof Function){
-                    item.refreshData();
-                }
-            })
-        }
-    }
-
 
     /**
      * 代码表服务对象

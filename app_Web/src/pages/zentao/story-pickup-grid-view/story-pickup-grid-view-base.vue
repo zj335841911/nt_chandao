@@ -63,26 +63,6 @@ export default class StoryPickupGridViewBase extends PickupViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
-	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof StoryPickupGridViewBase
-	 */
-    protected customViewNavContexts: any = {
-    };
-
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof StoryPickupGridViewBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
@@ -107,6 +87,16 @@ export default class StoryPickupGridViewBase extends PickupViewBase {
     protected containerModel: any = {
         view_grid: { name: 'grid', type: 'GRID' },
     };
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '569cd532c6b545ffc53cf5fb93427028';
 
 
     /**

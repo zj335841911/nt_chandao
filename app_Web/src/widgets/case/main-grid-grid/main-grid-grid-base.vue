@@ -185,27 +185,27 @@
                     <template slot-scope="scope">
                         <span>
                             
-                            <a @click="uiAction(scope.row, 'OpenTestRunResultView', $event)">
+                            <a title="打开结果视图" @click="uiAction(scope.row, 'OpenTestRunResultView', $event)">
                               <i class='fa fa-stack-overflow'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'Execute', $event)">
+                            <a title="执行测试" @click="uiAction(scope.row, 'Execute', $event)">
                               <i class='fa fa-play-circle-o'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'MainEdit', $event)">
+                            <a title="主信息编辑" @click="uiAction(scope.row, 'MainEdit', $event)">
                               <i class='fa fa-edit'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'NewBugByCaseResult', $event)">
+                            <a title="转Bug" @click="uiAction(scope.row, 'NewBugByCaseResult', $event)">
                               <i class='fa fa-bug'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'Remove', $event)">
+                            <a title="表格界面_删除操作" @click="uiAction(scope.row, 'Remove', $event)">
                               <i class='fa fa-remove'></i>
                               
                             </a>
@@ -256,86 +256,33 @@
 </div>
 </template>
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
-import { UIActionTool,Util } from '@/utils';
+import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, CtrlBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
 import MainGridService from './main-grid-grid-service';
-
 import CaseUIService from '@/uiservice/case/case-ui-service';
 import CodeListService from "@service/app/codelist-service";
 import { FormItemModel } from '@/model/form-detail';
 
 
+/**
+ * grid部件基类
+ *
+ * @export
+ * @class CtrlBase
+ * @extends {MainGridBase}
+ */
 @Component({
     components: {
       
     }
 })
-export default class MainGridBase extends Vue implements ControlInterface {
-
-    /**
-     * 名称
-     *
-     * @type {string}
-     * @memberof MainGrid
-     */
-    @Prop() public name?: string;
-
-    /**
-     * 视图通讯对象
-     *
-     * @type {Subject<ViewState>}
-     * @memberof MainGrid
-     */
-    @Prop() public viewState!: Subject<ViewState>;
-
-    /**
-     * 应用上下文
-     *
-     * @type {*}
-     * @memberof MainGrid
-     */
-    @Prop() public context: any;
-
-    /**
-     * 视图参数
-     *
-     * @type {*}
-     * @memberof MainGrid
-     */
-    @Prop() public viewparams: any;
-
-    /**
-     * 视图状态事件
-     *
-     * @public
-     * @type {(Subscription | undefined)}
-     * @memberof MainGrid
-     */
-    public viewStateEvent: Subscription | undefined;
-
-    /**
-     * 获取部件类型
-     *
-     * @returns {string}
-     * @memberof MainGrid
-     */
-    public getControlType(): string {
-        return 'GRID'
-    }
-
-
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @type {Array<*>}
-     * @memberof MainGrid
-     */    
-    public counterServiceArray:Array<any> = [];
+@VueLifeCycleProcessing()
+export default class MainGridBase extends CtrlBase {
 
     /**
      * 建构部件服务对象
@@ -352,7 +299,6 @@ export default class MainGridBase extends Vue implements ControlInterface {
      * @memberof MainGrid
      */
     public appEntityService: CaseService = new CaseService({ $store: this.$store });
-    
 
     /**
      * 逻辑事件
@@ -512,6 +458,7 @@ export default class MainGridBase extends Vue implements ControlInterface {
             _this.refresh(args);
         }
     }
+
     /**
      * 删除
      *
@@ -529,34 +476,6 @@ export default class MainGridBase extends Vue implements ControlInterface {
             return ;
         }
         xData.remove(args);
-    }
-
-
-    /**
-     * 关闭视图
-     *
-     * @param {any} args
-     * @memberof MainGrid
-     */
-    public closeView(args: any): void {
-        let _this: any = this;
-        _this.$emit('closeview', [args]);
-    }
-
-    /**
-     *  计数器刷新
-     *
-     * @memberof MainGrid
-     */
-    public counterRefresh(){
-        const _this:any =this;
-        if(_this.counterServiceArray && _this.counterServiceArray.length >0){
-            _this.counterServiceArray.forEach((item:any) =>{
-                if(item.refreshData && item.refreshData instanceof Function){
-                    item.refreshData();
-                }
-            })
-        }
     }
 
 

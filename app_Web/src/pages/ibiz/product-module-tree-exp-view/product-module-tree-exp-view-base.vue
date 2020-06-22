@@ -65,16 +65,6 @@ export default class ProductModuleTreeExpViewBase extends TreeExpViewBase {
         'MODULETYPE': { isRawValue: true, value: 'story' }
     };
 
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof ProductModuleTreeExpViewBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
@@ -113,6 +103,16 @@ export default class ProductModuleTreeExpViewBase extends TreeExpViewBase {
 
     };
 
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '84104216ff9049079f9442c9cbd54342';
 
 
     /**

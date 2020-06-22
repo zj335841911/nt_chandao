@@ -66,6 +66,7 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
+        fixpathLogic.execute(et);
         return true;
     }
 
@@ -88,6 +89,7 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
+        fixpathLogic.execute(et);
         return true;
     }
 

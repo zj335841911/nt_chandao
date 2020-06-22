@@ -81,16 +81,6 @@ export default class CaseMainEditViewBase extends EditViewBase {
         'SRFPARENTKEY': { isRawValue: false, value: 'case' }
     };
 
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof CaseMainEditViewBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
@@ -128,6 +118,16 @@ export default class CaseMainEditViewBase extends EditViewBase {
 
     };
 
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '8e070a3e9ad67b127db723463198f9ac';
 
 
     /**

@@ -13,7 +13,7 @@ export default class ProductBranch {
      * @type boolean
      * @memberof ProductBranch
      */
-    public isEnableCache:boolean = true;
+    public isEnableCache:boolean = false;
 
     /**
      * 过期时间

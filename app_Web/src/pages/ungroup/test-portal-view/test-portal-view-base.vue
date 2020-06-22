@@ -44,26 +44,6 @@ export default class TestPortalViewBase extends PortalViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
-	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof TestPortalViewBase
-	 */
-    protected customViewNavContexts: any = {
-    };
-
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof TestPortalViewBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
@@ -88,6 +68,16 @@ export default class TestPortalViewBase extends PortalViewBase {
     protected containerModel: any = {
         view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
     };
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'D1283E46-401A-4CFD-A7A1-BF5B90197463';
 
 
     /**

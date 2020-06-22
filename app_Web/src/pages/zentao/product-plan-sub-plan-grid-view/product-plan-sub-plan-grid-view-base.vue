@@ -85,16 +85,6 @@ export default class ProductPlanSubPlanGridViewBase extends GridViewBase {
         'ZT_PRODUCTPLAN': { isRawValue: false, value: 'SRFPARENTKEY' }
     };
 
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof ProductPlanSubPlanGridViewBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
@@ -137,6 +127,16 @@ export default class ProductPlanSubPlanGridViewBase extends GridViewBase {
 
     };
 
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '500950593bf64e5516bdb9b7db29b747';
 
 
     /**

@@ -66,26 +66,6 @@ export default class ActionProductTrendsListViewBase extends ListViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
-	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof ActionProductTrendsListViewBase
-	 */
-    protected customViewNavContexts: any = {
-    };
-
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof ActionProductTrendsListViewBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
@@ -110,6 +90,16 @@ export default class ActionProductTrendsListViewBase extends ListViewBase {
     protected containerModel: any = {
         view_list: { name: 'list', type: 'LIST' },
     };
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'f7a278d765ff0f85a2c59cbb2485fa30';
 
 
     /**

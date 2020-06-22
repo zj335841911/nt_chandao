@@ -27,12 +27,12 @@
 
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
-       <![CDATA[	SELECT t1.`BEGIN`, t1.`DATE`, t1.`DESC`, t1.`END`, t1.`ID`, t1.`IDVALUE`, t1.`NAME`, t1.`STATUS`, t1.`TODO`, t1.`TYPE`, t1.`USER` FROM `zt_effort` t1  
+		<![CDATA[ SELECT t1.`BEGIN`, t1.`DATE`, t1.`DESC`, t1.`END`, t1.`ID`, t1.`IDVALUE`, t1.`NAME`, t1.`STATUS`, t1.`TODO`, t1.`TYPE`, t1.`USER` FROM `zt_effort` t1  
 			]]>
     </sql>
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
-       <![CDATA[	SELECT t1.`BEGIN`, t1.`DATE`, t1.`DESC`, t1.`END`, t1.`ID`, t1.`IDVALUE`, t1.`NAME`, t1.`STATUS`, t1.`TODO`, t1.`TYPE`, t1.`USER` FROM `zt_effort` t1  
+		<![CDATA[ SELECT t1.`BEGIN`, t1.`DATE`, t1.`DESC`, t1.`END`, t1.`ID`, t1.`IDVALUE`, t1.`NAME`, t1.`STATUS`, t1.`TODO`, t1.`TYPE`, t1.`USER` FROM `zt_effort` t1  
 			]]>
     </sql>
 </mapper>

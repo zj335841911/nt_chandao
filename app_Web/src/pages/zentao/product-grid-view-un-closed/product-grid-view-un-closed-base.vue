@@ -72,16 +72,6 @@ export default class ProductGridView_UnClosedBase extends GridViewBase {
     protected counterServiceArray: Array<any> = [];
 
 	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof ProductGridView_UnClosedBase
-	 */
-    protected customViewNavContexts: any = {
-    };
-
-	/**
 	 * 自定义视图导航参数集合
 	 *
      * @protected
@@ -116,6 +106,16 @@ export default class ProductGridView_UnClosedBase extends GridViewBase {
     protected containerModel: any = {
         view_grid: { name: 'grid', type: 'GRID' },
     };
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '52e850ef857c81c2a96f5db0a84836f8';
 
 
     /**

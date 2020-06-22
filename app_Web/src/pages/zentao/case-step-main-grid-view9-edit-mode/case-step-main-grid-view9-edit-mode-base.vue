@@ -76,26 +76,6 @@ export default class CaseStepMainGridView9_EditModeBase extends GridView9Base {
      */    
     protected counterServiceArray: Array<any> = [];
 
-	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof CaseStepMainGridView9_EditModeBase
-	 */
-    protected customViewNavContexts: any = {
-    };
-
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof CaseStepMainGridView9_EditModeBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
@@ -135,6 +115,16 @@ export default class CaseStepMainGridView9_EditModeBase extends GridView9Base {
 
     };
 
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'ac71a1cfaecb07640c14f75b8f202b1e';
 
 
     /**

@@ -83,22 +83,14 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('assignedto')">
-                <el-table-column show-overflow-tooltip :prop="'assignedto'" :label="$t('entities.task.main_grid.columns.assignedto')" :width="150"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.task.main_grid.columns.assignedto')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <template >
-                            <a @click="uiAction(row, 'AssignTask', $event)">
-            <codelist :value="row.assignedto" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
-                            </a>
-                        </template>
-                    </template>
-                </el-table-column>
-            </template>
+            !!!!模版产生代码错误:----
+            Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+            ----
+            
+            ----
+            FTL stack trace ("~" means nesting-related):
+            	- Failed at: #assign uiaction = uiactionDetail.get...  [in template "TEMPLCODE_zh_CN" at line 140, column 17]
+            ----
             <template v-if="getColumnState('finishedby')">
                 <el-table-column show-overflow-tooltip :prop="'finishedby'" :label="$t('entities.task.main_grid.columns.finishedby')" :width="150"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
@@ -171,27 +163,27 @@
                     <template slot-scope="scope">
                         <span>
                             
-                            <a @click="uiAction(scope.row, 'StartTask', $event)">
+                            <a title="开始任务" @click="uiAction(scope.row, 'StartTask', $event)">
                               <i class='fa fa-play-circle-o'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'CloseTask', $event)">
+                            <a title="关闭任务" @click="uiAction(scope.row, 'CloseTask', $event)">
                               <i class='fa fa-power-off'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'DoneTask', $event)">
+                            <a title="完成任务" @click="uiAction(scope.row, 'DoneTask', $event)">
                               <i class='fa fa-check-square-o'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'MainEdit', $event)">
+                            <a title="主信息编辑" @click="uiAction(scope.row, 'MainEdit', $event)">
                               <i class='fa fa-edit'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'NewSubTask', $event)">
+                            <a title="批量新建子任务" @click="uiAction(scope.row, 'NewSubTask', $event)">
                               <i class='iconfont studio-icon-subnets'></i>
                               
                             </a>
@@ -242,86 +234,33 @@
 </div>
 </template>
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
-import { UIActionTool,Util } from '@/utils';
+import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, CtrlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import MainService from './main-grid-service';
-
 import TaskUIService from '@/uiservice/task/task-ui-service';
 import CodeListService from "@service/app/codelist-service";
 import { FormItemModel } from '@/model/form-detail';
 
 
+/**
+ * grid部件基类
+ *
+ * @export
+ * @class CtrlBase
+ * @extends {MainBase}
+ */
 @Component({
     components: {
       
     }
 })
-export default class MainBase extends Vue implements ControlInterface {
-
-    /**
-     * 名称
-     *
-     * @type {string}
-     * @memberof Main
-     */
-    @Prop() public name?: string;
-
-    /**
-     * 视图通讯对象
-     *
-     * @type {Subject<ViewState>}
-     * @memberof Main
-     */
-    @Prop() public viewState!: Subject<ViewState>;
-
-    /**
-     * 应用上下文
-     *
-     * @type {*}
-     * @memberof Main
-     */
-    @Prop() public context: any;
-
-    /**
-     * 视图参数
-     *
-     * @type {*}
-     * @memberof Main
-     */
-    @Prop() public viewparams: any;
-
-    /**
-     * 视图状态事件
-     *
-     * @public
-     * @type {(Subscription | undefined)}
-     * @memberof Main
-     */
-    public viewStateEvent: Subscription | undefined;
-
-    /**
-     * 获取部件类型
-     *
-     * @returns {string}
-     * @memberof Main
-     */
-    public getControlType(): string {
-        return 'GRID'
-    }
-
-
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @type {Array<*>}
-     * @memberof Main
-     */    
-    public counterServiceArray:Array<any> = [];
+@VueLifeCycleProcessing()
+export default class MainBase extends CtrlBase {
 
     /**
      * 建构部件服务对象
@@ -338,7 +277,6 @@ export default class MainBase extends Vue implements ControlInterface {
      * @memberof Main
      */
     public appEntityService: TaskService = new TaskService({ $store: this.$store });
-    
 
     /**
      * 逻辑事件
@@ -507,35 +445,6 @@ export default class MainBase extends Vue implements ControlInterface {
         const curUIService:TaskUIService  = new TaskUIService();
         curUIService.Task_NewSubTask(datas,contextJO, paramJO,  $event, xData,this,"Task");
     }
-
-
-    /**
-     * 关闭视图
-     *
-     * @param {any} args
-     * @memberof Main
-     */
-    public closeView(args: any): void {
-        let _this: any = this;
-        _this.$emit('closeview', [args]);
-    }
-
-    /**
-     *  计数器刷新
-     *
-     * @memberof Main
-     */
-    public counterRefresh(){
-        const _this:any =this;
-        if(_this.counterServiceArray && _this.counterServiceArray.length >0){
-            _this.counterServiceArray.forEach((item:any) =>{
-                if(item.refreshData && item.refreshData instanceof Function){
-                    item.refreshData();
-                }
-            })
-        }
-    }
-
 
     /**
      * 代码表服务对象

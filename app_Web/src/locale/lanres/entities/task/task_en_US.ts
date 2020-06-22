@@ -249,7 +249,7 @@ export default {
 			totaltime: "总计耗时", 
 			assignedto: "指派给", 
 			finisheddate: "实际完成", 
-			formitem: "附件", 
+			files: "附件", 
 			comment: "备注", 
 			id: "编号", 
 		},

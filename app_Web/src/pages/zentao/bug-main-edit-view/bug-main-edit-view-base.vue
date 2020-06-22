@@ -81,16 +81,6 @@ export default class BugMainEditViewBase extends EditViewBase {
         'SRFPARENTKEY': { isRawValue: false, value: 'bug' }
     };
 
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof BugMainEditViewBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
@@ -128,6 +118,16 @@ export default class BugMainEditViewBase extends EditViewBase {
 
     };
 
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '122af527bf38b47ddc53c882847b490e';
 
 
     /**

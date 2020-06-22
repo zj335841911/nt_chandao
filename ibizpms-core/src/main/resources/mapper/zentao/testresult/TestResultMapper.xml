@@ -67,12 +67,12 @@
 
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
-       <![CDATA[	SELECT t1.`CASE`, t1.`CASERESULT`, t1.`COMPILE`, t1.`DATE`, t1.`DURATION`, t1.`ID`, t1.`JOB`, t1.`LASTRUNNER`, t1.`RUN`, t1.`VERSION` FROM `zt_testresult` t1  
+		<![CDATA[ SELECT t1.`CASE`, t1.`CASERESULT`, t1.`COMPILE`, t1.`DATE`, t1.`DURATION`, t1.`ID`, t1.`JOB`, t1.`LASTRUNNER`, t1.`RUN`, t1.`VERSION` FROM `zt_testresult` t1  
 			]]>
     </sql>
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
-       <![CDATA[	SELECT t1.`CASE`, t1.`CASERESULT`, t1.`COMPILE`, t1.`DATE`, t1.`DURATION`, t1.`ID`, t1.`JOB`, t1.`LASTRUNNER`, t1.`RUN`, t1.`STEPRESULTS`, t1.`VERSION`, t1.`XML` FROM `zt_testresult` t1  
+		<![CDATA[ SELECT t1.`CASE`, t1.`CASERESULT`, t1.`COMPILE`, t1.`DATE`, t1.`DURATION`, t1.`ID`, t1.`JOB`, t1.`LASTRUNNER`, t1.`RUN`, t1.`STEPRESULTS`, t1.`VERSION`, t1.`XML` FROM `zt_testresult` t1  
 			]]>
     </sql>
 </mapper>

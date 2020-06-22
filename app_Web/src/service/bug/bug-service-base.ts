@@ -74,20 +74,23 @@ export default class BugServiceBase extends EntityService {
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan && context.bug){
-            return Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}`,isloading);
+            return res;
         }
         if(context.project && context.bug){
-            return Http.getInstance().get(`/projects/${context.project}/bugs/${context.bug}`,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/bugs/${context.bug}`,isloading);
+            return res;
         }
         if(context.productplan && context.bug){
-            return Http.getInstance().get(`/productplans/${context.productplan}/bugs/${context.bug}`,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/bugs/${context.bug}`,isloading);
+            return res;
         }
         if(context.product && context.bug){
-            return Http.getInstance().get(`/products/${context.product}/bugs/${context.bug}`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/bugs/${context.bug}`,isloading);
+            return res;
         }
             let res:any = await Http.getInstance().get(`/bugs/${context.bug}`,isloading);
             return res;
-
     }
 
     /**
@@ -101,16 +104,24 @@ export default class BugServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan && true){
-            return Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/bugs/getdraft`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/bugs/getdraft`,isloading);
+            res.data.bug = data.bug;
+            return res;
         }
         if(context.project && true){
-            return Http.getInstance().get(`/projects/${context.project}/bugs/getdraft`,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/bugs/getdraft`,isloading);
+            res.data.bug = data.bug;
+            return res;
         }
         if(context.productplan && true){
-            return Http.getInstance().get(`/productplans/${context.productplan}/bugs/getdraft`,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/bugs/getdraft`,isloading);
+            res.data.bug = data.bug;
+            return res;
         }
         if(context.product && true){
-            return Http.getInstance().get(`/products/${context.product}/bugs/getdraft`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/bugs/getdraft`,isloading);
+            res.data.bug = data.bug;
+            return res;
         }
         let res:any = await  Http.getInstance().get(`/bugs/getdraft`,isloading);
         res.data.bug = data.bug;
@@ -128,16 +139,28 @@ export default class BugServiceBase extends EntityService {
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}/checkkey`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}/checkkey`,data,isloading);
+            return res;
         }
         if(context.project && context.bug){
-            return Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/checkkey`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/checkkey`,data,isloading);
+            return res;
         }
         if(context.productplan && context.bug){
-            return Http.getInstance().post(`/productplans/${context.productplan}/bugs/${context.bug}/checkkey`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/bugs/${context.bug}/checkkey`,data,isloading);
+            return res;
         }
         if(context.product && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/checkkey`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/checkkey`,data,isloading);
+            return res;
         }
             return Http.getInstance().post(`/bugs/${context.bug}/checkkey`,data,isloading);
     }
@@ -153,16 +176,28 @@ export default class BugServiceBase extends EntityService {
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}/save`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}/save`,data,isloading);
+            return res;
         }
         if(context.project && context.bug){
-            return Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/save`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/save`,data,isloading);
+            return res;
         }
         if(context.productplan && context.bug){
-            return Http.getInstance().post(`/productplans/${context.productplan}/bugs/${context.bug}/save`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/bugs/${context.bug}/save`,data,isloading);
+            return res;
         }
         if(context.product && context.bug){
-            return Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/save`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/save`,data,isloading);
+            return res;
         }
         let masterData:any = {};
         Object.assign(data,masterData);
@@ -181,40 +216,56 @@ export default class BugServiceBase extends EntityService {
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
             if(!data.srffrontuf || data.srffrontuf !== "1"){
                 data[this.APPDEKEY] = null;
             }
             if(data.srffrontuf){
                 delete data.srffrontuf;
             }
-            return Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/bugs`,data,isloading);
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/bugs`,data,isloading);
+            return res;
         }
         if(context.project && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
             if(!data.srffrontuf || data.srffrontuf !== "1"){
                 data[this.APPDEKEY] = null;
             }
             if(data.srffrontuf){
                 delete data.srffrontuf;
             }
-            return Http.getInstance().post(`/projects/${context.project}/bugs`,data,isloading);
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs`,data,isloading);
+            return res;
         }
         if(context.productplan && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
             if(!data.srffrontuf || data.srffrontuf !== "1"){
                 data[this.APPDEKEY] = null;
             }
             if(data.srffrontuf){
                 delete data.srffrontuf;
             }
-            return Http.getInstance().post(`/productplans/${context.productplan}/bugs`,data,isloading);
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/bugs`,data,isloading);
+            return res;
         }
         if(context.product && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
             if(!data.srffrontuf || data.srffrontuf !== "1"){
                 data[this.APPDEKEY] = null;
             }
             if(data.srffrontuf){
                 delete data.srffrontuf;
             }
-            return Http.getInstance().post(`/products/${context.product}/bugs`,data,isloading);
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs`,data,isloading);
+            return res;
         }
         let masterData:any = {};
         Object.assign(data,masterData);
@@ -252,7 +303,6 @@ export default class BugServiceBase extends EntityService {
             return Http.getInstance().delete(`/products/${context.product}/bugs/${context.bug}`,isloading);
         }
             return Http.getInstance().delete(`/bugs/${context.bug}`,isloading);
-
     }
 
     /**
@@ -266,16 +316,28 @@ export default class BugServiceBase extends EntityService {
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan && context.bug){
-            return Http.getInstance().put(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}`,data,isloading);
+            return res;
         }
         if(context.project && context.bug){
-            return Http.getInstance().put(`/projects/${context.project}/bugs/${context.bug}`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/projects/${context.project}/bugs/${context.bug}`,data,isloading);
+            return res;
         }
         if(context.productplan && context.bug){
-            return Http.getInstance().put(`/productplans/${context.productplan}/bugs/${context.bug}`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/productplans/${context.productplan}/bugs/${context.bug}`,data,isloading);
+            return res;
         }
         if(context.product && context.bug){
-            return Http.getInstance().put(`/products/${context.product}/bugs/${context.bug}`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/bugs/${context.bug}`,data,isloading);
+            return res;
         }
         let masterData:any = {};
         Object.assign(data,masterData);

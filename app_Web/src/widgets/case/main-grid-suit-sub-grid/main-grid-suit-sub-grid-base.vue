@@ -149,12 +149,12 @@
                     <template slot-scope="scope">
                         <span>
                             
-                            <a @click="uiAction(scope.row, 'OpenTestRunResultView', $event)">
+                            <a title="打开结果视图" @click="uiAction(scope.row, 'OpenTestRunResultView', $event)">
                               <i class='fa fa-stack-overflow'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'Execute', $event)">
+                            <a title="执行测试" @click="uiAction(scope.row, 'Execute', $event)">
                               <i class='fa fa-play-circle-o'></i>
                               
                             </a>
@@ -205,86 +205,33 @@
 </div>
 </template>
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
-import { UIActionTool,Util } from '@/utils';
+import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, CtrlBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
 import MainGrid_SuitSubService from './main-grid-suit-sub-grid-service';
-
 import CaseUIService from '@/uiservice/case/case-ui-service';
 import CodeListService from "@service/app/codelist-service";
 import { FormItemModel } from '@/model/form-detail';
 
 
+/**
+ * grid部件基类
+ *
+ * @export
+ * @class CtrlBase
+ * @extends {MainGrid_SuitSubBase}
+ */
 @Component({
     components: {
       
     }
 })
-export default class MainGrid_SuitSubBase extends Vue implements ControlInterface {
-
-    /**
-     * 名称
-     *
-     * @type {string}
-     * @memberof MainGrid_SuitSub
-     */
-    @Prop() public name?: string;
-
-    /**
-     * 视图通讯对象
-     *
-     * @type {Subject<ViewState>}
-     * @memberof MainGrid_SuitSub
-     */
-    @Prop() public viewState!: Subject<ViewState>;
-
-    /**
-     * 应用上下文
-     *
-     * @type {*}
-     * @memberof MainGrid_SuitSub
-     */
-    @Prop() public context: any;
-
-    /**
-     * 视图参数
-     *
-     * @type {*}
-     * @memberof MainGrid_SuitSub
-     */
-    @Prop() public viewparams: any;
-
-    /**
-     * 视图状态事件
-     *
-     * @public
-     * @type {(Subscription | undefined)}
-     * @memberof MainGrid_SuitSub
-     */
-    public viewStateEvent: Subscription | undefined;
-
-    /**
-     * 获取部件类型
-     *
-     * @returns {string}
-     * @memberof MainGrid_SuitSub
-     */
-    public getControlType(): string {
-        return 'GRID'
-    }
-
-
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @type {Array<*>}
-     * @memberof MainGrid_SuitSub
-     */    
-    public counterServiceArray:Array<any> = [];
+@VueLifeCycleProcessing()
+export default class MainGrid_SuitSubBase extends CtrlBase {
 
     /**
      * 建构部件服务对象
@@ -301,7 +248,6 @@ export default class MainGrid_SuitSubBase extends Vue implements ControlInterfac
      * @memberof MainGrid_SuitSub
      */
     public appEntityService: CaseService = new CaseService({ $store: this.$store });
-    
 
     /**
      * 逻辑事件
@@ -358,35 +304,6 @@ export default class MainGrid_SuitSubBase extends Vue implements ControlInterfac
         const curUIService:CaseUIService  = new CaseUIService();
         curUIService.Case_Execute(datas,contextJO, paramJO,  $event, xData,this,"Case");
     }
-
-
-    /**
-     * 关闭视图
-     *
-     * @param {any} args
-     * @memberof MainGrid_SuitSub
-     */
-    public closeView(args: any): void {
-        let _this: any = this;
-        _this.$emit('closeview', [args]);
-    }
-
-    /**
-     *  计数器刷新
-     *
-     * @memberof MainGrid_SuitSub
-     */
-    public counterRefresh(){
-        const _this:any =this;
-        if(_this.counterServiceArray && _this.counterServiceArray.length >0){
-            _this.counterServiceArray.forEach((item:any) =>{
-                if(item.refreshData && item.refreshData instanceof Function){
-                    item.refreshData();
-                }
-            })
-        }
-    }
-
 
     /**
      * 代码表服务对象

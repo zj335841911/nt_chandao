@@ -75,16 +75,6 @@ export default class ProjectStatsEditView9Base extends EditView9Base {
         'PROJECTSTATS': { isRawValue: false, value: 'project' }
     };
 
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof ProjectStatsEditView9Base
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
@@ -109,6 +99,16 @@ export default class ProjectStatsEditView9Base extends EditView9Base {
     protected containerModel: any = {
         view_form: { name: 'form', type: 'FORM' },
     };
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'e444135470a806822b9b950e15c42a3e';
 
 
     /**

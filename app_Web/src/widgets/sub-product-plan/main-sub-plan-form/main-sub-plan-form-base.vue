@@ -91,85 +91,32 @@
 </template>
 
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
-import { UIActionTool,Util } from '@/utils';
+import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, CtrlBase } from '@/studio-core';
 import SubProductPlanService from '@/service/sub-product-plan/sub-product-plan-service';
 import MainSubPlanService from './main-sub-plan-form-service';
-
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 
+/**
+ * form部件基类
+ *
+ * @export
+ * @class CtrlBase
+ * @extends {MainSubPlanBase}
+ */
 @Component({
     components: {
       
     }
 })
-export default class MainSubPlanBase extends Vue implements ControlInterface {
-
-    /**
-     * 名称
-     *
-     * @type {string}
-     * @memberof MainSubPlan
-     */
-    @Prop() public name?: string;
-
-    /**
-     * 视图通讯对象
-     *
-     * @type {Subject<ViewState>}
-     * @memberof MainSubPlan
-     */
-    @Prop() public viewState!: Subject<ViewState>;
-
-    /**
-     * 应用上下文
-     *
-     * @type {*}
-     * @memberof MainSubPlan
-     */
-    @Prop() public context: any;
-
-    /**
-     * 视图参数
-     *
-     * @type {*}
-     * @memberof MainSubPlan
-     */
-    @Prop() public viewparams: any;
-
-    /**
-     * 视图状态事件
-     *
-     * @public
-     * @type {(Subscription | undefined)}
-     * @memberof MainSubPlan
-     */
-    public viewStateEvent: Subscription | undefined;
-
-    /**
-     * 获取部件类型
-     *
-     * @returns {string}
-     * @memberof MainSubPlan
-     */
-    public getControlType(): string {
-        return 'FORM'
-    }
-
-
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @type {Array<*>}
-     * @memberof MainSubPlan
-     */    
-    public counterServiceArray:Array<any> = [];
+@VueLifeCycleProcessing()
+export default class MainSubPlanBase extends CtrlBase {
 
     /**
      * 建构部件服务对象
@@ -186,7 +133,6 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
      * @memberof MainSubPlan
      */
     public appEntityService: SubProductPlanService = new SubProductPlanService({ $store: this.$store });
-    
 
     /**
      * 逻辑事件
@@ -275,6 +221,7 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
             });
         }
     }
+
     /**
      * 返回
      *
@@ -290,34 +237,6 @@ export default class MainSubPlanBase extends Vue implements ControlInterface {
         this.closeView(args);
         if(window.parent){
             window.parent.postMessage([{ ...args }],'*');
-        }
-    }
-
-
-    /**
-     * 关闭视图
-     *
-     * @param {any} args
-     * @memberof MainSubPlan
-     */
-    public closeView(args: any): void {
-        let _this: any = this;
-        _this.$emit('closeview', [args]);
-    }
-
-    /**
-     *  计数器刷新
-     *
-     * @memberof MainSubPlan
-     */
-    public counterRefresh(){
-        const _this:any =this;
-        if(_this.counterServiceArray && _this.counterServiceArray.length >0){
-            _this.counterServiceArray.forEach((item:any) =>{
-                if(item.refreshData && item.refreshData instanceof Function){
-                    item.refreshData();
-                }
-            })
         }
     }
 

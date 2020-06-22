@@ -83,6 +83,7 @@ export default class ProductStatsEditView9Base extends EditView9Base {
 	 * @memberof ProductStatsEditView9Base
 	 */
     protected customViewParams: any = {
+        'product': { isRawValue: false, value: 'product' }
     };
 
     /**
@@ -109,6 +110,16 @@ export default class ProductStatsEditView9Base extends EditView9Base {
     protected containerModel: any = {
         view_form: { name: 'form', type: 'FORM' },
     };
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '5d468f620cc30181773d875b3bb8be6e';
 
 
     /**

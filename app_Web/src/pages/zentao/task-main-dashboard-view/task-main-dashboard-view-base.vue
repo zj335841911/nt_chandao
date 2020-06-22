@@ -67,16 +67,6 @@ export default class TaskMainDashboardViewBase extends DashboardViewBase {
         'SRFPARENTKEY': { isRawValue: false, value: 'task' }
     };
 
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof TaskMainDashboardViewBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
@@ -101,6 +91,16 @@ export default class TaskMainDashboardViewBase extends DashboardViewBase {
     protected containerModel: any = {
         view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
     };
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '575fecad655143bbd28f17c581725a4e';
 
 
     /**

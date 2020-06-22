@@ -54,26 +54,6 @@ export default class ProductBugTreeExpViewBase extends TreeExpViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
-	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof ProductBugTreeExpViewBase
-	 */
-    protected customViewNavContexts: any = {
-    };
-
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof ProductBugTreeExpViewBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
@@ -98,6 +78,16 @@ export default class ProductBugTreeExpViewBase extends TreeExpViewBase {
     protected containerModel: any = {
         view_treeexpbar: { name: 'treeexpbar', type: 'TREEEXPBAR' },
     };
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'f78c94cb0a20d7f459753a4070f8f3e7';
 
 
     /**

@@ -101,7 +101,6 @@ export default class DeptServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             return Http.getInstance().delete(`/depts/${context.dept}`,isloading);
-
     }
 
     /**
@@ -147,7 +146,6 @@ export default class DeptServiceBase extends EntityService {
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().get(`/depts/${context.dept}`,isloading);
             return res;
-
     }
 
     /**

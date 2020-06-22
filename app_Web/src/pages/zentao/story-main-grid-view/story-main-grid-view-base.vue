@@ -88,16 +88,6 @@ export default class StoryMainGridViewBase extends GridViewBase {
         'OBJECTTYPE': { isRawValue: true, value: 'story' }
     };
 
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof StoryMainGridViewBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
@@ -138,6 +128,16 @@ export default class StoryMainGridViewBase extends GridViewBase {
 
     };
 
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'a2c585e16c82b5dec03db7146b9a6fa4';
 
 
     /**

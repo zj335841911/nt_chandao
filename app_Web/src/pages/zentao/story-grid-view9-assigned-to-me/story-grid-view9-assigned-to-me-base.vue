@@ -72,16 +72,6 @@ export default class StoryGridView9_AssignedToMeBase extends GridView9Base {
     protected counterServiceArray: Array<any> = [];
 
 	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof StoryGridView9_AssignedToMeBase
-	 */
-    protected customViewNavContexts: any = {
-    };
-
-	/**
 	 * 自定义视图导航参数集合
 	 *
      * @protected
@@ -116,6 +106,16 @@ export default class StoryGridView9_AssignedToMeBase extends GridView9Base {
     protected containerModel: any = {
         view_grid: { name: 'grid', type: 'GRID' },
     };
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '4b82e9acf6c784b138b365d6011b296b';
 
 
     /**

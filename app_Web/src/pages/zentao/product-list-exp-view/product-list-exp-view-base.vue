@@ -57,26 +57,6 @@ export default class ProductListExpViewBase extends ListExpViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
-	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof ProductListExpViewBase
-	 */
-    protected customViewNavContexts: any = {
-    };
-
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof ProductListExpViewBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
@@ -113,6 +93,16 @@ export default class ProductListExpViewBase extends ListExpViewBase {
 
     };
 
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'e396b6f39451e3bf963aec602106adf0';
 
 
     /**
@@ -206,6 +196,17 @@ export default class ProductListExpViewBase extends ListExpViewBase {
     this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
     }
 
+
+
+
+    /**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductListExpView
+     */
+    protected viewUID: string = 'zentao-product-list-exp-view';
 
 
 }

@@ -72,16 +72,6 @@ export default class TaskGridView9_AssignedToMeBase extends GridView9Base {
     protected counterServiceArray: Array<any> = [];
 
 	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof TaskGridView9_AssignedToMeBase
-	 */
-    protected customViewNavContexts: any = {
-    };
-
-	/**
 	 * 自定义视图导航参数集合
 	 *
      * @protected
@@ -116,6 +106,16 @@ export default class TaskGridView9_AssignedToMeBase extends GridView9Base {
     protected containerModel: any = {
         view_grid: { name: 'grid', type: 'GRID' },
     };
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '79b3a14f0431747becc48f5b9f3aa990';
 
 
     /**

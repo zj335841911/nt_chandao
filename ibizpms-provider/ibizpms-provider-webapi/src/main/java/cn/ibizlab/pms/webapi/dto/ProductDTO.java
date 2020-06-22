@@ -208,6 +208,22 @@ public class ProductDTO extends DTOBase implements Serializable {
     @JsonProperty("activestorycnt")
     private Integer activestorycnt;
 
+    /**
+     * 属性 [UNCONFIRMBUGCNT]
+     *
+     */
+    @JSONField(name = "unconfirmbugcnt")
+    @JsonProperty("unconfirmbugcnt")
+    private Integer unconfirmbugcnt;
+
+    /**
+     * 属性 [NOTCLOSEDBUGCNT]
+     *
+     */
+    @JSONField(name = "notclosedbugcnt")
+    @JsonProperty("notclosedbugcnt")
+    private Integer notclosedbugcnt;
+
 
     /**
      * 设置 [QD]

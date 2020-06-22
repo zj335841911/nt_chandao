@@ -1,6 +1,6 @@
 <template>
   <div class='tabviewpanel'>
-        <tabs :value="activiedTabViewPanel" :animated="false" class='tabexppanel' name='maintabexpviewtabexppanel' @on-click="tabPanelClick">
+        <tabs :value="activatedTabViewPanel" :animated="false" class='tabexppanel' name='maintabexpviewtabexppanel' @on-click="tabPanelClick">
         <tab-pane :index="0" name='tabviewpanel' tab='maintabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
@@ -97,83 +97,30 @@
   </div>
 </template>
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
-import { UIActionTool,Util } from '@/utils';
+import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, TabExpPanel } from '@/studio-core';
 import BuildService from '@/service/build/build-service';
 import MainTabExpViewtabexppanelService from './main-tab-exp-viewtabexppanel-tabexppanel-service';
 
 
-
+/**
+ * tabexppanel部件基类
+ *
+ * @export
+ * @class TabExpPanel
+ * @extends {MainTabExpViewtabexppanelBase}
+ */
 @Component({
     components: {
       
     }
 })
-export default class MainTabExpViewtabexppanelBase extends Vue implements ControlInterface {
-
-    /**
-     * 名称
-     *
-     * @type {string}
-     * @memberof MainTabExpViewtabexppanel
-     */
-    @Prop() public name?: string;
-
-    /**
-     * 视图通讯对象
-     *
-     * @type {Subject<ViewState>}
-     * @memberof MainTabExpViewtabexppanel
-     */
-    @Prop() public viewState!: Subject<ViewState>;
-
-    /**
-     * 应用上下文
-     *
-     * @type {*}
-     * @memberof MainTabExpViewtabexppanel
-     */
-    @Prop() public context: any;
-
-    /**
-     * 视图参数
-     *
-     * @type {*}
-     * @memberof MainTabExpViewtabexppanel
-     */
-    @Prop() public viewparams: any;
-
-    /**
-     * 视图状态事件
-     *
-     * @public
-     * @type {(Subscription | undefined)}
-     * @memberof MainTabExpViewtabexppanel
-     */
-    public viewStateEvent: Subscription | undefined;
-
-    /**
-     * 获取部件类型
-     *
-     * @returns {string}
-     * @memberof MainTabExpViewtabexppanel
-     */
-    public getControlType(): string {
-        return 'TABEXPPANEL'
-    }
-
-
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @type {Array<*>}
-     * @memberof MainTabExpViewtabexppanel
-     */    
-    public counterServiceArray:Array<any> = [];
+@VueLifeCycleProcessing()
+export default class MainTabExpViewtabexppanelBase extends TabExpPanel {
 
     /**
      * 建构部件服务对象
@@ -190,43 +137,14 @@ export default class MainTabExpViewtabexppanelBase extends Vue implements Contro
      * @memberof MainTabExpViewtabexppanel
      */
     public appEntityService: BuildService = new BuildService({ $store: this.$store });
-    
-
-
-    /**
-     * 关闭视图
-     *
-     * @param {any} args
-     * @memberof MainTabExpViewtabexppanel
-     */
-    public closeView(args: any): void {
-        let _this: any = this;
-        _this.$emit('closeview', [args]);
-    }
-
-    /**
-     *  计数器刷新
-     *
-     * @memberof MainTabExpViewtabexppanel
-     */
-    public counterRefresh(){
-        const _this:any =this;
-        if(_this.counterServiceArray && _this.counterServiceArray.length >0){
-            _this.counterServiceArray.forEach((item:any) =>{
-                if(item.refreshData && item.refreshData instanceof Function){
-                    item.refreshData();
-                }
-            })
-        }
-    }
-
     /**
      * 是否初始化
      *
+     * @protected
      * @returns {any}
      * @memberof MainTabExpViewtabexppanel
      */
-    public isInit: any = {
+    protected isInit: any = {
         tabviewpanel:  true ,
         tabviewpanel2:  false ,
         tabviewpanel3:  false ,
@@ -234,148 +152,41 @@ export default class MainTabExpViewtabexppanelBase extends Vue implements Contro
     }
 
     /**
-     * 获取多项数据
-     *
-     * @returns {any[]}
-     * @memberof MainTabExpViewtabexppanel
-     */
-    public getDatas(): any[] {
-        return [];
-    }
-
-    /**
-     * 获取单项树
-     *
-     * @returns {*}
-     * @memberof MainTabExpViewtabexppanel
-     */
-    public getData(): any {
-        return null;
-    }
-
-    /**
-     * 行为参数
-     *
-     * @public
-     * @type {*}
-     * @memberof MainTabExpViewtabexppanel
-     */
-    public action:any = '';
-
-    /**
      * 被激活的分页面板
      *
+     * @protected
      * @type {string}
      * @memberof MainTabExpViewtabexppanel
      */
-    public activiedTabViewPanel: string = 'tabviewpanel';
+    protected activatedTabViewPanel: string = 'tabviewpanel';
 
     /**
-     * 分页视图面板数据变更
+     * 组件创建完毕
      *
+     * @protected
      * @memberof MainTabExpViewtabexppanel
      */
-    public tabViewPanelDatasChange(){
-        this.counterRefresh();
-    }
-
-    /**
-     * vue 生命周期
-     *
-     * @returns
-     * @memberof MainTabExpViewtabexppanel
-     */
-    public created() {
-        this.afterCreated();
-    }
-
-    /**
-     * 执行created后的逻辑
-     *
-     *  @memberof MainTabExpViewtabexppanel
-     */
-    public afterCreated(){
+    protected ctrlCreated(): void {
         //设置分页导航srfparentdename和srfparentkey
         if (this.context.build) {
             Object.assign(this.context, { srfparentdename: 'Build', srfparentkey: this.context.build });
         }
-        if (this.viewState) {
-            this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
-                if (!Object.is(tag, this.name)) {
-                    return;
-                }
-                this.action = action;
-                this.viewState.next({ tag: this.activiedTabViewPanel, action: action, data: data });
-                this.$forceUpdate();
-            });
-        }
-    }
-
-    /**
-     * 组件加载完毕
-     *
-     *  @memberof MainTabExpViewtabexppanel
-     */
-    public mounted(): void {
-        if (this.viewparams) {
-            const activate = this.viewparams.srftabactivate;
-            if (activate && this.isInit[activate] !== undefined) {
-                for (const key in this.isInit) {
-                    if (this.isInit.hasOwnProperty(key)) {
-                        this.isInit[key] = false;
-                    }
-                }
-                this.$nextTick(() => {
-                    this.tabPanelClick(activate);
-                });
-            }
-        }
-    }
-
-    /**
-     * vue 生命周期
-     *
-     * @memberof MainTabExpViewtabexppanel
-     */
-    public destroyed() {
-        this.afterDestroy();
-    }
-
-    /**
-     * 执行destroyed后的逻辑
-     *
-     * @memberof MainTabExpViewtabexppanel
-     */
-    public afterDestroy() {
-        if (this.viewStateEvent) {
-            this.viewStateEvent.unsubscribe();
-        }
+        super.ctrlCreated();
     }
 
     /**
      * 分页面板选中
      *
-     * @param {*} $event
+     * @protected
+     * @param {*} e
      * @returns
      * @memberof MainTabExpViewtabexppanel
      */
-    public tabPanelClick($event: any) {
-        if (!$event) {
-            return;
-        }
-        this.isInit[$event] = true;
-        if (!this.viewState) {
-            return;
-        }
-        this.activiedTabViewPanel = $event;
-        this.viewState.next({ tag: this.activiedTabViewPanel, action: this.action, data: {}});
+    protected tabPanelClick(e: any): void {
+        super.tabPanelClick(e);
     }
-
-
-
 }
 </script>
-
 <style lang='less'>
 @import './main-tab-exp-viewtabexppanel-tabexppanel.less';
 </style>

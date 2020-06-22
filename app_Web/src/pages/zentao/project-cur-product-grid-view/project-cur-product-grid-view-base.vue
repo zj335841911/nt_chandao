@@ -75,16 +75,6 @@ export default class ProjectCurProductGridViewBase extends GridViewBase {
     protected counterServiceArray: Array<any> = [];
 
 	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof ProjectCurProductGridViewBase
-	 */
-    protected customViewNavContexts: any = {
-    };
-
-	/**
 	 * 自定义视图导航参数集合
 	 *
      * @protected
@@ -132,6 +122,16 @@ export default class ProjectCurProductGridViewBase extends GridViewBase {
 
     };
 
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '522b28992d16207a0fc47340589bb2cf';
 
 
     /**

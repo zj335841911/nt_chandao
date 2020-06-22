@@ -74,26 +74,6 @@ export default class ProjectModuleQuickCfgViewBase extends OptionViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
-	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof ProjectModuleQuickCfgViewBase
-	 */
-    protected customViewNavContexts: any = {
-    };
-
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof ProjectModuleQuickCfgViewBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
@@ -124,6 +104,16 @@ export default class ProjectModuleQuickCfgViewBase extends OptionViewBase {
         view_allleftbtn: { name: 'allleftbtn', type: 'button', text: '全部左移', disabled: true },
         view_allrightbtn: { name: 'allrightbtn', type: 'button', text: '全部右移', disabled: true },
     };
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '0568d197dda832ceb89ad0442ab9f230';
 
 
     /**

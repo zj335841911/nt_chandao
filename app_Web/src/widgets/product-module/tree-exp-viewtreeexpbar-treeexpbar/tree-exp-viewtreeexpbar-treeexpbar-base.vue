@@ -37,84 +37,31 @@
     </split>
 </template>
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
-import { UIActionTool,Util } from '@/utils';
+import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, CtrlBase } from '@/studio-core';
 import ProductModuleService from '@/service/product-module/product-module-service';
 import TreeExpViewtreeexpbarService from './tree-exp-viewtreeexpbar-treeexpbar-service';
-
 import ProductModuleUIService from '@/uiservice/product-module/product-module-ui-service';
 
 
+/**
+ * treeexpbar部件基类
+ *
+ * @export
+ * @class CtrlBase
+ * @extends {TreeExpViewtreeexpbarBase}
+ */
 @Component({
     components: {
       
     }
 })
-export default class TreeExpViewtreeexpbarBase extends Vue implements ControlInterface {
-
-    /**
-     * 名称
-     *
-     * @type {string}
-     * @memberof TreeExpViewtreeexpbar
-     */
-    @Prop() public name?: string;
-
-    /**
-     * 视图通讯对象
-     *
-     * @type {Subject<ViewState>}
-     * @memberof TreeExpViewtreeexpbar
-     */
-    @Prop() public viewState!: Subject<ViewState>;
-
-    /**
-     * 应用上下文
-     *
-     * @type {*}
-     * @memberof TreeExpViewtreeexpbar
-     */
-    @Prop() public context: any;
-
-    /**
-     * 视图参数
-     *
-     * @type {*}
-     * @memberof TreeExpViewtreeexpbar
-     */
-    @Prop() public viewparams: any;
-
-    /**
-     * 视图状态事件
-     *
-     * @public
-     * @type {(Subscription | undefined)}
-     * @memberof TreeExpViewtreeexpbar
-     */
-    public viewStateEvent: Subscription | undefined;
-
-    /**
-     * 获取部件类型
-     *
-     * @returns {string}
-     * @memberof TreeExpViewtreeexpbar
-     */
-    public getControlType(): string {
-        return 'TREEEXPBAR'
-    }
-
-
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @type {Array<*>}
-     * @memberof TreeExpViewtreeexpbar
-     */    
-    public counterServiceArray:Array<any> = [];
+@VueLifeCycleProcessing()
+export default class TreeExpViewtreeexpbarBase extends CtrlBase {
 
     /**
      * 建构部件服务对象
@@ -169,7 +116,6 @@ export default class TreeExpViewtreeexpbarBase extends Vue implements ControlInt
     public treeexpbar_tree_load($event: any, $event2?: any) {
         this.treeexpbar_load($event, 'treeexpbar_tree', $event2);
     }
-    
 
     /**
      * 逻辑事件
@@ -253,34 +199,6 @@ export default class TreeExpViewtreeexpbarBase extends Vue implements ControlInt
             _this.engine.load();
         }
     }
-
-    /**
-     * 关闭视图
-     *
-     * @param {any} args
-     * @memberof TreeExpViewtreeexpbar
-     */
-    public closeView(args: any): void {
-        let _this: any = this;
-        _this.$emit('closeview', [args]);
-    }
-
-    /**
-     *  计数器刷新
-     *
-     * @memberof TreeExpViewtreeexpbar
-     */
-    public counterRefresh(){
-        const _this:any =this;
-        if(_this.counterServiceArray && _this.counterServiceArray.length >0){
-            _this.counterServiceArray.forEach((item:any) =>{
-                if(item.refreshData && item.refreshData instanceof Function){
-                    item.refreshData();
-                }
-            })
-        }
-    }
-
 
     /**
      * 视图唯一标识

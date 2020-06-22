@@ -1,7 +1,7 @@
 <template>  
     <div :class="['app-list', this.items.length > 0 ? '' : 'app-list-empty' ]">
             <div v-if="items.length > 0" style="height:100%;">
-                                <product-list :items="items" @item-click="handleDblClick"/>
+                                <test-list :items="items" @item-click="handleDblClick"/>
             </div>
             <div v-else>
                 暂无数据
@@ -9,83 +9,30 @@
     </div>
 </template>
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
-import { UIActionTool,Util } from '@/utils';
+import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, CtrlBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import TestSidebarService from './test-sidebar-list-service';
 
 
-
+/**
+ * list部件基类
+ *
+ * @export
+ * @class CtrlBase
+ * @extends {TestSidebarBase}
+ */
 @Component({
     components: {
       
     }
 })
-export default class TestSidebarBase extends Vue implements ControlInterface {
-
-    /**
-     * 名称
-     *
-     * @type {string}
-     * @memberof TestSidebar
-     */
-    @Prop() public name?: string;
-
-    /**
-     * 视图通讯对象
-     *
-     * @type {Subject<ViewState>}
-     * @memberof TestSidebar
-     */
-    @Prop() public viewState!: Subject<ViewState>;
-
-    /**
-     * 应用上下文
-     *
-     * @type {*}
-     * @memberof TestSidebar
-     */
-    @Prop() public context: any;
-
-    /**
-     * 视图参数
-     *
-     * @type {*}
-     * @memberof TestSidebar
-     */
-    @Prop() public viewparams: any;
-
-    /**
-     * 视图状态事件
-     *
-     * @public
-     * @type {(Subscription | undefined)}
-     * @memberof TestSidebar
-     */
-    public viewStateEvent: Subscription | undefined;
-
-    /**
-     * 获取部件类型
-     *
-     * @returns {string}
-     * @memberof TestSidebar
-     */
-    public getControlType(): string {
-        return 'LIST'
-    }
-
-
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @type {Array<*>}
-     * @memberof TestSidebar
-     */    
-    public counterServiceArray:Array<any> = [];
+@VueLifeCycleProcessing()
+export default class TestSidebarBase extends CtrlBase {
 
     /**
      * 建构部件服务对象
@@ -102,36 +49,6 @@ export default class TestSidebarBase extends Vue implements ControlInterface {
      * @memberof TestSidebar
      */
     public appEntityService: ProductService = new ProductService({ $store: this.$store });
-    
-
-
-    /**
-     * 关闭视图
-     *
-     * @param {any} args
-     * @memberof TestSidebar
-     */
-    public closeView(args: any): void {
-        let _this: any = this;
-        _this.$emit('closeview', [args]);
-    }
-
-    /**
-     *  计数器刷新
-     *
-     * @memberof TestSidebar
-     */
-    public counterRefresh(){
-        const _this:any =this;
-        if(_this.counterServiceArray && _this.counterServiceArray.length >0){
-            _this.counterServiceArray.forEach((item:any) =>{
-                if(item.refreshData && item.refreshData instanceof Function){
-                    item.refreshData();
-                }
-            })
-        }
-    }
-
 
     /**
      * 获取多项数据

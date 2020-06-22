@@ -53,26 +53,6 @@ export default class ProductPlanMainTabExpBase extends TabExpViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
-	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof ProductPlanMainTabExpBase
-	 */
-    protected customViewNavContexts: any = {
-    };
-
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof ProductPlanMainTabExpBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
@@ -97,6 +77,16 @@ export default class ProductPlanMainTabExpBase extends TabExpViewBase {
     protected containerModel: any = {
         view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
     };
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '08ca1b1e6234a0d038e1fbf52478ea7f';
 
 
     /**

@@ -66,11 +66,77 @@ export class CtrlBase extends Vue {
     /**
      * 获取部件类型
      *
-     * @returns {string}
+     * @protected
+     * @type {string} 需子类指定具体类型
      * @memberof CtrlBase
      */
-    public getControlType(): string {
-        throw new Error('getControlType方法需重写');
+    protected controlType: string = '';
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @protected
+     * @type {any[]}
+     * @memberof CtrlBase
+     */
+    protected counterServiceArray: any[] = [];
+
+    /**
+     * 组件创建完毕
+     *
+     * @memberof CtrlBase
+     */
+    public created(): void {
+        this.ctrlCreated();
+    }
+
+    /**
+     * 部件创建完毕
+     *
+     * @protected
+     * @memberof CtrlBase
+     */
+    protected ctrlCreated(): void { }
+
+    /**
+     * 组件挂载完毕
+     *
+     * @memberof CtrlBase
+     */
+    public mounted(): void {
+        this.ctrlMounted();
+    }
+
+    /**
+     * 部件挂载完毕
+     *
+     * @protected
+     * @memberof CtrlBase
+     */
+    protected ctrlMounted(): void { }
+
+    /**
+     * 组件销毁
+     *
+     * @memberof CtrlBase
+     */
+    public destroyed(): void {
+        if (this.viewStateEvent) {
+            this.viewStateEvent.unsubscribe();
+        }
+    }
+
+    /**
+     * 计数器刷新
+     *
+     * @memberof CtrlBase
+     */
+    public counterRefresh(): void {
+        this.counterServiceArray.forEach((item: any) => {
+            if (item.refreshData && item.refreshData instanceof Function) {
+                item.refreshData();
+            }
+        });
     }
 
     /**

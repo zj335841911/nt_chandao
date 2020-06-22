@@ -39,83 +39,30 @@
 
 
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
-import { UIActionTool,Util } from '@/utils';
+import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, CtrlBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import TestListExpViewlistexpbarService from './test-list-exp-viewlistexpbar-listexpbar-service';
 
 
-
+/**
+ * listexpbar部件基类
+ *
+ * @export
+ * @class CtrlBase
+ * @extends {TestListExpViewlistexpbarBase}
+ */
 @Component({
     components: {
       
     }
 })
-export default class TestListExpViewlistexpbarBase extends Vue implements ControlInterface {
-
-    /**
-     * 名称
-     *
-     * @type {string}
-     * @memberof TestListExpViewlistexpbar
-     */
-    @Prop() public name?: string;
-
-    /**
-     * 视图通讯对象
-     *
-     * @type {Subject<ViewState>}
-     * @memberof TestListExpViewlistexpbar
-     */
-    @Prop() public viewState!: Subject<ViewState>;
-
-    /**
-     * 应用上下文
-     *
-     * @type {*}
-     * @memberof TestListExpViewlistexpbar
-     */
-    @Prop() public context: any;
-
-    /**
-     * 视图参数
-     *
-     * @type {*}
-     * @memberof TestListExpViewlistexpbar
-     */
-    @Prop() public viewparams: any;
-
-    /**
-     * 视图状态事件
-     *
-     * @public
-     * @type {(Subscription | undefined)}
-     * @memberof TestListExpViewlistexpbar
-     */
-    public viewStateEvent: Subscription | undefined;
-
-    /**
-     * 获取部件类型
-     *
-     * @returns {string}
-     * @memberof TestListExpViewlistexpbar
-     */
-    public getControlType(): string {
-        return 'LISTEXPBAR'
-    }
-
-
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @type {Array<*>}
-     * @memberof TestListExpViewlistexpbar
-     */    
-    public counterServiceArray:Array<any> = [];
+@VueLifeCycleProcessing()
+export default class TestListExpViewlistexpbarBase extends CtrlBase {
 
     /**
      * 建构部件服务对象
@@ -154,36 +101,6 @@ export default class TestListExpViewlistexpbarBase extends Vue implements Contro
     public listexpbar_list_load($event: any, $event2?: any) {
         this.listexpbar_load($event, 'listexpbar_list', $event2);
     }
-    
-
-
-    /**
-     * 关闭视图
-     *
-     * @param {any} args
-     * @memberof TestListExpViewlistexpbar
-     */
-    public closeView(args: any): void {
-        let _this: any = this;
-        _this.$emit('closeview', [args]);
-    }
-
-    /**
-     *  计数器刷新
-     *
-     * @memberof TestListExpViewlistexpbar
-     */
-    public counterRefresh(){
-        const _this:any =this;
-        if(_this.counterServiceArray && _this.counterServiceArray.length >0){
-            _this.counterServiceArray.forEach((item:any) =>{
-                if(item.refreshData && item.refreshData instanceof Function){
-                    item.refreshData();
-                }
-            })
-        }
-    }
-
 
 
     /**

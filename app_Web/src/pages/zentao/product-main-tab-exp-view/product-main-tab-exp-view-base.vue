@@ -61,16 +61,6 @@ export default class ProductMainTabExpViewBase extends TabExpViewBase {
         'OBJECTTYPE': { isRawValue: true, value: 'product' }
     };
 
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof ProductMainTabExpViewBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
@@ -95,6 +85,16 @@ export default class ProductMainTabExpViewBase extends TabExpViewBase {
     protected containerModel: any = {
         view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
     };
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '6c7b582273d0726bcf77214807cfe40c';
 
 
     /**

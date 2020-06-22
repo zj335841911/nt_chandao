@@ -65,7 +65,9 @@ export default class StoryServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
-            return Http.getInstance().get(`/products/${context.product}/stories/getdraft`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/getdraft`,isloading);
+            res.data.story = data.story;
+            return res;
         }
         let res:any = await  Http.getInstance().get(`/stories/getdraft`,isloading);
         res.data.story = data.story;
@@ -83,13 +85,17 @@ export default class StoryServiceBase extends EntityService {
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
             if(!data.srffrontuf || data.srffrontuf !== "1"){
                 data[this.APPDEKEY] = null;
             }
             if(data.srffrontuf){
                 delete data.srffrontuf;
             }
-            return Http.getInstance().post(`/products/${context.product}/stories`,data,isloading);
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories`,data,isloading);
+            return res;
         }
         let masterData:any = {};
         Object.assign(data,masterData);
@@ -115,7 +121,10 @@ export default class StoryServiceBase extends EntityService {
      */
     public async BatchChangeStage(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchchangestage`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchchangestage`,data,isloading);
+            return res;
         }
             return Http.getInstance().post(`/stories/${context.story}/batchchangestage`,data,isloading);
     }
@@ -131,7 +140,10 @@ export default class StoryServiceBase extends EntityService {
      */
     public async BatchChangePlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchchangeplan`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchchangeplan`,data,isloading);
+            return res;
         }
             return Http.getInstance().post(`/stories/${context.story}/batchchangeplan`,data,isloading);
     }
@@ -147,7 +159,10 @@ export default class StoryServiceBase extends EntityService {
      */
     public async BatchClose(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchclose`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchclose`,data,isloading);
+            return res;
         }
             return Http.getInstance().post(`/stories/${context.story}/batchclose`,data,isloading);
     }
@@ -163,7 +178,10 @@ export default class StoryServiceBase extends EntityService {
      */
     public async Change(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/change`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/change`,data,isloading);
+            return res;
         }
             return Http.getInstance().post(`/stories/${context.story}/change`,data,isloading);
     }
@@ -179,7 +197,10 @@ export default class StoryServiceBase extends EntityService {
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/checkkey`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/checkkey`,data,isloading);
+            return res;
         }
             return Http.getInstance().post(`/stories/${context.story}/checkkey`,data,isloading);
     }
@@ -198,7 +219,6 @@ export default class StoryServiceBase extends EntityService {
             return Http.getInstance().delete(`/products/${context.product}/stories/${context.story}`,isloading);
         }
             return Http.getInstance().delete(`/stories/${context.story}`,isloading);
-
     }
 
     /**
@@ -212,7 +232,10 @@ export default class StoryServiceBase extends EntityService {
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
-            return Http.getInstance().put(`/products/${context.product}/stories/${context.story}`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/stories/${context.story}`,data,isloading);
+            return res;
         }
         let masterData:any = {};
         Object.assign(data,masterData);
@@ -231,7 +254,10 @@ export default class StoryServiceBase extends EntityService {
      */
     public async BatchChangeBranch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchchangebranch`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchchangebranch`,data,isloading);
+            return res;
         }
             return Http.getInstance().post(`/stories/${context.story}/batchchangebranch`,data,isloading);
     }
@@ -247,7 +273,10 @@ export default class StoryServiceBase extends EntityService {
      */
     public async BatchReview(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchreview`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchreview`,data,isloading);
+            return res;
         }
             return Http.getInstance().post(`/stories/${context.story}/batchreview`,data,isloading);
     }
@@ -263,7 +292,10 @@ export default class StoryServiceBase extends EntityService {
      */
     public async Review(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/review`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/review`,data,isloading);
+            return res;
         }
             return Http.getInstance().post(`/stories/${context.story}/review`,data,isloading);
     }
@@ -279,7 +311,10 @@ export default class StoryServiceBase extends EntityService {
      */
     public async AssignTo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/assignto`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/assignto`,data,isloading);
+            return res;
         }
             return Http.getInstance().post(`/stories/${context.story}/assignto`,data,isloading);
     }
@@ -295,7 +330,10 @@ export default class StoryServiceBase extends EntityService {
      */
     public async BatchAssignTo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchassignto`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchassignto`,data,isloading);
+            return res;
         }
             return Http.getInstance().post(`/stories/${context.story}/batchassignto`,data,isloading);
     }
@@ -311,11 +349,11 @@ export default class StoryServiceBase extends EntityService {
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
-            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}`,isloading);
+            return res;
         }
             let res:any = await Http.getInstance().get(`/stories/${context.story}`,isloading);
             return res;
-
     }
 
     /**
@@ -329,7 +367,10 @@ export default class StoryServiceBase extends EntityService {
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/save`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/save`,data,isloading);
+            return res;
         }
         let masterData:any = {};
         Object.assign(data,masterData);
@@ -348,7 +389,10 @@ export default class StoryServiceBase extends EntityService {
      */
     public async BatchChangeModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchchangemodule`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchchangemodule`,data,isloading);
+            return res;
         }
             return Http.getInstance().post(`/stories/${context.story}/batchchangemodule`,data,isloading);
     }
@@ -364,7 +408,10 @@ export default class StoryServiceBase extends EntityService {
      */
     public async Close(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/close`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/close`,data,isloading);
+            return res;
         }
             return Http.getInstance().post(`/stories/${context.story}/close`,data,isloading);
     }

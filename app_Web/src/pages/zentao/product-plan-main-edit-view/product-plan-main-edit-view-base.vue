@@ -75,16 +75,6 @@ export default class ProductPlanMainEditViewBase extends EditViewBase {
         'OBJECTTYPE': { isRawValue: true, value: 'productplan' }
     };
 
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof ProductPlanMainEditViewBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
@@ -109,6 +99,16 @@ export default class ProductPlanMainEditViewBase extends EditViewBase {
     protected containerModel: any = {
         view_form: { name: 'form', type: 'FORM' },
     };
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '17831eefddbb65ba3bda7534b8ef8d09';
 
 
     /**

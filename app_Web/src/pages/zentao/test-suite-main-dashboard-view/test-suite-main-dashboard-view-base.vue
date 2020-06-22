@@ -67,16 +67,6 @@ export default class TestSuiteMainDashboardViewBase extends DashboardViewBase {
         'SRFPARENTKEY': { isRawValue: false, value: 'testsuite' }
     };
 
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof TestSuiteMainDashboardViewBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
@@ -101,6 +91,16 @@ export default class TestSuiteMainDashboardViewBase extends DashboardViewBase {
     protected containerModel: any = {
         view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
     };
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'c2e4200fb7c9760b4931b43561289980';
 
 
     /**

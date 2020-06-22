@@ -84,26 +84,6 @@ export default class ProductPickupGridViewBase extends PickupViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
-	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof ProductPickupGridViewBase
-	 */
-    protected customViewNavContexts: any = {
-    };
-
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof ProductPickupGridViewBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
@@ -129,6 +109,16 @@ export default class ProductPickupGridViewBase extends PickupViewBase {
         view_grid: { name: 'grid', type: 'GRID' },
         view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
     };
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '8d53a973712c13f448efb8e2182ccc0b';
 
 
     /**

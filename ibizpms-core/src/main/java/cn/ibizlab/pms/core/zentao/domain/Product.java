@@ -208,6 +208,20 @@ public class Product extends EntityMP implements Serializable {
     @JSONField(name = "activestorycnt")
     @JsonProperty("activestorycnt")
     private Integer activestorycnt;
+    /**
+     * 未确认Bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "unconfirmbugcnt")
+    @JsonProperty("unconfirmbugcnt")
+    private Integer unconfirmbugcnt;
+    /**
+     * 未关闭Bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "notclosedbugcnt")
+    @JsonProperty("notclosedbugcnt")
+    private Integer notclosedbugcnt;
 
     /**
      * 产品线

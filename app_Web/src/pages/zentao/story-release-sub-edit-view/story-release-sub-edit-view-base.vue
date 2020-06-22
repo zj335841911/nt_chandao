@@ -70,16 +70,6 @@ export default class StoryReleaseSubEditViewBase extends EditViewBase {
     protected counterServiceArray: Array<any> = [];
 
 	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof StoryReleaseSubEditViewBase
-	 */
-    protected customViewNavContexts: any = {
-    };
-
-	/**
 	 * 自定义视图导航参数集合
 	 *
      * @protected
@@ -127,6 +117,16 @@ export default class StoryReleaseSubEditViewBase extends EditViewBase {
 
     };
 
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '928e6614bcfbd67af3b596cf5dc5a46b';
 
 
     /**

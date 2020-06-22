@@ -75,7 +75,6 @@ export default class TestRunServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             return Http.getInstance().delete(`/testruns/${context.testrun}`,isloading);
-
     }
 
     /**
@@ -121,7 +120,6 @@ export default class TestRunServiceBase extends EntityService {
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().get(`/testruns/${context.testrun}`,isloading);
             return res;
-
     }
 
     /**

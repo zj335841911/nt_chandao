@@ -11,8 +11,15 @@ import view_tabviewpanel8 from '@widgets/project/main-tab-exp-viewtabviewpanel8-
 import view_tabviewpanel9 from '@widgets/project/main-tab-exp-viewtabviewpanel9-tabviewpanel/main-tab-exp-viewtabviewpanel9-tabviewpanel.vue';
 import view_tabviewpanel3 from '@widgets/project/main-tab-exp-viewtabviewpanel3-tabviewpanel/main-tab-exp-viewtabviewpanel3-tabviewpanel.vue';
 import view_tabviewpanel10 from '@widgets/project/main-tab-exp-viewtabviewpanel10-tabviewpanel/main-tab-exp-viewtabviewpanel10-tabviewpanel.vue';
-
  
+
+/**
+ * tabexppanel部件
+ *
+ * @export
+ * @class MainTabExpViewtabexppanel
+ * @extends {MainTabExpViewtabexppanelBase}
+ */
 @Component({
     components: {
         view_tabviewpanel, 
@@ -28,7 +35,5 @@ import view_tabviewpanel10 from '@widgets/project/main-tab-exp-viewtabviewpanel1
          
     }
 })
-export default class MainTabExpViewtabexppanel extends MainTabExpViewtabexppanelBase {
-
-}
+export default class MainTabExpViewtabexppanel extends MainTabExpViewtabexppanelBase { }
 </script>

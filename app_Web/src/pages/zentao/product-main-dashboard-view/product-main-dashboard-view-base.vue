@@ -52,26 +52,6 @@ export default class ProductMainDashboardViewBase extends DashboardViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
-	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof ProductMainDashboardViewBase
-	 */
-    protected customViewNavContexts: any = {
-    };
-
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof ProductMainDashboardViewBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
@@ -96,6 +76,16 @@ export default class ProductMainDashboardViewBase extends DashboardViewBase {
     protected containerModel: any = {
         view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
     };
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'bc36be2ee4a78e69c13665a8ad03ab6a';
 
 
     /**

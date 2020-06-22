@@ -58,9 +58,9 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='formitem' :itemRules="this.rules.formitem" class='' :caption="$t('entities.task.completeform_form.details.formitem')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange" :data="JSON.stringify(this.data)" name='formitem' :value="data.formitem" :disabled="detailsModel.formitem.disabled" uploadparams='' exportparams='' :customparams="{}" style="overflow: auto;"></app-file-upload>
+<i-col v-show="detailsModel.files.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='files' :itemRules="this.rules.files" class='' :caption="$t('entities.task.completeform_form.details.files')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.files.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange" :data="JSON.stringify(this.data)" name='files' :value="data.files" :disabled="detailsModel.files.disabled" uploadparams='{objecttype:'task',objectid:%id%}' exportparams='{objecttype:'task',objectid:%id%}' :customparams="{}" style="overflow: auto;"></app-file-upload>
 </app-form-item>
 
 </i-col>
@@ -115,85 +115,32 @@
 </template>
 
 <script lang='tsx'>
-import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
+import { Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
-import { UIActionTool,Util } from '@/utils';
+import { UIActionTool, Util } from '@/utils';
+import { VueLifeCycleProcessing, CtrlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import CompleteFormService from './complete-form-form-service';
-
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 
+/**
+ * form部件基类
+ *
+ * @export
+ * @class CtrlBase
+ * @extends {CompleteFormBase}
+ */
 @Component({
     components: {
       
     }
 })
-export default class CompleteFormBase extends Vue implements ControlInterface {
-
-    /**
-     * 名称
-     *
-     * @type {string}
-     * @memberof CompleteForm
-     */
-    @Prop() public name?: string;
-
-    /**
-     * 视图通讯对象
-     *
-     * @type {Subject<ViewState>}
-     * @memberof CompleteForm
-     */
-    @Prop() public viewState!: Subject<ViewState>;
-
-    /**
-     * 应用上下文
-     *
-     * @type {*}
-     * @memberof CompleteForm
-     */
-    @Prop() public context: any;
-
-    /**
-     * 视图参数
-     *
-     * @type {*}
-     * @memberof CompleteForm
-     */
-    @Prop() public viewparams: any;
-
-    /**
-     * 视图状态事件
-     *
-     * @public
-     * @type {(Subscription | undefined)}
-     * @memberof CompleteForm
-     */
-    public viewStateEvent: Subscription | undefined;
-
-    /**
-     * 获取部件类型
-     *
-     * @returns {string}
-     * @memberof CompleteForm
-     */
-    public getControlType(): string {
-        return 'FORM'
-    }
-
-
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @type {Array<*>}
-     * @memberof CompleteForm
-     */    
-    public counterServiceArray:Array<any> = [];
+@VueLifeCycleProcessing()
+export default class CompleteFormBase extends CtrlBase {
 
     /**
      * 建构部件服务对象
@@ -210,36 +157,6 @@ export default class CompleteFormBase extends Vue implements ControlInterface {
      * @memberof CompleteForm
      */
     public appEntityService: TaskService = new TaskService({ $store: this.$store });
-    
-
-
-    /**
-     * 关闭视图
-     *
-     * @param {any} args
-     * @memberof CompleteForm
-     */
-    public closeView(args: any): void {
-        let _this: any = this;
-        _this.$emit('closeview', [args]);
-    }
-
-    /**
-     *  计数器刷新
-     *
-     * @memberof CompleteForm
-     */
-    public counterRefresh(){
-        const _this:any =this;
-        if(_this.counterServiceArray && _this.counterServiceArray.length >0){
-            _this.counterServiceArray.forEach((item:any) =>{
-                if(item.refreshData && item.refreshData instanceof Function){
-                    item.refreshData();
-                }
-            })
-        }
-    }
-
 
     /**
      * 工作流审批意见控件绑定值
@@ -419,7 +336,7 @@ export default class CompleteFormBase extends Vue implements ControlInterface {
         totaltime: null,
         assignedto: null,
         finisheddate: null,
-        formitem: null,
+        files: null,
         comment: null,
         id: null,
         task:null,
@@ -542,7 +459,7 @@ export default class CompleteFormBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '实际完成 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '实际完成 值不能为空', trigger: 'blur' },
         ],
-        formitem: [
+        files: [
             { type: 'string', message: '附件 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '附件 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '附件 值不能为空', trigger: 'change' },
@@ -603,7 +520,7 @@ export default class CompleteFormBase extends Vue implements ControlInterface {
 , 
         finisheddate: new FormItemModel({ caption: '实际完成', detailType: 'FORMITEM', name: 'finisheddate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        formitem: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -768,15 +685,15 @@ export default class CompleteFormBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 formitem 值
+     * 监控表单属性 files 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof CompleteForm
      */
-    @Watch('data.formitem')
-    onFormitemChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'formitem', newVal: newVal, oldVal: oldVal });
+    @Watch('data.files')
+    onFilesChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'files', newVal: newVal, oldVal: oldVal });
     }
 
     /**

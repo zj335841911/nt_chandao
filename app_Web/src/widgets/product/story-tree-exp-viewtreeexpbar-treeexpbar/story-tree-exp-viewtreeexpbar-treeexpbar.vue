@@ -2,15 +2,20 @@
 import { Component } from 'vue-property-decorator';
 import StoryTreeExpViewtreeexpbarBase from './story-tree-exp-viewtreeexpbar-treeexpbar-base.vue';
 import view_treeexpbar_tree from '@widgets/product-module/exp-treeview/exp-treeview.vue';
-
  
+
+/**
+ * treeexpbar部件
+ *
+ * @export
+ * @class StoryTreeExpViewtreeexpbar
+ * @extends {StoryTreeExpViewtreeexpbarBase}
+ */
 @Component({
     components: {
         view_treeexpbar_tree, 
          
     }
 })
-export default class StoryTreeExpViewtreeexpbar extends StoryTreeExpViewtreeexpbarBase {
-
-}
+export default class StoryTreeExpViewtreeexpbar extends StoryTreeExpViewtreeexpbarBase { }
 </script>

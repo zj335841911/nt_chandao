@@ -67,16 +67,6 @@ export default class StoryMainView_EditModeBase extends DashboardViewBase {
         'SRFPARENTKEY': { isRawValue: false, value: 'story' }
     };
 
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof StoryMainView_EditModeBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
@@ -101,6 +91,16 @@ export default class StoryMainView_EditModeBase extends DashboardViewBase {
     protected containerModel: any = {
         view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
     };
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '7e14015af219d302f7d81ff40cdcc418';
 
 
     /**

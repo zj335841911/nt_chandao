@@ -67,16 +67,6 @@ export default class BugMainDashboardViewBase extends DashboardViewBase {
         'SRFPARENTKEY': { isRawValue: false, value: 'bug' }
     };
 
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof BugMainDashboardViewBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
@@ -101,6 +91,16 @@ export default class BugMainDashboardViewBase extends DashboardViewBase {
     protected containerModel: any = {
         view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
     };
+
+
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '1540523a668e920d831510cfbec2c5e2';
 
 
     /**

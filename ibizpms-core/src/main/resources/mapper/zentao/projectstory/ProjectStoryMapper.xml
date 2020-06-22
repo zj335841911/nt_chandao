@@ -57,12 +57,12 @@
 
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
-       <![CDATA[	SELECT concat(t1.`PROJECT`,'__',t1.`STORY`) AS `ID`, t1.`ORDER`, t1.`PRODUCT`, t1.`PROJECT`, t1.`STORY`, t1.`VERSION` FROM `zt_projectstory` t1  
+		<![CDATA[ SELECT concat(t1.`PROJECT`,'__',t1.`STORY`) AS `ID`, t1.`ORDER`, t1.`PRODUCT`, t1.`PROJECT`, t1.`STORY`, t1.`VERSION` FROM `zt_projectstory` t1  
 			]]>
     </sql>
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
-       <![CDATA[	SELECT concat(t1.`PROJECT`,'__',t1.`STORY`) AS `ID`, t1.`ORDER`, t1.`PRODUCT`, t1.`PROJECT`, t1.`STORY`, t1.`VERSION` FROM `zt_projectstory` t1  
+		<![CDATA[ SELECT concat(t1.`PROJECT`,'__',t1.`STORY`) AS `ID`, t1.`ORDER`, t1.`PRODUCT`, t1.`PROJECT`, t1.`STORY`, t1.`VERSION` FROM `zt_projectstory` t1  
 			]]>
     </sql>
 </mapper>
