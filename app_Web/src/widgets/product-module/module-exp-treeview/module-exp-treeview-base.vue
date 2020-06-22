@@ -1055,12 +1055,14 @@ export default class ModuleExpBase extends CtrlBase {
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.branchs_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
                             !!!!模版产生代码错误:----
+                    Tip: It's the step after the last dot that caused this error, not those before it.
+                    ----
                     Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
                     ----
                     
                     ----
                     FTL stack trace ("~" means nesting-related):
-                    	- Failed at: #if obj.getPSAppDataEntity?? && obj.g...  [in template "TEMPLCODE_zh_CN" at line 4, column 65]
+                    	- Failed at: ${item.getUIActionTag()?lower_case}  [in template "TEMPLCODE_zh_CN" at line 4, column 187]
                     ----
                 </dropdown-menu>
             </dropdown>
@@ -1079,12 +1081,14 @@ export default class ModuleExpBase extends CtrlBase {
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.all_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
                             !!!!模版产生代码错误:----
+                    Tip: It's the step after the last dot that caused this error, not those before it.
+                    ----
                     Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
                     ----
                     
                     ----
                     FTL stack trace ("~" means nesting-related):
-                    	- Failed at: #if obj.getPSAppDataEntity?? && obj.g...  [in template "TEMPLCODE_zh_CN" at line 4, column 65]
+                    	- Failed at: ${item.getUIActionTag()?lower_case}  [in template "TEMPLCODE_zh_CN" at line 4, column 187]
                     ----
                 </dropdown-menu>
             </dropdown>
@@ -1103,20 +1107,24 @@ export default class ModuleExpBase extends CtrlBase {
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.module_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
                             !!!!模版产生代码错误:----
+                    Tip: It's the step after the last dot that caused this error, not those before it.
+                    ----
                     Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
                     ----
                     
                     ----
                     FTL stack trace ("~" means nesting-related):
-                    	- Failed at: #if obj.getPSAppDataEntity?? && obj.g...  [in template "TEMPLCODE_zh_CN" at line 4, column 65]
+                    	- Failed at: ${item.getUIActionTag()?lower_case}  [in template "TEMPLCODE_zh_CN" at line 4, column 187]
                     ----
                             !!!!模版产生代码错误:----
+                    Tip: It's the step after the last dot that caused this error, not those before it.
+                    ----
                     Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
                     ----
                     
                     ----
                     FTL stack trace ("~" means nesting-related):
-                    	- Failed at: #if obj.getPSAppDataEntity?? && obj.g...  [in template "TEMPLCODE_zh_CN" at line 4, column 65]
+                    	- Failed at: ${item.getUIActionTag()?lower_case}  [in template "TEMPLCODE_zh_CN" at line 4, column 187]
                     ----
                 </dropdown-menu>
             </dropdown>
@@ -1135,20 +1143,24 @@ export default class ModuleExpBase extends CtrlBase {
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.rootmodule_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
                             !!!!模版产生代码错误:----
+                    Tip: It's the step after the last dot that caused this error, not those before it.
+                    ----
                     Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
                     ----
                     
                     ----
                     FTL stack trace ("~" means nesting-related):
-                    	- Failed at: #if obj.getPSAppDataEntity?? && obj.g...  [in template "TEMPLCODE_zh_CN" at line 4, column 65]
+                    	- Failed at: ${item.getUIActionTag()?lower_case}  [in template "TEMPLCODE_zh_CN" at line 4, column 187]
                     ----
                             !!!!模版产生代码错误:----
+                    Tip: It's the step after the last dot that caused this error, not those before it.
+                    ----
                     Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
                     ----
                     
                     ----
                     FTL stack trace ("~" means nesting-related):
-                    	- Failed at: #if obj.getPSAppDataEntity?? && obj.g...  [in template "TEMPLCODE_zh_CN" at line 4, column 65]
+                    	- Failed at: ${item.getUIActionTag()?lower_case}  [in template "TEMPLCODE_zh_CN" at line 4, column 187]
                     ----
                 </dropdown-menu>
             </dropdown>
@@ -1167,20 +1179,24 @@ export default class ModuleExpBase extends CtrlBase {
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.root_nobranch_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
                             !!!!模版产生代码错误:----
+                    Tip: It's the step after the last dot that caused this error, not those before it.
+                    ----
                     Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
                     ----
                     
                     ----
                     FTL stack trace ("~" means nesting-related):
-                    	- Failed at: #if obj.getPSAppDataEntity?? && obj.g...  [in template "TEMPLCODE_zh_CN" at line 4, column 65]
+                    	- Failed at: ${item.getUIActionTag()?lower_case}  [in template "TEMPLCODE_zh_CN" at line 4, column 187]
                     ----
                             !!!!模版产生代码错误:----
+                    Tip: It's the step after the last dot that caused this error, not those before it.
+                    ----
                     Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
                     ----
                     
                     ----
                     FTL stack trace ("~" means nesting-related):
-                    	- Failed at: #if obj.getPSAppDataEntity?? && obj.g...  [in template "TEMPLCODE_zh_CN" at line 4, column 65]
+                    	- Failed at: ${item.getUIActionTag()?lower_case}  [in template "TEMPLCODE_zh_CN" at line 4, column 187]
                     ----
                 </dropdown-menu>
             </dropdown>
@@ -1199,12 +1215,14 @@ export default class ModuleExpBase extends CtrlBase {
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.branch_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
                             !!!!模版产生代码错误:----
+                    Tip: It's the step after the last dot that caused this error, not those before it.
+                    ----
                     Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
                     ----
                     
                     ----
                     FTL stack trace ("~" means nesting-related):
-                    	- Failed at: #if obj.getPSAppDataEntity?? && obj.g...  [in template "TEMPLCODE_zh_CN" at line 4, column 65]
+                    	- Failed at: ${item.getUIActionTag()?lower_case}  [in template "TEMPLCODE_zh_CN" at line 4, column 187]
                     ----
                 </dropdown-menu>
             </dropdown>
