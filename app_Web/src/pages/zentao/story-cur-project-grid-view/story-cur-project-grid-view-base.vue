@@ -88,16 +88,6 @@ export default class StoryCurProjectGridViewBase extends GridViewBase {
         'OBJECTTYPE': { isRawValue: true, value: 'story' }
     };
 
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof StoryCurProjectGridViewBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *

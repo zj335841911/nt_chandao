@@ -67,16 +67,6 @@ export default class CaseMainDashboardViewBase extends DashboardViewBase {
         'SRFPARENTKEY': { isRawValue: false, value: 'case' }
     };
 
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof CaseMainDashboardViewBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *

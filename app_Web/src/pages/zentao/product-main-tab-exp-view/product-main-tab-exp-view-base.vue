@@ -61,16 +61,6 @@ export default class ProductMainTabExpViewBase extends TabExpViewBase {
         'OBJECTTYPE': { isRawValue: true, value: 'product' }
     };
 
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof ProductMainTabExpViewBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *

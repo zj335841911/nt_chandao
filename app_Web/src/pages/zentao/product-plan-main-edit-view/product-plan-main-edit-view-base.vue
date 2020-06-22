@@ -75,16 +75,6 @@ export default class ProductPlanMainEditViewBase extends EditViewBase {
         'OBJECTTYPE': { isRawValue: true, value: 'productplan' }
     };
 
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof ProductPlanMainEditViewBase
-	 */
-    protected customViewParams: any = {
-    };
-
     /**
      * 视图模型数据
      *
