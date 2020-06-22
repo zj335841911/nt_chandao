@@ -27,12 +27,12 @@
 
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
-       <![CDATA[	SELECT t1.`ACCOUNT`, concat(t1.`ACCOUNT`) AS `ID` FROM `zt_userview` t1  
+		<![CDATA[ SELECT t1.`ACCOUNT`, concat(t1.`ACCOUNT`) AS `ID` FROM `zt_userview` t1  
 			]]>
     </sql>
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
-       <![CDATA[	SELECT t1.`ACCOUNT`, concat(t1.`ACCOUNT`) AS `ID`, t1.`PRODUCTS`, t1.`PROJECTS` FROM `zt_userview` t1  
+		<![CDATA[ SELECT t1.`ACCOUNT`, concat(t1.`ACCOUNT`) AS `ID`, t1.`PRODUCTS`, t1.`PROJECTS` FROM `zt_userview` t1  
 			]]>
     </sql>
 </mapper>

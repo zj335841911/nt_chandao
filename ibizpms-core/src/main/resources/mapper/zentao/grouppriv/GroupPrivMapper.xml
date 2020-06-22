@@ -27,12 +27,12 @@
 
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
-       <![CDATA[	SELECT t1.`GROUP`, concat(t1.`GROUP`,'__',t1.`MODULE`,'__',t1.`METHOD`) AS `ID`, t1.`METHOD`, t1.`MODULE` FROM `zt_grouppriv` t1  
+		<![CDATA[ SELECT t1.`GROUP`, concat(t1.`GROUP`,'__',t1.`MODULE`,'__',t1.`METHOD`) AS `ID`, t1.`METHOD`, t1.`MODULE` FROM `zt_grouppriv` t1  
 			]]>
     </sql>
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
-       <![CDATA[	SELECT t1.`GROUP`, concat(t1.`GROUP`,'__',t1.`MODULE`,'__',t1.`METHOD`) AS `ID`, t1.`METHOD`, t1.`MODULE` FROM `zt_grouppriv` t1  
+		<![CDATA[ SELECT t1.`GROUP`, concat(t1.`GROUP`,'__',t1.`MODULE`,'__',t1.`METHOD`) AS `ID`, t1.`METHOD`, t1.`MODULE` FROM `zt_grouppriv` t1  
 			]]>
     </sql>
 </mapper>

@@ -1,13 +1,7 @@
 <template>
     <div class='portlet action-history-list ' :style="{'height': 'auto',}">
-        isShowTitleBar：true---id: 740BC606-19E0-46F6-8218-72105FF0128A
-        <p class='portlet-title'>
-            <span>
-            
-            历史记录
-            </span>
-        </p>
-        <div class="portlet-with-title">
+        isShowTitleBar：false---id: 740BC606-19E0-46F6-8218-72105FF0128A
+        <div class="portlet-without-title">
         <action-histroy-list-view :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></action-histroy-list-view>
         </div>
     </div>

@@ -27,14 +27,14 @@
 
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
-       <![CDATA[	SELECT t1.`ATTIME`, t1.`CREATEDBY`, t1.`CREATEDDATE`, t1.`DELETED`, t1.`ID`, t1.`JOB`, t1.`NAME`, t1.`QUEUE`, t1.`STATUS`, t1.`TAG`, t1.`TESTTASK`, t1.`UPDATEDATE` FROM `zt_compile` t1  
-				 WHERE 	t1.DELETED = '0'
+		<![CDATA[ SELECT t1.`ATTIME`, t1.`CREATEDBY`, t1.`CREATEDDATE`, t1.`DELETED`, t1.`ID`, t1.`JOB`, t1.`NAME`, t1.`QUEUE`, t1.`STATUS`, t1.`TAG`, t1.`TESTTASK`, t1.`UPDATEDATE` FROM `zt_compile` t1  
+					 WHERE 	t1.DELETED = '0'
 			]]>
     </sql>
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
-       <![CDATA[	SELECT t1.`ATTIME`, t1.`CREATEDBY`, t1.`CREATEDDATE`, t1.`DELETED`, t1.`ID`, t1.`JOB`, t1.`LOGS`, t1.`NAME`, t1.`QUEUE`, t1.`STATUS`, t1.`TAG`, t1.`TESTTASK`, t1.`UPDATEDATE` FROM `zt_compile` t1  
-				 WHERE 	t1.DELETED = '0'
+		<![CDATA[ SELECT t1.`ATTIME`, t1.`CREATEDBY`, t1.`CREATEDDATE`, t1.`DELETED`, t1.`ID`, t1.`JOB`, t1.`LOGS`, t1.`NAME`, t1.`QUEUE`, t1.`STATUS`, t1.`TAG`, t1.`TESTTASK`, t1.`UPDATEDATE` FROM `zt_compile` t1  
+					 WHERE 	t1.DELETED = '0'
 			]]>
     </sql>
 </mapper>

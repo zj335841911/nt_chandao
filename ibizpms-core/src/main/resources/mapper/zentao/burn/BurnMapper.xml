@@ -56,17 +56,17 @@
 
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
-       <![CDATA[	SELECT t1.`CONSUMED`, t1.`DATE`, t1.`ESTIMATE`, concat(t1.`PROJECT`,'__',t1.`TASK`,'__',t1.`DATE`) AS `ID`, t1.`LEFT`, t1.`PROJECT`, t1.`TASK` FROM `zt_burn` t1  
+		<![CDATA[ SELECT t1.`CONSUMED`, t1.`DATE`, t1.`ESTIMATE`, concat(t1.`PROJECT`,'__',t1.`TASK`,'__',t1.`DATE`) AS `ID`, t1.`LEFT`, t1.`PROJECT`, t1.`TASK` FROM `zt_burn` t1  
 			]]>
     </sql>
     <!--数据查询[ESTIMATEANDLEFT]-->
     <sql id="ESTIMATEANDLEFT" databaseId="mysql">
-       <![CDATA[	SELECT t1.`CONSUMED`, t1.`DATE`, ROUND((select estimate from zt_burn where date=t2.begin and project=t1.project)*(1-(DATEDIFF(t1.date,t2.`begin`))/(DATEDIFF(t2.`end`,t2.`begin`))),1) AS `ESTIMATE`, t1.`LEFT`, t1.`PROJECT` FROM `zt_burn` t1   LEFT JOIN zt_project t2 on t1.project=t2.id
+		<![CDATA[ SELECT t1.`CONSUMED`, t1.`DATE`, ROUND((select estimate from zt_burn where date=t2.begin and project=t1.project)*(1-(DATEDIFF(t1.date,t2.`begin`))/(DATEDIFF(t2.`end`,t2.`begin`))),1) AS `ESTIMATE`, t1.`LEFT`, t1.`PROJECT` FROM `zt_burn` t1   LEFT JOIN zt_project t2 on t1.project=t2.id
 			]]>
     </sql>
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
-       <![CDATA[	SELECT t1.`CONSUMED`, t1.`DATE`, t1.`ESTIMATE`, concat(t1.`PROJECT`,'__',t1.`TASK`,'__',t1.`DATE`) AS `ID`, t1.`LEFT`, t1.`PROJECT`, t1.`TASK` FROM `zt_burn` t1  
+		<![CDATA[ SELECT t1.`CONSUMED`, t1.`DATE`, t1.`ESTIMATE`, concat(t1.`PROJECT`,'__',t1.`TASK`,'__',t1.`DATE`) AS `ID`, t1.`LEFT`, t1.`PROJECT`, t1.`TASK` FROM `zt_burn` t1  
 			]]>
     </sql>
 </mapper>
