@@ -117,6 +117,36 @@
 </app-form-item>
 
 </i-col>
+<i-col v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 14, offset: 0 }" :xl="{ span: 14, offset: 0 }">
+    <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.task.main_form.details.name')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.name"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.name.disabled" type='text'  style=""></input-box>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.pri.visible" :style="{}"  :lg="{ span: 4, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+    <app-form-item name='pri' :itemRules="this.rules.pri" class='' :caption="$t('entities.task.main_form.details.pri')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.pri.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+ <dropdown-list 
+    v-model="data.pri" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.pri.disabled"  
+    tag='Task__pri' 
+    codelistType='STATIC'
+    placeholder='请选择...' style="">
+ </dropdown-list>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.estimate.visible" :style="{}"  :lg="{ span: 4, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+    <app-form-item name='estimate' :itemRules="this.rules.estimate" class='' :caption="$t('entities.task.main_form.details.estimate')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.estimate.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.estimate"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.estimate.disabled" type='number'  style=""></input-box>
+</app-form-item>
+
+</i-col>
 <i-col v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.task.main_form.details.desc')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-rich-text-editor :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled"  name="desc" style=""></app-rich-text-editor>
@@ -390,6 +420,9 @@ export default class MainBase extends CtrlBase {
         formitem1: null,
         story: null,
         storyname: null,
+        name: null,
+        pri: null,
+        estimate: null,
         desc: null,
         formitem2: null,
         deadline: null,
@@ -542,6 +575,24 @@ export default class MainBase extends CtrlBase {
             { required: false, type: 'string', message: '相关需求 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '相关需求 值不能为空', trigger: 'blur' },
         ],
+        name: [
+            { type: 'string', message: '任务名称 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '任务名称 值必须为字符串类型', trigger: 'blur' },
+            { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
+        ],
+        pri: [
+            { type: 'number', message: '优先级 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '优先级 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '优先级 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '优先级 值不能为空', trigger: 'blur' },
+        ],
+        estimate: [
+            { type: 'number', message: '预计 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '预计 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '预计 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '预计 值不能为空', trigger: 'blur' },
+        ],
         desc: [
             { type: 'string', message: '任务描述 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '任务描述 值必须为字符串类型', trigger: 'blur' },
@@ -636,6 +687,12 @@ export default class MainBase extends CtrlBase {
         story: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'story', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         storyname: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'storyname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        name: new FormItemModel({ caption: '任务名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        estimate: new FormItemModel({ caption: '预计', detailType: 'FORMITEM', name: 'estimate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         desc: new FormItemModel({ caption: '任务描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -860,6 +917,42 @@ export default class MainBase extends CtrlBase {
     }
 
     /**
+     * 监控表单属性 name 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.name')
+    onNameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'name', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 pri 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.pri')
+    onPriChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'pri', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 estimate 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.estimate')
+    onEstimateChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'estimate', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 desc 值
      *
      * @param {*} newVal
@@ -991,6 +1084,9 @@ export default class MainBase extends CtrlBase {
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
+
+
 
 
 
