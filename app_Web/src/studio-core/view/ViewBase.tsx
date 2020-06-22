@@ -407,12 +407,12 @@ export class ViewBase extends Vue {
                 data[key] = curNavData.value;
             }
         } else {
-            key = curNavData.value.toLowerCase();
+            const itemKey: string = curNavData.value.toLowerCase();
             // 先从导航上下文取数，没有再从导航参数（URL）取数，如果导航上下文和导航参数都没有则为null
-            if (this.context[key]) {
-                data[key] = this.context[key];
-            } else if (this.viewparams[key]) {
-                data[key] = this.viewparams[key];
+            if (this.context[itemKey]) {
+                data[key] = this.context[itemKey];
+            } else if (this.viewparams[itemKey]) {
+                data[key] = this.viewparams[itemKey];
             } else {
                 data[key] = null;
             }
