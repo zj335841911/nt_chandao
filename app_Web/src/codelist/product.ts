@@ -1,17 +1,17 @@
-import ProductPlanService from '@service/product-plan/product-plan-service';
+import ProductService from '@service/product/product-service';
 /**
- * 代码表--产品计划（动态）
+ * 代码表--产品（动态）
  *
  * @export
- * @class CurProductPlan
+ * @class Product
  */
-export default class CurProductPlan {
+export default class Product {
 
     /**
      * 是否启用缓存
      *
      * @type boolean
-     * @memberof CurProductPlan
+     * @memberof Product
      */
     public isEnableCache:boolean = true;
 
@@ -19,7 +19,7 @@ export default class CurProductPlan {
      * 过期时间
      *
      * @type any
-     * @memberof CurProductPlan
+     * @memberof Product
      */
     public expirationTime:any;
 
@@ -27,7 +27,7 @@ export default class CurProductPlan {
      * 缓存超长时长
      *
      * @type any
-     * @memberof CurProductPlan
+     * @memberof Product
      */
     public cacheTimeout:any = -1;
 
@@ -35,17 +35,17 @@ export default class CurProductPlan {
      * 代码表模型对象
      *
      * @type any
-     * @memberof CurProductPlan
+     * @memberof Product
      */
     public codelistModel:any = {
-        codelistid:"CurProductPlan"
+        codelistid:"Product"
     };
 
     /**
      * 自定义参数集合
      *
      * @type any
-     * @memberof CurProductPlan
+     * @memberof Product
      */
     public userParamNames:any ={
     }
@@ -54,18 +54,18 @@ export default class CurProductPlan {
      * 查询参数集合
      *
      * @type any
-     * @memberof CurProductPlan
+     * @memberof Product
      */
     public queryParamNames:any ={
     }
 
     /**
-     * 产品计划应用实体服务对象
+     * 产品应用实体服务对象
      *
-     * @type {ProductPlanService}
-     * @memberof CurProductPlan
+     * @type {ProductService}
+     * @memberof Product
      */
-    public productplanService: ProductPlanService = new ProductPlanService();
+    public productService: ProductService = new ProductService();
 
 
     /**
@@ -74,7 +74,7 @@ export default class CurProductPlan {
      * @public
      * @param {any[]} items
      * @returns {any[]}
-     * @memberof CurProductPlan
+     * @memberof Product
      */
     public doItems(items: any[]): any[] {
         let _items: any[] = [];
@@ -82,7 +82,7 @@ export default class CurProductPlan {
             let itemdata:any = {};
             Object.assign(itemdata,{id:item.id});
             Object.assign(itemdata,{value:item.id});
-            Object.assign(itemdata,{text:item.title});
+            Object.assign(itemdata,{text:item.name});
             
             _items.push(itemdata);
         });
@@ -96,12 +96,12 @@ export default class CurProductPlan {
      * @param {*} data
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof CurProductPlan
+     * @memberof Product
      */
     public getItems(context: any={}, data: any={}, isloading?: boolean): Promise<any> {
         return new Promise((resolve, reject) => {
             data = this.handleQueryParam(data);
-            const promise: Promise<any> = this.productplanService.FetchCurProductPlan(context, data, isloading);
+            const promise: Promise<any> = this.productService.FetchDefault(context, data, isloading);
             promise.then((response: any) => {
                 if (response && response.status === 200) {
                     const data =  response.data;
@@ -119,7 +119,7 @@ export default class CurProductPlan {
     /**
      * 处理查询参数
      * @param data 传入data
-     * @memberof CurProductPlan
+     * @memberof Product
      */
     public handleQueryParam(data:any){
         let tempData:any = data?JSON.parse(JSON.stringify(data)):{};

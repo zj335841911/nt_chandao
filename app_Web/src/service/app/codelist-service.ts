@@ -1,3 +1,4 @@
+import Product from '@/codelist/product';   
 import CurProductPlan from '@/codelist/cur-product-plan';   
 import UserRealName from '@/codelist/user-real-name';   
 import ProductBranch from '@/codelist/product-branch';   
@@ -55,7 +56,15 @@ export default class CodeListService {
 
 
     /**
-     * 代码表--当前用户产品计划（动态）
+     * 代码表--产品（动态）
+     *
+     * @type {Product}
+     * @memberof CodeListService
+     */
+    public Product: Product = new Product();
+
+    /**
+     * 代码表--产品计划（动态）
      *
      * @type {CurProductPlan}
      * @memberof CodeListService
@@ -71,7 +80,7 @@ export default class CodeListService {
     public UserRealName: UserRealName = new UserRealName();
 
     /**
-     * 代码表--产品平台
+     * 代码表--产品平台（动态）
      *
      * @type {ProductBranch}
      * @memberof CodeListService

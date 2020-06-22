@@ -920,7 +920,7 @@
         "memo": ""
     },
     "productgridview": {
-        "title": "product表格视图",
+        "title": "所有产品",
         "caption": "产品",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "zentao",

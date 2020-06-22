@@ -83,6 +83,9 @@ export default {
         'custom': "自定义白名单(团队成员和白名单的成员可以访问)",
         empty: "",
     },
+    Product: {
+        empty: "",
+    },
     Action__type: {
         'created': "创建",
         'opened': "创建",

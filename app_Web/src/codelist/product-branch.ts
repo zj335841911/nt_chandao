@@ -1,6 +1,6 @@
 import BranchService from '@service/branch/branch-service';
 /**
- * 代码表--产品平台
+ * 代码表--产品平台（动态）
  *
  * @export
  * @class ProductBranch

@@ -72,7 +72,7 @@ export default {
 		},
 		gridview: {
 			caption: "产品",
-      title: 'product表格视图',
+      title: '所有产品',
 		},
 		pickupview: {
 			caption: "产品",

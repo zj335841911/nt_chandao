@@ -1,5 +1,5 @@
 <template>
-<studio-view viewName="productgridview" viewTitle="product表格视图" class='degridview product-grid-view'>
+<studio-view viewName="productgridview" viewTitle="所有产品" class='degridview product-grid-view'>
     <template slot='title'>
     <span class='caption-info'>{{$t(model.srfTitle)}}</span>
     </template>
@@ -49,7 +49,7 @@ import CodeListService from "@service/app/codelist-service";
 
 
 /**
- * product表格视图视图基类
+ * 所有产品视图基类
  *
  * @export
  * @class ProductGridViewBase

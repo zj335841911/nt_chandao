@@ -1,12 +1,25 @@
 <template>
     <div :class="classes">
-        <template v-if="uiStyle=='STYLE2'">
+        <template v-if="uiStyle=='STYLE4'">
+            <app-form-group4
+                :caption="caption"
+                :uiStyle="uiStyle"
+                :layoutType="layoutType"
+                :isShowCaption="isShowCaption"
+                :isInfoGroupMode="isInfoGroupMode"
+                :uiActionGroup="uiActionGroup"
+                :titleBarCloseMode="titleBarCloseMode">
+                   <slot></slot>
+            </app-form-group4>
+        </template>
+        <template v-else-if="uiStyle=='STYLE2'">
             <app-form-group2
                 :caption="caption"
                 :uiStyle="uiStyle"
                 :layoutType="layoutType"
                 :isShowCaption="isShowCaption"
                 :uiActionGroup="uiActionGroup"
+                :isInfoGroupMode="isInfoGroupMode"
                 :titleBarCloseMode="titleBarCloseMode">
                    <slot></slot>
                 </app-form-group2>
@@ -121,7 +134,7 @@ export default class AppFormGroup extends Vue {
      * @type {string}
      * @memberof AppFormGroup
      */
-    @Prop() public uiStyle?: string;
+    @Prop({ default: 'DEFAULT' }) public uiStyle!: string;
 
     /**
      * 布局模式
@@ -202,7 +215,8 @@ export default class AppFormGroup extends Vue {
             'app-form-group',
             this.isShowCaption && this.collapseContant ? 'app-group-collapse-contant' : '',
             this.isInfoGroupMode ? 'app-info-group-mode' : '',
-            Object.is(this.layoutType, 'FLEX') ? 'app-group-flex': ''
+            Object.is(this.layoutType, 'FLEX') ? 'app-group-flex': '',
+            this.uiStyle.toLowerCase()
         ];
     }
 
