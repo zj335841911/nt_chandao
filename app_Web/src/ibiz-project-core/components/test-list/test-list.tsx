@@ -83,7 +83,7 @@ export class TestList extends Vue {
                 </div>
             </div>
             <template slot="action">
-                <li on-click={(e: any) => this.openActionView(e, p, 'tabviewpanel2 ')}>
+                <li on-click={(e: any) => this.openActionView(e, p, 'tabviewpanel2')}>
                     未解决：{p.activebugcnt}
                 </li>
                 <li on-click={(e: any) => this.openActionView(e, p, 'tabviewpanel2')}>

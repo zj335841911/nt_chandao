@@ -15,5 +15,41 @@ import view_list from '@widgets/product/sidebar-list/sidebar-list.vue';
 })
 export default class ProductLeftSidebarListView extends ProductLeftSidebarListViewBase {
 
+    /**
+     * 打开编辑数据视图
+     *
+     * @param {any[]} args
+     * @param {*} [params]
+     * @param {*} [fullargs]
+     * @param {*} [$event]
+     * @param {*} [xData]
+     * @memberof ProductLeftSidebarListView
+     */
+    public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
+        const data: any = {};
+        let tempContext = JSON.parse(JSON.stringify(this.context));
+        if(args.length >0){
+            Object.assign(tempContext,args[0]);
+        }
+        const deResParameters: any[] = [];
+        let parameters: any[] = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'maintabexpview', parameterName: 'maintabexpview' },
+        ];
+        if (fullargs && fullargs.length > 0) {
+            if (fullargs[0].srftabactivate) {
+                data.srftabactivate = fullargs[0].srftabactivate;
+            }
+            if (fullargs[0].parameters) {
+                parameters = fullargs[0].parameters;
+            }
+        }
+        const openIndexViewTab = (data: any) => {
+            const routePath = this.$viewTool.buildUpRoutePath(this.$route, tempContext, deResParameters, parameters, args, data);
+            this.$router.push(routePath);
+        }
+        openIndexViewTab(data);
+    }
+
 }
 </script>

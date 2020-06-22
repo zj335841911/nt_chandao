@@ -44,6 +44,21 @@ export class ProjectList extends Vue {
     }
 
     /**
+     * 打开行为视图
+     *
+     * @protected
+     * @param {MouseEvent} e
+     * @param {Product} item
+     * @param {string} srftabactivate
+     * @memberof ProjectList
+     */
+    protected openActionView(e: MouseEvent, item: any, srftabactivate: string): void {
+        e.stopPropagation();
+        item.srftabactivate = srftabactivate;
+        this.itemClick(item);
+    }
+
+    /**
      * 绘制产品项
      *
      * @protected
@@ -68,13 +83,13 @@ export class ProjectList extends Vue {
                 </div>
             </div>
             <template slot="action">
-                <li>
+                <li on-click={(e: any) => this.openActionView(e, p, 'tabviewpanel7')}>
                     需求：{p.storycnt}
                 </li>
-                <li>
+                <li on-click={(e: any) => this.openActionView(e, p, 'tabviewpanel2')}>
                     任务：{p.taskcnt}
                 </li>
-                <li>
+                <li on-click={(e: any) => this.openActionView(e, p, 'tabviewpanel8')}>
                     Bug：{p.bugcnt}
                 </li>
             </template>
