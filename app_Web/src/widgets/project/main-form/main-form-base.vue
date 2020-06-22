@@ -60,6 +60,7 @@
 <i-col v-show="detailsModel.formitemex2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <comb-form-item name="srfarray" :value="data.srfarray" :formItems="[{ name: '关联产品集合', prop: 'products' },{ name: '关联产品平台集合', prop: 'branchs', hidden: true },{ name: '关联产品产品计划', prop: 'plans' },]">
     <div slot="products" slot-scope="{item}">
+         <div style="display: flex;"></div>
          <dropdown-list 
             v-model="item.products" 
             :data="{...data, ...item}" 
@@ -68,7 +69,7 @@
             :disabled="detailsModel.formitemex2.disabled"  
             tag='Product' 
             codelistType='DYNAMIC'
-            placeholder="">
+            placeholder="" style="flex-grow: 1;">
          </dropdown-list>
          <dropdown-list 
    v-model="item.branchs" 
@@ -78,11 +79,12 @@
    :disabled="detailsModel.formitemex2.disabled"  
    tag='ProductBranch' 
    codelistType='DYNAMIC'
-   placeholder="">
+   placeholder="" style="width: 100px;margin-left: 5px;">
 </dropdown-list>
 
     </div>
     <div slot="plans" slot-scope="{item}">
+         <div style="display: flex;"></div>
          <dropdown-list 
             v-model="item.plans" 
             :data="{...data, ...item}" 
@@ -91,7 +93,7 @@
             :disabled="detailsModel.formitemex2.disabled"  
             tag='CurProductPlan' 
             codelistType='DYNAMIC'
-            placeholder="">
+            placeholder="" style="flex-grow: 1;">
          </dropdown-list>
     </div>
 </comb-form-item>
