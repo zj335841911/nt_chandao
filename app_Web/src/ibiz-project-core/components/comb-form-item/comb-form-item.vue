@@ -7,7 +7,7 @@
                         <slot :name="item.prop" :item="val"></slot>
                     </div>
                 </template>
-                <div class="comb-item">
+                <div :key="renderTime" class="comb-item">
                     <slot :name="item.prop" :item='defItem'></slot>
                 </div>
             </app-form-item>
@@ -54,6 +54,14 @@ export default class CombFormItem extends Vue {
     public valItems: any[] = [];
 
     /**
+     * 绘制时间戳
+     *
+     * @type {number}
+     * @memberof CombFormItem
+     */
+    public renderTime: number = new Date().getTime();
+
+    /**
      * 获取默认对象
      *
      * @memberof CombFormItem
@@ -67,8 +75,13 @@ export default class CombFormItem extends Vue {
                         return null;
                     },
                     set: (val) => {
-                        if(val) {
+                        if(item.unique && this.valItems.findIndex((v: any) => Object.is(v[item.prop], val)) >= 0) {
+                            this.renderTime = new Date().getTime();
+                            return;
+                        }
+                        if(val || val === 0) {
                             this.addValItem(item.prop, val);
+                            this.renderTime = new Date().getTime();
                         }
                     }
                 });
@@ -106,26 +119,9 @@ export default class CombFormItem extends Vue {
         this.formItems.forEach((formItem: any) => {
             item[formItem.prop] = null;
         });
-        Object.keys(item).forEach(key => {
-            let value = item[key];
-            Object.defineProperty(item, key, {
-                get: () => {
-                    return value;
-                },
-                set: (a: any) => {
-                    value = a;
-                    if(value) {
-                        return;
-                    }
-                    if(Object.values(item).findIndex((v) => (v || v === 0)) < 0) {
-                        let index = this.valItems.indexOf(item);
-                        this.valItems.splice(index, 1);
-                    }
-                }
-            })
-        })
         item[name] = val;
         this.valItems.push(item);
+        this.onChange();
     }
 
     /**
@@ -140,13 +136,54 @@ export default class CombFormItem extends Vue {
         }
         if (Array.isArray(this.value)) {
             this.valItems = JSON.parse(JSON.stringify(this.value));
+            this.listenerProperty();
         } else {
             try {
                 this.valItems = JSON.parse(this.value);
+                this.listenerProperty();
             } catch (error) {
                 this.$Notice.error({desc: '数据格式有误！'});
             }
         }
+    }
+
+    /**
+     * 监听属性值变化
+     *
+     * @memberof CombFormItem
+     */   
+    public listenerProperty() {
+        this.valItems.forEach((item) => {
+            Object.keys(item).forEach(key => {
+                let value = item[key];
+                Object.defineProperty(item, key, {
+                    get: () => {
+                        return value;
+                    },
+                    set: (a: any) => {
+                        value = a;
+                        if(value) {
+                            this.onChange();
+                            return;
+                        }
+                        if(Object.values(item).findIndex((v) => (v || v === 0)) < 0) {
+                            let index = this.valItems.indexOf(item);
+                            this.valItems.splice(index, 1);
+                        }
+                        this.onChange();
+                    }
+                })
+            })
+        })
+    } 
+
+    /**
+     * 值变化
+     *
+     * @memberof CombFormItem
+     */
+    public onChange() {
+        this.$emit('formitemvaluechange', { name: this.name, value: JSON.stringify(this.valItems) });
     }
 }
 </script>
