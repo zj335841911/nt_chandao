@@ -66,7 +66,7 @@ Tip: If the failing expression is known to be legally refer to something that's 
 
 ----
 FTL stack trace ("~" means nesting-related):
-	- Failed at: #if field.getPSCodeList()??  [in template "TEMPLCODE_zh_CN" at line 13, column 13]
+	- Failed at: ${field.getCodeListType()}  [in template "TEMPLCODE_zh_CN" at line 16, column 27]
 ----
 
 </i-col>
