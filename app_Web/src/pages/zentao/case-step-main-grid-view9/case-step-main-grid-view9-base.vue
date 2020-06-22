@@ -323,10 +323,10 @@ export default class CaseStepMainGridView9Base extends GridView9Base {
      * 2 双击激活
      *
      * @protected
-     * @type {(number | 0 | 1 | 2)}
+     * @type {(0 | 1 | 2)}
      * @memberof CaseStepMainGridView9Base
      */
-    protected gridRowActiveMode: number | 0 | 1 | 2 = 0;
+    protected gridRowActiveMode: 0 | 1 | 2 = 0;
 }
 </script>
 

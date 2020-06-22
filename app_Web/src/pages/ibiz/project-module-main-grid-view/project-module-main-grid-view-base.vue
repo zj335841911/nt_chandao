@@ -387,10 +387,10 @@ export default class ProjectModuleMainGridViewBase extends GridViewBase {
      * 2 双击激活
      *
      * @protected
-     * @type {(number | 0 | 1 | 2)}
+     * @type {(0 | 1 | 2)}
      * @memberof ProjectModuleMainGridViewBase
      */
-    protected gridRowActiveMode: number | 0 | 1 | 2 = 0;
+    protected gridRowActiveMode: 0 | 1 | 2 = 0;
 }
 </script>
 
