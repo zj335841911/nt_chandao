@@ -207,6 +207,7 @@ final public class ZTTaskHelper {
         ACTION_PARAMS_EDIT.put("desc", null);
         ACTION_PARAMS_EDIT.put("mailto", null);
         ACTION_PARAMS_EDIT.put("parent", 0);
+        ACTION_PARAMS_EDIT.put("consumed", null);
         ACTION_PARAMS_EDIT.put("estimate", null);
         ACTION_PARAMS_EDIT.put("estStarted", null);
         ACTION_PARAMS_EDIT.put("deadline", null);
