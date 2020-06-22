@@ -159,22 +159,22 @@
                     <template slot-scope="scope">
                         <span>
                             
-                            <a @click="uiAction(scope.row, 'LinkCase', $event)">
+                            <a title="" @click="uiAction(scope.row, 'LinkCase', $event)">
                               <i class='fa fa-link'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'OpenInfoView', $event)">
+                            <a title="" @click="uiAction(scope.row, 'OpenInfoView', $event)">
                               <i class='fa fa-stack-exchange'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'Edit', $event)">
+                            <a title="" @click="uiAction(scope.row, 'Edit', $event)">
                               <i class='fa fa-edit'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'Remove', $event)">
+                            <a title="" @click="uiAction(scope.row, 'Remove', $event)">
                               <i class='fa fa-remove'></i>
                               
                             </a>

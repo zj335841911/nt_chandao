@@ -81,17 +81,17 @@
                     <template slot-scope="scope">
                         <span>
                             
-                            <a @click="uiAction(scope.row, 'RelationStory', $event)">
+                            <a title="" @click="uiAction(scope.row, 'RelationStory', $event)">
                               <i class='fa fa-link'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'RelationBug', $event)">
+                            <a title="" @click="uiAction(scope.row, 'RelationBug', $event)">
                               <i class='fa fa-bug'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'NewSubPlan', $event)">
+                            <a title="" @click="uiAction(scope.row, 'NewSubPlan', $event)">
                               <i class='fa fa-chain'></i>
                               
                             </a>
