@@ -185,27 +185,27 @@
                     <template slot-scope="scope">
                         <span>
                             
-                            <a @click="uiAction(scope.row, 'OpenTestRunResultView', $event)">
+                            <a title="打开结果视图" @click="uiAction(scope.row, 'OpenTestRunResultView', $event)">
                               <i class='fa fa-stack-overflow'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'Execute', $event)">
+                            <a title="执行测试" @click="uiAction(scope.row, 'Execute', $event)">
                               <i class='fa fa-play-circle-o'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'MainEdit', $event)">
+                            <a title="主信息编辑" @click="uiAction(scope.row, 'MainEdit', $event)">
                               <i class='fa fa-edit'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'NewBugByCaseResult', $event)">
+                            <a title="转Bug" @click="uiAction(scope.row, 'NewBugByCaseResult', $event)">
                               <i class='fa fa-bug'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'Remove', $event)">
+                            <a title="表格界面_删除操作" @click="uiAction(scope.row, 'Remove', $event)">
                               <i class='fa fa-remove'></i>
                               
                             </a>

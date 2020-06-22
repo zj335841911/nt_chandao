@@ -161,7 +161,7 @@
                     <template slot-scope="scope">
                         <span>
                             
-                            <a @click="uiAction(scope.row, 'MainEdit', $event)">
+                            <a title="主信息编辑" @click="uiAction(scope.row, 'MainEdit', $event)">
                               <i class='fa fa-edit'></i>
                               {{$t('entities.bug.main_grid.uiactions.mainedit')}}
                             </a>

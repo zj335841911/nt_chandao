@@ -117,22 +117,22 @@
                     <template slot-scope="scope">
                         <span>
                             
-                            <a @click="uiAction(scope.row, 'ChangeStoryDetail', $event)">
+                            <a title="变更需求" @click="uiAction(scope.row, 'ChangeStoryDetail', $event)">
                               <i class='fa fa-exchange'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'CloseStory', $event)">
+                            <a title="关闭需求" @click="uiAction(scope.row, 'CloseStory', $event)">
                               <i class='fa fa-power-off'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'OpenBaseInfoEditView', $event)">
+                            <a title="打开需求基本信息编辑" @click="uiAction(scope.row, 'OpenBaseInfoEditView', $event)">
                               <i class='fa fa-edit'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'OpenCaseCreateView', $event)">
+                            <a title="建用例" @click="uiAction(scope.row, 'OpenCaseCreateView', $event)">
                               <i class='fa fa-lightbulb-o'></i>
                               
                             </a>

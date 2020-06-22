@@ -83,22 +83,14 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('assignedto')">
-                <el-table-column show-overflow-tooltip :prop="'assignedto'" :label="$t('entities.task.main_grid.columns.assignedto')" :width="150"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.task.main_grid.columns.assignedto')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <template >
-                            <a @click="uiAction(row, 'AssignTask', $event)">
-            <codelist :value="row.assignedto" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
-                            </a>
-                        </template>
-                    </template>
-                </el-table-column>
-            </template>
+            !!!!模版产生代码错误:----
+            Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+            ----
+            
+            ----
+            FTL stack trace ("~" means nesting-related):
+            	- Failed at: #assign uiaction = uiactionDetail.get...  [in template "TEMPLCODE_zh_CN" at line 140, column 17]
+            ----
             <template v-if="getColumnState('finishedby')">
                 <el-table-column show-overflow-tooltip :prop="'finishedby'" :label="$t('entities.task.main_grid.columns.finishedby')" :width="150"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
@@ -171,27 +163,27 @@
                     <template slot-scope="scope">
                         <span>
                             
-                            <a @click="uiAction(scope.row, 'StartTask', $event)">
+                            <a title="开始任务" @click="uiAction(scope.row, 'StartTask', $event)">
                               <i class='fa fa-play-circle-o'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'CloseTask', $event)">
+                            <a title="关闭任务" @click="uiAction(scope.row, 'CloseTask', $event)">
                               <i class='fa fa-power-off'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'DoneTask', $event)">
+                            <a title="完成任务" @click="uiAction(scope.row, 'DoneTask', $event)">
                               <i class='fa fa-check-square-o'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'MainEdit', $event)">
+                            <a title="主信息编辑" @click="uiAction(scope.row, 'MainEdit', $event)">
                               <i class='fa fa-edit'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a @click="uiAction(scope.row, 'NewSubTask', $event)">
+                            <a title="批量新建子任务" @click="uiAction(scope.row, 'NewSubTask', $event)">
                               <i class='iconfont studio-icon-subnets'></i>
                               
                             </a>
