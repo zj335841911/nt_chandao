@@ -1,6 +1,6 @@
 <template>
     <div class='portlet action-history-list ' :style="{'height': 'auto',}">
-        测试值：true
+        isShowTitleBar：true---id: 740BC606-19E0-46F6-8218-72105FF0128A
         <p class='portlet-title'>
             <span>
             

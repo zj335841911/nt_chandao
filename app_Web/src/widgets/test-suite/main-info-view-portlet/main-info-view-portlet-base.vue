@@ -1,6 +1,6 @@
 <template>
     <div class='portlet main-info-view ' :style="{'height': 'auto',}">
-        测试值：true
+        isShowTitleBar：true---id: 521A0BA4-C6E1-47CC-B222-BAA1240A2956
         <p class='portlet-title'>
             <span>
             

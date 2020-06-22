@@ -1,6 +1,6 @@
 <template>
     <div class='portlet product-trends-timeline ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'300px'),}">
-        测试值：true
+        isShowTitleBar：true---id: 0c6215d819ac6f3ed16aa0cd11b365bd
         <p class='portlet-title'>
             <span>
             

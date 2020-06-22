@@ -91,12 +91,6 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.files.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='files' :itemRules="this.rules.files" class='' :caption="$t('entities.release.quickcreate_form.details.files')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.files.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange" :data="JSON.stringify(this.data)" name='files' :value="data.files" :disabled="detailsModel.files.disabled" uploadparams='' exportparams='' :customparams="{objecttype:'release',objectid:'1'}" style="overflow: auto;"></app-file-upload>
-</app-form-item>
-
-</i-col>
     
     </row>
 </app-form-group>
@@ -414,7 +408,6 @@ export default class QuickCreateBase extends Vue implements ControlInterface {
         date: null,
         marker: null,
         desc: null,
-        files: null,
         id: null,
         build: null,
         release:null,
@@ -543,12 +536,6 @@ export default class QuickCreateBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '描述 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '描述 值不能为空', trigger: 'blur' },
         ],
-        files: [
-            { type: 'string', message: '附件 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '附件 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '附件 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '附件 值不能为空', trigger: 'blur' },
-        ],
         id: [
             { type: 'number', message: 'ID 值必须为数值类型', trigger: 'change' },
             { type: 'number', message: 'ID 值必须为数值类型', trigger: 'blur' },
@@ -605,8 +592,6 @@ export default class QuickCreateBase extends Vue implements ControlInterface {
         marker: new FormItemModel({ caption: '里程碑', detailType: 'FORMITEM', name: 'marker', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: 'ID', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -783,18 +768,6 @@ export default class QuickCreateBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 files 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof QuickCreate
-     */
-    @Watch('data.files')
-    onFilesChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'files', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
@@ -854,7 +827,6 @@ export default class QuickCreateBase extends Vue implements ControlInterface {
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
-
 
 
 

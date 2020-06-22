@@ -1,6 +1,6 @@
 <template>
     <div class='portlet product-exp-view ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'360px'),}">
-        测试值：true
+        isShowTitleBar：true---id: EDA0A8A9-5CE2-4A2E-A4C4-C10CBC04158B
         <p class='portlet-title'>
             <span>
             

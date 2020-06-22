@@ -1,6 +1,6 @@
 <template>
     <div class='portlet assign-to-me ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'1px'),}">
-        测试值：true
+        isShowTitleBar：true---id: AF17582F-6BC7-48AF-93B0-CC76AE8A8D47
         <p class='portlet-title'>
             <span>
             

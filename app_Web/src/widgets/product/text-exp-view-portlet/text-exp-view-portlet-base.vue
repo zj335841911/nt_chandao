@@ -1,5 +1,6 @@
 <template>
     <div class='portlet text-exp-view ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'320px'),}">
+        isShowTitleBar：false---id: 43480825-8BFA-4449-9815-047CEA3D3E53
         <div class="portlet-without-title">
         <product-test-list-exp-view :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></product-test-list-exp-view>
         </div>

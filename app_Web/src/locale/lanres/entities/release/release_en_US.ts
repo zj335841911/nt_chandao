@@ -60,7 +60,6 @@ export default {
 			date: "发布日期", 
 			marker: "里程碑", 
 			desc: "描述", 
-			files: "附件", 
 			id: "ID", 
 			build: "版本", 
 		},
