@@ -66,6 +66,7 @@
             :data="{...data, ...item}" 
             :context="context"
             :viewparams="viewparams"
+            :localParam="{srfarray: %srfarray%,products: %products%,branchs: %branchs%,plans: %plans%,}"
             :disabled="detailsModel.formitemex2.disabled"  
             tag='Product' 
             codelistType='DYNAMIC'
@@ -76,6 +77,7 @@
    :data="{...data, ...item}" 
    :context="context"
    :viewparams="viewparams"
+   :localParam="{srfarray: %srfarray%,products: %products%,branchs: %branchs%,plans: %plans%,}"
    :disabled="detailsModel.formitemex2.disabled"  
    tag='ProductBranch' 
    codelistType='DYNAMIC'
@@ -91,6 +93,7 @@
             :data="{...data, ...item}" 
             :context="context"
             :viewparams="viewparams"
+            :localParam="{srfarray: %srfarray%,products: %products%,branchs: %branchs%,plans: %plans%,}"
             :disabled="detailsModel.formitemex2.disabled"  
             tag='CurProductPlan' 
             codelistType='DYNAMIC'
