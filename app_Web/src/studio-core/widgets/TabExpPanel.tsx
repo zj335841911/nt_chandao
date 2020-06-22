@@ -42,7 +42,7 @@ export class TabExpPanel extends CtrlBase {
      * @protected
      * @memberof TabExpPanel
      */
-    protected tabViewPanelDatasChange(): void {
+    protected tabViewPanelDatasChange = (): void => {
         this.counterRefresh();
     }
 
@@ -95,7 +95,7 @@ export class TabExpPanel extends CtrlBase {
      * @returns
      * @memberof TabExpPanel
      */
-    protected tabPanelClick($event: any) {
+    protected tabPanelClick = ($event: any) => {
         if (!$event) {
             return;
         }
