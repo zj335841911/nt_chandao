@@ -81,7 +81,7 @@
    :disabled="detailsModel.formitemex2.disabled"  
    tag='ProductBranch' 
    codelistType='DYNAMIC'
-   placeholder="" style="width: 100px;margin-left: 5px;">
+   placeholder="" style="width: 100px;flex-shrink: 0;margin-left: 5px;">
 </dropdown-list-dynamic>
 
       </div>
