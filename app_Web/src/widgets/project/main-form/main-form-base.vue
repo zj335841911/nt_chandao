@@ -61,7 +61,7 @@
     <comb-form-item name="srfarray" :value="data.srfarray" :formItems="[{ name: '关联产品集合', prop: 'products' },{ name: '关联产品平台集合', prop: 'branchs', hidden: true },{ name: '关联产品产品计划', prop: 'plans' },]">
    <template slot="products" slot-scope="{item}">
       <div style="display: flex;">
-         <dropdown-list 
+         <dropdown-list-dynamic 
             v-model="item.products" 
             :data="{...data, ...item}" 
             :context="context"
@@ -70,8 +70,8 @@
             tag='Product' 
             codelistType='DYNAMIC'
             placeholder="" style="flex-grow: 1;">
-         </dropdown-list>
-         <dropdown-list 
+         </dropdown-list-dynamic>
+         <dropdown-list-dynamic 
    v-model="item.branchs" 
    :data="{...data, ...item}" 
    :context="context"
@@ -80,13 +80,13 @@
    tag='ProductBranch' 
    codelistType='DYNAMIC'
    placeholder="" style="width: 100px;margin-left: 5px;">
-</dropdown-list>
+</dropdown-list-dynamic>
 
       </div>
    </template>
    <template slot="plans" slot-scope="{item}">
       <div style="display: flex;">
-         <dropdown-list 
+         <dropdown-list-dynamic 
             v-model="item.plans" 
             :data="{...data, ...item}" 
             :context="context"
@@ -95,7 +95,7 @@
             tag='CurProductPlan' 
             codelistType='DYNAMIC'
             placeholder="" style="flex-grow: 1;">
-         </dropdown-list>
+         </dropdown-list-dynamic>
       </div>
    </template>
 </comb-form-item>
