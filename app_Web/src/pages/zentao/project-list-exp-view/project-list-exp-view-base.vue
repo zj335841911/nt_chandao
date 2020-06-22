@@ -196,6 +196,17 @@ export default class ProjectListExpViewBase extends ListExpViewBase {
 
 
 
+
+    /**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectListExpView
+     */
+    protected viewUID: string = 'zentao-project-list-exp-view';
+
+
 }
 </script>
 

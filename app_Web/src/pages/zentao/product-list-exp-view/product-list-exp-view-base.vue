@@ -208,6 +208,17 @@ export default class ProductListExpViewBase extends ListExpViewBase {
 
 
 
+
+    /**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductListExpView
+     */
+    protected viewUID: string = 'zentao-product-list-exp-view';
+
+
 }
 </script>
 
