@@ -8,11 +8,14 @@
         <tns:global identifier="productmodulefixpathzt_module" type="cn.ibizlab.pms.core.zentao.domain.Module" />
         <tns:global identifier="productmodulefixpathdefault" type="cn.ibizlab.pms.core.ibiz.domain.ProductModule" />
         </extensionElements>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="productmodulefixpathprepareparam1" id="c8e86c34e6855ee65efae0f42b47e260" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="productmodulefixpathdeaction1" id="7ad95430a5d7ac0a394391a0de36f2bf" implementation="http://www.jboss.org/drools/rule" name="执行重建模块路径行为"/>
      <endEvent id="7ad95430a5d7ac0a394391a0de36f2bf_End" name="End"/>
      <sequenceFlow id="7ad95430a5d7ac0a394391a0de36f2bf_End_Line" sourceRef="7ad95430a5d7ac0a394391a0de36f2bf" targetRef="7ad95430a5d7ac0a394391a0de36f2bf_End"/>
      <startEvent id="9937e9c303a6e1613c35b6d5ffb19dec" isInterrupting="true"/>
-     <sequenceFlow id="25118628-0CAF-4207-A768-DA7C6BE21691" sourceRef="9937e9c303a6e1613c35b6d5ffb19dec" targetRef="7ad95430a5d7ac0a394391a0de36f2bf">
+     <sequenceFlow id="F5E7D253-373E-475F-B6CC-AE77F33A51D8" sourceRef="9937e9c303a6e1613c35b6d5ffb19dec" targetRef="c8e86c34e6855ee65efae0f42b47e260">
+     </sequenceFlow>
+     <sequenceFlow id="2FCE5DF1-D980-44FB-B39B-B918EB566735" sourceRef="c8e86c34e6855ee65efae0f42b47e260" targetRef="7ad95430a5d7ac0a394391a0de36f2bf">
      </sequenceFlow>
     </process>
 </definitions>
