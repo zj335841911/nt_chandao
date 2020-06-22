@@ -1,8 +1,23 @@
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+<script lang='tsx'>
+import { Component } from 'vue-property-decorator';
+import MainTabExpViewtabexppanelBase from './main-tab-exp-viewtabexppanel-tabexppanel-base.vue';
+import view_tabviewpanel from '@widgets/test-task/main-tab-exp-viewtabviewpanel-tabviewpanel/main-tab-exp-viewtabviewpanel-tabviewpanel.vue';
+import view_tabviewpanel2 from '@widgets/test-task/main-tab-exp-viewtabviewpanel2-tabviewpanel/main-tab-exp-viewtabviewpanel2-tabviewpanel.vue';
+ 
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${ctr.name}  [in template "TEMPLCODE_zh_CN" at line 23, column 4]
-----
+/**
+ * tabexppanel部件
+ *
+ * @export
+ * @class MainTabExpViewtabexppanel
+ * @extends {MainTabExpViewtabexppanelBase}
+ */
+@Component({
+    components: {
+        view_tabviewpanel, 
+        view_tabviewpanel2, 
+         
+    }
+})
+export default class MainTabExpViewtabexppanel extends MainTabExpViewtabexppanelBase { }
+</script>
