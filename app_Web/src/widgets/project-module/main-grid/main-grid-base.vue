@@ -87,7 +87,7 @@
                     <template slot-scope="scope">
                         <span>
                             
-                            <a title="" @click="uiAction(scope.row, 'Remove', $event)">
+                            <a title="表格界面_删除操作" @click="uiAction(scope.row, 'Remove', $event)">
                               <i class='fa fa-remove'></i>
                               
                             </a>

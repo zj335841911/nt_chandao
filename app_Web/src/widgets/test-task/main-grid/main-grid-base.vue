@@ -159,22 +159,22 @@
                     <template slot-scope="scope">
                         <span>
                             
-                            <a title="" @click="uiAction(scope.row, 'LinkCase', $event)">
+                            <a title="关联用例" @click="uiAction(scope.row, 'LinkCase', $event)">
                               <i class='fa fa-link'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a title="" @click="uiAction(scope.row, 'OpenInfoView', $event)">
+                            <a title="打开概况视图" @click="uiAction(scope.row, 'OpenInfoView', $event)">
                               <i class='fa fa-stack-exchange'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a title="" @click="uiAction(scope.row, 'Edit', $event)">
+                            <a title="表格界面_编辑操作" @click="uiAction(scope.row, 'Edit', $event)">
                               <i class='fa fa-edit'></i>
                               
                             </a>
                             <divider type='vertical'></divider>
-                            <a title="" @click="uiAction(scope.row, 'Remove', $event)">
+                            <a title="表格界面_删除操作" @click="uiAction(scope.row, 'Remove', $event)">
                               <i class='fa fa-remove'></i>
                               
                             </a>
