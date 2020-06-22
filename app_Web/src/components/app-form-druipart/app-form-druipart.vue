@@ -12,7 +12,8 @@
       @drdatasaved="drdatasaved"  
       @drdatachange="drdatachange"  
       @viewdataschange="viewdataschange"  
-      @viewload="viewload">
+      @viewload="viewload"
+      @mounted="viewMounted">
     </component> 
     <spin v-if="blockUI" class='app-druipart-spin' fix >{{ $t('components.appFormDRUIPart.blockUITipInfo') }}</spin>            
   </div>
@@ -171,6 +172,31 @@ export default class AppFormDRUIPart extends Vue {
     private formStateEvent: Unsubscribable | undefined;
 
     /**
+     * 关系视图是否已经加载完毕
+     *
+     * @type {boolean}
+     * @memberof AppFormDRUIPart
+     */
+    protected viewIsLoaded: boolean = false;
+
+    /**
+     * 定时器实例
+     *
+     * @type {[boolean]}
+     * @memberof AppFormDRUIPart
+     */
+    protected timer?: number;
+
+    /**
+     * 关系视图加载完毕触发事件
+     *
+     * @memberof AppFormDRUIPart
+     */
+    protected viewMounted(): void {
+        this.viewIsLoaded = true;
+    }
+
+    /**
      * 监控值
      *
      * @param {*} newVal
@@ -251,7 +277,6 @@ export default class AppFormDRUIPart extends Vue {
      * @memberof AppFormDRUIPart
      */
     private refreshDRUIPart(data?:any): void {
-
         if (Object.is(this.parentdata.SRFPARENTTYPE, 'CUSTOM')) {
             this.isRelationalData = false;
         }
@@ -292,10 +317,34 @@ export default class AppFormDRUIPart extends Vue {
             }
         }
         if(!this.isForbidLoad){
-            this.$nextTick(() => {
-                this.formDruipart.next({action:'load',data:{srfparentdename:this.parentName,srfparentkey:_paramitem}});
-            });
+            this.partViewEvent('load', {srfparentdename:this.parentName,srfparentkey:_paramitem}, 0);
         }
+    }
+
+    /**
+     * 向关系视图发送事件，采用轮询模式。避免异步视图出现加载慢情况
+     *
+     * @param {*} action 触发行为
+     * @param {*} data 数据
+     * @param {*} count 轮询计数
+     * @memberof AppFormDRUIPart
+     */
+    protected partViewEvent(action: string, data: any, count: number = 0): void {
+        if (count > 100) {
+            return;
+        }
+        if (count === 0 && this.timer !== undefined) {
+            clearTimeout(this.timer);
+            this.timer = undefined;
+        }
+        if (this.viewIsLoaded) {
+            this.formDruipart.next({action:'load',data});
+            return;
+        }
+        this.timer = setTimeout(() => {
+            count++;
+            this.partViewEvent(action, data, count);
+        }, 30);
     }
 
     /**
