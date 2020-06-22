@@ -1,5 +1,6 @@
 <template>
     <div class='portlet main-detail ' :style="{'height': 'auto',}">
+        测试值：true
         <p class='portlet-title'>
             <span>
             

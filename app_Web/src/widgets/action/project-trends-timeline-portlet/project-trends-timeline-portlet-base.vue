@@ -1,5 +1,6 @@
 <template>
     <div class='portlet project-trends-timeline ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'370px'),}">
+        测试值：true
         <p class='portlet-title'>
             <span>
             
