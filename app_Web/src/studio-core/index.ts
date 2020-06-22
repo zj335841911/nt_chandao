@@ -47,7 +47,8 @@ export { ListExpViewBase } from './view/ListExpViewBase';
 export { IndexPickupDataViewBase } from './view/IndexPickupDataViewBase';
 export { OptionViewBase } from './view/OptionViewBase';
 // 部件基类
-// export { AppMenusCtrlBase } from './widgets/AppMenusCtrlBase';
+export { CtrlBase } from './widgets/CtrlBase';
+export { TabExpPanel } from './widgets/TabExpPanel';
 // 组件 Start
 import { AppLayout } from './components/layout/app-layout/app-layout';
 import { AppHeader } from './components/layout/app-header/app-header';
