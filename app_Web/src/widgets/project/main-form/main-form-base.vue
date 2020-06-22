@@ -58,18 +58,16 @@
 
 </i-col>
 <i-col v-show="detailsModel.formitemex2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <comb-form-item name="srfarray" :value="data.srfarray" :formItems="[{ name: '关联产品集合', prop: 'products' },{ name: '关联产品平台集合', prop: 'branchs' },{ name: '关联产品产品计划', prop: 'plans' },]">
-    <div slot="products" slot-scope="{item}">
-        <Input v-model="item.products" />
-    </div>
-    <div slot="branchs" slot-scope="{item}">
-        <Input v-model="item.branchs" />
-    </div>
-    <div slot="plans" slot-scope="{item}">
-        <Input v-model="item.plans" />
-    </div>
-</comb-form-item>
+    !!!!模版产生代码错误:----
+Tip: It's the step after the last dot that caused this error, not those before it.
+----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
 
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: #if field.getPSCodeList()??  [in template "TEMPLCODE_zh_CN" at line 13, column 13]
+----
 
 </i-col>
     
