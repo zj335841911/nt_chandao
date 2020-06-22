@@ -97,6 +97,21 @@ export default class MainModel {
         dataType: 'PICKUPTEXT',
       },
       {
+        name: 'name',
+        prop: 'name',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'pri',
+        prop: 'pri',
+        dataType: 'NSCODELIST',
+      },
+      {
+        name: 'estimate',
+        prop: 'estimate',
+        dataType: 'FLOAT',
+      },
+      {
         name: 'desc',
         prop: 'desc',
         dataType: 'LONGTEXT',
