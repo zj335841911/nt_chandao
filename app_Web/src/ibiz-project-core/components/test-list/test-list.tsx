@@ -44,6 +44,21 @@ export class TestList extends Vue {
     }
 
     /**
+     * 打开行为视图
+     *
+     * @protected
+     * @param {MouseEvent} e
+     * @param {Product} item
+     * @param {string} srftabactivate
+     * @memberof TestList
+     */
+    protected openActionView(e: MouseEvent, item: any, srftabactivate: string): void {
+        e.stopPropagation();
+        item.srftabactivate = srftabactivate;
+        this.itemClick(item);
+    }
+
+    /**
      * 绘制产品项
      *
      * @protected
@@ -68,13 +83,13 @@ export class TestList extends Vue {
                 </div>
             </div>
             <template slot="action">
-                <li>
+                <li on-click={(e: any) => this.openActionView(e, p, 'tabviewpanel2 ')}>
                     未解决：{p.activebugcnt}
                 </li>
-                <li>
+                <li on-click={(e: any) => this.openActionView(e, p, 'tabviewpanel2')}>
                     未确认：{p.unconfirmbugcnt}
                 </li>
-                <li>
+                <li on-click={(e: any) => this.openActionView(e, p, 'tabviewpanel2')}>
                     未关闭：{p.notclosedbugcnt}
                 </li>
             </template>
