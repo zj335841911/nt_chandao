@@ -40,7 +40,6 @@
                                           :viewState="viewState"  
                                           :viewparams="viewparams" 
                                           :context="context" 
-                                          :height="1"
                                           name="db_sysportlet1"  
                                           ref='db_sysportlet1' 
                                           @closeview="closeView($event)">
@@ -86,7 +85,6 @@
                                           :viewState="viewState"  
                                           :viewparams="viewparams" 
                                           :context="context" 
-                                          :height="1"
                                           name="db_assigntomecaseportlet1"  
                                           ref='db_assigntomecaseportlet1' 
                                           @closeview="closeView($event)">

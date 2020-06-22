@@ -40,7 +40,6 @@
                                           :viewState="viewState"  
                                           :viewparams="viewparams" 
                                           :context="context" 
-                                          :height="1"
                                           name="db_productunclosedportlet"  
                                           ref='db_productunclosedportlet' 
                                           @closeview="closeView($event)">
@@ -86,7 +85,6 @@
                                           :viewState="viewState"  
                                           :viewparams="viewparams" 
                                           :context="context" 
-                                          :height="1"
                                           name="db_assignedtomestoryportlet"  
                                           ref='db_assignedtomestoryportlet' 
                                           @closeview="closeView($event)">

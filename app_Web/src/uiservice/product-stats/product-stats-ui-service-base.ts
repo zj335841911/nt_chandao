@@ -378,8 +378,8 @@ export default class ProductStatsUIServiceBase extends UIService {
         const _this: any = actionContext;
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { productstats: '%productstats%' });
-        Object.assign(params, { id: '%productstats%' });
+        Object.assign(context, { productstats: '%product%' });
+        Object.assign(params, { id: '%product%' });
         Object.assign(params, { name: '%name%' });
         if(_this.context){
             parentContext = _this.context;

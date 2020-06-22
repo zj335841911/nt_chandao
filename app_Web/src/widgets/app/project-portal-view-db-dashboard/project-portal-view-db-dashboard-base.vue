@@ -40,7 +40,6 @@
                                           :viewState="viewState"  
                                           :viewparams="viewparams" 
                                           :context="context" 
-                                          :height="1"
                                           name="db_projectunclosedportlet"  
                                           ref='db_projectunclosedportlet' 
                                           @closeview="closeView($event)">
@@ -86,7 +85,6 @@
                                           :viewState="viewState"  
                                           :viewparams="viewparams" 
                                           :context="context" 
-                                          :height="1"
                                           name="db_assignedtometaskportlet"  
                                           ref='db_assignedtometaskportlet' 
                                           @closeview="closeView($event)">
