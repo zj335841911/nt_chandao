@@ -118,6 +118,16 @@ export default class CaseGridView9Base extends GridView9Base {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '7f9b2e4d5b622528df75121b824b6fcc';
+
+
     /**
      * 视图引擎
      *

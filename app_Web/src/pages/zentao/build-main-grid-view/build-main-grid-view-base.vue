@@ -176,6 +176,16 @@ export default class BuildMainGridViewBase extends GridViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '8104f8c4c275f6ba17fb969edf52eb37';
+
+
     /**
      * 视图引擎
      *

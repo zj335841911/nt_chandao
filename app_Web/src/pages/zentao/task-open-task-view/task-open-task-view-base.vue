@@ -128,6 +128,16 @@ export default class TaskOpenTaskViewBase extends OptionViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'abca63015fc84466991c6479f955f6d0';
+
+
     /**
      * 视图引擎
      *

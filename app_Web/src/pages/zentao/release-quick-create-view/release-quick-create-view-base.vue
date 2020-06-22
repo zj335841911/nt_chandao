@@ -128,6 +128,16 @@ export default class ReleaseQuickCreateViewBase extends EditViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'ed51615a22255e84a3b276815ef5c96e';
+
+
     /**
      * 视图引擎
      *

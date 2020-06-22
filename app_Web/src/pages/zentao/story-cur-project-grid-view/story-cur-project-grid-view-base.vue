@@ -140,6 +140,16 @@ export default class StoryCurProjectGridViewBase extends GridViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '7b1cc190cbffe1cd122d87a9d03b2d21';
+
+
     /**
      * 视图引擎
      *

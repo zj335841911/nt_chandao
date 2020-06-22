@@ -65,7 +65,10 @@ export default class HistoryServiceBase extends EntityService {
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.action && context.history){
-            return Http.getInstance().put(`/actions/${context.action}/histories/${context.history}`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/actions/${context.action}/histories/${context.history}`,data,isloading);
+            return res;
         }
         let masterData:any = {};
         Object.assign(data,masterData);
@@ -84,13 +87,17 @@ export default class HistoryServiceBase extends EntityService {
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.action && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
             if(!data.srffrontuf || data.srffrontuf !== "1"){
                 data[this.APPDEKEY] = null;
             }
             if(data.srffrontuf){
                 delete data.srffrontuf;
             }
-            return Http.getInstance().post(`/actions/${context.action}/histories`,data,isloading);
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/actions/${context.action}/histories`,data,isloading);
+            return res;
         }
         let masterData:any = {};
         Object.assign(data,masterData);
@@ -116,11 +123,11 @@ export default class HistoryServiceBase extends EntityService {
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.action && context.history){
-            return Http.getInstance().get(`/actions/${context.action}/histories/${context.history}`,isloading);
+            let res:any = await Http.getInstance().get(`/actions/${context.action}/histories/${context.history}`,isloading);
+            return res;
         }
             let res:any = await Http.getInstance().get(`/histories/${context.history}`,isloading);
             return res;
-
     }
 
     /**
@@ -134,7 +141,10 @@ export default class HistoryServiceBase extends EntityService {
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.action && context.history){
-            return Http.getInstance().post(`/actions/${context.action}/histories/${context.history}/checkkey`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/actions/${context.action}/histories/${context.history}/checkkey`,data,isloading);
+            return res;
         }
             return Http.getInstance().post(`/histories/${context.history}/checkkey`,data,isloading);
     }
@@ -150,7 +160,10 @@ export default class HistoryServiceBase extends EntityService {
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.action && context.history){
-            return Http.getInstance().post(`/actions/${context.action}/histories/${context.history}/save`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/actions/${context.action}/histories/${context.history}/save`,data,isloading);
+            return res;
         }
         let masterData:any = {};
         Object.assign(data,masterData);
@@ -172,7 +185,6 @@ export default class HistoryServiceBase extends EntityService {
             return Http.getInstance().delete(`/actions/${context.action}/histories/${context.history}`,isloading);
         }
             return Http.getInstance().delete(`/histories/${context.history}`,isloading);
-
     }
 
     /**
@@ -186,7 +198,9 @@ export default class HistoryServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.action && true){
-            return Http.getInstance().get(`/actions/${context.action}/histories/getdraft`,isloading);
+            let res:any = await Http.getInstance().get(`/actions/${context.action}/histories/getdraft`,isloading);
+            res.data.history = data.history;
+            return res;
         }
         let res:any = await  Http.getInstance().get(`/histories/getdraft`,isloading);
         res.data.history = data.history;

@@ -128,6 +128,16 @@ export default class TaskMainEditViewBase extends EditViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '21e00a7239d9737bbfda5c1608b4129c';
+
+
     /**
      * 视图引擎
      *

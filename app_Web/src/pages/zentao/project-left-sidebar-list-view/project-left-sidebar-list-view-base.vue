@@ -138,6 +138,16 @@ export default class ProjectLeftSidebarListViewBase extends ListViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '7c79a923d0cdd1a5bc41a34367809077';
+
+
     /**
      * 视图引擎
      *

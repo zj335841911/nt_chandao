@@ -109,6 +109,16 @@ export default class StoryPickupGridViewBase extends PickupViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '569cd532c6b545ffc53cf5fb93427028';
+
+
     /**
      * 视图引擎
      *

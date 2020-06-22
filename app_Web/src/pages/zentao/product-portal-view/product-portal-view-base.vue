@@ -90,6 +90,16 @@ export default class ProductPortalViewBase extends PortalViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'A49E5FD9-FC90-434B-9E13-192873F6F2AC';
+
+
     /**
      * 引擎初始化
      *

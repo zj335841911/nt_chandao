@@ -161,6 +161,16 @@ export default class ProductTestGridViewBase extends GridViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '1d697dd8e47a4781be8f690bcc5f7800';
+
+
     /**
      * 视图引擎
      *

@@ -62,7 +62,6 @@ export default class GroupServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             return Http.getInstance().delete(`/groups/${context.group}`,isloading);
-
     }
 
     /**
@@ -77,7 +76,6 @@ export default class GroupServiceBase extends EntityService {
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().get(`/groups/${context.group}`,isloading);
             return res;
-
     }
 
     /**

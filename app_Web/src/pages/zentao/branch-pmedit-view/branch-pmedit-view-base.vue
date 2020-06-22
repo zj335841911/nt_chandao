@@ -128,6 +128,16 @@ export default class BranchPMEditViewBase extends EditViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'd4cb26555e6d81a172652580cf7d9f7f';
+
+
     /**
      * 视图引擎
      *

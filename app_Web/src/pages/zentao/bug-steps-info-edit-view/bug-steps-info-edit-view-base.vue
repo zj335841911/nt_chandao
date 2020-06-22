@@ -110,6 +110,16 @@ export default class BugStepsInfoEditViewBase extends EditViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '6558930042f15c2297572f51d7e77df5';
+
+
     /**
      * 视图引擎
      *

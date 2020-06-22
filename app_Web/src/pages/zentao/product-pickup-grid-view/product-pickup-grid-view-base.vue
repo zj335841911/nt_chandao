@@ -131,6 +131,16 @@ export default class ProductPickupGridViewBase extends PickupViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '8d53a973712c13f448efb8e2182ccc0b';
+
+
     /**
      * 视图引擎
      *

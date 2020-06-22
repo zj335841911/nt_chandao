@@ -137,6 +137,16 @@ export default class CaseBatchNewGridViewBase extends GridViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '66769499a681f12bd2ebff8859f1d4ea';
+
+
     /**
      * 视图引擎
      *

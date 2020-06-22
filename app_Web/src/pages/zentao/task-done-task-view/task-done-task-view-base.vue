@@ -128,6 +128,16 @@ export default class TaskDoneTaskViewBase extends OptionViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'c9c256aef78723e1bf9ddc1d38667c3f';
+
+
     /**
      * 视图引擎
      *

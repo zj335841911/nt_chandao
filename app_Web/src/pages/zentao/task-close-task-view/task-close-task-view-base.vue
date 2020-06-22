@@ -128,6 +128,16 @@ export default class TaskCloseTaskViewBase extends OptionViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '507c506d62dc910a814332e6ae242266';
+
+
     /**
      * 视图引擎
      *

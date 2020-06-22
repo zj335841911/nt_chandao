@@ -118,6 +118,16 @@ export default class ProjectGridView9_UnClosedBase extends GridView9Base {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'a7a97014cad1917b94284db21ec968f1';
+
+
     /**
      * 视图引擎
      *

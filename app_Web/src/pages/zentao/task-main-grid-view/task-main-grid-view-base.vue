@@ -141,6 +141,16 @@ export default class TaskMainGridViewBase extends GridViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'a4af2d93ae66c9877ee99bfe7b93d22c';
+
+
     /**
      * 视图引擎
      *

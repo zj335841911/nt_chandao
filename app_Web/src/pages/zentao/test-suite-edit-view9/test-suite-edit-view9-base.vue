@@ -110,6 +110,16 @@ export default class TestSuiteEditView9Base extends EditView9Base {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '0d5db9e736e4556dcfc45c455888a1a6';
+
+
     /**
      * 视图引擎
      *

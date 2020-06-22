@@ -114,6 +114,16 @@ export default class ActionHistroyListViewBase extends ListViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '770a170098d148e438a7666b248e6519';
+
+
     /**
      * 视图引擎
      *

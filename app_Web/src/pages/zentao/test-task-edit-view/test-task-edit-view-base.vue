@@ -153,6 +153,16 @@ export default class TestTaskEditViewBase extends EditViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '5b139a407fa34f386f3f784f33841184';
+
+
     /**
      * 视图引擎
      *

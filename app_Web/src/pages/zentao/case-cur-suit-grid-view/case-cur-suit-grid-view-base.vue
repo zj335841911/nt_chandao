@@ -118,6 +118,16 @@ export default class CaseCurSuitGridViewBase extends GridViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '74e206764fd747fa31467bd5a9f371df';
+
+
     /**
      * 视图引擎
      *

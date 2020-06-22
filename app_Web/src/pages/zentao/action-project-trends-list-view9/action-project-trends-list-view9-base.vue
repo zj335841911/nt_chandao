@@ -112,6 +112,16 @@ export default class ActionProjectTrendsListView9Base extends ListView9Base {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '96ec3f978c1cc22acc532331d5dc2a41';
+
+
     /**
      * 视图引擎
      *

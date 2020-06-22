@@ -113,6 +113,16 @@ export default class ProductPlanSubPlanEditViewBase extends EditViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '54c7ba4afb6222c4c0af04a78a0592df';
+
+
     /**
      * 视图引擎
      *

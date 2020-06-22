@@ -103,6 +103,16 @@ export default class TestSuiteMainDashboardViewBase extends DashboardViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'c2e4200fb7c9760b4931b43561289980';
+
+
     /**
      * 视图引擎
      *

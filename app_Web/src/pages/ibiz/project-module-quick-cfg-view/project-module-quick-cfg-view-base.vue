@@ -126,6 +126,16 @@ export default class ProjectModuleQuickCfgViewBase extends OptionViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '0568d197dda832ceb89ad0442ab9f230';
+
+
     /**
      * 视图引擎
      *

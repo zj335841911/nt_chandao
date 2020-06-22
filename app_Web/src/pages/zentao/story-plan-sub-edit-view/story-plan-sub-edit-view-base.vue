@@ -129,6 +129,16 @@ export default class StoryPlanSubEditViewBase extends EditViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '54a5f5fa5f8def88d2aec9c7ee6d85fe';
+
+
     /**
      * 视图引擎
      *

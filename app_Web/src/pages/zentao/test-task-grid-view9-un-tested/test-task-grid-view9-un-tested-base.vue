@@ -118,6 +118,16 @@ export default class TestTaskGridView9_UnTestedBase extends GridView9Base {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '3091670967914b91fb4b6f46751dcd7e';
+
+
     /**
      * 视图引擎
      *

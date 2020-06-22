@@ -128,6 +128,16 @@ export default class ProductPlanEditViewBase extends EditViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'aad9a5713d6828d3119b811b26915215';
+
+
     /**
      * 视图引擎
      *

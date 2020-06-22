@@ -118,6 +118,16 @@ export default class TaskMainGridView9_ChildBase extends GridView9Base {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '2e0d4fb0f3e1ba1ba5bea16a5553cc21';
+
+
     /**
      * 视图引擎
      *

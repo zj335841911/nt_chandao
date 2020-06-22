@@ -86,6 +86,7 @@ export class ViewBase extends Vue {
 	/**
      * 视图标识
      *
+     * @protected
      * @type {string}
      * @memberof ViewBase
      */
@@ -98,7 +99,7 @@ export class ViewBase extends Vue {
      * @type {*}
      * @memberof ViewBase
      */
-    protected engine: any;
+    protected engine: any = null;
 
     /**
      * 计数器服务对象集合

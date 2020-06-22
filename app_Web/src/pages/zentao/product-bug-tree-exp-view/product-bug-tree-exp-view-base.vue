@@ -100,6 +100,16 @@ export default class ProductBugTreeExpViewBase extends TreeExpViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'f78c94cb0a20d7f459753a4070f8f3e7';
+
+
     /**
      * 视图引擎
      *

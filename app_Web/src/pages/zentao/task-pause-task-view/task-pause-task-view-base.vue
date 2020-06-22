@@ -128,6 +128,16 @@ export default class TaskPauseTaskViewBase extends OptionViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'b03bf2445d2e295fccbb6280b2601248';
+
+
     /**
      * 视图引擎
      *

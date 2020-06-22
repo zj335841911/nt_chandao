@@ -134,6 +134,16 @@ export default class ProductModuleGridViewBase extends GridViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '523abe6eb852ca08fe4a3c140ff47b42';
+
+
     /**
      * 视图引擎
      *

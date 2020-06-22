@@ -110,6 +110,16 @@ export default class BugDashboardMainEditView9Base extends EditView9Base {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'ec9a5987de12c718961f243f4034efea';
+
+
     /**
      * 视图引擎
      *

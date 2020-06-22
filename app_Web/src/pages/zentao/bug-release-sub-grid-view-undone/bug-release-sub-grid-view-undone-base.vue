@@ -138,6 +138,16 @@ export default class BugReleaseSubGridView_UndoneBase extends GridViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'b507b8efc20db47d7b01d67561638cd6';
+
+
     /**
      * 视图引擎
      *

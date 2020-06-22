@@ -144,6 +144,16 @@ export default class StoryPlanSubGridViewBase extends GridViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'b9e94e3713c82ebab002631bda872b94';
+
+
     /**
      * 视图引擎
      *

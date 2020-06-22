@@ -103,6 +103,16 @@ export default class CaseMainDashboardViewBase extends DashboardViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '6f78b25e86923ab600a2141d50fe49fd';
+
+
     /**
      * 视图引擎
      *

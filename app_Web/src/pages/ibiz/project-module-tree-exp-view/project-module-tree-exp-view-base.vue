@@ -115,6 +115,16 @@ export default class ProjectModuleTreeExpViewBase extends TreeExpViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'bb8860972029d9947daa3652a4b5d291';
+
+
     /**
      * 视图引擎
      *

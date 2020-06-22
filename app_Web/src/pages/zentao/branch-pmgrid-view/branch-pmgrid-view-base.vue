@@ -136,6 +136,16 @@ export default class BranchPMGridViewBase extends GridViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '776ea44ea05316c9c6cb9d5948e993f9';
+
+
     /**
      * 视图引擎
      *

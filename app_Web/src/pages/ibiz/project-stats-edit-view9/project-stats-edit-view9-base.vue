@@ -111,6 +111,16 @@ export default class ProjectStatsEditView9Base extends EditView9Base {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'e444135470a806822b9b950e15c42a3e';
+
+
     /**
      * 视图引擎
      *

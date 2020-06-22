@@ -150,6 +150,16 @@ export default class BugMPickupViewBase extends MPickupViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '21d716ac12c793af54b112a5a3599674';
+
+
     /**
      * 视图引擎
      *

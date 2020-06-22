@@ -110,6 +110,16 @@ export default class BugBugLifeEditView9Base extends EditView9Base {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '443935a0b9d0fa8daf3131956a8bacc9';
+
+
     /**
      * 视图引擎
      *

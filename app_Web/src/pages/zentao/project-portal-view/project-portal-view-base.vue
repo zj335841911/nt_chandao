@@ -90,6 +90,16 @@ export default class ProjectPortalViewBase extends PortalViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'CC49500F-030F-458F-82DF-F88F6973DF64';
+
+
     /**
      * 引擎初始化
      *

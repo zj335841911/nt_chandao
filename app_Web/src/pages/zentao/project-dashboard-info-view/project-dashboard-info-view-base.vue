@@ -110,6 +110,16 @@ export default class ProjectDashboardInfoViewBase extends EditView9Base {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'ef1a8c8701140368af895304274c602a';
+
+
     /**
      * 视图引擎
      *

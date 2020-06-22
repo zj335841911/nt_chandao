@@ -128,6 +128,16 @@ export default class BugEditViewBase extends EditViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '46517a803b2470cd0bef27aeda0dbcaf';
+
+
     /**
      * 视图引擎
      *

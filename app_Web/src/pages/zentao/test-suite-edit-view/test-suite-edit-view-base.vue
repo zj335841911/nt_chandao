@@ -153,6 +153,16 @@ export default class TestSuiteEditViewBase extends EditViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '7a983ef690626958a9897f58efe15e58';
+
+
     /**
      * 视图引擎
      *

@@ -101,7 +101,6 @@ export default class SuiteCaseServiceBase extends EntityService {
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().get(`/suitecases/${context.suitecase}`,isloading);
             return res;
-
     }
 
     /**
@@ -131,7 +130,6 @@ export default class SuiteCaseServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             return Http.getInstance().delete(`/suitecases/${context.suitecase}`,isloading);
-
     }
 
     /**

@@ -129,6 +129,16 @@ export default class StoryReleaseSubEditViewBase extends EditViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '928e6614bcfbd67af3b596cf5dc5a46b';
+
+
     /**
      * 视图引擎
      *

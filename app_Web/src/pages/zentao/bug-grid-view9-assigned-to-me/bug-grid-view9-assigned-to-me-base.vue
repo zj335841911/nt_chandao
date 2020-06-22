@@ -118,6 +118,16 @@ export default class BugGridView9_AssignedToMeBase extends GridView9Base {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '81893d14e76cac341d4218a9c5ef185d';
+
+
     /**
      * 视图引擎
      *

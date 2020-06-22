@@ -118,6 +118,16 @@ export default class ProductGridView_UnClosedBase extends GridViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '52e850ef857c81c2a96f5db0a84836f8';
+
+
     /**
      * 视图引擎
      *

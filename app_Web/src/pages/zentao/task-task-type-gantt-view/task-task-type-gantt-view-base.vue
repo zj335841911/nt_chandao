@@ -96,6 +96,16 @@ export default class TaskTaskTypeGanttViewBase extends GanttViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '5ef23f01b2cffa48351b3272dfeeaf14';
+
+
     /**
      * 引擎初始化
      *

@@ -99,6 +99,16 @@ export default class ReleaseMainTabExpViewBase extends TabExpViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'ceb630b252aac50781a373e0bef90eb2';
+
+
     /**
      * 视图引擎
      *

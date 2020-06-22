@@ -118,6 +118,16 @@ export default class TaskGridView9_AssignedToMeBase extends GridView9Base {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '79b3a14f0431747becc48f5b9f3aa990';
+
+
     /**
      * 视图引擎
      *

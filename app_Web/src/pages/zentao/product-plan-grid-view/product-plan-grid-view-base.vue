@@ -138,6 +138,16 @@ export default class ProductPlanGridViewBase extends GridViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '81b0cee2fedff8f4902c0d735714e5af';
+
+
     /**
      * 视图引擎
      *

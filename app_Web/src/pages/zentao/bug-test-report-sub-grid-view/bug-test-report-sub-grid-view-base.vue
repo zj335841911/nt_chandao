@@ -133,6 +133,16 @@ export default class BugTestReportSubGridViewBase extends GridViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '51b05c15dcd26cd675a6e340f0023977';
+
+
     /**
      * 视图引擎
      *

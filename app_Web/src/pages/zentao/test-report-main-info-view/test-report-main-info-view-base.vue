@@ -110,6 +110,16 @@ export default class TestReportMainInfoViewBase extends EditViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '3d56b0e37a56b9be1a28589c04f573fa';
+
+
     /**
      * 视图引擎
      *

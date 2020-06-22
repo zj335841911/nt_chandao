@@ -113,6 +113,16 @@ export default class ProductLifeRoadMapListViewBase extends ListViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '07327890c326f9c806b9343f0c660fc1';
+
+
     /**
      * 视图引擎
      *

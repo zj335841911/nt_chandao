@@ -134,6 +134,16 @@ export default class ProjectCurProductGridViewBase extends GridViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '522b28992d16207a0fc47340589bb2cf';
+
+
     /**
      * 视图引擎
      *

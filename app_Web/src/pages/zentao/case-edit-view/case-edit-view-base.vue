@@ -153,6 +153,16 @@ export default class CaseEditViewBase extends EditViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '02b7ecd8e994b90558a9d6c23705f600';
+
+
     /**
      * 视图引擎
      *

@@ -103,6 +103,16 @@ export default class BugMainDashboardViewBase extends DashboardViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '1540523a668e920d831510cfbec2c5e2';
+
+
     /**
      * 视图引擎
      *

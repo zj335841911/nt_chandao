@@ -128,6 +128,16 @@ export default class StoryEditViewBase extends EditViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '4863a523ac490ebce771717756f0c6a8';
+
+
     /**
      * 视图引擎
      *

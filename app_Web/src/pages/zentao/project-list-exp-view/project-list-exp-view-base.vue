@@ -103,6 +103,16 @@ export default class ProjectListExpViewBase extends ListExpViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '3aafb12bb0db2be013c0f5ced8c7dc50';
+
+
     /**
      * 视图引擎
      *

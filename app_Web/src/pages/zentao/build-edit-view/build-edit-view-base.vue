@@ -128,6 +128,16 @@ export default class BuildEditViewBase extends EditViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'e9d61d4506a28dec9a6f1d7b9e1fff6a';
+
+
     /**
      * 视图引擎
      *

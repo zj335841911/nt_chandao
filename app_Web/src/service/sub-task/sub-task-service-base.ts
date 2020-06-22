@@ -67,10 +67,14 @@ export default class SubTaskServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.task && true){
-            return Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/getdraft`,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/getdraft`,isloading);
+            res.data.subtask = data.subtask;
+            return res;
         }
         if(context.task && true){
-            return Http.getInstance().get(`/tasks/${context.task}/subtasks/getdraft`,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/getdraft`,isloading);
+            res.data.subtask = data.subtask;
+            return res;
         }
     }
 
@@ -85,10 +89,16 @@ export default class SubTaskServiceBase extends EntityService {
      */
     public async Close(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.task && context.subtask){
-            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/close`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/close`,data,isloading);
+            return res;
         }
         if(context.task && context.subtask){
-            return Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/close`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/close`,data,isloading);
+            return res;
         }
     }
 
@@ -103,10 +113,16 @@ export default class SubTaskServiceBase extends EntityService {
      */
     public async Pause(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.task && context.subtask){
-            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/pause`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/pause`,data,isloading);
+            return res;
         }
         if(context.task && context.subtask){
-            return Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/pause`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/pause`,data,isloading);
+            return res;
         }
     }
 
@@ -121,10 +137,16 @@ export default class SubTaskServiceBase extends EntityService {
      */
     public async Start(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.task && context.subtask){
-            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/start`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/start`,data,isloading);
+            return res;
         }
         if(context.task && context.subtask){
-            return Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/start`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/start`,data,isloading);
+            return res;
         }
     }
 
@@ -139,10 +161,16 @@ export default class SubTaskServiceBase extends EntityService {
      */
     public async AssignTo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.task && context.subtask){
-            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/assignto`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/assignto`,data,isloading);
+            return res;
         }
         if(context.task && context.subtask){
-            return Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/assignto`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/assignto`,data,isloading);
+            return res;
         }
     }
 
@@ -175,10 +203,16 @@ export default class SubTaskServiceBase extends EntityService {
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.task && context.subtask){
-            return Http.getInstance().put(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}`,data,isloading);
+            return res;
         }
         if(context.task && context.subtask){
-            return Http.getInstance().put(`/tasks/${context.task}/subtasks/${context.subtask}`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/tasks/${context.task}/subtasks/${context.subtask}`,data,isloading);
+            return res;
         }
     }
 
@@ -193,10 +227,16 @@ export default class SubTaskServiceBase extends EntityService {
      */
     public async Cancel(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.task && context.subtask){
-            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/cancel`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/cancel`,data,isloading);
+            return res;
         }
         if(context.task && context.subtask){
-            return Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/cancel`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/cancel`,data,isloading);
+            return res;
         }
     }
 
@@ -211,10 +251,16 @@ export default class SubTaskServiceBase extends EntityService {
      */
     public async DeleteEstimate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.task && context.subtask){
-            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/deleteestimate`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/deleteestimate`,data,isloading);
+            return res;
         }
         if(context.task && context.subtask){
-            return Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/deleteestimate`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/deleteestimate`,data,isloading);
+            return res;
         }
     }
 
@@ -229,10 +275,16 @@ export default class SubTaskServiceBase extends EntityService {
      */
     public async Restart(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.task && context.subtask){
-            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/restart`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/restart`,data,isloading);
+            return res;
         }
         if(context.task && context.subtask){
-            return Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/restart`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/restart`,data,isloading);
+            return res;
         }
     }
 
@@ -247,10 +299,16 @@ export default class SubTaskServiceBase extends EntityService {
      */
     public async EditEstimate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.task && context.subtask){
-            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/editestimate`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/editestimate`,data,isloading);
+            return res;
         }
         if(context.task && context.subtask){
-            return Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/editestimate`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/editestimate`,data,isloading);
+            return res;
         }
     }
 
@@ -265,10 +323,16 @@ export default class SubTaskServiceBase extends EntityService {
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.task && context.subtask){
-            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/save`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/save`,data,isloading);
+            return res;
         }
         if(context.task && context.subtask){
-            return Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/save`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/save`,data,isloading);
+            return res;
         }
     }
 
@@ -283,10 +347,12 @@ export default class SubTaskServiceBase extends EntityService {
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.task && context.subtask){
-            return Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}`,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}`,isloading);
+            return res;
         }
         if(context.task && context.subtask){
-            return Http.getInstance().get(`/tasks/${context.task}/subtasks/${context.subtask}`,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/${context.subtask}`,isloading);
+            return res;
         }
     }
 
@@ -301,10 +367,16 @@ export default class SubTaskServiceBase extends EntityService {
      */
     public async RecordEstimate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.task && context.subtask){
-            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/recordestimate`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/recordestimate`,data,isloading);
+            return res;
         }
         if(context.task && context.subtask){
-            return Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/recordestimate`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/recordestimate`,data,isloading);
+            return res;
         }
     }
 
@@ -319,10 +391,16 @@ export default class SubTaskServiceBase extends EntityService {
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.task && context.subtask){
-            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/checkkey`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/checkkey`,data,isloading);
+            return res;
         }
         if(context.task && context.subtask){
-            return Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/checkkey`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/checkkey`,data,isloading);
+            return res;
         }
     }
 
@@ -337,22 +415,30 @@ export default class SubTaskServiceBase extends EntityService {
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.task && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
             if(!data.srffrontuf || data.srffrontuf !== "1"){
                 data[this.APPDEKEY] = null;
             }
             if(data.srffrontuf){
                 delete data.srffrontuf;
             }
-            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks`,data,isloading);
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks`,data,isloading);
+            return res;
         }
         if(context.task && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
             if(!data.srffrontuf || data.srffrontuf !== "1"){
                 data[this.APPDEKEY] = null;
             }
             if(data.srffrontuf){
                 delete data.srffrontuf;
             }
-            return Http.getInstance().post(`/tasks/${context.task}/subtasks`,data,isloading);
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/tasks/${context.task}/subtasks`,data,isloading);
+            return res;
         }
     }
 
@@ -367,10 +453,16 @@ export default class SubTaskServiceBase extends EntityService {
      */
     public async Finish(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.task && context.subtask){
-            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/finish`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/finish`,data,isloading);
+            return res;
         }
         if(context.task && context.subtask){
-            return Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/finish`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/finish`,data,isloading);
+            return res;
         }
     }
 
@@ -385,10 +477,16 @@ export default class SubTaskServiceBase extends EntityService {
      */
     public async Activate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.task && context.subtask){
-            return Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/activate`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/activate`,data,isloading);
+            return res;
         }
         if(context.task && context.subtask){
-            return Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/activate`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/tasks/${context.task}/subtasks/${context.subtask}/activate`,data,isloading);
+            return res;
         }
     }
 

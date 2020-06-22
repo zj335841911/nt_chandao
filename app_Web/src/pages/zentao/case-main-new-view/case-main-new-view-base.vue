@@ -128,6 +128,16 @@ export default class CaseMainNewViewBase extends EditViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '5890a810365fec51e801d2cffce44fde';
+
+
     /**
      * 视图引擎
      *

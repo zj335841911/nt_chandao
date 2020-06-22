@@ -112,6 +112,16 @@ export default class ProjectProductPlanListView9Base extends ListView9Base {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '03c110360a714011ed9c30b8207d3703';
+
+
     /**
      * 视图引擎
      *

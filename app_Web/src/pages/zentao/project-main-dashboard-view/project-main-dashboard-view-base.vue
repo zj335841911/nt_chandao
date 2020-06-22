@@ -98,6 +98,16 @@ export default class ProjectMainDashboardViewBase extends DashboardViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '85ee867b09a2d6303c061d91374ec975';
+
+
     /**
      * 视图引擎
      *

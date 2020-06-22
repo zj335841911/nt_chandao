@@ -110,6 +110,16 @@ export default class TaskMainDetailView9Base extends EditView9Base {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'ef6cfafd09bb61ddb6fec7840f78e97d';
+
+
     /**
      * 视图引擎
      *

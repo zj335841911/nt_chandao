@@ -90,6 +90,16 @@ export default class TestPortalViewBase extends PortalViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'D1283E46-401A-4CFD-A7A1-BF5B90197463';
+
+
     /**
      * 引擎初始化
      *

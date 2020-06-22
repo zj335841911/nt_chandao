@@ -136,6 +136,16 @@ export default class ProjectModuleMainGridViewBase extends GridViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '41dab4e36aef71df5c66acca4db7d045';
+
+
     /**
      * 视图引擎
      *

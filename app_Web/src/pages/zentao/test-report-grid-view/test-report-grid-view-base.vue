@@ -133,6 +133,16 @@ export default class TestReportGridViewBase extends GridViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '48600bd551aa923b5fceabcb83f65239';
+
+
     /**
      * 视图引擎
      *

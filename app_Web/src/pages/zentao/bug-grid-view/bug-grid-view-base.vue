@@ -141,6 +141,16 @@ export default class BugGridViewBase extends GridViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'c9410c9f72535adf1fff569d5243edd1';
+
+
     /**
      * 视图引擎
      *

@@ -96,6 +96,16 @@ export default class ProductTestTabExpViewBase extends TabExpViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '005b0ba30f9e9e982e087961bd50c681';
+
+
     /**
      * 视图引擎
      *

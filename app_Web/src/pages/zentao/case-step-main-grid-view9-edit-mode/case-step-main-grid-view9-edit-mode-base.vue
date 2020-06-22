@@ -137,6 +137,16 @@ export default class CaseStepMainGridView9_EditModeBase extends GridView9Base {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'ac71a1cfaecb07640c14f75b8f202b1e';
+
+
     /**
      * 视图引擎
      *

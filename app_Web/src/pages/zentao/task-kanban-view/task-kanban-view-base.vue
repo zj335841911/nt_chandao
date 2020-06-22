@@ -131,6 +131,16 @@ export default class TaskKanbanViewBase extends KanBanViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '7088260bcd6a0303378af2f8e207f479';
+
+
     /**
      * 视图引擎
      *

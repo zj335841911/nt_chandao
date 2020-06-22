@@ -133,7 +133,6 @@ export default class ProductStatsServiceBase extends EntityService {
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().get(`/productstats/${context.productstats}`,isloading);
             return res;
-
     }
 
     /**
@@ -160,7 +159,6 @@ export default class ProductStatsServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             return Http.getInstance().delete(`/productstats/${context.productstats}`,isloading);
-
     }
 
     /**

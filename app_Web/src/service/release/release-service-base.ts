@@ -65,7 +65,10 @@ export default class ReleaseServiceBase extends EntityService {
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.release){
-            return Http.getInstance().post(`/products/${context.product}/releases/${context.release}/checkkey`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/releases/${context.release}/checkkey`,data,isloading);
+            return res;
         }
             return Http.getInstance().post(`/releases/${context.release}/checkkey`,data,isloading);
     }
@@ -81,7 +84,10 @@ export default class ReleaseServiceBase extends EntityService {
      */
     public async Terminate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.release){
-            return Http.getInstance().post(`/products/${context.product}/releases/${context.release}/terminate`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/releases/${context.release}/terminate`,data,isloading);
+            return res;
         }
             return Http.getInstance().post(`/releases/${context.release}/terminate`,data,isloading);
     }
@@ -97,7 +103,10 @@ export default class ReleaseServiceBase extends EntityService {
      */
     public async Activate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.release){
-            return Http.getInstance().post(`/products/${context.product}/releases/${context.release}/activate`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/releases/${context.release}/activate`,data,isloading);
+            return res;
         }
             return Http.getInstance().post(`/releases/${context.release}/activate`,data,isloading);
     }
@@ -113,11 +122,11 @@ export default class ReleaseServiceBase extends EntityService {
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.release){
-            return Http.getInstance().get(`/products/${context.product}/releases/${context.release}`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/releases/${context.release}`,isloading);
+            return res;
         }
             let res:any = await Http.getInstance().get(`/releases/${context.release}`,isloading);
             return res;
-
     }
 
     /**
@@ -131,7 +140,10 @@ export default class ReleaseServiceBase extends EntityService {
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.release){
-            return Http.getInstance().post(`/products/${context.product}/releases/${context.release}/save`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/releases/${context.release}/save`,data,isloading);
+            return res;
         }
         let masterData:any = {};
         Object.assign(data,masterData);
@@ -150,7 +162,10 @@ export default class ReleaseServiceBase extends EntityService {
      */
     public async ChangeStatus(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.release){
-            return Http.getInstance().post(`/products/${context.product}/releases/${context.release}/changestatus`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/releases/${context.release}/changestatus`,data,isloading);
+            return res;
         }
             return Http.getInstance().post(`/releases/${context.release}/changestatus`,data,isloading);
     }
@@ -166,13 +181,17 @@ export default class ReleaseServiceBase extends EntityService {
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
             if(!data.srffrontuf || data.srffrontuf !== "1"){
                 data[this.APPDEKEY] = null;
             }
             if(data.srffrontuf){
                 delete data.srffrontuf;
             }
-            return Http.getInstance().post(`/products/${context.product}/releases`,data,isloading);
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/products/${context.product}/releases`,data,isloading);
+            return res;
         }
         let masterData:any = {};
         Object.assign(data,masterData);
@@ -198,7 +217,9 @@ export default class ReleaseServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
-            return Http.getInstance().get(`/products/${context.product}/releases/getdraft`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/releases/getdraft`,isloading);
+            res.data.release = data.release;
+            return res;
         }
         let res:any = await  Http.getInstance().get(`/releases/getdraft`,isloading);
         res.data.release = data.release;
@@ -216,7 +237,10 @@ export default class ReleaseServiceBase extends EntityService {
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.release){
-            return Http.getInstance().put(`/products/${context.product}/releases/${context.release}`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/releases/${context.release}`,data,isloading);
+            return res;
         }
         let masterData:any = {};
         Object.assign(data,masterData);
@@ -238,7 +262,6 @@ export default class ReleaseServiceBase extends EntityService {
             return Http.getInstance().delete(`/products/${context.product}/releases/${context.release}`,isloading);
         }
             return Http.getInstance().delete(`/releases/${context.release}`,isloading);
-
     }
 
     /**

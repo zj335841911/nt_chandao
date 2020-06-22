@@ -133,6 +133,16 @@ export default class BugBuildSubGridView_DoneBase extends GridViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'f8ffad31189703973765c5a9c4fc8a5c';
+
+
     /**
      * 视图引擎
      *

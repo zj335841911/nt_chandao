@@ -109,6 +109,16 @@ export default class BugPickupGridViewBase extends PickupViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '1e7347f3fffc87077dd7f0156125b918';
+
+
     /**
      * 视图引擎
      *

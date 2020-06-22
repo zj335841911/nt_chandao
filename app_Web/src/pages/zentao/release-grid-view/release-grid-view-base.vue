@@ -138,6 +138,16 @@ export default class ReleaseGridViewBase extends GridViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '9ae49b10ec96e8f7b063be2ed4172247';
+
+
     /**
      * 视图引擎
      *

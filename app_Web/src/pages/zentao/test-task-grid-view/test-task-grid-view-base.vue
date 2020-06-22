@@ -138,6 +138,16 @@ export default class TestTaskGridViewBase extends GridViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'aae1ade339fe6a2ebe367489f6393db1';
+
+
     /**
      * 视图引擎
      *

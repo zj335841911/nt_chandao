@@ -103,6 +103,16 @@ export default class TaskMainDashboardViewBase extends DashboardViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '575fecad655143bbd28f17c581725a4e';
+
+
     /**
      * 视图引擎
      *

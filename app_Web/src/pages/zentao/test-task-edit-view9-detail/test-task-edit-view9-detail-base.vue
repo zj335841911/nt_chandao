@@ -110,6 +110,16 @@ export default class TestTaskEditView9_DetailBase extends EditView9Base {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '451eacde0c0c638e29bdfc9cbc789c13';
+
+
     /**
      * 视图引擎
      *

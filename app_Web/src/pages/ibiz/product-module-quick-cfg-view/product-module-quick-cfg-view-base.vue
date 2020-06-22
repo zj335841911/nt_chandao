@@ -126,6 +126,16 @@ export default class ProductModuleQuickCfgViewBase extends OptionViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'a9be826f6c53b091270f492be52f2519';
+
+
     /**
      * 视图引擎
      *

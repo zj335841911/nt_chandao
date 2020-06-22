@@ -121,6 +121,16 @@ export default class StoryGridView9_SubStoryBase extends GridView9Base {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '956ad42e59e60cd8b49e7035147e25cf';
+
+
     /**
      * 视图引擎
      *

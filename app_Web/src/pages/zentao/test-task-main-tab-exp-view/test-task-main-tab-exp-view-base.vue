@@ -99,6 +99,16 @@ export default class TestTaskMainTabExpViewBase extends TabExpViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '5273dc442a49b8c4d37ba9ff008531e7';
+
+
     /**
      * 视图引擎
      *

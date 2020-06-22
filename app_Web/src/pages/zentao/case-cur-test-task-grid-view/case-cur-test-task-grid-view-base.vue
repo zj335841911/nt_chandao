@@ -142,6 +142,16 @@ export default class CaseCurTestTaskGridViewBase extends GridViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '36337c95eb6a21369e5673e64e708925';
+
+
     /**
      * 视图引擎
      *

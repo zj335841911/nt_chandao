@@ -140,6 +140,16 @@ export default class StoryMainGridView_ByModuleBase extends GridViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '95d25c1556e049e220af04b99b06edeb';
+
+
     /**
      * 视图引擎
      *

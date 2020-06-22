@@ -110,6 +110,16 @@ export default class CaseMainDetailEditView9Base extends EditView9Base {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'b54ba4ee901e1a450acac8723a4ae97a';
+
+
     /**
      * 视图引擎
      *

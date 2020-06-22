@@ -110,6 +110,16 @@ export default class StoryMainView9Base extends EditView9Base {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '94e0ee1a97736ff4d28b88a46cd395b7';
+
+
     /**
      * 视图引擎
      *

@@ -113,6 +113,16 @@ export default class ProductDashboardInfoMainView9Base extends EditView9Base {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'b5d2389c0dd12ae614b319090ecc2361';
+
+
     /**
      * 视图引擎
      *

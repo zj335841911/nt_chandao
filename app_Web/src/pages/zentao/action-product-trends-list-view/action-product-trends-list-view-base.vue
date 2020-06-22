@@ -112,6 +112,16 @@ export default class ActionProductTrendsListViewBase extends ListViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'f7a278d765ff0f85a2c59cbb2485fa30';
+
+
     /**
      * 视图引擎
      *

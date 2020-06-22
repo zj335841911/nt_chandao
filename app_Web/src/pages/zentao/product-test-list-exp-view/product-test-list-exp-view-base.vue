@@ -115,6 +115,16 @@ export default class ProductTestListExpViewBase extends ListExpViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'c539f1585371e9943b90177eaef08b6b';
+
+
     /**
      * 视图引擎
      *

@@ -117,6 +117,16 @@ export default class ModulePickupViewBase extends PickupViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'cb6c278fd7205b3de3fc041816d15dd8';
+
+
     /**
      * 视图引擎
      *

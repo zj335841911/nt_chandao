@@ -138,6 +138,16 @@ export default class ProductLeftSidebarListViewBase extends ListViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '8ca39819b87c5e3e8669fcd7409cf9a2';
+
+
     /**
      * 视图引擎
      *

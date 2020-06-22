@@ -150,6 +150,16 @@ export default class StoryMPickupViewBase extends MPickupViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = 'b9bdfc0e33d333ade00934745d9dc0ad';
+
+
     /**
      * 视图引擎
      *

@@ -133,6 +133,16 @@ export default class StoryReportSubGridViewBase extends GridViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '305dc1599e61a77edfa456866233516c';
+
+
     /**
      * 视图引擎
      *

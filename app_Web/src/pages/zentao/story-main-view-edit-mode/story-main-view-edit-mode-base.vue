@@ -103,6 +103,16 @@ export default class StoryMainView_EditModeBase extends DashboardViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '7e14015af219d302f7d81ff40cdcc418';
+
+
     /**
      * 视图引擎
      *

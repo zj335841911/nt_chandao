@@ -118,6 +118,16 @@ export default class TaskPivotTableViewBase extends GridViewBase {
     };
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '64204774cc4b97f20aa3becb41b184d5';
+
+
     /**
      * 视图引擎
      *

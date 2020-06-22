@@ -153,6 +153,16 @@ export default class ReleaseEditViewBase extends EditViewBase {
 
 
 
+	/**
+     * 视图唯一标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+	protected viewtag: string = '9ddace1c12afee8da3f0254a05ba141a';
+
+
     /**
      * 视图引擎
      *
