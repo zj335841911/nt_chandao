@@ -81,7 +81,7 @@ export default class CompleteFormModel {
         dataType: 'DATETIME',
       },
       {
-        name: 'formitem',
+        name: 'files',
       },
       {
         name: 'comment',

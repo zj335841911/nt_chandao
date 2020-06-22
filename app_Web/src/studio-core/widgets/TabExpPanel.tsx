@@ -1,3 +1,4 @@
+import { Provide } from 'vue-property-decorator';
 import { CtrlBase } from './CtrlBase';
 
 /**
@@ -72,8 +73,8 @@ export class TabExpPanel extends CtrlBase {
      * @memberof TabExpPanel
      */
     protected ctrlMounted(): void {
-        if (this.viewparams) {
-            const activate = this.viewparams.srftabactivate;
+        if (this.viewparams && this.viewparams.srftabactivate) {
+            const activate = this.viewparams.srftabactivate.toLowerCase();
             if (activate && this.isInit[activate] !== undefined) {
                 for (const key in this.isInit) {
                     if (this.isInit.hasOwnProperty(key)) {
@@ -95,7 +96,7 @@ export class TabExpPanel extends CtrlBase {
      * @returns
      * @memberof TabExpPanel
      */
-    protected tabPanelClick = ($event: any) => {
+    protected tabPanelClick($event: any): void {
         if (!$event) {
             return;
         }
