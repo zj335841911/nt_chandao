@@ -248,6 +248,7 @@ export class ViewBase extends Vue {
      *
      * @memberof ViewBase
      */
+    @Emit('mounted')
     public mounted(): void {
         this.engineInit();
         this.loadModel();
