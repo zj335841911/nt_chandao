@@ -51,6 +51,9 @@ export default class Main2Model {
         name: 'srfsourcekey',
       },
       {
+        name: 'product',
+      },
+      {
         name: 'storycnt',
         prop: 'storycnt',
         dataType: 'INT',

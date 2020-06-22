@@ -692,6 +692,7 @@ export default class Main2Base extends Vue implements ControlInterface {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        product: null,
         storycnt: null,
         waitstorycnt: null,
         plannedstorycnt: null,
@@ -797,6 +798,12 @@ export default class Main2Base extends Vue implements ControlInterface {
             { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
+        ],
+        product: [
+            { type: 'string', message: '产品标识 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '产品标识 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '产品标识 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '产品标识 值不能为空', trigger: 'blur' },
         ],
         storycnt: [
             { type: 'number', message: '需求数 值必须为数值类型', trigger: 'change' },
@@ -996,6 +1003,8 @@ export default class Main2Base extends Vue implements ControlInterface {
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        product: new FormItemModel({ caption: '产品标识', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         storycnt: new FormItemModel({ caption: '需求数', detailType: 'FORMITEM', name: 'storycnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         waitstorycnt: new FormItemModel({ caption: '未开始', detailType: 'FORMITEM', name: 'waitstorycnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -1124,6 +1133,18 @@ export default class Main2Base extends Vue implements ControlInterface {
     @Watch('data.srfsourcekey')
     onSrfsourcekeyChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'srfsourcekey', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 product 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main2
+     */
+    @Watch('data.product')
+    onProductChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'product', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1490,6 +1511,7 @@ export default class Main2Base extends Vue implements ControlInterface {
             }
             this.detailsModel.grouppanel2.setVisible(ret);
         }
+
 
 
 
@@ -2494,6 +2516,9 @@ export default class Main2Base extends Vue implements ControlInterface {
      * @memberof Main2
      */
     public createDefault(){                    
+        if (this.data.hasOwnProperty('product')) {
+            this.data['product'] = this.viewparams['product'];
+        }
     }
 
     /**

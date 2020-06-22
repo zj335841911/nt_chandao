@@ -75,6 +75,17 @@ export default class ProductStatsEditView9Base extends EditView9Base {
         'PRODUCTSTATS': { isRawValue: false, value: 'product' }
     };
 
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof ProductStatsEditView9Base
+	 */
+    protected customViewParams: any = {
+        'product': { isRawValue: false, value: 'product' }
+    };
+
     /**
      * 视图模型数据
      *
