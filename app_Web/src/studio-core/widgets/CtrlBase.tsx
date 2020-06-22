@@ -104,7 +104,7 @@ export class CtrlBase extends Vue {
      * @memberof CtrlBase
      */
     public mounted(): void {
-        this.mounted();
+        this.ctrlMounted();
     }
 
     /**
