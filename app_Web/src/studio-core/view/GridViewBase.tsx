@@ -11,16 +11,6 @@ import { MDViewBase } from './MDViewBase';
 export class GridViewBase extends MDViewBase {
 
     /**
-     * 是否嵌入关系界面
-     *
-     * @readonly
-     * @type {boolean}
-     * @memberof GridViewBase
-     */
-    @Prop({ default: false })
-    protected isformDruipart?: boolean;
-
-    /**
      * 表格行数据默认激活模式
      * 0 不激活
      * 1 单击激活
@@ -60,25 +50,6 @@ export class GridViewBase extends MDViewBase {
         const grid: any = this.$refs.grid;
         if (grid) {
             grid.load({});
-        }
-    }
-
-    /**
-     * 视图创建完毕
-     *
-     * @protected
-     * @memberof GridViewBase
-     */
-    protected viewCreated(): void {
-        if (this.formDruipart) {
-            this.formDruipart.subscribe((res: any) => {
-                if (Object.is(res.action, 'save')) {
-                    this.viewState.next({ tag: 'grid', action: 'save', data: this.viewparams });
-                }
-                if (Object.is(res.action, 'load')) {
-                    this.engine.load(res.data, true);
-                }
-            });
         }
     }
 

@@ -20,6 +20,16 @@ export class MDViewBase extends ViewBase {
     public codeListService: CodeListService = new CodeListService({ $store: this.$store });
 
     /**
+     * 是否嵌入关系界面
+     *
+     * @readonly
+     * @type {boolean}
+     * @memberof MDViewBase
+     */
+    @Prop({ default: false })
+    protected isformDruipart?: boolean;
+
+    /**
      * 是否单选
      *
      * @readonly
@@ -106,6 +116,25 @@ export class MDViewBase extends ViewBase {
      * @memberof MDViewBase
      */
     protected onSearch(): void { }
+
+    /**
+     * 视图创建完毕
+     *
+     * @protected
+     * @memberof MDViewBase
+     */
+    protected viewCreated(): void {
+        if (this.formDruipart) {
+            this.formDruipart.subscribe((res: any) => {
+                if (Object.is(res.action, 'save')) {
+                    this.viewState.next({ tag: 'grid', action: 'save', data: this.viewparams });
+                }
+                if (Object.is(res.action, 'load')) {
+                    this.engine.load(res.data, true);
+                }
+            });
+        }
+    }
 
     /**
      * 快速分组值变化
