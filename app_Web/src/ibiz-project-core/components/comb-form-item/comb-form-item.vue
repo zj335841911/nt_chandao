@@ -2,10 +2,14 @@
     <div v-if="formItems"  class="comb-form-item">
         <template v-for="(item, i) of formItems">
             <app-form-item v-if="!item.hidden" :key="i" :name='item.prop' :caption="item.name" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :isEmptyCaption="false" labelPos="LEFT">
-                <template v-for="val of valItems">
-                    <slot :name="item.prop" :item="val"></slot>
+                <template v-for="(val, n) of valItems">
+                    <div class="comb-item" :key="n">
+                        <slot :name="item.prop" :item="val"></slot>
+                    </div>
                 </template>
-                <slot :name="item.prop" :item='defItem'></slot>
+                <div class="comb-item">
+                    <slot :name="item.prop" :item='defItem'></slot>
+                </div>
             </app-form-item>
         </template>
     </div>
