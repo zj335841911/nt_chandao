@@ -14,5 +14,5 @@ window.Environment = {
     // 文件导出
     ExportFile: 'ibizutil/ztdownload',
     // 文件上传
-    UploadFile: 'ibizutil/ztupload',
+    UploadFile: 'ibizutil/ztupload'
 }
