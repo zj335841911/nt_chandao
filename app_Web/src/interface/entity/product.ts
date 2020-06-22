@@ -189,4 +189,20 @@ export interface Product {
      * @memberof Product
      */
     activestorycnt?: any;
+
+    /**
+     * 未确认Bug数
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    unconfirmbugcnt?: any;
+
+    /**
+     * 未关闭Bug数
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    notclosedbugcnt?: any;
 }

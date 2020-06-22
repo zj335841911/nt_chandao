@@ -24,6 +24,8 @@ export default {
     productplancnt: '计划总数',
     releasecnt: '发布总数',
     activestorycnt: '激活需求数',
+    unconfirmbugcnt: '未确认Bug数',
+    notclosedbugcnt: '未关闭Bug数',
   },
 	views: {
 		testtabexpview: {

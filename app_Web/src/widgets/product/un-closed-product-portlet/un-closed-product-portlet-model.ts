@@ -84,6 +84,12 @@ export default class UnClosedProductModel {
       {
         name: 'activestorycnt',
       },
+      {
+        name: 'unconfirmbugcnt',
+      },
+      {
+        name: 'notclosedbugcnt',
+      },
     ]
   }
 

@@ -84,6 +84,12 @@ export default class CaseTreeExpViewtreeexpbarModel {
       {
         name: 'activestorycnt',
       },
+      {
+        name: 'unconfirmbugcnt',
+      },
+      {
+        name: 'notclosedbugcnt',
+      },
     ]
   }
 

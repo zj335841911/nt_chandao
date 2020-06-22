@@ -84,6 +84,12 @@ export default class MainTabExpViewtabviewpanel6Model {
       {
         name: 'activestorycnt',
       },
+      {
+        name: 'unconfirmbugcnt',
+      },
+      {
+        name: 'notclosedbugcnt',
+      },
     ]
   }
 

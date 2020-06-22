@@ -84,6 +84,12 @@ export default class PickupViewpickupviewpanelModel {
       {
         name: 'activestorycnt',
       },
+      {
+        name: 'unconfirmbugcnt',
+      },
+      {
+        name: 'notclosedbugcnt',
+      },
     ]
   }
 
