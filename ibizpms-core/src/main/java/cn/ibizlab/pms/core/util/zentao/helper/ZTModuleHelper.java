@@ -106,6 +106,7 @@ final public class ZTModuleHelper {
         // EDIT
         ACTION_PARAMS_EDIT.put("root", 0);
         ACTION_PARAMS_EDIT.put("parent", 0);
+        ACTION_PARAMS_EDIT.put("branch", 0);
         ACTION_PARAMS_EDIT.put("name", null);
         ACTION_PARAMS_EDIT.put("short", null);
 
