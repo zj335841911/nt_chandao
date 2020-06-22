@@ -118,6 +118,13 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
 
     @Override
     @Transactional
+    public ProductModule fix(ProductModule et) {
+        fixpathLogic.execute(et);
+         return et ;
+    }
+
+    @Override
+    @Transactional
     public boolean remove(BigInteger key) {
         boolean result=removeById(key);
         return result ;

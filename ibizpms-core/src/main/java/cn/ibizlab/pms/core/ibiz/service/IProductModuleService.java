@@ -32,6 +32,7 @@ public interface IProductModuleService extends IService<ProductModule>{
     ProductModule getDraft(ProductModule et) ;
     boolean create(ProductModule et) ;
     void createBatch(List<ProductModule> list) ;
+    ProductModule fix(ProductModule et) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
     boolean save(ProductModule et) ;

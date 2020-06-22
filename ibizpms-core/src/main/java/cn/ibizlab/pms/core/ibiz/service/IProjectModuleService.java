@@ -36,6 +36,7 @@ public interface IProjectModuleService extends IService<ProjectModule>{
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
     boolean checkKey(ProjectModule et) ;
+    ProjectModule fix(ProjectModule et) ;
     Page<ProjectModule> searchDefault(ProjectModuleSearchContext context) ;
     Page<ProjectModule> searchRoot_NoBranch(ProjectModuleSearchContext context) ;
     Page<ProjectModule> searchRoot(ProjectModuleSearchContext context) ;

@@ -137,6 +137,18 @@ public class ProjectModuleResource {
         return  ResponseEntity.status(HttpStatus.OK).body(projectmoduleService.checkKey(projectmoduleMapping.toDomain(projectmoduledto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Fix-all')")
+    @ApiOperation(value = "重建模块路径", tags = {"任务模块" },  notes = "重建模块路径")
+	@RequestMapping(method = RequestMethod.POST, value = "/projectmodules/{projectmodule_id}/fix")
+    @Transactional
+    public ResponseEntity<ProjectModuleDTO> fix(@PathVariable("projectmodule_id") BigInteger projectmodule_id, @RequestBody ProjectModuleDTO projectmoduledto) {
+        ProjectModule projectmodule = projectmoduleMapping.toDomain(projectmoduledto);
+        projectmodule.setId(projectmodule_id);
+        projectmodule = projectmoduleService.fix(projectmodule);
+        projectmoduledto = projectmoduleMapping.toDto(projectmodule);
+        return ResponseEntity.status(HttpStatus.OK).body(projectmoduledto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Default-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"任务模块" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/projectmodules/fetchdefault")
@@ -349,6 +361,18 @@ public class ProjectModuleResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectmodules/checkkey")
     public ResponseEntity<Boolean> checkKeyByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectModuleDTO projectmoduledto) {
         return  ResponseEntity.status(HttpStatus.OK).body(projectmoduleService.checkKey(projectmoduleMapping.toDomain(projectmoduledto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Fix-all')")
+    @ApiOperation(value = "根据项目任务模块", tags = {"任务模块" },  notes = "根据项目任务模块")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectmodules/{projectmodule_id}/fix")
+    @Transactional
+    public ResponseEntity<ProjectModuleDTO> fixByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("projectmodule_id") BigInteger projectmodule_id, @RequestBody ProjectModuleDTO projectmoduledto) {
+        ProjectModule domain = projectmoduleMapping.toDomain(projectmoduledto);
+        domain.setRoot(project_id);
+        domain = projectmoduleService.fix(domain) ;
+        projectmoduledto = projectmoduleMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(projectmoduledto);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Default-all')")

@@ -161,6 +161,13 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
     public boolean checkKey(ProjectModule et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
+    @Override
+    @Transactional
+    public ProjectModule fix(ProjectModule et) {
+        fixpathLogic.execute(et);
+         return et ;
+    }
+
 
 	@Override
     public List<ProjectModule> selectByParent(BigInteger id) {

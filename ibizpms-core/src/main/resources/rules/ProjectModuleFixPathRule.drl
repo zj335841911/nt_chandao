@@ -26,6 +26,8 @@ rule "prepareparam1"
 ruleflow-group "projectmodulefixpathprepareparam1"
     when
     then
+    projectmodulefixpathzt_module.set("root",projectmodulefixpathdefault.get("root"));
+    projectmodulefixpathzt_module.set("type",projectmodulefixpathdefault.get("type"));
     update(projectmodulefixpathzt_module);//更新fact中变量值
     update(projectmodulefixpathdefault);//更新fact中变量值
     end
