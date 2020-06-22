@@ -2443,6 +2443,9 @@ export default class Main2Base extends CtrlBase {
      * @memberof Main2
      */
     public updateDefault(){                    
+        if (this.data.hasOwnProperty('product') && !this.data.product) {
+            this.data['product'] = this.viewparams['product'];
+        }
     }
 
     
