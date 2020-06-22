@@ -1,6 +1,5 @@
 <template>
     <div class='portlet cur-suit-case-grid-view ' :style="{'height': 'auto',}">
-        isShowTitleBar：false---id: 470F0F5B-5DFD-4F83-BFB4-41B72289366A
         <div class="portlet-without-title">
         <case-cur-suit-grid-view :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></case-cur-suit-grid-view>
         </div>

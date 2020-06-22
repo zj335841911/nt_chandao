@@ -1,6 +1,5 @@
 <template>
     <div class='portlet un-closed-product ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'1px'),}">
-        isShowTitleBar：true---id: 5B44E55E-571A-4749-9747-A2B89C4574FA
         <p class='portlet-title'>
             <span>
             

@@ -1,6 +1,5 @@
 <template>
     <div class='portlet get-roadmap ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'300px'),}">
-        isShowTitleBar：true---id: 82c281a43a18e3c9c57a00be0feae8c6
         <p class='portlet-title'>
             <span>
             

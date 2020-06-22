@@ -1,6 +1,5 @@
 <template>
     <div class='portlet dashboard-bug-main ' :style="{'height': 'auto',}">
-        isShowTitleBar：false---id: 4BAD7526-0AF5-4603-9D1A-16E39D3C5F92
         <div class="portlet-without-title">
         <bug-dashboard-main-edit-view9 :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></bug-dashboard-main-edit-view9>
         </div>

@@ -1,6 +1,5 @@
 <template>
     <div class='portlet assigned-to-me-case ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : (height > 0 ? height+'px' :'1px'),}">
-        isShowTitleBar：true---id: C8757CA6-453B-4E31-AD82-98380E3257C3
         <p class='portlet-title'>
             <span>
             

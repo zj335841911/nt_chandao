@@ -1,6 +1,5 @@
 <template>
     <div class='portlet storyspec ' :style="{'height': 'auto',}">
-        isShowTitleBar：false---id: 5c2dc72e2f85a610902fd39ae9345284
         <div class="portlet-without-title">
         <story-main-view9-story-spec :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></story-main-view9-story-spec>
         </div>

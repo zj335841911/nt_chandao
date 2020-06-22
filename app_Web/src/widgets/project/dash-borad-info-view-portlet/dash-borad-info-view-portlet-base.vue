@@ -1,6 +1,5 @@
 <template>
     <div class='portlet dash-borad-info-view ' :style="{'height': 'auto',}">
-        isShowTitleBar：false---id: ed39a35c270449d323440dfcc7cdd9de
         <div class="portlet-without-title">
         <project-dashboard-info-view :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></project-dashboard-info-view>
         </div>

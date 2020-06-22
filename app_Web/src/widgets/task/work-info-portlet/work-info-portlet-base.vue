@@ -1,6 +1,5 @@
 <template>
     <div class='portlet work-info ' :style="{'height': 'auto',}">
-        isShowTitleBar：false---id: EE0AF168-1D33-4036-9693-A2FBC0B7781F
         <div class="portlet-without-title">
         <task-work-info-edit-view9 :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></task-work-info-edit-view9>
         </div>

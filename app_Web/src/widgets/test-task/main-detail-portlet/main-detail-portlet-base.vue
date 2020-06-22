@@ -1,6 +1,5 @@
 <template>
     <div class='portlet main-detail ' :style="{'height': 'auto',}">
-        isShowTitleBar：true---id: 899CFA6A-DD9A-4918-8785-28914838160D
         <p class='portlet-title'>
             <span>
             
