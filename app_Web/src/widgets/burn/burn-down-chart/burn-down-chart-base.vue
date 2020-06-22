@@ -188,7 +188,7 @@ export default class BurnDownBase extends CtrlBase {
     data:[],
     seriesMap:{},
     dataSetFields:[
-    {name:"date",codelist:null,isGroupField:true,groupMode:"DAY"},
+    {name:"date",codelist:null,isGroupField:true,groupMode:""},
     {name:"left",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
@@ -234,7 +234,7 @@ export default class BurnDownBase extends CtrlBase {
     data:[],
     seriesMap:{},
     dataSetFields:[
-    {name:"date",codelist:null,isGroupField:true,groupMode:"DAY"},
+    {name:"date",codelist:null,isGroupField:true,groupMode:""},
     {name:"estimate",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
