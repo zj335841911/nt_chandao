@@ -125,7 +125,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import { UIActionTool, Util } from '@/utils';
-import { VueLifeCycleProcessing, CtrlBase } from '@/studio-core';
+import { VueLifeCycleProcessing, TabExpPanel } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import TestTabExpViewtabexppanelService from './test-tab-exp-viewtabexppanel-tabexppanel-service';
 
@@ -134,7 +134,7 @@ import TestTabExpViewtabexppanelService from './test-tab-exp-viewtabexppanel-tab
  * tabexppanel部件基类
  *
  * @export
- * @class CtrlBase
+ * @class TabExpPanel
  * @extends {TestTabExpViewtabexppanelBase}
  */
 @Component({
@@ -143,7 +143,7 @@ import TestTabExpViewtabexppanelService from './test-tab-exp-viewtabexppanel-tab
     }
 })
 @VueLifeCycleProcessing()
-export default class TestTabExpViewtabexppanelBase extends CtrlBase {
+export default class TestTabExpViewtabexppanelBase extends TabExpPanel {
 
     /**
      * 建构部件服务对象
@@ -195,7 +195,7 @@ export default class TestTabExpViewtabexppanelBase extends CtrlBase {
         if (this.context.product) {
             Object.assign(this.context, { srfparentdename: 'Product', srfparentkey: this.context.product });
         }
-        super.protected();
+        super.ctrlCreated();
     }
 }
 </script>
