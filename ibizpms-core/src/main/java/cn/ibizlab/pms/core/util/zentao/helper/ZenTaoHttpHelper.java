@@ -239,9 +239,18 @@ public class ZenTaoHttpHelper {
             return jo;
         }
         for (String key : dataFormatMap.keySet()) {
-            if (jo.containsKey(key) && jo.get(key) != null) {
+            String joKey = null;
+            if (jo.containsKey(key)) {
+                joKey = key;
+            } else if (jo.containsKey(key.toLowerCase())) {
+                joKey = key.toLowerCase();
+            }
+            if (joKey == null) {
+                continue;
+            }
+            if (jo.get(joKey) != null) {
                 SimpleDateFormat sdf = new SimpleDateFormat(dataFormatMap.get(key));
-                jo.put(key, sdf.format(new Timestamp(sdf.parse(jo.getString(key)).getTime())));
+                jo.put(joKey, sdf.format(new Timestamp(sdf.parse(jo.getString(joKey)).getTime())));
             }
         }
         return jo;
@@ -255,8 +264,17 @@ public class ZenTaoHttpHelper {
         if (urlParams != null && urlParams.size() > 0) {
             for (String key : urlParams) {
                 urlParamsStr.append("-");
-                if (jo.containsKey(key) && jo.get(key) != null) {
-                    urlParamsStr.append(jo.getString(key));
+                String joKey = null;
+                if (jo.containsKey(key)) {
+                    joKey = key;
+                } else if (jo.containsKey(key.toLowerCase())) {
+                    joKey = key.toLowerCase();
+                }
+                if (joKey == null) {
+                    continue;
+                }
+                if (jo.get(joKey) != null) {
+                    urlParamsStr.append(jo.getString(joKey));
                 }
             }
         }
