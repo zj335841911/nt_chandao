@@ -58,16 +58,45 @@
 
 </i-col>
 <i-col v-show="detailsModel.formitemex2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    !!!!模版产生代码错误:----
-Tip: It's the step after the last dot that caused this error, not those before it.
-----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+    <comb-form-item name="srfarray" :value="data.srfarray" :formItems="[{ name: '关联产品集合', prop: 'products' },{ name: '关联产品平台集合', prop: 'branchs' },{ name: '关联产品产品计划', prop: 'plans' },]">
+    <div slot="products" slot-scope="{item}">
+         <dropdown-list 
+            v-model="item.products" 
+            :data="{...data, ...item}" 
+            :context="context"
+            :viewparams="viewparams"
+            :disabled="detailsModel.formitemex2.disabled"  
+            tag='Product' 
+            codelistType='DYNAMIC'
+            placeholder="">
+         </dropdown-list>
+    </div>
+    <div slot="branchs" slot-scope="{item}">
+         <dropdown-list 
+            v-model="item.branchs" 
+            :data="{...data, ...item}" 
+            :context="context"
+            :viewparams="viewparams"
+            :disabled="detailsModel.formitemex2.disabled"  
+            tag='ProductBranch' 
+            codelistType='DYNAMIC'
+            placeholder="">
+         </dropdown-list>
+    </div>
+    <div slot="plans" slot-scope="{item}">
+         <dropdown-list 
+            v-model="item.plans" 
+            :data="{...data, ...item}" 
+            :context="context"
+            :viewparams="viewparams"
+            :disabled="detailsModel.formitemex2.disabled"  
+            tag='CurProductPlan' 
+            codelistType='DYNAMIC'
+            placeholder="">
+         </dropdown-list>
+    </div>
+</comb-form-item>
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${field.getCodeListType()}  [in template "TEMPLCODE_zh_CN" at line 16, column 27]
-----
 
 </i-col>
     
