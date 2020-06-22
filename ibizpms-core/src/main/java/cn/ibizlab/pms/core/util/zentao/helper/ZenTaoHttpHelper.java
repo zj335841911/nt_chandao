@@ -194,8 +194,8 @@ public class ZenTaoHttpHelper {
         for (String key : jo.keySet()) {
             for (String parseWord : parseWordArr) {
                 String regex = "^" + parseWord + "\\d*$";
-                if (key.toLowerCase().matches(regex)) {
-                    jaList.add(jo.getJSONArray(key));
+                if (key.toLowerCase().matches(regex) && jo.getString(key) != null) {
+                    jaList.add(JSONArray.parseArray(jo.getString(key)));
                 }
             }
         }
