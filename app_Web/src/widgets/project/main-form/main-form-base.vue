@@ -70,18 +70,17 @@
             codelistType='DYNAMIC'
             placeholder="">
          </dropdown-list>
-    </div>
-    <div slot="branchs" slot-scope="{item}">
          <dropdown-list 
-            v-model="item.branchs" 
-            :data="{...data, ...item}" 
-            :context="context"
-            :viewparams="viewparams"
-            :disabled="detailsModel.formitemex2.disabled"  
-            tag='ProductBranch' 
-            codelistType='DYNAMIC'
-            placeholder="">
-         </dropdown-list>
+   v-model="item.branchs" 
+   :data="{...data, ...item}" 
+   :context="context"
+   :viewparams="viewparams"
+   :disabled="detailsModel.formitemex2.disabled"  
+   tag='ProductBranch' 
+   codelistType='DYNAMIC'
+   placeholder="">
+</dropdown-list>
+
     </div>
     <div slot="plans" slot-scope="{item}">
          <dropdown-list 
