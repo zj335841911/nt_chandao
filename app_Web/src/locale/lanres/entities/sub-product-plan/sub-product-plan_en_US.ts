@@ -1,30 +1,30 @@
 
 export default {
   fields: {
-    title: '名称',
-    id: '编号',
-    begin: '开始日期',
-    desc: '描述',
-    end: '结束日期',
-    deleted: '已删除',
-    order: '排序',
-    parentname: '父计划名称',
-    branch: '平台/分支',
-    parent: '父计划',
-    product: '产品',
+    title: "名称",
+    id: "编号",
+    begin: "开始日期",
+    desc: "描述",
+    end: "结束日期",
+    deleted: "已删除",
+    order: "排序",
+    parentname: "父计划名称",
+    branch: "平台/分支",
+    parent: "父计划",
+    product: "产品",
   },
 	views: {
 		subplancreateview: {
 			caption: "产品计划",
-      title: '计划',
+      		title: "计划",
 		},
 		subplangridview: {
 			caption: "产品计划",
-      title: '子计划',
+      		title: "子计划",
 		},
 		subplaneditview: {
 			caption: "子计划",
-      title: '子计划',
+      		title: "子计划",
 		},
 	},
 	mainsubplan_form: {
@@ -53,8 +53,8 @@ export default {
 			id: "编号", 
 		},
 		uiactions: {
-			saveandexit: "Save And Close",
-			exit: "返回",
+        saveandexit: "Save And Close",
+        exit: "返回",
 		},
 	},
 	mainsubplan_grid: {

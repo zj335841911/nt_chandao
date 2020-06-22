@@ -1,20 +1,20 @@
 
 export default {
   fields: {
-    name: '名称',
-    deleted: '已删除',
-    id: '编号',
-    order: '排序',
-    product: '所属产品',
+    name: "名称",
+    deleted: "已删除",
+    id: "编号",
+    order: "排序",
+    product: "所属产品",
   },
 	views: {
 		pmgridview: {
 			caption: "平台管理",
-      title: '平台管理',
+      		title: "平台管理",
 		},
 		pmeditview: {
 			caption: "产品的分支和平台信息",
-      title: '平台管理',
+      		title: "平台管理",
 		},
 	},
 	platformmanagement_form: {

@@ -1,26 +1,26 @@
 
 export default {
   fields: {
-    type: '用例步骤类型',
-    id: '编号',
-    desc: '步骤',
-    expect: '预期',
-    version: '用例版本',
-    ibizcase: '用例',
-    parent: '分组用例步骤的组编号',
+    type: "用例步骤类型",
+    id: "编号",
+    desc: "步骤",
+    expect: "预期",
+    version: "用例版本",
+    ibizcase: "用例",
+    parent: "分组用例步骤的组编号",
   },
 	views: {
 		maingridview9_editmode: {
 			caption: "用例步骤",
-      title: '用例步骤',
+      		title: "用例步骤",
 		},
 		gridview: {
 			caption: "用例步骤",
-      title: 'casestep表格视图',
+      		title: "casestep表格视图",
 		},
 		maingridview9: {
 			caption: "用例步骤",
-      title: '用例步骤',
+      		title: "用例步骤",
 		},
 	},
 	main_grid: {

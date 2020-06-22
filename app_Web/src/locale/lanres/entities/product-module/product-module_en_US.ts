@@ -1,39 +1,39 @@
 
 export default {
   fields: {
-    path: 'path',
-    deleted: '逻辑删除标志',
-    name: '名称',
-    branch: 'branch',
-    ibizshort: '简称',
-    order: '排序值',
-    grade: 'grade',
-    type: '类型（story）',
-    owner: 'owner',
-    isleaf: '叶子模块',
-    id: 'id',
-    collector: 'collector',
-    root: '产品',
-    parent: 'id',
-    rootname: '所属产品',
-    parentname: '上级模块',
+    path: "path",
+    deleted: "逻辑删除标志",
+    name: "名称",
+    branch: "branch",
+    ibizshort: "简称",
+    order: "排序值",
+    grade: "grade",
+    type: "类型（story）",
+    owner: "owner",
+    isleaf: "叶子模块",
+    id: "id",
+    collector: "collector",
+    root: "产品",
+    parent: "id",
+    rootname: "所属产品",
+    parentname: "上级模块",
   },
 	views: {
 		gridview: {
 			caption: "需求模块",
-      title: '产品模块表格视图',
+      		title: "产品模块表格视图",
 		},
 		treeexpview: {
 			caption: "需求模块",
-      title: '需求模块树导航视图',
+      		title: "需求模块树导航视图",
 		},
 		editview: {
 			caption: "需求模块",
-      title: '产品模块编辑视图',
+      		title: "产品模块编辑视图",
 		},
 		quickcfgview: {
 			caption: "需求模块",
-      title: '需求模块',
+      		title: "需求模块",
 		},
 	},
 	main_form: {
@@ -68,7 +68,7 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
-			remove: "Remove",
+        remove: "Remove",
 		},
 	},
 	gridviewtoolbar_toolbar: {
@@ -99,38 +99,38 @@ export default {
 	},
 	exp_treeview: {
 		nodes: {
-			all: '所有模块',
-			branch: '平台',
-			root: '默认根节点',
+			all: "所有模块",
+			branch: "平台",
+			root: "默认根节点",
 		},
 		uiactions: {
-			refreshparent: "刷新",
+        refreshparent: "刷新",
 		},
 	},
 	moduleexp_treeview: {
 		nodes: {
-			root: '默认根节点',
-			branch: '平台',
-			all: '所有模块',
+			root: "默认根节点",
+			branch: "平台",
+			all: "所有模块",
 		},
 		uiactions: {
-			refreshparent: "刷新",
-			openquickcfgview: "编辑",
-			refreshall: "刷新",
+        refreshparent: "刷新",
+        productmodule_openquickcfgview: "编辑",
+        refreshall: "刷新",
 		},
 	},
 	bugexp_treeview: {
 		nodes: {
-			root: '默认根节点',
-			all: '全部',
+			root: "默认根节点",
+			all: "全部",
 		},
 		uiactions: {
 		},
 	},
 	caseexp_treeview: {
 		nodes: {
-			all: '全部',
-			root: '默认根节点',
+			all: "全部",
+			root: "默认根节点",
 		},
 		uiactions: {
 		},

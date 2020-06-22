@@ -1,35 +1,35 @@
 
 export default {
   fields: {
-    type: '类型（task）',
-    collector: 'collector',
-    id: 'id',
-    deleted: '逻辑删除标志',
-    isleaf: '叶子模块',
-    path: 'path',
-    owner: 'owner',
-    ibizshort: '简称',
-    name: '名称',
-    grade: 'grade',
-    order: '排序值',
-    branch: 'branch',
-    parent: 'id',
-    root: '项目',
-    rootname: '所属项目',
-    parentname: '上级模块',
+    type: "类型（task）",
+    collector: "collector",
+    id: "id",
+    deleted: "逻辑删除标志",
+    isleaf: "叶子模块",
+    path: "path",
+    owner: "owner",
+    ibizshort: "简称",
+    name: "名称",
+    grade: "grade",
+    order: "排序值",
+    branch: "branch",
+    parent: "id",
+    root: "项目",
+    rootname: "所属项目",
+    parentname: "上级模块",
   },
 	views: {
 		quickcfgview: {
 			caption: "任务模块",
-      title: '任务模块',
+      		title: "任务模块",
 		},
 		maingridview: {
 			caption: "任务模块",
-      title: '实体表格视图',
+      		title: "实体表格视图",
 		},
 		treeexpview: {
 			caption: "任务模块",
-      title: '任务模块树导航视图',
+      		title: "任务模块树导航视图",
 		},
 	},
 	main_form: {
@@ -62,7 +62,7 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
-			remove: "Remove",
+        remove: "Remove",
 		},
 	},
 	maingridviewtoolbar_toolbar: {
@@ -87,23 +87,23 @@ export default {
 	},
 	taskmoduleexp_treeview: {
 		nodes: {
-			all: '所有模块',
-			root: '默认根节点',
+			all: "所有模块",
+			root: "默认根节点",
 		},
 		uiactions: {
-			refreshparent: "刷新",
+        refreshparent: "刷新",
 		},
 	},
 	moduleexp_treeview: {
 		nodes: {
-			all: '所有模块',
-			root: '默认根节点',
+			all: "所有模块",
+			root: "默认根节点",
 		},
 		uiactions: {
-			openquickcfgview: "编辑",
-			refreshall: "刷新",
-			refreshparent: "刷新",
-			openquickcfgview: "编辑",
+        projectmodule_openquickcfgview: "编辑",
+        refreshall: "刷新",
+        refreshparent: "刷新",
+        productmodule_openquickcfgview: "编辑",
 		},
 	},
 };

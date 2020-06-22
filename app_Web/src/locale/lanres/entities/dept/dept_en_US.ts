@@ -1,34 +1,34 @@
 
 export default {
   fields: {
-    manager: '负责人',
-    grade: 'grade',
-    function: 'function',
-    order: 'order',
-    path: 'path',
-    position: 'position',
-    id: 'id',
-    name: '部门名称',
-    parentname: '上级部门',
-    parent: 'parent',
-    isleaf: '无子部门',
+    manager: "负责人",
+    grade: "grade",
+    function: "function",
+    order: "order",
+    path: "path",
+    position: "position",
+    id: "id",
+    name: "部门名称",
+    parentname: "上级部门",
+    parent: "parent",
+    isleaf: "无子部门",
   },
 	views: {
 		pickupview: {
 			caption: "部门",
-      title: 'dept数据选择视图',
+      		title: "dept数据选择视图",
 		},
 		maingridview: {
 			caption: "部门",
-      title: 'dept表格视图',
+      		title: "dept表格视图",
 		},
 		editview: {
 			caption: "部门信息",
-      title: 'dept编辑视图',
+      		title: "dept编辑视图",
 		},
 		pickupgridview: {
 			caption: "部门",
-      title: 'dept选择表格视图',
+      		title: "dept选择表格视图",
 		},
 	},
 	main_form: {
