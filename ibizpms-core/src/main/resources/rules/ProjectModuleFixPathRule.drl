@@ -35,7 +35,7 @@ rule "deaction1"
 ruleflow-group "projectmodulefixpathdeaction1"
     when
     then
-    moduleservice.update(projectmodulefixpathdefault);
+    moduleservice.update(projectmodulefixpathzt_module);
     update(projectmodulefixpathzt_module);//更新fact中变量值
     update(projectmodulefixpathdefault);//更新fact中变量值
     end
