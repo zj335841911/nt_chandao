@@ -69,7 +69,7 @@ export default class MainEditModel {
         name: 'desc1',
       },
       {
-        name: 'formitem',
+        name: 'files',
       },
       {
         name: 'projectname',

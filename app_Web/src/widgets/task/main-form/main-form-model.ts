@@ -117,16 +117,13 @@ export default class MainModel {
         dataType: 'LONGTEXT',
       },
       {
-        name: 'formitem2',
+        name: 'estsarted',
+        prop: 'eststarted',
+        dataType: 'DATE',
       },
       {
         name: 'deadline',
         prop: 'deadline',
-        dataType: 'DATE',
-      },
-      {
-        name: 'estsarted',
-        prop: 'eststarted',
         dataType: 'DATE',
       },
       {

@@ -153,15 +153,9 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.formitem2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='formitem2' :itemRules="this.rules.formitem2" class='' :caption="$t('entities.task.main_form.details.formitem2')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem2.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange" :data="JSON.stringify(this.data)" name='formitem2' :value="data.formitem2" :disabled="detailsModel.formitem2.disabled" uploadparams='' exportparams='' :customparams="{}" style="overflow: auto;"></app-file-upload>
-</app-form-item>
-
-</i-col>
 <i-col v-show="detailsModel.formitemex1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='formitemex1' :itemRules="this.rules.formitemex1" class='' :caption="$t('entities.task.main_form.details.formitemex1')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitemex1.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-range-editor v-model="data.formitemex1" :activeData="data" :disabled="detailsModel.formitemex1.disabled" name="formitemex1" editorType="TEXTBOX" format="" :refFormItem="['deadline','estsarted']" @formitemvaluechange="onFormItemValueChange" style=""></app-range-editor>
+    <app-range-editor v-model="data.formitemex1" :activeData="data" :disabled="detailsModel.formitemex1.disabled" name="formitemex1" editorType="TEXTBOX" format="" :refFormItem="['estsarted','deadline']" @formitemvaluechange="onFormItemValueChange" style=""></app-range-editor>
 </app-form-item>
 
 </i-col>
@@ -424,9 +418,8 @@ export default class MainBase extends CtrlBase {
         pri: null,
         estimate: null,
         desc: null,
-        formitem2: null,
-        deadline: null,
         estsarted: null,
+        deadline: null,
         formitemex1: null,
         mailto: null,
         id: null,
@@ -599,23 +592,17 @@ export default class MainBase extends CtrlBase {
             { required: false, type: 'string', message: '任务描述 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '任务描述 值不能为空', trigger: 'blur' },
         ],
-        formitem2: [
-            { type: 'string', message: '附件 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '附件 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '附件 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '附件 值不能为空', trigger: 'blur' },
+        estsarted: [
+            { type: 'string', message: '预计开始 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '预计开始 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '预计开始 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '预计开始 值不能为空', trigger: 'blur' },
         ],
         deadline: [
             { type: 'string', message: '截止日期 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '截止日期 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '截止日期 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '截止日期 值不能为空', trigger: 'blur' },
-        ],
-        estsarted: [
-            { type: 'string', message: '预计开始 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '预计开始 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '预计开始 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '预计开始 值不能为空', trigger: 'blur' },
         ],
         formitemex1: [
             { type: 'string', message: '日程规划 值必须为字符串类型', trigger: 'change' },
@@ -696,11 +683,9 @@ export default class MainBase extends CtrlBase {
 , 
         desc: new FormItemModel({ caption: '任务描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        formitem2: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'formitem2', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        estsarted: new FormItemModel({ caption: '预计开始', detailType: 'FORMITEM', name: 'estsarted', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         deadline: new FormItemModel({ caption: '截止日期', detailType: 'FORMITEM', name: 'deadline', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        estsarted: new FormItemModel({ caption: '预计开始', detailType: 'FORMITEM', name: 'estsarted', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         formitemex1: new FormItemModel({ caption: '日程规划', detailType: 'FORMITEM', name: 'formitemex1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -965,15 +950,15 @@ export default class MainBase extends CtrlBase {
     }
 
     /**
-     * 监控表单属性 formitem2 值
+     * 监控表单属性 estsarted 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof Main
      */
-    @Watch('data.formitem2')
-    onFormitem2Change(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'formitem2', newVal: newVal, oldVal: oldVal });
+    @Watch('data.estsarted')
+    onEstsartedChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'estsarted', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -986,18 +971,6 @@ export default class MainBase extends CtrlBase {
     @Watch('data.deadline')
     onDeadlineChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'deadline', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 estsarted 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof Main
-     */
-    @Watch('data.estsarted')
-    onEstsartedChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'estsarted', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1084,7 +1057,6 @@ export default class MainBase extends CtrlBase {
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
-
 
 
 

@@ -40,9 +40,9 @@
 </app-form-group>
 
 </i-col>
-<i-col v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='formitem' :itemRules="this.rules.formitem" class='' :caption="$t('entities.task.mainedit_form.details.formitem')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem.error" :isEmptyCaption="false" labelPos="TOP">
-    <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange" :data="JSON.stringify(this.data)" name='formitem' :value="data.formitem" :disabled="detailsModel.formitem.disabled" uploadparams='{objecttype:'task',objectid:%id%}' exportparams='{objecttype:'task',objectid:%id%}' :customparams="{}" style="overflow: auto;"></app-file-upload>
+<i-col v-show="detailsModel.files.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='files' :itemRules="this.rules.files" class='' :caption="$t('entities.task.mainedit_form.details.files')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.files.error" :isEmptyCaption="false" labelPos="TOP">
+    <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange" :data="JSON.stringify(this.data)" name='files' :value="data.files" :disabled="detailsModel.files.disabled" uploadparams='{objecttype:'task',objectid:%id%}' exportparams='{objecttype:'task',objectid:%id%}' :customparams="{}" style="overflow: auto;"></app-file-upload>
 </app-form-item>
 
 </i-col>
@@ -580,7 +580,7 @@ export default class MainEditBase extends CtrlBase {
         name: null,
         desc: null,
         desc1: null,
-        formitem: null,
+        files: null,
         projectname: null,
         project: null,
         modulename: null,
@@ -715,7 +715,7 @@ export default class MainEditBase extends CtrlBase {
             { required: false, type: 'string', message: '备注 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '备注 值不能为空', trigger: 'blur' },
         ],
-        formitem: [
+        files: [
             { type: 'string', message: '附件 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '附件 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '附件 值不能为空', trigger: 'change' },
@@ -928,7 +928,7 @@ export default class MainEditBase extends CtrlBase {
 , 
         desc1: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'desc1', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
-        formitem: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         projectname: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'projectname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1117,15 +1117,15 @@ export default class MainEditBase extends CtrlBase {
     }
 
     /**
-     * 监控表单属性 formitem 值
+     * 监控表单属性 files 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MainEdit
      */
-    @Watch('data.formitem')
-    onFormitemChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'formitem', newVal: newVal, oldVal: oldVal });
+    @Watch('data.files')
+    onFilesChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'files', newVal: newVal, oldVal: oldVal });
     }
 
     /**
