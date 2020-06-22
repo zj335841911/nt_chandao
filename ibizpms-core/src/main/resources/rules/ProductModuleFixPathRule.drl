@@ -11,23 +11,12 @@ global cn.ibizlab.pms.util.security.AuthenticationUser curuser;
 
 no-loop
 
-//逻辑处理节点[转化至模块实体]
-rule "prepareparam1"
-ruleflow-group "productmodulefixpathprepareparam1"
-    when
-    then
-    productmodulefixpathzt_module.set("root",productmodulefixpathdefault.get("root"));
-    productmodulefixpathzt_module.set("type",productmodulefixpathdefault.get("type"));
-    update(productmodulefixpathzt_module);//更新fact中变量值
-    update(productmodulefixpathdefault);//更新fact中变量值
-    end
-
 //逻辑处理节点[执行重建模块路径行为]
 rule "deaction1"
 ruleflow-group "productmodulefixpathdeaction1"
     when
     then
-    moduleservice.fix(productmodulefixpathzt_module);
+    moduleservice.update(productmodulefixpathdefault);
     update(productmodulefixpathzt_module);//更新fact中变量值
     update(productmodulefixpathdefault);//更新fact中变量值
     end

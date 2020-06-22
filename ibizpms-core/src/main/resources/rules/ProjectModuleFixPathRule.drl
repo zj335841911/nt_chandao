@@ -16,18 +16,7 @@ rule "deaction1"
 ruleflow-group "projectmodulefixpathdeaction1"
     when
     then
-    moduleservice.fix(projectmodulefixpathzt_module);
-    update(projectmodulefixpathzt_module);//更新fact中变量值
-    update(projectmodulefixpathdefault);//更新fact中变量值
-    end
-
-//逻辑处理节点[转化至模块实体]
-rule "prepareparam1"
-ruleflow-group "projectmodulefixpathprepareparam1"
-    when
-    then
-    projectmodulefixpathzt_module.set("root",projectmodulefixpathdefault.get("root"));
-    projectmodulefixpathzt_module.set("type",projectmodulefixpathdefault.get("type"));
+    moduleservice.fix(projectmodulefixpathdefault);
     update(projectmodulefixpathzt_module);//更新fact中变量值
     update(projectmodulefixpathdefault);//更新fact中变量值
     end
