@@ -135,16 +135,38 @@ export default class CombFormItem extends Vue {
             return;
         }
         if (Array.isArray(this.value)) {
-            this.valItems = JSON.parse(JSON.stringify(this.value));
-            this.listenerProperty();
+            this.transformData(this.value)
         } else {
             try {
-                this.valItems = JSON.parse(this.value);
-                this.listenerProperty();
+                this.transformData(JSON.parse(this.value))
             } catch (error) {
                 this.$Notice.error({desc: '数据格式有误！'});
             }
         }
+    }
+
+    /**
+     * 处理数据
+     *
+     * @memberof CombFormItem
+     */
+    public transformData(datas: any[]) {
+        this.valItems = [];
+        datas.forEach((data: any) => {
+            let vals: any[] = [];
+            if(this.formItems.length > 0) {
+                let prop = this.formItems[0].prop;
+                vals = data[prop];
+            }
+            vals.forEach((val: any, index: number) => {
+                let item: any = {};
+                this.formItems.forEach((formItem: any) => {
+                    item[formItem.prop] = data[formItem.prop][index];
+                });
+                this.valItems.push(item);
+            })
+        })
+        this.listenerProperty();
     }
 
     /**
@@ -183,7 +205,16 @@ export default class CombFormItem extends Vue {
      * @memberof CombFormItem
      */
     public onChange() {
-        this.$emit('formitemvaluechange', { name: this.name, value: JSON.stringify(this.valItems) });
+        let item: any = {};
+        this.formItems.forEach((formItem: any) => {
+            item[formItem.prop] = [];
+        });
+        this.valItems.forEach((valItem: any) => {
+            Object.keys(valItem).forEach((key: string) => {
+                item[key].push(valItem[key]);
+            })
+        })
+        this.$emit('formitemvaluechange', { name: this.name, value: JSON.stringify([item]) });
     }
 }
 </script>
