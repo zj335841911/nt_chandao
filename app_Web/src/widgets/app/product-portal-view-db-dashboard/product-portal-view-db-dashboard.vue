@@ -21,9 +21,6 @@ import view_db_assignedtomestoryportlet from '@widgets/story/assigned-to-me-stor
  */
 @Component({
     components: {
-        view_db_container1, 
-        view_db_container3, 
-        view_db_container2, 
         view_db_productexpportlet, 
         view_db_productunclosedportlet, 
         view_db_productstatusportlet, 

@@ -22,10 +22,6 @@ import view_dashboard_sysportlet1 from '@widgets/story/storyspec-portlet/storysp
  */
 @Component({
     components: {
-        view_dashboard_container4, 
-        view_dashboard_container3, 
-        view_dashboard_container2, 
-        view_dashboard_container1, 
         view_dashboard_sysportlet4, 
         view_dashboard_sysportlet2, 
         view_dashboard_sysportlet3, 

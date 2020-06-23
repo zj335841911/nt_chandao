@@ -20,9 +20,6 @@ import view_dashboard_sysportlet1 from '@widgets/test-suite/cur-suit-case-grid-v
  */
 @Component({
     components: {
-        view_dashboard_container3, 
-        view_dashboard_container2, 
-        view_dashboard_container1, 
         view_dashboard_sysportlet2, 
         view_dashboard_sysportlet3, 
         view_dashboard_sysportlet1, 

@@ -23,10 +23,6 @@ import view_dashboard_sysportlet1 from '@widgets/task/main-detail-portlet/main-d
  */
 @Component({
     components: {
-        view_dashboard_container4, 
-        view_dashboard_container3, 
-        view_dashboard_container2, 
-        view_dashboard_container1, 
         view_dashboard_sysportlet4, 
         view_dashboard_sysportlet5, 
         view_dashboard_sysportlet2, 

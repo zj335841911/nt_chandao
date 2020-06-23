@@ -23,11 +23,8 @@ import view_db_leftcontainer2 from '@widgets/app/db-leftcontainer2-portlet/db-le
     components: {
         view_db_assignedtometaskportlet, 
         view_db_projectstatusportlet, 
-        view_db_rightcontainer3, 
         view_db_projectexpportlet, 
-        view_db_totalcontainer1, 
         view_db_projectunclosedportlet, 
-        view_db_leftcontainer2, 
          
     }
 })

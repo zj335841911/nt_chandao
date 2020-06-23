@@ -579,8 +579,8 @@ export class PivotTableBase extends CtrlBase {
             this.$util.validateItem(property,data,this.rules).then(()=>{
                 this.gridItemsModel[rowIndex][property].setError(null);
                 resolve(true);
-            }).catch(({ errors, fields }) => {
-                this.gridItemsModel[rowIndex][property].setError(errors[0].message);
+            }).catch((res: any) => {
+                this.gridItemsModel[rowIndex][property].setError(res.errors[0].message);
                 resolve(false);
             });
         });

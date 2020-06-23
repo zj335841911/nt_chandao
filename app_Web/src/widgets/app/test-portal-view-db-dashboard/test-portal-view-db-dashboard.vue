@@ -21,12 +21,9 @@ import view_db_assigntomecaseportlet1 from '@widgets/case/assigned-to-me-case-po
  */
 @Component({
     components: {
-        view_db_testcontainer2, 
         view_db_assigntomebugportlet1, 
-        view_db_testcontainer3, 
         view_db_sysportlet2, 
         view_db_sysportlet1, 
-        view_db_testcontainer1, 
         view_db_assigntomecaseportlet1, 
          
     }
