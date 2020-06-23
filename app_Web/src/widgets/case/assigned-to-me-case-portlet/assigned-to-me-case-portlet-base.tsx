@@ -1,21 +1,21 @@
-<script lang='tsx'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
-import { ControlInterface } from '@/interface/control';
-import { UIActionTool,Util } from '@/utils';
+import { CtrlBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
 import AssignedToMeCaseService from './assigned-to-me-case-portlet-service';
 
 import { Environment } from '@/environments/environment';
 
 
-@Component({
-    components: {
-      
-    }
-})
-export default class CaseAssignedToMeCaseBase extends Vue implements ControlInterface {
+/**
+ * db_assigntomecaseportlet1部件基类
+ *
+ * @export
+ * @class CtrlBase
+ * @extends {AssignedToMeCaseBase}
+ */
+export class CaseAssignedToMeCaseBase extends CtrlBase {
 
     /**
      * 名称

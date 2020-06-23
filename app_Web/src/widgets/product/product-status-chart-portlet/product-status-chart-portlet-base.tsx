@@ -1,21 +1,21 @@
-<script lang='tsx'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
-import { ControlInterface } from '@/interface/control';
-import { UIActionTool,Util } from '@/utils';
+import { CtrlBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import ProductStatusChartService from './product-status-chart-portlet-service';
 
 import { Environment } from '@/environments/environment';
 
 
-@Component({
-    components: {
-      
-    }
-})
-export default class ProductProductStatusChartBase extends Vue implements ControlInterface {
+/**
+ * db_productstatusportlet部件基类
+ *
+ * @export
+ * @class CtrlBase
+ * @extends {ProductStatusChartBase}
+ */
+export class ProductProductStatusChartBase extends CtrlBase {
 
     /**
      * 名称

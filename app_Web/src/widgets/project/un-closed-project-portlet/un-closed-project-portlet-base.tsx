@@ -1,21 +1,21 @@
-<script lang='tsx'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
-import { ControlInterface } from '@/interface/control';
-import { UIActionTool,Util } from '@/utils';
+import { CtrlBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import UnClosedProjectService from './un-closed-project-portlet-service';
 
 import { Environment } from '@/environments/environment';
 
 
-@Component({
-    components: {
-      
-    }
-})
-export default class ProjectUnClosedProjectBase extends Vue implements ControlInterface {
+/**
+ * db_projectunclosedportlet部件基类
+ *
+ * @export
+ * @class CtrlBase
+ * @extends {UnClosedProjectBase}
+ */
+export class ProjectUnClosedProjectBase extends CtrlBase {
 
     /**
      * 名称

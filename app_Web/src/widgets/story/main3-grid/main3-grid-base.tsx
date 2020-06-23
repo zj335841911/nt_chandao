@@ -1,7 +1,6 @@
 import { Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
-import { ControlInterface } from '@/interface/control';
 import { CtrlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import Main3Service from './main3-grid-service';

@@ -1,7 +1,6 @@
 import { Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
-import { ControlInterface } from '@/interface/control';
 import { CtrlBase } from '@/studio-core';
 import ProductModuleService from '@/service/product-module/product-module-service';
 import TreeExpViewtreeexpbarService from './tree-exp-viewtreeexpbar-treeexpbar-service';

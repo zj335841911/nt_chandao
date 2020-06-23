@@ -1,7 +1,6 @@
 import { Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
-import { ControlInterface } from '@/interface/control';
 import { CtrlBase } from '@/studio-core';
 import ProductPlanService from '@/service/product-plan/product-plan-service';
 import MainTabExptabviewpanel3Service from './main-tab-exptabviewpanel3-tabviewpanel-service';

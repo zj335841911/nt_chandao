@@ -1,21 +1,21 @@
-<script lang='tsx'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
-import { ControlInterface } from '@/interface/control';
-import { UIActionTool,Util } from '@/utils';
+import { CtrlBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import ProjectStatusBarService from './project-status-bar-portlet-service';
 
 import { Environment } from '@/environments/environment';
 
 
-@Component({
-    components: {
-      
-    }
-})
-export default class ProjectProjectStatusBarBase extends Vue implements ControlInterface {
+/**
+ * db_projectstatusportlet部件基类
+ *
+ * @export
+ * @class CtrlBase
+ * @extends {ProjectStatusBarBase}
+ */
+export class ProjectProjectStatusBarBase extends CtrlBase {
 
     /**
      * 名称

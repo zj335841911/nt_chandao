@@ -1,21 +1,21 @@
-<script lang='tsx'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
-import { ControlInterface } from '@/interface/control';
-import { UIActionTool,Util } from '@/utils';
+import { CtrlBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import StepsInfoService from './steps-info-portlet-service';
 
 import { Environment } from '@/environments/environment';
 
 
-@Component({
-    components: {
-      
-    }
-})
-export default class BugStepsInfoBase extends Vue implements ControlInterface {
+/**
+ * dashboard_sysportlet1部件基类
+ *
+ * @export
+ * @class CtrlBase
+ * @extends {StepsInfoBase}
+ */
+export class BugStepsInfoBase extends CtrlBase {
 
     /**
      * 名称

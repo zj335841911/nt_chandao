@@ -1,21 +1,21 @@
-<script lang='tsx'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
-import { ControlInterface } from '@/interface/control';
-import { UIActionTool,Util } from '@/utils';
+import { CtrlBase } from '@/studio-core';
 import TestSuiteService from '@/service/test-suite/test-suite-service';
 import CurSuitCaseGridViewService from './cur-suit-case-grid-view-portlet-service';
 
 import { Environment } from '@/environments/environment';
 
 
-@Component({
-    components: {
-      
-    }
-})
-export default class TestSuiteCurSuitCaseGridViewBase extends Vue implements ControlInterface {
+/**
+ * dashboard_sysportlet1部件基类
+ *
+ * @export
+ * @class CtrlBase
+ * @extends {CurSuitCaseGridViewBase}
+ */
+export class TestSuiteCurSuitCaseGridViewBase extends CtrlBase {
 
     /**
      * 名称

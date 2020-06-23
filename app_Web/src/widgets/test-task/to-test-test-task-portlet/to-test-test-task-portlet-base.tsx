@@ -1,21 +1,21 @@
-<script lang='tsx'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
-import { ControlInterface } from '@/interface/control';
-import { UIActionTool,Util } from '@/utils';
+import { CtrlBase } from '@/studio-core';
 import TestTaskService from '@/service/test-task/test-task-service';
 import ToTestTestTaskService from './to-test-test-task-portlet-service';
 
 import { Environment } from '@/environments/environment';
 
 
-@Component({
-    components: {
-      
-    }
-})
-export default class TestTaskToTestTestTaskBase extends Vue implements ControlInterface {
+/**
+ * db_sysportlet1部件基类
+ *
+ * @export
+ * @class CtrlBase
+ * @extends {ToTestTestTaskBase}
+ */
+export class TestTaskToTestTestTaskBase extends CtrlBase {
 
     /**
      * 名称

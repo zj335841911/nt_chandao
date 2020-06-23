@@ -1,21 +1,21 @@
-<script lang='tsx'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
-import { ControlInterface } from '@/interface/control';
-import { UIActionTool,Util } from '@/utils';
+import { CtrlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import AssignToMeService from './assign-to-me-portlet-service';
 
 import { Environment } from '@/environments/environment';
 
 
-@Component({
-    components: {
-      
-    }
-})
-export default class TaskAssignToMeBase extends Vue implements ControlInterface {
+/**
+ * db_assignedtometaskportlet部件基类
+ *
+ * @export
+ * @class CtrlBase
+ * @extends {AssignToMeBase}
+ */
+export class TaskAssignToMeBase extends CtrlBase {
 
     /**
      * 名称

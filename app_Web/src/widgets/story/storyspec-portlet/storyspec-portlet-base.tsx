@@ -1,21 +1,21 @@
-<script lang='tsx'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
-import { ControlInterface } from '@/interface/control';
-import { UIActionTool,Util } from '@/utils';
+import { CtrlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import StoryspecService from './storyspec-portlet-service';
 
 import { Environment } from '@/environments/environment';
 
 
-@Component({
-    components: {
-      
-    }
-})
-export default class StoryStoryspecBase extends Vue implements ControlInterface {
+/**
+ * dashboard_sysportlet1部件基类
+ *
+ * @export
+ * @class CtrlBase
+ * @extends {StoryspecBase}
+ */
+export class StoryStoryspecBase extends CtrlBase {
 
     /**
      * 名称

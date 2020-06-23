@@ -1,9 +1,7 @@
-<script lang='tsx'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
-import { ControlInterface } from '@/interface/control';
-import { UIActionTool,Util } from '@/utils';
+import { CtrlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import ToolbarService from './toolbar-portlet-service';
 
@@ -11,12 +9,14 @@ import TaskUIService from '@/uiservice/task/task-ui-service';
 import { Environment } from '@/environments/environment';
 
 
-@Component({
-    components: {
-      
-    }
-})
-export default class TaskToolbarBase extends Vue implements ControlInterface {
+/**
+ * dashboard_sysportlet2部件基类
+ *
+ * @export
+ * @class CtrlBase
+ * @extends {ToolbarBase}
+ */
+export class TaskToolbarBase extends CtrlBase {
 
     /**
      * 名称

@@ -1,21 +1,21 @@
-<script lang='tsx'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
-import { ControlInterface } from '@/interface/control';
-import { UIActionTool,Util } from '@/utils';
+import { CtrlBase } from '@/studio-core';
 import TestTaskService from '@/service/test-task/test-task-service';
 import ActionBarService from './action-bar-portlet-service';
 
 import { Environment } from '@/environments/environment';
 
 
-@Component({
-    components: {
-      
-    }
-})
-export default class TestTaskActionBarBase extends Vue implements ControlInterface {
+/**
+ * dashboard_sysportlet4部件基类
+ *
+ * @export
+ * @class CtrlBase
+ * @extends {ActionBarBase}
+ */
+export class TestTaskActionBarBase extends CtrlBase {
 
     /**
      * 名称
