@@ -1,10 +1,8 @@
-import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
-import { CreateElement } from 'vue';
+import { Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { CtrlBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import ProductExpViewService from './product-exp-view-portlet-service';
-
 import { Environment } from '@/environments/environment';
 
 
@@ -15,68 +13,7 @@ import { Environment } from '@/environments/environment';
  * @class CtrlBase
  * @extends {ProductExpViewBase}
  */
-export class ProductProductExpViewBase extends CtrlBase {
-
-    /**
-     * 名称
-     *
-     * @type {string}
-     * @memberof ProductExpView
-     */
-    @Prop() public name?: string;
-
-    /**
-     * 视图通讯对象
-     *
-     * @type {Subject<ViewState>}
-     * @memberof ProductExpView
-     */
-    @Prop() public viewState!: Subject<ViewState>;
-
-    /**
-     * 应用上下文
-     *
-     * @type {*}
-     * @memberof ProductExpView
-     */
-    @Prop() public context: any;
-
-    /**
-     * 视图参数
-     *
-     * @type {*}
-     * @memberof ProductExpView
-     */
-    @Prop() public viewparams: any;
-
-    /**
-     * 视图状态事件
-     *
-     * @public
-     * @type {(Subscription | undefined)}
-     * @memberof ProductExpView
-     */
-    public viewStateEvent: Subscription | undefined;
-
-    /**
-     * 获取部件类型
-     *
-     * @returns {string}
-     * @memberof ProductExpView
-     */
-    public getControlType(): string {
-        return 'PORTLET'
-    }
-
-
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @type {Array<*>}
-     * @memberof ProductExpView
-     */    
-    public counterServiceArray:Array<any> = [];
+export class ProductExpViewBase extends CtrlBase {
 
     /**
      * 建构部件服务对象
@@ -93,36 +30,6 @@ export class ProductProductExpViewBase extends CtrlBase {
      * @memberof ProductExpView
      */
     public appEntityService: ProductService = new ProductService({ $store: this.$store });
-    
-
-
-    /**
-     * 关闭视图
-     *
-     * @param {any} args
-     * @memberof ProductExpView
-     */
-    public closeView(args: any): void {
-        let _this: any = this;
-        _this.$emit('closeview', [args]);
-    }
-
-    /**
-     *  计数器刷新
-     *
-     * @memberof ProductExpView
-     */
-    public counterRefresh(){
-        const _this:any =this;
-        if(_this.counterServiceArray && _this.counterServiceArray.length >0){
-            _this.counterServiceArray.forEach((item:any) =>{
-                if(item.refreshData && item.refreshData instanceof Function){
-                    item.refreshData();
-                }
-            })
-        }
-    }
-
 
     /**
      * 长度

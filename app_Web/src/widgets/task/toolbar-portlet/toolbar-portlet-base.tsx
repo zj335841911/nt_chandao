@@ -1,10 +1,8 @@
-import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
-import { CreateElement } from 'vue';
+import { Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { CtrlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import ToolbarService from './toolbar-portlet-service';
-
 import TaskUIService from '@/uiservice/task/task-ui-service';
 import { Environment } from '@/environments/environment';
 
@@ -16,68 +14,7 @@ import { Environment } from '@/environments/environment';
  * @class CtrlBase
  * @extends {ToolbarBase}
  */
-export class TaskToolbarBase extends CtrlBase {
-
-    /**
-     * 名称
-     *
-     * @type {string}
-     * @memberof Toolbar
-     */
-    @Prop() public name?: string;
-
-    /**
-     * 视图通讯对象
-     *
-     * @type {Subject<ViewState>}
-     * @memberof Toolbar
-     */
-    @Prop() public viewState!: Subject<ViewState>;
-
-    /**
-     * 应用上下文
-     *
-     * @type {*}
-     * @memberof Toolbar
-     */
-    @Prop() public context: any;
-
-    /**
-     * 视图参数
-     *
-     * @type {*}
-     * @memberof Toolbar
-     */
-    @Prop() public viewparams: any;
-
-    /**
-     * 视图状态事件
-     *
-     * @public
-     * @type {(Subscription | undefined)}
-     * @memberof Toolbar
-     */
-    public viewStateEvent: Subscription | undefined;
-
-    /**
-     * 获取部件类型
-     *
-     * @returns {string}
-     * @memberof Toolbar
-     */
-    public getControlType(): string {
-        return 'PORTLET'
-    }
-
-
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @type {Array<*>}
-     * @memberof Toolbar
-     */    
-    public counterServiceArray:Array<any> = [];
+export class ToolbarBase extends CtrlBase {
 
     /**
      * 建构部件服务对象
@@ -94,7 +31,6 @@ export class TaskToolbarBase extends CtrlBase {
      * @memberof Toolbar
      */
     public appEntityService: TaskService = new TaskService({ $store: this.$store });
-    
 
     /**
      * 逻辑事件
@@ -336,6 +272,7 @@ export class TaskToolbarBase extends CtrlBase {
         }
     }
 
+
     /**
      * 删除
      *
@@ -369,34 +306,6 @@ export class TaskToolbarBase extends CtrlBase {
             });
         }
     }
-
-    /**
-     * 关闭视图
-     *
-     * @param {any} args
-     * @memberof Toolbar
-     */
-    public closeView(args: any): void {
-        let _this: any = this;
-        _this.$emit('closeview', [args]);
-    }
-
-    /**
-     *  计数器刷新
-     *
-     * @memberof Toolbar
-     */
-    public counterRefresh(){
-        const _this:any =this;
-        if(_this.counterServiceArray && _this.counterServiceArray.length >0){
-            _this.counterServiceArray.forEach((item:any) =>{
-                if(item.refreshData && item.refreshData instanceof Function){
-                    item.refreshData();
-                }
-            })
-        }
-    }
-
 
     /**
      * 长度

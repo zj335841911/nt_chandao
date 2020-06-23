@@ -1,10 +1,8 @@
-import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
-import { CreateElement } from 'vue';
+import { Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { CtrlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import BaseInfo_EditModeService from './base-info-edit-mode-portlet-service';
-
 import { Environment } from '@/environments/environment';
 
 
@@ -15,68 +13,7 @@ import { Environment } from '@/environments/environment';
  * @class CtrlBase
  * @extends {BaseInfo_EditModeBase}
  */
-export class StoryBaseInfo_EditModeBase extends CtrlBase {
-
-    /**
-     * 名称
-     *
-     * @type {string}
-     * @memberof BaseInfo_EditMode
-     */
-    @Prop() public name?: string;
-
-    /**
-     * 视图通讯对象
-     *
-     * @type {Subject<ViewState>}
-     * @memberof BaseInfo_EditMode
-     */
-    @Prop() public viewState!: Subject<ViewState>;
-
-    /**
-     * 应用上下文
-     *
-     * @type {*}
-     * @memberof BaseInfo_EditMode
-     */
-    @Prop() public context: any;
-
-    /**
-     * 视图参数
-     *
-     * @type {*}
-     * @memberof BaseInfo_EditMode
-     */
-    @Prop() public viewparams: any;
-
-    /**
-     * 视图状态事件
-     *
-     * @public
-     * @type {(Subscription | undefined)}
-     * @memberof BaseInfo_EditMode
-     */
-    public viewStateEvent: Subscription | undefined;
-
-    /**
-     * 获取部件类型
-     *
-     * @returns {string}
-     * @memberof BaseInfo_EditMode
-     */
-    public getControlType(): string {
-        return 'PORTLET'
-    }
-
-
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @type {Array<*>}
-     * @memberof BaseInfo_EditMode
-     */    
-    public counterServiceArray:Array<any> = [];
+export class BaseInfo_EditModeBase extends CtrlBase {
 
     /**
      * 建构部件服务对象
@@ -93,36 +30,6 @@ export class StoryBaseInfo_EditModeBase extends CtrlBase {
      * @memberof BaseInfo_EditMode
      */
     public appEntityService: StoryService = new StoryService({ $store: this.$store });
-    
-
-
-    /**
-     * 关闭视图
-     *
-     * @param {any} args
-     * @memberof BaseInfo_EditMode
-     */
-    public closeView(args: any): void {
-        let _this: any = this;
-        _this.$emit('closeview', [args]);
-    }
-
-    /**
-     *  计数器刷新
-     *
-     * @memberof BaseInfo_EditMode
-     */
-    public counterRefresh(){
-        const _this:any =this;
-        if(_this.counterServiceArray && _this.counterServiceArray.length >0){
-            _this.counterServiceArray.forEach((item:any) =>{
-                if(item.refreshData && item.refreshData instanceof Function){
-                    item.refreshData();
-                }
-            })
-        }
-    }
-
 
     /**
      * 长度

@@ -1,10 +1,8 @@
-import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
-import { CreateElement } from 'vue';
+import { Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { CtrlBase } from '@/studio-core';
 import BurnService from '@/service/burn/burn-service';
 import BurnDownChartService from './burn-down-chart-portlet-service';
-
 import { Environment } from '@/environments/environment';
 
 
@@ -15,68 +13,7 @@ import { Environment } from '@/environments/environment';
  * @class CtrlBase
  * @extends {BurnDownChartBase}
  */
-export class BurnBurnDownChartBase extends CtrlBase {
-
-    /**
-     * 名称
-     *
-     * @type {string}
-     * @memberof BurnDownChart
-     */
-    @Prop() public name?: string;
-
-    /**
-     * 视图通讯对象
-     *
-     * @type {Subject<ViewState>}
-     * @memberof BurnDownChart
-     */
-    @Prop() public viewState!: Subject<ViewState>;
-
-    /**
-     * 应用上下文
-     *
-     * @type {*}
-     * @memberof BurnDownChart
-     */
-    @Prop() public context: any;
-
-    /**
-     * 视图参数
-     *
-     * @type {*}
-     * @memberof BurnDownChart
-     */
-    @Prop() public viewparams: any;
-
-    /**
-     * 视图状态事件
-     *
-     * @public
-     * @type {(Subscription | undefined)}
-     * @memberof BurnDownChart
-     */
-    public viewStateEvent: Subscription | undefined;
-
-    /**
-     * 获取部件类型
-     *
-     * @returns {string}
-     * @memberof BurnDownChart
-     */
-    public getControlType(): string {
-        return 'PORTLET'
-    }
-
-
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @type {Array<*>}
-     * @memberof BurnDownChart
-     */    
-    public counterServiceArray:Array<any> = [];
+export class BurnDownChartBase extends CtrlBase {
 
     /**
      * 建构部件服务对象
@@ -93,36 +30,6 @@ export class BurnBurnDownChartBase extends CtrlBase {
      * @memberof BurnDownChart
      */
     public appEntityService: BurnService = new BurnService({ $store: this.$store });
-    
-
-
-    /**
-     * 关闭视图
-     *
-     * @param {any} args
-     * @memberof BurnDownChart
-     */
-    public closeView(args: any): void {
-        let _this: any = this;
-        _this.$emit('closeview', [args]);
-    }
-
-    /**
-     *  计数器刷新
-     *
-     * @memberof BurnDownChart
-     */
-    public counterRefresh(){
-        const _this:any =this;
-        if(_this.counterServiceArray && _this.counterServiceArray.length >0){
-            _this.counterServiceArray.forEach((item:any) =>{
-                if(item.refreshData && item.refreshData instanceof Function){
-                    item.refreshData();
-                }
-            })
-        }
-    }
-
 
     /**
      * 长度

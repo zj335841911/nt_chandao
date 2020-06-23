@@ -1,5 +1,4 @@
 import { Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
-import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { CtrlBase } from '@/studio-core';
 import ProductPortalView_dbService from './product-portal-view-db-dashboard-service';

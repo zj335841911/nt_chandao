@@ -1,10 +1,8 @@
-import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
-import { CreateElement } from 'vue';
+import { Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { CtrlBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import ProjectExpViewService from './project-exp-view-portlet-service';
-
 import { Environment } from '@/environments/environment';
 
 
@@ -15,68 +13,7 @@ import { Environment } from '@/environments/environment';
  * @class CtrlBase
  * @extends {ProjectExpViewBase}
  */
-export class ProjectProjectExpViewBase extends CtrlBase {
-
-    /**
-     * 名称
-     *
-     * @type {string}
-     * @memberof ProjectExpView
-     */
-    @Prop() public name?: string;
-
-    /**
-     * 视图通讯对象
-     *
-     * @type {Subject<ViewState>}
-     * @memberof ProjectExpView
-     */
-    @Prop() public viewState!: Subject<ViewState>;
-
-    /**
-     * 应用上下文
-     *
-     * @type {*}
-     * @memberof ProjectExpView
-     */
-    @Prop() public context: any;
-
-    /**
-     * 视图参数
-     *
-     * @type {*}
-     * @memberof ProjectExpView
-     */
-    @Prop() public viewparams: any;
-
-    /**
-     * 视图状态事件
-     *
-     * @public
-     * @type {(Subscription | undefined)}
-     * @memberof ProjectExpView
-     */
-    public viewStateEvent: Subscription | undefined;
-
-    /**
-     * 获取部件类型
-     *
-     * @returns {string}
-     * @memberof ProjectExpView
-     */
-    public getControlType(): string {
-        return 'PORTLET'
-    }
-
-
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @type {Array<*>}
-     * @memberof ProjectExpView
-     */    
-    public counterServiceArray:Array<any> = [];
+export class ProjectExpViewBase extends CtrlBase {
 
     /**
      * 建构部件服务对象
@@ -93,36 +30,6 @@ export class ProjectProjectExpViewBase extends CtrlBase {
      * @memberof ProjectExpView
      */
     public appEntityService: ProjectService = new ProjectService({ $store: this.$store });
-    
-
-
-    /**
-     * 关闭视图
-     *
-     * @param {any} args
-     * @memberof ProjectExpView
-     */
-    public closeView(args: any): void {
-        let _this: any = this;
-        _this.$emit('closeview', [args]);
-    }
-
-    /**
-     *  计数器刷新
-     *
-     * @memberof ProjectExpView
-     */
-    public counterRefresh(){
-        const _this:any =this;
-        if(_this.counterServiceArray && _this.counterServiceArray.length >0){
-            _this.counterServiceArray.forEach((item:any) =>{
-                if(item.refreshData && item.refreshData instanceof Function){
-                    item.refreshData();
-                }
-            })
-        }
-    }
-
 
     /**
      * 长度

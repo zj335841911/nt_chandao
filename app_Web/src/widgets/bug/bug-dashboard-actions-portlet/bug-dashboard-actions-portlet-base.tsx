@@ -1,10 +1,8 @@
-import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
-import { CreateElement } from 'vue';
+import { Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { CtrlBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import BugDashboardActionsService from './bug-dashboard-actions-portlet-service';
-
 import BugUIService from '@/uiservice/bug/bug-ui-service';
 import { Environment } from '@/environments/environment';
 
@@ -16,68 +14,7 @@ import { Environment } from '@/environments/environment';
  * @class CtrlBase
  * @extends {BugDashboardActionsBase}
  */
-export class BugBugDashboardActionsBase extends CtrlBase {
-
-    /**
-     * 名称
-     *
-     * @type {string}
-     * @memberof BugDashboardActions
-     */
-    @Prop() public name?: string;
-
-    /**
-     * 视图通讯对象
-     *
-     * @type {Subject<ViewState>}
-     * @memberof BugDashboardActions
-     */
-    @Prop() public viewState!: Subject<ViewState>;
-
-    /**
-     * 应用上下文
-     *
-     * @type {*}
-     * @memberof BugDashboardActions
-     */
-    @Prop() public context: any;
-
-    /**
-     * 视图参数
-     *
-     * @type {*}
-     * @memberof BugDashboardActions
-     */
-    @Prop() public viewparams: any;
-
-    /**
-     * 视图状态事件
-     *
-     * @public
-     * @type {(Subscription | undefined)}
-     * @memberof BugDashboardActions
-     */
-    public viewStateEvent: Subscription | undefined;
-
-    /**
-     * 获取部件类型
-     *
-     * @returns {string}
-     * @memberof BugDashboardActions
-     */
-    public getControlType(): string {
-        return 'PORTLET'
-    }
-
-
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @type {Array<*>}
-     * @memberof BugDashboardActions
-     */    
-    public counterServiceArray:Array<any> = [];
+export class BugDashboardActionsBase extends CtrlBase {
 
     /**
      * 建构部件服务对象
@@ -94,7 +31,6 @@ export class BugBugDashboardActionsBase extends CtrlBase {
      * @memberof BugDashboardActions
      */
     public appEntityService: BugService = new BugService({ $store: this.$store });
-    
 
     /**
      * 逻辑事件
@@ -123,35 +59,6 @@ export class BugBugDashboardActionsBase extends CtrlBase {
         const curUIService:BugUIService  = new BugUIService();
         curUIService.Bug_MainEdit(datas,contextJO, paramJO,  $event, xData,this,"Bug");
     }
-
-
-    /**
-     * 关闭视图
-     *
-     * @param {any} args
-     * @memberof BugDashboardActions
-     */
-    public closeView(args: any): void {
-        let _this: any = this;
-        _this.$emit('closeview', [args]);
-    }
-
-    /**
-     *  计数器刷新
-     *
-     * @memberof BugDashboardActions
-     */
-    public counterRefresh(){
-        const _this:any =this;
-        if(_this.counterServiceArray && _this.counterServiceArray.length >0){
-            _this.counterServiceArray.forEach((item:any) =>{
-                if(item.refreshData && item.refreshData instanceof Function){
-                    item.refreshData();
-                }
-            })
-        }
-    }
-
 
     /**
      * 长度

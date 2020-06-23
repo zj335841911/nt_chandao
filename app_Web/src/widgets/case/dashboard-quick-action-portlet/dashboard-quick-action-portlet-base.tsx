@@ -1,10 +1,8 @@
-import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
-import { CreateElement } from 'vue';
+import { Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { CtrlBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
 import DashboardQuickActionService from './dashboard-quick-action-portlet-service';
-
 import CaseUIService from '@/uiservice/case/case-ui-service';
 import { Environment } from '@/environments/environment';
 
@@ -16,68 +14,7 @@ import { Environment } from '@/environments/environment';
  * @class CtrlBase
  * @extends {DashboardQuickActionBase}
  */
-export class CaseDashboardQuickActionBase extends CtrlBase {
-
-    /**
-     * 名称
-     *
-     * @type {string}
-     * @memberof DashboardQuickAction
-     */
-    @Prop() public name?: string;
-
-    /**
-     * 视图通讯对象
-     *
-     * @type {Subject<ViewState>}
-     * @memberof DashboardQuickAction
-     */
-    @Prop() public viewState!: Subject<ViewState>;
-
-    /**
-     * 应用上下文
-     *
-     * @type {*}
-     * @memberof DashboardQuickAction
-     */
-    @Prop() public context: any;
-
-    /**
-     * 视图参数
-     *
-     * @type {*}
-     * @memberof DashboardQuickAction
-     */
-    @Prop() public viewparams: any;
-
-    /**
-     * 视图状态事件
-     *
-     * @public
-     * @type {(Subscription | undefined)}
-     * @memberof DashboardQuickAction
-     */
-    public viewStateEvent: Subscription | undefined;
-
-    /**
-     * 获取部件类型
-     *
-     * @returns {string}
-     * @memberof DashboardQuickAction
-     */
-    public getControlType(): string {
-        return 'PORTLET'
-    }
-
-
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @type {Array<*>}
-     * @memberof DashboardQuickAction
-     */    
-    public counterServiceArray:Array<any> = [];
+export class DashboardQuickActionBase extends CtrlBase {
 
     /**
      * 建构部件服务对象
@@ -94,7 +31,6 @@ export class CaseDashboardQuickActionBase extends CtrlBase {
      * @memberof DashboardQuickAction
      */
     public appEntityService: CaseService = new CaseService({ $store: this.$store });
-    
 
     /**
      * 逻辑事件
@@ -169,6 +105,7 @@ export class CaseDashboardQuickActionBase extends CtrlBase {
         }
     }
 
+
     /**
      * 刷新
      *
@@ -188,34 +125,6 @@ export class CaseDashboardQuickActionBase extends CtrlBase {
             _this.refresh(args);
         }
     }
-
-    /**
-     * 关闭视图
-     *
-     * @param {any} args
-     * @memberof DashboardQuickAction
-     */
-    public closeView(args: any): void {
-        let _this: any = this;
-        _this.$emit('closeview', [args]);
-    }
-
-    /**
-     *  计数器刷新
-     *
-     * @memberof DashboardQuickAction
-     */
-    public counterRefresh(){
-        const _this:any =this;
-        if(_this.counterServiceArray && _this.counterServiceArray.length >0){
-            _this.counterServiceArray.forEach((item:any) =>{
-                if(item.refreshData && item.refreshData instanceof Function){
-                    item.refreshData();
-                }
-            })
-        }
-    }
-
 
     /**
      * 长度
