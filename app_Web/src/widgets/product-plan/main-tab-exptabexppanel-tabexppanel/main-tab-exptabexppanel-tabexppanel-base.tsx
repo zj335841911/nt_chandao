@@ -65,16 +65,4 @@ export class MainTabExptabexppanelBase extends TabExpPanel {
         }
         super.ctrlCreated();
     }
-
-    /**
-     * 分页面板选中
-     *
-     * @protected
-     * @param {*} e
-     * @returns
-     * @memberof MainTabExptabexppanel
-     */
-    protected tabPanelClick(e: any): void {
-        super.tabPanelClick(e);
-    }
 }

@@ -1,5 +1,5 @@
 <div class='tabviewpanel'>
-    <tabs :value="activatedTabViewPanel" :animated="false" class='tabexppanel' name='testtabexpviewtabexppanel' @on-click="tabPanelClick">
+    <tabs :value="activatedTabViewPanel" :animated="false" class='tabexppanel' name='testtabexpviewtabexppanel' @on-click="tabPanelClick($event)">
         <tab-pane :index="0" name='tabviewpanel2' tab='testtabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
