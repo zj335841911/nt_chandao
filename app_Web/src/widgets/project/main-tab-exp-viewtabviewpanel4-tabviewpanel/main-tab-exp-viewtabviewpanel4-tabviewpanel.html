@@ -1,0 +1,9 @@
+<div class='tabviewpanel' style="height:100%;" v-if = 'isActivied' >
+        <task-task-type-gantt-view 
+      class='viewcontainer2' 
+      :viewdata="viewdata" 
+      :viewparam="viewparam"
+      @viewload="viewDatasChange($event)" 
+      :viewDefaultUsage="false" >
+    </task-task-type-gantt-view>
+</div>

@@ -1,0 +1,15 @@
+<studio-view viewName="storymainview_editmode" viewTitle="需求数据看板视图" class='deportalview story-main-view-edit-mode'>
+    <template slot='title'>
+    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
+    </template>
+    <view_dashboard 
+                    :viewState="viewState"  
+                    :viewparams="viewparams" 
+                    :context="JSON.parse(JSON.stringify(context))" 
+                    :isEnableCustomized = "false"
+                    name="dashboard"  
+                    ref='dashboard' 
+                    @load="dashboard_load($event)"  
+                    @closeview="closeView($event)">
+                </view_dashboard>
+</studio-view>

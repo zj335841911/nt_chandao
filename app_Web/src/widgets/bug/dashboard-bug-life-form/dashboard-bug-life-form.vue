@@ -1,0 +1,22 @@
+<template src="./dashboard-bug-life-form.html"/>
+<script lang='tsx'>
+import { Component } from 'vue-property-decorator';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { DashboardBugLifeBase } from './dashboard-bug-life-form-base';
+ 
+
+/**
+ * form部件
+ *
+ * @export
+ * @class DashboardBugLife
+ * @extends {DashboardBugLifeBase}
+ */
+@Component({
+    components: {
+         
+    }
+})
+@VueLifeCycleProcessing()
+export default class DashboardBugLife extends DashboardBugLifeBase { }
+</script>

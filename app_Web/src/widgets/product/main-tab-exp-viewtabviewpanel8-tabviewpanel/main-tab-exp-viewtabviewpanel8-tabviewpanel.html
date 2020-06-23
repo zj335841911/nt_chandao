@@ -1,0 +1,9 @@
+<div class='tabviewpanel' style="height:100%;" v-if = 'isActivied' >
+        <branch-pmgrid-view 
+      class='viewcontainer2' 
+      :viewdata="viewdata" 
+      :viewparam="viewparam"
+      @viewload="viewDatasChange($event)" 
+      :viewDefaultUsage="false" >
+    </branch-pmgrid-view>
+</div>

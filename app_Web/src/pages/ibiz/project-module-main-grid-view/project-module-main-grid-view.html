@@ -1,0 +1,30 @@
+<studio-view viewName="projectmodulemaingridview" viewTitle="实体表格视图" class='degridview project-module-main-grid-view'>
+    <template slot="toolbar">
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click($event)"/>    </template>
+    <view_grid 
+        :viewState="viewState"  
+        :viewparams="viewparams" 
+        :context="context" 
+        :isSingleSelect="isSingleSelect"
+        :showBusyIndicator="true"
+        :isOpenEdit="true"
+        :gridRowActiveMode="gridRowActiveMode"
+        @save="onSave"
+        updateAction="Update"
+        removeAction="Remove"
+        loaddraftAction="GetDraft"
+        loadAction="Get"
+        createAction="Create"
+        fetchAction="FetchDefault"
+        :newdata="newdata"
+        :opendata="opendata"
+        name="grid"  
+        ref='grid' 
+        @selectionchange="grid_selectionchange($event)"  
+        @beforeload="grid_beforeload($event)"  
+        @rowdblclick="grid_rowdblclick($event)"  
+        @remove="grid_remove($event)"  
+        @load="grid_load($event)"  
+        @closeview="closeView($event)">
+    </view_grid>
+</studio-view>

@@ -1,0 +1,9 @@
+<div class='tabviewpanel' style="height:100%;" v-if = 'isActivied' >
+        <case-cur-test-task-grid-view 
+      class='viewcontainer2' 
+      :viewdata="viewdata" 
+      :viewparam="viewparam"
+      @viewload="viewDatasChange($event)" 
+      :viewDefaultUsage="false" >
+    </case-cur-test-task-grid-view>
+</div>
