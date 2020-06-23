@@ -1,5 +1,104 @@
-!!!!模版产生代码错误:----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${P.getPartCode(item, "FORM").code}  [in template "TEMPLCODE_zh_CN" at line 1, column 1]
-----
-部件模板[@CONTROL/FORM]无法获取指定成员[FORM][CONTROL-HTML.html]模板
+<i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='bug_dashboardbuglife' style="">
+    <input style="display:none;" />
+    <row >
+    <tabs :animated="false" size="small" name='dashboardbuglife' :value="detailsModel.form.activiedPage" 
+        @on-click="detailsModel.form.clickPage($event)">
+            <tab-pane v-show="detailsModel.formpage1.visible" name='formpage1' :index="0" tab='dashboardbuglife' class=''  
+                :label="(h) =>{
+                    return h('span',{
+                        class:'caption'
+                    },[
+                    $t('entities.bug.dashboardbuglife_form.details.formpage1')
+                    ])
+                }">
+                    
+<i-col v-show="detailsModel.buggroup1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.buggroup1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.dashboardbuglife_form.details.buggroup1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <row>
+        <i-col v-show="detailsModel.openedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='openedby' :itemRules="this.rules.openedby" class='' :caption="$t('entities.bug.dashboardbuglife_form.details.openedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.openedby.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='openedby' :value="data.openedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.openedbuild.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='openedbuild' :itemRules="this.rules.openedbuild" class='' :caption="$t('entities.bug.dashboardbuglife_form.details.openedbuild')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.openedbuild.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='openedbuild' :value="data.openedbuild" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.resolvedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='resolvedby' :itemRules="this.rules.resolvedby" class='' :caption="$t('entities.bug.dashboardbuglife_form.details.resolvedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resolvedby.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='resolvedby' :value="data.resolvedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.resolvedbuild.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='resolvedbuild' :itemRules="this.rules.resolvedbuild" class='' :caption="$t('entities.bug.dashboardbuglife_form.details.resolvedbuild')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resolvedbuild.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='resolvedbuild' :value="data.resolvedbuild" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.resolution.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='resolution' :itemRules="this.rules.resolution" class='' :caption="$t('entities.bug.dashboardbuglife_form.details.resolution')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resolution.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='resolution' :value="data.resolution" tag='Bug__resolution' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.closedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='closedby' :itemRules="this.rules.closedby" class='' :caption="$t('entities.bug.dashboardbuglife_form.details.closedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.closedby.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='closedby' :value="data.closedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.lasteditedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='lasteditedby' :itemRules="this.rules.lasteditedby" class='' :caption="$t('entities.bug.dashboardbuglife_form.details.lasteditedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.lasteditedby.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='lasteditedby' :value="data.lasteditedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+
+
+            </tab-pane> 
+            <tab-pane v-show="detailsModel.formpage2.visible" name='formpage2' :index="1" tab='dashboardbuglife' class=''  
+                :label="(h) =>{
+                    return h('span',{
+                        class:'caption'
+                    },[
+                    $t('entities.bug.dashboardbuglife_form.details.formpage2')
+                    ])
+                }">
+                    
+<i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.dashboardbuglife_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <row>
+        <i-col v-show="detailsModel.linkbug.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='linkbug' :itemRules="this.rules.linkbug" class='' :caption="$t('entities.bug.dashboardbuglife_form.details.linkbug')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.linkbug.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='linkbug' :value="data.linkbug" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+
+
+            </tab-pane> 
+    </tabs>
+    </row>
+</i-form>

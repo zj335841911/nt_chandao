@@ -1,5 +1,48 @@
-!!!!模版产生代码错误:----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${P.getPartCode(item, "FORM").code}  [in template "TEMPLCODE_zh_CN" at line 1, column 1]
-----
-部件模板[@CONTROL/FORM]无法获取指定成员[FORM][CONTROL-HTML.html]模板
+<i-form :model="this.data" class='app-form' ref='form'  id='action_main' style="">
+    <input style="display:none;" />
+    <row >
+    <tabs :animated="false" size="small" name='main' :value="detailsModel.form.activiedPage" 
+        @on-click="detailsModel.form.clickPage($event)">
+            <tab-pane v-show="detailsModel.formpage1.visible" name='formpage1' :index="0" tab='main' class=''  
+                :label="(h) =>{
+                    return h('span',{
+                        class:'caption'
+                    },[
+                    $t('entities.action.main_form.details.formpage1')
+                    ])
+                }">
+                    
+<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.action.main_form.details.group1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+            
+    </row>
+</app-form-group>
+
+</i-col>
+
+
+            </tab-pane> 
+            <tab-pane v-show="detailsModel.formpage2.visible" name='formpage2' :index="1" tab='main' class=''  
+                :label="(h) =>{
+                    return h('span',{
+                        class:'caption'
+                    },[
+                    $t('entities.action.main_form.details.formpage2')
+                    ])
+                }">
+                    
+<i-col v-show="detailsModel.group2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.action.main_form.details.group2')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+            
+    </row>
+</app-form-group>
+
+</i-col>
+
+
+            </tab-pane> 
+    </tabs>
+    </row>
+</i-form>

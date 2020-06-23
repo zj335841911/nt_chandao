@@ -1,5 +1,68 @@
-!!!!模版产生代码错误:----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${P.getPartCode(item, "FORM").code}  [in template "TEMPLCODE_zh_CN" at line 1, column 1]
-----
-部件模板[@CONTROL/FORM]无法获取指定成员[FORM][CONTROL-HTML.html]模板
+<i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='testreport_testrange' style="">
+    <input style="display:none;" />
+    <row >
+            
+<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.testreport.testrange_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <row>
+        <i-col v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem='testreport' 
+    :parentdata='{"srfparentdename":"ZT_TESTREPORT","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+        { pathName: 'products', parameterName: 'product' },
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{}'
+    parameterName='testreport'
+    parentName="TestReport"  
+    refviewtype='DEGRIDVIEW' 
+    refreshitems='' 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname='story-report-sub-grid-view' 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved($event)"
+    style=";overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+<i-col v-show="detailsModel.druipart2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem='testreport' 
+    :parentdata='{"srfparentdename":"ZT_TESTREPORT","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+        { pathName: 'products', parameterName: 'product' },
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{}'
+    parameterName='testreport'
+    parentName="TestReport"  
+    refviewtype='DEGRIDVIEW' 
+    refreshitems='' 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname='bug-test-report-sub-grid-view' 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved($event)"
+    style=";overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+
+
+    </row>
+</i-form>
