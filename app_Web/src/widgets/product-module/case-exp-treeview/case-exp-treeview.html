@@ -14,11 +14,11 @@
             isLeaf: 'leaf',
             children: 'children'
         }"
-        :load="load"
+        :load="load.bind(_self)"
         :highlight-current="true"
         :expand-on-click-node="false"
-        @check="onCheck"
-        @current-change="selectionChange"
+        @check="onCheck.apply(_self, arguments)"
+        @current-change="selectionChange.apply(_self, arguments)"
         :filter-node-method="filterNode"
         >
             <template slot-scope="{ node, data }">

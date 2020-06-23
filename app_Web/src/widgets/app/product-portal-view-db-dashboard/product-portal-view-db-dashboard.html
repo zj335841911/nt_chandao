@@ -1,6 +1,6 @@
 <div class='dashboard'>
     <row v-if="isEnableCustomized">
-      <app-build @handleClick="handleClick"></app-build>
+      <app-build @handleClick="handleClick.apply(_self, arguments)"></app-build>
     </row>
     <row v-if="!isHasCustomized">
       <i-col :md="{ span: 24, offset: 0 }">

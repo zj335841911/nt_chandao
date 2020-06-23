@@ -1,5 +1,5 @@
 <div class='portlet bug-dashboard-actions ' :style="{'height': 'auto',}">
         <div class="portlet-without-title">
-            <app-actionbar :items="actionBarModelData" @itemClick="handleItemClick"></app-actionbar>
+            <app-actionbar :items="actionBarModelData" @itemClick="handleItemClick.apply(_self, arguments)"></app-actionbar>
         </div>
 </div>

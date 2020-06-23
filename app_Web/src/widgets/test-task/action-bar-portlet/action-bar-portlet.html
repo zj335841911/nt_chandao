@@ -6,6 +6,6 @@
             </span>
         </p>
         <div class="portlet-with-title">
-            <app-actionbar :items="actionBarModelData" @itemClick="handleItemClick"></app-actionbar>
+            <app-actionbar :items="actionBarModelData" @itemClick="handleItemClick.apply(_self, arguments)"></app-actionbar>
         </div>
 </div>

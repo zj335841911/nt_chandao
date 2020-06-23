@@ -9,8 +9,8 @@
         :isSingleSelect="isSingleSelect"
         :selectedData="selectedData"
         :isShowButton="isShowButton"
-        @viewdataschange="onViewDatasChange"
-        @viewdatasactivated="viewDatasActivated"
-        @viewload="onViewLoad">
+        @viewdataschange="onViewDatasChange.apply(_self, arguments)"
+        @viewdatasactivated="viewDatasActivated.apply(_self, arguments)"
+        @viewload="onViewLoad.apply(_self, arguments)">
     </component>
 </div>

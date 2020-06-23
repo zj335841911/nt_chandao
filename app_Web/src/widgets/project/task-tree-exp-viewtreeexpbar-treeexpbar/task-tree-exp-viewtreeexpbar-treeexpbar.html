@@ -1,4 +1,4 @@
-<split id="tasktreeexpviewtreeexpbar" class='app-tree-exp-bar' v-model="split" mode="horizontal" @on-move-end="onSplitChange">
+<split id="tasktreeexpviewtreeexpbar" class='app-tree-exp-bar' v-model="split" mode="horizontal" @on-move-end="onSplitChange.apply(_self, arguments)">
     <div class="app-tree-exp-bar-left enable-search" slot='left'>
         <div class='search-content'>
             <i-input :search="true"
@@ -34,9 +34,9 @@
             :viewDefaultUsage="false"
             :viewdata="JSON.stringify(selection.context)"
             :viewparam="JSON.stringify(selection.viewparam)"
-            @viewdataschange="onViewDatasChange"
-            @viewdatasactivated="viewDatasActivated"
-            @viewload="onViewLoad">
+            @viewdataschange="onViewDatasChange.apply(_self, arguments)"
+            @viewdatasactivated="viewDatasActivated.apply(_self, arguments)"
+            @viewload="onViewLoad.apply(_self, arguments)">
         </component>
     </div>
 </split>

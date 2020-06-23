@@ -1,5 +1,132 @@
-!!!!模版产生代码错误:----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${P.getPartCode(item, "PANEL").code}  [in template "TEMPLCODE_zh_CN" at line 1, column 1]
-----
-部件模板[@CONTROL/PANEL]无法获取指定成员[PANEL][CONTROL-HTML.html]模板
+<div class='panel-container' style="">
+    <row class="app-layoutpanel" style="height:100%;">
+        <i-col v-show="detailsModel.container1.visible"  style="" class="app-layoutpanel-container">
+            <row style="height:100%;">
+                      
+                <i-col v-show="detailsModel.name.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
+                    <div class="item-field">
+                    
+                    <div class="item-field-content">
+                    <span>{{data.name}}</span>
+                    </div>
+                </div>
+                
+                
+                </i-col>
+                      
+                <i-col v-show="detailsModel.rawitem1.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-rowitem">
+                    <br/>
+                
+                
+                </i-col>
+                      <i-col v-show="detailsModel.container2.visible"  :md="{ span: 20, offset: 0 }" :lg="{ span: 20, offset: 0 }" style="" class="app-layoutpanel-container">
+                    <row style="height:100%;">
+                              
+                        <i-col v-show="detailsModel.button1.visible"  :md="{ span: 3, offset: 0 }" :lg="{ span: 3, offset: 0 }" style="" class="app-layoutpanel-button">
+                            <i-button type="primary" long @click="uiAction(null, 'AssignTask', $event)"  style="height: 24px;">
+                            <i class="fa fa-hand-o-right"></i>
+                        </i-button>
+                        
+                        
+                        </i-col>
+                              
+                        <i-col v-show="detailsModel.assignedto.visible"  :md="{ span: 15, offset: 0 }" :lg="{ span: 15, offset: 0 }" style="" class="app-layoutpanel-field">
+                            <div class="item-field">
+                            
+                            <div class="item-field-content">
+                            <span>{{data.assignedto}}</span>
+                            </div>
+                        </div>
+                        
+                        
+                        </i-col>
+                              <i-col v-show="detailsModel.container4.visible"  :md="{ span: 6, offset: 0 }" :lg="{ span: 6, offset: 0 }" style="" class="app-layoutpanel-container">
+                            <row style="height:100%;">
+                                      
+                                <i-col v-show="detailsModel.deadline.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
+                                    
+                                
+                                </i-col>
+                                      
+                                <i-col v-show="detailsModel.rawitem2.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-rowitem">
+                                    <span style="color:red;">延期</span>
+                                
+                                
+                                </i-col>
+                            </row>
+                        </i-col>
+                    </row>
+                </i-col>
+                      <i-col v-show="detailsModel.container3.visible"  :md="{ span: 4, offset: 0 }" :lg="{ span: 4, offset: 0 }" style="" class="app-layoutpanel-container">
+                    <row style="height:100%;">
+                              
+                        <i-col v-show="detailsModel.estimate.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
+                            <div class="item-field">
+                            
+                            <div class="item-field-content">
+                            <span>{{data.estimate}}</span>
+                            </div>
+                        </div>
+                        
+                        
+                        </i-col>
+                    </row>
+                </i-col>
+                      <i-col v-show="detailsModel.container5.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-container">
+                    <row style="height:100%;">
+                              
+                        <i-col v-show="detailsModel.project.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
+                            
+                        
+                        </i-col>
+                              
+                        <i-col v-show="detailsModel.module.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
+                            
+                        
+                        </i-col>
+                              
+                        <i-col v-show="detailsModel.story.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
+                            
+                        
+                        </i-col>
+                              
+                        <i-col v-show="detailsModel.pri.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
+                            
+                        
+                        </i-col>
+                              
+                        <i-col v-show="detailsModel.desc.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
+                            
+                        
+                        </i-col>
+                              
+                        <i-col v-show="detailsModel.mailto.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
+                            
+                        
+                        </i-col>
+                              
+                        <i-col v-show="detailsModel.parent.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
+                            
+                        
+                        </i-col>
+                              
+                        <i-col v-show="detailsModel.eststarted.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
+                            
+                        
+                        </i-col>
+                              
+                        <i-col v-show="detailsModel.consumed.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
+                            
+                        
+                        </i-col>
+                              
+                        <i-col v-show="detailsModel.color.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
+                            
+                        
+                        </i-col>
+                    </row>
+                </i-col>
+            </row>
+        </i-col>
+    </row>
+</div>

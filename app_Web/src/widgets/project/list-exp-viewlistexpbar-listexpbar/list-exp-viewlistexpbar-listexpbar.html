@@ -1,4 +1,4 @@
-<split id="listexpviewlistexpbar" class="app-list-exp-bar" v-model="split" mode="horizontal" @on-move-end="onSplitChange">
+<split id="listexpviewlistexpbar" class="app-list-exp-bar" v-model="split" mode="horizontal" @on-move-end="onSplitChange.apply(_self, arguments)">
     <template slot='left'>
         <div class="container-header">
         </div>
