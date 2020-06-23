@@ -23,7 +23,5 @@ import view_form from '@widgets/bug/steps-info-form/steps-info-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class BugStepsInfoEditView extends BugStepsInfoEditViewBase {
-
-}
+export default class BugStepsInfoEditView extends BugStepsInfoEditViewBase { }
 </script>

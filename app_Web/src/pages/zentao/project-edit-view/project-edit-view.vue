@@ -23,7 +23,5 @@ import view_form from '@widgets/project/main-form/main-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ProjectEditView extends ProjectEditViewBase {
-
-}
+export default class ProjectEditView extends ProjectEditViewBase { }
 </script>

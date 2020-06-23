@@ -23,7 +23,5 @@ import view_tabexppanel from '@widgets/test-report/main-tab-exp-viewtabexppanel-
     }
 })
 @VueLifeCycleProcessing()
-export default class TestReportMainTabExpView extends TestReportMainTabExpViewBase {
-
-}
+export default class TestReportMainTabExpView extends TestReportMainTabExpViewBase { }
 </script>

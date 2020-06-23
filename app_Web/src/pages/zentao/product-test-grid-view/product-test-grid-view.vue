@@ -25,7 +25,5 @@ import view_searchform from '@widgets/product/default-searchform/default-searchf
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductTestGridView extends ProductTestGridViewBase {
-
-}
+export default class ProductTestGridView extends ProductTestGridViewBase { }
 </script>

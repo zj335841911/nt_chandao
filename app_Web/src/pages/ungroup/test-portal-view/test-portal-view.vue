@@ -23,7 +23,5 @@ import view_dashboard from '@widgets/app/test-portal-view-db-dashboard/test-port
     }
 })
 @VueLifeCycleProcessing()
-export default class TestPortalView extends TestPortalViewBase {
-
-}
+export default class TestPortalView extends TestPortalViewBase { }
 </script>

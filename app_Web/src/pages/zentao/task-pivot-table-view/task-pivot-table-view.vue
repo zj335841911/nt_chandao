@@ -23,7 +23,5 @@ import view_grid from '@widgets/task/pivot-table-grid/pivot-table-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskPivotTableView extends TaskPivotTableViewBase {
-
-}
+export default class TaskPivotTableView extends TaskPivotTableViewBase { }
 </script>

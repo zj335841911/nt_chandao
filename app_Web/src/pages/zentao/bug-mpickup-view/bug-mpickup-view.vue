@@ -23,7 +23,5 @@ import view_pickupviewpanel from '@widgets/bug/mpickup-viewpickupviewpanel-picku
     }
 })
 @VueLifeCycleProcessing()
-export default class BugMPickupView extends BugMPickupViewBase {
-
-}
+export default class BugMPickupView extends BugMPickupViewBase { }
 </script>

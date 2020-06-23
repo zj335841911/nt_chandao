@@ -23,7 +23,5 @@ import view_form from '@widgets/task/main-form/main-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskEditView extends TaskEditViewBase {
-
-}
+export default class TaskEditView extends TaskEditViewBase { }
 </script>

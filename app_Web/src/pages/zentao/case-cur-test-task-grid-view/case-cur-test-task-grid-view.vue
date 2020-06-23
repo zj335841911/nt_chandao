@@ -23,7 +23,5 @@ import view_grid from '@widgets/case/main-grid-grid/main-grid-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class CaseCurTestTaskGridView extends CaseCurTestTaskGridViewBase {
-
-}
+export default class CaseCurTestTaskGridView extends CaseCurTestTaskGridViewBase { }
 </script>

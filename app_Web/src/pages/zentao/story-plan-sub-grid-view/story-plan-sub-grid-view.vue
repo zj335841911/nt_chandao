@@ -23,7 +23,5 @@ import view_grid from '@widgets/story/main-plan-sub-grid/main-plan-sub-grid.vue'
     }
 })
 @VueLifeCycleProcessing()
-export default class StoryPlanSubGridView extends StoryPlanSubGridViewBase {
-
-}
+export default class StoryPlanSubGridView extends StoryPlanSubGridViewBase { }
 </script>

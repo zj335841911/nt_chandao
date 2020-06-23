@@ -23,7 +23,5 @@ import view_grid from '@widgets/case/batch-new-grid/batch-new-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class CaseBatchNewGridView extends CaseBatchNewGridViewBase {
-
-}
+export default class CaseBatchNewGridView extends CaseBatchNewGridViewBase { }
 </script>

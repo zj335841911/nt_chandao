@@ -23,7 +23,5 @@ import view_form from '@widgets/release/main-form/main-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ReleaseMainInfoView extends ReleaseMainInfoViewBase {
-
-}
+export default class ReleaseMainInfoView extends ReleaseMainInfoViewBase { }
 </script>

@@ -23,7 +23,5 @@ import view_list from '@widgets/project-product/default-list/default-list.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ProjectProductListView9 extends ProjectProductListView9Base {
-
-}
+export default class ProjectProductListView9 extends ProjectProductListView9Base { }
 </script>

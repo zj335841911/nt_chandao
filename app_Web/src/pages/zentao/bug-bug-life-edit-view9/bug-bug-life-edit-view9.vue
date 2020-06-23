@@ -23,7 +23,5 @@ import view_form from '@widgets/bug/dashboard-bug-life-form/dashboard-bug-life-f
     }
 })
 @VueLifeCycleProcessing()
-export default class BugBugLifeEditView9 extends BugBugLifeEditView9Base {
-
-}
+export default class BugBugLifeEditView9 extends BugBugLifeEditView9Base { }
 </script>

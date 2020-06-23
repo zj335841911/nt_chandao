@@ -23,7 +23,5 @@ import view_form from '@widgets/sub-product-plan/main-sub-plan-form/main-sub-pla
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductPlanSubPlanCreateView extends ProductPlanSubPlanCreateViewBase {
-
-}
+export default class ProductPlanSubPlanCreateView extends ProductPlanSubPlanCreateViewBase { }
 </script>

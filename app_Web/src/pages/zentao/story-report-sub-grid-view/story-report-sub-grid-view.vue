@@ -23,7 +23,5 @@ import view_grid from '@widgets/story/main-report-sub-grid/main-report-sub-grid.
     }
 })
 @VueLifeCycleProcessing()
-export default class StoryReportSubGridView extends StoryReportSubGridViewBase {
-
-}
+export default class StoryReportSubGridView extends StoryReportSubGridViewBase { }
 </script>

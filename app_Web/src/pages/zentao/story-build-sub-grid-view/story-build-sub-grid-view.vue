@@ -23,7 +23,5 @@ import view_grid from '@widgets/story/main-build-sub-grid/main-build-sub-grid.vu
     }
 })
 @VueLifeCycleProcessing()
-export default class StoryBuildSubGridView extends StoryBuildSubGridViewBase {
-
-}
+export default class StoryBuildSubGridView extends StoryBuildSubGridViewBase { }
 </script>

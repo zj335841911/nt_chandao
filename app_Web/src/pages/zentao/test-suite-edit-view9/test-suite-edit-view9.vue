@@ -23,7 +23,5 @@ import view_form from '@widgets/test-suite/main-info-form/main-info-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TestSuiteEditView9 extends TestSuiteEditView9Base {
-
-}
+export default class TestSuiteEditView9 extends TestSuiteEditView9Base { }
 </script>

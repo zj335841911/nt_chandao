@@ -23,7 +23,5 @@ import view_form from '@widgets/task/complete-form-form/complete-form-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskDoneTaskView extends TaskDoneTaskViewBase {
-
-}
+export default class TaskDoneTaskView extends TaskDoneTaskViewBase { }
 </script>

@@ -21,7 +21,5 @@ import { ProductHtmlViewBase } from './product-html-view-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductHtmlView extends ProductHtmlViewBase {
-
-}
+export default class ProductHtmlView extends ProductHtmlViewBase { }
 </script>

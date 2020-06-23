@@ -23,7 +23,5 @@ import view_form from '@widgets/project-stats/main-form/main-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ProjectStatsEditView9 extends ProjectStatsEditView9Base {
-
-}
+export default class ProjectStatsEditView9 extends ProjectStatsEditView9Base { }
 </script>

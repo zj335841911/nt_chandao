@@ -23,9 +23,7 @@ import view_tabexppanel from '@widgets/product-plan/main-tab-exptabexppanel-tabe
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductPlanMainTabExp extends ProductPlanMainTabExpBase {
-
-}
+export default class ProductPlanMainTabExp extends ProductPlanMainTabExpBase { }
 </script>
 <style lang='less'>
 @import './product-plan-main-tab-exp.less';

@@ -23,7 +23,5 @@ import view_form from '@widgets/bug/dashboard-main-form/dashboard-main-form.vue'
     }
 })
 @VueLifeCycleProcessing()
-export default class BugDashboardMainEditView9 extends BugDashboardMainEditView9Base {
-
-}
+export default class BugDashboardMainEditView9 extends BugDashboardMainEditView9Base { }
 </script>

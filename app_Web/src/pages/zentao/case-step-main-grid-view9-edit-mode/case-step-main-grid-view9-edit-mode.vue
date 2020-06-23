@@ -23,7 +23,5 @@ import view_grid from '@widgets/case-step/main-row-edit-grid/main-row-edit-grid.
     }
 })
 @VueLifeCycleProcessing()
-export default class CaseStepMainGridView9_EditMode extends CaseStepMainGridView9_EditModeBase {
-
-}
+export default class CaseStepMainGridView9_EditMode extends CaseStepMainGridView9_EditModeBase { }
 </script>

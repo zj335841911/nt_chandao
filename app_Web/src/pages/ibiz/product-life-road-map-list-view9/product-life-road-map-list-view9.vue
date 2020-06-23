@@ -25,7 +25,5 @@ import view_list from '@widgets/product-life/get-roadmap-year-list/get-roadmap-y
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductLifeRoadMapListView9 extends ProductLifeRoadMapListView9Base {
-
-}
+export default class ProductLifeRoadMapListView9 extends ProductLifeRoadMapListView9Base { }
 </script>

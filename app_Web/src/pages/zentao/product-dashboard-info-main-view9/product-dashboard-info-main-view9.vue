@@ -23,7 +23,5 @@ import view_form from '@widgets/product/dashboard-info-form/dashboard-info-form.
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductDashboardInfoMainView9 extends ProductDashboardInfoMainView9Base {
-
-}
+export default class ProductDashboardInfoMainView9 extends ProductDashboardInfoMainView9Base { }
 </script>

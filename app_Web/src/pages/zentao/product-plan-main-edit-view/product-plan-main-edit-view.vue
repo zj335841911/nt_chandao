@@ -23,7 +23,5 @@ import view_form from '@widgets/product-plan/info-form/info-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductPlanMainEditView extends ProductPlanMainEditViewBase {
-
-}
+export default class ProductPlanMainEditView extends ProductPlanMainEditViewBase { }
 </script>

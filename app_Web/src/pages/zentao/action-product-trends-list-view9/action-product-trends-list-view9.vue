@@ -23,7 +23,5 @@ import view_list from '@widgets/action/trends-list/trends-list.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ActionProductTrendsListView9 extends ActionProductTrendsListView9Base {
-
-}
+export default class ActionProductTrendsListView9 extends ActionProductTrendsListView9Base { }
 </script>

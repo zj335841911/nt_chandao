@@ -23,7 +23,5 @@ import view_pickupviewpanel from '@widgets/project/pickup-viewpickupviewpanel-pi
     }
 })
 @VueLifeCycleProcessing()
-export default class ProjectPickupView extends ProjectPickupViewBase {
-
-}
+export default class ProjectPickupView extends ProjectPickupViewBase { }
 </script>

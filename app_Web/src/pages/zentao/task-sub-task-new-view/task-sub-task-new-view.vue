@@ -23,7 +23,5 @@ import view_grid from '@widgets/sub-task/sub-task-new-grid/sub-task-new-grid.vue
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskSubTaskNewView extends TaskSubTaskNewViewBase {
-
-}
+export default class TaskSubTaskNewView extends TaskSubTaskNewViewBase { }
 </script>

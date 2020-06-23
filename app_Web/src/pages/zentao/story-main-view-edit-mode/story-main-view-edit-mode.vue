@@ -23,7 +23,5 @@ import view_dashboard from '@widgets/story/main-panel-edit-mode-dashboard/main-p
     }
 })
 @VueLifeCycleProcessing()
-export default class StoryMainView_EditMode extends StoryMainView_EditModeBase {
-
-}
+export default class StoryMainView_EditMode extends StoryMainView_EditModeBase { }
 </script>

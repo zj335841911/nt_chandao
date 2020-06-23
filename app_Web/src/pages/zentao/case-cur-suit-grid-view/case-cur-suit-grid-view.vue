@@ -23,7 +23,5 @@ import view_grid from '@widgets/case/main-grid-suit-sub-grid/main-grid-suit-sub-
     }
 })
 @VueLifeCycleProcessing()
-export default class CaseCurSuitGridView extends CaseCurSuitGridViewBase {
-
-}
+export default class CaseCurSuitGridView extends CaseCurSuitGridViewBase { }
 </script>

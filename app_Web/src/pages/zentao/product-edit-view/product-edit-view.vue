@@ -23,7 +23,5 @@ import view_form from '@widgets/product/main-form/main-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductEditView extends ProductEditViewBase {
-
-}
+export default class ProductEditView extends ProductEditViewBase { }
 </script>

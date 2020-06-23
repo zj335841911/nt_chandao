@@ -23,7 +23,5 @@ import view_grid from '@widgets/bug/main-release-sub-grid/main-release-sub-grid.
     }
 })
 @VueLifeCycleProcessing()
-export default class BugReleaseSubGridView_Undone extends BugReleaseSubGridView_UndoneBase {
-
-}
+export default class BugReleaseSubGridView_Undone extends BugReleaseSubGridView_UndoneBase { }
 </script>

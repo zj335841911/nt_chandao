@@ -23,7 +23,5 @@ import view_gantt from '@widgets/task/type-gantt-gantt/type-gantt-gantt.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskTaskTypeGanttView extends TaskTaskTypeGanttViewBase {
-
-}
+export default class TaskTaskTypeGanttView extends TaskTaskTypeGanttViewBase { }
 </script>

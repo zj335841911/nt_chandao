@@ -23,7 +23,5 @@ import view_treeexpbar from '@widgets/product/case-tree-exp-viewtreeexpbar-treee
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductCaseTreeExpView extends ProductCaseTreeExpViewBase {
-
-}
+export default class ProductCaseTreeExpView extends ProductCaseTreeExpViewBase { }
 </script>

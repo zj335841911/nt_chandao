@@ -23,7 +23,5 @@ import view_grid from '@widgets/task/main-grid/main-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskMainGridView extends TaskMainGridViewBase {
-
-}
+export default class TaskMainGridView extends TaskMainGridViewBase { }
 </script>

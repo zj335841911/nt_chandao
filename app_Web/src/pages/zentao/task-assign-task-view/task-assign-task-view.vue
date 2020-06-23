@@ -23,7 +23,5 @@ import view_form from '@widgets/task/assign-form-form/assign-form-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskAssignTaskView extends TaskAssignTaskViewBase {
-
-}
+export default class TaskAssignTaskView extends TaskAssignTaskViewBase { }
 </script>

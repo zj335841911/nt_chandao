@@ -23,7 +23,5 @@ import view_form from '@widgets/case/main-info-form/main-info-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class CaseMainInfoEditView9 extends CaseMainInfoEditView9Base {
-
-}
+export default class CaseMainInfoEditView9 extends CaseMainInfoEditView9Base { }
 </script>

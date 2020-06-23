@@ -23,7 +23,5 @@ import view_grid from '@widgets/sub-product-plan/main-sub-plan-grid/main-sub-pla
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductPlanSubPlanGridView extends ProductPlanSubPlanGridViewBase {
-
-}
+export default class ProductPlanSubPlanGridView extends ProductPlanSubPlanGridViewBase { }
 </script>

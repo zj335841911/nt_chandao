@@ -23,7 +23,5 @@ import view_form from '@widgets/task/work-info-form-form/work-info-form-form.vue
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskWorkInfoEditView9 extends TaskWorkInfoEditView9Base {
-
-}
+export default class TaskWorkInfoEditView9 extends TaskWorkInfoEditView9Base { }
 </script>

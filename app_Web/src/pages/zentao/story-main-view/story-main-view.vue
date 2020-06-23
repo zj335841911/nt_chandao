@@ -23,7 +23,5 @@ import view_dashboard from '@widgets/story/main-panel-dashboard/main-panel-dashb
     }
 })
 @VueLifeCycleProcessing()
-export default class StoryMainView extends StoryMainViewBase {
-
-}
+export default class StoryMainView extends StoryMainViewBase { }
 </script>

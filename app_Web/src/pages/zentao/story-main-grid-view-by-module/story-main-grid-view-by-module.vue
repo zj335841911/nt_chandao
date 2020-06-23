@@ -23,7 +23,5 @@ import view_grid from '@widgets/story/main-grid/main-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class StoryMainGridView_ByModule extends StoryMainGridView_ByModuleBase {
-
-}
+export default class StoryMainGridView_ByModule extends StoryMainGridView_ByModuleBase { }
 </script>

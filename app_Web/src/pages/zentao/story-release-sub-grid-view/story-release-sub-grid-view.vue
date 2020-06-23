@@ -23,7 +23,5 @@ import view_grid from '@widgets/story/main-release-sub-grid/main-release-sub-gri
     }
 })
 @VueLifeCycleProcessing()
-export default class StoryReleaseSubGridView extends StoryReleaseSubGridViewBase {
-
-}
+export default class StoryReleaseSubGridView extends StoryReleaseSubGridViewBase { }
 </script>

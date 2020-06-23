@@ -23,7 +23,5 @@ import view_form from '@widgets/release/quick-create-form/quick-create-form.vue'
     }
 })
 @VueLifeCycleProcessing()
-export default class ReleaseQuickCreateView extends ReleaseQuickCreateViewBase {
-
-}
+export default class ReleaseQuickCreateView extends ReleaseQuickCreateViewBase { }
 </script>

@@ -23,7 +23,5 @@ import view_grid from '@widgets/project/main-grid/main-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ProjectCurProductGridView extends ProjectCurProductGridViewBase {
-
-}
+export default class ProjectCurProductGridView extends ProjectCurProductGridViewBase { }
 </script>

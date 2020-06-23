@@ -23,7 +23,5 @@ import view_form from '@widgets/action/main-form/main-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ActionEditView extends ActionEditViewBase {
-
-}
+export default class ActionEditView extends ActionEditViewBase { }
 </script>

@@ -23,7 +23,5 @@ import view_dashboard from '@widgets/product/main-dashboard/main-dashboard.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductMainDashboardView extends ProductMainDashboardViewBase {
-
-}
+export default class ProductMainDashboardView extends ProductMainDashboardViewBase { }
 </script>

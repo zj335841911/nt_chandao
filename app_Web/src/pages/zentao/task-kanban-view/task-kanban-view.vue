@@ -23,7 +23,5 @@ import view_kanban from '@widgets/task/task-kan-ban-kanban/task-kan-ban-kanban.v
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskKanbanView extends TaskKanbanViewBase {
-
-}
+export default class TaskKanbanView extends TaskKanbanViewBase { }
 </script>

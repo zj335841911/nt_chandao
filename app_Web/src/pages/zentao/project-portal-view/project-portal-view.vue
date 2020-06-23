@@ -23,7 +23,5 @@ import view_dashboard from '@widgets/app/project-portal-view-db-dashboard/projec
     }
 })
 @VueLifeCycleProcessing()
-export default class ProjectPortalView extends ProjectPortalViewBase {
-
-}
+export default class ProjectPortalView extends ProjectPortalViewBase { }
 </script>

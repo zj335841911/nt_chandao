@@ -23,7 +23,5 @@ import view_listexpbar from '@widgets/product/list-exp-viewlistexpbar-listexpbar
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductListExpView extends ProductListExpViewBase {
-
-}
+export default class ProductListExpView extends ProductListExpViewBase { }
 </script>

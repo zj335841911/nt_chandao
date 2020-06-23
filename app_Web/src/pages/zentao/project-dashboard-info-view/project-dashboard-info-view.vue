@@ -23,7 +23,5 @@ import view_form from '@widgets/project/dash-board-info-form/dash-board-info-for
     }
 })
 @VueLifeCycleProcessing()
-export default class ProjectDashboardInfoView extends ProjectDashboardInfoViewBase {
-
-}
+export default class ProjectDashboardInfoView extends ProjectDashboardInfoViewBase { }
 </script>

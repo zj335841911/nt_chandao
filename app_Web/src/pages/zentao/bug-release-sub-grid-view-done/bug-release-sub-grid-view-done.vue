@@ -23,7 +23,5 @@ import view_grid from '@widgets/bug/main-plan-sub-grid/main-plan-sub-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class BugReleaseSubGridView_Done extends BugReleaseSubGridView_DoneBase {
-
-}
+export default class BugReleaseSubGridView_Done extends BugReleaseSubGridView_DoneBase { }
 </script>

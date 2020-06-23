@@ -23,7 +23,5 @@ import view_dashboard from '@widgets/case/main-dashboard-dashboard/main-dashboar
     }
 })
 @VueLifeCycleProcessing()
-export default class CaseMainDashboardView extends CaseMainDashboardViewBase {
-
-}
+export default class CaseMainDashboardView extends CaseMainDashboardViewBase { }
 </script>

@@ -23,7 +23,5 @@ import view_grid from '@widgets/bug/main-report-sub-grid/main-report-sub-grid.vu
     }
 })
 @VueLifeCycleProcessing()
-export default class BugTestReportSubGridView extends BugTestReportSubGridViewBase {
-
-}
+export default class BugTestReportSubGridView extends BugTestReportSubGridViewBase { }
 </script>

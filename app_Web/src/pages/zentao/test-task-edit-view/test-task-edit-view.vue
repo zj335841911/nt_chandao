@@ -23,7 +23,5 @@ import view_form from '@widgets/test-task/main-form/main-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TestTaskEditView extends TestTaskEditViewBase {
-
-}
+export default class TestTaskEditView extends TestTaskEditViewBase { }
 </script>

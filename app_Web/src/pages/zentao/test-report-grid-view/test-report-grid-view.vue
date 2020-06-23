@@ -23,7 +23,5 @@ import view_grid from '@widgets/test-report/main-grid/main-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TestReportGridView extends TestReportGridViewBase {
-
-}
+export default class TestReportGridView extends TestReportGridViewBase { }
 </script>

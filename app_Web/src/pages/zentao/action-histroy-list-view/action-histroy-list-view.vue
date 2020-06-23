@@ -25,7 +25,5 @@ import view_list from '@widgets/action/classify-by-type-list/classify-by-type-li
     }
 })
 @VueLifeCycleProcessing()
-export default class ActionHistroyListView extends ActionHistroyListViewBase {
-
-}
+export default class ActionHistroyListView extends ActionHistroyListViewBase { }
 </script>

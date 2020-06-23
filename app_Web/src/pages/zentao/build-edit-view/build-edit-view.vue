@@ -23,7 +23,5 @@ import view_form from '@widgets/build/quick-create-form/quick-create-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class BuildEditView extends BuildEditViewBase {
-
-}
+export default class BuildEditView extends BuildEditViewBase { }
 </script>

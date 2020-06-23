@@ -23,7 +23,5 @@ import view_grid from '@widgets/project-module/main-grid/main-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ProjectModuleMainGridView extends ProjectModuleMainGridViewBase {
-
-}
+export default class ProjectModuleMainGridView extends ProjectModuleMainGridViewBase { }
 </script>

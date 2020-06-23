@@ -23,7 +23,5 @@ import view_dashboard from '@widgets/app/product-portal-view-db-dashboard/produc
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductPortalView extends ProductPortalViewBase {
-
-}
+export default class ProductPortalView extends ProductPortalViewBase { }
 </script>

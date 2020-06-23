@@ -23,7 +23,5 @@ import view_form from '@widgets/test-report/test-range-form/test-range-form.vue'
     }
 })
 @VueLifeCycleProcessing()
-export default class TestReportEditView_TestRange extends TestReportEditView_TestRangeBase {
-
-}
+export default class TestReportEditView_TestRange extends TestReportEditView_TestRangeBase { }
 </script>

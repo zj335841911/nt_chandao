@@ -23,7 +23,5 @@ import view_form from '@widgets/product-stats/test-main2-form/test-main2-form.vu
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductStatsTestEditView9 extends ProductStatsTestEditView9Base {
-
-}
+export default class ProductStatsTestEditView9 extends ProductStatsTestEditView9Base { }
 </script>

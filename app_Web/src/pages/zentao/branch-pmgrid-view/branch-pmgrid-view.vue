@@ -23,7 +23,5 @@ import view_grid from '@widgets/branch/platform-management-grid/platform-managem
     }
 })
 @VueLifeCycleProcessing()
-export default class BranchPMGridView extends BranchPMGridViewBase {
-
-}
+export default class BranchPMGridView extends BranchPMGridViewBase { }
 </script>

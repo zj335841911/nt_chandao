@@ -23,7 +23,5 @@ import view_form from '@widgets/branch/platform-management-form/platform-managem
     }
 })
 @VueLifeCycleProcessing()
-export default class BranchPMEditView extends BranchPMEditViewBase {
-
-}
+export default class BranchPMEditView extends BranchPMEditViewBase { }
 </script>

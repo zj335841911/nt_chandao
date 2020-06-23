@@ -23,7 +23,5 @@ import view_tabexppanel from '@widgets/build/main-tab-exp-viewtabexppanel-tabexp
     }
 })
 @VueLifeCycleProcessing()
-export default class BuildMainTabExpView extends BuildMainTabExpViewBase {
-
-}
+export default class BuildMainTabExpView extends BuildMainTabExpViewBase { }
 </script>

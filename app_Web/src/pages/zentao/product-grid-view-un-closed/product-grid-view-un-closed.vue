@@ -23,7 +23,5 @@ import view_grid from '@widgets/product/main2-grid/main2-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductGridView_UnClosed extends ProductGridView_UnClosedBase {
-
-}
+export default class ProductGridView_UnClosed extends ProductGridView_UnClosedBase { }
 </script>

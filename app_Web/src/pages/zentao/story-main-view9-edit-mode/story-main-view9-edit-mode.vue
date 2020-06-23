@@ -23,7 +23,5 @@ import view_form from '@widgets/story/main-edit-mode-form/main-edit-mode-form.vu
     }
 })
 @VueLifeCycleProcessing()
-export default class StoryMainView9_EditMode extends StoryMainView9_EditModeBase {
-
-}
+export default class StoryMainView9_EditMode extends StoryMainView9_EditModeBase { }
 </script>

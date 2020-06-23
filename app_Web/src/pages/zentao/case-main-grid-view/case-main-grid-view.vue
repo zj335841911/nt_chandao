@@ -23,7 +23,5 @@ import view_grid from '@widgets/case/main-grid-grid/main-grid-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class CaseMainGridView extends CaseMainGridViewBase {
-
-}
+export default class CaseMainGridView extends CaseMainGridViewBase { }
 </script>

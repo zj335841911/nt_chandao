@@ -23,7 +23,5 @@ import view_form from '@widgets/task/main-detail-form/main-detail-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskMainDetailView9 extends TaskMainDetailView9Base {
-
-}
+export default class TaskMainDetailView9 extends TaskMainDetailView9Base { }
 </script>

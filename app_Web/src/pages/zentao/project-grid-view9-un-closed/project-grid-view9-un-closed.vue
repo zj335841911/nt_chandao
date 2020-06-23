@@ -23,7 +23,5 @@ import view_grid from '@widgets/project/main2-grid/main2-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ProjectGridView9_UnClosed extends ProjectGridView9_UnClosedBase {
-
-}
+export default class ProjectGridView9_UnClosed extends ProjectGridView9_UnClosedBase { }
 </script>

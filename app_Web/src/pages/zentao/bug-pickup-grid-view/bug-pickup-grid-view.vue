@@ -23,7 +23,5 @@ import view_grid from '@widgets/bug/pickup-gird-grid/pickup-gird-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class BugPickupGridView extends BugPickupGridViewBase {
-
-}
+export default class BugPickupGridView extends BugPickupGridViewBase { }
 </script>

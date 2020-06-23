@@ -23,7 +23,5 @@ import view_tabexppanel from '@widgets/product/test-tab-exp-viewtabexppanel-tabe
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductTestTabExpView extends ProductTestTabExpViewBase {
-
-}
+export default class ProductTestTabExpView extends ProductTestTabExpViewBase { }
 </script>

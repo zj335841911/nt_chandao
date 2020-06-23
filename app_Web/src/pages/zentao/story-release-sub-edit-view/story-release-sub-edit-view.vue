@@ -23,7 +23,5 @@ import view_form from '@widgets/story/main-new-mode-form/main-new-mode-form.vue'
     }
 })
 @VueLifeCycleProcessing()
-export default class StoryReleaseSubEditView extends StoryReleaseSubEditViewBase {
-
-}
+export default class StoryReleaseSubEditView extends StoryReleaseSubEditViewBase { }
 </script>

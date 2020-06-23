@@ -23,7 +23,5 @@ import view_grid from '@widgets/case-step/main-grid/main-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class CaseStepMainGridView9 extends CaseStepMainGridView9Base {
-
-}
+export default class CaseStepMainGridView9 extends CaseStepMainGridView9Base { }
 </script>

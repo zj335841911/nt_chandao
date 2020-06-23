@@ -23,7 +23,5 @@ import view_form from '@widgets/task/start-form-form/start-form-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskOpenTaskView extends TaskOpenTaskViewBase {
-
-}
+export default class TaskOpenTaskView extends TaskOpenTaskViewBase { }
 </script>

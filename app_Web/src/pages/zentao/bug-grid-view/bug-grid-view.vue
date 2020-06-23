@@ -23,7 +23,5 @@ import view_grid from '@widgets/bug/main-grid/main-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class BugGridView extends BugGridViewBase {
-
-}
+export default class BugGridView extends BugGridViewBase { }
 </script>

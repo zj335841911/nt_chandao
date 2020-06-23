@@ -23,7 +23,5 @@ import view_form from '@widgets/story/story-spec-edit-mode-form/story-spec-edit-
     }
 })
 @VueLifeCycleProcessing()
-export default class StoryEditView_StoryChange extends StoryEditView_StoryChangeBase {
-
-}
+export default class StoryEditView_StoryChange extends StoryEditView_StoryChangeBase { }
 </script>

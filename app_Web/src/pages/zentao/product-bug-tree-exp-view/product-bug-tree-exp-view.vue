@@ -23,7 +23,5 @@ import view_treeexpbar from '@widgets/product/bug-tree-exp-viewtreeexpbar-treeex
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductBugTreeExpView extends ProductBugTreeExpViewBase {
-
-}
+export default class ProductBugTreeExpView extends ProductBugTreeExpViewBase { }
 </script>

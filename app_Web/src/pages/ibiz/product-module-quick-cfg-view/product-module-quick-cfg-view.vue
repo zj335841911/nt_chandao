@@ -23,7 +23,5 @@ import view_form from '@widgets/product-module/main-form/main-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductModuleQuickCfgView extends ProductModuleQuickCfgViewBase {
-
-}
+export default class ProductModuleQuickCfgView extends ProductModuleQuickCfgViewBase { }
 </script>

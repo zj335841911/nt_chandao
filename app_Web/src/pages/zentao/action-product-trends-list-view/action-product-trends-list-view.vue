@@ -23,7 +23,5 @@ import view_list from '@widgets/action/group-trends-list/group-trends-list.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ActionProductTrendsListView extends ActionProductTrendsListViewBase {
-
-}
+export default class ActionProductTrendsListView extends ActionProductTrendsListViewBase { }
 </script>

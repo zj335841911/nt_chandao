@@ -23,7 +23,5 @@ import view_tabexppanel from '@widgets/release/main-tab-exp-viewtabexppanel-tabe
     }
 })
 @VueLifeCycleProcessing()
-export default class ReleaseMainTabExpView extends ReleaseMainTabExpViewBase {
-
-}
+export default class ReleaseMainTabExpView extends ReleaseMainTabExpViewBase { }
 </script>

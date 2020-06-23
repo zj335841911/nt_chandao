@@ -23,7 +23,5 @@ import view_grid from '@widgets/release/main-grid/main-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ReleaseGridView extends ReleaseGridViewBase {
-
-}
+export default class ReleaseGridView extends ReleaseGridViewBase { }
 </script>

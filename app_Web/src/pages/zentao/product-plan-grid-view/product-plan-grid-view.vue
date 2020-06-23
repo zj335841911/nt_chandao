@@ -23,7 +23,5 @@ import view_grid from '@widgets/product-plan/main-grid/main-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductPlanGridView extends ProductPlanGridViewBase {
-
-}
+export default class ProductPlanGridView extends ProductPlanGridViewBase { }
 </script>

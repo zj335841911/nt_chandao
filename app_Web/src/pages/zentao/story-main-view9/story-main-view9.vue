@@ -23,7 +23,5 @@ import view_form from '@widgets/story/main-form/main-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class StoryMainView9 extends StoryMainView9Base {
-
-}
+export default class StoryMainView9 extends StoryMainView9Base { }
 </script>

@@ -23,7 +23,5 @@ import view_treeexpbar from '@widgets/product/story-tree-exp-viewtreeexpbar-tree
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductStoryTreeExpView extends ProductStoryTreeExpViewBase {
-
-}
+export default class ProductStoryTreeExpView extends ProductStoryTreeExpViewBase { }
 </script>

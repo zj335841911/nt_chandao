@@ -25,7 +25,5 @@ import view_searchform from '@widgets/project/default-searchform/default-searchf
     }
 })
 @VueLifeCycleProcessing()
-export default class ProjectPickupGridView extends ProjectPickupGridViewBase {
-
-}
+export default class ProjectPickupGridView extends ProjectPickupGridViewBase { }
 </script>

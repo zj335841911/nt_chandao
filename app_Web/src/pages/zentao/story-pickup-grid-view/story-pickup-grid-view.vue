@@ -23,7 +23,5 @@ import view_grid from '@widgets/story/pickup-grid-grid/pickup-grid-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class StoryPickupGridView extends StoryPickupGridViewBase {
-
-}
+export default class StoryPickupGridView extends StoryPickupGridViewBase { }
 </script>

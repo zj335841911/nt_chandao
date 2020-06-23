@@ -23,7 +23,5 @@ import view_form from '@widgets/build/main-form/main-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class BuildMainView extends BuildMainViewBase {
-
-}
+export default class BuildMainView extends BuildMainViewBase { }
 </script>

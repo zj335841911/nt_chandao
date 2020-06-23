@@ -23,7 +23,5 @@ import view_pickupviewpanel from '@widgets/story/mpickup-viewpickupviewpanel-pic
     }
 })
 @VueLifeCycleProcessing()
-export default class StoryMPickupView extends StoryMPickupViewBase {
-
-}
+export default class StoryMPickupView extends StoryMPickupViewBase { }
 </script>

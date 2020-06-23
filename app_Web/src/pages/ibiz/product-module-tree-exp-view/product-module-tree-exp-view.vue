@@ -23,7 +23,5 @@ import view_treeexpbar from '@widgets/product-module/tree-exp-viewtreeexpbar-tre
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductModuleTreeExpView extends ProductModuleTreeExpViewBase {
-
-}
+export default class ProductModuleTreeExpView extends ProductModuleTreeExpViewBase { }
 </script>

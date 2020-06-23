@@ -23,7 +23,5 @@ import view_treeexpbar from '@widgets/project/task-tree-exp-viewtreeexpbar-treee
     }
 })
 @VueLifeCycleProcessing()
-export default class ProjectTaskTreeExpView extends ProjectTaskTreeExpViewBase {
-
-}
+export default class ProjectTaskTreeExpView extends ProjectTaskTreeExpViewBase { }
 </script>

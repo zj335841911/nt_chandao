@@ -23,7 +23,5 @@ import view_form from '@widgets/task/close-pause-cancel-form-form/close-pause-ca
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskCloseTaskView extends TaskCloseTaskViewBase {
-
-}
+export default class TaskCloseTaskView extends TaskCloseTaskViewBase { }
 </script>

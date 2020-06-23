@@ -23,7 +23,5 @@ import view_grid from '@widgets/test-suite/main-grid/main-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TestSuiteGridView extends TestSuiteGridViewBase {
-
-}
+export default class TestSuiteGridView extends TestSuiteGridViewBase { }
 </script>

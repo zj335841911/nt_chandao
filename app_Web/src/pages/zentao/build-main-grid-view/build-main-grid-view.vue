@@ -25,7 +25,5 @@ import view_searchform from '@widgets/build/default-searchform/default-searchfor
     }
 })
 @VueLifeCycleProcessing()
-export default class BuildMainGridView extends BuildMainGridViewBase {
-
-}
+export default class BuildMainGridView extends BuildMainGridViewBase { }
 </script>

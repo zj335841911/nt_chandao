@@ -23,7 +23,5 @@ import view_form from '@widgets/bug/main-form/main-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class BugEditView extends BugEditViewBase {
-
-}
+export default class BugEditView extends BugEditViewBase { }
 </script>

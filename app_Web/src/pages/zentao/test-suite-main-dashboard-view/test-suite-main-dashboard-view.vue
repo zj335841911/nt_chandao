@@ -23,7 +23,5 @@ import view_dashboard from '@widgets/test-suite/main-dashboard/main-dashboard.vu
     }
 })
 @VueLifeCycleProcessing()
-export default class TestSuiteMainDashboardView extends TestSuiteMainDashboardViewBase {
-
-}
+export default class TestSuiteMainDashboardView extends TestSuiteMainDashboardViewBase { }
 </script>

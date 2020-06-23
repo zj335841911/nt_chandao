@@ -23,7 +23,5 @@ import view_pickupviewpanel from '@widgets/product/pickup-viewpickupviewpanel-pi
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductPickupView extends ProductPickupViewBase {
-
-}
+export default class ProductPickupView extends ProductPickupViewBase { }
 </script>

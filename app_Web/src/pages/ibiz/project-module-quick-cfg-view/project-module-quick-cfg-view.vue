@@ -23,7 +23,5 @@ import view_form from '@widgets/project-module/main-form/main-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ProjectModuleQuickCfgView extends ProjectModuleQuickCfgViewBase {
-
-}
+export default class ProjectModuleQuickCfgView extends ProjectModuleQuickCfgViewBase { }
 </script>

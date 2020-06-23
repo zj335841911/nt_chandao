@@ -23,7 +23,5 @@ import view_form from '@widgets/test-report/main-form/main-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TestReportMainInfoView extends TestReportMainInfoViewBase {
-
-}
+export default class TestReportMainInfoView extends TestReportMainInfoViewBase { }
 </script>
