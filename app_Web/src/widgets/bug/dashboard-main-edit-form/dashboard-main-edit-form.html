@@ -21,7 +21,7 @@
 
 </i-col>
 <i-col v-show="detailsModel.grouppanel6.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 23, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel6.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.dashboardmainedit_form.details.grouppanel6')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel6.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.dashboardmainedit_form.details.grouppanel6')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
         <i-col v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-druipart
@@ -88,6 +88,24 @@
   @formitemvaluechange="onFormItemValueChange">
 </app-picker>
 
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.branch.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='branch' :itemRules="this.rules.branch" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.branch')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.branch.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+ <dropdown-list 
+    v-model="data.branch" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.branch.disabled"  
+    tag='ProductBranch' 
+    codelistType='DYNAMIC'
+    placeholder='请选择...' style="">
+ </dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -381,7 +399,19 @@
 </i-col>
 <i-col v-show="detailsModel.openedbuild.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='openedbuild' :itemRules="this.rules.openedbuild" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.openedbuild')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.openedbuild.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.openedbuild"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.openedbuild.disabled" type='text'  style=""></input-box>
+    
+ <dropdown-list 
+    v-model="data.openedbuild" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.openedbuild.disabled"  
+    tag='ProductBuild' 
+    codelistType='DYNAMIC'
+    placeholder='请选择...' style="">
+ </dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -423,7 +453,19 @@
 </i-col>
 <i-col v-show="detailsModel.resolvedbuild.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='resolvedbuild' :itemRules="this.rules.resolvedbuild" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.resolvedbuild')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resolvedbuild.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.resolvedbuild"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.resolvedbuild.disabled" type='text'  style=""></input-box>
+    
+ <dropdown-list 
+    v-model="data.resolvedbuild" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.resolvedbuild.disabled"  
+    tag='ProductBuild' 
+    codelistType='DYNAMIC'
+    placeholder='请选择...' style="">
+ </dropdown-list>
 </app-form-item>
 
 </i-col>

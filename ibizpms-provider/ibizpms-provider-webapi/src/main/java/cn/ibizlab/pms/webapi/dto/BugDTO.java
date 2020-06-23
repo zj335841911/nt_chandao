@@ -494,6 +494,14 @@ public class BugDTO extends DTOBase implements Serializable {
     @JsonProperty("testtask")
     private BigInteger testtask;
 
+    /**
+     * 属性 [COMMENT]
+     *
+     */
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    private String comment;
+
 
     /**
      * 设置 [SEVERITY]
@@ -597,6 +605,14 @@ public class BugDTO extends DTOBase implements Serializable {
     public void setConfirmed(Integer  confirmed){
         this.confirmed = confirmed ;
         this.modify("confirmed",confirmed);
+    }
+
+    /**
+     * 设置 [OPENEDBY]
+     */
+    public void setOpenedby(String  openedby){
+        this.openedby = openedby ;
+        this.modify("openedby",openedby);
     }
 
     /**
@@ -749,6 +765,14 @@ public class BugDTO extends DTOBase implements Serializable {
     public void setHardware(String  hardware){
         this.hardware = hardware ;
         this.modify("hardware",hardware);
+    }
+
+    /**
+     * 设置 [LASTEDITEDBY]
+     */
+    public void setLasteditedby(String  lasteditedby){
+        this.lasteditedby = lasteditedby ;
+        this.modify("lasteditedby",lasteditedby);
     }
 
     /**

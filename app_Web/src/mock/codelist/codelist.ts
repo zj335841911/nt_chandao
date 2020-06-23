@@ -8,34 +8,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
     let status = MockAdapter.mockStatus(config);
     return [status, [
         {
-        srfkey: 'Product__status',
-        emptytext: '未定义',
-        "codelisttype":"static",
-        items: [
-            {
-                id: 'normal',
-                label: "正常",
-                text: "正常",
-                "data":"",
-                "codename":"Normal",
-                "color": "rgba(13, 255, 0, 1)",
-                value: 'normal',
-                
-                disabled: false,
-            },
-            {
-                id: 'closed',
-                label: "结束",
-                text: "结束",
-                "data":"",
-                "codename":"Closed",
-                value: 'closed',
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
         srfkey: 'Bug__status',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -147,188 +119,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Bydesign",
                 value: 'bydesign',
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
-        srfkey: 'Task__type',
-        emptytext: '未定义',
-        "codelisttype":"static",
-        items: [
-            {
-                id: 'design',
-                label: "设计",
-                text: "设计",
-                "data":"",
-                "codename":"Design",
-                value: 'design',
-                
-                disabled: false,
-            },
-            {
-                id: 'devel',
-                label: "开发",
-                text: "开发",
-                "data":"",
-                "codename":"Devel",
-                value: 'devel',
-                
-                disabled: false,
-            },
-            {
-                id: 'test',
-                label: "测试",
-                text: "测试",
-                "data":"",
-                "codename":"Test",
-                value: 'test',
-                
-                disabled: false,
-            },
-            {
-                id: 'study',
-                label: "研究",
-                text: "研究",
-                "data":"",
-                "codename":"Study",
-                value: 'study',
-                
-                disabled: false,
-            },
-            {
-                id: 'discuss',
-                label: "讨论",
-                text: "讨论",
-                "data":"",
-                "codename":"Discuss",
-                value: 'discuss',
-                
-                disabled: false,
-            },
-            {
-                id: 'ui',
-                label: "界面",
-                text: "界面",
-                "data":"",
-                "codename":"Ui",
-                value: 'ui',
-                
-                disabled: false,
-            },
-            {
-                id: 'affair',
-                label: "事务",
-                text: "事务",
-                "data":"",
-                "codename":"Affair",
-                value: 'affair',
-                
-                disabled: false,
-            },
-            {
-                id: 'misc',
-                label: "其他",
-                text: "其他",
-                "data":"",
-                "codename":"Misc",
-                value: 'misc',
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
-        srfkey: 'Testtask__pri',
-        emptytext: '未定义',
-        "codelisttype":"static",
-        items: [
-            {
-                id: '1',
-                label: "1",
-                text: "1",
-                "data":"",
-                "codename":"Item_1",
-                value: 1,
-                
-                disabled: false,
-            },
-            {
-                id: '2',
-                label: "2",
-                text: "2",
-                "data":"",
-                "codename":"Item_2",
-                value: 2,
-                
-                disabled: false,
-            },
-            {
-                id: '3',
-                label: "3",
-                text: "3",
-                "data":"",
-                "codename":"Item_3",
-                value: 3,
-                
-                disabled: false,
-            },
-            {
-                id: '4',
-                label: "4",
-                text: "4",
-                "data":"",
-                "codename":"Item_4",
-                value: 4,
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
-        srfkey: 'Story__pri',
-        emptytext: '未定义',
-        "codelisttype":"static",
-        items: [
-            {
-                id: '1',
-                label: "1",
-                text: "1",
-                "data":"",
-                "codename":"Item_1",
-                value: 1,
-                
-                disabled: false,
-            },
-            {
-                id: '2',
-                label: "2",
-                text: "2",
-                "data":"",
-                "codename":"Item_2",
-                value: 2,
-                
-                disabled: false,
-            },
-            {
-                id: '3',
-                label: "3",
-                text: "3",
-                "data":"",
-                "codename":"Item_3",
-                "color": "rgba(49, 27, 146, 1)",
-                value: 3,
-                
-                disabled: false,
-            },
-            {
-                id: '4',
-                label: "4",
-                text: "4",
-                "data":"",
-                "codename":"Item_4",
-                value: 4,
                 
                 disabled: false,
             },
@@ -539,6 +329,1187 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: 'Product__acl',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'open',
+                label: "默认设置(有产品视图权限，即可访问)",
+                text: "默认设置(有产品视图权限，即可访问)",
+                "data":"",
+                "codename":"Open",
+                value: 'open',
+                
+                disabled: false,
+            },
+            {
+                id: 'private',
+                label: "私有产品相关负责人和项目团队成员才能访问)",
+                text: "私有产品相关负责人和项目团队成员才能访问)",
+                "data":"",
+                "codename":"Private",
+                value: 'private',
+                
+                disabled: false,
+            },
+            {
+                id: 'custom',
+                label: "自定义白名单(团队成员和白名单的成员可以访问)",
+                text: "自定义白名单(团队成员和白名单的成员可以访问)",
+                "data":"",
+                "codename":"Custom",
+                value: 'custom',
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'Project__status',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'wait',
+                label: "未开始",
+                text: "未开始",
+                "data":"",
+                "codename":"Wait",
+                value: 'wait',
+                
+                disabled: false,
+            },
+            {
+                id: 'doing',
+                label: "进行中",
+                text: "进行中",
+                "data":"",
+                "codename":"Doing",
+                value: 'doing',
+                
+                disabled: false,
+            },
+            {
+                id: 'suspended',
+                label: "已挂起",
+                text: "已挂起",
+                "data":"",
+                "codename":"Suspended",
+                value: 'suspended',
+                
+                disabled: false,
+            },
+            {
+                id: 'closed',
+                label: "已关闭",
+                text: "已关闭",
+                "data":"",
+                "codename":"Closed",
+                value: 'closed',
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'Task_quickpacket',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'All',
+                label: "所有",
+                text: "所有",
+                "data":{},
+                "codename":"All",
+                value: 'All',
+                
+                disabled: false,
+            },
+            {
+                id: 'UNCLOSED',
+                label: "未关闭",
+                text: "未关闭",
+                "data":{"n_status_noteq":"closed"},
+                "codename":"Unclosed",
+                value: 'UNCLOSED',
+                
+                disabled: false,
+            },
+            {
+                id: 'TOME',
+                label: "指派给我",
+                text: "指派给我",
+                "data":{"n_assignedto_eq":"%srfloginname%"},
+                "codename":"Tome",
+                value: 'TOME',
+                
+                disabled: false,
+            },
+            {
+                id: 'MORE',
+                label: "更多",
+                text: "更多",
+                "data":"",
+                "codename":"More",
+                value: 'MORE',
+                
+                disabled: false,
+            },
+            {
+                id: 'NOTSTARTED',
+                label: "未开始",
+                text: "未开始",
+                "data":{"n_status_eq":"wait"},
+                "codename":"Notstarted",
+                value: 'NOTSTARTED',
+                "pvalue": "MORE",
+                disabled: false,
+            },
+            {
+                id: 'INPROGRESS',
+                label: "进行中",
+                text: "进行中",
+                "data":{"n_status_eq":"doing"},
+                "codename":"Inprogress",
+                value: 'INPROGRESS',
+                "pvalue": "MORE",
+                disabled: false,
+            },
+            {
+                id: 'UNACCOMPLISHED',
+                label: "未完成",
+                text: "未完成",
+                "data":{"n_status_noteq":"done"},
+                "codename":"Unaccomplished",
+                value: 'UNACCOMPLISHED',
+                "pvalue": "MORE",
+                disabled: false,
+            },
+            {
+                id: 'IFINISHED',
+                label: "我完成",
+                text: "我完成",
+                "data":{"n_finishedby_eq":"%srfloginname%"},
+                "codename":"Ifinished",
+                value: 'IFINISHED',
+                "pvalue": "MORE",
+                disabled: false,
+            },
+            {
+                id: 'COMPLETED',
+                label: "已完成",
+                text: "已完成",
+                "data":{"n_status_eq":"done"},
+                "codename":"Completed",
+                value: 'COMPLETED',
+                "pvalue": "MORE",
+                disabled: false,
+            },
+            {
+                id: 'CLOSED',
+                label: "已关闭",
+                text: "已关闭",
+                "data":{"n_status_eq":"closed"},
+                "codename":"Closed",
+                value: 'CLOSED',
+                "pvalue": "MORE",
+                disabled: false,
+            },
+            {
+                id: 'CANCELLED',
+                label: "已取消",
+                text: "已取消",
+                "data":{"n_status_eq":"cancel"},
+                "codename":"Cancelled",
+                value: 'CANCELLED',
+                "pvalue": "MORE",
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'Bug__os',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'all',
+                label: "全部",
+                text: "全部",
+                "data":"",
+                "codename":"All",
+                value: 'all',
+                
+                disabled: false,
+            },
+            {
+                id: 'windows',
+                label: "Windows",
+                text: "Windows",
+                "data":"",
+                "codename":"Windows",
+                value: 'windows',
+                
+                disabled: false,
+            },
+            {
+                id: 'win10',
+                label: "Windows 10",
+                text: "Windows 10",
+                "data":"",
+                "codename":"Win10",
+                value: 'win10',
+                
+                disabled: false,
+            },
+            {
+                id: 'win8',
+                label: "Windows 8",
+                text: "Windows 8",
+                "data":"",
+                "codename":"Win8",
+                value: 'win8',
+                
+                disabled: false,
+            },
+            {
+                id: 'win7',
+                label: "Windows 7",
+                text: "Windows 7",
+                "data":"",
+                "codename":"Win7",
+                value: 'win7',
+                
+                disabled: false,
+            },
+            {
+                id: 'vista',
+                label: "Windows Vista",
+                text: "Windows Vista",
+                "data":"",
+                "codename":"Vista",
+                value: 'vista',
+                
+                disabled: false,
+            },
+            {
+                id: 'winxp',
+                label: "Windows XP",
+                text: "Windows XP",
+                "data":"",
+                "codename":"Winxp",
+                value: 'winxp',
+                
+                disabled: false,
+            },
+            {
+                id: 'win2012',
+                label: "Windows 2012",
+                text: "Windows 2012",
+                "data":"",
+                "codename":"Win2012",
+                value: 'win2012',
+                
+                disabled: false,
+            },
+            {
+                id: 'win2008',
+                label: "Windows 2008",
+                text: "Windows 2008",
+                "data":"",
+                "codename":"Win2008",
+                value: 'win2008',
+                
+                disabled: false,
+            },
+            {
+                id: 'win2003',
+                label: "Windows 2003",
+                text: "Windows 2003",
+                "data":"",
+                "codename":"Win2003",
+                value: 'win2003',
+                
+                disabled: false,
+            },
+            {
+                id: 'win2000',
+                label: "Windows 2000",
+                text: "Windows 2000",
+                "data":"",
+                "codename":"Win2000",
+                value: 'win2000',
+                
+                disabled: false,
+            },
+            {
+                id: 'android',
+                label: "Android",
+                text: "Android",
+                "data":"",
+                "codename":"Android",
+                value: 'android',
+                
+                disabled: false,
+            },
+            {
+                id: 'ios',
+                label: "IOS",
+                text: "IOS",
+                "data":"",
+                "codename":"Ios",
+                value: 'ios',
+                
+                disabled: false,
+            },
+            {
+                id: 'wp8',
+                label: "WP8",
+                text: "WP8",
+                "data":"",
+                "codename":"Wp8",
+                value: 'wp8',
+                
+                disabled: false,
+            },
+            {
+                id: 'wp7',
+                label: "WP7",
+                text: "WP7",
+                "data":"",
+                "codename":"Wp7",
+                value: 'wp7',
+                
+                disabled: false,
+            },
+            {
+                id: 'symbian',
+                label: "Symbian",
+                text: "Symbian",
+                "data":"",
+                "codename":"Symbian",
+                value: 'symbian',
+                
+                disabled: false,
+            },
+            {
+                id: 'linux',
+                label: "Linux",
+                text: "Linux",
+                "data":"",
+                "codename":"Linux",
+                value: 'linux',
+                
+                disabled: false,
+            },
+            {
+                id: 'freebsd',
+                label: "FreeBSD",
+                text: "FreeBSD",
+                "data":"",
+                "codename":"Freebsd",
+                value: 'freebsd',
+                
+                disabled: false,
+            },
+            {
+                id: 'osx',
+                label: "OS X",
+                text: "OS X",
+                "data":"",
+                "codename":"Osx",
+                value: 'osx',
+                
+                disabled: false,
+            },
+            {
+                id: 'unix',
+                label: "Unix",
+                text: "Unix",
+                "data":"",
+                "codename":"Unix",
+                value: 'unix',
+                
+                disabled: false,
+            },
+            {
+                id: 'others',
+                label: "其他",
+                text: "其他",
+                "data":"",
+                "codename":"Others",
+                value: 'others',
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        "srfkey": "UserRealName",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"User",
+        "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
+        "srfkey": "ProductBranch",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Branch",
+        "appdedataset":"FetchCurProduct",
+        "items": []
+    },
+    {
+        "srfkey": "ProductBuild",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Build",
+        "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
+        srfkey: 'Product__type',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'normal',
+                label: "正常",
+                text: "正常",
+                "data":"",
+                "codename":"Normal",
+                "color": "blue",
+                value: 'normal',
+                
+                disabled: false,
+            },
+            {
+                id: 'branch',
+                label: "多分支",
+                text: "多分支",
+                "data":"",
+                "codename":"Branch",
+                value: 'branch',
+                
+                disabled: false,
+            },
+            {
+                id: 'platform',
+                label: "多平台",
+                text: "多平台",
+                "data":"",
+                "codename":"Platform",
+                value: 'platform',
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'Bug__severity',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: '1',
+                label: "1",
+                text: "1",
+                "data":"",
+                "codename":"Item_1",
+                value: 1,
+                
+                disabled: false,
+            },
+            {
+                id: '2',
+                label: "2",
+                text: "2",
+                "data":"",
+                "codename":"Item_2",
+                value: 2,
+                
+                disabled: false,
+            },
+            {
+                id: '3',
+                label: "3",
+                text: "3",
+                "data":"",
+                "codename":"Item_3",
+                value: 3,
+                
+                disabled: false,
+            },
+            {
+                id: '4',
+                label: "4",
+                text: "4",
+                "data":"",
+                "codename":"Item_4",
+                value: 4,
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'Bug__browser',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'all',
+                label: "全部",
+                text: "全部",
+                "data":"",
+                "codename":"All",
+                value: 'all',
+                
+                disabled: false,
+            },
+            {
+                id: 'ie',
+                label: "IE系列",
+                text: "IE系列",
+                "data":"",
+                "codename":"Ie",
+                value: 'ie',
+                
+                disabled: false,
+            },
+            {
+                id: 'ie11',
+                label: "IE11",
+                text: "IE11",
+                "data":"",
+                "codename":"Ie11",
+                value: 'ie11',
+                
+                disabled: false,
+            },
+            {
+                id: 'ie10',
+                label: "IE10",
+                text: "IE10",
+                "data":"",
+                "codename":"Ie10",
+                value: 'ie10',
+                
+                disabled: false,
+            },
+            {
+                id: 'ie9',
+                label: "IE9",
+                text: "IE9",
+                "data":"",
+                "codename":"Ie9",
+                value: 'ie9',
+                
+                disabled: false,
+            },
+            {
+                id: 'ie8',
+                label: "IE8",
+                text: "IE8",
+                "data":"",
+                "codename":"Ie8",
+                value: 'ie8',
+                
+                disabled: false,
+            },
+            {
+                id: 'ie7',
+                label: "IE7",
+                text: "IE7",
+                "data":"",
+                "codename":"Ie7",
+                value: 'ie7',
+                
+                disabled: false,
+            },
+            {
+                id: 'ie6',
+                label: "IE6",
+                text: "IE6",
+                "data":"",
+                "codename":"Ie6",
+                value: 'ie6',
+                
+                disabled: false,
+            },
+            {
+                id: 'chrome',
+                label: "chrome",
+                text: "chrome",
+                "data":"",
+                "codename":"Chrome",
+                value: 'chrome',
+                
+                disabled: false,
+            },
+            {
+                id: 'firefox',
+                label: "firefox系列",
+                text: "firefox系列",
+                "data":"",
+                "codename":"Firefox",
+                value: 'firefox',
+                
+                disabled: false,
+            },
+            {
+                id: 'firefox4',
+                label: "firefox4",
+                text: "firefox4",
+                "data":"",
+                "codename":"Firefox4",
+                value: 'firefox4',
+                
+                disabled: false,
+            },
+            {
+                id: 'firefox3',
+                label: "firefox3",
+                text: "firefox3",
+                "data":"",
+                "codename":"Firefox3",
+                value: 'firefox3',
+                
+                disabled: false,
+            },
+            {
+                id: 'firefox2',
+                label: "firefox2",
+                text: "firefox2",
+                "data":"",
+                "codename":"Firefox2",
+                value: 'firefox2',
+                
+                disabled: false,
+            },
+            {
+                id: 'opera',
+                label: "opera系列",
+                text: "opera系列",
+                "data":"",
+                "codename":"Opera",
+                value: 'opera',
+                
+                disabled: false,
+            },
+            {
+                id: 'opera11',
+                label: "opera11",
+                text: "opera11",
+                "data":"",
+                "codename":"Opera11",
+                value: 'opera11',
+                
+                disabled: false,
+            },
+            {
+                id: 'oprea10',
+                label: "oprea10",
+                text: "oprea10",
+                "data":"",
+                "codename":"Oprea10",
+                value: 'oprea10',
+                
+                disabled: false,
+            },
+            {
+                id: 'opera9',
+                label: "opera9",
+                text: "opera9",
+                "data":"",
+                "codename":"Opera9",
+                value: 'opera9',
+                
+                disabled: false,
+            },
+            {
+                id: 'safari',
+                label: "safari",
+                text: "safari",
+                "data":"",
+                "codename":"Safari",
+                value: 'safari',
+                
+                disabled: false,
+            },
+            {
+                id: 'maxthon',
+                label: "傲游",
+                text: "傲游",
+                "data":"",
+                "codename":"Maxthon",
+                value: 'maxthon',
+                
+                disabled: false,
+            },
+            {
+                id: 'uc',
+                label: "UC",
+                text: "UC",
+                "data":"",
+                "codename":"Uc",
+                value: 'uc',
+                
+                disabled: false,
+            },
+            {
+                id: 'others',
+                label: "其他",
+                text: "其他",
+                "data":"",
+                "codename":"Others",
+                value: 'others',
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'Project__type',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'sprint',
+                label: "短期项目",
+                text: "短期项目",
+                "data":"",
+                "codename":"Sprint",
+                value: 'sprint',
+                
+                disabled: false,
+            },
+            {
+                id: 'waterfall',
+                label: "长期项目",
+                text: "长期项目",
+                "data":"",
+                "codename":"Waterfall",
+                value: 'waterfall',
+                
+                disabled: false,
+            },
+            {
+                id: 'ops',
+                label: "运维项目",
+                text: "运维项目",
+                "data":"",
+                "codename":"Ops",
+                value: 'ops',
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'Story__status',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'draft',
+                label: "草稿",
+                text: "草稿",
+                "data":"",
+                "codename":"Draft",
+                value: 'draft',
+                
+                disabled: false,
+            },
+            {
+                id: 'active',
+                label: "激活",
+                text: "激活",
+                "data":"",
+                "codename":"Active",
+                value: 'active',
+                
+                disabled: false,
+            },
+            {
+                id: 'closed',
+                label: "已关闭",
+                text: "已关闭",
+                "data":"",
+                "codename":"Closed",
+                value: 'closed',
+                
+                disabled: false,
+            },
+            {
+                id: 'changed',
+                label: "已变更",
+                text: "已变更",
+                "data":"",
+                "codename":"Changed",
+                value: 'changed',
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'Action__read',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: '0',
+                label: "0",
+                text: "0",
+                "data":"",
+                "codename":"Item_0",
+                value: '0',
+                
+                disabled: false,
+            },
+            {
+                id: '1',
+                label: "1",
+                text: "1",
+                "data":"",
+                "codename":"Item_1",
+                value: '1',
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'Task__status',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'wait',
+                label: "未开始",
+                text: "未开始",
+                "data":"",
+                "codename":"Wait",
+                "color": "rgba(131, 138, 157, 1)",
+                value: 'wait',
+                
+                disabled: false,
+            },
+            {
+                id: 'doing',
+                label: "进行中",
+                text: "进行中",
+                "data":"",
+                "codename":"Doing",
+                "color": "rgba(255, 93, 93, 1)",
+                value: 'doing',
+                
+                disabled: false,
+            },
+            {
+                id: 'done',
+                label: "已完成",
+                text: "已完成",
+                "data":"",
+                "codename":"Done",
+                "color": "rgba(67, 160, 71, 1)",
+                value: 'done',
+                
+                disabled: false,
+            },
+            {
+                id: 'pause',
+                label: "已暂停",
+                text: "已暂停",
+                "data":"",
+                "codename":"Pause",
+                "color": "rgba(255, 152, 0, 1)",
+                value: 'pause',
+                
+                disabled: false,
+            },
+            {
+                id: 'cancel',
+                label: "已取消",
+                text: "已取消",
+                "data":"",
+                "codename":"Cancel",
+                "color": "rgba(131, 138, 157, 1)",
+                value: 'cancel',
+                
+                disabled: false,
+            },
+            {
+                id: 'closed',
+                label: "已关闭",
+                text: "已关闭",
+                "data":"",
+                "codename":"Closed",
+                "color": "rgba(131, 138, 157, 1)",
+                value: 'closed',
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'YesNo2',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: '1',
+                label: "是",
+                text: "是",
+                "data":"",
+                "codename":"Item_1",
+                value: 1,
+                
+                disabled: false,
+            },
+            {
+                id: '0',
+                label: "否",
+                text: "否",
+                "data":"",
+                "codename":"Item_0",
+                value: 0,
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        "srfkey": "Role",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Group",
+        "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
+        "srfkey": "TestTask",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"TestTask",
+        "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
+        srfkey: 'Product__status',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'normal',
+                label: "正常",
+                text: "正常",
+                "data":"",
+                "codename":"Normal",
+                "color": "rgba(13, 255, 0, 1)",
+                value: 'normal',
+                
+                disabled: false,
+            },
+            {
+                id: 'closed',
+                label: "结束",
+                text: "结束",
+                "data":"",
+                "codename":"Closed",
+                value: 'closed',
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'Task__type',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'design',
+                label: "设计",
+                text: "设计",
+                "data":"",
+                "codename":"Design",
+                value: 'design',
+                
+                disabled: false,
+            },
+            {
+                id: 'devel',
+                label: "开发",
+                text: "开发",
+                "data":"",
+                "codename":"Devel",
+                value: 'devel',
+                
+                disabled: false,
+            },
+            {
+                id: 'test',
+                label: "测试",
+                text: "测试",
+                "data":"",
+                "codename":"Test",
+                value: 'test',
+                
+                disabled: false,
+            },
+            {
+                id: 'study',
+                label: "研究",
+                text: "研究",
+                "data":"",
+                "codename":"Study",
+                value: 'study',
+                
+                disabled: false,
+            },
+            {
+                id: 'discuss',
+                label: "讨论",
+                text: "讨论",
+                "data":"",
+                "codename":"Discuss",
+                value: 'discuss',
+                
+                disabled: false,
+            },
+            {
+                id: 'ui',
+                label: "界面",
+                text: "界面",
+                "data":"",
+                "codename":"Ui",
+                value: 'ui',
+                
+                disabled: false,
+            },
+            {
+                id: 'affair',
+                label: "事务",
+                text: "事务",
+                "data":"",
+                "codename":"Affair",
+                value: 'affair',
+                
+                disabled: false,
+            },
+            {
+                id: 'misc',
+                label: "其他",
+                text: "其他",
+                "data":"",
+                "codename":"Misc",
+                value: 'misc',
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'Testtask__pri',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: '1',
+                label: "1",
+                text: "1",
+                "data":"",
+                "codename":"Item_1",
+                value: 1,
+                
+                disabled: false,
+            },
+            {
+                id: '2',
+                label: "2",
+                text: "2",
+                "data":"",
+                "codename":"Item_2",
+                value: 2,
+                
+                disabled: false,
+            },
+            {
+                id: '3',
+                label: "3",
+                text: "3",
+                "data":"",
+                "codename":"Item_3",
+                value: 3,
+                
+                disabled: false,
+            },
+            {
+                id: '4',
+                label: "4",
+                text: "4",
+                "data":"",
+                "codename":"Item_4",
+                value: 4,
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'Story__pri',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: '1',
+                label: "1",
+                text: "1",
+                "data":"",
+                "codename":"Item_1",
+                value: 1,
+                
+                disabled: false,
+            },
+            {
+                id: '2',
+                label: "2",
+                text: "2",
+                "data":"",
+                "codename":"Item_2",
+                value: 2,
+                
+                disabled: false,
+            },
+            {
+                id: '3',
+                label: "3",
+                text: "3",
+                "data":"",
+                "codename":"Item_3",
+                "color": "rgba(49, 27, 146, 1)",
+                value: 3,
+                
+                disabled: false,
+            },
+            {
+                id: '4',
+                label: "4",
+                text: "4",
+                "data":"",
+                "codename":"Item_4",
+                value: 4,
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Bug__type',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -630,43 +1601,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Others",
                 value: 'others',
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
-        srfkey: 'Product__acl',
-        emptytext: '未定义',
-        "codelisttype":"static",
-        items: [
-            {
-                id: 'open',
-                label: "默认设置(有产品视图权限，即可访问)",
-                text: "默认设置(有产品视图权限，即可访问)",
-                "data":"",
-                "codename":"Open",
-                value: 'open',
-                
-                disabled: false,
-            },
-            {
-                id: 'private',
-                label: "私有产品相关负责人和项目团队成员才能访问)",
-                text: "私有产品相关负责人和项目团队成员才能访问)",
-                "data":"",
-                "codename":"Private",
-                value: 'private',
-                
-                disabled: false,
-            },
-            {
-                id: 'custom',
-                label: "自定义白名单(团队成员和白名单的成员可以访问)",
-                text: "自定义白名单(团队成员和白名单的成员可以访问)",
-                "data":"",
-                "codename":"Custom",
-                value: 'custom',
                 
                 disabled: false,
             },
@@ -1727,53 +2661,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
-        srfkey: 'Project__status',
-        emptytext: '未定义',
-        "codelisttype":"static",
-        items: [
-            {
-                id: 'wait',
-                label: "未开始",
-                text: "未开始",
-                "data":"",
-                "codename":"Wait",
-                value: 'wait',
-                
-                disabled: false,
-            },
-            {
-                id: 'doing',
-                label: "进行中",
-                text: "进行中",
-                "data":"",
-                "codename":"Doing",
-                value: 'doing',
-                
-                disabled: false,
-            },
-            {
-                id: 'suspended',
-                label: "已挂起",
-                text: "已挂起",
-                "data":"",
-                "codename":"Suspended",
-                value: 'suspended',
-                
-                disabled: false,
-            },
-            {
-                id: 'closed',
-                label: "已关闭",
-                text: "已关闭",
-                "data":"",
-                "codename":"Closed",
-                value: 'closed',
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
         srfkey: 'Release__status',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -1797,123 +2684,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "codename":"Terminate",
                 value: 'terminate',
                 
-                disabled: false,
-            },
-        ]
-    },
-    {
-        srfkey: 'Task_quickpacket',
-        emptytext: '未定义',
-        "codelisttype":"static",
-        items: [
-            {
-                id: 'All',
-                label: "所有",
-                text: "所有",
-                "data":{},
-                "codename":"All",
-                value: 'All',
-                
-                disabled: false,
-            },
-            {
-                id: 'UNCLOSED',
-                label: "未关闭",
-                text: "未关闭",
-                "data":{"n_status_noteq":"closed"},
-                "codename":"Unclosed",
-                value: 'UNCLOSED',
-                
-                disabled: false,
-            },
-            {
-                id: 'TOME',
-                label: "指派给我",
-                text: "指派给我",
-                "data":{"n_assignedto_eq":"%srfloginname%"},
-                "codename":"Tome",
-                value: 'TOME',
-                
-                disabled: false,
-            },
-            {
-                id: 'MORE',
-                label: "更多",
-                text: "更多",
-                "data":"",
-                "codename":"More",
-                value: 'MORE',
-                
-                disabled: false,
-            },
-            {
-                id: 'NOTSTARTED',
-                label: "未开始",
-                text: "未开始",
-                "data":{"n_status_eq":"wait"},
-                "codename":"Notstarted",
-                value: 'NOTSTARTED',
-                "pvalue": "MORE",
-                disabled: false,
-            },
-            {
-                id: 'INPROGRESS',
-                label: "进行中",
-                text: "进行中",
-                "data":{"n_status_eq":"doing"},
-                "codename":"Inprogress",
-                value: 'INPROGRESS',
-                "pvalue": "MORE",
-                disabled: false,
-            },
-            {
-                id: 'UNACCOMPLISHED',
-                label: "未完成",
-                text: "未完成",
-                "data":{"n_status_noteq":"done"},
-                "codename":"Unaccomplished",
-                value: 'UNACCOMPLISHED',
-                "pvalue": "MORE",
-                disabled: false,
-            },
-            {
-                id: 'IFINISHED',
-                label: "我完成",
-                text: "我完成",
-                "data":{"n_finishedby_eq":"%srfloginname%"},
-                "codename":"Ifinished",
-                value: 'IFINISHED',
-                "pvalue": "MORE",
-                disabled: false,
-            },
-            {
-                id: 'COMPLETED',
-                label: "已完成",
-                text: "已完成",
-                "data":{"n_status_eq":"done"},
-                "codename":"Completed",
-                value: 'COMPLETED',
-                "pvalue": "MORE",
-                disabled: false,
-            },
-            {
-                id: 'CLOSED',
-                label: "已关闭",
-                text: "已关闭",
-                "data":{"n_status_eq":"closed"},
-                "codename":"Closed",
-                value: 'CLOSED',
-                "pvalue": "MORE",
-                disabled: false,
-            },
-            {
-                id: 'CANCELLED',
-                label: "已取消",
-                text: "已取消",
-                "data":{"n_status_eq":"cancel"},
-                "codename":"Cancelled",
-                value: 'CANCELLED',
-                "pvalue": "MORE",
                 disabled: false,
             },
         ]
@@ -2063,277 +2833,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
-        srfkey: 'Bug__os',
-        emptytext: '未定义',
-        "codelisttype":"static",
-        items: [
-            {
-                id: 'all',
-                label: "全部",
-                text: "全部",
-                "data":"",
-                "codename":"All",
-                value: 'all',
-                
-                disabled: false,
-            },
-            {
-                id: 'windows',
-                label: "Windows",
-                text: "Windows",
-                "data":"",
-                "codename":"Windows",
-                value: 'windows',
-                
-                disabled: false,
-            },
-            {
-                id: 'win10',
-                label: "Windows 10",
-                text: "Windows 10",
-                "data":"",
-                "codename":"Win10",
-                value: 'win10',
-                
-                disabled: false,
-            },
-            {
-                id: 'win8',
-                label: "Windows 8",
-                text: "Windows 8",
-                "data":"",
-                "codename":"Win8",
-                value: 'win8',
-                
-                disabled: false,
-            },
-            {
-                id: 'win7',
-                label: "Windows 7",
-                text: "Windows 7",
-                "data":"",
-                "codename":"Win7",
-                value: 'win7',
-                
-                disabled: false,
-            },
-            {
-                id: 'vista',
-                label: "Windows Vista",
-                text: "Windows Vista",
-                "data":"",
-                "codename":"Vista",
-                value: 'vista',
-                
-                disabled: false,
-            },
-            {
-                id: 'winxp',
-                label: "Windows XP",
-                text: "Windows XP",
-                "data":"",
-                "codename":"Winxp",
-                value: 'winxp',
-                
-                disabled: false,
-            },
-            {
-                id: 'win2012',
-                label: "Windows 2012",
-                text: "Windows 2012",
-                "data":"",
-                "codename":"Win2012",
-                value: 'win2012',
-                
-                disabled: false,
-            },
-            {
-                id: 'win2008',
-                label: "Windows 2008",
-                text: "Windows 2008",
-                "data":"",
-                "codename":"Win2008",
-                value: 'win2008',
-                
-                disabled: false,
-            },
-            {
-                id: 'win2003',
-                label: "Windows 2003",
-                text: "Windows 2003",
-                "data":"",
-                "codename":"Win2003",
-                value: 'win2003',
-                
-                disabled: false,
-            },
-            {
-                id: 'win2000',
-                label: "Windows 2000",
-                text: "Windows 2000",
-                "data":"",
-                "codename":"Win2000",
-                value: 'win2000',
-                
-                disabled: false,
-            },
-            {
-                id: 'android',
-                label: "Android",
-                text: "Android",
-                "data":"",
-                "codename":"Android",
-                value: 'android',
-                
-                disabled: false,
-            },
-            {
-                id: 'ios',
-                label: "IOS",
-                text: "IOS",
-                "data":"",
-                "codename":"Ios",
-                value: 'ios',
-                
-                disabled: false,
-            },
-            {
-                id: 'wp8',
-                label: "WP8",
-                text: "WP8",
-                "data":"",
-                "codename":"Wp8",
-                value: 'wp8',
-                
-                disabled: false,
-            },
-            {
-                id: 'wp7',
-                label: "WP7",
-                text: "WP7",
-                "data":"",
-                "codename":"Wp7",
-                value: 'wp7',
-                
-                disabled: false,
-            },
-            {
-                id: 'symbian',
-                label: "Symbian",
-                text: "Symbian",
-                "data":"",
-                "codename":"Symbian",
-                value: 'symbian',
-                
-                disabled: false,
-            },
-            {
-                id: 'linux',
-                label: "Linux",
-                text: "Linux",
-                "data":"",
-                "codename":"Linux",
-                value: 'linux',
-                
-                disabled: false,
-            },
-            {
-                id: 'freebsd',
-                label: "FreeBSD",
-                text: "FreeBSD",
-                "data":"",
-                "codename":"Freebsd",
-                value: 'freebsd',
-                
-                disabled: false,
-            },
-            {
-                id: 'osx',
-                label: "OS X",
-                text: "OS X",
-                "data":"",
-                "codename":"Osx",
-                value: 'osx',
-                
-                disabled: false,
-            },
-            {
-                id: 'unix',
-                label: "Unix",
-                text: "Unix",
-                "data":"",
-                "codename":"Unix",
-                value: 'unix',
-                
-                disabled: false,
-            },
-            {
-                id: 'others',
-                label: "其他",
-                text: "其他",
-                "data":"",
-                "codename":"Others",
-                value: 'others',
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
-        "srfkey": "UserRealName",
-        "emptytext": "未定义",
-        "codelisttype":"dynamic",
-        "appdataentity":"User",
-        "appdedataset":"FetchDefault",
-        "items": []
-    },
-    {
-        "srfkey": "ProductBranch",
-        "emptytext": "未定义",
-        "codelisttype":"dynamic",
-        "appdataentity":"Branch",
-        "appdedataset":"FetchCurProduct",
-        "items": []
-    },
-    {
-        srfkey: 'Product__type',
-        emptytext: '未定义',
-        "codelisttype":"static",
-        items: [
-            {
-                id: 'normal',
-                label: "正常",
-                text: "正常",
-                "data":"",
-                "codename":"Normal",
-                "color": "blue",
-                value: 'normal',
-                
-                disabled: false,
-            },
-            {
-                id: 'branch',
-                label: "多分支",
-                text: "多分支",
-                "data":"",
-                "codename":"Branch",
-                value: 'branch',
-                
-                disabled: false,
-            },
-            {
-                id: 'platform',
-                label: "多平台",
-                text: "多平台",
-                "data":"",
-                "codename":"Platform",
-                value: 'platform',
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
         srfkey: 'Testcase__type',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -2415,53 +2914,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Other",
                 value: 'other',
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
-        srfkey: 'Bug__severity',
-        emptytext: '未定义',
-        "codelisttype":"static",
-        items: [
-            {
-                id: '1',
-                label: "1",
-                text: "1",
-                "data":"",
-                "codename":"Item_1",
-                value: 1,
-                
-                disabled: false,
-            },
-            {
-                id: '2',
-                label: "2",
-                text: "2",
-                "data":"",
-                "codename":"Item_2",
-                value: 2,
-                
-                disabled: false,
-            },
-            {
-                id: '3',
-                label: "3",
-                text: "3",
-                "data":"",
-                "codename":"Item_3",
-                value: 3,
-                
-                disabled: false,
-            },
-            {
-                id: '4',
-                label: "4",
-                text: "4",
-                "data":"",
-                "codename":"Item_4",
-                value: 4,
                 
                 disabled: false,
             },
@@ -2642,260 +3094,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
-        srfkey: 'Bug__browser',
-        emptytext: '未定义',
-        "codelisttype":"static",
-        items: [
-            {
-                id: 'all',
-                label: "全部",
-                text: "全部",
-                "data":"",
-                "codename":"All",
-                value: 'all',
-                
-                disabled: false,
-            },
-            {
-                id: 'ie',
-                label: "IE系列",
-                text: "IE系列",
-                "data":"",
-                "codename":"Ie",
-                value: 'ie',
-                
-                disabled: false,
-            },
-            {
-                id: 'ie11',
-                label: "IE11",
-                text: "IE11",
-                "data":"",
-                "codename":"Ie11",
-                value: 'ie11',
-                
-                disabled: false,
-            },
-            {
-                id: 'ie10',
-                label: "IE10",
-                text: "IE10",
-                "data":"",
-                "codename":"Ie10",
-                value: 'ie10',
-                
-                disabled: false,
-            },
-            {
-                id: 'ie9',
-                label: "IE9",
-                text: "IE9",
-                "data":"",
-                "codename":"Ie9",
-                value: 'ie9',
-                
-                disabled: false,
-            },
-            {
-                id: 'ie8',
-                label: "IE8",
-                text: "IE8",
-                "data":"",
-                "codename":"Ie8",
-                value: 'ie8',
-                
-                disabled: false,
-            },
-            {
-                id: 'ie7',
-                label: "IE7",
-                text: "IE7",
-                "data":"",
-                "codename":"Ie7",
-                value: 'ie7',
-                
-                disabled: false,
-            },
-            {
-                id: 'ie6',
-                label: "IE6",
-                text: "IE6",
-                "data":"",
-                "codename":"Ie6",
-                value: 'ie6',
-                
-                disabled: false,
-            },
-            {
-                id: 'chrome',
-                label: "chrome",
-                text: "chrome",
-                "data":"",
-                "codename":"Chrome",
-                value: 'chrome',
-                
-                disabled: false,
-            },
-            {
-                id: 'firefox',
-                label: "firefox系列",
-                text: "firefox系列",
-                "data":"",
-                "codename":"Firefox",
-                value: 'firefox',
-                
-                disabled: false,
-            },
-            {
-                id: 'firefox4',
-                label: "firefox4",
-                text: "firefox4",
-                "data":"",
-                "codename":"Firefox4",
-                value: 'firefox4',
-                
-                disabled: false,
-            },
-            {
-                id: 'firefox3',
-                label: "firefox3",
-                text: "firefox3",
-                "data":"",
-                "codename":"Firefox3",
-                value: 'firefox3',
-                
-                disabled: false,
-            },
-            {
-                id: 'firefox2',
-                label: "firefox2",
-                text: "firefox2",
-                "data":"",
-                "codename":"Firefox2",
-                value: 'firefox2',
-                
-                disabled: false,
-            },
-            {
-                id: 'opera',
-                label: "opera系列",
-                text: "opera系列",
-                "data":"",
-                "codename":"Opera",
-                value: 'opera',
-                
-                disabled: false,
-            },
-            {
-                id: 'opera11',
-                label: "opera11",
-                text: "opera11",
-                "data":"",
-                "codename":"Opera11",
-                value: 'opera11',
-                
-                disabled: false,
-            },
-            {
-                id: 'oprea10',
-                label: "oprea10",
-                text: "oprea10",
-                "data":"",
-                "codename":"Oprea10",
-                value: 'oprea10',
-                
-                disabled: false,
-            },
-            {
-                id: 'opera9',
-                label: "opera9",
-                text: "opera9",
-                "data":"",
-                "codename":"Opera9",
-                value: 'opera9',
-                
-                disabled: false,
-            },
-            {
-                id: 'safari',
-                label: "safari",
-                text: "safari",
-                "data":"",
-                "codename":"Safari",
-                value: 'safari',
-                
-                disabled: false,
-            },
-            {
-                id: 'maxthon',
-                label: "傲游",
-                text: "傲游",
-                "data":"",
-                "codename":"Maxthon",
-                value: 'maxthon',
-                
-                disabled: false,
-            },
-            {
-                id: 'uc',
-                label: "UC",
-                text: "UC",
-                "data":"",
-                "codename":"Uc",
-                value: 'uc',
-                
-                disabled: false,
-            },
-            {
-                id: 'others',
-                label: "其他",
-                text: "其他",
-                "data":"",
-                "codename":"Others",
-                value: 'others',
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
-        srfkey: 'Project__type',
-        emptytext: '未定义',
-        "codelisttype":"static",
-        items: [
-            {
-                id: 'sprint',
-                label: "短期项目",
-                text: "短期项目",
-                "data":"",
-                "codename":"Sprint",
-                value: 'sprint',
-                
-                disabled: false,
-            },
-            {
-                id: 'waterfall',
-                label: "长期项目",
-                text: "长期项目",
-                "data":"",
-                "codename":"Waterfall",
-                value: 'waterfall',
-                
-                disabled: false,
-            },
-            {
-                id: 'ops',
-                label: "运维项目",
-                text: "运维项目",
-                "data":"",
-                "codename":"Ops",
-                value: 'ops',
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
         srfkey: 'Story__stage',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -3024,80 +3222,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Item_0",
                 value: '0',
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
-        srfkey: 'Story__status',
-        emptytext: '未定义',
-        "codelisttype":"static",
-        items: [
-            {
-                id: 'draft',
-                label: "草稿",
-                text: "草稿",
-                "data":"",
-                "codename":"Draft",
-                value: 'draft',
-                
-                disabled: false,
-            },
-            {
-                id: 'active',
-                label: "激活",
-                text: "激活",
-                "data":"",
-                "codename":"Active",
-                value: 'active',
-                
-                disabled: false,
-            },
-            {
-                id: 'closed',
-                label: "已关闭",
-                text: "已关闭",
-                "data":"",
-                "codename":"Closed",
-                value: 'closed',
-                
-                disabled: false,
-            },
-            {
-                id: 'changed',
-                label: "已变更",
-                text: "已变更",
-                "data":"",
-                "codename":"Changed",
-                value: 'changed',
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
-        srfkey: 'Action__read',
-        emptytext: '未定义',
-        "codelisttype":"static",
-        items: [
-            {
-                id: '0',
-                label: "0",
-                text: "0",
-                "data":"",
-                "codename":"Item_0",
-                value: '0',
-                
-                disabled: false,
-            },
-            {
-                id: '1',
-                label: "1",
-                text: "1",
-                "data":"",
-                "codename":"Item_1",
-                value: '1',
                 
                 disabled: false,
             },
@@ -3278,79 +3402,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
-        srfkey: 'Task__status',
-        emptytext: '未定义',
-        "codelisttype":"static",
-        items: [
-            {
-                id: 'wait',
-                label: "未开始",
-                text: "未开始",
-                "data":"",
-                "codename":"Wait",
-                "color": "rgba(131, 138, 157, 1)",
-                value: 'wait',
-                
-                disabled: false,
-            },
-            {
-                id: 'doing',
-                label: "进行中",
-                text: "进行中",
-                "data":"",
-                "codename":"Doing",
-                "color": "rgba(255, 93, 93, 1)",
-                value: 'doing',
-                
-                disabled: false,
-            },
-            {
-                id: 'done',
-                label: "已完成",
-                text: "已完成",
-                "data":"",
-                "codename":"Done",
-                "color": "rgba(67, 160, 71, 1)",
-                value: 'done',
-                
-                disabled: false,
-            },
-            {
-                id: 'pause',
-                label: "已暂停",
-                text: "已暂停",
-                "data":"",
-                "codename":"Pause",
-                "color": "rgba(255, 152, 0, 1)",
-                value: 'pause',
-                
-                disabled: false,
-            },
-            {
-                id: 'cancel',
-                label: "已取消",
-                text: "已取消",
-                "data":"",
-                "codename":"Cancel",
-                "color": "rgba(131, 138, 157, 1)",
-                value: 'cancel',
-                
-                disabled: false,
-            },
-            {
-                id: 'closed',
-                label: "已关闭",
-                text: "已关闭",
-                "data":"",
-                "codename":"Closed",
-                "color": "rgba(131, 138, 157, 1)",
-                value: 'closed',
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
         srfkey: 'Testcase__pri',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -3398,41 +3449,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
-        srfkey: 'YesNo2',
-        emptytext: '未定义',
-        "codelisttype":"static",
-        items: [
-            {
-                id: '1',
-                label: "是",
-                text: "是",
-                "data":"",
-                "codename":"Item_1",
-                value: 1,
-                
-                disabled: false,
-            },
-            {
-                id: '0',
-                label: "否",
-                text: "否",
-                "data":"",
-                "codename":"Item_0",
-                value: 0,
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
-        "srfkey": "Role",
-        "emptytext": "未定义",
-        "codelisttype":"dynamic",
-        "appdataentity":"Group",
-        "appdedataset":"FetchDefault",
-        "items": []
-    },
-    {
         srfkey: 'Testcase__result',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -3478,14 +3494,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 disabled: false,
             },
         ]
-    },
-    {
-        "srfkey": "TestTask",
-        "emptytext": "未定义",
-        "codelisttype":"dynamic",
-        "appdataentity":"TestTask",
-        "appdedataset":"FetchDefault",
-        "items": []
     },
     {
         srfkey: 'Bug__pri',

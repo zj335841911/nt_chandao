@@ -209,6 +209,7 @@ export class DashboardMainEditBase extends CtrlBase {
         steps: null,
         product: null,
         productname: null,
+        branch: null,
         module: null,
         plan: null,
         type: null,
@@ -349,6 +350,12 @@ export class DashboardMainEditBase extends CtrlBase {
             { type: 'string', message: '产品 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '产品 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '产品 值不能为空', trigger: 'blur' },
+        ],
+        branch: [
+            { type: 'number', message: '平台/分支 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '平台/分支 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '平台/分支 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '平台/分支 值不能为空', trigger: 'blur' },
         ],
         module: [
             { type: 'number', message: '所属模块 值必须为数值类型', trigger: 'change' },
@@ -523,7 +530,7 @@ export class DashboardMainEditBase extends CtrlBase {
     public detailsModel: any = {
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
 , 
-        grouppanel6: new FormGroupPanelModel({ caption: '历史记录', detailType: 'GROUPPANEL', name: 'grouppanel6', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.bug.dashboardmainedit_form', extractMode: 'ITEM', details: [] } })
+        grouppanel6: new FormGroupPanelModel({ caption: '历史记录', detailType: 'GROUPPANEL', name: 'grouppanel6', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.bug.dashboardmainedit_form', extractMode: 'ITEM', details: [] } })
 , 
         grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.bug.dashboardmainedit_form', extractMode: 'ITEM', details: [] } })
 , 
@@ -562,6 +569,8 @@ export class DashboardMainEditBase extends CtrlBase {
         product: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         productname: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'productname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        branch: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branch', visible: false, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         module: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'module', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -761,6 +770,18 @@ export class DashboardMainEditBase extends CtrlBase {
     @Watch('data.productname')
     onProductnameChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'productname', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 branch 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof DashboardMainEdit
+     */
+    @Watch('data.branch')
+    onBranchChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'branch', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1143,6 +1164,15 @@ export class DashboardMainEditBase extends CtrlBase {
 
 
 
+
+        if (Object.is(name, '') || Object.is(name, 'branch')) {
+            let ret = false;
+            const _branch = this.data.branch;
+            if (this.$verify.testCond(_branch, 'NOTEQ', '0')) {
+                ret = true;
+            }
+            this.detailsModel.branch.setVisible(ret);
+        }
 
 
 

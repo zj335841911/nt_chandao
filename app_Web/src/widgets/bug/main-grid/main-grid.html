@@ -23,7 +23,7 @@
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('id')">
-                <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.bug.main_grid.columns.id')" :width="80"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.bug.main_grid.columns.id')" :width="70"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.bug.main_grid.columns.id')}}
@@ -35,7 +35,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('pri')">
-                <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.bug.main_grid.columns.pri')" :width="80"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.bug.main_grid.columns.pri')" :width="70"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.bug.main_grid.columns.pri')}}
@@ -111,7 +111,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('openeddate')">
-                <el-table-column show-overflow-tooltip :prop="'openeddate'" :label="$t('entities.bug.main_grid.columns.openeddate')" :width="120"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'openeddate'" :label="$t('entities.bug.main_grid.columns.openeddate')" :width="160"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.bug.main_grid.columns.openeddate')}}
@@ -151,7 +151,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('uagridcolumn1')">
-                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.bug.main_grid.columns.uagridcolumn1')" :width="100"  :align="'right'">
+                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.bug.main_grid.columns.uagridcolumn1')" :width="160"  :align="'center'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.bug.main_grid.columns.uagridcolumn1')}}
@@ -160,9 +160,24 @@
                     <template slot-scope="scope">
                         <span>
                             
+                            <a title="确认bug" @click="uiAction(scope.row, 'ConfirmBug', $event)">
+                              <i class='fa fa-eye'></i>
+                              
+                            </a>
+                            <divider type='vertical'></divider>
+                            <a title="解决bug" @click="uiAction(scope.row, 'ResolveBug', $event)">
+                              <i class=''></i>
+                              
+                            </a>
+                            <divider type='vertical'></divider>
+                            <a title="关闭bug" @click="uiAction(scope.row, 'CloseBug', $event)">
+                              <i class=''></i>
+                              
+                            </a>
+                            <divider type='vertical'></divider>
                             <a title="主信息编辑" @click="uiAction(scope.row, 'MainEdit', $event)">
                               <i class='fa fa-edit'></i>
-                              {{$t('entities.bug.main_grid.uiactions.mainedit')}}
+                              
                             </a>
                         </span>
                     </template>

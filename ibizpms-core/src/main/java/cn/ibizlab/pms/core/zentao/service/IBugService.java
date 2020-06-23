@@ -25,6 +25,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IBugService extends IService<Bug>{
 
+    Bug close(Bug et) ;
     Bug get(BigInteger key) ;
     Bug getDraft(Bug et) ;
     boolean checkKey(Bug et) ;
@@ -32,6 +33,8 @@ public interface IBugService extends IService<Bug>{
     void saveBatch(List<Bug> list) ;
     boolean create(Bug et) ;
     void createBatch(List<Bug> list) ;
+    Bug confirm(Bug et) ;
+    Bug resolve(Bug et) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
     boolean update(Bug et) ;

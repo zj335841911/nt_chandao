@@ -41,6 +41,90 @@ export class MainBase extends CtrlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public grid_uagridcolumn1_ua4634db_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:BugUIService  = new BugUIService();
+        curUIService.Bug_ConfirmBug(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u0efb050_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:BugUIService  = new BugUIService();
+        curUIService.Bug_ResolveBug(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_uc6d84c5_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:BugUIService  = new BugUIService();
+        curUIService.Bug_CloseBug(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public grid_uagridcolumn1_u953838c_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -1221,6 +1305,15 @@ export class MainBase extends CtrlBase {
      */
 	public uiAction(row: any, tag: any, $event: any) {
         $event.stopPropagation();
+        if(Object.is('ConfirmBug', tag)) {
+            this.grid_uagridcolumn1_ua4634db_click(row, tag, $event);
+        }
+        if(Object.is('ResolveBug', tag)) {
+            this.grid_uagridcolumn1_u0efb050_click(row, tag, $event);
+        }
+        if(Object.is('CloseBug', tag)) {
+            this.grid_uagridcolumn1_uc6d84c5_click(row, tag, $event);
+        }
         if(Object.is('MainEdit', tag)) {
             this.grid_uagridcolumn1_u953838c_click(row, tag, $event);
         }

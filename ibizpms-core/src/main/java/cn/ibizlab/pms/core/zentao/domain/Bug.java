@@ -145,7 +145,6 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 由谁创建
      */
-    @DEField(preType = DEPredefinedFieldType.CREATEMANNAME)
     @TableField(value = "openedby")
     @JSONField(name = "openedby")
     @JsonProperty("openedby")
@@ -317,7 +316,6 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 最后修改者
      */
-    @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
     @TableField(value = "lasteditedby")
     @JSONField(name = "lasteditedby")
     @JsonProperty("lasteditedby")
@@ -468,6 +466,13 @@ public class Bug extends EntityMP implements Serializable {
     @JSONField(name = "testtask")
     @JsonProperty("testtask")
     private BigInteger testtask;
+    /**
+     * 备注
+     */
+    @TableField(exist = false)
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    private String comment;
 
     /**
      * 
@@ -698,6 +703,14 @@ public class Bug extends EntityMP implements Serializable {
     }
 
     /**
+     * 设置 [由谁创建]
+     */
+    public void setOpenedby(String openedby){
+        this.openedby = openedby ;
+        this.modify("openedby",openedby);
+    }
+
+    /**
      * 设置 [激活次数]
      */
     public void setActivatedcount(Integer activatedcount){
@@ -887,6 +900,14 @@ public class Bug extends EntityMP implements Serializable {
     public void setHardware(String hardware){
         this.hardware = hardware ;
         this.modify("hardware",hardware);
+    }
+
+    /**
+     * 设置 [最后修改者]
+     */
+    public void setLasteditedby(String lasteditedby){
+        this.lasteditedby = lasteditedby ;
+        this.modify("lasteditedby",lasteditedby);
     }
 
     /**

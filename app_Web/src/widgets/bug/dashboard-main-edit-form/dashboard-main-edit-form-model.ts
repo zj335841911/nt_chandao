@@ -76,6 +76,11 @@ export default class DashboardMainEditModel {
         dataType: 'PICKUPTEXT',
       },
       {
+        name: 'branch',
+        prop: 'branch',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'module',
         prop: 'module',
         dataType: 'PICKUP',
@@ -178,7 +183,7 @@ export default class DashboardMainEditModel {
       {
         name: 'openedbuild',
         prop: 'openedbuild',
-        dataType: 'TEXT',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'resolvedby',
@@ -193,7 +198,7 @@ export default class DashboardMainEditModel {
       {
         name: 'resolvedbuild',
         prop: 'resolvedbuild',
-        dataType: 'TEXT',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'closedby',

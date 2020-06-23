@@ -909,6 +909,16 @@
         "viewtag": "7bbf35767e7763b69ad6acd4b06c06d1",
         "memo": ""
     },
+    "bugconfirmview": {
+        "title": "确认Bug",
+        "caption": "确认Bug",
+        "viewtype": "DEOPTVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BugConfirmView",
+        "viewfilename": "bug-confirm-view",
+        "viewtag": "7c6956b0c4bcc773697adb506d3ce5e9",
+        "memo": ""
+    },
     "projectleftsidebarlistview": {
         "title": "所有项目",
         "caption": "项目",
@@ -1479,6 +1489,16 @@
         "viewtag": "bda78773fabbeee54079951afb35f954",
         "memo": ""
     },
+    "bugresolveview": {
+        "title": "解决Bug",
+        "caption": "解决Bug",
+        "viewtype": "DEOPTVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BugResolveView",
+        "viewfilename": "bug-resolve-view",
+        "viewtag": "c1e9611b6972b1877b75fa5d2c67aad6",
+        "memo": ""
+    },
     "testsuitemaindashboardview": {
         "title": "测试套件数据看板视图",
         "caption": "测试套件",
@@ -1687,6 +1707,16 @@
         "viewname": "DeptPickupGridView",
         "viewfilename": "dept-pickup-grid-view",
         "viewtag": "e644f7976b08c3d7f14fd7e1d5329da8",
+        "memo": ""
+    },
+    "bugcloseview": {
+        "title": "关闭Bug",
+        "caption": "关闭Bug",
+        "viewtype": "DEOPTVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BugCloseView",
+        "viewfilename": "bug-close-view",
+        "viewtag": "e67fe0ec86d17b74944c16e187da482d",
         "memo": ""
     },
     "buildeditview": {

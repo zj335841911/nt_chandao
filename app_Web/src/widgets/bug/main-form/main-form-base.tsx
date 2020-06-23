@@ -206,6 +206,7 @@ export class MainBase extends CtrlBase {
         srfdeid: null,
         srfsourcekey: null,
         productname: null,
+        branch: null,
         product: null,
         module: null,
         project: null,
@@ -320,6 +321,12 @@ export class MainBase extends CtrlBase {
             { type: 'string', message: '产品 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '产品 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '产品 值不能为空', trigger: 'blur' },
+        ],
+        branch: [
+            { type: 'number', message: '平台/分支 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '平台/分支 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '平台/分支 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '平台/分支 值不能为空', trigger: 'blur' },
         ],
         product: [
             { type: 'number', message: '所属产品 值必须为数值类型', trigger: 'change' },
@@ -470,6 +477,8 @@ export class MainBase extends CtrlBase {
 , 
         productname: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'productname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        branch: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branch', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         product: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         module: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'module', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -616,6 +625,18 @@ export class MainBase extends CtrlBase {
     @Watch('data.productname')
     onProductnameChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'productname', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 branch 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof Main
+     */
+    @Watch('data.branch')
+    onBranchChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'branch', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -882,6 +903,7 @@ export class MainBase extends CtrlBase {
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
 
 
 

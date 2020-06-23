@@ -469,4 +469,12 @@ export interface Bug {
      * @memberof Bug
      */
     testtask?: any;
+
+    /**
+     * 备注
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    comment?: any;
 }

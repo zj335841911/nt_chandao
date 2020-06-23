@@ -3126,6 +3126,81 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-main-edit-view/task-main-edit-view.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/bugs/:bug?/resolveview/:resolveview?',
+                    meta: {
+                        caption: 'entities.bug.views.resolveview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'resolveview', parameterName: 'resolveview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-resolve-view/bug-resolve-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/bugs/:bug?/resolveview/:resolveview?',
+                    meta: {
+                        caption: 'entities.bug.views.resolveview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'resolveview', parameterName: 'resolveview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-resolve-view/bug-resolve-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/bugs/:bug?/resolveview/:resolveview?',
+                    meta: {
+                        caption: 'entities.bug.views.resolveview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'resolveview', parameterName: 'resolveview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-resolve-view/bug-resolve-view.vue'),
+                },
+                {
+                    path: 'products/:product?/bugs/:bug?/resolveview/:resolveview?',
+                    meta: {
+                        caption: 'entities.bug.views.resolveview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'resolveview', parameterName: 'resolveview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-resolve-view/bug-resolve-view.vue'),
+                },
+                {
+                    path: 'bugs/:bug?/resolveview/:resolveview?',
+                    meta: {
+                        caption: 'entities.bug.views.resolveview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'resolveview', parameterName: 'resolveview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-resolve-view/bug-resolve-view.vue'),
+                },
+                {
                     path: 'products/:product?/cases/:case?/maingridview/:maingridview?',
                     meta: {
                         caption: 'entities.case.views.maingridview.title',
@@ -3182,6 +3257,81 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/branch-pmgrid-view/branch-pmgrid-view.vue'),
+                },
+                {
+                    path: 'products/:product?/productplans/:productplan?/bugs/:bug?/confirmview/:confirmview?',
+                    meta: {
+                        caption: 'entities.bug.views.confirmview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'confirmview', parameterName: 'confirmview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-confirm-view/bug-confirm-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/bugs/:bug?/confirmview/:confirmview?',
+                    meta: {
+                        caption: 'entities.bug.views.confirmview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'confirmview', parameterName: 'confirmview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-confirm-view/bug-confirm-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/bugs/:bug?/confirmview/:confirmview?',
+                    meta: {
+                        caption: 'entities.bug.views.confirmview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'confirmview', parameterName: 'confirmview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-confirm-view/bug-confirm-view.vue'),
+                },
+                {
+                    path: 'products/:product?/bugs/:bug?/confirmview/:confirmview?',
+                    meta: {
+                        caption: 'entities.bug.views.confirmview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'confirmview', parameterName: 'confirmview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-confirm-view/bug-confirm-view.vue'),
+                },
+                {
+                    path: 'bugs/:bug?/confirmview/:confirmview?',
+                    meta: {
+                        caption: 'entities.bug.views.confirmview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'confirmview', parameterName: 'confirmview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-confirm-view/bug-confirm-view.vue'),
                 },
                 {
                     path: 'products/:product?/cases/:case?/maindashboardview/:maindashboardview?',
@@ -4278,6 +4428,81 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/case-main-info-edit-view9/case-main-info-edit-view9.vue'),
+                },
+                {
+                    path: 'products/:product?/productplans/:productplan?/bugs/:bug?/closeview/:closeview?',
+                    meta: {
+                        caption: 'entities.bug.views.closeview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'closeview', parameterName: 'closeview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-close-view/bug-close-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/bugs/:bug?/closeview/:closeview?',
+                    meta: {
+                        caption: 'entities.bug.views.closeview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'closeview', parameterName: 'closeview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-close-view/bug-close-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/bugs/:bug?/closeview/:closeview?',
+                    meta: {
+                        caption: 'entities.bug.views.closeview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'closeview', parameterName: 'closeview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-close-view/bug-close-view.vue'),
+                },
+                {
+                    path: 'products/:product?/bugs/:bug?/closeview/:closeview?',
+                    meta: {
+                        caption: 'entities.bug.views.closeview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'closeview', parameterName: 'closeview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-close-view/bug-close-view.vue'),
+                },
+                {
+                    path: 'bugs/:bug?/closeview/:closeview?',
+                    meta: {
+                        caption: 'entities.bug.views.closeview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'closeview', parameterName: 'closeview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-close-view/bug-close-view.vue'),
                 },
                 {
                     path: 'products/:product?/testleftsidebarlistview/:testleftsidebarlistview?',
@@ -7094,6 +7319,76 @@ const router = new Router({
         component: () => import('@pages/zentao/story-cur-project-grid-view/story-cur-project-grid-view.vue'),
     },
     {
+        path: '/products/:product?/productplans/:productplan?/bugs/:bug?/confirmview/:confirmview?',
+        meta: {
+            caption: 'entities.bug.views.confirmview.title',
+            info:'',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'confirmview', parameterName: 'confirmview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-confirm-view/bug-confirm-view.vue'),
+    },
+    {
+        path: '/projects/:project?/bugs/:bug?/confirmview/:confirmview?',
+        meta: {
+            caption: 'entities.bug.views.confirmview.title',
+            info:'',
+            parameters: [
+                { pathName: 'projects', parameterName: 'project' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'confirmview', parameterName: 'confirmview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-confirm-view/bug-confirm-view.vue'),
+    },
+    {
+        path: '/productplans/:productplan?/bugs/:bug?/confirmview/:confirmview?',
+        meta: {
+            caption: 'entities.bug.views.confirmview.title',
+            info:'',
+            parameters: [
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'confirmview', parameterName: 'confirmview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-confirm-view/bug-confirm-view.vue'),
+    },
+    {
+        path: '/products/:product?/bugs/:bug?/confirmview/:confirmview?',
+        meta: {
+            caption: 'entities.bug.views.confirmview.title',
+            info:'',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'confirmview', parameterName: 'confirmview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-confirm-view/bug-confirm-view.vue'),
+    },
+    {
+        path: '/bugs/:bug?/confirmview/:confirmview?',
+        meta: {
+            caption: 'entities.bug.views.confirmview.title',
+            info:'',
+            parameters: [
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'confirmview', parameterName: 'confirmview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-confirm-view/bug-confirm-view.vue'),
+    },
+    {
         path: '/projects/:project?/leftsidebarlistview/:leftsidebarlistview?',
         meta: {
             caption: 'entities.project.views.leftsidebarlistview.title',
@@ -8334,6 +8629,76 @@ const router = new Router({
         component: () => import('@pages/zentao/module-pickup-grid-view/module-pickup-grid-view.vue'),
     },
     {
+        path: '/products/:product?/productplans/:productplan?/bugs/:bug?/resolveview/:resolveview?',
+        meta: {
+            caption: 'entities.bug.views.resolveview.title',
+            info:'',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'resolveview', parameterName: 'resolveview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-resolve-view/bug-resolve-view.vue'),
+    },
+    {
+        path: '/projects/:project?/bugs/:bug?/resolveview/:resolveview?',
+        meta: {
+            caption: 'entities.bug.views.resolveview.title',
+            info:'',
+            parameters: [
+                { pathName: 'projects', parameterName: 'project' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'resolveview', parameterName: 'resolveview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-resolve-view/bug-resolve-view.vue'),
+    },
+    {
+        path: '/productplans/:productplan?/bugs/:bug?/resolveview/:resolveview?',
+        meta: {
+            caption: 'entities.bug.views.resolveview.title',
+            info:'',
+            parameters: [
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'resolveview', parameterName: 'resolveview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-resolve-view/bug-resolve-view.vue'),
+    },
+    {
+        path: '/products/:product?/bugs/:bug?/resolveview/:resolveview?',
+        meta: {
+            caption: 'entities.bug.views.resolveview.title',
+            info:'',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'resolveview', parameterName: 'resolveview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-resolve-view/bug-resolve-view.vue'),
+    },
+    {
+        path: '/bugs/:bug?/resolveview/:resolveview?',
+        meta: {
+            caption: 'entities.bug.views.resolveview.title',
+            info:'',
+            parameters: [
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'resolveview', parameterName: 'resolveview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-resolve-view/bug-resolve-view.vue'),
+    },
+    {
         path: '/testsuites/:testsuite?/maindashboardview/:maindashboardview?',
         meta: {
             caption: 'entities.testsuite.views.maindashboardview.title',
@@ -8653,6 +9018,76 @@ const router = new Router({
             requireAuth: true,
         },
         component: () => import('@pages/zentao/story-edit-view-story-change/story-edit-view-story-change.vue'),
+    },
+    {
+        path: '/products/:product?/productplans/:productplan?/bugs/:bug?/closeview/:closeview?',
+        meta: {
+            caption: 'entities.bug.views.closeview.title',
+            info:'',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'closeview', parameterName: 'closeview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-close-view/bug-close-view.vue'),
+    },
+    {
+        path: '/projects/:project?/bugs/:bug?/closeview/:closeview?',
+        meta: {
+            caption: 'entities.bug.views.closeview.title',
+            info:'',
+            parameters: [
+                { pathName: 'projects', parameterName: 'project' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'closeview', parameterName: 'closeview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-close-view/bug-close-view.vue'),
+    },
+    {
+        path: '/productplans/:productplan?/bugs/:bug?/closeview/:closeview?',
+        meta: {
+            caption: 'entities.bug.views.closeview.title',
+            info:'',
+            parameters: [
+                { pathName: 'productplans', parameterName: 'productplan' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'closeview', parameterName: 'closeview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-close-view/bug-close-view.vue'),
+    },
+    {
+        path: '/products/:product?/bugs/:bug?/closeview/:closeview?',
+        meta: {
+            caption: 'entities.bug.views.closeview.title',
+            info:'',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'closeview', parameterName: 'closeview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-close-view/bug-close-view.vue'),
+    },
+    {
+        path: '/bugs/:bug?/closeview/:closeview?',
+        meta: {
+            caption: 'entities.bug.views.closeview.title',
+            info:'',
+            parameters: [
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'closeview', parameterName: 'closeview' },
+            ],
+            requireAuth: true,
+        },
+        component: () => import('@pages/zentao/bug-close-view/bug-close-view.vue'),
     },
     {
         path: '/projects/:project?/builds/:build?/editview/:editview?',

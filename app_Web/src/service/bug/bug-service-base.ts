@@ -64,6 +64,43 @@ export default class BugServiceBase extends EntityService {
     }
 
     /**
+     * Close接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async Close(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}/close`,data,isloading);
+            return res;
+        }
+        if(context.project && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/close`,data,isloading);
+            return res;
+        }
+        if(context.productplan && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/bugs/${context.bug}/close`,data,isloading);
+            return res;
+        }
+        if(context.product && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/close`,data,isloading);
+            return res;
+        }
+            return Http.getInstance().post(`/bugs/${context.bug}/close`,data,isloading);
+    }
+
+    /**
      * Get接口方法
      *
      * @param {*} [context={}]
@@ -278,6 +315,80 @@ export default class BugServiceBase extends EntityService {
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/bugs`,data,isloading);
         return res;
+    }
+
+    /**
+     * Confirm接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async Confirm(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}/confirm`,data,isloading);
+            return res;
+        }
+        if(context.project && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/confirm`,data,isloading);
+            return res;
+        }
+        if(context.productplan && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/bugs/${context.bug}/confirm`,data,isloading);
+            return res;
+        }
+        if(context.product && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/confirm`,data,isloading);
+            return res;
+        }
+            return Http.getInstance().post(`/bugs/${context.bug}/confirm`,data,isloading);
+    }
+
+    /**
+     * Resolve接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async Resolve(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}/resolve`,data,isloading);
+            return res;
+        }
+        if(context.project && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/resolve`,data,isloading);
+            return res;
+        }
+        if(context.productplan && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/bugs/${context.bug}/resolve`,data,isloading);
+            return res;
+        }
+        if(context.product && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/resolve`,data,isloading);
+            return res;
+        }
+            return Http.getInstance().post(`/bugs/${context.bug}/resolve`,data,isloading);
     }
 
     /**

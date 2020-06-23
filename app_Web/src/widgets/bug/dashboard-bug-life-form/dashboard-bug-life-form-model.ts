@@ -63,7 +63,7 @@ export default class DashboardBugLifeModel {
       {
         name: 'openedbuild',
         prop: 'openedbuild',
-        dataType: 'TEXT',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'resolvedby',
@@ -73,7 +73,7 @@ export default class DashboardBugLifeModel {
       {
         name: 'resolvedbuild',
         prop: 'resolvedbuild',
-        dataType: 'TEXT',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'resolution',
