@@ -5,7 +5,7 @@
         @sort-change="onSortChange($event)"  
         :border="isDragendCol"
         :highlight-current-row ="isSingleSelect"
-        :row-class-name="getRowClassName"
+        :row-class-name="getRowClassName.bind(_self)"
         size="mini"
         stripe
         @row-click="rowClick($event)"  
