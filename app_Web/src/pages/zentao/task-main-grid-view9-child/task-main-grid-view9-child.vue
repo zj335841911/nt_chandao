@@ -1,8 +1,29 @@
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+<template src="task-main-grid-view9-child.html"/>
+<script lang='tsx'>
+import { Component } from 'vue-property-decorator';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { TaskMainGridView9_ChildBase } from './task-main-grid-view9-child-base';
+import view_grid from '@widgets/task/main2-grid/main2-grid.vue';
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if judge == true  [in template "TEMPLCODE_zh_CN" at line 71, column 1]
-----
+/**
+ * 任务表格视图视图
+ *
+ * @export
+ * @class TaskMainGridView9_Child
+ * @extends {TaskMainGridView9_ChildBase}
+ */
+@Component({
+    components: {
+        view_grid, 
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
+        });
+    }
+})
+@VueLifeCycleProcessing()
+export default class TaskMainGridView9_Child extends TaskMainGridView9_ChildBase {
+
+}
+</script>

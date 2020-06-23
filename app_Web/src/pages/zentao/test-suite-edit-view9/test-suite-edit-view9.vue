@@ -1,8 +1,29 @@
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+<template src="test-suite-edit-view9.html"/>
+<script lang='tsx'>
+import { Component } from 'vue-property-decorator';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { TestSuiteEditView9Base } from './test-suite-edit-view9-base';
+import view_form from '@widgets/test-suite/main-info-form/main-info-form.vue';
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if judge == true  [in template "TEMPLCODE_zh_CN" at line 71, column 1]
-----
+/**
+ * 测试套件编辑视图视图
+ *
+ * @export
+ * @class TestSuiteEditView9
+ * @extends {TestSuiteEditView9Base}
+ */
+@Component({
+    components: {
+        view_form, 
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
+        });
+    }
+})
+@VueLifeCycleProcessing()
+export default class TestSuiteEditView9 extends TestSuiteEditView9Base {
+
+}
+</script>

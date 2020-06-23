@@ -1,8 +1,29 @@
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+<template src="case-main-new-view.html"/>
+<script lang='tsx'>
+import { Component } from 'vue-property-decorator';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { CaseMainNewViewBase } from './case-main-new-view-base';
+import view_form from '@widgets/case/main-new-form/main-new-form.vue';
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if judge == true  [in template "TEMPLCODE_zh_CN" at line 71, column 1]
-----
+/**
+ * 功能测试视图
+ *
+ * @export
+ * @class CaseMainNewView
+ * @extends {CaseMainNewViewBase}
+ */
+@Component({
+    components: {
+        view_form, 
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
+        });
+    }
+})
+@VueLifeCycleProcessing()
+export default class CaseMainNewView extends CaseMainNewViewBase {
+
+}
+</script>

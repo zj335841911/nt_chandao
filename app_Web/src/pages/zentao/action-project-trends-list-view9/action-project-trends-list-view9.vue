@@ -1,8 +1,29 @@
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+<template src="action-project-trends-list-view9.html"/>
+<script lang='tsx'>
+import { Component } from 'vue-property-decorator';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { ActionProjectTrendsListView9Base } from './action-project-trends-list-view9-base';
+import view_list from '@widgets/action/trends-list/trends-list.vue';
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if judge == true  [in template "TEMPLCODE_zh_CN" at line 71, column 1]
-----
+/**
+ * 产品动态视图
+ *
+ * @export
+ * @class ActionProjectTrendsListView9
+ * @extends {ActionProjectTrendsListView9Base}
+ */
+@Component({
+    components: {
+        view_list, 
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
+        });
+    }
+})
+@VueLifeCycleProcessing()
+export default class ActionProjectTrendsListView9 extends ActionProjectTrendsListView9Base {
+
+}
+</script>

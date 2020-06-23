@@ -1,8 +1,29 @@
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+<template src="product-grid-view-un-closed.html"/>
+<script lang='tsx'>
+import { Component } from 'vue-property-decorator';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { ProductGridView_UnClosedBase } from './product-grid-view-un-closed-base';
+import view_grid from '@widgets/product/main2-grid/main2-grid.vue';
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if judge == true  [in template "TEMPLCODE_zh_CN" at line 71, column 1]
-----
+/**
+ * 产品表格视图视图
+ *
+ * @export
+ * @class ProductGridView_UnClosed
+ * @extends {ProductGridView_UnClosedBase}
+ */
+@Component({
+    components: {
+        view_grid, 
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
+        });
+    }
+})
+@VueLifeCycleProcessing()
+export default class ProductGridView_UnClosed extends ProductGridView_UnClosedBase {
+
+}
+</script>

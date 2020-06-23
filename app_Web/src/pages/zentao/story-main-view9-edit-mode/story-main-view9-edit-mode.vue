@@ -1,8 +1,29 @@
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+<template src="story-main-view9-edit-mode.html"/>
+<script lang='tsx'>
+import { Component } from 'vue-property-decorator';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { StoryMainView9_EditModeBase } from './story-main-view9-edit-mode-base';
+import view_form from '@widgets/story/main-edit-mode-form/main-edit-mode-form.vue';
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if judge == true  [in template "TEMPLCODE_zh_CN" at line 71, column 1]
-----
+/**
+ * 需求编辑视图视图
+ *
+ * @export
+ * @class StoryMainView9_EditMode
+ * @extends {StoryMainView9_EditModeBase}
+ */
+@Component({
+    components: {
+        view_form, 
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
+        });
+    }
+})
+@VueLifeCycleProcessing()
+export default class StoryMainView9_EditMode extends StoryMainView9_EditModeBase {
+
+}
+</script>

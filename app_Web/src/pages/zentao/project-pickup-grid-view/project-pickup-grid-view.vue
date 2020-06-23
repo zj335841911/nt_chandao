@@ -1,8 +1,31 @@
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+<template src="project-pickup-grid-view.html"/>
+<script lang='tsx'>
+import { Component } from 'vue-property-decorator';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { ProjectPickupGridViewBase } from './project-pickup-grid-view-base';
+import view_grid from '@widgets/project/main-grid/main-grid.vue';
+import view_searchform from '@widgets/project/default-searchform/default-searchform.vue';
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if judge == true  [in template "TEMPLCODE_zh_CN" at line 71, column 1]
-----
+/**
+ * project选择表格视图视图
+ *
+ * @export
+ * @class ProjectPickupGridView
+ * @extends {ProjectPickupGridViewBase}
+ */
+@Component({
+    components: {
+        view_grid, 
+        view_searchform, 
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
+        });
+    }
+})
+@VueLifeCycleProcessing()
+export default class ProjectPickupGridView extends ProjectPickupGridViewBase {
+
+}
+</script>

@@ -1,8 +1,29 @@
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+<template src="case-step-main-grid-view9-edit-mode.html"/>
+<script lang='tsx'>
+import { Component } from 'vue-property-decorator';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { CaseStepMainGridView9_EditModeBase } from './case-step-main-grid-view9-edit-mode-base';
+import view_grid from '@widgets/case-step/main-row-edit-grid/main-row-edit-grid.vue';
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if judge == true  [in template "TEMPLCODE_zh_CN" at line 71, column 1]
-----
+/**
+ * 用例步骤视图
+ *
+ * @export
+ * @class CaseStepMainGridView9_EditMode
+ * @extends {CaseStepMainGridView9_EditModeBase}
+ */
+@Component({
+    components: {
+        view_grid, 
+    },
+    beforeRouteEnter: (to: any, from: any, next: any) => {
+        next((vm: any) => {
+            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
+        });
+    }
+})
+@VueLifeCycleProcessing()
+export default class CaseStepMainGridView9_EditMode extends CaseStepMainGridView9_EditModeBase {
+
+}
+</script>
