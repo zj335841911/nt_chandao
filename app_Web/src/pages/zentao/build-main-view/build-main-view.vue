@@ -1,4 +1,4 @@
-<template src="build-main-view.html"/>
+<template src="./build-main-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';

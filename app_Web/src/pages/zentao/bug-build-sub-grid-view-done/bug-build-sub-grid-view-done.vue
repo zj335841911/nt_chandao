@@ -1,4 +1,4 @@
-<template src="bug-build-sub-grid-view-done.html"/>
+<template src="./bug-build-sub-grid-view-done.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';

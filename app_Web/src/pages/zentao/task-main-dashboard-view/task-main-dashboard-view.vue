@@ -1,4 +1,4 @@
-<template src="task-main-dashboard-view.html"/>
+<template src="./task-main-dashboard-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';

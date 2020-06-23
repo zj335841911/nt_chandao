@@ -1,4 +1,4 @@
-<template src="story-main-view-edit-mode.html"/>
+<template src="./story-main-view-edit-mode.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';

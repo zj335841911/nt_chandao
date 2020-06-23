@@ -1,4 +1,4 @@
-<template src="task-main-grid-view9-child.html"/>
+<template src="./task-main-grid-view9-child.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';

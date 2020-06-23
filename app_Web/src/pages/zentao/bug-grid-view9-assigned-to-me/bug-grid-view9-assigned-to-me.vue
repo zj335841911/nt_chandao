@@ -1,4 +1,4 @@
-<template src="bug-grid-view9-assigned-to-me.html"/>
+<template src="./bug-grid-view9-assigned-to-me.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';

@@ -1,4 +1,4 @@
-<template src="test-task-grid-view9-un-tested.html"/>
+<template src="./test-task-grid-view9-un-tested.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';

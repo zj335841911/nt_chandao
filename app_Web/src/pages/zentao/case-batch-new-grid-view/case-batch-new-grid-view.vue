@@ -1,4 +1,4 @@
-<template src="case-batch-new-grid-view.html"/>
+<template src="./case-batch-new-grid-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';

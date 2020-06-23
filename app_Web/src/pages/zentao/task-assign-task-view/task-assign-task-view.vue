@@ -1,4 +1,4 @@
-<template src="task-assign-task-view.html"/>
+<template src="./task-assign-task-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';

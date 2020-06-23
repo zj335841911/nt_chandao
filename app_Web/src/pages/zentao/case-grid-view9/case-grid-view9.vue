@@ -1,4 +1,4 @@
-<template src="case-grid-view9.html"/>
+<template src="./case-grid-view9.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';

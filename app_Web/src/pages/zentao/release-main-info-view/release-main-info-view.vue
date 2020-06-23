@@ -1,4 +1,4 @@
-<template src="release-main-info-view.html"/>
+<template src="./release-main-info-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';

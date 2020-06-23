@@ -1,4 +1,4 @@
-<template src="product-grid-view-un-closed.html"/>
+<template src="./product-grid-view-un-closed.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';

@@ -1,4 +1,4 @@
-<template src="project-grid-view9-un-closed.html"/>
+<template src="./project-grid-view9-un-closed.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';

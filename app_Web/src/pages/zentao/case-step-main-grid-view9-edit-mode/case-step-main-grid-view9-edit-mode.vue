@@ -1,4 +1,4 @@
-<template src="case-step-main-grid-view9-edit-mode.html"/>
+<template src="./case-step-main-grid-view9-edit-mode.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';

@@ -1,4 +1,4 @@
-<template src="project-main-tab-exp-view.html"/>
+<template src="./project-main-tab-exp-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';

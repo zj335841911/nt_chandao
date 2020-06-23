@@ -1,4 +1,4 @@
-<template src="task-work-info-edit-view9.html"/>
+<template src="./task-work-info-edit-view9.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';

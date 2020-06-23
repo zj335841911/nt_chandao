@@ -1,4 +1,4 @@
-<template src="story-main-grid-view-by-module.html"/>
+<template src="./story-main-grid-view-by-module.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';

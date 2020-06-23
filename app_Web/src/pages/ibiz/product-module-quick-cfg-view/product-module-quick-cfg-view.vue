@@ -1,4 +1,4 @@
-<template src="product-module-quick-cfg-view.html"/>
+<template src="./product-module-quick-cfg-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';

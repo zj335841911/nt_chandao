@@ -1,4 +1,4 @@
-<template src="action-project-trends-list-view.html"/>
+<template src="./action-project-trends-list-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';

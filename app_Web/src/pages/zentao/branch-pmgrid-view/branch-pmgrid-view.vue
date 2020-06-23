@@ -1,4 +1,4 @@
-<template src="branch-pmgrid-view.html"/>
+<template src="./branch-pmgrid-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';

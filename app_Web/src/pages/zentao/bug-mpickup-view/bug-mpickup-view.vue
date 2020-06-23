@@ -1,4 +1,4 @@
-<template src="bug-mpickup-view.html"/>
+<template src="./bug-mpickup-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';

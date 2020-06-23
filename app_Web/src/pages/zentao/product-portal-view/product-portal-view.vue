@@ -1,4 +1,4 @@
-<template src="product-portal-view.html"/>
+<template src="./product-portal-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';

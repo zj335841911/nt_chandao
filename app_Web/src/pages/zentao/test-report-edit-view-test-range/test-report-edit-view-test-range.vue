@@ -1,4 +1,4 @@
-<template src="test-report-edit-view-test-range.html"/>
+<template src="./test-report-edit-view-test-range.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
