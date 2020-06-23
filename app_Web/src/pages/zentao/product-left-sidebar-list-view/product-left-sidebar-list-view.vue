@@ -1,12 +1,20 @@
-<template src="./product-left-sidebar-list-view-base.html"/>
+<template src="./product-left-sidebar-list-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import ProductLeftSidebarListViewBase from './product-left-sidebar-list-view-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { ProductLeftSidebarListViewBase } from './product-left-sidebar-list-view-base';
 import view_list from '@widgets/product/sidebar-list/sidebar-list.vue';
+
+/**
+ * 项目视图
+ *
+ * @export
+ * @class ProductLeftSidebarListView
+ * @extends {ProductLeftSidebarListViewBase}
+ */
 @Component({
     components: {
-        view_list, 
+        view_list
     },
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
@@ -14,6 +22,7 @@ import view_list from '@widgets/product/sidebar-list/sidebar-list.vue';
         });
     },
 })
+@VueLifeCycleProcessing()
 export default class ProductLeftSidebarListView extends ProductLeftSidebarListViewBase {
 
     /**

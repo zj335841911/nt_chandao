@@ -1,12 +1,20 @@
 <template src="./project-left-sidebar-list-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import ProjectLeftSidebarListViewBase from './project-left-sidebar-list-view-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { ProjectLeftSidebarListViewBase } from './project-left-sidebar-list-view-base';
 import view_list from '@widgets/project/sidebar-list/sidebar-list.vue';
+
+/**
+ * 项目视图
+ *
+ * @export
+ * @class ProjectLeftSidebarListView
+ * @extends {ProjectLeftSidebarListViewBase}
+ */
 @Component({
     components: {
-        view_list, 
+        view_list
     },
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
@@ -14,6 +22,7 @@ import view_list from '@widgets/project/sidebar-list/sidebar-list.vue';
         });
     },
 })
+@VueLifeCycleProcessing()
 export default class ProjectLeftSidebarListView extends ProjectLeftSidebarListViewBase {
 
     /**
