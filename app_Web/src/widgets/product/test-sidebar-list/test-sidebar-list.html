@@ -1,6 +1,6 @@
 <div :class="['app-list', this.items.length > 0 ? '' : 'app-list-empty' ]">
     <div v-if="items.length > 0" style="height:100%;">
-                <test-list :items="items" @item-click="handleDblClick"/>
+                <test-list :items="items" @item-click="handleDblClick($event)"/>
     </div>
     <div v-else>
         暂无数据
