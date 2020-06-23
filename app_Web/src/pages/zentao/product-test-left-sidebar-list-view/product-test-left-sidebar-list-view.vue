@@ -1,3 +1,4 @@
+<template src="./product-test-left-sidebar-list-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import ProductTestLeftSidebarListViewBase from './product-test-left-sidebar-list-view-base.vue';

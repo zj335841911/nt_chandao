@@ -1,3 +1,4 @@
+<template src="./project-left-sidebar-list-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import ProjectLeftSidebarListViewBase from './project-left-sidebar-list-view-base.vue';
