@@ -54,6 +54,15 @@ export default {
         'bvt': "版本验证阶段",
         empty: "",
     },
+    Task__color: {
+        '#3da7f5': "#3da7f5",
+        '#75c941': "#75c941",
+        '#2dbdb2': "#2dbdb2",
+        '#797ec9': "#797ec9",
+        '#ffaf38': "#ffaf38",
+        '#ff4e3e': "#ff4e3e",
+        empty: "",
+    },
     Casestep__type: {
         'step': "步骤",
         'group': "分组",

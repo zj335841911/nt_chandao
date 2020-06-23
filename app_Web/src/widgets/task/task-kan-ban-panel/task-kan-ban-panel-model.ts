@@ -30,6 +30,46 @@ export default class TaskKanBanModel {
       {
         name: 'estimate',
         prop: 'estimate'
+      },
+      {
+        name: 'project',
+        prop: 'project'
+      },
+      {
+        name: 'module',
+        prop: 'module'
+      },
+      {
+        name: 'story',
+        prop: 'story'
+      },
+      {
+        name: 'pri',
+        prop: 'pri'
+      },
+      {
+        name: 'desc',
+        prop: 'desc'
+      },
+      {
+        name: 'mailto',
+        prop: 'mailto'
+      },
+      {
+        name: 'parent',
+        prop: 'parent'
+      },
+      {
+        name: 'eststarted',
+        prop: 'eststarted'
+      },
+      {
+        name: 'consumed',
+        prop: 'consumed'
+      },
+      {
+        name: 'color',
+        prop: 'color'
       }
     ]
   }

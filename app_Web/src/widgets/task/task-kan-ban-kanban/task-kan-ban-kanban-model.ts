@@ -60,6 +60,12 @@ export default class TaskKanBanModel {
 				name: 'pri',
 			},
 			{
+				name: 'consumed',
+			},
+			{
+				name: 'color',
+			},
+			{
 				name: 'name',
 			},
 			{

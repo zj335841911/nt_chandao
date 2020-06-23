@@ -164,6 +164,8 @@ export default {
 			grouppanel2: "分组面板", 
 			group2: "需求的一生", 
 			grouppanel3: "其他相关", 
+			button1: "保存并关闭", 
+			grouppanel4: "操作按钮", 
 			formpage1: "基本信息", 
 			srforikey: "", 
 			srfkey: "编号", 
@@ -194,6 +196,7 @@ export default {
 			module: "所属模块", 
 		},
 		uiactions: {
+			saveandexit: "保存并关闭",
 		},
 	},
 	main_newmode_form: {

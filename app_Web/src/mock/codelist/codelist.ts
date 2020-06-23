@@ -402,6 +402,79 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: 'Task__color',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: '#3da7f5',
+                label: "#3da7f5",
+                text: "#3da7f5",
+                "data":"",
+                "codename":"Item_1",
+                "color": "rgba(61, 167, 245, 1)",
+                value: '#3da7f5',
+                
+                disabled: false,
+            },
+            {
+                id: '#75c941',
+                label: "#75c941",
+                text: "#75c941",
+                "data":"",
+                "codename":"Item_2",
+                "color": "rgba(117, 201, 65, 1)",
+                value: '#75c941',
+                
+                disabled: false,
+            },
+            {
+                id: '#2dbdb2',
+                label: "#2dbdb2",
+                text: "#2dbdb2",
+                "data":"",
+                "codename":"Item_3",
+                "color": "rgba(45, 189, 178, 1)",
+                value: '#2dbdb2',
+                
+                disabled: false,
+            },
+            {
+                id: '#797ec9',
+                label: "#797ec9",
+                text: "#797ec9",
+                "data":"",
+                "codename":"Item_4",
+                "color": "rgba(121, 126, 201, 1)",
+                value: '#797ec9',
+                
+                disabled: false,
+            },
+            {
+                id: '#ffaf38',
+                label: "#ffaf38",
+                text: "#ffaf38",
+                "data":"",
+                "codename":"Item_5",
+                "color": "rgba(255, 175, 56, 1)",
+                value: '#ffaf38',
+                
+                disabled: false,
+            },
+            {
+                id: '#ff4e3e',
+                label: "#ff4e3e",
+                text: "#ff4e3e",
+                "data":"",
+                "codename":"Item_6",
+                "color": "rgba(255, 78, 62, 1)",
+                value: '#ff4e3e',
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Casestep__type',
         emptytext: '未定义',
         "codelisttype":"static",

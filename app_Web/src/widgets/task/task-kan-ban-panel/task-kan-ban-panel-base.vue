@@ -73,6 +73,60 @@
                         </i-col>
                     </row>
                 </i-col>
+                      <i-col v-show="detailsModel.container5.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-container">
+                    <row style="height:100%;">
+                              
+                        <i-col v-show="detailsModel.project.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
+                            
+                        
+                        </i-col>
+                              
+                        <i-col v-show="detailsModel.module.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
+                            
+                        
+                        </i-col>
+                              
+                        <i-col v-show="detailsModel.story.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
+                            
+                        
+                        </i-col>
+                              
+                        <i-col v-show="detailsModel.pri.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
+                            
+                        
+                        </i-col>
+                              
+                        <i-col v-show="detailsModel.desc.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
+                            
+                        
+                        </i-col>
+                              
+                        <i-col v-show="detailsModel.mailto.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
+                            
+                        
+                        </i-col>
+                              
+                        <i-col v-show="detailsModel.parent.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
+                            
+                        
+                        </i-col>
+                              
+                        <i-col v-show="detailsModel.eststarted.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
+                            
+                        
+                        </i-col>
+                              
+                        <i-col v-show="detailsModel.consumed.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
+                            
+                        
+                        </i-col>
+                              
+                        <i-col v-show="detailsModel.color.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
+                            
+                        
+                        </i-col>
+                    </row>
+                </i-col>
             </row>
         </i-col>
     </row>
@@ -216,6 +270,17 @@ export default class TaskKanBanBase extends CtrlBase {
         container2: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         estimate: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         container3: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        project: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        module: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        story: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        pri: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        desc: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        mailto: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        parent: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        eststarted: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        consumed: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        color: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        container5: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
         container1: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
     };
 
@@ -241,6 +306,17 @@ export default class TaskKanBanBase extends CtrlBase {
             }
             this.detailsModel.rawitem2.setVisible(ret);
         }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

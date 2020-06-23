@@ -29,8 +29,7 @@
 </i-col>
 <i-col v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.project.dashboardinfo_form.details.desc')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="NONE">
-    
-<app-span name='desc' :value="data.desc" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+    <html-container :content="data.desc"></html-container>
 </app-form-item>
 
 </i-col>
