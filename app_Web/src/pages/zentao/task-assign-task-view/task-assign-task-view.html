@@ -1,0 +1,34 @@
+<studio-view viewName="taskassigntaskview" viewTitle="指派任务" class='deoptview task-assign-task-view'>
+    <template slot='title'>
+    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
+    </template>
+    <view_form 
+                    :viewState="viewState"  
+                    :viewparams="viewparams" 
+                    :context="context" 
+                    :autosave="false" 
+                    :viewtag="viewtag"
+                    :showBusyIndicator="true"
+                    updateAction="AssignTo"
+                    removeAction="Remove"
+                    loaddraftAction="GetDraft"
+                    loadAction="Get"
+                    createAction="AssignTo"
+                    WFSubmitAction=""
+                    WFStartAction=""
+                    style='' 
+                    name="form"  
+                    ref='form' 
+                    @save="form_save($event)"  
+                    @remove="form_remove($event)"  
+                    @load="form_load($event)"  
+                    @closeview="closeView($event)">
+                </view_form>
+    <template slot="footer">
+        <div class="option-view-footer-actions">
+            <i-button type='primary' @click="onClickOk">{{ containerModel.view_okbtn.text }}</i-button>
+            &nbsp;&nbsp;
+            <i-button @click="onClickCancel">{{ containerModel.view_cancelbtn.text }}</i-button>
+        </div>
+    </template>
+</studio-view>
