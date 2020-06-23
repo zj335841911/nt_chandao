@@ -15,13 +15,10 @@ export default class TaskKanBanModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'project',
-			},
-			{
-				name: 'assignedto',
-			},
-			{
 				name: 'module',
+			},
+			{
+				name: 'desc',
 			},
 			{
 				name: 'status',
@@ -29,16 +26,13 @@ export default class TaskKanBanModel {
 				dataType: 'SSCODELIST',
 			},
 			{
-				name: 'name',
+				name: 'parent',
 			},
 			{
 				name: 'type',
 			},
 			{
 				name: 'estimate',
-			},
-			{
-				name: 'deadline',
 			},
 			{
 				name: 'srfmajortext',
@@ -49,6 +43,30 @@ export default class TaskKanBanModel {
 				name: 'srfkey',
 				prop: 'id',
 				dataType: 'ACID',
+			},
+			{
+				name: 'mailto',
+			},
+			{
+				name: 'assignedto',
+			},
+			{
+				name: 'story',
+			},
+			{
+				name: 'project',
+			},
+			{
+				name: 'pri',
+			},
+			{
+				name: 'name',
+			},
+			{
+				name: 'eststarted',
+			},
+			{
+				name: 'deadline',
 			},
 
 			{
