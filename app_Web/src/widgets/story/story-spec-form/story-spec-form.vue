@@ -1,6 +1,8 @@
+<template src="./story-spec-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import StorySpecBase from './story-spec-form-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { StorySpecBase } from './story-spec-form-base';
  
 
 /**
@@ -15,5 +17,6 @@ import StorySpecBase from './story-spec-form-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class StorySpec extends StorySpecBase { }
 </script>

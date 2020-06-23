@@ -1,6 +1,8 @@
+<template src="./quick-create-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import QuickCreateBase from './quick-create-form-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { QuickCreateBase } from './quick-create-form-base';
  
 
 /**
@@ -15,5 +17,6 @@ import QuickCreateBase from './quick-create-form-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class QuickCreate extends QuickCreateBase { }
 </script>

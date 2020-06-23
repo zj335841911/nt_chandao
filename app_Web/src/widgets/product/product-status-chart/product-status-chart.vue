@@ -1,6 +1,8 @@
+<template src="./product-status-chart.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import ProductStatusBase from './product-status-chart-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { ProductStatusBase } from './product-status-chart-base';
  
 
 /**
@@ -15,5 +17,6 @@ import ProductStatusBase from './product-status-chart-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class ProductStatus extends ProductStatusBase { }
 </script>

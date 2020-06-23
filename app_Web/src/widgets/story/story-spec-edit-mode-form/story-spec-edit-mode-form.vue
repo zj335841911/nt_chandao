@@ -1,6 +1,8 @@
+<template src="./story-spec-edit-mode-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import StorySpec_EditModeBase from './story-spec-edit-mode-form-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { StorySpec_EditModeBase } from './story-spec-edit-mode-form-base';
  
 
 /**
@@ -15,5 +17,6 @@ import StorySpec_EditModeBase from './story-spec-edit-mode-form-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class StorySpec_EditMode extends StorySpec_EditModeBase { }
 </script>

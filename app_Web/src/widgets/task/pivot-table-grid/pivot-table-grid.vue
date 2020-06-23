@@ -1,6 +1,8 @@
+<template src="./pivot-table-grid.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import PivotTableBase from './pivot-table-grid-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { PivotTableBase } from './pivot-table-grid-base';
  
 
 /**
@@ -15,5 +17,6 @@ import PivotTableBase from './pivot-table-grid-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class PivotTable extends PivotTableBase { }
 </script>

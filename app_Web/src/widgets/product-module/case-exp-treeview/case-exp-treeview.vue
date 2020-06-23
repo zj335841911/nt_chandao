@@ -1,6 +1,8 @@
+<template src="./case-exp-treeview.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import CaseExpBase from './case-exp-treeview-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { CaseExpBase } from './case-exp-treeview-base';
  
 
 /**
@@ -15,5 +17,6 @@ import CaseExpBase from './case-exp-treeview-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class CaseExp extends CaseExpBase { }
 </script>

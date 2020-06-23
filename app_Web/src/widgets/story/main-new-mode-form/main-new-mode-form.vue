@@ -1,6 +1,8 @@
+<template src="./main-new-mode-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import Main_NewModeBase from './main-new-mode-form-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { Main_NewModeBase } from './main-new-mode-form-base';
  
 
 /**
@@ -15,5 +17,6 @@ import Main_NewModeBase from './main-new-mode-form-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class Main_NewMode extends Main_NewModeBase { }
 </script>

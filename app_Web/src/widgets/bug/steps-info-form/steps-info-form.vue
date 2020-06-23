@@ -1,6 +1,8 @@
+<template src="./steps-info-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import StepsInfoBase from './steps-info-form-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { StepsInfoBase } from './steps-info-form-base';
  
 
 /**
@@ -15,5 +17,6 @@ import StepsInfoBase from './steps-info-form-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class StepsInfo extends StepsInfoBase { }
 </script>

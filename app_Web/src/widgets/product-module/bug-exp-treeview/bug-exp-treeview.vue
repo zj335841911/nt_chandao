@@ -1,6 +1,8 @@
+<template src="./bug-exp-treeview.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import BugExpBase from './bug-exp-treeview-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { BugExpBase } from './bug-exp-treeview-base';
  
 
 /**
@@ -15,5 +17,6 @@ import BugExpBase from './bug-exp-treeview-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class BugExp extends BugExpBase { }
 </script>

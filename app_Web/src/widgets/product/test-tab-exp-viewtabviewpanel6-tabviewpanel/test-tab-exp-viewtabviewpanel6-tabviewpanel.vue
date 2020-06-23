@@ -1,6 +1,8 @@
+<template src="./test-tab-exp-viewtabviewpanel6-tabviewpanel.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import TestTabExpViewtabviewpanel6Base from './test-tab-exp-viewtabviewpanel6-tabviewpanel-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { TestTabExpViewtabviewpanel6Base } from './test-tab-exp-viewtabviewpanel6-tabviewpanel-base';
  
 
 /**
@@ -15,5 +17,6 @@ import TestTabExpViewtabviewpanel6Base from './test-tab-exp-viewtabviewpanel6-ta
          
     }
 })
+@VueLifeCycleProcessing()
 export default class TestTabExpViewtabviewpanel6 extends TestTabExpViewtabviewpanel6Base { }
 </script>

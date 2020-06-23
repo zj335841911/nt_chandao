@@ -1,6 +1,8 @@
+<template src="./main3-grid.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import Main3Base from './main3-grid-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { Main3Base } from './main3-grid-base';
  
 
 /**
@@ -15,5 +17,6 @@ import Main3Base from './main3-grid-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class Main3 extends Main3Base { }
 </script>

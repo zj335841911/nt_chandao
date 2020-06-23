@@ -1,6 +1,8 @@
+<template src="./main-grid-grid.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import MainGridBase from './main-grid-grid-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { MainGridBase } from './main-grid-grid-base';
  
 
 /**
@@ -15,5 +17,6 @@ import MainGridBase from './main-grid-grid-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class MainGrid extends MainGridBase { }
 </script>

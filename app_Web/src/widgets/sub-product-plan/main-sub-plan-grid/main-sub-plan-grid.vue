@@ -1,6 +1,8 @@
+<template src="./main-sub-plan-grid.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import MainSubPlanBase from './main-sub-plan-grid-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { MainSubPlanBase } from './main-sub-plan-grid-base';
  
 
 /**
@@ -15,5 +17,6 @@ import MainSubPlanBase from './main-sub-plan-grid-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class MainSubPlan extends MainSubPlanBase { }
 </script>

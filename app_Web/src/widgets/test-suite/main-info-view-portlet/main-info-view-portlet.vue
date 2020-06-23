@@ -1,15 +1,22 @@
-
+<template src="./main-info-view-portlet.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import TestSuiteMainInfoViewBase from './main-info-view-portlet-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { MainInfoViewBase } from './main-info-view-portlet-base';
  
+
+/**
+ * dashboard_sysportlet2部件
+ *
+ * @export
+ * @class MainInfoView
+ * @extends {MainInfoViewBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class TestSuiteMainInfoView extends TestSuiteMainInfoViewBase {
-
-}
+@VueLifeCycleProcessing()
+export default class MainInfoView extends MainInfoViewBase { }
 </script>

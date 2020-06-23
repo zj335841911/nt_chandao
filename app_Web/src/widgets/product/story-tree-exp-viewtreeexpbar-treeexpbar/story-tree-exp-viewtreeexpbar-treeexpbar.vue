@@ -1,6 +1,8 @@
+<template src="./story-tree-exp-viewtreeexpbar-treeexpbar.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import StoryTreeExpViewtreeexpbarBase from './story-tree-exp-viewtreeexpbar-treeexpbar-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { StoryTreeExpViewtreeexpbarBase } from './story-tree-exp-viewtreeexpbar-treeexpbar-base';
 import view_treeexpbar_tree from '@widgets/product-module/exp-treeview/exp-treeview.vue';
  
 
@@ -17,5 +19,6 @@ import view_treeexpbar_tree from '@widgets/product-module/exp-treeview/exp-treev
          
     }
 })
+@VueLifeCycleProcessing()
 export default class StoryTreeExpViewtreeexpbar extends StoryTreeExpViewtreeexpbarBase { }
 </script>

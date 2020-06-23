@@ -1,6 +1,8 @@
+<template src="./pickup-viewpickupviewpanel-pickupviewpanel.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import PickupViewpickupviewpanelBase from './pickup-viewpickupviewpanel-pickupviewpanel-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { PickupViewpickupviewpanelBase } from './pickup-viewpickupviewpanel-pickupviewpanel-base';
  
 
 /**
@@ -15,5 +17,6 @@ import PickupViewpickupviewpanelBase from './pickup-viewpickupviewpanel-pickupvi
          
     }
 })
+@VueLifeCycleProcessing()
 export default class PickupViewpickupviewpanel extends PickupViewpickupviewpanelBase { }
 </script>

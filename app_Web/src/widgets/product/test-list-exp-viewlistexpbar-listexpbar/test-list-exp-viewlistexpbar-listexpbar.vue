@@ -1,6 +1,8 @@
+<template src="./test-list-exp-viewlistexpbar-listexpbar.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import TestListExpViewlistexpbarBase from './test-list-exp-viewlistexpbar-listexpbar-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { TestListExpViewlistexpbarBase } from './test-list-exp-viewlistexpbar-listexpbar-base';
 import view_listexpbar_list from '@widgets/product/test-exp-list/test-exp-list.vue';
  
 
@@ -17,5 +19,6 @@ import view_listexpbar_list from '@widgets/product/test-exp-list/test-exp-list.v
          
     }
 })
+@VueLifeCycleProcessing()
 export default class TestListExpViewlistexpbar extends TestListExpViewlistexpbarBase { }
 </script>

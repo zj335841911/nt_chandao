@@ -1,15 +1,22 @@
-
+<template src="./work-info-portlet.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import TaskWorkInfoBase from './work-info-portlet-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { WorkInfoBase } from './work-info-portlet-base';
  
+
+/**
+ * dashboard_sysportlet5部件
+ *
+ * @export
+ * @class WorkInfo
+ * @extends {WorkInfoBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class TaskWorkInfo extends TaskWorkInfoBase {
-
-}
+@VueLifeCycleProcessing()
+export default class WorkInfo extends WorkInfoBase { }
 </script>

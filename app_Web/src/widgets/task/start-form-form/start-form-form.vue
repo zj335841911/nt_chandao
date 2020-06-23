@@ -1,6 +1,8 @@
+<template src="./start-form-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import StartFormBase from './start-form-form-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { StartFormBase } from './start-form-form-base';
  
 
 /**
@@ -15,5 +17,6 @@ import StartFormBase from './start-form-form-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class StartForm extends StartFormBase { }
 </script>

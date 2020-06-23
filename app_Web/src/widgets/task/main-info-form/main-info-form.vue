@@ -1,6 +1,8 @@
+<template src="./main-info-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import MainInfoBase from './main-info-form-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { MainInfoBase } from './main-info-form-base';
  
 
 /**
@@ -15,5 +17,6 @@ import MainInfoBase from './main-info-form-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class MainInfo extends MainInfoBase { }
 </script>

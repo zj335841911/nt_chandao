@@ -1,15 +1,22 @@
-
+<template src="./product-info-portlet.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import ProductProductInfoBase from './product-info-portlet-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { ProductInfoBase } from './product-info-portlet-base';
  
+
+/**
+ * dashboard_sysportlet3部件
+ *
+ * @export
+ * @class ProductInfo
+ * @extends {ProductInfoBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class ProductProductInfo extends ProductProductInfoBase {
-
-}
+@VueLifeCycleProcessing()
+export default class ProductInfo extends ProductInfoBase { }
 </script>

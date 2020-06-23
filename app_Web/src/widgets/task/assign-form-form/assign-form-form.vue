@@ -1,6 +1,8 @@
+<template src="./assign-form-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import AssignFormBase from './assign-form-form-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { AssignFormBase } from './assign-form-form-base';
  
 
 /**
@@ -15,5 +17,6 @@ import AssignFormBase from './assign-form-form-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class AssignForm extends AssignFormBase { }
 </script>

@@ -1,6 +1,8 @@
+<template src="./dashboard-main-edit-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import DashboardMainEditBase from './dashboard-main-edit-form-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { DashboardMainEditBase } from './dashboard-main-edit-form-base';
  
 
 /**
@@ -15,5 +17,6 @@ import DashboardMainEditBase from './dashboard-main-edit-form-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class DashboardMainEdit extends DashboardMainEditBase { }
 </script>

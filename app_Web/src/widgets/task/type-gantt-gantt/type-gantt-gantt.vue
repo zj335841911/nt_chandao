@@ -1,6 +1,8 @@
+<template src="./type-gantt-gantt.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import TypeGanttBase from './type-gantt-gantt-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { TypeGanttBase } from './type-gantt-gantt-base';
  
 
 /**
@@ -15,5 +17,6 @@ import TypeGanttBase from './type-gantt-gantt-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class TypeGantt extends TypeGanttBase { }
 </script>

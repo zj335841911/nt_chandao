@@ -1,6 +1,8 @@
+<template src="./get-roadmap-year-list.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import GetRoadmapYearBase from './get-roadmap-year-list-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { GetRoadmapYearBase } from './get-roadmap-year-list-base';
  
 
 /**
@@ -15,5 +17,6 @@ import GetRoadmapYearBase from './get-roadmap-year-list-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class GetRoadmapYear extends GetRoadmapYearBase { }
 </script>

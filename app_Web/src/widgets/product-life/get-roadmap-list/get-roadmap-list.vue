@@ -1,6 +1,8 @@
+<template src="./get-roadmap-list.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import GetRoadmapBase from './get-roadmap-list-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { GetRoadmapBase } from './get-roadmap-list-base';
  
 
 /**
@@ -15,5 +17,6 @@ import GetRoadmapBase from './get-roadmap-list-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class GetRoadmap extends GetRoadmapBase { }
 </script>

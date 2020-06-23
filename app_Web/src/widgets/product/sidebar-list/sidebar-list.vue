@@ -1,6 +1,8 @@
+<template src="./sidebar-list.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import SidebarBase from './sidebar-list-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { SidebarBase } from './sidebar-list-base';
  
 
 /**
@@ -15,5 +17,6 @@ import SidebarBase from './sidebar-list-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class Sidebar extends SidebarBase { }
 </script>

@@ -1,6 +1,8 @@
+<template src="./sub-task-new-grid.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import SubTaskNewBase from './sub-task-new-grid-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { SubTaskNewBase } from './sub-task-new-grid-base';
  
 
 /**
@@ -15,5 +17,6 @@ import SubTaskNewBase from './sub-task-new-grid-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class SubTaskNew extends SubTaskNewBase { }
 </script>

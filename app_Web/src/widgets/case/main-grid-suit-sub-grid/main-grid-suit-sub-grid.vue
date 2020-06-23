@@ -1,6 +1,8 @@
+<template src="./main-grid-suit-sub-grid.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import MainGrid_SuitSubBase from './main-grid-suit-sub-grid-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { MainGrid_SuitSubBase } from './main-grid-suit-sub-grid-base';
  
 
 /**
@@ -15,5 +17,6 @@ import MainGrid_SuitSubBase from './main-grid-suit-sub-grid-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class MainGrid_SuitSub extends MainGrid_SuitSubBase { }
 </script>

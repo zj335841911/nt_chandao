@@ -1,17 +1,24 @@
-
+<template src="./product-status-chart-portlet.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import ProductProductStatusChartBase from './product-status-chart-portlet-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { ProductStatusChartBase } from './product-status-chart-portlet-base';
 import view_db_productstatusportlet_chart from '@widgets/product/product-status-chart/product-status-chart.vue';
-
  
+
+/**
+ * db_productstatusportlet部件
+ *
+ * @export
+ * @class ProductStatusChart
+ * @extends {ProductStatusChartBase}
+ */
 @Component({
     components: {
         view_db_productstatusportlet_chart, 
          
     }
 })
-export default class ProductProductStatusChart extends ProductProductStatusChartBase {
-
-}
+@VueLifeCycleProcessing()
+export default class ProductStatusChart extends ProductStatusChartBase { }
 </script>

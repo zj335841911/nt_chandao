@@ -1,6 +1,8 @@
+<template src="./plan-list.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import PlanBase from './plan-list-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { PlanBase } from './plan-list-base';
  
 
 /**
@@ -15,5 +17,6 @@ import PlanBase from './plan-list-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class Plan extends PlanBase { }
 </script>

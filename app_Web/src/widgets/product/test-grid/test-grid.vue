@@ -1,6 +1,8 @@
+<template src="./test-grid.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import TestBase from './test-grid-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { TestBase } from './test-grid-base';
  
 
 /**
@@ -15,5 +17,6 @@ import TestBase from './test-grid-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class Test extends TestBase { }
 </script>

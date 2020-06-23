@@ -1,6 +1,8 @@
+<template src="./classify-by-type-list.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import ClassifyByTypeBase from './classify-by-type-list-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { ClassifyByTypeBase } from './classify-by-type-list-base';
  
 
 /**
@@ -15,5 +17,6 @@ import ClassifyByTypeBase from './classify-by-type-list-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class ClassifyByType extends ClassifyByTypeBase { }
 </script>

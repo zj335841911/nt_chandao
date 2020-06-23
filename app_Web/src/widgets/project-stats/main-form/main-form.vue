@@ -1,6 +1,8 @@
+<template src="./main-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import MainBase from './main-form-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { MainBase } from './main-form-base';
  
 
 /**
@@ -15,5 +17,9 @@ import MainBase from './main-form-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class Main extends MainBase { }
 </script>
+<style lang='less'>
+@import './main-form.less';
+</style>

@@ -1,6 +1,8 @@
+<template src="./close-pause-cancel-form-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import ClosePauseCancelFormBase from './close-pause-cancel-form-form-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { ClosePauseCancelFormBase } from './close-pause-cancel-form-form-base';
  
 
 /**
@@ -15,5 +17,6 @@ import ClosePauseCancelFormBase from './close-pause-cancel-form-form-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class ClosePauseCancelForm extends ClosePauseCancelFormBase { }
 </script>

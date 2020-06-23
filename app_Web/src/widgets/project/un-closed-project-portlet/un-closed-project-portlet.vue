@@ -1,15 +1,22 @@
-
+<template src="./un-closed-project-portlet.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import ProjectUnClosedProjectBase from './un-closed-project-portlet-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { UnClosedProjectBase } from './un-closed-project-portlet-base';
  
+
+/**
+ * db_projectunclosedportlet部件
+ *
+ * @export
+ * @class UnClosedProject
+ * @extends {UnClosedProjectBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class ProjectUnClosedProject extends ProjectUnClosedProjectBase {
-
-}
+@VueLifeCycleProcessing()
+export default class UnClosedProject extends UnClosedProjectBase { }
 </script>

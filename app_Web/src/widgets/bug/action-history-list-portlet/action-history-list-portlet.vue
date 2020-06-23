@@ -1,15 +1,22 @@
-
+<template src="./action-history-list-portlet.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import BugActionHistoryListBase from './action-history-list-portlet-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { ActionHistoryListBase } from './action-history-list-portlet-base';
  
+
+/**
+ * dashboard_sysportlet2部件
+ *
+ * @export
+ * @class ActionHistoryList
+ * @extends {ActionHistoryListBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class BugActionHistoryList extends BugActionHistoryListBase {
-
-}
+@VueLifeCycleProcessing()
+export default class ActionHistoryList extends ActionHistoryListBase { }
 </script>

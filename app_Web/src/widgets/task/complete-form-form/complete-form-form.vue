@@ -1,6 +1,8 @@
+<template src="./complete-form-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import CompleteFormBase from './complete-form-form-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { CompleteFormBase } from './complete-form-form-base';
  
 
 /**
@@ -15,5 +17,6 @@ import CompleteFormBase from './complete-form-form-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class CompleteForm extends CompleteFormBase { }
 </script>

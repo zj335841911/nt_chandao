@@ -1,6 +1,8 @@
+<template src="./burn-down-chart.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import BurnDownBase from './burn-down-chart-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { BurnDownBase } from './burn-down-chart-base';
  
 
 /**
@@ -15,5 +17,6 @@ import BurnDownBase from './burn-down-chart-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class BurnDown extends BurnDownBase { }
 </script>

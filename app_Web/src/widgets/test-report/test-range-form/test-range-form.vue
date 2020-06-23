@@ -1,6 +1,8 @@
+<template src="./test-range-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import TestRangeBase from './test-range-form-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { TestRangeBase } from './test-range-form-base';
  
 
 /**
@@ -15,5 +17,6 @@ import TestRangeBase from './test-range-form-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class TestRange extends TestRangeBase { }
 </script>

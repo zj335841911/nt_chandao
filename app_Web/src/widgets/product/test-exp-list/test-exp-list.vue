@@ -1,6 +1,8 @@
+<template src="./test-exp-list.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import TestExpBase from './test-exp-list-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { TestExpBase } from './test-exp-list-base';
  
 
 /**
@@ -15,5 +17,6 @@ import TestExpBase from './test-exp-list-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class TestExp extends TestExpBase { }
 </script>

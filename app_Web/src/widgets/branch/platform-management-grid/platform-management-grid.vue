@@ -1,6 +1,8 @@
+<template src="./platform-management-grid.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import PlatformManagementBase from './platform-management-grid-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { PlatformManagementBase } from './platform-management-grid-base';
  
 
 /**
@@ -15,5 +17,6 @@ import PlatformManagementBase from './platform-management-grid-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class PlatformManagement extends PlatformManagementBase { }
 </script>

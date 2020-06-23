@@ -1,6 +1,8 @@
+<template src="./task-kan-ban-panel.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import TaskKanBanBase from './task-kan-ban-panel-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { TaskKanBanBase } from './task-kan-ban-panel-base';
  
 
 /**
@@ -15,5 +17,6 @@ import TaskKanBanBase from './task-kan-ban-panel-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class TaskKanBan extends TaskKanBanBase { }
 </script>

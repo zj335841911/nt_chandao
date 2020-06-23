@@ -1,6 +1,8 @@
+<template src="./dash-board-info-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import DashBoardInfoBase from './dash-board-info-form-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { DashBoardInfoBase } from './dash-board-info-form-base';
  
 
 /**
@@ -15,5 +17,6 @@ import DashBoardInfoBase from './dash-board-info-form-base.vue';
          
     }
 })
+@VueLifeCycleProcessing()
 export default class DashBoardInfo extends DashBoardInfoBase { }
 </script>
