@@ -73,7 +73,7 @@ export default {
       		title: "所有产品",
 		},
 		gridview: {
-			caption: "产品",
+			caption: "所有产品",
       		title: "所有产品",
 		},
 		pickupview: {

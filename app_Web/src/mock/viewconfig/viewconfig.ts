@@ -745,7 +745,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "productgridview": {
             "title": "所有产品",
-            "caption": "产品",
+            "caption": "所有产品",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",
             "viewname": "ProductGridView",
