@@ -775,7 +775,7 @@ export class TestRangeBase extends CtrlBase {
      */
     public copy(srfkey: string): void {
         let copyData = this.$store.getters.getCopyData(srfkey);
-        copyData.srfkey = Util.createUUID();
+        copyData.srfkey = this.$util.createUUID();
         copyData.testreport = copyData.srfkey;
         copyData.id = copyData.srfkey;
         Object.assign(this.context,{testreport:copyData.testreport})

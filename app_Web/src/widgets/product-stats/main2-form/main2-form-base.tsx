@@ -1572,7 +1572,7 @@ export class Main2Base extends CtrlBase {
      */
     public copy(srfkey: string): void {
         let copyData = this.$store.getters.getCopyData(srfkey);
-        copyData.srfkey = Util.createUUID();
+        copyData.srfkey = this.$util.createUUID();
         copyData.productstats = copyData.srfkey;
         copyData.id = copyData.srfkey;
         Object.assign(this.context,{productstats:copyData.productstats})

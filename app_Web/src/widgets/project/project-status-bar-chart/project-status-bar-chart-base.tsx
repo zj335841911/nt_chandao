@@ -357,13 +357,13 @@ export class ProjectStatusBarBase extends CtrlBase {
                 if(_chartOption && _chartOption.series.length > 0){
                     _chartOption.series.forEach((item:any) =>{
                         if(this.seriesModel[seriesName].ecxObject && Object.is(seriesName,item.id)){
-                            item = Util.deepObjectMerge(item,this.seriesModel[seriesName].ecxObject);
+                            item = this.$util.deepObjectMerge(item,this.seriesModel[seriesName].ecxObject);
                         }
                         if(this.seriesModel[seriesName].baseOption && Object.keys(this.seriesModel[seriesName].baseOption).length > 0  && Object.is(seriesName,item.id)){
-                            item = Util.deepObjectMerge(item,this.seriesModel[seriesName].baseOption);
+                            item = this.$util.deepObjectMerge(item,this.seriesModel[seriesName].baseOption);
                         }
                         if(this.seriesModel[seriesName].ecObject && Object.is(seriesName,item.id)){
-                            item = Util.deepObjectMerge(item,this.seriesModel[seriesName].ecObject);
+                            item = this.$util.deepObjectMerge(item,this.seriesModel[seriesName].ecObject);
                         }
                     })
                 }

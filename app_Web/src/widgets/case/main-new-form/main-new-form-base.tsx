@@ -1039,7 +1039,7 @@ export class MainNewBase extends CtrlBase {
      */
     public copy(srfkey: string): void {
         let copyData = this.$store.getters.getCopyData(srfkey);
-        copyData.srfkey = Util.createUUID();
+        copyData.srfkey = this.$util.createUUID();
         copyData.case = copyData.srfkey;
         copyData.id = copyData.srfkey;
         Object.assign(this.context,{case:copyData.case})

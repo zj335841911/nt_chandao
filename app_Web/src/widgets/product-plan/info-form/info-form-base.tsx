@@ -888,7 +888,7 @@ export class InfoBase extends CtrlBase {
      */
     public copy(srfkey: string): void {
         let copyData = this.$store.getters.getCopyData(srfkey);
-        copyData.srfkey = Util.createUUID();
+        copyData.srfkey = this.$util.createUUID();
         copyData.productplan = copyData.srfkey;
         copyData.id = copyData.srfkey;
         Object.assign(this.context,{productplan:copyData.productplan})

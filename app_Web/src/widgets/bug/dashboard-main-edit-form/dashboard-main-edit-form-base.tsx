@@ -1472,7 +1472,7 @@ export class DashboardMainEditBase extends CtrlBase {
      */
     public copy(srfkey: string): void {
         let copyData = this.$store.getters.getCopyData(srfkey);
-        copyData.srfkey = Util.createUUID();
+        copyData.srfkey = this.$util.createUUID();
         copyData.bug = copyData.srfkey;
         copyData.id = copyData.srfkey;
         Object.assign(this.context,{bug:copyData.bug})

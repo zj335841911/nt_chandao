@@ -951,7 +951,7 @@ export class QuickCreateBase extends CtrlBase {
      */
     public copy(srfkey: string): void {
         let copyData = this.$store.getters.getCopyData(srfkey);
-        copyData.srfkey = Util.createUUID();
+        copyData.srfkey = this.$util.createUUID();
         copyData.release = copyData.srfkey;
         copyData.id = copyData.srfkey;
         Object.assign(this.context,{release:copyData.release})

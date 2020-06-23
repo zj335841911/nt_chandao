@@ -362,7 +362,7 @@ export class TypeGanttBase extends CtrlBase {
         };
         let tempViewParams:any = JSON.parse(JSON.stringify(this.viewparams));
         let curNode:any = {}; 
-        Util.deepObjectMerge(curNode, task);
+        this.$util.deepObjectMerge(curNode, task);
         let tempContext:any = this.computecurNodeContext(curNode);
         if(curNode && curNode.srfparentdename) {
             Object.assign(tempContext,{ srfparentdename: curNode.srfparentdename });
