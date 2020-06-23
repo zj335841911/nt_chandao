@@ -1,7 +1,7 @@
 <script lang='tsx'>
 import { Component } from "vue-property-decorator";
 import { VueLifeCycleProcessing } from '@/studio-core/decorators/VueLifeCycleProcessing';
-import { IBizPMSBase } from './i-biz-pms-base.vue';
+import { IBizPMSBase } from './i-biz-pms-base';
 import view_appmenu from '@widgets/app/zentao-appmenu/zentao-appmenu.vue';
 
 /**

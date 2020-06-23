@@ -5,7 +5,7 @@ import AppMenusModel from '@/widgets/app/zentao-appmenu/zentao-appmenu-model';
 /**
  * 应用首页基类
  */
-export default class IBizPMSBase extends Vue {
+export class IBizPMSBase extends Vue {
   /**
    * 计数器服务对象集合
    *
