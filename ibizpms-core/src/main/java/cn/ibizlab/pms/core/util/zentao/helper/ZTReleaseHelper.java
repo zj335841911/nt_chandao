@@ -122,7 +122,7 @@ final public class ZTReleaseHelper {
         ACTION_PARAMS_EDIT.put("name", null);
         ACTION_PARAMS_EDIT.put("marker", null);
         ACTION_PARAMS_EDIT.put("build", null);
-        ACTION_PARAMS_EDIT.put("date", null);
+        ACTION_PARAMS_EDIT.put("date", "0000-00-00");
         ACTION_PARAMS_EDIT.put("desc", null);
         ACTION_PARAMS_EDIT.put("product", null);
         ACTION_PARAMS_EDIT.put("status", null);

@@ -257,8 +257,8 @@ final public class ZTProjectHelper {
         // CREATE
         ACTION_PARAMS_CREATE.put("name", null);
         ACTION_PARAMS_CREATE.put("code", null);
-        ACTION_PARAMS_CREATE.put("begin", null);
-        ACTION_PARAMS_CREATE.put("end", null);
+        ACTION_PARAMS_CREATE.put("begin", "0000-00-00");
+        ACTION_PARAMS_CREATE.put("end", "0000-00-00");
         ACTION_PARAMS_CREATE.put("days", null);
         ACTION_PARAMS_CREATE.put("team", null);
         ACTION_PARAMS_CREATE.put("type", null);
@@ -271,8 +271,8 @@ final public class ZTProjectHelper {
         // EDIT
         ACTION_PARAMS_EDIT.put("name", null);
         ACTION_PARAMS_EDIT.put("code", null);
-        ACTION_PARAMS_EDIT.put("begin", null);
-        ACTION_PARAMS_EDIT.put("end", null);
+        ACTION_PARAMS_EDIT.put("begin", "0000-00-00");
+        ACTION_PARAMS_EDIT.put("end", "0000-00-00");
         ACTION_PARAMS_EDIT.put("days", null);
         ACTION_PARAMS_EDIT.put("type", null);
         ACTION_PARAMS_EDIT.put("team", null);
@@ -291,8 +291,8 @@ final public class ZTProjectHelper {
         ACTION_PARAMS_START.put("comment", null);
 
         // PUTOFF
-        ACTION_PARAMS_PUTOFF.put("begin", null);
-        ACTION_PARAMS_PUTOFF.put("end", null);
+        ACTION_PARAMS_PUTOFF.put("begin", "0000-00-00");
+        ACTION_PARAMS_PUTOFF.put("end", "0000-00-00");
         ACTION_PARAMS_PUTOFF.put("days", null);
         ACTION_PARAMS_PUTOFF.put("comment", null);
 

@@ -119,8 +119,8 @@ final public class ZTProductPlanHelper {
         // CREATE
         ACTION_PARAMS_CREATE.put("branch", 0);
         ACTION_PARAMS_CREATE.put("title", null);
-        ACTION_PARAMS_CREATE.put("begin", null);
-        ACTION_PARAMS_CREATE.put("end", null);
+        ACTION_PARAMS_CREATE.put("begin", "0000-00-00");
+        ACTION_PARAMS_CREATE.put("end", "0000-00-00");
         ACTION_PARAMS_CREATE.put("desc", null);
         ACTION_PARAMS_CREATE.put("product", 0);
         ACTION_PARAMS_CREATE.put("parent", 0);
@@ -130,8 +130,8 @@ final public class ZTProductPlanHelper {
         // EDIT
         ACTION_PARAMS_EDIT.put("branch", 0);
         ACTION_PARAMS_EDIT.put("title", null);
-        ACTION_PARAMS_EDIT.put("begin", null);
-        ACTION_PARAMS_EDIT.put("end", null);
+        ACTION_PARAMS_EDIT.put("begin", "0000-00-00");
+        ACTION_PARAMS_EDIT.put("end", "0000-00-00");
         ACTION_PARAMS_EDIT.put("desc", null);
         ACTION_PARAMS_EDIT.put("product", 0);
         ACTION_PARAMS_EDIT.put("parent", 0);

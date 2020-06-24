@@ -187,8 +187,8 @@ final public class ZTTaskHelper {
         ACTION_PARAMS_CREATE.put("mailto", null);
         ACTION_PARAMS_CREATE.put("parent", 0);
         ACTION_PARAMS_CREATE.put("estimate", null);
-        ACTION_PARAMS_CREATE.put("estStarted", null);
-        ACTION_PARAMS_CREATE.put("deadline", null);
+        ACTION_PARAMS_CREATE.put("estStarted", "0000-00-00");
+        ACTION_PARAMS_CREATE.put("deadline", "0000-00-00");
         ACTION_PARAMS_CREATE.put("team[]", null);
         ACTION_PARAMS_CREATE.put("teamEstimate[]", null);
         ACTION_PARAMS_CREATE.put("after", "toTaskList");
@@ -209,8 +209,8 @@ final public class ZTTaskHelper {
         ACTION_PARAMS_EDIT.put("parent", 0);
         ACTION_PARAMS_EDIT.put("consumed", null);
         ACTION_PARAMS_EDIT.put("estimate", null);
-        ACTION_PARAMS_EDIT.put("estStarted", null);
-        ACTION_PARAMS_EDIT.put("deadline", null);
+        ACTION_PARAMS_EDIT.put("estStarted", "0000-00-00");
+        ACTION_PARAMS_EDIT.put("deadline", "0000-00-00");
         ACTION_PARAMS_EDIT.put("team[]", null);
         ACTION_PARAMS_EDIT.put("teamEstimate[]", null);
         ACTION_PARAMS_EDIT.put("multiple", 0);
@@ -222,7 +222,7 @@ final public class ZTTaskHelper {
         ACTION_PARAMS_ASSIGNTO.put("comment", null);
 
         // START
-        ACTION_PARAMS_START.put("realStarted", null);
+        ACTION_PARAMS_START.put("realStarted", "0000-00-00");
         ACTION_PARAMS_START.put("consumed", null);
         ACTION_PARAMS_START.put("left", null);
         ACTION_PARAMS_START.put("comment", null);
@@ -244,7 +244,7 @@ final public class ZTTaskHelper {
         ACTION_PARAMS_PAUSE.put("comment", null);
 
         // RESTART
-        ACTION_PARAMS_RESTART.put("realStarted", null);
+        ACTION_PARAMS_RESTART.put("realStarted", "0000-00-00");
         ACTION_PARAMS_RESTART.put("consumed", null);
         ACTION_PARAMS_RESTART.put("left", null);
         ACTION_PARAMS_RESTART.put("comment", null);

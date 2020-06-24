@@ -13,14 +13,28 @@ import java.math.BigInteger;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 禅道接口辅助类
  */
 public class ZenTaoHttpHelper {
+    private static Comparator<Double> COMPARATOR_DOUBLE = new Comparator<Double>() {
+        @Override
+        public int compare(Double o1, Double o2) {
+            if (o1 == null && o2 == null) {
+                return 0;
+            }
+            if (o1 == null && o2 != null) {
+                return -1;
+            }
+            if (o1 != null && o2 == null) {
+                return 1;
+            }
+            return o1.compareTo(o2);
+        }
+    };
+
     /**
      * 调取禅道接口
      *
@@ -99,11 +113,12 @@ public class ZenTaoHttpHelper {
         // 日期格式转换
         jo = formatDateField(jo, dataFormatMap);
         // 数组解析
-        jo = formatArrayIntoPJSON(jo);
+        jo = formatArrayIntoPJSON(jo, jo, 0d, 0);
         // 若为空时，default值填充
-        JSONObject formatJo = new JSONObject();
+        JSONObject formatJo = new JSONObject(new LinkedHashMap<>());
         for (String key : templateMap.keySet()) {
             Object value = null;
+            String arrKey = null;
             if (jo.containsKey(key) || jo.containsKey(key.toLowerCase())) {
                 value = jo.get(key.toLowerCase()) != null ? jo.get(key.toLowerCase()) : jo.get(key);
             } else {
@@ -119,7 +134,26 @@ public class ZenTaoHttpHelper {
             if (value == null) {
                 formatJo.put(key, templateMap.get(key));
             } else {
-                formatJo.put(key, value);
+                if (key.endsWith("[]")) {
+                    if (value instanceof Map) {
+                        String tmpKey = key.substring(0, key.length() - 2);
+                        Map<Double, Object> map = (Map<Double, Object>) value;
+                        Set<Double> set = map.keySet();
+                        if (set != null) {
+                            List<Double> listKeys = new ArrayList<>(set);
+                            listKeys.sort(COMPARATOR_DOUBLE);
+                            for (Double dKey : listKeys) {
+                                if (dKey.intValue() == dKey) {
+                                    formatJo.put(tmpKey + "[" + dKey.intValue() + "]", map.get(dKey));
+                                } else {
+                                    formatJo.put(tmpKey + "[" + dKey + "]", map.get(dKey));
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    formatJo.put(key, value);
+                }
             }
         }
         return formatJo;
@@ -180,10 +214,13 @@ public class ZenTaoHttpHelper {
      *         field6 : [xxx,xxx]<br>
      *     }
      *
-     * @param jo
+     * @param jo 需要解析的对象
+     * @param targetJo 解析后录入的对象
+     * @param pKey 父游标值
+     * @param level 层级
      * @return
      */
-    public static JSONObject formatArrayIntoPJSON(JSONObject jo) {
+    public static JSONObject formatArrayIntoPJSON(JSONObject jo, JSONObject targetJo, Double pKey, Integer level) {
         if (jo == null) {
             return null;
         }
@@ -199,7 +236,6 @@ public class ZenTaoHttpHelper {
                 }
             }
         }
-        JSONObject arrayJson = new JSONObject();
         for (JSONArray ja : jaList) {
             if (ja == null || ja.size() == 0) {
                 continue;
@@ -209,20 +245,23 @@ public class ZenTaoHttpHelper {
                 if (jaO == null || jaO.isEmpty()) {
                     continue;
                 }
+                Double myKey = new Double(i + 1);
+                for (int j = 0; j < level; j++) {
+                    myKey = myKey / 10;
+                }
+                Double dKey = pKey + myKey;
+                targetJo = formatArrayIntoPJSON(jaO, targetJo, dKey,level + 1);
                 for (String key : jaO.keySet()) {
-                    List list = new ArrayList();
-                    if (arrayJson.containsKey(key)) {
-                        list = arrayJson.getJSONArray(key);
+                    Map<Double, Object> map = new HashMap<>();
+                    if (targetJo.containsKey(key + "[]")) {
+                        map = targetJo.getObject(key + "[]", Map.class);
                     }
-                    list.add(jaO.get(key));
-                    arrayJson.put(key, list);
+                    map.put(dKey, jaO.get(key));
+                    targetJo.put(key + "[]", map);
                 }
             }
         }
-        if (!arrayJson.isEmpty()) {
-            jo.putAll(arrayJson);
-        }
-        return jo;
+        return targetJo;
     }
 
     /**

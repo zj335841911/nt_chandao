@@ -152,8 +152,8 @@ final public class ZTTestTaskHelper {
         ACTION_PARAMS_CREATE.put("build", null);
         ACTION_PARAMS_CREATE.put("owner", null);
         ACTION_PARAMS_CREATE.put("pri", null);
-        ACTION_PARAMS_CREATE.put("begin", null);
-        ACTION_PARAMS_CREATE.put("end", null);
+        ACTION_PARAMS_CREATE.put("begin", "0000-00-00");
+        ACTION_PARAMS_CREATE.put("end", "0000-00-00");
         ACTION_PARAMS_CREATE.put("status", null);
         ACTION_PARAMS_CREATE.put("name", null);
         ACTION_PARAMS_CREATE.put("desc", null);
@@ -165,8 +165,8 @@ final public class ZTTestTaskHelper {
         ACTION_PARAMS_EDIT.put("build", null);
         ACTION_PARAMS_EDIT.put("owner", null);
         ACTION_PARAMS_EDIT.put("pri", null);
-        ACTION_PARAMS_EDIT.put("begin", null);
-        ACTION_PARAMS_EDIT.put("end", null);
+        ACTION_PARAMS_EDIT.put("begin", "0000-00-00");
+        ACTION_PARAMS_EDIT.put("end", "0000-00-00");
         ACTION_PARAMS_EDIT.put("status", null);
         ACTION_PARAMS_EDIT.put("name", null);
         ACTION_PARAMS_EDIT.put("desc", null);

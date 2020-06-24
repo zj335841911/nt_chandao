@@ -114,7 +114,7 @@ final public class ZTBuildHelper {
         ACTION_PARAMS_CREATE.put("builder", null);
         ACTION_PARAMS_CREATE.put("scmPath", null);
         ACTION_PARAMS_CREATE.put("filePath", null);
-        ACTION_PARAMS_CREATE.put("date", null);
+        ACTION_PARAMS_CREATE.put("date", "0000-00-00");
         ACTION_PARAMS_CREATE.put("desc", null);
 
         // EDIT
@@ -124,7 +124,7 @@ final public class ZTBuildHelper {
         ACTION_PARAMS_EDIT.put("builder", null);
         ACTION_PARAMS_EDIT.put("scmPath", null);
         ACTION_PARAMS_EDIT.put("filePath", null);
-        ACTION_PARAMS_EDIT.put("date", null);
+        ACTION_PARAMS_EDIT.put("date", "0000-00-00");
         ACTION_PARAMS_EDIT.put("desc", null);
 
     }
