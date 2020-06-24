@@ -30,6 +30,25 @@ public class BranchServiceEx extends BranchServiceImpl {
     public Branch sort(Branch et) {
         return super.sort(et);
     }
+
+    /**
+     * 查询集合 [CurProduct] 用户扩展，附加默认数据
+     */
+    @Override
+    public Page<Branch> searchCurProduct(BranchSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Branch> pages=baseMapper.searchCurProduct(context.getPages(),context,context.getSelectCond());
+        Branch defaultbranch =  new Branch();
+        defaultbranch.setId(BigInteger.ZERO);
+        defaultbranch.setName("所有平台");
+        if(pages.getRecords().size()>0)
+            pages.getRecords().add(0,defaultbranch);
+        else {
+            List<Branch> records = new ArrayList<Branch>();
+            records.add(defaultbranch);
+            pages.setRecords(records);
+        }
+        return new PageImpl<Branch>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
 }
 
 
