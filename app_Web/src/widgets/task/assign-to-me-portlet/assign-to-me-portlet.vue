@@ -9,7 +9,7 @@ import { AssignToMePortletBase } from './assign-to-me-portlet-base';
  * db_assignedtometaskportlet部件
  *
  * @export
- * @class AssignToMe
+ * @class AssignToMePortlet
  * @extends {AssignToMePortletBase}
  */
 @Component({

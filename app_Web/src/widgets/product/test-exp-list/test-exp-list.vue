@@ -9,7 +9,7 @@ import { TestExpListBase } from './test-exp-list-base';
  * listexpbar_list部件
  *
  * @export
- * @class TestExp
+ * @class TestExpList
  * @extends {TestExpListBase}
  */
 @Component({

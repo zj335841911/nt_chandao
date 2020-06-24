@@ -9,7 +9,7 @@ import { TextExpViewPortletBase } from './text-exp-view-portlet-base';
  * db_sysportlet2部件
  *
  * @export
- * @class TextExpView
+ * @class TextExpViewPortlet
  * @extends {TextExpViewPortletBase}
  */
 @Component({

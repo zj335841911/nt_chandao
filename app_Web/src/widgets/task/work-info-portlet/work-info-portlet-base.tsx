@@ -19,7 +19,7 @@ export class WorkInfoPortletBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {WorkInfoService}
-     * @memberof WorkInfo
+     * @memberof WorkInfoPortletBase
      */
     public service: WorkInfoService = new WorkInfoService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class WorkInfoPortletBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {TaskService}
-     * @memberof WorkInfo
+     * @memberof WorkInfoPortletBase
      */
     public appEntityService: TaskService = new TaskService({ $store: this.$store });
 

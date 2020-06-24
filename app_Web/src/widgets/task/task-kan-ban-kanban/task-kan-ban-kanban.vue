@@ -10,7 +10,7 @@ import layout_itemlayoutpanel from '@widgets/task/task-kan-ban-panel/task-kan-ba
  * kanban部件
  *
  * @export
- * @class TaskKanBan
+ * @class TaskKanBanKanban
  * @extends {TaskKanBanKanbanBase}
  */
 @Component({

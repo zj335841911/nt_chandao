@@ -9,7 +9,7 @@ import { BatchNewGridBase } from './batch-new-grid-base';
  * grid部件
  *
  * @export
- * @class BatchNew
+ * @class BatchNewGrid
  * @extends {BatchNewGridBase}
  */
 @Component({

@@ -13,7 +13,7 @@ import view_dashboard_sysportlet1 from '@widgets/product-life/get-roadmap-portle
  * dashboard部件
  *
  * @export
- * @class Main
+ * @class MainDashboard
  * @extends {MainDashboardBase}
  */
 @Component({

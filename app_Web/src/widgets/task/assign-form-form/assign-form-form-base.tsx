@@ -20,7 +20,7 @@ export class AssignFormEditFormBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {AssignFormService}
-     * @memberof AssignForm
+     * @memberof AssignFormEditFormBase
      */
     public service: AssignFormService = new AssignFormService({ $store: this.$store });
 
@@ -28,7 +28,7 @@ export class AssignFormEditFormBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {TaskService}
-     * @memberof AssignForm
+     * @memberof AssignFormEditFormBase
      */
     public appEntityService: TaskService = new TaskService({ $store: this.$store });
 

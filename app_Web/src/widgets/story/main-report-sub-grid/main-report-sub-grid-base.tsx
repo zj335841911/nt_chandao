@@ -20,7 +20,7 @@ export class Main_ReportSubGridBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {Main_ReportSubService}
-     * @memberof Main_ReportSub
+     * @memberof Main_ReportSubGridBase
      */
     public service: Main_ReportSubService = new Main_ReportSubService({ $store: this.$store });
 
@@ -28,7 +28,7 @@ export class Main_ReportSubGridBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {StoryService}
-     * @memberof Main_ReportSub
+     * @memberof Main_ReportSubGridBase
      */
     public appEntityService: StoryService = new StoryService({ $store: this.$store });
 

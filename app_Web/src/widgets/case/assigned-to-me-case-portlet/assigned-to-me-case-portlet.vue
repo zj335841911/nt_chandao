@@ -9,7 +9,7 @@ import { AssignedToMeCasePortletBase } from './assigned-to-me-case-portlet-base'
  * db_assigntomecaseportlet1部件
  *
  * @export
- * @class AssignedToMeCase
+ * @class AssignedToMeCasePortlet
  * @extends {AssignedToMeCasePortletBase}
  */
 @Component({

@@ -19,7 +19,7 @@ export class ActionHistoryListPortletBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {ActionHistoryListService}
-     * @memberof ActionHistoryList
+     * @memberof ActionHistoryListPortletBase
      */
     public service: ActionHistoryListService = new ActionHistoryListService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class ActionHistoryListPortletBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {BugService}
-     * @memberof ActionHistoryList
+     * @memberof ActionHistoryListPortletBase
      */
     public appEntityService: BugService = new BugService({ $store: this.$store });
 

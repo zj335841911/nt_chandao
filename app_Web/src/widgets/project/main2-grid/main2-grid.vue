@@ -9,7 +9,7 @@ import { Main2GridBase } from './main2-grid-base';
  * grid部件
  *
  * @export
- * @class Main2
+ * @class Main2Grid
  * @extends {Main2GridBase}
  */
 @Component({

@@ -18,7 +18,7 @@ export class DEFAULTListBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {DEFAULTService}
-     * @memberof DEFAULT
+     * @memberof DEFAULTListBase
      */
     public service: DEFAULTService = new DEFAULTService({ $store: this.$store });
 
@@ -26,7 +26,7 @@ export class DEFAULTListBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {HistoryService}
-     * @memberof DEFAULT
+     * @memberof DEFAULTListBase
      */
     public appEntityService: HistoryService = new HistoryService({ $store: this.$store });
 

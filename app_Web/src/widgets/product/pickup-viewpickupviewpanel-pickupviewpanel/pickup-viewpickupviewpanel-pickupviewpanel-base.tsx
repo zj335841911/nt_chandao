@@ -19,7 +19,7 @@ export class PickupViewpickupviewpanelPickupviewpanelBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {PickupViewpickupviewpanelService}
-     * @memberof PickupViewpickupviewpanel
+     * @memberof PickupViewpickupviewpanelPickupviewpanelBase
      */
     public service: PickupViewpickupviewpanelService = new PickupViewpickupviewpanelService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class PickupViewpickupviewpanelPickupviewpanelBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ProductService}
-     * @memberof PickupViewpickupviewpanel
+     * @memberof PickupViewpickupviewpanelPickupviewpanelBase
      */
     public appEntityService: ProductService = new ProductService({ $store: this.$store });
 

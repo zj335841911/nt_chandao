@@ -19,7 +19,7 @@ export class AssignedToMeCasePortletBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {AssignedToMeCaseService}
-     * @memberof AssignedToMeCase
+     * @memberof AssignedToMeCasePortletBase
      */
     public service: AssignedToMeCaseService = new AssignedToMeCaseService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class AssignedToMeCasePortletBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {CaseService}
-     * @memberof AssignedToMeCase
+     * @memberof AssignedToMeCasePortletBase
      */
     public appEntityService: CaseService = new CaseService({ $store: this.$store });
 

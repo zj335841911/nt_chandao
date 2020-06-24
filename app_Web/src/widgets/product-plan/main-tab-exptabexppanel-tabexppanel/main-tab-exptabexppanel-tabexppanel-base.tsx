@@ -18,7 +18,7 @@ export class MainTabExptabexppanelTabexppanelBase extends TabExpPanel {
      * 建构部件服务对象
      *
      * @type {MainTabExptabexppanelService}
-     * @memberof MainTabExptabexppanel
+     * @memberof MainTabExptabexppanelTabexppanelBase
      */
     public service: MainTabExptabexppanelService = new MainTabExptabexppanelService({ $store: this.$store });
 
@@ -26,7 +26,7 @@ export class MainTabExptabexppanelTabexppanelBase extends TabExpPanel {
      * 实体服务对象
      *
      * @type {ProductPlanService}
-     * @memberof MainTabExptabexppanel
+     * @memberof MainTabExptabexppanelTabexppanelBase
      */
     public appEntityService: ProductPlanService = new ProductPlanService({ $store: this.$store });
     /**

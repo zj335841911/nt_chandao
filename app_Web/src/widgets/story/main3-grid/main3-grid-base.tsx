@@ -21,7 +21,7 @@ export class Main3GridBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {Main3Service}
-     * @memberof Main3
+     * @memberof Main3GridBase
      */
     public service: Main3Service = new Main3Service({ $store: this.$store });
 
@@ -29,7 +29,7 @@ export class Main3GridBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {StoryService}
-     * @memberof Main3
+     * @memberof Main3GridBase
      */
     public appEntityService: StoryService = new StoryService({ $store: this.$store });
 

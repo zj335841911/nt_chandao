@@ -9,7 +9,7 @@ import { UnClosedProductPortletBase } from './un-closed-product-portlet-base';
  * db_productunclosedportlet部件
  *
  * @export
- * @class UnClosedProduct
+ * @class UnClosedProductPortlet
  * @extends {UnClosedProductPortletBase}
  */
 @Component({

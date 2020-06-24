@@ -9,7 +9,7 @@ import { MainToolbarPortletBase } from './main-toolbar-portlet-base';
  * dashboard_sysportlet3部件
  *
  * @export
- * @class MainToolbar
+ * @class MainToolbarPortlet
  * @extends {MainToolbarPortletBase}
  */
 @Component({

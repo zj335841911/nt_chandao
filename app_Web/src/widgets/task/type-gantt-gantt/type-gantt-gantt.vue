@@ -10,7 +10,7 @@ import GanttElastic from "ibiz-gantt-elastic/src/GanttElastic.vue";
  * gantt部件
  *
  * @export
- * @class TypeGantt
+ * @class TypeGanttGantt
  * @extends {TypeGanttGanttBase}
  */
 @Component({

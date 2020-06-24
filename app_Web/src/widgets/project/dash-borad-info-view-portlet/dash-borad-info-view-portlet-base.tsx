@@ -19,7 +19,7 @@ export class DashBoradInfoViewPortletBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {DashBoradInfoViewService}
-     * @memberof DashBoradInfoView
+     * @memberof DashBoradInfoViewPortletBase
      */
     public service: DashBoradInfoViewService = new DashBoradInfoViewService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class DashBoradInfoViewPortletBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ProjectService}
-     * @memberof DashBoradInfoView
+     * @memberof DashBoradInfoViewPortletBase
      */
     public appEntityService: ProjectService = new ProjectService({ $store: this.$store });
 

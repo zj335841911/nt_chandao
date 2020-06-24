@@ -18,7 +18,7 @@ export class ExpListBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {ExpService}
-     * @memberof Exp
+     * @memberof ExpListBase
      */
     public service: ExpService = new ExpService({ $store: this.$store });
 
@@ -26,7 +26,7 @@ export class ExpListBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ProductService}
-     * @memberof Exp
+     * @memberof ExpListBase
      */
     public appEntityService: ProductService = new ProductService({ $store: this.$store });
 
@@ -35,7 +35,7 @@ export class ExpListBase extends CtrlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof Exp
+     * @memberof ExpListBase
      */
     public listexpbar_list_quicktoolbar_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {

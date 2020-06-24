@@ -18,7 +18,7 @@ export class ExpTreeBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {ExpService}
-     * @memberof Exp
+     * @memberof ExpTreeBase
      */
     public service: ExpService = new ExpService({ $store: this.$store });
 
@@ -26,7 +26,7 @@ export class ExpTreeBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ProductModuleService}
-     * @memberof Exp
+     * @memberof ExpTreeBase
      */
     public appEntityService: ProductModuleService = new ProductModuleService({ $store: this.$store });
 
@@ -35,7 +35,7 @@ export class ExpTreeBase extends CtrlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof Exp
+     * @memberof ExpTreeBase
      */
     public branchs_cm_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {
@@ -48,7 +48,7 @@ export class ExpTreeBase extends CtrlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof Exp
+     * @memberof ExpTreeBase
      */
     public all_cm_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {
@@ -61,7 +61,7 @@ export class ExpTreeBase extends CtrlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof Exp
+     * @memberof ExpTreeBase
      */
     public module_cm_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {
@@ -74,7 +74,7 @@ export class ExpTreeBase extends CtrlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof Exp
+     * @memberof ExpTreeBase
      */
     public rootmodule_cm_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {
@@ -87,7 +87,7 @@ export class ExpTreeBase extends CtrlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof Exp
+     * @memberof ExpTreeBase
      */
     public root_nobranch_cm_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {
@@ -100,7 +100,7 @@ export class ExpTreeBase extends CtrlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof Exp
+     * @memberof ExpTreeBase
      */
     public branch_cm_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {

@@ -22,7 +22,7 @@ export class ProjectStatusBarChartBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {ProjectStatusBarService}
-     * @memberof ProjectStatusBar
+     * @memberof ProjectStatusBarChartBase
      */
     public service: ProjectStatusBarService = new ProjectStatusBarService({ $store: this.$store });
 
@@ -30,7 +30,7 @@ export class ProjectStatusBarChartBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ProjectService}
-     * @memberof ProjectStatusBar
+     * @memberof ProjectStatusBarChartBase
      */
     public appEntityService: ProjectService = new ProjectService({ $store: this.$store });
 

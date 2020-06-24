@@ -9,7 +9,7 @@ import { PickupViewpickupviewpanelPickupviewpanelBase } from './pickup-viewpicku
  * pickupviewpanel部件
  *
  * @export
- * @class PickupViewpickupviewpanel
+ * @class PickupViewpickupviewpanelPickupviewpanel
  * @extends {PickupViewpickupviewpanelPickupviewpanelBase}
  */
 @Component({

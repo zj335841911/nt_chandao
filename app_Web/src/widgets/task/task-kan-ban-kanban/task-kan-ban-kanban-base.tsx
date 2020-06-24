@@ -18,7 +18,7 @@ export class TaskKanBanKanbanBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {TaskKanBanService}
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanKanbanBase
      */
     public service: TaskKanBanService = new TaskKanBanService({ $store: this.$store });
 
@@ -26,7 +26,7 @@ export class TaskKanBanKanbanBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {TaskService}
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanKanbanBase
      */
     public appEntityService: TaskService = new TaskService({ $store: this.$store });
 

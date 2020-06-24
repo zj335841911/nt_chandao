@@ -10,7 +10,7 @@ import view_treeexpbar_tree from '@widgets/product-module/bug-exp-treeview/bug-e
  * treeexpbar部件
  *
  * @export
- * @class BugTreeExpViewtreeexpbar
+ * @class BugTreeExpViewtreeexpbarTreeExpBar
  * @extends {BugTreeExpViewtreeexpbarTreeExpBarBase}
  */
 @Component({

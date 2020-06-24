@@ -9,7 +9,7 @@ import { AssignedToMeStoryPortletBase } from './assigned-to-me-story-portlet-bas
  * db_assignedtomestoryportlet部件
  *
  * @export
- * @class AssignedToMeStory
+ * @class AssignedToMeStoryPortlet
  * @extends {AssignedToMeStoryPortletBase}
  */
 @Component({

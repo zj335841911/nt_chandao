@@ -20,7 +20,7 @@ export class DashboardMainEditEditFormBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {DashboardMainEditService}
-     * @memberof DashboardMainEdit
+     * @memberof DashboardMainEditEditFormBase
      */
     public service: DashboardMainEditService = new DashboardMainEditService({ $store: this.$store });
 
@@ -28,7 +28,7 @@ export class DashboardMainEditEditFormBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {BugService}
-     * @memberof DashboardMainEdit
+     * @memberof DashboardMainEditEditFormBase
      */
     public appEntityService: BugService = new BugService({ $store: this.$store });
 

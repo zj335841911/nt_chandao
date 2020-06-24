@@ -19,7 +19,7 @@ export class MainDashboardBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {MainService}
-     * @memberof Main
+     * @memberof MainDashboardBase
      */
     public service: MainService = new MainService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class MainDashboardBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ProjectService}
-     * @memberof Main
+     * @memberof MainDashboardBase
      */
     public appEntityService: ProjectService = new ProjectService({ $store: this.$store });
     /**

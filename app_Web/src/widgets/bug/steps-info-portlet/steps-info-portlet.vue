@@ -9,7 +9,7 @@ import { StepsInfoPortletBase } from './steps-info-portlet-base';
  * dashboard_sysportlet1部件
  *
  * @export
- * @class StepsInfo
+ * @class StepsInfoPortlet
  * @extends {StepsInfoPortletBase}
  */
 @Component({

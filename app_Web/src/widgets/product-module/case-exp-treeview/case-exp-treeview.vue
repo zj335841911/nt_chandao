@@ -9,7 +9,7 @@ import { CaseExpTreeBase } from './case-exp-treeview-base';
  * treeexpbar_tree部件
  *
  * @export
- * @class CaseExp
+ * @class CaseExpTree
  * @extends {CaseExpTreeBase}
  */
 @Component({

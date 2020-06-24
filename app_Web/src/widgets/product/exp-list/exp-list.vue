@@ -9,7 +9,7 @@ import { ExpListBase } from './exp-list-base';
  * listexpbar_list部件
  *
  * @export
- * @class Exp
+ * @class ExpList
  * @extends {ExpListBase}
  */
 @Component({

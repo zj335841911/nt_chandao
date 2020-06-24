@@ -18,7 +18,7 @@ export class BugExpTreeBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {BugExpService}
-     * @memberof BugExp
+     * @memberof BugExpTreeBase
      */
     public service: BugExpService = new BugExpService({ $store: this.$store });
 
@@ -26,7 +26,7 @@ export class BugExpTreeBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ProductModuleService}
-     * @memberof BugExp
+     * @memberof BugExpTreeBase
      */
     public appEntityService: ProductModuleService = new ProductModuleService({ $store: this.$store });
     /**

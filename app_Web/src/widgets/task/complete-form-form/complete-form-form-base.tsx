@@ -20,7 +20,7 @@ export class CompleteFormEditFormBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {CompleteFormService}
-     * @memberof CompleteForm
+     * @memberof CompleteFormEditFormBase
      */
     public service: CompleteFormService = new CompleteFormService({ $store: this.$store });
 
@@ -28,7 +28,7 @@ export class CompleteFormEditFormBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {TaskService}
-     * @memberof CompleteForm
+     * @memberof CompleteFormEditFormBase
      */
     public appEntityService: TaskService = new TaskService({ $store: this.$store });
 

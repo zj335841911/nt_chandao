@@ -9,7 +9,7 @@ import { MainDetailPortletBase } from './main-detail-portlet-base';
  * dashboard_sysportlet2部件
  *
  * @export
- * @class MainDetail
+ * @class MainDetailPortlet
  * @extends {MainDetailPortletBase}
  */
 @Component({

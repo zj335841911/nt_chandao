@@ -9,7 +9,7 @@ import { PlatformManagementEditFormBase } from './platform-management-form-base'
  * form部件
  *
  * @export
- * @class PlatformManagement
+ * @class PlatformManagementEditForm
  * @extends {PlatformManagementEditFormBase}
  */
 @Component({

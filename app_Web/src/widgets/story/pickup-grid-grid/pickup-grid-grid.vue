@@ -9,7 +9,7 @@ import { PickupGridGridBase } from './pickup-grid-grid-base';
  * grid部件
  *
  * @export
- * @class PickupGrid
+ * @class PickupGridGrid
  * @extends {PickupGridGridBase}
  */
 @Component({

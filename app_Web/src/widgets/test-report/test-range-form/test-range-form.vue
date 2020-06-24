@@ -9,7 +9,7 @@ import { TestRangeEditFormBase } from './test-range-form-base';
  * form部件
  *
  * @export
- * @class TestRange
+ * @class TestRangeEditForm
  * @extends {TestRangeEditFormBase}
  */
 @Component({

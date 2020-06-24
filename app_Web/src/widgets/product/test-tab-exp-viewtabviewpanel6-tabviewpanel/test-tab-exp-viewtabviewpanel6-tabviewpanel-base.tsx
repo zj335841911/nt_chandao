@@ -18,7 +18,7 @@ export class TestTabExpViewtabviewpanel6TabviewpanelBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {TestTabExpViewtabviewpanel6Service}
-     * @memberof TestTabExpViewtabviewpanel6
+     * @memberof TestTabExpViewtabviewpanel6TabviewpanelBase
      */
     public service: TestTabExpViewtabviewpanel6Service = new TestTabExpViewtabviewpanel6Service({ $store: this.$store });
 
@@ -26,7 +26,7 @@ export class TestTabExpViewtabviewpanel6TabviewpanelBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ProductService}
-     * @memberof TestTabExpViewtabviewpanel6
+     * @memberof TestTabExpViewtabviewpanel6TabviewpanelBase
      */
     public appEntityService: ProductService = new ProductService({ $store: this.$store });
 

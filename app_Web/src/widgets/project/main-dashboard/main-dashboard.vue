@@ -13,7 +13,7 @@ import view_dashboard_sysportlet1 from '@widgets/burn/burn-down-chart-portlet/bu
  * dashboard部件
  *
  * @export
- * @class Main
+ * @class MainDashboard
  * @extends {MainDashboardBase}
  */
 @Component({

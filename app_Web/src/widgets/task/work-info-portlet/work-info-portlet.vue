@@ -9,7 +9,7 @@ import { WorkInfoPortletBase } from './work-info-portlet-base';
  * dashboard_sysportlet5部件
  *
  * @export
- * @class WorkInfo
+ * @class WorkInfoPortlet
  * @extends {WorkInfoPortletBase}
  */
 @Component({

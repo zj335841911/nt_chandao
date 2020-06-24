@@ -18,7 +18,7 @@ export class TestTabExpViewtabexppanelTabexppanelBase extends TabExpPanel {
      * 建构部件服务对象
      *
      * @type {TestTabExpViewtabexppanelService}
-     * @memberof TestTabExpViewtabexppanel
+     * @memberof TestTabExpViewtabexppanelTabexppanelBase
      */
     public service: TestTabExpViewtabexppanelService = new TestTabExpViewtabexppanelService({ $store: this.$store });
 
@@ -26,7 +26,7 @@ export class TestTabExpViewtabexppanelTabexppanelBase extends TabExpPanel {
      * 实体服务对象
      *
      * @type {ProductService}
-     * @memberof TestTabExpViewtabexppanel
+     * @memberof TestTabExpViewtabexppanelTabexppanelBase
      */
     public appEntityService: ProductService = new ProductService({ $store: this.$store });
     /**

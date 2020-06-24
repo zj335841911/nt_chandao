@@ -9,7 +9,7 @@ import { StorySpec_EditModeEditFormBase } from './story-spec-edit-mode-form-base
  * form部件
  *
  * @export
- * @class StorySpec_EditMode
+ * @class StorySpec_EditModeEditForm
  * @extends {StorySpec_EditModeEditFormBase}
  */
 @Component({

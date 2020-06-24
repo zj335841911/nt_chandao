@@ -20,7 +20,7 @@ export class PivotTableGridBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {PivotTableService}
-     * @memberof PivotTable
+     * @memberof PivotTableGridBase
      */
     public service: PivotTableService = new PivotTableService({ $store: this.$store });
 
@@ -28,7 +28,7 @@ export class PivotTableGridBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {TaskService}
-     * @memberof PivotTable
+     * @memberof PivotTableGridBase
      */
     public appEntityService: TaskService = new TaskService({ $store: this.$store });
 

@@ -20,7 +20,7 @@ export class Main_EditModeEditFormBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {Main_EditModeService}
-     * @memberof Main_EditMode
+     * @memberof Main_EditModeEditFormBase
      */
     public service: Main_EditModeService = new Main_EditModeService({ $store: this.$store });
 
@@ -28,7 +28,7 @@ export class Main_EditModeEditFormBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {StoryService}
-     * @memberof Main_EditMode
+     * @memberof Main_EditModeEditFormBase
      */
     public appEntityService: StoryService = new StoryService({ $store: this.$store });
 

@@ -18,7 +18,7 @@ export class ProductPortalView_dbDashboardBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {ProductPortalView_dbService}
-     * @memberof ProductPortalView_db
+     * @memberof ProductPortalView_dbDashboardBase
      */
     public service: ProductPortalView_dbService = new ProductPortalView_dbService({ $store: this.$store });
     /**

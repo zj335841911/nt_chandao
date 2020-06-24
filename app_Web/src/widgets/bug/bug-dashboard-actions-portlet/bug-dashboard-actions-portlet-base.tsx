@@ -20,7 +20,7 @@ export class BugDashboardActionsPortletBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {BugDashboardActionsService}
-     * @memberof BugDashboardActions
+     * @memberof BugDashboardActionsPortletBase
      */
     public service: BugDashboardActionsService = new BugDashboardActionsService({ $store: this.$store });
 
@@ -28,7 +28,7 @@ export class BugDashboardActionsPortletBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {BugService}
-     * @memberof BugDashboardActions
+     * @memberof BugDashboardActionsPortletBase
      */
     public appEntityService: BugService = new BugService({ $store: this.$store });
 

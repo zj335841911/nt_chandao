@@ -20,7 +20,7 @@ export class PlatformManagementGridBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {PlatformManagementService}
-     * @memberof PlatformManagement
+     * @memberof PlatformManagementGridBase
      */
     public service: PlatformManagementService = new PlatformManagementService({ $store: this.$store });
 
@@ -28,7 +28,7 @@ export class PlatformManagementGridBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {BranchService}
-     * @memberof PlatformManagement
+     * @memberof PlatformManagementGridBase
      */
     public appEntityService: BranchService = new BranchService({ $store: this.$store });
 

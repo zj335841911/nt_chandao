@@ -12,7 +12,7 @@ import view_dashboard_sysportlet1 from '@widgets/story/storyspec-portlet/storysp
  * dashboard部件
  *
  * @export
- * @class MainPanel_EditMode
+ * @class MainPanel_EditModeDashboard
  * @extends {MainPanel_EditModeDashboardBase}
  */
 @Component({

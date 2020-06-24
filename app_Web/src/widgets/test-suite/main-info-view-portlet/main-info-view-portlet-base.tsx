@@ -19,7 +19,7 @@ export class MainInfoViewPortletBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {MainInfoViewService}
-     * @memberof MainInfoView
+     * @memberof MainInfoViewPortletBase
      */
     public service: MainInfoViewService = new MainInfoViewService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class MainInfoViewPortletBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {TestSuiteService}
-     * @memberof MainInfoView
+     * @memberof MainInfoViewPortletBase
      */
     public appEntityService: TestSuiteService = new TestSuiteService({ $store: this.$store });
 

@@ -19,7 +19,7 @@ export class ActionBarPortletBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {ActionBarService}
-     * @memberof ActionBar
+     * @memberof ActionBarPortletBase
      */
     public service: ActionBarService = new ActionBarService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class ActionBarPortletBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {TestTaskService}
-     * @memberof ActionBar
+     * @memberof ActionBarPortletBase
      */
     public appEntityService: TestTaskService = new TestTaskService({ $store: this.$store });
 

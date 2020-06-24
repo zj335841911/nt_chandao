@@ -10,7 +10,7 @@ import view_listexpbar_list from '@widgets/product/exp-list/exp-list.vue';
  * listexpbar部件
  *
  * @export
- * @class ListExpViewlistexpbar
+ * @class ListExpViewlistexpbarListexpbar
  * @extends {ListExpViewlistexpbarListexpbarBase}
  */
 @Component({

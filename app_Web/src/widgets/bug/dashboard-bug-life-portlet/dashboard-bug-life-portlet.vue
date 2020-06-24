@@ -9,7 +9,7 @@ import { DashboardBugLifePortletBase } from './dashboard-bug-life-portlet-base';
  * dashboard_sysportlet4部件
  *
  * @export
- * @class DashboardBugLife
+ * @class DashboardBugLifePortlet
  * @extends {DashboardBugLifePortletBase}
  */
 @Component({

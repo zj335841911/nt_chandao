@@ -18,7 +18,7 @@ export class StoryTreeExpViewtreeexpbarTreeExpBarBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {StoryTreeExpViewtreeexpbarService}
-     * @memberof StoryTreeExpViewtreeexpbar
+     * @memberof StoryTreeExpViewtreeexpbarTreeExpBarBase
      */
     public service: StoryTreeExpViewtreeexpbarService = new StoryTreeExpViewtreeexpbarService({ $store: this.$store });
 
@@ -26,7 +26,7 @@ export class StoryTreeExpViewtreeexpbarTreeExpBarBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ProductService}
-     * @memberof StoryTreeExpViewtreeexpbar
+     * @memberof StoryTreeExpViewtreeexpbarTreeExpBarBase
      */
     public appEntityService: ProductService = new ProductService({ $store: this.$store });
 
@@ -35,7 +35,7 @@ export class StoryTreeExpViewtreeexpbarTreeExpBarBase extends CtrlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof StoryTreeExpViewtreeexpbar
+     * @memberof StoryTreeExpViewtreeexpbarTreeExpBarBase
      */
     public treeexpbar_tree_selectionchange($event: any, $event2?: any) {
         this.treeexpbar_selectionchange($event, 'treeexpbar_tree', $event2);
@@ -46,7 +46,7 @@ export class StoryTreeExpViewtreeexpbarTreeExpBarBase extends CtrlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof StoryTreeExpViewtreeexpbar
+     * @memberof StoryTreeExpViewtreeexpbarTreeExpBarBase
      */
     public treeexpbar_tree_load($event: any, $event2?: any) {
         this.treeexpbar_load($event, 'treeexpbar_tree', $event2);

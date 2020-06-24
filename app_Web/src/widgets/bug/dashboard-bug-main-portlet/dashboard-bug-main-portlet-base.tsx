@@ -19,7 +19,7 @@ export class DashboardBugMainPortletBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {DashboardBugMainService}
-     * @memberof DashboardBugMain
+     * @memberof DashboardBugMainPortletBase
      */
     public service: DashboardBugMainService = new DashboardBugMainService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class DashboardBugMainPortletBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {BugService}
-     * @memberof DashboardBugMain
+     * @memberof DashboardBugMainPortletBase
      */
     public appEntityService: BugService = new BugService({ $store: this.$store });
 

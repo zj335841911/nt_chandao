@@ -18,7 +18,7 @@ export class TaskModuleExpTreeBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {TaskModuleExpService}
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpTreeBase
      */
     public service: TaskModuleExpService = new TaskModuleExpService({ $store: this.$store });
 
@@ -26,7 +26,7 @@ export class TaskModuleExpTreeBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ProjectModuleService}
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpTreeBase
      */
     public appEntityService: ProjectModuleService = new ProjectModuleService({ $store: this.$store });
 
@@ -35,7 +35,7 @@ export class TaskModuleExpTreeBase extends CtrlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpTreeBase
      */
     public zt_product_cm_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {
@@ -48,7 +48,7 @@ export class TaskModuleExpTreeBase extends CtrlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpTreeBase
      */
     public branchs_cm_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {
@@ -61,7 +61,7 @@ export class TaskModuleExpTreeBase extends CtrlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpTreeBase
      */
     public all_cm_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {
@@ -74,7 +74,7 @@ export class TaskModuleExpTreeBase extends CtrlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpTreeBase
      */
     public module_cm_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {
@@ -87,7 +87,7 @@ export class TaskModuleExpTreeBase extends CtrlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpTreeBase
      */
     public rootmodule_cm_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {
@@ -100,7 +100,7 @@ export class TaskModuleExpTreeBase extends CtrlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpTreeBase
      */
     public root_nobranch_cm_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {
@@ -113,7 +113,7 @@ export class TaskModuleExpTreeBase extends CtrlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpTreeBase
      */
     public projectmodule_cm_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {

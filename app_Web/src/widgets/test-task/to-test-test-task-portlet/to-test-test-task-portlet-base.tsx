@@ -19,7 +19,7 @@ export class ToTestTestTaskPortletBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {ToTestTestTaskService}
-     * @memberof ToTestTestTask
+     * @memberof ToTestTestTaskPortletBase
      */
     public service: ToTestTestTaskService = new ToTestTestTaskService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class ToTestTestTaskPortletBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {TestTaskService}
-     * @memberof ToTestTestTask
+     * @memberof ToTestTestTaskPortletBase
      */
     public appEntityService: TestTaskService = new TestTaskService({ $store: this.$store });
 

@@ -9,7 +9,7 @@ import { UnClosedProjectPortletBase } from './un-closed-project-portlet-base';
  * db_projectunclosedportlet部件
  *
  * @export
- * @class UnClosedProject
+ * @class UnClosedProjectPortlet
  * @extends {UnClosedProjectPortletBase}
  */
 @Component({

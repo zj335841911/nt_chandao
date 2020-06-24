@@ -20,7 +20,7 @@ export class MainDetailEditFormBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {MainDetailService}
-     * @memberof MainDetail
+     * @memberof MainDetailEditFormBase
      */
     public service: MainDetailService = new MainDetailService({ $store: this.$store });
 
@@ -28,7 +28,7 @@ export class MainDetailEditFormBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {CaseService}
-     * @memberof MainDetail
+     * @memberof MainDetailEditFormBase
      */
     public appEntityService: CaseService = new CaseService({ $store: this.$store });
 

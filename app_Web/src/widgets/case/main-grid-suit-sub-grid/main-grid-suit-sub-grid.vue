@@ -9,7 +9,7 @@ import { MainGrid_SuitSubGridBase } from './main-grid-suit-sub-grid-base';
  * grid部件
  *
  * @export
- * @class MainGrid_SuitSub
+ * @class MainGrid_SuitSubGrid
  * @extends {MainGrid_SuitSubGridBase}
  */
 @Component({

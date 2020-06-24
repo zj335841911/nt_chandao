@@ -9,7 +9,7 @@ import { ConfirmEditFormBase } from './confirm-form-base';
  * form部件
  *
  * @export
- * @class Confirm
+ * @class ConfirmEditForm
  * @extends {ConfirmEditFormBase}
  */
 @Component({

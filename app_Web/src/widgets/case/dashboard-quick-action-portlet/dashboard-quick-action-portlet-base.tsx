@@ -20,7 +20,7 @@ export class DashboardQuickActionPortletBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {DashboardQuickActionService}
-     * @memberof DashboardQuickAction
+     * @memberof DashboardQuickActionPortletBase
      */
     public service: DashboardQuickActionService = new DashboardQuickActionService({ $store: this.$store });
 
@@ -28,7 +28,7 @@ export class DashboardQuickActionPortletBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {CaseService}
-     * @memberof DashboardQuickAction
+     * @memberof DashboardQuickActionPortletBase
      */
     public appEntityService: CaseService = new CaseService({ $store: this.$store });
 

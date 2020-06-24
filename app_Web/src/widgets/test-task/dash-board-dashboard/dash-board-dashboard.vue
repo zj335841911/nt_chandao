@@ -13,7 +13,7 @@ import view_dashboard_sysportlet1 from '@widgets/test-task/main-detail-portlet/m
  * dashboard部件
  *
  * @export
- * @class Dashboard
+ * @class DashboardDashboard
  * @extends {DashboardDashboardBase}
  */
 @Component({

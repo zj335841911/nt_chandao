@@ -19,7 +19,7 @@ export class CurSuitCaseGridViewPortletBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {CurSuitCaseGridViewService}
-     * @memberof CurSuitCaseGridView
+     * @memberof CurSuitCaseGridViewPortletBase
      */
     public service: CurSuitCaseGridViewService = new CurSuitCaseGridViewService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class CurSuitCaseGridViewPortletBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {TestSuiteService}
-     * @memberof CurSuitCaseGridView
+     * @memberof CurSuitCaseGridViewPortletBase
      */
     public appEntityService: TestSuiteService = new TestSuiteService({ $store: this.$store });
 

@@ -9,7 +9,7 @@ import { ProductStatusChartBase } from './product-status-chart-base';
  * db_productstatusportlet_chart部件
  *
  * @export
- * @class ProductStatus
+ * @class ProductStatusChart
  * @extends {ProductStatusChartBase}
  */
 @Component({

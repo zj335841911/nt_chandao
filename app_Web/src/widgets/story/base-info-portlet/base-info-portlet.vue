@@ -9,7 +9,7 @@ import { BaseInfoPortletBase } from './base-info-portlet-base';
  * dashboard_sysportlet2部件
  *
  * @export
- * @class BaseInfo
+ * @class BaseInfoPortlet
  * @extends {BaseInfoPortletBase}
  */
 @Component({

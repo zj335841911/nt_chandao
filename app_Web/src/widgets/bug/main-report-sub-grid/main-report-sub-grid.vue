@@ -9,7 +9,7 @@ import { Main_ReportSubGridBase } from './main-report-sub-grid-base';
  * grid部件
  *
  * @export
- * @class Main_ReportSub
+ * @class Main_ReportSubGrid
  * @extends {Main_ReportSubGridBase}
  */
 @Component({

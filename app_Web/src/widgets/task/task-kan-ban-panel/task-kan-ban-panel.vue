@@ -9,7 +9,7 @@ import { TaskKanBanPanelBase } from './task-kan-ban-panel-base';
  * itemlayoutpanel部件
  *
  * @export
- * @class TaskKanBan
+ * @class TaskKanBanPanel
  * @extends {TaskKanBanPanelBase}
  */
 @Component({

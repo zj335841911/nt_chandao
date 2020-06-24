@@ -9,7 +9,7 @@ import { MainTabExpViewtabviewpanel10TabviewpanelBase } from './main-tab-exp-vie
  * tabviewpanel10部件
  *
  * @export
- * @class MainTabExpViewtabviewpanel10
+ * @class MainTabExpViewtabviewpanel10Tabviewpanel
  * @extends {MainTabExpViewtabviewpanel10TabviewpanelBase}
  */
 @Component({

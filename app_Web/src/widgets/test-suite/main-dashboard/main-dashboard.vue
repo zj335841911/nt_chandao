@@ -12,7 +12,7 @@ import view_dashboard_sysportlet1 from '@widgets/test-suite/cur-suit-case-grid-v
  * dashboard部件
  *
  * @export
- * @class Main
+ * @class MainDashboard
  * @extends {MainDashboardBase}
  */
 @Component({

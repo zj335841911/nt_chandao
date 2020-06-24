@@ -19,7 +19,7 @@ export class UnClosedProjectPortletBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {UnClosedProjectService}
-     * @memberof UnClosedProject
+     * @memberof UnClosedProjectPortletBase
      */
     public service: UnClosedProjectService = new UnClosedProjectService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class UnClosedProjectPortletBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ProjectService}
-     * @memberof UnClosedProject
+     * @memberof UnClosedProjectPortletBase
      */
     public appEntityService: ProjectService = new ProjectService({ $store: this.$store });
 

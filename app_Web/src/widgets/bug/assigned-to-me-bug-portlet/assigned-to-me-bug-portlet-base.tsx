@@ -19,7 +19,7 @@ export class AssignedToMeBugPortletBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {AssignedToMeBugService}
-     * @memberof AssignedToMeBug
+     * @memberof AssignedToMeBugPortletBase
      */
     public service: AssignedToMeBugService = new AssignedToMeBugService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class AssignedToMeBugPortletBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {BugService}
-     * @memberof AssignedToMeBug
+     * @memberof AssignedToMeBugPortletBase
      */
     public appEntityService: BugService = new BugService({ $store: this.$store });
 

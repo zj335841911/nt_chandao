@@ -9,7 +9,7 @@ import { ResolveEditFormBase } from './resolve-form-base';
  * form部件
  *
  * @export
- * @class Resolve
+ * @class ResolveEditForm
  * @extends {ResolveEditFormBase}
  */
 @Component({

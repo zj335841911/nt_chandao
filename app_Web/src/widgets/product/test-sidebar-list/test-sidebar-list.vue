@@ -9,7 +9,7 @@ import { TestSidebarListBase } from './test-sidebar-list-base';
  * list部件
  *
  * @export
- * @class TestSidebar
+ * @class TestSidebarList
  * @extends {TestSidebarListBase}
  */
 @Component({

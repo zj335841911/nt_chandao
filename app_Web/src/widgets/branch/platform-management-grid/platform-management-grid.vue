@@ -9,7 +9,7 @@ import { PlatformManagementGridBase } from './platform-management-grid-base';
  * grid部件
  *
  * @export
- * @class PlatformManagement
+ * @class PlatformManagementGrid
  * @extends {PlatformManagementGridBase}
  */
 @Component({

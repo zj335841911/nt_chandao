@@ -9,7 +9,7 @@ import { TestGridBase } from './test-grid-base';
  * grid部件
  *
  * @export
- * @class Test
+ * @class TestGrid
  * @extends {TestGridBase}
  */
 @Component({

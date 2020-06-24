@@ -9,7 +9,7 @@ import { PlanListBase } from './plan-list-base';
  * list部件
  *
  * @export
- * @class Plan
+ * @class PlanList
  * @extends {PlanListBase}
  */
 @Component({

@@ -9,7 +9,7 @@ import { StartFormEditFormBase } from './start-form-form-base';
  * form部件
  *
  * @export
- * @class StartForm
+ * @class StartFormEditForm
  * @extends {StartFormEditFormBase}
  */
 @Component({

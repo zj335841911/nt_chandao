@@ -14,7 +14,7 @@ import view_dashboard_sysportlet1 from '@widgets/bug/steps-info-portlet/steps-in
  * dashboard部件
  *
  * @export
- * @class Main
+ * @class MainDashboard
  * @extends {MainDashboardBase}
  */
 @Component({

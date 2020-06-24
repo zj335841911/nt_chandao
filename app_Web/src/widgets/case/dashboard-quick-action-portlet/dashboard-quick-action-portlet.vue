@@ -9,7 +9,7 @@ import { DashboardQuickActionPortletBase } from './dashboard-quick-action-portle
  * dashboard_sysportlet4部件
  *
  * @export
- * @class DashboardQuickAction
+ * @class DashboardQuickActionPortlet
  * @extends {DashboardQuickActionPortletBase}
  */
 @Component({

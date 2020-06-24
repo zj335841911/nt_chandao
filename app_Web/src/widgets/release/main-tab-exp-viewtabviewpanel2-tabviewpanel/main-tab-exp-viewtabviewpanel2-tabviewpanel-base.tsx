@@ -18,7 +18,7 @@ export class MainTabExpViewtabviewpanel2TabviewpanelBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {MainTabExpViewtabviewpanel2Service}
-     * @memberof MainTabExpViewtabviewpanel2
+     * @memberof MainTabExpViewtabviewpanel2TabviewpanelBase
      */
     public service: MainTabExpViewtabviewpanel2Service = new MainTabExpViewtabviewpanel2Service({ $store: this.$store });
 
@@ -26,7 +26,7 @@ export class MainTabExpViewtabviewpanel2TabviewpanelBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ReleaseService}
-     * @memberof MainTabExpViewtabviewpanel2
+     * @memberof MainTabExpViewtabviewpanel2TabviewpanelBase
      */
     public appEntityService: ReleaseService = new ReleaseService({ $store: this.$store });
 

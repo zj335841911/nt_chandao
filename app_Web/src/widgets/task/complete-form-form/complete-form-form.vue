@@ -9,7 +9,7 @@ import { CompleteFormEditFormBase } from './complete-form-form-base';
  * form部件
  *
  * @export
- * @class CompleteForm
+ * @class CompleteFormEditForm
  * @extends {CompleteFormEditFormBase}
  */
 @Component({

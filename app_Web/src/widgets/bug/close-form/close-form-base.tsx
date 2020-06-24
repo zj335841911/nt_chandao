@@ -20,7 +20,7 @@ export class CloseEditFormBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {CloseService}
-     * @memberof Close
+     * @memberof CloseEditFormBase
      */
     public service: CloseService = new CloseService({ $store: this.$store });
 
@@ -28,7 +28,7 @@ export class CloseEditFormBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {BugService}
-     * @memberof Close
+     * @memberof CloseEditFormBase
      */
     public appEntityService: BugService = new BugService({ $store: this.$store });
 

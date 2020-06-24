@@ -9,7 +9,7 @@ import { StoryspecPortletBase } from './storyspec-portlet-base';
  * dashboard_sysportlet1部件
  *
  * @export
- * @class Storyspec
+ * @class StoryspecPortlet
  * @extends {StoryspecPortletBase}
  */
 @Component({

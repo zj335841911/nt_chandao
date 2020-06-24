@@ -18,7 +18,7 @@ export class TaskTreeExpViewtreeexpbarTreeExpBarBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {TaskTreeExpViewtreeexpbarService}
-     * @memberof TaskTreeExpViewtreeexpbar
+     * @memberof TaskTreeExpViewtreeexpbarTreeExpBarBase
      */
     public service: TaskTreeExpViewtreeexpbarService = new TaskTreeExpViewtreeexpbarService({ $store: this.$store });
 
@@ -26,7 +26,7 @@ export class TaskTreeExpViewtreeexpbarTreeExpBarBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ProjectService}
-     * @memberof TaskTreeExpViewtreeexpbar
+     * @memberof TaskTreeExpViewtreeexpbarTreeExpBarBase
      */
     public appEntityService: ProjectService = new ProjectService({ $store: this.$store });
 
@@ -35,7 +35,7 @@ export class TaskTreeExpViewtreeexpbarTreeExpBarBase extends CtrlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TaskTreeExpViewtreeexpbar
+     * @memberof TaskTreeExpViewtreeexpbarTreeExpBarBase
      */
     public treeexpbar_tree_selectionchange($event: any, $event2?: any) {
         this.treeexpbar_selectionchange($event, 'treeexpbar_tree', $event2);
@@ -46,7 +46,7 @@ export class TaskTreeExpViewtreeexpbarTreeExpBarBase extends CtrlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TaskTreeExpViewtreeexpbar
+     * @memberof TaskTreeExpViewtreeexpbarTreeExpBarBase
      */
     public treeexpbar_tree_load($event: any, $event2?: any) {
         this.treeexpbar_load($event, 'treeexpbar_tree', $event2);

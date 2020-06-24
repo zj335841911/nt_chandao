@@ -18,7 +18,7 @@ export class TestSidebarListBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {TestSidebarService}
-     * @memberof TestSidebar
+     * @memberof TestSidebarListBase
      */
     public service: TestSidebarService = new TestSidebarService({ $store: this.$store });
 
@@ -26,7 +26,7 @@ export class TestSidebarListBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ProductService}
-     * @memberof TestSidebar
+     * @memberof TestSidebarListBase
      */
     public appEntityService: ProductService = new ProductService({ $store: this.$store });
 

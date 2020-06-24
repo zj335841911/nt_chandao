@@ -9,7 +9,7 @@ import { MainEditEditFormBase } from './main-edit-form-base';
  * form部件
  *
  * @export
- * @class MainEdit
+ * @class MainEditEditForm
  * @extends {MainEditEditFormBase}
  */
 @Component({

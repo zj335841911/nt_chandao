@@ -10,7 +10,7 @@ import view_listexpbar_list from '@widgets/product/test-exp-list/test-exp-list.v
  * listexpbar部件
  *
  * @export
- * @class TestListExpViewlistexpbar
+ * @class TestListExpViewlistexpbarListexpbar
  * @extends {TestListExpViewlistexpbarListexpbarBase}
  */
 @Component({

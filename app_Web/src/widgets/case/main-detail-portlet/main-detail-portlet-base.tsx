@@ -19,7 +19,7 @@ export class MainDetailPortletBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {MainDetailService}
-     * @memberof MainDetail
+     * @memberof MainDetailPortletBase
      */
     public service: MainDetailService = new MainDetailService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class MainDetailPortletBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {CaseService}
-     * @memberof MainDetail
+     * @memberof MainDetailPortletBase
      */
     public appEntityService: CaseService = new CaseService({ $store: this.$store });
 

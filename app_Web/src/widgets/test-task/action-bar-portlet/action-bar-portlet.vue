@@ -9,7 +9,7 @@ import { ActionBarPortletBase } from './action-bar-portlet-base';
  * dashboard_sysportlet4部件
  *
  * @export
- * @class ActionBar
+ * @class ActionBarPortlet
  * @extends {ActionBarPortletBase}
  */
 @Component({

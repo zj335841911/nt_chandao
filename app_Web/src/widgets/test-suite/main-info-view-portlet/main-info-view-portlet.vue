@@ -9,7 +9,7 @@ import { MainInfoViewPortletBase } from './main-info-view-portlet-base';
  * dashboard_sysportlet2部件
  *
  * @export
- * @class MainInfoView
+ * @class MainInfoViewPortlet
  * @extends {MainInfoViewPortletBase}
  */
 @Component({

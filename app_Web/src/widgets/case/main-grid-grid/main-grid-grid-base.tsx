@@ -21,7 +21,7 @@ export class MainGridGridBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {MainGridService}
-     * @memberof MainGrid
+     * @memberof MainGridGridBase
      */
     public service: MainGridService = new MainGridService({ $store: this.$store });
 
@@ -29,7 +29,7 @@ export class MainGridGridBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {CaseService}
-     * @memberof MainGrid
+     * @memberof MainGridGridBase
      */
     public appEntityService: CaseService = new CaseService({ $store: this.$store });
 

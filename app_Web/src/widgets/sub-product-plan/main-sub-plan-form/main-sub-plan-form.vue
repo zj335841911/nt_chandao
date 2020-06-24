@@ -9,7 +9,7 @@ import { MainSubPlanEditFormBase } from './main-sub-plan-form-base';
  * form部件
  *
  * @export
- * @class MainSubPlan
+ * @class MainSubPlanEditForm
  * @extends {MainSubPlanEditFormBase}
  */
 @Component({

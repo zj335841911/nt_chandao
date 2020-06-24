@@ -10,7 +10,7 @@ import view_db_productstatusportlet_chart from '@widgets/product/product-status-
  * db_productstatusportlet部件
  *
  * @export
- * @class ProductStatusChart
+ * @class ProductStatusChartPortlet
  * @extends {ProductStatusChartPortletBase}
  */
 @Component({

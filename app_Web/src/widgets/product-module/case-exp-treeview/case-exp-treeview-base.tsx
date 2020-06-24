@@ -18,7 +18,7 @@ export class CaseExpTreeBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {CaseExpService}
-     * @memberof CaseExp
+     * @memberof CaseExpTreeBase
      */
     public service: CaseExpService = new CaseExpService({ $store: this.$store });
 
@@ -26,7 +26,7 @@ export class CaseExpTreeBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ProductModuleService}
-     * @memberof CaseExp
+     * @memberof CaseExpTreeBase
      */
     public appEntityService: ProductModuleService = new ProductModuleService({ $store: this.$store });
     /**

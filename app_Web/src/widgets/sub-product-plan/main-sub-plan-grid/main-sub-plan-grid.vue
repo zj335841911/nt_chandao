@@ -9,7 +9,7 @@ import { MainSubPlanGridBase } from './main-sub-plan-grid-base';
  * grid部件
  *
  * @export
- * @class MainSubPlan
+ * @class MainSubPlanGrid
  * @extends {MainSubPlanGridBase}
  */
 @Component({

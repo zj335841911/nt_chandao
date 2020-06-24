@@ -9,7 +9,7 @@ import { DefaultSearchFormBase } from './default-searchform-base';
  * searchform部件
  *
  * @export
- * @class Default
+ * @class DefaultSearchForm
  * @extends {DefaultSearchFormBase}
  */
 @Component({

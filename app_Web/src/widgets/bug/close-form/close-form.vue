@@ -9,7 +9,7 @@ import { CloseEditFormBase } from './close-form-base';
  * form部件
  *
  * @export
- * @class Close
+ * @class CloseEditForm
  * @extends {CloseEditFormBase}
  */
 @Component({

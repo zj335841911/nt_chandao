@@ -9,7 +9,7 @@ import { BugDashboardActionsPortletBase } from './bug-dashboard-actions-portlet-
  * dashboard_sysportlet5部件
  *
  * @export
- * @class BugDashboardActions
+ * @class BugDashboardActionsPortlet
  * @extends {BugDashboardActionsPortletBase}
  */
 @Component({

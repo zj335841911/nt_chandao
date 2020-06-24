@@ -9,7 +9,7 @@ import { ClosePauseCancelFormEditFormBase } from './close-pause-cancel-form-form
  * form部件
  *
  * @export
- * @class ClosePauseCancelForm
+ * @class ClosePauseCancelFormEditForm
  * @extends {ClosePauseCancelFormEditFormBase}
  */
 @Component({

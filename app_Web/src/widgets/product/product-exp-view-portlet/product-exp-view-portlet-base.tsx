@@ -19,7 +19,7 @@ export class ProductExpViewPortletBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {ProductExpViewService}
-     * @memberof ProductExpView
+     * @memberof ProductExpViewPortletBase
      */
     public service: ProductExpViewService = new ProductExpViewService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class ProductExpViewPortletBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ProductService}
-     * @memberof ProductExpView
+     * @memberof ProductExpViewPortletBase
      */
     public appEntityService: ProductService = new ProductService({ $store: this.$store });
 

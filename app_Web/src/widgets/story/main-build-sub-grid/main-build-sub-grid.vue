@@ -9,7 +9,7 @@ import { Main_BuildSubGridBase } from './main-build-sub-grid-base';
  * grid部件
  *
  * @export
- * @class Main_BuildSub
+ * @class Main_BuildSubGrid
  * @extends {Main_BuildSubGridBase}
  */
 @Component({

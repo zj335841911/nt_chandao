@@ -19,7 +19,7 @@ export class GetRoadmapYearListBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {GetRoadmapYearService}
-     * @memberof GetRoadmapYear
+     * @memberof GetRoadmapYearListBase
      */
     public service: GetRoadmapYearService = new GetRoadmapYearService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class GetRoadmapYearListBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ProductLifeService}
-     * @memberof GetRoadmapYear
+     * @memberof GetRoadmapYearListBase
      */
     public appEntityService: ProductLifeService = new ProductLifeService({ $store: this.$store });
 

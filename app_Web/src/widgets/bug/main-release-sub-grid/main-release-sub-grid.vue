@@ -9,7 +9,7 @@ import { Main_ReleaseSubGridBase } from './main-release-sub-grid-base';
  * grid部件
  *
  * @export
- * @class Main_ReleaseSub
+ * @class Main_ReleaseSubGrid
  * @extends {Main_ReleaseSubGridBase}
  */
 @Component({

@@ -9,7 +9,7 @@ import { ProductInfoPortletBase } from './product-info-portlet-base';
  * dashboard_sysportlet3部件
  *
  * @export
- * @class ProductInfo
+ * @class ProductInfoPortlet
  * @extends {ProductInfoPortletBase}
  */
 @Component({

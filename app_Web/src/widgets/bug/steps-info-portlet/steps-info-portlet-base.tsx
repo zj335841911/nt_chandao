@@ -19,7 +19,7 @@ export class StepsInfoPortletBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {StepsInfoService}
-     * @memberof StepsInfo
+     * @memberof StepsInfoPortletBase
      */
     public service: StepsInfoService = new StepsInfoService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class StepsInfoPortletBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {BugService}
-     * @memberof StepsInfo
+     * @memberof StepsInfoPortletBase
      */
     public appEntityService: BugService = new BugService({ $store: this.$store });
 

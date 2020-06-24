@@ -19,7 +19,7 @@ export class ProductTrendsTimelinePortletBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {ProductTrendsTimelineService}
-     * @memberof ProductTrendsTimeline
+     * @memberof ProductTrendsTimelinePortletBase
      */
     public service: ProductTrendsTimelineService = new ProductTrendsTimelineService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class ProductTrendsTimelinePortletBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ActionService}
-     * @memberof ProductTrendsTimeline
+     * @memberof ProductTrendsTimelinePortletBase
      */
     public appEntityService: ActionService = new ActionService({ $store: this.$store });
 

@@ -9,7 +9,7 @@ import { GroupTrendsListBase } from './group-trends-list-base';
  * list部件
  *
  * @export
- * @class GroupTrends
+ * @class GroupTrendsList
  * @extends {GroupTrendsListBase}
  */
 @Component({

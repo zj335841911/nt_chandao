@@ -9,7 +9,7 @@ import { BaseInfo_EditModePortletBase } from './base-info-edit-mode-portlet-base
  * dashboard_sysportlet2部件
  *
  * @export
- * @class BaseInfo_EditMode
+ * @class BaseInfo_EditModePortlet
  * @extends {BaseInfo_EditModePortletBase}
  */
 @Component({

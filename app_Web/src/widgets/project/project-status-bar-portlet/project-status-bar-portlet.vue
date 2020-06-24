@@ -10,7 +10,7 @@ import view_db_projectstatusportlet_chart from '@widgets/project/project-status-
  * db_projectstatusportlet部件
  *
  * @export
- * @class ProjectStatusBar
+ * @class ProjectStatusBarPortlet
  * @extends {ProjectStatusBarPortletBase}
  */
 @Component({

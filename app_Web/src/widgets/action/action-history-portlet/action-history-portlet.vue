@@ -9,7 +9,7 @@ import { ActionHistoryPortletBase } from './action-history-portlet-base';
  * dashboard_sysportlet3部件
  *
  * @export
- * @class ActionHistory
+ * @class ActionHistoryPortlet
  * @extends {ActionHistoryPortletBase}
  */
 @Component({

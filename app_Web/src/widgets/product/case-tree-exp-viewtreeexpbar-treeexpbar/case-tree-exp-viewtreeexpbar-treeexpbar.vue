@@ -10,7 +10,7 @@ import view_treeexpbar_tree from '@widgets/product-module/case-exp-treeview/case
  * treeexpbar部件
  *
  * @export
- * @class CaseTreeExpViewtreeexpbar
+ * @class CaseTreeExpViewtreeexpbarTreeExpBar
  * @extends {CaseTreeExpViewtreeexpbarTreeExpBarBase}
  */
 @Component({

@@ -20,7 +20,7 @@ export class InfoEditFormBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {InfoService}
-     * @memberof Info
+     * @memberof InfoEditFormBase
      */
     public service: InfoService = new InfoService({ $store: this.$store });
 
@@ -28,7 +28,7 @@ export class InfoEditFormBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ProductPlanService}
-     * @memberof Info
+     * @memberof InfoEditFormBase
      */
     public appEntityService: ProductPlanService = new ProductPlanService({ $store: this.$store });
 

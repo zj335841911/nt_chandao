@@ -19,7 +19,7 @@ export class StoryspecPortletBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {StoryspecService}
-     * @memberof Storyspec
+     * @memberof StoryspecPortletBase
      */
     public service: StoryspecService = new StoryspecService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class StoryspecPortletBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {StoryService}
-     * @memberof Storyspec
+     * @memberof StoryspecPortletBase
      */
     public appEntityService: StoryService = new StoryService({ $store: this.$store });
 

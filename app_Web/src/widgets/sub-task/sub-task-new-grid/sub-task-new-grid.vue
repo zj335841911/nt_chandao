@@ -9,7 +9,7 @@ import { SubTaskNewGridBase } from './sub-task-new-grid-base';
  * grid部件
  *
  * @export
- * @class SubTaskNew
+ * @class SubTaskNewGrid
  * @extends {SubTaskNewGridBase}
  */
 @Component({

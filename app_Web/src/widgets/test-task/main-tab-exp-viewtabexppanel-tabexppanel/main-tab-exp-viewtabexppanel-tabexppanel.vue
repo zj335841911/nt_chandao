@@ -11,7 +11,7 @@ import view_tabviewpanel2 from '@widgets/test-task/main-tab-exp-viewtabviewpanel
  * tabexppanel部件
  *
  * @export
- * @class MainTabExpViewtabexppanel
+ * @class MainTabExpViewtabexppanelTabexppanel
  * @extends {MainTabExpViewtabexppanelTabexppanelBase}
  */
 @Component({

@@ -9,7 +9,7 @@ import { ExpTreeBase } from './exp-treeview-base';
  * treeexpbar_tree部件
  *
  * @export
- * @class Exp
+ * @class ExpTree
  * @extends {ExpTreeBase}
  */
 @Component({

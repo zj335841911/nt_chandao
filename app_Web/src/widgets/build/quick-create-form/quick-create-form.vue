@@ -9,7 +9,7 @@ import { QuickCreateEditFormBase } from './quick-create-form-base';
  * form部件
  *
  * @export
- * @class QuickCreate
+ * @class QuickCreateEditForm
  * @extends {QuickCreateEditFormBase}
  */
 @Component({

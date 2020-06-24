@@ -9,7 +9,7 @@ import { ProjectExpViewPortletBase } from './project-exp-view-portlet-base';
  * db_projectexpportlet部件
  *
  * @export
- * @class ProjectExpView
+ * @class ProjectExpViewPortlet
  * @extends {ProjectExpViewPortletBase}
  */
 @Component({

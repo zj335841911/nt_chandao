@@ -20,7 +20,7 @@ export class Main_PlanSubGridBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {Main_PlanSubService}
-     * @memberof Main_PlanSub
+     * @memberof Main_PlanSubGridBase
      */
     public service: Main_PlanSubService = new Main_PlanSubService({ $store: this.$store });
 
@@ -28,7 +28,7 @@ export class Main_PlanSubGridBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {BugService}
-     * @memberof Main_PlanSub
+     * @memberof Main_PlanSubGridBase
      */
     public appEntityService: BugService = new BugService({ $store: this.$store });
 

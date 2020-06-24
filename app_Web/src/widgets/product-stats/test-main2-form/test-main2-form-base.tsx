@@ -20,7 +20,7 @@ export class TestMain2EditFormBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {TestMain2Service}
-     * @memberof TestMain2
+     * @memberof TestMain2EditFormBase
      */
     public service: TestMain2Service = new TestMain2Service({ $store: this.$store });
 
@@ -28,7 +28,7 @@ export class TestMain2EditFormBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ProductStatsService}
-     * @memberof TestMain2
+     * @memberof TestMain2EditFormBase
      */
     public appEntityService: ProductStatsService = new ProductStatsService({ $store: this.$store });
 

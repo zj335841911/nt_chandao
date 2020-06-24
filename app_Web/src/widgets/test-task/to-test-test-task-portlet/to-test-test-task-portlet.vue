@@ -9,7 +9,7 @@ import { ToTestTestTaskPortletBase } from './to-test-test-task-portlet-base';
  * db_sysportlet1部件
  *
  * @export
- * @class ToTestTestTask
+ * @class ToTestTestTaskPortlet
  * @extends {ToTestTestTaskPortletBase}
  */
 @Component({

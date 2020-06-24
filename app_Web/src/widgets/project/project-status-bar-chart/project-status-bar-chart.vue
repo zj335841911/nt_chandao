@@ -9,7 +9,7 @@ import { ProjectStatusBarChartBase } from './project-status-bar-chart-base';
  * db_projectstatusportlet_chart部件
  *
  * @export
- * @class ProjectStatusBar
+ * @class ProjectStatusBarChart
  * @extends {ProjectStatusBarChartBase}
  */
 @Component({

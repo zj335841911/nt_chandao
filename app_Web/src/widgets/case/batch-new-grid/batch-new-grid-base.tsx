@@ -20,7 +20,7 @@ export class BatchNewGridBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {BatchNewService}
-     * @memberof BatchNew
+     * @memberof BatchNewGridBase
      */
     public service: BatchNewService = new BatchNewService({ $store: this.$store });
 
@@ -28,7 +28,7 @@ export class BatchNewGridBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {CaseService}
-     * @memberof BatchNew
+     * @memberof BatchNewGridBase
      */
     public appEntityService: CaseService = new CaseService({ $store: this.$store });
 

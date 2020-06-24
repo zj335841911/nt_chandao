@@ -13,7 +13,7 @@ import view_db_assignedtomestoryportlet from '@widgets/story/assigned-to-me-stor
  * dashboard部件
  *
  * @export
- * @class ProductPortalView_db
+ * @class ProductPortalView_dbDashboard
  * @extends {ProductPortalView_dbDashboardBase}
  */
 @Component({

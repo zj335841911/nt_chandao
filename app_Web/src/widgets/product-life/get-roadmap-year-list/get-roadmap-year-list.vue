@@ -9,7 +9,7 @@ import { GetRoadmapYearListBase } from './get-roadmap-year-list-base';
  * list部件
  *
  * @export
- * @class GetRoadmapYear
+ * @class GetRoadmapYearList
  * @extends {GetRoadmapYearListBase}
  */
 @Component({

@@ -9,7 +9,7 @@ import { GetRoadmapListBase } from './get-roadmap-list-base';
  * list2部件
  *
  * @export
- * @class GetRoadmap
+ * @class GetRoadmapList
  * @extends {GetRoadmapListBase}
  */
 @Component({

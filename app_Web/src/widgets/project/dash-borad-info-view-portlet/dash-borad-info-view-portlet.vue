@@ -9,7 +9,7 @@ import { DashBoradInfoViewPortletBase } from './dash-borad-info-view-portlet-bas
  * dashboard_sysportlet3部件
  *
  * @export
- * @class DashBoradInfoView
+ * @class DashBoradInfoViewPortlet
  * @extends {DashBoradInfoViewPortletBase}
  */
 @Component({

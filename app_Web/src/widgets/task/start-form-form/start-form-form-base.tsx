@@ -20,7 +20,7 @@ export class StartFormEditFormBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {StartFormService}
-     * @memberof StartForm
+     * @memberof StartFormEditFormBase
      */
     public service: StartFormService = new StartFormService({ $store: this.$store });
 
@@ -28,7 +28,7 @@ export class StartFormEditFormBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {TaskService}
-     * @memberof StartForm
+     * @memberof StartFormEditFormBase
      */
     public appEntityService: TaskService = new TaskService({ $store: this.$store });
 

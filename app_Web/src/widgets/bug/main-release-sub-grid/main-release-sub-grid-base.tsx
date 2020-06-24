@@ -20,7 +20,7 @@ export class Main_ReleaseSubGridBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {Main_ReleaseSubService}
-     * @memberof Main_ReleaseSub
+     * @memberof Main_ReleaseSubGridBase
      */
     public service: Main_ReleaseSubService = new Main_ReleaseSubService({ $store: this.$store });
 
@@ -28,7 +28,7 @@ export class Main_ReleaseSubGridBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {BugService}
-     * @memberof Main_ReleaseSub
+     * @memberof Main_ReleaseSubGridBase
      */
     public appEntityService: BugService = new BugService({ $store: this.$store });
 

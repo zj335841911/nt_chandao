@@ -20,7 +20,7 @@ export class ConfirmEditFormBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {ConfirmService}
-     * @memberof Confirm
+     * @memberof ConfirmEditFormBase
      */
     public service: ConfirmService = new ConfirmService({ $store: this.$store });
 
@@ -28,7 +28,7 @@ export class ConfirmEditFormBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {BugService}
-     * @memberof Confirm
+     * @memberof ConfirmEditFormBase
      */
     public appEntityService: BugService = new BugService({ $store: this.$store });
 

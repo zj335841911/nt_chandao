@@ -9,7 +9,7 @@ import { StorySpecEditFormBase } from './story-spec-form-base';
  * form部件
  *
  * @export
- * @class StorySpec
+ * @class StorySpecEditForm
  * @extends {StorySpecEditFormBase}
  */
 @Component({

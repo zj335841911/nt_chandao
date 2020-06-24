@@ -9,7 +9,7 @@ import { ProductExpViewPortletBase } from './product-exp-view-portlet-base';
  * db_productexpportlet部件
  *
  * @export
- * @class ProductExpView
+ * @class ProductExpViewPortlet
  * @extends {ProductExpViewPortletBase}
  */
 @Component({

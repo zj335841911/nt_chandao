@@ -9,7 +9,7 @@ import { BurnDownChartBase } from './burn-down-chart-base';
  * dashboard_sysportlet1_chart部件
  *
  * @export
- * @class BurnDown
+ * @class BurnDownChart
  * @extends {BurnDownChartBase}
  */
 @Component({

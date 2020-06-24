@@ -20,7 +20,7 @@ export class StorySpecEditFormBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {StorySpecService}
-     * @memberof StorySpec
+     * @memberof StorySpecEditFormBase
      */
     public service: StorySpecService = new StorySpecService({ $store: this.$store });
 
@@ -28,7 +28,7 @@ export class StorySpecEditFormBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {StoryService}
-     * @memberof StorySpec
+     * @memberof StorySpecEditFormBase
      */
     public appEntityService: StoryService = new StoryService({ $store: this.$store });
 

@@ -10,7 +10,7 @@ import view_treeexpbar_tree from '@widgets/product-module/exp-treeview/exp-treev
  * treeexpbar部件
  *
  * @export
- * @class StoryTreeExpViewtreeexpbar
+ * @class StoryTreeExpViewtreeexpbarTreeExpBar
  * @extends {StoryTreeExpViewtreeexpbarTreeExpBarBase}
  */
 @Component({

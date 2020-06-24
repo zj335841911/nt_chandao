@@ -9,7 +9,7 @@ import { Main_EditModeEditFormBase } from './main-edit-mode-form-base';
  * form部件
  *
  * @export
- * @class Main_EditMode
+ * @class Main_EditModeEditForm
  * @extends {Main_EditModeEditFormBase}
  */
 @Component({

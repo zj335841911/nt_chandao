@@ -13,7 +13,7 @@ import view_db_assigntomecaseportlet1 from '@widgets/case/assigned-to-me-case-po
  * dashboard部件
  *
  * @export
- * @class TestPortalView_db
+ * @class TestPortalView_dbDashboard
  * @extends {TestPortalView_dbDashboardBase}
  */
 @Component({

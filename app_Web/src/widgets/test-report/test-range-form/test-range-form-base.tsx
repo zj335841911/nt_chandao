@@ -20,7 +20,7 @@ export class TestRangeEditFormBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {TestRangeService}
-     * @memberof TestRange
+     * @memberof TestRangeEditFormBase
      */
     public service: TestRangeService = new TestRangeService({ $store: this.$store });
 
@@ -28,7 +28,7 @@ export class TestRangeEditFormBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {TestReportService}
-     * @memberof TestRange
+     * @memberof TestRangeEditFormBase
      */
     public appEntityService: TestReportService = new TestReportService({ $store: this.$store });
 

@@ -19,7 +19,7 @@ export class BaseInfoPortletBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {BaseInfoService}
-     * @memberof BaseInfo
+     * @memberof BaseInfoPortletBase
      */
     public service: BaseInfoService = new BaseInfoService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class BaseInfoPortletBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {StoryService}
-     * @memberof BaseInfo
+     * @memberof BaseInfoPortletBase
      */
     public appEntityService: StoryService = new StoryService({ $store: this.$store });
 

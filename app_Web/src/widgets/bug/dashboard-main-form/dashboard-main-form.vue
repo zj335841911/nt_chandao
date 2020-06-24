@@ -9,7 +9,7 @@ import { DashboardMainEditFormBase } from './dashboard-main-form-base';
  * form部件
  *
  * @export
- * @class DashboardMain
+ * @class DashboardMainEditForm
  * @extends {DashboardMainEditFormBase}
  */
 @Component({

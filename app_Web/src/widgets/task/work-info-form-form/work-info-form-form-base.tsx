@@ -20,7 +20,7 @@ export class WorkInfoFormEditFormBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {WorkInfoFormService}
-     * @memberof WorkInfoForm
+     * @memberof WorkInfoFormEditFormBase
      */
     public service: WorkInfoFormService = new WorkInfoFormService({ $store: this.$store });
 
@@ -28,7 +28,7 @@ export class WorkInfoFormEditFormBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {TaskService}
-     * @memberof WorkInfoForm
+     * @memberof WorkInfoFormEditFormBase
      */
     public appEntityService: TaskService = new TaskService({ $store: this.$store });
 

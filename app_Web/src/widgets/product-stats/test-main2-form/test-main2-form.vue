@@ -9,7 +9,7 @@ import { TestMain2EditFormBase } from './test-main2-form-base';
  * form部件
  *
  * @export
- * @class TestMain2
+ * @class TestMain2EditForm
  * @extends {TestMain2EditFormBase}
  */
 @Component({

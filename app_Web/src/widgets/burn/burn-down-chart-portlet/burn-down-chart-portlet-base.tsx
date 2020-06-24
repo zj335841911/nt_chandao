@@ -19,7 +19,7 @@ export class BurnDownChartPortletBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {BurnDownChartService}
-     * @memberof BurnDownChart
+     * @memberof BurnDownChartPortletBase
      */
     public service: BurnDownChartService = new BurnDownChartService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class BurnDownChartPortletBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {BurnService}
-     * @memberof BurnDownChart
+     * @memberof BurnDownChartPortletBase
      */
     public appEntityService: BurnService = new BurnService({ $store: this.$store });
 

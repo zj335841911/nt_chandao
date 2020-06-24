@@ -9,7 +9,7 @@ import { TrendsListBase } from './trends-list-base';
  * list部件
  *
  * @export
- * @class Trends
+ * @class TrendsList
  * @extends {TrendsListBase}
  */
 @Component({

@@ -19,7 +19,7 @@ export class GetRoadmapPortletBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {GetRoadmapService}
-     * @memberof GetRoadmap
+     * @memberof GetRoadmapPortletBase
      */
     public service: GetRoadmapService = new GetRoadmapService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class GetRoadmapPortletBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ProductLifeService}
-     * @memberof GetRoadmap
+     * @memberof GetRoadmapPortletBase
      */
     public appEntityService: ProductLifeService = new ProductLifeService({ $store: this.$store });
 

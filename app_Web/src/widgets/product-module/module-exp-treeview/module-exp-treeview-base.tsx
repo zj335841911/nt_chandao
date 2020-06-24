@@ -19,7 +19,7 @@ export class ModuleExpTreeBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {ModuleExpService}
-     * @memberof ModuleExp
+     * @memberof ModuleExpTreeBase
      */
     public service: ModuleExpService = new ModuleExpService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class ModuleExpTreeBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ProductModuleService}
-     * @memberof ModuleExp
+     * @memberof ModuleExpTreeBase
      */
     public appEntityService: ProductModuleService = new ProductModuleService({ $store: this.$store });
 
@@ -36,7 +36,7 @@ export class ModuleExpTreeBase extends CtrlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ModuleExp
+     * @memberof ModuleExpTreeBase
      */
     public branchs_cm_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {
@@ -49,7 +49,7 @@ export class ModuleExpTreeBase extends CtrlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ModuleExp
+     * @memberof ModuleExpTreeBase
      */
     public all_cm_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {
@@ -62,7 +62,7 @@ export class ModuleExpTreeBase extends CtrlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ModuleExp
+     * @memberof ModuleExpTreeBase
      */
     public module_cm_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {
@@ -78,7 +78,7 @@ export class ModuleExpTreeBase extends CtrlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ModuleExp
+     * @memberof ModuleExpTreeBase
      */
     public rootmodule_cm_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {
@@ -94,7 +94,7 @@ export class ModuleExpTreeBase extends CtrlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ModuleExp
+     * @memberof ModuleExpTreeBase
      */
     public root_nobranch_cm_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {
@@ -110,7 +110,7 @@ export class ModuleExpTreeBase extends CtrlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ModuleExp
+     * @memberof ModuleExpTreeBase
      */
     public branch_cm_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {

@@ -21,7 +21,7 @@ export class MainGrid_SuitSubGridBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {MainGrid_SuitSubService}
-     * @memberof MainGrid_SuitSub
+     * @memberof MainGrid_SuitSubGridBase
      */
     public service: MainGrid_SuitSubService = new MainGrid_SuitSubService({ $store: this.$store });
 
@@ -29,7 +29,7 @@ export class MainGrid_SuitSubGridBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {CaseService}
-     * @memberof MainGrid_SuitSub
+     * @memberof MainGrid_SuitSubGridBase
      */
     public appEntityService: CaseService = new CaseService({ $store: this.$store });
 

@@ -9,7 +9,7 @@ import { Main_RowEditGridBase } from './main-row-edit-grid-base';
  * grid部件
  *
  * @export
- * @class Main_RowEdit
+ * @class Main_RowEditGrid
  * @extends {Main_RowEditGridBase}
  */
 @Component({

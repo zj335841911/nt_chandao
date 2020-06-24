@@ -9,7 +9,7 @@ import { DashBoardInfoEditFormBase } from './dash-board-info-form-base';
  * form部件
  *
  * @export
- * @class DashBoardInfo
+ * @class DashBoardInfoEditForm
  * @extends {DashBoardInfoEditFormBase}
  */
 @Component({

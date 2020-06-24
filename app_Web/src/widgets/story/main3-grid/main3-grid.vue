@@ -9,7 +9,7 @@ import { Main3GridBase } from './main3-grid-base';
  * grid部件
  *
  * @export
- * @class Main3
+ * @class Main3Grid
  * @extends {Main3GridBase}
  */
 @Component({

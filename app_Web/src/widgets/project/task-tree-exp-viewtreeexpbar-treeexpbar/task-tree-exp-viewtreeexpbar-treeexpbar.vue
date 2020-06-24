@@ -10,7 +10,7 @@ import view_treeexpbar_tree from '@widgets/project-module/task-module-exp-treevi
  * treeexpbar部件
  *
  * @export
- * @class TaskTreeExpViewtreeexpbar
+ * @class TaskTreeExpViewtreeexpbarTreeExpBar
  * @extends {TaskTreeExpViewtreeexpbarTreeExpBarBase}
  */
 @Component({

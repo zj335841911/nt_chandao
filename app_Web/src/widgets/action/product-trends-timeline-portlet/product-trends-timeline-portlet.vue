@@ -9,7 +9,7 @@ import { ProductTrendsTimelinePortletBase } from './product-trends-timeline-port
  * dashboard_sysportlet2部件
  *
  * @export
- * @class ProductTrendsTimeline
+ * @class ProductTrendsTimelinePortlet
  * @extends {ProductTrendsTimelinePortletBase}
  */
 @Component({

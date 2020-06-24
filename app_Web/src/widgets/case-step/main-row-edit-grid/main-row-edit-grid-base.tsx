@@ -20,7 +20,7 @@ export class Main_RowEditGridBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {Main_RowEditService}
-     * @memberof Main_RowEdit
+     * @memberof Main_RowEditGridBase
      */
     public service: Main_RowEditService = new Main_RowEditService({ $store: this.$store });
 
@@ -28,7 +28,7 @@ export class Main_RowEditGridBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {CaseStepService}
-     * @memberof Main_RowEdit
+     * @memberof Main_RowEditGridBase
      */
     public appEntityService: CaseStepService = new CaseStepService({ $store: this.$store });
 

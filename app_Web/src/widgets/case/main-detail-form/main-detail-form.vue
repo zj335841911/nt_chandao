@@ -9,7 +9,7 @@ import { MainDetailEditFormBase } from './main-detail-form-base';
  * form部件
  *
  * @export
- * @class MainDetail
+ * @class MainDetailEditForm
  * @extends {MainDetailEditFormBase}
  */
 @Component({

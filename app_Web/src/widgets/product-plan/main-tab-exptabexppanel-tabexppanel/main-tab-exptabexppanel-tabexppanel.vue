@@ -13,7 +13,7 @@ import view_tabviewpanel4 from '@widgets/product-plan/main-tab-exptabviewpanel4-
  * tabexppanel部件
  *
  * @export
- * @class MainTabExptabexppanel
+ * @class MainTabExptabexppanelTabexppanel
  * @extends {MainTabExptabexppanelTabexppanelBase}
  */
 @Component({

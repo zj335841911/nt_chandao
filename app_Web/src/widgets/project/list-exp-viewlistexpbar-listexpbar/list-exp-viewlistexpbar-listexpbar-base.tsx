@@ -18,7 +18,7 @@ export class ListExpViewlistexpbarListexpbarBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {ListExpViewlistexpbarService}
-     * @memberof ListExpViewlistexpbar
+     * @memberof ListExpViewlistexpbarListexpbarBase
      */
     public service: ListExpViewlistexpbarService = new ListExpViewlistexpbarService({ $store: this.$store });
 
@@ -26,7 +26,7 @@ export class ListExpViewlistexpbarListexpbarBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ProjectService}
-     * @memberof ListExpViewlistexpbar
+     * @memberof ListExpViewlistexpbarListexpbarBase
      */
     public appEntityService: ProjectService = new ProjectService({ $store: this.$store });
 
@@ -35,7 +35,7 @@ export class ListExpViewlistexpbarListexpbarBase extends CtrlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ListExpViewlistexpbar
+     * @memberof ListExpViewlistexpbarListexpbarBase
      */
     public listexpbar_list_selectionchange($event: any, $event2?: any) {
         this.listexpbar_selectionchange($event, 'listexpbar_list', $event2);
@@ -46,7 +46,7 @@ export class ListExpViewlistexpbarListexpbarBase extends CtrlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ListExpViewlistexpbar
+     * @memberof ListExpViewlistexpbarListexpbarBase
      */
     public listexpbar_list_load($event: any, $event2?: any) {
         this.listexpbar_load($event, 'listexpbar_list', $event2);

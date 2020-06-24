@@ -19,7 +19,7 @@ export class ProductStatusChartPortletBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {ProductStatusChartService}
-     * @memberof ProductStatusChart
+     * @memberof ProductStatusChartPortletBase
      */
     public service: ProductStatusChartService = new ProductStatusChartService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class ProductStatusChartPortletBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ProductService}
-     * @memberof ProductStatusChart
+     * @memberof ProductStatusChartPortletBase
      */
     public appEntityService: ProductService = new ProductService({ $store: this.$store });
 

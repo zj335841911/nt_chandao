@@ -9,7 +9,7 @@ import { WorkInfoFormEditFormBase } from './work-info-form-form-base';
  * form部件
  *
  * @export
- * @class WorkInfoForm
+ * @class WorkInfoFormEditForm
  * @extends {WorkInfoFormEditFormBase}
  */
 @Component({

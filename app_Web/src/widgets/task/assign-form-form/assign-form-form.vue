@@ -9,7 +9,7 @@ import { AssignFormEditFormBase } from './assign-form-form-base';
  * form部件
  *
  * @export
- * @class AssignForm
+ * @class AssignFormEditForm
  * @extends {AssignFormEditFormBase}
  */
 @Component({

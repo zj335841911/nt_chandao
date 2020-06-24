@@ -20,7 +20,7 @@ export class ToolbarPortletBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {ToolbarService}
-     * @memberof Toolbar
+     * @memberof ToolbarPortletBase
      */
     public service: ToolbarService = new ToolbarService({ $store: this.$store });
 
@@ -28,7 +28,7 @@ export class ToolbarPortletBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {TaskService}
-     * @memberof Toolbar
+     * @memberof ToolbarPortletBase
      */
     public appEntityService: TaskService = new TaskService({ $store: this.$store });
 

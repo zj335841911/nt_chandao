@@ -19,7 +19,7 @@ export class MainPanelDashboardBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {MainPanelService}
-     * @memberof MainPanel
+     * @memberof MainPanelDashboardBase
      */
     public service: MainPanelService = new MainPanelService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class MainPanelDashboardBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {StoryService}
-     * @memberof MainPanel
+     * @memberof MainPanelDashboardBase
      */
     public appEntityService: StoryService = new StoryService({ $store: this.$store });
     /**

@@ -19,7 +19,7 @@ export class MPickupViewpickupviewpanelPickupviewpanelBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {MPickupViewpickupviewpanelService}
-     * @memberof MPickupViewpickupviewpanel
+     * @memberof MPickupViewpickupviewpanelPickupviewpanelBase
      */
     public service: MPickupViewpickupviewpanelService = new MPickupViewpickupviewpanelService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class MPickupViewpickupviewpanelPickupviewpanelBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {BugService}
-     * @memberof MPickupViewpickupviewpanel
+     * @memberof MPickupViewpickupviewpanelPickupviewpanelBase
      */
     public appEntityService: BugService = new BugService({ $store: this.$store });
 

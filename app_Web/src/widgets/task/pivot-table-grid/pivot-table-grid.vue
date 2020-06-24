@@ -9,7 +9,7 @@ import { PivotTableGridBase } from './pivot-table-grid-base';
  * grid部件
  *
  * @export
- * @class PivotTable
+ * @class PivotTableGrid
  * @extends {PivotTableGridBase}
  */
 @Component({

@@ -18,7 +18,7 @@ export class ExpListBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {ExpService}
-     * @memberof Exp
+     * @memberof ExpListBase
      */
     public service: ExpService = new ExpService({ $store: this.$store });
 
@@ -26,7 +26,7 @@ export class ExpListBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ProjectService}
-     * @memberof Exp
+     * @memberof ExpListBase
      */
     public appEntityService: ProjectService = new ProjectService({ $store: this.$store });
 

@@ -13,7 +13,7 @@ import view_dashboard_sysportlet1 from '@widgets/story/storyspec-portlet/storysp
  * dashboard部件
  *
  * @export
- * @class MainPanel
+ * @class MainPanelDashboard
  * @extends {MainPanelDashboardBase}
  */
 @Component({

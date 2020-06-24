@@ -20,7 +20,7 @@ export class QuickCreateEditFormBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {QuickCreateService}
-     * @memberof QuickCreate
+     * @memberof QuickCreateEditFormBase
      */
     public service: QuickCreateService = new QuickCreateService({ $store: this.$store });
 
@@ -28,7 +28,7 @@ export class QuickCreateEditFormBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ReleaseService}
-     * @memberof QuickCreate
+     * @memberof QuickCreateEditFormBase
      */
     public appEntityService: ReleaseService = new ReleaseService({ $store: this.$store });
 

@@ -9,7 +9,7 @@ import { ClassifyByTypeListBase } from './classify-by-type-list-base';
  * list部件
  *
  * @export
- * @class ClassifyByType
+ * @class ClassifyByTypeList
  * @extends {ClassifyByTypeListBase}
  */
 @Component({

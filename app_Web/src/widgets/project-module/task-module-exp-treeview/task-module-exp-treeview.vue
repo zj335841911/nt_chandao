@@ -9,7 +9,7 @@ import { TaskModuleExpTreeBase } from './task-module-exp-treeview-base';
  * treeexpbar_tree部件
  *
  * @export
- * @class TaskModuleExp
+ * @class TaskModuleExpTree
  * @extends {TaskModuleExpTreeBase}
  */
 @Component({

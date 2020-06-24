@@ -18,7 +18,7 @@ import view_tabviewpanel6 from '@widgets/product/main-tab-exp-viewtabviewpanel6-
  * tabexppanel部件
  *
  * @export
- * @class MainTabExpViewtabexppanel
+ * @class MainTabExpViewtabexppanelTabexppanel
  * @extends {MainTabExpViewtabexppanelTabexppanelBase}
  */
 @Component({

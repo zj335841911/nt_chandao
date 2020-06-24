@@ -19,7 +19,7 @@ export class ClassifyByTypeListBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {ClassifyByTypeService}
-     * @memberof ClassifyByType
+     * @memberof ClassifyByTypeListBase
      */
     public service: ClassifyByTypeService = new ClassifyByTypeService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class ClassifyByTypeListBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ActionService}
-     * @memberof ClassifyByType
+     * @memberof ClassifyByTypeListBase
      */
     public appEntityService: ActionService = new ActionService({ $store: this.$store });
 

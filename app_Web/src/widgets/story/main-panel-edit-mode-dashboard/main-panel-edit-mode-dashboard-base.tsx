@@ -19,7 +19,7 @@ export class MainPanel_EditModeDashboardBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {MainPanel_EditModeService}
-     * @memberof MainPanel_EditMode
+     * @memberof MainPanel_EditModeDashboardBase
      */
     public service: MainPanel_EditModeService = new MainPanel_EditModeService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class MainPanel_EditModeDashboardBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {StoryService}
-     * @memberof MainPanel_EditMode
+     * @memberof MainPanel_EditModeDashboardBase
      */
     public appEntityService: StoryService = new StoryService({ $store: this.$store });
     /**

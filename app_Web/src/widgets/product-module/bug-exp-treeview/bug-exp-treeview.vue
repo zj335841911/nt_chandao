@@ -9,7 +9,7 @@ import { BugExpTreeBase } from './bug-exp-treeview-base';
  * treeexpbar_tree部件
  *
  * @export
- * @class BugExp
+ * @class BugExpTree
  * @extends {BugExpTreeBase}
  */
 @Component({

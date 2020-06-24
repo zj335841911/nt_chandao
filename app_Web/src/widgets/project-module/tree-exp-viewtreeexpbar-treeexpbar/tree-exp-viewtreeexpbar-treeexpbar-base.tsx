@@ -19,7 +19,7 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {TreeExpViewtreeexpbarService}
-     * @memberof TreeExpViewtreeexpbar
+     * @memberof TreeExpViewtreeexpbarTreeExpBarBase
      */
     public service: TreeExpViewtreeexpbarService = new TreeExpViewtreeexpbarService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ProjectModuleService}
-     * @memberof TreeExpViewtreeexpbar
+     * @memberof TreeExpViewtreeexpbarTreeExpBarBase
      */
     public appEntityService: ProjectModuleService = new ProjectModuleService({ $store: this.$store });
 
@@ -36,7 +36,7 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends CtrlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TreeExpViewtreeexpbar
+     * @memberof TreeExpViewtreeexpbarTreeExpBarBase
      */
     public treeexpbar_toolbar_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {
@@ -52,7 +52,7 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends CtrlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TreeExpViewtreeexpbar
+     * @memberof TreeExpViewtreeexpbarTreeExpBarBase
      */
     public treeexpbar_tree_selectionchange($event: any, $event2?: any) {
         this.treeexpbar_selectionchange($event, 'treeexpbar_tree', $event2);
@@ -63,7 +63,7 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends CtrlBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TreeExpViewtreeexpbar
+     * @memberof TreeExpViewtreeexpbarTreeExpBarBase
      */
     public treeexpbar_tree_load($event: any, $event2?: any) {
         this.treeexpbar_load($event, 'treeexpbar_tree', $event2);

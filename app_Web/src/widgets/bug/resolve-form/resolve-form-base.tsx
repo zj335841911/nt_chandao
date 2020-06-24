@@ -20,7 +20,7 @@ export class ResolveEditFormBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {ResolveService}
-     * @memberof Resolve
+     * @memberof ResolveEditFormBase
      */
     public service: ResolveService = new ResolveService({ $store: this.$store });
 
@@ -28,7 +28,7 @@ export class ResolveEditFormBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {BugService}
-     * @memberof Resolve
+     * @memberof ResolveEditFormBase
      */
     public appEntityService: BugService = new BugService({ $store: this.$store });
 

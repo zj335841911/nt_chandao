@@ -20,7 +20,7 @@ export class SubTaskNewGridBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {SubTaskNewService}
-     * @memberof SubTaskNew
+     * @memberof SubTaskNewGridBase
      */
     public service: SubTaskNewService = new SubTaskNewService({ $store: this.$store });
 
@@ -28,7 +28,7 @@ export class SubTaskNewGridBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {SubTaskService}
-     * @memberof SubTaskNew
+     * @memberof SubTaskNewGridBase
      */
     public appEntityService: SubTaskService = new SubTaskService({ $store: this.$store });
 

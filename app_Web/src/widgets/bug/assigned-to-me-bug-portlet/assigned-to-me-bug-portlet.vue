@@ -9,7 +9,7 @@ import { AssignedToMeBugPortletBase } from './assigned-to-me-bug-portlet-base';
  * db_assigntomebugportlet1部件
  *
  * @export
- * @class AssignedToMeBug
+ * @class AssignedToMeBugPortlet
  * @extends {AssignedToMeBugPortletBase}
  */
 @Component({

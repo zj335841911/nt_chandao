@@ -19,7 +19,7 @@ export class BaseInfo_EditModePortletBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {BaseInfo_EditModeService}
-     * @memberof BaseInfo_EditMode
+     * @memberof BaseInfo_EditModePortletBase
      */
     public service: BaseInfo_EditModeService = new BaseInfo_EditModeService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class BaseInfo_EditModePortletBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {StoryService}
-     * @memberof BaseInfo_EditMode
+     * @memberof BaseInfo_EditModePortletBase
      */
     public appEntityService: StoryService = new StoryService({ $store: this.$store });
 

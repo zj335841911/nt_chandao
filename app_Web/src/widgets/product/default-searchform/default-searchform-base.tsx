@@ -20,7 +20,7 @@ export class DefaultSearchFormBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {DefaultService}
-     * @memberof Default
+     * @memberof DefaultSearchFormBase
      */
     public service: DefaultService = new DefaultService({ $store: this.$store });
 
@@ -28,7 +28,7 @@ export class DefaultSearchFormBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ProductService}
-     * @memberof Default
+     * @memberof DefaultSearchFormBase
      */
     public appEntityService: ProductService = new ProductService({ $store: this.$store });
 

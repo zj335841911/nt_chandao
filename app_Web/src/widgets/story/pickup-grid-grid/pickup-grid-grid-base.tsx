@@ -20,7 +20,7 @@ export class PickupGridGridBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {PickupGridService}
-     * @memberof PickupGrid
+     * @memberof PickupGridGridBase
      */
     public service: PickupGridService = new PickupGridService({ $store: this.$store });
 
@@ -28,7 +28,7 @@ export class PickupGridGridBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {StoryService}
-     * @memberof PickupGrid
+     * @memberof PickupGridGridBase
      */
     public appEntityService: StoryService = new StoryService({ $store: this.$store });
 

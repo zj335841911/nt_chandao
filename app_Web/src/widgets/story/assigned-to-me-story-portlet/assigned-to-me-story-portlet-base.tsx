@@ -19,7 +19,7 @@ export class AssignedToMeStoryPortletBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {AssignedToMeStoryService}
-     * @memberof AssignedToMeStory
+     * @memberof AssignedToMeStoryPortletBase
      */
     public service: AssignedToMeStoryService = new AssignedToMeStoryService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class AssignedToMeStoryPortletBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {StoryService}
-     * @memberof AssignedToMeStory
+     * @memberof AssignedToMeStoryPortletBase
      */
     public appEntityService: StoryService = new StoryService({ $store: this.$store });
 

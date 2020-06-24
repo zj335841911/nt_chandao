@@ -19,7 +19,7 @@ export class UnClosedProductPortletBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {UnClosedProductService}
-     * @memberof UnClosedProduct
+     * @memberof UnClosedProductPortletBase
      */
     public service: UnClosedProductService = new UnClosedProductService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class UnClosedProductPortletBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ProductService}
-     * @memberof UnClosedProduct
+     * @memberof UnClosedProductPortletBase
      */
     public appEntityService: ProductService = new ProductService({ $store: this.$store });
 

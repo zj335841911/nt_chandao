@@ -9,7 +9,7 @@ import { DashboardBugLifeEditFormBase } from './dashboard-bug-life-form-base';
  * form部件
  *
  * @export
- * @class DashboardBugLife
+ * @class DashboardBugLifeEditForm
  * @extends {DashboardBugLifeEditFormBase}
  */
 @Component({

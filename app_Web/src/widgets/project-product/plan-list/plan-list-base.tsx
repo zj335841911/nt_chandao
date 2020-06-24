@@ -18,7 +18,7 @@ export class PlanListBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {PlanService}
-     * @memberof Plan
+     * @memberof PlanListBase
      */
     public service: PlanService = new PlanService({ $store: this.$store });
 
@@ -26,7 +26,7 @@ export class PlanListBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ProjectProductService}
-     * @memberof Plan
+     * @memberof PlanListBase
      */
     public appEntityService: ProjectProductService = new ProjectProductService({ $store: this.$store });
 

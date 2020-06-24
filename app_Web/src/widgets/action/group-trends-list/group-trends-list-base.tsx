@@ -18,7 +18,7 @@ export class GroupTrendsListBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {GroupTrendsService}
-     * @memberof GroupTrends
+     * @memberof GroupTrendsListBase
      */
     public service: GroupTrendsService = new GroupTrendsService({ $store: this.$store });
 
@@ -26,7 +26,7 @@ export class GroupTrendsListBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {ActionService}
-     * @memberof GroupTrends
+     * @memberof GroupTrendsListBase
      */
     public appEntityService: ActionService = new ActionService({ $store: this.$store });
 

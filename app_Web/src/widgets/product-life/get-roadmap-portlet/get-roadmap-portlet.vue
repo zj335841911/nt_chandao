@@ -9,7 +9,7 @@ import { GetRoadmapPortletBase } from './get-roadmap-portlet-base';
  * dashboard_sysportlet1部件
  *
  * @export
- * @class GetRoadmap
+ * @class GetRoadmapPortlet
  * @extends {GetRoadmapPortletBase}
  */
 @Component({

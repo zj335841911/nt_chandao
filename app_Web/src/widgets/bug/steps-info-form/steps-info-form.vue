@@ -9,7 +9,7 @@ import { StepsInfoEditFormBase } from './steps-info-form-base';
  * form部件
  *
  * @export
- * @class StepsInfo
+ * @class StepsInfoEditForm
  * @extends {StepsInfoEditFormBase}
  */
 @Component({

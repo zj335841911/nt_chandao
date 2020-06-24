@@ -19,7 +19,7 @@ export class MainInfoPortletBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {MainInfoService}
-     * @memberof MainInfo
+     * @memberof MainInfoPortletBase
      */
     public service: MainInfoService = new MainInfoService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class MainInfoPortletBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {TaskService}
-     * @memberof MainInfo
+     * @memberof MainInfoPortletBase
      */
     public appEntityService: TaskService = new TaskService({ $store: this.$store });
 

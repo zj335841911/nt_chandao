@@ -10,7 +10,7 @@ import view_dashboard_sysportlet1_chart from '@widgets/burn/burn-down-chart/burn
  * dashboard_sysportlet1部件
  *
  * @export
- * @class BurnDownChart
+ * @class BurnDownChartPortlet
  * @extends {BurnDownChartPortletBase}
  */
 @Component({

@@ -13,7 +13,7 @@ import view_db_projectunclosedportlet from '@widgets/project/un-closed-project-p
  * dashboard部件
  *
  * @export
- * @class ProjectPortalView_db
+ * @class ProjectPortalView_dbDashboard
  * @extends {ProjectPortalView_dbDashboardBase}
  */
 @Component({

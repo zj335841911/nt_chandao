@@ -9,7 +9,7 @@ import { CurSuitCaseGridViewPortletBase } from './cur-suit-case-grid-view-portle
  * dashboard_sysportlet1部件
  *
  * @export
- * @class CurSuitCaseGridView
+ * @class CurSuitCaseGridViewPortlet
  * @extends {CurSuitCaseGridViewPortletBase}
  */
 @Component({

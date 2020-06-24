@@ -9,7 +9,7 @@ import { DEFAULTListBase } from './default-list-base';
  * list部件
  *
  * @export
- * @class DEFAULT
+ * @class DEFAULTList
  * @extends {DEFAULTListBase}
  */
 @Component({

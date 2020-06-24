@@ -19,7 +19,7 @@ export class DashboardDashboardBase extends CtrlBase {
      * 建构部件服务对象
      *
      * @type {DashboardService}
-     * @memberof Dashboard
+     * @memberof DashboardDashboardBase
      */
     public service: DashboardService = new DashboardService({ $store: this.$store });
 
@@ -27,7 +27,7 @@ export class DashboardDashboardBase extends CtrlBase {
      * 实体服务对象
      *
      * @type {TestTaskService}
-     * @memberof Dashboard
+     * @memberof DashboardDashboardBase
      */
     public appEntityService: TestTaskService = new TestTaskService({ $store: this.$store });
     /**
