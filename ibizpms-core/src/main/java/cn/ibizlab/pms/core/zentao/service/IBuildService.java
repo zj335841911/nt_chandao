@@ -36,6 +36,7 @@ public interface IBuildService extends IService<Build>{
     void createBatch(List<Build> list) ;
     boolean update(Build et) ;
     void updateBatch(List<Build> list) ;
+    Page<Build> searchCurProduct(BuildSearchContext context) ;
     Page<Build> searchDefault(BuildSearchContext context) ;
     List<Build> selectByBranch(BigInteger id) ;
     void removeByBranch(BigInteger id) ;

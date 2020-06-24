@@ -189,6 +189,9 @@ export default class BugDashboardActionsModel {
       {
         name: 'testtask',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

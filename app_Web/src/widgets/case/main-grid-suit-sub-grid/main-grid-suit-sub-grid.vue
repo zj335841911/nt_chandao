@@ -1,19 +1,22 @@
+<template src="./main-grid-suit-sub-grid.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import MainGrid_SuitSubBase from './main-grid-suit-sub-grid-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { MainGrid_SuitSubGridBase } from './main-grid-suit-sub-grid-base';
  
 
 /**
  * grid部件
  *
  * @export
- * @class MainGrid_SuitSub
- * @extends {MainGrid_SuitSubBase}
+ * @class MainGrid_SuitSubGrid
+ * @extends {MainGrid_SuitSubGridBase}
  */
 @Component({
     components: {
          
     }
 })
-export default class MainGrid_SuitSub extends MainGrid_SuitSubBase { }
+@VueLifeCycleProcessing()
+export default class MainGrid_SuitSubGrid extends MainGrid_SuitSubGridBase { }
 </script>

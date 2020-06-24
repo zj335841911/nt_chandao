@@ -1,19 +1,22 @@
+<template src="./trends-list.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import TrendsBase from './trends-list-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { TrendsListBase } from './trends-list-base';
  
 
 /**
  * list部件
  *
  * @export
- * @class Trends
- * @extends {TrendsBase}
+ * @class TrendsList
+ * @extends {TrendsListBase}
  */
 @Component({
     components: {
          
     }
 })
-export default class Trends extends TrendsBase { }
+@VueLifeCycleProcessing()
+export default class TrendsList extends TrendsListBase { }
 </script>

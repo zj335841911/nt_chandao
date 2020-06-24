@@ -1,6 +1,8 @@
+<template src="./tree-exp-viewtreeexpbar-treeexpbar.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import TreeExpViewtreeexpbarBase from './tree-exp-viewtreeexpbar-treeexpbar-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { TreeExpViewtreeexpbarTreeExpBarBase } from './tree-exp-viewtreeexpbar-treeexpbar-base';
 import view_treeexpbar_tree from '@widgets/project-module/module-exp-treeview/module-exp-treeview.vue';
  
 
@@ -8,8 +10,8 @@ import view_treeexpbar_tree from '@widgets/project-module/module-exp-treeview/mo
  * treeexpbar部件
  *
  * @export
- * @class TreeExpViewtreeexpbar
- * @extends {TreeExpViewtreeexpbarBase}
+ * @class TreeExpViewtreeexpbarTreeExpBar
+ * @extends {TreeExpViewtreeexpbarTreeExpBarBase}
  */
 @Component({
     components: {
@@ -17,5 +19,6 @@ import view_treeexpbar_tree from '@widgets/project-module/module-exp-treeview/mo
          
     }
 })
-export default class TreeExpViewtreeexpbar extends TreeExpViewtreeexpbarBase { }
+@VueLifeCycleProcessing()
+export default class TreeExpViewtreeexpbarTreeExpBar extends TreeExpViewtreeexpbarTreeExpBarBase { }
 </script>

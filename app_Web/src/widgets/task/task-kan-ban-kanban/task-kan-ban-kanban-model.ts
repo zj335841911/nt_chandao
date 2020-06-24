@@ -16,9 +16,13 @@ export default class TaskKanBanModel {
 		return [
 			{
 				name: 'module',
+				prop: 'module',
+				dataType: 'PICKUP',
 			},
 			{
 				name: 'desc',
+				prop: 'desc',
+				dataType: 'LONGTEXT',
 			},
 			{
 				name: 'status',
@@ -27,12 +31,18 @@ export default class TaskKanBanModel {
 			},
 			{
 				name: 'parent',
+				prop: 'parent',
+				dataType: 'PICKUP',
 			},
 			{
 				name: 'type',
+				prop: 'type',
+				dataType: 'SSCODELIST',
 			},
 			{
 				name: 'estimate',
+				prop: 'estimate',
+				dataType: 'FLOAT',
 			},
 			{
 				name: 'srfmajortext',
@@ -46,27 +56,53 @@ export default class TaskKanBanModel {
 			},
 			{
 				name: 'mailto',
+				prop: 'mailto',
+				dataType: 'LONGTEXT',
 			},
 			{
 				name: 'assignedto',
+				prop: 'assignedto',
+				dataType: 'TEXT',
 			},
 			{
 				name: 'story',
+				prop: 'story',
+				dataType: 'PICKUP',
 			},
 			{
 				name: 'project',
+				prop: 'project',
+				dataType: 'PICKUP',
 			},
 			{
 				name: 'pri',
+				prop: 'pri',
+				dataType: 'NSCODELIST',
+			},
+			{
+				name: 'consumed',
+				prop: 'consumed',
+				dataType: 'FLOAT',
+			},
+			{
+				name: 'color',
+				prop: 'color',
+				dataType: 'SSCODELIST',
 			},
 			{
 				name: 'name',
+				prop: 'name',
+				dataType: 'TEXT',
 			},
 			{
 				name: 'eststarted',
+				prop: 'eststarted',
+				dataType: 'DATE',
 			},
 			{
 				name: 'deadline',
+				prop: 'deadline',
+				dataType: 'DATE',
 			},
 
 			{

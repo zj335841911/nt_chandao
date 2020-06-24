@@ -1,19 +1,22 @@
+<template src="./default-searchform.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import DefaultBase from './default-searchform-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { DefaultSearchFormBase } from './default-searchform-base';
  
 
 /**
  * searchform部件
  *
  * @export
- * @class Default
- * @extends {DefaultBase}
+ * @class DefaultSearchForm
+ * @extends {DefaultSearchFormBase}
  */
 @Component({
     components: {
          
     }
 })
-export default class Default extends DefaultBase { }
+@VueLifeCycleProcessing()
+export default class DefaultSearchForm extends DefaultSearchFormBase { }
 </script>

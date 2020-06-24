@@ -1,19 +1,22 @@
+<template src="./story-spec-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import StorySpecBase from './story-spec-form-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { StorySpecEditFormBase } from './story-spec-form-base';
  
 
 /**
  * form部件
  *
  * @export
- * @class StorySpec
- * @extends {StorySpecBase}
+ * @class StorySpecEditForm
+ * @extends {StorySpecEditFormBase}
  */
 @Component({
     components: {
          
     }
 })
-export default class StorySpec extends StorySpecBase { }
+@VueLifeCycleProcessing()
+export default class StorySpecEditForm extends StorySpecEditFormBase { }
 </script>

@@ -1,19 +1,22 @@
+<template src="./pickup-gird-grid.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import PickupGirdBase from './pickup-gird-grid-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { PickupGirdGridBase } from './pickup-gird-grid-base';
  
 
 /**
  * grid部件
  *
  * @export
- * @class PickupGird
- * @extends {PickupGirdBase}
+ * @class PickupGirdGrid
+ * @extends {PickupGirdGridBase}
  */
 @Component({
     components: {
          
     }
 })
-export default class PickupGird extends PickupGirdBase { }
+@VueLifeCycleProcessing()
+export default class PickupGirdGrid extends PickupGirdGridBase { }
 </script>

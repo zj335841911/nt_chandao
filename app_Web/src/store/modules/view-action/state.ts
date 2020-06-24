@@ -828,6 +828,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '7c6956b0c4bcc773697adb506d3ce5e9',
+            viewmodule: 'zentao',
+            viewname: 'BugConfirmView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
             viewtag: '7c79a923d0cdd1a5bc41a34367809077',
             viewmodule: 'zentao',
             viewname: 'ProjectLeftSidebarListView',
@@ -1384,6 +1394,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'c1e9611b6972b1877b75fa5d2c67aad6',
+            viewmodule: 'zentao',
+            viewname: 'BugResolveView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
             viewtag: 'c2e4200fb7c9760b4931b43561289980',
             viewmodule: 'zentao',
             viewname: 'TestSuiteMainDashboardView',
@@ -1412,8 +1432,11 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'e67fe0ec86d17b74944c16e187da482d',
+                '7c6956b0c4bcc773697adb506d3ce5e9',
                 '1540523a668e920d831510cfbec2c5e2',
                 '46517a803b2470cd0bef27aeda0dbcaf',
+                'c1e9611b6972b1877b75fa5d2c67aad6',
                 '122af527bf38b47ddc53c882847b490e',
             ],
         },
@@ -1526,6 +1549,16 @@ export const viewstate: any = {
             viewtag: 'e54598b1e6d38d7c6ce8231b531b46bd',
             viewmodule: 'zentao',
             viewname: 'StoryEditView_StoryChange',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: 'e67fe0ec86d17b74944c16e187da482d',
+            viewmodule: 'zentao',
+            viewname: 'BugCloseView',
             viewaction: '',
             viewdatachange: false,
             refviews: [

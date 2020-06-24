@@ -137,6 +137,27 @@ public class BuildResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-CurProduct-all')")
+	@ApiOperation(value = "获取产品版本", tags = {"版本" } ,notes = "获取产品版本")
+    @RequestMapping(method= RequestMethod.GET , value="/builds/fetchcurproduct")
+	public ResponseEntity<List<BuildDTO>> fetchCurProduct(BuildSearchContext context) {
+        Page<Build> domains = buildService.searchCurProduct(context) ;
+        List<BuildDTO> list = buildMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-CurProduct-all')")
+	@ApiOperation(value = "查询产品版本", tags = {"版本" } ,notes = "查询产品版本")
+    @RequestMapping(method= RequestMethod.POST , value="/builds/searchcurproduct")
+	public ResponseEntity<Page<BuildDTO>> searchCurProduct(@RequestBody BuildSearchContext context) {
+        Page<Build> domains = buildService.searchCurProduct(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(buildMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Default-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"版本" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/builds/fetchdefault")
@@ -267,6 +288,29 @@ public class BuildResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-CurProduct-all')")
+	@ApiOperation(value = "根据产品获取产品版本", tags = {"版本" } ,notes = "根据产品获取产品版本")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/builds/fetchcurproduct")
+	public ResponseEntity<List<BuildDTO>> fetchBuildCurProductByProduct(@PathVariable("product_id") BigInteger product_id,BuildSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Build> domains = buildService.searchCurProduct(context) ;
+        List<BuildDTO> list = buildMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-CurProduct-all')")
+	@ApiOperation(value = "根据产品查询产品版本", tags = {"版本" } ,notes = "根据产品查询产品版本")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/builds/searchcurproduct")
+	public ResponseEntity<Page<BuildDTO>> searchBuildCurProductByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BuildSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Build> domains = buildService.searchCurProduct(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(buildMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Default-all')")
 	@ApiOperation(value = "根据产品获取DEFAULT", tags = {"版本" } ,notes = "根据产品获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/builds/fetchdefault")
@@ -399,6 +443,29 @@ public class BuildResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-CurProduct-all')")
+	@ApiOperation(value = "根据项目获取产品版本", tags = {"版本" } ,notes = "根据项目获取产品版本")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/builds/fetchcurproduct")
+	public ResponseEntity<List<BuildDTO>> fetchBuildCurProductByProject(@PathVariable("project_id") BigInteger project_id,BuildSearchContext context) {
+        context.setN_project_eq(project_id);
+        Page<Build> domains = buildService.searchCurProduct(context) ;
+        List<BuildDTO> list = buildMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-CurProduct-all')")
+	@ApiOperation(value = "根据项目查询产品版本", tags = {"版本" } ,notes = "根据项目查询产品版本")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/builds/searchcurproduct")
+	public ResponseEntity<Page<BuildDTO>> searchBuildCurProductByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BuildSearchContext context) {
+        context.setN_project_eq(project_id);
+        Page<Build> domains = buildService.searchCurProduct(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(buildMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Default-all')")
 	@ApiOperation(value = "根据项目获取DEFAULT", tags = {"版本" } ,notes = "根据项目获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/builds/fetchdefault")

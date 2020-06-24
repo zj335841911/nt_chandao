@@ -1,19 +1,22 @@
+<template src="./sub-task-new-grid.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import SubTaskNewBase from './sub-task-new-grid-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { SubTaskNewGridBase } from './sub-task-new-grid-base';
  
 
 /**
  * grid部件
  *
  * @export
- * @class SubTaskNew
- * @extends {SubTaskNewBase}
+ * @class SubTaskNewGrid
+ * @extends {SubTaskNewGridBase}
  */
 @Component({
     components: {
          
     }
 })
-export default class SubTaskNew extends SubTaskNewBase { }
+@VueLifeCycleProcessing()
+export default class SubTaskNewGrid extends SubTaskNewGridBase { }
 </script>

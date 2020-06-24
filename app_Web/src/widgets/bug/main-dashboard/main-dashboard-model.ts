@@ -189,6 +189,9 @@ export default class MainModel {
       {
         name: 'testtask',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

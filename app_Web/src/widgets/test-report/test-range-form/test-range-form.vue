@@ -1,19 +1,22 @@
+<template src="./test-range-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import TestRangeBase from './test-range-form-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { TestRangeEditFormBase } from './test-range-form-base';
  
 
 /**
  * form部件
  *
  * @export
- * @class TestRange
- * @extends {TestRangeBase}
+ * @class TestRangeEditForm
+ * @extends {TestRangeEditFormBase}
  */
 @Component({
     components: {
          
     }
 })
-export default class TestRange extends TestRangeBase { }
+@VueLifeCycleProcessing()
+export default class TestRangeEditForm extends TestRangeEditFormBase { }
 </script>

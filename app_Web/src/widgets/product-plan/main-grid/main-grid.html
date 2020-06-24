@@ -1,0 +1,141 @@
+<div :class="{ 'grid': true, 'show-paging-bar': isEnablePagingBar, 'hidden-paging-bar': !isEnablePagingBar }">
+    <i-form>
+    <el-table v-if="isDisplay === true"
+        :default-sort="{ prop: minorSortPSDEF, order: Object.is(minorSortDir, 'ASC') ? 'ascending' : Object.is(minorSortDir, 'DESC') ? 'descending' : '' }"  
+        @sort-change="onSortChange($event)"  
+        :border="isDragendCol"
+        :highlight-current-row ="isSingleSelect"
+        :row-class-name="getRowClassName.bind(_self)"
+        size="mini"
+        stripe
+        @row-click="rowClick($event)"  
+        @select-all="selectAll($event)"  
+        @select="select($event)"  
+        @row-class-name="onRowClassName($event)"  
+        @row-dblclick="rowDBLClick($event)"  
+        ref='multipleTable' :data="items" :show-header="!isHideHeader">
+            <template slot="empty">
+                无数据 
+                <span class="quick-toolbar">
+                </span>
+            </template>
+            <template v-if="!isSingleSelect">
+                <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
+            </template>
+            <template v-if="getColumnState('id')">
+                <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.productplan.main_grid.columns.id')" :width="80"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.productplan.main_grid.columns.id')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.id}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('title')">
+                <el-table-column show-overflow-tooltip :prop="'title'" :label="$t('entities.productplan.main_grid.columns.title')" :min-width="1"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.productplan.main_grid.columns.title')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.title}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('begin')">
+                <el-table-column show-overflow-tooltip :prop="'begin'" :label="$t('entities.productplan.main_grid.columns.begin')" :width="120"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.productplan.main_grid.columns.begin')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <app-format-data format="YYYY-MM-DD" :data="row.begin"></app-format-data>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('end')">
+                <el-table-column show-overflow-tooltip :prop="'end'" :label="$t('entities.productplan.main_grid.columns.end')" :width="120"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.productplan.main_grid.columns.end')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <app-format-data format="YYYY-MM-DD" :data="row.end"></app-format-data>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('actions')">
+                <el-table-column :column-key="'actions'" :label="$t('entities.productplan.main_grid.columns.actions')" :width="160"  :align="'center'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.productplan.main_grid.columns.actions')}}
+                      </span>
+                    </template>
+                    <template slot-scope="scope">
+                        <span>
+                            
+                            <a title="关联需求" @click="uiAction(scope.row, 'RelationStory', $event)">
+                              <i class='fa fa-link'></i>
+                              
+                            </a>
+                            <divider type='vertical'></divider>
+                            <a title="关联Bug" @click="uiAction(scope.row, 'RelationBug', $event)">
+                              <i class='fa fa-bug'></i>
+                              
+                            </a>
+                            <divider type='vertical'></divider>
+                            <a title="新建子计划" @click="uiAction(scope.row, 'NewSubPlan', $event)">
+                              <i class='fa fa-chain'></i>
+                              
+                            </a>
+                        </span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="adaptiveState">
+                <el-table-column></el-table-column>
+            </template>
+    </el-table>
+    <row class='grid-pagination' v-show="items.length > 0">
+        <page class='pull-right' @on-change="pageOnChange($event)" 
+            @on-page-size-change="onPageSizeChange($event)"
+            :transfer="true" :total="totalrow"
+            show-sizer :current="curPage" :page-size="limit"
+            :page-size-opts="[10, 20, 30, 40, 50, 60, 70, 80, 90, 100]" show-elevator show-total>
+            <span>
+                <span class="page-column">
+                    <poptip transfer placement="top-start">
+                        <i-button icon="md-menu">{{$t('app.gridpage.choicecolumns')}}</i-button>
+                        <div slot="content">
+                            <template v-for="col in allColumns">
+                                <div :key="col.name"><el-checkbox v-model="col.show" @change="onColChange()">{{$t(col.langtag)}}</el-checkbox></div>
+                            </template>
+                        </div>
+                    </poptip>
+                </span>
+                <span v-if="selections.length > 0" class="batch-toolbar">
+                </span>
+                <span class="page-button"><i-button icon="md-refresh" :title="$t('app.gridpage.refresh')" @click="pageRefresh()"></i-button></span>&nbsp;
+                <span>
+                    {{$t('app.gridpage.show')}}&nbsp;
+                    <span>
+                        <template v-if="items.length === 1">
+                        1
+                        </template>
+                        <template v-else>
+                            <span>{{(curPage - 1) * limit + 1}}&nbsp;-&nbsp;{{totalrow > curPage * limit ? curPage * limit : totalrow}}</span>
+                        </template>
+                    </span>&nbsp;
+                    {{$t('app.gridpage.records')}}，{{$t('app.gridpage.totle')}}&nbsp;{{totalrow}}&nbsp;{{$t('app.gridpage.records')}}
+                </span>
+            </span>
+        </page>
+    </row>
+  </i-form>
+</div>

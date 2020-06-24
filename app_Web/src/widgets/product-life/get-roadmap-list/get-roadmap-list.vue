@@ -1,19 +1,22 @@
+<template src="./get-roadmap-list.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import GetRoadmapBase from './get-roadmap-list-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { GetRoadmapListBase } from './get-roadmap-list-base';
  
 
 /**
  * list2部件
  *
  * @export
- * @class GetRoadmap
- * @extends {GetRoadmapBase}
+ * @class GetRoadmapList
+ * @extends {GetRoadmapListBase}
  */
 @Component({
     components: {
          
     }
 })
-export default class GetRoadmap extends GetRoadmapBase { }
+@VueLifeCycleProcessing()
+export default class GetRoadmapList extends GetRoadmapListBase { }
 </script>

@@ -1,9 +1,10 @@
-import Product from '@/codelist/product';   
-import CurProductPlan from '@/codelist/cur-product-plan';   
 import UserRealName from '@/codelist/user-real-name';   
 import ProductBranch from '@/codelist/product-branch';   
+import ProductBuild from '@/codelist/product-build';   
 import Role from '@/codelist/role';   
 import TestTask from '@/codelist/test-task';   
+import Product from '@/codelist/product';   
+import CurProductPlan from '@/codelist/cur-product-plan';   
 import { Store } from 'vuex';
 
 /**
@@ -56,22 +57,6 @@ export default class CodeListService {
 
 
     /**
-     * 代码表--产品（动态）
-     *
-     * @type {Product}
-     * @memberof CodeListService
-     */
-    public Product: Product = new Product();
-
-    /**
-     * 代码表--产品计划（动态）
-     *
-     * @type {CurProductPlan}
-     * @memberof CodeListService
-     */
-    public CurProductPlan: CurProductPlan = new CurProductPlan();
-
-    /**
      * 代码表--用户真实名称（动态）
      *
      * @type {UserRealName}
@@ -88,6 +73,14 @@ export default class CodeListService {
     public ProductBranch: ProductBranch = new ProductBranch();
 
     /**
+     * 代码表--产品版本（动态）
+     *
+     * @type {ProductBuild}
+     * @memberof CodeListService
+     */
+    public ProductBuild: ProductBuild = new ProductBuild();
+
+    /**
      * 代码表--群组（动态）
      *
      * @type {Role}
@@ -102,6 +95,22 @@ export default class CodeListService {
      * @memberof CodeListService
      */
     public TestTask: TestTask = new TestTask();
+
+    /**
+     * 代码表--产品（动态）
+     *
+     * @type {Product}
+     * @memberof CodeListService
+     */
+    public Product: Product = new Product();
+
+    /**
+     * 代码表--产品计划（动态）
+     *
+     * @type {CurProductPlan}
+     * @memberof CodeListService
+     */
+    public CurProductPlan: CurProductPlan = new CurProductPlan();
 
     /**
      * 获取动态代码表

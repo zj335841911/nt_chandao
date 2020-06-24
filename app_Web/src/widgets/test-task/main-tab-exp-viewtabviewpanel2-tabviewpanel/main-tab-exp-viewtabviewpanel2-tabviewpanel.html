@@ -1,0 +1,9 @@
+<div class='tabviewpanel' v-if='isActivied'>
+        <test-task-main-dashboard-view 
+      class='viewcontainer2' 
+      :viewdata="viewdata" 
+      :viewparam="viewparam"
+      @viewload="viewDatasChange($event)" 
+      :viewDefaultUsage="false" >
+    </test-task-main-dashboard-view>
+</div>

@@ -1,7 +1,7 @@
 <studio-view viewName="storyplansubgridview" viewTitle="story表格视图" class='degridview story-plan-sub-grid-view'>
     <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
-                <view-toolbar :model="toolBarModels" @item-click="toolbar_click"/>    </template>
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click($event)"/>    </template>
     <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 

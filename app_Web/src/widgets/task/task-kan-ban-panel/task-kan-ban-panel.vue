@@ -1,19 +1,22 @@
+<template src="./task-kan-ban-panel.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import TaskKanBanBase from './task-kan-ban-panel-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { TaskKanBanPanelBase } from './task-kan-ban-panel-base';
  
 
 /**
  * itemlayoutpanel部件
  *
  * @export
- * @class TaskKanBan
- * @extends {TaskKanBanBase}
+ * @class TaskKanBanPanel
+ * @extends {TaskKanBanPanelBase}
  */
 @Component({
     components: {
          
     }
 })
-export default class TaskKanBan extends TaskKanBanBase { }
+@VueLifeCycleProcessing()
+export default class TaskKanBanPanel extends TaskKanBanPanelBase { }
 </script>

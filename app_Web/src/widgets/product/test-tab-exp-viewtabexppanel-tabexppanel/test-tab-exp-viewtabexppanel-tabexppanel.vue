@@ -1,6 +1,8 @@
+<template src="./test-tab-exp-viewtabexppanel-tabexppanel.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import TestTabExpViewtabexppanelBase from './test-tab-exp-viewtabexppanel-tabexppanel-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { TestTabExpViewtabexppanelTabexppanelBase } from './test-tab-exp-viewtabexppanel-tabexppanel-base';
 import view_tabviewpanel2 from '@widgets/product/test-tab-exp-viewtabviewpanel2-tabviewpanel/test-tab-exp-viewtabviewpanel2-tabviewpanel.vue';
 import view_tabviewpanel3 from '@widgets/product/test-tab-exp-viewtabviewpanel3-tabviewpanel/test-tab-exp-viewtabviewpanel3-tabviewpanel.vue';
 import view_tabviewpanel4 from '@widgets/product/test-tab-exp-viewtabviewpanel4-tabviewpanel/test-tab-exp-viewtabviewpanel4-tabviewpanel.vue';
@@ -12,8 +14,8 @@ import view_tabviewpanel6 from '@widgets/product/test-tab-exp-viewtabviewpanel6-
  * tabexppanel部件
  *
  * @export
- * @class TestTabExpViewtabexppanel
- * @extends {TestTabExpViewtabexppanelBase}
+ * @class TestTabExpViewtabexppanelTabexppanel
+ * @extends {TestTabExpViewtabexppanelTabexppanelBase}
  */
 @Component({
     components: {
@@ -25,5 +27,6 @@ import view_tabviewpanel6 from '@widgets/product/test-tab-exp-viewtabviewpanel6-
          
     }
 })
-export default class TestTabExpViewtabexppanel extends TestTabExpViewtabexppanelBase { }
+@VueLifeCycleProcessing()
+export default class TestTabExpViewtabexppanelTabexppanel extends TestTabExpViewtabexppanelTabexppanelBase { }
 </script>

@@ -4,7 +4,7 @@
     </template>
     <i-input slot="quickSearch" v-show="!isExpandSearchForm" v-model="query" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
-                <view-toolbar :model="toolBarModels" @item-click="toolbar_click"/>    </template>
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click($event)"/>    </template>
     <template slot="searchForm">
                 <view_searchform 
             :viewState="viewState"  

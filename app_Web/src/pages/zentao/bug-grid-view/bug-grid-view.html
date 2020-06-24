@@ -4,7 +4,7 @@
         <app-quick-group :items="quickGroupModel" @valuechange="quickGroupValueChange"></app-quick-group>
     </template>
     <template slot="toolbar">
-                <view-toolbar :model="toolBarModels" @item-click="toolbar_click"/>    </template>
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click($event)"/>    </template>
     <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 

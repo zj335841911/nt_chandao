@@ -1,19 +1,22 @@
+<template src="./default-list.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import DEFAULTBase from './default-list-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { DEFAULTListBase } from './default-list-base';
  
 
 /**
  * list部件
  *
  * @export
- * @class DEFAULT
- * @extends {DEFAULTBase}
+ * @class DEFAULTList
+ * @extends {DEFAULTListBase}
  */
 @Component({
     components: {
          
     }
 })
-export default class DEFAULT extends DEFAULTBase { }
+@VueLifeCycleProcessing()
+export default class DEFAULTList extends DEFAULTListBase { }
 </script>

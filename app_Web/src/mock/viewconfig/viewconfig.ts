@@ -735,6 +735,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ModuleGridView",
             "viewtag": "7bbf35767e7763b69ad6acd4b06c06d1"
         },
+        "bugconfirmview": {
+            "title": "确认Bug",
+            "caption": "确认Bug",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugConfirmView",
+            "viewtag": "7c6956b0c4bcc773697adb506d3ce5e9"
+        },
         "projectleftsidebarlistview": {
             "title": "所有项目",
             "caption": "项目",
@@ -745,7 +753,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "productgridview": {
             "title": "所有产品",
-            "caption": "产品",
+            "caption": "所有产品",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",
             "viewname": "ProductGridView",
@@ -1191,6 +1199,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ModulePickupGridView",
             "viewtag": "bda78773fabbeee54079951afb35f954"
         },
+        "bugresolveview": {
+            "title": "解决Bug",
+            "caption": "解决Bug",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugResolveView",
+            "viewtag": "c1e9611b6972b1877b75fa5d2c67aad6"
+        },
         "testsuitemaindashboardview": {
             "title": "测试套件数据看板视图",
             "caption": "测试套件",
@@ -1358,6 +1374,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "DeptPickupGridView",
             "viewtag": "e644f7976b08c3d7f14fd7e1d5329da8"
+        },
+        "bugcloseview": {
+            "title": "关闭Bug",
+            "caption": "关闭Bug",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugCloseView",
+            "viewtag": "e67fe0ec86d17b74944c16e187da482d"
         },
         "buildeditview": {
             "title": "build编辑视图",

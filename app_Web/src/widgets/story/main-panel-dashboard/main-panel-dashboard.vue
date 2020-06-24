@@ -1,12 +1,21 @@
+<template src="./main-panel-dashboard.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import MainPanelBase from './main-panel-dashboard-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { MainPanelDashboardBase } from './main-panel-dashboard-base';
 import view_dashboard_sysportlet4 from '@widgets/action/action-history-portlet/action-history-portlet.vue';
 import view_dashboard_sysportlet2 from '@widgets/story/base-info-portlet/base-info-portlet.vue';
 import view_dashboard_sysportlet3 from '@widgets/story/main-toolbar-portlet/main-toolbar-portlet.vue';
 import view_dashboard_sysportlet1 from '@widgets/story/storyspec-portlet/storyspec-portlet.vue';
-
  
+
+/**
+ * dashboard部件
+ *
+ * @export
+ * @class MainPanelDashboard
+ * @extends {MainPanelDashboardBase}
+ */
 @Component({
     components: {
         view_dashboard_sysportlet4, 
@@ -16,7 +25,9 @@ import view_dashboard_sysportlet1 from '@widgets/story/storyspec-portlet/storysp
          
     }
 })
-export default class MainPanel extends MainPanelBase {
-
-}
-</script> 
+@VueLifeCycleProcessing()
+export default class MainPanelDashboard extends MainPanelDashboardBase { }
+</script>
+<style lang='less'>
+@import './main-panel-dashboard.less';
+</style>

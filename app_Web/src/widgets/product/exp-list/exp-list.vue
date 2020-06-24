@@ -1,19 +1,22 @@
+<template src="./exp-list.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import ExpBase from './exp-list-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { ExpListBase } from './exp-list-base';
  
 
 /**
  * listexpbar_list部件
  *
  * @export
- * @class Exp
- * @extends {ExpBase}
+ * @class ExpList
+ * @extends {ExpListBase}
  */
 @Component({
     components: {
          
     }
 })
-export default class Exp extends ExpBase { }
+@VueLifeCycleProcessing()
+export default class ExpList extends ExpListBase { }
 </script>

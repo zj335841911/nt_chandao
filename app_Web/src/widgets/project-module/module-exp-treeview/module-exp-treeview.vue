@@ -1,19 +1,22 @@
+<template src="./module-exp-treeview.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import ModuleExpBase from './module-exp-treeview-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { ModuleExpTreeBase } from './module-exp-treeview-base';
  
 
 /**
  * treeexpbar_tree部件
  *
  * @export
- * @class ModuleExp
- * @extends {ModuleExpBase}
+ * @class ModuleExpTree
+ * @extends {ModuleExpTreeBase}
  */
 @Component({
     components: {
          
     }
 })
-export default class ModuleExp extends ModuleExpBase { }
+@VueLifeCycleProcessing()
+export default class ModuleExpTree extends ModuleExpTreeBase { }
 </script>

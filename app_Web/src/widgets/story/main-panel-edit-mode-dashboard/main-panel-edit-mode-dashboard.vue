@@ -1,11 +1,20 @@
+<template src="./main-panel-edit-mode-dashboard.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import MainPanel_EditModeBase from './main-panel-edit-mode-dashboard-base.vue';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { MainPanel_EditModeDashboardBase } from './main-panel-edit-mode-dashboard-base';
 import view_dashboard_sysportlet2 from '@widgets/story/base-info-edit-mode-portlet/base-info-edit-mode-portlet.vue';
 import view_dashboard_sysportlet3 from '@widgets/action/action-history-portlet/action-history-portlet.vue';
 import view_dashboard_sysportlet1 from '@widgets/story/storyspec-portlet/storyspec-portlet.vue';
-
  
+
+/**
+ * dashboard部件
+ *
+ * @export
+ * @class MainPanel_EditModeDashboard
+ * @extends {MainPanel_EditModeDashboardBase}
+ */
 @Component({
     components: {
         view_dashboard_sysportlet2, 
@@ -14,7 +23,6 @@ import view_dashboard_sysportlet1 from '@widgets/story/storyspec-portlet/storysp
          
     }
 })
-export default class MainPanel_EditMode extends MainPanel_EditModeBase {
-
-}
-</script> 
+@VueLifeCycleProcessing()
+export default class MainPanel_EditModeDashboard extends MainPanel_EditModeDashboardBase { }
+</script>

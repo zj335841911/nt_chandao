@@ -61,6 +61,11 @@ export default class MainModel {
         dataType: 'PICKUPTEXT',
       },
       {
+        name: 'branch',
+        prop: 'branch',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'product',
         prop: 'product',
         dataType: 'PICKUP',
@@ -83,7 +88,7 @@ export default class MainModel {
       {
         name: 'openedbuild',
         prop: 'openedbuild',
-        dataType: 'TEXT',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'assignedto',

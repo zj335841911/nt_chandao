@@ -1,7 +1,7 @@
 // js基础扩展
 import './utils/js-basic-extension';
 // 导出装饰器
-export { VueLifeCycleProcessing } from './decorators/VueLifeCycleProcessing';
+export { VueLifeCycleProcessing, Watch } from './decorators/VueLifeCycleProcessing';
 export { SingletonMode } from './decorators/SingletonMode';
 // 视图基类
 export { ViewBase } from './view/ViewBase';
@@ -47,8 +47,11 @@ export { ListExpViewBase } from './view/ListExpViewBase';
 export { IndexPickupDataViewBase } from './view/IndexPickupDataViewBase';
 export { OptionViewBase } from './view/OptionViewBase';
 // 部件基类
-export { CtrlBase } from './widgets/CtrlBase';
-export { TabExpPanel } from './widgets/TabExpPanel';
+export { MainControlBase } from './widgets/MainControlBase';
+export { FormControlBase } from './widgets/FormControlBase';
+export { EditFormControlBase } from './widgets/EditFormControlBase';
+export { SearchFormControlBase } from './widgets/SearchFormControlBase';
+export { TabExpPanelControlBase } from './widgets/TabExpPanelControlBase';
 // 组件 Start
 import { AppLayout } from './components/layout/app-layout/app-layout';
 import { AppHeader } from './components/layout/app-header/app-header';

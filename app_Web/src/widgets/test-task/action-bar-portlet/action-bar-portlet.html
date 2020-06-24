@@ -1,0 +1,11 @@
+<div class='portlet action-bar ' :style="{'height': 'auto',}">
+        <p class='portlet-title'>
+            <span>
+            
+            操作栏
+            </span>
+        </p>
+        <div class="portlet-with-title">
+            <app-actionbar :items="actionBarModelData" @itemClick="handleItemClick.apply(_self, arguments)"></app-actionbar>
+        </div>
+</div>
