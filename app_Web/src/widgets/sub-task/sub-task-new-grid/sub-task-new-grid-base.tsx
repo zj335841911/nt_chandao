@@ -12,9 +12,9 @@ import { FormItemModel } from '@/model/form-detail';
  *
  * @export
  * @class CtrlBase
- * @extends {SubTaskNewBase}
+ * @extends {SubTaskNewGridBase}
  */
-export class SubTaskNewBase extends CtrlBase {
+export class SubTaskNewGridBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

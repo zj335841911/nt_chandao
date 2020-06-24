@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { WorkInfoFormBase } from './work-info-form-form-base';
+import { WorkInfoFormEditFormBase } from './work-info-form-form-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { WorkInfoFormBase } from './work-info-form-form-base';
  *
  * @export
  * @class WorkInfoForm
- * @extends {WorkInfoFormBase}
+ * @extends {WorkInfoFormEditFormBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { WorkInfoFormBase } from './work-info-form-form-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class WorkInfoForm extends WorkInfoFormBase { }
+export default class WorkInfoFormEditForm extends WorkInfoFormEditFormBase { }
 </script>

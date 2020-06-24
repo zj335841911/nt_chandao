@@ -14,9 +14,9 @@ import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,Char
  *
  * @export
  * @class CtrlBase
- * @extends {ProductStatusBase}
+ * @extends {ProductStatusChartBase}
  */
-export class ProductStatusBase extends CtrlBase {
+export class ProductStatusChartBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { GetRoadmapBase } from './get-roadmap-list-base';
+import { GetRoadmapListBase } from './get-roadmap-list-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { GetRoadmapBase } from './get-roadmap-list-base';
  *
  * @export
  * @class GetRoadmap
- * @extends {GetRoadmapBase}
+ * @extends {GetRoadmapListBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { GetRoadmapBase } from './get-roadmap-list-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class GetRoadmap extends GetRoadmapBase { }
+export default class GetRoadmapList extends GetRoadmapListBase { }
 </script>

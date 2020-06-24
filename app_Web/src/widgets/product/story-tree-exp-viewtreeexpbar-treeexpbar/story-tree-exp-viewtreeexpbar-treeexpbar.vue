@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { StoryTreeExpViewtreeexpbarBase } from './story-tree-exp-viewtreeexpbar-treeexpbar-base';
+import { StoryTreeExpViewtreeexpbarTreeExpBarBase } from './story-tree-exp-viewtreeexpbar-treeexpbar-base';
 import view_treeexpbar_tree from '@widgets/product-module/exp-treeview/exp-treeview.vue';
  
 
@@ -11,7 +11,7 @@ import view_treeexpbar_tree from '@widgets/product-module/exp-treeview/exp-treev
  *
  * @export
  * @class StoryTreeExpViewtreeexpbar
- * @extends {StoryTreeExpViewtreeexpbarBase}
+ * @extends {StoryTreeExpViewtreeexpbarTreeExpBarBase}
  */
 @Component({
     components: {
@@ -20,5 +20,5 @@ import view_treeexpbar_tree from '@widgets/product-module/exp-treeview/exp-treev
     }
 })
 @VueLifeCycleProcessing()
-export default class StoryTreeExpViewtreeexpbar extends StoryTreeExpViewtreeexpbarBase { }
+export default class StoryTreeExpViewtreeexpbarTreeExpBar extends StoryTreeExpViewtreeexpbarTreeExpBarBase { }
 </script>

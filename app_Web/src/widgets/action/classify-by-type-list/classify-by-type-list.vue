@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { ClassifyByTypeBase } from './classify-by-type-list-base';
+import { ClassifyByTypeListBase } from './classify-by-type-list-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { ClassifyByTypeBase } from './classify-by-type-list-base';
  *
  * @export
  * @class ClassifyByType
- * @extends {ClassifyByTypeBase}
+ * @extends {ClassifyByTypeListBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { ClassifyByTypeBase } from './classify-by-type-list-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class ClassifyByType extends ClassifyByTypeBase { }
+export default class ClassifyByTypeList extends ClassifyByTypeListBase { }
 </script>

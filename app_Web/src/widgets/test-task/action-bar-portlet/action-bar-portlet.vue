@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { ActionBarBase } from './action-bar-portlet-base';
+import { ActionBarPortletBase } from './action-bar-portlet-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { ActionBarBase } from './action-bar-portlet-base';
  *
  * @export
  * @class ActionBar
- * @extends {ActionBarBase}
+ * @extends {ActionBarPortletBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { ActionBarBase } from './action-bar-portlet-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class ActionBar extends ActionBarBase { }
+export default class ActionBarPortlet extends ActionBarPortletBase { }
 </script>

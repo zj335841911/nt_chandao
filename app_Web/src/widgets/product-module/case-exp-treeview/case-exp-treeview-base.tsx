@@ -10,9 +10,9 @@ import CaseExpService from './case-exp-treeview-service';
  *
  * @export
  * @class CtrlBase
- * @extends {CaseExpBase}
+ * @extends {CaseExpTreeBase}
  */
-export class CaseExpBase extends CtrlBase {
+export class CaseExpTreeBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

@@ -10,9 +10,9 @@ import TaskModuleExpService from './task-module-exp-treeview-service';
  *
  * @export
  * @class CtrlBase
- * @extends {TaskModuleExpBase}
+ * @extends {TaskModuleExpTreeBase}
  */
-export class TaskModuleExpBase extends CtrlBase {
+export class TaskModuleExpTreeBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

@@ -10,9 +10,9 @@ import CaseTreeExpViewtreeexpbarService from './case-tree-exp-viewtreeexpbar-tre
  *
  * @export
  * @class CtrlBase
- * @extends {CaseTreeExpViewtreeexpbarBase}
+ * @extends {CaseTreeExpViewtreeexpbarTreeExpBarBase}
  */
-export class CaseTreeExpViewtreeexpbarBase extends CtrlBase {
+export class CaseTreeExpViewtreeexpbarTreeExpBarBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

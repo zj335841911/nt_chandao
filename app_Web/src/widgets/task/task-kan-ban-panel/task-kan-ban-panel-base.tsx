@@ -14,9 +14,9 @@ import CodeListService from "@service/app/codelist-service";
  *
  * @export
  * @class CtrlBase
- * @extends {TaskKanBanBase}
+ * @extends {TaskKanBanPANELBase}
  */
-export class TaskKanBanBase extends CtrlBase {
+export class TaskKanBanPANELBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

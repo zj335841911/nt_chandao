@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { PlatformManagementBase } from './platform-management-form-base';
+import { PlatformManagementEditFormBase } from './platform-management-form-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { PlatformManagementBase } from './platform-management-form-base';
  *
  * @export
  * @class PlatformManagement
- * @extends {PlatformManagementBase}
+ * @extends {PlatformManagementEditFormBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { PlatformManagementBase } from './platform-management-form-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class PlatformManagement extends PlatformManagementBase { }
+export default class PlatformManagementEditForm extends PlatformManagementEditFormBase { }
 </script>

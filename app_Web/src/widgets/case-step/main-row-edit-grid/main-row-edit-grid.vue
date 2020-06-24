@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { Main_RowEditBase } from './main-row-edit-grid-base';
+import { Main_RowEditGridBase } from './main-row-edit-grid-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { Main_RowEditBase } from './main-row-edit-grid-base';
  *
  * @export
  * @class Main_RowEdit
- * @extends {Main_RowEditBase}
+ * @extends {Main_RowEditGridBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { Main_RowEditBase } from './main-row-edit-grid-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class Main_RowEdit extends Main_RowEditBase { }
+export default class Main_RowEditGrid extends Main_RowEditGridBase { }
 </script>

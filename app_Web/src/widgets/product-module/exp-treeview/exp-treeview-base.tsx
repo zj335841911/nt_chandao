@@ -10,9 +10,9 @@ import ExpService from './exp-treeview-service';
  *
  * @export
  * @class CtrlBase
- * @extends {ExpBase}
+ * @extends {ExpTreeBase}
  */
-export class ExpBase extends CtrlBase {
+export class ExpTreeBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

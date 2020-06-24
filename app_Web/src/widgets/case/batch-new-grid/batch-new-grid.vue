@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { BatchNewBase } from './batch-new-grid-base';
+import { BatchNewGridBase } from './batch-new-grid-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { BatchNewBase } from './batch-new-grid-base';
  *
  * @export
  * @class BatchNew
- * @extends {BatchNewBase}
+ * @extends {BatchNewGridBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { BatchNewBase } from './batch-new-grid-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class BatchNew extends BatchNewBase { }
+export default class BatchNewGrid extends BatchNewGridBase { }
 </script>

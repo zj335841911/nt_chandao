@@ -10,9 +10,9 @@ import UtilService from '@/utilservice/util-service';
  *
  * @export
  * @class CtrlBase
- * @extends {TestPortalView_dbBase}
+ * @extends {TestPortalView_dbDashboardBase}
  */
-export class TestPortalView_dbBase extends CtrlBase {
+export class TestPortalView_dbDashboardBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

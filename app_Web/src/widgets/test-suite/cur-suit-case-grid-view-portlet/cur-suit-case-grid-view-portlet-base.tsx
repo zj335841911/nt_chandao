@@ -11,9 +11,9 @@ import { Environment } from '@/environments/environment';
  *
  * @export
  * @class CtrlBase
- * @extends {CurSuitCaseGridViewBase}
+ * @extends {CurSuitCaseGridViewPortletBase}
  */
-export class CurSuitCaseGridViewBase extends CtrlBase {
+export class CurSuitCaseGridViewPortletBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

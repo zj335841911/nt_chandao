@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { MainGridBase } from './main-grid-grid-base';
+import { MainGridGridBase } from './main-grid-grid-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { MainGridBase } from './main-grid-grid-base';
  *
  * @export
  * @class MainGrid
- * @extends {MainGridBase}
+ * @extends {MainGridGridBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { MainGridBase } from './main-grid-grid-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class MainGrid extends MainGridBase { }
+export default class MainGridGrid extends MainGridGridBase { }
 </script>

@@ -10,9 +10,9 @@ import TrendsService from './trends-list-service';
  *
  * @export
  * @class CtrlBase
- * @extends {TrendsBase}
+ * @extends {TrendsListBase}
  */
-export class TrendsBase extends CtrlBase {
+export class TrendsListBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

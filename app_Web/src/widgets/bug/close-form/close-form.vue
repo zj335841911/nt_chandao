@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { CloseBase } from './close-form-base';
+import { CloseEditFormBase } from './close-form-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { CloseBase } from './close-form-base';
  *
  * @export
  * @class Close
- * @extends {CloseBase}
+ * @extends {CloseEditFormBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { CloseBase } from './close-form-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class Close extends CloseBase { }
+export default class CloseEditForm extends CloseEditFormBase { }
 </script>

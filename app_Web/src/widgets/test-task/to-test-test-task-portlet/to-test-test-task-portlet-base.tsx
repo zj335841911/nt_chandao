@@ -11,9 +11,9 @@ import { Environment } from '@/environments/environment';
  *
  * @export
  * @class CtrlBase
- * @extends {ToTestTestTaskBase}
+ * @extends {ToTestTestTaskPortletBase}
  */
-export class ToTestTestTaskBase extends CtrlBase {
+export class ToTestTestTaskPortletBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

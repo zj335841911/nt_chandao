@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { MainEditBase } from './main-edit-form-base';
+import { MainEditEditFormBase } from './main-edit-form-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { MainEditBase } from './main-edit-form-base';
  *
  * @export
  * @class MainEdit
- * @extends {MainEditBase}
+ * @extends {MainEditEditFormBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { MainEditBase } from './main-edit-form-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class MainEdit extends MainEditBase { }
+export default class MainEditEditForm extends MainEditEditFormBase { }
 </script>

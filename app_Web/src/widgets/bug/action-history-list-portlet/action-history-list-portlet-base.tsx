@@ -11,9 +11,9 @@ import { Environment } from '@/environments/environment';
  *
  * @export
  * @class CtrlBase
- * @extends {ActionHistoryListBase}
+ * @extends {ActionHistoryListPortletBase}
  */
-export class ActionHistoryListBase extends CtrlBase {
+export class ActionHistoryListPortletBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

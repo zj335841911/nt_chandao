@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { StorySpec_EditModeBase } from './story-spec-edit-mode-form-base';
+import { StorySpec_EditModeEditFormBase } from './story-spec-edit-mode-form-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { StorySpec_EditModeBase } from './story-spec-edit-mode-form-base';
  *
  * @export
  * @class StorySpec_EditMode
- * @extends {StorySpec_EditModeBase}
+ * @extends {StorySpec_EditModeEditFormBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { StorySpec_EditModeBase } from './story-spec-edit-mode-form-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class StorySpec_EditMode extends StorySpec_EditModeBase { }
+export default class StorySpec_EditModeEditForm extends StorySpec_EditModeEditFormBase { }
 </script>

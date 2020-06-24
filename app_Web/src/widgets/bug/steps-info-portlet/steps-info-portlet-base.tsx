@@ -11,9 +11,9 @@ import { Environment } from '@/environments/environment';
  *
  * @export
  * @class CtrlBase
- * @extends {StepsInfoBase}
+ * @extends {StepsInfoPortletBase}
  */
-export class StepsInfoBase extends CtrlBase {
+export class StepsInfoPortletBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

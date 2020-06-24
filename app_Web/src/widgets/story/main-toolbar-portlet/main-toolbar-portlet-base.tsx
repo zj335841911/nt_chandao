@@ -12,9 +12,9 @@ import { Environment } from '@/environments/environment';
  *
  * @export
  * @class CtrlBase
- * @extends {MainToolbarBase}
+ * @extends {MainToolbarPortletBase}
  */
-export class MainToolbarBase extends CtrlBase {
+export class MainToolbarPortletBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

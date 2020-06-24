@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { TypeGanttBase } from './type-gantt-gantt-base';
+import { TypeGanttGANTTBase } from './type-gantt-gantt-base';
 import GanttElastic from "ibiz-gantt-elastic/src/GanttElastic.vue";
  
 
@@ -11,7 +11,7 @@ import GanttElastic from "ibiz-gantt-elastic/src/GanttElastic.vue";
  *
  * @export
  * @class TypeGantt
- * @extends {TypeGanttBase}
+ * @extends {TypeGanttGANTTBase}
  */
 @Component({
     components: {
@@ -20,5 +20,5 @@ import GanttElastic from "ibiz-gantt-elastic/src/GanttElastic.vue";
     }
 })
 @VueLifeCycleProcessing()
-export default class TypeGantt extends TypeGanttBase { }
+export default class TypeGanttGANTT extends TypeGanttGANTTBase { }
 </script>

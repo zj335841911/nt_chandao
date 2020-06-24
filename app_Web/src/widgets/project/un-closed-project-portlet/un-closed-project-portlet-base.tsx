@@ -11,9 +11,9 @@ import { Environment } from '@/environments/environment';
  *
  * @export
  * @class CtrlBase
- * @extends {UnClosedProjectBase}
+ * @extends {UnClosedProjectPortletBase}
  */
-export class UnClosedProjectBase extends CtrlBase {
+export class UnClosedProjectPortletBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

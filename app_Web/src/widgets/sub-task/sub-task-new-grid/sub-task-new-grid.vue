@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { SubTaskNewBase } from './sub-task-new-grid-base';
+import { SubTaskNewGridBase } from './sub-task-new-grid-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { SubTaskNewBase } from './sub-task-new-grid-base';
  *
  * @export
  * @class SubTaskNew
- * @extends {SubTaskNewBase}
+ * @extends {SubTaskNewGridBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { SubTaskNewBase } from './sub-task-new-grid-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class SubTaskNew extends SubTaskNewBase { }
+export default class SubTaskNewGrid extends SubTaskNewGridBase { }
 </script>

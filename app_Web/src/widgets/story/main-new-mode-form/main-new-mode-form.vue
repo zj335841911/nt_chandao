@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { Main_NewModeBase } from './main-new-mode-form-base';
+import { Main_NewModeEditFormBase } from './main-new-mode-form-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { Main_NewModeBase } from './main-new-mode-form-base';
  *
  * @export
  * @class Main_NewMode
- * @extends {Main_NewModeBase}
+ * @extends {Main_NewModeEditFormBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { Main_NewModeBase } from './main-new-mode-form-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class Main_NewMode extends Main_NewModeBase { }
+export default class Main_NewModeEditForm extends Main_NewModeEditFormBase { }
 </script>

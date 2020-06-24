@@ -10,9 +10,9 @@ import TestTabExpViewtabexppanelService from './test-tab-exp-viewtabexppanel-tab
  *
  * @export
  * @class TabExpPanel
- * @extends {TestTabExpViewtabexppanelBase}
+ * @extends {TestTabExpViewtabexppanelTABEXPPANELBase}
  */
-export class TestTabExpViewtabexppanelBase extends TabExpPanel {
+export class TestTabExpViewtabexppanelTABEXPPANELBase extends TabExpPanel {
 
     /**
      * 建构部件服务对象

@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { ProjectStatusBarBase } from './project-status-bar-portlet-base';
+import { ProjectStatusBarPortletBase } from './project-status-bar-portlet-base';
 import view_db_projectstatusportlet_chart from '@widgets/project/project-status-bar-chart/project-status-bar-chart.vue';
  
 
@@ -11,7 +11,7 @@ import view_db_projectstatusportlet_chart from '@widgets/project/project-status-
  *
  * @export
  * @class ProjectStatusBar
- * @extends {ProjectStatusBarBase}
+ * @extends {ProjectStatusBarPortletBase}
  */
 @Component({
     components: {
@@ -20,5 +20,5 @@ import view_db_projectstatusportlet_chart from '@widgets/project/project-status-
     }
 })
 @VueLifeCycleProcessing()
-export default class ProjectStatusBar extends ProjectStatusBarBase { }
+export default class ProjectStatusBarPortlet extends ProjectStatusBarPortletBase { }
 </script>

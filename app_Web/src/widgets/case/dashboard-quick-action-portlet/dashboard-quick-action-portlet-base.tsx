@@ -12,9 +12,9 @@ import { Environment } from '@/environments/environment';
  *
  * @export
  * @class CtrlBase
- * @extends {DashboardQuickActionBase}
+ * @extends {DashboardQuickActionPortletBase}
  */
-export class DashboardQuickActionBase extends CtrlBase {
+export class DashboardQuickActionPortletBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

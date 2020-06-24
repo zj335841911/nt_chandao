@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { TestSidebarBase } from './test-sidebar-list-base';
+import { TestSidebarListBase } from './test-sidebar-list-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { TestSidebarBase } from './test-sidebar-list-base';
  *
  * @export
  * @class TestSidebar
- * @extends {TestSidebarBase}
+ * @extends {TestSidebarListBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { TestSidebarBase } from './test-sidebar-list-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class TestSidebar extends TestSidebarBase { }
+export default class TestSidebarList extends TestSidebarListBase { }
 </script>

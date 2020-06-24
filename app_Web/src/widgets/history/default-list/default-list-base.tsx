@@ -10,9 +10,9 @@ import DEFAULTService from './default-list-service';
  *
  * @export
  * @class CtrlBase
- * @extends {DEFAULTBase}
+ * @extends {DEFAULTListBase}
  */
-export class DEFAULTBase extends CtrlBase {
+export class DEFAULTListBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

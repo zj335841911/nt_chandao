@@ -11,9 +11,9 @@ import UtilService from '@/utilservice/util-service';
  *
  * @export
  * @class CtrlBase
- * @extends {MainPanelBase}
+ * @extends {MainPanelDashboardBase}
  */
-export class MainPanelBase extends CtrlBase {
+export class MainPanelDashboardBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { MainSubPlanBase } from './main-sub-plan-form-base';
+import { MainSubPlanEditFormBase } from './main-sub-plan-form-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { MainSubPlanBase } from './main-sub-plan-form-base';
  *
  * @export
  * @class MainSubPlan
- * @extends {MainSubPlanBase}
+ * @extends {MainSubPlanEditFormBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { MainSubPlanBase } from './main-sub-plan-form-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class MainSubPlan extends MainSubPlanBase { }
+export default class MainSubPlanEditForm extends MainSubPlanEditFormBase { }
 </script>

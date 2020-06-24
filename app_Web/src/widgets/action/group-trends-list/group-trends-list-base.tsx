@@ -10,9 +10,9 @@ import GroupTrendsService from './group-trends-list-service';
  *
  * @export
  * @class CtrlBase
- * @extends {GroupTrendsBase}
+ * @extends {GroupTrendsListBase}
  */
-export class GroupTrendsBase extends CtrlBase {
+export class GroupTrendsListBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

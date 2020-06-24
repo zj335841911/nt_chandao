@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { TextExpViewBase } from './text-exp-view-portlet-base';
+import { TextExpViewPortletBase } from './text-exp-view-portlet-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { TextExpViewBase } from './text-exp-view-portlet-base';
  *
  * @export
  * @class TextExpView
- * @extends {TextExpViewBase}
+ * @extends {TextExpViewPortletBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { TextExpViewBase } from './text-exp-view-portlet-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class TextExpView extends TextExpViewBase { }
+export default class TextExpViewPortlet extends TextExpViewPortletBase { }
 </script>

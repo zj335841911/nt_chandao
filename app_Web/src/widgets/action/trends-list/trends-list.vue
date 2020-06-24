@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { TrendsBase } from './trends-list-base';
+import { TrendsListBase } from './trends-list-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { TrendsBase } from './trends-list-base';
  *
  * @export
  * @class Trends
- * @extends {TrendsBase}
+ * @extends {TrendsListBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { TrendsBase } from './trends-list-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class Trends extends TrendsBase { }
+export default class TrendsList extends TrendsListBase { }
 </script>

@@ -10,9 +10,9 @@ import TaskKanBanService from './task-kan-ban-kanban-service';
  *
  * @export
  * @class CtrlBase
- * @extends {TaskKanBanBase}
+ * @extends {TaskKanBanKANBANBase}
  */
-export class TaskKanBanBase extends CtrlBase {
+export class TaskKanBanKANBANBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

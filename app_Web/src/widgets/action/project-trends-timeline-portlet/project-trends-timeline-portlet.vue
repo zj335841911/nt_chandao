@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { ProjectTrendsTimelineBase } from './project-trends-timeline-portlet-base';
+import { ProjectTrendsTimelinePortletBase } from './project-trends-timeline-portlet-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { ProjectTrendsTimelineBase } from './project-trends-timeline-portlet-bas
  *
  * @export
  * @class ProjectTrendsTimeline
- * @extends {ProjectTrendsTimelineBase}
+ * @extends {ProjectTrendsTimelinePortletBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { ProjectTrendsTimelineBase } from './project-trends-timeline-portlet-bas
     }
 })
 @VueLifeCycleProcessing()
-export default class ProjectTrendsTimeline extends ProjectTrendsTimelineBase { }
+export default class ProjectTrendsTimelinePortlet extends ProjectTrendsTimelinePortletBase { }
 </script>

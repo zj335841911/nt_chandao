@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { DEFAULTBase } from './default-list-base';
+import { DEFAULTListBase } from './default-list-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { DEFAULTBase } from './default-list-base';
  *
  * @export
  * @class DEFAULT
- * @extends {DEFAULTBase}
+ * @extends {DEFAULTListBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { DEFAULTBase } from './default-list-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class DEFAULT extends DEFAULTBase { }
+export default class DEFAULTList extends DEFAULTListBase { }
 </script>

@@ -12,9 +12,9 @@ import ProductModuleUIService from '@/uiservice/product-module/product-module-ui
  *
  * @export
  * @class CtrlBase
- * @extends {ModuleExpBase}
+ * @extends {ModuleExpTreeBase}
  */
-export class ModuleExpBase extends CtrlBase {
+export class ModuleExpTreeBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

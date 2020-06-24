@@ -12,9 +12,9 @@ import { FormItemModel } from '@/model/form-detail';
  *
  * @export
  * @class CtrlBase
- * @extends {PivotTableBase}
+ * @extends {PivotTableGridBase}
  */
-export class PivotTableBase extends CtrlBase {
+export class PivotTableGridBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

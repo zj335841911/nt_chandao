@@ -12,9 +12,9 @@ import { FormItemModel } from '@/model/form-detail';
  *
  * @export
  * @class CtrlBase
- * @extends {Main9Base}
+ * @extends {Main9GridBase}
  */
-export class Main9Base extends CtrlBase {
+export class Main9GridBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

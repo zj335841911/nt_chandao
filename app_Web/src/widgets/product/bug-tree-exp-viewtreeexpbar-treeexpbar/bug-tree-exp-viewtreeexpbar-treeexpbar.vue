@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { BugTreeExpViewtreeexpbarBase } from './bug-tree-exp-viewtreeexpbar-treeexpbar-base';
+import { BugTreeExpViewtreeexpbarTreeExpBarBase } from './bug-tree-exp-viewtreeexpbar-treeexpbar-base';
 import view_treeexpbar_tree from '@widgets/product-module/bug-exp-treeview/bug-exp-treeview.vue';
  
 
@@ -11,7 +11,7 @@ import view_treeexpbar_tree from '@widgets/product-module/bug-exp-treeview/bug-e
  *
  * @export
  * @class BugTreeExpViewtreeexpbar
- * @extends {BugTreeExpViewtreeexpbarBase}
+ * @extends {BugTreeExpViewtreeexpbarTreeExpBarBase}
  */
 @Component({
     components: {
@@ -20,5 +20,5 @@ import view_treeexpbar_tree from '@widgets/product-module/bug-exp-treeview/bug-e
     }
 })
 @VueLifeCycleProcessing()
-export default class BugTreeExpViewtreeexpbar extends BugTreeExpViewtreeexpbarBase { }
+export default class BugTreeExpViewtreeexpbarTreeExpBar extends BugTreeExpViewtreeexpbarTreeExpBarBase { }
 </script>

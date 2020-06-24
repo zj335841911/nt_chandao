@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { StartFormBase } from './start-form-form-base';
+import { StartFormEditFormBase } from './start-form-form-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { StartFormBase } from './start-form-form-base';
  *
  * @export
  * @class StartForm
- * @extends {StartFormBase}
+ * @extends {StartFormEditFormBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { StartFormBase } from './start-form-form-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class StartForm extends StartFormBase { }
+export default class StartFormEditForm extends StartFormEditFormBase { }
 </script>

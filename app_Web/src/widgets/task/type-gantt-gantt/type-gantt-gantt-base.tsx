@@ -10,9 +10,9 @@ import TypeGanttService from './type-gantt-gantt-service';
  *
  * @export
  * @class CtrlBase
- * @extends {TypeGanttBase}
+ * @extends {TypeGanttGANTTBase}
  */
-export class TypeGanttBase extends CtrlBase {
+export class TypeGanttGANTTBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

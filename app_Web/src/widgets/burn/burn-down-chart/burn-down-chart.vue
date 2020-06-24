@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { BurnDownBase } from './burn-down-chart-base';
+import { BurnDownChartBase } from './burn-down-chart-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { BurnDownBase } from './burn-down-chart-base';
  *
  * @export
  * @class BurnDown
- * @extends {BurnDownBase}
+ * @extends {BurnDownChartBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { BurnDownBase } from './burn-down-chart-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class BurnDown extends BurnDownBase { }
+export default class BurnDownChart extends BurnDownChartBase { }
 </script>

@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { DashboardBugLifeBase } from './dashboard-bug-life-portlet-base';
+import { DashboardBugLifePortletBase } from './dashboard-bug-life-portlet-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { DashboardBugLifeBase } from './dashboard-bug-life-portlet-base';
  *
  * @export
  * @class DashboardBugLife
- * @extends {DashboardBugLifeBase}
+ * @extends {DashboardBugLifePortletBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { DashboardBugLifeBase } from './dashboard-bug-life-portlet-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class DashboardBugLife extends DashboardBugLifeBase { }
+export default class DashboardBugLifePortlet extends DashboardBugLifePortletBase { }
 </script>

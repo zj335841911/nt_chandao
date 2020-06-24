@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { BaseInfo_EditModeBase } from './base-info-edit-mode-portlet-base';
+import { BaseInfo_EditModePortletBase } from './base-info-edit-mode-portlet-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { BaseInfo_EditModeBase } from './base-info-edit-mode-portlet-base';
  *
  * @export
  * @class BaseInfo_EditMode
- * @extends {BaseInfo_EditModeBase}
+ * @extends {BaseInfo_EditModePortletBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { BaseInfo_EditModeBase } from './base-info-edit-mode-portlet-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class BaseInfo_EditMode extends BaseInfo_EditModeBase { }
+export default class BaseInfo_EditModePortlet extends BaseInfo_EditModePortletBase { }
 </script>

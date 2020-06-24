@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { MainBase } from './main-dashboard-base';
+import { MainDashboardBase } from './main-dashboard-base';
 import view_dashboard_sysportlet2 from '@widgets/test-suite/main-info-view-portlet/main-info-view-portlet.vue';
 import view_dashboard_sysportlet3 from '@widgets/action/action-history-portlet/action-history-portlet.vue';
 import view_dashboard_sysportlet1 from '@widgets/test-suite/cur-suit-case-grid-view-portlet/cur-suit-case-grid-view-portlet.vue';
@@ -13,7 +13,7 @@ import view_dashboard_sysportlet1 from '@widgets/test-suite/cur-suit-case-grid-v
  *
  * @export
  * @class Main
- * @extends {MainBase}
+ * @extends {MainDashboardBase}
  */
 @Component({
     components: {
@@ -24,5 +24,5 @@ import view_dashboard_sysportlet1 from '@widgets/test-suite/cur-suit-case-grid-v
     }
 })
 @VueLifeCycleProcessing()
-export default class Main extends MainBase { }
+export default class MainDashboard extends MainDashboardBase { }
 </script>

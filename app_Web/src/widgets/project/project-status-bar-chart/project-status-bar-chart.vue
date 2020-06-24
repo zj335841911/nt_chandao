@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { ProjectStatusBarBase } from './project-status-bar-chart-base';
+import { ProjectStatusBarChartBase } from './project-status-bar-chart-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { ProjectStatusBarBase } from './project-status-bar-chart-base';
  *
  * @export
  * @class ProjectStatusBar
- * @extends {ProjectStatusBarBase}
+ * @extends {ProjectStatusBarChartBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { ProjectStatusBarBase } from './project-status-bar-chart-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class ProjectStatusBar extends ProjectStatusBarBase { }
+export default class ProjectStatusBarChart extends ProjectStatusBarChartBase { }
 </script>

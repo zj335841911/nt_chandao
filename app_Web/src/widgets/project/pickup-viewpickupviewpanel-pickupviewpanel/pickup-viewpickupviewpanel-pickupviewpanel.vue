@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { PickupViewpickupviewpanelBase } from './pickup-viewpickupviewpanel-pickupviewpanel-base';
+import { PickupViewpickupviewpanelPICKUPVIEWPANELBase } from './pickup-viewpickupviewpanel-pickupviewpanel-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { PickupViewpickupviewpanelBase } from './pickup-viewpickupviewpanel-pick
  *
  * @export
  * @class PickupViewpickupviewpanel
- * @extends {PickupViewpickupviewpanelBase}
+ * @extends {PickupViewpickupviewpanelPICKUPVIEWPANELBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { PickupViewpickupviewpanelBase } from './pickup-viewpickupviewpanel-pick
     }
 })
 @VueLifeCycleProcessing()
-export default class PickupViewpickupviewpanel extends PickupViewpickupviewpanelBase { }
+export default class PickupViewpickupviewpanelPICKUPVIEWPANEL extends PickupViewpickupviewpanelPICKUPVIEWPANELBase { }
 </script>

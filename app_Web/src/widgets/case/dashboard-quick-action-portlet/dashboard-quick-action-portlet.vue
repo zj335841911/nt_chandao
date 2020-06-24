@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { DashboardQuickActionBase } from './dashboard-quick-action-portlet-base';
+import { DashboardQuickActionPortletBase } from './dashboard-quick-action-portlet-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { DashboardQuickActionBase } from './dashboard-quick-action-portlet-base'
  *
  * @export
  * @class DashboardQuickAction
- * @extends {DashboardQuickActionBase}
+ * @extends {DashboardQuickActionPortletBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { DashboardQuickActionBase } from './dashboard-quick-action-portlet-base'
     }
 })
 @VueLifeCycleProcessing()
-export default class DashboardQuickAction extends DashboardQuickActionBase { }
+export default class DashboardQuickActionPortlet extends DashboardQuickActionPortletBase { }
 </script>

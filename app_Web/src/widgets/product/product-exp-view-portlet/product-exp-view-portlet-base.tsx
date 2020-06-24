@@ -11,9 +11,9 @@ import { Environment } from '@/environments/environment';
  *
  * @export
  * @class CtrlBase
- * @extends {ProductExpViewBase}
+ * @extends {ProductExpViewPortletBase}
  */
-export class ProductExpViewBase extends CtrlBase {
+export class ProductExpViewPortletBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

@@ -10,9 +10,9 @@ import TaskTreeExpViewtreeexpbarService from './task-tree-exp-viewtreeexpbar-tre
  *
  * @export
  * @class CtrlBase
- * @extends {TaskTreeExpViewtreeexpbarBase}
+ * @extends {TaskTreeExpViewtreeexpbarTreeExpBarBase}
  */
-export class TaskTreeExpViewtreeexpbarBase extends CtrlBase {
+export class TaskTreeExpViewtreeexpbarTreeExpBarBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

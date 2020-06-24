@@ -10,9 +10,9 @@ import GetRoadmapService from './get-roadmap-list-service';
  *
  * @export
  * @class CtrlBase
- * @extends {GetRoadmapBase}
+ * @extends {GetRoadmapListBase}
  */
-export class GetRoadmapBase extends CtrlBase {
+export class GetRoadmapListBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

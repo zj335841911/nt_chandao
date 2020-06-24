@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { TestRangeBase } from './test-range-form-base';
+import { TestRangeEditFormBase } from './test-range-form-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { TestRangeBase } from './test-range-form-base';
  *
  * @export
  * @class TestRange
- * @extends {TestRangeBase}
+ * @extends {TestRangeEditFormBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { TestRangeBase } from './test-range-form-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class TestRange extends TestRangeBase { }
+export default class TestRangeEditForm extends TestRangeEditFormBase { }
 </script>

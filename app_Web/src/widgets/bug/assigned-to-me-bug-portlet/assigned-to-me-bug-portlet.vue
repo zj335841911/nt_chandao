@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { AssignedToMeBugBase } from './assigned-to-me-bug-portlet-base';
+import { AssignedToMeBugPortletBase } from './assigned-to-me-bug-portlet-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { AssignedToMeBugBase } from './assigned-to-me-bug-portlet-base';
  *
  * @export
  * @class AssignedToMeBug
- * @extends {AssignedToMeBugBase}
+ * @extends {AssignedToMeBugPortletBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { AssignedToMeBugBase } from './assigned-to-me-bug-portlet-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class AssignedToMeBug extends AssignedToMeBugBase { }
+export default class AssignedToMeBugPortlet extends AssignedToMeBugPortletBase { }
 </script>

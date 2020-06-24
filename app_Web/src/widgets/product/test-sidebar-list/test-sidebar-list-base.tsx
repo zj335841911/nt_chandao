@@ -10,9 +10,9 @@ import TestSidebarService from './test-sidebar-list-service';
  *
  * @export
  * @class CtrlBase
- * @extends {TestSidebarBase}
+ * @extends {TestSidebarListBase}
  */
-export class TestSidebarBase extends CtrlBase {
+export class TestSidebarListBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { GroupTrendsBase } from './group-trends-list-base';
+import { GroupTrendsListBase } from './group-trends-list-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { GroupTrendsBase } from './group-trends-list-base';
  *
  * @export
  * @class GroupTrends
- * @extends {GroupTrendsBase}
+ * @extends {GroupTrendsListBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { GroupTrendsBase } from './group-trends-list-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class GroupTrends extends GroupTrendsBase { }
+export default class GroupTrendsList extends GroupTrendsListBase { }
 </script>

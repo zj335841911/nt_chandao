@@ -11,9 +11,9 @@ import { Environment } from '@/environments/environment';
  *
  * @export
  * @class CtrlBase
- * @extends {AssignedToMeStoryBase}
+ * @extends {AssignedToMeStoryPortletBase}
  */
-export class AssignedToMeStoryBase extends CtrlBase {
+export class AssignedToMeStoryPortletBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

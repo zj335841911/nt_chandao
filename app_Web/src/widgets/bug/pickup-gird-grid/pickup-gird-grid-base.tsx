@@ -12,9 +12,9 @@ import { FormItemModel } from '@/model/form-detail';
  *
  * @export
  * @class CtrlBase
- * @extends {PickupGirdBase}
+ * @extends {PickupGirdGridBase}
  */
-export class PickupGirdBase extends CtrlBase {
+export class PickupGirdGridBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

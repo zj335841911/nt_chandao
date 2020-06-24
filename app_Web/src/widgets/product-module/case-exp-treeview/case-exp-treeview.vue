@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { CaseExpBase } from './case-exp-treeview-base';
+import { CaseExpTreeBase } from './case-exp-treeview-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { CaseExpBase } from './case-exp-treeview-base';
  *
  * @export
  * @class CaseExp
- * @extends {CaseExpBase}
+ * @extends {CaseExpTreeBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { CaseExpBase } from './case-exp-treeview-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class CaseExp extends CaseExpBase { }
+export default class CaseExpTree extends CaseExpTreeBase { }
 </script>

@@ -10,9 +10,9 @@ import ExpService from './exp-list-service';
  *
  * @export
  * @class CtrlBase
- * @extends {ExpBase}
+ * @extends {ExpListBase}
  */
-export class ExpBase extends CtrlBase {
+export class ExpListBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

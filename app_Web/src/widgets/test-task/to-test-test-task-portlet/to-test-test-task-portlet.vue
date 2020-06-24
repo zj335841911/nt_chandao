@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { ToTestTestTaskBase } from './to-test-test-task-portlet-base';
+import { ToTestTestTaskPortletBase } from './to-test-test-task-portlet-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { ToTestTestTaskBase } from './to-test-test-task-portlet-base';
  *
  * @export
  * @class ToTestTestTask
- * @extends {ToTestTestTaskBase}
+ * @extends {ToTestTestTaskPortletBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { ToTestTestTaskBase } from './to-test-test-task-portlet-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class ToTestTestTask extends ToTestTestTaskBase { }
+export default class ToTestTestTaskPortlet extends ToTestTestTaskPortletBase { }
 </script>

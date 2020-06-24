@@ -11,9 +11,9 @@ import { Environment } from '@/environments/environment';
  *
  * @export
  * @class CtrlBase
- * @extends {DashboardBugLifeBase}
+ * @extends {DashboardBugLifePortletBase}
  */
-export class DashboardBugLifeBase extends CtrlBase {
+export class DashboardBugLifePortletBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

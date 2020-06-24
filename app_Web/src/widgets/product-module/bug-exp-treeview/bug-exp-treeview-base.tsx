@@ -10,9 +10,9 @@ import BugExpService from './bug-exp-treeview-service';
  *
  * @export
  * @class CtrlBase
- * @extends {BugExpBase}
+ * @extends {BugExpTreeBase}
  */
-export class BugExpBase extends CtrlBase {
+export class BugExpTreeBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { ResolveBase } from './resolve-form-base';
+import { ResolveEditFormBase } from './resolve-form-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { ResolveBase } from './resolve-form-base';
  *
  * @export
  * @class Resolve
- * @extends {ResolveBase}
+ * @extends {ResolveEditFormBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { ResolveBase } from './resolve-form-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class Resolve extends ResolveBase { }
+export default class ResolveEditForm extends ResolveEditFormBase { }
 </script>

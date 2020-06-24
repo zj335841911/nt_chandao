@@ -11,9 +11,9 @@ import GetRoadmapService from '@/widgets/product-life/get-roadmap-list/get-roadm
  *
  * @export
  * @class CtrlBase
- * @extends {GetRoadmapYearBase}
+ * @extends {GetRoadmapYearListBase}
  */
-export class GetRoadmapYearBase extends CtrlBase {
+export class GetRoadmapYearListBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

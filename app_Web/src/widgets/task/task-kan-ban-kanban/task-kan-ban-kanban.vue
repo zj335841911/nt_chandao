@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { TaskKanBanBase } from './task-kan-ban-kanban-base';
+import { TaskKanBanKANBANBase } from './task-kan-ban-kanban-base';
 import layout_itemlayoutpanel from '@widgets/task/task-kan-ban-panel/task-kan-ban-panel.vue';
  
 
@@ -11,7 +11,7 @@ import layout_itemlayoutpanel from '@widgets/task/task-kan-ban-panel/task-kan-ba
  *
  * @export
  * @class TaskKanBan
- * @extends {TaskKanBanBase}
+ * @extends {TaskKanBanKANBANBase}
  */
 @Component({
     components: {
@@ -20,5 +20,5 @@ import layout_itemlayoutpanel from '@widgets/task/task-kan-ban-panel/task-kan-ba
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskKanBan extends TaskKanBanBase { }
+export default class TaskKanBanKANBAN extends TaskKanBanKANBANBase { }
 </script>

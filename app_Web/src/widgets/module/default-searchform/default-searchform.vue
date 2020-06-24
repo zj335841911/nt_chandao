@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { DefaultBase } from './default-searchform-base';
+import { DefaultSearchFormBase } from './default-searchform-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { DefaultBase } from './default-searchform-base';
  *
  * @export
  * @class Default
- * @extends {DefaultBase}
+ * @extends {DefaultSearchFormBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { DefaultBase } from './default-searchform-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class Default extends DefaultBase { }
+export default class DefaultSearchForm extends DefaultSearchFormBase { }
 </script>

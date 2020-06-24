@@ -12,9 +12,9 @@ import { FormItemModel } from '@/model/form-detail';
  *
  * @export
  * @class CtrlBase
- * @extends {Main_ReleaseSubBase}
+ * @extends {Main_ReleaseSubGridBase}
  */
-export class Main_ReleaseSubBase extends CtrlBase {
+export class Main_ReleaseSubGridBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

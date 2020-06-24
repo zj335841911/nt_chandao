@@ -10,9 +10,9 @@ import PlanService from './plan-list-service';
  *
  * @export
  * @class CtrlBase
- * @extends {PlanBase}
+ * @extends {PlanListBase}
  */
-export class PlanBase extends CtrlBase {
+export class PlanListBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

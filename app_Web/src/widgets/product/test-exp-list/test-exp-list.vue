@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { TestExpBase } from './test-exp-list-base';
+import { TestExpListBase } from './test-exp-list-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { TestExpBase } from './test-exp-list-base';
  *
  * @export
  * @class TestExp
- * @extends {TestExpBase}
+ * @extends {TestExpListBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { TestExpBase } from './test-exp-list-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class TestExp extends TestExpBase { }
+export default class TestExpList extends TestExpListBase { }
 </script>

@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { DashBoradInfoViewBase } from './dash-borad-info-view-portlet-base';
+import { DashBoradInfoViewPortletBase } from './dash-borad-info-view-portlet-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { DashBoradInfoViewBase } from './dash-borad-info-view-portlet-base';
  *
  * @export
  * @class DashBoradInfoView
- * @extends {DashBoradInfoViewBase}
+ * @extends {DashBoradInfoViewPortletBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { DashBoradInfoViewBase } from './dash-borad-info-view-portlet-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class DashBoradInfoView extends DashBoradInfoViewBase { }
+export default class DashBoradInfoViewPortlet extends DashBoradInfoViewPortletBase { }
 </script>

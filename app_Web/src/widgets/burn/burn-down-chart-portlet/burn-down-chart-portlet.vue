@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { BurnDownChartBase } from './burn-down-chart-portlet-base';
+import { BurnDownChartPortletBase } from './burn-down-chart-portlet-base';
 import view_dashboard_sysportlet1_chart from '@widgets/burn/burn-down-chart/burn-down-chart.vue';
  
 
@@ -11,7 +11,7 @@ import view_dashboard_sysportlet1_chart from '@widgets/burn/burn-down-chart/burn
  *
  * @export
  * @class BurnDownChart
- * @extends {BurnDownChartBase}
+ * @extends {BurnDownChartPortletBase}
  */
 @Component({
     components: {
@@ -20,5 +20,5 @@ import view_dashboard_sysportlet1_chart from '@widgets/burn/burn-down-chart/burn
     }
 })
 @VueLifeCycleProcessing()
-export default class BurnDownChart extends BurnDownChartBase { }
+export default class BurnDownChartPortlet extends BurnDownChartPortletBase { }
 </script>

@@ -12,9 +12,9 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
  *
  * @export
  * @class CtrlBase
- * @extends {CompleteFormBase}
+ * @extends {CompleteFormEditFormBase}
  */
-export class CompleteFormBase extends CtrlBase {
+export class CompleteFormEditFormBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

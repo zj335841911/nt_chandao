@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { Main_ReleaseSubBase } from './main-release-sub-grid-base';
+import { Main_ReleaseSubGridBase } from './main-release-sub-grid-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { Main_ReleaseSubBase } from './main-release-sub-grid-base';
  *
  * @export
  * @class Main_ReleaseSub
- * @extends {Main_ReleaseSubBase}
+ * @extends {Main_ReleaseSubGridBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { Main_ReleaseSubBase } from './main-release-sub-grid-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class Main_ReleaseSub extends Main_ReleaseSubBase { }
+export default class Main_ReleaseSubGrid extends Main_ReleaseSubGridBase { }
 </script>

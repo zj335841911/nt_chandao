@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { UnClosedProductBase } from './un-closed-product-portlet-base';
+import { UnClosedProductPortletBase } from './un-closed-product-portlet-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { UnClosedProductBase } from './un-closed-product-portlet-base';
  *
  * @export
  * @class UnClosedProduct
- * @extends {UnClosedProductBase}
+ * @extends {UnClosedProductPortletBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { UnClosedProductBase } from './un-closed-product-portlet-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class UnClosedProduct extends UnClosedProductBase { }
+export default class UnClosedProductPortlet extends UnClosedProductPortletBase { }
 </script>

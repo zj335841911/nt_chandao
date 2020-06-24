@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { MainTabExpViewtabviewpanelBase } from './main-tab-exp-viewtabviewpanel-tabviewpanel-base';
+import { MainTabExpViewtabviewpanelTABVIEWPANELBase } from './main-tab-exp-viewtabviewpanel-tabviewpanel-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { MainTabExpViewtabviewpanelBase } from './main-tab-exp-viewtabviewpanel-
  *
  * @export
  * @class MainTabExpViewtabviewpanel
- * @extends {MainTabExpViewtabviewpanelBase}
+ * @extends {MainTabExpViewtabviewpanelTABVIEWPANELBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { MainTabExpViewtabviewpanelBase } from './main-tab-exp-viewtabviewpanel-
     }
 })
 @VueLifeCycleProcessing()
-export default class MainTabExpViewtabviewpanel extends MainTabExpViewtabviewpanelBase { }
+export default class MainTabExpViewtabviewpanelTABVIEWPANEL extends MainTabExpViewtabviewpanelTABVIEWPANELBase { }
 </script>

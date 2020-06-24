@@ -10,9 +10,9 @@ import MainTabExptabexppanelService from './main-tab-exptabexppanel-tabexppanel-
  *
  * @export
  * @class TabExpPanel
- * @extends {MainTabExptabexppanelBase}
+ * @extends {MainTabExptabexppanelTABEXPPANELBase}
  */
-export class MainTabExptabexppanelBase extends TabExpPanel {
+export class MainTabExptabexppanelTABEXPPANELBase extends TabExpPanel {
 
     /**
      * 建构部件服务对象

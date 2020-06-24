@@ -15,9 +15,9 @@ import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,Char
  *
  * @export
  * @class CtrlBase
- * @extends {BurnDownBase}
+ * @extends {BurnDownChartBase}
  */
-export class BurnDownBase extends CtrlBase {
+export class BurnDownChartBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

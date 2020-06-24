@@ -10,9 +10,9 @@ import BugTreeExpViewtreeexpbarService from './bug-tree-exp-viewtreeexpbar-treee
  *
  * @export
  * @class CtrlBase
- * @extends {BugTreeExpViewtreeexpbarBase}
+ * @extends {BugTreeExpViewtreeexpbarTreeExpBarBase}
  */
-export class BugTreeExpViewtreeexpbarBase extends CtrlBase {
+export class BugTreeExpViewtreeexpbarTreeExpBarBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

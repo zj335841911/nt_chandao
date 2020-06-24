@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { CurSuitCaseGridViewBase } from './cur-suit-case-grid-view-portlet-base';
+import { CurSuitCaseGridViewPortletBase } from './cur-suit-case-grid-view-portlet-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { CurSuitCaseGridViewBase } from './cur-suit-case-grid-view-portlet-base'
  *
  * @export
  * @class CurSuitCaseGridView
- * @extends {CurSuitCaseGridViewBase}
+ * @extends {CurSuitCaseGridViewPortletBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { CurSuitCaseGridViewBase } from './cur-suit-case-grid-view-portlet-base'
     }
 })
 @VueLifeCycleProcessing()
-export default class CurSuitCaseGridView extends CurSuitCaseGridViewBase { }
+export default class CurSuitCaseGridViewPortlet extends CurSuitCaseGridViewPortletBase { }
 </script>

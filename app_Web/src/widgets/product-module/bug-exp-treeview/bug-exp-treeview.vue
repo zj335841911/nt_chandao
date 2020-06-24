@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { BugExpBase } from './bug-exp-treeview-base';
+import { BugExpTreeBase } from './bug-exp-treeview-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { BugExpBase } from './bug-exp-treeview-base';
  *
  * @export
  * @class BugExp
- * @extends {BugExpBase}
+ * @extends {BugExpTreeBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { BugExpBase } from './bug-exp-treeview-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class BugExp extends BugExpBase { }
+export default class BugExpTree extends BugExpTreeBase { }
 </script>

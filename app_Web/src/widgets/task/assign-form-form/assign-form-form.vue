@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { AssignFormBase } from './assign-form-form-base';
+import { AssignFormEditFormBase } from './assign-form-form-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { AssignFormBase } from './assign-form-form-base';
  *
  * @export
  * @class AssignForm
- * @extends {AssignFormBase}
+ * @extends {AssignFormEditFormBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { AssignFormBase } from './assign-form-form-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class AssignForm extends AssignFormBase { }
+export default class AssignFormEditForm extends AssignFormEditFormBase { }
 </script>

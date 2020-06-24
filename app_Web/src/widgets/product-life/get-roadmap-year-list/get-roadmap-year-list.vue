@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { GetRoadmapYearBase } from './get-roadmap-year-list-base';
+import { GetRoadmapYearListBase } from './get-roadmap-year-list-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { GetRoadmapYearBase } from './get-roadmap-year-list-base';
  *
  * @export
  * @class GetRoadmapYear
- * @extends {GetRoadmapYearBase}
+ * @extends {GetRoadmapYearListBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { GetRoadmapYearBase } from './get-roadmap-year-list-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class GetRoadmapYear extends GetRoadmapYearBase { }
+export default class GetRoadmapYearList extends GetRoadmapYearListBase { }
 </script>

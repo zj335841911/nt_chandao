@@ -10,9 +10,9 @@ import StoryTreeExpViewtreeexpbarService from './story-tree-exp-viewtreeexpbar-t
  *
  * @export
  * @class CtrlBase
- * @extends {StoryTreeExpViewtreeexpbarBase}
+ * @extends {StoryTreeExpViewtreeexpbarTreeExpBarBase}
  */
-export class StoryTreeExpViewtreeexpbarBase extends CtrlBase {
+export class StoryTreeExpViewtreeexpbarTreeExpBarBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

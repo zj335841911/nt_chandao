@@ -11,9 +11,9 @@ import DEFAULTService from '@/widgets/history/default-list/default-list-service'
  *
  * @export
  * @class CtrlBase
- * @extends {ClassifyByTypeBase}
+ * @extends {ClassifyByTypeListBase}
  */
-export class ClassifyByTypeBase extends CtrlBase {
+export class ClassifyByTypeListBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

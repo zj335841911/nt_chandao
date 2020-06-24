@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { MainPanel_EditModeBase } from './main-panel-edit-mode-dashboard-base';
+import { MainPanel_EditModeDashboardBase } from './main-panel-edit-mode-dashboard-base';
 import view_dashboard_sysportlet2 from '@widgets/story/base-info-edit-mode-portlet/base-info-edit-mode-portlet.vue';
 import view_dashboard_sysportlet3 from '@widgets/action/action-history-portlet/action-history-portlet.vue';
 import view_dashboard_sysportlet1 from '@widgets/story/storyspec-portlet/storyspec-portlet.vue';
@@ -13,7 +13,7 @@ import view_dashboard_sysportlet1 from '@widgets/story/storyspec-portlet/storysp
  *
  * @export
  * @class MainPanel_EditMode
- * @extends {MainPanel_EditModeBase}
+ * @extends {MainPanel_EditModeDashboardBase}
  */
 @Component({
     components: {
@@ -24,5 +24,5 @@ import view_dashboard_sysportlet1 from '@widgets/story/storyspec-portlet/storysp
     }
 })
 @VueLifeCycleProcessing()
-export default class MainPanel_EditMode extends MainPanel_EditModeBase { }
+export default class MainPanel_EditModeDashboard extends MainPanel_EditModeDashboardBase { }
 </script>

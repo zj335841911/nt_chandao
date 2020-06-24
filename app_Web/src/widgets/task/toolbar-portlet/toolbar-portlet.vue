@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { ToolbarBase } from './toolbar-portlet-base';
+import { ToolbarPortletBase } from './toolbar-portlet-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { ToolbarBase } from './toolbar-portlet-base';
  *
  * @export
  * @class Toolbar
- * @extends {ToolbarBase}
+ * @extends {ToolbarPortletBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { ToolbarBase } from './toolbar-portlet-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class Toolbar extends ToolbarBase { }
+export default class ToolbarPortlet extends ToolbarPortletBase { }
 </script>

@@ -11,9 +11,9 @@ import { Environment } from '@/environments/environment';
  *
  * @export
  * @class CtrlBase
- * @extends {BurnDownChartBase}
+ * @extends {BurnDownChartPortletBase}
  */
-export class BurnDownChartBase extends CtrlBase {
+export class BurnDownChartPortletBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

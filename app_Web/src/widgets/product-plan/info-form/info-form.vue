@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { InfoBase } from './info-form-base';
+import { InfoEditFormBase } from './info-form-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { InfoBase } from './info-form-base';
  *
  * @export
  * @class Info
- * @extends {InfoBase}
+ * @extends {InfoEditFormBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { InfoBase } from './info-form-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class Info extends InfoBase { }
+export default class InfoEditForm extends InfoEditFormBase { }
 </script>

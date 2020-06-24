@@ -11,9 +11,9 @@ import { Environment } from '@/environments/environment';
  *
  * @export
  * @class CtrlBase
- * @extends {GetRoadmapBase}
+ * @extends {GetRoadmapPortletBase}
  */
-export class GetRoadmapBase extends CtrlBase {
+export class GetRoadmapPortletBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

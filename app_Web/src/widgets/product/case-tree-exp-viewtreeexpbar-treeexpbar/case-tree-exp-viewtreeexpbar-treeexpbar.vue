@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { CaseTreeExpViewtreeexpbarBase } from './case-tree-exp-viewtreeexpbar-treeexpbar-base';
+import { CaseTreeExpViewtreeexpbarTreeExpBarBase } from './case-tree-exp-viewtreeexpbar-treeexpbar-base';
 import view_treeexpbar_tree from '@widgets/product-module/case-exp-treeview/case-exp-treeview.vue';
  
 
@@ -11,7 +11,7 @@ import view_treeexpbar_tree from '@widgets/product-module/case-exp-treeview/case
  *
  * @export
  * @class CaseTreeExpViewtreeexpbar
- * @extends {CaseTreeExpViewtreeexpbarBase}
+ * @extends {CaseTreeExpViewtreeexpbarTreeExpBarBase}
  */
 @Component({
     components: {
@@ -20,5 +20,5 @@ import view_treeexpbar_tree from '@widgets/product-module/case-exp-treeview/case
     }
 })
 @VueLifeCycleProcessing()
-export default class CaseTreeExpViewtreeexpbar extends CaseTreeExpViewtreeexpbarBase { }
+export default class CaseTreeExpViewtreeexpbarTreeExpBar extends CaseTreeExpViewtreeexpbarTreeExpBarBase { }
 </script>

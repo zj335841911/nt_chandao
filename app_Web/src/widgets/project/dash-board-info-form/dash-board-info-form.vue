@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { DashBoardInfoBase } from './dash-board-info-form-base';
+import { DashBoardInfoEditFormBase } from './dash-board-info-form-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { DashBoardInfoBase } from './dash-board-info-form-base';
  *
  * @export
  * @class DashBoardInfo
- * @extends {DashBoardInfoBase}
+ * @extends {DashBoardInfoEditFormBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { DashBoardInfoBase } from './dash-board-info-form-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class DashBoardInfo extends DashBoardInfoBase { }
+export default class DashBoardInfoEditForm extends DashBoardInfoEditFormBase { }
 </script>

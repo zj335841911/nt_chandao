@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { ActionHistoryListBase } from './action-history-list-portlet-base';
+import { ActionHistoryListPortletBase } from './action-history-list-portlet-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { ActionHistoryListBase } from './action-history-list-portlet-base';
  *
  * @export
  * @class ActionHistoryList
- * @extends {ActionHistoryListBase}
+ * @extends {ActionHistoryListPortletBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { ActionHistoryListBase } from './action-history-list-portlet-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class ActionHistoryList extends ActionHistoryListBase { }
+export default class ActionHistoryListPortlet extends ActionHistoryListPortletBase { }
 </script>

@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { PivotTableBase } from './pivot-table-grid-base';
+import { PivotTableGridBase } from './pivot-table-grid-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { PivotTableBase } from './pivot-table-grid-base';
  *
  * @export
  * @class PivotTable
- * @extends {PivotTableBase}
+ * @extends {PivotTableGridBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { PivotTableBase } from './pivot-table-grid-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class PivotTable extends PivotTableBase { }
+export default class PivotTableGrid extends PivotTableGridBase { }
 </script>

@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { PickupGirdBase } from './pickup-gird-grid-base';
+import { PickupGirdGridBase } from './pickup-gird-grid-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { PickupGirdBase } from './pickup-gird-grid-base';
  *
  * @export
  * @class PickupGird
- * @extends {PickupGirdBase}
+ * @extends {PickupGirdGridBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { PickupGirdBase } from './pickup-gird-grid-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class PickupGird extends PickupGirdBase { }
+export default class PickupGirdGrid extends PickupGirdGridBase { }
 </script>

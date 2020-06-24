@@ -11,9 +11,9 @@ import { Environment } from '@/environments/environment';
  *
  * @export
  * @class CtrlBase
- * @extends {BaseInfo_EditModeBase}
+ * @extends {BaseInfo_EditModePortletBase}
  */
-export class BaseInfo_EditModeBase extends CtrlBase {
+export class BaseInfo_EditModePortletBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

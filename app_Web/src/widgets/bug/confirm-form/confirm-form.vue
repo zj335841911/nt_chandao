@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { ConfirmBase } from './confirm-form-base';
+import { ConfirmEditFormBase } from './confirm-form-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { ConfirmBase } from './confirm-form-base';
  *
  * @export
  * @class Confirm
- * @extends {ConfirmBase}
+ * @extends {ConfirmEditFormBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { ConfirmBase } from './confirm-form-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class Confirm extends ConfirmBase { }
+export default class ConfirmEditForm extends ConfirmEditFormBase { }
 </script>

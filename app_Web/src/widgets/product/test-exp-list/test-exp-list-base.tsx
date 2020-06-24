@@ -10,9 +10,9 @@ import TestExpService from './test-exp-list-service';
  *
  * @export
  * @class CtrlBase
- * @extends {TestExpBase}
+ * @extends {TestExpListBase}
  */
-export class TestExpBase extends CtrlBase {
+export class TestExpListBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

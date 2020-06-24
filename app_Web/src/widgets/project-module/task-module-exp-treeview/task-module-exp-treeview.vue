@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { TaskModuleExpBase } from './task-module-exp-treeview-base';
+import { TaskModuleExpTreeBase } from './task-module-exp-treeview-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { TaskModuleExpBase } from './task-module-exp-treeview-base';
  *
  * @export
  * @class TaskModuleExp
- * @extends {TaskModuleExpBase}
+ * @extends {TaskModuleExpTreeBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { TaskModuleExpBase } from './task-module-exp-treeview-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskModuleExp extends TaskModuleExpBase { }
+export default class TaskModuleExpTree extends TaskModuleExpTreeBase { }
 </script>

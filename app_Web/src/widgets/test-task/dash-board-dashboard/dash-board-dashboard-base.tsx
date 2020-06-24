@@ -11,9 +11,9 @@ import UtilService from '@/utilservice/util-service';
  *
  * @export
  * @class CtrlBase
- * @extends {DashboardBase}
+ * @extends {DashboardDashboardBase}
  */
-export class DashboardBase extends CtrlBase {
+export class DashboardDashboardBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

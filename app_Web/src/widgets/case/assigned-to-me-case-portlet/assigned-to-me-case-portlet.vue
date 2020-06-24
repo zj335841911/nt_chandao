@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { AssignedToMeCaseBase } from './assigned-to-me-case-portlet-base';
+import { AssignedToMeCasePortletBase } from './assigned-to-me-case-portlet-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { AssignedToMeCaseBase } from './assigned-to-me-case-portlet-base';
  *
  * @export
  * @class AssignedToMeCase
- * @extends {AssignedToMeCaseBase}
+ * @extends {AssignedToMeCasePortletBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { AssignedToMeCaseBase } from './assigned-to-me-case-portlet-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class AssignedToMeCase extends AssignedToMeCaseBase { }
+export default class AssignedToMeCasePortlet extends AssignedToMeCasePortletBase { }
 </script>

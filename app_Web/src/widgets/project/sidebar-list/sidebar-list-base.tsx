@@ -10,9 +10,9 @@ import SidebarService from './sidebar-list-service';
  *
  * @export
  * @class CtrlBase
- * @extends {SidebarBase}
+ * @extends {SidebarListBase}
  */
-export class SidebarBase extends CtrlBase {
+export class SidebarListBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

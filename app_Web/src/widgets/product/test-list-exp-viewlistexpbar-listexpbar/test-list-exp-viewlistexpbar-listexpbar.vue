@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { TestListExpViewlistexpbarBase } from './test-list-exp-viewlistexpbar-listexpbar-base';
+import { TestListExpViewlistexpbarLISTEXPBARBase } from './test-list-exp-viewlistexpbar-listexpbar-base';
 import view_listexpbar_list from '@widgets/product/test-exp-list/test-exp-list.vue';
  
 
@@ -11,7 +11,7 @@ import view_listexpbar_list from '@widgets/product/test-exp-list/test-exp-list.v
  *
  * @export
  * @class TestListExpViewlistexpbar
- * @extends {TestListExpViewlistexpbarBase}
+ * @extends {TestListExpViewlistexpbarLISTEXPBARBase}
  */
 @Component({
     components: {
@@ -20,5 +20,5 @@ import view_listexpbar_list from '@widgets/product/test-exp-list/test-exp-list.v
     }
 })
 @VueLifeCycleProcessing()
-export default class TestListExpViewlistexpbar extends TestListExpViewlistexpbarBase { }
+export default class TestListExpViewlistexpbarLISTEXPBAR extends TestListExpViewlistexpbarLISTEXPBARBase { }
 </script>

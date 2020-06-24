@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { ClosePauseCancelFormBase } from './close-pause-cancel-form-form-base';
+import { ClosePauseCancelFormEditFormBase } from './close-pause-cancel-form-form-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { ClosePauseCancelFormBase } from './close-pause-cancel-form-form-base';
  *
  * @export
  * @class ClosePauseCancelForm
- * @extends {ClosePauseCancelFormBase}
+ * @extends {ClosePauseCancelFormEditFormBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { ClosePauseCancelFormBase } from './close-pause-cancel-form-form-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class ClosePauseCancelForm extends ClosePauseCancelFormBase { }
+export default class ClosePauseCancelFormEditForm extends ClosePauseCancelFormEditFormBase { }
 </script>

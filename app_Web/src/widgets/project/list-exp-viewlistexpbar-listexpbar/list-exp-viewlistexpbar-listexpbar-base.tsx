@@ -10,9 +10,9 @@ import ListExpViewlistexpbarService from './list-exp-viewlistexpbar-listexpbar-s
  *
  * @export
  * @class CtrlBase
- * @extends {ListExpViewlistexpbarBase}
+ * @extends {ListExpViewlistexpbarLISTEXPBARBase}
  */
-export class ListExpViewlistexpbarBase extends CtrlBase {
+export class ListExpViewlistexpbarLISTEXPBARBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

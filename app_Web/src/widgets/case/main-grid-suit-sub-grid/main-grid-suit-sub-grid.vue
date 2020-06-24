@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { MainGrid_SuitSubBase } from './main-grid-suit-sub-grid-base';
+import { MainGrid_SuitSubGridBase } from './main-grid-suit-sub-grid-base';
  
 
 /**
@@ -10,7 +10,7 @@ import { MainGrid_SuitSubBase } from './main-grid-suit-sub-grid-base';
  *
  * @export
  * @class MainGrid_SuitSub
- * @extends {MainGrid_SuitSubBase}
+ * @extends {MainGrid_SuitSubGridBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { MainGrid_SuitSubBase } from './main-grid-suit-sub-grid-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class MainGrid_SuitSub extends MainGrid_SuitSubBase { }
+export default class MainGrid_SuitSubGrid extends MainGrid_SuitSubGridBase { }
 </script>

@@ -11,9 +11,9 @@ import PickupViewpickupviewpanelModel from './pickup-viewpickupviewpanel-pickupv
  *
  * @export
  * @class CtrlBase
- * @extends {PickupViewpickupviewpanelBase}
+ * @extends {PickupViewpickupviewpanelPICKUPVIEWPANELBase}
  */
-export class PickupViewpickupviewpanelBase extends CtrlBase {
+export class PickupViewpickupviewpanelPICKUPVIEWPANELBase extends CtrlBase {
 
     /**
      * 建构部件服务对象
