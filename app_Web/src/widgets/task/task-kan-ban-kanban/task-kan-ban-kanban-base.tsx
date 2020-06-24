@@ -3,7 +3,6 @@ import { Subject, Subscription } from 'rxjs';
 import { CtrlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TaskKanBanService from './task-kan-ban-kanban-service';
-import draggable from "vuedraggable";
 
 
 /**

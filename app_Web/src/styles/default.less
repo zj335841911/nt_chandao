@@ -447,7 +447,8 @@ div::-webkit-scrollbar-thumb {
 }
 
 // 编辑表单和搜索表单样式
-.app-search-form.ivu-form, .app-form.ivu-form {
+.app-search-form.ivu-form,
+.app-form.ivu-form {
     color: var(--view-font-color);
 
     .ivu-tabs {
@@ -557,7 +558,8 @@ div::-webkit-scrollbar-thumb {
                 }
 
                 // 下拉列表框
-                .dropdown-list.ivu-select.ivu-select-default, .dropdown-list-dynamic {
+                .dropdown-list.ivu-select.ivu-select-default,
+                .dropdown-list-dynamic {
 
                     >.ivu-select-selection {
                         &:extend(.form-edit-base-color);
@@ -959,6 +961,7 @@ div::-webkit-scrollbar-thumb {
         }
     }
 }
+
 // 下拉选项框样式
 .el-select-dropdown {
     border-color: var(--form-editor-dropdown-background-color);
@@ -969,7 +972,8 @@ div::-webkit-scrollbar-thumb {
         color: var(--form-editor-font-color);
     }
 
-    .el-select-dropdown__item.hover, .el-select-dropdown__item:hover {
+    .el-select-dropdown__item.hover,
+    .el-select-dropdown__item:hover {
         background-color: var(--form-editor-active-color);
     }
 }
@@ -979,21 +983,21 @@ div::-webkit-scrollbar-thumb {
     .app-form.info-form-mode {
 
         .app-form-group {
-    
+
             .ivu-card.app-form-group {
                 border: 1px solid var(--view-dividing-line-color-bright);
                 margin-bottom: 7px;
                 background: var(--view-background-color-bright);
-    
+
                 .ivu-card-head {
                     height: 38px;
                     padding: 7px 8px;
                     font-size: 16px;
                     font-weight: 700;
                     background: var(--view-background-color-bright);
-    
+
                     >p {
-    
+
                         >span {
                             font-size: 16px;
                             font-weight: 700;
@@ -1001,11 +1005,11 @@ div::-webkit-scrollbar-thumb {
                         }
                     }
                 }
-    
+
                 .ivu-card-extra {
                     top: 7px;
                 }
-    
+
                 .ivu-card-body {
                     background: var(--view-background-color-bright);
                     padding: 6px 8px;
@@ -1014,4 +1018,73 @@ div::-webkit-scrollbar-thumb {
         }
     }
 }
+
+// 看板部件样式
+.app-data-view-group {
+    height: 100%;
+    display: flex;
+    overflow: auto;
+
+    .dataview-group-content {
+        border: 1px solid #ddd;
+        border-left: 0;
+        flex-shrink: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .dataview-group-header {
+            height: 36px;
+            line-height: 36px;
+            border-bottom: 1px solid #ddd;
+            padding: 0 8px;
+
+            .group-action {
+                .group-action-item:nth-child(1)+.group-action-item {
+                    margin-top: 5px;
+                }
+            }
+        }
+
+        .dataview-group-items {
+            flex-grow: 1;
+            overflow: auto;
+
+            .dataview-group-item {
+                cursor: pointer;
+                margin: 8px 8px 0 8px;
+                border: 1px solid #ddd;
+                padding: 8px;
+                overflow: hidden;
+            }
+
+            .dataview-group-item.is-select {
+                border-color: #108cee;
+            }
+        }
+    }
+
+    .dataview-group-content:nth-child(1) {
+        border-left: 1px solid #ddd;
+    }
+
+    .quick-action {
+        flex-shrink: 0;
+        margin-left: 5px;
+
+        .quick-action-item {
+            width: 37px;
+            height: 37px;
+            text-align: center;
+            line-height: 37px;
+            border: 1px solid #ddd;
+            border-top-width: 0;
+        }
+
+        .quick-action-item:nth-child(1) {
+            border-top-width: 1px;
+        }
+    }
+}
+
 @import './user.less';

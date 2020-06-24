@@ -15,7 +15,8 @@ import GanttElastic from "ibiz-gantt-elastic/src/GanttElastic.vue";
  */
 @Component({
     components: {
-         
+        GanttElastic,
+ 
     }
 })
 @VueLifeCycleProcessing()
