@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, CtrlBase } from '@/studio-core';
+import { Watch, MainControlBase } from '@/studio-core';
 import ProjectPortalView_dbService from './project-portal-view-db-dashboard-service';
 import UtilService from '@/utilservice/util-service';
 
@@ -9,10 +9,10 @@ import UtilService from '@/utilservice/util-service';
  * dashboard部件基类
  *
  * @export
- * @class CtrlBase
+ * @class MainControlBase
  * @extends {ProjectPortalView_dbDashboardBase}
  */
-export class ProjectPortalView_dbDashboardBase extends CtrlBase {
+export class ProjectPortalView_dbDashboardBase extends MainControlBase {
 
     /**
      * 建构部件服务对象

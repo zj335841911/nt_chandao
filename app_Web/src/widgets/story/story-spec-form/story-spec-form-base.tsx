@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, CtrlBase } from '@/studio-core';
+import { Watch, MainControlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import StorySpecService from './story-spec-form-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
@@ -11,10 +11,10 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
  * form部件基类
  *
  * @export
- * @class CtrlBase
+ * @class MainControlBase
  * @extends {StorySpecEditFormBase}
  */
-export class StorySpecEditFormBase extends CtrlBase {
+export class StorySpecEditFormBase extends MainControlBase {
 
     /**
      * 建构部件服务对象

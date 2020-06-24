@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, CtrlBase } from '@/studio-core';
+import { Watch, MainControlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TaskKanBanService from './task-kan-ban-kanban-service';
 
@@ -9,10 +9,10 @@ import TaskKanBanService from './task-kan-ban-kanban-service';
  * kanban部件基类
  *
  * @export
- * @class CtrlBase
+ * @class MainControlBase
  * @extends {TaskKanBanKanbanBase}
  */
-export class TaskKanBanKanbanBase extends CtrlBase {
+export class TaskKanBanKanbanBase extends MainControlBase {
 
     /**
      * 建构部件服务对象

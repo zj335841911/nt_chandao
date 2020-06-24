@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, TabExpPanel } from '@/studio-core';
+import { Watch, TabExpPanelControlBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import MainTabExpViewtabexppanelService from './main-tab-exp-viewtabexppanel-tabexppanel-service';
 
@@ -9,10 +9,10 @@ import MainTabExpViewtabexppanelService from './main-tab-exp-viewtabexppanel-tab
  * tabexppanel部件基类
  *
  * @export
- * @class TabExpPanel
+ * @class TabExpPanelControlBase
  * @extends {MainTabExpViewtabexppanelTabexppanelBase}
  */
-export class MainTabExpViewtabexppanelTabexppanelBase extends TabExpPanel {
+export class MainTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase {
 
     /**
      * 建构部件服务对象

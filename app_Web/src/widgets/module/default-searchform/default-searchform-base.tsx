@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, CtrlBase } from '@/studio-core';
+import { Watch, MainControlBase } from '@/studio-core';
 import ModuleService from '@/service/module/module-service';
 import DefaultService from './default-searchform-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
@@ -11,10 +11,10 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
  * searchform部件基类
  *
  * @export
- * @class CtrlBase
+ * @class MainControlBase
  * @extends {DefaultSearchFormBase}
  */
-export class DefaultSearchFormBase extends CtrlBase {
+export class DefaultSearchFormBase extends MainControlBase {
 
     /**
      * 建构部件服务对象

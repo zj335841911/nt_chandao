@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, CtrlBase } from '@/studio-core';
+import { Watch, MainControlBase } from '@/studio-core';
 import ActionService from '@/service/action/action-service';
 import TrendsService from './trends-list-service';
 
@@ -9,10 +9,10 @@ import TrendsService from './trends-list-service';
  * list部件基类
  *
  * @export
- * @class CtrlBase
+ * @class MainControlBase
  * @extends {TrendsListBase}
  */
-export class TrendsListBase extends CtrlBase {
+export class TrendsListBase extends MainControlBase {
 
     /**
      * 建构部件服务对象

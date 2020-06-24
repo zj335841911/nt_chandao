@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, CtrlBase } from '@/studio-core';
+import { Watch, MainControlBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
 import MainGrid_SuitSubService from './main-grid-suit-sub-grid-service';
 import CaseUIService from '@/uiservice/case/case-ui-service';
@@ -12,10 +12,10 @@ import { FormItemModel } from '@/model/form-detail';
  * grid部件基类
  *
  * @export
- * @class CtrlBase
+ * @class MainControlBase
  * @extends {MainGrid_SuitSubGridBase}
  */
-export class MainGrid_SuitSubGridBase extends CtrlBase {
+export class MainGrid_SuitSubGridBase extends MainControlBase {
 
     /**
      * 建构部件服务对象

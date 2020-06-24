@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, CtrlBase } from '@/studio-core';
+import { Watch, MainControlBase } from '@/studio-core';
 import TestTaskService from '@/service/test-task/test-task-service';
 import ActionBarService from './action-bar-portlet-service';
 import { Environment } from '@/environments/environment';
@@ -10,10 +10,10 @@ import { Environment } from '@/environments/environment';
  * dashboard_sysportlet4部件基类
  *
  * @export
- * @class CtrlBase
+ * @class MainControlBase
  * @extends {ActionBarPortletBase}
  */
-export class ActionBarPortletBase extends CtrlBase {
+export class ActionBarPortletBase extends MainControlBase {
 
     /**
      * 建构部件服务对象

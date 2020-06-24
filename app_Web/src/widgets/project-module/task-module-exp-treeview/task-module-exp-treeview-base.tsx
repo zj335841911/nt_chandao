@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, CtrlBase } from '@/studio-core';
+import { Watch, MainControlBase } from '@/studio-core';
 import ProjectModuleService from '@/service/project-module/project-module-service';
 import TaskModuleExpService from './task-module-exp-treeview-service';
 
@@ -9,10 +9,10 @@ import TaskModuleExpService from './task-module-exp-treeview-service';
  * treeexpbar_tree部件基类
  *
  * @export
- * @class CtrlBase
+ * @class MainControlBase
  * @extends {TaskModuleExpTreeBase}
  */
-export class TaskModuleExpTreeBase extends CtrlBase {
+export class TaskModuleExpTreeBase extends MainControlBase {
 
     /**
      * 建构部件服务对象

@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, CtrlBase } from '@/studio-core';
+import { Watch, MainControlBase } from '@/studio-core';
 import ProjectStatsService from '@/service/project-stats/project-stats-service';
 import MainService from './main-form-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
@@ -11,10 +11,10 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
  * form部件基类
  *
  * @export
- * @class CtrlBase
+ * @class MainControlBase
  * @extends {MainEditFormBase}
  */
-export class MainEditFormBase extends CtrlBase {
+export class MainEditFormBase extends MainControlBase {
 
     /**
      * 建构部件服务对象

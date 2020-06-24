@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, CtrlBase } from '@/studio-core';
+import { Watch, MainControlBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import CaseTreeExpViewtreeexpbarService from './case-tree-exp-viewtreeexpbar-treeexpbar-service';
 
@@ -9,10 +9,10 @@ import CaseTreeExpViewtreeexpbarService from './case-tree-exp-viewtreeexpbar-tre
  * treeexpbar部件基类
  *
  * @export
- * @class CtrlBase
+ * @class MainControlBase
  * @extends {CaseTreeExpViewtreeexpbarTreeExpBarBase}
  */
-export class CaseTreeExpViewtreeexpbarTreeExpBarBase extends CtrlBase {
+export class CaseTreeExpViewtreeexpbarTreeExpBarBase extends MainControlBase {
 
     /**
      * 建构部件服务对象

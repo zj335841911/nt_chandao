@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, CtrlBase } from '@/studio-core';
+import { Watch, MainControlBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import TestSidebarService from './test-sidebar-list-service';
 
@@ -9,10 +9,10 @@ import TestSidebarService from './test-sidebar-list-service';
  * list部件基类
  *
  * @export
- * @class CtrlBase
+ * @class MainControlBase
  * @extends {TestSidebarListBase}
  */
-export class TestSidebarListBase extends CtrlBase {
+export class TestSidebarListBase extends MainControlBase {
 
     /**
      * 建构部件服务对象

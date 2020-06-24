@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, CtrlBase } from '@/studio-core';
+import { Watch, MainControlBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import TestExpService from './test-exp-list-service';
 
@@ -9,10 +9,10 @@ import TestExpService from './test-exp-list-service';
  * listexpbar_list部件基类
  *
  * @export
- * @class CtrlBase
+ * @class MainControlBase
  * @extends {TestExpListBase}
  */
-export class TestExpListBase extends CtrlBase {
+export class TestExpListBase extends MainControlBase {
 
     /**
      * 建构部件服务对象

@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, CtrlBase } from '@/studio-core';
+import { Watch, MainControlBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import DashboardBugMainService from './dashboard-bug-main-portlet-service';
 import { Environment } from '@/environments/environment';
@@ -10,10 +10,10 @@ import { Environment } from '@/environments/environment';
  * dashboard_sysportlet3部件基类
  *
  * @export
- * @class CtrlBase
+ * @class MainControlBase
  * @extends {DashboardBugMainPortletBase}
  */
-export class DashboardBugMainPortletBase extends CtrlBase {
+export class DashboardBugMainPortletBase extends MainControlBase {
 
     /**
      * 建构部件服务对象

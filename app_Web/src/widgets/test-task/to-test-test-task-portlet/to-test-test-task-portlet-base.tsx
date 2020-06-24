@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, CtrlBase } from '@/studio-core';
+import { Watch, MainControlBase } from '@/studio-core';
 import TestTaskService from '@/service/test-task/test-task-service';
 import ToTestTestTaskService from './to-test-test-task-portlet-service';
 import { Environment } from '@/environments/environment';
@@ -10,10 +10,10 @@ import { Environment } from '@/environments/environment';
  * db_sysportlet1部件基类
  *
  * @export
- * @class CtrlBase
+ * @class MainControlBase
  * @extends {ToTestTestTaskPortletBase}
  */
-export class ToTestTestTaskPortletBase extends CtrlBase {
+export class ToTestTestTaskPortletBase extends MainControlBase {
 
     /**
      * 建构部件服务对象

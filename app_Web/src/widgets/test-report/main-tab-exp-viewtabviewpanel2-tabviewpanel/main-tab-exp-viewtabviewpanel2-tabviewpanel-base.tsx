@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, CtrlBase } from '@/studio-core';
+import { Watch, MainControlBase } from '@/studio-core';
 import TestReportService from '@/service/test-report/test-report-service';
 import MainTabExpViewtabviewpanel2Service from './main-tab-exp-viewtabviewpanel2-tabviewpanel-service';
 
@@ -9,10 +9,10 @@ import MainTabExpViewtabviewpanel2Service from './main-tab-exp-viewtabviewpanel2
  * tabviewpanel2部件基类
  *
  * @export
- * @class CtrlBase
+ * @class MainControlBase
  * @extends {MainTabExpViewtabviewpanel2TabviewpanelBase}
  */
-export class MainTabExpViewtabviewpanel2TabviewpanelBase extends CtrlBase {
+export class MainTabExpViewtabviewpanel2TabviewpanelBase extends MainControlBase {
 
     /**
      * 建构部件服务对象

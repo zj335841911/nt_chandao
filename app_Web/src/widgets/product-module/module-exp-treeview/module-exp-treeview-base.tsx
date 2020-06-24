@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, CtrlBase } from '@/studio-core';
+import { Watch, MainControlBase } from '@/studio-core';
 import ProductModuleService from '@/service/product-module/product-module-service';
 import ModuleExpService from './module-exp-treeview-service';
 import ProductModuleUIService from '@/uiservice/product-module/product-module-ui-service';
@@ -10,10 +10,10 @@ import ProductModuleUIService from '@/uiservice/product-module/product-module-ui
  * treeexpbar_tree部件基类
  *
  * @export
- * @class CtrlBase
+ * @class MainControlBase
  * @extends {ModuleExpTreeBase}
  */
-export class ModuleExpTreeBase extends CtrlBase {
+export class ModuleExpTreeBase extends MainControlBase {
 
     /**
      * 建构部件服务对象

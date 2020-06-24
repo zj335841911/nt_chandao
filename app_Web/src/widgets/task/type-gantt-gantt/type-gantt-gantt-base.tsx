@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, CtrlBase } from '@/studio-core';
+import { Watch, MainControlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TypeGanttService from './type-gantt-gantt-service';
 
@@ -9,10 +9,10 @@ import TypeGanttService from './type-gantt-gantt-service';
  * gantt部件基类
  *
  * @export
- * @class CtrlBase
+ * @class MainControlBase
  * @extends {TypeGanttGanttBase}
  */
-export class TypeGanttGanttBase extends CtrlBase {
+export class TypeGanttGanttBase extends MainControlBase {
 
     /**
      * 建构部件服务对象

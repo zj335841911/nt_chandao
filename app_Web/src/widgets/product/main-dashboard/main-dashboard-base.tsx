@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, CtrlBase } from '@/studio-core';
+import { Watch, MainControlBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import MainService from './main-dashboard-service';
 import UtilService from '@/utilservice/util-service';
@@ -10,10 +10,10 @@ import UtilService from '@/utilservice/util-service';
  * dashboard部件基类
  *
  * @export
- * @class CtrlBase
+ * @class MainControlBase
  * @extends {MainDashboardBase}
  */
-export class MainDashboardBase extends CtrlBase {
+export class MainDashboardBase extends MainControlBase {
 
     /**
      * 建构部件服务对象

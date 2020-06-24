@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, CtrlBase } from '@/studio-core';
+import { Watch, MainControlBase } from '@/studio-core';
 import BurnService from '@/service/burn/burn-service';
 import BurnDownChartService from './burn-down-chart-portlet-service';
 import { Environment } from '@/environments/environment';
@@ -10,10 +10,10 @@ import { Environment } from '@/environments/environment';
  * dashboard_sysportlet1部件基类
  *
  * @export
- * @class CtrlBase
+ * @class MainControlBase
  * @extends {BurnDownChartPortletBase}
  */
-export class BurnDownChartPortletBase extends CtrlBase {
+export class BurnDownChartPortletBase extends MainControlBase {
 
     /**
      * 建构部件服务对象

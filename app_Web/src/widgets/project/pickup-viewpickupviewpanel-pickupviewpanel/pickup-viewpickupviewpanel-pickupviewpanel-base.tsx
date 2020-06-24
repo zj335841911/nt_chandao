@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, CtrlBase } from '@/studio-core';
+import { Watch, MainControlBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import PickupViewpickupviewpanelService from './pickup-viewpickupviewpanel-pickupviewpanel-service';
 import PickupViewpickupviewpanelModel from './pickup-viewpickupviewpanel-pickupviewpanel-model';
@@ -10,10 +10,10 @@ import PickupViewpickupviewpanelModel from './pickup-viewpickupviewpanel-pickupv
  * pickupviewpanel部件基类
  *
  * @export
- * @class CtrlBase
+ * @class MainControlBase
  * @extends {PickupViewpickupviewpanelPickupviewpanelBase}
  */
-export class PickupViewpickupviewpanelPickupviewpanelBase extends CtrlBase {
+export class PickupViewpickupviewpanelPickupviewpanelBase extends MainControlBase {
 
     /**
      * 建构部件服务对象

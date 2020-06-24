@@ -1,7 +1,7 @@
 
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, CtrlBase } from '@/studio-core';
+import { Watch, MainControlBase } from '@/studio-core';
 import BurnService from '@/service/burn/burn-service';
 import BurnDownService from './burn-down-chart-service';
 import echarts from 'echarts';
@@ -14,10 +14,10 @@ import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,Char
  * dashboard_sysportlet1_chart部件基类
  *
  * @export
- * @class CtrlBase
+ * @class MainControlBase
  * @extends {BurnDownChartBase}
  */
-export class BurnDownChartBase extends CtrlBase {
+export class BurnDownChartBase extends MainControlBase {
 
     /**
      * 建构部件服务对象

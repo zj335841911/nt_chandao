@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, CtrlBase } from '@/studio-core';
+import { Watch, MainControlBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import ProductExpViewService from './product-exp-view-portlet-service';
 import { Environment } from '@/environments/environment';
@@ -10,10 +10,10 @@ import { Environment } from '@/environments/environment';
  * db_productexpportlet部件基类
  *
  * @export
- * @class CtrlBase
+ * @class MainControlBase
  * @extends {ProductExpViewPortletBase}
  */
-export class ProductExpViewPortletBase extends CtrlBase {
+export class ProductExpViewPortletBase extends MainControlBase {
 
     /**
      * 建构部件服务对象
