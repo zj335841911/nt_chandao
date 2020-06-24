@@ -10,7 +10,7 @@ import { TaskKanBanPANELBase } from './task-kan-ban-panel-base';
  *
  * @export
  * @class TaskKanBan
- * @extends {TaskKanBanPANELBase}
+ * @extends {TaskKanBanPanelBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { TaskKanBanPANELBase } from './task-kan-ban-panel-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskKanBanPANEL extends TaskKanBanPANELBase { }
+export default class TaskKanBanPanel extends TaskKanBanPANELBase { }
 </script>

@@ -15,7 +15,7 @@ import view_tabviewpanel6 from '@widgets/product/test-tab-exp-viewtabviewpanel6-
  *
  * @export
  * @class TestTabExpViewtabexppanel
- * @extends {TestTabExpViewtabexppanelTABEXPPANELBase}
+ * @extends {TestTabExpViewtabexppanelTabexppanelBase}
  */
 @Component({
     components: {
@@ -28,5 +28,5 @@ import view_tabviewpanel6 from '@widgets/product/test-tab-exp-viewtabviewpanel6-
     }
 })
 @VueLifeCycleProcessing()
-export default class TestTabExpViewtabexppanelTABEXPPANEL extends TestTabExpViewtabexppanelTABEXPPANELBase { }
+export default class TestTabExpViewtabexppanelTabexppanel extends TestTabExpViewtabexppanelTABEXPPANELBase { }
 </script>

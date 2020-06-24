@@ -11,7 +11,7 @@ import view_listexpbar_list from '@widgets/project/exp-list/exp-list.vue';
  *
  * @export
  * @class ListExpViewlistexpbar
- * @extends {ListExpViewlistexpbarLISTEXPBARBase}
+ * @extends {ListExpViewlistexpbarListexpbarBase}
  */
 @Component({
     components: {
@@ -20,5 +20,5 @@ import view_listexpbar_list from '@widgets/project/exp-list/exp-list.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ListExpViewlistexpbarLISTEXPBAR extends ListExpViewlistexpbarLISTEXPBARBase { }
+export default class ListExpViewlistexpbarListexpbar extends ListExpViewlistexpbarLISTEXPBARBase { }
 </script>

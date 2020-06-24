@@ -11,7 +11,7 @@ import GanttElastic from "ibiz-gantt-elastic/src/GanttElastic.vue";
  *
  * @export
  * @class TypeGantt
- * @extends {TypeGanttGANTTBase}
+ * @extends {TypeGanttGanttBase}
  */
 @Component({
     components: {
@@ -20,5 +20,5 @@ import GanttElastic from "ibiz-gantt-elastic/src/GanttElastic.vue";
     }
 })
 @VueLifeCycleProcessing()
-export default class TypeGanttGANTT extends TypeGanttGANTTBase { }
+export default class TypeGanttGantt extends TypeGanttGANTTBase { }
 </script>

@@ -10,9 +10,9 @@ import MainTabExpViewtabviewpanel8Service from './main-tab-exp-viewtabviewpanel8
  *
  * @export
  * @class CtrlBase
- * @extends {MainTabExpViewtabviewpanel8TABVIEWPANELBase}
+ * @extends {MainTabExpViewtabviewpanel8TabviewpanelBase}
  */
-export class MainTabExpViewtabviewpanel8TABVIEWPANELBase extends CtrlBase {
+export class MainTabExpViewtabviewpanel8TabviewpanelBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

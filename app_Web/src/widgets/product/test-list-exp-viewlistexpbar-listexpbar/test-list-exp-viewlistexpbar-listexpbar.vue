@@ -11,7 +11,7 @@ import view_listexpbar_list from '@widgets/product/test-exp-list/test-exp-list.v
  *
  * @export
  * @class TestListExpViewlistexpbar
- * @extends {TestListExpViewlistexpbarLISTEXPBARBase}
+ * @extends {TestListExpViewlistexpbarListexpbarBase}
  */
 @Component({
     components: {
@@ -20,5 +20,5 @@ import view_listexpbar_list from '@widgets/product/test-exp-list/test-exp-list.v
     }
 })
 @VueLifeCycleProcessing()
-export default class TestListExpViewlistexpbarLISTEXPBAR extends TestListExpViewlistexpbarLISTEXPBARBase { }
+export default class TestListExpViewlistexpbarListexpbar extends TestListExpViewlistexpbarLISTEXPBARBase { }
 </script>

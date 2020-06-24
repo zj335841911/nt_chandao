@@ -11,7 +11,7 @@ import layout_itemlayoutpanel from '@widgets/task/task-kan-ban-panel/task-kan-ba
  *
  * @export
  * @class TaskKanBan
- * @extends {TaskKanBanKANBANBase}
+ * @extends {TaskKanBanKanbanBase}
  */
 @Component({
     components: {
@@ -20,5 +20,5 @@ import layout_itemlayoutpanel from '@widgets/task/task-kan-ban-panel/task-kan-ba
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskKanBanKANBAN extends TaskKanBanKANBANBase { }
+export default class TaskKanBanKanban extends TaskKanBanKANBANBase { }
 </script>

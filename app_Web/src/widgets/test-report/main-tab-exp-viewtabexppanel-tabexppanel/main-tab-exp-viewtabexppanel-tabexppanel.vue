@@ -12,7 +12,7 @@ import view_tabviewpanel2 from '@widgets/test-report/main-tab-exp-viewtabviewpan
  *
  * @export
  * @class MainTabExpViewtabexppanel
- * @extends {MainTabExpViewtabexppanelTABEXPPANELBase}
+ * @extends {MainTabExpViewtabexppanelTabexppanelBase}
  */
 @Component({
     components: {
@@ -22,5 +22,5 @@ import view_tabviewpanel2 from '@widgets/test-report/main-tab-exp-viewtabviewpan
     }
 })
 @VueLifeCycleProcessing()
-export default class MainTabExpViewtabexppanelTABEXPPANEL extends MainTabExpViewtabexppanelTABEXPPANELBase { }
+export default class MainTabExpViewtabexppanelTabexppanel extends MainTabExpViewtabexppanelTABEXPPANELBase { }
 </script>

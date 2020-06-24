@@ -10,9 +10,9 @@ import TestTabExpViewtabviewpanel4Service from './test-tab-exp-viewtabviewpanel4
  *
  * @export
  * @class CtrlBase
- * @extends {TestTabExpViewtabviewpanel4TABVIEWPANELBase}
+ * @extends {TestTabExpViewtabviewpanel4TabviewpanelBase}
  */
-export class TestTabExpViewtabviewpanel4TABVIEWPANELBase extends CtrlBase {
+export class TestTabExpViewtabviewpanel4TabviewpanelBase extends CtrlBase {
 
     /**
      * 建构部件服务对象

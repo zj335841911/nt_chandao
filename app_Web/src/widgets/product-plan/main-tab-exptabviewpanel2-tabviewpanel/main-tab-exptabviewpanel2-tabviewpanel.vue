@@ -10,7 +10,7 @@ import { MainTabExptabviewpanel2TABVIEWPANELBase } from './main-tab-exptabviewpa
  *
  * @export
  * @class MainTabExptabviewpanel2
- * @extends {MainTabExptabviewpanel2TABVIEWPANELBase}
+ * @extends {MainTabExptabviewpanel2TabviewpanelBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { MainTabExptabviewpanel2TABVIEWPANELBase } from './main-tab-exptabviewpa
     }
 })
 @VueLifeCycleProcessing()
-export default class MainTabExptabviewpanel2TABVIEWPANEL extends MainTabExptabviewpanel2TABVIEWPANELBase { }
+export default class MainTabExptabviewpanel2Tabviewpanel extends MainTabExptabviewpanel2TABVIEWPANELBase { }
 </script>

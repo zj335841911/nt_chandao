@@ -10,7 +10,7 @@ import { PickupViewpickupviewpanelPICKUPVIEWPANELBase } from './pickup-viewpicku
  *
  * @export
  * @class PickupViewpickupviewpanel
- * @extends {PickupViewpickupviewpanelPICKUPVIEWPANELBase}
+ * @extends {PickupViewpickupviewpanelPickupviewpanelBase}
  */
 @Component({
     components: {
@@ -18,5 +18,5 @@ import { PickupViewpickupviewpanelPICKUPVIEWPANELBase } from './pickup-viewpicku
     }
 })
 @VueLifeCycleProcessing()
-export default class PickupViewpickupviewpanelPICKUPVIEWPANEL extends PickupViewpickupviewpanelPICKUPVIEWPANELBase { }
+export default class PickupViewpickupviewpanelPickupviewpanel extends PickupViewpickupviewpanelPICKUPVIEWPANELBase { }
 </script>
