@@ -149,6 +149,25 @@ export default class BranchServiceBase extends EntityService {
     }
 
     /**
+     * Sort接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BranchServiceBase
+     */
+    public async Sort(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.branch){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/branches/${context.branch}/sort`,data,isloading);
+            return res;
+        }
+            return Http.getInstance().post(`/branches/${context.branch}/sort`,data,isloading);
+    }
+
+    /**
      * CheckKey接口方法
      *
      * @param {*} [context={}]

@@ -32,6 +32,7 @@ public interface IBranchService extends IService<Branch>{
     void createBatch(List<Branch> list) ;
     boolean update(Branch et) ;
     void updateBatch(List<Branch> list) ;
+    Branch sort(Branch et) ;
     boolean checkKey(Branch et) ;
     boolean save(Branch et) ;
     void saveBatch(List<Branch> list) ;

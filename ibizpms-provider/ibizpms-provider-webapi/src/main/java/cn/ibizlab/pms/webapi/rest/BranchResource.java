@@ -107,6 +107,18 @@ public class BranchResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Sort-all')")
+    @ApiOperation(value = "排序", tags = {"产品的分支和平台信息" },  notes = "排序")
+	@RequestMapping(method = RequestMethod.POST, value = "/branches/{branch_id}/sort")
+    @Transactional
+    public ResponseEntity<BranchDTO> sort(@PathVariable("branch_id") BigInteger branch_id, @RequestBody BranchDTO branchdto) {
+        Branch branch = branchMapping.toDomain(branchdto);
+        branch.setId(branch_id);
+        branch = branchService.sort(branch);
+        branchdto = branchMapping.toDto(branch);
+        return ResponseEntity.status(HttpStatus.OK).body(branchdto);
+    }
+
     @ApiOperation(value = "检查产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "检查产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.POST, value = "/branches/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody BranchDTO branchdto) {
@@ -250,6 +262,18 @@ public class BranchResource {
         }
         branchService.updateBatch(domainlist);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Sort-all')")
+    @ApiOperation(value = "根据产品产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "根据产品产品的分支和平台信息")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/branches/{branch_id}/sort")
+    @Transactional
+    public ResponseEntity<BranchDTO> sortByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("branch_id") BigInteger branch_id, @RequestBody BranchDTO branchdto) {
+        Branch domain = branchMapping.toDomain(branchdto);
+        domain.setProduct(product_id);
+        domain = branchService.sort(domain) ;
+        branchdto = branchMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(branchdto);
     }
 
     @ApiOperation(value = "根据产品检查产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "根据产品检查产品的分支和平台信息")
