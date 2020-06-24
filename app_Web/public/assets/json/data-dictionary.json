@@ -759,7 +759,7 @@
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"Build",
-        "appdedataset":"FetchCurProduct",
+        "appdedataset":"FetchDefault",
         "items": []
     }, 
     {
