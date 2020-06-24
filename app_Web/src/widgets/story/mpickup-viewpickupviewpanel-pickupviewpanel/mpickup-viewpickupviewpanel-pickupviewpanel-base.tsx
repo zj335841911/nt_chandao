@@ -1,6 +1,6 @@
-import { Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
+import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { CtrlBase } from '@/studio-core';
+import { Watch, CtrlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import MPickupViewpickupviewpanelService from './mpickup-viewpickupviewpanel-pickupviewpanel-service';
 import MPickupViewpickupviewpanelModel from './mpickup-viewpickupviewpanel-pickupviewpanel-model';

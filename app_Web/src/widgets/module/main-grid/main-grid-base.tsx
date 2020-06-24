@@ -1,6 +1,6 @@
-import { Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
+import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { CtrlBase } from '@/studio-core';
+import { Watch, CtrlBase } from '@/studio-core';
 import ModuleService from '@/service/module/module-service';
 import MainService from './main-grid-service';
 import CodeListService from "@service/app/codelist-service";

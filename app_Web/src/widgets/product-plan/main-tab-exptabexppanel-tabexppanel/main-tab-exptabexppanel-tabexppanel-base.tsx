@@ -1,6 +1,6 @@
-import { Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
+import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { TabExpPanel } from '@/studio-core';
+import { Watch, TabExpPanel } from '@/studio-core';
 import ProductPlanService from '@/service/product-plan/product-plan-service';
 import MainTabExptabexppanelService from './main-tab-exptabexppanel-tabexppanel-service';
 

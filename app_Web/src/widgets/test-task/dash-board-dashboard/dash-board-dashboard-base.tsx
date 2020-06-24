@@ -1,6 +1,6 @@
-import { Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
+import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { CtrlBase } from '@/studio-core';
+import { Watch, CtrlBase } from '@/studio-core';
 import TestTaskService from '@/service/test-task/test-task-service';
 import DashboardService from './dash-board-dashboard-service';
 import UtilService from '@/utilservice/util-service';

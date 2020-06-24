@@ -1,6 +1,6 @@
-import { Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
+import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { CtrlBase } from '@/studio-core';
+import { Watch, CtrlBase } from '@/studio-core';
 import ProductModuleService from '@/service/product-module/product-module-service';
 import ModuleExpService from './module-exp-treeview-service';
 import ProductModuleUIService from '@/uiservice/product-module/product-module-ui-service';

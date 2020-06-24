@@ -1,6 +1,6 @@
-import { Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
+import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { CtrlBase } from '@/studio-core';
+import { Watch, CtrlBase } from '@/studio-core';
 import ReleaseService from '@/service/release/release-service';
 import MainTabExpViewtabviewpanel3Service from './main-tab-exp-viewtabviewpanel3-tabviewpanel-service';
 

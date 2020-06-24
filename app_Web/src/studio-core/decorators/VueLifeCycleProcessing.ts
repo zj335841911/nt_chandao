@@ -9,7 +9,7 @@ export function VueLifeCycleProcessing(params?: any): any {
     /**
      * 装饰器处理
      */
-    return function(constructor: Function) {
+    return function (constructor: any) {
         // 原型
         const p = constructor.prototype;
         // 方法名数组
@@ -30,5 +30,42 @@ export function VueLifeCycleProcessing(params?: any): any {
                 }
             }
         }
+        // 替换原生Watch注解
+        if (p.___vueWatchArr && p.___vueWatchArr.length > 0) {
+            const arr: any[] = JSON.parse(JSON.stringify(p.___vueWatchArr));
+            delete p.___vueWatchArr;
+            const fun = p['created'];
+            p['created'] = function () {
+                arr.forEach((item: any) => {                    
+                    if (this.$watch && this[item.handler]) {
+                        this.$watch(item.key, this[item.handler], item.params);
+                    }
+                });
+                if (fun) {
+                    fun.apply(this, arguments);
+                }
+            }
+        }
     }
+}
+
+/**
+ * 替换Vue自身Watch注解，已实现在继承时的使用
+ *
+ * @export
+ * @param {string} key 需要监控的值项名称
+ * @param {{ deep?: boolean, immediate?: boolean }} [params]
+ * @returns {*}
+ */
+export function Watch(key: string, params?: { deep?: boolean, immediate?: boolean }): any {
+    return function (p: any, handler: string) {
+        if (!p.___vueWatchArr) {
+            p.___vueWatchArr = [];
+        }
+        p.___vueWatchArr.push({
+            key,
+            handler,
+            params
+        });
+    };
 }

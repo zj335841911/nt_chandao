@@ -1,6 +1,6 @@
-import { Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
+import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { CtrlBase } from '@/studio-core';
+import { Watch, CtrlBase } from '@/studio-core';
 import ProductStatsService from '@/service/product-stats/product-stats-service';
 import Main2Service from './main2-form-service';
 import ProductStatsUIService from '@/uiservice/product-stats/product-stats-ui-service';
