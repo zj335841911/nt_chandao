@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { ListExpViewlistexpbarLISTEXPBARBase } from './list-exp-viewlistexpbar-listexpbar-base';
+import { ListExpViewlistexpbarListexpbarBase } from './list-exp-viewlistexpbar-listexpbar-base';
 import view_listexpbar_list from '@widgets/product/exp-list/exp-list.vue';
  
 

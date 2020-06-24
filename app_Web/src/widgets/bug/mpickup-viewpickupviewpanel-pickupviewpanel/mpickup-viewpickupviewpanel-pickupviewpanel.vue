@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { MPickupViewpickupviewpanelPICKUPVIEWPANELBase } from './mpickup-viewpickupviewpanel-pickupviewpanel-base';
+import { MPickupViewpickupviewpanelPickupviewpanelBase } from './mpickup-viewpickupviewpanel-pickupviewpanel-base';
  
 
 /**

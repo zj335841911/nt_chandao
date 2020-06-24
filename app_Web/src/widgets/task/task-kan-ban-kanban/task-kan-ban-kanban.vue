@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { TaskKanBanKANBANBase } from './task-kan-ban-kanban-base';
+import { TaskKanBanKanbanBase } from './task-kan-ban-kanban-base';
 import layout_itemlayoutpanel from '@widgets/task/task-kan-ban-panel/task-kan-ban-panel.vue';
  
 

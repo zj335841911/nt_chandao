@@ -2,7 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { MainTabExpViewtabviewpanel2TABVIEWPANELBase } from './main-tab-exp-viewtabviewpanel2-tabviewpanel-base';
+import { MainTabExpViewtabviewpanel2TabviewpanelBase } from './main-tab-exp-viewtabviewpanel2-tabviewpanel-base';
  
 
 /**
