@@ -22,5 +22,5 @@ import view_tabviewpanel2 from '@widgets/test-report/main-tab-exp-viewtabviewpan
     }
 })
 @VueLifeCycleProcessing()
-export default class MainTabExpViewtabexppanelTabexppanel extends MainTabExpViewtabexppanelTABEXPPANELBase { }
+export default class MainTabExpViewtabexppanelTabexppanel extends MainTabExpViewtabexppanelTabexppanelBase { }
 </script>

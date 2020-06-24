@@ -18,5 +18,5 @@ import { TestTabExpViewtabviewpanel4TabviewpanelBase } from './test-tab-exp-view
     }
 })
 @VueLifeCycleProcessing()
-export default class TestTabExpViewtabviewpanel4Tabviewpanel extends TestTabExpViewtabviewpanel4TABVIEWPANELBase { }
+export default class TestTabExpViewtabviewpanel4Tabviewpanel extends TestTabExpViewtabviewpanel4TabviewpanelBase { }
 </script>

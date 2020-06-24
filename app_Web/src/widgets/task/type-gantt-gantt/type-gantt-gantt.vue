@@ -20,5 +20,5 @@ import GanttElastic from "ibiz-gantt-elastic/src/GanttElastic.vue";
     }
 })
 @VueLifeCycleProcessing()
-export default class TypeGanttGantt extends TypeGanttGANTTBase { }
+export default class TypeGanttGantt extends TypeGanttGanttBase { }
 </script>

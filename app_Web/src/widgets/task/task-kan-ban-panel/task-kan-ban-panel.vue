@@ -18,5 +18,5 @@ import { TaskKanBanPanelBase } from './task-kan-ban-panel-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskKanBanPanel extends TaskKanBanPANELBase { }
+export default class TaskKanBanPanel extends TaskKanBanPanelBase { }
 </script>

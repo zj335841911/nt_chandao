@@ -18,5 +18,5 @@ import { MainTabExptabviewpanelTabviewpanelBase } from './main-tab-exptabviewpan
     }
 })
 @VueLifeCycleProcessing()
-export default class MainTabExptabviewpanelTabviewpanel extends MainTabExptabviewpanelTABVIEWPANELBase { }
+export default class MainTabExptabviewpanelTabviewpanel extends MainTabExptabviewpanelTabviewpanelBase { }
 </script>

@@ -20,5 +20,5 @@ import layout_itemlayoutpanel from '@widgets/task/task-kan-ban-panel/task-kan-ba
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskKanBanKanban extends TaskKanBanKANBANBase { }
+export default class TaskKanBanKanban extends TaskKanBanKanbanBase { }
 </script>

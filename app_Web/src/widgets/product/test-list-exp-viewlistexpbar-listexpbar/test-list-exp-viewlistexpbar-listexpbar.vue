@@ -20,5 +20,5 @@ import view_listexpbar_list from '@widgets/product/test-exp-list/test-exp-list.v
     }
 })
 @VueLifeCycleProcessing()
-export default class TestListExpViewlistexpbarListexpbar extends TestListExpViewlistexpbarLISTEXPBARBase { }
+export default class TestListExpViewlistexpbarListexpbar extends TestListExpViewlistexpbarListexpbarBase { }
 </script>

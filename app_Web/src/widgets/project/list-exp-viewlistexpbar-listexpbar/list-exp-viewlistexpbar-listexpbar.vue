@@ -20,5 +20,5 @@ import view_listexpbar_list from '@widgets/project/exp-list/exp-list.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ListExpViewlistexpbarListexpbar extends ListExpViewlistexpbarLISTEXPBARBase { }
+export default class ListExpViewlistexpbarListexpbar extends ListExpViewlistexpbarListexpbarBase { }
 </script>
