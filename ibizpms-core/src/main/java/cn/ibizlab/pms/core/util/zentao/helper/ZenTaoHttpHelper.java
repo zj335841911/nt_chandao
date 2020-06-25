@@ -150,6 +150,8 @@ public class ZenTaoHttpHelper {
                                 }
                             }
                         }
+                    } else {
+                        formatJo.put(key, value);
                     }
                 } else {
                     formatJo.put(key, value);
