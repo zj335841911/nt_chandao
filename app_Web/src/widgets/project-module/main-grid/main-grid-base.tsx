@@ -33,6 +33,15 @@ export class MainGridBase extends MainControlBase {
     public appEntityService: ProjectModuleService = new ProjectModuleService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    protected appDeName: string = 'projectmodule';
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

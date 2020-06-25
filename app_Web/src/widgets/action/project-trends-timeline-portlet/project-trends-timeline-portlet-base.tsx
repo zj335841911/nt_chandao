@@ -32,6 +32,15 @@ export class ProjectTrendsTimelinePortletBase extends MainControlBase {
     public appEntityService: ActionService = new ActionService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectTrendsTimelinePortletBase
+     */
+    protected appDeName: string = 'action';
+
+    /**
      * 长度
      *
      * @type {number}

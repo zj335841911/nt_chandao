@@ -34,6 +34,15 @@ export class MainGrid_SuitSubGridBase extends MainControlBase {
     public appEntityService: CaseService = new CaseService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainGrid_SuitSubGridBase
+     */
+    protected appDeName: string = 'case';
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

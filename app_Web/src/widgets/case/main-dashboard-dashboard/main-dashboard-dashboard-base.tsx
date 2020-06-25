@@ -30,6 +30,15 @@ export class MainDashboardDashboardBase extends MainControlBase {
      * @memberof MainDashboardDashboardBase
      */
     public appEntityService: CaseService = new CaseService({ $store: this.$store });
+
+    /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainDashboardDashboardBase
+     */
+    protected appDeName: string = 'case';
     /**
      * 是否支持看板定制
      *

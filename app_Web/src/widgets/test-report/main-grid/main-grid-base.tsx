@@ -33,6 +33,15 @@ export class MainGridBase extends MainControlBase {
     public appEntityService: TestReportService = new TestReportService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    protected appDeName: string = 'testreport';
+
+    /**
      * 代码表服务对象
      *
      * @type {CodeListService}

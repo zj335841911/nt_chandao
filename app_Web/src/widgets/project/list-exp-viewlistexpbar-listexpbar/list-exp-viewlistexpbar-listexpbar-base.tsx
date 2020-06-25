@@ -31,6 +31,15 @@ export class ListExpViewlistexpbarListexpbarBase extends MainControlBase {
     public appEntityService: ProjectService = new ProjectService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ListExpViewlistexpbarListexpbarBase
+     */
+    protected appDeName: string = 'project';
+
+    /**
      * listexpbar_list 部件 selectionchange 事件
      *
      * @param {*} [args={}]

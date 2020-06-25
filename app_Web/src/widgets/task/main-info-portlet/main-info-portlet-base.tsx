@@ -32,6 +32,15 @@ export class MainInfoPortletBase extends MainControlBase {
     public appEntityService: TaskService = new TaskService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainInfoPortletBase
+     */
+    protected appDeName: string = 'task';
+
+    /**
      * 长度
      *
      * @type {number}

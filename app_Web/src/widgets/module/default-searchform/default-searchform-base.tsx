@@ -33,6 +33,15 @@ export class DefaultSearchFormBase extends MainControlBase {
     public appEntityService: ModuleService = new ModuleService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof DefaultSearchFormBase
+     */
+    protected appDeName: string = 'module';
+
+    /**
      * 表单数据对象
      *
      * @type {*}

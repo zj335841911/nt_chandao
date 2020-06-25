@@ -32,6 +32,15 @@ export class TextExpViewPortletBase extends MainControlBase {
     public appEntityService: ProductService = new ProductService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TextExpViewPortletBase
+     */
+    protected appDeName: string = 'product';
+
+    /**
      * 长度
      *
      * @type {number}

@@ -32,6 +32,15 @@ export class BaseInfoPortletBase extends MainControlBase {
     public appEntityService: StoryService = new StoryService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BaseInfoPortletBase
+     */
+    protected appDeName: string = 'story';
+
+    /**
      * 长度
      *
      * @type {number}

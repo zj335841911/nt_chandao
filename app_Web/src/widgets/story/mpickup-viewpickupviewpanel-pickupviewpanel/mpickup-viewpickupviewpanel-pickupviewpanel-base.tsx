@@ -31,6 +31,15 @@ export class MPickupViewpickupviewpanelPickupviewpanelBase extends MainControlBa
      */
     public appEntityService: StoryService = new StoryService({ $store: this.$store });
 
+    /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MPickupViewpickupviewpanelPickupviewpanelBase
+     */
+    protected appDeName: string = 'story';
+
 
     /**
      * 选中数据字符串

@@ -32,6 +32,15 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
     public appEntityService: BugService = new BugService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof DashboardMainEditEditFormBase
+     */
+    protected appDeName: string = 'bug';
+
+    /**
      * 表单数据对象
      *
      * @type {*}
@@ -358,19 +367,8 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
     };
 
     /**
-     * 重置表单项值
-     *
-     * @public
-     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof DashboardMainEdit
-     */
-    public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
-    }
-
-    /**
      * 表单逻辑
      *
-     * @public
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
      * @memberof DashboardMainEdit
      */
@@ -433,41 +431,5 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
 
 
 
-    }
-
-    /**
-     * 表单加载完成
-     *
-     * @public
-     * @param {*} [data={}]
-     * @param {string} [action]
-     * @memberof DashboardMainEdit
-     */
-    public onFormLoad(data: any = {},action:string): void {
-        if(Object.is(action,"save") || Object.is(action,"autoSave") || Object.is(action,"submit"))
-        // 更新context的实体主键
-        if(data.bug){
-            Object.assign(this.context,{bug:data.bug})
-        }
-        this.setFormEnableCond(data);
-        this.fillForm(data,action);
-        this.oldData = {};
-        Object.assign(this.oldData, JSON.parse(JSON.stringify(this.data)));
-        this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: false });
-        this.formLogic({ name: '', newVal: null, oldVal: null });
-    }
-
-
-    /**
-     * 分组界面行为事件
-     *
-     * @param {*} $event
-     * @memberof DashboardMainEdit
-     */
-    public groupUIActionClick($event: any): void {
-        if (!$event) {
-            return;
-        }
-        const item: any = $event.item;
     }
 }

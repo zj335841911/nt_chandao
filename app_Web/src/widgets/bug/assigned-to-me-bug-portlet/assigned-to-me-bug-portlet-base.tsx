@@ -32,6 +32,15 @@ export class AssignedToMeBugPortletBase extends MainControlBase {
     public appEntityService: BugService = new BugService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof AssignedToMeBugPortletBase
+     */
+    protected appDeName: string = 'bug';
+
+    /**
      * 长度
      *
      * @type {number}

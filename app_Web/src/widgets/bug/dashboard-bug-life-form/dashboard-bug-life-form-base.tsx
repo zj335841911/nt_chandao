@@ -32,6 +32,15 @@ export class DashboardBugLifeEditFormBase extends EditFormControlBase {
     public appEntityService: BugService = new BugService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof DashboardBugLifeEditFormBase
+     */
+    protected appDeName: string = 'bug';
+
+    /**
      * 表单数据对象
      *
      * @type {*}
@@ -186,82 +195,4 @@ export class DashboardBugLifeEditFormBase extends EditFormControlBase {
 
         form: new FormTabPanelModel({ caption: 'form', detailType: 'TABPANEL', name: 'form', visible: true, isShowCaption: true, form: this, tabPages: [{ name: 'formpage1', index: 0, visible: true }, { name: 'formpage2', index: 1, visible: true }] }),
     };
-
-    /**
-     * 重置表单项值
-     *
-     * @public
-     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof DashboardBugLife
-     */
-    public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
-    }
-
-    /**
-     * 表单逻辑
-     *
-     * @public
-     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof DashboardBugLife
-     */
-    public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
-                
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    }
-
-    /**
-     * 表单加载完成
-     *
-     * @public
-     * @param {*} [data={}]
-     * @param {string} [action]
-     * @memberof DashboardBugLife
-     */
-    public onFormLoad(data: any = {},action:string): void {
-        if(Object.is(action,"save") || Object.is(action,"autoSave") || Object.is(action,"submit"))
-        // 更新context的实体主键
-        if(data.bug){
-            Object.assign(this.context,{bug:data.bug})
-        }
-        this.setFormEnableCond(data);
-        this.fillForm(data,action);
-        this.oldData = {};
-        Object.assign(this.oldData, JSON.parse(JSON.stringify(this.data)));
-        this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: false });
-        this.formLogic({ name: '', newVal: null, oldVal: null });
-    }
-
-
-    /**
-     * 分组界面行为事件
-     *
-     * @param {*} $event
-     * @memberof DashboardBugLife
-     */
-    public groupUIActionClick($event: any): void {
-        if (!$event) {
-            return;
-        }
-        const item: any = $event.item;
-    }
 }

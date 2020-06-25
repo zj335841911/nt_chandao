@@ -32,6 +32,15 @@ export class CurSuitCaseGridViewPortletBase extends MainControlBase {
     public appEntityService: TestSuiteService = new TestSuiteService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CurSuitCaseGridViewPortletBase
+     */
+    protected appDeName: string = 'testsuite';
+
+    /**
      * 长度
      *
      * @type {number}

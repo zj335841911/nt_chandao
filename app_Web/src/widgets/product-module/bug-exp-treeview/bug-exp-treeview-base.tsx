@@ -29,6 +29,15 @@ export class BugExpTreeBase extends MainControlBase {
      * @memberof BugExpTreeBase
      */
     public appEntityService: ProductModuleService = new ProductModuleService({ $store: this.$store });
+
+    /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugExpTreeBase
+     */
+    protected appDeName: string = 'productmodule';
     /**
      * 获取多项数据
      *

@@ -34,6 +34,15 @@ export class MainGridBase extends MainControlBase {
     public appEntityService: ProductPlanService = new ProductPlanService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    protected appDeName: string = 'productplan';
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

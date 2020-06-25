@@ -30,6 +30,15 @@ export class DashboardDashboardBase extends MainControlBase {
      * @memberof DashboardDashboardBase
      */
     public appEntityService: TestTaskService = new TestTaskService({ $store: this.$store });
+
+    /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof DashboardDashboardBase
+     */
+    protected appDeName: string = 'testtask';
     /**
      * 是否支持看板定制
      *

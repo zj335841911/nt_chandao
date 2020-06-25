@@ -32,6 +32,15 @@ export class ProductStatusChartPortletBase extends MainControlBase {
     public appEntityService: ProductService = new ProductService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductStatusChartPortletBase
+     */
+    protected appDeName: string = 'product';
+
+    /**
      * 长度
      *
      * @type {number}

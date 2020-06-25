@@ -35,6 +35,15 @@ export class TaskKanBanPanelBase extends MainControlBase {
     public appEntityService: TaskService = new TaskService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskKanBanPanelBase
+     */
+    protected appDeName: string = 'task';
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

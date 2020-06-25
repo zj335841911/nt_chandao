@@ -33,6 +33,15 @@ export class MainGridBase extends MainControlBase {
     public appEntityService: BuildService = new BuildService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    protected appDeName: string = 'build';
+
+    /**
      * 代码表服务对象
      *
      * @type {CodeListService}

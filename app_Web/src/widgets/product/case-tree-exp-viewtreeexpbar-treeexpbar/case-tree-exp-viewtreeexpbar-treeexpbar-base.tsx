@@ -31,6 +31,15 @@ export class CaseTreeExpViewtreeexpbarTreeExpBarBase extends MainControlBase {
     public appEntityService: ProductService = new ProductService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseTreeExpViewtreeexpbarTreeExpBarBase
+     */
+    protected appDeName: string = 'product';
+
+    /**
      * treeexpbar_tree 部件 selectionchange 事件
      *
      * @param {*} [args={}]

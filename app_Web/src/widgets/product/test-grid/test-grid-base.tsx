@@ -33,6 +33,15 @@ export class TestGridBase extends MainControlBase {
     public appEntityService: ProductService = new ProductService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestGridBase
+     */
+    protected appDeName: string = 'product';
+
+    /**
      * 代码表服务对象
      *
      * @type {CodeListService}

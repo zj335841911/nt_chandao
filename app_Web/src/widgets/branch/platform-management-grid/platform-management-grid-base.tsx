@@ -33,6 +33,15 @@ export class PlatformManagementGridBase extends MainControlBase {
     public appEntityService: BranchService = new BranchService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof PlatformManagementGridBase
+     */
+    protected appDeName: string = 'branch';
+
+    /**
      * 代码表服务对象
      *
      * @type {CodeListService}

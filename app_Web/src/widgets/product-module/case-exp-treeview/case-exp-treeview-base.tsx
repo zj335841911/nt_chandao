@@ -29,6 +29,15 @@ export class CaseExpTreeBase extends MainControlBase {
      * @memberof CaseExpTreeBase
      */
     public appEntityService: ProductModuleService = new ProductModuleService({ $store: this.$store });
+
+    /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseExpTreeBase
+     */
+    protected appDeName: string = 'productmodule';
     /**
      * 获取多项数据
      *

@@ -33,6 +33,15 @@ export class Main2GridBase extends MainControlBase {
     public appEntityService: TestTaskService = new TestTaskService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof Main2GridBase
+     */
+    protected appDeName: string = 'testtask';
+
+    /**
      * 代码表服务对象
      *
      * @type {CodeListService}

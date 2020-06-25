@@ -32,6 +32,15 @@ export class ActionBarPortletBase extends MainControlBase {
     public appEntityService: TestTaskService = new TestTaskService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ActionBarPortletBase
+     */
+    protected appDeName: string = 'testtask';
+
+    /**
      * 长度
      *
      * @type {number}

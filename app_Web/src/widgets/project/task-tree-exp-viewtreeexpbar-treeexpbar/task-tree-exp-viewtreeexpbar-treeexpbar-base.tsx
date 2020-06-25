@@ -31,6 +31,15 @@ export class TaskTreeExpViewtreeexpbarTreeExpBarBase extends MainControlBase {
     public appEntityService: ProjectService = new ProjectService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskTreeExpViewtreeexpbarTreeExpBarBase
+     */
+    protected appDeName: string = 'project';
+
+    /**
      * treeexpbar_tree 部件 selectionchange 事件
      *
      * @param {*} [args={}]

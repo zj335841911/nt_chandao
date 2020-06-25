@@ -30,6 +30,15 @@ export class MainDashboardBase extends MainControlBase {
      * @memberof MainDashboardBase
      */
     public appEntityService: BugService = new BugService({ $store: this.$store });
+
+    /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainDashboardBase
+     */
+    protected appDeName: string = 'bug';
     /**
      * 是否支持看板定制
      *

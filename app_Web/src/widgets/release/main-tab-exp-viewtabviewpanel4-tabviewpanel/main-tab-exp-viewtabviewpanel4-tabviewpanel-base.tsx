@@ -30,6 +30,15 @@ export class MainTabExpViewtabviewpanel4TabviewpanelBase extends MainControlBase
      */
     public appEntityService: ReleaseService = new ReleaseService({ $store: this.$store });
 
+    /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainTabExpViewtabviewpanel4TabviewpanelBase
+     */
+    protected appDeName: string = 'release';
+
 
  /**
      * 获取多项数据

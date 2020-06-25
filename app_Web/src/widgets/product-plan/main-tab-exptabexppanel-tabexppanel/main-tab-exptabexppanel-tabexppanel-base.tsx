@@ -29,6 +29,15 @@ export class MainTabExptabexppanelTabexppanelBase extends TabExpPanelControlBase
      * @memberof MainTabExptabexppanelTabexppanelBase
      */
     public appEntityService: ProductPlanService = new ProductPlanService({ $store: this.$store });
+
+    /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainTabExptabexppanelTabexppanelBase
+     */
+    protected appDeName: string = 'productplan';
     /**
      * 是否初始化
      *

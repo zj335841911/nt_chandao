@@ -33,6 +33,15 @@ export class Main2GridBase extends MainControlBase {
     public appEntityService: CaseService = new CaseService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof Main2GridBase
+     */
+    protected appDeName: string = 'case';
+
+    /**
      * 代码表服务对象
      *
      * @type {CodeListService}

@@ -31,6 +31,15 @@ export class PlanListBase extends MainControlBase {
     public appEntityService: ProjectProductService = new ProjectProductService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof PlanListBase
+     */
+    protected appDeName: string = 'projectproduct';
+
+    /**
      * 获取多项数据
      *
      * @returns {any[]}

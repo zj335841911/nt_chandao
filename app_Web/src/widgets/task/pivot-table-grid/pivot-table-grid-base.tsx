@@ -33,6 +33,15 @@ export class PivotTableGridBase extends MainControlBase {
     public appEntityService: TaskService = new TaskService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof PivotTableGridBase
+     */
+    protected appDeName: string = 'task';
+
+    /**
      * 代码表服务对象
      *
      * @type {CodeListService}

@@ -32,6 +32,15 @@ export class BurnDownChartPortletBase extends MainControlBase {
     public appEntityService: BurnService = new BurnService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BurnDownChartPortletBase
+     */
+    protected appDeName: string = 'burn';
+
+    /**
      * 长度
      *
      * @type {number}

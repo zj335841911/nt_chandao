@@ -33,6 +33,15 @@ export class SubTaskNewGridBase extends MainControlBase {
     public appEntityService: SubTaskService = new SubTaskService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof SubTaskNewGridBase
+     */
+    protected appDeName: string = 'subtask';
+
+    /**
      * 代码表服务对象
      *
      * @type {CodeListService}

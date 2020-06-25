@@ -55,6 +55,15 @@ export class ControlBase extends Vue {
     public showBusyIndicator?: boolean;
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ControlBase
+     */
+    protected appDeName: string = '';
+
+    /**
      * rxjs类型订阅事件
      *
      * @protected

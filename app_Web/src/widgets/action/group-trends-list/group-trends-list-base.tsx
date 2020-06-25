@@ -31,6 +31,15 @@ export class GroupTrendsListBase extends MainControlBase {
     public appEntityService: ActionService = new ActionService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof GroupTrendsListBase
+     */
+    protected appDeName: string = 'action';
+
+    /**
      * 获取多项数据
      *
      * @returns {any[]}

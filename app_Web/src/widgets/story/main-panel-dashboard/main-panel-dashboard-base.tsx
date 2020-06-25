@@ -30,6 +30,15 @@ export class MainPanelDashboardBase extends MainControlBase {
      * @memberof MainPanelDashboardBase
      */
     public appEntityService: StoryService = new StoryService({ $store: this.$store });
+
+    /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainPanelDashboardBase
+     */
+    protected appDeName: string = 'story';
     /**
      * 是否支持看板定制
      *

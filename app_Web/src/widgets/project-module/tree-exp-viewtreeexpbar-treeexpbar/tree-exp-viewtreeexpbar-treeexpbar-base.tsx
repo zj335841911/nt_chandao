@@ -32,6 +32,15 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends MainControlBase {
     public appEntityService: ProjectModuleService = new ProjectModuleService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TreeExpViewtreeexpbarTreeExpBarBase
+     */
+    protected appDeName: string = 'projectmodule';
+
+    /**
      * treeexpbar_toolbar 部件 click 事件
      *
      * @param {*} [args={}]

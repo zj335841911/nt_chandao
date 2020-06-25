@@ -32,6 +32,15 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
     public appEntityService: StoryService = new StoryService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof Main_EditModeEditFormBase
+     */
+    protected appDeName: string = 'story';
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]
@@ -326,19 +335,8 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
     };
 
     /**
-     * 重置表单项值
-     *
-     * @public
-     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof Main_EditMode
-     */
-    public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
-    }
-
-    /**
      * 表单逻辑
      *
-     * @public
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
      * @memberof Main_EditMode
      */
@@ -397,29 +395,6 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
 
     }
 
-    /**
-     * 表单加载完成
-     *
-     * @public
-     * @param {*} [data={}]
-     * @param {string} [action]
-     * @memberof Main_EditMode
-     */
-    public onFormLoad(data: any = {},action:string): void {
-        if(Object.is(action,"save") || Object.is(action,"autoSave") || Object.is(action,"submit"))
-        // 更新context的实体主键
-        if(data.story){
-            Object.assign(this.context,{story:data.story})
-        }
-        this.setFormEnableCond(data);
-        this.fillForm(data,action);
-        this.oldData = {};
-        Object.assign(this.oldData, JSON.parse(JSON.stringify(this.data)));
-        this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: false });
-        this.formLogic({ name: '', newVal: null, oldVal: null });
-    }
-
-
 	/**
 	 * 表单 保存并关闭 事件
 	 *
@@ -428,18 +403,5 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
     public button1_click($event: any): void {
         this.form_button1_click(null, null, $event);
 
-    }
-
-    /**
-     * 分组界面行为事件
-     *
-     * @param {*} $event
-     * @memberof Main_EditMode
-     */
-    public groupUIActionClick($event: any): void {
-        if (!$event) {
-            return;
-        }
-        const item: any = $event.item;
     }
 }

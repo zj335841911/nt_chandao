@@ -31,6 +31,15 @@ export class TaskKanBanKanbanBase extends MainControlBase {
     public appEntityService: TaskService = new TaskService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskKanBanKanbanBase
+     */
+    protected appDeName: string = 'task';
+
+    /**
      * 获取多项数据
      *
      * @returns {any[]}

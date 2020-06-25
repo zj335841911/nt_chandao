@@ -130,6 +130,28 @@ export class EditFormControlBase extends FormControlBase {
     }
 
     /**
+     * 表单加载完成
+     *
+     * @param {*} [data={}]
+     * @param {string} action
+     * @memberof EditFormControlBase
+     */
+    public onFormLoad(data: any = {}, action: string): void {
+        if (Object.is(action, "save") || Object.is(action, "autoSave") || Object.is(action, "submit")) {
+            // 更新context的实体主键
+            if (data[this.appDeName]) {
+                Object.assign(this.context, { [this.appDeName]: data[this.appDeName] })
+            }
+        }
+        this.setFormEnableCond(data);
+        this.fillForm(data, action);
+        this.oldData = {};
+        Object.assign(this.oldData, JSON.parse(JSON.stringify(this.data)));
+        this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: false });
+        this.formLogic({ name: '', newVal: null, oldVal: null });
+    }
+
+    /**
      * 表单项逻辑
      *
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }

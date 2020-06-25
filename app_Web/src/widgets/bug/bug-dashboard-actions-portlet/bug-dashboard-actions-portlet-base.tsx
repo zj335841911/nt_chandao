@@ -33,6 +33,15 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
     public appEntityService: BugService = new BugService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugDashboardActionsPortletBase
+     */
+    protected appDeName: string = 'bug';
+
+    /**
      * 逻辑事件
      *
      * @param {*} [params={}]

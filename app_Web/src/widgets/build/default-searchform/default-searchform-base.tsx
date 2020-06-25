@@ -33,6 +33,15 @@ export class DefaultSearchFormBase extends MainControlBase {
     public appEntityService: BuildService = new BuildService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof DefaultSearchFormBase
+     */
+    protected appDeName: string = 'build';
+
+    /**
      * 表单数据对象
      *
      * @type {*}

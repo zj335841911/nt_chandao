@@ -33,6 +33,15 @@ export class ModuleExpTreeBase extends MainControlBase {
     public appEntityService: ProjectModuleService = new ProjectModuleService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ModuleExpTreeBase
+     */
+    protected appDeName: string = 'projectmodule';
+
+    /**
      * zt_product_cm 部件 click 事件
      *
      * @param {*} [args={}]

@@ -32,6 +32,15 @@ export class GetRoadmapPortletBase extends MainControlBase {
     public appEntityService: ProductLifeService = new ProductLifeService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof GetRoadmapPortletBase
+     */
+    protected appDeName: string = 'productlife';
+
+    /**
      * 长度
      *
      * @type {number}

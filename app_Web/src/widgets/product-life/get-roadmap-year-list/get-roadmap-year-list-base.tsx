@@ -32,6 +32,15 @@ export class GetRoadmapYearListBase extends MainControlBase {
     public appEntityService: ProductLifeService = new ProductLifeService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof GetRoadmapYearListBase
+     */
+    protected appDeName: string = 'productlife';
+
+    /**
      * 建构部件服务对象
      *
      * @type {GetRoadmapService}

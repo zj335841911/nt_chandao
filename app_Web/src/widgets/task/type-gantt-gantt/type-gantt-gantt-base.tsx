@@ -31,6 +31,15 @@ export class TypeGanttGanttBase extends MainControlBase {
     public appEntityService: TaskService = new TaskService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TypeGanttGanttBase
+     */
+    protected appDeName: string = 'task';
+
+    /**
      * 打开编辑数据视图
      *
      * @param {any[]} args

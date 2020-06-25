@@ -31,6 +31,15 @@ export class TestListExpViewlistexpbarListexpbarBase extends MainControlBase {
     public appEntityService: ProductService = new ProductService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestListExpViewlistexpbarListexpbarBase
+     */
+    protected appDeName: string = 'product';
+
+    /**
      * listexpbar_list 部件 selectionchange 事件
      *
      * @param {*} [args={}]

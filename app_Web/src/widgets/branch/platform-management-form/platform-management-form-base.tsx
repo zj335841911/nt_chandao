@@ -32,6 +32,15 @@ export class PlatformManagementEditFormBase extends EditFormControlBase {
     public appEntityService: BranchService = new BranchService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof PlatformManagementEditFormBase
+     */
+    protected appDeName: string = 'branch';
+
+    /**
      * 表单数据对象
      *
      * @type {*}
@@ -132,73 +141,4 @@ export class PlatformManagementEditFormBase extends EditFormControlBase {
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 }),
 
     };
-
-    /**
-     * 重置表单项值
-     *
-     * @public
-     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof PlatformManagement
-     */
-    public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
-    }
-
-    /**
-     * 表单逻辑
-     *
-     * @public
-     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof PlatformManagement
-     */
-    public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
-                
-
-
-
-
-
-
-
-
-
-
-
-
-    }
-
-    /**
-     * 表单加载完成
-     *
-     * @public
-     * @param {*} [data={}]
-     * @param {string} [action]
-     * @memberof PlatformManagement
-     */
-    public onFormLoad(data: any = {},action:string): void {
-        if(Object.is(action,"save") || Object.is(action,"autoSave") || Object.is(action,"submit"))
-        // 更新context的实体主键
-        if(data.branch){
-            Object.assign(this.context,{branch:data.branch})
-        }
-        this.setFormEnableCond(data);
-        this.fillForm(data,action);
-        this.oldData = {};
-        Object.assign(this.oldData, JSON.parse(JSON.stringify(this.data)));
-        this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: false });
-        this.formLogic({ name: '', newVal: null, oldVal: null });
-    }
-
-
-    /**
-     * 分组界面行为事件
-     *
-     * @param {*} $event
-     * @memberof PlatformManagement
-     */
-    public groupUIActionClick($event: any): void {
-        if (!$event) {
-            return;
-        }
-        const item: any = $event.item;
-    }
 }

@@ -33,6 +33,15 @@ export class Main9GridBase extends MainControlBase {
     public appEntityService: StoryService = new StoryService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof Main9GridBase
+     */
+    protected appDeName: string = 'story';
+
+    /**
      * 代码表服务对象
      *
      * @type {CodeListService}

@@ -32,6 +32,15 @@ export class ClassifyByTypeListBase extends MainControlBase {
     public appEntityService: ActionService = new ActionService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ClassifyByTypeListBase
+     */
+    protected appDeName: string = 'action';
+
+    /**
      * 建构部件服务对象
      *
      * @type {DEFAULTService}

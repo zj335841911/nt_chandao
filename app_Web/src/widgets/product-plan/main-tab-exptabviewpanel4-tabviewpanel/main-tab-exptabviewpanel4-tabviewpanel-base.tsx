@@ -30,6 +30,15 @@ export class MainTabExptabviewpanel4TabviewpanelBase extends MainControlBase {
      */
     public appEntityService: ProductPlanService = new ProductPlanService({ $store: this.$store });
 
+    /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainTabExptabviewpanel4TabviewpanelBase
+     */
+    protected appDeName: string = 'productplan';
+
 
  /**
      * 获取多项数据

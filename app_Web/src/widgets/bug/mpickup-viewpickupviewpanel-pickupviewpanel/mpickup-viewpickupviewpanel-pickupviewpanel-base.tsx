@@ -31,6 +31,15 @@ export class MPickupViewpickupviewpanelPickupviewpanelBase extends MainControlBa
      */
     public appEntityService: BugService = new BugService({ $store: this.$store });
 
+    /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MPickupViewpickupviewpanelPickupviewpanelBase
+     */
+    protected appDeName: string = 'bug';
+
 
     /**
      * 选中数据字符串

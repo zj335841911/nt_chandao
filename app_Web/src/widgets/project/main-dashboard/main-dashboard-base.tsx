@@ -30,6 +30,15 @@ export class MainDashboardBase extends MainControlBase {
      * @memberof MainDashboardBase
      */
     public appEntityService: ProjectService = new ProjectService({ $store: this.$store });
+
+    /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainDashboardBase
+     */
+    protected appDeName: string = 'project';
     /**
      * 是否支持看板定制
      *

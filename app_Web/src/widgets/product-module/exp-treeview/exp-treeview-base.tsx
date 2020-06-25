@@ -31,6 +31,15 @@ export class ExpTreeBase extends MainControlBase {
     public appEntityService: ProductModuleService = new ProductModuleService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ExpTreeBase
+     */
+    protected appDeName: string = 'productmodule';
+
+    /**
      * branchs_cm 部件 click 事件
      *
      * @param {*} [args={}]

@@ -30,6 +30,15 @@ export class MainTabExpViewtabviewpanel2TabviewpanelBase extends MainControlBase
      */
     public appEntityService: BuildService = new BuildService({ $store: this.$store });
 
+    /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainTabExpViewtabviewpanel2TabviewpanelBase
+     */
+    protected appDeName: string = 'build';
+
 
  /**
      * 获取多项数据

@@ -32,6 +32,15 @@ export class DashBoardInfoEditFormBase extends EditFormControlBase {
     public appEntityService: ProjectService = new ProjectService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof DashBoardInfoEditFormBase
+     */
+    protected appDeName: string = 'project';
+
+    /**
      * 表单数据对象
      *
      * @type {*}
@@ -241,95 +250,4 @@ export class DashBoardInfoEditFormBase extends EditFormControlBase {
         acl: new FormItemModel({ caption: '访问控制', detailType: 'FORMITEM', name: 'acl', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 }),
 
     };
-
-    /**
-     * 重置表单项值
-     *
-     * @public
-     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof DashBoardInfo
-     */
-    public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
-    }
-
-    /**
-     * 表单逻辑
-     *
-     * @public
-     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof DashBoardInfo
-     */
-    public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
-                
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    }
-
-    /**
-     * 表单加载完成
-     *
-     * @public
-     * @param {*} [data={}]
-     * @param {string} [action]
-     * @memberof DashBoardInfo
-     */
-    public onFormLoad(data: any = {},action:string): void {
-        if(Object.is(action,"save") || Object.is(action,"autoSave") || Object.is(action,"submit"))
-        // 更新context的实体主键
-        if(data.project){
-            Object.assign(this.context,{project:data.project})
-        }
-        this.setFormEnableCond(data);
-        this.fillForm(data,action);
-        this.oldData = {};
-        Object.assign(this.oldData, JSON.parse(JSON.stringify(this.data)));
-        this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: false });
-        this.formLogic({ name: '', newVal: null, oldVal: null });
-    }
-
-
-    /**
-     * 分组界面行为事件
-     *
-     * @param {*} $event
-     * @memberof DashBoardInfo
-     */
-    public groupUIActionClick($event: any): void {
-        if (!$event) {
-            return;
-        }
-        const item: any = $event.item;
-    }
 }

@@ -31,6 +31,15 @@ export class DEFAULTListBase extends MainControlBase {
     public appEntityService: HistoryService = new HistoryService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof DEFAULTListBase
+     */
+    protected appDeName: string = 'history';
+
+    /**
      * 获取多项数据
      *
      * @returns {any[]}

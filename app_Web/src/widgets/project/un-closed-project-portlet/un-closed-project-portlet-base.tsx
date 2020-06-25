@@ -32,6 +32,15 @@ export class UnClosedProjectPortletBase extends MainControlBase {
     public appEntityService: ProjectService = new ProjectService({ $store: this.$store });
 
     /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof UnClosedProjectPortletBase
+     */
+    protected appDeName: string = 'project';
+
+    /**
      * 长度
      *
      * @type {number}

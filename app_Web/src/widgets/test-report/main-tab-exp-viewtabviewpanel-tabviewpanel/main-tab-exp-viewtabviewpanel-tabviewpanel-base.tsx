@@ -30,6 +30,15 @@ export class MainTabExpViewtabviewpanelTabviewpanelBase extends MainControlBase 
      */
     public appEntityService: TestReportService = new TestReportService({ $store: this.$store });
 
+    /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainTabExpViewtabviewpanelTabviewpanelBase
+     */
+    protected appDeName: string = 'testreport';
+
 
  /**
      * 获取多项数据

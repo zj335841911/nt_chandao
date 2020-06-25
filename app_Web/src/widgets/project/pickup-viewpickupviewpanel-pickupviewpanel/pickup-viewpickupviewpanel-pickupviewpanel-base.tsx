@@ -31,6 +31,15 @@ export class PickupViewpickupviewpanelPickupviewpanelBase extends MainControlBas
      */
     public appEntityService: ProjectService = new ProjectService({ $store: this.$store });
 
+    /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof PickupViewpickupviewpanelPickupviewpanelBase
+     */
+    protected appDeName: string = 'project';
+
 
     /**
      * 选中数据字符串

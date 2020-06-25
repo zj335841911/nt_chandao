@@ -30,6 +30,15 @@ export class MainTabExpViewtabviewpanel8TabviewpanelBase extends MainControlBase
      */
     public appEntityService: ProjectService = new ProjectService({ $store: this.$store });
 
+    /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainTabExpViewtabviewpanel8TabviewpanelBase
+     */
+    protected appDeName: string = 'project';
+
 
  /**
      * 获取多项数据
