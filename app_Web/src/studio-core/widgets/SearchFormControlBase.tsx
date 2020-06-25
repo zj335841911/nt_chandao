@@ -37,6 +37,33 @@ export class SearchFormControlBase extends EditFormControlBase {
     }
 
     /**
+     * 表单值变化
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} param
+     * @memberof SearchFormControlBase
+     */
+    public formDataChange(param: { name: string, newVal: any, oldVal: any }): void {
+        super.formDataChange(param);
+        this.$emit('valuechange', this.data);
+    }
+
+    /**
+     * 表单加载完成
+     *
+     * @param {*} [data={}]
+     * @param {string} action
+     * @memberof SearchFormControlBase
+     */
+    public onFormLoad(data: any = {}, action: string): void {
+        this.setFormEnableCond(data);
+        this.fillForm(data, action);
+        this.oldData = {};
+        Object.assign(this.oldData, JSON.parse(JSON.stringify(this.data)));
+        this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: false });
+        this.formLogic({ name: '', newVal: null, oldVal: null });
+    }
+
+    /**
      * 回车事件
      *
      * @param {*} $event

@@ -10,6 +10,16 @@ import { FormControlBase } from './FormControlBase';
  * @extends {FormControlBase}
  */
 export class EditFormControlBase extends FormControlBase {
+
+    /**
+     * 关系界面数量
+     *
+     * @protected
+     * @type {number}
+     * @memberof EditFormControlBase
+     */
+    protected drCount: number = 0;
+
     /**
      * 部件行为--submit--工作流
      *
@@ -253,20 +263,11 @@ export class EditFormControlBase extends FormControlBase {
             const data = this.getValues();
             Object.assign(arg, data);
             Object.assign(arg, this.context);
-            if (ifStateNext) {
-                // <#assign drcounter = 0>
-                // <#list ctrl.getAllPSDEFormDetails() as formdetail>
-                // <#if formdetail.getDetailType() == "DRUIPART">
-                //     <#assign drcounter = drcounter + 1>
-                // </#if>
-                // </#list>
-                // this.drcounter = ${drcounter};
-                // if(this.drcounter !== 0){
-                //     this.drsaveopt = opt;
-                //     this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存
-                //     this.saveState = resolve;
-                //     return;
-                // }
+            if (ifStateNext && this.drCount > 0) {
+                this.drsaveopt = opt;
+                this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存
+                this.saveState = resolve;
+                return;
             }
             const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
             if (!action) {

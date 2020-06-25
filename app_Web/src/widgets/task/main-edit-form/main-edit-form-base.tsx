@@ -41,10 +41,19 @@ export class MainEditEditFormBase extends EditFormControlBase {
     protected appDeName: string = 'task';
 
     /**
+     * 关系界面数量
+     *
+     * @protected
+     * @type {number}
+     * @memberof MainEditEditFormBase
+     */
+    protected drCount: number = 0;
+
+    /**
      * 表单数据对象
      *
      * @type {*}
-     * @memberof MainEdit
+     * @memberof MainEditEditFormBase
      */
     public data: any = {
         srfupdatedate: null,
@@ -92,7 +101,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof MainEdit
+     * @memberof MainEditEditFormBase
      */
     public rules: any = {
         srfupdatedate: [
@@ -253,7 +262,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof MainEdit
+     * @memberof MainEditEditFormBase
      */
     public detailsModel: any = {
         grouppanel6: new FormGroupPanelModel({ caption: '任务描述', detailType: 'GROUPPANEL', name: 'grouppanel6', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.task.mainedit_form', extractMode: 'ITEM', details: [] } }),

@@ -492,11 +492,6 @@ export class FormControlBase extends MainControlBase {
             }
 
             const data = response.data;
-            //         <#if de??>
-            //          if (data.${ appde.getCodeName() ? lower_case}){
-            //              Object.assign(this.context, { ${ appde.getCodeName() ? lower_case}: data.${ appde.getCodeName() ? lower_case}})
-            //          }
-            //         </#if>
             this.resetDraftFormStates();
             this.onFormLoad(data, 'loadDraft');
             this.$emit('load', data);

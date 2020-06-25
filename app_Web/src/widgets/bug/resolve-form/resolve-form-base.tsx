@@ -41,10 +41,19 @@ export class ResolveEditFormBase extends EditFormControlBase {
     protected appDeName: string = 'bug';
 
     /**
+     * 关系界面数量
+     *
+     * @protected
+     * @type {number}
+     * @memberof ResolveEditFormBase
+     */
+    protected drCount: number = 0;
+
+    /**
      * 表单数据对象
      *
      * @type {*}
-     * @memberof Resolve
+     * @memberof ResolveEditFormBase
      */
     public data: any = {
         srfupdatedate: null,
@@ -69,7 +78,7 @@ export class ResolveEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof Resolve
+     * @memberof ResolveEditFormBase
      */
     public rules: any = {
         srfupdatedate: [
@@ -138,7 +147,7 @@ export class ResolveEditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof Resolve
+     * @memberof ResolveEditFormBase
      */
     public detailsModel: any = {
         grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.bug.resolve_form', extractMode: 'ITEM', details: [] } }),

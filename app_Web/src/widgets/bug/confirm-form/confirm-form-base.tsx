@@ -41,10 +41,19 @@ export class ConfirmEditFormBase extends EditFormControlBase {
     protected appDeName: string = 'bug';
 
     /**
+     * 关系界面数量
+     *
+     * @protected
+     * @type {number}
+     * @memberof ConfirmEditFormBase
+     */
+    protected drCount: number = 0;
+
+    /**
      * 表单数据对象
      *
      * @type {*}
-     * @memberof Confirm
+     * @memberof ConfirmEditFormBase
      */
     public data: any = {
         srfupdatedate: null,
@@ -68,7 +77,7 @@ export class ConfirmEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof Confirm
+     * @memberof ConfirmEditFormBase
      */
     public rules: any = {
         srfupdatedate: [
@@ -133,7 +142,7 @@ export class ConfirmEditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof Confirm
+     * @memberof ConfirmEditFormBase
      */
     public detailsModel: any = {
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this }),

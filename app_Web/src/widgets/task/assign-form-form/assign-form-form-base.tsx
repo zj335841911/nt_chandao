@@ -41,10 +41,19 @@ export class AssignFormEditFormBase extends EditFormControlBase {
     protected appDeName: string = 'task';
 
     /**
+     * 关系界面数量
+     *
+     * @protected
+     * @type {number}
+     * @memberof AssignFormEditFormBase
+     */
+    protected drCount: number = 0;
+
+    /**
      * 表单数据对象
      *
      * @type {*}
-     * @memberof AssignForm
+     * @memberof AssignFormEditFormBase
      */
     public data: any = {
         srfupdatedate: null,
@@ -66,7 +75,7 @@ export class AssignFormEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof AssignForm
+     * @memberof AssignFormEditFormBase
      */
     public rules: any = {
         srfupdatedate: [
@@ -123,7 +132,7 @@ export class AssignFormEditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof AssignForm
+     * @memberof AssignFormEditFormBase
      */
     public detailsModel: any = {
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this }),

@@ -41,10 +41,19 @@ export class StorySpecEditFormBase extends EditFormControlBase {
     protected appDeName: string = 'story';
 
     /**
+     * 关系界面数量
+     *
+     * @protected
+     * @type {number}
+     * @memberof StorySpecEditFormBase
+     */
+    protected drCount: number = 0;
+
+    /**
      * 表单数据对象
      *
      * @type {*}
-     * @memberof StorySpec
+     * @memberof StorySpecEditFormBase
      */
     public data: any = {
         srforikey: null,
@@ -66,7 +75,7 @@ export class StorySpecEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof StorySpec
+     * @memberof StorySpecEditFormBase
      */
     public rules: any = {
         srforikey: [
@@ -123,7 +132,7 @@ export class StorySpecEditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof StorySpec
+     * @memberof StorySpecEditFormBase
      */
     public detailsModel: any = {
         grouppanel1: new FormGroupPanelModel({ caption: '需求描述', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.story.storyspec_form', extractMode: 'ITEM', details: [] } }),
@@ -166,7 +175,7 @@ export class StorySpecEditFormBase extends EditFormControlBase {
      * 表单逻辑
      *
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof StorySpec
+     * @memberof StorySpecEditFormBase
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 

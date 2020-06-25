@@ -41,10 +41,19 @@ export class DashBoardInfoEditFormBase extends EditFormControlBase {
     protected appDeName: string = 'project';
 
     /**
+     * 关系界面数量
+     *
+     * @protected
+     * @type {number}
+     * @memberof DashBoardInfoEditFormBase
+     */
+    protected drCount: number = 0;
+
+    /**
      * 表单数据对象
      *
      * @type {*}
-     * @memberof DashBoardInfo
+     * @memberof DashBoardInfoEditFormBase
      */
     public data: any = {
         srforikey: null,
@@ -77,7 +86,7 @@ export class DashBoardInfoEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof DashBoardInfo
+     * @memberof DashBoardInfoEditFormBase
      */
     public rules: any = {
         srforikey: [
@@ -178,7 +187,7 @@ export class DashBoardInfoEditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof DashBoardInfo
+     * @memberof DashBoardInfoEditFormBase
      */
     public detailsModel: any = {
         group1: new FormGroupPanelModel({ caption: 'project基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.project.dashboardinfo_form', extractMode: 'ITEM', details: [] } }),

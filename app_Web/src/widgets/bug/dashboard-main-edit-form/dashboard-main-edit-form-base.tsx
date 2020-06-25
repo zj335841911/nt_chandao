@@ -41,10 +41,19 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
     protected appDeName: string = 'bug';
 
     /**
+     * 关系界面数量
+     *
+     * @protected
+     * @type {number}
+     * @memberof DashboardMainEditEditFormBase
+     */
+    protected drCount: number = 0;
+
+    /**
      * 表单数据对象
      *
      * @type {*}
-     * @memberof DashboardMainEdit
+     * @memberof DashboardMainEditEditFormBase
      */
     public data: any = {
         srfupdatedate: null,
@@ -94,7 +103,7 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof DashboardMainEdit
+     * @memberof DashboardMainEditEditFormBase
      */
     public rules: any = {
         srfupdatedate: [
@@ -263,7 +272,7 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof DashboardMainEdit
+     * @memberof DashboardMainEditEditFormBase
      */
     public detailsModel: any = {
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this }),
@@ -370,7 +379,7 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
      * 表单逻辑
      *
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof DashboardMainEdit
+     * @memberof DashboardMainEditEditFormBase
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 

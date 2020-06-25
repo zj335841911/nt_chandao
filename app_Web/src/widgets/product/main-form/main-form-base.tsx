@@ -44,7 +44,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * 表单数据对象
      *
      * @type {*}
-     * @memberof Main
+     * @memberof MainEditFormBase
      */
     public data: any = {
         srforikey: null,
@@ -72,7 +72,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof Main
+     * @memberof MainEditFormBase
      */
     public rules: any = {
         srforikey: [
@@ -153,7 +153,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof Main
+     * @memberof MainEditFormBase
      */
     public detailsModel: any = {
         grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.product.main_form', extractMode: 'ITEM', details: [] } }),

@@ -44,7 +44,7 @@ export class PlatformManagementEditFormBase extends EditFormControlBase {
      * 表单数据对象
      *
      * @type {*}
-     * @memberof PlatformManagement
+     * @memberof PlatformManagementEditFormBase
      */
     public data: any = {
         srforikey: null,
@@ -64,7 +64,7 @@ export class PlatformManagementEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof PlatformManagement
+     * @memberof PlatformManagementEditFormBase
      */
     public rules: any = {
         srforikey: [
@@ -113,7 +113,7 @@ export class PlatformManagementEditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof PlatformManagement
+     * @memberof PlatformManagementEditFormBase
      */
     public detailsModel: any = {
         group1: new FormGroupPanelModel({ caption: '产品的分支和平台信息基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.branch.platformmanagement_form', extractMode: 'ITEM', details: [] } }),

@@ -105,7 +105,7 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
      * 表单数据对象
      *
      * @type {*}
-     * @memberof Main_EditMode
+     * @memberof Main_EditModeEditFormBase
      */
     public data: any = {
         srforikey: null,
@@ -142,7 +142,7 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof Main_EditMode
+     * @memberof Main_EditModeEditFormBase
      */
     public rules: any = {
         srforikey: [
@@ -259,7 +259,7 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof Main_EditMode
+     * @memberof Main_EditModeEditFormBase
      */
     public detailsModel: any = {
         group1: new FormGroupPanelModel({ caption: 'story基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.story.main_editmode_form', extractMode: 'ITEM', details: [] } }),
@@ -338,7 +338,7 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
      * 表单逻辑
      *
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof Main_EditMode
+     * @memberof Main_EditModeEditFormBase
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
@@ -398,7 +398,7 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
 	/**
 	 * 表单 保存并关闭 事件
 	 *
-	 * @memberof @memberof Main_EditMode
+	 * @memberof @memberof Main_EditModeEditFormBase
 	 */
     public button1_click($event: any): void {
         this.form_button1_click(null, null, $event);

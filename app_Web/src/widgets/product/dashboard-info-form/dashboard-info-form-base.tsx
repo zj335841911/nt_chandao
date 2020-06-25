@@ -44,7 +44,7 @@ export class DashboardInfoEditFormBase extends EditFormControlBase {
      * 表单数据对象
      *
      * @type {*}
-     * @memberof DashboardInfo
+     * @memberof DashboardInfoEditFormBase
      */
     public data: any = {
         srforikey: null,
@@ -70,7 +70,7 @@ export class DashboardInfoEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof DashboardInfo
+     * @memberof DashboardInfoEditFormBase
      */
     public rules: any = {
         srforikey: [
@@ -143,7 +143,7 @@ export class DashboardInfoEditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof DashboardInfo
+     * @memberof DashboardInfoEditFormBase
      */
     public detailsModel: any = {
         group1: new FormGroupPanelModel({ caption: '产品基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.product.dashboardinfo_form', extractMode: 'ITEM', details: [] } }),

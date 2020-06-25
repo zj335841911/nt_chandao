@@ -41,10 +41,19 @@ export class MainInfoEditFormBase extends EditFormControlBase {
     protected appDeName: string = 'case';
 
     /**
+     * 关系界面数量
+     *
+     * @protected
+     * @type {number}
+     * @memberof MainInfoEditFormBase
+     */
+    protected drCount: number = 0;
+
+    /**
      * 表单数据对象
      *
      * @type {*}
-     * @memberof MainInfo
+     * @memberof MainInfoEditFormBase
      */
     public data: any = {
         srforikey: null,
@@ -63,7 +72,7 @@ export class MainInfoEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof MainInfo
+     * @memberof MainInfoEditFormBase
      */
     public rules: any = {
         srforikey: [
@@ -108,7 +117,7 @@ export class MainInfoEditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof MainInfo
+     * @memberof MainInfoEditFormBase
      */
     public detailsModel: any = {
         druipart1: new FormDRUIPartModel({ caption: '用例步骤', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this }),

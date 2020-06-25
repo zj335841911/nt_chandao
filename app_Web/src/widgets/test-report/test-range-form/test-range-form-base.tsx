@@ -41,10 +41,19 @@ export class TestRangeEditFormBase extends EditFormControlBase {
     protected appDeName: string = 'testreport';
 
     /**
+     * 关系界面数量
+     *
+     * @protected
+     * @type {number}
+     * @memberof TestRangeEditFormBase
+     */
+    protected drCount: number = 0;
+
+    /**
      * 表单数据对象
      *
      * @type {*}
-     * @memberof TestRange
+     * @memberof TestRangeEditFormBase
      */
     public data: any = {
         srforikey: null,
@@ -62,7 +71,7 @@ export class TestRangeEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof TestRange
+     * @memberof TestRangeEditFormBase
      */
     public rules: any = {
         srforikey: [
@@ -103,7 +112,7 @@ export class TestRangeEditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof TestRange
+     * @memberof TestRangeEditFormBase
      */
     public detailsModel: any = {
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this }),

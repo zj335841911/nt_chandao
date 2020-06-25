@@ -44,7 +44,7 @@ export class TestMain2EditFormBase extends EditFormControlBase {
      * 表单数据对象
      *
      * @type {*}
-     * @memberof TestMain2
+     * @memberof TestMain2EditFormBase
      */
     public data: any = {
         srforikey: null,
@@ -78,7 +78,7 @@ export class TestMain2EditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof TestMain2
+     * @memberof TestMain2EditFormBase
      */
     public rules: any = {
         srforikey: [
@@ -183,7 +183,7 @@ export class TestMain2EditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof TestMain2
+     * @memberof TestMain2EditFormBase
      */
     public detailsModel: any = {
         group1: new FormGroupPanelModel({ caption: '产品统计基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productstats.testmain2_form', extractMode: 'ITEM', details: [] } }),

@@ -41,10 +41,19 @@ export class MainEditFormBase extends EditFormControlBase {
     protected appDeName: string = 'build';
 
     /**
+     * 关系界面数量
+     *
+     * @protected
+     * @type {number}
+     * @memberof MainEditFormBase
+     */
+    protected drCount: number = 0;
+
+    /**
      * 表单数据对象
      *
      * @type {*}
-     * @memberof Main
+     * @memberof MainEditFormBase
      */
     public data: any = {
         srforikey: null,
@@ -70,7 +79,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof Main
+     * @memberof MainEditFormBase
      */
     public rules: any = {
         srforikey: [
@@ -143,7 +152,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof Main
+     * @memberof MainEditFormBase
      */
     public detailsModel: any = {
         group1: new FormGroupPanelModel({ caption: '基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.build.main_form', extractMode: 'ITEM', details: [] } }),

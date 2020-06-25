@@ -41,10 +41,19 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
     protected appDeName: string = 'story';
 
     /**
+     * 关系界面数量
+     *
+     * @protected
+     * @type {number}
+     * @memberof StorySpec_EditModeEditFormBase
+     */
+    protected drCount: number = 0;
+
+    /**
      * 表单数据对象
      *
      * @type {*}
-     * @memberof StorySpec_EditMode
+     * @memberof StorySpec_EditModeEditFormBase
      */
     public data: any = {
         srforikey: null,
@@ -70,7 +79,7 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof StorySpec_EditMode
+     * @memberof StorySpec_EditModeEditFormBase
      */
     public rules: any = {
         srforikey: [
@@ -143,7 +152,7 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof StorySpec_EditMode
+     * @memberof StorySpec_EditModeEditFormBase
      */
     public detailsModel: any = {
         grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.story.storyspec_editmode_form', extractMode: 'ITEM', details: [] } }),

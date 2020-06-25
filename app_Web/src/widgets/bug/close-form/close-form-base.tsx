@@ -41,10 +41,19 @@ export class CloseEditFormBase extends EditFormControlBase {
     protected appDeName: string = 'bug';
 
     /**
+     * 关系界面数量
+     *
+     * @protected
+     * @type {number}
+     * @memberof CloseEditFormBase
+     */
+    protected drCount: number = 0;
+
+    /**
      * 表单数据对象
      *
      * @type {*}
-     * @memberof Close
+     * @memberof CloseEditFormBase
      */
     public data: any = {
         srfupdatedate: null,
@@ -64,7 +73,7 @@ export class CloseEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof Close
+     * @memberof CloseEditFormBase
      */
     public rules: any = {
         srfupdatedate: [
@@ -113,7 +122,7 @@ export class CloseEditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof Close
+     * @memberof CloseEditFormBase
      */
     public detailsModel: any = {
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this }),

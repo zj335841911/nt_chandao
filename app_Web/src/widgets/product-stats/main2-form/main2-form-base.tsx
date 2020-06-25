@@ -185,7 +185,7 @@ export class Main2EditFormBase extends EditFormControlBase {
      * 表单数据对象
      *
      * @type {*}
-     * @memberof Main2
+     * @memberof Main2EditFormBase
      */
     public data: any = {
         srforikey: null,
@@ -225,7 +225,7 @@ export class Main2EditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof Main2
+     * @memberof Main2EditFormBase
      */
     public rules: any = {
         srforikey: [
@@ -354,7 +354,7 @@ export class Main2EditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof Main2
+     * @memberof Main2EditFormBase
      */
     public detailsModel: any = {
         rawitem1: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem1', visible: true, isShowCaption: true, form: this }),
@@ -461,7 +461,7 @@ export class Main2EditFormBase extends EditFormControlBase {
      * 表单逻辑
      *
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof Main2
+     * @memberof Main2EditFormBase
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
@@ -591,7 +591,7 @@ export class Main2EditFormBase extends EditFormControlBase {
 	/**
 	 * 表单 查看全部 事件
 	 *
-	 * @memberof @memberof Main2
+	 * @memberof @memberof Main2EditFormBase
 	 */
     public button4_click($event: any): void {
         this.form_button4_click(null, null, $event);
@@ -601,7 +601,7 @@ export class Main2EditFormBase extends EditFormControlBase {
 	/**
 	 * 表单 提需求 事件
 	 *
-	 * @memberof @memberof Main2
+	 * @memberof @memberof Main2EditFormBase
 	 */
     public button5_click($event: any): void {
         this.form_button5_click(null, null, $event);
@@ -611,7 +611,7 @@ export class Main2EditFormBase extends EditFormControlBase {
 	/**
 	 * 表单 创建计划 事件
 	 *
-	 * @memberof @memberof Main2
+	 * @memberof @memberof Main2EditFormBase
 	 */
     public button1_click($event: any): void {
         this.form_button1_click(null, null, $event);
@@ -621,7 +621,7 @@ export class Main2EditFormBase extends EditFormControlBase {
 	/**
 	 * 表单 创建项目 事件
 	 *
-	 * @memberof @memberof Main2
+	 * @memberof @memberof Main2EditFormBase
 	 */
     public button2_click($event: any): void {
         this.form_button2_click(null, null, $event);
@@ -631,7 +631,7 @@ export class Main2EditFormBase extends EditFormControlBase {
 	/**
 	 * 表单 创建发布 事件
 	 *
-	 * @memberof @memberof Main2
+	 * @memberof @memberof Main2EditFormBase
 	 */
     public button3_click($event: any): void {
         this.form_button3_click(null, null, $event);
@@ -640,7 +640,7 @@ export class Main2EditFormBase extends EditFormControlBase {
 
     /**
      * 新建默认值
-     * @memberof Main2
+     * @memberof Main2EditFormBase
      */
     public createDefault(){                    
         if (this.data.hasOwnProperty('product')) {
@@ -650,7 +650,7 @@ export class Main2EditFormBase extends EditFormControlBase {
 
     /**
      * 更新默认值
-     * @memberof Main2
+     * @memberof Main2EditFormBase
      */
     public updateDefault(){                    
         if (this.data.hasOwnProperty('product') && !this.data.product) {

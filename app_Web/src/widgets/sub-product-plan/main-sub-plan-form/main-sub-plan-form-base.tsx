@@ -151,7 +151,7 @@ export class MainSubPlanEditFormBase extends EditFormControlBase {
      * 表单数据对象
      *
      * @type {*}
-     * @memberof MainSubPlan
+     * @memberof MainSubPlanEditFormBase
      */
     public data: any = {
         srforikey: null,
@@ -176,7 +176,7 @@ export class MainSubPlanEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof MainSubPlan
+     * @memberof MainSubPlanEditFormBase
      */
     public rules: any = {
         srforikey: [
@@ -245,7 +245,7 @@ export class MainSubPlanEditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof MainSubPlan
+     * @memberof MainSubPlanEditFormBase
      */
     public detailsModel: any = {
         grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.subproductplan.mainsubplan_form', extractMode: 'ITEM', details: [] } }),
@@ -298,7 +298,7 @@ export class MainSubPlanEditFormBase extends EditFormControlBase {
      * 表单逻辑
      *
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof MainSubPlan
+     * @memberof MainSubPlanEditFormBase
      */
     public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
@@ -337,7 +337,7 @@ export class MainSubPlanEditFormBase extends EditFormControlBase {
 	/**
 	 * 表单 保存 事件
 	 *
-	 * @memberof @memberof MainSubPlan
+	 * @memberof @memberof MainSubPlanEditFormBase
 	 */
     public button1_click($event: any): void {
         this.form_button1_click(null, null, $event);
@@ -347,7 +347,7 @@ export class MainSubPlanEditFormBase extends EditFormControlBase {
 	/**
 	 * 表单 关闭 事件
 	 *
-	 * @memberof @memberof MainSubPlan
+	 * @memberof @memberof MainSubPlanEditFormBase
 	 */
     public button2_click($event: any): void {
         this.form_button2_click(null, null, $event);

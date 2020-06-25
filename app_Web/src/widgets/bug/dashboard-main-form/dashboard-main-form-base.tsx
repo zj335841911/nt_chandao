@@ -44,7 +44,7 @@ export class DashboardMainEditFormBase extends EditFormControlBase {
      * 表单数据对象
      *
      * @type {*}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEditFormBase
      */
     public data: any = {
         srfupdatedate: null,
@@ -86,7 +86,7 @@ export class DashboardMainEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEditFormBase
      */
     public rules: any = {
         srfupdatedate: [
@@ -223,7 +223,7 @@ export class DashboardMainEditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof DashboardMain
+     * @memberof DashboardMainEditFormBase
      */
     public detailsModel: any = {
         maingroup1: new FormGroupPanelModel({ caption: 'Bug基本信息', detailType: 'GROUPPANEL', name: 'maingroup1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.bug.dashboardmain_form', extractMode: 'ITEM', details: [] } }),

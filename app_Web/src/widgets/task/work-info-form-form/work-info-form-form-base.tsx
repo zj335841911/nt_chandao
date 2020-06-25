@@ -44,7 +44,7 @@ export class WorkInfoFormEditFormBase extends EditFormControlBase {
      * 表单数据对象
      *
      * @type {*}
-     * @memberof WorkInfoForm
+     * @memberof WorkInfoFormEditFormBase
      */
     public data: any = {
         srfupdatedate: null,
@@ -69,7 +69,7 @@ export class WorkInfoFormEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof WorkInfoForm
+     * @memberof WorkInfoFormEditFormBase
      */
     public rules: any = {
         srfupdatedate: [
@@ -138,7 +138,7 @@ export class WorkInfoFormEditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof WorkInfoForm
+     * @memberof WorkInfoFormEditFormBase
      */
     public detailsModel: any = {
         group1: new FormGroupPanelModel({ caption: '工时信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.task.workinfoform_form', extractMode: 'ITEM', details: [] } }),
