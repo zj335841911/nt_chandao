@@ -78,6 +78,7 @@ export class EditFormControlBase extends FormControlBase {
      */
     public ctrlCreated(): void {
         super.ctrlCreated();
+        this.watchData();
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe((params: any) => {
                 const { tag, action, data } = params;
@@ -112,6 +113,20 @@ export class EditFormControlBase extends FormControlBase {
                 const state = !Object.is(JSON.stringify(this.oldData), JSON.stringify(this.data)) ? true : false;
                 this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: state });
             });
+    }
+
+    /**
+     * 监控表单属性变化
+     *
+     * @protected
+     * @memberof EditFormControlBase
+     */
+    protected watchData(): void {
+        for (const key in this.data) {
+            if (this.data.hasOwnProperty(key)) {
+                this.$watch(`data.${key}`, this.formDataChange);
+            }
+        }
     }
 
     /**
@@ -485,6 +500,14 @@ export class EditFormControlBase extends FormControlBase {
     }
 
     /**
+     * 重置表单项值
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @memberof EditFormControlBase
+     */
+    public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void { }
+
+    /**
      * 保存并退出
      *
      * @param {any[]} data
@@ -500,7 +523,7 @@ export class EditFormControlBase extends FormControlBase {
             this.currentAction = "saveAndExit";
             this.save([arg]).then((res) => {
                 if (res) {
-                    _this.closeView(res.data);
+                    this.closeView(res.data);
                 }
                 resolve(res);
             }).catch((error) => {

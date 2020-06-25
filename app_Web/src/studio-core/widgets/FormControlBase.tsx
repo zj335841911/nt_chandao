@@ -353,6 +353,15 @@ export class FormControlBase extends MainControlBase {
     }
 
     /**
+     * 表单值变化
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {void}
+     * @memberof FormControlBase
+     */
+    public formDataChange({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void { }
+
+    /**
      * 拷贝内容
      *
      * @param {string} srfkey
