@@ -55,13 +55,26 @@ export class ControlBase extends Vue {
     public showBusyIndicator?: boolean;
 
     /**
+     * rxjs类型订阅事件
+     *
+     * @protected
+     * @type {Subscription[]}
+     * @memberof ControlBase
+     */
+    protected rxjsEvents: Subscription[] = [];
+
+    /**
      * 视图状态事件
      *
      * @protected
      * @type {(Subscription | undefined)}
      * @memberof ControlBase
      */
-    protected viewStateEvent: Subscription | undefined;
+    protected set viewStateEvent(e: Subscription) {
+        if (e) {
+            this.rxjsEvents.push(e);
+        }
+    }
 
     /**
      * 获取部件类型
@@ -80,6 +93,32 @@ export class ControlBase extends Vue {
      * @memberof ControlBase
      */
     protected counterServiceArray: any[] = [];
+
+    /**
+     * 部件行为--load
+     *
+     * @type {string}
+     * @memberof ControlBase
+     */
+    @Prop()
+    public loadAction!: string;
+
+    /**
+     * 视图标识
+     *
+     * @type {string}
+     * @memberof ControlBase
+     */
+    @Prop()
+    public viewtag!: string;
+
+    /**
+     * 部件服务
+     *
+     * @type {*}
+     * @memberof ControlBase
+     */
+    public service: any;
 
     /**
      * 组件创建完毕
@@ -121,9 +160,9 @@ export class ControlBase extends Vue {
      * @memberof ControlBase
      */
     public destroyed(): void {
-        if (this.viewStateEvent) {
-            this.viewStateEvent.unsubscribe();
-        }
+        this.rxjsEvents.forEach((item: Subscription) => {
+            item.unsubscribe();
+        });
     }
 
     /**
