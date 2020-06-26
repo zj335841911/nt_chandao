@@ -987,7 +987,6 @@ export class GridControllerBase extends MDControlBase {
             this.$Notice.error({ title: '错误', desc: '${view.getName()}视图表格loaddraftAction参数未配置' });
             return;
         }
-        let _this = this;
         Object.assign(args[0], { viewparams: this.viewparams });
         let post: Promise<any> = this.service.loadDraft(this.loaddraftAction, JSON.parse(JSON.stringify(this.context)), args[0], this.showBusyIndicator);
         post.then((response: any) => {
@@ -1000,8 +999,8 @@ export class GridControllerBase extends MDControlBase {
             const data = response.data;
             this.createDefault(data);
             data.rowDataState = "create";
-            _this.items.push(data);
-            _this.gridItemsModel.push(_this.getGridRowModel());
+            this.items.push(data);
+            this.gridItemsModel.push(this.getGridRowModel());
         }).catch((response: any) => {
             if (response && response.status === 401) {
                 return;
