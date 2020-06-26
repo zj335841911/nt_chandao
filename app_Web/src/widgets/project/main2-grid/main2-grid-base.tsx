@@ -41,6 +41,15 @@ export class Main2GridBase extends GridControllerBase {
     protected appDeName: string = 'project';
 
     /**
+     * 本地缓存标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof GridControllerBase
+     */
+    protected localStorageTag: string = 'zt_project_main2_grid';
+
+    /**
      * 是否支持分页
      *
      * @type {boolean}
@@ -119,41 +128,5 @@ export class Main2GridBase extends GridControllerBase {
      */
 	public uiAction(row: any, tag: any, $event: any) {
         $event.stopPropagation();
-    }
-
-    /**
-     * 设置列状态
-     *
-     * @memberof Main2GridBase
-     */
-    public setColState() {
-		const _data: any = localStorage.getItem('zt_project_main2_grid');
-		if (_data) {
-			let columns = JSON.parse(_data);
-			columns.forEach((col: any) => {
-				let column = this.allColumns.find((item) => Object.is(col.name, item.name));
-				if (column) {
-					Object.assign(column, col);
-				}
-			});
-		}
-    }
-
-    /**
-     * 列变化
-     *
-     * @memberof Main2GridBase
-     */
-    public onColChange() {
-        localStorage.setItem('zt_project_main2_grid', JSON.stringify(this.allColumns));
-    }
-
-
-    /**
-     * 新建默认值
-     * @param {*}  row 行数据
-     * @memberof Main2GridBase
-     */
-    public createDefault(row: any): void {
     }
 }

@@ -41,6 +41,15 @@ export class MainSubPlanGridBase extends GridControllerBase {
     protected appDeName: string = 'subproductplan';
 
     /**
+     * 本地缓存标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof GridControllerBase
+     */
+    protected localStorageTag: string = 'ibz_subproductplan_mainsubplan_grid';
+
+    /**
      * 排序方向
      *
      * @type {string}
@@ -96,41 +105,5 @@ export class MainSubPlanGridBase extends GridControllerBase {
      */
 	public uiAction(row: any, tag: any, $event: any) {
         $event.stopPropagation();
-    }
-
-    /**
-     * 设置列状态
-     *
-     * @memberof MainSubPlanGridBase
-     */
-    public setColState() {
-		const _data: any = localStorage.getItem('ibz_subproductplan_mainsubplan_grid');
-		if (_data) {
-			let columns = JSON.parse(_data);
-			columns.forEach((col: any) => {
-				let column = this.allColumns.find((item) => Object.is(col.name, item.name));
-				if (column) {
-					Object.assign(column, col);
-				}
-			});
-		}
-    }
-
-    /**
-     * 列变化
-     *
-     * @memberof MainSubPlanGridBase
-     */
-    public onColChange() {
-        localStorage.setItem('ibz_subproductplan_mainsubplan_grid', JSON.stringify(this.allColumns));
-    }
-
-
-    /**
-     * 新建默认值
-     * @param {*}  row 行数据
-     * @memberof MainSubPlanGridBase
-     */
-    public createDefault(row: any): void {
     }
 }

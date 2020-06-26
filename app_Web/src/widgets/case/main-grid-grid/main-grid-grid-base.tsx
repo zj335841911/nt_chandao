@@ -221,6 +221,15 @@ export class MainGridGridBase extends GridControllerBase {
 
 
     /**
+     * 本地缓存标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof GridControllerBase
+     */
+    protected localStorageTag: string = 'zt_case_maingrid_grid';
+
+    /**
      * 排序方向
      *
      * @type {string}
@@ -354,41 +363,5 @@ export class MainGridGridBase extends GridControllerBase {
         if(Object.is('Remove', tag)) {
             this.grid_uagridcolumn1_u5913b24_click(row, tag, $event);
         }
-    }
-
-    /**
-     * 设置列状态
-     *
-     * @memberof MainGridGridBase
-     */
-    public setColState() {
-		const _data: any = localStorage.getItem('zt_case_maingrid_grid');
-		if (_data) {
-			let columns = JSON.parse(_data);
-			columns.forEach((col: any) => {
-				let column = this.allColumns.find((item) => Object.is(col.name, item.name));
-				if (column) {
-					Object.assign(column, col);
-				}
-			});
-		}
-    }
-
-    /**
-     * 列变化
-     *
-     * @memberof MainGridGridBase
-     */
-    public onColChange() {
-        localStorage.setItem('zt_case_maingrid_grid', JSON.stringify(this.allColumns));
-    }
-
-
-    /**
-     * 新建默认值
-     * @param {*}  row 行数据
-     * @memberof MainGridGridBase
-     */
-    public createDefault(row: any): void {
     }
 }

@@ -41,6 +41,15 @@ export class PickupGridGridBase extends GridControllerBase {
     protected appDeName: string = 'story';
 
     /**
+     * 本地缓存标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof GridControllerBase
+     */
+    protected localStorageTag: string = 'zt_story_pickupgrid_grid';
+
+    /**
      * 排序方向
      *
      * @type {string}
@@ -96,41 +105,5 @@ export class PickupGridGridBase extends GridControllerBase {
      */
 	public uiAction(row: any, tag: any, $event: any) {
         $event.stopPropagation();
-    }
-
-    /**
-     * 设置列状态
-     *
-     * @memberof PickupGridGridBase
-     */
-    public setColState() {
-		const _data: any = localStorage.getItem('zt_story_pickupgrid_grid');
-		if (_data) {
-			let columns = JSON.parse(_data);
-			columns.forEach((col: any) => {
-				let column = this.allColumns.find((item) => Object.is(col.name, item.name));
-				if (column) {
-					Object.assign(column, col);
-				}
-			});
-		}
-    }
-
-    /**
-     * 列变化
-     *
-     * @memberof PickupGridGridBase
-     */
-    public onColChange() {
-        localStorage.setItem('zt_story_pickupgrid_grid', JSON.stringify(this.allColumns));
-    }
-
-
-    /**
-     * 新建默认值
-     * @param {*}  row 行数据
-     * @memberof PickupGridGridBase
-     */
-    public createDefault(row: any): void {
     }
 }

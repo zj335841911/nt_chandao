@@ -88,6 +88,15 @@ export class MainGridBase extends GridControllerBase {
 
 
     /**
+     * 本地缓存标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof GridControllerBase
+     */
+    protected localStorageTag: string = 'ibz_projectmodule_main_grid';
+
+    /**
      * 是否支持分页
      *
      * @type {boolean}
@@ -156,34 +165,6 @@ export class MainGridBase extends GridControllerBase {
             this.grid_uagridcolumn1_u6dd703e_click(row, tag, $event);
         }
     }
-
-    /**
-     * 设置列状态
-     *
-     * @memberof MainGridBase
-     */
-    public setColState() {
-		const _data: any = localStorage.getItem('ibz_projectmodule_main_grid');
-		if (_data) {
-			let columns = JSON.parse(_data);
-			columns.forEach((col: any) => {
-				let column = this.allColumns.find((item) => Object.is(col.name, item.name));
-				if (column) {
-					Object.assign(column, col);
-				}
-			});
-		}
-    }
-
-    /**
-     * 列变化
-     *
-     * @memberof MainGridBase
-     */
-    public onColChange() {
-        localStorage.setItem('ibz_projectmodule_main_grid', JSON.stringify(this.allColumns));
-    }
-
 
     /**
      * 表格编辑项值变化

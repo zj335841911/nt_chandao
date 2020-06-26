@@ -20,6 +20,15 @@ export class GridControllerBase extends MDControlBase {
     public isHideHeader: boolean = false;
 
     /**
+     * 本地缓存标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof GridControllerBase
+     */
+    protected localStorageTag: string = '';
+
+    /**
      * 是否单选
      *
      * @type {boolean}
@@ -934,6 +943,33 @@ export class GridControllerBase extends MDControlBase {
     public onRowClassName({ row, rowIndex }: { row: any, rowIndex: any }): string {
         const index = this.selections.findIndex((select: any) => Object.is(select.srfkey, row.srfkey));
         return index !== -1 ? 'grid-row-select' : '';
+    }
+
+    /**
+     * 设置列状态
+     *
+     * @memberof GridControllerBase
+     */
+    public setColState(): void {
+        const _data: any = localStorage.getItem(this.localStorageTag);
+        if (_data) {
+            let columns = JSON.parse(_data);
+            columns.forEach((col: any) => {
+                let column = this.allColumns.find((item) => Object.is(col.name, item.name));
+                if (column) {
+                    Object.assign(column, col);
+                }
+            });
+        }
+    }
+
+    /**
+     * 列变化
+     *
+     * @memberof GridControllerBase
+     */
+    public onColChange(): void {
+        localStorage.setItem(this.localStorageTag, JSON.stringify(this.allColumns));
     }
 
     /**

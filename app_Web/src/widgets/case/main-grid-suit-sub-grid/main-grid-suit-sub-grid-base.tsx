@@ -98,6 +98,15 @@ export class MainGrid_SuitSubGridBase extends GridControllerBase {
     }
 
     /**
+     * 本地缓存标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof GridControllerBase
+     */
+    protected localStorageTag: string = 'zt_case_maingrid_suitsub_grid';
+
+    /**
      * 排序方向
      *
      * @type {string}
@@ -201,41 +210,5 @@ export class MainGrid_SuitSubGridBase extends GridControllerBase {
         if(Object.is('Execute', tag)) {
             this.grid_uagridcolumn1_u8fd0327_click(row, tag, $event);
         }
-    }
-
-    /**
-     * 设置列状态
-     *
-     * @memberof MainGrid_SuitSubGridBase
-     */
-    public setColState() {
-		const _data: any = localStorage.getItem('zt_case_maingrid_suitsub_grid');
-		if (_data) {
-			let columns = JSON.parse(_data);
-			columns.forEach((col: any) => {
-				let column = this.allColumns.find((item) => Object.is(col.name, item.name));
-				if (column) {
-					Object.assign(column, col);
-				}
-			});
-		}
-    }
-
-    /**
-     * 列变化
-     *
-     * @memberof MainGrid_SuitSubGridBase
-     */
-    public onColChange() {
-        localStorage.setItem('zt_case_maingrid_suitsub_grid', JSON.stringify(this.allColumns));
-    }
-
-
-    /**
-     * 新建默认值
-     * @param {*}  row 行数据
-     * @memberof MainGrid_SuitSubGridBase
-     */
-    public createDefault(row: any): void {
     }
 }

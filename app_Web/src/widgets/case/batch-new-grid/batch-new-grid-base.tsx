@@ -41,6 +41,15 @@ export class BatchNewGridBase extends GridControllerBase {
     protected appDeName: string = 'case';
 
     /**
+     * 本地缓存标识
+     *
+     * @protected
+     * @type {string}
+     * @memberof GridControllerBase
+     */
+    protected localStorageTag: string = 'zt_case_batchnew_grid';
+
+    /**
      * 是否支持分页
      *
      * @type {boolean}
@@ -115,34 +124,6 @@ export class BatchNewGridBase extends GridControllerBase {
     }
 
     /**
-     * 设置列状态
-     *
-     * @memberof BatchNewGridBase
-     */
-    public setColState() {
-		const _data: any = localStorage.getItem('zt_case_batchnew_grid');
-		if (_data) {
-			let columns = JSON.parse(_data);
-			columns.forEach((col: any) => {
-				let column = this.allColumns.find((item) => Object.is(col.name, item.name));
-				if (column) {
-					Object.assign(column, col);
-				}
-			});
-		}
-    }
-
-    /**
-     * 列变化
-     *
-     * @memberof BatchNewGridBase
-     */
-    public onColChange() {
-        localStorage.setItem('zt_case_batchnew_grid', JSON.stringify(this.allColumns));
-    }
-
-
-    /**
      * 表格编辑项值变化
      *
      * @public
@@ -154,13 +135,5 @@ export class BatchNewGridBase extends GridControllerBase {
      */
     public gridEditItemChange(row: any, property: string, value: any, rowIndex: number): void {
         super.gridEditItemChange(row, property, value, rowIndex);
-    }
-
-    /**
-     * 新建默认值
-     * @param {*}  row 行数据
-     * @memberof BatchNewGridBase
-     */
-    public createDefault(row: any): void {
     }
 }
