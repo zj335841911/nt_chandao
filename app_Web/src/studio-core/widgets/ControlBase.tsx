@@ -172,7 +172,16 @@ export class ControlBase extends Vue {
         this.rxjsEvents.forEach((item: Subscription) => {
             item.unsubscribe();
         });
+        this.ctrlDestroyed();
     }
+
+    /**
+     * 部件销毁
+     *
+     * @protected
+     * @memberof ControlBase
+     */
+    protected ctrlDestroyed(): void { }
 
     /**
      * 计数器刷新

@@ -49,7 +49,10 @@ export { OptionViewBase } from './view/OptionViewBase';
 // 部件基类
 export { MainControlBase } from './widgets/MainControlBase';
 export { FormControlBase } from './widgets/FormControlBase';
+export { GridControllerBase } from './widgets/GridControllerBase';
+export { ListControllerBase } from './widgets/ListControllerBase';
 export { EditFormControlBase } from './widgets/EditFormControlBase';
+export { MDControlBase } from './widgets/MDControlBase';
 export { SearchFormControlBase } from './widgets/SearchFormControlBase';
 export { TabExpPanelControlBase } from './widgets/TabExpPanelControlBase';
 // 组件 Start

@@ -1,0 +1,229 @@
+import { MDControlBase } from './MDControlBase';
+
+/**
+ * 列表部件基类
+ *
+ * @export
+ * @class ListControllerBase
+ * @extends {MDControlBase}
+ */
+export class ListControllerBase extends MDControlBase {
+
+    /**
+     * 加载的数据是否附加在items之后
+     *
+     * @type {boolean}
+     * @memberof ListControllerBase
+     */
+    public isAddBehind: boolean = false;
+
+    /**
+     * 部件创建完毕
+     *
+     * @protected
+     * @memberof ListControllerBase
+     */
+    protected ctrlCreated(): void {
+        if (this.viewState) {
+            this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
+                if (!Object.is(this.name, tag)) {
+                    return;
+                }
+                if (Object.is(action, 'load')) {
+                    this.refresh(data)
+                }
+            });
+        }
+    }
+
+    /**
+     * 部件挂载完毕
+     *
+     * @protected
+     * @memberof ListControllerBase
+     */
+    protected ctrlMounted(): void {
+        this.$el.addEventListener('scroll', () => {
+            if (this.$el.scrollTop + this.$el.clientHeight >= this.$el.scrollHeight) {
+                this.loadMore();
+            }
+        })
+    }
+
+    /**
+    * 加载更多
+    *
+    * @memberof Mob
+    */
+    public loadMore() {
+        if (this.totalRecord > this.items.length) {
+            this.curPage = ++this.curPage;
+            this.isAddBehind = true;
+            this.load({});
+        }
+    }
+
+    /**
+     * 刷新
+     *
+     * @param {*} [opt={}]
+     * @memberof Main
+     */
+    public refresh(opt: any = {}) {
+        this.curPage = 1;
+        this.items = [];
+        this.load(opt);
+    }
+
+    /**
+     * 列表数据加载
+     *
+     * @param {*} [opt={}]
+     * @returns {void}
+     * @memberof ListControllerBase
+     */
+    public load(opt: any = {}): void {
+        if (!this.fetchAction) {
+            this.$Notice.error({ title: '错误', desc: '${view.getName()}视图列表fetchAction参数未配置' });
+            return;
+        }
+        const arg: any = { ...opt };
+        const page: any = {};
+        if (this.isEnablePagingBar) {
+            Object.assign(page, { page: this.curPage - 1, size: this.limit });
+        }
+        // 设置排序
+        if (!Object.is(this.minorSortDir, '') && !Object.is(this.minorSortPSDEF, '')) {
+            const sort: string = this.minorSortPSDEF + "," + this.minorSortDir;
+            Object.assign(page, { sort: sort });
+        }
+        Object.assign(arg, page);
+        const parentdata: any = {};
+        this.$emit('beforeload', parentdata);
+        Object.assign(arg, parentdata);
+        let tempViewParams: any = parentdata.viewparams ? parentdata.viewparams : {};
+        if (this.viewparams) {
+            Object.assign(tempViewParams, JSON.parse(JSON.stringify(this.viewparams)));
+        }
+        Object.assign(arg, { viewparams: tempViewParams });
+        const post: Promise<any> = this.service.search(this.fetchAction, this.context ? JSON.parse(JSON.stringify(this.context)) : {}, arg, this.showBusyIndicator);
+        post.then((response: any) => {
+            if (!response || response.status !== 200) {
+                if (response.errorMessage) {
+                    this.$Notice.error({ title: '错误', desc: response.errorMessage });
+                }
+                return;
+            }
+            const data: any = response.data;
+            if (!this.isAddBehind) {
+                this.items = [];
+            }
+            if (Object.keys(data).length > 0) {
+                let datas = JSON.parse(JSON.stringify(data));
+                datas.map((item: any) => {
+                    Object.assign(item, { isselected: false });
+                });
+                this.totalRecord = response.total;
+                this.items.push(...datas);
+            }
+            this.isAddBehind = false;
+            this.$emit('load', this.items);
+            if (this.isSelectFirstDefault) {
+                this.handleClick(this.items[0]);
+            }
+        }, (response: any) => {
+            if (response && response.status === 401) {
+                return;
+            }
+            this.$Notice.error({ title: '错误', desc: response.errorMessage });
+        });
+    }
+
+    /**
+     * 删除
+     *
+     * @param {any[]} items
+     * @returns {Promise<any>}
+     * @memberof ListControllerBase
+     */
+    public async remove(items: any[]): Promise<any> {
+        if (!this.removeAction) {
+            this.$Notice.error({ title: '错误', desc: '${view.getName()}视图表格removeAction参数未配置' });
+            return;
+        }
+        if (items.length === 0) {
+            return;
+        }
+        let dataInfo = '';
+        items.forEach((record: any, index: number) => {
+            let srfmajortext = record.srfmajortext;
+            if (index < 5) {
+                if (!Object.is(dataInfo, '')) {
+                    dataInfo += '、';
+                }
+                dataInfo += srfmajortext;
+            } else {
+                return false;
+            }
+        });
+
+        if (items.length < 5) {
+            dataInfo = dataInfo + ' 共' + items.length + '条数据';
+        } else {
+            dataInfo = dataInfo + '...' + ' 共' + items.length + '条数据';
+        }
+
+        const removeData = () => {
+            let keys: any[] = [];
+            items.forEach((data: any) => {
+                keys.push(data.srfkey);
+            });
+            let _removeAction = keys.length > 1 ? 'removeBatch' : this.removeAction;
+            const context: any = JSON.parse(JSON.stringify(this.context));
+            const post: Promise<any> = this.service.delete(_removeAction, Object.assign(context, { [this.appDeName]: keys.join(';') }), Object.assign({ [this.appDeName]: keys.join(';') }, { viewparams: this.viewparams }), this.showBusyIndicator);
+            return new Promise((resolve: any, reject: any) => {
+                post.then((response: any) => {
+                    if (!response || response.status !== 200) {
+                        this.$Notice.error({ title: '', desc: '删除数据失败,' + response.info });
+                        return;
+                    } else {
+                        this.$Notice.success({ title: '', desc: '删除成功!' });
+                    }
+                    //删除items中已删除的项
+                    items.forEach((data: any) => {
+                        this.items.some((item: any, index: number) => {
+                            if (Object.is(item.srfkey, data.srfkey)) {
+                                this.items.splice(index, 1);
+                                return true;
+                            }
+                        });
+                    });
+                    this.$emit('remove', null);
+                    this.selections = [];
+                    resolve(response);
+                }).catch((response: any) => {
+                    if (response && response.status === 401) {
+                        return;
+                    }
+                    if (!response || !response.status || !response.data) {
+                        this.$Notice.error({ title: '错误', desc: '系统异常' });
+                        reject(response);
+                        return;
+                    }
+                    reject(response);
+                });
+            });
+        }
+
+        dataInfo = dataInfo.replace(/[null]/g, '').replace(/[undefined]/g, '').replace(/[ ]/g, '');
+        this.$Modal.confirm({
+            title: '警告',
+            content: '确认要删除 ' + dataInfo + '，删除操作将不可恢复？',
+            onOk: () => {
+                removeData();
+            },
+            onCancel: () => { }
+        });
+        return removeData;
+    }
+}
