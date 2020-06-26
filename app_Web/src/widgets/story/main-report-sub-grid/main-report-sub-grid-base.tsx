@@ -130,4 +130,29 @@ export class Main_ReportSubGridBase extends GridControllerBase {
         },
     ]
 
+    /**
+     * 获取表格行模型
+     *
+     * @type {*}
+     * @memberof Main_ReportSubGridBase
+     */
+    public getGridRowModel(){
+        return {
+          srfkey: new FormItemModel(),
+        }
+    }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof Main_ReportSubGridBase
+     */
+    public rules: any = {
+        srfkey: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'blur' },
+        ],
+    }
+
 }

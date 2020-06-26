@@ -102,4 +102,34 @@ export class BatchNewGridBase extends GridControllerBase {
         },
     ]
 
+    /**
+     * 获取表格行模型
+     *
+     * @type {*}
+     * @memberof BatchNewGridBase
+     */
+    public getGridRowModel(){
+        return {
+          title: new FormItemModel(),
+          srfkey: new FormItemModel(),
+        }
+    }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof BatchNewGridBase
+     */
+    public rules: any = {
+        title: [
+            { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例标题 值不能为空', trigger: 'change' },
+            { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例标题 值不能为空', trigger: 'blur' },
+        ],
+        srfkey: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例编号 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例编号 值不能为空', trigger: 'blur' },
+        ],
+    }
+
 }
