@@ -107,14 +107,6 @@ export class MainGrid_SuitSubGridBase extends GridControllerBase {
     protected localStorageTag: string = 'zt_case_maingrid_suitsub_grid';
 
     /**
-     * 排序方向
-     *
-     * @type {string}
-     * @memberof MainGrid_SuitSubGridBase
-     */
-    public minorSortDir: string = '';
-
-    /**
      * 所有列成员
      *
      * @type {any[]}
@@ -193,22 +185,4 @@ export class MainGrid_SuitSubGridBase extends GridControllerBase {
         },
     ]
 
-
-    /**
-     * 界面行为
-     *
-     * @param {*} row
-     * @param {*} tag
-     * @param {*} $event
-     * @memberof MainGrid_SuitSubGridBase
-     */
-	public uiAction(row: any, tag: any, $event: any) {
-        $event.stopPropagation();
-        if(Object.is('OpenTestRunResultView', tag)) {
-            this.grid_uagridcolumn1_uc27cc64_click(row, tag, $event);
-        }
-        if(Object.is('Execute', tag)) {
-            this.grid_uagridcolumn1_u8fd0327_click(row, tag, $event);
-        }
-    }
 }

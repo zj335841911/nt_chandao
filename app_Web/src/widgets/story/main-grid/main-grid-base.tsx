@@ -163,14 +163,6 @@ export class MainGridBase extends GridControllerBase {
     protected localStorageTag: string = 'zt_story_main_grid';
 
     /**
-     * 排序方向
-     *
-     * @type {string}
-     * @memberof MainGridBase
-     */
-    public minorSortDir: string = '';
-
-    /**
      * 所有列成员
      *
      * @type {any[]}
@@ -214,28 +206,4 @@ export class MainGridBase extends GridControllerBase {
         },
     ]
 
-
-    /**
-     * 界面行为
-     *
-     * @param {*} row
-     * @param {*} tag
-     * @param {*} $event
-     * @memberof MainGridBase
-     */
-	public uiAction(row: any, tag: any, $event: any) {
-        $event.stopPropagation();
-        if(Object.is('ChangeStoryDetail', tag)) {
-            this.grid_uagridcolumn1_u7b97712_click(row, tag, $event);
-        }
-        if(Object.is('CloseStory', tag)) {
-            this.grid_uagridcolumn1_u824d7d6_click(row, tag, $event);
-        }
-        if(Object.is('OpenBaseInfoEditView', tag)) {
-            this.grid_uagridcolumn1_u7480d3d_click(row, tag, $event);
-        }
-        if(Object.is('OpenCaseCreateView', tag)) {
-            this.grid_uagridcolumn1_u5aaa4ae_click(row, tag, $event);
-        }
-    }
 }

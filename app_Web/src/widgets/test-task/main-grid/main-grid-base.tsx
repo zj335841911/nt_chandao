@@ -208,14 +208,6 @@ export class MainGridBase extends GridControllerBase {
     protected localStorageTag: string = 'zt_testtask_main_grid';
 
     /**
-     * 排序方向
-     *
-     * @type {string}
-     * @memberof MainGridBase
-     */
-    public minorSortDir: string = '';
-
-    /**
      * 所有列成员
      *
      * @type {any[]}
@@ -294,28 +286,4 @@ export class MainGridBase extends GridControllerBase {
         },
     ]
 
-
-    /**
-     * 界面行为
-     *
-     * @param {*} row
-     * @param {*} tag
-     * @param {*} $event
-     * @memberof MainGridBase
-     */
-	public uiAction(row: any, tag: any, $event: any) {
-        $event.stopPropagation();
-        if(Object.is('LinkCase', tag)) {
-            this.grid_uagridcolumn1_u6b02f33_click(row, tag, $event);
-        }
-        if(Object.is('OpenInfoView', tag)) {
-            this.grid_uagridcolumn1_u9008f43_click(row, tag, $event);
-        }
-        if(Object.is('Edit', tag)) {
-            this.grid_uagridcolumn1_u43e90ce_click(row, tag, $event);
-        }
-        if(Object.is('Remove', tag)) {
-            this.grid_uagridcolumn1_u4d10156_click(row, tag, $event);
-        }
-    }
 }

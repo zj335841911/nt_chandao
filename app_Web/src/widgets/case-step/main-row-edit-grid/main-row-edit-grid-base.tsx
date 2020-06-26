@@ -58,14 +58,6 @@ export class Main_RowEditGridBase extends GridControllerBase {
     public isEnablePagingBar: boolean = false;
 
     /**
-     * 排序方向
-     *
-     * @type {string}
-     * @memberof Main_RowEditGridBase
-     */
-    public minorSortDir: string = '';
-
-    /**
      * 分页条数
      *
      * @type {number}
@@ -110,30 +102,4 @@ export class Main_RowEditGridBase extends GridControllerBase {
         },
     ]
 
-
-    /**
-     * 界面行为
-     *
-     * @param {*} row
-     * @param {*} tag
-     * @param {*} $event
-     * @memberof Main_RowEditGridBase
-     */
-	public uiAction(row: any, tag: any, $event: any) {
-        $event.stopPropagation();
-    }
-
-    /**
-     * 表格编辑项值变化
-     *
-     * @public
-     * @param row 行数据
-     * @param property 列编辑项名
-     * @param row 列编辑项值
-     * @returns {void}
-     * @memberof Main_RowEditGridBase
-     */
-    public gridEditItemChange(row: any, property: string, value: any, rowIndex: number): void {
-        super.gridEditItemChange(row, property, value, rowIndex);
-    }
 }

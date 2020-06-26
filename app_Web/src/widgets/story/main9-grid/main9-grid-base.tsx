@@ -58,14 +58,6 @@ export class Main9GridBase extends GridControllerBase {
     public isEnablePagingBar: boolean = false;
 
     /**
-     * 排序方向
-     *
-     * @type {string}
-     * @memberof Main9GridBase
-     */
-    public minorSortDir: string = '';
-
-    /**
      * 分页条数
      *
      * @type {number}
@@ -103,16 +95,4 @@ export class Main9GridBase extends GridControllerBase {
         },
     ]
 
-
-    /**
-     * 界面行为
-     *
-     * @param {*} row
-     * @param {*} tag
-     * @param {*} $event
-     * @memberof Main9GridBase
-     */
-	public uiAction(row: any, tag: any, $event: any) {
-        $event.stopPropagation();
-    }
 }

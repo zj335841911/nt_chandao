@@ -1112,4 +1112,14 @@ export class GridControllerBase extends MDControlBase {
      * @memberof GridControllerBase
      */
     public createDefault(row: any): void { }
+
+	/**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof GridControllerBase
+     */
+    public uiAction(row: any, tag: any, $event: any) { }
 }

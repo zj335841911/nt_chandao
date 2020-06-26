@@ -58,14 +58,6 @@ export class Main2GridBase extends GridControllerBase {
     public isEnablePagingBar: boolean = false;
 
     /**
-     * 排序方向
-     *
-     * @type {string}
-     * @memberof Main2GridBase
-     */
-    public minorSortDir: string = '';
-
-    /**
      * 所有列成员
      *
      * @type {any[]}
@@ -95,16 +87,4 @@ export class Main2GridBase extends GridControllerBase {
         },
     ]
 
-
-    /**
-     * 界面行为
-     *
-     * @param {*} row
-     * @param {*} tag
-     * @param {*} $event
-     * @memberof Main2GridBase
-     */
-	public uiAction(row: any, tag: any, $event: any) {
-        $event.stopPropagation();
-    }
 }

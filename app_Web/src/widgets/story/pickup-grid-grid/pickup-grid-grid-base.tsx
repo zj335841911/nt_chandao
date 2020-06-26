@@ -50,14 +50,6 @@ export class PickupGridGridBase extends GridControllerBase {
     protected localStorageTag: string = 'zt_story_pickupgrid_grid';
 
     /**
-     * 排序方向
-     *
-     * @type {string}
-     * @memberof PickupGridGridBase
-     */
-    public minorSortDir: string = '';
-
-    /**
      * 所有列成员
      *
      * @type {any[]}
@@ -94,16 +86,4 @@ export class PickupGridGridBase extends GridControllerBase {
         },
     ]
 
-
-    /**
-     * 界面行为
-     *
-     * @param {*} row
-     * @param {*} tag
-     * @param {*} $event
-     * @memberof PickupGridGridBase
-     */
-	public uiAction(row: any, tag: any, $event: any) {
-        $event.stopPropagation();
-    }
 }

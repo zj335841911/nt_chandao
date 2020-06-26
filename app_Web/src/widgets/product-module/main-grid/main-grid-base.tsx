@@ -105,14 +105,6 @@ export class MainGridBase extends GridControllerBase {
     public isEnablePagingBar: boolean = false;
 
     /**
-     * 排序方向
-     *
-     * @type {string}
-     * @memberof MainGridBase
-     */
-    public minorSortDir: string = '';
-
-    /**
      * 是否显示标题
      *
      * @type {boolean}
@@ -157,35 +149,6 @@ export class MainGridBase extends GridControllerBase {
         },
     ]
 
-
-    /**
-     * 界面行为
-     *
-     * @param {*} row
-     * @param {*} tag
-     * @param {*} $event
-     * @memberof MainGridBase
-     */
-	public uiAction(row: any, tag: any, $event: any) {
-        $event.stopPropagation();
-        if(Object.is('Remove', tag)) {
-            this.grid_uagridcolumn1_u0abbaeb_click(row, tag, $event);
-        }
-    }
-
-    /**
-     * 表格编辑项值变化
-     *
-     * @public
-     * @param row 行数据
-     * @param property 列编辑项名
-     * @param row 列编辑项值
-     * @returns {void}
-     * @memberof MainGridBase
-     */
-    public gridEditItemChange(row: any, property: string, value: any, rowIndex: number): void {
-        super.gridEditItemChange(row, property, value, rowIndex);
-    }
 
     /**
      * 新建默认值

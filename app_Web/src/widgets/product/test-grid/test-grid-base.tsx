@@ -50,14 +50,6 @@ export class TestGridBase extends GridControllerBase {
     protected localStorageTag: string = 'zt_product_test_grid';
 
     /**
-     * 排序方向
-     *
-     * @type {string}
-     * @memberof TestGridBase
-     */
-    public minorSortDir: string = '';
-
-    /**
      * 所有列成员
      *
      * @type {any[]}
@@ -101,16 +93,4 @@ export class TestGridBase extends GridControllerBase {
         },
     ]
 
-
-    /**
-     * 界面行为
-     *
-     * @param {*} row
-     * @param {*} tag
-     * @param {*} $event
-     * @memberof TestGridBase
-     */
-	public uiAction(row: any, tag: any, $event: any) {
-        $event.stopPropagation();
-    }
 }

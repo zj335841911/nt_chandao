@@ -135,14 +135,6 @@ export class MainGridBase extends GridControllerBase {
     protected localStorageTag: string = 'zt_productplan_main_grid';
 
     /**
-     * 排序方向
-     *
-     * @type {string}
-     * @memberof MainGridBase
-     */
-    public minorSortDir: string = '';
-
-    /**
      * 所有列成员
      *
      * @type {any[]}
@@ -186,25 +178,4 @@ export class MainGridBase extends GridControllerBase {
         },
     ]
 
-
-    /**
-     * 界面行为
-     *
-     * @param {*} row
-     * @param {*} tag
-     * @param {*} $event
-     * @memberof MainGridBase
-     */
-	public uiAction(row: any, tag: any, $event: any) {
-        $event.stopPropagation();
-        if(Object.is('RelationStory', tag)) {
-            this.grid_actions_uaa449c7_click(row, tag, $event);
-        }
-        if(Object.is('RelationBug', tag)) {
-            this.grid_actions_uae31417_click(row, tag, $event);
-        }
-        if(Object.is('NewSubPlan', tag)) {
-            this.grid_actions_u663d352_click(row, tag, $event);
-        }
-    }
 }

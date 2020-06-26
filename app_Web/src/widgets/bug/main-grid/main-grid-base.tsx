@@ -163,14 +163,6 @@ export class MainGridBase extends GridControllerBase {
     protected localStorageTag: string = 'zt_bug_main_grid';
 
     /**
-     * 排序方向
-     *
-     * @type {string}
-     * @memberof MainGridBase
-     */
-    public minorSortDir: string = '';
-
-    /**
      * 所有列成员
      *
      * @type {any[]}
@@ -249,28 +241,4 @@ export class MainGridBase extends GridControllerBase {
         },
     ]
 
-
-    /**
-     * 界面行为
-     *
-     * @param {*} row
-     * @param {*} tag
-     * @param {*} $event
-     * @memberof MainGridBase
-     */
-	public uiAction(row: any, tag: any, $event: any) {
-        $event.stopPropagation();
-        if(Object.is('ConfirmBug', tag)) {
-            this.grid_uagridcolumn1_ua4634db_click(row, tag, $event);
-        }
-        if(Object.is('ResolveBug', tag)) {
-            this.grid_uagridcolumn1_u0efb050_click(row, tag, $event);
-        }
-        if(Object.is('CloseBug', tag)) {
-            this.grid_uagridcolumn1_uc6d84c5_click(row, tag, $event);
-        }
-        if(Object.is('MainEdit', tag)) {
-            this.grid_uagridcolumn1_u953838c_click(row, tag, $event);
-        }
-    }
 }

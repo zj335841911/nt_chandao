@@ -50,14 +50,6 @@ export class PlatformManagementGridBase extends GridControllerBase {
     protected localStorageTag: string = 'zt_branch_platformmanagement_grid';
 
     /**
-     * 排序方向
-     *
-     * @type {string}
-     * @memberof PlatformManagementGridBase
-     */
-    public minorSortDir: string = '';
-
-    /**
      * 所有列成员
      *
      * @type {any[]}
@@ -87,16 +79,4 @@ export class PlatformManagementGridBase extends GridControllerBase {
         },
     ]
 
-
-    /**
-     * 界面行为
-     *
-     * @param {*} row
-     * @param {*} tag
-     * @param {*} $event
-     * @memberof PlatformManagementGridBase
-     */
-	public uiAction(row: any, tag: any, $event: any) {
-        $event.stopPropagation();
-    }
 }
