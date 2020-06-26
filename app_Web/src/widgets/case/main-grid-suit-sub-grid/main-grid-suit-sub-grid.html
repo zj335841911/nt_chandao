@@ -168,7 +168,7 @@
     <row class='grid-pagination' v-show="items.length > 0">
         <page class='pull-right' @on-change="pageOnChange($event)" 
             @on-page-size-change="onPageSizeChange($event)"
-            :transfer="true" :total="totalrow"
+            :transfer="true" :total="totalRecord"
             show-sizer :current="curPage" :page-size="limit"
             :page-size-opts="[10, 20, 30, 40, 50, 60, 70, 80, 90, 100]" show-elevator show-total>
             <span>
@@ -192,10 +192,10 @@
                         1
                         </template>
                         <template v-else>
-                            <span>{{(curPage - 1) * limit + 1}}&nbsp;-&nbsp;{{totalrow > curPage * limit ? curPage * limit : totalrow}}</span>
+                            <span>{{(curPage - 1) * limit + 1}}&nbsp;-&nbsp;{{totalRecord > curPage * limit ? curPage * limit : totalRecord}}</span>
                         </template>
                     </span>&nbsp;
-                    {{$t('app.gridpage.records')}}，{{$t('app.gridpage.totle')}}&nbsp;{{totalrow}}&nbsp;{{$t('app.gridpage.records')}}
+                    {{$t('app.gridpage.records')}}，{{$t('app.gridpage.totle')}}&nbsp;{{totalRecord}}&nbsp;{{$t('app.gridpage.records')}}
                 </span>
             </span>
         </page>
