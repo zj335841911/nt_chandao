@@ -63,7 +63,6 @@ export class Main9GridBase extends GridControllerBase {
      * @memberof Main9GridBase
      */
     public limit: number = 10;
-false;
 
     /**
      * 所有列成员

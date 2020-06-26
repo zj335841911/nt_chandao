@@ -63,7 +63,6 @@ export class Main_ReportSubGridBase extends GridControllerBase {
      * @memberof Main_ReportSubGridBase
      */
     public limit: number = 500;
-false;
 
     /**
      * 所有列成员

@@ -184,7 +184,6 @@ export class Main3GridBase extends GridControllerBase {
      * @memberof Main3GridBase
      */
     public limit: number = 500;
-false;
 
     /**
      * 所有列成员

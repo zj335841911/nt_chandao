@@ -63,7 +63,6 @@ export class BatchNewGridBase extends GridControllerBase {
      * @memberof BatchNewGridBase
      */
     public limit: number = 100;
-false;
 
     /**
      * 所有列成员

@@ -104,7 +104,6 @@ export class MainGrid_SuitSubGridBase extends GridControllerBase {
      * @memberof MainGrid_SuitSubGridBase
      */
     public minorSortDir: string = '';
-false;
 
     /**
      * 所有列成员

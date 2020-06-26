@@ -47,7 +47,6 @@ export class Main_ReleaseSubGridBase extends GridControllerBase {
      * @memberof Main_ReleaseSubGridBase
      */
     public minorSortDir: string = '';
-false;
 
     /**
      * 所有列成员

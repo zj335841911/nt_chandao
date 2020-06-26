@@ -47,7 +47,6 @@ export class TestGridBase extends GridControllerBase {
      * @memberof TestGridBase
      */
     public minorSortDir: string = '';
-false;
 
     /**
      * 所有列成员

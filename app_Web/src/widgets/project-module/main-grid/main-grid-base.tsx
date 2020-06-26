@@ -110,7 +110,6 @@ export class MainGridBase extends GridControllerBase {
      * @memberof MainGridBase
      */
     public isHideHeader: boolean = true;
-false;
 
     /**
      * 所有列成员

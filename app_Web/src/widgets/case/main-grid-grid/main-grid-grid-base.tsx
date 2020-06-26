@@ -227,7 +227,6 @@ export class MainGridGridBase extends GridControllerBase {
      * @memberof MainGridGridBase
      */
     public minorSortDir: string = '';
-false;
 
     /**
      * 所有列成员

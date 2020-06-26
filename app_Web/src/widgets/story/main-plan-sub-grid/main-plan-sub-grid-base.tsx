@@ -47,7 +47,6 @@ export class Main_PlanSubGridBase extends GridControllerBase {
      * @memberof Main_PlanSubGridBase
      */
     public minorSortDir: string = '';
-false;
 
     /**
      * 所有列成员

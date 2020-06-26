@@ -47,7 +47,6 @@ export class PickupGridGridBase extends GridControllerBase {
      * @memberof PickupGridGridBase
      */
     public minorSortDir: string = '';
-false;
 
     /**
      * 所有列成员

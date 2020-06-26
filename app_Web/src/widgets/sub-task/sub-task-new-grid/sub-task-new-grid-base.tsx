@@ -63,7 +63,6 @@ export class SubTaskNewGridBase extends GridControllerBase {
      * @memberof SubTaskNewGridBase
      */
     public limit: number = 100;
-false;
 
     /**
      * 所有列成员

@@ -63,7 +63,6 @@ export class Main2GridBase extends GridControllerBase {
      * @memberof Main2GridBase
      */
     public limit: number = 500;
-false;
 
     /**
      * 所有列成员

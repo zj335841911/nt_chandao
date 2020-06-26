@@ -55,7 +55,6 @@ export class Main2GridBase extends GridControllerBase {
      * @memberof Main2GridBase
      */
     public minorSortDir: string = '';
-false;
 
     /**
      * 所有列成员

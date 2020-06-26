@@ -47,7 +47,6 @@ export class PlatformManagementGridBase extends GridControllerBase {
      * @memberof PlatformManagementGridBase
      */
     public minorSortDir: string = '';
-false;
 
     /**
      * 所有列成员

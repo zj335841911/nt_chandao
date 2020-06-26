@@ -63,7 +63,6 @@ export class Main_RowEditGridBase extends GridControllerBase {
      * @memberof Main_RowEditGridBase
      */
     public limit: number = 500;
-false;
 
     /**
      * 所有列成员
