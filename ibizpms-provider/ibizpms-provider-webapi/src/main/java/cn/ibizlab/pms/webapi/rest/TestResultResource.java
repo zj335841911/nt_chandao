@@ -137,7 +137,7 @@ public class TestResultResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"测试结果" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/testresults/fetchdefault")
 	public ResponseEntity<List<TestResultDTO>> fetchDefault(TestResultSearchContext context) {
@@ -150,7 +150,7 @@ public class TestResultResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-searchDefault-all')")
 	@ApiOperation(value = "查询DEFAULT", tags = {"测试结果" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/testresults/searchdefault")
 	public ResponseEntity<Page<TestResultDTO>> searchDefault(@RequestBody TestResultSearchContext context) {

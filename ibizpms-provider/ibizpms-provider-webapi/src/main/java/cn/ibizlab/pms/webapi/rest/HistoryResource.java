@@ -137,7 +137,7 @@ public class HistoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(historyMapping.toDto(historyService.getDraft(new History())));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"操作历史" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/histories/fetchdefault")
 	public ResponseEntity<List<HistoryDTO>> fetchDefault(HistorySearchContext context) {
@@ -150,7 +150,7 @@ public class HistoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-searchDefault-all')")
 	@ApiOperation(value = "查询DEFAULT", tags = {"操作历史" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/histories/searchdefault")
 	public ResponseEntity<Page<HistoryDTO>> searchDefault(@RequestBody HistorySearchContext context) {
@@ -267,7 +267,7 @@ public class HistoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(historyMapping.toDto(historyService.getDraft(domain)));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-searchDefault-all')")
 	@ApiOperation(value = "根据系统日志获取DEFAULT", tags = {"操作历史" } ,notes = "根据系统日志获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/actions/{action_id}/histories/fetchdefault")
 	public ResponseEntity<List<HistoryDTO>> fetchHistoryDefaultByAction(@PathVariable("action_id") BigInteger action_id,HistorySearchContext context) {
@@ -281,7 +281,7 @@ public class HistoryResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-searchDefault-all')")
 	@ApiOperation(value = "根据系统日志查询DEFAULT", tags = {"操作历史" } ,notes = "根据系统日志查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/actions/{action_id}/histories/searchdefault")
 	public ResponseEntity<Page<HistoryDTO>> searchHistoryDefaultByAction(@PathVariable("action_id") BigInteger action_id, @RequestBody HistorySearchContext context) {

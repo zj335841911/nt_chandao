@@ -53,6 +53,7 @@ public interface ILangService extends IService<Lang>{
     boolean execute(String sql, Map param);
 
 
+
 }
 
 

@@ -137,7 +137,7 @@ public class ProjectProductResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-RelationPlan-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-searchRelationPlan-all')")
 	@ApiOperation(value = "获取关联计划", tags = {"项目产品" } ,notes = "获取关联计划")
     @RequestMapping(method= RequestMethod.GET , value="/projectproducts/fetchrelationplan")
 	public ResponseEntity<List<ProjectProductDTO>> fetchRelationPlan(ProjectProductSearchContext context) {
@@ -150,7 +150,7 @@ public class ProjectProductResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-RelationPlan-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-searchRelationPlan-all')")
 	@ApiOperation(value = "查询关联计划", tags = {"项目产品" } ,notes = "查询关联计划")
     @RequestMapping(method= RequestMethod.POST , value="/projectproducts/searchrelationplan")
 	public ResponseEntity<Page<ProjectProductDTO>> searchRelationPlan(@RequestBody ProjectProductSearchContext context) {
@@ -158,7 +158,7 @@ public class ProjectProductResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectproductMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"项目产品" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/projectproducts/fetchdefault")
 	public ResponseEntity<List<ProjectProductDTO>> fetchDefault(ProjectProductSearchContext context) {
@@ -171,7 +171,7 @@ public class ProjectProductResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-searchDefault-all')")
 	@ApiOperation(value = "查询DEFAULT", tags = {"项目产品" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/projectproducts/searchdefault")
 	public ResponseEntity<Page<ProjectProductDTO>> searchDefault(@RequestBody ProjectProductSearchContext context) {
@@ -288,7 +288,7 @@ public class ProjectProductResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-RelationPlan-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-searchRelationPlan-all')")
 	@ApiOperation(value = "根据产品获取关联计划", tags = {"项目产品" } ,notes = "根据产品获取关联计划")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/projectproducts/fetchrelationplan")
 	public ResponseEntity<List<ProjectProductDTO>> fetchProjectProductRelationPlanByProduct(@PathVariable("product_id") BigInteger product_id,ProjectProductSearchContext context) {
@@ -302,7 +302,7 @@ public class ProjectProductResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-RelationPlan-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-searchRelationPlan-all')")
 	@ApiOperation(value = "根据产品查询关联计划", tags = {"项目产品" } ,notes = "根据产品查询关联计划")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/projectproducts/searchrelationplan")
 	public ResponseEntity<Page<ProjectProductDTO>> searchProjectProductRelationPlanByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody ProjectProductSearchContext context) {
@@ -311,7 +311,7 @@ public class ProjectProductResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectproductMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-searchDefault-all')")
 	@ApiOperation(value = "根据产品获取DEFAULT", tags = {"项目产品" } ,notes = "根据产品获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/projectproducts/fetchdefault")
 	public ResponseEntity<List<ProjectProductDTO>> fetchProjectProductDefaultByProduct(@PathVariable("product_id") BigInteger product_id,ProjectProductSearchContext context) {
@@ -325,7 +325,7 @@ public class ProjectProductResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-searchDefault-all')")
 	@ApiOperation(value = "根据产品查询DEFAULT", tags = {"项目产品" } ,notes = "根据产品查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/projectproducts/searchdefault")
 	public ResponseEntity<Page<ProjectProductDTO>> searchProjectProductDefaultByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody ProjectProductSearchContext context) {
@@ -443,7 +443,7 @@ public class ProjectProductResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-RelationPlan-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-searchRelationPlan-all')")
 	@ApiOperation(value = "根据项目获取关联计划", tags = {"项目产品" } ,notes = "根据项目获取关联计划")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/projectproducts/fetchrelationplan")
 	public ResponseEntity<List<ProjectProductDTO>> fetchProjectProductRelationPlanByProject(@PathVariable("project_id") BigInteger project_id,ProjectProductSearchContext context) {
@@ -457,7 +457,7 @@ public class ProjectProductResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-RelationPlan-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-searchRelationPlan-all')")
 	@ApiOperation(value = "根据项目查询关联计划", tags = {"项目产品" } ,notes = "根据项目查询关联计划")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/projectproducts/searchrelationplan")
 	public ResponseEntity<Page<ProjectProductDTO>> searchProjectProductRelationPlanByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectProductSearchContext context) {
@@ -466,7 +466,7 @@ public class ProjectProductResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectproductMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-searchDefault-all')")
 	@ApiOperation(value = "根据项目获取DEFAULT", tags = {"项目产品" } ,notes = "根据项目获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/projectproducts/fetchdefault")
 	public ResponseEntity<List<ProjectProductDTO>> fetchProjectProductDefaultByProject(@PathVariable("project_id") BigInteger project_id,ProjectProductSearchContext context) {
@@ -480,7 +480,7 @@ public class ProjectProductResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-searchDefault-all')")
 	@ApiOperation(value = "根据项目查询DEFAULT", tags = {"项目产品" } ,notes = "根据项目查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/projectproducts/searchdefault")
 	public ResponseEntity<Page<ProjectProductDTO>> searchProjectProductDefaultByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectProductSearchContext context) {

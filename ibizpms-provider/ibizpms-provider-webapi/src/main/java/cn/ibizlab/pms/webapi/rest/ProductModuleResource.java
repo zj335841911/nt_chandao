@@ -167,7 +167,7 @@ public class ProductModuleResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-searchDefault-all')")
 	@ApiOperation(value = "根据产品获取DEFAULT", tags = {"需求模块" } ,notes = "根据产品获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productmodules/fetchdefault")
 	public ResponseEntity<List<ProductModuleDTO>> fetchProductModuleDefaultByProduct(@PathVariable("product_id") BigInteger product_id,ProductModuleSearchContext context) {
@@ -181,7 +181,7 @@ public class ProductModuleResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-searchDefault-all')")
 	@ApiOperation(value = "根据产品查询DEFAULT", tags = {"需求模块" } ,notes = "根据产品查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productmodules/searchdefault")
 	public ResponseEntity<Page<ProductModuleDTO>> searchProductModuleDefaultByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductModuleSearchContext context) {
@@ -190,7 +190,7 @@ public class ProductModuleResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-ByPath-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-searchByPath-all')")
 	@ApiOperation(value = "根据产品获取BYPATH", tags = {"需求模块" } ,notes = "根据产品获取BYPATH")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productmodules/fetchbypath")
 	public ResponseEntity<List<ProductModuleDTO>> fetchProductModuleByPathByProduct(@PathVariable("product_id") BigInteger product_id,ProductModuleSearchContext context) {
@@ -204,7 +204,7 @@ public class ProductModuleResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-ByPath-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-searchByPath-all')")
 	@ApiOperation(value = "根据产品查询BYPATH", tags = {"需求模块" } ,notes = "根据产品查询BYPATH")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productmodules/searchbypath")
 	public ResponseEntity<Page<ProductModuleDTO>> searchProductModuleByPathByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductModuleSearchContext context) {
@@ -213,7 +213,7 @@ public class ProductModuleResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-Root_NoBranch-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-searchRoot_NoBranch-all')")
 	@ApiOperation(value = "根据产品获取根模块_无分支", tags = {"需求模块" } ,notes = "根据产品获取根模块_无分支")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productmodules/fetchroot_nobranch")
 	public ResponseEntity<List<ProductModuleDTO>> fetchProductModuleRoot_NoBranchByProduct(@PathVariable("product_id") BigInteger product_id,ProductModuleSearchContext context) {
@@ -227,7 +227,7 @@ public class ProductModuleResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-Root_NoBranch-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-searchRoot_NoBranch-all')")
 	@ApiOperation(value = "根据产品查询根模块_无分支", tags = {"需求模块" } ,notes = "根据产品查询根模块_无分支")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productmodules/searchroot_nobranch")
 	public ResponseEntity<Page<ProductModuleDTO>> searchProductModuleRoot_NoBranchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductModuleSearchContext context) {
@@ -236,7 +236,7 @@ public class ProductModuleResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-Root-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-searchRoot-all')")
 	@ApiOperation(value = "根据产品获取根模块", tags = {"需求模块" } ,notes = "根据产品获取根模块")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productmodules/fetchroot")
 	public ResponseEntity<List<ProductModuleDTO>> fetchProductModuleRootByProduct(@PathVariable("product_id") BigInteger product_id,ProductModuleSearchContext context) {
@@ -250,7 +250,7 @@ public class ProductModuleResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-Root-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-searchRoot-all')")
 	@ApiOperation(value = "根据产品查询根模块", tags = {"需求模块" } ,notes = "根据产品查询根模块")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productmodules/searchroot")
 	public ResponseEntity<Page<ProductModuleDTO>> searchProductModuleRootByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductModuleSearchContext context) {

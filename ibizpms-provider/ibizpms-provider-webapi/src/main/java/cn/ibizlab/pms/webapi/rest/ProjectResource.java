@@ -209,7 +209,7 @@ public class ProjectResource {
         return ResponseEntity.status(HttpStatus.OK).body(projectMapping.toDto(projectService.getDraft(new Project())));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-CurProduct-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-searchCurProduct-all')")
 	@ApiOperation(value = "获取当前项目", tags = {"项目" } ,notes = "获取当前项目")
     @RequestMapping(method= RequestMethod.GET , value="/projects/fetchcurproduct")
 	public ResponseEntity<List<ProjectDTO>> fetchCurProduct(ProjectSearchContext context) {
@@ -222,7 +222,7 @@ public class ProjectResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-CurProduct-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-searchCurProduct-all')")
 	@ApiOperation(value = "查询当前项目", tags = {"项目" } ,notes = "查询当前项目")
     @RequestMapping(method= RequestMethod.POST , value="/projects/searchcurproduct")
 	public ResponseEntity<Page<ProjectDTO>> searchCurProduct(@RequestBody ProjectSearchContext context) {
@@ -230,7 +230,7 @@ public class ProjectResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"项目" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/projects/fetchdefault")
 	public ResponseEntity<List<ProjectDTO>> fetchDefault(ProjectSearchContext context) {
@@ -243,7 +243,7 @@ public class ProjectResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-searchDefault-all')")
 	@ApiOperation(value = "查询DEFAULT", tags = {"项目" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/projects/searchdefault")
 	public ResponseEntity<Page<ProjectDTO>> searchDefault(@RequestBody ProjectSearchContext context) {

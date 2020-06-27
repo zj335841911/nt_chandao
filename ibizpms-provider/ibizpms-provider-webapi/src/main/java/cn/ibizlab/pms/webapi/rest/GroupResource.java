@@ -137,7 +137,7 @@ public class GroupResource {
         return  ResponseEntity.status(HttpStatus.OK).body(groupService.checkKey(groupMapping.toDomain(groupdto)));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Group-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Group-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"群组" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/groups/fetchdefault")
 	public ResponseEntity<List<GroupDTO>> fetchDefault(GroupSearchContext context) {
@@ -150,7 +150,7 @@ public class GroupResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Group-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Group-searchDefault-all')")
 	@ApiOperation(value = "查询DEFAULT", tags = {"群组" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/groups/searchdefault")
 	public ResponseEntity<Page<GroupDTO>> searchDefault(@RequestBody GroupSearchContext context) {

@@ -131,6 +131,43 @@ export default class BugServiceBase extends EntityService {
     }
 
     /**
+     * Activate接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async Activate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}/activate`,data,isloading);
+            return res;
+        }
+        if(context.project && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/activate`,data,isloading);
+            return res;
+        }
+        if(context.productplan && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/bugs/${context.bug}/activate`,data,isloading);
+            return res;
+        }
+        if(context.product && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/activate`,data,isloading);
+            return res;
+        }
+            return Http.getInstance().post(`/bugs/${context.bug}/activate`,data,isloading);
+    }
+
+    /**
      * GetDraft接口方法
      *
      * @param {*} [context={}]

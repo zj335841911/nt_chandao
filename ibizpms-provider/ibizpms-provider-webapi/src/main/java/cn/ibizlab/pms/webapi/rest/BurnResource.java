@@ -149,7 +149,7 @@ public class BurnResource {
         return ResponseEntity.status(HttpStatus.OK).body(burnMapping.toDto(burnService.getDraft(new Burn())));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"burn" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/burns/fetchdefault")
 	public ResponseEntity<List<BurnDTO>> fetchDefault(BurnSearchContext context) {
@@ -162,7 +162,7 @@ public class BurnResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-searchDefault-all')")
 	@ApiOperation(value = "查询DEFAULT", tags = {"burn" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/burns/searchdefault")
 	public ResponseEntity<Page<BurnDTO>> searchDefault(@RequestBody BurnSearchContext context) {
@@ -170,7 +170,7 @@ public class BurnResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(burnMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-ESTIMATEANDLEFT-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-searchESTIMATEANDLEFT-all')")
 	@ApiOperation(value = "获取燃尽图预计（含周末）", tags = {"burn" } ,notes = "获取燃尽图预计（含周末）")
     @RequestMapping(method= RequestMethod.GET , value="/burns/fetchestimateandleft")
 	public ResponseEntity<List<BurnDTO>> fetchESTIMATEANDLEFT(BurnSearchContext context) {
@@ -183,7 +183,7 @@ public class BurnResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-ESTIMATEANDLEFT-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-searchESTIMATEANDLEFT-all')")
 	@ApiOperation(value = "查询燃尽图预计（含周末）", tags = {"burn" } ,notes = "查询燃尽图预计（含周末）")
     @RequestMapping(method= RequestMethod.POST , value="/burns/searchestimateandleft")
 	public ResponseEntity<Page<BurnDTO>> searchESTIMATEANDLEFT(@RequestBody BurnSearchContext context) {
@@ -312,7 +312,7 @@ public class BurnResource {
         return ResponseEntity.status(HttpStatus.OK).body(burnMapping.toDto(burnService.getDraft(domain)));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-searchDefault-all')")
 	@ApiOperation(value = "根据项目获取DEFAULT", tags = {"burn" } ,notes = "根据项目获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/burns/fetchdefault")
 	public ResponseEntity<List<BurnDTO>> fetchBurnDefaultByProject(@PathVariable("project_id") BigInteger project_id,BurnSearchContext context) {
@@ -326,7 +326,7 @@ public class BurnResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-searchDefault-all')")
 	@ApiOperation(value = "根据项目查询DEFAULT", tags = {"burn" } ,notes = "根据项目查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/burns/searchdefault")
 	public ResponseEntity<Page<BurnDTO>> searchBurnDefaultByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BurnSearchContext context) {
@@ -335,7 +335,7 @@ public class BurnResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(burnMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-ESTIMATEANDLEFT-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-searchESTIMATEANDLEFT-all')")
 	@ApiOperation(value = "根据项目获取燃尽图预计（含周末）", tags = {"burn" } ,notes = "根据项目获取燃尽图预计（含周末）")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/burns/fetchestimateandleft")
 	public ResponseEntity<List<BurnDTO>> fetchBurnESTIMATEANDLEFTByProject(@PathVariable("project_id") BigInteger project_id,BurnSearchContext context) {
@@ -349,7 +349,7 @@ public class BurnResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-ESTIMATEANDLEFT-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-searchESTIMATEANDLEFT-all')")
 	@ApiOperation(value = "根据项目查询燃尽图预计（含周末）", tags = {"burn" } ,notes = "根据项目查询燃尽图预计（含周末）")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/burns/searchestimateandleft")
 	public ResponseEntity<Page<BurnDTO>> searchBurnESTIMATEANDLEFTByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BurnSearchContext context) {

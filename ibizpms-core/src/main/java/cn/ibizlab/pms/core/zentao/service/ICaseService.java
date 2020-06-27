@@ -25,6 +25,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ICaseService extends IService<Case>{
 
+    Case runCase(Case et) ;
     Case getDraft(Case et) ;
     boolean save(Case et) ;
     void saveBatch(List<Case> list) ;
@@ -67,6 +68,7 @@ public interface ICaseService extends IService<Case>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
+
 
 
 }

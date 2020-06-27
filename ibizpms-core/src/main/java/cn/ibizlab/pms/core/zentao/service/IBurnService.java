@@ -59,6 +59,7 @@ public interface IBurnService extends IService<Burn>{
     boolean execute(String sql, Map param);
 
 
+
 }
 
 

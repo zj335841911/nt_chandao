@@ -53,6 +53,7 @@ public interface IIm_queueService extends IService<Im_queue>{
     boolean execute(String sql, Map param);
 
 
+
 }
 
 

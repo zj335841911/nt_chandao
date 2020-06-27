@@ -137,7 +137,7 @@ public class SuiteCaseResource {
         return  ResponseEntity.status(HttpStatus.OK).body(suitecaseService.checkKey(suitecaseMapping.toDomain(suitecasedto)));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SuiteCase-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SuiteCase-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"套件用例" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/suitecases/fetchdefault")
 	public ResponseEntity<List<SuiteCaseDTO>> fetchDefault(SuiteCaseSearchContext context) {
@@ -150,7 +150,7 @@ public class SuiteCaseResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SuiteCase-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SuiteCase-searchDefault-all')")
 	@ApiOperation(value = "查询DEFAULT", tags = {"套件用例" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/suitecases/searchdefault")
 	public ResponseEntity<Page<SuiteCaseDTO>> searchDefault(@RequestBody SuiteCaseSearchContext context) {

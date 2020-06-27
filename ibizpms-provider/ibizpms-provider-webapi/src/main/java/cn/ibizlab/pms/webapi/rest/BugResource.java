@@ -67,6 +67,18 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Activate-all')")
+    @ApiOperation(value = "激活", tags = {"Bug" },  notes = "激活")
+	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/activate")
+    @Transactional
+    public ResponseEntity<BugDTO> activate(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
+        Bug bug = bugMapping.toDomain(bugdto);
+        bug.setId(bug_id);
+        bug = bugService.activate(bug);
+        bugdto = bugMapping.toDto(bug);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+
     @ApiOperation(value = "获取Bug草稿", tags = {"Bug" },  notes = "获取Bug草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/bugs/getdraft")
     public ResponseEntity<BugDTO> getDraft() {
@@ -173,7 +185,7 @@ public class BugResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReportBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReportBugs-all')")
 	@ApiOperation(value = "获取发布关联Bug（未解决）", tags = {"Bug" } ,notes = "获取发布关联Bug（未解决）")
     @RequestMapping(method= RequestMethod.GET , value="/bugs/fetchreportbugs")
 	public ResponseEntity<List<BugDTO>> fetchReportBugs(BugSearchContext context) {
@@ -186,7 +198,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReportBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReportBugs-all')")
 	@ApiOperation(value = "查询发布关联Bug（未解决）", tags = {"Bug" } ,notes = "查询发布关联Bug（未解决）")
     @RequestMapping(method= RequestMethod.POST , value="/bugs/searchreportbugs")
 	public ResponseEntity<Page<BugDTO>> searchReportBugs(@RequestBody BugSearchContext context) {
@@ -194,7 +206,7 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseBugs-all')")
 	@ApiOperation(value = "获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "获取发布关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.GET , value="/bugs/fetchreleasebugs")
 	public ResponseEntity<List<BugDTO>> fetchReleaseBugs(BugSearchContext context) {
@@ -207,7 +219,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseBugs-all')")
 	@ApiOperation(value = "查询发布关联Bug（已解决）", tags = {"Bug" } ,notes = "查询发布关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.POST , value="/bugs/searchreleasebugs")
 	public ResponseEntity<Page<BugDTO>> searchReleaseBugs(@RequestBody BugSearchContext context) {
@@ -215,7 +227,7 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildOpenBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildOpenBugs-all')")
 	@ApiOperation(value = "获取版本关联Bug（已解决）", tags = {"Bug" } ,notes = "获取版本关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.GET , value="/bugs/fetchbuildopenbugs")
 	public ResponseEntity<List<BugDTO>> fetchBuildOpenBugs(BugSearchContext context) {
@@ -228,7 +240,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildOpenBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildOpenBugs-all')")
 	@ApiOperation(value = "查询版本关联Bug（已解决）", tags = {"Bug" } ,notes = "查询版本关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.POST , value="/bugs/searchbuildopenbugs")
 	public ResponseEntity<Page<BugDTO>> searchBuildOpenBugs(@RequestBody BugSearchContext context) {
@@ -236,7 +248,7 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLeftBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLeftBugs-all')")
 	@ApiOperation(value = "获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "获取发布关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.GET , value="/bugs/fetchreleaseleftbugs")
 	public ResponseEntity<List<BugDTO>> fetchReleaseLeftBugs(BugSearchContext context) {
@@ -249,7 +261,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLeftBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLeftBugs-all')")
 	@ApiOperation(value = "查询发布关联Bug（已解决）", tags = {"Bug" } ,notes = "查询发布关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.POST , value="/bugs/searchreleaseleftbugs")
 	public ResponseEntity<Page<BugDTO>> searchReleaseLeftBugs(@RequestBody BugSearchContext context) {
@@ -257,7 +269,7 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildBugs-all')")
 	@ApiOperation(value = "获取版本关联Bug（已解决）", tags = {"Bug" } ,notes = "获取版本关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.GET , value="/bugs/fetchbuildbugs")
 	public ResponseEntity<List<BugDTO>> fetchBuildBugs(BugSearchContext context) {
@@ -270,7 +282,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildBugs-all')")
 	@ApiOperation(value = "查询版本关联Bug（已解决）", tags = {"Bug" } ,notes = "查询版本关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.POST , value="/bugs/searchbuildbugs")
 	public ResponseEntity<Page<BugDTO>> searchBuildBugs(@RequestBody BugSearchContext context) {
@@ -278,7 +290,7 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"Bug" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/bugs/fetchdefault")
 	public ResponseEntity<List<BugDTO>> fetchDefault(BugSearchContext context) {
@@ -291,7 +303,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchDefault-all')")
 	@ApiOperation(value = "查询DEFAULT", tags = {"Bug" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/bugs/searchdefault")
 	public ResponseEntity<Page<BugDTO>> searchDefault(@RequestBody BugSearchContext context) {
@@ -318,6 +330,18 @@ public class BugResource {
         Bug domain = bugService.get(bug_id);
         BugDTO dto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Activate-all')")
+    @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/activate")
+    @Transactional
+    public ResponseEntity<BugDTO> activateByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setProduct(product_id);
+        domain = bugService.activate(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
 
     @ApiOperation(value = "根据产品获取Bug草稿", tags = {"Bug" },  notes = "根据产品获取Bug草稿")
@@ -444,7 +468,7 @@ public class BugResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReportBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReportBugs-all')")
 	@ApiOperation(value = "根据产品获取发布关联Bug（未解决）", tags = {"Bug" } ,notes = "根据产品获取发布关联Bug（未解决）")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/bugs/fetchreportbugs")
 	public ResponseEntity<List<BugDTO>> fetchBugReportBugsByProduct(@PathVariable("product_id") BigInteger product_id,BugSearchContext context) {
@@ -458,7 +482,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReportBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReportBugs-all')")
 	@ApiOperation(value = "根据产品查询发布关联Bug（未解决）", tags = {"Bug" } ,notes = "根据产品查询发布关联Bug（未解决）")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/bugs/searchreportbugs")
 	public ResponseEntity<Page<BugDTO>> searchBugReportBugsByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BugSearchContext context) {
@@ -467,7 +491,7 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseBugs-all')")
 	@ApiOperation(value = "根据产品获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品获取发布关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/bugs/fetchreleasebugs")
 	public ResponseEntity<List<BugDTO>> fetchBugReleaseBugsByProduct(@PathVariable("product_id") BigInteger product_id,BugSearchContext context) {
@@ -481,7 +505,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseBugs-all')")
 	@ApiOperation(value = "根据产品查询发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品查询发布关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/bugs/searchreleasebugs")
 	public ResponseEntity<Page<BugDTO>> searchBugReleaseBugsByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BugSearchContext context) {
@@ -490,7 +514,7 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildOpenBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildOpenBugs-all')")
 	@ApiOperation(value = "根据产品获取版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品获取版本关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/bugs/fetchbuildopenbugs")
 	public ResponseEntity<List<BugDTO>> fetchBugBuildOpenBugsByProduct(@PathVariable("product_id") BigInteger product_id,BugSearchContext context) {
@@ -504,7 +528,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildOpenBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildOpenBugs-all')")
 	@ApiOperation(value = "根据产品查询版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品查询版本关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/bugs/searchbuildopenbugs")
 	public ResponseEntity<Page<BugDTO>> searchBugBuildOpenBugsByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BugSearchContext context) {
@@ -513,7 +537,7 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLeftBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLeftBugs-all')")
 	@ApiOperation(value = "根据产品获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品获取发布关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/bugs/fetchreleaseleftbugs")
 	public ResponseEntity<List<BugDTO>> fetchBugReleaseLeftBugsByProduct(@PathVariable("product_id") BigInteger product_id,BugSearchContext context) {
@@ -527,7 +551,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLeftBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLeftBugs-all')")
 	@ApiOperation(value = "根据产品查询发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品查询发布关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/bugs/searchreleaseleftbugs")
 	public ResponseEntity<Page<BugDTO>> searchBugReleaseLeftBugsByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BugSearchContext context) {
@@ -536,7 +560,7 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildBugs-all')")
 	@ApiOperation(value = "根据产品获取版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品获取版本关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/bugs/fetchbuildbugs")
 	public ResponseEntity<List<BugDTO>> fetchBugBuildBugsByProduct(@PathVariable("product_id") BigInteger product_id,BugSearchContext context) {
@@ -550,7 +574,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildBugs-all')")
 	@ApiOperation(value = "根据产品查询版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品查询版本关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/bugs/searchbuildbugs")
 	public ResponseEntity<Page<BugDTO>> searchBugBuildBugsByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BugSearchContext context) {
@@ -559,7 +583,7 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchDefault-all')")
 	@ApiOperation(value = "根据产品获取DEFAULT", tags = {"Bug" } ,notes = "根据产品获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/bugs/fetchdefault")
 	public ResponseEntity<List<BugDTO>> fetchBugDefaultByProduct(@PathVariable("product_id") BigInteger product_id,BugSearchContext context) {
@@ -573,7 +597,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchDefault-all')")
 	@ApiOperation(value = "根据产品查询DEFAULT", tags = {"Bug" } ,notes = "根据产品查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/bugs/searchdefault")
 	public ResponseEntity<Page<BugDTO>> searchBugDefaultByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BugSearchContext context) {
@@ -601,6 +625,18 @@ public class BugResource {
         Bug domain = bugService.get(bug_id);
         BugDTO dto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Activate-all')")
+    @ApiOperation(value = "根据产品计划Bug", tags = {"Bug" },  notes = "根据产品计划Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/bugs/{bug_id}/activate")
+    @Transactional
+    public ResponseEntity<BugDTO> activateByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setPlan(productplan_id);
+        domain = bugService.activate(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
 
     @ApiOperation(value = "根据产品计划获取Bug草稿", tags = {"Bug" },  notes = "根据产品计划获取Bug草稿")
@@ -727,7 +763,7 @@ public class BugResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReportBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReportBugs-all')")
 	@ApiOperation(value = "根据产品计划获取发布关联Bug（未解决）", tags = {"Bug" } ,notes = "根据产品计划获取发布关联Bug（未解决）")
     @RequestMapping(method= RequestMethod.GET , value="/productplans/{productplan_id}/bugs/fetchreportbugs")
 	public ResponseEntity<List<BugDTO>> fetchBugReportBugsByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id,BugSearchContext context) {
@@ -741,7 +777,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReportBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReportBugs-all')")
 	@ApiOperation(value = "根据产品计划查询发布关联Bug（未解决）", tags = {"Bug" } ,notes = "根据产品计划查询发布关联Bug（未解决）")
     @RequestMapping(method= RequestMethod.POST , value="/productplans/{productplan_id}/bugs/searchreportbugs")
 	public ResponseEntity<Page<BugDTO>> searchBugReportBugsByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugSearchContext context) {
@@ -750,7 +786,7 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseBugs-all')")
 	@ApiOperation(value = "根据产品计划获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品计划获取发布关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.GET , value="/productplans/{productplan_id}/bugs/fetchreleasebugs")
 	public ResponseEntity<List<BugDTO>> fetchBugReleaseBugsByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id,BugSearchContext context) {
@@ -764,7 +800,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseBugs-all')")
 	@ApiOperation(value = "根据产品计划查询发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品计划查询发布关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.POST , value="/productplans/{productplan_id}/bugs/searchreleasebugs")
 	public ResponseEntity<Page<BugDTO>> searchBugReleaseBugsByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugSearchContext context) {
@@ -773,7 +809,7 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildOpenBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildOpenBugs-all')")
 	@ApiOperation(value = "根据产品计划获取版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品计划获取版本关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.GET , value="/productplans/{productplan_id}/bugs/fetchbuildopenbugs")
 	public ResponseEntity<List<BugDTO>> fetchBugBuildOpenBugsByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id,BugSearchContext context) {
@@ -787,7 +823,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildOpenBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildOpenBugs-all')")
 	@ApiOperation(value = "根据产品计划查询版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品计划查询版本关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.POST , value="/productplans/{productplan_id}/bugs/searchbuildopenbugs")
 	public ResponseEntity<Page<BugDTO>> searchBugBuildOpenBugsByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugSearchContext context) {
@@ -796,7 +832,7 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLeftBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLeftBugs-all')")
 	@ApiOperation(value = "根据产品计划获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品计划获取发布关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.GET , value="/productplans/{productplan_id}/bugs/fetchreleaseleftbugs")
 	public ResponseEntity<List<BugDTO>> fetchBugReleaseLeftBugsByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id,BugSearchContext context) {
@@ -810,7 +846,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLeftBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLeftBugs-all')")
 	@ApiOperation(value = "根据产品计划查询发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品计划查询发布关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.POST , value="/productplans/{productplan_id}/bugs/searchreleaseleftbugs")
 	public ResponseEntity<Page<BugDTO>> searchBugReleaseLeftBugsByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugSearchContext context) {
@@ -819,7 +855,7 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildBugs-all')")
 	@ApiOperation(value = "根据产品计划获取版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品计划获取版本关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.GET , value="/productplans/{productplan_id}/bugs/fetchbuildbugs")
 	public ResponseEntity<List<BugDTO>> fetchBugBuildBugsByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id,BugSearchContext context) {
@@ -833,7 +869,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildBugs-all')")
 	@ApiOperation(value = "根据产品计划查询版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品计划查询版本关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.POST , value="/productplans/{productplan_id}/bugs/searchbuildbugs")
 	public ResponseEntity<Page<BugDTO>> searchBugBuildBugsByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugSearchContext context) {
@@ -842,7 +878,7 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchDefault-all')")
 	@ApiOperation(value = "根据产品计划获取DEFAULT", tags = {"Bug" } ,notes = "根据产品计划获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/productplans/{productplan_id}/bugs/fetchdefault")
 	public ResponseEntity<List<BugDTO>> fetchBugDefaultByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id,BugSearchContext context) {
@@ -856,7 +892,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchDefault-all')")
 	@ApiOperation(value = "根据产品计划查询DEFAULT", tags = {"Bug" } ,notes = "根据产品计划查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/productplans/{productplan_id}/bugs/searchdefault")
 	public ResponseEntity<Page<BugDTO>> searchBugDefaultByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugSearchContext context) {
@@ -884,6 +920,18 @@ public class BugResource {
         Bug domain = bugService.get(bug_id);
         BugDTO dto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Activate-all')")
+    @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/activate")
+    @Transactional
+    public ResponseEntity<BugDTO> activateByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setProject(project_id);
+        domain = bugService.activate(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
 
     @ApiOperation(value = "根据项目获取Bug草稿", tags = {"Bug" },  notes = "根据项目获取Bug草稿")
@@ -1010,7 +1058,7 @@ public class BugResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReportBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReportBugs-all')")
 	@ApiOperation(value = "根据项目获取发布关联Bug（未解决）", tags = {"Bug" } ,notes = "根据项目获取发布关联Bug（未解决）")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/bugs/fetchreportbugs")
 	public ResponseEntity<List<BugDTO>> fetchBugReportBugsByProject(@PathVariable("project_id") BigInteger project_id,BugSearchContext context) {
@@ -1024,7 +1072,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReportBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReportBugs-all')")
 	@ApiOperation(value = "根据项目查询发布关联Bug（未解决）", tags = {"Bug" } ,notes = "根据项目查询发布关联Bug（未解决）")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/bugs/searchreportbugs")
 	public ResponseEntity<Page<BugDTO>> searchBugReportBugsByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BugSearchContext context) {
@@ -1033,7 +1081,7 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseBugs-all')")
 	@ApiOperation(value = "根据项目获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据项目获取发布关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/bugs/fetchreleasebugs")
 	public ResponseEntity<List<BugDTO>> fetchBugReleaseBugsByProject(@PathVariable("project_id") BigInteger project_id,BugSearchContext context) {
@@ -1047,7 +1095,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseBugs-all')")
 	@ApiOperation(value = "根据项目查询发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据项目查询发布关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/bugs/searchreleasebugs")
 	public ResponseEntity<Page<BugDTO>> searchBugReleaseBugsByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BugSearchContext context) {
@@ -1056,7 +1104,7 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildOpenBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildOpenBugs-all')")
 	@ApiOperation(value = "根据项目获取版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据项目获取版本关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/bugs/fetchbuildopenbugs")
 	public ResponseEntity<List<BugDTO>> fetchBugBuildOpenBugsByProject(@PathVariable("project_id") BigInteger project_id,BugSearchContext context) {
@@ -1070,7 +1118,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildOpenBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildOpenBugs-all')")
 	@ApiOperation(value = "根据项目查询版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据项目查询版本关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/bugs/searchbuildopenbugs")
 	public ResponseEntity<Page<BugDTO>> searchBugBuildOpenBugsByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BugSearchContext context) {
@@ -1079,7 +1127,7 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLeftBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLeftBugs-all')")
 	@ApiOperation(value = "根据项目获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据项目获取发布关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/bugs/fetchreleaseleftbugs")
 	public ResponseEntity<List<BugDTO>> fetchBugReleaseLeftBugsByProject(@PathVariable("project_id") BigInteger project_id,BugSearchContext context) {
@@ -1093,7 +1141,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLeftBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLeftBugs-all')")
 	@ApiOperation(value = "根据项目查询发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据项目查询发布关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/bugs/searchreleaseleftbugs")
 	public ResponseEntity<Page<BugDTO>> searchBugReleaseLeftBugsByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BugSearchContext context) {
@@ -1102,7 +1150,7 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildBugs-all')")
 	@ApiOperation(value = "根据项目获取版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据项目获取版本关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/bugs/fetchbuildbugs")
 	public ResponseEntity<List<BugDTO>> fetchBugBuildBugsByProject(@PathVariable("project_id") BigInteger project_id,BugSearchContext context) {
@@ -1116,7 +1164,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildBugs-all')")
 	@ApiOperation(value = "根据项目查询版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据项目查询版本关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/bugs/searchbuildbugs")
 	public ResponseEntity<Page<BugDTO>> searchBugBuildBugsByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BugSearchContext context) {
@@ -1125,7 +1173,7 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchDefault-all')")
 	@ApiOperation(value = "根据项目获取DEFAULT", tags = {"Bug" } ,notes = "根据项目获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/bugs/fetchdefault")
 	public ResponseEntity<List<BugDTO>> fetchBugDefaultByProject(@PathVariable("project_id") BigInteger project_id,BugSearchContext context) {
@@ -1139,7 +1187,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchDefault-all')")
 	@ApiOperation(value = "根据项目查询DEFAULT", tags = {"Bug" } ,notes = "根据项目查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/bugs/searchdefault")
 	public ResponseEntity<Page<BugDTO>> searchBugDefaultByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BugSearchContext context) {
@@ -1167,6 +1215,18 @@ public class BugResource {
         Bug domain = bugService.get(bug_id);
         BugDTO dto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Activate-all')")
+    @ApiOperation(value = "根据产品产品计划Bug", tags = {"Bug" },  notes = "根据产品产品计划Bug")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/bugs/{bug_id}/activate")
+    @Transactional
+    public ResponseEntity<BugDTO> activateByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setPlan(productplan_id);
+        domain = bugService.activate(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
 
     @ApiOperation(value = "根据产品产品计划获取Bug草稿", tags = {"Bug" },  notes = "根据产品产品计划获取Bug草稿")
@@ -1293,7 +1353,7 @@ public class BugResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReportBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReportBugs-all')")
 	@ApiOperation(value = "根据产品产品计划获取发布关联Bug（未解决）", tags = {"Bug" } ,notes = "根据产品产品计划获取发布关联Bug（未解决）")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productplans/{productplan_id}/bugs/fetchreportbugs")
 	public ResponseEntity<List<BugDTO>> fetchBugReportBugsByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id,BugSearchContext context) {
@@ -1307,7 +1367,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReportBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReportBugs-all')")
 	@ApiOperation(value = "根据产品产品计划查询发布关联Bug（未解决）", tags = {"Bug" } ,notes = "根据产品产品计划查询发布关联Bug（未解决）")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productplans/{productplan_id}/bugs/searchreportbugs")
 	public ResponseEntity<Page<BugDTO>> searchBugReportBugsByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugSearchContext context) {
@@ -1316,7 +1376,7 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseBugs-all')")
 	@ApiOperation(value = "根据产品产品计划获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品产品计划获取发布关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productplans/{productplan_id}/bugs/fetchreleasebugs")
 	public ResponseEntity<List<BugDTO>> fetchBugReleaseBugsByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id,BugSearchContext context) {
@@ -1330,7 +1390,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseBugs-all')")
 	@ApiOperation(value = "根据产品产品计划查询发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品产品计划查询发布关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productplans/{productplan_id}/bugs/searchreleasebugs")
 	public ResponseEntity<Page<BugDTO>> searchBugReleaseBugsByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugSearchContext context) {
@@ -1339,7 +1399,7 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildOpenBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildOpenBugs-all')")
 	@ApiOperation(value = "根据产品产品计划获取版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品产品计划获取版本关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productplans/{productplan_id}/bugs/fetchbuildopenbugs")
 	public ResponseEntity<List<BugDTO>> fetchBugBuildOpenBugsByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id,BugSearchContext context) {
@@ -1353,7 +1413,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildOpenBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildOpenBugs-all')")
 	@ApiOperation(value = "根据产品产品计划查询版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品产品计划查询版本关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productplans/{productplan_id}/bugs/searchbuildopenbugs")
 	public ResponseEntity<Page<BugDTO>> searchBugBuildOpenBugsByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugSearchContext context) {
@@ -1362,7 +1422,7 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLeftBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLeftBugs-all')")
 	@ApiOperation(value = "根据产品产品计划获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品产品计划获取发布关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productplans/{productplan_id}/bugs/fetchreleaseleftbugs")
 	public ResponseEntity<List<BugDTO>> fetchBugReleaseLeftBugsByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id,BugSearchContext context) {
@@ -1376,7 +1436,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLeftBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseLeftBugs-all')")
 	@ApiOperation(value = "根据产品产品计划查询发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品产品计划查询发布关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productplans/{productplan_id}/bugs/searchreleaseleftbugs")
 	public ResponseEntity<Page<BugDTO>> searchBugReleaseLeftBugsByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugSearchContext context) {
@@ -1385,7 +1445,7 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildBugs-all')")
 	@ApiOperation(value = "根据产品产品计划获取版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品产品计划获取版本关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productplans/{productplan_id}/bugs/fetchbuildbugs")
 	public ResponseEntity<List<BugDTO>> fetchBugBuildBugsByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id,BugSearchContext context) {
@@ -1399,7 +1459,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildBugs-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildBugs-all')")
 	@ApiOperation(value = "根据产品产品计划查询版本关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品产品计划查询版本关联Bug（已解决）")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productplans/{productplan_id}/bugs/searchbuildbugs")
 	public ResponseEntity<Page<BugDTO>> searchBugBuildBugsByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugSearchContext context) {
@@ -1408,7 +1468,7 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchDefault-all')")
 	@ApiOperation(value = "根据产品产品计划获取DEFAULT", tags = {"Bug" } ,notes = "根据产品产品计划获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productplans/{productplan_id}/bugs/fetchdefault")
 	public ResponseEntity<List<BugDTO>> fetchBugDefaultByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id,BugSearchContext context) {
@@ -1422,7 +1482,7 @@ public class BugResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchDefault-all')")
 	@ApiOperation(value = "根据产品产品计划查询DEFAULT", tags = {"Bug" } ,notes = "根据产品产品计划查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productplans/{productplan_id}/bugs/searchdefault")
 	public ResponseEntity<Page<BugDTO>> searchBugDefaultByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @RequestBody BugSearchContext context) {

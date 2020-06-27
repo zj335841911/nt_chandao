@@ -6,6 +6,7 @@ import cn.ibizlab.pms.core.zentao.domain.Bug;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Primary;
+import java.util.*;
 
 /**
  * 实体[Bug] 自定义服务对象
@@ -31,6 +32,16 @@ public class BugServiceEx extends BugServiceImpl {
         return super.close(et);
     }
     /**
+     * 自定义行为[Activate]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Bug activate(Bug et) {
+        return super.activate(et);
+    }
+    /**
      * 自定义行为[Confirm]用户扩展
      * @param et
      * @return
@@ -51,5 +62,4 @@ public class BugServiceEx extends BugServiceImpl {
         return super.resolve(et);
     }
 }
-
 
