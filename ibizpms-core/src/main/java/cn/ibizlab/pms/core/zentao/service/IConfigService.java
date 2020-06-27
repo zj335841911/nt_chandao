@@ -53,6 +53,7 @@ public interface IConfigService extends IService<Config>{
     boolean execute(String sql, Map param);
 
 
+
 }
 
 

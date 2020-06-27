@@ -55,6 +55,7 @@ public interface IHistoryService extends IService<History>{
     boolean execute(String sql, Map param);
 
 
+
 }
 
 

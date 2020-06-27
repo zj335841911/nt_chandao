@@ -59,6 +59,7 @@ public interface ISuiteCaseService extends IService<SuiteCase>{
     boolean execute(String sql, Map param);
 
 
+
 }
 
 

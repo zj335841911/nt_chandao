@@ -137,7 +137,7 @@ public class DeptResource {
         return  ResponseEntity.status(HttpStatus.OK).body(deptService.checkKey(deptMapping.toDomain(deptdto)));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"部门" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/depts/fetchdefault")
 	public ResponseEntity<List<DeptDTO>> fetchDefault(DeptSearchContext context) {
@@ -150,7 +150,7 @@ public class DeptResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-searchDefault-all')")
 	@ApiOperation(value = "查询DEFAULT", tags = {"部门" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/depts/searchdefault")
 	public ResponseEntity<Page<DeptDTO>> searchDefault(@RequestBody DeptSearchContext context) {
@@ -158,7 +158,7 @@ public class DeptResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(deptMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-Root-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-searchRoot-all')")
 	@ApiOperation(value = "获取根部门", tags = {"部门" } ,notes = "获取根部门")
     @RequestMapping(method= RequestMethod.GET , value="/depts/fetchroot")
 	public ResponseEntity<List<DeptDTO>> fetchRoot(DeptSearchContext context) {
@@ -171,7 +171,7 @@ public class DeptResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-Root-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-searchRoot-all')")
 	@ApiOperation(value = "查询根部门", tags = {"部门" } ,notes = "查询根部门")
     @RequestMapping(method= RequestMethod.POST , value="/depts/searchroot")
 	public ResponseEntity<Page<DeptDTO>> searchRoot(@RequestBody DeptSearchContext context) {

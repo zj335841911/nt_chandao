@@ -84,6 +84,7 @@ public interface IStoryService extends IService<Story>{
     boolean execute(String sql, Map param);
 
 
+
 }
 
 

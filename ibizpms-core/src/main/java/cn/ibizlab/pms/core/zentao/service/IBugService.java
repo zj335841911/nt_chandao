@@ -27,6 +27,7 @@ public interface IBugService extends IService<Bug>{
 
     Bug close(Bug et) ;
     Bug get(BigInteger key) ;
+    Bug activate(Bug et) ;
     Bug getDraft(Bug et) ;
     boolean checkKey(Bug et) ;
     boolean save(Bug et) ;
@@ -87,6 +88,7 @@ public interface IBugService extends IService<Bug>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
+
 
 
 }

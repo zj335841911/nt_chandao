@@ -137,7 +137,7 @@ public class BuildResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-CurProduct-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchCurProduct-all')")
 	@ApiOperation(value = "获取产品版本", tags = {"版本" } ,notes = "获取产品版本")
     @RequestMapping(method= RequestMethod.GET , value="/builds/fetchcurproduct")
 	public ResponseEntity<List<BuildDTO>> fetchCurProduct(BuildSearchContext context) {
@@ -150,7 +150,7 @@ public class BuildResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-CurProduct-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchCurProduct-all')")
 	@ApiOperation(value = "查询产品版本", tags = {"版本" } ,notes = "查询产品版本")
     @RequestMapping(method= RequestMethod.POST , value="/builds/searchcurproduct")
 	public ResponseEntity<Page<BuildDTO>> searchCurProduct(@RequestBody BuildSearchContext context) {
@@ -158,7 +158,7 @@ public class BuildResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(buildMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"版本" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/builds/fetchdefault")
 	public ResponseEntity<List<BuildDTO>> fetchDefault(BuildSearchContext context) {
@@ -171,7 +171,7 @@ public class BuildResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchDefault-all')")
 	@ApiOperation(value = "查询DEFAULT", tags = {"版本" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/builds/searchdefault")
 	public ResponseEntity<Page<BuildDTO>> searchDefault(@RequestBody BuildSearchContext context) {
@@ -288,7 +288,7 @@ public class BuildResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-CurProduct-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchCurProduct-all')")
 	@ApiOperation(value = "根据产品获取产品版本", tags = {"版本" } ,notes = "根据产品获取产品版本")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/builds/fetchcurproduct")
 	public ResponseEntity<List<BuildDTO>> fetchBuildCurProductByProduct(@PathVariable("product_id") BigInteger product_id,BuildSearchContext context) {
@@ -302,7 +302,7 @@ public class BuildResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-CurProduct-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchCurProduct-all')")
 	@ApiOperation(value = "根据产品查询产品版本", tags = {"版本" } ,notes = "根据产品查询产品版本")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/builds/searchcurproduct")
 	public ResponseEntity<Page<BuildDTO>> searchBuildCurProductByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BuildSearchContext context) {
@@ -311,7 +311,7 @@ public class BuildResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(buildMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchDefault-all')")
 	@ApiOperation(value = "根据产品获取DEFAULT", tags = {"版本" } ,notes = "根据产品获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/builds/fetchdefault")
 	public ResponseEntity<List<BuildDTO>> fetchBuildDefaultByProduct(@PathVariable("product_id") BigInteger product_id,BuildSearchContext context) {
@@ -325,7 +325,7 @@ public class BuildResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchDefault-all')")
 	@ApiOperation(value = "根据产品查询DEFAULT", tags = {"版本" } ,notes = "根据产品查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/builds/searchdefault")
 	public ResponseEntity<Page<BuildDTO>> searchBuildDefaultByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BuildSearchContext context) {
@@ -443,7 +443,7 @@ public class BuildResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-CurProduct-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchCurProduct-all')")
 	@ApiOperation(value = "根据项目获取产品版本", tags = {"版本" } ,notes = "根据项目获取产品版本")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/builds/fetchcurproduct")
 	public ResponseEntity<List<BuildDTO>> fetchBuildCurProductByProject(@PathVariable("project_id") BigInteger project_id,BuildSearchContext context) {
@@ -457,7 +457,7 @@ public class BuildResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-CurProduct-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchCurProduct-all')")
 	@ApiOperation(value = "根据项目查询产品版本", tags = {"版本" } ,notes = "根据项目查询产品版本")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/builds/searchcurproduct")
 	public ResponseEntity<Page<BuildDTO>> searchBuildCurProductByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BuildSearchContext context) {
@@ -466,7 +466,7 @@ public class BuildResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(buildMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchDefault-all')")
 	@ApiOperation(value = "根据项目获取DEFAULT", tags = {"版本" } ,notes = "根据项目获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/builds/fetchdefault")
 	public ResponseEntity<List<BuildDTO>> fetchBuildDefaultByProject(@PathVariable("project_id") BigInteger project_id,BuildSearchContext context) {
@@ -480,7 +480,7 @@ public class BuildResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchDefault-all')")
 	@ApiOperation(value = "根据项目查询DEFAULT", tags = {"版本" } ,notes = "根据项目查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/builds/searchdefault")
 	public ResponseEntity<Page<BuildDTO>> searchBuildDefaultByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BuildSearchContext context) {

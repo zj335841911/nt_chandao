@@ -55,6 +55,41 @@ export default class CaseServiceBase extends EntityService {
     }
 
     /**
+     * RunCase接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async RunCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.case){
+            let masterData:any = {};
+        let casestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
+            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
+            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+                casestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.casesteps = casestepsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/cases/${context.case}/runcase`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            return res;
+        }
+            return Http.getInstance().post(`/cases/${context.case}/runcase`,data,isloading);
+    }
+
+    /**
      * GetDraft接口方法
      *
      * @param {*} [context={}]

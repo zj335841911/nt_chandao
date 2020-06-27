@@ -137,7 +137,7 @@ public class CompanyResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Company-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Company-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"公司" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/companies/fetchdefault")
 	public ResponseEntity<List<CompanyDTO>> fetchDefault(CompanySearchContext context) {
@@ -150,7 +150,7 @@ public class CompanyResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Company-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Company-searchDefault-all')")
 	@ApiOperation(value = "查询DEFAULT", tags = {"公司" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/companies/searchdefault")
 	public ResponseEntity<Page<CompanyDTO>> searchDefault(@RequestBody CompanySearchContext context) {

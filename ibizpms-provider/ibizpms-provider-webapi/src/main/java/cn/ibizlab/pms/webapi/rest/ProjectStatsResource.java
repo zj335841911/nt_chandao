@@ -137,7 +137,7 @@ public class ProjectStatsResource {
         return ResponseEntity.status(HttpStatus.OK).body(projectstatsMapping.toDto(projectstatsService.getDraft(new ProjectStats())));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-TaskTime-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-searchTaskTime-all')")
 	@ApiOperation(value = "获取任务工时消耗剩余查询", tags = {"项目统计" } ,notes = "获取任务工时消耗剩余查询")
     @RequestMapping(method= RequestMethod.GET , value="/projectstats/fetchtasktime")
 	public ResponseEntity<List<ProjectStatsDTO>> fetchTaskTime(ProjectStatsSearchContext context) {
@@ -150,7 +150,7 @@ public class ProjectStatsResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-TaskTime-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-searchTaskTime-all')")
 	@ApiOperation(value = "查询任务工时消耗剩余查询", tags = {"项目统计" } ,notes = "查询任务工时消耗剩余查询")
     @RequestMapping(method= RequestMethod.POST , value="/projectstats/searchtasktime")
 	public ResponseEntity<Page<ProjectStatsDTO>> searchTaskTime(@RequestBody ProjectStatsSearchContext context) {
@@ -158,7 +158,7 @@ public class ProjectStatsResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"项目统计" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/projectstats/fetchdefault")
 	public ResponseEntity<List<ProjectStatsDTO>> fetchDefault(ProjectStatsSearchContext context) {
@@ -171,7 +171,7 @@ public class ProjectStatsResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-searchDefault-all')")
 	@ApiOperation(value = "查询DEFAULT", tags = {"项目统计" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/projectstats/searchdefault")
 	public ResponseEntity<Page<ProjectStatsDTO>> searchDefault(@RequestBody ProjectStatsSearchContext context) {

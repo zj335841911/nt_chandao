@@ -149,7 +149,7 @@ public class ProductResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"产品" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/fetchdefault")
 	public ResponseEntity<List<ProductDTO>> fetchDefault(ProductSearchContext context) {
@@ -162,7 +162,7 @@ public class ProductResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchDefault-all')")
 	@ApiOperation(value = "查询DEFAULT", tags = {"产品" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/products/searchdefault")
 	public ResponseEntity<Page<ProductDTO>> searchDefault(@RequestBody ProductSearchContext context) {
@@ -170,7 +170,7 @@ public class ProductResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-CurProject-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchCurProject-all')")
 	@ApiOperation(value = "获取当前项目", tags = {"产品" } ,notes = "获取当前项目")
     @RequestMapping(method= RequestMethod.GET , value="/products/fetchcurproject")
 	public ResponseEntity<List<ProductDTO>> fetchCurProject(ProductSearchContext context) {
@@ -183,7 +183,7 @@ public class ProductResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-CurProject-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchCurProject-all')")
 	@ApiOperation(value = "查询当前项目", tags = {"产品" } ,notes = "查询当前项目")
     @RequestMapping(method= RequestMethod.POST , value="/products/searchcurproject")
 	public ResponseEntity<Page<ProductDTO>> searchCurProject(@RequestBody ProductSearchContext context) {

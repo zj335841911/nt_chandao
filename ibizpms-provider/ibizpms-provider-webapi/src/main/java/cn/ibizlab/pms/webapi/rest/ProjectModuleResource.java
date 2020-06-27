@@ -149,7 +149,7 @@ public class ProjectModuleResource {
         return ResponseEntity.status(HttpStatus.OK).body(projectmoduledto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"任务模块" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/projectmodules/fetchdefault")
 	public ResponseEntity<List<ProjectModuleDTO>> fetchDefault(ProjectModuleSearchContext context) {
@@ -162,7 +162,7 @@ public class ProjectModuleResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-searchDefault-all')")
 	@ApiOperation(value = "查询DEFAULT", tags = {"任务模块" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/projectmodules/searchdefault")
 	public ResponseEntity<Page<ProjectModuleDTO>> searchDefault(@RequestBody ProjectModuleSearchContext context) {
@@ -170,7 +170,7 @@ public class ProjectModuleResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Root_NoBranch-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-searchRoot_NoBranch-all')")
 	@ApiOperation(value = "获取根模块_无分支", tags = {"任务模块" } ,notes = "获取根模块_无分支")
     @RequestMapping(method= RequestMethod.GET , value="/projectmodules/fetchroot_nobranch")
 	public ResponseEntity<List<ProjectModuleDTO>> fetchRoot_NoBranch(ProjectModuleSearchContext context) {
@@ -183,7 +183,7 @@ public class ProjectModuleResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Root_NoBranch-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-searchRoot_NoBranch-all')")
 	@ApiOperation(value = "查询根模块_无分支", tags = {"任务模块" } ,notes = "查询根模块_无分支")
     @RequestMapping(method= RequestMethod.POST , value="/projectmodules/searchroot_nobranch")
 	public ResponseEntity<Page<ProjectModuleDTO>> searchRoot_NoBranch(@RequestBody ProjectModuleSearchContext context) {
@@ -191,7 +191,7 @@ public class ProjectModuleResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Root-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-searchRoot-all')")
 	@ApiOperation(value = "获取根模块", tags = {"任务模块" } ,notes = "获取根模块")
     @RequestMapping(method= RequestMethod.GET , value="/projectmodules/fetchroot")
 	public ResponseEntity<List<ProjectModuleDTO>> fetchRoot(ProjectModuleSearchContext context) {
@@ -204,7 +204,7 @@ public class ProjectModuleResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Root-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-searchRoot-all')")
 	@ApiOperation(value = "查询根模块", tags = {"任务模块" } ,notes = "查询根模块")
     @RequestMapping(method= RequestMethod.POST , value="/projectmodules/searchroot")
 	public ResponseEntity<Page<ProjectModuleDTO>> searchRoot(@RequestBody ProjectModuleSearchContext context) {
@@ -212,7 +212,7 @@ public class ProjectModuleResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-ByPath-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-searchByPath-all')")
 	@ApiOperation(value = "获取BYPATH", tags = {"任务模块" } ,notes = "获取BYPATH")
     @RequestMapping(method= RequestMethod.GET , value="/projectmodules/fetchbypath")
 	public ResponseEntity<List<ProjectModuleDTO>> fetchByPath(ProjectModuleSearchContext context) {
@@ -225,7 +225,7 @@ public class ProjectModuleResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-ByPath-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-searchByPath-all')")
 	@ApiOperation(value = "查询BYPATH", tags = {"任务模块" } ,notes = "查询BYPATH")
     @RequestMapping(method= RequestMethod.POST , value="/projectmodules/searchbypath")
 	public ResponseEntity<Page<ProjectModuleDTO>> searchByPath(@RequestBody ProjectModuleSearchContext context) {
@@ -233,7 +233,7 @@ public class ProjectModuleResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Root_Task-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-searchRoot_Task-all')")
 	@ApiOperation(value = "获取根模块", tags = {"任务模块" } ,notes = "获取根模块")
     @RequestMapping(method= RequestMethod.GET , value="/projectmodules/fetchroot_task")
 	public ResponseEntity<List<ProjectModuleDTO>> fetchRoot_Task(ProjectModuleSearchContext context) {
@@ -246,7 +246,7 @@ public class ProjectModuleResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Root_Task-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-searchRoot_Task-all')")
 	@ApiOperation(value = "查询根模块", tags = {"任务模块" } ,notes = "查询根模块")
     @RequestMapping(method= RequestMethod.POST , value="/projectmodules/searchroot_task")
 	public ResponseEntity<Page<ProjectModuleDTO>> searchRoot_Task(@RequestBody ProjectModuleSearchContext context) {
@@ -375,7 +375,7 @@ public class ProjectModuleResource {
         return ResponseEntity.status(HttpStatus.OK).body(projectmoduledto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-searchDefault-all')")
 	@ApiOperation(value = "根据项目获取DEFAULT", tags = {"任务模块" } ,notes = "根据项目获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/projectmodules/fetchdefault")
 	public ResponseEntity<List<ProjectModuleDTO>> fetchProjectModuleDefaultByProject(@PathVariable("project_id") BigInteger project_id,ProjectModuleSearchContext context) {
@@ -389,7 +389,7 @@ public class ProjectModuleResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-searchDefault-all')")
 	@ApiOperation(value = "根据项目查询DEFAULT", tags = {"任务模块" } ,notes = "根据项目查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/projectmodules/searchdefault")
 	public ResponseEntity<Page<ProjectModuleDTO>> searchProjectModuleDefaultByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectModuleSearchContext context) {
@@ -398,7 +398,7 @@ public class ProjectModuleResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Root_NoBranch-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-searchRoot_NoBranch-all')")
 	@ApiOperation(value = "根据项目获取根模块_无分支", tags = {"任务模块" } ,notes = "根据项目获取根模块_无分支")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/projectmodules/fetchroot_nobranch")
 	public ResponseEntity<List<ProjectModuleDTO>> fetchProjectModuleRoot_NoBranchByProject(@PathVariable("project_id") BigInteger project_id,ProjectModuleSearchContext context) {
@@ -412,7 +412,7 @@ public class ProjectModuleResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Root_NoBranch-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-searchRoot_NoBranch-all')")
 	@ApiOperation(value = "根据项目查询根模块_无分支", tags = {"任务模块" } ,notes = "根据项目查询根模块_无分支")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/projectmodules/searchroot_nobranch")
 	public ResponseEntity<Page<ProjectModuleDTO>> searchProjectModuleRoot_NoBranchByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectModuleSearchContext context) {
@@ -421,7 +421,7 @@ public class ProjectModuleResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Root-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-searchRoot-all')")
 	@ApiOperation(value = "根据项目获取根模块", tags = {"任务模块" } ,notes = "根据项目获取根模块")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/projectmodules/fetchroot")
 	public ResponseEntity<List<ProjectModuleDTO>> fetchProjectModuleRootByProject(@PathVariable("project_id") BigInteger project_id,ProjectModuleSearchContext context) {
@@ -435,7 +435,7 @@ public class ProjectModuleResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Root-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-searchRoot-all')")
 	@ApiOperation(value = "根据项目查询根模块", tags = {"任务模块" } ,notes = "根据项目查询根模块")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/projectmodules/searchroot")
 	public ResponseEntity<Page<ProjectModuleDTO>> searchProjectModuleRootByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectModuleSearchContext context) {
@@ -444,7 +444,7 @@ public class ProjectModuleResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-ByPath-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-searchByPath-all')")
 	@ApiOperation(value = "根据项目获取BYPATH", tags = {"任务模块" } ,notes = "根据项目获取BYPATH")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/projectmodules/fetchbypath")
 	public ResponseEntity<List<ProjectModuleDTO>> fetchProjectModuleByPathByProject(@PathVariable("project_id") BigInteger project_id,ProjectModuleSearchContext context) {
@@ -458,7 +458,7 @@ public class ProjectModuleResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-ByPath-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-searchByPath-all')")
 	@ApiOperation(value = "根据项目查询BYPATH", tags = {"任务模块" } ,notes = "根据项目查询BYPATH")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/projectmodules/searchbypath")
 	public ResponseEntity<Page<ProjectModuleDTO>> searchProjectModuleByPathByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectModuleSearchContext context) {
@@ -467,7 +467,7 @@ public class ProjectModuleResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Root_Task-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-searchRoot_Task-all')")
 	@ApiOperation(value = "根据项目获取根模块", tags = {"任务模块" } ,notes = "根据项目获取根模块")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/projectmodules/fetchroot_task")
 	public ResponseEntity<List<ProjectModuleDTO>> fetchProjectModuleRoot_TaskByProject(@PathVariable("project_id") BigInteger project_id,ProjectModuleSearchContext context) {
@@ -481,7 +481,7 @@ public class ProjectModuleResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Root_Task-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-searchRoot_Task-all')")
 	@ApiOperation(value = "根据项目查询根模块", tags = {"任务模块" } ,notes = "根据项目查询根模块")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/projectmodules/searchroot_task")
 	public ResponseEntity<Page<ProjectModuleDTO>> searchProjectModuleRoot_TaskByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectModuleSearchContext context) {

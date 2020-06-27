@@ -149,7 +149,7 @@ public class BranchResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"产品的分支和平台信息" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/branches/fetchdefault")
 	public ResponseEntity<List<BranchDTO>> fetchDefault(BranchSearchContext context) {
@@ -162,7 +162,7 @@ public class BranchResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-searchDefault-all')")
 	@ApiOperation(value = "查询DEFAULT", tags = {"产品的分支和平台信息" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/branches/searchdefault")
 	public ResponseEntity<Page<BranchDTO>> searchDefault(@RequestBody BranchSearchContext context) {
@@ -170,7 +170,7 @@ public class BranchResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(branchMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-CurProduct-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-searchCurProduct-all')")
 	@ApiOperation(value = "获取CurProduct", tags = {"产品的分支和平台信息" } ,notes = "获取CurProduct")
     @RequestMapping(method= RequestMethod.GET , value="/branches/fetchcurproduct")
 	public ResponseEntity<List<BranchDTO>> fetchCurProduct(BranchSearchContext context) {
@@ -183,7 +183,7 @@ public class BranchResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-CurProduct-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-searchCurProduct-all')")
 	@ApiOperation(value = "查询CurProduct", tags = {"产品的分支和平台信息" } ,notes = "查询CurProduct")
     @RequestMapping(method= RequestMethod.POST , value="/branches/searchcurproduct")
 	public ResponseEntity<Page<BranchDTO>> searchCurProduct(@RequestBody BranchSearchContext context) {
@@ -312,7 +312,7 @@ public class BranchResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-searchDefault-all')")
 	@ApiOperation(value = "根据产品获取DEFAULT", tags = {"产品的分支和平台信息" } ,notes = "根据产品获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/branches/fetchdefault")
 	public ResponseEntity<List<BranchDTO>> fetchBranchDefaultByProduct(@PathVariable("product_id") BigInteger product_id,BranchSearchContext context) {
@@ -326,7 +326,7 @@ public class BranchResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-searchDefault-all')")
 	@ApiOperation(value = "根据产品查询DEFAULT", tags = {"产品的分支和平台信息" } ,notes = "根据产品查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/branches/searchdefault")
 	public ResponseEntity<Page<BranchDTO>> searchBranchDefaultByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BranchSearchContext context) {
@@ -335,7 +335,7 @@ public class BranchResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(branchMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-CurProduct-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-searchCurProduct-all')")
 	@ApiOperation(value = "根据产品获取CurProduct", tags = {"产品的分支和平台信息" } ,notes = "根据产品获取CurProduct")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/branches/fetchcurproduct")
 	public ResponseEntity<List<BranchDTO>> fetchBranchCurProductByProduct(@PathVariable("product_id") BigInteger product_id,BranchSearchContext context) {
@@ -349,7 +349,7 @@ public class BranchResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-CurProduct-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-searchCurProduct-all')")
 	@ApiOperation(value = "根据产品查询CurProduct", tags = {"产品的分支和平台信息" } ,notes = "根据产品查询CurProduct")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/branches/searchcurproduct")
 	public ResponseEntity<Page<BranchDTO>> searchBranchCurProductByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BranchSearchContext context) {

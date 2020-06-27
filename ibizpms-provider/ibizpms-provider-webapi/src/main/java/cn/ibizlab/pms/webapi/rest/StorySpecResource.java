@@ -137,7 +137,7 @@ public class StorySpecResource {
         return ResponseEntity.status(HttpStatus.OK).body(storyspecMapping.toDto(storyspecService.getDraft(new StorySpec())));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"需求描述" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/storyspecs/fetchdefault")
 	public ResponseEntity<List<StorySpecDTO>> fetchDefault(StorySpecSearchContext context) {
@@ -150,7 +150,7 @@ public class StorySpecResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-searchDefault-all')")
 	@ApiOperation(value = "查询DEFAULT", tags = {"需求描述" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/storyspecs/searchdefault")
 	public ResponseEntity<Page<StorySpecDTO>> searchDefault(@RequestBody StorySpecSearchContext context) {

@@ -137,7 +137,7 @@ public class TestReportResource {
         return ResponseEntity.status(HttpStatus.OK).body(testreportMapping.toDto(testreportService.getDraft(new TestReport())));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"测试报告" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/testreports/fetchdefault")
 	public ResponseEntity<List<TestReportDTO>> fetchDefault(TestReportSearchContext context) {
@@ -150,7 +150,7 @@ public class TestReportResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-searchDefault-all')")
 	@ApiOperation(value = "查询DEFAULT", tags = {"测试报告" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/testreports/searchdefault")
 	public ResponseEntity<Page<TestReportDTO>> searchDefault(@RequestBody TestReportSearchContext context) {
@@ -267,7 +267,7 @@ public class TestReportResource {
         return ResponseEntity.status(HttpStatus.OK).body(testreportMapping.toDto(testreportService.getDraft(domain)));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-searchDefault-all')")
 	@ApiOperation(value = "根据产品获取DEFAULT", tags = {"测试报告" } ,notes = "根据产品获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/testreports/fetchdefault")
 	public ResponseEntity<List<TestReportDTO>> fetchTestReportDefaultByProduct(@PathVariable("product_id") BigInteger product_id,TestReportSearchContext context) {
@@ -281,7 +281,7 @@ public class TestReportResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-searchDefault-all')")
 	@ApiOperation(value = "根据产品查询DEFAULT", tags = {"测试报告" } ,notes = "根据产品查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/testreports/searchdefault")
 	public ResponseEntity<Page<TestReportDTO>> searchTestReportDefaultByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody TestReportSearchContext context) {

@@ -185,7 +185,7 @@ public class TestTaskResource {
         return  ResponseEntity.status(HttpStatus.OK).body(testtaskService.checkKey(testtaskMapping.toDomain(testtaskdto)));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"测试版本" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/testtasks/fetchdefault")
 	public ResponseEntity<List<TestTaskDTO>> fetchDefault(TestTaskSearchContext context) {
@@ -198,7 +198,7 @@ public class TestTaskResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-searchDefault-all')")
 	@ApiOperation(value = "查询DEFAULT", tags = {"测试版本" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/testtasks/searchdefault")
 	public ResponseEntity<Page<TestTaskDTO>> searchDefault(@RequestBody TestTaskSearchContext context) {
@@ -363,7 +363,7 @@ public class TestTaskResource {
         return  ResponseEntity.status(HttpStatus.OK).body(testtaskService.checkKey(testtaskMapping.toDomain(testtaskdto)));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-searchDefault-all')")
 	@ApiOperation(value = "根据产品获取DEFAULT", tags = {"测试版本" } ,notes = "根据产品获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/testtasks/fetchdefault")
 	public ResponseEntity<List<TestTaskDTO>> fetchTestTaskDefaultByProduct(@PathVariable("product_id") BigInteger product_id,TestTaskSearchContext context) {
@@ -377,7 +377,7 @@ public class TestTaskResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-searchDefault-all')")
 	@ApiOperation(value = "根据产品查询DEFAULT", tags = {"测试版本" } ,notes = "根据产品查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/testtasks/searchdefault")
 	public ResponseEntity<Page<TestTaskDTO>> searchTestTaskDefaultByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody TestTaskSearchContext context) {

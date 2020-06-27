@@ -155,7 +155,7 @@ public class SubProductPlanResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-searchDefault-all')")
 	@ApiOperation(value = "根据产品计划获取DEFAULT", tags = {"产品计划" } ,notes = "根据产品计划获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/productplans/{productplan_id}/subproductplans/fetchdefault")
 	public ResponseEntity<List<SubProductPlanDTO>> fetchSubProductPlanDefaultByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id,ProductPlanSearchContext context) {
@@ -169,7 +169,7 @@ public class SubProductPlanResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-searchDefault-all')")
 	@ApiOperation(value = "根据产品计划查询DEFAULT", tags = {"产品计划" } ,notes = "根据产品计划查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/productplans/{productplan_id}/subproductplans/searchdefault")
 	public ResponseEntity<Page<SubProductPlanDTO>> searchSubProductPlanDefaultByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody ProductPlanSearchContext context) {
@@ -178,7 +178,7 @@ public class SubProductPlanResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(subproductplanMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-CurProductPlan-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-searchCurProductPlan-all')")
 	@ApiOperation(value = "根据产品计划获取CurProductPlan", tags = {"产品计划" } ,notes = "根据产品计划获取CurProductPlan")
     @RequestMapping(method= RequestMethod.GET , value="/productplans/{productplan_id}/subproductplans/fetchcurproductplan")
 	public ResponseEntity<List<SubProductPlanDTO>> fetchSubProductPlanCurProductPlanByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id,ProductPlanSearchContext context) {
@@ -192,7 +192,7 @@ public class SubProductPlanResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-CurProductPlan-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-searchCurProductPlan-all')")
 	@ApiOperation(value = "根据产品计划查询CurProductPlan", tags = {"产品计划" } ,notes = "根据产品计划查询CurProductPlan")
     @RequestMapping(method= RequestMethod.POST , value="/productplans/{productplan_id}/subproductplans/searchcurproductplan")
 	public ResponseEntity<Page<SubProductPlanDTO>> searchSubProductPlanCurProductPlanByProductPlan(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody ProductPlanSearchContext context) {
@@ -310,7 +310,7 @@ public class SubProductPlanResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-searchDefault-all')")
 	@ApiOperation(value = "根据产品产品计划获取DEFAULT", tags = {"产品计划" } ,notes = "根据产品产品计划获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productplans/{productplan_id}/subproductplans/fetchdefault")
 	public ResponseEntity<List<SubProductPlanDTO>> fetchSubProductPlanDefaultByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id,ProductPlanSearchContext context) {
@@ -324,7 +324,7 @@ public class SubProductPlanResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-searchDefault-all')")
 	@ApiOperation(value = "根据产品产品计划查询DEFAULT", tags = {"产品计划" } ,notes = "根据产品产品计划查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productplans/{productplan_id}/subproductplans/searchdefault")
 	public ResponseEntity<Page<SubProductPlanDTO>> searchSubProductPlanDefaultByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @RequestBody ProductPlanSearchContext context) {
@@ -333,7 +333,7 @@ public class SubProductPlanResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(subproductplanMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-CurProductPlan-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-searchCurProductPlan-all')")
 	@ApiOperation(value = "根据产品产品计划获取CurProductPlan", tags = {"产品计划" } ,notes = "根据产品产品计划获取CurProductPlan")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productplans/{productplan_id}/subproductplans/fetchcurproductplan")
 	public ResponseEntity<List<SubProductPlanDTO>> fetchSubProductPlanCurProductPlanByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id,ProductPlanSearchContext context) {
@@ -347,7 +347,7 @@ public class SubProductPlanResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-CurProductPlan-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-searchCurProductPlan-all')")
 	@ApiOperation(value = "根据产品产品计划查询CurProductPlan", tags = {"产品计划" } ,notes = "根据产品产品计划查询CurProductPlan")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productplans/{productplan_id}/subproductplans/searchcurproductplan")
 	public ResponseEntity<Page<SubProductPlanDTO>> searchSubProductPlanCurProductPlanByProductProductPlan(@PathVariable("product_id") BigInteger product_id, @PathVariable("productplan_id") BigInteger productplan_id, @RequestBody ProductPlanSearchContext context) {
