@@ -260,7 +260,26 @@ export default class StoryServiceBase extends EntityService {
      */
     public async GetStorySpec(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
-            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/getstoryspec`,data,isloading);
+            let masterData:any = {};
+        let storyspecsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
+            storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
+            if(storyspecsData && storyspecsData.length && storyspecsData.length > 0){
+                storyspecsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.storyspecs = storyspecsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/getstoryspec`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
+            return res;
         }
             return Http.getInstance().post(`/stories/${context.story}/getstoryspec`,data,isloading);
     }
