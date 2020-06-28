@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { PickupViewBase } from '@/studio-core';
+import { PickupGridViewBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import PickupGridViewEngine from '@engine/view/pickup-grid-view-engine';
 
@@ -8,9 +8,9 @@ import PickupGridViewEngine from '@engine/view/pickup-grid-view-engine';
  *
  * @export
  * @class ProjectPickupGridViewBase
- * @extends {PickupViewBase}
+ * @extends {PickupGridViewBase}
  */
-export class ProjectPickupGridViewBase extends PickupViewBase {
+export class ProjectPickupGridViewBase extends PickupGridViewBase {
 
     /**
      * 实体服务对象
