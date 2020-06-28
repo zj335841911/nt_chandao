@@ -271,6 +271,14 @@ export interface Bug {
     resolvedby?: any;
 
     /**
+     * 解决版本
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    resolvedbuild?: any;
+
+    /**
      * 优先级
      *
      * @returns {*}
@@ -463,10 +471,10 @@ export interface Bug {
     testtask?: any;
 
     /**
-     * 解决版本
+     * 备注
      *
      * @returns {*}
      * @memberof Bug
      */
-    resolvedbuild?: any;
+    comment?: any;
 }

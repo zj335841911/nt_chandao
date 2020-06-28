@@ -49,6 +49,9 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     private cn.ibizlab.pms.core.zentao.service.IBugService bugService;
     @Autowired
     @Lazy
+    private cn.ibizlab.pms.core.zentao.service.ITestRunService testrunService;
+    @Autowired
+    @Lazy
     private cn.ibizlab.pms.core.zentao.service.IBuildService buildService;
     @Autowired
     @Lazy
@@ -61,6 +64,7 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
 
     @Override
     public TestTask getDraft(TestTask et) {
+        fillParentData(et);
         return et;
     }
 
@@ -75,6 +79,18 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
         else{
         }
         return et;
+    }
+
+    @Override
+    @Transactional
+    public TestTask block(TestTask et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTestTaskHelper.block((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return et;
     }
 
     @Override
@@ -99,60 +115,107 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
 
     @Override
     public boolean saveBatch(Collection<TestTask> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
     public void saveBatch(List<TestTask> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
     @Override
     @Transactional
+    public TestTask start(TestTask et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTestTaskHelper.start((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return et;
+    }
+
+    @Override
+    @Transactional
     public boolean create(TestTask et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTestTaskHelper.create((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return bRst;
     }
 
     @Override
     public void createBatch(List<TestTask> list) {
-        this.saveBatch(list,batchSize);
+
+    }
+    @Override
+    @Transactional
+    public TestTask activate(TestTask et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTestTaskHelper.activate((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return et;
     }
 
     @Override
     @Transactional
     public boolean update(TestTask et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTestTaskHelper.edit((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return bRst;
     }
 
     @Override
     public void updateBatch(List<TestTask> list) {
-        updateBatchById(list,batchSize);
-    }
 
+    }
     @Override
     @Transactional
     public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        TestTask et = this.get(key);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTestTaskHelper.delete((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        return bRst;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
+    public void removeBatch(Collection<BigInteger> idList){
+        if (idList != null && !idList.isEmpty()) {
+            for (BigInteger id : idList) {
+                this.remove(id);
+            }
+        }
+    }
+    @Override
+    @Transactional
+    public TestTask close(TestTask et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTestTaskHelper.close((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return et;
     }
 
     @Override
     public boolean checkKey(TestTask et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
 
 	@Override
     public List<TestTask> selectByBuild(BigInteger id) {
@@ -192,6 +255,45 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     public Page<TestTask> searchDefault(TestTaskSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<TestTask> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<TestTask>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+
+
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(TestTask et){
+        //实体关系[DER1N_ZT_TESTTASK_ZT_BUILD_BUILD]
+        if(!ObjectUtils.isEmpty(et.getBuild())){
+            cn.ibizlab.pms.core.zentao.domain.Build ztbuild=et.getZtbuild();
+            if(ObjectUtils.isEmpty(ztbuild)){
+                cn.ibizlab.pms.core.zentao.domain.Build majorEntity=buildService.get(et.getBuild());
+                et.setZtbuild(majorEntity);
+                ztbuild=majorEntity;
+            }
+            et.setBuildname(ztbuild.getName());
+        }
+        //实体关系[DER1N_ZT_TESTTASK_ZT_PRODUCT_PRODUCT]
+        if(!ObjectUtils.isEmpty(et.getProduct())){
+            cn.ibizlab.pms.core.zentao.domain.Product ztproduct=et.getZtproduct();
+            if(ObjectUtils.isEmpty(ztproduct)){
+                cn.ibizlab.pms.core.zentao.domain.Product majorEntity=productService.get(et.getProduct());
+                et.setZtproduct(majorEntity);
+                ztproduct=majorEntity;
+            }
+            et.setProductname(ztproduct.getName());
+        }
+        //实体关系[DER1N_ZT_TESTTASK_ZT_PROJECT_PROJECT]
+        if(!ObjectUtils.isEmpty(et.getProject())){
+            cn.ibizlab.pms.core.zentao.domain.Project ztproject=et.getZtproject();
+            if(ObjectUtils.isEmpty(ztproject)){
+                cn.ibizlab.pms.core.zentao.domain.Project majorEntity=projectService.get(et.getProject());
+                et.setZtproject(majorEntity);
+                ztproject=majorEntity;
+            }
+            et.setProjecttname(ztproject.getName());
+        }
     }
 
 

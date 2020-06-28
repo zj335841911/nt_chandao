@@ -27,15 +27,13 @@
 
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
-       <![CDATA[	SELECT t1.`ACCOUNT`, t1.`BLOCK`, t1.`GRID`, t1.`HEIGHT`, t1.`HIDDEN`, t1.`ID`, t1.`MODULE`, t1.`ORDER`, t1.`SOURCE`, t1.`TITLE` FROM `zt_block` t1  
+		<![CDATA[ SELECT t1.`ACCOUNT`, t1.`BLOCK`, t1.`GRID`, t1.`HEIGHT`, t1.`HIDDEN`, t1.`ID`, t1.`MODULE`, t1.`ORDER`, t1.`SOURCE`, t1.`TITLE` FROM `zt_block` t1  
 			]]>
     </sql>
-
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
-       <![CDATA[	SELECT t1.`ACCOUNT`, t1.`BLOCK`, t1.`GRID`, t1.`HEIGHT`, t1.`HIDDEN`, t1.`ID`, t1.`MODULE`, t1.`ORDER`, t1.`PARAMS`, t1.`SOURCE`, t1.`TITLE` FROM `zt_block` t1  
+		<![CDATA[ SELECT t1.`ACCOUNT`, t1.`BLOCK`, t1.`GRID`, t1.`HEIGHT`, t1.`HIDDEN`, t1.`ID`, t1.`MODULE`, t1.`ORDER`, t1.`PARAMS`, t1.`SOURCE`, t1.`TITLE` FROM `zt_block` t1  
 			]]>
     </sql>
-
 </mapper>
 

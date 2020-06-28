@@ -109,7 +109,6 @@ public class UserGroupServiceImpl extends ServiceImpl<UserGroupMapper, UserGroup
     public boolean checkKey(UserGroup et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     public UserGroup getDraft(UserGroup et) {
         return et;
@@ -151,6 +150,9 @@ public class UserGroupServiceImpl extends ServiceImpl<UserGroupMapper, UserGroup
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<UserGroup> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<UserGroup>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
+
+
+
 
 
 

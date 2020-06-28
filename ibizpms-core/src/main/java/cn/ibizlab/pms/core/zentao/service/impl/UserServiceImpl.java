@@ -51,7 +51,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     public boolean checkKey(User et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean remove(BigInteger key) {
@@ -151,6 +150,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<User> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<User>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
+
+
+
 
 
 

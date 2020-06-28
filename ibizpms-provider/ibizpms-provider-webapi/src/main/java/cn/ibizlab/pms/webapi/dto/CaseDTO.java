@@ -356,6 +356,54 @@ public class CaseDTO extends DTOBase implements Serializable {
     @JsonProperty("module")
     private BigInteger module;
 
+    /**
+     * 属性 [MODULENAME]
+     *
+     */
+    @JSONField(name = "modulename")
+    @JsonProperty("modulename")
+    private String modulename;
+
+    /**
+     * 属性 [STORYNAME]
+     *
+     */
+    @JSONField(name = "storyname")
+    @JsonProperty("storyname")
+    private String storyname;
+
+    /**
+     * 属性 [PRODUCTNAME]
+     *
+     */
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
+
+    /**
+     * 属性 [TOBUGCNT]
+     *
+     */
+    @JSONField(name = "tobugcnt")
+    @JsonProperty("tobugcnt")
+    private Integer tobugcnt;
+
+    /**
+     * 属性 [RESULTCNT]
+     *
+     */
+    @JSONField(name = "resultcnt")
+    @JsonProperty("resultcnt")
+    private Integer resultcnt;
+
+    /**
+     * 属性 [STEPCNT]
+     *
+     */
+    @JSONField(name = "stepcnt")
+    @JsonProperty("stepcnt")
+    private Integer stepcnt;
+
 
     /**
      * 设置 [LASTEDITEDDATE]
@@ -653,6 +701,13 @@ public class CaseDTO extends DTOBase implements Serializable {
         this.modify("module",module);
     }
 
+
+    /**
+     *  [ZT_CASESTEP]
+     */
+    @JsonProperty("casesteps")
+    @JSONField(name = "casesteps")
+	private List<CaseStepDTO> casestep ;
 
 }
 

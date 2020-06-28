@@ -26,7 +26,7 @@ export class ActionHistory extends Vue {
      *
      * @memberof ActionHistory
      */
-    @Watch('items')
+    @Watch('items', { immediate: true })
     public itemsWatch(): void {
         this.formatData();
     }
@@ -49,24 +49,18 @@ export class ActionHistory extends Vue {
     protected actionType: any[] = [];
 
     /**
-     * 组件加载完毕
-     *
-     * @memberof ActionHistory
-     */
-    public created(): void {
-        const codeList2 = this.$store.getters.getCodeList('Action__type');
-        if (codeList2) {
-            this.actionType.push(...codeList2.items);
-        }
-    }
-
-    /**
      * 格式化数据
      *
      * @protected
      * @memberof ActionHistory
      */
     protected formatData(): void {
+        if (this.actionType.length === 0) {
+            const codeList2 = this.$store.getters.getCodeList('Action__type');
+            if (codeList2) {
+                this.actionType.push(...codeList2.items);
+            }
+        }
         this.items.forEach((item: ActionItem) => {
             const data = this.actionType.find(code => Object.is(code.value, item.action));
             if (data) {
@@ -82,7 +76,6 @@ export class ActionHistory extends Vue {
      * @memberof ActionHistory
      */
     public async loadChildren(item: ActionItem): Promise<void> {
-        this.$store.getters.getCodeList('key');
         if (item && item.isLoadedChildren === true) {
             item.expand = !item.expand;
             this.$forceUpdate();
@@ -153,7 +146,7 @@ export class ActionHistory extends Vue {
         return <div class="action-content">
             <div class="text">{item.date}，由&nbsp;<strong>{item.actor}</strong>&nbsp;{item.actionText}</div>
             {Object.is(item.action, 'edited') && this.load ? <div class="show-history">
-                <i-button title="切换显示" type="text" ghost icon={item.expand === true ? 'md-remove-circle' : 'md-add-circle'} on-click={() => this.loadChildren(item)}/>
+                <i-button title="切换显示" type="text" ghost icon={item.expand === true ? 'md-remove-circle' : 'md-add-circle'} on-click={() => this.loadChildren(item)} />
             </div> : null}
         </div>;
     }
@@ -184,6 +177,9 @@ export class ActionHistory extends Vue {
      */
     public render(): any {
         return <div class="action-history-wrapper">
+            <div class="action-history-header">
+                <span class="title">历史记录</span>
+            </div>
             {this.renderAction()}
         </div>;
     }

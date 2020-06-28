@@ -42,13 +42,16 @@
     <!--输出实体[ZT_USERQUERY]数据结构 -->
 
 
-    <!--输出实体[ZT_REPOFILES]数据结构 -->
-
-
     <!--输出实体[ZT_TESTRESULT]数据结构 -->
 
 
+    <!--输出实体[ZT_REPOFILES]数据结构 -->
+
+
     <!--输出实体[ZT_REPOHISTORY]数据结构 -->
+
+
+    <!--输出实体[IBZ_PROJECTMODULE]数据结构 -->
 
 
 
@@ -84,6 +87,9 @@
 
 
     <!--输出实体[ZT_RELATION]数据结构 -->
+
+
+    <!--输出实体[IBZ_PROJECTSTATS]数据结构 -->
 
 
     <!--输出实体[ZT_BUG]数据结构 -->
@@ -199,6 +205,9 @@
     <!--输出实体[ZT_IM_CONFERENCE]数据结构 -->
 
 
+    <!--输出实体[IBZ_PRODUCTSTATS]数据结构 -->
+
+
     <!--输出实体[ZT_ACTION]数据结构 -->
 
 
@@ -232,9 +241,10 @@
         <!--输出实体[ZT_FILE]外键关系 -->
         <!--输出实体[ZT_IM_MESSAGE]外键关系 -->
         <!--输出实体[ZT_USERQUERY]外键关系 -->
-        <!--输出实体[ZT_REPOFILES]外键关系 -->
         <!--输出实体[ZT_TESTRESULT]外键关系 -->
+        <!--输出实体[ZT_REPOFILES]外键关系 -->
         <!--输出实体[ZT_REPOHISTORY]外键关系 -->
+        <!--输出实体[IBZ_PROJECTMODULE]外键关系 -->
         <!--输出实体[ZT_USERVIEW]外键关系 -->
         <!--输出实体[ZT_USERCONTACT]外键关系 -->
         <!--输出实体[ZT_EFFORT]外键关系 -->
@@ -246,6 +256,7 @@
         <!--输出实体[ZT_JOB]外键关系 -->
         <!--输出实体[ZT_PROJECTSTORY]外键关系 -->
         <!--输出实体[ZT_RELATION]外键关系 -->
+        <!--输出实体[IBZ_PROJECTSTATS]外键关系 -->
         <!--输出实体[ZT_BUG]外键关系 -->
         <!--输出实体[ZT_RELEASE]外键关系 -->
         <!--输出实体[ZT_STORYSPEC]外键关系 -->
@@ -283,6 +294,7 @@
         <!--输出实体[ZT_CONFIG]外键关系 -->
         <!--输出实体[ZT_COMPANY]外键关系 -->
         <!--输出实体[ZT_IM_CONFERENCE]外键关系 -->
+        <!--输出实体[IBZ_PRODUCTSTATS]外键关系 -->
         <!--输出实体[ZT_ACTION]外键关系 -->
         <!--输出实体[ZT_ENTRY]外键关系 -->
         <!--输出实体[ZT_IM_CHAT]外键关系 -->

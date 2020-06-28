@@ -53,19 +53,26 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
     @Lazy
     private cn.ibizlab.pms.core.zentao.service.IProductService productService;
 
+    @Autowired
+    @Lazy
+    private cn.ibizlab.pms.core.ibiz.service.logic.IProductModuleFixPathLogic fixpathLogic;
+
     private int batchSize = 500;
 
     @Override
     @Transactional
     public boolean update(ProductModule et) {
+        fillParentData(et);
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
+        fixpathLogic.execute(et);
         return true;
     }
 
     @Override
     public void updateBatch(List<ProductModule> list) {
+        list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
     }
 
@@ -86,24 +93,34 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
     public boolean checkKey(ProductModule et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     public ProductModule getDraft(ProductModule et) {
+        fillParentData(et);
         return et;
     }
 
     @Override
     @Transactional
     public boolean create(ProductModule et) {
+        fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
+        fixpathLogic.execute(et);
         return true;
     }
 
     @Override
     public void createBatch(List<ProductModule> list) {
+        list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public ProductModule fix(ProductModule et) {
+        fixpathLogic.execute(et);
+         return et ;
     }
 
     @Override
@@ -140,12 +157,14 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
 
     @Override
     public boolean saveBatch(Collection<ProductModule> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
     public void saveBatch(List<ProductModule> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
@@ -181,6 +200,15 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
     }
 
     /**
+     * 查询集合 BYPATH
+     */
+    @Override
+    public Page<ProductModule> searchByPath(ProductModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductModule> pages=baseMapper.searchByPath(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<ProductModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 根模块_无分支
      */
     @Override
@@ -196,6 +224,35 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
     public Page<ProductModule> searchRoot(ProductModuleSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductModule> pages=baseMapper.searchRoot(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProductModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+
+
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(ProductModule et){
+        //实体关系[DER1N_IBZ_PRODUCTMODULE_IBZ_PRODUCTMODULE_PARENT]
+        if(!ObjectUtils.isEmpty(et.getParent())){
+            cn.ibizlab.pms.core.ibiz.domain.ProductModule parentmodule=et.getParentmodule();
+            if(ObjectUtils.isEmpty(parentmodule)){
+                cn.ibizlab.pms.core.ibiz.domain.ProductModule majorEntity=productmoduleService.get(et.getParent());
+                et.setParentmodule(majorEntity);
+                parentmodule=majorEntity;
+            }
+            et.setParentname(parentmodule.getName());
+        }
+        //实体关系[DER1N_IBZ_PRODUCTMODULE_ZT_PRODUCT_ROOT]
+        if(!ObjectUtils.isEmpty(et.getRoot())){
+            cn.ibizlab.pms.core.zentao.domain.Product ztproduct=et.getZtproduct();
+            if(ObjectUtils.isEmpty(ztproduct)){
+                cn.ibizlab.pms.core.zentao.domain.Product majorEntity=productService.get(et.getRoot());
+                et.setZtproduct(majorEntity);
+                ztproduct=majorEntity;
+            }
+            et.setRootname(ztproduct.getName());
+        }
     }
 
 

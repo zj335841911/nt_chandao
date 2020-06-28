@@ -31,7 +31,7 @@ export default class UserServiceBase extends EntityService {
         this.APPLYDEKEY ='user';
         this.APPDEKEY = 'id';
         this.APPDENAME = 'users';
-        this.APPDETEXT = '';
+        this.APPDETEXT = 'realname';
         this.APPNAME = 'web';
         this.SYSTEMNAME = 'pms';
     }
@@ -75,7 +75,6 @@ export default class UserServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             return Http.getInstance().delete(`/users/${context.user}`,isloading);
-
     }
 
     /**
@@ -113,7 +112,6 @@ export default class UserServiceBase extends EntityService {
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().get(`/users/${context.user}`,isloading);
             return res;
-
     }
 
     /**

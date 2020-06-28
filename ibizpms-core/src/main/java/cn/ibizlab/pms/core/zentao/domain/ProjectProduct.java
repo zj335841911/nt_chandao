@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[项目产品]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_projectproduct",resultMap = "ProjectProductResultMap")
 public class ProjectProduct extends EntityMP implements Serializable {
 
@@ -41,7 +42,7 @@ public class ProjectProduct extends EntityMP implements Serializable {
     /**
      * 虚拟主键
      */
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.ASSIGN_UUID)
     @JSONField(name = "id")
     @JsonProperty("id")
     private String id;
@@ -136,6 +137,7 @@ public class ProjectProduct extends EntityMP implements Serializable {
         this.product = product ;
         this.modify("product",product);
     }
+
     /**
      * 设置 [产品计划]
      */
@@ -143,6 +145,7 @@ public class ProjectProduct extends EntityMP implements Serializable {
         this.plan = plan ;
         this.modify("plan",plan);
     }
+
     /**
      * 设置 [平台/分支]
      */
@@ -150,6 +153,7 @@ public class ProjectProduct extends EntityMP implements Serializable {
         this.branch = branch ;
         this.modify("branch",branch);
     }
+
     /**
      * 设置 [项目]
      */
@@ -157,6 +161,7 @@ public class ProjectProduct extends EntityMP implements Serializable {
         this.project = project ;
         this.modify("project",project);
     }
+
 
 }
 

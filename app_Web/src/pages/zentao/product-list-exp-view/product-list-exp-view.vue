@@ -1,19 +1,27 @@
+<template src="./product-list-exp-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import ProductListExpViewBase from './product-list-exp-view-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { ProductListExpViewBase } from './product-list-exp-view-base';
 import view_listexpbar from '@widgets/product/list-exp-viewlistexpbar-listexpbar/list-exp-viewlistexpbar-listexpbar.vue';
+
+/**
+ * 产品列表导航视图视图
+ *
+ * @export
+ * @class ProductListExpView
+ * @extends {ProductListExpViewBase}
+ */
 @Component({
     components: {
         view_listexpbar, 
     },
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
         });
-    },
+    }
 })
-export default class ProductListExpView extends ProductListExpViewBase {
-
-}
+@VueLifeCycleProcessing()
+export default class ProductListExpView extends ProductListExpViewBase { }
 </script>

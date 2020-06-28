@@ -1,14 +1,22 @@
+<template src="./main-edit-mode-form.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import Main_EditModeBase from './main-edit-mode-form-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { Main_EditModeEditFormBase } from './main-edit-mode-form-base';
  
+
+/**
+ * form部件
+ *
+ * @export
+ * @class Main_EditModeEditForm
+ * @extends {Main_EditModeEditFormBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class Main_EditMode extends Main_EditModeBase {
-
-}
+@VueLifeCycleProcessing()
+export default class Main_EditModeEditForm extends Main_EditModeEditFormBase { }
 </script>

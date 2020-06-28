@@ -38,6 +38,7 @@ export default class GroupTrendsModel {
 			},
 			{
 				name: 'actor',
+        codelist:{tag:'UserRealName',codelistType:'DYNAMIC'},
 			},
 			{
 				name: 'objecttype',

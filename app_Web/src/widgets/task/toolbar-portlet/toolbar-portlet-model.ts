@@ -130,9 +130,6 @@ export default class ToolbarModel {
         name: 'project',
       },
       {
-        name: 'module',
-      },
-      {
         name: 'story',
       },
       {
@@ -143,6 +140,21 @@ export default class ToolbarModel {
       },
       {
         name: 'duration',
+      },
+      {
+        name: 'module',
+      },
+      {
+        name: 'path',
+      },
+      {
+        name: 'comment',
+      },
+      {
+        name: 'currentconsumed',
+      },
+      {
+        name: 'totaltime',
       },
     ]
   }

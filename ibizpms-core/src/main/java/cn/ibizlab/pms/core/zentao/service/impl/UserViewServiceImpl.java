@@ -81,7 +81,6 @@ public class UserViewServiceImpl extends ServiceImpl<UserViewMapper, UserView> i
     public boolean checkKey(UserView et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean create(UserView et) {
@@ -151,6 +150,9 @@ public class UserViewServiceImpl extends ServiceImpl<UserViewMapper, UserView> i
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<UserView> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<UserView>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
+
+
+
 
 
 

@@ -31,7 +31,7 @@ public class RepoFilesSearchContext extends QueryWrapperContext<RepoFiles> {
 	public void setN_parent_eq(BigInteger n_parent_eq) {
         this.n_parent_eq = n_parent_eq;
         if(!ObjectUtils.isEmpty(this.n_parent_eq)){
-            this.getSelectCond().eq("parent", n_parent_eq);
+            this.getSearchCond().eq("parent", n_parent_eq);
         }
     }
 

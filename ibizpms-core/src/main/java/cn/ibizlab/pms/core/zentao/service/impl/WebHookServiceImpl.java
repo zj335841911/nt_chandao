@@ -64,7 +64,6 @@ public class WebHookServiceImpl extends ServiceImpl<WebHookMapper, WebHook> impl
     public boolean checkKey(WebHook et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean save(WebHook et) {
@@ -151,6 +150,9 @@ public class WebHookServiceImpl extends ServiceImpl<WebHookMapper, WebHook> impl
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<WebHook> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<WebHook>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
+
+
+
 
 
 

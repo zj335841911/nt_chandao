@@ -51,7 +51,6 @@ public class RepoBranchServiceImpl extends ServiceImpl<RepoBranchMapper, RepoBra
     public boolean checkKey(RepoBranch et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean update(RepoBranch et) {
@@ -151,6 +150,9 @@ public class RepoBranchServiceImpl extends ServiceImpl<RepoBranchMapper, RepoBra
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<RepoBranch> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<RepoBranch>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
+
+
+
 
 
 

@@ -1,15 +1,22 @@
-
+<template src="./assigned-to-me-story-portlet.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import StoryAssignedToMeStoryBase from './assigned-to-me-story-portlet-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { AssignedToMeStoryPortletBase } from './assigned-to-me-story-portlet-base';
  
+
+/**
+ * db_assignedtomestoryportlet部件
+ *
+ * @export
+ * @class AssignedToMeStoryPortlet
+ * @extends {AssignedToMeStoryPortletBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class StoryAssignedToMeStory extends StoryAssignedToMeStoryBase {
-
-}
+@VueLifeCycleProcessing()
+export default class AssignedToMeStoryPortlet extends AssignedToMeStoryPortletBase { }
 </script>

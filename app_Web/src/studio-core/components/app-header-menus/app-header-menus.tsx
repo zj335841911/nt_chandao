@@ -38,6 +38,9 @@ export class AppHeaderMenus extends Vue {
      */
     public mounted(): void {
         this.$nextTick(() => {
+            if (this.$route.matched && this.$route.matched.length > 1) {
+                return;
+            }
             const openDefault = this.findDefaultOpen(this.menus);
             if (openDefault) {
                 this.menuClick(openDefault);

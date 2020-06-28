@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[发布]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_release",resultMap = "ReleaseResultMap")
 public class Release extends EntityMP implements Serializable {
 
@@ -57,7 +58,7 @@ public class Release extends EntityMP implements Serializable {
      * ID
      */
     @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private BigInteger id;
@@ -150,6 +151,13 @@ public class Release extends EntityMP implements Serializable {
     @JSONField(name = "branch")
     @JsonProperty("branch")
     private BigInteger branch;
+    /**
+     * 产品名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
 
     /**
      * 
@@ -184,6 +192,7 @@ public class Release extends EntityMP implements Serializable {
         this.stories = stories ;
         this.modify("stories",stories);
     }
+
     /**
      * 设置 [里程碑]
      */
@@ -191,6 +200,7 @@ public class Release extends EntityMP implements Serializable {
         this.marker = marker ;
         this.modify("marker",marker);
     }
+
     /**
      * 设置 [遗留的Bug]
      */
@@ -198,6 +208,7 @@ public class Release extends EntityMP implements Serializable {
         this.leftbugs = leftbugs ;
         this.modify("leftbugs",leftbugs);
     }
+
     /**
      * 设置 [解决的Bug]
      */
@@ -205,6 +216,7 @@ public class Release extends EntityMP implements Serializable {
         this.bugs = bugs ;
         this.modify("bugs",bugs);
     }
+
     /**
      * 设置 [发布名称]
      */
@@ -212,12 +224,24 @@ public class Release extends EntityMP implements Serializable {
         this.name = name ;
         this.modify("name",name);
     }
+
     /**
      * 设置 [发布日期]
      */
     public void setDate(Timestamp date){
         this.date = date ;
         this.modify("date",date);
+    }
+
+    /**
+     * 格式化日期 [发布日期]
+     */
+    public String formatDate(){
+        if (this.date == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(date);
     }
     /**
      * 设置 [状态]
@@ -226,6 +250,7 @@ public class Release extends EntityMP implements Serializable {
         this.status = status ;
         this.modify("status",status);
     }
+
     /**
      * 设置 [子状态]
      */
@@ -233,6 +258,7 @@ public class Release extends EntityMP implements Serializable {
         this.substatus = substatus ;
         this.modify("substatus",substatus);
     }
+
     /**
      * 设置 [描述]
      */
@@ -240,6 +266,7 @@ public class Release extends EntityMP implements Serializable {
         this.desc = desc ;
         this.modify("desc",desc);
     }
+
     /**
      * 设置 [产品]
      */
@@ -247,6 +274,7 @@ public class Release extends EntityMP implements Serializable {
         this.product = product ;
         this.modify("product",product);
     }
+
     /**
      * 设置 [版本]
      */
@@ -254,6 +282,7 @@ public class Release extends EntityMP implements Serializable {
         this.build = build ;
         this.modify("build",build);
     }
+
     /**
      * 设置 [平台/分支]
      */
@@ -261,6 +290,7 @@ public class Release extends EntityMP implements Serializable {
         this.branch = branch ;
         this.modify("branch",branch);
     }
+
 
 }
 

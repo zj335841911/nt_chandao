@@ -55,6 +55,7 @@ public interface IStorySpecService extends IService<StorySpec>{
     boolean execute(String sql, Map param);
 
 
+
 }
 
 

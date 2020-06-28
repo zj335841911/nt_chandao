@@ -31,28 +31,28 @@ public class StorySpecSearchContext extends QueryWrapperContext<StorySpec> {
 	public void setN_duplicatestory_eq(Integer n_duplicatestory_eq) {
         this.n_duplicatestory_eq = n_duplicatestory_eq;
         if(!ObjectUtils.isEmpty(this.n_duplicatestory_eq)){
-            this.getSelectCond().eq("duplicatestory", n_duplicatestory_eq);
+            this.getSearchCond().eq("duplicatestory", n_duplicatestory_eq);
         }
     }
 	private String n_title_like;//[需求名称]
 	public void setN_title_like(String n_title_like) {
         this.n_title_like = n_title_like;
         if(!ObjectUtils.isEmpty(this.n_title_like)){
-            this.getSelectCond().like("title", n_title_like);
+            this.getSearchCond().like("title", n_title_like);
         }
     }
 	private Integer n_version_eq;//[版本号]
 	public void setN_version_eq(Integer n_version_eq) {
         this.n_version_eq = n_version_eq;
         if(!ObjectUtils.isEmpty(this.n_version_eq)){
-            this.getSelectCond().eq("version", n_version_eq);
+            this.getSearchCond().eq("version", n_version_eq);
         }
     }
 	private BigInteger n_story_eq;//[需求]
 	public void setN_story_eq(BigInteger n_story_eq) {
         this.n_story_eq = n_story_eq;
         if(!ObjectUtils.isEmpty(this.n_story_eq)){
-            this.getSelectCond().eq("story", n_story_eq);
+            this.getSearchCond().eq("story", n_story_eq);
         }
     }
 
@@ -63,7 +63,7 @@ public class StorySpecSearchContext extends QueryWrapperContext<StorySpec> {
 	{
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
-            this.getSelectCond().and( wrapper ->
+            this.getSearchCond().and( wrapper ->
                      wrapper.like("title", query)   
             );
 		 }

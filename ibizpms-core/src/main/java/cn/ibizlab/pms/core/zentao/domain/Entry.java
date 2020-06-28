@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[entry]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_entry",resultMap = "EntryResultMap")
 public class Entry extends EntityMP implements Serializable {
 
@@ -58,7 +59,7 @@ public class Entry extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private BigInteger id;
@@ -152,12 +153,24 @@ public class Entry extends EntityMP implements Serializable {
         this.code = code ;
         this.modify("code",code);
     }
+
     /**
      * 设置 [editedDate]
      */
     public void setEditeddate(Timestamp editeddate){
         this.editeddate = editeddate ;
         this.modify("editeddate",editeddate);
+    }
+
+    /**
+     * 格式化日期 [editedDate]
+     */
+    public String formatEditeddate(){
+        if (this.editeddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(editeddate);
     }
     /**
      * 设置 [createdDate]
@@ -166,6 +179,17 @@ public class Entry extends EntityMP implements Serializable {
         this.createddate = createddate ;
         this.modify("createddate",createddate);
     }
+
+    /**
+     * 格式化日期 [createdDate]
+     */
+    public String formatCreateddate(){
+        if (this.createddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(createddate);
+    }
     /**
      * 设置 [freePasswd]
      */
@@ -173,6 +197,7 @@ public class Entry extends EntityMP implements Serializable {
         this.freepasswd = freepasswd ;
         this.modify("freepasswd",freepasswd);
     }
+
     /**
      * 设置 [createdBy]
      */
@@ -180,6 +205,7 @@ public class Entry extends EntityMP implements Serializable {
         this.createdby = createdby ;
         this.modify("createdby",createdby);
     }
+
     /**
      * 设置 [account]
      */
@@ -187,6 +213,7 @@ public class Entry extends EntityMP implements Serializable {
         this.account = account ;
         this.modify("account",account);
     }
+
     /**
      * 设置 [calledTime]
      */
@@ -194,6 +221,7 @@ public class Entry extends EntityMP implements Serializable {
         this.calledtime = calledtime ;
         this.modify("calledtime",calledtime);
     }
+
     /**
      * 设置 [key]
      */
@@ -201,6 +229,7 @@ public class Entry extends EntityMP implements Serializable {
         this.key = key ;
         this.modify("key",key);
     }
+
     /**
      * 设置 [editedBy]
      */
@@ -208,6 +237,7 @@ public class Entry extends EntityMP implements Serializable {
         this.editedby = editedby ;
         this.modify("editedby",editedby);
     }
+
     /**
      * 设置 [ip]
      */
@@ -215,6 +245,7 @@ public class Entry extends EntityMP implements Serializable {
         this.ip = ip ;
         this.modify("ip",ip);
     }
+
     /**
      * 设置 [desc]
      */
@@ -222,6 +253,7 @@ public class Entry extends EntityMP implements Serializable {
         this.desc = desc ;
         this.modify("desc",desc);
     }
+
     /**
      * 设置 [name]
      */
@@ -229,6 +261,7 @@ public class Entry extends EntityMP implements Serializable {
         this.name = name ;
         this.modify("name",name);
     }
+
 
 }
 

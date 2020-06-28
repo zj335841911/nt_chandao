@@ -31,28 +31,42 @@ public class BuildSearchContext extends QueryWrapperContext<Build> {
 	public void setN_name_like(String n_name_like) {
         this.n_name_like = n_name_like;
         if(!ObjectUtils.isEmpty(this.n_name_like)){
-            this.getSelectCond().like("name", n_name_like);
+            this.getSearchCond().like("name", n_name_like);
         }
     }
 	private BigInteger n_product_eq;//[产品]
 	public void setN_product_eq(BigInteger n_product_eq) {
         this.n_product_eq = n_product_eq;
         if(!ObjectUtils.isEmpty(this.n_product_eq)){
-            this.getSelectCond().eq("product", n_product_eq);
+            this.getSearchCond().eq("product", n_product_eq);
         }
     }
 	private BigInteger n_branch_eq;//[平台/分支]
 	public void setN_branch_eq(BigInteger n_branch_eq) {
         this.n_branch_eq = n_branch_eq;
         if(!ObjectUtils.isEmpty(this.n_branch_eq)){
-            this.getSelectCond().eq("branch", n_branch_eq);
+            this.getSearchCond().eq("branch", n_branch_eq);
         }
     }
 	private BigInteger n_project_eq;//[所属项目]
 	public void setN_project_eq(BigInteger n_project_eq) {
         this.n_project_eq = n_project_eq;
         if(!ObjectUtils.isEmpty(this.n_project_eq)){
-            this.getSelectCond().eq("project", n_project_eq);
+            this.getSearchCond().eq("project", n_project_eq);
+        }
+    }
+	private String n_productname_eq;//[产品名称]
+	public void setN_productname_eq(String n_productname_eq) {
+        this.n_productname_eq = n_productname_eq;
+        if(!ObjectUtils.isEmpty(this.n_productname_eq)){
+            this.getSearchCond().eq("productname", n_productname_eq);
+        }
+    }
+	private String n_productname_like;//[产品名称]
+	public void setN_productname_like(String n_productname_like) {
+        this.n_productname_like = n_productname_like;
+        if(!ObjectUtils.isEmpty(this.n_productname_like)){
+            this.getSearchCond().like("productname", n_productname_like);
         }
     }
 
@@ -63,7 +77,7 @@ public class BuildSearchContext extends QueryWrapperContext<Build> {
 	{
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
-            this.getSelectCond().and( wrapper ->
+            this.getSearchCond().and( wrapper ->
                      wrapper.like("name", query)   
             );
 		 }

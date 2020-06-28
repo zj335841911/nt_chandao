@@ -44,11 +44,11 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 
 ## 整体流程
 
-![flow](https://images.gitee.com/uploads/images/2020/0601/222221_f000799e_5049745.png)
+![flow](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/flow.png)
 
 ## 与禅道关系
 
-![flow2](https://images.gitee.com/uploads/images/2020/0601/222221_8a5eaec8_5049745.png)
+![flow2](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/flow2.png)
 
 ## 增强特性
 
@@ -68,7 +68,7 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 
 - 支持接入生产体系（系统）数据，自动完成日常管理数据填充。
 
-  ![ywt](https://images.gitee.com/uploads/images/2020/0601/222221_c18a529c_5049745.png)
+  ![ywt](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/ywt.png)
 
 
 ## 开源参与
@@ -79,7 +79,7 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 
 - 欢迎加入iBizPMS交流QQ群：1067434627
 
-  ![QQ](https://images.gitee.com/uploads/images/2020/0601/222221_065de9c8_5049745.jpeg)
+  ![QQ](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/QQ.jpg)
 
 ## 技术框架
 
@@ -133,51 +133,49 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 
 演示Demo地址：http://pms.ibizlab.cn
 
-演示账号：guest
-
-演示密码：123456
+演示账号/密码：gitee/gitee@123，pms_guest/guest@123
 
 ## 系统展示
 
 产品概况
 
-![show1](https://images.gitee.com/uploads/images/2020/0601/222221_7edfcd15_5049745.png)
+![show1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show1.png)
 
 甘特图
 
-![show2](https://images.gitee.com/uploads/images/2020/0601/222221_6486301d_5049745.png)
+![show2](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show2.png)
 
 项目主页
 
-![show3](https://images.gitee.com/uploads/images/2020/0601/222221_0d9e0d65_5049745.png)
+![show3](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show3.png)
 
 产品路线图
 
-![show4](https://images.gitee.com/uploads/images/2020/0601/222222_46a9e965_5049745.png)
+![show4](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show4.png)
 
 产品动态
 
-![show4](https://images.gitee.com/uploads/images/2020/0601/222222_56389603_5049745.png)
+![show4](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show5.png)
 
 产品主页
 
-![show4](https://images.gitee.com/uploads/images/2020/0601/222222_6b4771b4_5049745.png)
+![show4](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show6.png)
 
 需求
 
-![show4](https://images.gitee.com/uploads/images/2020/0601/222222_c333e578_5049745.png)
+![show4](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show7.png)
 
 接口列表
 
-![swagger1](https://images.gitee.com/uploads/images/2020/0601/222222_98ff731b_5049745.png)
+![swagger1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/swagger1.png)
 
 产品接口
 
-![swagger2](https://images.gitee.com/uploads/images/2020/0601/222222_b5a05e60_5049745.png)
+![swagger2](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/swagger2.png)
 
 新建产品接口
 
-![swagger3](https://images.gitee.com/uploads/images/2020/0601/222222_bf90d171_5049745.png)
+![swagger3](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/swagger3.png)
 
 ## 附录
 
@@ -185,23 +183,26 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 
 > **我们计划在7月完成iBizPMS第一版功能**
 
-| 序号 | 时间       | 事件                     | 备注                                 |
-| ---- | ---------- | ------------------------ | ------------------------------------ |
-| 1    | 2020-05-06 | 选型预研。               | 国内外项目管理软件整理很对比。       |
-| 2    | 2020-05-11 | 禅道业务分析、技术预研。 |                                      |
-| 3    | 2020-05-18 | 项目启动。               |                                      |
-| 4    | 2020-05-18 | 禅道模型整理。           | 梳理禅道的业务数据模型以及模型关系。 |
-| 5    | 2020-05-18 | 禅道界面、组件整理。     | 梳理禅道界面表现和组件模型。         |
-| 6    | 2020-05-25 | 禅道API整理。            | 梳理禅道API，抽象共通性。            |
-| 7    | 2020-06-01 | 联通iBizPMS与禅道。      | iBizPMS与禅道API和数据库联通。       |
+| 序号 | 时间       | 事件                     | 备注                                       |
+| ---- | ---------- | ------------------------ | ------------------------------------------ |
+| 1    | 2020-05-06 | 选型预研。               | 国内外项目管理软件整理和对比。             |
+| 2    | 2020-05-11 | 禅道业务分析、技术预研。 |                                            |
+| 3    | 2020-05-18 | 项目启动。               |                                            |
+| 4    | 2020-05-18 | 禅道模型整理。           | 梳理禅道的业务数据模型以及模型关系。       |
+| 5    | 2020-05-18 | 禅道界面、组件整理。     | 梳理禅道界面表现和组件模型。               |
+| 6    | 2020-05-25 | 禅道API整理。            | 梳理禅道API，抽象共通性。                  |
+| 7    | 2020-06-01 | 联通iBizPMS与禅道。      | iBizPMS与禅道API和数据库联通。             |
+| 8    | 2020-06-08 | 功能持续完善。           | 产品、项目、测试功能逐步完善中。           |
+| 9    | 2020-06-22 | 功能持续完善。           | 产品、项目主功能完成，测试功能逐步完善中。 |
+| 10   | 2020-06-27 | 功能持续完善。           | 测试主功能基本完成，剩余功能逐步完善中。   |
 
 ### 快速建立issue
 
 在运行系统的任意一个界面上，敲下“Ctrl+F12”或者点击右下角“显示Debug栏”，便会呈现“新建issues”的操作，点击便可以快速建立issue。
 
-![issue1](https://images.gitee.com/uploads/images/2020/0601/222222_0f5f47e3_5049745.png)
+![issue1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/issue1.png)
 
-![issue2](https://images.gitee.com/uploads/images/2020/0601/222222_281c74a4_5049745.png)
+![issue2](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/issue2.png)
 
 ### 感谢
 

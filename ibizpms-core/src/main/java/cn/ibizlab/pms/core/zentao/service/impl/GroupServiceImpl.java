@@ -142,7 +142,6 @@ public class GroupServiceImpl extends ServiceImpl<GroupMapper, Group> implements
     }
 
 
-
     /**
      * 查询集合 DEFAULT
      */
@@ -151,6 +150,9 @@ public class GroupServiceImpl extends ServiceImpl<GroupMapper, Group> implements
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Group> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Group>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
+
+
+
 
 
 

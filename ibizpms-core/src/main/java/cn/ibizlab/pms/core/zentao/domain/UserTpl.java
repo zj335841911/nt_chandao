@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[用户模板]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_usertpl",resultMap = "UserTplResultMap")
 public class UserTpl extends EntityMP implements Serializable {
 
@@ -49,7 +50,7 @@ public class UserTpl extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private BigInteger id;
@@ -92,6 +93,7 @@ public class UserTpl extends EntityMP implements Serializable {
         this.title = title ;
         this.modify("title",title);
     }
+
     /**
      * 设置 [content]
      */
@@ -99,6 +101,7 @@ public class UserTpl extends EntityMP implements Serializable {
         this.content = content ;
         this.modify("content",content);
     }
+
     /**
      * 设置 [type]
      */
@@ -106,6 +109,7 @@ public class UserTpl extends EntityMP implements Serializable {
         this.type = type ;
         this.modify("type",type);
     }
+
     /**
      * 设置 [account]
      */
@@ -113,6 +117,7 @@ public class UserTpl extends EntityMP implements Serializable {
         this.account = account ;
         this.modify("account",account);
     }
+
     /**
      * 设置 [public]
      */
@@ -120,6 +125,7 @@ public class UserTpl extends EntityMP implements Serializable {
         this.ibizpublic = ibizpublic ;
         this.modify("public",ibizpublic);
     }
+
 
 }
 

@@ -142,7 +142,6 @@ public class Im_messageServiceImpl extends ServiceImpl<Im_messageMapper, Im_mess
     }
 
 
-
     /**
      * 查询集合 DEFAULT
      */
@@ -151,6 +150,9 @@ public class Im_messageServiceImpl extends ServiceImpl<Im_messageMapper, Im_mess
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Im_message> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Im_message>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
+
+
+
 
 
 

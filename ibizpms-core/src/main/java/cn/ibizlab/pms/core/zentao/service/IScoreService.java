@@ -53,6 +53,7 @@ public interface IScoreService extends IService<Score>{
     boolean execute(String sql, Map param);
 
 
+
 }
 
 

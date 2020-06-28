@@ -1,5 +1,6 @@
 package cn.ibizlab.pms.core.util.zentao.helper;
 
+import cn.ibizlab.pms.core.util.zentao.bean.ZTResult;
 import cn.ibizlab.pms.core.util.zentao.constants.ZenTaoConstants;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,12 +8,13 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
  * 【禅道接口-API】 辅助类
  */
-public class ZTAPIHelper {
+final public class ZTAPIHelper {
     // ----------
     // 接口模块
     // ----------
@@ -41,23 +43,38 @@ public class ZTAPIHelper {
     // 接口实现
     // ----------
 
-    final static public boolean getSessionID(JSONObject rst) {
-        // 后期从session获取，前期使用admin
-        String account = ZenTaoConstants.ZT_TMP_USERNAME;
-        String url = MODULE_NAME + "-" + ACTION_GETSESSIONID + ZenTaoConstants.ZT_URL_EXT;
-        rst = ZenTaoHttpHelper.doRequest(account, url, ACTION_HTTPMETHOD_GETSESSIONID, ZenTaoConstants.ZT_ACTION_TYPE_GETSESSION);
-        if (!"success".equals(rst.getString("status"))) {
-            return false;
+    /**
+     * getSessionID 获取Sesson ID
+     *
+     * @param rst
+     * @return
+     */
+    public static boolean getSessionID(ZTResult rst) {
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_GETSESSIONID;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_GETSESSIONID;
+        Map<String, Object> actionParams = null;
+        List<String> actionUrlParams = null;
+
+        try {
+            String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt);
+            JSONObject rstJO = ZenTaoHttpHelper.doRequest(null, url, actionHttpMethod);
+            rst.setResult(rstJO);
+            if (!"success".equals(rstJO.getString("status")) || !rstJO.containsKey("data") || !rstJO.getString("data").contains("zentaosid")) {
+                rst.setMessage("禅道接口相应结果不正确");
+                rst.setSuccess(false);
+            } else {
+                rst.setSuccess(true);
+            }
+        } catch (Exception e) {
+            // 暂无log时，输出e.printStackTrace();
+            e.printStackTrace();
+            rst.setSuccess(false);
+            rst.setMessage(e.getMessage() != null ? e.getMessage() : "调用禅道接口异常");
         }
-        if (!rst.containsKey("data")) {
-            return false;
-        }
-        String dataStr = rst.getString("data");
-        if (!dataStr.contains("zentaosid")) {
-            return false;
-        }
-        JSONObject data = JSONObject.parseObject(dataStr);
-        return account.equals(data.getString("sessionID"));
+        return rst.isSuccess();
     }
 
 }

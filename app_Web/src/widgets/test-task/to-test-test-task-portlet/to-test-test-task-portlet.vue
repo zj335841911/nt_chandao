@@ -1,15 +1,22 @@
-
+<template src="./to-test-test-task-portlet.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import TestTaskToTestTestTaskBase from './to-test-test-task-portlet-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { ToTestTestTaskPortletBase } from './to-test-test-task-portlet-base';
  
+
+/**
+ * db_sysportlet1部件
+ *
+ * @export
+ * @class ToTestTestTaskPortlet
+ * @extends {ToTestTestTaskPortletBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class TestTaskToTestTestTask extends TestTaskToTestTestTaskBase {
-
-}
+@VueLifeCycleProcessing()
+export default class ToTestTestTaskPortlet extends ToTestTestTaskPortletBase { }
 </script>

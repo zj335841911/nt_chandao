@@ -145,7 +145,6 @@ public class CompileServiceImpl extends ServiceImpl<CompileMapper, Compile> impl
     }
 
 
-
     /**
      * 查询集合 DEFAULT
      */
@@ -154,6 +153,9 @@ public class CompileServiceImpl extends ServiceImpl<CompileMapper, Compile> impl
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Compile> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Compile>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
+
+
+
 
 
 

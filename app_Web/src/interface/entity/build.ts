@@ -109,4 +109,12 @@ export interface Build {
      * @memberof Build
      */
     project?: any;
+
+    /**
+     * 产品名称
+     *
+     * @returns {*}
+     * @memberof Build
+     */
+    productname?: any;
 }

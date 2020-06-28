@@ -79,20 +79,27 @@ export default class StoryUIServiceBase extends UIService {
      * @memberof  StoryUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'reportsubgridview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'mainview',srfappde:'stories'});
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'gridview9_assignedtome',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'mainview9_editmode',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'plansubeditview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'buildsubgridview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'mainview9_storyspec',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'curprojectgridview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'mainview_editmode',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'releasesubgridview',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'releasesubeditview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'mainview9',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'gridview9_substory',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'maingridview_bymodule',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'maingridview',srfappde:'stories'});
         this.allViewMap.set('MPICKUPVIEW:',{viewname:'mpickupview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'plansubgridview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'main2gridview',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'editview_storychange',srfappde:'stories'});
     }
 
     /**
@@ -115,7 +122,7 @@ export default class StoryUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Story_CloseStory(args: any[],context:any = {}, params?: any, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+    public async Story_CloseStory(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
         let confirmResult:boolean = await new Promise((resolve: any, reject: any) => {
           actionContext.$Modal.confirm({
               title: '警告',
@@ -128,14 +135,22 @@ export default class StoryUIServiceBase extends UIService {
             return;
         }
         let data: any = {};
-        const _args: any[] = Util.deepCopy(args);
+        let parentContext:any = {};
+        let parentViewParam:any = {};
         const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { story: '%story%' });
         Object.assign(params, { id: '%story%' });
         Object.assign(params, { title: '%title%' });
-        context = UIActionTool.handleContextParam(actionTarget,_args,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,params);
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
         context = Object.assign({},actionContext.context,context);
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
@@ -147,7 +162,7 @@ export default class StoryUIServiceBase extends UIService {
         }
         const backend = () => {
             const curService:StoryService =  new StoryService();
-            curService.Get(context,data, true).then((response: any) => {
+            curService.Close(context,data, true).then((response: any) => {
                 if (!response || response.status !== 200) {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;
@@ -185,16 +200,25 @@ export default class StoryUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Story_OpenBaseInfoEditView(args: any[], context:any = {} ,params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public async Story_OpenBaseInfoEditView(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
         let data: any = {};
-        const _args: any[] = Util.deepCopy(args);
+        let parentContext:any = {};
+        let parentViewParam:any = {};
         const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { story: '%story%' });
         Object.assign(params, { id: '%story%' });
         Object.assign(params, { title: '%title%' });
-        context = UIActionTool.handleContextParam(actionTarget,_args,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,params);
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
         context = Object.assign({},actionContext.context,context);
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
@@ -247,16 +271,25 @@ export default class StoryUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Story_OpenCaseCreateView(args: any[], context:any = {} ,params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public async Story_OpenCaseCreateView(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
         let data: any = {};
-        const _args: any[] = Util.deepCopy(args);
+        let parentContext:any = {};
+        let parentViewParam:any = {};
         const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { story: '%story%' });
         Object.assign(params, { id: '%story%' });
         Object.assign(params, { title: '%title%' });
-        context = UIActionTool.handleContextParam(actionTarget,_args,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,params);
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
         context = Object.assign({},actionContext.context,context);
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
@@ -291,13 +324,22 @@ export default class StoryUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Story_PlanRelationStory(args: any[], context:any = {} ,params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public async Story_PlanRelationStory(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
         let data: any = {};
-        const _args: any[] = Util.deepCopy(args);
+        let parentContext:any = {};
+        let parentViewParam:any = {};
         const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
-        context = UIActionTool.handleContextParam(actionTarget,_args,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,params);
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
         context = Object.assign({},actionContext.context,context);
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
@@ -336,7 +378,7 @@ export default class StoryUIServiceBase extends UIService {
     }
 
     /**
-     * 变更需求
+     * 变更
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
@@ -347,16 +389,25 @@ export default class StoryUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Story_ChangeStoryDetail(args: any[], context:any = {} ,params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public async Story_ChangeStoryDetail(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
         let data: any = {};
-        const _args: any[] = Util.deepCopy(args);
+        let parentContext:any = {};
+        let parentViewParam:any = {};
         const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { story: '%story%' });
         Object.assign(params, { id: '%story%' });
         Object.assign(params, { title: '%title%' });
-        context = UIActionTool.handleContextParam(actionTarget,_args,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,params);
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
         context = Object.assign({},actionContext.context,context);
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
@@ -385,13 +436,80 @@ export default class StoryUIServiceBase extends UIService {
                 });
             }
             const view: any = {
-                viewname: 'story-main-view-edit-mode', 
+                viewname: 'story-edit-view-story-change', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.story.views.mainview_editmode.title'),
+                title: actionContext.$t('entities.story.views.editview_storychange.title'),
                 placement: 'DRAWER_TOP',
             };
             openDrawer(view, data);
+    }
+
+    /**
+     * 指派
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_AssignTo(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { story: '%story%' });
+        Object.assign(params, { id: '%story%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        const backend = () => {
+            const curService:StoryService =  new StoryService();
+            curService.AssignTo(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '指派成功' });
+
+                const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        backend();
     }
 
 

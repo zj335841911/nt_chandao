@@ -1,9 +1,18 @@
+<template src="./product-life-road-map-list-view9.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import ProductLifeRoadMapListView9Base from './product-life-road-map-list-view9-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { ProductLifeRoadMapListView9Base } from './product-life-road-map-list-view9-base';
 import view_list2 from '@widgets/product-life/get-roadmap-list/get-roadmap-list.vue';
 import view_list from '@widgets/product-life/get-roadmap-year-list/get-roadmap-year-list.vue';
+
+/**
+ * 路线图视图
+ *
+ * @export
+ * @class ProductLifeRoadMapListView9
+ * @extends {ProductLifeRoadMapListView9Base}
+ */
 @Component({
     components: {
         view_list2, 
@@ -11,11 +20,10 @@ import view_list from '@widgets/product-life/get-roadmap-year-list/get-roadmap-y
     },
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
         });
-    },
+    }
 })
-export default class ProductLifeRoadMapListView9 extends ProductLifeRoadMapListView9Base {
-
-}
+@VueLifeCycleProcessing()
+export default class ProductLifeRoadMapListView9 extends ProductLifeRoadMapListView9Base { }
 </script>

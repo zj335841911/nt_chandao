@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[群组]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_group",resultMap = "GroupResultMap")
 public class Group extends EntityMP implements Serializable {
 
@@ -46,22 +47,22 @@ public class Group extends EntityMP implements Serializable {
     @JsonProperty("acl")
     private String acl;
     /**
-     * desc
+     * 分组描述
      */
     @TableField(value = "desc")
     @JSONField(name = "desc")
     @JsonProperty("desc")
     private String desc;
     /**
-     * id
+     * ID
      */
     @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private BigInteger id;
     /**
-     * name
+     * 分组名称
      */
     @TableField(value = "name")
     @JSONField(name = "name")
@@ -84,20 +85,23 @@ public class Group extends EntityMP implements Serializable {
         this.acl = acl ;
         this.modify("acl",acl);
     }
+
     /**
-     * 设置 [desc]
+     * 设置 [分组描述]
      */
     public void setDesc(String desc){
         this.desc = desc ;
         this.modify("desc",desc);
     }
+
     /**
-     * 设置 [name]
+     * 设置 [分组名称]
      */
     public void setName(String name){
         this.name = name ;
         this.modify("name",name);
     }
+
     /**
      * 设置 [role]
      */
@@ -105,6 +109,7 @@ public class Group extends EntityMP implements Serializable {
         this.role = role ;
         this.modify("role",role);
     }
+
 
 }
 

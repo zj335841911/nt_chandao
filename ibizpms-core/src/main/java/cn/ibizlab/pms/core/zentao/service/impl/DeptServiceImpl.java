@@ -150,7 +150,6 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements ID
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
 
-
 	@Override
     public List<Dept> selectByParent(BigInteger id) {
         return baseMapper.selectByParent(id);
@@ -168,6 +167,15 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements ID
     @Override
     public Page<Dept> searchDefault(DeptSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Dept> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Dept>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 根部门
+     */
+    @Override
+    public Page<Dept> searchRoot(DeptSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Dept> pages=baseMapper.searchRoot(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Dept>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -189,6 +197,9 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements ID
             et.setParentname(ibizparent.getName());
         }
     }
+
+
+
 
     @Override
     public List<JSONObject> select(String sql, Map param){

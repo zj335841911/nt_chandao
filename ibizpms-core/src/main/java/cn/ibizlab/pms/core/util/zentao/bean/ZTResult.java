@@ -8,9 +8,24 @@ import java.util.List;
 
 @Data
 public class ZTResult {
+    /**
+     * 结果
+     */
     private boolean isSuccess;
+    /**
+     * 对象标识
+     */
     private BigInteger etId;
+    /**
+     * 批处理对象标识
+     */
     private List<BigInteger> etIds;
+    /**
+     * 消息
+     */
     private String message;
+    /**
+     * 结果数据
+     */
     private JSONObject result;
 }

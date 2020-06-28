@@ -148,7 +148,6 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     public boolean checkKey(Product et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     public Product getDraft(Product et) {
         fillParentData(et);
@@ -158,8 +157,9 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     @Override
     @Transactional
     public boolean update(Product et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductHelper.edit((JSONObject) JSONObject.toJSON(et), rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductHelper.edit((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
@@ -172,21 +172,40 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     }
     @Override
     @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
+    public Product close(Product et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductHelper.close((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return et;
     }
 
     @Override
     @Transactional
-    public boolean create(Product et) {
+    public boolean remove(BigInteger key) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductHelper.create((JSONObject) JSONObject.toJSON(et), rst);
+        Product et = this.get(key);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductHelper.delete((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        return bRst;
+    }
+
+    @Override
+    public void removeBatch(Collection<BigInteger> idList){
+        if (idList != null && !idList.isEmpty()) {
+            for (BigInteger id : idList) {
+                this.remove(id);
+            }
+        }
+    }
+    @Override
+    @Transactional
+    public boolean create(Product et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductHelper.create((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
@@ -245,6 +264,9 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
             et.setLinename(moduleline.getName());
         }
     }
+
+
+
 
     @Override
     public List<JSONObject> select(String sql, Map param){

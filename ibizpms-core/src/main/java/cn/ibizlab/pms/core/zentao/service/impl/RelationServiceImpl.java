@@ -65,7 +65,6 @@ public class RelationServiceImpl extends ServiceImpl<RelationMapper, Relation> i
     public boolean checkKey(Relation et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean save(Relation et) {
@@ -151,6 +150,9 @@ public class RelationServiceImpl extends ServiceImpl<RelationMapper, Relation> i
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Relation> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Relation>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
+
+
+
 
 
 

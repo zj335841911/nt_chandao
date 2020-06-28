@@ -1,14 +1,22 @@
+<template src="./test-grid.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import TestBase from './test-grid-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { TestGridBase } from './test-grid-base';
  
+
+/**
+ * grid部件
+ *
+ * @export
+ * @class TestGrid
+ * @extends {TestGridBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class Test extends TestBase {
-
-}
+@VueLifeCycleProcessing()
+export default class TestGrid extends TestGridBase { }
 </script>

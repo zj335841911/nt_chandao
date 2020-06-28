@@ -3,6 +3,7 @@ import ControlService from '@/widgets/control-service';
 import TaskService from '@/service/task/task-service';
 import MainInfoModel from './main-info-form-model';
 import ProjectService from '@/service/project/project-service';
+import StoryService from '@/service/story/story-service';
 
 
 /**
@@ -51,6 +52,14 @@ export default class MainInfoService extends ControlService {
     public projectService: ProjectService = new ProjectService();
 
     /**
+     * 需求服务对象
+     *
+     * @type {StoryService}
+     * @memberof MainInfoService
+     */
+    public storyService: StoryService = new StoryService();
+
+    /**
      * 处理数据
      *
      * @private
@@ -91,6 +100,9 @@ export default class MainInfoService extends ControlService {
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
         if (Object.is(serviceName, 'ProjectService') && Object.is(interfaceName, 'FetchDefault')) {
             return this.doItems(this.projectService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'project');
+        }
+        if (Object.is(serviceName, 'StoryService') && Object.is(interfaceName, 'FetchDefault')) {
+            return this.doItems(this.storyService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'story');
         }
 
         return Promise.reject([])
@@ -142,7 +154,7 @@ export default class MainInfoService extends ControlService {
     @Errorlog
     public wfsubmit(action: string,context: any = {}, data: any = {}, isloading?: boolean,localdata?:any): Promise<any> {
         data = this.handleWFData(data,true);
-        context = this.handleRequestData(action,context,data).context;
+        context = this.handleRequestData(action,context,data,true).context;
         return new Promise((resolve: any, reject: any) => {
             let result: Promise<any>;
             const _appEntityService: any = this.appEntityService;
@@ -351,13 +363,16 @@ export default class MainInfoService extends ControlService {
      * @param data 数据
      * @memberof MainInfoService
      */
-    public handleRequestData(action: string,context:any, data: any = {}){
+    public handleRequestData(action: string,context:any, data: any = {},isMerge:boolean = false){
         let mode: any = this.getMode();
         if (!mode && mode.getDataItems instanceof Function) {
             return data;
         }
         let formItemItems: any[] = mode.getDataItems();
         let requestData:any = {};
+        if(isMerge && (data && data.viewparams)){
+            Object.assign(requestData,data.viewparams);
+        }
         formItemItems.forEach((item:any) =>{
             if(item && item.dataType && Object.is(item.dataType,'FONTKEY')){
                 if(item && item.prop){
@@ -369,9 +384,6 @@ export default class MainInfoService extends ControlService {
                 }
             }
         });
-        if(data && data.viewparams){
-            Object.assign(requestData,data.viewparams);
-        }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         if(tempContext && tempContext.srfsessionid){
             tempContext.srfsessionkey = tempContext.srfsessionid;

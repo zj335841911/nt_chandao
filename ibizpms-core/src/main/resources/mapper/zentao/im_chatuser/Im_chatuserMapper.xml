@@ -27,15 +27,13 @@
 
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
-       <![CDATA[	SELECT t1.`CATEGORY`, t1.`CGID`, t1.`FREEZE`, t1.`HIDE`, t1.`ID`, t1.`JOIN`, t1.`MUTE`, t1.`ORDER`, t1.`QUIT`, t1.`STAR`, t1.`USER` FROM `zt_im_chatuser` t1  
+		<![CDATA[ SELECT t1.`CATEGORY`, t1.`CGID`, t1.`FREEZE`, t1.`HIDE`, t1.`ID`, t1.`JOIN`, t1.`MUTE`, t1.`ORDER`, t1.`QUIT`, t1.`STAR`, t1.`USER` FROM `zt_im_chatuser` t1  
 			]]>
     </sql>
-
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
-       <![CDATA[	SELECT t1.`CATEGORY`, t1.`CGID`, t1.`FREEZE`, t1.`HIDE`, t1.`ID`, t1.`JOIN`, t1.`MUTE`, t1.`ORDER`, t1.`QUIT`, t1.`STAR`, t1.`USER` FROM `zt_im_chatuser` t1  
+		<![CDATA[ SELECT t1.`CATEGORY`, t1.`CGID`, t1.`FREEZE`, t1.`HIDE`, t1.`ID`, t1.`JOIN`, t1.`MUTE`, t1.`ORDER`, t1.`QUIT`, t1.`STAR`, t1.`USER` FROM `zt_im_chatuser` t1  
 			]]>
     </sql>
-
 </mapper>
 

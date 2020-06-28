@@ -22,6 +22,7 @@ export default class ClassifyByTypeModel {
 			},
 			{
 				name: 'actor',
+        codelist:{tag:'UserRealName',codelistType:'DYNAMIC'},
 			},
 			{
 				name: 'product',

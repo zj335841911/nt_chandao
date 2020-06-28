@@ -42,6 +42,11 @@ export default class Main2Model {
           dataType: 'PICKUP',
         },
         {
+          name: 'projecttname',
+          prop: 'projecttname',
+          dataType: 'PICKUPTEXT',
+        },
+        {
           name: 'name',
           prop: 'name',
           dataType: 'TEXT',
@@ -75,6 +80,11 @@ export default class Main2Model {
           name: 'begin',
           prop: 'begin',
           dataType: 'DATE',
+        },
+        {
+          name: 'productname',
+          prop: 'productname',
+          dataType: 'PICKUPTEXT',
         },
         {
           name: 'testtask',

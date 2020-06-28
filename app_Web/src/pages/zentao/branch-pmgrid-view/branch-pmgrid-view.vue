@@ -1,21 +1,27 @@
+<template src="./branch-pmgrid-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import BranchPMGridViewBase from './branch-pmgrid-view-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { BranchPMGridViewBase } from './branch-pmgrid-view-base';
 import view_grid from '@widgets/branch/platform-management-grid/platform-management-grid.vue';
-import view_searchform from '@widgets/branch/default-searchform/default-searchform.vue';
+
+/**
+ * 平台管理视图
+ *
+ * @export
+ * @class BranchPMGridView
+ * @extends {BranchPMGridViewBase}
+ */
 @Component({
     components: {
         view_grid, 
-        view_searchform, 
     },
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
         });
-    },
+    }
 })
-export default class BranchPMGridView extends BranchPMGridViewBase {
-
-}
+@VueLifeCycleProcessing()
+export default class BranchPMGridView extends BranchPMGridViewBase { }
 </script>

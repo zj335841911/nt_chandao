@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[测试套件]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_testsuite",resultMap = "TestSuiteResultMap")
 public class TestSuite extends EntityMP implements Serializable {
 
@@ -58,7 +59,7 @@ public class TestSuite extends EntityMP implements Serializable {
      * 编号
      */
     @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private BigInteger id;
@@ -133,6 +134,7 @@ public class TestSuite extends EntityMP implements Serializable {
         this.name = name ;
         this.modify("name",name);
     }
+
     /**
      * 设置 [最后编辑人]
      */
@@ -140,6 +142,7 @@ public class TestSuite extends EntityMP implements Serializable {
         this.lasteditedby = lasteditedby ;
         this.modify("lasteditedby",lasteditedby);
     }
+
     /**
      * 设置 [类型]
      */
@@ -147,12 +150,24 @@ public class TestSuite extends EntityMP implements Serializable {
         this.type = type ;
         this.modify("type",type);
     }
+
     /**
      * 设置 [最后编辑时间]
      */
     public void setLastediteddate(Timestamp lastediteddate){
         this.lastediteddate = lastediteddate ;
         this.modify("lastediteddate",lastediteddate);
+    }
+
+    /**
+     * 格式化日期 [最后编辑时间]
+     */
+    public String formatLastediteddate(){
+        if (this.lastediteddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(lastediteddate);
     }
     /**
      * 设置 [描述]
@@ -161,6 +176,7 @@ public class TestSuite extends EntityMP implements Serializable {
         this.desc = desc ;
         this.modify("desc",desc);
     }
+
     /**
      * 设置 [所属产品]
      */
@@ -168,6 +184,7 @@ public class TestSuite extends EntityMP implements Serializable {
         this.product = product ;
         this.modify("product",product);
     }
+
 
 }
 

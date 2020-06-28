@@ -53,6 +53,7 @@ public interface IIm_messagestatusService extends IService<Im_messagestatus>{
     boolean execute(String sql, Map param);
 
 
+
 }
 
 

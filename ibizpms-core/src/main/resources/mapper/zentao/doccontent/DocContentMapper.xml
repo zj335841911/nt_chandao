@@ -37,15 +37,13 @@
 
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
-       <![CDATA[	SELECT t1.`DIGEST`, t1.`DOC`, t1.`ID`, t1.`TITLE`, t1.`TYPE`, t1.`VERSION` FROM `zt_doccontent` t1  
+		<![CDATA[ SELECT t1.`DIGEST`, t1.`DOC`, t1.`ID`, t1.`TITLE`, t1.`TYPE`, t1.`VERSION` FROM `zt_doccontent` t1  
 			]]>
     </sql>
-
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
-       <![CDATA[	SELECT t1.`CONTENT`, t1.`DIGEST`, t1.`DOC`, t1.`FILES`, t1.`ID`, t1.`TITLE`, t1.`TYPE`, t1.`VERSION` FROM `zt_doccontent` t1  
+		<![CDATA[ SELECT t1.`CONTENT`, t1.`DIGEST`, t1.`DOC`, t1.`FILES`, t1.`ID`, t1.`TITLE`, t1.`TYPE`, t1.`VERSION` FROM `zt_doccontent` t1  
 			]]>
     </sql>
-
 </mapper>
 

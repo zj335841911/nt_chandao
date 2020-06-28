@@ -1,9 +1,18 @@
+<template src="./product-test-grid-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import ProductTestGridViewBase from './product-test-grid-view-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { ProductTestGridViewBase } from './product-test-grid-view-base';
 import view_grid from '@widgets/product/test-grid/test-grid.vue';
 import view_searchform from '@widgets/product/default-searchform/default-searchform.vue';
+
+/**
+ * product表格视图视图
+ *
+ * @export
+ * @class ProductTestGridView
+ * @extends {ProductTestGridViewBase}
+ */
 @Component({
     components: {
         view_grid, 
@@ -11,11 +20,10 @@ import view_searchform from '@widgets/product/default-searchform/default-searchf
     },
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
         });
-    },
+    }
 })
-export default class ProductTestGridView extends ProductTestGridViewBase {
-
-}
+@VueLifeCycleProcessing()
+export default class ProductTestGridView extends ProductTestGridViewBase { }
 </script>

@@ -284,6 +284,62 @@ public class ProjectDTO extends DTOBase implements Serializable {
     @JsonProperty("parent")
     private BigInteger parent;
 
+    /**
+     * 属性 [TASKCNT]
+     *
+     */
+    @JSONField(name = "taskcnt")
+    @JsonProperty("taskcnt")
+    private Integer taskcnt;
+
+    /**
+     * 属性 [BUGCNT]
+     *
+     */
+    @JSONField(name = "bugcnt")
+    @JsonProperty("bugcnt")
+    private Integer bugcnt;
+
+    /**
+     * 属性 [STORYCNT]
+     *
+     */
+    @JSONField(name = "storycnt")
+    @JsonProperty("storycnt")
+    private Integer storycnt;
+
+    /**
+     * 属性 [PRODUCTS]
+     *
+     */
+    @JSONField(name = "products")
+    @JsonProperty("products")
+    private String products;
+
+    /**
+     * 属性 [BRANCHS]
+     *
+     */
+    @JSONField(name = "branchs")
+    @JsonProperty("branchs")
+    private String branchs;
+
+    /**
+     * 属性 [PLANS]
+     *
+     */
+    @JSONField(name = "plans")
+    @JsonProperty("plans")
+    private String plans;
+
+    /**
+     * 属性 [SRFARRAY]
+     *
+     */
+    @JSONField(name = "srfarray")
+    @JsonProperty("srfarray")
+    private String srfarray;
+
 
     /**
      * 设置 [OPENEDVERSION]

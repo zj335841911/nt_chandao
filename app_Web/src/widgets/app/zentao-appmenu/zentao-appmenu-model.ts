@@ -89,7 +89,7 @@ export default class ZentaoModel {
                 	iconcls: '',
                 	icon: '',
                 	textcls: '',
-                	appfunctag: '_4',
+                	appfunctag: '_5',
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'test-portal-view',
                 	resourcetag: '',
@@ -110,7 +110,7 @@ export default class ZentaoModel {
                 	iconcls: '',
                 	icon: '',
                 	textcls: '',
-                	appfunctag: '_3',
+                	appfunctag: '_4',
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'product-html-view',
                 	resourcetag: '',
@@ -194,7 +194,7 @@ export default class ZentaoModel {
                 	iconcls: 'fa fa-cogs',
                 	icon: '',
                 	textcls: '',
-                	appfunctag: '_5',
+                	appfunctag: '_6',
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'product-test-left-sidebar-list-view',
                 	resourcetag: '',
@@ -252,7 +252,7 @@ export default class ZentaoModel {
 	 */
 	private funcs: any[] = [
         {
-            appfunctag: '_5',
+            appfunctag: '_6',
             appfuncyype: 'APPVIEW',
             openmode: '',
             codename: 'producttestleftsidebarlistview',
@@ -276,7 +276,7 @@ export default class ZentaoModel {
             ],
         },
         {
-            appfunctag: '_3',
+            appfunctag: '_4',
             appfuncyype: 'APPVIEW',
             openmode: '',
             codename: 'producthtmlview',
@@ -322,7 +322,7 @@ export default class ZentaoModel {
             ],
         },
         {
-            appfunctag: '_4',
+            appfunctag: '_5',
             appfuncyype: 'APPVIEW',
             openmode: '',
             codename: 'testportalview',

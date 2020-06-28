@@ -92,10 +92,10 @@
             <artifactId>liquibase-core</artifactId>
         </dependency>
 
-        <!--xxl-job定时服务 -->
+        <!--baomidou-jobs定时服务 -->
         <dependency>
-            <groupId>com.xuxueli</groupId>
-            <artifactId>xxl-job-core</artifactId>
+            <groupId>com.baomidou</groupId>
+            <artifactId>jobs-spring-boot-starter</artifactId>
         </dependency>
 
 	</dependencies>
@@ -156,7 +156,7 @@
                                     <verbose>true</verbose>
                                     <logging>debug</logging>
                                     <contexts>!test</contexts>
-                                    <diffExcludeObjects>Index:.*,table:ibzfile,ibzuser,ibzdataaudit,IBZFILE,IBZUSER,IBZDATAAUDIT</diffExcludeObjects>
+                                    <diffExcludeObjects>Index:.*,table:ibzfile,ibzuser,ibzdataaudit,ibzcfg,IBZFILE,IBZUSER,IBZDATAAUDIT,IBZCFG</diffExcludeObjects>
                                 </configuration>
                                 <phase>process-resources</phase>
                                 <goals>

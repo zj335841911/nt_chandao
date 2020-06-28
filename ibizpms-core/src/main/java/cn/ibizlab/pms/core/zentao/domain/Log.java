@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[log]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_log",resultMap = "LogResultMap")
 public class Log extends EntityMP implements Serializable {
 
@@ -92,7 +93,7 @@ public class Log extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private BigInteger id;
@@ -113,6 +114,7 @@ public class Log extends EntityMP implements Serializable {
         this.url = url ;
         this.modify("url",url);
     }
+
     /**
      * 设置 [action]
      */
@@ -120,6 +122,7 @@ public class Log extends EntityMP implements Serializable {
         this.action = action ;
         this.modify("action",action);
     }
+
     /**
      * 设置 [contentType]
      */
@@ -127,6 +130,7 @@ public class Log extends EntityMP implements Serializable {
         this.contenttype = contenttype ;
         this.modify("contenttype",contenttype);
     }
+
     /**
      * 设置 [objectID]
      */
@@ -134,12 +138,24 @@ public class Log extends EntityMP implements Serializable {
         this.objectid = objectid ;
         this.modify("objectid",objectid);
     }
+
     /**
      * 设置 [date]
      */
     public void setDate(Timestamp date){
         this.date = date ;
         this.modify("date",date);
+    }
+
+    /**
+     * 格式化日期 [date]
+     */
+    public String formatDate(){
+        if (this.date == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(date);
     }
     /**
      * 设置 [result]
@@ -148,6 +164,7 @@ public class Log extends EntityMP implements Serializable {
         this.result = result ;
         this.modify("result",result);
     }
+
     /**
      * 设置 [objectType]
      */
@@ -155,6 +172,7 @@ public class Log extends EntityMP implements Serializable {
         this.objecttype = objecttype ;
         this.modify("objecttype",objecttype);
     }
+
     /**
      * 设置 [data]
      */
@@ -162,6 +180,7 @@ public class Log extends EntityMP implements Serializable {
         this.data = data ;
         this.modify("data",data);
     }
+
 
 }
 

@@ -32,6 +32,7 @@ public interface IProductService extends IService<Product>{
     Product getDraft(Product et) ;
     boolean update(Product et) ;
     void updateBatch(List<Product> list) ;
+    Product close(Product et) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
     boolean create(Product et) ;
@@ -54,6 +55,7 @@ public interface IProductService extends IService<Product>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
+
 
 
 }

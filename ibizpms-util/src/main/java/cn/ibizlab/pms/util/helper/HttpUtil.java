@@ -9,55 +9,58 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 final public class HttpUtil {
 
-    final public static <T> ResponseEntity<T> doRequest(String url, Class<T> responseClazz){
+    public static <T> ResponseEntity<T> doRequest(String url, Class<T> responseClazz){
         RestTemplate restTemplate = getRestTemplate();
         HttpHeaders headers = new HttpHeaders();
         return doRequest(restTemplate, url, HttpMethod.GET, headers, null, responseClazz);
     }
 
-    final public static <T> ResponseEntity<T> doRequest(String url, HttpHeaders headers, Class<T> responseClazz){
+    public static <T> ResponseEntity<T> doRequest(String url, HttpHeaders headers, Class<T> responseClazz){
         RestTemplate restTemplate = getRestTemplate();
         return doRequest(restTemplate, url, HttpMethod.GET, headers, null, responseClazz);
     }
 
-    final public static <T> ResponseEntity<T> doRequest(String url, JSONObject paramMap, Class<T> responseClazz){
+    public static <T> ResponseEntity<T> doRequest(String url, JSONObject paramMap, Class<T> responseClazz){
         RestTemplate restTemplate = getRestTemplate();
         HttpHeaders headers = new HttpHeaders();
         return doRequest(restTemplate, url, HttpMethod.POST, headers, paramMap, responseClazz);
     }
 
-    final public static <T> ResponseEntity<T> doRequest(String url, HttpHeaders headers, JSONObject paramMap, Class<T> responseClazz){
+    public static <T> ResponseEntity<T> doRequest(String url, HttpHeaders headers, JSONObject paramMap, Class<T> responseClazz){
         RestTemplate restTemplate = getRestTemplate();
         return doRequest(restTemplate, url, HttpMethod.POST, headers, paramMap, responseClazz);
     }
 
-    final public static <T> ResponseEntity<T> doRequest(String url, HttpMethod method, JSONObject paramMap, Class<T> responseClazz){
+    public static <T> ResponseEntity<T> doRequest(String url, HttpMethod method, JSONObject paramMap, Class<T> responseClazz){
         RestTemplate restTemplate = getRestTemplate();
         HttpHeaders headers = new HttpHeaders();
         return doRequest(restTemplate, url, method, headers, paramMap, responseClazz);
     }
 
-    final public static <T> ResponseEntity<T> doRequest(String url, HttpMethod method, HttpHeaders headers, JSONObject paramMap, Class<T> responseClazz){
+    public static <T> ResponseEntity<T> doRequest(String url, HttpMethod method, HttpHeaders headers, JSONObject paramMap, Class<T> responseClazz){
         RestTemplate restTemplate = getRestTemplate();
         return doRequest(restTemplate, url, method, headers, paramMap, responseClazz);
     }
 
-    final public static HttpHeaders getHttpHeaders() {
+    public static HttpHeaders getHttpHeaders() {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         return headers;
     }
 
-    final public static HttpHeaders getHttpHeaders(MediaType mediaType) {
+    public static HttpHeaders getHttpHeaders(MediaType mediaType) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(mediaType);
         return headers;
     }
 
-    final public static <T> ResponseEntity<T> doRequest(RestTemplate restTemplate, String url, HttpMethod method, HttpHeaders headers, JSONObject paramMap, Class<T> responseClazz){
+    public static <T> ResponseEntity<T> doRequest(RestTemplate restTemplate, String url, HttpMethod method, HttpHeaders headers, JSONObject paramMap, Class<T> responseClazz){
         if (restTemplate == null) {
             restTemplate = getRestTemplate();
         }
@@ -66,35 +69,43 @@ final public class HttpUtil {
         }
         if (headers == null) {
             headers = new HttpHeaders();
-//            headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
         }
         MultiValueMap<String, Object> params = covertJSONToMultiValueMap(paramMap);
-        HttpEntity<MultiValueMap<String, Object>> entity = null;
+        HttpEntity<MultiValueMap<String, Object>> entity;
         if(params != null){
             entity = new HttpEntity<>(params, headers);
         }else{
             entity = new HttpEntity<>(null, headers);
         }
-        ResponseEntity<T> responseEntity = restTemplate.exchange(url, method, entity, responseClazz);
-        return responseEntity;
+        return restTemplate.exchange(url, method, entity, responseClazz);
     }
 
-    final public static MultiValueMap<String,Object> covertJSONToMultiValueMap(JSONObject jo) {
+    public static MultiValueMap<String,Object> covertJSONToMultiValueMap(JSONObject jo) {
         if (jo == null || jo.isEmpty()) {
             return null;
         }
-        MultiValueMap<String,Object> params = new LinkedMultiValueMap<String,Object>();
+        MultiValueMap<String,Object> params = new LinkedMultiValueMap<>();
         for (String key : jo.keySet()) {
-            params.add(key, jo.get(key));
+            Object joObj = jo.get(key);
+            if (key.endsWith("[]") && joObj != null) {
+                if (joObj instanceof Iterable || joObj instanceof Arrays) {
+                    List array = (List) jo.get(key);
+                    for (int i = 0; i < array.size(); i++) {
+                        params.add(key.substring(0, key.length() - 2) + "[" + i + "]", array.get(i));
+                    }
+                    continue;
+                }
+            }
+            params.add(key, joObj);
         }
         return params;
     }
 
-    final public static RestTemplate getRestTemplate(){
+    public static RestTemplate getRestTemplate(){
         return getRestTemplate("UTF-8");
     }
 
-    final public static RestTemplate getRestTemplate(String charset){
+    public static RestTemplate getRestTemplate(String charset){
         RestTemplate restTemplate = new RestTemplate();
         for (HttpMessageConverter<?> httpMessageConverter : restTemplate.getMessageConverters()) {
             if (httpMessageConverter instanceof StringHttpMessageConverter) {

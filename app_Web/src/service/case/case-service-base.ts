@@ -55,6 +55,41 @@ export default class CaseServiceBase extends EntityService {
     }
 
     /**
+     * RunCase接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async RunCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.case){
+            let masterData:any = {};
+        let casestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
+            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
+            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+                casestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.casesteps = casestepsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/cases/${context.case}/runcase`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            return res;
+        }
+            return Http.getInstance().post(`/cases/${context.case}/runcase`,data,isloading);
+    }
+
+    /**
      * GetDraft接口方法
      *
      * @param {*} [context={}]
@@ -65,10 +100,14 @@ export default class CaseServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
-            return Http.getInstance().get(`/products/${context.product}/cases/getdraft`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/getdraft`,isloading);
+            res.data.case = data.case;
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            return res;
         }
         let res:any = await  Http.getInstance().get(`/cases/getdraft`,isloading);
         res.data.case = data.case;
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
         return res;
     }
 
@@ -83,11 +122,46 @@ export default class CaseServiceBase extends EntityService {
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.case){
-            return Http.getInstance().post(`/products/${context.product}/cases/${context.case}/save`,data,isloading);
+            let masterData:any = {};
+        let casestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
+            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
+            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+                casestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.casesteps = casestepsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/cases/${context.case}/save`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            return res;
         }
         let masterData:any = {};
+        let casestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
+            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
+            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+                casestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.casesteps = casestepsData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/cases/${context.case}/save`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
             return res;
     }
 
@@ -102,15 +176,50 @@ export default class CaseServiceBase extends EntityService {
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
+            let masterData:any = {};
+        let casestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
+            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
+            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+                casestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.casesteps = casestepsData;
+            Object.assign(data,masterData);
             if(!data.srffrontuf || data.srffrontuf !== "1"){
                 data[this.APPDEKEY] = null;
             }
             if(data.srffrontuf){
                 delete data.srffrontuf;
             }
-            return Http.getInstance().post(`/products/${context.product}/cases`,data,isloading);
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/products/${context.product}/cases`,data,isloading);
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            return res;
         }
         let masterData:any = {};
+        let casestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
+            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
+            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+                casestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.casesteps = casestepsData;
         Object.assign(data,masterData);
         if(!data.srffrontuf || data.srffrontuf !== "1"){
             data[this.APPDEKEY] = null;
@@ -120,6 +229,7 @@ export default class CaseServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/cases`,data,isloading);
+        this.tempStorage.setItem(tempContext.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
         return res;
     }
 
@@ -134,7 +244,26 @@ export default class CaseServiceBase extends EntityService {
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.case){
-            return Http.getInstance().post(`/products/${context.product}/cases/${context.case}/checkkey`,data,isloading);
+            let masterData:any = {};
+        let casestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
+            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
+            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+                casestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.casesteps = casestepsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/cases/${context.case}/checkkey`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            return res;
         }
             return Http.getInstance().post(`/cases/${context.case}/checkkey`,data,isloading);
     }
@@ -153,7 +282,6 @@ export default class CaseServiceBase extends EntityService {
             return Http.getInstance().delete(`/products/${context.product}/cases/${context.case}`,isloading);
         }
             return Http.getInstance().delete(`/cases/${context.case}`,isloading);
-
     }
 
     /**
@@ -167,11 +295,13 @@ export default class CaseServiceBase extends EntityService {
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.case){
-            return Http.getInstance().get(`/products/${context.product}/cases/${context.case}`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/${context.case}`,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            return res;
         }
             let res:any = await Http.getInstance().get(`/cases/${context.case}`,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
             return res;
-
     }
 
     /**
@@ -185,12 +315,65 @@ export default class CaseServiceBase extends EntityService {
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.case){
-            return Http.getInstance().put(`/products/${context.product}/cases/${context.case}`,data,isloading);
+            let masterData:any = {};
+        let casestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
+            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
+            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+                casestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.casesteps = casestepsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/cases/${context.case}`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            return res;
         }
         let masterData:any = {};
+        let casestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
+            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
+            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+                casestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.casesteps = casestepsData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/cases/${context.case}`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
             return res;
+    }
+
+    /**
+     * FetchCurTestTask接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchCurTestTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/products/${context.product}/cases/fetchcurtesttask`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/cases/fetchcurtesttask`,tempData,isloading);
     }
 
     /**
@@ -209,5 +392,71 @@ export default class CaseServiceBase extends EntityService {
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
         return Http.getInstance().get(`/cases/fetchdefault`,tempData,isloading);
+    }
+
+    /**
+     * FetchCurSuite接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchCurSuite(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/products/${context.product}/cases/fetchcursuite`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/cases/fetchcursuite`,tempData,isloading);
+    }
+
+    /**
+     * FetchTempCurTestTask接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchTempCurTestTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            return Http.getInstance().get(`/products/${context.product}/cases/fetchcursuite`,data,isloading);
+        }
+        return Http.getInstance().get(`/cases/fetchcursuite`,data,isloading);
+    }
+
+    /**
+     * FetchTempDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            return Http.getInstance().get(`/products/${context.product}/cases/fetchcursuite`,data,isloading);
+        }
+        return Http.getInstance().get(`/cases/fetchcursuite`,data,isloading);
+    }
+
+    /**
+     * FetchTempCurSuite接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchTempCurSuite(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            return Http.getInstance().get(`/products/${context.product}/cases/fetchcursuite`,data,isloading);
+        }
+        return Http.getInstance().get(`/cases/fetchcursuite`,data,isloading);
     }
 }

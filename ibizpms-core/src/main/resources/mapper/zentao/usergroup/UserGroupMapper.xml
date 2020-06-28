@@ -27,15 +27,13 @@
 
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
-       <![CDATA[	SELECT t1.`ACCOUNT`, t1.`GROUP`, concat(t1.`ACCOUNT`,'__',t1.`GROUP`) AS `ID` FROM `zt_usergroup` t1  
+		<![CDATA[ SELECT t1.`ACCOUNT`, t1.`GROUP`, concat(t1.`ACCOUNT`,'__',t1.`GROUP`) AS `ID` FROM `zt_usergroup` t1  
 			]]>
     </sql>
-
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
-       <![CDATA[	SELECT t1.`ACCOUNT`, t1.`GROUP`, concat(t1.`ACCOUNT`,'__',t1.`GROUP`) AS `ID` FROM `zt_usergroup` t1  
+		<![CDATA[ SELECT t1.`ACCOUNT`, t1.`GROUP`, concat(t1.`ACCOUNT`,'__',t1.`GROUP`) AS `ID` FROM `zt_usergroup` t1  
 			]]>
     </sql>
-
 </mapper>
 

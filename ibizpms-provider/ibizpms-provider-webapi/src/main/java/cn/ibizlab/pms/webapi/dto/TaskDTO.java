@@ -337,14 +337,6 @@ public class TaskDTO extends DTOBase implements Serializable {
     private BigInteger project;
 
     /**
-     * 属性 [MODULE]
-     *
-     */
-    @JSONField(name = "module")
-    @JsonProperty("module")
-    private BigInteger module;
-
-    /**
      * 属性 [STORY]
      *
      */
@@ -375,6 +367,46 @@ public class TaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "duration")
     @JsonProperty("duration")
     private String duration;
+
+    /**
+     * 属性 [MODULE]
+     *
+     */
+    @JSONField(name = "module")
+    @JsonProperty("module")
+    private BigInteger module;
+
+    /**
+     * 属性 [PATH]
+     *
+     */
+    @JSONField(name = "path")
+    @JsonProperty("path")
+    private String path;
+
+    /**
+     * 属性 [COMMENT]
+     *
+     */
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    private String comment;
+
+    /**
+     * 属性 [CURRENTCONSUMED]
+     *
+     */
+    @JSONField(name = "currentconsumed")
+    @JsonProperty("currentconsumed")
+    private Double currentconsumed;
+
+    /**
+     * 属性 [TOTALTIME]
+     *
+     */
+    @JSONField(name = "totaltime")
+    @JsonProperty("totaltime")
+    private Double totaltime;
 
 
     /**
@@ -594,14 +626,6 @@ public class TaskDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [MODULE]
-     */
-    public void setModule(BigInteger  module){
-        this.module = module ;
-        this.modify("module",module);
-    }
-
-    /**
      * 设置 [STORY]
      */
     public void setStory(BigInteger  story){
@@ -623,6 +647,14 @@ public class TaskDTO extends DTOBase implements Serializable {
     public void setFrombug(BigInteger  frombug){
         this.frombug = frombug ;
         this.modify("frombug",frombug);
+    }
+
+    /**
+     * 设置 [MODULE]
+     */
+    public void setModule(BigInteger  module){
+        this.module = module ;
+        this.modify("module",module);
     }
 
 

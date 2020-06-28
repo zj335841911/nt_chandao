@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[用例步骤]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_casestep",resultMap = "CaseStepResultMap")
 public class CaseStep extends EntityMP implements Serializable {
 
@@ -50,7 +51,7 @@ public class CaseStep extends EntityMP implements Serializable {
      * 编号
      */
     @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private BigInteger id;
@@ -110,6 +111,14 @@ public class CaseStep extends EntityMP implements Serializable {
     private cn.ibizlab.pms.core.zentao.domain.CaseStep ibizparent;
 
 
+    /**
+     * 用例步骤
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private List<cn.ibizlab.pms.core.zentao.domain.CaseStep> casestep;
+
 
     /**
      * 设置 [用例步骤类型]
@@ -118,6 +127,7 @@ public class CaseStep extends EntityMP implements Serializable {
         this.type = type ;
         this.modify("type",type);
     }
+
     /**
      * 设置 [步骤]
      */
@@ -125,6 +135,7 @@ public class CaseStep extends EntityMP implements Serializable {
         this.desc = desc ;
         this.modify("desc",desc);
     }
+
     /**
      * 设置 [预期]
      */
@@ -132,6 +143,7 @@ public class CaseStep extends EntityMP implements Serializable {
         this.expect = expect ;
         this.modify("expect",expect);
     }
+
     /**
      * 设置 [用例版本]
      */
@@ -139,6 +151,7 @@ public class CaseStep extends EntityMP implements Serializable {
         this.version = version ;
         this.modify("version",version);
     }
+
     /**
      * 设置 [用例]
      */
@@ -146,6 +159,7 @@ public class CaseStep extends EntityMP implements Serializable {
         this.ibizcase = ibizcase ;
         this.modify("case",ibizcase);
     }
+
     /**
      * 设置 [分组用例步骤的组编号]
      */
@@ -153,6 +167,7 @@ public class CaseStep extends EntityMP implements Serializable {
         this.parent = parent ;
         this.modify("parent",parent);
     }
+
 
 }
 

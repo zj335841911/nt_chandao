@@ -62,7 +62,6 @@ export default class ActionServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             return Http.getInstance().delete(`/actions/${context.action}`,isloading);
-
     }
 
     /**
@@ -210,7 +209,6 @@ export default class ActionServiceBase extends EntityService {
             let res:any = await Http.getInstance().get(`/actions/${context.action}`,isloading);
             this.tempStorage.setItem(context.srfsessionkey+'_histories',JSON.stringify(res.data.histories));
             return res;
-
     }
 
     /**

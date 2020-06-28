@@ -37,14 +37,34 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'branch_text',
+          prop: 'branch',
+          dataType: 'INT',
+        },
+        {
           name: 'name',
           prop: 'name',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'owner',
+          prop: 'owner',
           dataType: 'TEXT',
         },
         {
           name: 'parent',
           prop: 'parent',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'branch',
+          prop: 'branch',
+          dataType: 'INT',
+        },
+        {
+          name: 'type',
+          prop: 'type',
+          dataType: 'TEXT',
         },
         {
           name: 'srfmajortext',
@@ -70,12 +90,6 @@ export default class MainModel {
           name: 'productmodule',
           prop: 'id',
         },
-      {
-        name: 'product',
-        prop: 'id',
-        dataType: 'FONTKEY',
-      },
-
         {
           name:'size',
           prop:'size'

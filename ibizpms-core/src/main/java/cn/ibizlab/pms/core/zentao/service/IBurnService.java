@@ -35,8 +35,10 @@ public interface IBurnService extends IService<Burn>{
     void saveBatch(List<Burn> list) ;
     boolean update(Burn et) ;
     void updateBatch(List<Burn> list) ;
+    Burn computeBurn(Burn et) ;
     Burn getDraft(Burn et) ;
     Page<Burn> searchDefault(BurnSearchContext context) ;
+    Page<Burn> searchESTIMATEANDLEFT(BurnSearchContext context) ;
     List<Burn> selectByProject(BigInteger id) ;
     void removeByProject(BigInteger id) ;
     List<Burn> selectByTask(BigInteger id) ;
@@ -55,6 +57,7 @@ public interface IBurnService extends IService<Burn>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
+
 
 
 }

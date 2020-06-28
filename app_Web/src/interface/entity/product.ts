@@ -157,4 +157,52 @@ export interface Product {
      * @memberof Product
      */
     line?: any;
+
+    /**
+     * 未解决Bug数
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    activebugcnt?: any;
+
+    /**
+     * 计划总数
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    productplancnt?: any;
+
+    /**
+     * 发布总数
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    releasecnt?: any;
+
+    /**
+     * 激活需求数
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    activestorycnt?: any;
+
+    /**
+     * 未确认Bug数
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    unconfirmbugcnt?: any;
+
+    /**
+     * 未关闭Bug数
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    notclosedbugcnt?: any;
 }

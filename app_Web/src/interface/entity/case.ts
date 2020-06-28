@@ -333,4 +333,60 @@ export interface Case {
      * @memberof Case
      */
     module?: any;
+
+    /**
+     * 模块名称
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    modulename?: any;
+
+    /**
+     * 需求名称
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    storyname?: any;
+
+    /**
+     * 产品名称
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    productname?: any;
+
+    /**
+     * 用例步骤集合
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    casesteps?: any;
+
+    /**
+     * 转bug数
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    tobugcnt?: any;
+
+    /**
+     * 测试结果数
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    resultcnt?: any;
+
+    /**
+     * 用例步骤数
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    stepcnt?: any;
 }

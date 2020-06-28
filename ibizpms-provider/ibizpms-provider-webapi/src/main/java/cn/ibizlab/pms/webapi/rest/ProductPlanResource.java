@@ -137,7 +137,7 @@ public class ProductPlanResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"产品计划" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/productplans/fetchdefault")
 	public ResponseEntity<List<ProductPlanDTO>> fetchDefault(ProductPlanSearchContext context) {
@@ -150,7 +150,7 @@ public class ProductPlanResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-searchDefault-all')")
 	@ApiOperation(value = "查询DEFAULT", tags = {"产品计划" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/productplans/searchdefault")
 	public ResponseEntity<Page<ProductPlanDTO>> searchDefault(@RequestBody ProductPlanSearchContext context) {
@@ -158,7 +158,7 @@ public class ProductPlanResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productplanMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-CurProductPlan-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-searchCurProductPlan-all')")
 	@ApiOperation(value = "获取CurProductPlan", tags = {"产品计划" } ,notes = "获取CurProductPlan")
     @RequestMapping(method= RequestMethod.GET , value="/productplans/fetchcurproductplan")
 	public ResponseEntity<List<ProductPlanDTO>> fetchCurProductPlan(ProductPlanSearchContext context) {
@@ -171,7 +171,7 @@ public class ProductPlanResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-CurProductPlan-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-searchCurProductPlan-all')")
 	@ApiOperation(value = "查询CurProductPlan", tags = {"产品计划" } ,notes = "查询CurProductPlan")
     @RequestMapping(method= RequestMethod.POST , value="/productplans/searchcurproductplan")
 	public ResponseEntity<Page<ProductPlanDTO>> searchCurProductPlan(@RequestBody ProductPlanSearchContext context) {
@@ -288,7 +288,7 @@ public class ProductPlanResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-searchDefault-all')")
 	@ApiOperation(value = "根据产品获取DEFAULT", tags = {"产品计划" } ,notes = "根据产品获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productplans/fetchdefault")
 	public ResponseEntity<List<ProductPlanDTO>> fetchProductPlanDefaultByProduct(@PathVariable("product_id") BigInteger product_id,ProductPlanSearchContext context) {
@@ -302,7 +302,7 @@ public class ProductPlanResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-searchDefault-all')")
 	@ApiOperation(value = "根据产品查询DEFAULT", tags = {"产品计划" } ,notes = "根据产品查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productplans/searchdefault")
 	public ResponseEntity<Page<ProductPlanDTO>> searchProductPlanDefaultByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductPlanSearchContext context) {
@@ -311,7 +311,7 @@ public class ProductPlanResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productplanMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-CurProductPlan-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-searchCurProductPlan-all')")
 	@ApiOperation(value = "根据产品获取CurProductPlan", tags = {"产品计划" } ,notes = "根据产品获取CurProductPlan")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productplans/fetchcurproductplan")
 	public ResponseEntity<List<ProductPlanDTO>> fetchProductPlanCurProductPlanByProduct(@PathVariable("product_id") BigInteger product_id,ProductPlanSearchContext context) {
@@ -325,7 +325,7 @@ public class ProductPlanResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-CurProductPlan-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-searchCurProductPlan-all')")
 	@ApiOperation(value = "根据产品查询CurProductPlan", tags = {"产品计划" } ,notes = "根据产品查询CurProductPlan")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productplans/searchcurproductplan")
 	public ResponseEntity<Page<ProductPlanDTO>> searchProductPlanCurProductPlanByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductPlanSearchContext context) {

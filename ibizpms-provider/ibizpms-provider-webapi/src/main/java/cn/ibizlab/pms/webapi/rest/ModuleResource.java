@@ -80,6 +80,18 @@ public class ModuleResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-Fix-all')")
+    @ApiOperation(value = "重建模块路径", tags = {"模块" },  notes = "重建模块路径")
+	@RequestMapping(method = RequestMethod.POST, value = "/modules/{module_id}/fix")
+    @Transactional
+    public ResponseEntity<ModuleDTO> fix(@PathVariable("module_id") BigInteger module_id, @RequestBody ModuleDTO moduledto) {
+        Module module = moduleMapping.toDomain(moduledto);
+        module.setId(module_id);
+        module = moduleService.fix(module);
+        moduledto = moduleMapping.toDto(module);
+        return ResponseEntity.status(HttpStatus.OK).body(moduledto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-Update-all')")
     @ApiOperation(value = "更新模块", tags = {"模块" },  notes = "更新模块")
 	@RequestMapping(method = RequestMethod.PUT, value = "/modules/{module_id}")
@@ -137,7 +149,7 @@ public class ModuleResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-Line-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-searchLine-all')")
 	@ApiOperation(value = "获取产品线", tags = {"模块" } ,notes = "获取产品线")
     @RequestMapping(method= RequestMethod.GET , value="/modules/fetchline")
 	public ResponseEntity<List<ModuleDTO>> fetchLine(ModuleSearchContext context) {
@@ -150,7 +162,7 @@ public class ModuleResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-Line-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-searchLine-all')")
 	@ApiOperation(value = "查询产品线", tags = {"模块" } ,notes = "查询产品线")
     @RequestMapping(method= RequestMethod.POST , value="/modules/searchline")
 	public ResponseEntity<Page<ModuleDTO>> searchLine(@RequestBody ModuleSearchContext context) {
@@ -158,7 +170,7 @@ public class ModuleResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(moduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-StoryModule-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-searchStoryModule-all')")
 	@ApiOperation(value = "获取需求模块", tags = {"模块" } ,notes = "获取需求模块")
     @RequestMapping(method= RequestMethod.GET , value="/modules/fetchstorymodule")
 	public ResponseEntity<List<ModuleDTO>> fetchStoryModule(ModuleSearchContext context) {
@@ -171,7 +183,7 @@ public class ModuleResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-StoryModule-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-searchStoryModule-all')")
 	@ApiOperation(value = "查询需求模块", tags = {"模块" } ,notes = "查询需求模块")
     @RequestMapping(method= RequestMethod.POST , value="/modules/searchstorymodule")
 	public ResponseEntity<Page<ModuleDTO>> searchStoryModule(@RequestBody ModuleSearchContext context) {
@@ -179,7 +191,7 @@ public class ModuleResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(moduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"模块" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/modules/fetchdefault")
 	public ResponseEntity<List<ModuleDTO>> fetchDefault(ModuleSearchContext context) {
@@ -192,7 +204,7 @@ public class ModuleResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-Default-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-searchDefault-all')")
 	@ApiOperation(value = "查询DEFAULT", tags = {"模块" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/modules/searchdefault")
 	public ResponseEntity<Page<ModuleDTO>> searchDefault(@RequestBody ModuleSearchContext context) {
@@ -200,7 +212,7 @@ public class ModuleResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(moduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-DocModule-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-searchDocModule-all')")
 	@ApiOperation(value = "获取文档目录", tags = {"模块" } ,notes = "获取文档目录")
     @RequestMapping(method= RequestMethod.GET , value="/modules/fetchdocmodule")
 	public ResponseEntity<List<ModuleDTO>> fetchDocModule(ModuleSearchContext context) {
@@ -213,7 +225,7 @@ public class ModuleResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-DocModule-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-searchDocModule-all')")
 	@ApiOperation(value = "查询文档目录", tags = {"模块" } ,notes = "查询文档目录")
     @RequestMapping(method= RequestMethod.POST , value="/modules/searchdocmodule")
 	public ResponseEntity<Page<ModuleDTO>> searchDocModule(@RequestBody ModuleSearchContext context) {

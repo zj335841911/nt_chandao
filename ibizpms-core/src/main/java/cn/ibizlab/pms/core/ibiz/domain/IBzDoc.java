@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,13 +22,16 @@ import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
 
-import cn.ibizlab.pms.util.domain.EntityClient;
 
 /**
- * ServiceApi [文档] 对象
+ * [文档] 对象
  */
-@Data
-public class IBzDoc extends EntityClient implements Serializable {
+@Builder
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class IBzDoc extends EntityBase implements Serializable {
 
     /**
      * 文档标识
@@ -144,78 +148,6 @@ public class IBzDoc extends EntityClient implements Serializable {
 
 
 
-
-
-    /**
-     * 设置 [由谁添加]
-     */
-    public void setAddedby(String addedby){
-        this.addedby = addedby ;
-        this.modify("addedby",addedby);
-    }
-    /**
-     * 设置 [由谁更新]
-     */
-    public void setEditedby(String editedby){
-        this.editedby = editedby ;
-        this.modify("editedby",editedby);
-    }
-    /**
-     * 设置 [添加时间]
-     */
-    public void setAddeddate(String addeddate){
-        this.addeddate = addeddate ;
-        this.modify("addeddate",addeddate);
-    }
-    /**
-     * 设置 [大小]
-     */
-    public void setSize(String size){
-        this.size = size ;
-        this.modify("size",size);
-    }
-    /**
-     * 设置 [所属文档库]
-     */
-    public void setLib(String lib){
-        this.lib = lib ;
-        this.modify("lib",lib);
-    }
-    /**
-     * 设置 [文档名称]
-     */
-    public void setIbzdocname(String ibzdocname){
-        this.ibzdocname = ibzdocname ;
-        this.modify("ibz_docname",ibzdocname);
-    }
-    /**
-     * 设置 [排序]
-     */
-    public void setOrder(String order){
-        this.order = order ;
-        this.modify("order",order);
-    }
-    /**
-     * 设置 [是否已收藏]
-     */
-    public void setIscollect(Integer iscollect){
-        this.iscollect = iscollect ;
-        this.modify("iscollect",iscollect);
-    }
-    /**
-     * 设置 [更新时间]
-     */
-    public void setEditeddate(String editeddate){
-        this.editeddate = editeddate ;
-        this.modify("editeddate",editeddate);
-    }
-    /**
-     * 设置 [对象类型]
-     */
-    public void setObjecttype(String objecttype){
-        this.objecttype = objecttype ;
-        this.modify("objecttype",objecttype);
-    }
 
 }
 

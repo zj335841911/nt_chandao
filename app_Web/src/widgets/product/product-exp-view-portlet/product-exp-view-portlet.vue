@@ -1,15 +1,22 @@
-
+<template src="./product-exp-view-portlet.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import ProductProductExpViewBase from './product-exp-view-portlet-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { ProductExpViewPortletBase } from './product-exp-view-portlet-base';
  
+
+/**
+ * db_productexpportlet部件
+ *
+ * @export
+ * @class ProductExpViewPortlet
+ * @extends {ProductExpViewPortletBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class ProductProductExpView extends ProductProductExpViewBase {
-
-}
+@VueLifeCycleProcessing()
+export default class ProductExpViewPortlet extends ProductExpViewPortletBase { }
 </script>

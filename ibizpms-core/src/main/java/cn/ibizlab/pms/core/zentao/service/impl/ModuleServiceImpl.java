@@ -56,9 +56,6 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     @Autowired
     @Lazy
     private cn.ibizlab.pms.core.zentao.service.IProductService productService;
-    @Autowired
-    @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ITaskService taskService;
 
     private cn.ibizlab.pms.core.zentao.service.IModuleService moduleService = this;
     @Autowired
@@ -69,12 +66,14 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
 
     @Override
     public Module getDraft(Module et) {
+        fillParentData(et);
         return et;
     }
 
     @Override
     @Transactional
     public boolean create(Module et) {
+        fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -83,6 +82,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
 
     @Override
     public void createBatch(List<Module> list) {
+        list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
     }
 
@@ -101,18 +101,32 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
 
     @Override
     @Transactional
+    public Module fix(Module et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTModuleHelper.fix((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return et;
+    }
+
+    @Override
+    @Transactional
     public boolean update(Module et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTModuleHelper.edit((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return bRst;
     }
 
     @Override
     public void updateBatch(List<Module> list) {
-        updateBatchById(list,batchSize);
-    }
 
+    }
     @Override
     @Transactional
     public boolean save(Module et) {
@@ -135,12 +149,14 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
 
     @Override
     public boolean saveBatch(Collection<Module> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
     public void saveBatch(List<Module> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
@@ -148,19 +164,24 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     public boolean checkKey(Module et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        Module et = this.get(key);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTModuleHelper.delete((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        return bRst;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
+    public void removeBatch(Collection<BigInteger> idList){
+        if (idList != null && !idList.isEmpty()) {
+            for (BigInteger id : idList) {
+                this.remove(id);
+            }
+        }
     }
-
 
 	@Override
     public List<Module> selectByBranch(BigInteger id) {
@@ -217,6 +238,25 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     public Page<Module> searchDocModule(ModuleSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchDocModule(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Module>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+
+
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(Module et){
+        //实体关系[DER1N__ZT_MODULE__ZT_MODULE__PARENT]
+        if(!ObjectUtils.isEmpty(et.getParent())){
+            cn.ibizlab.pms.core.zentao.domain.Module ibizparent=et.getIbizparent();
+            if(ObjectUtils.isEmpty(ibizparent)){
+                cn.ibizlab.pms.core.zentao.domain.Module majorEntity=moduleService.get(et.getParent());
+                et.setIbizparent(majorEntity);
+                ibizparent=majorEntity;
+            }
+            et.setParentname(ibizparent.getName());
+        }
     }
 
 

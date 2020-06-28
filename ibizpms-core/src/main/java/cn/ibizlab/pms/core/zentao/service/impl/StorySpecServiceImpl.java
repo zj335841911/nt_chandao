@@ -54,7 +54,6 @@ public class StorySpecServiceImpl extends ServiceImpl<StorySpecMapper, StorySpec
     public boolean checkKey(StorySpec et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean create(StorySpec et) {
@@ -191,6 +190,9 @@ public class StorySpecServiceImpl extends ServiceImpl<StorySpecMapper, StorySpec
             et.setVersion(ztstory.getVersion());
         }
     }
+
+
+
 
     @Override
     public List<JSONObject> select(String sql, Map param){

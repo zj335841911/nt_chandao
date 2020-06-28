@@ -51,8 +51,28 @@ export default class MainModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'rootname',
+        prop: 'rootname',
+        dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'branch',
+        prop: 'branch',
+        dataType: 'INT',
+      },
+      {
+        name: 'parentname',
+        prop: 'parentname',
+        dataType: 'PICKUPTEXT',
+      },
+      {
         name: 'name',
         prop: 'name',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'short',
+        prop: 'ibizshort',
         dataType: 'TEXT',
       },
       {
@@ -64,6 +84,16 @@ export default class MainModel {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
+      },
+      {
+        name: 'root',
+        prop: 'root',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'parent',
+        prop: 'parent',
+        dataType: 'PICKUP',
       },
       {
         name: 'product',

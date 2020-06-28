@@ -35,19 +35,38 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据集合[CurProduct]-->
+	 <select id="searchCurProduct"  parameterType="cn.ibizlab.pms.core.zentao.filter.BranchSearchContext"  resultMap="BranchResultMap">
+         select t1.* from (
+                <include refid="CurProduct" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
+    <!--数据查询[CurProduct]-->
+    <sql id="CurProduct" databaseId="mysql">
+		<![CDATA[ SELECT t1.`DELETED`, t1.`ID`, t1.`NAME`, t1.`ORDER`, t1.`PRODUCT` FROM `zt_branch` t1  
+					 WHERE 	t1.DELETED = '0'
+						 AND ( ( t1.`PRODUCT` = #{srf.webcontext.product}  OR  t1.`PRODUCT` = #{srf.datacontext.product}  OR  t1.`PRODUCT` = #{srf.datacontext.products} ) )
+			]]>
+    </sql>
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
-       <![CDATA[	SELECT t1.`DELETED`, t1.`ID`, t1.`NAME`, t1.`ORDER`, t1.`PRODUCT` FROM `zt_branch` t1  
-				 WHERE 	t1.DELETED = '0'
+		<![CDATA[ SELECT t1.`DELETED`, t1.`ID`, t1.`NAME`, t1.`ORDER`, t1.`PRODUCT` FROM `zt_branch` t1  
+					 WHERE 	t1.DELETED = '0'
 			]]>
     </sql>
-
+    <!--数据查询[DefaultBranch]-->
+    <sql id="DefaultBranch" databaseId="mysql">
+		<![CDATA[ SELECT '0' AS `DELETED`, 0 AS `ID`, '所有平台' AS`NAME`, 0 AS `ORDER`, t2.`id` AS `PRODUCT` FROM `zt_branch` t1 RIGHT JOIN `zt_product` t2 ON t1.product=t2.id WHERE ( ( t2.`ID` = #{srf.webcontext.product}  OR  t2.`ID` = #{srf.datacontext.product}  OR  t2.`ID` = #{srf.datacontext.products} ) )
+			]]>
+    </sql>
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
-       <![CDATA[	SELECT t1.`DELETED`, t1.`ID`, t1.`NAME`, t1.`ORDER`, t1.`PRODUCT` FROM `zt_branch` t1  
-				 WHERE 	t1.DELETED = '0'
+		<![CDATA[ SELECT t1.`DELETED`, t1.`ID`, t1.`NAME`, t1.`ORDER`, t1.`PRODUCT` FROM `zt_branch` t1  
+					 WHERE 	t1.DELETED = '0'
 			]]>
     </sql>
-
 </mapper>
 

@@ -261,4 +261,60 @@ export interface Project {
      * @memberof Project
      */
     parent?: any;
+
+    /**
+     * 任务总数
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    taskcnt?: any;
+
+    /**
+     * Bug总数
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    bugcnt?: any;
+
+    /**
+     * 需求总数
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    storycnt?: any;
+
+    /**
+     * 关联产品集合
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    products?: any;
+
+    /**
+     * 关联产品平台集合
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    branchs?: any;
+
+    /**
+     * 关联产品产品计划
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    plans?: any;
+
+    /**
+     * 关联数据数组
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    srfarray?: any;
 }

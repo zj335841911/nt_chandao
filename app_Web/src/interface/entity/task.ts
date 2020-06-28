@@ -311,14 +311,6 @@ export interface Task {
     project?: any;
 
     /**
-     * 所属模块
-     *
-     * @returns {*}
-     * @memberof Task
-     */
-    module?: any;
-
-    /**
      * 相关需求
      *
      * @returns {*}
@@ -349,4 +341,44 @@ export interface Task {
      * @memberof Task
      */
     duration?: any;
+
+    /**
+     * id
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    module?: any;
+
+    /**
+     * 模块路径
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    path?: any;
+
+    /**
+     * 备注
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    comment?: any;
+
+    /**
+     * 本次消耗
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    currentconsumed?: any;
+
+    /**
+     * 总计耗时
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    totaltime?: any;
 }

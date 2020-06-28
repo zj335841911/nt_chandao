@@ -153,12 +153,20 @@ export default class AppPicker extends Vue {
     @Prop() public linkview?: any;
 
     /**
-     * 表单项参数
+     * 局部上下文导航参数
      * 
      * @type {any}
      * @memberof AppPicker
      */
-    @Prop() public itemParam: any;
+    @Prop() public localContext!:any;
+
+    /**
+     * 局部导航参数
+     * 
+     * @type {any}
+     * @memberof AppPicker
+     */
+    @Prop() public localParam!:any;
 
     /**
      * 值项名称
@@ -410,9 +418,9 @@ export default class AppPicker extends Vue {
         // 判断打开方式
         if (view.placement && !Object.is(view.placement, '')) {
             if (Object.is(view.placement, 'POPOVER')) {
-                this.openPopOver($event, view, _context, data);
+                this.openPopOver($event, view, _context, _param);
             } else {
-                this.openDrawer(view, _context, data);
+                this.openDrawer(view, _context, _param);
             }
         } else {
             this.openPopupModal(view, _context, _param);
@@ -639,28 +647,21 @@ export default class AppPicker extends Vue {
      * @memberof AppPicker
      */
     public handlePublicParams(arg: any): boolean {
-        if (!this.itemParam) {
-            return true;
-        }
         if (!this.data) {
             this.$Notice.error({ title: (this.$t('components.appPicker.error') as any), desc: (this.$t('components.appPicker.formdataException') as any) });
             return false;
         }
         // 合并表单参数
-        arg.param = JSON.parse(JSON.stringify(this.viewparams));
-        arg.context = JSON.parse(JSON.stringify(this.context));
+        arg.param = this.viewparams ? JSON.parse(JSON.stringify(this.viewparams)) : {};
+        arg.context = this.context ? JSON.parse(JSON.stringify(this.context)) : {};
         // 附加参数处理
-        if (this.itemParam.context) {
-          let _context = this.$util.formatData(this.data,this.itemParam.context);
+        if (this.localContext && Object.keys(this.localContext).length >0) {
+            let _context = this.$util.computedNavData(this.data,arg.context,arg.param,this.localContext);
             Object.assign(arg.context,_context);
         }
-        if (this.itemParam.param) {
-          let _param = this.$util.formatData(this.data,this.itemParam.param);
+        if (this.localParam && Object.keys(this.localParam).length >0) {
+            let _param = this.$util.computedNavData(this.data,arg.param,arg.param,this.localParam);
             Object.assign(arg.param,_param);
-        }
-        if (this.itemParam.parentdata) {
-          let _parentdata = this.$util.formatData(this.data,this.itemParam.parentdata);
-            Object.assign(arg.param,_parentdata);
         }
         return true;
     }
@@ -691,9 +692,9 @@ export default class AppPicker extends Vue {
         // 判断打开方式
         if (view.placement && !Object.is(view.placement, '')) {
             if (Object.is(view.placement, 'POPOVER')) {
-                this.openPopOver($event, view, _context, data);
+                this.openPopOver($event, view, _context, _param);
             } else {
-                this.openDrawer(view, _context, data);
+                this.openDrawer(view, _context, _param);
             }
         } else {
             this.openPopupModal(view, _context, _param);

@@ -19,7 +19,13 @@ export default class SidebarModel {
         codelist:{tag:'Project__type',codelistType:'STATIC'},
 			},
 			{
+				name: 'taskcnt',
+			},
+			{
 				name: 'code',
+			},
+			{
+				name: 'bugcnt',
 			},
 			{
 				name: 'status',
@@ -27,6 +33,9 @@ export default class SidebarModel {
 			},
 			{
 				name: 'name',
+			},
+			{
+				name: 'storycnt',
 			},
 			{
 				name: 'id',

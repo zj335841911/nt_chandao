@@ -32,11 +32,13 @@ public interface IProductModuleService extends IService<ProductModule>{
     ProductModule getDraft(ProductModule et) ;
     boolean create(ProductModule et) ;
     void createBatch(List<ProductModule> list) ;
+    ProductModule fix(ProductModule et) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
     boolean save(ProductModule et) ;
     void saveBatch(List<ProductModule> list) ;
     Page<ProductModule> searchDefault(ProductModuleSearchContext context) ;
+    Page<ProductModule> searchByPath(ProductModuleSearchContext context) ;
     Page<ProductModule> searchRoot_NoBranch(ProductModuleSearchContext context) ;
     Page<ProductModule> searchRoot(ProductModuleSearchContext context) ;
     List<ProductModule> selectByParent(BigInteger id) ;
@@ -57,6 +59,7 @@ public interface IProductModuleService extends IService<ProductModule>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
+
 
 
 }

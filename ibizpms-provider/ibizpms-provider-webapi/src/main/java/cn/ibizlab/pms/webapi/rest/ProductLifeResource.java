@@ -46,7 +46,7 @@ public class ProductLifeResource {
     @Lazy
     public ProductLifeMapping productlifeMapping;
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductLife-GetRoadmap-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductLife-searchGetRoadmap-all')")
 	@ApiOperation(value = "获取GetRoadmap", tags = {"产品生命周期" } ,notes = "获取GetRoadmap")
     @RequestMapping(method= RequestMethod.GET , value="/productlives/fetchgetroadmap")
 	public ResponseEntity<List<ProductLifeDTO>> fetchGetRoadmap(ProductLifeSearchContext context) {
@@ -59,7 +59,7 @@ public class ProductLifeResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductLife-GetRoadmap-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductLife-searchGetRoadmap-all')")
 	@ApiOperation(value = "查询GetRoadmap", tags = {"产品生命周期" } ,notes = "查询GetRoadmap")
     @RequestMapping(method= RequestMethod.POST , value="/productlives/searchgetroadmap")
 	public ResponseEntity<Page<ProductLifeDTO>> searchGetRoadmap(@RequestBody ProductLifeSearchContext context) {
@@ -67,7 +67,7 @@ public class ProductLifeResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productlifeMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductLife-RoadMapYear-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductLife-searchRoadMapYear-all')")
 	@ApiOperation(value = "获取RoadMapYear", tags = {"产品生命周期" } ,notes = "获取RoadMapYear")
     @RequestMapping(method= RequestMethod.GET , value="/productlives/fetchroadmapyear")
 	public ResponseEntity<List<ProductLifeDTO>> fetchRoadMapYear(ProductLifeSearchContext context) {
@@ -80,7 +80,7 @@ public class ProductLifeResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductLife-RoadMapYear-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductLife-searchRoadMapYear-all')")
 	@ApiOperation(value = "查询RoadMapYear", tags = {"产品生命周期" } ,notes = "查询RoadMapYear")
     @RequestMapping(method= RequestMethod.POST , value="/productlives/searchroadmapyear")
 	public ResponseEntity<Page<ProductLifeDTO>> searchRoadMapYear(@RequestBody ProductLifeSearchContext context) {

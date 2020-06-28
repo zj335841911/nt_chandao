@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[待办事宜表]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_todo",resultMap = "TodoResultMap")
 public class Todo extends EntityMP implements Serializable {
 
@@ -42,7 +43,7 @@ public class Todo extends EntityMP implements Serializable {
      * 编号
      */
     @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private BigInteger id;
@@ -204,12 +205,24 @@ public class Todo extends EntityMP implements Serializable {
         this.account = account ;
         this.modify("account",account);
     }
+
     /**
      * 设置 [关闭时间]
      */
     public void setCloseddate(Timestamp closeddate){
         this.closeddate = closeddate ;
         this.modify("closeddate",closeddate);
+    }
+
+    /**
+     * 格式化日期 [关闭时间]
+     */
+    public String formatCloseddate(){
+        if (this.closeddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(closeddate);
     }
     /**
      * 设置 [由谁关闭]
@@ -218,6 +231,7 @@ public class Todo extends EntityMP implements Serializable {
         this.closedby = closedby ;
         this.modify("closedby",closedby);
     }
+
     /**
      * 设置 [类型]
      */
@@ -225,6 +239,7 @@ public class Todo extends EntityMP implements Serializable {
         this.type = type ;
         this.modify("type",type);
     }
+
     /**
      * 设置 [结束]
      */
@@ -232,6 +247,7 @@ public class Todo extends EntityMP implements Serializable {
         this.end = end ;
         this.modify("end",end);
     }
+
     /**
      * 设置 [描述]
      */
@@ -239,6 +255,7 @@ public class Todo extends EntityMP implements Serializable {
         this.desc = desc ;
         this.modify("desc",desc);
     }
+
     /**
      * 设置 [由谁完成]
      */
@@ -246,6 +263,7 @@ public class Todo extends EntityMP implements Serializable {
         this.finishedby = finishedby ;
         this.modify("finishedby",finishedby);
     }
+
     /**
      * 设置 [开始]
      */
@@ -253,6 +271,7 @@ public class Todo extends EntityMP implements Serializable {
         this.begin = begin ;
         this.modify("begin",begin);
     }
+
     /**
      * 设置 [关联编号]
      */
@@ -260,6 +279,7 @@ public class Todo extends EntityMP implements Serializable {
         this.idvalue = idvalue ;
         this.modify("idvalue",idvalue);
     }
+
     /**
      * 设置 [由谁指派]
      */
@@ -267,12 +287,24 @@ public class Todo extends EntityMP implements Serializable {
         this.assignedby = assignedby ;
         this.modify("assignedby",assignedby);
     }
+
     /**
      * 设置 [完成时间]
      */
     public void setFinisheddate(Timestamp finisheddate){
         this.finisheddate = finisheddate ;
         this.modify("finisheddate",finisheddate);
+    }
+
+    /**
+     * 格式化日期 [完成时间]
+     */
+    public String formatFinisheddate(){
+        if (this.finisheddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(finisheddate);
     }
     /**
      * 设置 [周期]
@@ -281,6 +313,7 @@ public class Todo extends EntityMP implements Serializable {
         this.cycle = cycle ;
         this.modify("cycle",cycle);
     }
+
     /**
      * 设置 [指派给]
      */
@@ -288,6 +321,7 @@ public class Todo extends EntityMP implements Serializable {
         this.assignedto = assignedto ;
         this.modify("assignedto",assignedto);
     }
+
     /**
      * 设置 [状态]
      */
@@ -295,6 +329,7 @@ public class Todo extends EntityMP implements Serializable {
         this.status = status ;
         this.modify("status",status);
     }
+
     /**
      * 设置 [待办名称]
      */
@@ -302,12 +337,24 @@ public class Todo extends EntityMP implements Serializable {
         this.name = name ;
         this.modify("name",name);
     }
+
     /**
      * 设置 [指派日期]
      */
     public void setAssigneddate(Timestamp assigneddate){
         this.assigneddate = assigneddate ;
         this.modify("assigneddate",assigneddate);
+    }
+
+    /**
+     * 格式化日期 [指派日期]
+     */
+    public String formatAssigneddate(){
+        if (this.assigneddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(assigneddate);
     }
     /**
      * 设置 [优先级]
@@ -316,12 +363,24 @@ public class Todo extends EntityMP implements Serializable {
         this.pri = pri ;
         this.modify("pri",pri);
     }
+
     /**
      * 设置 [日期]
      */
     public void setDate(Timestamp date){
         this.date = date ;
         this.modify("date",date);
+    }
+
+    /**
+     * 格式化日期 [日期]
+     */
+    public String formatDate(){
+        if (this.date == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(date);
     }
     /**
      * 设置 [私人事务]
@@ -330,6 +389,7 @@ public class Todo extends EntityMP implements Serializable {
         this.ibizprivate = ibizprivate ;
         this.modify("private",ibizprivate);
     }
+
     /**
      * 设置 [config]
      */
@@ -337,6 +397,7 @@ public class Todo extends EntityMP implements Serializable {
         this.config = config ;
         this.modify("config",config);
     }
+
 
 }
 

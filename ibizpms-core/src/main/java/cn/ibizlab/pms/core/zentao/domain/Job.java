@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[job]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_job",resultMap = "JobResultMap")
 public class Job extends EntityMP implements Serializable {
 
@@ -159,7 +160,7 @@ public class Job extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private BigInteger id;
@@ -194,6 +195,17 @@ public class Job extends EntityMP implements Serializable {
         this.editeddate = editeddate ;
         this.modify("editeddate",editeddate);
     }
+
+    /**
+     * 格式化日期 [editedDate]
+     */
+    public String formatEditeddate(){
+        if (this.editeddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(editeddate);
+    }
     /**
      * 设置 [product]
      */
@@ -201,6 +213,7 @@ public class Job extends EntityMP implements Serializable {
         this.product = product ;
         this.modify("product",product);
     }
+
     /**
      * 设置 [lastStatus]
      */
@@ -208,12 +221,24 @@ public class Job extends EntityMP implements Serializable {
         this.laststatus = laststatus ;
         this.modify("laststatus",laststatus);
     }
+
     /**
      * 设置 [createdDate]
      */
     public void setCreateddate(Timestamp createddate){
         this.createddate = createddate ;
         this.modify("createddate",createddate);
+    }
+
+    /**
+     * 格式化日期 [createdDate]
+     */
+    public String formatCreateddate(){
+        if (this.createddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(createddate);
     }
     /**
      * 设置 [createdBy]
@@ -222,6 +247,7 @@ public class Job extends EntityMP implements Serializable {
         this.createdby = createdby ;
         this.modify("createdby",createdby);
     }
+
     /**
      * 设置 [triggerType]
      */
@@ -229,6 +255,7 @@ public class Job extends EntityMP implements Serializable {
         this.triggertype = triggertype ;
         this.modify("triggertype",triggertype);
     }
+
     /**
      * 设置 [comment]
      */
@@ -236,12 +263,24 @@ public class Job extends EntityMP implements Serializable {
         this.comment = comment ;
         this.modify("comment",comment);
     }
+
     /**
      * 设置 [lastExec]
      */
     public void setLastexec(Timestamp lastexec){
         this.lastexec = lastexec ;
         this.modify("lastexec",lastexec);
+    }
+
+    /**
+     * 格式化日期 [lastExec]
+     */
+    public String formatLastexec(){
+        if (this.lastexec == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(lastexec);
     }
     /**
      * 设置 [jkHost]
@@ -250,6 +289,7 @@ public class Job extends EntityMP implements Serializable {
         this.jkhost = jkhost ;
         this.modify("jkhost",jkhost);
     }
+
     /**
      * 设置 [frame]
      */
@@ -257,6 +297,7 @@ public class Job extends EntityMP implements Serializable {
         this.frame = frame ;
         this.modify("frame",frame);
     }
+
     /**
      * 设置 [atDay]
      */
@@ -264,6 +305,7 @@ public class Job extends EntityMP implements Serializable {
         this.atday = atday ;
         this.modify("atday",atday);
     }
+
     /**
      * 设置 [jkJob]
      */
@@ -271,6 +313,7 @@ public class Job extends EntityMP implements Serializable {
         this.jkjob = jkjob ;
         this.modify("jkjob",jkjob);
     }
+
     /**
      * 设置 [svnDir]
      */
@@ -278,6 +321,7 @@ public class Job extends EntityMP implements Serializable {
         this.svndir = svndir ;
         this.modify("svndir",svndir);
     }
+
     /**
      * 设置 [repo]
      */
@@ -285,6 +329,7 @@ public class Job extends EntityMP implements Serializable {
         this.repo = repo ;
         this.modify("repo",repo);
     }
+
     /**
      * 设置 [name]
      */
@@ -292,6 +337,7 @@ public class Job extends EntityMP implements Serializable {
         this.name = name ;
         this.modify("name",name);
     }
+
     /**
      * 设置 [lastTag]
      */
@@ -299,6 +345,7 @@ public class Job extends EntityMP implements Serializable {
         this.lasttag = lasttag ;
         this.modify("lasttag",lasttag);
     }
+
     /**
      * 设置 [atTime]
      */
@@ -306,6 +353,7 @@ public class Job extends EntityMP implements Serializable {
         this.attime = attime ;
         this.modify("attime",attime);
     }
+
     /**
      * 设置 [editedBy]
      */
@@ -313,6 +361,7 @@ public class Job extends EntityMP implements Serializable {
         this.editedby = editedby ;
         this.modify("editedby",editedby);
     }
+
 
 }
 

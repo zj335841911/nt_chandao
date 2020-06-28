@@ -56,14 +56,93 @@ export default class MainModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'projectname',
+        prop: 'projectname',
+        dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'project',
+        prop: 'project',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'type',
+        prop: 'type',
+        dataType: 'SSCODELIST',
+      },
+      {
+        name: 'modulename',
+        prop: 'modulename',
+        dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'formitem',
+      },
+      {
+        name: 'assignedto',
+        prop: 'assignedto',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'formitem1',
+      },
+      {
+        name: 'story',
+        prop: 'story',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'storyname',
+        prop: 'storyname',
+        dataType: 'PICKUPTEXT',
+      },
+      {
         name: 'name',
         prop: 'name',
         dataType: 'TEXT',
       },
       {
+        name: 'pri',
+        prop: 'pri',
+        dataType: 'NSCODELIST',
+      },
+      {
+        name: 'estimate',
+        prop: 'estimate',
+        dataType: 'FLOAT',
+      },
+      {
+        name: 'desc',
+        prop: 'desc',
+        dataType: 'LONGTEXT',
+      },
+      {
+        name: 'estsarted',
+        prop: 'eststarted',
+        dataType: 'DATE',
+      },
+      {
+        name: 'deadline',
+        prop: 'deadline',
+        dataType: 'DATE',
+      },
+      {
+        name: 'formitemex1',
+      },
+      {
+        name: 'mailto',
+        prop: 'mailto',
+        dataType: 'LONGTEXT',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
+      },
+      {
+        name: 'module',
+        prop: 'module',
+        dataType: 'PICKUP',
       },
       {
         name: 'task',

@@ -1,19 +1,27 @@
+<template src="./project-main-dashboard-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import ProjectMainDashboardViewBase from './project-main-dashboard-view-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { ProjectMainDashboardViewBase } from './project-main-dashboard-view-base';
 import view_dashboard from '@widgets/project/main-dashboard/main-dashboard.vue';
+
+/**
+ * 项目数据看板视图视图
+ *
+ * @export
+ * @class ProjectMainDashboardView
+ * @extends {ProjectMainDashboardViewBase}
+ */
 @Component({
     components: {
         view_dashboard, 
     },
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
         });
-    },
+    }
 })
-export default class ProjectMainDashboardView extends ProjectMainDashboardViewBase {
-
-}
+@VueLifeCycleProcessing()
+export default class ProjectMainDashboardView extends ProjectMainDashboardViewBase { }
 </script>

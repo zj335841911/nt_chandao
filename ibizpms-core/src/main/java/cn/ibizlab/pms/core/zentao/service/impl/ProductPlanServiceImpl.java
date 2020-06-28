@@ -83,65 +83,77 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
 
     @Override
     public boolean saveBatch(Collection<ProductPlan> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
     public void saveBatch(List<ProductPlan> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
     @Override
     @Transactional
     public boolean create(ProductPlan et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductPlanHelper.create((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return bRst;
     }
 
     @Override
     public void createBatch(List<ProductPlan> list) {
-        this.saveBatch(list,batchSize);
-    }
 
+    }
     @Override
     @Transactional
     public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        ProductPlan et = this.get(key);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductPlanHelper.delete((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        return bRst;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
+    public void removeBatch(Collection<BigInteger> idList){
+        if (idList != null && !idList.isEmpty()) {
+            for (BigInteger id : idList) {
+                this.remove(id);
+            }
+        }
     }
-
     @Override
     public boolean checkKey(ProductPlan et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     public ProductPlan getDraft(ProductPlan et) {
+        fillParentData(et);
         return et;
     }
 
     @Override
     @Transactional
     public boolean update(ProductPlan et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductPlanHelper.edit((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return bRst;
     }
 
     @Override
     public void updateBatch(List<ProductPlan> list) {
-        updateBatchById(list,batchSize);
-    }
 
+    }
     @Override
     @Transactional
     public ProductPlan get(BigInteger key) {
@@ -203,6 +215,25 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     public Page<ProductPlan> searchCurProductPlan(ProductPlanSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductPlan> pages=baseMapper.searchCurProductPlan(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProductPlan>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+
+
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(ProductPlan et){
+        //实体关系[DER1N__ZT_PRODUCTPLAN__ZT_PRODUCTPLAN__PARENT]
+        if(!ObjectUtils.isEmpty(et.getParent())){
+            cn.ibizlab.pms.core.zentao.domain.ProductPlan ibizparent=et.getIbizparent();
+            if(ObjectUtils.isEmpty(ibizparent)){
+                cn.ibizlab.pms.core.zentao.domain.ProductPlan majorEntity=productplanService.get(et.getParent());
+                et.setIbizparent(majorEntity);
+                ibizparent=majorEntity;
+            }
+            et.setParentname(ibizparent.getTitle());
+        }
     }
 
 

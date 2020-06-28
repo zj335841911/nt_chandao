@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[需求阶段]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_storystage",resultMap = "StoryStageResultMap")
 public class StoryStage extends EntityMP implements Serializable {
 
@@ -41,7 +42,7 @@ public class StoryStage extends EntityMP implements Serializable {
     /**
      * 虚拟主键
      */
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.ASSIGN_UUID)
     @JSONField(name = "id")
     @JsonProperty("id")
     private String id;
@@ -99,6 +100,7 @@ public class StoryStage extends EntityMP implements Serializable {
         this.stagedby = stagedby ;
         this.modify("stagedby",stagedby);
     }
+
     /**
      * 设置 [所处阶段]
      */
@@ -106,6 +108,7 @@ public class StoryStage extends EntityMP implements Serializable {
         this.stage = stage ;
         this.modify("stage",stage);
     }
+
     /**
      * 设置 [需求]
      */
@@ -113,6 +116,7 @@ public class StoryStage extends EntityMP implements Serializable {
         this.story = story ;
         this.modify("story",story);
     }
+
     /**
      * 设置 [平台/分支]
      */
@@ -120,6 +124,7 @@ public class StoryStage extends EntityMP implements Serializable {
         this.branch = branch ;
         this.modify("branch",branch);
     }
+
 
 }
 

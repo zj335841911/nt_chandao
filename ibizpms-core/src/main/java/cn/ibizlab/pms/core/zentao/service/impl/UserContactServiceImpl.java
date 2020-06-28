@@ -64,7 +64,6 @@ public class UserContactServiceImpl extends ServiceImpl<UserContactMapper, UserC
     public boolean checkKey(UserContact et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean save(UserContact et) {
@@ -151,6 +150,9 @@ public class UserContactServiceImpl extends ServiceImpl<UserContactMapper, UserC
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<UserContact> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<UserContact>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
+
+
+
 
 
 

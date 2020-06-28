@@ -58,6 +58,12 @@ export default class ExpModel {
         name: 'parent',
       },
       {
+        name: 'rootname',
+      },
+      {
+        name: 'parentname',
+      },
+      {
         name: 'product',
         prop: 'id',
         dataType: 'FONTKEY',

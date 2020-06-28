@@ -80,7 +80,9 @@ export default class ProductModuleUIServiceBase extends UIService {
      */  
     public initViewMap(){
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'productmodules'});
+        this.allViewMap.set(':',{viewname:'treeexpview',srfappde:'productmodules'});
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'productmodules'});
+        this.allViewMap.set(':',{viewname:'quickcfgview',srfappde:'productmodules'});
     }
 
     /**
@@ -89,6 +91,149 @@ export default class ProductModuleUIServiceBase extends UIService {
      * @memberof  ProductModuleUIServiceBase
      */  
     public initDeMainStateMap(){
+    }
+
+    /**
+     * 修复
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async ProductModule_Fix(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let confirmResult:boolean = await new Promise((resolve: any, reject: any) => {
+          actionContext.$Modal.confirm({
+              title: '警告',
+              content: '执行修复模块路径',
+              onOk: () => {resolve(true);},
+              onCancel: () => {resolve(false);}
+          });
+        });
+        if(!confirmResult){
+            return;
+        }
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        const backend = () => {
+            const curService:ProductModuleService =  new ProductModuleService();
+            curService.Fix(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '修复成功' });
+
+                const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        backend();
+    }
+
+    /**
+     * 编辑
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async ProductModule_OpenQuickCfgView(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { productmodule: '%productmodule%' });
+        Object.assign(params, { id: '%productmodule%' });
+        Object.assign(params, { name: '%name%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+        ];
+        const parameters: any[] = [
+            { pathName: 'productmodules', parameterName: 'productmodule' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    if(window.opener){
+                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
+                        window.close();
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'product-module-quick-cfg-view', 
+                height: 350, 
+                width: 500,  
+                title: actionContext.$t('entities.productmodule.views.quickcfgview.title'),
+            };
+            openPopupModal(view, data);
     }
 
 

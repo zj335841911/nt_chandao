@@ -27,15 +27,13 @@
 
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
-       <![CDATA[	SELECT t1.`COMMIT`, t1.`COMMITTER`, t1.`ID`, t1.`REPO`, t1.`REVISION`, t1.`TIME` FROM `zt_repohistory` t1  
+		<![CDATA[ SELECT t1.`COMMIT`, t1.`COMMITTER`, t1.`ID`, t1.`REPO`, t1.`REVISION`, t1.`TIME` FROM `zt_repohistory` t1  
 			]]>
     </sql>
-
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
-       <![CDATA[	SELECT t1.`COMMENT`, t1.`COMMIT`, t1.`COMMITTER`, t1.`ID`, t1.`REPO`, t1.`REVISION`, t1.`TIME` FROM `zt_repohistory` t1  
+		<![CDATA[ SELECT t1.`COMMENT`, t1.`COMMIT`, t1.`COMMITTER`, t1.`ID`, t1.`REPO`, t1.`REVISION`, t1.`TIME` FROM `zt_repohistory` t1  
 			]]>
     </sql>
-
 </mapper>
 

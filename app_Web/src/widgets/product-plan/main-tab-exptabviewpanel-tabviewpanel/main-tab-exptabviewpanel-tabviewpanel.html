@@ -1,0 +1,9 @@
+<div class='tabviewpanel' v-if='isActivied'>
+        <story-plan-sub-grid-view 
+      class='viewcontainer2' 
+      :viewdata="viewdata" 
+      :viewparam="viewparam"
+      @viewload="viewDatasChange($event)" 
+      :viewDefaultUsage="false" >
+    </story-plan-sub-grid-view>
+</div>

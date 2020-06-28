@@ -122,8 +122,22 @@ export class StudioDrawer extends Vue {
      */
     protected refCloseView(view: any, i: number): any {
         const ref: any = this.$refs[view.viewname + i];
-        if (ref && ref.closeView) {
-            ref.closeView();
+        if (ref) {
+            const appview = this.$store.getters['viewaction/getAppView'](ref.viewtag);
+            if (appview && appview.viewdatachange) {
+                const title: any = this.$t('app.tabpage.sureclosetip.title');
+                const contant: any = this.$t('app.tabpage.sureclosetip.content');
+                this.$Modal.confirm({
+                    title: title,
+                    content: contant,
+                    onOk: () => {
+                        this.$store.commit('viewaction/setViewDataChange', { viewtag: ref.viewtag, viewdatachange: false });
+                        ref.closeView();
+                    }
+                });
+            } else {
+                ref.closeView();
+            }
         }
     }
 
@@ -202,10 +216,24 @@ export class StudioDrawer extends Vue {
     protected renderHeader(): any {
         return <div class="studio-drawer-header">
             <div class="studio-drawer-breadcrumb">
-                {this.viewList.map((item, i) => {
-                    return <span>
+                {this.showViewList.map((item, i) => {
+                    const ref: any = this.$refs[item.viewname + i];
+                    if (!ref) {
+                        setTimeout(() => {
+                            this.$forceUpdate();
+                        }, 300);
+                        return;
+                    }
+                    return <span key={i}>
                         {i !== 0 ? <span class="studio-drawer-breadcrumb-item-separator">&gt;</span> : null}
-                        <span class="text" on-click={() => this.closeByIndex(i)}>{item.title}</span>
+                        <span class={{ 'text': true, 'active': (i === (this.showViewList.length - 1)) }} on-click={() => {
+                            if (this.showViewList.length === (i + 1)) {
+                                return;
+                            }
+                            this.closeByIndex(i);
+                        }}>
+                            {this.$t(ref.model.srfTitle)}
+                        </span>
                     </span>;
                 })}
             </div>
@@ -251,12 +279,18 @@ export class StudioDrawer extends Vue {
                             this.closeModalData = data;
                         },
                         close: () => {
+                            if ((this.viewList.length - 1) < i) {
+                                return;
+                            }
                             if (this.viewList.length === 1) {
                                 this.isShow = false;
                                 setTimeout(() => this.closeView(view), 500);
                             } else {
                                 this.closeView(view);
                             }
+                        },
+                        viewModelChange: () => {
+                            this.$forceUpdate();
                         }
                     }
                 })}

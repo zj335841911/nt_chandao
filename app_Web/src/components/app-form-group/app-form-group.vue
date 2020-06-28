@@ -1,17 +1,30 @@
 <template>
-    <div class="app-form-group">
-        <div v-if="uiStyle=='STYLE2'">
+    <div :class="classes">
+        <template v-if="uiStyle=='STYLE4'">
+            <app-form-group4
+                :caption="caption"
+                :uiStyle="uiStyle"
+                :layoutType="layoutType"
+                :isShowCaption="isShowCaption"
+                :isInfoGroupMode="isInfoGroupMode"
+                :uiActionGroup="uiActionGroup"
+                :titleBarCloseMode="titleBarCloseMode">
+                   <slot></slot>
+            </app-form-group4>
+        </template>
+        <template v-else-if="uiStyle=='STYLE2'">
             <app-form-group2
                 :caption="caption"
                 :uiStyle="uiStyle"
                 :layoutType="layoutType"
                 :isShowCaption="isShowCaption"
                 :uiActionGroup="uiActionGroup"
+                :isInfoGroupMode="isInfoGroupMode"
                 :titleBarCloseMode="titleBarCloseMode">
                    <slot></slot>
                 </app-form-group2>
-        </div>
-        <div v-else>
+        </template>
+        <template v-else>
             <card v-if="isShowCaption === true" :bordered="false" :dis-hover="true" :class="classes">
                 <p class='' slot='title'>
                      <icon v-if="titleBarCloseMode !== 0" :type="collapseContant ? 'ios-arrow-dropright-circle' : 'ios-arrow-dropdown-circle'"
@@ -28,21 +41,25 @@
                             <dropdown-menu slot='list' v-if="uiActionGroup.details && Array.isArray(uiActionGroup.details)">
                                 <dropdown-item v-for="(detail,index) in (uiActionGroup.details)" :key="index" :name="detail.name">
                                     <span class='item' @click="doUIAction($event, detail)">
-                                        <template v-if="detail.icon && !Object.is(detail.icon, '')">
-                                             <i :class="detail.icon" ></i>
-                                        </template>
-                                        <template v-if="!(detail.icon && !Object.is(detail.icon, ''))">
-                                            <div v-if="detail.img && !Object.is(detail.img, '')">
-                                                <img :src="detail.img" />
-                                            </div>
+                                        <template v-if="detail.isShowIcon">
+                                            <template v-if="detail.icon && !Object.is(detail.icon, '')">
+                                                <i :class="detail.icon" ></i>
+                                            </template>
+                                            <template v-if="!(detail.icon && !Object.is(detail.icon, ''))">
+                                                <div v-if="detail.img && !Object.is(detail.img, '')">
+                                                    <img :src="detail.img" />
+                                                </div>
+                                            </template>
                                         </template>
                                         &nbsp;
                                         <span>
-                                            <template v-if="uiActionGroup.langbase && !Object.is(uiActionGroup.langbase, '') && detail.uiactiontag && !Object.is(detail.uiactiontag, '')">
-                                                {{$t(`${uiActionGroup.langbase}.uiactions.${detail.uiactiontag}`)}}
-                                            </template>
-                                            <template v-if="!(uiActionGroup.langbase && !Object.is(uiActionGroup.langbase, '') && detail.uiactiontag && !Object.is(detail.uiactiontag, ''))">
-                                                {{detail.caption}}
+                                            <template v-if="detail.isShowCaption">
+                                                <template v-if="uiActionGroup.langbase && !Object.is(uiActionGroup.langbase, '') && detail.uiactiontag && !Object.is(detail.uiactiontag, '')">
+                                                    {{$t(`${uiActionGroup.langbase}.uiactions.${detail.uiactiontag}`)}}
+                                                </template>
+                                                <template v-if="!(uiActionGroup.langbase && !Object.is(uiActionGroup.langbase, '') && detail.uiactiontag && !Object.is(detail.uiactiontag, ''))">
+                                                    {{detail.caption}}
+                                                </template>
                                             </template>
                                         </span>
                                     </span>
@@ -55,21 +72,25 @@
                                 <template v-if="uiActionGroup.details && Array.isArray(uiActionGroup.details)">
                                     <div v-for="(detail,index) in uiActionGroup.details" :key="index">
                                         <span class='item' @click="doUIAction($event, detail)">
-                                        <template v-if="detail.icon && !Object.is(detail.icon, '')">
-                                             <i :class="detail.icon" ></i>
-                                        </template>
-                                        <template v-if="!(detail.icon && !Object.is(detail.icon, ''))">
-                                            <div v-if="detail.img && !Object.is(detail.img, '')">
-                                                <img :src="detail.img" />
-                                            </div>
-                                        </template>
+                                            <template v-if="detail.isShowIcon">
+                                                <template v-if="detail.icon && !Object.is(detail.icon, '')">
+                                                    <i :class="detail.icon" ></i>
+                                                </template>
+                                                <template v-if="!(detail.icon && !Object.is(detail.icon, ''))">
+                                                    <div v-if="detail.img && !Object.is(detail.img, '')">
+                                                        <img :src="detail.img" />
+                                                    </div>
+                                                </template>
+                                            </template>
                                         &nbsp;
                                         <span>
-                                            <template v-if="uiActionGroup.langbase && !Object.is(uiActionGroup.langbase, '') && detail.uiactiontag && !Object.is(detail.uiactiontag, '')">
-                                                {{$t(`${uiActionGroup.langbase}.uiactions.${detail.uiactiontag}`)}}
-                                            </template>
-                                            <template v-if="!(uiActionGroup.langbase && !Object.is(uiActionGroup.langbase, '') && detail.uiactiontag && !Object.is(detail.uiactiontag, ''))">
-                                                {{detail.caption}}
+                                            <template v-if="detail.isShowCaption">
+                                                <template v-if="uiActionGroup.langbase && !Object.is(uiActionGroup.langbase, '') && detail.uiactiontag && !Object.is(detail.uiactiontag, '')">
+                                                    {{$t(`${uiActionGroup.langbase}.uiactions.${detail.uiactiontag}`)}}
+                                                </template>
+                                                <template v-if="!(uiActionGroup.langbase && !Object.is(uiActionGroup.langbase, '') && detail.uiactiontag && !Object.is(detail.uiactiontag, ''))">
+                                                    {{detail.caption}}
+                                                </template>
                                             </template>
                                         </span>
                                     </span>
@@ -79,17 +100,17 @@
                         </template>
                     </a >
                 </template>
-                <div v-if="Object.is(layoutType, 'FLEX')">
+                <template v-if="Object.is(layoutType, 'FLEX')">
                     <slot></slot>
-                </div>
-                <div v-if="!Object.is(layoutType, 'FLEX')">
+                </template>
+                <template v-if="!Object.is(layoutType, 'FLEX')">
                     <row :gutter="10"><slot></slot></row>
-                </div>
+                </template>
             </card>
-            <row v-if="isShowCaption === false" :class="classes">
-               <slot></slot>
-            </row>
-        </div>
+            <template v-if="isShowCaption === false">
+                <slot></slot>
+            </template>
+        </template>
     </div>
 </template>
 
@@ -113,7 +134,7 @@ export default class AppFormGroup extends Vue {
      * @type {string}
      * @memberof AppFormGroup
      */
-    @Prop() public uiStyle?: string;
+    @Prop({ default: 'DEFAULT' }) public uiStyle!: string;
 
     /**
      * 布局模式
@@ -194,7 +215,8 @@ export default class AppFormGroup extends Vue {
             'app-form-group',
             this.isShowCaption && this.collapseContant ? 'app-group-collapse-contant' : '',
             this.isInfoGroupMode ? 'app-info-group-mode' : '',
-            Object.is(this.layoutType, 'FLEX') ? 'app-group-flex': ''
+            Object.is(this.layoutType, 'FLEX') ? 'app-group-flex': '',
+            this.uiStyle.toLowerCase()
         ];
     }
 

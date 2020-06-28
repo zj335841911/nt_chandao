@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[测试运行]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_testrun",resultMap = "TestRunResultMap")
 public class TestRun extends EntityMP implements Serializable {
 
@@ -78,7 +79,7 @@ public class TestRun extends EntityMP implements Serializable {
      * 编号
      */
     @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private BigInteger id;
@@ -120,7 +121,7 @@ public class TestRun extends EntityMP implements Serializable {
     @JsonIgnore
     @JSONField(serialize = false)
     @TableField(exist = false)
-    private cn.ibizlab.pms.core.zentao.domain.Task zttask;
+    private cn.ibizlab.pms.core.zentao.domain.TestTask zttesttask;
 
 
 
@@ -131,12 +132,24 @@ public class TestRun extends EntityMP implements Serializable {
         this.lastrunresult = lastrunresult ;
         this.modify("lastrunresult",lastrunresult);
     }
+
     /**
      * 设置 [最后执行时间]
      */
     public void setLastrundate(Timestamp lastrundate){
         this.lastrundate = lastrundate ;
         this.modify("lastrundate",lastrundate);
+    }
+
+    /**
+     * 格式化日期 [最后执行时间]
+     */
+    public String formatLastrundate(){
+        if (this.lastrundate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(lastrundate);
     }
     /**
      * 设置 [指派给]
@@ -145,6 +158,7 @@ public class TestRun extends EntityMP implements Serializable {
         this.assignedto = assignedto ;
         this.modify("assignedto",assignedto);
     }
+
     /**
      * 设置 [最后执行人]
      */
@@ -152,6 +166,7 @@ public class TestRun extends EntityMP implements Serializable {
         this.lastrunner = lastrunner ;
         this.modify("lastrunner",lastrunner);
     }
+
     /**
      * 设置 [当前状态]
      */
@@ -159,6 +174,7 @@ public class TestRun extends EntityMP implements Serializable {
         this.status = status ;
         this.modify("status",status);
     }
+
     /**
      * 设置 [用例版本]
      */
@@ -166,6 +182,7 @@ public class TestRun extends EntityMP implements Serializable {
         this.version = version ;
         this.modify("version",version);
     }
+
     /**
      * 设置 [测试用例]
      */
@@ -173,6 +190,7 @@ public class TestRun extends EntityMP implements Serializable {
         this.ibizcase = ibizcase ;
         this.modify("case",ibizcase);
     }
+
     /**
      * 设置 [测试单]
      */
@@ -180,6 +198,7 @@ public class TestRun extends EntityMP implements Serializable {
         this.task = task ;
         this.modify("task",task);
     }
+
 
 }
 

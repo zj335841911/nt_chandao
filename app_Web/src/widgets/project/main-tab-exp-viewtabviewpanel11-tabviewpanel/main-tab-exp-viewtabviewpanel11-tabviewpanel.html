@@ -1,0 +1,9 @@
+<div class='tabviewpanel' v-if='isActivied'>
+        <burn-chart-view 
+      class='viewcontainer2' 
+      :viewdata="viewdata" 
+      :viewparam="viewparam"
+      @viewload="viewDatasChange($event)" 
+      :viewDefaultUsage="false" >
+    </burn-chart-view>
+</div>

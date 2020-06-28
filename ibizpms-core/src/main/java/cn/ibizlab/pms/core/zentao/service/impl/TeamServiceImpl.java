@@ -142,7 +142,6 @@ public class TeamServiceImpl extends ServiceImpl<TeamMapper, Team> implements IT
     }
 
 
-
     /**
      * 查询集合 DEFAULT
      */
@@ -151,6 +150,9 @@ public class TeamServiceImpl extends ServiceImpl<TeamMapper, Team> implements IT
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Team> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Team>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
+
+
+
 
 
 

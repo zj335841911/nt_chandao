@@ -1,5 +1,10 @@
-import CurProductPlan from '@/codelist/cur-product-plan';   
 import UserRealName from '@/codelist/user-real-name';   
+import ProductBranch from '@/codelist/product-branch';   
+import ProductBuild from '@/codelist/product-build';   
+import Role from '@/codelist/role';   
+import TestTask from '@/codelist/test-task';   
+import Product from '@/codelist/product';   
+import CurProductPlan from '@/codelist/cur-product-plan';   
 import { Store } from 'vuex';
 
 /**
@@ -42,14 +47,14 @@ export default class CodeListService {
      */
     public static codelistCache:Map<string,any> = new Map();
 
-
     /**
-     * 代码表--当前用户产品计划（动态）
+     * 动态代码表缓存(已完成)
      *
-     * @type {CurProductPlan}
+     * @type {Map<string,any>}
      * @memberof CodeListService
      */
-    public CurProductPlan: CurProductPlan = new CurProductPlan();
+    public static codelistCached:Map<string,any> = new Map();
+
 
     /**
      * 代码表--用户真实名称（动态）
@@ -58,6 +63,54 @@ export default class CodeListService {
      * @memberof CodeListService
      */
     public UserRealName: UserRealName = new UserRealName();
+
+    /**
+     * 代码表--产品平台（动态）
+     *
+     * @type {ProductBranch}
+     * @memberof CodeListService
+     */
+    public ProductBranch: ProductBranch = new ProductBranch();
+
+    /**
+     * 代码表--产品版本（动态）
+     *
+     * @type {ProductBuild}
+     * @memberof CodeListService
+     */
+    public ProductBuild: ProductBuild = new ProductBuild();
+
+    /**
+     * 代码表--群组（动态）
+     *
+     * @type {Role}
+     * @memberof CodeListService
+     */
+    public Role: Role = new Role();
+
+    /**
+     * 代码表--测试单（动态）
+     *
+     * @type {TestTask}
+     * @memberof CodeListService
+     */
+    public TestTask: TestTask = new TestTask();
+
+    /**
+     * 代码表--产品（动态）
+     *
+     * @type {Product}
+     * @memberof CodeListService
+     */
+    public Product: Product = new Product();
+
+    /**
+     * 代码表--产品计划（动态）
+     *
+     * @type {CurProductPlan}
+     * @memberof CodeListService
+     */
+    public CurProductPlan: CurProductPlan = new CurProductPlan();
 
     /**
      * 获取动态代码表
@@ -69,31 +122,22 @@ export default class CodeListService {
      */
     public getItems(tag: string,context:any = {}, data?: any, isloading?: boolean,): Promise<any[]> {
         let _this: any = this;
+        if(context && context.srfsessionid){
+            delete context.srfsessionid;
+        }
         let isEnableCache:boolean = _this[tag].isEnableCache;
         let cacheTimeout:any = _this[tag].cacheTimeout;
         return new Promise((resolve:any,reject:any) =>{
-            // 如有查询参数传递过来，需直接加载，不能使用缓存
-            if(data && Object.keys(data).length >0){
-                if (_this[tag]) {
-                    _this[tag].getItems(context,JSON.parse(JSON.stringify(data)),isloading).then((result:any) =>{
-                        resolve(result);
-                    }).catch((error:any) =>{
-                        Promise.reject([]);
-                    })
-                }else{
-                    return Promise.reject([]);
-                }
-            }else{
                 // 启用缓存
                 if(isEnableCache){
-                    // 加载完成,从store获取
-                    if(this.$store &&  _this.$store.getters){
-                        let items:any = _this.$store.getters.getCodeListItems(tag);
+                    // 加载完成,从本地缓存获取
+                    if(CodeListService.codelistCached.get(`${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`)){
+                        let items:any = CodeListService.codelistCached.get(`${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`);
                         if(items.length >0){
                             if(cacheTimeout !== -1){
                                 if(new Date().getTime() > _this[tag].expirationTime){
                                     _this[tag].getItems(context,data,isloading).then((result:any) =>{
-                                        _this.$store.commit('updateCodeList',{srfkey:tag,items:result});
+                                        CodeListService.codelistCached.set(`${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`,{items:result});
                                         _this[tag].expirationTime = new Date().getTime() + cacheTimeout;
                                         resolve(result);
                                     }).catch((error:any) =>{
@@ -108,10 +152,11 @@ export default class CodeListService {
                         }
                     }
                     if (_this[tag]) {
-                        const callback:Function = (tag:string,promise:Promise<any>) =>{
+                        const callback:Function = (context:any ={},data:any ={},tag:string,promise:Promise<any>) =>{
                             promise.then((result:any) =>{
+                                console.log()
                                 if(result.length > 0){
-                                    _this.$store.commit('updateCodeList',{srfkey:tag,items:result});
+                                    CodeListService.codelistCached.set(`${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`,{items:result});
                                     return resolve(result);
                                 }else{
                                     return resolve([]);
@@ -121,15 +166,15 @@ export default class CodeListService {
                             })
                         }
                         // 加载中，UI又需要数据，解决连续加载同一代码表问题
-                        if(CodeListService.codelistCache.get(tag)){
-                            callback(tag,CodeListService.codelistCache.get(tag));
+                        if(CodeListService.codelistCache.get(`${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`)){
+                            callback(context,data,tag,CodeListService.codelistCache.get(`${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`));
                         }else{
                             let result:Promise<any> = _this[tag].getItems(context,data,isloading);
-                            CodeListService.codelistCache.set(tag,result);
+                            CodeListService.codelistCache.set(`${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`,result);
                             if(cacheTimeout !== -1){
                                 _this[tag].expirationTime = new Date().getTime() + cacheTimeout;
                             }
-                            callback(tag,result);
+                            callback(context,data,tag,result);
                         }
                     }
                 }else{
@@ -143,7 +188,6 @@ export default class CodeListService {
                         return Promise.reject([]);
                     } 
                 }
-            }
         })
     }
 }

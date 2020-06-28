@@ -125,4 +125,12 @@ export interface Release {
      * @memberof Release
      */
     branch?: any;
+
+    /**
+     * 产品名称
+     *
+     * @returns {*}
+     * @memberof Release
+     */
+    productname?: any;
 }

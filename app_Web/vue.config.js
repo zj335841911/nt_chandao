@@ -16,13 +16,9 @@ module.exports = {
         compress: true,
         disableHostCheck: true,
         // proxy: "http://127.0.0.1:8080/Web",
-        historyApiFallback: {
-            rewrites: [
-            ]
-        }
     },
     pages: {
-        ibizpms: {
+        index: {
             // page 的入口
             entry: 'src/pages/zentao/i-biz-pms/main.ts',
             // 模板来源
@@ -41,9 +37,9 @@ module.exports = {
     parallel: os.cpus().length > 1,
     chainWebpack: (config) => {
         // 删除自动计算预加载资源
-        config.plugins.delete('preload-ibizpms')
+        config.plugins.delete('preload-index')
         // 删除预加载资源
-        config.plugins.delete('prefetch-ibizpms')
+        config.plugins.delete('prefetch-index')
         config.resolve.alias
             .set('@ibizsys', resolve('src/ibizsys'))
             .set('@pages', resolve('src/pages'))

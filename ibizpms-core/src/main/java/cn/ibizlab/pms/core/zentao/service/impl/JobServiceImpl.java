@@ -145,7 +145,6 @@ public class JobServiceImpl extends ServiceImpl<JobMapper, Job> implements IJobS
     }
 
 
-
     /**
      * 查询集合 DEFAULT
      */
@@ -154,6 +153,9 @@ public class JobServiceImpl extends ServiceImpl<JobMapper, Job> implements IJobS
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Job> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Job>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
+
+
+
 
 
 

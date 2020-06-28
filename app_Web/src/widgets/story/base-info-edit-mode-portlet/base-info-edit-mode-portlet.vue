@@ -1,15 +1,22 @@
-
+<template src="./base-info-edit-mode-portlet.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import StoryBaseInfo_EditModeBase from './base-info-edit-mode-portlet-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { BaseInfo_EditModePortletBase } from './base-info-edit-mode-portlet-base';
  
+
+/**
+ * dashboard_sysportlet2部件
+ *
+ * @export
+ * @class BaseInfo_EditModePortlet
+ * @extends {BaseInfo_EditModePortletBase}
+ */
 @Component({
     components: {
          
     }
 })
-export default class StoryBaseInfo_EditMode extends StoryBaseInfo_EditModeBase {
-
-}
+@VueLifeCycleProcessing()
+export default class BaseInfo_EditModePortlet extends BaseInfo_EditModePortletBase { }
 </script>

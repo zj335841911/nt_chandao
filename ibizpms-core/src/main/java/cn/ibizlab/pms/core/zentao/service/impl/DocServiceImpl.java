@@ -71,7 +71,6 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
     public boolean checkKey(Doc et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean save(Doc et) {
@@ -206,6 +205,9 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Doc> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Doc>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
+
+
+
 
 
 

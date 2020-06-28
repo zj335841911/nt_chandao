@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[文档]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_doc",resultMap = "DocResultMap")
 public class Doc extends EntityMP implements Serializable {
 
@@ -79,7 +80,7 @@ public class Doc extends EntityMP implements Serializable {
      * 文档编号
      */
     @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private BigInteger id;
@@ -222,12 +223,24 @@ public class Doc extends EntityMP implements Serializable {
         this.groups = groups ;
         this.modify("groups",groups);
     }
+
     /**
      * 设置 [更新时间]
      */
     public void setEditeddate(Timestamp editeddate){
         this.editeddate = editeddate ;
         this.modify("editeddate",editeddate);
+    }
+
+    /**
+     * 格式化日期 [更新时间]
+     */
+    public String formatEditeddate(){
+        if (this.editeddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(editeddate);
     }
     /**
      * 设置 [views]
@@ -236,6 +249,7 @@ public class Doc extends EntityMP implements Serializable {
         this.views = views ;
         this.modify("views",views);
     }
+
     /**
      * 设置 [版本号]
      */
@@ -243,6 +257,7 @@ public class Doc extends EntityMP implements Serializable {
         this.version = version ;
         this.modify("version",version);
     }
+
     /**
      * 设置 [由谁更新]
      */
@@ -250,6 +265,7 @@ public class Doc extends EntityMP implements Serializable {
         this.editedby = editedby ;
         this.modify("editedby",editedby);
     }
+
     /**
      * 设置 [文档标题]
      */
@@ -257,6 +273,7 @@ public class Doc extends EntityMP implements Serializable {
         this.title = title ;
         this.modify("title",title);
     }
+
     /**
      * 设置 [文档类型]
      */
@@ -264,6 +281,7 @@ public class Doc extends EntityMP implements Serializable {
         this.type = type ;
         this.modify("type",type);
     }
+
     /**
      * 设置 [权限]
      */
@@ -271,6 +289,7 @@ public class Doc extends EntityMP implements Serializable {
         this.acl = acl ;
         this.modify("acl",acl);
     }
+
     /**
      * 设置 [用户]
      */
@@ -278,6 +297,7 @@ public class Doc extends EntityMP implements Serializable {
         this.users = users ;
         this.modify("users",users);
     }
+
     /**
      * 设置 [关键字]
      */
@@ -285,6 +305,7 @@ public class Doc extends EntityMP implements Serializable {
         this.keywords = keywords ;
         this.modify("keywords",keywords);
     }
+
     /**
      * 设置 [收藏者]
      */
@@ -292,6 +313,7 @@ public class Doc extends EntityMP implements Serializable {
         this.collector = collector ;
         this.modify("collector",collector);
     }
+
     /**
      * 设置 [所属文档库]
      */
@@ -299,6 +321,7 @@ public class Doc extends EntityMP implements Serializable {
         this.lib = lib ;
         this.modify("lib",lib);
     }
+
     /**
      * 设置 [所属项目]
      */
@@ -306,6 +329,7 @@ public class Doc extends EntityMP implements Serializable {
         this.project = project ;
         this.modify("project",project);
     }
+
     /**
      * 设置 [所属产品]
      */
@@ -313,6 +337,7 @@ public class Doc extends EntityMP implements Serializable {
         this.product = product ;
         this.modify("product",product);
     }
+
     /**
      * 设置 [所属分类]
      */
@@ -320,6 +345,7 @@ public class Doc extends EntityMP implements Serializable {
         this.module = module ;
         this.modify("module",module);
     }
+
 
 }
 

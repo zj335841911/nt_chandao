@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[部门]
@@ -32,14 +33,14 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_dept",resultMap = "DeptResultMap")
 public class Dept extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * manager
+     * 负责人
      */
     @TableField(value = "manager")
     @JSONField(name = "manager")
@@ -86,19 +87,19 @@ public class Dept extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private BigInteger id;
     /**
-     * name
+     * 部门名称
      */
     @TableField(value = "name")
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
     /**
-     * parent
+     * 上级部门
      */
     @TableField(exist = false)
     @JSONField(name = "parentname")
@@ -111,6 +112,13 @@ public class Dept extends EntityMP implements Serializable {
     @JSONField(name = "parent")
     @JsonProperty("parent")
     private BigInteger parent;
+    /**
+     * 无子部门
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isleaf")
+    @JsonProperty("isleaf")
+    private String isleaf;
 
     /**
      * 
@@ -123,12 +131,13 @@ public class Dept extends EntityMP implements Serializable {
 
 
     /**
-     * 设置 [manager]
+     * 设置 [负责人]
      */
     public void setManager(String manager){
         this.manager = manager ;
         this.modify("manager",manager);
     }
+
     /**
      * 设置 [grade]
      */
@@ -136,6 +145,7 @@ public class Dept extends EntityMP implements Serializable {
         this.grade = grade ;
         this.modify("grade",grade);
     }
+
     /**
      * 设置 [function]
      */
@@ -143,6 +153,7 @@ public class Dept extends EntityMP implements Serializable {
         this.function = function ;
         this.modify("function",function);
     }
+
     /**
      * 设置 [order]
      */
@@ -150,6 +161,7 @@ public class Dept extends EntityMP implements Serializable {
         this.order = order ;
         this.modify("order",order);
     }
+
     /**
      * 设置 [path]
      */
@@ -157,6 +169,7 @@ public class Dept extends EntityMP implements Serializable {
         this.path = path ;
         this.modify("path",path);
     }
+
     /**
      * 设置 [position]
      */
@@ -164,13 +177,15 @@ public class Dept extends EntityMP implements Serializable {
         this.position = position ;
         this.modify("position",position);
     }
+
     /**
-     * 设置 [name]
+     * 设置 [部门名称]
      */
     public void setName(String name){
         this.name = name ;
         this.modify("name",name);
     }
+
     /**
      * 设置 [parent]
      */
@@ -178,6 +193,7 @@ public class Dept extends EntityMP implements Serializable {
         this.parent = parent ;
         this.modify("parent",parent);
     }
+
 
 }
 

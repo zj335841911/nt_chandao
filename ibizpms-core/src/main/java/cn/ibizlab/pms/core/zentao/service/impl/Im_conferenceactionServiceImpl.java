@@ -51,7 +51,6 @@ public class Im_conferenceactionServiceImpl extends ServiceImpl<Im_conferenceact
     public boolean checkKey(Im_conferenceaction et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean create(Im_conferenceaction et) {
@@ -151,6 +150,9 @@ public class Im_conferenceactionServiceImpl extends ServiceImpl<Im_conferenceact
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Im_conferenceaction> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Im_conferenceaction>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
+
+
+
 
 
 

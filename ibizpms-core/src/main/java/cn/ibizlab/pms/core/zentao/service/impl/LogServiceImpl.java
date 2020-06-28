@@ -142,7 +142,6 @@ public class LogServiceImpl extends ServiceImpl<LogMapper, Log> implements ILogS
     }
 
 
-
     /**
      * 查询集合 DEFAULT
      */
@@ -151,6 +150,9 @@ public class LogServiceImpl extends ServiceImpl<LogMapper, Log> implements ILogS
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Log> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Log>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
+
+
+
 
 
 

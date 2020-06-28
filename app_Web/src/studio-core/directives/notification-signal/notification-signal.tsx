@@ -227,6 +227,8 @@ export class NotificationSignalController {
     public loadingEnd(): void {
         if (this.loadingCount > 0) {
             this.loadingCount--;
+        } else {
+            this.loadingCount = 0;
         }
         if (this.loadingCount === 0 && this.el) {
             this.clearLoadingInterval();

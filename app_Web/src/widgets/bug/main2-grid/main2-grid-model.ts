@@ -57,11 +57,6 @@ export default class Main2Model {
           dataType: 'PICKUP',
         },
         {
-          name: 'resolvedbuild',
-          prop: 'resolvedbuild',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'srfmajortext',
           prop: 'title',
           dataType: 'TEXT',

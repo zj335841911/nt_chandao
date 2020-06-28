@@ -27,15 +27,13 @@
 
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
-       <![CDATA[	SELECT concat(t1.`USER`,'__',t1.`MESSAGE`) AS `ID`, t1.`MESSAGE`, t1.`STATUS`, t1.`USER` FROM `zt_im_messagestatus` t1  
+		<![CDATA[ SELECT concat(t1.`USER`,'__',t1.`MESSAGE`) AS `ID`, t1.`MESSAGE`, t1.`STATUS`, t1.`USER` FROM `zt_im_messagestatus` t1  
 			]]>
     </sql>
-
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
-       <![CDATA[	SELECT concat(t1.`USER`,'__',t1.`MESSAGE`) AS `ID`, t1.`MESSAGE`, t1.`STATUS`, t1.`USER` FROM `zt_im_messagestatus` t1  
+		<![CDATA[ SELECT concat(t1.`USER`,'__',t1.`MESSAGE`) AS `ID`, t1.`MESSAGE`, t1.`STATUS`, t1.`USER` FROM `zt_im_messagestatus` t1  
 			]]>
     </sql>
-
 </mapper>
 

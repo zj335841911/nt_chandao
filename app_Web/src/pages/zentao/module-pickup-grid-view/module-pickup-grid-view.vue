@@ -1,9 +1,18 @@
+<template src="./module-pickup-grid-view.html"/>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import ModulePickupGridViewBase from './module-pickup-grid-view-base.vue';
-
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { ModulePickupGridViewBase } from './module-pickup-grid-view-base';
 import view_grid from '@widgets/module/main-grid/main-grid.vue';
 import view_searchform from '@widgets/module/default-searchform/default-searchform.vue';
+
+/**
+ * 模块选择视图
+ *
+ * @export
+ * @class ModulePickupGridView
+ * @extends {ModulePickupGridViewBase}
+ */
 @Component({
     components: {
         view_grid, 
@@ -11,11 +20,10 @@ import view_searchform from '@widgets/module/default-searchform/default-searchfo
     },
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { fullPath: to.fullPath, viewtag: vm.viewtag });
+            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
         });
-    },
+    }
 })
-export default class ModulePickupGridView extends ModulePickupGridViewBase {
-
-}
+@VueLifeCycleProcessing()
+export default class ModulePickupGridView extends ModulePickupGridViewBase { }
 </script>

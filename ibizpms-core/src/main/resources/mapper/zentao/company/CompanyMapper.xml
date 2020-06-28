@@ -27,17 +27,15 @@
 
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
-       <![CDATA[	SELECT t1.`ADDRESS`, t1.`ADMINS`, t1.`BACKYARD`, t1.`DELETED`, t1.`FAX`, t1.`GUEST`, t1.`ID`, t1.`NAME`, t1.`PHONE`, t1.`WEBSITE`, t1.`ZIPCODE` FROM `zt_company` t1  
-				 WHERE 	t1.DELETED = '0'
+		<![CDATA[ SELECT t1.`ADDRESS`, t1.`ADMINS`, t1.`BACKYARD`, t1.`DELETED`, t1.`FAX`, t1.`GUEST`, t1.`ID`, t1.`NAME`, t1.`PHONE`, t1.`WEBSITE`, t1.`ZIPCODE` FROM `zt_company` t1  
+					 WHERE 	t1.DELETED = '0'
 			]]>
     </sql>
-
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
-       <![CDATA[	SELECT t1.`ADDRESS`, t1.`ADMINS`, t1.`BACKYARD`, t1.`DELETED`, t1.`FAX`, t1.`GUEST`, t1.`ID`, t1.`NAME`, t1.`PHONE`, t1.`WEBSITE`, t1.`ZIPCODE` FROM `zt_company` t1  
-				 WHERE 	t1.DELETED = '0'
+		<![CDATA[ SELECT t1.`ADDRESS`, t1.`ADMINS`, t1.`BACKYARD`, t1.`DELETED`, t1.`FAX`, t1.`GUEST`, t1.`ID`, t1.`NAME`, t1.`PHONE`, t1.`WEBSITE`, t1.`ZIPCODE` FROM `zt_company` t1  
+					 WHERE 	t1.DELETED = '0'
 			]]>
     </sql>
-
 </mapper>
 

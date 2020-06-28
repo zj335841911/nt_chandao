@@ -60,6 +60,29 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
     public boolean checkKey(Release et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
+    @Override
+    @Transactional
+    public Release terminate(Release et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTReleaseHelper.terminate((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return et;
+    }
+
+    @Override
+    @Transactional
+    public Release activate(Release et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTReleaseHelper.activate((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return et;
+    }
 
     @Override
     @Transactional
@@ -96,60 +119,85 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
 
     @Override
     public boolean saveBatch(Collection<Release> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
     public void saveBatch(List<Release> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
     @Override
     @Transactional
+    public Release changeStatus(Release et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTReleaseHelper.changeStatus((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return et;
+    }
+
+    @Override
+    @Transactional
     public boolean create(Release et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTReleaseHelper.create((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return bRst;
     }
 
     @Override
     public void createBatch(List<Release> list) {
-        this.saveBatch(list,batchSize);
-    }
 
+    }
     @Override
     public Release getDraft(Release et) {
+        fillParentData(et);
         return et;
     }
 
     @Override
     @Transactional
     public boolean update(Release et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTReleaseHelper.edit((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return bRst;
     }
 
     @Override
     public void updateBatch(List<Release> list) {
-        updateBatchById(list,batchSize);
-    }
 
+    }
     @Override
     @Transactional
     public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        Release et = this.get(key);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTReleaseHelper.delete((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        return bRst;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
+    public void removeBatch(Collection<BigInteger> idList){
+        if (idList != null && !idList.isEmpty()) {
+            for (BigInteger id : idList) {
+                this.remove(id);
+            }
+        }
     }
-
 
 	@Override
     public List<Release> selectByBranch(BigInteger id) {
@@ -189,6 +237,35 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
     public Page<Release> searchDefault(ReleaseSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Release> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Release>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+
+
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(Release et){
+        //实体关系[DER1N_ZT_RELEASE_ZT_BUILD_BUILD]
+        if(!ObjectUtils.isEmpty(et.getBuild())){
+            cn.ibizlab.pms.core.zentao.domain.Build ztbuild=et.getZtbuild();
+            if(ObjectUtils.isEmpty(ztbuild)){
+                cn.ibizlab.pms.core.zentao.domain.Build majorEntity=buildService.get(et.getBuild());
+                et.setZtbuild(majorEntity);
+                ztbuild=majorEntity;
+            }
+            et.setBuildname(ztbuild.getName());
+        }
+        //实体关系[DER1N_ZT_RELEASE_ZT_PRODUCT_PRODUCT]
+        if(!ObjectUtils.isEmpty(et.getProduct())){
+            cn.ibizlab.pms.core.zentao.domain.Product ztproduct=et.getZtproduct();
+            if(ObjectUtils.isEmpty(ztproduct)){
+                cn.ibizlab.pms.core.zentao.domain.Product majorEntity=productService.get(et.getProduct());
+                et.setZtproduct(majorEntity);
+                ztproduct=majorEntity;
+            }
+            et.setProductname(ztproduct.getName());
+        }
     }
 
 

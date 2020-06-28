@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[群组权限]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_grouppriv",resultMap = "GroupPrivResultMap")
 public class GroupPriv extends EntityMP implements Serializable {
 
@@ -56,7 +57,7 @@ public class GroupPriv extends EntityMP implements Serializable {
     /**
      * 虚拟主键
      */
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.ASSIGN_UUID)
     @JSONField(name = "id")
     @JsonProperty("id")
     private String id;
@@ -77,6 +78,7 @@ public class GroupPriv extends EntityMP implements Serializable {
         this.group = group ;
         this.modify("group",group);
     }
+
     /**
      * 设置 [method]
      */
@@ -84,6 +86,7 @@ public class GroupPriv extends EntityMP implements Serializable {
         this.method = method ;
         this.modify("method",method);
     }
+
     /**
      * 设置 [module]
      */
@@ -91,6 +94,7 @@ public class GroupPriv extends EntityMP implements Serializable {
         this.module = module ;
         this.modify("module",module);
     }
+
 
 }
 

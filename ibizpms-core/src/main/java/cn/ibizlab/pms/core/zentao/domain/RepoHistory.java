@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[repohistory]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_repohistory",resultMap = "RepoHistoryResultMap")
 public class RepoHistory extends EntityMP implements Serializable {
 
@@ -85,7 +86,7 @@ public class RepoHistory extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private BigInteger id;
@@ -99,6 +100,7 @@ public class RepoHistory extends EntityMP implements Serializable {
         this.committer = committer ;
         this.modify("committer",committer);
     }
+
     /**
      * 设置 [revision]
      */
@@ -106,12 +108,24 @@ public class RepoHistory extends EntityMP implements Serializable {
         this.revision = revision ;
         this.modify("revision",revision);
     }
+
     /**
      * 设置 [time]
      */
     public void setTime(Timestamp time){
         this.time = time ;
         this.modify("time",time);
+    }
+
+    /**
+     * 格式化日期 [time]
+     */
+    public String formatTime(){
+        if (this.time == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(time);
     }
     /**
      * 设置 [repo]
@@ -120,6 +134,7 @@ public class RepoHistory extends EntityMP implements Serializable {
         this.repo = repo ;
         this.modify("repo",repo);
     }
+
     /**
      * 设置 [comment]
      */
@@ -127,6 +142,7 @@ public class RepoHistory extends EntityMP implements Serializable {
         this.comment = comment ;
         this.modify("comment",comment);
     }
+
     /**
      * 设置 [commit]
      */
@@ -134,6 +150,7 @@ public class RepoHistory extends EntityMP implements Serializable {
         this.commit = commit ;
         this.modify("commit",commit);
     }
+
 
 }
 

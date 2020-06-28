@@ -157,7 +157,6 @@ public class SuiteCaseServiceImpl extends ServiceImpl<SuiteCaseMapper, SuiteCase
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
 
-
 	@Override
     public List<SuiteCase> selectByIbizcase(BigInteger id) {
         return baseMapper.selectByIbizcase(id);
@@ -216,6 +215,9 @@ public class SuiteCaseServiceImpl extends ServiceImpl<SuiteCaseMapper, SuiteCase
             et.setVersion(ztcase.getVersion());
         }
     }
+
+
+
 
     @Override
     public List<JSONObject> select(String sql, Map param){

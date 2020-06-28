@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[文档库]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_doclib",resultMap = "DocLibResultMap")
 public class DocLib extends EntityMP implements Serializable {
 
@@ -80,7 +81,7 @@ public class DocLib extends EntityMP implements Serializable {
      * 编号
      */
     @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private BigInteger id;
@@ -153,6 +154,7 @@ public class DocLib extends EntityMP implements Serializable {
         this.type = type ;
         this.modify("type",type);
     }
+
     /**
      * 设置 [收藏者]
      */
@@ -160,6 +162,7 @@ public class DocLib extends EntityMP implements Serializable {
         this.collector = collector ;
         this.modify("collector",collector);
     }
+
     /**
      * 设置 [权限]
      */
@@ -167,6 +170,7 @@ public class DocLib extends EntityMP implements Serializable {
         this.acl = acl ;
         this.modify("acl",acl);
     }
+
     /**
      * 设置 [分组]
      */
@@ -174,6 +178,7 @@ public class DocLib extends EntityMP implements Serializable {
         this.groups = groups ;
         this.modify("groups",groups);
     }
+
     /**
      * 设置 [用户]
      */
@@ -181,6 +186,7 @@ public class DocLib extends EntityMP implements Serializable {
         this.users = users ;
         this.modify("users",users);
     }
+
     /**
      * 设置 [是否是主库]
      */
@@ -188,6 +194,7 @@ public class DocLib extends EntityMP implements Serializable {
         this.main = main ;
         this.modify("main",main);
     }
+
     /**
      * 设置 [文档库名称]
      */
@@ -195,6 +202,7 @@ public class DocLib extends EntityMP implements Serializable {
         this.name = name ;
         this.modify("name",name);
     }
+
     /**
      * 设置 [排序]
      */
@@ -202,6 +210,7 @@ public class DocLib extends EntityMP implements Serializable {
         this.order = order ;
         this.modify("order",order);
     }
+
     /**
      * 设置 [项目库]
      */
@@ -209,6 +218,7 @@ public class DocLib extends EntityMP implements Serializable {
         this.project = project ;
         this.modify("project",project);
     }
+
     /**
      * 设置 [产品库]
      */
@@ -216,6 +226,7 @@ public class DocLib extends EntityMP implements Serializable {
         this.product = product ;
         this.modify("product",product);
     }
+
 
 }
 

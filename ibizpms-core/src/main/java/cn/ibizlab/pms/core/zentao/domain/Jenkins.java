@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[jenkins]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_jenkins",resultMap = "JenkinsResultMap")
 public class Jenkins extends EntityMP implements Serializable {
 
@@ -116,7 +117,7 @@ public class Jenkins extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private BigInteger id;
@@ -130,6 +131,7 @@ public class Jenkins extends EntityMP implements Serializable {
         this.name = name ;
         this.modify("name",name);
     }
+
     /**
      * 设置 [password]
      */
@@ -137,6 +139,7 @@ public class Jenkins extends EntityMP implements Serializable {
         this.password = password ;
         this.modify("password",password);
     }
+
     /**
      * 设置 [account]
      */
@@ -144,6 +147,7 @@ public class Jenkins extends EntityMP implements Serializable {
         this.account = account ;
         this.modify("account",account);
     }
+
     /**
      * 设置 [url]
      */
@@ -151,12 +155,24 @@ public class Jenkins extends EntityMP implements Serializable {
         this.url = url ;
         this.modify("url",url);
     }
+
     /**
      * 设置 [editedDate]
      */
     public void setEditeddate(Timestamp editeddate){
         this.editeddate = editeddate ;
         this.modify("editeddate",editeddate);
+    }
+
+    /**
+     * 格式化日期 [editedDate]
+     */
+    public String formatEditeddate(){
+        if (this.editeddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(editeddate);
     }
     /**
      * 设置 [token]
@@ -165,6 +181,7 @@ public class Jenkins extends EntityMP implements Serializable {
         this.token = token ;
         this.modify("token",token);
     }
+
     /**
      * 设置 [createdBy]
      */
@@ -172,6 +189,7 @@ public class Jenkins extends EntityMP implements Serializable {
         this.createdby = createdby ;
         this.modify("createdby",createdby);
     }
+
     /**
      * 设置 [editedBy]
      */
@@ -179,12 +197,24 @@ public class Jenkins extends EntityMP implements Serializable {
         this.editedby = editedby ;
         this.modify("editedby",editedby);
     }
+
     /**
      * 设置 [createdDate]
      */
     public void setCreateddate(Timestamp createddate){
         this.createddate = createddate ;
         this.modify("createddate",createddate);
+    }
+
+    /**
+     * 格式化日期 [createdDate]
+     */
+    public String formatCreateddate(){
+        if (this.createddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(createddate);
     }
 
 }

@@ -19,6 +19,8 @@ export const Environment = {
     isAppMode: true,
     //统一地址
     uniteAddress: "http://172.16.100.202:8114",
+    // 是否开启权限认证
+    enablePermissionValid:false,
     // 是否为开发模式
     devMode: true,
     // 项目模板地址

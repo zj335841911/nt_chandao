@@ -3,6 +3,7 @@
 @import '../theme/app-dark.less';
 @import '../theme/app-light.less';
 @import './var.css';
+@import './vue-transition.less';
 
 // 滚动条宽度
 div::-webkit-scrollbar {
@@ -99,25 +100,28 @@ div::-webkit-scrollbar-thumb {
 }
 
 // 默认按钮样式 Start
-.ivu-btn.ivu-btn-default, .ivu-btn.ivu-btn-primary {
+.ivu-btn.ivu-btn-default,
+.ivu-btn.ivu-btn-primary {
     color: var(--view-button-color);
     background-color: var(--view-button-background-color);
     border-color: var(--view-button-background-color);
     padding: 1px 6px;
 }
 
-.ivu-btn.ivu-btn-default:hover, .ivu-btn.ivu-btn-primary:hover {
+.ivu-btn.ivu-btn-default:hover,
+.ivu-btn.ivu-btn-primary:hover {
     background: var(--view-button-background-color-active);
 }
 
-.ivu-btn.ivu-btn-default:disabled, .ivu-btn.ivu-btn-primary:disabled {
+.ivu-btn.ivu-btn-default:disabled,
+.ivu-btn.ivu-btn-primary:disabled {
     color: var(--view-button-color-active);
     background-color: var(--view-button-background-color-disabled);
     border-color: var(--view-button-background-color-disabled);
 }
 
 .ivu-btn.ivu-btn-text {
-    color: var(--view-button-color);
+    color: var(--view-button-background-color);
 }
 
 .ivu-btn.ivu-btn-text:hover {
@@ -150,6 +154,13 @@ div::-webkit-scrollbar-thumb {
 
     .ivu-form {
         height: 100%;
+
+        .app-form-item-wrapper {
+
+            .ivu-form-item.app-form-item {
+                margin-bottom: 0;
+            }
+        }
     }
 
     .el-table::before {
@@ -165,6 +176,10 @@ div::-webkit-scrollbar-thumb {
         background-color: var(--view-background-color-bright);
         color: var(--view-font-color-tint);
         border: none;
+
+        .el-table__body tr.current-row>td {
+            background-color: transparent;
+        }
 
         >.el-table__header-wrapper {
 
@@ -387,6 +402,13 @@ div::-webkit-scrollbar-thumb {
         }
 
         >.ivu-select-item:hover {
+            color: #fff;
+            background: var(--form-editor-active-color);
+        }
+
+        >.ivu-select-item.ivu-select-item-selected,
+        >.ivu-select-item.ivu-select-item-focus {
+            color: #fff;
             background: var(--form-editor-active-color);
         }
     }
@@ -416,6 +438,7 @@ div::-webkit-scrollbar-thumb {
     border-color: var(--form-editor-background-color);
     color: var(--form-editor-font-color);
 }
+
 // 基础表单项禁用颜色
 .form-edit-disabled-base-color {
     background-color: var(--view-button-background-color-disabled);
@@ -423,6 +446,8 @@ div::-webkit-scrollbar-thumb {
     color: var(--view-button-color-disabled);
 }
 
+// 编辑表单和搜索表单样式
+.app-search-form.ivu-form,
 .app-form.ivu-form {
     color: var(--view-font-color);
 
@@ -449,158 +474,195 @@ div::-webkit-scrollbar-thumb {
             }
         }
 
+        >.ivu-card-extra {
+            right: 8px;
+            top: 3px;
+        }
+
         >.ivu-card-body {
             padding: 6px;
         }
     }
 
     // 表单项
-    .ivu-form-item.app-form-item {
+    .app-form-item {
         margin-bottom: 6px;
 
-        >.ivu-form-item-label {
-            color: var(--form-label-font-color);
-        }
+        >.ivu-form-item {
 
-        >.ivu-form-item-content {
-
-            // 输入框通用
-            .ivu-input {
-                &:extend(.form-edit-base-color);
+            .ivu-form-item-label {
+                color: var(--form-label-font-color);
             }
 
-            .ivu-input::placeholder {
-                color: var(--form-editor-placeholder-font-color);
-            }
+            .ivu-form-item-content {
 
-            // 输入框激活
-            .ivu-input:hover {
-                border-color: var(--form-editor-active-color);
-            }
-
-            // 输入框禁用
-            .ivu-input[disabled] {
-                &:extend(.form-edit-disabled-base-color);
-            }
-
-            // 输入框
-            .el-input {
-
-                >input {
+                // 输入框通用
+                .ivu-input {
                     &:extend(.form-edit-base-color);
                 }
 
-                >input::placeholder {
+                .ivu-input::placeholder {
                     color: var(--form-editor-placeholder-font-color);
                 }
 
-                >input:hover {
+                // 输入框激活
+                .ivu-input:hover {
                     border-color: var(--form-editor-active-color);
                 }
 
-                >input[disabled] {
+                // 输入框禁用
+                .ivu-input[disabled] {
                     &:extend(.form-edit-disabled-base-color);
                 }
-            }
 
-            // 步进器
-            .el-input-number {
-                height: 32px;
-                line-height: 32px;
-                &:extend(.form-edit-base-color);
-
-                >span[role="button"] {
-                    background-color: var(--view-button-background-color);
-                    color: var(--view-button-color);
-                    border-right-color: var(--form-editor-background-color);
-                    border-left-color: var(--form-editor-background-color);
-                }
-
-                >.el-input {
+                // 输入框
+                .el-input {
 
                     >input {
-                        height: 32px;
-                        line-height: 32px;
-                    }
-                }
-            }
-
-            // 下拉列表框
-            .dropdown-list.ivu-select.ivu-select-default {
-
-                >.ivu-select-selection {
-                    &:extend(.form-edit-base-color);
-
-                    .ivu-select-placeholder {
-                        color: var(--form-editor-placeholder-font-color);
-                    }
-                }
-
-                >.ivu-select-selection:hover {
-                    border-color: var(--form-editor-active-color);
-                }
-            }
-
-            // 选项框
-            .ivu-checkbox-wrapper.ivu-checkbox-default {
-
-                >.ivu-checkbox {
-
-                    >.ivu-checkbox-inner {
                         &:extend(.form-edit-base-color);
                     }
+
+                    >input::placeholder {
+                        color: var(--form-editor-placeholder-font-color);
+                    }
+
+                    >input:hover {
+                        border-color: var(--form-editor-active-color);
+                    }
+
+                    >input[disabled] {
+                        &:extend(.form-edit-disabled-base-color);
+                    }
                 }
 
-                >.ivu-checkbox.ivu-checkbox-checked {
+                // 步进器
+                .el-input-number {
+                    height: 32px;
+                    line-height: 32px;
+                    &:extend(.form-edit-base-color);
 
-                    >.ivu-checkbox-inner {
+                    >span[role="button"] {
+                        background-color: var(--view-button-background-color);
+                        color: var(--view-button-color);
+                        border-right-color: var(--form-editor-background-color);
+                        border-left-color: var(--form-editor-background-color);
+                    }
+
+                    >.el-input {
+
+                        >input {
+                            height: 32px;
+                            line-height: 32px;
+                        }
+                    }
+                }
+
+                // 下拉列表框
+                .dropdown-list.ivu-select.ivu-select-default,
+                .dropdown-list-dynamic {
+
+                    >.ivu-select-selection {
+                        &:extend(.form-edit-base-color);
+
+                        .ivu-select-placeholder {
+                            color: var(--form-editor-placeholder-font-color);
+                        }
+                    }
+
+                    >.ivu-select-selection:hover {
+                        border-color: var(--form-editor-active-color);
+                    }
+                }
+
+                // 选项框
+                .ivu-checkbox-wrapper.ivu-checkbox-default {
+
+                    >.ivu-checkbox {
+
+                        >.ivu-checkbox-inner {
+                            &:extend(.form-edit-base-color);
+                        }
+                    }
+
+                    >.ivu-checkbox.ivu-checkbox-checked {
+
+                        >.ivu-checkbox-inner {
+                            background-color: var(--form-editor-active-color);
+                        }
+                    }
+                }
+
+                // 滑动输入条
+                .el-slider {
+
+                    >.el-slider__runway {
+                        &:extend(.form-edit-base-color);
+
+                        >.el-slider__bar {
+                            background-color: var(--form-editor-active-color);
+                        }
+                    }
+                }
+
+                // 开关-关闭
+                .el-switch {
+
+                    >.el-switch__core {
+                        &:extend(.form-edit-base-color);
+                    }
+
+                    >.el-switch__core:hover {
+                        border-color: var(--form-editor-active-color);
+                    }
+                }
+
+                // 开关-打开
+                .el-switch.is-checked {
+
+                    >.el-switch__core {
                         background-color: var(--form-editor-active-color);
                     }
                 }
-            }
 
-            // 滑动输入条
-            .el-slider {
+                // 图片上传
+                .app-picture-upload {
 
-                >.el-slider__runway {
-                    &:extend(.form-edit-base-color);
+                    .el-upload.el-upload--picture-card {
+                        &:extend(.form-edit-base-color);
+                    }
 
-                    >.el-slider__bar {
-                        background-color: var(--form-editor-active-color);
+                    .el-upload--picture-card:hover,
+                    .el-upload:focus {
+                        border-color: var(--form-editor-active-color);
+                        color: var(--form-editor-active-color);
                     }
                 }
-            }
 
-            // 开关-关闭
-            .el-switch {
+                // 下拉选择多选
+                .dropdown-list-mpicker.ivu-select {
+                    color: var(--form-label-font-color);
 
-                >.el-switch__core {
-                    &:extend(.form-edit-base-color);
-                }
+                    >.ivu-select-selection {
+                        background: var(--form-editor-background-color);
+                        border-color: transparent;
 
-                >.el-switch__core:hover {
-                    border-color: var(--form-editor-active-color);
-                }
-            }
+                        .ivu-select-placeholder {
+                            color: var(--form-editor-placeholder-font-color);
+                        }
 
-            // 开关-打开
-            .el-switch.is-checked {
+                        .ivu-tag {
+                            background: var(--form-editor-background-color);
+                            border-color: var(--form-editor-active-color);
 
-                >.el-switch__core {
-                    background-color: var(--form-editor-active-color);
-                }
-            }
+                            .ivu-tag-text {
+                                color: var(--form-editor-font-color);
+                            }
+                        }
+                    }
 
-            // 图片上传
-            .app-picture-upload {
-                
-                .el-upload.el-upload--picture-card {
-                    &:extend(.form-edit-base-color);
-                }
-
-                .el-upload--picture-card:hover, .el-upload:focus {
-                    border-color: var(--form-editor-active-color);
-                    color: var(--form-editor-active-color);
+                    >.ivu-select-selection:hover {
+                        border-color: var(--form-editor-active-color);
+                    }
                 }
             }
         }
@@ -636,8 +698,9 @@ div::-webkit-scrollbar-thumb {
 
     .ivu-picker-panel-body {
 
-        .ivu-date-picker-cells-cell-next-month, .ivu-date-picker-cells-cell-prev-month {
-    
+        .ivu-date-picker-cells-cell-next-month,
+        .ivu-date-picker-cells-cell-prev-month {
+
             em {
                 color: var(--form-editor-placeholder-font-color);
             }
@@ -676,6 +739,7 @@ div::-webkit-scrollbar-thumb {
         }
     }
 }
+
 // 表单样式 End
 
 // 抽屉
@@ -694,26 +758,30 @@ div::-webkit-scrollbar-thumb {
 .ivu-modal-wrap.app-modal {
 
     .ivu-modal {
-    
+
         >.ivu-modal-content {
             background-color: var(--view-background-color);
             color: var(--view-font-color);
-    
+
             >.ivu-modal-close {
                 top: 2px;
             }
-    
+
             >.ivu-modal-header {
                 padding: 7px 8px;
                 border-bottom-color: var(--app-dividing-line-color-bright);
-    
+
                 >.ivu-modal-header-inner {
                     color: var(--view-font-color);
                 }
             }
-    
+
             >.ivu-modal-body {
-                padding: 3px 6px 0px 6px;
+                padding: 0;
+
+                >.studio-view.view-container {
+                    border-radius: 0px 0px 5px 5px;
+                }
             }
         }
     }
@@ -853,4 +921,179 @@ div::-webkit-scrollbar-thumb {
         }
     }
 }
+
+// 数据看板，门户部件卡片样式
+.portlet-card.ivu-card {
+    background: transparent;
+}
+
+// iview下拉菜单样式
+.studio-dropdown.ivu-dropdown {
+
+    .ivu-select-dropdown {
+        margin: 0;
+        padding: 0;
+        background-color: var(--view-button-background-color);
+        color: var(--view-button-color);
+        overflow: unset;
+
+        >.ivu-dropdown-menu {
+            padding: 5px 0px;
+
+            .ivu-dropdown-item {
+                color: var(--view-button-color);
+                padding: 5px 8px;
+
+                >i {
+                    min-width: 16px;
+                }
+            }
+
+            .ivu-dropdown-item:hover {
+                background-color: var(--view-button-background-color-active);
+                color: var(--view-button-color-active);
+            }
+
+            .ivu-dropdown-item.seperator {
+                padding: 0;
+                border-bottom: 1px solid var(--view-button-color);
+            }
+        }
+    }
+}
+
+// 下拉选项框样式
+.el-select-dropdown {
+    border-color: var(--form-editor-dropdown-background-color);
+    background-color: var(--form-editor-dropdown-background-color);
+    color: var(--form-editor-font-color);
+
+    .el-select-dropdown__item {
+        color: var(--form-editor-font-color);
+    }
+
+    .el-select-dropdown__item.hover,
+    .el-select-dropdown__item:hover {
+        background-color: var(--form-editor-active-color);
+    }
+}
+
+.studio-view.view-container.deeditview.from-dashboard-style {
+
+    .app-form.info-form-mode {
+
+        .app-form-group {
+
+            .ivu-card.app-form-group {
+                border: 1px solid var(--view-dividing-line-color-bright);
+                margin-bottom: 7px;
+                background: var(--view-background-color-bright);
+
+                .ivu-card-head {
+                    height: 38px;
+                    padding: 7px 8px;
+                    font-size: 16px;
+                    font-weight: 700;
+                    background: var(--view-background-color-bright);
+
+                    >p {
+
+                        >span {
+                            font-size: 16px;
+                            font-weight: 700;
+                            vertical-align: -2px;
+                        }
+                    }
+                }
+
+                .ivu-card-extra {
+                    top: 7px;
+                }
+
+                .ivu-card-body {
+                    background: var(--view-background-color-bright);
+                    padding: 6px 8px;
+                }
+            }
+        }
+    }
+}
+
+// 看板部件样式
+.app-data-view-group {
+    height: 100%;
+    display: flex;
+    overflow: auto;
+
+    .dataview-group-content {
+        border: 1px solid #ddd;
+        border-left: 0;
+        flex-shrink: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .dataview-group-header {
+            height: 36px;
+            line-height: 36px;
+            border-bottom: 1px solid #ddd;
+            padding: 0 8px;
+
+            .group-action {
+                .group-action-item:nth-child(1)+.group-action-item {
+                    margin-top: 5px;
+                }
+            }
+        }
+
+        .dataview-group-items {
+            flex-grow: 1;
+            overflow: auto;
+
+            .dataview-group-item {
+                cursor: pointer;
+                margin: 8px 8px 0 8px;
+                border: 1px solid #ddd;
+                padding: 8px;
+                overflow: hidden;
+            }
+
+            .dataview-group-item.is-select {
+                border-color: #108cee;
+            }
+        }
+    }
+
+    .dataview-group-content:nth-child(1) {
+        border-left: 1px solid #ddd;
+    }
+
+    .quick-action {
+        flex-shrink: 0;
+        margin-left: 5px;
+
+        .quick-action-item {
+            width: 37px;
+            height: 37px;
+            text-align: center;
+            line-height: 37px;
+            border: 1px solid #ddd;
+            border-top-width: 0;
+        }
+
+        .quick-action-item:nth-child(1) {
+            border-top-width: 1px;
+        }
+    }
+}
+
+// 甘特图部件样式
+.gantt {
+    height: 100%;
+
+    .gantt-elastic__main-view-container {
+        flex-grow: 1;
+    }
+}
+
 @import './user.less';

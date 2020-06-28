@@ -39,7 +39,7 @@ export interface ProductModule {
     branch?: any;
 
     /**
-     * 短名称
+     * 简称
      *
      * @returns {*}
      * @memberof ProductModule
@@ -47,7 +47,7 @@ export interface ProductModule {
     ibizshort?: any;
 
     /**
-     * order
+     * 排序值
      *
      * @returns {*}
      * @memberof ProductModule
@@ -117,4 +117,20 @@ export interface ProductModule {
      * @memberof ProductModule
      */
     parent?: any;
+
+    /**
+     * 所属产品
+     *
+     * @returns {*}
+     * @memberof ProductModule
+     */
+    rootname?: any;
+
+    /**
+     * 上级模块
+     *
+     * @returns {*}
+     * @memberof ProductModule
+     */
+    parentname?: any;
 }

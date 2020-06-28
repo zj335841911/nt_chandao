@@ -51,7 +51,6 @@ public class LangServiceImpl extends ServiceImpl<LangMapper, Lang> implements IL
     public boolean checkKey(Lang et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     public Lang getDraft(Lang et) {
         return et;
@@ -151,6 +150,9 @@ public class LangServiceImpl extends ServiceImpl<LangMapper, Lang> implements IL
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Lang> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Lang>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
+
+
+
 
 
 

@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[通知]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_notify",resultMap = "NotifyResultMap")
 public class Notify extends EntityMP implements Serializable {
 
@@ -71,7 +72,7 @@ public class Notify extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private BigInteger id;
@@ -143,6 +144,17 @@ public class Notify extends EntityMP implements Serializable {
         this.createddate = createddate ;
         this.modify("createddate",createddate);
     }
+
+    /**
+     * 格式化日期 [createdDate]
+     */
+    public String formatCreateddate(){
+        if (this.createddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(createddate);
+    }
     /**
      * 设置 [ccList]
      */
@@ -150,6 +162,7 @@ public class Notify extends EntityMP implements Serializable {
         this.cclist = cclist ;
         this.modify("cclist",cclist);
     }
+
     /**
      * 设置 [failReason]
      */
@@ -157,6 +170,7 @@ public class Notify extends EntityMP implements Serializable {
         this.failreason = failreason ;
         this.modify("failreason",failreason);
     }
+
     /**
      * 设置 [action]
      */
@@ -164,6 +178,7 @@ public class Notify extends EntityMP implements Serializable {
         this.action = action ;
         this.modify("action",action);
     }
+
     /**
      * 设置 [createdBy]
      */
@@ -171,6 +186,7 @@ public class Notify extends EntityMP implements Serializable {
         this.createdby = createdby ;
         this.modify("createdby",createdby);
     }
+
     /**
      * 设置 [status]
      */
@@ -178,6 +194,7 @@ public class Notify extends EntityMP implements Serializable {
         this.status = status ;
         this.modify("status",status);
     }
+
     /**
      * 设置 [subject]
      */
@@ -185,6 +202,7 @@ public class Notify extends EntityMP implements Serializable {
         this.subject = subject ;
         this.modify("subject",subject);
     }
+
     /**
      * 设置 [objectID]
      */
@@ -192,6 +210,7 @@ public class Notify extends EntityMP implements Serializable {
         this.objectid = objectid ;
         this.modify("objectid",objectid);
     }
+
     /**
      * 设置 [data]
      */
@@ -199,6 +218,7 @@ public class Notify extends EntityMP implements Serializable {
         this.data = data ;
         this.modify("data",data);
     }
+
     /**
      * 设置 [toList]
      */
@@ -206,12 +226,24 @@ public class Notify extends EntityMP implements Serializable {
         this.tolist = tolist ;
         this.modify("tolist",tolist);
     }
+
     /**
      * 设置 [sendTime]
      */
     public void setSendtime(Timestamp sendtime){
         this.sendtime = sendtime ;
         this.modify("sendtime",sendtime);
+    }
+
+    /**
+     * 格式化日期 [sendTime]
+     */
+    public String formatSendtime(){
+        if (this.sendtime == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(sendtime);
     }
     /**
      * 设置 [objectType]
@@ -220,6 +252,7 @@ public class Notify extends EntityMP implements Serializable {
         this.objecttype = objecttype ;
         this.modify("objecttype",objecttype);
     }
+
 
 }
 

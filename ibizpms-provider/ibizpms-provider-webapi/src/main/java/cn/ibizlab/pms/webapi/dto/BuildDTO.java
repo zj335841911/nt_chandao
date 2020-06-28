@@ -128,6 +128,14 @@ public class BuildDTO extends DTOBase implements Serializable {
     @JsonProperty("project")
     private BigInteger project;
 
+    /**
+     * 属性 [PRODUCTNAME]
+     *
+     */
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
+
 
     /**
      * 设置 [NAME]

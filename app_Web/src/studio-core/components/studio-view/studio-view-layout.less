@@ -309,16 +309,70 @@
     }
 }
 
-// 看板视图 与 应用看板视图
-.studio-view.view-container.deportalview,
-.studio-view.view-container.appportalview {
+
+// 看板视图 与 应用看板视图 「无边框」
+.studio-view.view-container.deportalview.no-border,
+.studio-view.view-container.deportalview9.no-border,
+.studio-view.view-container.appportalview.no-border,
+.studio-view.view-container.appportalview9.no-border {
 
     >.view-content {
 
         .portlet-without-title {
+
+            .portlet {
+
+                >.portlet-title {
+                    border: 0;
+                }
+
+                >.portlet-with-title, >.portlet-without-title {
+                    border: 0;
+                    border-top: 1px solid var(--view-dividing-line-color-bright);
+                }
+            }
+        }
+    }
+}
+
+// 看板视图 与 应用看板视图 「有边框」
+.studio-view.view-container.deportalview,
+.studio-view.view-container.deportalview9,
+.studio-view.view-container.appportalview,
+.studio-view.view-container.appportalview9 {
+
+    >.view-content {
+
+        .portlet-container.portlet-container-no-border {
+
+            .portlet-without-title {
+
+                .portlet {
+    
+                    .portlet-without-title {
+                        padding: 0;
+                        border-color: transparent;
+                        background: transparent;
+
+                        .studio-view {
+                            background: transparent;
+        
+                            >.view-content {
+        
+                                .ivu-card.app-form-group {
+                                    background: transparent;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .portlet-without-title {
             height: 100%;
 
-            >.portlet {
+            .portlet {
                 height: 100%;
                 border-radius: 5px;
                 padding: 8px;
@@ -334,6 +388,15 @@
                     color: var(--view-font-color-bright);
                     border-radius: 5px 5px 0px 0px;
                     background: var(--view-background-color-bright);
+
+                    .portlet-action {
+                        float: right;
+
+                        >a {
+                            font-size: 14px;
+                            margin-left: 5px;
+                        }
+                    }
                 }
 
                 >.portlet-with-title {
@@ -482,6 +545,13 @@
 
                     >.view-content {
                         height: 100%;
+                    }
+                }
+
+                .studio-view.view-container.show-footer {
+    
+                    >.view-content {
+                        height: calc(100% - 46px);
                     }
                 }
             }

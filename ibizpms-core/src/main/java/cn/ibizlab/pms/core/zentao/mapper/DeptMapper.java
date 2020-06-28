@@ -20,6 +20,7 @@ import com.alibaba.fastjson.JSONObject;
 public interface DeptMapper extends BaseMapper<Dept>{
 
     Page<Dept> searchDefault(IPage page, @Param("srf") DeptSearchContext context, @Param("ew") Wrapper<Dept> wrapper) ;
+    Page<Dept> searchRoot(IPage page, @Param("srf") DeptSearchContext context, @Param("ew") Wrapper<Dept> wrapper) ;
     @Override
     Dept selectById(Serializable id);
     @Override

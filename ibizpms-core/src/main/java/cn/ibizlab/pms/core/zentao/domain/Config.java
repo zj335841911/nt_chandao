@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[配置]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_config",resultMap = "ConfigResultMap")
 public class Config extends EntityMP implements Serializable {
 
@@ -42,7 +43,7 @@ public class Config extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private BigInteger id;
@@ -91,6 +92,7 @@ public class Config extends EntityMP implements Serializable {
         this.module = module ;
         this.modify("module",module);
     }
+
     /**
      * 设置 [附加部分]
      */
@@ -98,6 +100,7 @@ public class Config extends EntityMP implements Serializable {
         this.section = section ;
         this.modify("section",section);
     }
+
     /**
      * 设置 [值]
      */
@@ -105,6 +108,7 @@ public class Config extends EntityMP implements Serializable {
         this.value = value ;
         this.modify("value",value);
     }
+
     /**
      * 设置 [键]
      */
@@ -112,6 +116,7 @@ public class Config extends EntityMP implements Serializable {
         this.key = key ;
         this.modify("key",key);
     }
+
     /**
      * 设置 [所有者]
      */
@@ -119,6 +124,7 @@ public class Config extends EntityMP implements Serializable {
         this.owner = owner ;
         this.modify("owner",owner);
     }
+
 
 }
 

@@ -90,22 +90,23 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
     @Override
     @Transactional
     public boolean create(TestSuite et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTestSuiteHelper.create((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return bRst;
     }
 
     @Override
     public void createBatch(List<TestSuite> list) {
-        this.saveBatch(list,batchSize);
-    }
 
+    }
     @Override
     public boolean checkKey(TestSuite et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     public TestSuite getDraft(TestSuite et) {
         return et;
@@ -127,29 +128,37 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
     @Override
     @Transactional
     public boolean update(TestSuite et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTestSuiteHelper.edit((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return bRst;
     }
 
     @Override
     public void updateBatch(List<TestSuite> list) {
-        updateBatchById(list,batchSize);
-    }
 
+    }
     @Override
     @Transactional
     public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        TestSuite et = this.get(key);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTestSuiteHelper.delete((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        return bRst;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
+    public void removeBatch(Collection<BigInteger> idList){
+        if (idList != null && !idList.isEmpty()) {
+            for (BigInteger id : idList) {
+                this.remove(id);
+            }
+        }
     }
-
 
 	@Override
     public List<TestSuite> selectByProduct(BigInteger id) {
@@ -170,6 +179,9 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<TestSuite> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<TestSuite>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
+
+
+
 
 
 

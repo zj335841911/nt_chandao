@@ -65,7 +65,6 @@ export default class PlatformManagementModel {
           name: 'branch',
           prop: 'id',
         },
-
         {
           name:'size',
           prop:'size'

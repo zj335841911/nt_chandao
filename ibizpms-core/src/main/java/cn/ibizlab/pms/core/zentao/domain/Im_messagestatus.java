@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[im_messagestatus]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_im_messagestatus",resultMap = "Im_messagestatusResultMap")
 public class Im_messagestatus extends EntityMP implements Serializable {
 
@@ -63,7 +64,7 @@ public class Im_messagestatus extends EntityMP implements Serializable {
     /**
      * 虚拟主键
      */
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.ASSIGN_UUID)
     @JSONField(name = "id")
     @JsonProperty("id")
     private String id;
@@ -77,6 +78,7 @@ public class Im_messagestatus extends EntityMP implements Serializable {
         this.message = message ;
         this.modify("message",message);
     }
+
     /**
      * 设置 [status]
      */
@@ -84,6 +86,7 @@ public class Im_messagestatus extends EntityMP implements Serializable {
         this.status = status ;
         this.modify("status",status);
     }
+
     /**
      * 设置 [user]
      */
@@ -91,6 +94,7 @@ public class Im_messagestatus extends EntityMP implements Serializable {
         this.user = user ;
         this.modify("user",user);
     }
+
 
 }
 

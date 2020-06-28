@@ -26,23 +26,35 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface ITaskService extends IService<Task>{
 
     Task getDraft(Task et) ;
+    Task close(Task et) ;
+    Task pause(Task et) ;
+    Task start(Task et) ;
+    Task assignTo(Task et) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
     boolean update(Task et) ;
     void updateBatch(List<Task> list) ;
+    Task cancel(Task et) ;
+    Task deleteEstimate(Task et) ;
+    Task restart(Task et) ;
+    Task editEstimate(Task et) ;
     boolean save(Task et) ;
     void saveBatch(List<Task> list) ;
     Task get(BigInteger key) ;
+    Task recordEstimate(Task et) ;
     boolean checkKey(Task et) ;
     boolean create(Task et) ;
     void createBatch(List<Task> list) ;
+    Task finish(Task et) ;
+    Task activate(Task et) ;
     Page<Task> searchRootTask(TaskSearchContext context) ;
+    Page<Task> searchByModule(TaskSearchContext context) ;
     Page<HashMap> searchTypeGroup(TaskSearchContext context) ;
     Page<Task> searchDefault(TaskSearchContext context) ;
-    List<Task> selectByFrombug(BigInteger id) ;
-    void removeByFrombug(BigInteger id) ;
     List<Task> selectByModule(BigInteger id) ;
     void removeByModule(BigInteger id) ;
+    List<Task> selectByFrombug(BigInteger id) ;
+    void removeByFrombug(BigInteger id) ;
     List<Task> selectByProject(BigInteger id) ;
     void removeByProject(BigInteger id) ;
     List<Task> selectByStory(BigInteger id) ;
@@ -63,6 +75,7 @@ public interface ITaskService extends IService<Task>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
+
 
 
 }

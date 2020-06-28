@@ -101,7 +101,19 @@ export default class ModuleServiceBase extends EntityService {
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().get(`/modules/${context.module}`,isloading);
             return res;
+    }
 
+    /**
+     * Fix接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ModuleServiceBase
+     */
+    public async Fix(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            return Http.getInstance().post(`/modules/${context.module}/fix`,data,isloading);
     }
 
     /**
@@ -160,7 +172,6 @@ export default class ModuleServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             return Http.getInstance().delete(`/modules/${context.module}`,isloading);
-
     }
 
     /**

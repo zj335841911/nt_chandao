@@ -142,7 +142,6 @@ public class ScoreServiceImpl extends ServiceImpl<ScoreMapper, Score> implements
     }
 
 
-
     /**
      * 查询集合 DEFAULT
      */
@@ -151,6 +150,9 @@ public class ScoreServiceImpl extends ServiceImpl<ScoreMapper, Score> implements
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Score> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Score>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
+
+
+
 
 
 

@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[测试版本]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_testtask",resultMap = "TestTaskResultMap")
 public class TestTask extends EntityMP implements Serializable {
 
@@ -93,7 +94,7 @@ public class TestTask extends EntityMP implements Serializable {
      * 编号
      */
     @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private BigInteger id;
@@ -157,6 +158,34 @@ public class TestTask extends EntityMP implements Serializable {
     @JSONField(name = "project")
     @JsonProperty("project")
     private BigInteger project;
+    /**
+     * 产品
+     */
+    @TableField(exist = false)
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
+    /**
+     * 项目
+     */
+    @TableField(exist = false)
+    @JSONField(name = "projecttname")
+    @JsonProperty("projecttname")
+    private String projecttname;
+    /**
+     * 版本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "buildname")
+    @JsonProperty("buildname")
+    private String buildname;
+    /**
+     * 备注
+     */
+    @TableField(exist = false)
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    private String comment;
 
     /**
      * 
@@ -191,12 +220,34 @@ public class TestTask extends EntityMP implements Serializable {
         this.end = end ;
         this.modify("end",end);
     }
+
+    /**
+     * 格式化日期 [结束日期]
+     */
+    public String formatEnd(){
+        if (this.end == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(end);
+    }
     /**
      * 设置 [开始日期]
      */
     public void setBegin(Timestamp begin){
         this.begin = begin ;
         this.modify("begin",begin);
+    }
+
+    /**
+     * 格式化日期 [开始日期]
+     */
+    public String formatBegin(){
+        if (this.begin == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(begin);
     }
     /**
      * 设置 [抄送给]
@@ -205,6 +256,7 @@ public class TestTask extends EntityMP implements Serializable {
         this.mailto = mailto ;
         this.modify("mailto",mailto);
     }
+
     /**
      * 设置 [优先级]
      */
@@ -212,6 +264,7 @@ public class TestTask extends EntityMP implements Serializable {
         this.pri = pri ;
         this.modify("pri",pri);
     }
+
     /**
      * 设置 [子状态]
      */
@@ -219,6 +272,7 @@ public class TestTask extends EntityMP implements Serializable {
         this.substatus = substatus ;
         this.modify("substatus",substatus);
     }
+
     /**
      * 设置 [report]
      */
@@ -226,6 +280,7 @@ public class TestTask extends EntityMP implements Serializable {
         this.report = report ;
         this.modify("report",report);
     }
+
     /**
      * 设置 [描述]
      */
@@ -233,6 +288,7 @@ public class TestTask extends EntityMP implements Serializable {
         this.desc = desc ;
         this.modify("desc",desc);
     }
+
     /**
      * 设置 [当前状态]
      */
@@ -240,6 +296,7 @@ public class TestTask extends EntityMP implements Serializable {
         this.status = status ;
         this.modify("status",status);
     }
+
     /**
      * 设置 [负责人]
      */
@@ -247,6 +304,7 @@ public class TestTask extends EntityMP implements Serializable {
         this.owner = owner ;
         this.modify("owner",owner);
     }
+
     /**
      * 设置 [auto]
      */
@@ -254,6 +312,7 @@ public class TestTask extends EntityMP implements Serializable {
         this.auto = auto ;
         this.modify("auto",auto);
     }
+
     /**
      * 设置 [名称]
      */
@@ -261,6 +320,7 @@ public class TestTask extends EntityMP implements Serializable {
         this.name = name ;
         this.modify("name",name);
     }
+
     /**
      * 设置 [所属产品]
      */
@@ -268,6 +328,7 @@ public class TestTask extends EntityMP implements Serializable {
         this.product = product ;
         this.modify("product",product);
     }
+
     /**
      * 设置 [版本]
      */
@@ -275,6 +336,7 @@ public class TestTask extends EntityMP implements Serializable {
         this.build = build ;
         this.modify("build",build);
     }
+
     /**
      * 设置 [所属项目]
      */
@@ -282,6 +344,7 @@ public class TestTask extends EntityMP implements Serializable {
         this.project = project ;
         this.modify("project",project);
     }
+
 
 }
 

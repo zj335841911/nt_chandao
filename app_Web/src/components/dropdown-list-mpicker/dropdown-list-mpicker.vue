@@ -85,6 +85,46 @@ export default class DropDownListMpicker extends Vue {
     @Prop() public placeholder?: string;
 
     /**
+     * 局部上下文导航参数
+     * 
+     * @type {any}
+     * @memberof DropDownListMpicker
+     */
+    @Prop() public localContext!:any;
+
+    /**
+     * 局部导航参数
+     * 
+     * @type {any}
+     * @memberof DropDownListMpicker
+     */
+    @Prop() public localParam!:any;
+
+    /**
+     * 视图上下文
+     *
+     * @type {*}
+     * @memberof DropDownListMpicker
+     */
+    @Prop() public context!: any;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof DropDownListMpicker
+     */
+    @Prop() public viewparams!: any;
+
+    /**
+     * 传入表单数据
+     *
+     * @type {*}
+     * @memberof DropDownListMpicker
+     */
+    @Prop() public data?: any;
+
+    /**
      * 计算属性(当前值)
      * @type {any}
      * @memberof DropDownListMpicker
@@ -114,6 +154,28 @@ export default class DropDownListMpicker extends Vue {
     public items: any[] = [];
 
     /**
+     * 公共参数处理
+     *
+     * @param {*} arg
+     * @returns
+     * @memberof DropDownList
+     */
+    public handlePublicParams(arg: any) {
+        // 合并表单参数
+        arg.param = this.viewparams ? JSON.parse(JSON.stringify(this.viewparams)) : {};
+        arg.context = this.context ? JSON.parse(JSON.stringify(this.context)) : {};
+        // 附加参数处理
+        if (this.localContext && Object.keys(this.localContext).length >0) {
+            let _context = this.$util.computedNavData(this.data,arg.context,arg.param,this.localContext);
+            Object.assign(arg.context,_context);
+        }
+        if (this.localParam && Object.keys(this.localParam).length >0) {
+            let _param = this.$util.computedNavData(this.data,arg.param,arg.param,this.localParam);
+            Object.assign(arg.param,_param);
+        }
+    }
+
+    /**
      * vue  生命周期
      *
      * @memberof DropDownListMpicker
@@ -127,7 +189,13 @@ export default class DropDownListMpicker extends Vue {
               console.log(`----${this.tag}----代码表不存在`);
           }
       }else if(this.tag && Object.is(this.codelistType,"DYNAMIC")){
-          this.codeListService.getItems(this.tag).then((res:any) => {
+          // 公共参数处理
+          let data: any = {};
+          this.handlePublicParams(data);
+          // 参数处理
+          let _context = data.context;
+          let _param = data.param;
+          this.codeListService.getItems(this.tag,_context,_param).then((res:any) => {
               this.items = res;
           }).catch((error:any) => {
               console.log(`----${this.tag}----代码表不存在`);
@@ -143,7 +211,13 @@ export default class DropDownListMpicker extends Vue {
      */
     public onClick($event:any){
         if(this.tag && Object.is(this.codelistType,"DYNAMIC")){
-            this.codeListService.getItems(this.tag).then((res:any) => {
+            // 公共参数处理
+            let data: any = {};
+            this.handlePublicParams(data);
+            // 参数处理
+            let _context = data.context;
+            let _param = data.param;
+            this.codeListService.getItems(this.tag,_context,_param).then((res:any) => {
                 this.items = res;
             }).catch((error:any) => {
                 console.log(`----${this.tag}----代码表不存在`);

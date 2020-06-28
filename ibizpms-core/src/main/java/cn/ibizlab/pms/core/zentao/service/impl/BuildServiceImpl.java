@@ -46,9 +46,6 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
 
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IBugService bugService;
-    @Autowired
-    @Lazy
     private cn.ibizlab.pms.core.zentao.service.IReleaseService releaseService;
     @Autowired
     @Lazy
@@ -69,7 +66,6 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     public boolean checkKey(Build et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean save(Build et) {
@@ -92,12 +88,14 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
 
     @Override
     public boolean saveBatch(Collection<Build> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
     public void saveBatch(List<Build> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
@@ -116,6 +114,7 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
 
     @Override
     public Build getDraft(Build et) {
+        fillParentData(et);
         return et;
     }
 
@@ -134,31 +133,35 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     @Override
     @Transactional
     public boolean create(Build et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBuildHelper.create((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return bRst;
     }
 
     @Override
     public void createBatch(List<Build> list) {
-        this.saveBatch(list,batchSize);
-    }
 
+    }
     @Override
     @Transactional
     public boolean update(Build et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBuildHelper.edit((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return bRst;
     }
 
     @Override
     public void updateBatch(List<Build> list) {
-        updateBatchById(list,batchSize);
-    }
 
+    }
 
 	@Override
     public List<Build> selectByBranch(BigInteger id) {
@@ -192,12 +195,40 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
 
 
     /**
+     * 查询集合 产品版本
+     */
+    @Override
+    public Page<Build> searchCurProduct(BuildSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Build> pages=baseMapper.searchCurProduct(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Build>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 DEFAULT
      */
     @Override
     public Page<Build> searchDefault(BuildSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Build> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Build>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+
+
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(Build et){
+        //实体关系[DER1N_ZT_BUILD_ZT_PRODUCT_PRODUCT]
+        if(!ObjectUtils.isEmpty(et.getProduct())){
+            cn.ibizlab.pms.core.zentao.domain.Product ztproduct=et.getZtproduct();
+            if(ObjectUtils.isEmpty(ztproduct)){
+                cn.ibizlab.pms.core.zentao.domain.Product majorEntity=productService.get(et.getProduct());
+                et.setZtproduct(majorEntity);
+                ztproduct=majorEntity;
+            }
+            et.setProductname(ztproduct.getName());
+        }
     }
 
 

@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[测试用例]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_case",resultMap = "CaseResultMap")
 public class Case extends EntityMP implements Serializable {
 
@@ -262,7 +263,7 @@ public class Case extends EntityMP implements Serializable {
      * 用例编号
      */
     @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private BigInteger id;
@@ -344,6 +345,48 @@ public class Case extends EntityMP implements Serializable {
     @JSONField(name = "module")
     @JsonProperty("module")
     private BigInteger module;
+    /**
+     * 模块名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "modulename")
+    @JsonProperty("modulename")
+    private String modulename;
+    /**
+     * 需求名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "storyname")
+    @JsonProperty("storyname")
+    private String storyname;
+    /**
+     * 产品名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
+    /**
+     * 转bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "tobugcnt")
+    @JsonProperty("tobugcnt")
+    private Integer tobugcnt;
+    /**
+     * 测试结果数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "resultcnt")
+    @JsonProperty("resultcnt")
+    private Integer resultcnt;
+    /**
+     * 用例步骤数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "stepcnt")
+    @JsonProperty("stepcnt")
+    private Integer stepcnt;
 
     /**
      * 
@@ -402,6 +445,14 @@ public class Case extends EntityMP implements Serializable {
     private cn.ibizlab.pms.core.zentao.domain.TestSuite zttestsuite;
 
 
+    /**
+     * 用例步骤
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private List<cn.ibizlab.pms.core.zentao.domain.CaseStep> casestep;
+
 
     /**
      * 设置 [修改日期]
@@ -410,12 +461,34 @@ public class Case extends EntityMP implements Serializable {
         this.lastediteddate = lastediteddate ;
         this.modify("lastediteddate",lastediteddate);
     }
+
+    /**
+     * 格式化日期 [修改日期]
+     */
+    public String formatLastediteddate(){
+        if (this.lastediteddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(lastediteddate);
+    }
     /**
      * 设置 [scriptedDate]
      */
     public void setScripteddate(Timestamp scripteddate){
         this.scripteddate = scripteddate ;
         this.modify("scripteddate",scripteddate);
+    }
+
+    /**
+     * 格式化日期 [scriptedDate]
+     */
+    public String formatScripteddate(){
+        if (this.scripteddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(scripteddate);
     }
     /**
      * 设置 [标题颜色]
@@ -424,6 +497,7 @@ public class Case extends EntityMP implements Serializable {
         this.color = color ;
         this.modify("color",color);
     }
+
     /**
      * 设置 [path]
      */
@@ -431,6 +505,7 @@ public class Case extends EntityMP implements Serializable {
         this.path = path ;
         this.modify("path",path);
     }
+
     /**
      * 设置 [结果]
      */
@@ -438,6 +513,7 @@ public class Case extends EntityMP implements Serializable {
         this.lastrunresult = lastrunresult ;
         this.modify("lastrunresult",lastrunresult);
     }
+
     /**
      * 设置 [相关用例]
      */
@@ -445,6 +521,7 @@ public class Case extends EntityMP implements Serializable {
         this.linkcase = linkcase ;
         this.modify("linkcase",linkcase);
     }
+
     /**
      * 设置 [排序]
      */
@@ -452,6 +529,7 @@ public class Case extends EntityMP implements Serializable {
         this.order = order ;
         this.modify("order",order);
     }
+
     /**
      * 设置 [howRun]
      */
@@ -459,6 +537,7 @@ public class Case extends EntityMP implements Serializable {
         this.howrun = howrun ;
         this.modify("howrun",howrun);
     }
+
     /**
      * 设置 [用例版本]
      */
@@ -466,6 +545,7 @@ public class Case extends EntityMP implements Serializable {
         this.version = version ;
         this.modify("version",version);
     }
+
     /**
      * 设置 [scriptedBy]
      */
@@ -473,6 +553,7 @@ public class Case extends EntityMP implements Serializable {
         this.scriptedby = scriptedby ;
         this.modify("scriptedby",scriptedby);
     }
+
     /**
      * 设置 [用例类型]
      */
@@ -480,6 +561,7 @@ public class Case extends EntityMP implements Serializable {
         this.type = type ;
         this.modify("type",type);
     }
+
     /**
      * 设置 [用例状态]
      */
@@ -487,6 +569,7 @@ public class Case extends EntityMP implements Serializable {
         this.status = status ;
         this.modify("status",status);
     }
+
     /**
      * 设置 [auto]
      */
@@ -494,6 +577,7 @@ public class Case extends EntityMP implements Serializable {
         this.auto = auto ;
         this.modify("auto",auto);
     }
+
     /**
      * 设置 [frequency]
      */
@@ -501,6 +585,7 @@ public class Case extends EntityMP implements Serializable {
         this.frequency = frequency ;
         this.modify("frequency",frequency);
     }
+
     /**
      * 设置 [用例标题]
      */
@@ -508,6 +593,7 @@ public class Case extends EntityMP implements Serializable {
         this.title = title ;
         this.modify("title",title);
     }
+
     /**
      * 设置 [最后修改者]
      */
@@ -515,6 +601,7 @@ public class Case extends EntityMP implements Serializable {
         this.lasteditedby = lasteditedby ;
         this.modify("lasteditedby",lasteditedby);
     }
+
     /**
      * 设置 [由谁评审]
      */
@@ -522,12 +609,24 @@ public class Case extends EntityMP implements Serializable {
         this.reviewedby = reviewedby ;
         this.modify("reviewedby",reviewedby);
     }
+
     /**
      * 设置 [评审时间]
      */
     public void setRevieweddate(Timestamp revieweddate){
         this.revieweddate = revieweddate ;
         this.modify("revieweddate",revieweddate);
+    }
+
+    /**
+     * 格式化日期 [评审时间]
+     */
+    public String formatRevieweddate(){
+        if (this.revieweddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(revieweddate);
     }
     /**
      * 设置 [优先级]
@@ -536,6 +635,7 @@ public class Case extends EntityMP implements Serializable {
         this.pri = pri ;
         this.modify("pri",pri);
     }
+
     /**
      * 设置 [适用阶段]
      */
@@ -543,6 +643,7 @@ public class Case extends EntityMP implements Serializable {
         this.stage = stage ;
         this.modify("stage",stage);
     }
+
     /**
      * 设置 [scriptLocation]
      */
@@ -550,12 +651,24 @@ public class Case extends EntityMP implements Serializable {
         this.scriptlocation = scriptlocation ;
         this.modify("scriptlocation",scriptlocation);
     }
+
     /**
      * 设置 [执行时间]
      */
     public void setLastrundate(Timestamp lastrundate){
         this.lastrundate = lastrundate ;
         this.modify("lastrundate",lastrundate);
+    }
+
+    /**
+     * 格式化日期 [执行时间]
+     */
+    public String formatLastrundate(){
+        if (this.lastrundate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(lastrundate);
     }
     /**
      * 设置 [关键词]
@@ -564,6 +677,7 @@ public class Case extends EntityMP implements Serializable {
         this.keywords = keywords ;
         this.modify("keywords",keywords);
     }
+
     /**
      * 设置 [scriptStatus]
      */
@@ -571,6 +685,7 @@ public class Case extends EntityMP implements Serializable {
         this.scriptstatus = scriptstatus ;
         this.modify("scriptstatus",scriptstatus);
     }
+
     /**
      * 设置 [工具/框架]
      */
@@ -578,6 +693,7 @@ public class Case extends EntityMP implements Serializable {
         this.frame = frame ;
         this.modify("frame",frame);
     }
+
     /**
      * 设置 [子状态]
      */
@@ -585,6 +701,7 @@ public class Case extends EntityMP implements Serializable {
         this.substatus = substatus ;
         this.modify("substatus",substatus);
     }
+
     /**
      * 设置 [前置条件]
      */
@@ -592,6 +709,7 @@ public class Case extends EntityMP implements Serializable {
         this.precondition = precondition ;
         this.modify("precondition",precondition);
     }
+
     /**
      * 设置 [执行人]
      */
@@ -599,6 +717,7 @@ public class Case extends EntityMP implements Serializable {
         this.lastrunner = lastrunner ;
         this.modify("lastrunner",lastrunner);
     }
+
     /**
      * 设置 [来源用例版本]
      */
@@ -606,6 +725,7 @@ public class Case extends EntityMP implements Serializable {
         this.fromcaseversion = fromcaseversion ;
         this.modify("fromcaseversion",fromcaseversion);
     }
+
     /**
      * 设置 [需求版本]
      */
@@ -613,6 +733,7 @@ public class Case extends EntityMP implements Serializable {
         this.storyversion = storyversion ;
         this.modify("storyversion",storyversion);
     }
+
     /**
      * 设置 [来源用例]
      */
@@ -620,6 +741,7 @@ public class Case extends EntityMP implements Serializable {
         this.fromcaseid = fromcaseid ;
         this.modify("fromcaseid",fromcaseid);
     }
+
     /**
      * 设置 [平台/分支]
      */
@@ -627,6 +749,7 @@ public class Case extends EntityMP implements Serializable {
         this.branch = branch ;
         this.modify("branch",branch);
     }
+
     /**
      * 设置 [来源Bug]
      */
@@ -634,6 +757,7 @@ public class Case extends EntityMP implements Serializable {
         this.frombug = frombug ;
         this.modify("frombug",frombug);
     }
+
     /**
      * 设置 [相关需求]
      */
@@ -641,6 +765,7 @@ public class Case extends EntityMP implements Serializable {
         this.story = story ;
         this.modify("story",story);
     }
+
     /**
      * 设置 [所属产品]
      */
@@ -648,6 +773,7 @@ public class Case extends EntityMP implements Serializable {
         this.product = product ;
         this.modify("product",product);
     }
+
     /**
      * 设置 [所属库]
      */
@@ -655,6 +781,7 @@ public class Case extends EntityMP implements Serializable {
         this.lib = lib ;
         this.modify("lib",lib);
     }
+
     /**
      * 设置 [所属模块]
      */
@@ -662,6 +789,7 @@ public class Case extends EntityMP implements Serializable {
         this.module = module ;
         this.modify("module",module);
     }
+
 
 }
 

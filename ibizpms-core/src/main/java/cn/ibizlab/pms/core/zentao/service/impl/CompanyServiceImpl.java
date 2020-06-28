@@ -81,7 +81,6 @@ public class CompanyServiceImpl extends ServiceImpl<CompanyMapper, Company> impl
     public boolean checkKey(Company et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean update(Company et) {
@@ -151,6 +150,9 @@ public class CompanyServiceImpl extends ServiceImpl<CompanyMapper, Company> impl
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Company> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Company>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
+
+
+
 
 
 

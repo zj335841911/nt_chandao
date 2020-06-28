@@ -85,15 +85,21 @@ public class BranchServiceImpl extends ServiceImpl<BranchMapper, Branch> impleme
     @Override
     @Transactional
     public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        Branch et = this.get(key);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBranchHelper.delete((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        return bRst;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
+    public void removeBatch(Collection<BigInteger> idList){
+        if (idList != null && !idList.isEmpty()) {
+            for (BigInteger id : idList) {
+                this.remove(id);
+            }
+        }
     }
-
     @Override
     @Transactional
     public boolean create(Branch et) {
@@ -123,10 +129,21 @@ public class BranchServiceImpl extends ServiceImpl<BranchMapper, Branch> impleme
     }
 
     @Override
+    @Transactional
+    public Branch sort(Branch et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBranchHelper.sort((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return et;
+    }
+
+    @Override
     public boolean checkKey(Branch et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean save(Branch et) {
@@ -191,6 +208,18 @@ public class BranchServiceImpl extends ServiceImpl<BranchMapper, Branch> impleme
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Branch> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Branch>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
+
+    /**
+     * 查询集合 CurProduct
+     */
+    @Override
+    public Page<Branch> searchCurProduct(BranchSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Branch> pages=baseMapper.searchCurProduct(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Branch>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+
+
 
 
 

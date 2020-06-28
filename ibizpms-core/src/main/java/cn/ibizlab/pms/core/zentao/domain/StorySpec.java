@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[需求描述]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_storyspec",resultMap = "StorySpecResultMap")
 public class StorySpec extends EntityMP implements Serializable {
 
@@ -62,7 +63,7 @@ public class StorySpec extends EntityMP implements Serializable {
     /**
      * 虚拟主键
      */
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.ASSIGN_UUID)
     @JSONField(name = "id")
     @JsonProperty("id")
     private String id;
@@ -105,6 +106,7 @@ public class StorySpec extends EntityMP implements Serializable {
         this.spec = spec ;
         this.modify("spec",spec);
     }
+
     /**
      * 设置 [重复需求ID]
      */
@@ -112,6 +114,7 @@ public class StorySpec extends EntityMP implements Serializable {
         this.duplicatestory = duplicatestory ;
         this.modify("duplicatestory",duplicatestory);
     }
+
     /**
      * 设置 [验收标准]
      */
@@ -119,6 +122,7 @@ public class StorySpec extends EntityMP implements Serializable {
         this.verify = verify ;
         this.modify("verify",verify);
     }
+
     /**
      * 设置 [需求名称]
      */
@@ -126,6 +130,7 @@ public class StorySpec extends EntityMP implements Serializable {
         this.title = title ;
         this.modify("title",title);
     }
+
     /**
      * 设置 [版本号]
      */
@@ -133,6 +138,7 @@ public class StorySpec extends EntityMP implements Serializable {
         this.version = version ;
         this.modify("version",version);
     }
+
     /**
      * 设置 [需求]
      */
@@ -140,6 +146,7 @@ public class StorySpec extends EntityMP implements Serializable {
         this.story = story ;
         this.modify("story",story);
     }
+
 
 }
 

@@ -111,6 +111,27 @@ export default class MainTabExpViewtabviewpanelModel {
       {
         name: 'parent',
       },
+      {
+        name: 'taskcnt',
+      },
+      {
+        name: 'bugcnt',
+      },
+      {
+        name: 'storycnt',
+      },
+      {
+        name: 'products',
+      },
+      {
+        name: 'branchs',
+      },
+      {
+        name: 'plans',
+      },
+      {
+        name: 'srfarray',
+      },
     ]
   }
 

@@ -2,7 +2,19 @@
     height: 100%;
     margin-bottom: 6px;
 
+    >.action-history-header {
+        height: 35px;
+        padding: 6px 0px;
+        border-bottom: 1px solid var(--view-dividing-line-color-bright);
+
+        >.title {
+            font-size: 16px;
+            font-weight: 700;
+        }
+    }
+
     >.action-wrapper {
+        height: calc(100% - 36px);
 
         >.action-item {
             min-height: 22px;
@@ -43,6 +55,20 @@
             >.history-wrapper {
                 padding-top: 3px;
                 padding-left: 15px;
+            }
+        }
+    }
+}
+
+// 在表单下修改标题样式
+.app-form.ivu-form {
+
+    .action-history-wrapper {
+
+        .action-history-header {
+
+            .title {
+                font-size: 13px;
             }
         }
     }

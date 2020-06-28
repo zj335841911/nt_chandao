@@ -65,7 +65,9 @@ export default class TestTaskServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
-            return Http.getInstance().get(`/products/${context.product}/testtasks/getdraft`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/testtasks/getdraft`,isloading);
+            res.data.testtask = data.testtask;
+            return res;
         }
         let res:any = await  Http.getInstance().get(`/testtasks/getdraft`,isloading);
         res.data.testtask = data.testtask;
@@ -83,11 +85,30 @@ export default class TestTaskServiceBase extends EntityService {
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.testtask){
-            return Http.getInstance().get(`/products/${context.product}/testtasks/${context.testtask}`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/testtasks/${context.testtask}`,isloading);
+            return res;
         }
             let res:any = await Http.getInstance().get(`/testtasks/${context.testtask}`,isloading);
             return res;
+    }
 
+    /**
+     * Block接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestTaskServiceBase
+     */
+    public async Block(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.testtask){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/block`,data,isloading);
+            return res;
+        }
+            return Http.getInstance().post(`/testtasks/${context.testtask}/block`,data,isloading);
     }
 
     /**
@@ -101,12 +122,34 @@ export default class TestTaskServiceBase extends EntityService {
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.testtask){
-            return Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/save`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/save`,data,isloading);
+            return res;
         }
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/testtasks/${context.testtask}/save`,data,isloading);
             return res;
+    }
+
+    /**
+     * Start接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestTaskServiceBase
+     */
+    public async Start(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.testtask){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/start`,data,isloading);
+            return res;
+        }
+            return Http.getInstance().post(`/testtasks/${context.testtask}/start`,data,isloading);
     }
 
     /**
@@ -120,13 +163,17 @@ export default class TestTaskServiceBase extends EntityService {
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
             if(!data.srffrontuf || data.srffrontuf !== "1"){
                 data[this.APPDEKEY] = null;
             }
             if(data.srffrontuf){
                 delete data.srffrontuf;
             }
-            return Http.getInstance().post(`/products/${context.product}/testtasks`,data,isloading);
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/products/${context.product}/testtasks`,data,isloading);
+            return res;
         }
         let masterData:any = {};
         Object.assign(data,masterData);
@@ -142,6 +189,25 @@ export default class TestTaskServiceBase extends EntityService {
     }
 
     /**
+     * Activate接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestTaskServiceBase
+     */
+    public async Activate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.testtask){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/activate`,data,isloading);
+            return res;
+        }
+            return Http.getInstance().post(`/testtasks/${context.testtask}/activate`,data,isloading);
+    }
+
+    /**
      * Update接口方法
      *
      * @param {*} [context={}]
@@ -152,7 +218,10 @@ export default class TestTaskServiceBase extends EntityService {
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.testtask){
-            return Http.getInstance().put(`/products/${context.product}/testtasks/${context.testtask}`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/testtasks/${context.testtask}`,data,isloading);
+            return res;
         }
         let masterData:any = {};
         Object.assign(data,masterData);
@@ -174,7 +243,25 @@ export default class TestTaskServiceBase extends EntityService {
             return Http.getInstance().delete(`/products/${context.product}/testtasks/${context.testtask}`,isloading);
         }
             return Http.getInstance().delete(`/testtasks/${context.testtask}`,isloading);
+    }
 
+    /**
+     * Close接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestTaskServiceBase
+     */
+    public async Close(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.testtask){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/close`,data,isloading);
+            return res;
+        }
+            return Http.getInstance().post(`/testtasks/${context.testtask}/close`,data,isloading);
     }
 
     /**
@@ -188,7 +275,10 @@ export default class TestTaskServiceBase extends EntityService {
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.testtask){
-            return Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/checkkey`,data,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/checkkey`,data,isloading);
+            return res;
         }
             return Http.getInstance().post(`/testtasks/${context.testtask}/checkkey`,data,isloading);
     }

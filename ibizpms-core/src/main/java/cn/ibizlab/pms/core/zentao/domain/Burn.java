@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[burn]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_burn",resultMap = "BurnResultMap")
 public class Burn extends EntityMP implements Serializable {
 
@@ -49,7 +50,7 @@ public class Burn extends EntityMP implements Serializable {
     /**
      * 虚拟主键
      */
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.ASSIGN_UUID)
     @JSONField(name = "id")
     @JsonProperty("id")
     private String id;
@@ -114,6 +115,17 @@ public class Burn extends EntityMP implements Serializable {
         this.date = date ;
         this.modify("date",date);
     }
+
+    /**
+     * 格式化日期 [日期]
+     */
+    public String formatDate(){
+        if (this.date == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(date);
+    }
     /**
      * 设置 [总计消耗]
      */
@@ -121,6 +133,7 @@ public class Burn extends EntityMP implements Serializable {
         this.consumed = consumed ;
         this.modify("consumed",consumed);
     }
+
     /**
      * 设置 [预计剩余]
      */
@@ -128,6 +141,7 @@ public class Burn extends EntityMP implements Serializable {
         this.left = left ;
         this.modify("left",left);
     }
+
     /**
      * 设置 [最初预计]
      */
@@ -135,6 +149,7 @@ public class Burn extends EntityMP implements Serializable {
         this.estimate = estimate ;
         this.modify("estimate",estimate);
     }
+
     /**
      * 设置 [所属项目]
      */
@@ -142,6 +157,7 @@ public class Burn extends EntityMP implements Serializable {
         this.project = project ;
         this.modify("project",project);
     }
+
     /**
      * 设置 [任务]
      */
@@ -149,6 +165,7 @@ public class Burn extends EntityMP implements Serializable {
         this.task = task ;
         this.modify("task",task);
     }
+
 
 }
 

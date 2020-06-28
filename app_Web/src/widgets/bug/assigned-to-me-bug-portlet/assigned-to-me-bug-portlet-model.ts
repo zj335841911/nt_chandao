@@ -115,6 +115,9 @@ export default class AssignedToMeBugModel {
         name: 'resolvedby',
       },
       {
+        name: 'resolvedbuild',
+      },
+      {
         name: 'pri',
       },
       {
@@ -187,7 +190,7 @@ export default class AssignedToMeBugModel {
         name: 'testtask',
       },
       {
-        name: 'resolvedbuild',
+        name: 'comment',
       },
     ]
   }

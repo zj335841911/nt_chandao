@@ -43,12 +43,19 @@ export class UIServiceRegister {
         this.allUIService.set('projectproduct', () => import('@/uiservice/project-product/project-product-ui-service'));
         this.allUIService.set('case', () => import('@/uiservice/case/case-ui-service'));
         this.allUIService.set('product', () => import('@/uiservice/product/product-ui-service'));
+        this.allUIService.set('suitecase', () => import('@/uiservice/suite-case/suite-case-ui-service'));
+        this.allUIService.set('burn', () => import('@/uiservice/burn/burn-ui-service'));
         this.allUIService.set('subproductplan', () => import('@/uiservice/sub-product-plan/sub-product-plan-ui-service'));
         this.allUIService.set('storyspec', () => import('@/uiservice/story-spec/story-spec-ui-service'));
         this.allUIService.set('branch', () => import('@/uiservice/branch/branch-ui-service'));
+        this.allUIService.set('productstats', () => import('@/uiservice/product-stats/product-stats-ui-service'));
         this.allUIService.set('action', () => import('@/uiservice/action/action-ui-service'));
+        this.allUIService.set('group', () => import('@/uiservice/group/group-ui-service'));
         this.allUIService.set('casestep', () => import('@/uiservice/case-step/case-step-ui-service'));
+        this.allUIService.set('dept', () => import('@/uiservice/dept/dept-ui-service'));
+        this.allUIService.set('company', () => import('@/uiservice/company/company-ui-service'));
         this.allUIService.set('story', () => import('@/uiservice/story/story-ui-service'));
+        this.allUIService.set('subtask', () => import('@/uiservice/sub-task/sub-task-ui-service'));
         this.allUIService.set('project', () => import('@/uiservice/project/project-ui-service'));
         this.allUIService.set('history', () => import('@/uiservice/history/history-ui-service'));
         this.allUIService.set('user', () => import('@/uiservice/user/user-ui-service'));
@@ -57,8 +64,14 @@ export class UIServiceRegister {
         this.allUIService.set('productlife', () => import('@/uiservice/product-life/product-life-ui-service'));
         this.allUIService.set('task', () => import('@/uiservice/task/task-ui-service'));
         this.allUIService.set('build', () => import('@/uiservice/build/build-ui-service'));
+        this.allUIService.set('testresult', () => import('@/uiservice/test-result/test-result-ui-service'));
+        this.allUIService.set('testsuite', () => import('@/uiservice/test-suite/test-suite-ui-service'));
         this.allUIService.set('testtask', () => import('@/uiservice/test-task/test-task-ui-service'));
+        this.allUIService.set('testreport', () => import('@/uiservice/test-report/test-report-ui-service'));
+        this.allUIService.set('projectstats', () => import('@/uiservice/project-stats/project-stats-ui-service'));
+        this.allUIService.set('testrun', () => import('@/uiservice/test-run/test-run-ui-service'));
         this.allUIService.set('bug', () => import('@/uiservice/bug/bug-ui-service'));
+        this.allUIService.set('projectmodule', () => import('@/uiservice/project-module/project-module-ui-service'));
         this.allUIService.set('ibzdoc', () => import('@/uiservice/ibz-doc/ibz-doc-ui-service'));
         this.allUIService.set('release', () => import('@/uiservice/release/release-ui-service'));
     }

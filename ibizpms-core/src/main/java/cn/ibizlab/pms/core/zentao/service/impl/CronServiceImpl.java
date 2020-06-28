@@ -91,7 +91,6 @@ public class CronServiceImpl extends ServiceImpl<CronMapper, Cron> implements IC
     public boolean checkKey(Cron et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public Cron get(BigInteger key) {
@@ -151,6 +150,9 @@ public class CronServiceImpl extends ServiceImpl<CronMapper, Cron> implements IC
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Cron> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Cron>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
+
+
+
 
 
 

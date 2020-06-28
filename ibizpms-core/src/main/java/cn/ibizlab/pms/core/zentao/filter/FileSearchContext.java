@@ -31,7 +31,7 @@ public class FileSearchContext extends QueryWrapperContext<File> {
 	public void setN_title_like(String n_title_like) {
         this.n_title_like = n_title_like;
         if(!ObjectUtils.isEmpty(this.n_title_like)){
-            this.getSelectCond().like("title", n_title_like);
+            this.getSearchCond().like("title", n_title_like);
         }
     }
 
@@ -42,7 +42,7 @@ public class FileSearchContext extends QueryWrapperContext<File> {
 	{
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
-            this.getSelectCond().and( wrapper ->
+            this.getSearchCond().and( wrapper ->
                      wrapper.like("title", query)   
             );
 		 }

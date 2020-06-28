@@ -31,28 +31,28 @@ public class TestResultSearchContext extends QueryWrapperContext<TestResult> {
 	public void setN_job_eq(BigInteger n_job_eq) {
         this.n_job_eq = n_job_eq;
         if(!ObjectUtils.isEmpty(this.n_job_eq)){
-            this.getSelectCond().eq("job", n_job_eq);
+            this.getSearchCond().eq("job", n_job_eq);
         }
     }
 	private BigInteger n_case_eq;//[用例]
 	public void setN_case_eq(BigInteger n_case_eq) {
         this.n_case_eq = n_case_eq;
         if(!ObjectUtils.isEmpty(this.n_case_eq)){
-            this.getSelectCond().eq("case", n_case_eq);
+            this.getSearchCond().eq("case", n_case_eq);
         }
     }
 	private BigInteger n_run_eq;//[测试执行]
 	public void setN_run_eq(BigInteger n_run_eq) {
         this.n_run_eq = n_run_eq;
         if(!ObjectUtils.isEmpty(this.n_run_eq)){
-            this.getSelectCond().eq("run", n_run_eq);
+            this.getSearchCond().eq("run", n_run_eq);
         }
     }
 	private BigInteger n_compile_eq;//[代码编译]
 	public void setN_compile_eq(BigInteger n_compile_eq) {
         this.n_compile_eq = n_compile_eq;
         if(!ObjectUtils.isEmpty(this.n_compile_eq)){
-            this.getSelectCond().eq("compile", n_compile_eq);
+            this.getSearchCond().eq("compile", n_compile_eq);
         }
     }
 

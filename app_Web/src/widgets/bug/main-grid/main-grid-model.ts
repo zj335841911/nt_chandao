@@ -32,9 +32,9 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'resolvedbuild',
-          prop: 'resolvedbuild',
-          dataType: 'PICKUP',
+          name: 'resolution',
+          prop: 'resolution',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'srfmajortext',

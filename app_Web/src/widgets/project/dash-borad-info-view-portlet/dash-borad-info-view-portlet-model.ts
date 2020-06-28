@@ -111,6 +111,27 @@ export default class DashBoradInfoViewModel {
       {
         name: 'parent',
       },
+      {
+        name: 'taskcnt',
+      },
+      {
+        name: 'bugcnt',
+      },
+      {
+        name: 'storycnt',
+      },
+      {
+        name: 'products',
+      },
+      {
+        name: 'branchs',
+      },
+      {
+        name: 'plans',
+      },
+      {
+        name: 'srfarray',
+      },
     ]
   }
 

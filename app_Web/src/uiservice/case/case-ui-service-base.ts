@@ -80,7 +80,16 @@ export default class CaseUIServiceBase extends UIService {
      */  
     public initViewMap(){
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'cases'});
+        this.allViewMap.set(':',{viewname:'curtesttaskgridview',srfappde:'cases'});
+        this.allViewMap.set(':',{viewname:'maingridview',srfappde:'cases'});
+        this.allViewMap.set(':',{viewname:'maininfoeditview9',srfappde:'cases'});
+        this.allViewMap.set(':',{viewname:'mainnewview',srfappde:'cases'});
+        this.allViewMap.set(':',{viewname:'batchnewgridview',srfappde:'cases'});
+        this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'cases'});
+        this.allViewMap.set(':',{viewname:'cursuitgridview',srfappde:'cases'});
         this.allViewMap.set(':',{viewname:'gridview9',srfappde:'cases'});
+        this.allViewMap.set(':',{viewname:'maineditview',srfappde:'cases'});
+        this.allViewMap.set(':',{viewname:'maindetaileditview9',srfappde:'cases'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'cases'});
     }
 
@@ -90,6 +99,345 @@ export default class CaseUIServiceBase extends UIService {
      * @memberof  CaseUIServiceBase
      */  
     public initDeMainStateMap(){
+    }
+
+    /**
+     * 执行
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Case_Execute(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { case: '%case%' });
+        Object.assign(params, { id: '%case%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'cases', parameterName: 'case' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if(window.opener){
+                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
+                        window.close();
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'case-main-dashboard-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.case.views.maindashboardview.title'),
+                placement: 'DRAWER_TOP',
+            };
+            openDrawer(view, data);
+    }
+
+    /**
+     * 批量新建用例
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Case_BatchNew(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'cases', parameterName: 'case' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if(window.opener){
+                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
+                        window.close();
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'case-batch-new-grid-view', 
+                height: 800, 
+                width: 1200,  
+                title: actionContext.$t('entities.case.views.batchnewgridview.title'),
+            };
+            openPopupModal(view, data);
+    }
+
+    /**
+     * 结果
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Case_OpenTestRunResultView(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { case: '%case%' });
+        Object.assign(params, { id: '%case%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'cases', parameterName: 'case' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if(window.opener){
+                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
+                        window.close();
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'case-main-dashboard-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.case.views.maindashboardview.title'),
+                placement: 'DRAWER_TOP',
+            };
+            openDrawer(view, data);
+    }
+
+    /**
+     * 编辑
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Case_MainEdit(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { case: '%case%' });
+        Object.assign(params, { id: '%case%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'cases', parameterName: 'case' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (_this.Refresh && _this.Refresh instanceof Function) {
+                        _this.Refresh(result.datas,context,params, $event, xData,actionContext);
+                    }
+                    if(window.opener){
+                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
+                        window.close();
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'case-main-edit-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.case.views.maineditview.title'),
+                placement: 'DRAWER_TOP',
+            };
+            openDrawer(view, data);
+    }
+
+    /**
+     * 转Bug
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Case_NewBugByCaseResult(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { case: '%case%' });
+        Object.assign(params, { id: '%case%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'cases', parameterName: 'case' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if(window.opener){
+                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
+                        window.close();
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'case-main-dashboard-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.case.views.maindashboardview.title'),
+                placement: 'DRAWER_TOP',
+            };
+            openDrawer(view, data);
     }
 
 

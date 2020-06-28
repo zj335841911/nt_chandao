@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[产品]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_product",resultMap = "ProductResultMap")
 public class Product extends EntityMP implements Serializable {
 
@@ -64,7 +65,7 @@ public class Product extends EntityMP implements Serializable {
      * 编号
      */
     @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private BigInteger id;
@@ -179,6 +180,48 @@ public class Product extends EntityMP implements Serializable {
     @JSONField(name = "line")
     @JsonProperty("line")
     private BigInteger line;
+    /**
+     * 未解决Bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "activebugcnt")
+    @JsonProperty("activebugcnt")
+    private Integer activebugcnt;
+    /**
+     * 计划总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "productplancnt")
+    @JsonProperty("productplancnt")
+    private Integer productplancnt;
+    /**
+     * 发布总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "releasecnt")
+    @JsonProperty("releasecnt")
+    private Integer releasecnt;
+    /**
+     * 激活需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "activestorycnt")
+    @JsonProperty("activestorycnt")
+    private Integer activestorycnt;
+    /**
+     * 未确认Bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "unconfirmbugcnt")
+    @JsonProperty("unconfirmbugcnt")
+    private Integer unconfirmbugcnt;
+    /**
+     * 未关闭Bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "notclosedbugcnt")
+    @JsonProperty("notclosedbugcnt")
+    private Integer notclosedbugcnt;
 
     /**
      * 产品线
@@ -197,6 +240,7 @@ public class Product extends EntityMP implements Serializable {
         this.qd = qd ;
         this.modify("qd",qd);
     }
+
     /**
      * 设置 [访问控制]
      */
@@ -204,6 +248,7 @@ public class Product extends EntityMP implements Serializable {
         this.acl = acl ;
         this.modify("acl",acl);
     }
+
     /**
      * 设置 [产品名称]
      */
@@ -211,6 +256,7 @@ public class Product extends EntityMP implements Serializable {
         this.name = name ;
         this.modify("name",name);
     }
+
     /**
      * 设置 [分组白名单]
      */
@@ -218,6 +264,7 @@ public class Product extends EntityMP implements Serializable {
         this.whitelist = whitelist ;
         this.modify("whitelist",whitelist);
     }
+
     /**
      * 设置 [发布负责人]
      */
@@ -225,6 +272,7 @@ public class Product extends EntityMP implements Serializable {
         this.rd = rd ;
         this.modify("rd",rd);
     }
+
     /**
      * 设置 [排序]
      */
@@ -232,6 +280,7 @@ public class Product extends EntityMP implements Serializable {
         this.order = order ;
         this.modify("order",order);
     }
+
     /**
      * 设置 [产品类型]
      */
@@ -239,6 +288,7 @@ public class Product extends EntityMP implements Serializable {
         this.type = type ;
         this.modify("type",type);
     }
+
     /**
      * 设置 [产品负责人]
      */
@@ -246,6 +296,7 @@ public class Product extends EntityMP implements Serializable {
         this.po = po ;
         this.modify("po",po);
     }
+
     /**
      * 设置 [产品描述	]
      */
@@ -253,6 +304,7 @@ public class Product extends EntityMP implements Serializable {
         this.desc = desc ;
         this.modify("desc",desc);
     }
+
     /**
      * 设置 [状态]
      */
@@ -260,6 +312,7 @@ public class Product extends EntityMP implements Serializable {
         this.status = status ;
         this.modify("status",status);
     }
+
     /**
      * 设置 [当前系统版本]
      */
@@ -267,6 +320,7 @@ public class Product extends EntityMP implements Serializable {
         this.createdversion = createdversion ;
         this.modify("createdversion",createdversion);
     }
+
     /**
      * 设置 [子状态]
      */
@@ -274,6 +328,7 @@ public class Product extends EntityMP implements Serializable {
         this.substatus = substatus ;
         this.modify("substatus",substatus);
     }
+
     /**
      * 设置 [产品代号]
      */
@@ -281,6 +336,7 @@ public class Product extends EntityMP implements Serializable {
         this.code = code ;
         this.modify("code",code);
     }
+
     /**
      * 设置 [产品线]
      */
@@ -288,6 +344,7 @@ public class Product extends EntityMP implements Serializable {
         this.line = line ;
         this.modify("line",line);
     }
+
 
 }
 

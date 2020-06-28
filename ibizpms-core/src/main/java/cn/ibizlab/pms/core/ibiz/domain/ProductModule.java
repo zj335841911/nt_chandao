@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[需求模块]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_module",resultMap = "ProductModuleResultMap")
 public class ProductModule extends EntityMP implements Serializable {
 
@@ -41,6 +42,7 @@ public class ProductModule extends EntityMP implements Serializable {
     /**
      * path
      */
+    @DEField(defaultValue = ",")
     @TableField(value = "path")
     @JSONField(name = "path")
     @JsonProperty("path")
@@ -70,15 +72,15 @@ public class ProductModule extends EntityMP implements Serializable {
     @JsonProperty("branch")
     private Integer branch;
     /**
-     * 短名称
+     * 简称
      */
-    @DEField(name = "short")
+    @DEField(defaultValue = "/")
     @TableField(value = "short")
     @JSONField(name = "ibizshort")
     @JsonProperty("ibizshort")
     private String ibizshort;
     /**
-     * order
+     * 排序值
      */
     @DEField(defaultValue = "0")
     @TableField(value = "order")
@@ -104,6 +106,7 @@ public class ProductModule extends EntityMP implements Serializable {
     /**
      * owner
      */
+    @DEField(defaultValue = "/")
     @TableField(value = "owner")
     @JSONField(name = "owner")
     @JsonProperty("owner")
@@ -119,13 +122,14 @@ public class ProductModule extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private BigInteger id;
     /**
      * collector
      */
+    @DEField(defaultValue = "/")
     @TableField(value = "collector")
     @JSONField(name = "collector")
     @JsonProperty("collector")
@@ -144,6 +148,20 @@ public class ProductModule extends EntityMP implements Serializable {
     @JSONField(name = "parent")
     @JsonProperty("parent")
     private BigInteger parent;
+    /**
+     * 所属产品
+     */
+    @TableField(exist = false)
+    @JSONField(name = "rootname")
+    @JsonProperty("rootname")
+    private String rootname;
+    /**
+     * 上级模块
+     */
+    @TableField(exist = false)
+    @JSONField(name = "parentname")
+    @JsonProperty("parentname")
+    private String parentname;
 
     /**
      * 
@@ -170,6 +188,7 @@ public class ProductModule extends EntityMP implements Serializable {
         this.path = path ;
         this.modify("path",path);
     }
+
     /**
      * 设置 [名称]
      */
@@ -177,6 +196,7 @@ public class ProductModule extends EntityMP implements Serializable {
         this.name = name ;
         this.modify("name",name);
     }
+
     /**
      * 设置 [branch]
      */
@@ -184,20 +204,23 @@ public class ProductModule extends EntityMP implements Serializable {
         this.branch = branch ;
         this.modify("branch",branch);
     }
+
     /**
-     * 设置 [短名称]
+     * 设置 [简称]
      */
     public void setIbizshort(String ibizshort){
         this.ibizshort = ibizshort ;
         this.modify("short",ibizshort);
     }
+
     /**
-     * 设置 [order]
+     * 设置 [排序值]
      */
     public void setOrder(Integer order){
         this.order = order ;
         this.modify("order",order);
     }
+
     /**
      * 设置 [grade]
      */
@@ -205,6 +228,7 @@ public class ProductModule extends EntityMP implements Serializable {
         this.grade = grade ;
         this.modify("grade",grade);
     }
+
     /**
      * 设置 [类型（story）]
      */
@@ -212,6 +236,7 @@ public class ProductModule extends EntityMP implements Serializable {
         this.type = type ;
         this.modify("type",type);
     }
+
     /**
      * 设置 [owner]
      */
@@ -219,6 +244,7 @@ public class ProductModule extends EntityMP implements Serializable {
         this.owner = owner ;
         this.modify("owner",owner);
     }
+
     /**
      * 设置 [collector]
      */
@@ -226,6 +252,7 @@ public class ProductModule extends EntityMP implements Serializable {
         this.collector = collector ;
         this.modify("collector",collector);
     }
+
     /**
      * 设置 [产品]
      */
@@ -233,6 +260,7 @@ public class ProductModule extends EntityMP implements Serializable {
         this.root = root ;
         this.modify("root",root);
     }
+
     /**
      * 设置 [id]
      */
@@ -240,6 +268,7 @@ public class ProductModule extends EntityMP implements Serializable {
         this.parent = parent ;
         this.modify("parent",parent);
     }
+
 
 }
 

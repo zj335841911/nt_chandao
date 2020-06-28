@@ -138,6 +138,27 @@ export default class AssignedToMeCaseModel {
       {
         name: 'module',
       },
+      {
+        name: 'modulename',
+      },
+      {
+        name: 'storyname',
+      },
+      {
+        name: 'productname',
+      },
+      {
+        name: 'casesteps',
+      },
+      {
+        name: 'tobugcnt',
+      },
+      {
+        name: 'resultcnt',
+      },
+      {
+        name: 'stepcnt',
+      },
     ]
   }
 

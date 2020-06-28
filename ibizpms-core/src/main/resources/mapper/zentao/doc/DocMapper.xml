@@ -67,17 +67,15 @@
 
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
-       <![CDATA[	SELECT t1.`ACL`, t1.`ADDEDBY`, t1.`ADDEDDATE`, t1.`DELETED`, t1.`EDITEDBY`, t1.`EDITEDDATE`, t1.`GROUPS`, t1.`ID`, t1.`KEYWORDS`, t1.`LIB`, t1.`MODULE`, t1.`PRODUCT`, t1.`PROJECT`, t1.`TITLE`, t1.`TYPE`, t1.`VERSION`, t1.`VIEWS` FROM `zt_doc` t1  
-				 WHERE 	t1.DELETED = '0'
+		<![CDATA[ SELECT t1.`ACL`, t1.`ADDEDBY`, t1.`ADDEDDATE`, t1.`DELETED`, t1.`EDITEDBY`, t1.`EDITEDDATE`, t1.`GROUPS`, t1.`ID`, t1.`KEYWORDS`, t1.`LIB`, t1.`MODULE`, t1.`PRODUCT`, t1.`PROJECT`, t1.`TITLE`, t1.`TYPE`, t1.`VERSION`, t1.`VIEWS` FROM `zt_doc` t1  
+					 WHERE 	t1.DELETED = '0'
 			]]>
     </sql>
-
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
-       <![CDATA[	SELECT t1.`ACL`, t1.`ADDEDBY`, t1.`ADDEDDATE`, t1.`COLLECTOR`, t1.`DELETED`, t1.`EDITEDBY`, t1.`EDITEDDATE`, t1.`GROUPS`, t1.`ID`, t1.`KEYWORDS`, t1.`LIB`, t1.`MODULE`, t1.`PRODUCT`, t1.`PROJECT`, t1.`TITLE`, t1.`TYPE`, t1.`USERS`, t1.`VERSION`, t1.`VIEWS` FROM `zt_doc` t1  
-				 WHERE 	t1.DELETED = '0'
+		<![CDATA[ SELECT t1.`ACL`, t1.`ADDEDBY`, t1.`ADDEDDATE`, t1.`COLLECTOR`, t1.`DELETED`, t1.`EDITEDBY`, t1.`EDITEDDATE`, t1.`GROUPS`, t1.`ID`, t1.`KEYWORDS`, t1.`LIB`, t1.`MODULE`, t1.`PRODUCT`, t1.`PROJECT`, t1.`TITLE`, t1.`TYPE`, t1.`USERS`, t1.`VERSION`, t1.`VIEWS` FROM `zt_doc` t1  
+					 WHERE 	t1.DELETED = '0'
 			]]>
     </sql>
-
 </mapper>
 

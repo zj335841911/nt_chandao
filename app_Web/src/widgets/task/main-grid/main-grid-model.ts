@@ -27,6 +27,51 @@ export default class MainModel {
     }else{
 		  return [
         {
+          name: 'module',
+          prop: 'module',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'finishedby',
+          prop: 'finishedby',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'frombug',
+          prop: 'frombug',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'parent',
+          prop: 'parent',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'estimate',
+          prop: 'estimate',
+          dataType: 'FLOAT',
+        },
+        {
+          name: 'srfmajortext',
+          prop: 'name',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'srfkey',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
           name: 'id',
           prop: 'id',
           dataType: 'ACID',
@@ -42,9 +87,9 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
+          name: 'assignedto',
+          prop: 'assignedto',
+          dataType: 'TEXT',
         },
         {
           name: 'pri',
@@ -52,14 +97,9 @@ export default class MainModel {
           dataType: 'NSCODELIST',
         },
         {
-          name: 'frombug',
-          prop: 'frombug',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
+          name: 'consumed',
+          prop: 'consumed',
+          dataType: 'FLOAT',
         },
         {
           name: 'name',
@@ -67,24 +107,14 @@ export default class MainModel {
           dataType: 'TEXT',
         },
         {
-          name: 'parent',
-          prop: 'parent',
-          dataType: 'PICKUP',
+          name: 'left',
+          prop: 'left',
+          dataType: 'FLOAT',
         },
         {
-          name: 'srfmajortext',
-          prop: 'name',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
+          name: 'deadline',
+          prop: 'deadline',
+          dataType: 'DATE',
         },
         {
           name: 'task',

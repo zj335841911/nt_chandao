@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[附件]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_file",resultMap = "FileResultMap")
 public class File extends EntityMP implements Serializable {
 
@@ -119,7 +120,7 @@ public class File extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private BigInteger id;
@@ -140,6 +141,7 @@ public class File extends EntityMP implements Serializable {
         this.pathname = pathname ;
         this.modify("pathname",pathname);
     }
+
     /**
      * 设置 [对象ID]
      */
@@ -147,6 +149,7 @@ public class File extends EntityMP implements Serializable {
         this.objectid = objectid ;
         this.modify("objectid",objectid);
     }
+
     /**
      * 设置 [文件类型]
      */
@@ -154,6 +157,7 @@ public class File extends EntityMP implements Serializable {
         this.extension = extension ;
         this.modify("extension",extension);
     }
+
     /**
      * 设置 [对象类型]
      */
@@ -161,6 +165,7 @@ public class File extends EntityMP implements Serializable {
         this.objecttype = objecttype ;
         this.modify("objecttype",objecttype);
     }
+
     /**
      * 设置 [标题]
      */
@@ -168,6 +173,7 @@ public class File extends EntityMP implements Serializable {
         this.title = title ;
         this.modify("title",title);
     }
+
     /**
      * 设置 [下载次数]
      */
@@ -175,6 +181,7 @@ public class File extends EntityMP implements Serializable {
         this.downloads = downloads ;
         this.modify("downloads",downloads);
     }
+
     /**
      * 设置 [大小]
      */
@@ -182,6 +189,7 @@ public class File extends EntityMP implements Serializable {
         this.size = size ;
         this.modify("size",size);
     }
+
     /**
      * 设置 [备注]
      */
@@ -189,6 +197,7 @@ public class File extends EntityMP implements Serializable {
         this.extra = extra ;
         this.modify("extra",extra);
     }
+
 
 }
 

@@ -31,14 +31,14 @@ public class BurnSearchContext extends QueryWrapperContext<Burn> {
 	public void setN_project_eq(BigInteger n_project_eq) {
         this.n_project_eq = n_project_eq;
         if(!ObjectUtils.isEmpty(this.n_project_eq)){
-            this.getSelectCond().eq("project", n_project_eq);
+            this.getSearchCond().eq("project", n_project_eq);
         }
     }
 	private BigInteger n_task_eq;//[任务]
 	public void setN_task_eq(BigInteger n_task_eq) {
         this.n_task_eq = n_task_eq;
         if(!ObjectUtils.isEmpty(this.n_task_eq)){
-            this.getSelectCond().eq("task", n_task_eq);
+            this.getSearchCond().eq("task", n_task_eq);
         }
     }
 

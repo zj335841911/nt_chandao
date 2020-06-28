@@ -126,7 +126,6 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     public boolean checkKey(Todo et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean update(Todo et) {
@@ -151,6 +150,9 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Todo> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Todo>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
+
+
+
 
 
 

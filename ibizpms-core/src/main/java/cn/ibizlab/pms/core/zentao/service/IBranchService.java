@@ -32,11 +32,13 @@ public interface IBranchService extends IService<Branch>{
     void createBatch(List<Branch> list) ;
     boolean update(Branch et) ;
     void updateBatch(List<Branch> list) ;
+    Branch sort(Branch et) ;
     boolean checkKey(Branch et) ;
     boolean save(Branch et) ;
     void saveBatch(List<Branch> list) ;
     Branch get(BigInteger key) ;
     Page<Branch> searchDefault(BranchSearchContext context) ;
+    Page<Branch> searchCurProduct(BranchSearchContext context) ;
     List<Branch> selectByProduct(BigInteger id) ;
     void removeByProduct(BigInteger id) ;
     /**
@@ -53,6 +55,7 @@ public interface IBranchService extends IService<Branch>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
+
 
 
 }

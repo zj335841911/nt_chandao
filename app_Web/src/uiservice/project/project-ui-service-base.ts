@@ -82,7 +82,9 @@ export default class ProjectUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'tasktreeexpview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'burndownchartview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'listexpview',srfappde:'projects'});
+        this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'curproductgridview',srfappde:'projects'});
+        this.allViewMap.set('PICKUPVIEW:',{viewname:'pickupview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'leftsidebarlistview',srfappde:'projects'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'projects'});
@@ -112,13 +114,22 @@ export default class ProjectUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Project_Manager(args: any[], context:any = {} ,params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public async Project_Manager(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
         let data: any = {};
-        const _args: any[] = Util.deepCopy(args);
+        let parentContext:any = {};
+        let parentViewParam:any = {};
         const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
-        context = UIActionTool.handleContextParam(actionTarget,_args,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,params);
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
         context = Object.assign({},actionContext.context,context);
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);

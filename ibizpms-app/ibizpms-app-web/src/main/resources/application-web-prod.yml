@@ -19,6 +19,10 @@ zuul:
       path: /products/**
       serviceId: pms-webapi
       stripPrefix: false
+    zt_burn:
+      path: /burns/**
+      serviceId: pms-webapi
+      stripPrefix: false
     ibz_subproductplan:
       path: /subproductplans/**
       serviceId: pms-webapi
@@ -31,16 +35,36 @@ zuul:
       path: /branches/**
       serviceId: pms-webapi
       stripPrefix: false
+    ibz_productstats:
+      path: /productstats/**
+      serviceId: pms-webapi
+      stripPrefix: false
     zt_action:
       path: /actions/**
+      serviceId: pms-webapi
+      stripPrefix: false
+    zt_group:
+      path: /groups/**
       serviceId: pms-webapi
       stripPrefix: false
     zt_casestep:
       path: /casesteps/**
       serviceId: pms-webapi
       stripPrefix: false
+    zt_dept:
+      path: /depts/**
+      serviceId: pms-webapi
+      stripPrefix: false
+    zt_company:
+      path: /companies/**
+      serviceId: pms-webapi
+      stripPrefix: false
     zt_story:
       path: /stories/**
+      serviceId: pms-webapi
+      stripPrefix: false
+    ibz_subtask:
+      path: /subtasks/**
       serviceId: pms-webapi
       stripPrefix: false
     zt_project:
@@ -79,8 +103,16 @@ zuul:
       path: /testtasks/**
       serviceId: pms-webapi
       stripPrefix: false
+    ibz_projectstats:
+      path: /projectstats/**
+      serviceId: pms-webapi
+      stripPrefix: false
     zt_bug:
       path: /bugs/**
+      serviceId: pms-webapi
+      stripPrefix: false
+    ibz_projectmodule:
+      path: /projectmodules/**
       serviceId: pms-webapi
       stripPrefix: false
     ibz_doc:

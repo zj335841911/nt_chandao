@@ -1,6 +1,6 @@
 import ProductPlanService from '@service/product-plan/product-plan-service';
 /**
- * 代码表--当前用户产品计划（动态）
+ * 代码表--产品计划（动态）
  *
  * @export
  * @class CurProductPlan
@@ -13,7 +13,7 @@ export default class CurProductPlan {
      * @type boolean
      * @memberof CurProductPlan
      */
-    public isEnableCache:boolean = true;
+    public isEnableCache:boolean = false;
 
     /**
      * 过期时间

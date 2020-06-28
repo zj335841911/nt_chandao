@@ -1,5 +1,6 @@
 package cn.ibizlab.pms.core.util.zentao.helper;
 
+import cn.ibizlab.pms.core.util.zentao.bean.ZTResult;
 import cn.ibizlab.pms.core.util.zentao.constants.ZenTaoConstants;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,12 +8,13 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
  * 【禅道接口-User】 辅助类
  */
-public class ZTUserHelper {
+final public class ZTUserHelper {
     // ----------
     // 接口模块
     // ----------
@@ -21,6 +23,12 @@ public class ZTUserHelper {
      * 接口模块名
      */
     private final static String MODULE_NAME = "user";
+
+    // ----------
+    // 参数日期格式
+    // ----------
+
+    private final static Map<String, String> PARAMS_DATEFORMAT = new HashMap<>();
 
     // ----------
     // 接口ACTION
@@ -61,32 +69,65 @@ public class ZTUserHelper {
     private final static HttpMethod ACTION_HTTPMETHOD_LOGIN = HttpMethod.POST;
 
     // ----------
+    // 接口行为POST参数
+    // ----------
+
+    private final static Map<String, Object> ACTION_PARAMS_LOGIN = new HashMap<>();
+
+    // ----------
+    // 接口行为POST参数设置
+    // ----------
+
+    static {
+        // LOGIN
+        ACTION_PARAMS_LOGIN.put("account", null);
+        ACTION_PARAMS_LOGIN.put("password", null);
+
+    }
+
+    // ----------
     // 接口实现
     // ----------
 
-    final static public boolean login(JSONObject rst) {
-        // 后期从session获取，前期使用admin
-        String account = ZenTaoConstants.ZT_TMP_USERNAME;
-        String password = ZenTaoConstants.ZT_TMP_PASSWORD;
-        if (account == null || account.isEmpty()) {
+    public static boolean login(String zentaosid, JSONObject jo, ZTResult rst) {
+        if (jo.getString("account") == null || jo.getString("account").isEmpty()) {
             return false;
         }
-        String url = MODULE_NAME + "-" + ACTION_LOGIN + ZenTaoConstants.ZT_URL_EXT;
-        JSONObject jo = new JSONObject();
-        jo.put("account", account);
-        jo.put("password", password);
-        rst = ZenTaoHttpHelper.doRequest(account, url, ACTION_HTTPMETHOD_LOGIN, jo, ZenTaoConstants.ZT_ACTION_TYPE_LOGIN);
-        if (!"success".equals(rst.getString("status"))) {
+        if (jo.getString("password") == null || jo.getString("password").isEmpty()) {
             return false;
         }
-        if (!rst.containsKey("user")) {
-            return false;
+
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_LOGIN;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_LOGIN;
+        Map<String, Object> actionParams = ACTION_PARAMS_LOGIN;
+        List<String> actionUrlParams = null;
+
+        try {
+            String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt);
+            JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaosid, url, actionHttpMethod, ZenTaoHttpHelper.formatJSON(jo, actionParams, PARAMS_DATEFORMAT));
+            rst.setResult(rstJO);
+            if (!"success".equals(rstJO.getString("status"))) {
+                rst.setSuccess(false);
+                return false;
+            }
+            if (!rstJO.containsKey("user")) {
+                rst.setSuccess(false);
+                return false;
+            }
+            JSONObject user = rstJO.getJSONObject("user");
+            if (!user.containsKey("account")) {
+                rst.setSuccess(false);
+                return false;
+            }
+            rst.setSuccess(jo.getString("account").equals(user.getString("account")));
+        } catch (Exception e) {
+            rst.setSuccess(false);
+            rst.setMessage(e.getMessage() != null ? e.getMessage() : "调用禅道接口异常");
         }
-        JSONObject user = rst.getJSONObject("user");
-        if (!user.containsKey("account")) {
-            return false;
-        }
-        return account.equals(user.getString("account"));
+        return rst.isSuccess();
     }
 
 }

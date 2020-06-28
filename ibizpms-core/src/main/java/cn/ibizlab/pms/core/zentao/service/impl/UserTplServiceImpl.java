@@ -56,7 +56,6 @@ public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> impl
     public boolean checkKey(UserTpl et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean create(UserTpl et) {
@@ -151,6 +150,9 @@ public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> impl
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<UserTpl> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<UserTpl>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
+
+
+
 
 
 

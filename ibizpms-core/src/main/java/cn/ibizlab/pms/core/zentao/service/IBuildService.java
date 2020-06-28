@@ -36,6 +36,7 @@ public interface IBuildService extends IService<Build>{
     void createBatch(List<Build> list) ;
     boolean update(Build et) ;
     void updateBatch(List<Build> list) ;
+    Page<Build> searchCurProduct(BuildSearchContext context) ;
     Page<Build> searchDefault(BuildSearchContext context) ;
     List<Build> selectByBranch(BigInteger id) ;
     void removeByBranch(BigInteger id) ;
@@ -57,6 +58,7 @@ public interface IBuildService extends IService<Build>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
+
 
 
 }

@@ -57,6 +57,7 @@ public interface ITestReportService extends IService<TestReport>{
     boolean execute(String sql, Map param);
 
 
+
 }
 
 

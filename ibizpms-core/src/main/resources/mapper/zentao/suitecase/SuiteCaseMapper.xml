@@ -57,15 +57,13 @@
 
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
-       <![CDATA[	SELECT t1.`CASE`, concat(t1.`SUITE`,'__',t1.`CASE`) AS `ID`, t1.`PRODUCT`, t1.`SUITE`, t1.`VERSION` FROM `zt_suitecase` t1  
+		<![CDATA[ SELECT t1.`CASE`, concat(t1.`SUITE`,'__',t1.`CASE`) AS `ID`, t1.`PRODUCT`, t1.`SUITE`, t1.`VERSION` FROM `zt_suitecase` t1  
 			]]>
     </sql>
-
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
-       <![CDATA[	SELECT t1.`CASE`, concat(t1.`SUITE`,'__',t1.`CASE`) AS `ID`, t1.`PRODUCT`, t1.`SUITE`, t1.`VERSION` FROM `zt_suitecase` t1  
+		<![CDATA[ SELECT t1.`CASE`, concat(t1.`SUITE`,'__',t1.`CASE`) AS `ID`, t1.`PRODUCT`, t1.`SUITE`, t1.`VERSION` FROM `zt_suitecase` t1  
 			]]>
     </sql>
-
 </mapper>
 

@@ -142,7 +142,6 @@ public class ConfigServiceImpl extends ServiceImpl<ConfigMapper, Config> impleme
     }
 
 
-
     /**
      * 查询集合 DEFAULT
      */
@@ -151,6 +150,9 @@ public class ConfigServiceImpl extends ServiceImpl<ConfigMapper, Config> impleme
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Config> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Config>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
+
+
+
 
 
 

@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[项目]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_project",resultMap = "ProjectResultMap")
 public class Project extends EntityMP implements Serializable {
 
@@ -87,7 +88,7 @@ public class Project extends EntityMP implements Serializable {
      * 项目编号
      */
     @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private BigInteger id;
@@ -276,6 +277,55 @@ public class Project extends EntityMP implements Serializable {
     @JSONField(name = "parent")
     @JsonProperty("parent")
     private BigInteger parent;
+    /**
+     * 任务总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "taskcnt")
+    @JsonProperty("taskcnt")
+    private Integer taskcnt;
+    /**
+     * Bug总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "bugcnt")
+    @JsonProperty("bugcnt")
+    private Integer bugcnt;
+    /**
+     * 需求总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "storycnt")
+    @JsonProperty("storycnt")
+    private Integer storycnt;
+    /**
+     * 关联产品集合
+     */
+    @TableField(exist = false)
+    @JSONField(name = "products")
+    @JsonProperty("products")
+    private String products;
+    /**
+     * 关联产品平台集合
+     */
+    @TableField(exist = false)
+    @JSONField(name = "branchs")
+    @JsonProperty("branchs")
+    private String branchs;
+    /**
+     * 关联产品产品计划
+     */
+    @TableField(exist = false)
+    @JSONField(name = "plans")
+    @JsonProperty("plans")
+    private String plans;
+    /**
+     * 关联数据数组
+     */
+    @TableField(exist = false)
+    @JSONField(name = "srfarray")
+    @JsonProperty("srfarray")
+    private String srfarray;
 
     /**
      * 
@@ -294,12 +344,24 @@ public class Project extends EntityMP implements Serializable {
         this.openedversion = openedversion ;
         this.modify("openedversion",openedversion);
     }
+
     /**
      * 设置 [开始时间]
      */
     public void setBegin(Timestamp begin){
         this.begin = begin ;
         this.modify("begin",begin);
+    }
+
+    /**
+     * 格式化日期 [开始时间]
+     */
+    public String formatBegin(){
+        if (this.begin == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(begin);
     }
     /**
      * 设置 [访问控制]
@@ -308,6 +370,7 @@ public class Project extends EntityMP implements Serializable {
         this.acl = acl ;
         this.modify("acl",acl);
     }
+
     /**
      * 设置 [项目描述]
      */
@@ -315,6 +378,7 @@ public class Project extends EntityMP implements Serializable {
         this.desc = desc ;
         this.modify("desc",desc);
     }
+
     /**
      * 设置 [项目负责人]
      */
@@ -322,6 +386,7 @@ public class Project extends EntityMP implements Serializable {
         this.pm = pm ;
         this.modify("pm",pm);
     }
+
     /**
      * 设置 [项目名称]
      */
@@ -329,6 +394,7 @@ public class Project extends EntityMP implements Serializable {
         this.name = name ;
         this.modify("name",name);
     }
+
     /**
      * 设置 [子状态]
      */
@@ -336,6 +402,7 @@ public class Project extends EntityMP implements Serializable {
         this.substatus = substatus ;
         this.modify("substatus",substatus);
     }
+
     /**
      * 设置 [项目排序]
      */
@@ -343,6 +410,7 @@ public class Project extends EntityMP implements Serializable {
         this.order = order ;
         this.modify("order",order);
     }
+
     /**
      * 设置 [发布负责人]
      */
@@ -350,6 +418,7 @@ public class Project extends EntityMP implements Serializable {
         this.rd = rd ;
         this.modify("rd",rd);
     }
+
     /**
      * 设置 [分组白名单]
      */
@@ -357,6 +426,7 @@ public class Project extends EntityMP implements Serializable {
         this.whitelist = whitelist ;
         this.modify("whitelist",whitelist);
     }
+
     /**
      * 设置 [优先级]
      */
@@ -364,12 +434,24 @@ public class Project extends EntityMP implements Serializable {
         this.pri = pri ;
         this.modify("pri",pri);
     }
+
     /**
      * 设置 [结束日期]
      */
     public void setEnd(Timestamp end){
         this.end = end ;
         this.modify("end",end);
+    }
+
+    /**
+     * 格式化日期 [结束日期]
+     */
+    public String formatEnd(){
+        if (this.end == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(end);
     }
     /**
      * 设置 [取消日期]
@@ -378,6 +460,17 @@ public class Project extends EntityMP implements Serializable {
         this.canceleddate = canceleddate ;
         this.modify("canceleddate",canceleddate);
     }
+
+    /**
+     * 格式化日期 [取消日期]
+     */
+    public String formatCanceleddate(){
+        if (this.canceleddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(canceleddate);
+    }
     /**
      * 设置 [项目代号]
      */
@@ -385,6 +478,7 @@ public class Project extends EntityMP implements Serializable {
         this.code = code ;
         this.modify("code",code);
     }
+
     /**
      * 设置 [catID]
      */
@@ -392,6 +486,7 @@ public class Project extends EntityMP implements Serializable {
         this.catid = catid ;
         this.modify("catid",catid);
     }
+
     /**
      * 设置 [statge]
      */
@@ -399,6 +494,7 @@ public class Project extends EntityMP implements Serializable {
         this.statge = statge ;
         this.modify("statge",statge);
     }
+
     /**
      * 设置 [由谁取消]
      */
@@ -406,6 +502,7 @@ public class Project extends EntityMP implements Serializable {
         this.canceledby = canceledby ;
         this.modify("canceledby",canceledby);
     }
+
     /**
      * 设置 [isCat]
      */
@@ -413,6 +510,7 @@ public class Project extends EntityMP implements Serializable {
         this.iscat = iscat ;
         this.modify("iscat",iscat);
     }
+
     /**
      * 设置 [由谁关闭]
      */
@@ -420,6 +518,7 @@ public class Project extends EntityMP implements Serializable {
         this.closedby = closedby ;
         this.modify("closedby",closedby);
     }
+
     /**
      * 设置 [项目类型]
      */
@@ -427,6 +526,7 @@ public class Project extends EntityMP implements Serializable {
         this.type = type ;
         this.modify("type",type);
     }
+
     /**
      * 设置 [产品负责人]
      */
@@ -434,6 +534,7 @@ public class Project extends EntityMP implements Serializable {
         this.po = po ;
         this.modify("po",po);
     }
+
     /**
      * 设置 [项目状态]
      */
@@ -441,6 +542,7 @@ public class Project extends EntityMP implements Serializable {
         this.status = status ;
         this.modify("status",status);
     }
+
     /**
      * 设置 [可用工作日]
      */
@@ -448,6 +550,7 @@ public class Project extends EntityMP implements Serializable {
         this.days = days ;
         this.modify("days",days);
     }
+
     /**
      * 设置 [团队名称]
      */
@@ -455,12 +558,24 @@ public class Project extends EntityMP implements Serializable {
         this.team = team ;
         this.modify("team",team);
     }
+
     /**
      * 设置 [关闭日期]
      */
     public void setCloseddate(Timestamp closeddate){
         this.closeddate = closeddate ;
         this.modify("closeddate",closeddate);
+    }
+
+    /**
+     * 格式化日期 [关闭日期]
+     */
+    public String formatCloseddate(){
+        if (this.closeddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(closeddate);
     }
     /**
      * 设置 [测试负责人]
@@ -469,6 +584,7 @@ public class Project extends EntityMP implements Serializable {
         this.qd = qd ;
         this.modify("qd",qd);
     }
+
     /**
      * 设置 [父项目]
      */
@@ -476,6 +592,7 @@ public class Project extends EntityMP implements Serializable {
         this.parent = parent ;
         this.modify("parent",parent);
     }
+
 
 }
 

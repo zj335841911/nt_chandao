@@ -72,12 +72,43 @@ export class StudioViewBase extends Vue {
         const data = {
             'studio-view': true,
             'view-container': true,
-            'hidden-header': !this.isShowHeader
+            'hidden-header': !this.isShowHeader,
+            'show-footer': this.$slots.footer ? true : false
         };
         if (classNames) {
             Object.assign(data, classNames);
         }
         return data;
+    }
+
+    /**
+     * 绘制视图内容
+     *
+     * @protected
+     * @returns {*}
+     * @memberof StudioViewBase
+     */
+    protected renderContent(): any {
+        return [
+            this.isShowHeader ? <div class="view-header">
+                {this.$slots.title ? <div class="title">{this.$slots.title}</div> : null}
+                {this.$slots.toolbar ? <div class="toolbar">{this.$slots.toolbar}</div> : null}
+                {this.$slots.quickGroupSearch ? <div class="quick-group-search">{this.$slots.quickGroupSearch}</div> : null}
+                {this.$slots.quickSearchForm ? <div class="quick-search-form">{this.$slots.quickSearchForm}</div> : null}
+                {this.$slots.quickSearch ? <div class="quick-search">{this.$slots.quickSearch}</div> : null}
+            </div> : null,
+            <div class={{ 'view-content': true, 'show-search-form': this.$slots.searchForm }}>
+                {this.$slots.searchForm ? <div class="search-form-wrapper">
+                    {this.$slots.searchForm}
+                </div> : null}
+                <div class="content-wrapper">
+                    {this.$slots.default}
+                </div>
+            </div>,
+            this.$slots.footer ? <div class="view-footer">
+                {this.$slots.footer}
+            </div> : null
+        ];
     }
 
     /**
@@ -89,21 +120,7 @@ export class StudioViewBase extends Vue {
     public render(): any {
         return <div class={this.getContainerClass()}>
             {Environment.devMode ? <view-config-actions viewName={this.viewName} viewTitle={this.viewTitle} /> : null}
-            {this.isShowHeader ? <div class="view-header">
-                {this.$slots.title ? <div class="title">{this.$slots.title}</div> : null}
-                {this.$slots.toolbar ? <div class="toolbar">{this.$slots.toolbar}</div> : null}
-                {this.$slots.quickGroupSearch ? <div class="quick-group-search">{this.$slots.quickGroupSearch}</div> : null}
-                {this.$slots.quickSearchForm ? <div class="quick-search-form">{this.$slots.quickSearchForm}</div> : null}
-                {this.$slots.quickSearch ? <div class="quick-search">{this.$slots.quickSearch}</div> : null}
-            </div> : null}
-            <div class={{ 'view-content': true, 'show-search-form': this.$slots.searchForm }}>
-                {this.$slots.searchForm ? <div class="search-form-wrapper">
-                    {this.$slots.searchForm}
-                </div> : null}
-                <div class="content-wrapper">
-                    {this.$slots.default}
-                </div>
-            </div>
+            {this.renderContent()}
         </div>;
     }
 

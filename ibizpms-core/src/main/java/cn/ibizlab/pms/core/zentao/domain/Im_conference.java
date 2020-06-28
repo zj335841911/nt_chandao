@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[im_conference]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_im_conference",resultMap = "Im_conferenceResultMap")
 public class Im_conference extends EntityMP implements Serializable {
 
@@ -73,7 +74,7 @@ public class Im_conference extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private BigInteger id;
@@ -101,6 +102,7 @@ public class Im_conference extends EntityMP implements Serializable {
         this.status = status ;
         this.modify("status",status);
     }
+
     /**
      * 设置 [cgid]
      */
@@ -108,6 +110,7 @@ public class Im_conference extends EntityMP implements Serializable {
         this.cgid = cgid ;
         this.modify("cgid",cgid);
     }
+
     /**
      * 设置 [openedBy]
      */
@@ -115,12 +118,24 @@ public class Im_conference extends EntityMP implements Serializable {
         this.openedby = openedby ;
         this.modify("openedby",openedby);
     }
+
     /**
      * 设置 [openedDate]
      */
     public void setOpeneddate(Timestamp openeddate){
         this.openeddate = openeddate ;
         this.modify("openeddate",openeddate);
+    }
+
+    /**
+     * 格式化日期 [openedDate]
+     */
+    public String formatOpeneddate(){
+        if (this.openeddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(openeddate);
     }
     /**
      * 设置 [rid]
@@ -129,6 +144,7 @@ public class Im_conference extends EntityMP implements Serializable {
         this.rid = rid ;
         this.modify("rid",rid);
     }
+
     /**
      * 设置 [participants]
      */
@@ -136,6 +152,7 @@ public class Im_conference extends EntityMP implements Serializable {
         this.participants = participants ;
         this.modify("participants",participants);
     }
+
 
 }
 

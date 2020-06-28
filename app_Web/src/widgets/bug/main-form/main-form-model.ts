@@ -56,8 +56,103 @@ export default class MainModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'productname',
+        prop: 'productname',
+        dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'branch',
+        prop: 'branch',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'product',
+        prop: 'product',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'module',
+        prop: 'module',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'project',
+        prop: 'project',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'projectname',
+        prop: 'projectname',
+        dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'openedbuild',
+        prop: 'openedbuild',
+        dataType: 'SSCODELIST',
+      },
+      {
+        name: 'assignedto',
+        prop: 'assignedto',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'deadline',
+        prop: 'deadline',
+        dataType: 'DATE',
+      },
+      {
+        name: 'type',
+        prop: 'type',
+        dataType: 'SSCODELIST',
+      },
+      {
+        name: 'os',
+        prop: 'os',
+        dataType: 'SSCODELIST',
+      },
+      {
+        name: 'browser',
+        prop: 'browser',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'title',
         prop: 'title',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'severity',
+        prop: 'severity',
+        dataType: 'NSCODELIST',
+      },
+      {
+        name: 'pri',
+        prop: 'pri',
+        dataType: 'NSCODELIST',
+      },
+      {
+        name: 'steps',
+        prop: 'steps',
+        dataType: 'LONGTEXT',
+      },
+      {
+        name: 'story',
+        prop: 'story',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'task',
+        prop: 'task',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'mailto',
+        prop: 'mailto',
+        dataType: 'SMCODELIST',
+      },
+      {
+        name: 'keywords',
+        prop: 'keywords',
         dataType: 'TEXT',
       },
       {

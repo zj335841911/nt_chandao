@@ -83,7 +83,6 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
     public boolean checkKey(ProductLife et) {
         return (!ObjectUtils.isEmpty(et.getProductlifeid()))&&(!Objects.isNull(this.getById(et.getProductlifeid())));
     }
-
     @Override
     @Transactional
     public boolean save(ProductLife et) {
@@ -169,6 +168,9 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductLife> pages=baseMapper.searchRoadMapYear(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProductLife>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
+
+
+
 
 
 

@@ -28,15 +28,32 @@ public interface IStoryService extends IService<Story>{
     Story getDraft(Story et) ;
     boolean create(Story et) ;
     void createBatch(List<Story> list) ;
+    Story batchChangeStage(Story et) ;
+    Story batchChangePlan(Story et) ;
+    Story batchClose(Story et) ;
+    Story change(Story et) ;
     boolean checkKey(Story et) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
     boolean update(Story et) ;
     void updateBatch(List<Story> list) ;
+    Story batchChangeBranch(Story et) ;
+    Story batchReview(Story et) ;
+    Story review(Story et) ;
+    Story assignTo(Story et) ;
+    Story batchAssignTo(Story et) ;
     Story get(BigInteger key) ;
     boolean save(Story et) ;
     void saveBatch(List<Story> list) ;
+    Story batchChangeModule(Story et) ;
+    Story close(Story et) ;
+    Page<Story> searchReleaseStories(StorySearchContext context) ;
+    Page<Story> searchByModule(StorySearchContext context) ;
+    Page<Story> searchReportStories(StorySearchContext context) ;
+    Page<Story> searchProjectStories(StorySearchContext context) ;
+    Page<Story> searchBuildStories(StorySearchContext context) ;
     Page<Story> searchDefault(StorySearchContext context) ;
+    Page<Story> searchGetProductStories(StorySearchContext context) ;
     List<Story> selectByModule(BigInteger id) ;
     void removeByModule(BigInteger id) ;
     List<Story> selectByBranch(BigInteger id) ;
@@ -65,6 +82,7 @@ public interface IStoryService extends IService<Story>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
+
 
 
 }

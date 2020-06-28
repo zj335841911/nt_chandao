@@ -44,6 +44,41 @@ export class ProductList extends Vue {
     }
 
     /**
+     * 打开行为视图
+     *
+     * @protected
+     * @param {MouseEvent} e
+     * @param {Product} item
+     * @param {string} srftabactivate
+     * @memberof ProductList
+     */
+    protected openActionView(e: MouseEvent, item: any, srftabactivate: string): void {
+        e.stopPropagation();
+        item.srftabactivate = srftabactivate;
+        this.itemClick(item);
+    }
+
+    /**
+     * 打开行为视图
+     *
+     * @protected
+     * @param {MouseEvent} e
+     * @param {Product} item
+     * @param {string} srftabactivate
+     * @memberof ProductList
+     */
+    protected openActionView2(e: MouseEvent, item: any, srftabactivate: string): void {
+        e.stopPropagation();
+        item.srftabactivate = srftabactivate;
+        this.itemClick({
+            ...item, parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'testtabexpview', parameterName: 'testtabexpview' },
+            ]
+        });
+    }
+
+    /**
      * 绘制产品项
      *
      * @protected
@@ -68,17 +103,17 @@ export class ProductList extends Vue {
                 </div>
             </div>
             <template slot="action">
-                <li>
-                    计划数：0
+                <li on-click={(e: any) => this.openActionView(e, p, 'tabviewpanel3')}>
+                    计划数：{p.productplancnt}
                 </li>
-                <li>
-                    发布数：0
+                <li on-click={(e: any) => this.openActionView(e, p, 'tabviewpanel4')}>
+                    发布数：{p.releasecnt}
                 </li>
-                <li>
-                    激活需求：0
+                <li on-click={(e: any) => this.openActionView(e, p, 'tabviewpanel2')}>
+                    激活需求：{p.activestorycnt}
                 </li>
-                <li>
-                    未解决Bug：0
+                <li on-click={(e: any) => this.openActionView2(e, p, 'tabviewpanel2')}>
+                    未解决Bug：{p.activebugcnt}
                 </li>
             </template>
         </listItem>;

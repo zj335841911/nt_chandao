@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[模块]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_module",resultMap = "ModuleResultMap")
 public class Module extends EntityMP implements Serializable {
 
@@ -79,6 +80,7 @@ public class Module extends EntityMP implements Serializable {
     /**
      * 负责人
      */
+    @DEField(defaultValue = "/")
     @TableField(value = "owner")
     @JSONField(name = "owner")
     @JsonProperty("owner")
@@ -87,13 +89,14 @@ public class Module extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private BigInteger id;
     /**
      * 收藏者
      */
+    @DEField(defaultValue = "/")
     @TableField(value = "collector")
     @JSONField(name = "collector")
     @JsonProperty("collector")
@@ -101,7 +104,7 @@ public class Module extends EntityMP implements Serializable {
     /**
      * 简称
      */
-    @DEField(name = "short")
+    @DEField(defaultValue = "/")
     @TableField(value = "short")
     @JSONField(name = "ibizshort")
     @JsonProperty("ibizshort")
@@ -109,6 +112,7 @@ public class Module extends EntityMP implements Serializable {
     /**
      * 路径
      */
+    @DEField(defaultValue = "，")
     @TableField(value = "path")
     @JSONField(name = "path")
     @JsonProperty("path")
@@ -170,6 +174,7 @@ public class Module extends EntityMP implements Serializable {
         this.root = root ;
         this.modify("root",root);
     }
+
     /**
      * 设置 [级别]
      */
@@ -177,6 +182,7 @@ public class Module extends EntityMP implements Serializable {
         this.grade = grade ;
         this.modify("grade",grade);
     }
+
     /**
      * 设置 [类型]
      */
@@ -184,6 +190,7 @@ public class Module extends EntityMP implements Serializable {
         this.type = type ;
         this.modify("type",type);
     }
+
     /**
      * 设置 [模块名称]
      */
@@ -191,6 +198,7 @@ public class Module extends EntityMP implements Serializable {
         this.name = name ;
         this.modify("name",name);
     }
+
     /**
      * 设置 [排序]
      */
@@ -198,6 +206,7 @@ public class Module extends EntityMP implements Serializable {
         this.order = order ;
         this.modify("order",order);
     }
+
     /**
      * 设置 [负责人]
      */
@@ -205,6 +214,7 @@ public class Module extends EntityMP implements Serializable {
         this.owner = owner ;
         this.modify("owner",owner);
     }
+
     /**
      * 设置 [收藏者]
      */
@@ -212,6 +222,7 @@ public class Module extends EntityMP implements Serializable {
         this.collector = collector ;
         this.modify("collector",collector);
     }
+
     /**
      * 设置 [简称]
      */
@@ -219,6 +230,7 @@ public class Module extends EntityMP implements Serializable {
         this.ibizshort = ibizshort ;
         this.modify("short",ibizshort);
     }
+
     /**
      * 设置 [路径]
      */
@@ -226,6 +238,7 @@ public class Module extends EntityMP implements Serializable {
         this.path = path ;
         this.modify("path",path);
     }
+
     /**
      * 设置 [平台/分支]
      */
@@ -233,6 +246,7 @@ public class Module extends EntityMP implements Serializable {
         this.branch = branch ;
         this.modify("branch",branch);
     }
+
     /**
      * 设置 [上级模块]
      */
@@ -240,6 +254,7 @@ public class Module extends EntityMP implements Serializable {
         this.parent = parent ;
         this.modify("parent",parent);
     }
+
 
 }
 

@@ -82,7 +82,7 @@ export class ViewTool {
         if (param && !Object.is(param, '')) {
             return `/${_pathName}/${param}`;
         }
-        return `/${_pathName}/null`;
+        return `/${_pathName}`;
     }
 
     /**
@@ -100,13 +100,13 @@ export class ViewTool {
         let [arg] = args;
         arg = arg ? arg : {};
         deResParameters.forEach(({ pathName, parameterName }: { pathName: string, parameterName: string }) => {
-            let value:any = null;
+            let value: any = null;
             if (viewParam[parameterName] && !Object.is(viewParam[parameterName], '') && !Object.is(viewParam[parameterName], 'null')) {
                 value = viewParam[parameterName];
             } else if (arg[parameterName] && !Object.is(arg[parameterName], '') && !Object.is(arg[parameterName], 'null')) {
                 value = arg[parameterName];
             }
-            routePath = `${routePath}/${pathName}/${value}`;
+            routePath = `${routePath}/${pathName}` + (value !== null ? `/${value}` : '');
         });
         return routePath;
     }
@@ -128,7 +128,7 @@ export class ViewTool {
             const [{ pathName, parameterName }] = parameters;
             routePath = `/${pathName}`;
             if (Object.keys(data).length > 0) {
-                routePath = `${routePath}/${qs.stringify(data, { delimiter: ';' })}`;
+                routePath = `${routePath}?${qs.stringify(data, { delimiter: ';' })}`;
             }
         } else if (parameters.length === 2) {
             let [arg] = args;
@@ -138,7 +138,7 @@ export class ViewTool {
                 arg[_parameterName] : null;
             routePath = `/${_pathName}/${_value}/${_pathName2}`;
             if (Object.keys(data).length > 0) {
-                routePath = `${routePath}/${qs.stringify(data, { delimiter: ';' })}`;
+                routePath = `${routePath}?${qs.stringify(data, { delimiter: ';' })}`;
             }
         }
         return routePath;

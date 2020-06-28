@@ -52,7 +52,7 @@ public class TestRunServiceImpl extends ServiceImpl<TestRunMapper, TestRun> impl
     private cn.ibizlab.pms.core.zentao.service.ICaseService caseService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ITaskService taskService;
+    private cn.ibizlab.pms.core.zentao.service.ITestTaskService testtaskService;
 
     private int batchSize = 500;
 
@@ -60,7 +60,6 @@ public class TestRunServiceImpl extends ServiceImpl<TestRunMapper, TestRun> impl
     public boolean checkKey(TestRun et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean remove(BigInteger key) {
@@ -206,6 +205,9 @@ public class TestRunServiceImpl extends ServiceImpl<TestRunMapper, TestRun> impl
             et.setVersion(ztcase.getVersion());
         }
     }
+
+
+
 
     @Override
     public List<JSONObject> select(String sql, Map param){

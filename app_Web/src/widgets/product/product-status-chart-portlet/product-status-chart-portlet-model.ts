@@ -72,6 +72,24 @@ export default class ProductStatusChartModel {
       {
         name: 'line',
       },
+      {
+        name: 'activebugcnt',
+      },
+      {
+        name: 'productplancnt',
+      },
+      {
+        name: 'releasecnt',
+      },
+      {
+        name: 'activestorycnt',
+      },
+      {
+        name: 'unconfirmbugcnt',
+      },
+      {
+        name: 'notclosedbugcnt',
+      },
     ]
   }
 

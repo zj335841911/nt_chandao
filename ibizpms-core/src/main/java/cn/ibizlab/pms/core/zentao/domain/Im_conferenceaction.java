@@ -7,6 +7,7 @@ import java.util.Map;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
-
 
 /**
  * 实体[im_conferenceaction]
@@ -32,7 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_im_conferenceaction",resultMap = "Im_conferenceactionResultMap")
 public class Im_conferenceaction extends EntityMP implements Serializable {
 
@@ -73,7 +74,7 @@ public class Im_conferenceaction extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.UUID)
+    @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private BigInteger id;
@@ -87,6 +88,7 @@ public class Im_conferenceaction extends EntityMP implements Serializable {
         this.rid = rid ;
         this.modify("rid",rid);
     }
+
     /**
      * 设置 [type]
      */
@@ -94,6 +96,7 @@ public class Im_conferenceaction extends EntityMP implements Serializable {
         this.type = type ;
         this.modify("type",type);
     }
+
     /**
      * 设置 [user]
      */
@@ -101,12 +104,24 @@ public class Im_conferenceaction extends EntityMP implements Serializable {
         this.user = user ;
         this.modify("user",user);
     }
+
     /**
      * 设置 [date]
      */
     public void setDate(Timestamp date){
         this.date = date ;
         this.modify("date",date);
+    }
+
+    /**
+     * 格式化日期 [date]
+     */
+    public String formatDate(){
+        if (this.date == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(date);
     }
 
 }

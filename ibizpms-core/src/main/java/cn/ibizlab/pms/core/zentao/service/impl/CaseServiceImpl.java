@@ -80,7 +80,20 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     private int batchSize = 500;
 
     @Override
+    @Transactional
+    public Case runCase(Case et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.runCase((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return et;
+    }
+
+    @Override
     public Case getDraft(Case et) {
+        fillParentData(et);
         return et;
     }
 
@@ -106,46 +119,55 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
 
     @Override
     public boolean saveBatch(Collection<Case> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
     public void saveBatch(List<Case> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
     @Override
     @Transactional
     public boolean create(Case et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.create((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return bRst;
     }
 
     @Override
     public void createBatch(List<Case> list) {
-        this.saveBatch(list,batchSize);
-    }
 
+    }
     @Override
     public boolean checkKey(Case et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        Case et = this.get(key);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.delete((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        return bRst;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
+    public void removeBatch(Collection<BigInteger> idList){
+        if (idList != null && !idList.isEmpty()) {
+            for (BigInteger id : idList) {
+                this.remove(id);
+            }
+        }
     }
-
     @Override
     @Transactional
     public Case get(BigInteger key) {
@@ -155,6 +177,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
             et.setId(key);
         }
         else{
+            et.setCasestep(casestepService.selectByIbizcase(key));
         }
         return et;
     }
@@ -162,17 +185,19 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     @Override
     @Transactional
     public boolean update(Case et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.edit((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return bRst;
     }
 
     @Override
     public void updateBatch(List<Case> list) {
-        updateBatchById(list,batchSize);
-    }
 
+    }
 
 	@Override
     public List<Case> selectByBranch(BigInteger id) {
@@ -246,12 +271,80 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
 
 
     /**
+     * 查询集合 测试单关联用例
+     */
+    @Override
+    public Page<Case> searchCurTestTask(CaseSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Case> pages=baseMapper.searchCurTestTask(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 DEFAULT
      */
     @Override
     public Page<Case> searchDefault(CaseSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Case> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 套件关联用例
+     */
+    @Override
+    public Page<Case> searchCurSuite(CaseSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Case> pages=baseMapper.searchCurSuite(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+
+
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(Case et){
+        //实体关系[DER1N_ZT_CASE_ZT_CASE_FROMCAEID]
+        if(!ObjectUtils.isEmpty(et.getFromcaseid())){
+            cn.ibizlab.pms.core.zentao.domain.Case ztfromcase=et.getZtfromcase();
+            if(ObjectUtils.isEmpty(ztfromcase)){
+                cn.ibizlab.pms.core.zentao.domain.Case majorEntity=caseService.get(et.getFromcaseid());
+                et.setZtfromcase(majorEntity);
+                ztfromcase=majorEntity;
+            }
+            et.setFromcaseversion(ztfromcase.getVersion());
+        }
+        //实体关系[DER1N_ZT_CASE_ZT_MODULE_MODULE]
+        if(!ObjectUtils.isEmpty(et.getModule())){
+            cn.ibizlab.pms.core.zentao.domain.Module ztmodule=et.getZtmodule();
+            if(ObjectUtils.isEmpty(ztmodule)){
+                cn.ibizlab.pms.core.zentao.domain.Module majorEntity=moduleService.get(et.getModule());
+                et.setZtmodule(majorEntity);
+                ztmodule=majorEntity;
+            }
+            et.setModulename(ztmodule.getName());
+        }
+        //实体关系[DER1N_ZT_CASE_ZT_PRODUCT_PRODUCT]
+        if(!ObjectUtils.isEmpty(et.getProduct())){
+            cn.ibizlab.pms.core.zentao.domain.Product ztproduct=et.getZtproduct();
+            if(ObjectUtils.isEmpty(ztproduct)){
+                cn.ibizlab.pms.core.zentao.domain.Product majorEntity=productService.get(et.getProduct());
+                et.setZtproduct(majorEntity);
+                ztproduct=majorEntity;
+            }
+            et.setProductname(ztproduct.getName());
+        }
+        //实体关系[DER1N_ZT_CASE_ZT_STORY_STORY]
+        if(!ObjectUtils.isEmpty(et.getStory())){
+            cn.ibizlab.pms.core.zentao.domain.Story ztstory=et.getZtstory();
+            if(ObjectUtils.isEmpty(ztstory)){
+                cn.ibizlab.pms.core.zentao.domain.Story majorEntity=storyService.get(et.getStory());
+                et.setZtstory(majorEntity);
+                ztstory=majorEntity;
+            }
+            et.setStoryversion(ztstory.getVersion());
+            et.setStoryname(ztstory.getTitle());
+        }
     }
 
 
