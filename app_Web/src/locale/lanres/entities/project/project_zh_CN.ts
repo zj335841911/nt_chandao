@@ -91,7 +91,7 @@ export default {
 		},
 		maintabexpview: {
 			caption: "项目",
-      		title: "项目导航视图",
+      		title: "项目",
 		},
 	},
 	dashboardinfo_form: {

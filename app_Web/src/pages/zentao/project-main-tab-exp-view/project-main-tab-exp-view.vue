@@ -6,7 +6,7 @@ import { ProjectMainTabExpViewBase } from './project-main-tab-exp-view-base';
 import view_tabexppanel from '@widgets/project/main-tab-exp-viewtabexppanel-tabexppanel/main-tab-exp-viewtabexppanel-tabexppanel.vue';
 
 /**
- * 项目导航视图视图
+ * 项目视图
  *
  * @export
  * @class ProjectMainTabExpView

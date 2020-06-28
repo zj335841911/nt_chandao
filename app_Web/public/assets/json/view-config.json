@@ -1,6 +1,6 @@
 {
     "producttesttabexpview": {
-        "title": "产品主数据视图",
+        "title": "测试",
         "caption": "测试",
         "viewtype": "DETABEXPVIEW",
         "viewmodule": "zentao",
@@ -1900,7 +1900,7 @@
         "memo": ""
     },
     "projectmaintabexpview": {
-        "title": "项目导航视图",
+        "title": "项目",
         "caption": "项目",
         "viewtype": "DETABEXPVIEW",
         "viewmodule": "zentao",

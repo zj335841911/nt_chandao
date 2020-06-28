@@ -29,7 +29,7 @@ export default {
 	views: {
 		testtabexpview: {
 			caption: "测试",
-      		title: "产品主数据视图",
+      		title: "测试",
 		},
 		expeditview: {
 			caption: "产品",

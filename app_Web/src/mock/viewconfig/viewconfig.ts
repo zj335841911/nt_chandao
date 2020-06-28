@@ -8,7 +8,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
     let status = MockAdapter.mockStatus(config);
     return [status,{
                 "producttesttabexpview": {
-            "title": "产品主数据视图",
+            "title": "测试",
             "caption": "测试",
             "viewtype": "DETABEXPVIEW",
             "viewmodule": "zentao",
@@ -1528,7 +1528,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "f8ffad31189703973765c5a9c4fc8a5c"
         },
         "projectmaintabexpview": {
-            "title": "项目导航视图",
+            "title": "项目",
             "caption": "项目",
             "viewtype": "DETABEXPVIEW",
             "viewmodule": "zentao",

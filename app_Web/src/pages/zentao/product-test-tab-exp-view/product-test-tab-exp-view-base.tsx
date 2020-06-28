@@ -4,7 +4,7 @@ import ProductService from '@/service/product/product-service';
 import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
 
 /**
- * 产品主数据视图视图基类
+ * 测试视图基类
  *
  * @export
  * @class ProductTestTabExpViewBase
