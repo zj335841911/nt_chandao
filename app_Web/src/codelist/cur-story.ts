@@ -13,7 +13,7 @@ export default class CurStory {
      * @type boolean
      * @memberof CurStory
      */
-    public isEnableCache:boolean = true;
+    public isEnableCache:boolean = false;
 
     /**
      * 过期时间
