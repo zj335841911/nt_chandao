@@ -1789,7 +1789,7 @@ mock.onGet(new RegExp(/^\/stories\/fetchgetproductstories(\?[\w-./?%&=,]*)*$/)).
 
 
 // GetStorySpec
-mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-9\-\;]{1,35})\/getstoryspec$/)).reply((config: any) => {
+mock.onPost(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-9\-\;]{1,35})\/getstoryspec$/)).reply((config: any) => {
     console.groupCollapsed("实体:story 方法: GetStorySpec");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
@@ -1817,7 +1817,7 @@ mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-
 });
 
 // GetStorySpec
-mock.onGet(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/getstoryspec$/)).reply((config: any) => {
+mock.onPost(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/getstoryspec$/)).reply((config: any) => {
     console.groupCollapsed("实体:story 方法: GetStorySpec");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);

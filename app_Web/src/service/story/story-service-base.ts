@@ -260,13 +260,9 @@ export default class StoryServiceBase extends EntityService {
      */
     public async GetStorySpec(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/getstoryspec`,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
-            return res;
+            return Http.getInstance().post(`/products/${context.product}/stories/${context.story}/getstoryspec`,data,isloading);
         }
-            let res:any = await Http.getInstance().get(`/stories/${context.story}/getstoryspec`,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
-            return res;
+            return Http.getInstance().post(`/stories/${context.story}/getstoryspec`,data,isloading);
     }
 
     /**

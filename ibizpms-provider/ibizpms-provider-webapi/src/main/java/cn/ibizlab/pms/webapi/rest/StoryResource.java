@@ -109,7 +109,7 @@ public class StoryResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-GetStorySpec-all')")
     @ApiOperation(value = "获取需求描述", tags = {"需求" },  notes = "获取需求描述")
-	@RequestMapping(method = RequestMethod.GET, value = "/stories/{story_id}/getstoryspec")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/getstoryspec")
     @Transactional
     public ResponseEntity<StoryDTO> getStorySpec(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
@@ -498,7 +498,7 @@ public class StoryResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-GetStorySpec-all')")
     @ApiOperation(value = "根据产品需求", tags = {"需求" },  notes = "根据产品需求")
-	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/stories/{story_id}/getstoryspec")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/getstoryspec")
     @Transactional
     public ResponseEntity<StoryDTO> getStorySpecByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
