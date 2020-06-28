@@ -198,4 +198,39 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 }),
 
     };
+
+    /**
+     * 表单逻辑
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @memberof StorySpec_EditModeEditFormBase
+     */
+    public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if (Object.is(name, 'version')) {
+            const details: string[] = ['verify', 'spec'];
+            this.updateFormItems('GetStorySpec', this.data, details, true);
+        }
+    }
 }

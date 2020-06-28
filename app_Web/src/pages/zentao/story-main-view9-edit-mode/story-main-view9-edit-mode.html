@@ -1,4 +1,7 @@
 <studio-embed-view viewName="storymainview9_editmode" viewTitle="需求编辑视图" class='deeditview9 story-main-view9-edit-mode'>
+    <template slot='title'>
+    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
+    </template>
     <view_form 
                 :viewState="viewState"  
                 :viewparams="viewparams" 
