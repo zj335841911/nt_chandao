@@ -134,7 +134,9 @@ export class EditFormControlBase extends FormControlBase {
     protected watchData(): void {
         for (const key in this.data) {
             if (this.data.hasOwnProperty(key)) {
-                this.$watch(`data.${key}`, this.formDataChange);
+                this.$watch(`data.${key}`, (newVal: any, oldVal: any) => {
+                    this.formDataChange({ name: key, newVal, oldVal });
+                });
             }
         }
     }
