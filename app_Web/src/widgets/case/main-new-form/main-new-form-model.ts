@@ -106,9 +106,6 @@ export default class MainNewModel {
         dataType: 'TEXT',
       },
       {
-        name: 'formitem1',
-      },
-      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

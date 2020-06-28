@@ -158,7 +158,7 @@ export default {
 			title: "用例标题", 
 			precondition: "前置条件", 
 			formitem: "备注", 
-			formitem1: "附件", 
+			files: "附件", 
 			product: "所属产品", 
 			productname: "产品名称", 
 			module: "所属模块", 
@@ -238,7 +238,6 @@ export default {
 			pri: "优先级", 
 			precondition: "前置条件", 
 			keywords: "关键词", 
-			formitem1: "附件", 
 			id: "用例编号", 
 		},
 		uiactions: {

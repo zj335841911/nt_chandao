@@ -74,7 +74,6 @@ export class MainNewEditFormBase extends EditFormControlBase {
         pri: null,
         precondition: null,
         keywords: null,
-        formitem1: null,
         id: null,
         case:null,
     };
@@ -158,10 +157,6 @@ export class MainNewEditFormBase extends EditFormControlBase {
             { required: false, type: 'string', message: '关键词 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '关键词 值不能为空', trigger: 'blur' },
         ],
-        formitem1: [
-            { required: false, type: 'string', message: '附件 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '附件 值不能为空', trigger: 'blur' },
-        ],
         id: [
             { required: false, type: 'number', message: '用例编号 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: '用例编号 值不能为空', trigger: 'blur' },
@@ -218,8 +213,6 @@ export class MainNewEditFormBase extends EditFormControlBase {
         precondition: new FormItemModel({ caption: '前置条件', detailType: 'FORMITEM', name: 'precondition', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
         keywords: new FormItemModel({ caption: '关键词', detailType: 'FORMITEM', name: 'keywords', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
-
-        formitem1: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'formitem1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
         id: new FormItemModel({ caption: '用例编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 }),
 

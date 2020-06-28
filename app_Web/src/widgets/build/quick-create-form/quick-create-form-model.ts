@@ -81,9 +81,6 @@ export default class QuickCreateModel {
         dataType: 'TEXT',
       },
       {
-        name: 'files',
-      },
-      {
         name: 'desc',
         prop: 'desc',
         dataType: 'LONGTEXT',

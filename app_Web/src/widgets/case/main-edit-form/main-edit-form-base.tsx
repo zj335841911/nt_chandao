@@ -66,7 +66,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
         title: null,
         precondition: null,
         formitem: null,
-        formitem1: null,
+        files: null,
         product: null,
         productname: null,
         module: null,
@@ -134,7 +134,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
             { required: false, type: 'string', message: '备注 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '备注 值不能为空', trigger: 'blur' },
         ],
-        formitem1: [
+        files: [
             { required: false, type: 'string', message: '附件 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '附件 值不能为空', trigger: 'blur' },
         ],
@@ -253,7 +253,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
 
         formitem: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
-        formitem1: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'formitem1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
+        files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
         product: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 

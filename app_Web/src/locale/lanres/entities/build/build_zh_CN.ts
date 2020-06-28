@@ -77,7 +77,6 @@ export default {
 			date: "打包日期", 
 			scmpath: "源代码地址", 
 			filepath: "下载地址", 
-			files: "上传发行包", 
 			desc: "描述", 
 			id: "id", 
 			product: "产品", 
