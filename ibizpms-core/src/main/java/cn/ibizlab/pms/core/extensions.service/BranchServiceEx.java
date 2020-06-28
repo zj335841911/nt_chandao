@@ -1,11 +1,18 @@
 package cn.ibizlab.pms.core.extensions.service;
 
+import cn.ibizlab.pms.core.zentao.filter.BranchSearchContext;
 import cn.ibizlab.pms.core.zentao.service.impl.BranchServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.zentao.domain.Branch;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Primary;
+
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 实体[产品的分支和平台信息] 自定义服务对象
