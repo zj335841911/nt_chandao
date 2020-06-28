@@ -108,7 +108,7 @@ export class ProjectMainTabExpViewBase extends TabExpViewBase {
      * 
      * @memberof ProjectMainTabExpViewBase
      */
-    public loadModel(): void {
+    public async loadModel(): Promise<void> {
         if(this.context.project){
             this.appEntityService.getDataInfo(JSON.parse(JSON.stringify(this.context)),{},false).then((response:any) =>{
                 if (!response || response.status !== 200) {

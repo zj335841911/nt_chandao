@@ -97,7 +97,7 @@ export class TestTaskMainTabExpViewBase extends TabExpViewBase {
      * 
      * @memberof TestTaskMainTabExpViewBase
      */
-    public loadModel(): void {
+    public async loadModel(): Promise<void> {
         if(this.context.testtask){
             this.appEntityService.getDataInfo(JSON.parse(JSON.stringify(this.context)),{},false).then((response:any) =>{
                 if (!response || response.status !== 200) {

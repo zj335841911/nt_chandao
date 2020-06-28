@@ -97,7 +97,7 @@ export class ProductTestTabExpViewBase extends TabExpViewBase {
      * 
      * @memberof ProductTestTabExpViewBase
      */
-    public loadModel(): void {
+    public async loadModel(): Promise<void> {
         if(this.context.product){
             this.appEntityService.getDataInfo(JSON.parse(JSON.stringify(this.context)),{},false).then((response:any) =>{
                 if (!response || response.status !== 200) {

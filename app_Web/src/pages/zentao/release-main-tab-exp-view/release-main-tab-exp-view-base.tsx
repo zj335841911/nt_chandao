@@ -97,7 +97,7 @@ export class ReleaseMainTabExpViewBase extends TabExpViewBase {
      * 
      * @memberof ReleaseMainTabExpViewBase
      */
-    public loadModel(): void {
+    public async loadModel(): Promise<void> {
         if(this.context.release){
             this.appEntityService.getDataInfo(JSON.parse(JSON.stringify(this.context)),{},false).then((response:any) =>{
                 if (!response || response.status !== 200) {
