@@ -112,10 +112,10 @@ public class BranchResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/branches/{branch_id}/sort")
     @Transactional
     public ResponseEntity<BranchDTO> sort(@PathVariable("branch_id") BigInteger branch_id, @RequestBody BranchDTO branchdto) {
-        Branch branch = branchMapping.toDomain(branchdto);
-        branch.setId(branch_id);
-        branch = branchService.sort(branch);
-        branchdto = branchMapping.toDto(branch);
+        Branch domain = branchMapping.toDomain(branchdto);
+        domain.setId(branch_id);
+        domain = branchService.sort(domain);
+        branchdto = branchMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(branchdto);
     }
 

@@ -57,10 +57,10 @@ public class CaseResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/runcase")
     @Transactional
     public ResponseEntity<CaseDTO> runCase(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
-        Case case = caseMapping.toDomain(casedto);
-        case.setId(case_id);
-        case = caseService.runCase(case);
-        casedto = caseMapping.toDto(case);
+        Case domain = caseMapping.toDomain(casedto);
+        domain.setId(case_id);
+        domain = caseService.runCase(domain);
+        casedto = caseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
 

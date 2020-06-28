@@ -51,10 +51,10 @@ public class ProjectResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/close")
     @Transactional
     public ResponseEntity<ProjectDTO> close(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectDTO projectdto) {
-        Project project = projectMapping.toDomain(projectdto);
-        project.setId(project_id);
-        project = projectService.close(project);
-        projectdto = projectMapping.toDto(project);
+        Project domain = projectMapping.toDomain(projectdto);
+        domain.setId(project_id);
+        domain = projectService.close(domain);
+        projectdto = projectMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
     }
 
@@ -63,10 +63,10 @@ public class ProjectResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/suspend")
     @Transactional
     public ResponseEntity<ProjectDTO> suspend(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectDTO projectdto) {
-        Project project = projectMapping.toDomain(projectdto);
-        project.setId(project_id);
-        project = projectService.suspend(project);
-        projectdto = projectMapping.toDto(project);
+        Project domain = projectMapping.toDomain(projectdto);
+        domain.setId(project_id);
+        domain = projectService.suspend(domain);
+        projectdto = projectMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
     }
 
@@ -75,10 +75,10 @@ public class ProjectResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/putoff")
     @Transactional
     public ResponseEntity<ProjectDTO> putoff(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectDTO projectdto) {
-        Project project = projectMapping.toDomain(projectdto);
-        project.setId(project_id);
-        project = projectService.putoff(project);
-        projectdto = projectMapping.toDto(project);
+        Project domain = projectMapping.toDomain(projectdto);
+        domain.setId(project_id);
+        domain = projectService.putoff(domain);
+        projectdto = projectMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
     }
 
@@ -128,10 +128,10 @@ public class ProjectResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/activate")
     @Transactional
     public ResponseEntity<ProjectDTO> activate(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectDTO projectdto) {
-        Project project = projectMapping.toDomain(projectdto);
-        project.setId(project_id);
-        project = projectService.activate(project);
-        projectdto = projectMapping.toDto(project);
+        Project domain = projectMapping.toDomain(projectdto);
+        domain.setId(project_id);
+        domain = projectService.activate(domain);
+        projectdto = projectMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
     }
 
@@ -149,10 +149,10 @@ public class ProjectResource {
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/updateorder")
     @Transactional
     public ResponseEntity<ProjectDTO> updateOrder(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectDTO projectdto) {
-        Project project = projectMapping.toDomain(projectdto);
-        project.setId(project_id);
-        project = projectService.updateOrder(project);
-        projectdto = projectMapping.toDto(project);
+        Project domain = projectMapping.toDomain(projectdto);
+        domain.setId(project_id);
+        domain = projectService.updateOrder(domain);
+        projectdto = projectMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
     }
 
@@ -161,10 +161,10 @@ public class ProjectResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/start")
     @Transactional
     public ResponseEntity<ProjectDTO> start(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectDTO projectdto) {
-        Project project = projectMapping.toDomain(projectdto);
-        project.setId(project_id);
-        project = projectService.start(project);
-        projectdto = projectMapping.toDto(project);
+        Project domain = projectMapping.toDomain(projectdto);
+        domain.setId(project_id);
+        domain = projectService.start(domain);
+        projectdto = projectMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
     }
 

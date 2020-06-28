@@ -51,10 +51,10 @@ public class BugResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/close")
     @Transactional
     public ResponseEntity<BugDTO> close(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
-        Bug bug = bugMapping.toDomain(bugdto);
-        bug.setId(bug_id);
-        bug = bugService.close(bug);
-        bugdto = bugMapping.toDto(bug);
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setId(bug_id);
+        domain = bugService.close(domain);
+        bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
 
@@ -72,10 +72,10 @@ public class BugResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/activate")
     @Transactional
     public ResponseEntity<BugDTO> activate(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
-        Bug bug = bugMapping.toDomain(bugdto);
-        bug.setId(bug_id);
-        bug = bugService.activate(bug);
-        bugdto = bugMapping.toDto(bug);
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setId(bug_id);
+        domain = bugService.activate(domain);
+        bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
 
@@ -130,10 +130,10 @@ public class BugResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/confirm")
     @Transactional
     public ResponseEntity<BugDTO> confirm(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
-        Bug bug = bugMapping.toDomain(bugdto);
-        bug.setId(bug_id);
-        bug = bugService.confirm(bug);
-        bugdto = bugMapping.toDto(bug);
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setId(bug_id);
+        domain = bugService.confirm(domain);
+        bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
 
@@ -142,10 +142,10 @@ public class BugResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/resolve")
     @Transactional
     public ResponseEntity<BugDTO> resolve(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
-        Bug bug = bugMapping.toDomain(bugdto);
-        bug.setId(bug_id);
-        bug = bugService.resolve(bug);
-        bugdto = bugMapping.toDto(bug);
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setId(bug_id);
+        domain = bugService.resolve(domain);
+        bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
 

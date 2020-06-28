@@ -136,10 +136,10 @@ public class BurnResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/burns/{burn_id}/computeburn")
     @Transactional
     public ResponseEntity<BurnDTO> computeBurn(@PathVariable("burn_id") String burn_id, @RequestBody BurnDTO burndto) {
-        Burn burn = burnMapping.toDomain(burndto);
-        burn.setId(burn_id);
-        burn = burnService.computeBurn(burn);
-        burndto = burnMapping.toDto(burn);
+        Burn domain = burnMapping.toDomain(burndto);
+        domain.setId(burn_id);
+        domain = burnService.computeBurn(domain);
+        burndto = burnMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(burndto);
     }
 

@@ -57,10 +57,10 @@ public class TaskResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/close")
     @Transactional
     public ResponseEntity<TaskDTO> close(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
-        Task task = taskMapping.toDomain(taskdto);
-        task.setId(task_id);
-        task = taskService.close(task);
-        taskdto = taskMapping.toDto(task);
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setId(task_id);
+        domain = taskService.close(domain);
+        taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
 
@@ -69,10 +69,10 @@ public class TaskResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/pause")
     @Transactional
     public ResponseEntity<TaskDTO> pause(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
-        Task task = taskMapping.toDomain(taskdto);
-        task.setId(task_id);
-        task = taskService.pause(task);
-        taskdto = taskMapping.toDto(task);
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setId(task_id);
+        domain = taskService.pause(domain);
+        taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
 
@@ -81,10 +81,10 @@ public class TaskResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/start")
     @Transactional
     public ResponseEntity<TaskDTO> start(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
-        Task task = taskMapping.toDomain(taskdto);
-        task.setId(task_id);
-        task = taskService.start(task);
-        taskdto = taskMapping.toDto(task);
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setId(task_id);
+        domain = taskService.start(domain);
+        taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
 
@@ -93,10 +93,10 @@ public class TaskResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/assignto")
     @Transactional
     public ResponseEntity<TaskDTO> assignTo(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
-        Task task = taskMapping.toDomain(taskdto);
-        task.setId(task_id);
-        task = taskService.assignTo(task);
-        taskdto = taskMapping.toDto(task);
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setId(task_id);
+        domain = taskService.assignTo(domain);
+        taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
 
@@ -141,10 +141,10 @@ public class TaskResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/cancel")
     @Transactional
     public ResponseEntity<TaskDTO> cancel(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
-        Task task = taskMapping.toDomain(taskdto);
-        task.setId(task_id);
-        task = taskService.cancel(task);
-        taskdto = taskMapping.toDto(task);
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setId(task_id);
+        domain = taskService.cancel(domain);
+        taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
 
@@ -153,10 +153,10 @@ public class TaskResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/deleteestimate")
     @Transactional
     public ResponseEntity<TaskDTO> deleteEstimate(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
-        Task task = taskMapping.toDomain(taskdto);
-        task.setId(task_id);
-        task = taskService.deleteEstimate(task);
-        taskdto = taskMapping.toDto(task);
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setId(task_id);
+        domain = taskService.deleteEstimate(domain);
+        taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
 
@@ -165,10 +165,10 @@ public class TaskResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/restart")
     @Transactional
     public ResponseEntity<TaskDTO> restart(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
-        Task task = taskMapping.toDomain(taskdto);
-        task.setId(task_id);
-        task = taskService.restart(task);
-        taskdto = taskMapping.toDto(task);
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setId(task_id);
+        domain = taskService.restart(domain);
+        taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
 
@@ -177,10 +177,10 @@ public class TaskResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/editestimate")
     @Transactional
     public ResponseEntity<TaskDTO> editEstimate(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
-        Task task = taskMapping.toDomain(taskdto);
-        task.setId(task_id);
-        task = taskService.editEstimate(task);
-        taskdto = taskMapping.toDto(task);
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setId(task_id);
+        domain = taskService.editEstimate(domain);
+        taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
 
@@ -213,10 +213,10 @@ public class TaskResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/recordestimate")
     @Transactional
     public ResponseEntity<TaskDTO> recordEstimate(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
-        Task task = taskMapping.toDomain(taskdto);
-        task.setId(task_id);
-        task = taskService.recordEstimate(task);
-        taskdto = taskMapping.toDto(task);
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setId(task_id);
+        domain = taskService.recordEstimate(domain);
+        taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
 
@@ -250,10 +250,10 @@ public class TaskResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/finish")
     @Transactional
     public ResponseEntity<TaskDTO> finish(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
-        Task task = taskMapping.toDomain(taskdto);
-        task.setId(task_id);
-        task = taskService.finish(task);
-        taskdto = taskMapping.toDto(task);
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setId(task_id);
+        domain = taskService.finish(domain);
+        taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
 
@@ -262,10 +262,10 @@ public class TaskResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/activate")
     @Transactional
     public ResponseEntity<TaskDTO> activate(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
-        Task task = taskMapping.toDomain(taskdto);
-        task.setId(task_id);
-        task = taskService.activate(task);
-        taskdto = taskMapping.toDto(task);
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setId(task_id);
+        domain = taskService.activate(domain);
+        taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
 

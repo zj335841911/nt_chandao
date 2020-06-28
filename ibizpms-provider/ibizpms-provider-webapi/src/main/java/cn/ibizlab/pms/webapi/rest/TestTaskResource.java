@@ -66,10 +66,10 @@ public class TestTaskResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/block")
     @Transactional
     public ResponseEntity<TestTaskDTO> block(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
-        TestTask testtask = testtaskMapping.toDomain(testtaskdto);
-        testtask.setId(testtask_id);
-        testtask = testtaskService.block(testtask);
-        testtaskdto = testtaskMapping.toDto(testtask);
+        TestTask domain = testtaskMapping.toDomain(testtaskdto);
+        domain.setId(testtask_id);
+        domain = testtaskService.block(domain);
+        testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
     }
 
@@ -93,10 +93,10 @@ public class TestTaskResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/start")
     @Transactional
     public ResponseEntity<TestTaskDTO> start(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
-        TestTask testtask = testtaskMapping.toDomain(testtaskdto);
-        testtask.setId(testtask_id);
-        testtask = testtaskService.start(testtask);
-        testtaskdto = testtaskMapping.toDto(testtask);
+        TestTask domain = testtaskMapping.toDomain(testtaskdto);
+        domain.setId(testtask_id);
+        domain = testtaskService.start(domain);
+        testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
     }
 
@@ -124,10 +124,10 @@ public class TestTaskResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/activate")
     @Transactional
     public ResponseEntity<TestTaskDTO> activate(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
-        TestTask testtask = testtaskMapping.toDomain(testtaskdto);
-        testtask.setId(testtask_id);
-        testtask = testtaskService.activate(testtask);
-        testtaskdto = testtaskMapping.toDto(testtask);
+        TestTask domain = testtaskMapping.toDomain(testtaskdto);
+        domain.setId(testtask_id);
+        domain = testtaskService.activate(domain);
+        testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
     }
 
@@ -172,10 +172,10 @@ public class TestTaskResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/close")
     @Transactional
     public ResponseEntity<TestTaskDTO> close(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
-        TestTask testtask = testtaskMapping.toDomain(testtaskdto);
-        testtask.setId(testtask_id);
-        testtask = testtaskService.close(testtask);
-        testtaskdto = testtaskMapping.toDto(testtask);
+        TestTask domain = testtaskMapping.toDomain(testtaskdto);
+        domain.setId(testtask_id);
+        domain = testtaskService.close(domain);
+        testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
     }
 
