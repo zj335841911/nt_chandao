@@ -160,12 +160,12 @@ export default {
 	},
 	main_editmode_form: {
 		details: {
-			grouppanel1: "需求描述", 
-			grouppanel2: "验收标准", 
-			group1: "需求描述信息", 
+			grouppanel11: "需求描述", 
+			grouppanel21: "验收标准", 
+			group11: "需求描述信息", 
 			druipart1: "", 
-			grouppanel3: "需求描述", 
-			druipart1: "操作历史", 
+			grouppanel31: "需求描述", 
+			druipart12: "操作历史", 
 			grouppanel5: "", 
 			group1: "story基本信息", 
 			grouppanel1: "分组面板", 
@@ -242,11 +242,11 @@ export default {
 	},
 	storyspec_form: {
 		details: {
-			grouppanel1: "需求描述", 
-			grouppanel2: "验收标准", 
-			group1: "需求描述信息", 
+			grouppanel11: "需求描述", 
+			grouppanel21: "验收标准", 
+			group11: "需求描述信息", 
 			druipart1: "", 
-			grouppanel3: "需求描述", 
+			grouppanel31: "需求描述", 
 			formpage1: "基本信息", 
 			srforikey: "", 
 			srfkey: "编号", 
