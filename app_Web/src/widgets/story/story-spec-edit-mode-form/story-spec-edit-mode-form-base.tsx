@@ -67,8 +67,8 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
         reviewedby: null,
         notreview: null,
         title: null,
-        verify: null,
         spec: null,
+        verify: null,
         comment: null,
         files: null,
         id: null,
@@ -126,13 +126,13 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '需求名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '需求名称 值不能为空', trigger: 'blur' },
         ],
-        verify: [
-            { required: false, type: 'string', message: '验收标准 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '验收标准 值不能为空', trigger: 'blur' },
-        ],
         spec: [
             { required: false, type: 'string', message: '需求描述 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '需求描述 值不能为空', trigger: 'blur' },
+        ],
+        verify: [
+            { required: false, type: 'string', message: '验收标准 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '验收标准 值不能为空', trigger: 'blur' },
         ],
         comment: [
             { required: false, type: 'string', message: '备注 值不能为空', trigger: 'change' },
@@ -187,9 +187,9 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
 
         title: new FormItemModel({ caption: '需求名称', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
-        verify: new FormItemModel({ caption: '验收标准', detailType: 'FORMITEM', name: 'verify', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
-
         spec: new FormItemModel({ caption: '需求描述', detailType: 'FORMITEM', name: 'spec', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
+
+        verify: new FormItemModel({ caption: '验收标准', detailType: 'FORMITEM', name: 'verify', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
         comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 

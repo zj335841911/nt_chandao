@@ -168,6 +168,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * GetStorySpec接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async GetStorySpec(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story){
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/getstoryspec`,isloading);
+            return res;
+        }
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/getstoryspec`,isloading);
+            return res;
+    }
+
+    /**
      * Change接口方法
      *
      * @param {*} [context={}]

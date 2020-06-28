@@ -69,13 +69,13 @@ export default class StorySpec_EditModeModel {
         dataType: 'TEXT',
       },
       {
-        name: 'verify',
-        prop: 'verify',
+        name: 'spec',
+        prop: 'spec',
         dataType: 'TEXT',
       },
       {
-        name: 'spec',
-        prop: 'spec',
+        name: 'verify',
+        prop: 'verify',
         dataType: 'TEXT',
       },
       {
