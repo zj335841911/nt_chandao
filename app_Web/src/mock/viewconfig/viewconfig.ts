@@ -687,12 +687,12 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseCurSuitGridView",
             "viewtag": "74e206764fd747fa31467bd5a9f371df"
         },
-        "actionhistroylistview": {
+        "actionhistorylistview": {
             "title": "历史记录",
             "caption": "系统日志",
             "viewtype": "DELISTVIEW",
             "viewmodule": "zentao",
-            "viewname": "ActionHistroyListView",
+            "viewname": "ActionHistoryListView",
             "viewtag": "770a170098d148e438a7666b248e6519"
         },
         "branchpmgridview": {

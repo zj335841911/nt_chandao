@@ -849,13 +849,13 @@
         "viewtag": "74e206764fd747fa31467bd5a9f371df",
         "memo": ""
     },
-    "actionhistroylistview": {
+    "actionhistorylistview": {
         "title": "历史记录",
         "caption": "系统日志",
         "viewtype": "DELISTVIEW",
         "viewmodule": "zentao",
-        "viewname": "ActionHistroyListView",
-        "viewfilename": "action-histroy-list-view",
+        "viewname": "ActionHistoryListView",
+        "viewfilename": "action-history-list-view",
         "viewtag": "770a170098d148e438a7666b248e6519",
         "memo": "视图参数从上下文中获取对应的对象类型"
     },

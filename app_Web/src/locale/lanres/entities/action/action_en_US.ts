@@ -14,7 +14,7 @@ export default {
     project: "项目",
   },
 	views: {
-		histroylistview: {
+		historylistview: {
 			caption: "系统日志",
       		title: "历史记录",
 		},

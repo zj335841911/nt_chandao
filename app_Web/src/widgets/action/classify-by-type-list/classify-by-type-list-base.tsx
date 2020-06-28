@@ -309,7 +309,7 @@ export class ClassifyByTypeListBase extends MainControlBase {
      */
     public load(opt: any = {}): void {
         if(!this.fetchAction){
-            this.$Notice.error({ title: '错误', desc: 'ActionHistroyListView视图列表fetchAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'ActionHistoryListView视图列表fetchAction参数未配置' });
             return;
         }        
         const arg: any = {...opt};
@@ -368,7 +368,7 @@ export class ClassifyByTypeListBase extends MainControlBase {
      */
     public async remove(datas: any[]): Promise<any> {
         if(!this.removeAction){
-            this.$Notice.error({ title: '错误', desc: 'ActionHistroyListView视图表格removeAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'ActionHistoryListView视图表格removeAction参数未配置' });
             return;
         }
         if (datas.length === 0) {

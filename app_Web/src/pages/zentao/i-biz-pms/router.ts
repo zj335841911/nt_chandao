@@ -4721,18 +4721,18 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-main-grid-view9-child/task-main-grid-view9-child.vue'),
                 },
                 {
-                    path: 'actions/:action?/histroylistview/:histroylistview?',
+                    path: 'actions/:action?/historylistview/:historylistview?',
                     meta: {
-                        caption: 'entities.action.views.histroylistview.title',
+                        caption: 'entities.action.views.historylistview.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'actions', parameterName: 'action' },
-                            { pathName: 'histroylistview', parameterName: 'histroylistview' },
+                            { pathName: 'historylistview', parameterName: 'historylistview' },
                         ],
                         requireAuth: true,
                     },
-                    component: () => import('@pages/zentao/action-histroy-list-view/action-histroy-list-view.vue'),
+                    component: () => import('@pages/zentao/action-history-list-view/action-history-list-view.vue'),
                 },
                 {
                     path: 'products/:product?/cases/:case?/editview/:editview?',

@@ -773,7 +773,7 @@ export const viewstate: any = {
         {
             viewtag: '770a170098d148e438a7666b248e6519',
             viewmodule: 'zentao',
-            viewname: 'ActionHistroyListView',
+            viewname: 'ActionHistoryListView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
