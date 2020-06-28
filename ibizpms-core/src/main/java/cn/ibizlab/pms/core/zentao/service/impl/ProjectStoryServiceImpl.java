@@ -46,15 +46,15 @@ public class ProjectStoryServiceImpl extends ServiceImpl<ProjectStoryMapper, Pro
 
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IProductService productService;
+    protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
+    protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IStoryService storyService;
+    protected cn.ibizlab.pms.core.zentao.service.IStoryService storyService;
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

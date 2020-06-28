@@ -46,38 +46,38 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
 
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IBugService bugService;
+    protected cn.ibizlab.pms.core.zentao.service.IBugService bugService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ICaseStepService casestepService;
+    protected cn.ibizlab.pms.core.zentao.service.ICaseStepService casestepService;
 
-    private cn.ibizlab.pms.core.zentao.service.ICaseService caseService = this;
+    protected cn.ibizlab.pms.core.zentao.service.ICaseService caseService = this;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ISuiteCaseService suitecaseService;
+    protected cn.ibizlab.pms.core.zentao.service.ISuiteCaseService suitecaseService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ITestResultService testresultService;
+    protected cn.ibizlab.pms.core.zentao.service.ITestResultService testresultService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ITestRunService testrunService;
+    protected cn.ibizlab.pms.core.zentao.service.ITestRunService testrunService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IBranchService branchService;
+    protected cn.ibizlab.pms.core.zentao.service.IBranchService branchService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IModuleService moduleService;
+    protected cn.ibizlab.pms.core.zentao.service.IModuleService moduleService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IProductService productService;
+    protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IStoryService storyService;
+    protected cn.ibizlab.pms.core.zentao.service.IStoryService storyService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ITestSuiteService testsuiteService;
+    protected cn.ibizlab.pms.core.zentao.service.ITestSuiteService testsuiteService;
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

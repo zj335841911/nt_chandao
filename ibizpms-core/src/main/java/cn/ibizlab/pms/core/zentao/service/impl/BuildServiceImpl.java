@@ -46,21 +46,21 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
 
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IReleaseService releaseService;
+    protected cn.ibizlab.pms.core.zentao.service.IReleaseService releaseService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ITestTaskService testtaskService;
+    protected cn.ibizlab.pms.core.zentao.service.ITestTaskService testtaskService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IBranchService branchService;
+    protected cn.ibizlab.pms.core.zentao.service.IBranchService branchService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IProductService productService;
+    protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
+    protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     public boolean checkKey(Build et) {

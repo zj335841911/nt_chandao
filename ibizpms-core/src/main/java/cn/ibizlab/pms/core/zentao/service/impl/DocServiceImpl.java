@@ -46,21 +46,21 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
 
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IDocContentService doccontentService;
+    protected cn.ibizlab.pms.core.zentao.service.IDocContentService doccontentService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IDocLibService doclibService;
+    protected cn.ibizlab.pms.core.zentao.service.IDocLibService doclibService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IModuleService moduleService;
+    protected cn.ibizlab.pms.core.zentao.service.IModuleService moduleService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IProductService productService;
+    protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
+    protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     public Doc getDraft(Doc et) {

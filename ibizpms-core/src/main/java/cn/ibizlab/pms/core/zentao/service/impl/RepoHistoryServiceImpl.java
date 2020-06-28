@@ -45,7 +45,7 @@ import org.springframework.util.StringUtils;
 public class RepoHistoryServiceImpl extends ServiceImpl<RepoHistoryMapper, RepoHistory> implements IRepoHistoryService {
 
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

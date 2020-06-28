@@ -46,12 +46,12 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
 
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
+    protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ITaskService taskService;
+    protected cn.ibizlab.pms.core.zentao.service.ITaskService taskService;
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

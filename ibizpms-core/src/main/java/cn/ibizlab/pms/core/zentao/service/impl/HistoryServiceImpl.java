@@ -46,9 +46,9 @@ public class HistoryServiceImpl extends ServiceImpl<HistoryMapper, History> impl
 
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IActionService actionService;
+    protected cn.ibizlab.pms.core.zentao.service.IActionService actionService;
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

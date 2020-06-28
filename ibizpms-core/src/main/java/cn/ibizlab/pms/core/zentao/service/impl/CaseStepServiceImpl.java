@@ -45,12 +45,12 @@ import org.springframework.util.StringUtils;
 public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> implements ICaseStepService {
 
 
-    private cn.ibizlab.pms.core.zentao.service.ICaseStepService casestepService = this;
+    protected cn.ibizlab.pms.core.zentao.service.ICaseStepService casestepService = this;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ICaseService caseService;
+    protected cn.ibizlab.pms.core.zentao.service.ICaseService caseService;
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

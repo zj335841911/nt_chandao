@@ -45,7 +45,7 @@ import org.springframework.util.StringUtils;
 public class EffortServiceImpl extends ServiceImpl<EffortMapper, Effort> implements IEffortService {
 
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

@@ -45,7 +45,7 @@ import org.springframework.util.StringUtils;
 public class FileServiceImpl extends ServiceImpl<FileMapper, File> implements IFileService {
 
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

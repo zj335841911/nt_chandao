@@ -46,20 +46,20 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
 
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IBugService bugService;
+    protected cn.ibizlab.pms.core.zentao.service.IBugService bugService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IProjectProductService projectproductService;
+    protected cn.ibizlab.pms.core.zentao.service.IProjectProductService projectproductService;
 
-    private cn.ibizlab.pms.core.zentao.service.IProductPlanService productplanService = this;
+    protected cn.ibizlab.pms.core.zentao.service.IProductPlanService productplanService = this;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IBranchService branchService;
+    protected cn.ibizlab.pms.core.zentao.service.IBranchService branchService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IProductService productService;
+    protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

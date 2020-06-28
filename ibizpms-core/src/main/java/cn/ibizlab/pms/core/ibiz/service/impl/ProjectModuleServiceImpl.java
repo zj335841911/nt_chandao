@@ -45,19 +45,19 @@ import org.springframework.util.StringUtils;
 public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, ProjectModule> implements IProjectModuleService {
 
 
-    private cn.ibizlab.pms.core.ibiz.service.IProjectModuleService projectmoduleService = this;
+    protected cn.ibizlab.pms.core.ibiz.service.IProjectModuleService projectmoduleService = this;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ITaskService taskService;
+    protected cn.ibizlab.pms.core.zentao.service.ITaskService taskService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
+    protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
 
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.ibiz.service.logic.IProjectModuleFixPathLogic fixpathLogic;
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IProjectModuleFixPathLogic fixpathLogic;
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

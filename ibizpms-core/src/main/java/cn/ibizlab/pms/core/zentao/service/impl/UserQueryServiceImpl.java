@@ -45,7 +45,7 @@ import org.springframework.util.StringUtils;
 public class UserQueryServiceImpl extends ServiceImpl<UserQueryMapper, UserQuery> implements IUserQueryService {
 
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     public boolean checkKey(UserQuery et) {

@@ -45,9 +45,9 @@ import org.springframework.util.StringUtils;
 public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements IDeptService {
 
 
-    private cn.ibizlab.pms.core.zentao.service.IDeptService deptService = this;
+    protected cn.ibizlab.pms.core.zentao.service.IDeptService deptService = this;
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

@@ -45,7 +45,7 @@ import org.springframework.util.StringUtils;
 public class NotifyServiceImpl extends ServiceImpl<NotifyMapper, Notify> implements INotifyService {
 
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

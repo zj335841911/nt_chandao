@@ -46,35 +46,35 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
 
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IBugService bugService;
+    protected cn.ibizlab.pms.core.zentao.service.IBugService bugService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ICaseService caseService;
+    protected cn.ibizlab.pms.core.zentao.service.ICaseService caseService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IProjectStoryService projectstoryService;
+    protected cn.ibizlab.pms.core.zentao.service.IProjectStoryService projectstoryService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IStorySpecService storyspecService;
+    protected cn.ibizlab.pms.core.zentao.service.IStorySpecService storyspecService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IStoryStageService storystageService;
+    protected cn.ibizlab.pms.core.zentao.service.IStoryStageService storystageService;
 
-    private cn.ibizlab.pms.core.zentao.service.IStoryService storyService = this;
+    protected cn.ibizlab.pms.core.zentao.service.IStoryService storyService = this;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ITaskService taskService;
+    protected cn.ibizlab.pms.core.zentao.service.ITaskService taskService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.ibiz.service.IProductModuleService productmoduleService;
+    protected cn.ibizlab.pms.core.ibiz.service.IProductModuleService productmoduleService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IBranchService branchService;
+    protected cn.ibizlab.pms.core.zentao.service.IBranchService branchService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IProductService productService;
+    protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     public Story getDraft(Story et) {

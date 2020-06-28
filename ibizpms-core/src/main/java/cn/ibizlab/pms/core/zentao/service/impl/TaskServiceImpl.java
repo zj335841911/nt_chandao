@@ -46,26 +46,26 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IBugService bugService;
+    protected cn.ibizlab.pms.core.zentao.service.IBugService bugService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IBurnService burnService;
+    protected cn.ibizlab.pms.core.zentao.service.IBurnService burnService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ITaskEstimateService taskestimateService;
+    protected cn.ibizlab.pms.core.zentao.service.ITaskEstimateService taskestimateService;
 
-    private cn.ibizlab.pms.core.zentao.service.ITaskService taskService = this;
+    protected cn.ibizlab.pms.core.zentao.service.ITaskService taskService = this;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.ibiz.service.IProjectModuleService projectmoduleService;
+    protected cn.ibizlab.pms.core.ibiz.service.IProjectModuleService projectmoduleService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
+    protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IStoryService storyService;
+    protected cn.ibizlab.pms.core.zentao.service.IStoryService storyService;
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     public Task getDraft(Task et) {

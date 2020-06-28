@@ -45,7 +45,7 @@ import org.springframework.util.StringUtils;
 public class ExtensionServiceImpl extends ServiceImpl<ExtensionMapper, Extension> implements IExtensionService {
 
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

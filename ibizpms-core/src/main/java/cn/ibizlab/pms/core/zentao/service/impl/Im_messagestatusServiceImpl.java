@@ -45,7 +45,7 @@ import org.springframework.util.StringUtils;
 public class Im_messagestatusServiceImpl extends ServiceImpl<Im_messagestatusMapper, Im_messagestatus> implements IIm_messagestatusService {
 
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

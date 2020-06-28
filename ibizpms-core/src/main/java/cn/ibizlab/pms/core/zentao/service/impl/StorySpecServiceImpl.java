@@ -46,9 +46,9 @@ public class StorySpecServiceImpl extends ServiceImpl<StorySpecMapper, StorySpec
 
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IStoryService storyService;
+    protected cn.ibizlab.pms.core.zentao.service.IStoryService storyService;
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     public boolean checkKey(StorySpec et) {

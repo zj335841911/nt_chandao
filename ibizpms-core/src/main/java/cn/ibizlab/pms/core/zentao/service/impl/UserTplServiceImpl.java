@@ -45,7 +45,7 @@ import org.springframework.util.StringUtils;
 public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> implements IUserTplService {
 
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     public UserTpl getDraft(UserTpl et) {

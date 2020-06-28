@@ -45,7 +45,7 @@ import org.springframework.util.StringUtils;
 public class Im_clientServiceImpl extends ServiceImpl<Im_clientMapper, Im_client> implements IIm_clientService {
 
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     public boolean checkKey(Im_client et) {
