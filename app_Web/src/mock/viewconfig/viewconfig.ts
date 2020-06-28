@@ -343,6 +343,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectModuleMainGridView",
             "viewtag": "41dab4e36aef71df5c66acca4db7d045"
         },
+        "burnchartview": {
+            "title": "燃尽图",
+            "caption": "燃尽图",
+            "viewtype": "DECHARTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BurnChartView",
+            "viewtag": "441544d65ca067ea5ea625645b70e610"
+        },
         "bugbuglifeeditview9": {
             "title": "Bug的一生",
             "caption": "Bug",

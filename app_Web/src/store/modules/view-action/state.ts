@@ -367,6 +367,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '441544d65ca067ea5ea625645b70e610',
+            viewmodule: 'zentao',
+            viewname: 'BurnChartView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '443935a0b9d0fa8daf3131956a8bacc9',
             viewmodule: 'zentao',
             viewname: 'BugBugLifeEditView9',
@@ -1732,6 +1741,7 @@ export const viewstate: any = {
                 'bb8860972029d9947daa3652a4b5d291',
                 '7b1cc190cbffe1cd122d87a9d03b2d21',
                 '7d34636d1c24d613abf8d3fdc64ec7ba',
+                '441544d65ca067ea5ea625645b70e610',
             ],
         },
         {

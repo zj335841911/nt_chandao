@@ -749,6 +749,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-task-main-dashboard-view/test-task-main-dashboard-view.vue'),
                 },
                 {
+                    path: 'projects/:project?/burns/:burn?/chartview/:chartview?',
+                    meta: {
+                        caption: 'entities.burn.views.chartview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'burns', parameterName: 'burn' },
+                            { pathName: 'chartview', parameterName: 'chartview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/burn-chart-view/burn-chart-view.vue'),
+                },
+                {
+                    path: 'burns/:burn?/chartview/:chartview?',
+                    meta: {
+                        caption: 'entities.burn.views.chartview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'burns', parameterName: 'burn' },
+                            { pathName: 'chartview', parameterName: 'chartview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/burn-chart-view/burn-chart-view.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/maindetailview9/:maindetailview9?',
                     meta: {
                         caption: 'entities.task.views.maindetailview9.title',

@@ -8,4 +8,10 @@ export default {
     project: "所属项目",
     task: "任务",
   },
+	views: {
+		chartview: {
+			caption: "燃尽图",
+      		title: "燃尽图",
+		},
+	},
 };

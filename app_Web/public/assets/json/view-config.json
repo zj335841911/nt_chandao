@@ -419,6 +419,16 @@
         "viewtag": "41dab4e36aef71df5c66acca4db7d045",
         "memo": ""
     },
+    "burnchartview": {
+        "title": "燃尽图",
+        "caption": "燃尽图",
+        "viewtype": "DECHARTVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BurnChartView",
+        "viewfilename": "burn-chart-view",
+        "viewtag": "441544d65ca067ea5ea625645b70e610",
+        "memo": ""
+    },
     "bugbuglifeeditview9": {
         "title": "Bug的一生",
         "caption": "Bug",
