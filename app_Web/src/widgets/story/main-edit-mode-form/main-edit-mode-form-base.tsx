@@ -41,65 +41,13 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
     protected appDeName: string = 'story';
 
     /**
-     * 逻辑事件
+     * 关系界面数量
      *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
+     * @protected
+     * @type {number}
+     * @memberof Main_EditModeEditFormBase
      */
-    public form_button1_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.SaveAndExit(datas, contextJO,paramJO,  $event, xData,this,"Story");
-    }
-
-    /**
-     * 保存并关闭
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof StoryMainView9_EditModeBase
-     */
-    public SaveAndExit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        if (xData && xData.saveAndExit instanceof Function) {
-            xData.saveAndExit().then((response: any) => {
-                if (!response || response.status !== 200) {
-                    return;
-                }
-                if(window.parent){
-                    window.parent.postMessage([{ ...response.data }],'*');
-                }
-            });
-        } else if (_this.saveAndExit && _this.saveAndExit instanceof Function) {
-            _this.saveAndExit().then((response: any) => {
-                if (!response || response.status !== 200) {
-                    return;
-                }
-                if(window.parent){
-                    window.parent.postMessage([{ ...response.data }],'*');
-                }
-            });
-        }
-    }
+    protected drCount: number = 0;
 
     /**
      * 表单数据对象
@@ -115,6 +63,10 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        parent: null,
+        version: null,
+        spec: null,
+        verify: null,
         title: null,
         prodoctname: null,
         modulename: null,
@@ -172,6 +124,22 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
         srfsourcekey: [
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
+        ],
+        parent: [
+            { required: false, type: 'number', message: '父需求 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '父需求 值不能为空', trigger: 'blur' },
+        ],
+        version: [
+            { required: false, type: 'number', message: '版本# 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '版本# 值不能为空', trigger: 'blur' },
+        ],
+        spec: [
+            { required: false, type: 'string', message: '需求描述 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '需求描述 值不能为空', trigger: 'blur' },
+        ],
+        verify: [
+            { required: false, type: 'string', message: '验收标准 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '验收标准 值不能为空', trigger: 'blur' },
         ],
         title: [
             { required: true, type: 'string', message: '需求名称 值不能为空', trigger: 'change' },
@@ -262,6 +230,20 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
      * @memberof Main_EditModeEditFormBase
      */
     public detailsModel: any = {
+        grouppanel1: new FormGroupPanelModel({ caption: '需求描述', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.story.main_editmode_form', extractMode: 'ITEM', details: [] } }),
+
+        grouppanel2: new FormGroupPanelModel({ caption: '验收标准', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.story.main_editmode_form', extractMode: 'ITEM', details: [] } }),
+
+        group1: new FormGroupPanelModel({ caption: '需求描述信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.story.main_editmode_form', extractMode: 'ITEM', details: [] } }),
+
+        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: false, isShowCaption: true, form: this }),
+
+        grouppanel3: new FormGroupPanelModel({ caption: '需求描述', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.story.main_editmode_form', extractMode: 'ITEM', details: [] } }),
+
+        druipart1: new FormDRUIPartModel({ caption: '操作历史', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this }),
+
+        grouppanel5: new FormGroupPanelModel({ caption: '', detailType: 'GROUPPANEL', name: 'grouppanel5', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.story.main_editmode_form', extractMode: 'ITEM', details: [] } }),
+
         group1: new FormGroupPanelModel({ caption: 'story基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.story.main_editmode_form', extractMode: 'ITEM', details: [] } }),
 
         grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.story.main_editmode_form', extractMode: 'ITEM', details: [] } }),
@@ -272,9 +254,7 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
 
         grouppanel3: new FormGroupPanelModel({ caption: '其他相关', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.story.main_editmode_form', extractMode: 'ITEM', details: [] } }),
 
-        button1: new FormButtonModel({ caption: '保存并关闭', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this, uiaction: { type: 'DEUIACTION', tag: 'SaveAndExit' } }),
-
-        grouppanel4: new FormGroupPanelModel({ caption: '操作按钮', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.story.main_editmode_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel6: new FormGroupPanelModel({ caption: '', detailType: 'GROUPPANEL', name: 'grouppanel6', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.story.main_editmode_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this }),
 
@@ -291,6 +271,14 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
         srfdeid: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfdeid', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
+
+        parent: new FormItemModel({ caption: '父需求', detailType: 'FORMITEM', name: 'parent', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
+
+        version: new FormItemModel({ caption: '版本#', detailType: 'FORMITEM', name: 'version', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
+
+        spec: new FormItemModel({ caption: '需求描述', detailType: 'FORMITEM', name: 'spec', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 }),
+
+        verify: new FormItemModel({ caption: '验收标准', detailType: 'FORMITEM', name: 'verify', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 }),
 
         title: new FormItemModel({ caption: '需求名称', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
@@ -345,6 +333,24 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'parent')) {
+            let ret = false;
+            const _parent = this.data.parent;
+            if (this.$verify.testCond(_parent, 'EQ', '-1')) {
+                ret = true;
+            }
+            this.detailsModel.druipart1.setVisible(ret);
+        }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -393,15 +399,9 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
 
 
 
-    }
-
-	/**
-	 * 表单 保存并关闭 事件
-	 *
-	 * @memberof @memberof Main_EditModeEditFormBase
-	 */
-    public button1_click($event: any): void {
-        this.form_button1_click(null, null, $event);
-
+        if (Object.is(name, 'version')) {
+            const details: string[] = ['verify', 'spec'];
+            this.updateFormItems('GetStorySpec', this.data, details, true);
+        }
     }
 }

@@ -51,6 +51,26 @@ export default class Main_EditModeModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'parent',
+        prop: 'parent',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'version',
+        prop: 'version',
+        dataType: 'INT',
+      },
+      {
+        name: 'spec',
+        prop: 'spec',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'verify',
+        prop: 'verify',
+        dataType: 'TEXT',
+      },
+      {
         name: 'title',
         prop: 'title',
         dataType: 'TEXT',

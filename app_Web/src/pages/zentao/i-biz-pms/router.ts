@@ -951,35 +951,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-assign-task-view/task-assign-task-view.vue'),
                 },
                 {
-                    path: 'products/:product?/stories/:story?/mainview_editmode/:mainview_editmode?',
-                    meta: {
-                        caption: 'entities.story.views.mainview_editmode.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'mainview_editmode', parameterName: 'mainview_editmode' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/story-main-view-edit-mode/story-main-view-edit-mode.vue'),
-                },
-                {
-                    path: 'stories/:story?/mainview_editmode/:mainview_editmode?',
-                    meta: {
-                        caption: 'entities.story.views.mainview_editmode.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'mainview_editmode', parameterName: 'mainview_editmode' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/story-main-view-edit-mode/story-main-view-edit-mode.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/releasesubeditview/:releasesubeditview?',
                     meta: {
                         caption: 'entities.story.views.releasesubeditview.title',
@@ -4285,35 +4256,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-grid-view/project-grid-view.vue'),
                 },
                 {
-                    path: 'products/:product?/stories/:story?/mainview9_editmode/:mainview9_editmode?',
-                    meta: {
-                        caption: 'entities.story.views.mainview9_editmode.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'mainview9_editmode', parameterName: 'mainview9_editmode' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/story-main-view9-edit-mode/story-main-view9-edit-mode.vue'),
-                },
-                {
-                    path: 'stories/:story?/mainview9_editmode/:mainview9_editmode?',
-                    meta: {
-                        caption: 'entities.story.views.mainview9_editmode.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'mainview9_editmode', parameterName: 'mainview9_editmode' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/story-main-view9-edit-mode/story-main-view9-edit-mode.vue'),
-                },
-                {
                     path: 'projects/:project?/projectmodules/:projectmodule?/treeexpview/:treeexpview?',
                     meta: {
                         caption: 'entities.projectmodule.views.treeexpview.title',
@@ -4341,6 +4283,35 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/project-module-tree-exp-view/project-module-tree-exp-view.vue'),
+                },
+                {
+                    path: 'products/:product?/stories/:story?/mainview9_editmode/:mainview9_editmode?',
+                    meta: {
+                        caption: 'entities.story.views.mainview9_editmode.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'mainview9_editmode', parameterName: 'mainview9_editmode' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-main-view9-edit-mode/story-main-view9-edit-mode.vue'),
+                },
+                {
+                    path: 'stories/:story?/mainview9_editmode/:mainview9_editmode?',
+                    meta: {
+                        caption: 'entities.story.views.mainview9_editmode.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'mainview9_editmode', parameterName: 'mainview9_editmode' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-main-view9-edit-mode/story-main-view9-edit-mode.vue'),
                 },
                 {
                     path: 'products/:product?/testreports/:testreport?/editview_testrange/:editview_testrange?',

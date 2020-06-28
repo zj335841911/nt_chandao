@@ -143,6 +143,8 @@ export class StorySpecEditFormBase extends EditFormControlBase {
 
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: false, isShowCaption: true, form: this }),
 
+        grouppanel3: new FormGroupPanelModel({ caption: '需求描述', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.story.storyspec_form', extractMode: 'ITEM', details: [] } }),
+
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this }),
 
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
@@ -190,6 +192,7 @@ export class StorySpecEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.druipart1.setVisible(ret);
         }
+
 
 
 

@@ -337,8 +337,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '7e14015af219d302f7d81ff40cdcc418',
                 '94e0ee1a97736ff4d28b88a46cd395b7',
+                '538555af88ea31549a5bc7dbf1e6286a',
                 '61f32b2b422e8f1a9825e1f704464a8c',
                 'e54598b1e6d38d7c6ce8231b531b46bd',
                 '770a170098d148e438a7666b248e6519',
@@ -525,6 +525,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '956ad42e59e60cd8b49e7035147e25cf',
+                '770a170098d148e438a7666b248e6519',
             ],
         },
         {
@@ -829,7 +831,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '7e14015af219d302f7d81ff40cdcc418',
+                '538555af88ea31549a5bc7dbf1e6286a',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 '4863a523ac490ebce771717756f0c6a8',
                 'e54598b1e6d38d7c6ce8231b531b46bd',
@@ -899,18 +901,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '8d53a973712c13f448efb8e2182ccc0b',
-            ],
-        },
-        {
-            viewtag: '7e14015af219d302f7d81ff40cdcc418',
-            viewmodule: 'zentao',
-            viewname: 'StoryMainView_EditMode',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '538555af88ea31549a5bc7dbf1e6286a',
-                '61f32b2b422e8f1a9825e1f704464a8c',
-                '770a170098d148e438a7666b248e6519',
             ],
         },
         {
@@ -1087,7 +1077,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '7e14015af219d302f7d81ff40cdcc418',
+                '538555af88ea31549a5bc7dbf1e6286a',
                 '4863a523ac490ebce771717756f0c6a8',
                 'e54598b1e6d38d7c6ce8231b531b46bd',
                 '02b7ecd8e994b90558a9d6c23705f600',
@@ -1100,7 +1090,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '7e14015af219d302f7d81ff40cdcc418',
+                '538555af88ea31549a5bc7dbf1e6286a',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 '4863a523ac490ebce771717756f0c6a8',
                 'e54598b1e6d38d7c6ce8231b531b46bd',
@@ -1178,7 +1168,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '7e14015af219d302f7d81ff40cdcc418',
+                '538555af88ea31549a5bc7dbf1e6286a',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 '4863a523ac490ebce771717756f0c6a8',
                 'e54598b1e6d38d7c6ce8231b531b46bd',

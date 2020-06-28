@@ -2,7 +2,131 @@
     <input style="display:none;" />
     <row >
             
-<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col v-show="detailsModel.grouppanel5.visible" :style="{}"  :lg="{ span: 16, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel5.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.main_editmode_form.details.grouppanel5')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+        <i-col v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.main_editmode_form.details.grouppanel3')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+        <i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.main_editmode_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+        <i-col v-show="detailsModel.version.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='version' :itemRules="this.rules.version" class='' :caption="$t('entities.story.main_editmode_form.details.version')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.version.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+ <dropdown-list 
+    v-model="data.version" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.version.disabled"  
+    tag='CurStory' 
+    codelistType='DYNAMIC'
+    placeholder='请选择...' style="width:70px;">
+ </dropdown-list>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.main_editmode_form.details.grouppanel1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+        <i-col v-show="detailsModel.spec.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='spec' :itemRules="this.rules.spec" class='' :caption="$t('entities.story.main_editmode_form.details.spec')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.spec.error" :isEmptyCaption="false" labelPos="NONE">
+    <html-container :content="data.spec"></html-container>
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.main_editmode_form.details.grouppanel2')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+        <i-col v-show="detailsModel.verify.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='verify' :itemRules="this.rules.verify" class='' :caption="$t('entities.story.main_editmode_form.details.verify')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.verify.error" :isEmptyCaption="false" labelPos="NONE">
+    <html-container :content="data.verify"></html-container>
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col v-show="detailsModel.druipart1.visible" :style="{'height': '300px !important',}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem='story' 
+    :parentdata='{"srfparentdefname":"PARENT","srfparentdename":"ZT_STORY","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N__ZT_STORY__ZT_STORY__PARENT","SRFDER1NID":"DER1N__ZT_STORY__ZT_STORY__PARENT"}'
+    :parameters="[
+        { pathName: 'products', parameterName: 'product' },
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{}'
+    parameterName='story'
+    parentName="Story"  
+    refviewtype='DEGRIDVIEW9' 
+    refreshitems='' 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname='story-grid-view9-sub-story' 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved($event)"
+    style="height:300px;overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem='story' 
+    :parentdata='{"srfparentdename":"ZT_STORY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{}'
+    parameterName='story'
+    parentName="Story"  
+    refviewtype='DELISTVIEW' 
+    refreshitems='' 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname='action-history-list-view' 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved($event)"
+    style=";overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col v-show="detailsModel.grouppanel6.visible" :style="{}"  :lg="{ span: 8, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel6.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.main_editmode_form.details.grouppanel6')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <row>
+        <i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.main_editmode_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
         <i-col v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
@@ -232,19 +356,8 @@
 </app-form-group>
 
 </i-col>
-<i-col v-show="detailsModel.grouppanel4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel4.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.main_editmode_form.details.grouppanel4')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
-    <div style="height: 100%;display: flex;flex-direction: row;justify-content: center;align-items: center;">
-        <div  v-show="detailsModel.button1.visible" :style="{}">
-    <i-button type="primary" @click="button1_click($event)"
-         style="">
-        <i class="sx-tb-saveandclose" style="margin-right: 2px;"></i>   
-        <span >{{$t('entities.story.main_editmode_form.details.button1')}}</span>
-    </i-button>
-
-</div>
-
-    </div>
+    
+    </row>
 </app-form-group>
 
 </i-col>
