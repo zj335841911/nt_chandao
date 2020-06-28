@@ -431,6 +431,12 @@ export default {
 			tip: "Save And Close Window",
 		},
 	},
+	mainview9_editmodetoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
