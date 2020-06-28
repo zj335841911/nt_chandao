@@ -4,5 +4,5 @@ Tip: If the failing expression is known to be legally refer to something that's 
 
 ----
 FTL stack trace ("~" means nesting-related):
-	- Failed at: #assign deLogic = deActionLogic.getPS...  [in template "CODETEMPL_zh_CN" at line 148, column 21]
+	- Failed at: #if actionlogic.isInternalLogic()  [in template "CODETEMPL_zh_CN" at line 148, column 21]
 ----
