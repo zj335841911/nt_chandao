@@ -204,5 +204,9 @@ export class StorySpecEditFormBase extends EditFormControlBase {
 
 
 
+        if (Object.is(name, 'version')) {
+            const details: string[] = ['verify', 'spec'];
+            this.updateFormItems('GetStorySpec', this.data, details, true);
+        }
     }
 }

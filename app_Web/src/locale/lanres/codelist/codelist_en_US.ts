@@ -410,6 +410,9 @@ export default {
         'closed': "已关闭",
         empty: "",
     },
+    CurStory: {
+        empty: "",
+    },
     Company__guest: {
         '1': "允许",
         '0': "不允许",

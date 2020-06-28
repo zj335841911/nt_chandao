@@ -5,6 +5,7 @@ import Role from '@/codelist/role';
 import TestTask from '@/codelist/test-task';   
 import Product from '@/codelist/product';   
 import CurProductPlan from '@/codelist/cur-product-plan';   
+import CurStory from '@/codelist/cur-story';   
 import { Store } from 'vuex';
 
 /**
@@ -111,6 +112,14 @@ export default class CodeListService {
      * @memberof CodeListService
      */
     public CurProductPlan: CurProductPlan = new CurProductPlan();
+
+    /**
+     * 代码表--当前需求版本
+     *
+     * @type {CurStory}
+     * @memberof CodeListService
+     */
+    public CurStory: CurStory = new CurStory();
 
     /**
      * 获取动态代码表
