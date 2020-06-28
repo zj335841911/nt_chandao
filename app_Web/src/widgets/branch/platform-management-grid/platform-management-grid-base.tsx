@@ -104,4 +104,28 @@ export class PlatformManagementGridBase extends GridControllerBase {
         ],
     }
 
+    /**
+     * 获取对应列class
+     *
+     * @type {*}
+     * @memberof PlatformManagementBase
+     */
+    public hasRowEdit: any = {
+        'id':false,
+        'name':false,
+        'order':false,
+    };
+
+    /**
+     * 获取对应列class
+     *
+     * @param {*} $args row 行数据，column 列数据，rowIndex 行索引，列索引
+     * @returns {void}
+     * @memberof PlatformManagementBase
+     */
+    public getCellClassName(args: {row: any, column: any, rowIndex: number, columnIndex: number}): any {
+        return ( this.hasRowEdit[args.column.property] && this.actualIsOpenEdit ) ? "edit-cell" : "info-cell";
+    }
+
+
 }

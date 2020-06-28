@@ -234,28 +234,11 @@ export class TaskKanBanPanelBase extends MainControlBase {
      * @param codelistArray 代码表模型数组
      * @memberof TaskKanBan
      */
-    public async computedUIData(newVal:any){
-        let codelistArray:Array<any> = [];
+    public computedUIData(newVal:any){
         if((this.dataModel.getDataItems instanceof Function) && this.dataModel.getDataItems().length >0){
             this.dataModel.getDataItems().forEach((item:any) =>{
-                if(item.codelist){
-                    codelistArray.push(item.codelist);
-                }
+                this.data[item.name] = newVal[item.prop];
             })
-            if(codelistArray.length >0){
-                let res:any = await this.getAllCodeList(codelistArray);
-                this.dataModel.getDataItems().forEach((item:any) =>{
-                    if(item.codelist){
-                        this.data[item.name] = res.get(item.codelist.tag).get(newVal[item.prop]);
-                    }else{
-                        this.data[item.name] = newVal[item.prop];
-                    }
-                })
-            }else{
-                this.dataModel.getDataItems().forEach((item:any) =>{
-                    this.data[item.name] = newVal[item.prop];
-                }) 
-            }
         }
     }
 
@@ -265,94 +248,14 @@ export class TaskKanBanPanelBase extends MainControlBase {
      * @param codelistArray 代码表模型数组
      * @memberof Mob
      */
-    public async computePanelData(){
-        let codelistArray:Array<any> = [];
+    public computeOutputData(){
         let panelData:any = {};
         if((this.dataModel.getDataItems instanceof Function) && this.dataModel.getDataItems().length >0){
             this.dataModel.getDataItems().forEach((item:any) =>{
-                if(item.codelist){
-                    codelistArray.push(item.codelist);
-                }
-            })
-            if(codelistArray.length >0){
-                let res:any = await this.getAllCodeList(codelistArray,true);
-                this.dataModel.getDataItems().forEach((item:any) =>{
-                    if(item.codelist){
-                        panelData[item.prop]  = res.get(item.codelist.tag).get(this.data[item.name]);
-                    }else{
-                        panelData[item.prop] = this.data[item.name];
-                    }
-                })
-            }else{
-                this.dataModel.getDataItems().forEach((item:any) =>{
-                    panelData[item.prop] = this.data[item.name];
-                }) 
-            }
+                panelData[item.prop] = this.data[item.name];
+            }) 
         }
-         this.panelData = Object.assign(JSON.parse(JSON.stringify(this.inputData)),panelData);
-    }
-
-    /**
-     * 获取所有代码表
-     * 
-     * @param codelistArray 代码表模型数组
-     * @memberof TaskKanBan
-     */
-    public getAllCodeList(codelistArray:Array<any>,reverse:boolean = false):Promise<any>{
-        return new Promise((resolve:any,reject:any) =>{
-            let codeListMap:Map<string,any> = new Map();
-            let promiseArray:Array<any> = [];
-            codelistArray.forEach((item:any) =>{
-                if(!codeListMap.get(item.tag)){
-                    promiseArray.push(this.getCodeList(item));
-                    Promise.all(promiseArray).then((result:any) =>{
-                        if(result && result.length >0){
-                            result.forEach((codeList:any) =>{
-                                let tempCodeListMap:Map<number,any> = new Map();
-                                if(codeList.length >0){
-                                    codeList.forEach((codeListItem:any) =>{
-                                        if(reverse){
-                                            tempCodeListMap.set(codeListItem.text,codeListItem.value);
-                                        }else{
-                                            tempCodeListMap.set(codeListItem.value,codeListItem.text);
-                                        }
-                                    })
-                                }
-                                codeListMap.set(item.tag,tempCodeListMap);       
-                            })
-                            resolve(codeListMap);
-                        }
-                    })
-                }
-            })
-        })
-    }
-
-    /**
-     * 获取代码表
-     * 
-     * @param codeListObject 传入代码表对象
-     * @memberof TaskKanBan
-     */
-    public getCodeList(codeListObject:any):Promise<any>{
-        return new Promise((resolve:any,reject:any) =>{
-            if(codeListObject.tag && Object.is(codeListObject.codelistType,"STATIC")){
-                const codelist = this.$store.getters.getCodeList(codeListObject.tag);
-                if (codelist) {
-                    resolve([...JSON.parse(JSON.stringify(codelist.items))]);
-                } else {
-                    resolve([]);
-                    console.log(`----${codeListObject.tag}----代码表不存在`);
-                }
-            }else if(codeListObject.tag && Object.is(codeListObject.codelistType,"DYNAMIC")){
-                this.codeListService.getItems(codeListObject.tag).then((res:any) => {
-                    resolve(res);
-                }).catch((error:any) => {
-                    resolve([]);
-                    console.log(`----${codeListObject.tag}----代码表不存在`);
-                });
-            }
-        })
+        this.panelData = Object.assign(JSON.parse(JSON.stringify(this.inputData)),panelData);
     }
 
     /**
@@ -364,7 +267,7 @@ export class TaskKanBanPanelBase extends MainControlBase {
      * @memberof TaskKanBan
      */
     public async uiAction(row: any, tag: any, $event: any) {
-        await this.computePanelData();
+        await this.computeOutputData();
         if(Object.is('AssignTask', tag)) {
             this.itemlayoutpanel_button1_click(row, tag, $event);
         }
@@ -450,8 +353,14 @@ export class TaskKanBanPanelBase extends MainControlBase {
      * @memberof TaskKanBan
      */
     public panelEditItemChange(data: any, property: string, value: any){
-        
-
+        // 面板数据变化事件
+        if((this.dataModel.getDataItems instanceof Function) && this.dataModel.getDataItems().length >0){
+            let modelitem =this.dataModel.getDataItems().find((item:any) =>{
+                return item.name === property;
+            }) 
+            if(modelitem){
+                this.$emit('panelDataChange',{[modelitem.prop]: value});
+            }
+        }
     }
-
 }

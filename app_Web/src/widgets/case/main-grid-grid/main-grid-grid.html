@@ -6,6 +6,7 @@
         :border="isDragendCol"
         :highlight-current-row ="isSingleSelect"
         :row-class-name="getRowClassName.bind(_self)"
+        :cell-class-name="getCellClassName.bind(_self)"
         size="mini"
         stripe
         @row-click="rowClick($event)"  
@@ -182,33 +183,47 @@
                       </span>
                     </template>
                     <template slot-scope="scope">
-                        <span>
-                            
-                            <a title="打开结果视图" @click="uiAction(scope.row, 'OpenTestRunResultView', $event)">
+                        <div style="text-align: center;">
+                            <tooltip :transfer="true" :max-width="600">
+                            <a @click="uiAction(scope.row, 'OpenTestRunResultView', $event)">
                               <i class='fa fa-stack-overflow'></i>
                               
                             </a>
+                            <div slot='content'>{{$t('entities.case.maingrid_grid.uiactions.opentestrunresultview')}}</div>
+                            </tooltip>
                             <divider type='vertical'></divider>
-                            <a title="执行测试" @click="uiAction(scope.row, 'Execute', $event)">
+                            <tooltip :transfer="true" :max-width="600">
+                            <a @click="uiAction(scope.row, 'Execute', $event)">
                               <i class='fa fa-play-circle-o'></i>
                               
                             </a>
+                            <div slot='content'>{{$t('entities.case.maingrid_grid.uiactions.execute')}}</div>
+                            </tooltip>
                             <divider type='vertical'></divider>
-                            <a title="主信息编辑" @click="uiAction(scope.row, 'MainEdit', $event)">
+                            <tooltip :transfer="true" :max-width="600">
+                            <a @click="uiAction(scope.row, 'MainEdit', $event)">
                               <i class='fa fa-edit'></i>
                               
                             </a>
+                            <div slot='content'>{{$t('entities.case.maingrid_grid.uiactions.mainedit')}}</div>
+                            </tooltip>
                             <divider type='vertical'></divider>
-                            <a title="转Bug" @click="uiAction(scope.row, 'NewBugByCaseResult', $event)">
+                            <tooltip :transfer="true" :max-width="600">
+                            <a @click="uiAction(scope.row, 'NewBugByCaseResult', $event)">
                               <i class='fa fa-bug'></i>
                               
                             </a>
+                            <div slot='content'>{{$t('entities.case.maingrid_grid.uiactions.newbugbycaseresult')}}</div>
+                            </tooltip>
                             <divider type='vertical'></divider>
-                            <a title="表格界面_删除操作" @click="uiAction(scope.row, 'Remove', $event)">
+                            <tooltip :transfer="true" :max-width="600">
+                            <a @click="uiAction(scope.row, 'Remove', $event)">
                               <i class='fa fa-remove'></i>
                               
                             </a>
-                        </span>
+                            <div slot='content'>{{$t('entities.case.maingrid_grid.uiactions.remove')}}</div>
+                            </tooltip>
+                        </div>
                     </template>
                 </el-table-column>
             </template>

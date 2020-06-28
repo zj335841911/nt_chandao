@@ -89,65 +89,24 @@ export const resetRootStateData = (state: any) => {
 }
 
 /**
- * 导航缓存，忽略判断的导航参数正则
- */
-const navIgnoreParameters: RegExp = new RegExp(/(srftabactivate|srftreeexpactivate)/);
-
-/**
- * 查找路由缓存
- *
- * @param {any[]} list
- * @param {*} page
- * @returns {number}
- */
-function findPageListIndex(list: any[], page: any): number {
-    if (page === undefined || page === null) {
-        return -1;
-    }
-    return list.findIndex((item: any) => {
-        // 基本路径是否一致
-        if (Object.is(item.path, page.path)) {
-            // 历史路径是否存在参数
-            if (item.query) {
-                let judge: boolean = true;
-                // 新路径是否存在参数
-                if (page.query) {
-                    for (const key in page.query) {
-                        // 忽略的参数略过
-                        if (navIgnoreParameters.test(`|${key}|`)) {
-                            continue;
-                        }
-                        if (item.query[key] === undefined || item.query[key] === null) {
-                            judge = false;
-                        }
-                    }
-                } else {
-                    judge = false;
-                }
-                return judge;
-            }
-            return true;
-        }
-        return false;
-    });;
-}
-
-/**
  * 添加导航页面
  * 
  * @param state 
  * @param arg 
  */
-export const addPage = (state: any, page: any) => {
-    if (!page) {
+export const addPage = (state: any, arg: any) => {
+    if (!arg) {
         return;
     }
-    if (Object.is(page.meta.viewType, 'APPINDEX')) {
-        window.sessionStorage.setItem(Environment.AppName, page.fullPath);
+    if (Object.is(arg.meta.viewType, 'APPINDEX')) {
+        window.sessionStorage.setItem(Environment.AppName, arg.fullPath);
     } else {
-        const pageMeta: any = { ...page.meta, info: null };
-        const index = findPageListIndex(state.pageTagList, page);
-        if (index === -1) {
+        const page: any = {};
+        const pageMeta: any = {};
+        Object.assign(page, arg);
+        Object.assign(pageMeta, page.meta, { info: null });
+        const index = state.pageTagList.findIndex((tag: any) => Object.is(tag.fullPath, page.fullPath));
+        if (index < 0) {
             state.pageTagList.push(page);
             state.pageMetas.push(pageMeta);
         } else {
@@ -169,12 +128,12 @@ export const addPage = (state: any, page: any) => {
 export const deletePage = (state: any, arg: any) => {
     let delPage: any = null;
     if (isNaN(arg)) {
-        // const index = state.pageTagList.findIndex((page: any) => Object.is(page.fullPath, arg));
-        // if (index >= 0) {
-        //     delPage = state.pageTagList[index];
-        //     state.pageTagList.splice(index, 1);
-        //     state.pageMetas.splice(index, 1);
-        // }
+        const index = state.pageTagList.findIndex((page: any) => Object.is(page.fullPath, arg));
+        if (index >= 0) {
+            delPage = state.pageTagList[index];
+            state.pageTagList.splice(index, 1);
+            state.pageMetas.splice(index, 1);
+        }
     } else {
         delPage = state.pageTagList[arg];
         state.pageTagList.splice(arg, 1);
@@ -195,10 +154,10 @@ export const deletePage = (state: any, arg: any) => {
 export const setCurPage = (state: any, arg: any) => {
     let page: any = null;
     if (isNaN(arg)) {
-        // const index = state.pageTagList.findIndex((page: any) => Object.is(page.fullPath, arg));
-        // if (index >= 0) {
-        //     page = state.pageTagList[index];
-        // }
+        const index = state.pageTagList.findIndex((page: any) => Object.is(page.fullPath, arg));
+        if (index >= 0) {
+            page = state.pageTagList[index];
+        }
     } else {
         page = state.pageTagList[arg];
     }
@@ -219,7 +178,7 @@ export const setCurPage = (state: any, arg: any) => {
  */
 export const setCurPageCaption = (state: any, { route, caption, info }: { route: any, caption: string | null, info: string | null }) => {
     if (route) {
-        const index = findPageListIndex(state.pageTagList, route);
+        const index = state.pageTagList.findIndex((page: any) => Object.is(page.fullPath, route.fullPath));
         if (index >= 0) {
             state.pageMetas[index].caption = caption;
             state.pageMetas[index].info = info;
@@ -233,10 +192,9 @@ export const setCurPageCaption = (state: any, { route, caption, info }: { route:
  * @param state 
  * @param param1 
  */
-export const addCurPageViewtag = (state: any, { route, viewtag }: { route: any, viewtag: string }) => {
-    const index = findPageListIndex(state.pageTagList, route);
-    
-    if (index >= 0 && Object.isExtensible(state.pageTagList[index])) {
+export const addCurPageViewtag = (state: any, { fullPath, viewtag }: { fullPath: string, viewtag: string }) => {
+    const index = state.pageTagList.findIndex((page: any) => Object.is(page.fullPath, fullPath));
+    if (index >= 0) {
         state.pageTagList[index].viewtag = viewtag;
     }
 }
@@ -262,18 +220,18 @@ export const removeAllPage = (state: any) => {
 export const removeOtherPage = (state: any) => {
     if (state.historyPathList.length > 0) {
         const curPath = state.historyPathList[state.historyPathList.length - 1];
-        // const index = state.pageTagList.findIndex((page: any) => Object.is(page.fullPath, curPath));
-        // if (index >= 0) {
-        //     const page = state.pageTagList[index];
-        //     const meta: any = {};
-        //     Object.assign(meta, page.meta);
-        //     state.pageTagList = [];
-        //     state.pageMetas = [];
-        //     state.historyPathList = [];
-        //     state.historyPathList.push(page.fullPath);
-        //     state.pageTagList.push(page);
-        //     state.pageMetas.push(meta);
-        // }
+        const index = state.pageTagList.findIndex((page: any) => Object.is(page.fullPath, curPath));
+        if (index >= 0) {
+            const page = state.pageTagList[index];
+            const meta: any = {};
+            Object.assign(meta, page.meta);
+            state.pageTagList = [];
+            state.pageMetas = [];
+            state.historyPathList = [];
+            state.historyPathList.push(page.fullPath);
+            state.pageTagList.push(page);
+            state.pageMetas.push(meta);
+        }
     }
 }
 
@@ -293,8 +251,8 @@ export const updateZIndex = (state: any, zIndex: number) => {
  * @param state 
  * @param {viewSplit: number, viewUID: string} 
  */
-export const setViewSplit = (state: any, args: { viewSplit: number, viewUID: string }) => {
-    state.viewSplit[args.viewUID] = args.viewSplit;
+export const setViewSplit = (state: any, args: {viewSplit: number,viewUID:string}) => {
+  state.viewSplit[args.viewUID] = args.viewSplit;
 }
 
 /**
@@ -303,10 +261,10 @@ export const setViewSplit = (state: any, args: { viewSplit: number, viewUID: str
  * @param state 
  * @param localdata 
  */
-export const addCopyData = (state: any, args: { srfkey: string, copyData: any }) => {
-    if (args && args.srfkey && args.copyData) {
-        state.copyDataMap[args.srfkey] = JSON.parse(JSON.stringify(args.copyData));
-    }
+export const addCopyData = (state: any, args: {srfkey: string,copyData: any}) => {
+  if(args && args.srfkey && args.copyData){
+      state.copyDataMap[args.srfkey] = JSON.parse(JSON.stringify(args.copyData));
+  }
 }
 
 /**
@@ -315,11 +273,11 @@ export const addCopyData = (state: any, args: { srfkey: string, copyData: any })
  * @param state 
  * @param args 
  */
-export const addOrgData = (state: any, args: { srfkey: string, orgData: any }) => {
-    if (args && args.srfkey && args.orgData) {
+export const addOrgData = (state: any, args: {srfkey: string,orgData: any}) => {
+    if(args && args.srfkey && args.orgData){
         state.orgDataMap[args.srfkey] = JSON.parse(JSON.stringify(args.orgData));
     }
-}
+  }
 
 /**
  * 添加部门数据
@@ -327,8 +285,8 @@ export const addOrgData = (state: any, args: { srfkey: string, orgData: any }) =
  * @param state 
  * @param args 
  */
-export const addDepData = (state: any, args: { srfkey: string, depData: any }) => {
-    if (args && args.srfkey && args.depData) {
+export const addDepData = (state: any, args: {srfkey: string,depData: any}) => {
+    if(args && args.srfkey && args.depData){
         state.depDataMap[args.srfkey] = JSON.parse(JSON.stringify(args.depData));
     }
 }

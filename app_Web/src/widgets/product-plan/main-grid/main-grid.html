@@ -6,6 +6,7 @@
         :border="isDragendCol"
         :highlight-current-row ="isSingleSelect"
         :row-class-name="getRowClassName.bind(_self)"
+        :cell-class-name="getCellClassName.bind(_self)"
         size="mini"
         stripe
         @row-click="rowClick($event)"  
@@ -78,23 +79,31 @@
                       </span>
                     </template>
                     <template slot-scope="scope">
-                        <span>
-                            
-                            <a title="关联需求" @click="uiAction(scope.row, 'RelationStory', $event)">
+                        <div style="text-align: center;">
+                            <tooltip :transfer="true" :max-width="600">
+                            <a @click="uiAction(scope.row, 'RelationStory', $event)">
                               <i class='fa fa-link'></i>
                               
                             </a>
+                            <div slot='content'>{{$t('entities.productplan.main_grid.uiactions.relationstory')}}</div>
+                            </tooltip>
                             <divider type='vertical'></divider>
-                            <a title="关联Bug" @click="uiAction(scope.row, 'RelationBug', $event)">
+                            <tooltip :transfer="true" :max-width="600">
+                            <a @click="uiAction(scope.row, 'RelationBug', $event)">
                               <i class='fa fa-bug'></i>
                               
                             </a>
+                            <div slot='content'>{{$t('entities.productplan.main_grid.uiactions.relationbug')}}</div>
+                            </tooltip>
                             <divider type='vertical'></divider>
-                            <a title="新建子计划" @click="uiAction(scope.row, 'NewSubPlan', $event)">
+                            <tooltip :transfer="true" :max-width="600">
+                            <a @click="uiAction(scope.row, 'NewSubPlan', $event)">
                               <i class='fa fa-chain'></i>
                               
                             </a>
-                        </span>
+                            <div slot='content'>{{$t('entities.productplan.main_grid.uiactions.newsubplan')}}</div>
+                            </tooltip>
+                        </div>
                     </template>
                 </el-table-column>
             </template>

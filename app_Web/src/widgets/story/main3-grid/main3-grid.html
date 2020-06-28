@@ -4,6 +4,7 @@
         :border="isDragendCol"
         :highlight-current-row ="isSingleSelect"
         :row-class-name="getRowClassName.bind(_self)"
+        :cell-class-name="getCellClassName.bind(_self)"
         size="mini"
         stripe
         @row-click="rowClick($event)"  
@@ -114,28 +115,39 @@
                       </span>
                     </template>
                     <template slot-scope="scope">
-                        <span>
-                            
-                            <a title="变更需求" @click="uiAction(scope.row, 'ChangeStoryDetail', $event)">
+                        <div style="text-align: center;">
+                            <tooltip :transfer="true" :max-width="600">
+                            <a @click="uiAction(scope.row, 'ChangeStoryDetail', $event)">
                               <i class='fa fa-exchange'></i>
                               
                             </a>
+                            <div slot='content'>{{$t('entities.story.main3_grid.uiactions.changestorydetail')}}</div>
+                            </tooltip>
                             <divider type='vertical'></divider>
-                            <a title="关闭需求" @click="uiAction(scope.row, 'CloseStory', $event)">
+                            <tooltip :transfer="true" :max-width="600">
+                            <a @click="uiAction(scope.row, 'CloseStory', $event)">
                               <i class='fa fa-power-off'></i>
                               
                             </a>
+                            <div slot='content'>{{$t('entities.story.main3_grid.uiactions.closestory')}}</div>
+                            </tooltip>
                             <divider type='vertical'></divider>
-                            <a title="打开需求基本信息编辑" @click="uiAction(scope.row, 'OpenBaseInfoEditView', $event)">
+                            <tooltip :transfer="true" :max-width="600">
+                            <a @click="uiAction(scope.row, 'OpenBaseInfoEditView', $event)">
                               <i class='fa fa-edit'></i>
                               
                             </a>
+                            <div slot='content'>{{$t('entities.story.main3_grid.uiactions.openbaseinfoeditview')}}</div>
+                            </tooltip>
                             <divider type='vertical'></divider>
-                            <a title="建用例" @click="uiAction(scope.row, 'OpenCaseCreateView', $event)">
+                            <tooltip :transfer="true" :max-width="600">
+                            <a @click="uiAction(scope.row, 'OpenCaseCreateView', $event)">
                               <i class='fa fa-lightbulb-o'></i>
                               
                             </a>
-                        </span>
+                            <div slot='content'>{{$t('entities.story.main3_grid.uiactions.opencasecreateview')}}</div>
+                            </tooltip>
+                        </div>
                     </template>
                 </el-table-column>
             </template>

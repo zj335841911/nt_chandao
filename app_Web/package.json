@@ -27,7 +27,7 @@
     "font-awesome": "^4.7.0",
     "ibiz-gantt-elastic": "^1.0.17",
     "ibiz-studio-components-vue": "^0.0.1-alpha.9",
-    "ibiz-vue-lib": "^0.1.10",
+    "ibiz-vue-lib": "^0.1.13",
     "ibiz-vue-pivottable": "^1.0.6",
     "interactjs": "1.9.10",
     "moment": "^2.24.0",

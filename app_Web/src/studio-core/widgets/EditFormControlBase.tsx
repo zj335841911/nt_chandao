@@ -563,16 +563,15 @@ export class EditFormControlBase extends FormControlBase {
      * @memberof FormControlBase
      */
     public saveAndNew(data: any[]): Promise<any> {
-        let _this = this;
         return new Promise((resolve: any, reject: any) => {
             let arg: any = {};
             if (data && data.length > 0) {
                 Object.assign(arg, data[0]);
             }
-            _this.currentAction = "saveAndNew";
-            _this.save([arg]).then((res) => {
-                _this.ResetData(res);
-                _this.loadDraft({});
+            this.currentAction = "saveAndNew";
+            this.save([arg]).then((res: any) => {
+                this.ResetData(res);
+                this.loadDraft({});
             }).catch((error) => {
                 reject(error);
             })
@@ -587,15 +586,14 @@ export class EditFormControlBase extends FormControlBase {
      * @memberof FormControlBase
      */
     public removeAndExit(data: any[]): Promise<any> {
-        let _this = this;
         return new Promise((resolve: any, reject: any) => {
             let arg: any = {};
             if (data && data.length > 0) {
                 Object.assign(arg, data[0]);
             }
-            _this.remove([arg]).then((res) => {
+            this.remove([arg]).then((res: any) => {
                 if (res) {
-                    _this.closeView(res.data);
+                    this.closeView(res.data);
                 }
                 resolve(res);
             }).catch((error) => {
@@ -612,7 +610,6 @@ export class EditFormControlBase extends FormControlBase {
      * @memberof FormControlBase
      */
     public drdatasaved($event: any) {
-        let _this = this;
         this.drcounter--;
         if (this.drcounter > 0) {
             return;
@@ -620,12 +617,12 @@ export class EditFormControlBase extends FormControlBase {
         this.save(this.drsaveopt, undefined, false).then((res) => {
             this.saveState(res);
             this.drsaveopt = {};
-            if (Object.is(_this.currentAction, "saveAndNew")) {
-                _this.ResetData(res);
-                _this.loadDraft({});
-            } else if (Object.is(_this.currentAction, "saveAndExit")) {
+            if (Object.is(this.currentAction, "saveAndNew")) {
+                this.ResetData(res);
+                this.loadDraft({});
+            } else if (Object.is(this.currentAction, "saveAndExit")) {
                 if (res) {
-                    _this.closeView(res.data);
+                    this.closeView(res.data);
                 }
             }
         });

@@ -6,6 +6,7 @@
         :border="isDragendCol"
         :highlight-current-row ="isSingleSelect"
         :row-class-name="getRowClassName.bind(_self)"
+        :cell-class-name="getCellClassName.bind(_self)"
         size="mini"
         stripe
         @row-click="rowClick($event)"  
@@ -146,18 +147,23 @@
                       </span>
                     </template>
                     <template slot-scope="scope">
-                        <span>
-                            
-                            <a title="打开结果视图" @click="uiAction(scope.row, 'OpenTestRunResultView', $event)">
+                        <div style="text-align: center;">
+                            <tooltip :transfer="true" :max-width="600">
+                            <a @click="uiAction(scope.row, 'OpenTestRunResultView', $event)">
                               <i class='fa fa-stack-overflow'></i>
                               
                             </a>
+                            <div slot='content'>{{$t('entities.case.maingrid_suitsub_grid.uiactions.opentestrunresultview')}}</div>
+                            </tooltip>
                             <divider type='vertical'></divider>
-                            <a title="执行测试" @click="uiAction(scope.row, 'Execute', $event)">
+                            <tooltip :transfer="true" :max-width="600">
+                            <a @click="uiAction(scope.row, 'Execute', $event)">
                               <i class='fa fa-play-circle-o'></i>
                               
                             </a>
-                        </span>
+                            <div slot='content'>{{$t('entities.case.maingrid_suitsub_grid.uiactions.execute')}}</div>
+                            </tooltip>
+                        </div>
                     </template>
                 </el-table-column>
             </template>

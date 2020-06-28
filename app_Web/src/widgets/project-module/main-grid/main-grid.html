@@ -6,6 +6,7 @@
         :border="isDragendCol"
         :highlight-current-row ="isSingleSelect"
         :row-class-name="getRowClassName.bind(_self)"
+        :cell-class-name="getCellClassName.bind(_self)"
         size="mini"
         stripe
         @row-click="rowClick($event)"  
@@ -84,13 +85,15 @@
                       </span>
                     </template>
                     <template slot-scope="scope">
-                        <span>
-                            
-                            <a title="表格界面_删除操作" @click="uiAction(scope.row, 'Remove', $event)">
+                        <div style="text-align: center;">
+                            <tooltip :transfer="true" :max-width="600">
+                            <a @click="uiAction(scope.row, 'Remove', $event)">
                               <i class='fa fa-remove'></i>
                               
                             </a>
-                        </span>
+                            <div slot='content'>{{$t('entities.projectmodule.main_grid.uiactions.remove')}}</div>
+                            </tooltip>
+                        </div>
                     </template>
                 </el-table-column>
             </template>

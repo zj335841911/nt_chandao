@@ -62,6 +62,21 @@ export class StoryTreeExpViewtreeexpbarTreeExpBarBase extends MainControlBase {
     }
 
     /**
+     * 打开新建数据视图
+     *
+     * @type {any}
+     * @memberof StoryTreeExpViewtreeexpbarBase
+     */
+    @Prop() public newdata: any;
+
+    /**
+     * 打开编辑数据视图
+     *
+     * @type {any}
+     * @memberof StoryTreeExpViewtreeexpbarBase
+     */
+    @Prop() public opendata: any;
+    /**
      * 视图唯一标识
      *
      * @type {boolean}
@@ -388,5 +403,4 @@ export class StoryTreeExpViewtreeexpbarTreeExpBarBase extends MainControlBase {
     public onViewLoad($event: any): void {
         this.$emit('load', $event);
     }
-    
 }
