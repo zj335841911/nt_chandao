@@ -31,7 +31,7 @@ export default class BurnServiceBase extends EntityService {
         this.APPLYDEKEY ='burn';
         this.APPDEKEY = 'id';
         this.APPDENAME = 'burns';
-        this.APPDETEXT = '';
+        this.APPDETEXT = 'date';
         this.APPNAME = 'web';
         this.SYSTEMNAME = 'pms';
     }

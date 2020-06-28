@@ -1,4 +1,3 @@
-
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
@@ -1159,6 +1158,4 @@ export class BurnDownChartBase extends MainControlBase {
             }
         })
     }
-
-
 }

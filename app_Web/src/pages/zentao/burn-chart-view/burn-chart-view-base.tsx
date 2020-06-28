@@ -100,6 +100,7 @@ export class BurnChartViewBase extends ChartViewBase {
             view: this,
             chart: this.$refs.chart,
             keyPSDEField: 'burn',
+            majorPSDEField: 'date',
             isLoadDefault: true,
         });
     }
