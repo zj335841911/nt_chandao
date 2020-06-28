@@ -1,7 +1,6 @@
 export default {
   fields: {
     spec: "需求描述	",
-    duplicatestory: "重复需求ID",
     verify: "验收标准",
     id: "虚拟主键",
     title: "需求名称",

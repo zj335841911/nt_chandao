@@ -47,13 +47,6 @@ public class StorySpec extends EntityMP implements Serializable {
     @JsonProperty("spec")
     private String spec;
     /**
-     * 重复需求ID
-     */
-    @TableField(value = "duplicatestory")
-    @JSONField(name = "duplicatestory")
-    @JsonProperty("duplicatestory")
-    private Integer duplicatestory;
-    /**
      * 验收标准
      */
     @TableField(value = "verify")
@@ -105,14 +98,6 @@ public class StorySpec extends EntityMP implements Serializable {
     public void setSpec(String spec){
         this.spec = spec ;
         this.modify("spec",spec);
-    }
-
-    /**
-     * 设置 [重复需求ID]
-     */
-    public void setDuplicatestory(Integer duplicatestory){
-        this.duplicatestory = duplicatestory ;
-        this.modify("duplicatestory",duplicatestory);
     }
 
     /**
