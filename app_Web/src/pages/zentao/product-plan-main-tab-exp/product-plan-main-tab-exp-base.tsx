@@ -94,10 +94,11 @@ export class ProductPlanMainTabExpBase extends TabExpViewBase {
 
     /**
      * 加载模型
-     * 
+     *
+     * @protected
      * @memberof ProductPlanMainTabExpBase
      */
-    public async loadModel(): Promise<void> {
+    protected async loadModel(): Promise<any> {
         if(this.context.productplan){
             this.appEntityService.getDataInfo(JSON.parse(JSON.stringify(this.context)),{},false).then((response:any) =>{
                 if (!response || response.status !== 200) {
@@ -106,9 +107,8 @@ export class ProductPlanMainTabExpBase extends TabExpViewBase {
                 const { data: _data } = response;
                 if (_data.title) {
                     Object.assign(this.model, { dataInfo: _data.title });
-                    if(this.$tabPageExp){
-                        let _this:any = this;
-                        this.$tabPageExp.setCurPageCaption(_this.$t(this.model.srfTitle), _this.$t(this.model.srfTitle), _this.model.dataInfo);
+                    if (this.$tabPageExp) {
+                        this.$tabPageExp.setCurPageCaption(this.model.srfTitle, this.model.srfTitle, this.model.dataInfo);
                     }
                     if(this.$route){
                         this.$route.meta.info = this.model.dataInfo;
