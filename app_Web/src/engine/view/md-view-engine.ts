@@ -367,15 +367,6 @@ export default class MDViewEngine extends ViewEngine {
      * @memberof MDViewEngine
      */
     public MDCtrlLoad(args: any[]) {
-        let cacheArray:Array<any> = [];
-        if(args.length >0){
-            args.forEach((item:any) =>{
-                cacheArray.push({srfkey:item.srfkey,srfmajortext:item.srfmajortext});
-            })
-        }
-        this.view.viewCacheData = cacheArray;
-        this.view.initNavDataWithRoute(cacheArray);
-        this.view.initNavDataWithTab(cacheArray,false);
         if (this.view) {
             this.view.$emit('viewload', args);
         }
