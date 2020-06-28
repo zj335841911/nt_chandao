@@ -67,10 +67,12 @@ export default class StoryServiceBase extends EntityService {
         if(context.product && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/getdraft`,isloading);
             res.data.story = data.story;
+            this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             return res;
         }
         let res:any = await  Http.getInstance().get(`/stories/getdraft`,isloading);
         res.data.story = data.story;
+            this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
         return res;
     }
 
@@ -86,6 +88,21 @@ export default class StoryServiceBase extends EntityService {
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let masterData:any = {};
+        let storyspecsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
+            storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
+            if(storyspecsData && storyspecsData.length && storyspecsData.length > 0){
+                storyspecsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.storyspecs = storyspecsData;
             Object.assign(data,masterData);
             if(!data.srffrontuf || data.srffrontuf !== "1"){
                 data[this.APPDEKEY] = null;
@@ -95,9 +112,25 @@ export default class StoryServiceBase extends EntityService {
             }
             let tempContext:any = JSON.parse(JSON.stringify(context));
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories`,data,isloading);
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             return res;
         }
         let masterData:any = {};
+        let storyspecsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
+            storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
+            if(storyspecsData && storyspecsData.length && storyspecsData.length > 0){
+                storyspecsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.storyspecs = storyspecsData;
         Object.assign(data,masterData);
         if(!data.srffrontuf || data.srffrontuf !== "1"){
             data[this.APPDEKEY] = null;
@@ -107,6 +140,7 @@ export default class StoryServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/stories`,data,isloading);
+        this.tempStorage.setItem(tempContext.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
         return res;
     }
 
@@ -122,8 +156,24 @@ export default class StoryServiceBase extends EntityService {
     public async BatchChangeStage(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let storyspecsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
+            storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
+            if(storyspecsData && storyspecsData.length && storyspecsData.length > 0){
+                storyspecsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.storyspecs = storyspecsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchchangestage`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             return res;
         }
             return Http.getInstance().post(`/stories/${context.story}/batchchangestage`,data,isloading);
@@ -141,8 +191,24 @@ export default class StoryServiceBase extends EntityService {
     public async BatchChangePlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let storyspecsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
+            storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
+            if(storyspecsData && storyspecsData.length && storyspecsData.length > 0){
+                storyspecsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.storyspecs = storyspecsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchchangeplan`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             return res;
         }
             return Http.getInstance().post(`/stories/${context.story}/batchchangeplan`,data,isloading);
@@ -160,8 +226,24 @@ export default class StoryServiceBase extends EntityService {
     public async BatchClose(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let storyspecsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
+            storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
+            if(storyspecsData && storyspecsData.length && storyspecsData.length > 0){
+                storyspecsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.storyspecs = storyspecsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchclose`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             return res;
         }
             return Http.getInstance().post(`/stories/${context.story}/batchclose`,data,isloading);
@@ -179,9 +261,11 @@ export default class StoryServiceBase extends EntityService {
     public async GetStorySpec(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/getstoryspec`,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             return res;
         }
             let res:any = await Http.getInstance().get(`/stories/${context.story}/getstoryspec`,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             return res;
     }
 
@@ -197,8 +281,24 @@ export default class StoryServiceBase extends EntityService {
     public async Change(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let storyspecsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
+            storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
+            if(storyspecsData && storyspecsData.length && storyspecsData.length > 0){
+                storyspecsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.storyspecs = storyspecsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/change`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             return res;
         }
             return Http.getInstance().post(`/stories/${context.story}/change`,data,isloading);
@@ -216,8 +316,24 @@ export default class StoryServiceBase extends EntityService {
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let storyspecsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
+            storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
+            if(storyspecsData && storyspecsData.length && storyspecsData.length > 0){
+                storyspecsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.storyspecs = storyspecsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/checkkey`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             return res;
         }
             return Http.getInstance().post(`/stories/${context.story}/checkkey`,data,isloading);
@@ -251,13 +367,45 @@ export default class StoryServiceBase extends EntityService {
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let storyspecsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
+            storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
+            if(storyspecsData && storyspecsData.length && storyspecsData.length > 0){
+                storyspecsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.storyspecs = storyspecsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().put(`/products/${context.product}/stories/${context.story}`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             return res;
         }
         let masterData:any = {};
+        let storyspecsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
+            storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
+            if(storyspecsData && storyspecsData.length && storyspecsData.length > 0){
+                storyspecsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.storyspecs = storyspecsData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/stories/${context.story}`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             return res;
     }
 
@@ -273,8 +421,24 @@ export default class StoryServiceBase extends EntityService {
     public async BatchChangeBranch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let storyspecsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
+            storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
+            if(storyspecsData && storyspecsData.length && storyspecsData.length > 0){
+                storyspecsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.storyspecs = storyspecsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchchangebranch`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             return res;
         }
             return Http.getInstance().post(`/stories/${context.story}/batchchangebranch`,data,isloading);
@@ -292,8 +456,24 @@ export default class StoryServiceBase extends EntityService {
     public async BatchReview(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let storyspecsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
+            storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
+            if(storyspecsData && storyspecsData.length && storyspecsData.length > 0){
+                storyspecsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.storyspecs = storyspecsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchreview`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             return res;
         }
             return Http.getInstance().post(`/stories/${context.story}/batchreview`,data,isloading);
@@ -311,8 +491,24 @@ export default class StoryServiceBase extends EntityService {
     public async Review(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let storyspecsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
+            storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
+            if(storyspecsData && storyspecsData.length && storyspecsData.length > 0){
+                storyspecsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.storyspecs = storyspecsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/review`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             return res;
         }
             return Http.getInstance().post(`/stories/${context.story}/review`,data,isloading);
@@ -330,8 +526,24 @@ export default class StoryServiceBase extends EntityService {
     public async AssignTo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let storyspecsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
+            storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
+            if(storyspecsData && storyspecsData.length && storyspecsData.length > 0){
+                storyspecsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.storyspecs = storyspecsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/assignto`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             return res;
         }
             return Http.getInstance().post(`/stories/${context.story}/assignto`,data,isloading);
@@ -349,8 +561,24 @@ export default class StoryServiceBase extends EntityService {
     public async BatchAssignTo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let storyspecsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
+            storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
+            if(storyspecsData && storyspecsData.length && storyspecsData.length > 0){
+                storyspecsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.storyspecs = storyspecsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchassignto`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             return res;
         }
             return Http.getInstance().post(`/stories/${context.story}/batchassignto`,data,isloading);
@@ -368,9 +596,11 @@ export default class StoryServiceBase extends EntityService {
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}`,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             return res;
         }
             let res:any = await Http.getInstance().get(`/stories/${context.story}`,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             return res;
     }
 
@@ -386,13 +616,45 @@ export default class StoryServiceBase extends EntityService {
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let storyspecsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
+            storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
+            if(storyspecsData && storyspecsData.length && storyspecsData.length > 0){
+                storyspecsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.storyspecs = storyspecsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/save`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             return res;
         }
         let masterData:any = {};
+        let storyspecsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
+            storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
+            if(storyspecsData && storyspecsData.length && storyspecsData.length > 0){
+                storyspecsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.storyspecs = storyspecsData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/stories/${context.story}/save`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             return res;
     }
 
@@ -408,8 +670,24 @@ export default class StoryServiceBase extends EntityService {
     public async BatchChangeModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let storyspecsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
+            storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
+            if(storyspecsData && storyspecsData.length && storyspecsData.length > 0){
+                storyspecsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.storyspecs = storyspecsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchchangemodule`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             return res;
         }
             return Http.getInstance().post(`/stories/${context.story}/batchchangemodule`,data,isloading);
@@ -427,8 +705,24 @@ export default class StoryServiceBase extends EntityService {
     public async Close(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let storyspecsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
+            storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
+            if(storyspecsData && storyspecsData.length && storyspecsData.length > 0){
+                storyspecsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.storyspecs = storyspecsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/close`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             return res;
         }
             return Http.getInstance().post(`/stories/${context.story}/close`,data,isloading);
