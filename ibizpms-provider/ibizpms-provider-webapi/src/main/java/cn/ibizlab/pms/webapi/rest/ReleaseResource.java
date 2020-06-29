@@ -32,6 +32,7 @@ import cn.ibizlab.pms.webapi.mapping.*;
 import cn.ibizlab.pms.core.zentao.domain.Release;
 import cn.ibizlab.pms.core.zentao.service.IReleaseService;
 import cn.ibizlab.pms.core.zentao.filter.ReleaseSearchContext;
+import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
 @Api(tags = {"发布" })

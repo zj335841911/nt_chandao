@@ -32,6 +32,7 @@ import cn.ibizlab.pms.webapi.mapping.*;
 import cn.ibizlab.pms.core.zentao.domain.History;
 import cn.ibizlab.pms.core.zentao.service.IHistoryService;
 import cn.ibizlab.pms.core.zentao.filter.HistorySearchContext;
+import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
 @Api(tags = {"操作历史" })

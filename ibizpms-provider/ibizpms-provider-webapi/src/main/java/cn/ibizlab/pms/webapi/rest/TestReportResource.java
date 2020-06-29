@@ -32,6 +32,7 @@ import cn.ibizlab.pms.webapi.mapping.*;
 import cn.ibizlab.pms.core.zentao.domain.TestReport;
 import cn.ibizlab.pms.core.zentao.service.ITestReportService;
 import cn.ibizlab.pms.core.zentao.filter.TestReportSearchContext;
+import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
 @Api(tags = {"测试报告" })

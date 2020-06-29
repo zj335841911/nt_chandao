@@ -32,6 +32,7 @@ import cn.ibizlab.pms.webapi.mapping.*;
 import cn.ibizlab.pms.core.zentao.domain.Dept;
 import cn.ibizlab.pms.core.zentao.service.IDeptService;
 import cn.ibizlab.pms.core.zentao.filter.DeptSearchContext;
+import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
 @Api(tags = {"部门" })

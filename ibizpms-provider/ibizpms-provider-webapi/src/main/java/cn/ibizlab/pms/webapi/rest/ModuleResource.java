@@ -32,6 +32,7 @@ import cn.ibizlab.pms.webapi.mapping.*;
 import cn.ibizlab.pms.core.zentao.domain.Module;
 import cn.ibizlab.pms.core.zentao.service.IModuleService;
 import cn.ibizlab.pms.core.zentao.filter.ModuleSearchContext;
+import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
 @Api(tags = {"模块" })

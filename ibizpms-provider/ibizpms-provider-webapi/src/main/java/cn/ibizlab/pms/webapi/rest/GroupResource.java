@@ -32,6 +32,7 @@ import cn.ibizlab.pms.webapi.mapping.*;
 import cn.ibizlab.pms.core.zentao.domain.Group;
 import cn.ibizlab.pms.core.zentao.service.IGroupService;
 import cn.ibizlab.pms.core.zentao.filter.GroupSearchContext;
+import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
 @Api(tags = {"群组" })

@@ -32,6 +32,7 @@ import cn.ibizlab.pms.webapi.mapping.*;
 import cn.ibizlab.pms.core.zentao.domain.Build;
 import cn.ibizlab.pms.core.zentao.service.IBuildService;
 import cn.ibizlab.pms.core.zentao.filter.BuildSearchContext;
+import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
 @Api(tags = {"版本" })

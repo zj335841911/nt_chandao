@@ -32,6 +32,7 @@ import cn.ibizlab.pms.webapi.mapping.*;
 import cn.ibizlab.pms.core.zentao.domain.Burn;
 import cn.ibizlab.pms.core.zentao.service.IBurnService;
 import cn.ibizlab.pms.core.zentao.filter.BurnSearchContext;
+import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
 @Api(tags = {"burn" })

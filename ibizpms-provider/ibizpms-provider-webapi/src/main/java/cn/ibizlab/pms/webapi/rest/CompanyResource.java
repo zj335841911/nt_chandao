@@ -32,6 +32,7 @@ import cn.ibizlab.pms.webapi.mapping.*;
 import cn.ibizlab.pms.core.zentao.domain.Company;
 import cn.ibizlab.pms.core.zentao.service.ICompanyService;
 import cn.ibizlab.pms.core.zentao.filter.CompanySearchContext;
+import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
 @Api(tags = {"公司" })

@@ -163,6 +163,15 @@ public class StorySpecServiceImpl extends ServiceImpl<StorySpecMapper, StorySpec
 
 
     /**
+     * 查询集合 版本
+     */
+    @Override
+    public Page<StorySpec> searchVersion(StorySpecSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<StorySpec> pages=baseMapper.searchVersion(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<StorySpec>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 DEFAULT
      */
     @Override

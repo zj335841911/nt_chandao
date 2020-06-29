@@ -32,6 +32,7 @@ import cn.ibizlab.pms.webapi.mapping.*;
 import cn.ibizlab.pms.core.zentao.domain.StorySpec;
 import cn.ibizlab.pms.core.zentao.service.IStorySpecService;
 import cn.ibizlab.pms.core.zentao.filter.StorySpecSearchContext;
+import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
 @Api(tags = {"需求描述" })
@@ -137,6 +138,27 @@ public class StorySpecResource {
         return ResponseEntity.status(HttpStatus.OK).body(storyspecMapping.toDto(storyspecService.getDraft(new StorySpec())));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-searchVersion-all')")
+	@ApiOperation(value = "获取版本", tags = {"需求描述" } ,notes = "获取版本")
+    @RequestMapping(method= RequestMethod.GET , value="/storyspecs/fetchversion")
+	public ResponseEntity<List<StorySpecDTO>> fetchVersion(StorySpecSearchContext context) {
+        Page<StorySpec> domains = storyspecService.searchVersion(context) ;
+        List<StorySpecDTO> list = storyspecMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-searchVersion-all')")
+	@ApiOperation(value = "查询版本", tags = {"需求描述" } ,notes = "查询版本")
+    @RequestMapping(method= RequestMethod.POST , value="/storyspecs/searchversion")
+	public ResponseEntity<Page<StorySpecDTO>> searchVersion(@RequestBody StorySpecSearchContext context) {
+        Page<StorySpec> domains = storyspecService.searchVersion(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(storyspecMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"需求描述" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/storyspecs/fetchdefault")
@@ -267,6 +289,29 @@ public class StorySpecResource {
         return ResponseEntity.status(HttpStatus.OK).body(storyspecMapping.toDto(storyspecService.getDraft(domain)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-searchVersion-all')")
+	@ApiOperation(value = "根据需求获取版本", tags = {"需求描述" } ,notes = "根据需求获取版本")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/storyspecs/fetchversion")
+	public ResponseEntity<List<StorySpecDTO>> fetchStorySpecVersionByStory(@PathVariable("story_id") BigInteger story_id,StorySpecSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<StorySpec> domains = storyspecService.searchVersion(context) ;
+        List<StorySpecDTO> list = storyspecMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-searchVersion-all')")
+	@ApiOperation(value = "根据需求查询版本", tags = {"需求描述" } ,notes = "根据需求查询版本")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/storyspecs/searchversion")
+	public ResponseEntity<Page<StorySpecDTO>> searchStorySpecVersionByStory(@PathVariable("story_id") BigInteger story_id, @RequestBody StorySpecSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<StorySpec> domains = storyspecService.searchVersion(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(storyspecMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-searchDefault-all')")
 	@ApiOperation(value = "根据需求获取DEFAULT", tags = {"需求描述" } ,notes = "根据需求获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/storyspecs/fetchdefault")
@@ -399,6 +444,29 @@ public class StorySpecResource {
         return ResponseEntity.status(HttpStatus.OK).body(storyspecMapping.toDto(storyspecService.getDraft(domain)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-searchVersion-all')")
+	@ApiOperation(value = "根据产品需求获取版本", tags = {"需求描述" } ,notes = "根据产品需求获取版本")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/storyspecs/fetchversion")
+	public ResponseEntity<List<StorySpecDTO>> fetchStorySpecVersionByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id,StorySpecSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<StorySpec> domains = storyspecService.searchVersion(context) ;
+        List<StorySpecDTO> list = storyspecMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-searchVersion-all')")
+	@ApiOperation(value = "根据产品需求查询版本", tags = {"需求描述" } ,notes = "根据产品需求查询版本")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/storyspecs/searchversion")
+	public ResponseEntity<Page<StorySpecDTO>> searchStorySpecVersionByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @RequestBody StorySpecSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<StorySpec> domains = storyspecService.searchVersion(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(storyspecMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-searchDefault-all')")
 	@ApiOperation(value = "根据产品需求获取DEFAULT", tags = {"需求描述" } ,notes = "根据产品需求获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/storyspecs/fetchdefault")

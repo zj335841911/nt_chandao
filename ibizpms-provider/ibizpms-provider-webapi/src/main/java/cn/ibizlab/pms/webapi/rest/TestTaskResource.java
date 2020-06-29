@@ -32,6 +32,7 @@ import cn.ibizlab.pms.webapi.mapping.*;
 import cn.ibizlab.pms.core.zentao.domain.TestTask;
 import cn.ibizlab.pms.core.zentao.service.ITestTaskService;
 import cn.ibizlab.pms.core.zentao.filter.TestTaskSearchContext;
+import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
 @Api(tags = {"测试版本" })

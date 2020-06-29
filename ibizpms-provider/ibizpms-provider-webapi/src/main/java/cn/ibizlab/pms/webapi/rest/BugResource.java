@@ -32,6 +32,7 @@ import cn.ibizlab.pms.webapi.mapping.*;
 import cn.ibizlab.pms.core.zentao.domain.Bug;
 import cn.ibizlab.pms.core.zentao.service.IBugService;
 import cn.ibizlab.pms.core.zentao.filter.BugSearchContext;
+import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
 @Api(tags = {"Bug" })
@@ -165,6 +166,7 @@ public class BugResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @VersionCheck(entity = "bug" , versionfield = "lastediteddate")
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
     @ApiOperation(value = "更新Bug", tags = {"Bug" },  notes = "更新Bug")
 	@RequestMapping(method = RequestMethod.PUT, value = "/bugs/{bug_id}")
@@ -443,6 +445,7 @@ public class BugResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @VersionCheck(entity = "bug" , versionfield = "lastediteddate")
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
     @ApiOperation(value = "根据产品更新Bug", tags = {"Bug" },  notes = "根据产品更新Bug")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/bugs/{bug_id}")
@@ -738,6 +741,7 @@ public class BugResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @VersionCheck(entity = "bug" , versionfield = "lastediteddate")
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
     @ApiOperation(value = "根据产品计划更新Bug", tags = {"Bug" },  notes = "根据产品计划更新Bug")
 	@RequestMapping(method = RequestMethod.PUT, value = "/productplans/{productplan_id}/bugs/{bug_id}")
@@ -1033,6 +1037,7 @@ public class BugResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @VersionCheck(entity = "bug" , versionfield = "lastediteddate")
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
     @ApiOperation(value = "根据项目更新Bug", tags = {"Bug" },  notes = "根据项目更新Bug")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/bugs/{bug_id}")
@@ -1328,6 +1333,7 @@ public class BugResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @VersionCheck(entity = "bug" , versionfield = "lastediteddate")
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
     @ApiOperation(value = "根据产品产品计划更新Bug", tags = {"Bug" },  notes = "根据产品产品计划更新Bug")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/productplans/{productplan_id}/bugs/{bug_id}")

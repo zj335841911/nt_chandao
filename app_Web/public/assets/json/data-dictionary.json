@@ -3213,7 +3213,7 @@
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"StorySpec",
-        "appdedataset":"FetchDefault",
+        "appdedataset":"FetchVersion",
         "items": []
     }, 
     {

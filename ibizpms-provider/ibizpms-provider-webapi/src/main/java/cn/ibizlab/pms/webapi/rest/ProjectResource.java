@@ -32,6 +32,7 @@ import cn.ibizlab.pms.webapi.mapping.*;
 import cn.ibizlab.pms.core.zentao.domain.Project;
 import cn.ibizlab.pms.core.zentao.service.IProjectService;
 import cn.ibizlab.pms.core.zentao.filter.ProjectSearchContext;
+import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
 @Api(tags = {"项目" })

@@ -254,6 +254,28 @@ export default class StorySpecServiceBase extends EntityService {
     }
 
     /**
+     * FetchVersion接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StorySpecServiceBase
+     */
+    public async FetchVersion(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/storyspecs/fetchversion`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/stories/${context.story}/storyspecs/fetchversion`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/storyspecs/fetchversion`,tempData,isloading);
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]

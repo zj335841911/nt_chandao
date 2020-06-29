@@ -1279,14 +1279,6 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectProductListView9",
             "viewtag": "d0454a2ae9eb44aca3613b27169f3b18"
         },
-        "storyspecmainview9": {
-            "title": "需求描述编辑视图",
-            "caption": "需求描述",
-            "viewtype": "DEEDITVIEW9",
-            "viewmodule": "zentao",
-            "viewname": "StorySpecMainView9",
-            "viewtag": "d0c00941809a9dee4e44db3cca606f0a"
-        },
         "testportalview": {
             "title": "测试主页",
             "caption": "测试主页",

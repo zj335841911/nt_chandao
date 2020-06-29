@@ -32,6 +32,7 @@ import cn.ibizlab.pms.webapi.mapping.*;
 import cn.ibizlab.pms.core.zentao.domain.Story;
 import cn.ibizlab.pms.core.zentao.service.IStoryService;
 import cn.ibizlab.pms.core.zentao.filter.StorySearchContext;
+import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
 @Api(tags = {"需求" })

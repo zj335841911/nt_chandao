@@ -32,6 +32,7 @@ import cn.ibizlab.pms.webapi.mapping.*;
 import cn.ibizlab.pms.core.zentao.domain.Product;
 import cn.ibizlab.pms.core.zentao.service.IProductService;
 import cn.ibizlab.pms.core.zentao.filter.ProductSearchContext;
+import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
 @Api(tags = {"产品" })

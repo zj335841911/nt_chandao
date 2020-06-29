@@ -68,7 +68,7 @@ export default class CodeListService {
     public ProductBranch_Cache: ProductBranch_Cache = new ProductBranch_Cache();
 
     /**
-     * 代码表--当前产品计划（动态）
+     * 代码表--当前产品计划（动态）_缓存
      *
      * @type {CurProductPlan}
      * @memberof CodeListService

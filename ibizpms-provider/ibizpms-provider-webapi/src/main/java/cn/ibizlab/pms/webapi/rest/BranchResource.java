@@ -32,6 +32,7 @@ import cn.ibizlab.pms.webapi.mapping.*;
 import cn.ibizlab.pms.core.zentao.domain.Branch;
 import cn.ibizlab.pms.core.zentao.service.IBranchService;
 import cn.ibizlab.pms.core.zentao.filter.BranchSearchContext;
+import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
 @Api(tags = {"产品的分支和平台信息" })

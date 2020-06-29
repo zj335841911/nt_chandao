@@ -32,6 +32,7 @@ import cn.ibizlab.pms.webapi.mapping.*;
 import cn.ibizlab.pms.core.ibiz.domain.IBzDoc;
 import cn.ibizlab.pms.core.ibiz.service.IIBzDocService;
 import cn.ibizlab.pms.core.ibiz.filter.IBzDocSearchContext;
+import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
 @Api(tags = {"文档" })

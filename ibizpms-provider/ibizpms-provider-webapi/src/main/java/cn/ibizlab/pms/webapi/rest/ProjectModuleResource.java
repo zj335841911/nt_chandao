@@ -32,6 +32,7 @@ import cn.ibizlab.pms.webapi.mapping.*;
 import cn.ibizlab.pms.core.ibiz.domain.ProjectModule;
 import cn.ibizlab.pms.core.ibiz.service.IProjectModuleService;
 import cn.ibizlab.pms.core.ibiz.filter.ProjectModuleSearchContext;
+import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
 @Api(tags = {"任务模块" })
