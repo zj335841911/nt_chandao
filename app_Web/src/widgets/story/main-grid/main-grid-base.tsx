@@ -191,6 +191,48 @@ export class MainGridBase extends GridControllerBase {
             util: 'STAR'
         },
         {
+            name: 'plan',
+            label: '计划',
+            langtag: 'entities.story.main_grid.columns.plan',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'openedby',
+            label: '创建',
+            langtag: 'entities.story.main_grid.columns.openedby',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'assignedto',
+            label: '指派',
+            langtag: 'entities.story.main_grid.columns.assignedto',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'estimate',
+            label: '预计',
+            langtag: 'entities.story.main_grid.columns.estimate',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'status',
+            label: '状态',
+            langtag: 'entities.story.main_grid.columns.status',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'stage',
+            label: '阶段',
+            langtag: 'entities.story.main_grid.columns.stage',
+            show: true,
+            util: 'PX'
+        },
+        {
             name: 'modulename',
             label: '所属模块名称',
             langtag: 'entities.story.main_grid.columns.modulename',
@@ -241,6 +283,12 @@ export class MainGridBase extends GridControllerBase {
         'id':false,
         'pri':false,
         'title':false,
+        'plan':false,
+        'openedby':false,
+        'assignedto':false,
+        'estimate':false,
+        'status':false,
+        'stage':false,
         'modulename':false,
         'uagridcolumn1':false,
     };
@@ -271,6 +319,46 @@ export class MainGridBase extends GridControllerBase {
             {
                 name: 'pri',
                 srfkey: 'Story__pri',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'plan',
+                srfkey: 'CurProductPlan',
+                codelistType : 'DYNAMIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'openedby',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
+            {
+                name: 'assignedto',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
+            {
+                name: 'status',
+                srfkey: 'Story__status',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'stage',
+                srfkey: 'Story__stage',
                 codelistType : 'STATIC',
                 renderMode: 'other',
                 textSeparator: '、',
