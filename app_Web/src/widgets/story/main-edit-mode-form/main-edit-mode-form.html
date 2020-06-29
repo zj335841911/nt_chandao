@@ -358,8 +358,8 @@
 </i-col>
 <i-col v-show="detailsModel.grouppanel4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel4.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.main_editmode_form.details.grouppanel4')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
-    <div style="height: 100%;display: flex;flex-direction: row;justify-content: space-around;align-items: center;">
-        <div  v-show="detailsModel.button1.visible" :style="{'width': '120px',}">
+    <div style="height: 100%;display: flex;flex-direction: row;justify-content: center;align-items: center;">
+        <div  v-show="detailsModel.button1.visible" :style="{'width': '70px',}">
     <i-button type="primary" @click="button1_click($event)"
          style="">
         <i class="fa fa-save" style="margin-right: 2px;"></i>   
@@ -367,7 +367,7 @@
     </i-button>
 
 </div>
-<div  v-show="detailsModel.button2.visible" :style="{'width': '120px',}">
+<div  v-show="detailsModel.button2.visible" :style="{'width': '70px',}">
     <i-button type="primary" @click="button2_click($event)"
          style="">
         <i class="fa fa-reply" style="margin-right: 2px;"></i>   
