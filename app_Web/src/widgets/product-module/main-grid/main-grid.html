@@ -111,16 +111,26 @@
                     </template>
                 </el-table-column>
             </template>
-            !!!!模版产生代码错误:----
-            Tip: It's the step after the last dot that caused this error, not those before it.
-            ----
-            Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-            ----
-            
-            ----
-            FTL stack trace ("~" means nesting-related):
-            	- Failed at: ${item.getPSAppDataEntity().getCodeNa...  [in template "TEMPLCODE_zh_CN" at line 115, column 81]
-            ----
+            <template v-if="getColumnState('uagridcolumn1')">
+                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.productmodule.main_grid.columns.uagridcolumn1')" :width="50"  :align="'center'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.productmodule.main_grid.columns.uagridcolumn1')}}
+                      </span>
+                    </template>
+                    <template slot-scope="scope">
+                        <div style="text-align: center;">
+                            <tooltip :transfer="true" :max-width="600">
+                            <a @click="uiAction(scope.row, 'Remove', $event)">
+                              <i class='fa fa-remove'></i>
+                              
+                            </a>
+                            <div slot='content'>{{$t('entities.productmodule.main_grid.uiactions.productmodule_remove')}}</div>
+                            </tooltip>
+                        </div>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="adaptiveState">
                 <el-table-column></el-table-column>
             </template>
