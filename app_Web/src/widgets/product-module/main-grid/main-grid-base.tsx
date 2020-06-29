@@ -224,6 +224,43 @@ export class MainGridBase extends GridControllerBase {
     }
 
 
+    /**
+     * 导出数据格式化
+     *
+     * @param {*} filterVal
+     * @param {*} jsonData
+     * @param {any[]} [codelistColumns=[]]
+     * @returns {Promise<any>}
+     * @memberof MainGridBase
+     */
+    public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
+        return super.formatExcelData(filterVal, jsonData, [
+            {
+                name: 'branch',
+                srfkey: 'ProductBranch_Cache',
+                codelistType : 'DYNAMIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+        ];);
+    }
+
+
+    /**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof MainGridBase
+     */
+	public uiAction(row: any, tag: any, $event: any): void {
+        $event.stopPropagation();
+        if(Object.is('Remove', tag)) {
+            this.grid_uagridcolumn1_u0abbaeb_click(row, tag, $event);
+        }
+    }
 
     /**
      * 新建默认值

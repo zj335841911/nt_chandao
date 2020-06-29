@@ -241,4 +241,68 @@ export class MainGrid_SuitSubGridBase extends GridControllerBase {
     }
 
 
+    /**
+     * 导出数据格式化
+     *
+     * @param {*} filterVal
+     * @param {*} jsonData
+     * @param {any[]} [codelistColumns=[]]
+     * @returns {Promise<any>}
+     * @memberof MainGrid_SuitSubGridBase
+     */
+    public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
+        return super.formatExcelData(filterVal, jsonData, [
+            {
+                name: 'pri',
+                srfkey: 'Testcase__pri',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'type',
+                srfkey: 'Testcase__type',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'lastrunresult',
+                srfkey: 'Testcase__result',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'status',
+                srfkey: 'Testcase__status',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+        ];);
+    }
+
+
+    /**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof MainGrid_SuitSubGridBase
+     */
+	public uiAction(row: any, tag: any, $event: any): void {
+        $event.stopPropagation();
+        if(Object.is('OpenTestRunResultView', tag)) {
+            this.grid_uagridcolumn1_uc27cc64_click(row, tag, $event);
+        }
+        if(Object.is('Execute', tag)) {
+            this.grid_uagridcolumn1_u8fd0327_click(row, tag, $event);
+        }
+    }
 }

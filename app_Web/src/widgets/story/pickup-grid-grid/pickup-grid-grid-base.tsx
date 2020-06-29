@@ -136,4 +136,26 @@ export class PickupGridGridBase extends GridControllerBase {
     }
 
 
+    /**
+     * 导出数据格式化
+     *
+     * @param {*} filterVal
+     * @param {*} jsonData
+     * @param {any[]} [codelistColumns=[]]
+     * @returns {Promise<any>}
+     * @memberof PickupGridGridBase
+     */
+    public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
+        return super.formatExcelData(filterVal, jsonData, [
+            {
+                name: 'pri',
+                srfkey: 'Story__pri',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+        ];);
+    }
+
 }

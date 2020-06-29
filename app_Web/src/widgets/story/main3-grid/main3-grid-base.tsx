@@ -297,4 +297,66 @@ export class Main3GridBase extends GridControllerBase {
     }
 
 
+    /**
+     * 导出数据格式化
+     *
+     * @param {*} filterVal
+     * @param {*} jsonData
+     * @param {any[]} [codelistColumns=[]]
+     * @returns {Promise<any>}
+     * @memberof Main3GridBase
+     */
+    public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
+        return super.formatExcelData(filterVal, jsonData, [
+            {
+                name: 'pri',
+                srfkey: 'Story__pri',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'assignedto',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
+            {
+                name: 'status',
+                srfkey: 'Story__status',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+        ];);
+    }
+
+
+    /**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof Main3GridBase
+     */
+	public uiAction(row: any, tag: any, $event: any): void {
+        $event.stopPropagation();
+        if(Object.is('ChangeStoryDetail', tag)) {
+            this.grid_uagridcolumn1_u7b97712_click(row, tag, $event);
+        }
+        if(Object.is('CloseStory', tag)) {
+            this.grid_uagridcolumn1_u824d7d6_click(row, tag, $event);
+        }
+        if(Object.is('OpenBaseInfoEditView', tag)) {
+            this.grid_uagridcolumn1_u7480d3d_click(row, tag, $event);
+        }
+        if(Object.is('OpenCaseCreateView', tag)) {
+            this.grid_uagridcolumn1_u5aaa4ae_click(row, tag, $event);
+        }
+    }
 }

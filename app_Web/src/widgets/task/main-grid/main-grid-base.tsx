@@ -361,4 +361,80 @@ export class MainGridBase extends GridControllerBase {
     }
 
 
+    /**
+     * 导出数据格式化
+     *
+     * @param {*} filterVal
+     * @param {*} jsonData
+     * @param {any[]} [codelistColumns=[]]
+     * @returns {Promise<any>}
+     * @memberof MainGridBase
+     */
+    public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
+        return super.formatExcelData(filterVal, jsonData, [
+            {
+                name: 'pri',
+                srfkey: 'Task__pri',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'status',
+                srfkey: 'Task__status',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'assignedto',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
+            {
+                name: 'finishedby',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
+        ];);
+    }
+
+
+    /**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof MainGridBase
+     */
+	public uiAction(row: any, tag: any, $event: any): void {
+        $event.stopPropagation();
+        if(Object.is('AssignTask', tag)) {
+            this.grid_assignedto_click(row, tag, $event);
+        }
+        if(Object.is('StartTask', tag)) {
+            this.grid_uagridcolumn1_u7f3dc22_click(row, tag, $event);
+        }
+        if(Object.is('CloseTask', tag)) {
+            this.grid_uagridcolumn1_u164e1c8_click(row, tag, $event);
+        }
+        if(Object.is('DoneTask', tag)) {
+            this.grid_uagridcolumn1_u2618d3d_click(row, tag, $event);
+        }
+        if(Object.is('MainEdit', tag)) {
+            this.grid_uagridcolumn1_u90f5316_click(row, tag, $event);
+        }
+        if(Object.is('NewSubTask', tag)) {
+            this.grid_uagridcolumn1_ua6566df_click(row, tag, $event);
+        }
+    }
 }

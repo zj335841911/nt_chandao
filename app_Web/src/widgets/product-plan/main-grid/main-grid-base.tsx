@@ -229,4 +229,39 @@ export class MainGridBase extends GridControllerBase {
     }
 
 
+    /**
+     * 导出数据格式化
+     *
+     * @param {*} filterVal
+     * @param {*} jsonData
+     * @param {any[]} [codelistColumns=[]]
+     * @returns {Promise<any>}
+     * @memberof MainGridBase
+     */
+    public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
+        return super.formatExcelData(filterVal, jsonData, [
+        ];);
+    }
+
+
+    /**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof MainGridBase
+     */
+	public uiAction(row: any, tag: any, $event: any): void {
+        $event.stopPropagation();
+        if(Object.is('RelationStory', tag)) {
+            this.grid_actions_uaa449c7_click(row, tag, $event);
+        }
+        if(Object.is('RelationBug', tag)) {
+            this.grid_actions_uae31417_click(row, tag, $event);
+        }
+        if(Object.is('NewSubPlan', tag)) {
+            this.grid_actions_u663d352_click(row, tag, $event);
+        }
+    }
 }

@@ -297,4 +297,90 @@ export class MainGridBase extends GridControllerBase {
     }
 
 
+    /**
+     * 导出数据格式化
+     *
+     * @param {*} filterVal
+     * @param {*} jsonData
+     * @param {any[]} [codelistColumns=[]]
+     * @returns {Promise<any>}
+     * @memberof MainGridBase
+     */
+    public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
+        return super.formatExcelData(filterVal, jsonData, [
+            {
+                name: 'pri',
+                srfkey: 'Bug__pri',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'confirmed',
+                srfkey: 'YesNo2',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'status',
+                srfkey: 'Bug__status',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'openedby',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
+            {
+                name: 'assignedto',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
+            {
+                name: 'resolution',
+                srfkey: 'Bug__resolution',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+        ];);
+    }
+
+
+    /**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof MainGridBase
+     */
+	public uiAction(row: any, tag: any, $event: any): void {
+        $event.stopPropagation();
+        if(Object.is('ConfirmBug', tag)) {
+            this.grid_uagridcolumn1_ua4634db_click(row, tag, $event);
+        }
+        if(Object.is('ResolveBug', tag)) {
+            this.grid_uagridcolumn1_u0efb050_click(row, tag, $event);
+        }
+        if(Object.is('CloseBug', tag)) {
+            this.grid_uagridcolumn1_uc6d84c5_click(row, tag, $event);
+        }
+        if(Object.is('MainEdit', tag)) {
+            this.grid_uagridcolumn1_u953838c_click(row, tag, $event);
+        }
+    }
 }
