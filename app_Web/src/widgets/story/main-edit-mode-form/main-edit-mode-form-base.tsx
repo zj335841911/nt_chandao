@@ -361,7 +361,7 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
 
         grouppanel3: new FormGroupPanelModel({ caption: '其他相关', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.story.main_editmode_form', extractMode: 'ITEM', details: [] } }),
 
-        button1: new FormButtonModel({ caption: '保存并关闭', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this, uiaction: { type: 'DEUIACTION', tag: 'SaveAndExit' } }),
+        button1: new FormButtonModel({ caption: '保存', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this, uiaction: { type: 'DEUIACTION', tag: 'SaveAndExit' } }),
 
         button2: new FormButtonModel({ caption: '返回', detailType: 'BUTTON', name: 'button2', visible: true, isShowCaption: true, form: this, uiaction: { type: 'DEUIACTION', tag: 'Exit' } }),
 
@@ -522,7 +522,7 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
     }
 
 	/**
-	 * 表单 保存并关闭 事件
+	 * 表单 保存 事件
 	 *
 	 * @memberof @memberof Main_EditModeEditFormBase
 	 */

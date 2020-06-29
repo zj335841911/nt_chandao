@@ -171,7 +171,7 @@ export default {
 			grouppanel2: "分组面板", 
 			group2: "需求的一生", 
 			grouppanel3: "其他相关", 
-			button1: "保存并关闭", 
+			button1: "保存", 
 			button2: "返回", 
 			grouppanel4: "按钮", 
 			grouppanel6: "", 
