@@ -1337,7 +1337,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "storyreviewview": {
             "title": "需求评审",
-            "caption": "需求",
+            "caption": "需求评审",
             "viewtype": "DEOPTVIEW",
             "viewmodule": "zentao",
             "viewname": "StoryRevIewView",

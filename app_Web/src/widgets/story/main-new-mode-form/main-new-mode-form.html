@@ -99,7 +99,22 @@
 </i-col>
 <i-col v-show="detailsModel.reviewedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='reviewedby' :itemRules="this.rules.reviewedby" class='' :caption="$t('entities.story.main_newmode_form.details.reviewedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.reviewedby.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.reviewedby"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.reviewedby.disabled" type='text'  style=""></input-box>
+    
+<app-checkbox-list 
+  v-model="data.reviewedby" 
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams" 
+  :disabled="detailsModel.reviewedby.disabled" 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  tag='UserRealName' 
+  codelistType='DYNAMIC' 
+  valueSeparator=","
+  mode="str"
+  name="reviewedby" 
+  style="">
+</app-checkbox-list>
 </app-form-item>
 
 </i-col>

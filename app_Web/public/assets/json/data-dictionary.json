@@ -1275,7 +1275,7 @@
                 "text": "确认通过",
                 "data":"",
                 "codename":"Pass",
-                "value": pass,
+                "value": "pass",
                 
                 "disabled": false
             }
@@ -1285,7 +1285,7 @@
                 "text": "撤销变更",
                 "data":"",
                 "codename":"Revert",
-                "value": revert,
+                "value": "revert",
                 
                 "disabled": false
             }
@@ -1296,7 +1296,7 @@
                 "data":"",
                 "codename":"Clarify",
                 "color": "rgba(49, 27, 146, 1)",
-                "value": clarify,
+                "value": "clarify",
                 
                 "disabled": false
             }
@@ -1306,7 +1306,7 @@
                 "text": "拒绝",
                 "data":"",
                 "codename":"Reject",
-                "value": reject,
+                "value": "reject",
                 
                 "disabled": false
             }

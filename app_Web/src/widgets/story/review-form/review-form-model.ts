@@ -1,16 +1,16 @@
 /**
- * StorySpec_EditMode 部件模型
+ * Review 部件模型
  *
  * @export
- * @class StorySpec_EditModeModel
+ * @class ReviewModel
  */
-export default class StorySpec_EditModeModel {
+export default class ReviewModel {
 
   /**
   * 获取数据项集合
   *
   * @returns {any[]}
-  * @memberof StorySpec_EditModeModel
+  * @memberof ReviewModel
   */
   public getDataItems(): any[] {
     return [
@@ -51,38 +51,44 @@ export default class StorySpec_EditModeModel {
         name: 'srfsourcekey',
       },
       {
-        name: 'version',
-        prop: 'version',
-        dataType: 'INT',
-      },
-      {
-        name: 'reviewedby',
-        prop: 'reviewedby',
-        dataType: 'SMCODELIST',
-      },
-      {
-        name: 'notreview',
-      },
-      {
         name: 'title',
         prop: 'title',
         dataType: 'TEXT',
       },
       {
-        name: 'spec',
-        prop: 'spec',
+        name: 'revieweddate',
+        prop: 'revieweddate',
+        dataType: 'DATE',
+      },
+      {
+        name: 'result',
+        prop: 'result',
+        dataType: 'SSCODELIST',
+      },
+      {
+        name: 'pri',
+        prop: 'pri',
+        dataType: 'NSCODELIST',
+      },
+      {
+        name: 'estimate',
+        prop: 'estimate',
+        dataType: 'FLOAT',
+      },
+      {
+        name: 'closedreason',
+        prop: 'closedreason',
+        dataType: 'SSCODELIST',
+      },
+      {
+        name: 'assignedto',
+        prop: 'assignedto',
         dataType: 'TEXT',
       },
       {
-        name: 'verify',
-        prop: 'verify',
-        dataType: 'TEXT',
-      },
-      {
-        name: 'comment',
-      },
-      {
-        name: 'files',
+        name: 'reviewedby',
+        prop: 'reviewedby',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'id',

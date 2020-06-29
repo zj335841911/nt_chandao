@@ -133,7 +133,7 @@ export default class MainModel {
       {
         name: 'reviewedby',
         prop: 'reviewedby',
-        dataType: 'TEXT',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'revieweddate',

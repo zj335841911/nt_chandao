@@ -3406,6 +3406,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-report-main-tab-exp-view/test-report-main-tab-exp-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/reviewview/:reviewview?',
+                    meta: {
+                        caption: 'entities.story.views.reviewview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'reviewview', parameterName: 'reviewview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-rev-iew-view/story-rev-iew-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/reviewview/:reviewview?',
+                    meta: {
+                        caption: 'entities.story.views.reviewview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'reviewview', parameterName: 'reviewview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-rev-iew-view/story-rev-iew-view.vue'),
+                },
+                {
                     path: 'projects/:project?/gridview9_unclosed/:gridview9_unclosed?',
                     meta: {
                         caption: 'entities.project.views.gridview9_unclosed.title',

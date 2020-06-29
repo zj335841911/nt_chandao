@@ -77,6 +77,34 @@ export class MainGridBase extends GridControllerBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public grid_uagridcolumn1_uc74c61c_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:StoryUIService  = new StoryUIService();
+        curUIService.Story_ReviewStory(datas,contextJO, paramJO,  $event, xData,this,"Story");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public grid_uagridcolumn1_u824d7d6_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -380,6 +408,9 @@ export class MainGridBase extends GridControllerBase {
         $event.stopPropagation();
         if(Object.is('ChangeStoryDetail', tag)) {
             this.grid_uagridcolumn1_u7b97712_click(row, tag, $event);
+        }
+        if(Object.is('ReviewStory', tag)) {
+            this.grid_uagridcolumn1_uc74c61c_click(row, tag, $event);
         }
         if(Object.is('CloseStory', tag)) {
             this.grid_uagridcolumn1_u824d7d6_click(row, tag, $event);

@@ -125,6 +125,14 @@
                             </tooltip>
                             <divider type='vertical'></divider>
                             <tooltip :transfer="true" :max-width="600">
+                            <a @click="uiAction(scope.row, 'ReviewStory', $event)">
+                              <i class='fa fa-search'></i>
+                              
+                            </a>
+                            <div slot='content'>{{$t('entities.story.main3_grid.uiactions.story_reviewstory')}}</div>
+                            </tooltip>
+                            <divider type='vertical'></divider>
+                            <tooltip :transfer="true" :max-width="600">
                             <a @click="uiAction(scope.row, 'CloseStory', $event)">
                               <i class='fa fa-power-off'></i>
                               

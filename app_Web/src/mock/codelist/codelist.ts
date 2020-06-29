@@ -1283,7 +1283,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "确认通过",
                 "data":"",
                 "codename":"Pass",
-                value: pass,
+                value: 'pass',
                 
                 disabled: false,
             },
@@ -1293,7 +1293,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "撤销变更",
                 "data":"",
                 "codename":"Revert",
-                value: revert,
+                value: 'revert',
                 
                 disabled: false,
             },
@@ -1304,7 +1304,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Clarify",
                 "color": "rgba(49, 27, 146, 1)",
-                value: clarify,
+                value: 'clarify',
                 
                 disabled: false,
             },
@@ -1314,7 +1314,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "拒绝",
                 "data":"",
                 "codename":"Reject",
-                value: reject,
+                value: 'reject',
                 
                 disabled: false,
             },
