@@ -8,7 +8,7 @@
         :filterable="filterable === true ? true : false"
         @on-open-change="onClick"
         :placeholder="$t('components.dropDownList.placeholder')">
-        <i-option v-for="(item, index) in items" :key="index" :value="item.value">{{($t('codelist.'+tag+'.'+item.value)!== ('codelist.'+tag+'.'+item.value))?$t('codelist.'+tag+'.'+item.value) : item.text}}</i-option>
+        <i-option v-for="(item, index) in items" :key="index" :value="item.value.toString()">{{($t('codelist.'+tag+'.'+item.value)!== ('codelist.'+tag+'.'+item.value))?$t('codelist.'+tag+'.'+item.value) : item.text}}</i-option>
     </i-select>
 </template>
 
