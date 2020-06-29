@@ -123,6 +123,22 @@ export class EditFormControlBase extends FormControlBase {
                 const state = !Object.is(JSON.stringify(this.oldData), JSON.stringify(this.data)) ? true : false;
                 this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: state });
             });
+        this.accLocalTags.push(this.$acc.commandLocal((data: any) => {
+            if (data && this.data.srfkey === data.srfkey && (!data.___localUpdateDate || this.data.___localUpdateDate !== data.___localUpdateDate)) {
+                const appview = this.$store.getters['viewaction/getAppView'](this.viewtag);
+                if (appview && appview.viewdatachange) {
+                    this.$Modal.confirm({
+                        title: '数据已变更',
+                        content: '数据已变更，是否刷新数据?',
+                        onOk: () => {
+                            this.refresh([{}]);
+                        }
+                    });
+                } else {
+                    this.refresh([{}]);
+                }
+            }
+        }, 'update', this.appDeName.toUpperCase()));
     }
 
     /**
@@ -230,6 +246,7 @@ export class EditFormControlBase extends FormControlBase {
             this.onFormLoad(data, 'autoSave');
             this.$emit('save', data);
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
+            this.sendAccMessage(Object.is(data.srfuf, '1') ? 'update' : 'create');
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });
             });
@@ -291,6 +308,7 @@ export class EditFormControlBase extends FormControlBase {
                 this.onFormLoad(data, 'save');
                 this.$emit('save', data);
                 this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
+                this.sendAccMessage(Object.is(data.srfuf, '1') ? 'update' : 'create');
                 this.$nextTick(() => {
                     this.formState.next({ type: 'save', data: data });
                 });
@@ -628,6 +646,18 @@ export class EditFormControlBase extends FormControlBase {
                 }
             }
         });
+    }
+
+    /**
+     * 向消息中中心发送数据变更指令
+     *
+     * @protected
+     * @param {('update' | 'create' | 'remove')} type
+     * @memberof EditFormControlBase
+     */
+    protected sendAccMessage(type: 'update' | 'create' | 'remove'): void {
+        this.data.___localUpdateDate = new Date().getTime();
+        this.$acc.send[type](this.data, this.appDeName.toUpperCase());
     }
 
 }

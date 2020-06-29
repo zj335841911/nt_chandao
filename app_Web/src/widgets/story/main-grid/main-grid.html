@@ -112,7 +112,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('estimate')">
-                <el-table-column show-overflow-tooltip :prop="'estimate'" :label="$t('entities.story.main_grid.columns.estimate')" :width="70"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'estimate'" :label="$t('entities.story.main_grid.columns.estimate')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.story.main_grid.columns.estimate')}}

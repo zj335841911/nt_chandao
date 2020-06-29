@@ -193,6 +193,32 @@ export class MDControlBase extends MainControlBase {
     }
 
     /**
+     * 部件创建完毕
+     *
+     * @protected
+     * @memberof MDControlBase
+     */
+    protected ctrlCreated(): void {
+        this.accLocalTags.push(this.$acc.commandLocal((data: any) => {
+            if (data && data.srfkey) {
+                const i = this.items.findIndex((item: any) => Object.is(item.srfkey, data.srfkey));
+                if (i !== -1) {
+                    this.accChange(data)
+                }
+            }
+        }, 'all', this.appDeName.toUpperCase()));
+    }
+
+    /**
+     * 消息中心
+     *
+     * @protected
+     * @param {*} data
+     * @memberof MDControlBase
+     */
+    protected accChange(data: any): void { }
+
+    /**
      * 选择数据
      *
      * @param {*} args
