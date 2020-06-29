@@ -155,7 +155,7 @@ export class PickupGridGridBase extends GridControllerBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        ];);
+        ]);
     }
 
 }

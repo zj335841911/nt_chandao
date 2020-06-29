@@ -249,7 +249,7 @@ export class SubTaskNewGridBase extends GridControllerBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        ];);
+        ]);
     }
 
 }

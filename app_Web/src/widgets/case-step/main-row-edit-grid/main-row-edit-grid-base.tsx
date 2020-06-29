@@ -186,7 +186,7 @@ export class Main_RowEditGridBase extends GridControllerBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        ];);
+        ]);
     }
 
 }

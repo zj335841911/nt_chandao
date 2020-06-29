@@ -139,7 +139,7 @@ export class PlatformManagementGridBase extends GridControllerBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
-        ];);
+        ]);
     }
 
 }

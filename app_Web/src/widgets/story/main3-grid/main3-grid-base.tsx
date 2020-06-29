@@ -332,7 +332,7 @@ export class Main3GridBase extends GridControllerBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        ];);
+        ]);
     }
 
 

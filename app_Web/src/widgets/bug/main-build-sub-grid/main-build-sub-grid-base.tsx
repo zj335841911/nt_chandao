@@ -195,7 +195,7 @@ export class Main_BuildSubGridBase extends GridControllerBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
-        ];);
+        ]);
     }
 
 }

@@ -211,7 +211,7 @@ export class PickupGirdGridBase extends GridControllerBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
-        ];);
+        ]);
     }
 
 }

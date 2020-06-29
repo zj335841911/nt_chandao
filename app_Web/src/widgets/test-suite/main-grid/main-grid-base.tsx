@@ -171,7 +171,7 @@ export class MainGridBase extends GridControllerBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
-        ];);
+        ]);
     }
 
 }

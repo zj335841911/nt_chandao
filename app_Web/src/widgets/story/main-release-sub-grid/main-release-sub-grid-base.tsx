@@ -155,7 +155,7 @@ export class Main_ReleaseSubGridBase extends GridControllerBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        ];);
+        ]);
     }
 
 }

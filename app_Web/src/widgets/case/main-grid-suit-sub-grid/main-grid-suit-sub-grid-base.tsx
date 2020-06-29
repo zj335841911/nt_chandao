@@ -284,7 +284,7 @@ export class MainGrid_SuitSubGridBase extends GridControllerBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        ];);
+        ]);
     }
 
 

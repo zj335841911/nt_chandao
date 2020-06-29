@@ -195,7 +195,7 @@ export class Main_PlanSubGridBase extends GridControllerBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
-        ];);
+        ]);
     }
 
 }
