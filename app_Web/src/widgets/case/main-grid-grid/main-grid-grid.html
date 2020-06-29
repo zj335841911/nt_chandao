@@ -175,58 +175,16 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('uagridcolumn1')">
-                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.case.maingrid_grid.columns.uagridcolumn1')" :width="160"  :align="'center'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.case.maingrid_grid.columns.uagridcolumn1')}}
-                      </span>
-                    </template>
-                    <template slot-scope="scope">
-                        <div style="text-align: center;">
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'OpenTestRunResultView', $event)">
-                              <i class='fa fa-stack-overflow'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.case.maingrid_grid.uiactions.opentestrunresultview')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'Execute', $event)">
-                              <i class='fa fa-play-circle-o'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.case.maingrid_grid.uiactions.execute')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'MainEdit', $event)">
-                              <i class='fa fa-edit'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.case.maingrid_grid.uiactions.mainedit')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'NewBugByCaseResult', $event)">
-                              <i class='fa fa-bug'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.case.maingrid_grid.uiactions.newbugbycaseresult')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'Remove', $event)">
-                              <i class='fa fa-remove'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.case.maingrid_grid.uiactions.remove')}}</div>
-                            </tooltip>
-                        </div>
-                    </template>
-                </el-table-column>
-            </template>
+            !!!!模版产生代码错误:----
+            Tip: It's the step after the last dot that caused this error, not those before it.
+            ----
+            Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+            ----
+            
+            ----
+            FTL stack trace ("~" means nesting-related):
+            	- Failed at: ${item.getPSAppDataEntity().getCodeNa...  [in template "TEMPLCODE_zh_CN" at line 115, column 81]
+            ----
             <template v-if="adaptiveState">
                 <el-table-column></el-table-column>
             </template>
