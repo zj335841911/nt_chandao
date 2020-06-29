@@ -1,6 +1,6 @@
 import ProductPlanService from '@service/product-plan/product-plan-service';
 /**
- * 代码表--产品计划（动态）
+ * 代码表--当前产品计划（动态）
  *
  * @export
  * @class CurProductPlan
@@ -101,7 +101,7 @@ export default class CurProductPlan {
     public getItems(context: any={}, data: any={}, isloading?: boolean): Promise<any> {
         return new Promise((resolve, reject) => {
             data = this.handleQueryParam(data);
-            const promise: Promise<any> = this.productplanService.FetchCurProductPlan(context, data, isloading);
+            const promise: Promise<any> = this.productplanService.FetchDefault(context, data, isloading);
             promise.then((response: any) => {
                 if (response && response.status === 200) {
                     const data =  response.data;

@@ -1,17 +1,17 @@
-import StorySpecService from '@service/story-spec/story-spec-service';
+import BuildService from '@service/build/build-service';
 /**
- * 代码表--当前需求版本（动态）
+ * 代码表--当前产品版本（动态）
  *
  * @export
- * @class CurStory
+ * @class CurProductBuild
  */
-export default class CurStory {
+export default class CurProductBuild {
 
     /**
      * 是否启用缓存
      *
      * @type boolean
-     * @memberof CurStory
+     * @memberof CurProductBuild
      */
     public isEnableCache:boolean = false;
 
@@ -19,7 +19,7 @@ export default class CurStory {
      * 过期时间
      *
      * @type any
-     * @memberof CurStory
+     * @memberof CurProductBuild
      */
     public expirationTime:any;
 
@@ -27,7 +27,7 @@ export default class CurStory {
      * 缓存超长时长
      *
      * @type any
-     * @memberof CurStory
+     * @memberof CurProductBuild
      */
     public cacheTimeout:any = -1;
 
@@ -35,17 +35,17 @@ export default class CurStory {
      * 代码表模型对象
      *
      * @type any
-     * @memberof CurStory
+     * @memberof CurProductBuild
      */
     public codelistModel:any = {
-        codelistid:"CurStory"
+        codelistid:"CurProductBuild"
     };
 
     /**
      * 自定义参数集合
      *
      * @type any
-     * @memberof CurStory
+     * @memberof CurProductBuild
      */
     public userParamNames:any ={
     }
@@ -54,19 +54,18 @@ export default class CurStory {
      * 查询参数集合
      *
      * @type any
-     * @memberof CurStory
+     * @memberof CurProductBuild
      */
     public queryParamNames:any ={
-        sort: 'version,desc'
     }
 
     /**
-     * 需求描述应用实体服务对象
+     * build应用实体服务对象
      *
-     * @type {StorySpecService}
-     * @memberof CurStory
+     * @type {BuildService}
+     * @memberof CurProductBuild
      */
-    public storyspecService: StorySpecService = new StorySpecService();
+    public buildService: BuildService = new BuildService();
 
 
     /**
@@ -75,15 +74,15 @@ export default class CurStory {
      * @public
      * @param {any[]} items
      * @returns {any[]}
-     * @memberof CurStory
+     * @memberof CurProductBuild
      */
     public doItems(items: any[]): any[] {
         let _items: any[] = [];
         items.forEach((item: any) => {
             let itemdata:any = {};
-            Object.assign(itemdata,{id:item.version});
-            Object.assign(itemdata,{value:item.version});
-            Object.assign(itemdata,{text:item.version});
+            Object.assign(itemdata,{id:item.id});
+            Object.assign(itemdata,{value:item.id});
+            Object.assign(itemdata,{text:item.name});
             
             _items.push(itemdata);
         });
@@ -97,12 +96,12 @@ export default class CurStory {
      * @param {*} data
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof CurStory
+     * @memberof CurProductBuild
      */
     public getItems(context: any={}, data: any={}, isloading?: boolean): Promise<any> {
         return new Promise((resolve, reject) => {
             data = this.handleQueryParam(data);
-            const promise: Promise<any> = this.storyspecService.FetchDefault(context, data, isloading);
+            const promise: Promise<any> = this.buildService.FetchDefault(context, data, isloading);
             promise.then((response: any) => {
                 if (response && response.status === 200) {
                     const data =  response.data;
@@ -120,7 +119,7 @@ export default class CurStory {
     /**
      * 处理查询参数
      * @param data 传入data
-     * @memberof CurStory
+     * @memberof CurProductBuild
      */
     public handleQueryParam(data:any){
         let tempData:any = data?JSON.parse(JSON.stringify(data)):{};

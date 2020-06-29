@@ -421,6 +421,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "CurProductPlan",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"ProductPlan",
+        "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
         srfkey: 'Task_quickpacket',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -771,7 +779,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
-        "srfkey": "ProductBuild",
+        "srfkey": "CurProductBuild",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"Build",
@@ -2614,7 +2622,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
-        "srfkey": "CurProductPlan",
+        "srfkey": "ProductPlan",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"ProductPlan",

@@ -60,6 +60,9 @@ export default {
         'closed': "已关闭",
         empty: "",
     },
+    CurProductPlan: {
+        empty: "",
+    },
     Task_quickpacket: {
         'All': "所有",
         'UNCLOSED': "未关闭",
@@ -104,7 +107,7 @@ export default {
     ProductBranch: {
         empty: "",
     },
-    ProductBuild: {
+    CurProductBuild: {
         empty: "",
     },
     Product__type: {
@@ -333,7 +336,7 @@ export default {
         'webhook': "Webhook",
         empty: "",
     },
-    CurProductPlan: {
+    ProductPlan: {
         empty: "",
     },
     Task__pri: {
