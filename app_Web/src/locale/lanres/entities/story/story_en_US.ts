@@ -44,6 +44,7 @@ export default {
     tobug: "转Bug",
     spec: "需求描述",
     verify: "验收标准",
+    result: "评审结果",
   },
 	views: {
 		reportsubgridview: {
@@ -125,6 +126,10 @@ export default {
 		main2gridview: {
 			caption: "需求",
       		title: "story表格视图",
+		},
+		reviewview: {
+			caption: "需求",
+      		title: "需求评审",
 		},
 		editview_storychange: {
 			caption: "变更",
@@ -310,6 +315,38 @@ export default {
 			lastediteddate: "于", 
 			id: "编号", 
 			product: "所属产品", 
+		},
+		uiactions: {
+		},
+	},
+	review_form: {
+		details: {
+			grouppanel2: "评审通过", 
+			grouppanel3: "拒绝", 
+			grouppanel1: "分组面板", 
+			tabpage1: "影响项目", 
+			tabpage2: "影响Bug", 
+			tabpage3: "影响用例", 
+			tabpanel1: "", 
+			druipart1: "", 
+			group1: "需求基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "需求名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			title: "需求名称", 
+			revieweddate: "评审时间", 
+			result: "评审结果", 
+			pri: "优先级", 
+			estimate: "预计工时", 
+			closedreason: "拒绝原因", 
+			assignedto: "指派给", 
+			reviewedby: "由谁评审", 
+			id: "编号", 
 		},
 		uiactions: {
 		},

@@ -73,69 +73,9 @@ export class QuickCreateEditFormBase extends EditFormControlBase {
      * @memberof QuickCreateEditFormBase
      */
     public rules: any = {
-        srforikey: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfkey: [
-            { required: false, type: 'number', message: 'ID 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: 'ID 值不能为空', trigger: 'blur' },
-        ],
-        srfmajortext: [
-            { required: false, type: 'string', message: '发布名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '发布名称 值不能为空', trigger: 'blur' },
-        ],
-        srftempmode: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfuf: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfdeid: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfsourcekey: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        product: [
-            { required: false, type: 'number', message: '产品 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '产品 值不能为空', trigger: 'blur' },
-        ],
-        productname: [
-            { required: false, type: 'string', message: '产品名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '产品名称 值不能为空', trigger: 'blur' },
-        ],
         name: [
             { required: true, type: 'string', message: '发布名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '发布名称 值不能为空', trigger: 'blur' },
-        ],
-        buildname: [
-            { required: false, type: 'string', message: '版本 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '版本 值不能为空', trigger: 'blur' },
-        ],
-        date: [
-            { required: false, type: 'string', message: '发布日期 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '发布日期 值不能为空', trigger: 'blur' },
-        ],
-        marker: [
-            { required: false, type: 'number', message: '里程碑 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '里程碑 值不能为空', trigger: 'blur' },
-        ],
-        desc: [
-            { required: false, type: 'string', message: '描述 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '描述 值不能为空', trigger: 'blur' },
-        ],
-        id: [
-            { required: false, type: 'number', message: 'ID 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: 'ID 值不能为空', trigger: 'blur' },
-        ],
-        build: [
-            { required: false, type: 'number', message: '版本 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '版本 值不能为空', trigger: 'blur' },
         ],
     }
 

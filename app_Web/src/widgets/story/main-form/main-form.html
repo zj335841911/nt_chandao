@@ -183,7 +183,7 @@
 <i-col v-show="detailsModel.reviewedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='reviewedby' :itemRules="this.rules.reviewedby" class='' :caption="$t('entities.story.main_form.details.reviewedby')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.reviewedby.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<app-span name='reviewedby' :value="data.reviewedby" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+<app-span name='reviewedby' :value="data.reviewedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>

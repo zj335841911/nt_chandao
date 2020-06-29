@@ -144,6 +144,9 @@ export default class StoryspecModel {
       {
         name: 'verify',
       },
+      {
+        name: 'result',
+      },
     ]
   }
 

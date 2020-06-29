@@ -149,7 +149,7 @@ export default class MainEditModel {
       {
         name: 'openedby',
         prop: 'openedby',
-        dataType: 'TEXT',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'realstarted',
@@ -159,7 +159,7 @@ export default class MainEditModel {
       {
         name: 'finishedby',
         prop: 'finishedby',
-        dataType: 'TEXT',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'finisheddate',
@@ -169,7 +169,7 @@ export default class MainEditModel {
       {
         name: 'canceledby',
         prop: 'canceledby',
-        dataType: 'TEXT',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'canceleddate',
@@ -179,7 +179,7 @@ export default class MainEditModel {
       {
         name: 'closedby',
         prop: 'closedby',
-        dataType: 'TEXT',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'closedreason',

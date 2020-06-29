@@ -1335,6 +1335,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ActionAllTrendsListView",
             "viewtag": "df57be69540a2e80fee7f3575162b93a"
         },
+        "storyreviewview": {
+            "title": "需求评审",
+            "caption": "需求",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryRevIewView",
+            "viewtag": "df5a966e312ca9c5f5a41428bc2e2672"
+        },
         "producteditview": {
             "title": "product编辑视图",
             "caption": "产品",

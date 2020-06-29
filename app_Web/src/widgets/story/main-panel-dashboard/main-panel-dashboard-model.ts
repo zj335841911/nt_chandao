@@ -144,6 +144,9 @@ export default class MainPanelModel {
       {
         name: 'verify',
       },
+      {
+        name: 'result',
+      },
     ]
   }
 

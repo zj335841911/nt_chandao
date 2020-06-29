@@ -349,4 +349,12 @@ export interface Story {
      * @memberof Story
      */
     verify?: any;
+
+    /**
+     * 评审结果
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    result?: any;
 }

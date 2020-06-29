@@ -47,12 +47,12 @@
                     </div>
                 </div>
             </div>
-            <card v-if="isShowButton" :dis-hover="true" :bordered="false" class="footer">
-                <row :style="{ textAlign: 'right' }">
-                    <i-button type="primary"  :disabled="this.viewSelections.length > 0 ? false : true" @click="onClickOk.apply(_self, arguments)">{{this.containerModel.view_okbtn.text}}</i-button>
-                        &nbsp;&nbsp;
-                    <i-button @click="onClickCancel.apply(_self, arguments)">{{this.containerModel.view_cancelbtn.text}}</i-button>
-                </row>
-            </card>
         </div>
+        <template slot="footer">
+            <div v-if="isShowButton" :style="{ textAlign: 'right' }">
+                <i-button type="primary"  :disabled="this.viewSelections.length > 0 ? false : true" @click="onClickOk.apply(_self, arguments)">{{this.containerModel.view_okbtn.text}}</i-button>
+                    &nbsp;&nbsp;
+                <i-button @click="onClickCancel.apply(_self, arguments)">{{this.containerModel.view_cancelbtn.text}}</i-button>
+            </div>
+        </template>
 </studio-view>

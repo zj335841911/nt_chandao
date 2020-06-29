@@ -73,69 +73,9 @@ export class QuickCreateEditFormBase extends EditFormControlBase {
      * @memberof QuickCreateEditFormBase
      */
     public rules: any = {
-        srforikey: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfkey: [
-            { required: false, type: 'number', message: 'id 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: 'id 值不能为空', trigger: 'blur' },
-        ],
-        srfmajortext: [
-            { required: false, type: 'string', message: '名称编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '名称编号 值不能为空', trigger: 'blur' },
-        ],
-        srftempmode: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfuf: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfdeid: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfsourcekey: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        productname: [
-            { required: false, type: 'string', message: '产品 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '产品 值不能为空', trigger: 'blur' },
-        ],
         name: [
             { required: true, type: 'string', message: '名称编号 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '名称编号 值不能为空', trigger: 'blur' },
-        ],
-        builder: [
-            { required: false, type: 'string', message: '构建者 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '构建者 值不能为空', trigger: 'blur' },
-        ],
-        date: [
-            { required: false, type: 'string', message: '打包日期 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '打包日期 值不能为空', trigger: 'blur' },
-        ],
-        scmpath: [
-            { required: false, type: 'string', message: '源代码地址 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '源代码地址 值不能为空', trigger: 'blur' },
-        ],
-        filepath: [
-            { required: false, type: 'string', message: '下载地址 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '下载地址 值不能为空', trigger: 'blur' },
-        ],
-        desc: [
-            { required: false, type: 'string', message: '描述 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '描述 值不能为空', trigger: 'blur' },
-        ],
-        id: [
-            { required: false, type: 'number', message: 'id 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: 'id 值不能为空', trigger: 'blur' },
-        ],
-        product: [
-            { required: false, type: 'number', message: '产品 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '产品 值不能为空', trigger: 'blur' },
         ],
     }
 

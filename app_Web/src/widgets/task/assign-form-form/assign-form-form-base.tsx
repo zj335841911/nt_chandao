@@ -78,54 +78,6 @@ export class AssignFormEditFormBase extends EditFormControlBase {
      * @memberof AssignFormEditFormBase
      */
     public rules: any = {
-        srfupdatedate: [
-            { required: false, type: 'string', message: '最后修改日期 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '最后修改日期 值不能为空', trigger: 'blur' },
-        ],
-        srforikey: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfkey: [
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
-        ],
-        srfmajortext: [
-            { required: false, type: 'string', message: '任务名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
-        ],
-        srftempmode: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfuf: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfdeid: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfsourcekey: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        assignedto: [
-            { required: false, type: 'string', message: '指派给 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '指派给 值不能为空', trigger: 'blur' },
-        ],
-        left: [
-            { required: false, type: 'number', message: '预计剩余 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '预计剩余 值不能为空', trigger: 'blur' },
-        ],
-        comment: [
-            { required: false, type: 'string', message: '备注 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '备注 值不能为空', trigger: 'blur' },
-        ],
-        id: [
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
-        ],
     }
 
     /**

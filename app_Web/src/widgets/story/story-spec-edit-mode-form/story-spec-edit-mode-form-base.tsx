@@ -82,69 +82,9 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
      * @memberof StorySpec_EditModeEditFormBase
      */
     public rules: any = {
-        srforikey: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfkey: [
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
-        ],
-        srfmajortext: [
-            { required: false, type: 'string', message: '需求名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '需求名称 值不能为空', trigger: 'blur' },
-        ],
-        srftempmode: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfuf: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfdeid: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfsourcekey: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        version: [
-            { required: false, type: 'number', message: '版本# 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '版本# 值不能为空', trigger: 'blur' },
-        ],
-        reviewedby: [
-            { required: false, type: 'string', message: '由谁评审 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '由谁评审 值不能为空', trigger: 'blur' },
-        ],
-        notreview: [
-            { required: false, type: 'string', message: '不需要评审 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '不需要评审 值不能为空', trigger: 'blur' },
-        ],
         title: [
             { required: true, type: 'string', message: '需求名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '需求名称 值不能为空', trigger: 'blur' },
-        ],
-        spec: [
-            { required: false, type: 'string', message: '需求描述 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '需求描述 值不能为空', trigger: 'blur' },
-        ],
-        verify: [
-            { required: false, type: 'string', message: '验收标准 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '验收标准 值不能为空', trigger: 'blur' },
-        ],
-        comment: [
-            { required: false, type: 'string', message: '备注 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '备注 值不能为空', trigger: 'blur' },
-        ],
-        files: [
-            { required: false, type: 'string', message: '附件 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '附件 值不能为空', trigger: 'blur' },
-        ],
-        id: [
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
         ],
     }
 

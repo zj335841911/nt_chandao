@@ -84,113 +84,17 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public rules: any = {
-        srfupdatedate: [
-            { required: false, type: 'string', message: '最后修改日期 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '最后修改日期 值不能为空', trigger: 'blur' },
-        ],
-        srforikey: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfkey: [
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
-        ],
-        srfmajortext: [
-            { required: false, type: 'string', message: '任务名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
-        ],
-        srftempmode: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfuf: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfdeid: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfsourcekey: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
         projectname: [
             { required: true, type: 'string', message: '所属项目 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '所属项目 值不能为空', trigger: 'blur' },
-        ],
-        project: [
-            { required: false, type: 'number', message: '所属项目 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '所属项目 值不能为空', trigger: 'blur' },
         ],
         type: [
             { required: true, type: 'string', message: '任务类型 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '任务类型 值不能为空', trigger: 'blur' },
         ],
-        modulename: [
-            { required: false, type: 'string', message: '所属模块 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '所属模块 值不能为空', trigger: 'blur' },
-        ],
-        formitem: [
-            { required: false, type: 'string', message: '所有模块 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '所有模块 值不能为空', trigger: 'blur' },
-        ],
-        assignedto: [
-            { required: false, type: 'string', message: '指派给 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '指派给 值不能为空', trigger: 'blur' },
-        ],
-        formitem1: [
-            { required: false, type: 'string', message: '多人任务 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '多人任务 值不能为空', trigger: 'blur' },
-        ],
-        story: [
-            { required: false, type: 'number', message: '相关需求 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '相关需求 值不能为空', trigger: 'blur' },
-        ],
-        storyname: [
-            { required: false, type: 'string', message: '相关需求 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '相关需求 值不能为空', trigger: 'blur' },
-        ],
         name: [
             { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
-        ],
-        pri: [
-            { required: false, type: 'number', message: '优先级 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '优先级 值不能为空', trigger: 'blur' },
-        ],
-        estimate: [
-            { required: false, type: 'number', message: '预计 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '预计 值不能为空', trigger: 'blur' },
-        ],
-        desc: [
-            { required: false, type: 'string', message: '任务描述 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '任务描述 值不能为空', trigger: 'blur' },
-        ],
-        estsarted: [
-            { required: false, type: 'string', message: '预计开始 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '预计开始 值不能为空', trigger: 'blur' },
-        ],
-        deadline: [
-            { required: false, type: 'string', message: '截止日期 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '截止日期 值不能为空', trigger: 'blur' },
-        ],
-        formitemex1: [
-            { required: false, type: 'string', message: '日程规划 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '日程规划 值不能为空', trigger: 'blur' },
-        ],
-        mailto: [
-            { required: false, type: 'string', message: '抄送给 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '抄送给 值不能为空', trigger: 'blur' },
-        ],
-        id: [
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
-        ],
-        module: [
-            { required: false, type: 'number', message: 'id 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: 'id 值不能为空', trigger: 'blur' },
         ],
     }
 

@@ -69,7 +69,7 @@
     viewname='action-history-list-view' 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved($event)"
-    style=";overflow: auto;">
+    style="overflow: auto;">
 </app-form-druipart>
 
 </i-col>
@@ -279,7 +279,19 @@
     <row>
         <i-col v-show="detailsModel.openedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='openedby' :itemRules="this.rules.openedby" class='' :caption="$t('entities.task.mainedit_form.details.openedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.openedby.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.openedby"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.openedby.disabled" type='text'  style=""></input-box>
+    
+ <dropdown-list 
+    v-model="data.openedby" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.openedby.disabled"  
+    tag='UserRealName' 
+    codelistType='DYNAMIC'
+    placeholder='请选择...' style="">
+ </dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -291,7 +303,19 @@
 </i-col>
 <i-col v-show="detailsModel.finishedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='finishedby' :itemRules="this.rules.finishedby" class='' :caption="$t('entities.task.mainedit_form.details.finishedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.finishedby.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.finishedby"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.finishedby.disabled" type='text'  style=""></input-box>
+    
+ <dropdown-list 
+    v-model="data.finishedby" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.finishedby.disabled"  
+    tag='UserRealName' 
+    codelistType='DYNAMIC'
+    placeholder='请选择...' style="">
+ </dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -303,7 +327,19 @@
 </i-col>
 <i-col v-show="detailsModel.canceledby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='canceledby' :itemRules="this.rules.canceledby" class='' :caption="$t('entities.task.mainedit_form.details.canceledby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.canceledby.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.canceledby"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.canceledby.disabled" type='text'  style=""></input-box>
+    
+ <dropdown-list 
+    v-model="data.canceledby" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.canceledby.disabled"  
+    tag='UserRealName' 
+    codelistType='DYNAMIC'
+    placeholder='请选择...' style="">
+ </dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -315,7 +351,19 @@
 </i-col>
 <i-col v-show="detailsModel.closedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='closedby' :itemRules="this.rules.closedby" class='' :caption="$t('entities.task.mainedit_form.details.closedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.closedby.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.closedby"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.closedby.disabled" type='text'  style=""></input-box>
+    
+ <dropdown-list 
+    v-model="data.closedby" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.closedby.disabled"  
+    tag='UserRealName' 
+    codelistType='DYNAMIC'
+    placeholder='请选择...' style="">
+ </dropdown-list>
 </app-form-item>
 
 </i-col>
