@@ -30,6 +30,17 @@ export class StoryMainView9_EditModeBase extends EditView9Base {
      */    
     protected counterServiceArray: Array<any> = [];
 
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof StoryMainView9_EditModeBase
+	 */
+    protected customViewParams: any = {
+        'product': { isRawValue: false, value: 'product' }
+    };
+
     /**
      * 视图模型数据
      *

@@ -33,6 +33,9 @@ export default {
         '#ff4e3e': "#ff4e3e",
         empty: "",
     },
+    ProductBranch_Cache: {
+        empty: "",
+    },
     Casestep__type: {
         'step': "步骤",
         'group': "分组",

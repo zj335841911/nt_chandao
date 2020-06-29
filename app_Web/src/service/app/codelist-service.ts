@@ -1,3 +1,4 @@
+import ProductBranch_Cache from '@/codelist/product-branch-cache';   
 import UserRealName from '@/codelist/user-real-name';   
 import ProductBranch from '@/codelist/product-branch';   
 import ProductBuild from '@/codelist/product-build';   
@@ -56,6 +57,14 @@ export default class CodeListService {
      */
     public static codelistCached:Map<string,any> = new Map();
 
+
+    /**
+     * 代码表--产品平台（动态）_缓存
+     *
+     * @type {ProductBranch_Cache}
+     * @memberof CodeListService
+     */
+    public ProductBranch_Cache: ProductBranch_Cache = new ProductBranch_Cache();
 
     /**
      * 代码表--用户真实名称（动态）

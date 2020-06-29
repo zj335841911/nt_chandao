@@ -265,6 +265,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "ProductBranch_Cache",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Branch",
+        "appdedataset":"FetchCurProduct",
+        "items": []
+    },
+    {
         srfkey: 'Casestep__type',
         emptytext: '未定义',
         "codelisttype":"static",

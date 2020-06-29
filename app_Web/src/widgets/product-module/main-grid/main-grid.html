@@ -69,7 +69,7 @@
               :viewparams="viewparams" 
               :localContext ='{ }' 
               :localParam ='{ }' 
-              tag='ProductBranch' 
+              tag='ProductBranch_Cache' 
               codelistType='DYNAMIC'
               placeholder='请选择...' 
               style="" 
@@ -79,7 +79,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <codelist :value="row.branch" tag='ProductBranch' codelistType='DYNAMIC' ></codelist>
+            <codelist :value="row.branch" tag='ProductBranch_Cache' codelistType='DYNAMIC' ></codelist>
                         </template>
                     </template>
                 </el-table-column>
