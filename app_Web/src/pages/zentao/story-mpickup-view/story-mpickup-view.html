@@ -21,20 +21,20 @@
                     <div class="buttons">
                         <i-button type="primary" :title="this.containerModel.view_rightbtn.text"
                             :disabled="this.containerModel.view_rightbtn.disabled"
-                            @click="onCLickRight">
+                            @click="onCLickRight.apply(_self, arguments)">
                             <i class="el-icon-arrow-right"></i>
                         </i-button>
                         <i-button type="primary" :title="this.containerModel.view_leftbtn.text"
                             :disabled="this.containerModel.view_leftbtn.disabled"
-                            @click="onCLickLeft">
+                            @click="onCLickLeft.apply(_self, arguments)">
                             <i class="el-icon-arrow-left"></i>
                         </i-button>
                         <i-button type="primary" :title="this.containerModel.view_allrightbtn.text"
-                            @click="onCLickAllRight">
+                            @click="onCLickAllRight.apply(_self, arguments)">
                             <i class="el-icon-d-arrow-right"></i>
                         </i-button>
                         <i-button type="primary" :title="this.containerModel.view_allleftbtn.text"
-                            @click="onCLickAllLeft">
+                            @click="onCLickAllLeft.apply(_self, arguments)">
                             <i class="el-icon-d-arrow-left"></i>
                         </i-button>
                     </div>

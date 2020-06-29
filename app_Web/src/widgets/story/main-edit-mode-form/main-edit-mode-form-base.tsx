@@ -41,6 +41,113 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
     protected appDeName: string = 'story';
 
     /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public form_button1_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.SaveAndExit(datas, contextJO,paramJO,  $event, xData,this,"Story");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public form_button2_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.Exit(datas, contextJO,paramJO,  $event, xData,this,"Story");
+    }
+
+    /**
+     * 保存并关闭
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof StoryMainView9_EditModeBase
+     */
+    public SaveAndExit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        const _this: any = this;
+        if (xData && xData.saveAndExit instanceof Function) {
+            xData.saveAndExit().then((response: any) => {
+                if (!response || response.status !== 200) {
+                    return;
+                }
+                if(window.parent){
+                    window.parent.postMessage([{ ...response.data }],'*');
+                }
+            });
+        } else if (_this.saveAndExit && _this.saveAndExit instanceof Function) {
+            _this.saveAndExit().then((response: any) => {
+                if (!response || response.status !== 200) {
+                    return;
+                }
+                if(window.parent){
+                    window.parent.postMessage([{ ...response.data }],'*');
+                }
+            });
+        }
+    }
+
+    /**
+     * 返回
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof StoryMainView9_EditModeBase
+     */
+    public Exit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        this.closeView(args);
+        if(window.parent){
+            window.parent.postMessage([{ ...args }],'*');
+        }
+    }
+
+
+    /**
      * 关系界面数量
      *
      * @protected
@@ -254,6 +361,12 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
 
         grouppanel3: new FormGroupPanelModel({ caption: '其他相关', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.story.main_editmode_form', extractMode: 'ITEM', details: [] } }),
 
+        button1: new FormButtonModel({ caption: '保存并关闭', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this, uiaction: { type: 'DEUIACTION', tag: 'SaveAndExit' } }),
+
+        button2: new FormButtonModel({ caption: '返回', detailType: 'BUTTON', name: 'button2', visible: true, isShowCaption: true, form: this, uiaction: { type: 'DEUIACTION', tag: 'Exit' } }),
+
+        grouppanel4: new FormGroupPanelModel({ caption: '按钮', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.story.main_editmode_form', extractMode: 'ITEM', details: [] } }),
+
         grouppanel6: new FormGroupPanelModel({ caption: '', detailType: 'GROUPPANEL', name: 'grouppanel6', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.story.main_editmode_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this }),
@@ -376,6 +489,9 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
 
 
 
+
+
+
         if (Object.is(name, '') || Object.is(name, 'openeddate')) {
             let ret = false;
             const _openeddate = this.data.openeddate;
@@ -403,5 +519,25 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
             const details: string[] = ['verify', 'spec'];
             this.updateFormItems('GetStorySpec', this.data, details, true);
         }
+    }
+
+	/**
+	 * 表单 保存并关闭 事件
+	 *
+	 * @memberof @memberof Main_EditModeEditFormBase
+	 */
+    public button1_click($event: any): void {
+        this.form_button1_click(null, null, $event);
+
+    }
+
+	/**
+	 * 表单 返回 事件
+	 *
+	 * @memberof @memberof Main_EditModeEditFormBase
+	 */
+    public button2_click($event: any): void {
+        this.form_button2_click(null, null, $event);
+
     }
 }

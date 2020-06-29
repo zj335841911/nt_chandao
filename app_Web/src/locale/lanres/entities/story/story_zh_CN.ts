@@ -171,6 +171,9 @@ export default {
 			grouppanel2: "分组面板", 
 			group2: "需求的一生", 
 			grouppanel3: "其他相关", 
+			button1: "保存并关闭", 
+			button2: "返回", 
+			grouppanel4: "按钮", 
 			grouppanel6: "", 
 			formpage1: "基本信息", 
 			srforikey: "", 
@@ -206,6 +209,8 @@ export default {
 			module: "所属模块", 
 		},
 		uiactions: {
+			saveandexit: "保存并关闭",
+			exit: "返回",
 		},
 	},
 	main_newmode_form: {
@@ -425,12 +430,6 @@ export default {
 		},
 	},
 	editview_storychangetoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
-		},
-	},
-	mainview9_editmodetoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
