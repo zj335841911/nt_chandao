@@ -46,23 +46,23 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
 
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IBugService bugService;
+    protected cn.ibizlab.pms.core.zentao.service.IBugService bugService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ICaseService caseService;
+    protected cn.ibizlab.pms.core.zentao.service.ICaseService caseService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IDocService docService;
+    protected cn.ibizlab.pms.core.zentao.service.IDocService docService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IProductService productService;
+    protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
 
-    private cn.ibizlab.pms.core.zentao.service.IModuleService moduleService = this;
+    protected cn.ibizlab.pms.core.zentao.service.IModuleService moduleService = this;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IBranchService branchService;
+    protected cn.ibizlab.pms.core.zentao.service.IBranchService branchService;
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     public Module getDraft(Module et) {

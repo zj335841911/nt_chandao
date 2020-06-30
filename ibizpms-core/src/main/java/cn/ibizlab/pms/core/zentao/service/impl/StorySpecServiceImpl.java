@@ -46,9 +46,9 @@ public class StorySpecServiceImpl extends ServiceImpl<StorySpecMapper, StorySpec
 
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IStoryService storyService;
+    protected cn.ibizlab.pms.core.zentao.service.IStoryService storyService;
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     public boolean checkKey(StorySpec et) {
@@ -161,6 +161,15 @@ public class StorySpecServiceImpl extends ServiceImpl<StorySpecMapper, StorySpec
         this.remove(new QueryWrapper<StorySpec>().eq("story",id));
     }
 
+
+    /**
+     * 查询集合 版本
+     */
+    @Override
+    public Page<StorySpec> searchVersion(StorySpecSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<StorySpec> pages=baseMapper.searchVersion(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<StorySpec>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
 
     /**
      * 查询集合 DEFAULT

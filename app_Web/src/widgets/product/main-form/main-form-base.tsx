@@ -75,34 +75,6 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public rules: any = {
-        srforikey: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfkey: [
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
-        ],
-        srfmajortext: [
-            { required: false, type: 'string', message: '产品名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '产品名称 值不能为空', trigger: 'blur' },
-        ],
-        srftempmode: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfuf: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfdeid: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfsourcekey: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
         name: [
             { required: true, type: 'string', message: '产品名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '产品名称 值不能为空', trigger: 'blur' },
@@ -110,42 +82,6 @@ export class MainEditFormBase extends EditFormControlBase {
         code: [
             { required: true, type: 'string', message: '产品代号 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '产品代号 值不能为空', trigger: 'blur' },
-        ],
-        line: [
-            { required: false, type: 'number', message: '产品线 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '产品线 值不能为空', trigger: 'blur' },
-        ],
-        linename: [
-            { required: false, type: 'string', message: '产品线 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '产品线 值不能为空', trigger: 'blur' },
-        ],
-        po: [
-            { required: false, type: 'string', message: '产品负责人 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '产品负责人 值不能为空', trigger: 'blur' },
-        ],
-        qd: [
-            { required: false, type: 'string', message: '测试负责人 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '测试负责人 值不能为空', trigger: 'blur' },
-        ],
-        rd: [
-            { required: false, type: 'string', message: '发布负责人 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '发布负责人 值不能为空', trigger: 'blur' },
-        ],
-        type: [
-            { required: false, type: 'string', message: '产品类型 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '产品类型 值不能为空', trigger: 'blur' },
-        ],
-        desc: [
-            { required: false, type: 'string', message: '产品描述	 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '产品描述	 值不能为空', trigger: 'blur' },
-        ],
-        acl: [
-            { required: false, type: 'string', message: '访问控制 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '访问控制 值不能为空', trigger: 'blur' },
-        ],
-        id: [
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
         ],
     }
 

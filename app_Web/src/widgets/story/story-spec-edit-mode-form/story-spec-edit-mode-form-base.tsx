@@ -63,12 +63,13 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        status: null,
         version: null,
         reviewedby: null,
         notreview: null,
         title: null,
-        verify: null,
         spec: null,
+        verify: null,
         comment: null,
         files: null,
         id: null,
@@ -82,69 +83,9 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
      * @memberof StorySpec_EditModeEditFormBase
      */
     public rules: any = {
-        srforikey: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfkey: [
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
-        ],
-        srfmajortext: [
-            { required: false, type: 'string', message: '需求名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '需求名称 值不能为空', trigger: 'blur' },
-        ],
-        srftempmode: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfuf: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfdeid: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfsourcekey: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        version: [
-            { required: false, type: 'number', message: '版本# 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '版本# 值不能为空', trigger: 'blur' },
-        ],
-        reviewedby: [
-            { required: false, type: 'string', message: '由谁评审 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '由谁评审 值不能为空', trigger: 'blur' },
-        ],
-        notreview: [
-            { required: false, type: 'string', message: '不需要评审 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '不需要评审 值不能为空', trigger: 'blur' },
-        ],
         title: [
             { required: true, type: 'string', message: '需求名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '需求名称 值不能为空', trigger: 'blur' },
-        ],
-        verify: [
-            { required: false, type: 'string', message: '验收标准 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '验收标准 值不能为空', trigger: 'blur' },
-        ],
-        spec: [
-            { required: false, type: 'string', message: '需求描述 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '需求描述 值不能为空', trigger: 'blur' },
-        ],
-        comment: [
-            { required: false, type: 'string', message: '备注 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '备注 值不能为空', trigger: 'blur' },
-        ],
-        files: [
-            { required: false, type: 'string', message: '附件 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '附件 值不能为空', trigger: 'blur' },
-        ],
-        id: [
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
         ],
     }
 
@@ -179,6 +120,8 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
+        status: new FormItemModel({ caption: '当前状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
+
         version: new FormItemModel({ caption: '版本#', detailType: 'FORMITEM', name: 'version', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
         reviewedby: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'reviewedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
@@ -187,9 +130,9 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
 
         title: new FormItemModel({ caption: '需求名称', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
-        verify: new FormItemModel({ caption: '验收标准', detailType: 'FORMITEM', name: 'verify', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
-
         spec: new FormItemModel({ caption: '需求描述', detailType: 'FORMITEM', name: 'spec', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
+
+        verify: new FormItemModel({ caption: '验收标准', detailType: 'FORMITEM', name: 'verify', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
         comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
@@ -198,4 +141,40 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 }),
 
     };
+
+    /**
+     * 表单逻辑
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @memberof StorySpec_EditModeEditFormBase
+     */
+    public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if (Object.is(name, 'version')) {
+            const details: string[] = ['verify', 'spec'];
+            this.updateFormItems('GetStorySpec', this.data, details, true);
+        }
+    }
 }

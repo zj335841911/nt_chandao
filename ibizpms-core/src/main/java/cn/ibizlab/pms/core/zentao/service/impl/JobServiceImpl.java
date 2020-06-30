@@ -46,9 +46,9 @@ public class JobServiceImpl extends ServiceImpl<JobMapper, Job> implements IJobS
 
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ITestResultService testresultService;
+    protected cn.ibizlab.pms.core.zentao.service.ITestResultService testresultService;
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

@@ -45,9 +45,9 @@ import org.springframework.util.StringUtils;
 public class RepoFilesServiceImpl extends ServiceImpl<RepoFilesMapper, RepoFiles> implements IRepoFilesService {
 
 
-    private cn.ibizlab.pms.core.zentao.service.IRepoFilesService repofilesService = this;
+    protected cn.ibizlab.pms.core.zentao.service.IRepoFilesService repofilesService = this;
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

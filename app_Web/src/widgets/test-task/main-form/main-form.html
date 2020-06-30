@@ -28,7 +28,7 @@
   :value="data.projecttname" 
   editortype="dropdown" 
   style="" 
-  @formitemvaluechange="onFormItemValueChange">
+  @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
@@ -53,7 +53,7 @@
   :value="data.buildname" 
   editortype="dropdown" 
   style="" 
-  @formitemvaluechange="onFormItemValueChange">
+  @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 

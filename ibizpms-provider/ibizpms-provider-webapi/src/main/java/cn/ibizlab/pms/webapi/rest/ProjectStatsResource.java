@@ -32,6 +32,7 @@ import cn.ibizlab.pms.webapi.mapping.*;
 import cn.ibizlab.pms.core.ibiz.domain.ProjectStats;
 import cn.ibizlab.pms.core.ibiz.service.IProjectStatsService;
 import cn.ibizlab.pms.core.ibiz.filter.ProjectStatsSearchContext;
+import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
 @Api(tags = {"项目统计" })

@@ -77,6 +77,34 @@ export class Main3GridBase extends GridControllerBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public grid_uagridcolumn1_uc74c61c_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:StoryUIService  = new StoryUIService();
+        curUIService.Story_ReviewStory(datas,contextJO, paramJO,  $event, xData,this,"Story");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public grid_uagridcolumn1_u824d7d6_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -269,4 +297,97 @@ export class Main3GridBase extends GridControllerBase {
         ],
     }
 
+    /**
+     * 获取对应列class
+     *
+     * @type {*}
+     * @memberof Main3Base
+     */
+    public hasRowEdit: any = {
+        'id':false,
+        'pri':false,
+        'title':false,
+        'assignedto':false,
+        'estimate':false,
+        'status':false,
+        'uagridcolumn1':false,
+    };
+
+    /**
+     * 获取对应列class
+     *
+     * @param {*} $args row 行数据，column 列数据，rowIndex 行索引，列索引
+     * @returns {void}
+     * @memberof Main3Base
+     */
+    public getCellClassName(args: {row: any, column: any, rowIndex: number, columnIndex: number}): any {
+        return ( this.hasRowEdit[args.column.property] && this.actualIsOpenEdit ) ? "edit-cell" : "info-cell";
+    }
+
+
+    /**
+     * 导出数据格式化
+     *
+     * @param {*} filterVal
+     * @param {*} jsonData
+     * @param {any[]} [codelistColumns=[]]
+     * @returns {Promise<any>}
+     * @memberof Main3GridBase
+     */
+    public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
+        return super.formatExcelData(filterVal, jsonData, [
+            {
+                name: 'pri',
+                srfkey: 'Story__pri',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'assignedto',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
+            {
+                name: 'status',
+                srfkey: 'Story__status',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+        ]);
+    }
+
+
+    /**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof Main3GridBase
+     */
+	public uiAction(row: any, tag: any, $event: any): void {
+        $event.stopPropagation();
+        if(Object.is('ChangeStoryDetail', tag)) {
+            this.grid_uagridcolumn1_u7b97712_click(row, tag, $event);
+        }
+        if(Object.is('ReviewStory', tag)) {
+            this.grid_uagridcolumn1_uc74c61c_click(row, tag, $event);
+        }
+        if(Object.is('CloseStory', tag)) {
+            this.grid_uagridcolumn1_u824d7d6_click(row, tag, $event);
+        }
+        if(Object.is('OpenBaseInfoEditView', tag)) {
+            this.grid_uagridcolumn1_u7480d3d_click(row, tag, $event);
+        }
+        if(Object.is('OpenCaseCreateView', tag)) {
+            this.grid_uagridcolumn1_u5aaa4ae_click(row, tag, $event);
+        }
+    }
 }

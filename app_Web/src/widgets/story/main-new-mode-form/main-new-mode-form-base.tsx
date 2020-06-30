@@ -80,97 +80,9 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
      * @memberof Main_NewModeEditFormBase
      */
     public rules: any = {
-        srforikey: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfkey: [
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
-        ],
-        srfmajortext: [
-            { required: false, type: 'string', message: '需求名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '需求名称 值不能为空', trigger: 'blur' },
-        ],
-        srftempmode: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfuf: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfdeid: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfsourcekey: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        product: [
-            { required: false, type: 'number', message: '所属产品 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '所属产品 值不能为空', trigger: 'blur' },
-        ],
-        module: [
-            { required: false, type: 'number', message: '所属模块 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '所属模块 值不能为空', trigger: 'blur' },
-        ],
-        prodoctname: [
-            { required: false, type: 'string', message: '所属产品 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '所属产品 值不能为空', trigger: 'blur' },
-        ],
-        modulename: [
-            { required: false, type: 'string', message: '所属模块 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '所属模块 值不能为空', trigger: 'blur' },
-        ],
-        plan: [
-            { required: false, type: 'string', message: '计划 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '计划 值不能为空', trigger: 'blur' },
-        ],
-        source: [
-            { required: false, type: 'string', message: '需求来源 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '需求来源 值不能为空', trigger: 'blur' },
-        ],
-        sourcenote: [
-            { required: false, type: 'string', message: '来源备注 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '来源备注 值不能为空', trigger: 'blur' },
-        ],
-        reviewedby: [
-            { required: false, type: 'string', message: '由谁评审 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '由谁评审 值不能为空', trigger: 'blur' },
-        ],
         title: [
             { required: true, type: 'string', message: '需求名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '需求名称 值不能为空', trigger: 'blur' },
-        ],
-        pri: [
-            { required: false, type: 'number', message: '优先级 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '优先级 值不能为空', trigger: 'blur' },
-        ],
-        estimate: [
-            { required: false, type: 'number', message: '预计 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '预计 值不能为空', trigger: 'blur' },
-        ],
-        formitem: [
-            { required: false, type: 'string', message: '需求描述 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '需求描述 值不能为空', trigger: 'blur' },
-        ],
-        formitem1: [
-            { required: false, type: 'string', message: '验收标准 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '验收标准 值不能为空', trigger: 'blur' },
-        ],
-        mailto: [
-            { required: false, type: 'string', message: '抄送给 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '抄送给 值不能为空', trigger: 'blur' },
-        ],
-        keywords: [
-            { required: false, type: 'string', message: '关键词 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '关键词 值不能为空', trigger: 'blur' },
-        ],
-        id: [
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
         ],
     }
 

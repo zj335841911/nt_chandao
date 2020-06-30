@@ -29,7 +29,7 @@
   editortype="" 
   :pickupView="{ viewname: 'product-pickup-view', title: $t('entities.product.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'products', parameterName: 'product' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
   style=""  
-  @formitemvaluechange="onFormItemValueChange">
+  @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 
 </app-form-item>
@@ -90,7 +90,7 @@
   editortype="" 
   :pickupView="{ viewname: 'project-pickup-view', title: $t('entities.project.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'projects', parameterName: 'project' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
   style=""  
-  @formitemvaluechange="onFormItemValueChange">
+  @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 
 </app-form-item>
@@ -107,7 +107,7 @@
     :localContext ='{ }' 
     :localParam ='{ }' 
     :disabled="detailsModel.openedbuild.disabled"  
-    tag='ProductBuild' 
+    tag='CurProductBuild' 
     codelistType='DYNAMIC'
     placeholder='请选择...' style="">
  </dropdown-list>

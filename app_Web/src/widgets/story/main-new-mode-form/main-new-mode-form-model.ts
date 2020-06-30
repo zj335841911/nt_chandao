@@ -88,7 +88,7 @@ export default class Main_NewModeModel {
       {
         name: 'reviewedby',
         prop: 'reviewedby',
-        dataType: 'TEXT',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'title',

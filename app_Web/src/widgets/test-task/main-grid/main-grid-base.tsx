@@ -311,4 +311,89 @@ export class MainGridBase extends GridControllerBase {
         ],
     }
 
+    /**
+     * 获取对应列class
+     *
+     * @type {*}
+     * @memberof MainBase
+     */
+    public hasRowEdit: any = {
+        'id':false,
+        'name':false,
+        'productname':false,
+        'projecttname':false,
+        'build':false,
+        'owner':false,
+        'begin':false,
+        'end':false,
+        'status':false,
+        'uagridcolumn1':false,
+    };
+
+    /**
+     * 获取对应列class
+     *
+     * @param {*} $args row 行数据，column 列数据，rowIndex 行索引，列索引
+     * @returns {void}
+     * @memberof MainBase
+     */
+    public getCellClassName(args: {row: any, column: any, rowIndex: number, columnIndex: number}): any {
+        return ( this.hasRowEdit[args.column.property] && this.actualIsOpenEdit ) ? "edit-cell" : "info-cell";
+    }
+
+
+    /**
+     * 导出数据格式化
+     *
+     * @param {*} filterVal
+     * @param {*} jsonData
+     * @param {any[]} [codelistColumns=[]]
+     * @returns {Promise<any>}
+     * @memberof MainGridBase
+     */
+    public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
+        return super.formatExcelData(filterVal, jsonData, [
+            {
+                name: 'owner',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
+            {
+                name: 'status',
+                srfkey: 'Testtask__status',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+        ]);
+    }
+
+
+    /**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof MainGridBase
+     */
+	public uiAction(row: any, tag: any, $event: any): void {
+        $event.stopPropagation();
+        if(Object.is('LinkCase', tag)) {
+            this.grid_uagridcolumn1_u6b02f33_click(row, tag, $event);
+        }
+        if(Object.is('OpenInfoView', tag)) {
+            this.grid_uagridcolumn1_u9008f43_click(row, tag, $event);
+        }
+        if(Object.is('Edit', tag)) {
+            this.grid_uagridcolumn1_u43e90ce_click(row, tag, $event);
+        }
+        if(Object.is('Remove', tag)) {
+            this.grid_uagridcolumn1_u4d10156_click(row, tag, $event);
+        }
+    }
 }

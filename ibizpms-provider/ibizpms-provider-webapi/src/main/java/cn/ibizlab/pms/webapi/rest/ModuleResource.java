@@ -32,6 +32,7 @@ import cn.ibizlab.pms.webapi.mapping.*;
 import cn.ibizlab.pms.core.zentao.domain.Module;
 import cn.ibizlab.pms.core.zentao.service.IModuleService;
 import cn.ibizlab.pms.core.zentao.filter.ModuleSearchContext;
+import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
 @Api(tags = {"模块" })
@@ -85,10 +86,10 @@ public class ModuleResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/modules/{module_id}/fix")
     @Transactional
     public ResponseEntity<ModuleDTO> fix(@PathVariable("module_id") BigInteger module_id, @RequestBody ModuleDTO moduledto) {
-        Module module = moduleMapping.toDomain(moduledto);
-        module.setId(module_id);
-        module = moduleService.fix(module);
-        moduledto = moduleMapping.toDto(module);
+        Module domain = moduleMapping.toDomain(moduledto);
+        domain.setId(module_id);
+        domain = moduleService.fix(domain);
+        moduledto = moduleMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(moduledto);
     }
 

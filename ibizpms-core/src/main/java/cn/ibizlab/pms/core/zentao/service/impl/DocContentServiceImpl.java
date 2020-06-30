@@ -46,9 +46,9 @@ public class DocContentServiceImpl extends ServiceImpl<DocContentMapper, DocCont
 
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IDocService docService;
+    protected cn.ibizlab.pms.core.zentao.service.IDocService docService;
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

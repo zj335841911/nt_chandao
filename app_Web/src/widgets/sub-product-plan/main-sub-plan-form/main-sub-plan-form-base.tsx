@@ -179,65 +179,9 @@ export class MainSubPlanEditFormBase extends EditFormControlBase {
      * @memberof MainSubPlanEditFormBase
      */
     public rules: any = {
-        srforikey: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfkey: [
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
-        ],
-        srfmajortext: [
-            { required: false, type: 'string', message: '名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '名称 值不能为空', trigger: 'blur' },
-        ],
-        srftempmode: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfuf: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfdeid: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfsourcekey: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        product: [
-            { required: false, type: 'number', message: '产品 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '产品 值不能为空', trigger: 'blur' },
-        ],
-        parent: [
-            { required: false, type: 'number', message: '父计划 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '父计划 值不能为空', trigger: 'blur' },
-        ],
-        parentname: [
-            { required: false, type: 'string', message: '父计划名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '父计划名称 值不能为空', trigger: 'blur' },
-        ],
         title: [
             { required: true, type: 'string', message: '名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '名称 值不能为空', trigger: 'blur' },
-        ],
-        begin: [
-            { required: false, type: 'string', message: '开始日期 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '开始日期 值不能为空', trigger: 'blur' },
-        ],
-        end: [
-            { required: false, type: 'string', message: '结束日期 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '结束日期 值不能为空', trigger: 'blur' },
-        ],
-        desc: [
-            { required: false, type: 'string', message: '描述 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '描述 值不能为空', trigger: 'blur' },
-        ],
-        id: [
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
         ],
     }
 

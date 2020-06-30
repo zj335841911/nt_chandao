@@ -4,7 +4,7 @@ import ProjectService from '@/service/project/project-service';
 import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
 
 /**
- * 项目导航视图视图基类
+ * 项目视图基类
  *
  * @export
  * @class ProjectMainTabExpViewBase

@@ -72,66 +72,6 @@ export class WorkInfoFormEditFormBase extends EditFormControlBase {
      * @memberof WorkInfoFormEditFormBase
      */
     public rules: any = {
-        srfupdatedate: [
-            { required: false, type: 'string', message: '最后修改日期 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '最后修改日期 值不能为空', trigger: 'blur' },
-        ],
-        srforikey: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfkey: [
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
-        ],
-        srfmajortext: [
-            { required: false, type: 'string', message: '任务名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
-        ],
-        srftempmode: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfuf: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfdeid: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfsourcekey: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        estimate: [
-            { required: false, type: 'number', message: '最初预计 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '最初预计 值不能为空', trigger: 'blur' },
-        ],
-        consumed: [
-            { required: false, type: 'number', message: '总计消耗 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '总计消耗 值不能为空', trigger: 'blur' },
-        ],
-        left: [
-            { required: false, type: 'number', message: '预计剩余 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '预计剩余 值不能为空', trigger: 'blur' },
-        ],
-        eststarted: [
-            { required: false, type: 'string', message: '预计开始 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '预计开始 值不能为空', trigger: 'blur' },
-        ],
-        realstarted: [
-            { required: false, type: 'string', message: '实际开始 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '实际开始 值不能为空', trigger: 'blur' },
-        ],
-        deadline: [
-            { required: false, type: 'string', message: '截止日期 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '截止日期 值不能为空', trigger: 'blur' },
-        ],
-        id: [
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
-        ],
     }
 
     /**

@@ -15,14 +15,6 @@ export interface StorySpec {
     spec?: any;
 
     /**
-     * 重复需求ID
-     *
-     * @returns {*}
-     * @memberof StorySpec
-     */
-    duplicatestory?: any;
-
-    /**
      * 验收标准
      *
      * @returns {*}

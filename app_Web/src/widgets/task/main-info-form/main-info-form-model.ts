@@ -103,7 +103,7 @@ export default class MainInfoModel {
       {
         name: 'openedby',
         prop: 'openedby',
-        dataType: 'TEXT',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'openeddate',
@@ -113,7 +113,7 @@ export default class MainInfoModel {
       {
         name: 'finishedby',
         prop: 'finishedby',
-        dataType: 'TEXT',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'finisheddate',
@@ -123,7 +123,7 @@ export default class MainInfoModel {
       {
         name: 'canceledby',
         prop: 'canceledby',
-        dataType: 'TEXT',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'canceleddate',
@@ -133,7 +133,7 @@ export default class MainInfoModel {
       {
         name: 'closedby',
         prop: 'closedby',
-        dataType: 'TEXT',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'closeddate',
@@ -148,7 +148,7 @@ export default class MainInfoModel {
       {
         name: 'lasteditedby',
         prop: 'lasteditedby',
-        dataType: 'TEXT',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'lastediteddate',

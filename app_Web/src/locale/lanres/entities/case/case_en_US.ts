@@ -100,12 +100,12 @@ export default {
       		title: "case表格视图",
 		},
 	},
-	main_form: {
+	mainnew_form: {
 		details: {
-			group1: "case基本信息", 
+			druipart1: "用例步骤", 
+			grouppanel1: "分组面板", 
+			group1: "测试用例基本信息", 
 			formpage1: "基本信息", 
-			group2: "操作信息", 
-			formpage2: "其它", 
 			srforikey: "", 
 			srfkey: "用例编号", 
 			srfmajortext: "用例标题", 
@@ -113,7 +113,17 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			product: "所属产品", 
+			productname: "产品名称", 
+			module: "所属模块", 
+			modulename: "模块名称", 
+			type: "用例类型", 
+			story: "相关需求", 
+			storyname: "需求名称", 
 			title: "用例标题", 
+			pri: "优先级", 
+			precondition: "前置条件", 
+			keywords: "关键词", 
 			id: "用例编号", 
 		},
 		uiactions: {
@@ -158,7 +168,7 @@ export default {
 			title: "用例标题", 
 			precondition: "前置条件", 
 			formitem: "备注", 
-			formitem1: "附件", 
+			files: "附件", 
 			product: "所属产品", 
 			productname: "产品名称", 
 			module: "所属模块", 
@@ -214,12 +224,12 @@ export default {
 		uiactions: {
 		},
 	},
-	mainnew_form: {
+	main_form: {
 		details: {
-			druipart1: "用例步骤", 
-			grouppanel1: "分组面板", 
-			group1: "测试用例基本信息", 
+			group1: "case基本信息", 
 			formpage1: "基本信息", 
+			group2: "操作信息", 
+			formpage2: "其它", 
 			srforikey: "", 
 			srfkey: "用例编号", 
 			srfmajortext: "用例标题", 
@@ -227,18 +237,7 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
-			product: "所属产品", 
-			productname: "产品名称", 
-			module: "所属模块", 
-			modulename: "模块名称", 
-			type: "用例类型", 
-			story: "相关需求", 
-			storyname: "需求名称", 
 			title: "用例标题", 
-			pri: "优先级", 
-			precondition: "前置条件", 
-			keywords: "关键词", 
-			formitem1: "附件", 
 			id: "用例编号", 
 		},
 		uiactions: {
@@ -315,70 +314,10 @@ export default {
 		uiactions: {
 		},
 	},
-	editviewtoolbar_toolbar: {
-		tbitem3: {
-			caption: "Save",
-			tip: "Save",
-		},
-		tbitem4: {
-			caption: "Save And New",
-			tip: "Save And New",
-		},
-		tbitem5: {
+	mainnewviewtoolbar_toolbar: {
+		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
-		},
-		tbitem6: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem7: {
-			caption: "Remove And Close",
-			tip: "Remove And Close Window",
-		},
-		tbitem8: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem12: {
-			caption: "New",
-			tip: "New",
-		},
-		tbitem13: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem14: {
-			caption: "Copy",
-			tip: "Copy {0}",
-		},
-		tbitem16: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem23: {
-			caption: "第一个记录",
-			tip: "第一个记录",
-		},
-		tbitem24: {
-			caption: "上一个记录",
-			tip: "上一个记录",
-		},
-		tbitem25: {
-			caption: "下一个记录",
-			tip: "下一个记录",
-		},
-		tbitem26: {
-			caption: "最后一个记录",
-			tip: "最后一个记录",
-		},
-		tbitem21: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem22: {
-			caption: "Help",
-			tip: "Help",
 		},
 	},
 	maineditviewtoolbar_toolbar: {
@@ -395,6 +334,12 @@ export default {
 		deuiaction3: {
 			caption: "保存行",
 			tip: "保存行",
+		},
+	},
+	editviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
 		},
 	},
 	maingridviewtoolbar_toolbar: {
@@ -421,12 +366,6 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
-		},
-	},
-	mainnewviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
 		},
 	},
 	curtesttaskgridviewtoolbar_toolbar: {

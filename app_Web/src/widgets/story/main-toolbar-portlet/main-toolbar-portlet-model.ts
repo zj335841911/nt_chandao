@@ -144,6 +144,9 @@ export default class MainToolbarModel {
       {
         name: 'verify',
       },
+      {
+        name: 'result',
+      },
     ]
   }
 

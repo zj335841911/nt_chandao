@@ -36,6 +36,7 @@ public interface IStorySpecService extends IService<StorySpec>{
     boolean update(StorySpec et) ;
     void updateBatch(List<StorySpec> list) ;
     StorySpec getDraft(StorySpec et) ;
+    Page<StorySpec> searchVersion(StorySpecSearchContext context) ;
     Page<StorySpec> searchDefault(StorySpecSearchContext context) ;
     List<StorySpec> selectByStory(BigInteger id) ;
     void removeByStory(BigInteger id) ;

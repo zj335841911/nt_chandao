@@ -6,6 +6,7 @@
         :border="isDragendCol"
         :highlight-current-row ="isSingleSelect"
         :row-class-name="getRowClassName.bind(_self)"
+        :cell-class-name="getCellClassName.bind(_self)"
         size="mini"
         stripe
         @row-click="rowClick($event)"  
@@ -158,28 +159,39 @@
                       </span>
                     </template>
                     <template slot-scope="scope">
-                        <span>
-                            
-                            <a title="确认bug" @click="uiAction(scope.row, 'ConfirmBug', $event)">
+                        <div style="text-align: center;">
+                            <tooltip :transfer="true" :max-width="600">
+                            <a @click="uiAction(scope.row, 'ConfirmBug', $event)">
                               <i class='fa fa-eye'></i>
                               
                             </a>
+                            <div slot='content'>{{$t('entities.bug.main_grid.uiactions.bug_confirmbug')}}</div>
+                            </tooltip>
                             <divider type='vertical'></divider>
-                            <a title="解决bug" @click="uiAction(scope.row, 'ResolveBug', $event)">
+                            <tooltip :transfer="true" :max-width="600">
+                            <a @click="uiAction(scope.row, 'ResolveBug', $event)">
                               <i class='fa fa-check-square-o'></i>
                               
                             </a>
+                            <div slot='content'>{{$t('entities.bug.main_grid.uiactions.bug_resolvebug')}}</div>
+                            </tooltip>
                             <divider type='vertical'></divider>
-                            <a title="关闭bug" @click="uiAction(scope.row, 'CloseBug', $event)">
+                            <tooltip :transfer="true" :max-width="600">
+                            <a @click="uiAction(scope.row, 'CloseBug', $event)">
                               <i class='fa fa-power-off'></i>
                               
                             </a>
+                            <div slot='content'>{{$t('entities.bug.main_grid.uiactions.bug_closebug')}}</div>
+                            </tooltip>
                             <divider type='vertical'></divider>
-                            <a title="主信息编辑" @click="uiAction(scope.row, 'MainEdit', $event)">
+                            <tooltip :transfer="true" :max-width="600">
+                            <a @click="uiAction(scope.row, 'MainEdit', $event)">
                               <i class='fa fa-edit'></i>
                               
                             </a>
-                        </span>
+                            <div slot='content'>{{$t('entities.bug.main_grid.uiactions.bug_mainedit')}}</div>
+                            </tooltip>
+                        </div>
                     </template>
                 </el-table-column>
             </template>

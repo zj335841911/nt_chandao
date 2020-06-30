@@ -664,6 +664,32 @@ div::-webkit-scrollbar-thumb {
                         border-color: var(--form-editor-active-color);
                     }
                 }
+
+                // 数值编辑器
+                .ivu-input-number, .ivu-input-number-input, .ivu-input-number-handler-wrap {
+                    background-color: var(--form-editor-background-color);
+                    color: var(--form-editor-placeholder-font-color);
+                }
+
+                .ivu-input-number {
+                    border-color: transparent;
+                    
+                    .ivu-input-number-input {
+                        text-align: left;
+                    }
+
+                    .ivu-input-number-handler {
+                        color: var(--form-editor-placeholder-font-color);
+                    }
+                    
+                    .ivu-input-number-handler-wrap, .ivu-input-number-handler.ivu-input-number-handler-down {
+                        border-color: var(--form-editor-active-color);
+                    }
+                }
+
+                .ivu-input-number:hover {
+                    border-color: var(--form-editor-active-color);
+                }
             }
         }
     }
@@ -1096,4 +1122,8 @@ div::-webkit-scrollbar-thumb {
     }
 }
 
+// 图表部件样式
+.app-data-chart {
+    height: 100%;
+}
 @import './user.less';

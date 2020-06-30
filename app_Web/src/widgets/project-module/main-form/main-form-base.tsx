@@ -72,65 +72,9 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public rules: any = {
-        srforikey: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfkey: [
-            { required: false, type: 'number', message: 'id 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: 'id 值不能为空', trigger: 'blur' },
-        ],
-        srfmajortext: [
-            { required: false, type: 'string', message: '名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '名称 值不能为空', trigger: 'blur' },
-        ],
-        srftempmode: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfuf: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfdeid: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfsourcekey: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        root: [
-            { required: false, type: 'number', message: '所属项目 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '所属项目 值不能为空', trigger: 'blur' },
-        ],
-        parent: [
-            { required: false, type: 'number', message: '上级模块 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '上级模块 值不能为空', trigger: 'blur' },
-        ],
-        rootname: [
-            { required: false, type: 'string', message: '所属项目 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '所属项目 值不能为空', trigger: 'blur' },
-        ],
-        parentname: [
-            { required: false, type: 'string', message: '上级模块 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '上级模块 值不能为空', trigger: 'blur' },
-        ],
         name: [
             { required: true, type: 'string', message: '名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '名称 值不能为空', trigger: 'blur' },
-        ],
-        short: [
-            { required: false, type: 'string', message: '简称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '简称 值不能为空', trigger: 'blur' },
-        ],
-        order: [
-            { required: false, type: 'number', message: '排序值 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '排序值 值不能为空', trigger: 'blur' },
-        ],
-        id: [
-            { required: false, type: 'number', message: 'id 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: 'id 值不能为空', trigger: 'blur' },
         ],
     }
 

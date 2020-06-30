@@ -78,7 +78,7 @@ public class UserTpl extends EntityMP implements Serializable {
     /**
      * public
      */
-    @DEField(name = "public")
+    @DEField(defaultValue = "0")
     @TableField(value = "public")
     @JSONField(name = "ibizpublic")
     @JsonProperty("ibizpublic")

@@ -1,6 +1,6 @@
 {
     "producttesttabexpview": {
-        "title": "产品主数据视图",
+        "title": "测试",
         "caption": "测试",
         "viewtype": "DETABEXPVIEW",
         "viewmodule": "zentao",
@@ -1589,16 +1589,6 @@
         "viewtag": "d0454a2ae9eb44aca3613b27169f3b18",
         "memo": ""
     },
-    "storyspecmainview9": {
-        "title": "需求描述编辑视图",
-        "caption": "需求描述",
-        "viewtype": "DEEDITVIEW9",
-        "viewmodule": "zentao",
-        "viewname": "StorySpecMainView9",
-        "viewfilename": "story-spec-main-view9",
-        "viewtag": "d0c00941809a9dee4e44db3cca606f0a",
-        "memo": ""
-    },
     "testportalview": {
         "title": "测试主页",
         "caption": "测试主页",
@@ -1667,6 +1657,16 @@
         "viewname": "ActionAllTrendsListView",
         "viewfilename": "action-all-trends-list-view",
         "viewtag": "df57be69540a2e80fee7f3575162b93a",
+        "memo": ""
+    },
+    "storyreviewview": {
+        "title": "需求评审",
+        "caption": "需求评审",
+        "viewtype": "DEOPTVIEW",
+        "viewmodule": "zentao",
+        "viewname": "StoryRevIewView",
+        "viewfilename": "story-rev-iew-view",
+        "viewtag": "df5a966e312ca9c5f5a41428bc2e2672",
         "memo": ""
     },
     "producteditview": {
@@ -1900,7 +1900,7 @@
         "memo": ""
     },
     "projectmaintabexpview": {
-        "title": "项目导航视图",
+        "title": "项目",
         "caption": "项目",
         "viewtype": "DETABEXPVIEW",
         "viewmodule": "zentao",

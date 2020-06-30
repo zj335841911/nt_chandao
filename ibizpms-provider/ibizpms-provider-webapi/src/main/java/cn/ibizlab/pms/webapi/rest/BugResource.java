@@ -32,6 +32,7 @@ import cn.ibizlab.pms.webapi.mapping.*;
 import cn.ibizlab.pms.core.zentao.domain.Bug;
 import cn.ibizlab.pms.core.zentao.service.IBugService;
 import cn.ibizlab.pms.core.zentao.filter.BugSearchContext;
+import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
 @Api(tags = {"Bug" })
@@ -51,10 +52,10 @@ public class BugResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/close")
     @Transactional
     public ResponseEntity<BugDTO> close(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
-        Bug bug = bugMapping.toDomain(bugdto);
-        bug.setId(bug_id);
-        bug = bugService.close(bug);
-        bugdto = bugMapping.toDto(bug);
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setId(bug_id);
+        domain = bugService.close(domain);
+        bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
 
@@ -72,10 +73,10 @@ public class BugResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/activate")
     @Transactional
     public ResponseEntity<BugDTO> activate(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
-        Bug bug = bugMapping.toDomain(bugdto);
-        bug.setId(bug_id);
-        bug = bugService.activate(bug);
-        bugdto = bugMapping.toDto(bug);
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setId(bug_id);
+        domain = bugService.activate(domain);
+        bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
 
@@ -130,10 +131,10 @@ public class BugResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/confirm")
     @Transactional
     public ResponseEntity<BugDTO> confirm(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
-        Bug bug = bugMapping.toDomain(bugdto);
-        bug.setId(bug_id);
-        bug = bugService.confirm(bug);
-        bugdto = bugMapping.toDto(bug);
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setId(bug_id);
+        domain = bugService.confirm(domain);
+        bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
 
@@ -142,10 +143,10 @@ public class BugResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/resolve")
     @Transactional
     public ResponseEntity<BugDTO> resolve(@PathVariable("bug_id") BigInteger bug_id, @RequestBody BugDTO bugdto) {
-        Bug bug = bugMapping.toDomain(bugdto);
-        bug.setId(bug_id);
-        bug = bugService.resolve(bug);
-        bugdto = bugMapping.toDto(bug);
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setId(bug_id);
+        domain = bugService.resolve(domain);
+        bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
 
@@ -165,6 +166,7 @@ public class BugResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @VersionCheck(entity = "bug" , versionfield = "lastediteddate")
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
     @ApiOperation(value = "更新Bug", tags = {"Bug" },  notes = "更新Bug")
 	@RequestMapping(method = RequestMethod.PUT, value = "/bugs/{bug_id}")
@@ -443,6 +445,7 @@ public class BugResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @VersionCheck(entity = "bug" , versionfield = "lastediteddate")
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
     @ApiOperation(value = "根据产品更新Bug", tags = {"Bug" },  notes = "根据产品更新Bug")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/bugs/{bug_id}")
@@ -738,6 +741,7 @@ public class BugResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @VersionCheck(entity = "bug" , versionfield = "lastediteddate")
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
     @ApiOperation(value = "根据产品计划更新Bug", tags = {"Bug" },  notes = "根据产品计划更新Bug")
 	@RequestMapping(method = RequestMethod.PUT, value = "/productplans/{productplan_id}/bugs/{bug_id}")
@@ -1033,6 +1037,7 @@ public class BugResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @VersionCheck(entity = "bug" , versionfield = "lastediteddate")
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
     @ApiOperation(value = "根据项目更新Bug", tags = {"Bug" },  notes = "根据项目更新Bug")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/bugs/{bug_id}")
@@ -1328,6 +1333,7 @@ public class BugResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @VersionCheck(entity = "bug" , versionfield = "lastediteddate")
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Update-all')")
     @ApiOperation(value = "根据产品产品计划更新Bug", tags = {"Bug" },  notes = "根据产品产品计划更新Bug")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/productplans/{productplan_id}/bugs/{bug_id}")

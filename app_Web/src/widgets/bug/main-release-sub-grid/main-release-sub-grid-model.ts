@@ -49,7 +49,7 @@ export default class Main_ReleaseSubModel {
         {
           name: 'openedby',
           prop: 'openedby',
-          dataType: 'TEXT',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'duplicatebug',

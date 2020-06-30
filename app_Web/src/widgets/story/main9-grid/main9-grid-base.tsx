@@ -120,4 +120,58 @@ export class Main9GridBase extends GridControllerBase {
         ],
     }
 
+    /**
+     * 获取对应列class
+     *
+     * @type {*}
+     * @memberof Main9Base
+     */
+    public hasRowEdit: any = {
+        'pri':false,
+        'title':false,
+        'status':false,
+    };
+
+    /**
+     * 获取对应列class
+     *
+     * @param {*} $args row 行数据，column 列数据，rowIndex 行索引，列索引
+     * @returns {void}
+     * @memberof Main9Base
+     */
+    public getCellClassName(args: {row: any, column: any, rowIndex: number, columnIndex: number}): any {
+        return ( this.hasRowEdit[args.column.property] && this.actualIsOpenEdit ) ? "edit-cell" : "info-cell";
+    }
+
+
+    /**
+     * 导出数据格式化
+     *
+     * @param {*} filterVal
+     * @param {*} jsonData
+     * @param {any[]} [codelistColumns=[]]
+     * @returns {Promise<any>}
+     * @memberof Main9GridBase
+     */
+    public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
+        return super.formatExcelData(filterVal, jsonData, [
+            {
+                name: 'pri',
+                srfkey: 'Story__pri',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'status',
+                srfkey: 'Story__status',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+        ]);
+    }
+
 }

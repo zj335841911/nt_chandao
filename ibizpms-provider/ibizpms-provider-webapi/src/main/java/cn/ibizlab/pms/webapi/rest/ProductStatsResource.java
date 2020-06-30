@@ -32,6 +32,7 @@ import cn.ibizlab.pms.webapi.mapping.*;
 import cn.ibizlab.pms.core.ibiz.domain.ProductStats;
 import cn.ibizlab.pms.core.ibiz.service.IProductStatsService;
 import cn.ibizlab.pms.core.ibiz.filter.ProductStatsSearchContext;
+import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
 @Api(tags = {"产品统计" })

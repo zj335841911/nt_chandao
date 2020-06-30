@@ -87,6 +87,24 @@ export class ProjectStatusBarPortletBase extends MainControlBase {
     }
 
     /**
+     * 获取高度
+     *
+     * @returns {any[]}
+     * @memberof ProjectStatusBarBase
+     */
+    get getHeight(): any{
+        if(!this.$util.isEmpty(this.height) && !this.$util.isNumberNaN(this.height)){
+            if(this.height == 0){
+                return 'auto';
+            } else {
+                return this.height+'px';
+            }
+        } else {
+            return '370px';
+        }
+    }
+
+    /**
      * vue 生命周期
      *
      * @memberof ProjectStatusBarBase

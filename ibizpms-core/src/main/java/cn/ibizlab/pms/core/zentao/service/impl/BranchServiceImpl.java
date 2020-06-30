@@ -46,36 +46,36 @@ public class BranchServiceImpl extends ServiceImpl<BranchMapper, Branch> impleme
 
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IBugService bugService;
+    protected cn.ibizlab.pms.core.zentao.service.IBugService bugService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IBuildService buildService;
+    protected cn.ibizlab.pms.core.zentao.service.IBuildService buildService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ICaseService caseService;
+    protected cn.ibizlab.pms.core.zentao.service.ICaseService caseService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IModuleService moduleService;
+    protected cn.ibizlab.pms.core.zentao.service.IModuleService moduleService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IProductPlanService productplanService;
+    protected cn.ibizlab.pms.core.zentao.service.IProductPlanService productplanService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IProjectProductService projectproductService;
+    protected cn.ibizlab.pms.core.zentao.service.IProjectProductService projectproductService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IReleaseService releaseService;
+    protected cn.ibizlab.pms.core.zentao.service.IReleaseService releaseService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IStoryStageService storystageService;
+    protected cn.ibizlab.pms.core.zentao.service.IStoryStageService storystageService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IStoryService storyService;
+    protected cn.ibizlab.pms.core.zentao.service.IStoryService storyService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IProductService productService;
+    protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     public Branch getDraft(Branch et) {

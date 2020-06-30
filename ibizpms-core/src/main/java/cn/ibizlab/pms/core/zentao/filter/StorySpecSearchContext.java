@@ -27,13 +27,6 @@ import cn.ibizlab.pms.core.zentao.domain.StorySpec;
 @Data
 public class StorySpecSearchContext extends QueryWrapperContext<StorySpec> {
 
-	private Integer n_duplicatestory_eq;//[重复需求ID]
-	public void setN_duplicatestory_eq(Integer n_duplicatestory_eq) {
-        this.n_duplicatestory_eq = n_duplicatestory_eq;
-        if(!ObjectUtils.isEmpty(this.n_duplicatestory_eq)){
-            this.getSearchCond().eq("duplicatestory", n_duplicatestory_eq);
-        }
-    }
 	private String n_title_like;//[需求名称]
 	public void setN_title_like(String n_title_like) {
         this.n_title_like = n_title_like;

@@ -43,7 +43,7 @@ export class ViewTool {
         // 视图常规参数
         Object.assign(viewdata, data);
         // 传入父视图的srfsessionid
-        Object.assign(viewdata, {srfsessionid:viewParam['srfsessionid']});
+        Object.assign(viewdata, { srfsessionid: viewParam['srfsessionid'] });
         return viewdata;
     }
 
@@ -63,7 +63,7 @@ export class ViewTool {
     public static buildUpRoutePath(route: Route, viewParam: any = {}, deResParameters: any[], parameters: any[], args: any[], data: any): string {
         const indexRoutePath = this.getIndexRoutePath(route);
         const deResRoutePath = this.getDeResRoutePath(viewParam, deResParameters, args);
-        const deRoutePath = this.getActiveRoutePath(parameters, args, data);
+        const deRoutePath = this.getActiveRoutePath(parameters, args, data, viewParam);
         return `${indexRoutePath}${deResRoutePath}${deRoutePath}`;
     }
 
@@ -99,15 +99,17 @@ export class ViewTool {
         let routePath: string = '';
         let [arg] = args;
         arg = arg ? arg : {};
-        deResParameters.forEach(({ pathName, parameterName }: { pathName: string, parameterName: string }) => {
-            let value: any = null;
-            if (viewParam[parameterName] && !Object.is(viewParam[parameterName], '') && !Object.is(viewParam[parameterName], 'null')) {
-                value = viewParam[parameterName];
-            } else if (arg[parameterName] && !Object.is(arg[parameterName], '') && !Object.is(arg[parameterName], 'null')) {
-                value = arg[parameterName];
-            }
-            routePath = `${routePath}/${pathName}` + (value !== null ? `/${value}` : '');
-        });
+        if (deResParameters && deResParameters.length > 0) {
+            deResParameters.forEach(({ pathName, parameterName }: { pathName: string, parameterName: string }) => {
+                let value: any = null;
+                if (viewParam[parameterName] && !Object.is(viewParam[parameterName], '') && !Object.is(viewParam[parameterName], 'null')) {
+                    value = viewParam[parameterName];
+                } else if (arg[parameterName] && !Object.is(arg[parameterName], '') && !Object.is(arg[parameterName], 'null')) {
+                    value = arg[parameterName];
+                }
+                routePath = `${routePath}/${pathName}` + (value !== null ? `/${value}` : '');
+            });
+        }
         return routePath;
     }
 
@@ -118,27 +120,29 @@ export class ViewTool {
      * @param {any[]} parameters 当前应用视图参数对象
      * @param {any[]} args 多项数据
      * @param {*} data 行为参数
+     * @param {*} [viewParam={}] 上下文数据
      * @returns {string}
      * @memberof ViewTool
      */
-    public static getActiveRoutePath(parameters: any[], args: any[], data: any): string {
+    public static getActiveRoutePath(parameters: any[], args: any[], data: any, viewParam: any = {}): string {
         let routePath: string = '';
         // 不存在应用实体
-        if (parameters.length === 1) {
-            const [{ pathName, parameterName }] = parameters;
-            routePath = `/${pathName}`;
-            if (Object.keys(data).length > 0) {
-                routePath = `${routePath}?${qs.stringify(data, { delimiter: ';' })}`;
-            }
-        } else if (parameters.length === 2) {
-            let [arg] = args;
-            arg = arg ? arg : {};
-            const [{ pathName: _pathName, parameterName: _parameterName }, { pathName: _pathName2, parameterName: _parameterName2 }] = parameters;
-            const _value: any = arg[_parameterName] && !Object.is(arg[_parameterName], '') ?
-                arg[_parameterName] : null;
-            routePath = `/${_pathName}/${_value}/${_pathName2}`;
-            if (Object.keys(data).length > 0) {
-                routePath = `${routePath}?${qs.stringify(data, { delimiter: ';' })}`;
+        if (parameters && parameters.length > 0) {
+            if (parameters.length === 1) {
+                const [{ pathName, parameterName }] = parameters;
+                routePath = `/${pathName}`;
+                if (Object.keys(data).length > 0) {
+                    routePath = `${routePath}?${qs.stringify(data, { delimiter: ';' })}`;
+                }
+            } else if (parameters.length === 2) {
+                let [arg] = args;
+                arg = arg ? arg : {};
+                const [{ pathName: _pathName, parameterName: _parameterName }, { pathName: _pathName2, parameterName: _parameterName2 }] = parameters;
+                const _value: any = arg[_parameterName] || viewParam[_parameterName] || null;
+                routePath = `/${_pathName}${((_value !== null && !Object.is(_value, '')) ? `/${_value}` : '')}/${_pathName2}`;
+                if (Object.keys(data).length > 0) {
+                    routePath = `${routePath}?${qs.stringify(data, { delimiter: ';' })}`;
+                }
             }
         }
         return routePath;
@@ -152,8 +156,8 @@ export class ViewTool {
      * @returns {*}
      * @memberof ViewTool
      */
-    public static formatRouteParams(params: any,route:any,context:any,viewparams:any): void {
-        Object.keys(params).forEach((key: string,index:number) => {
+    public static formatRouteParams(params: any, route: any, context: any, viewparams: any): void {
+        Object.keys(params).forEach((key: string, index: number) => {
             const param: string | null | undefined = params[key];
             if (!param || Object.is(param, '') || Object.is(param, 'null')) {
                 return;
@@ -165,11 +169,11 @@ export class ViewTool {
                 Object.assign(context, { [key]: param });
             }
         });
-        if(route && route.fullPath && route.fullPath.indexOf("?") > -1){
-            const _viewparams:any = route.fullPath.slice(route.fullPath.indexOf("?")+1);
-            const _viewparamArray:Array<string> = decodeURIComponent(_viewparams).split(";")
-            if(_viewparamArray.length > 0){
-                _viewparamArray.forEach((item:any) =>{
+        if (route && route.fullPath && route.fullPath.indexOf("?") > -1) {
+            const _viewparams: any = route.fullPath.slice(route.fullPath.indexOf("?") + 1);
+            const _viewparamArray: Array<string> = decodeURIComponent(_viewparams).split(";")
+            if (_viewparamArray.length > 0) {
+                _viewparamArray.forEach((item: any) => {
                     Object.assign(viewparams, qs.parse(item));
                 })
             }

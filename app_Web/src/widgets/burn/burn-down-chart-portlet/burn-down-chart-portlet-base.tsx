@@ -87,6 +87,24 @@ export class BurnDownChartPortletBase extends MainControlBase {
     }
 
     /**
+     * 获取高度
+     *
+     * @returns {any[]}
+     * @memberof BurnDownChartBase
+     */
+    get getHeight(): any{
+        if(!this.$util.isEmpty(this.height) && !this.$util.isNumberNaN(this.height)){
+            if(this.height == 0){
+                return 'auto';
+            } else {
+                return this.height+'px';
+            }
+        } else {
+            return '370px';
+        }
+    }
+
+    /**
      * vue 生命周期
      *
      * @memberof BurnDownChartBase

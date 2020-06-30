@@ -45,7 +45,7 @@ import org.springframework.util.StringUtils;
 public class LangServiceImpl extends ServiceImpl<LangMapper, Lang> implements ILangService {
 
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     public boolean checkKey(Lang et) {

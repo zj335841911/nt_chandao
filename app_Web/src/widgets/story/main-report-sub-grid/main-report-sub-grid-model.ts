@@ -79,7 +79,7 @@ export default class Main_ReportSubModel {
         {
           name: 'openedby',
           prop: 'openedby',
-          dataType: 'TEXT',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'product',

@@ -32,6 +32,7 @@ import cn.ibizlab.pms.webapi.mapping.*;
 import cn.ibizlab.pms.core.zentao.domain.TestSuite;
 import cn.ibizlab.pms.core.zentao.service.ITestSuiteService;
 import cn.ibizlab.pms.core.zentao.filter.TestSuiteSearchContext;
+import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
 @Api(tags = {"测试套件" })

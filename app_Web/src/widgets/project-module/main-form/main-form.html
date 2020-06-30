@@ -25,7 +25,7 @@
   :value="data.rootname" 
   editortype="dropdown" 
   style="" 
-  @formitemvaluechange="onFormItemValueChange">
+  @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
@@ -50,7 +50,7 @@
   :value="data.parentname" 
   editortype="dropdown" 
   style="" 
-  @formitemvaluechange="onFormItemValueChange">
+  @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 

@@ -74,7 +74,6 @@ export class MainNewEditFormBase extends EditFormControlBase {
         pri: null,
         precondition: null,
         keywords: null,
-        formitem1: null,
         id: null,
         case:null,
     };
@@ -86,85 +85,9 @@ export class MainNewEditFormBase extends EditFormControlBase {
      * @memberof MainNewEditFormBase
      */
     public rules: any = {
-        srforikey: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfkey: [
-            { required: false, type: 'number', message: '用例编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '用例编号 值不能为空', trigger: 'blur' },
-        ],
-        srfmajortext: [
-            { required: false, type: 'string', message: '用例标题 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '用例标题 值不能为空', trigger: 'blur' },
-        ],
-        srftempmode: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfuf: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfdeid: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfsourcekey: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        product: [
-            { required: false, type: 'number', message: '所属产品 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '所属产品 值不能为空', trigger: 'blur' },
-        ],
-        productname: [
-            { required: false, type: 'string', message: '产品名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '产品名称 值不能为空', trigger: 'blur' },
-        ],
-        module: [
-            { required: false, type: 'number', message: '所属模块 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '所属模块 值不能为空', trigger: 'blur' },
-        ],
-        modulename: [
-            { required: false, type: 'string', message: '模块名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '模块名称 值不能为空', trigger: 'blur' },
-        ],
-        type: [
-            { required: false, type: 'string', message: '用例类型 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '用例类型 值不能为空', trigger: 'blur' },
-        ],
-        story: [
-            { required: false, type: 'number', message: '相关需求 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '相关需求 值不能为空', trigger: 'blur' },
-        ],
-        storyname: [
-            { required: false, type: 'string', message: '需求名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '需求名称 值不能为空', trigger: 'blur' },
-        ],
         title: [
             { required: true, type: 'string', message: '用例标题 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '用例标题 值不能为空', trigger: 'blur' },
-        ],
-        pri: [
-            { required: false, type: 'number', message: '优先级 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '优先级 值不能为空', trigger: 'blur' },
-        ],
-        precondition: [
-            { required: false, type: 'string', message: '前置条件 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '前置条件 值不能为空', trigger: 'blur' },
-        ],
-        keywords: [
-            { required: false, type: 'string', message: '关键词 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '关键词 值不能为空', trigger: 'blur' },
-        ],
-        formitem1: [
-            { required: false, type: 'string', message: '附件 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '附件 值不能为空', trigger: 'blur' },
-        ],
-        id: [
-            { required: false, type: 'number', message: '用例编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '用例编号 值不能为空', trigger: 'blur' },
         ],
     }
 
@@ -218,8 +141,6 @@ export class MainNewEditFormBase extends EditFormControlBase {
         precondition: new FormItemModel({ caption: '前置条件', detailType: 'FORMITEM', name: 'precondition', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
         keywords: new FormItemModel({ caption: '关键词', detailType: 'FORMITEM', name: 'keywords', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
-
-        formitem1: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'formitem1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
         id: new FormItemModel({ caption: '用例编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 }),
 

@@ -45,7 +45,7 @@ import org.springframework.util.StringUtils;
 public class JenkinsServiceImpl extends ServiceImpl<JenkinsMapper, Jenkins> implements IJenkinsService {
 
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

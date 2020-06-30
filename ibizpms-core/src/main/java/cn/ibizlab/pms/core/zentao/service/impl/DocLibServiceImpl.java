@@ -46,15 +46,15 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
 
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IDocService docService;
+    protected cn.ibizlab.pms.core.zentao.service.IDocService docService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IProductService productService;
+    protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
+    protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     public DocLib getDraft(DocLib et) {

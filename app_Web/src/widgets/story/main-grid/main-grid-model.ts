@@ -37,9 +37,24 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'parent',
           prop: 'parent',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'estimate',
+          prop: 'estimate',
+          dataType: 'FLOAT',
+        },
+        {
+          name: 'stage',
+          prop: 'stage',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'srfmajortext',
@@ -62,14 +77,24 @@ export default class MainModel {
           dataType: 'ACID',
         },
         {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
+          name: 'openedby',
+          prop: 'openedby',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'product',
           prop: 'product',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'assignedto',
+          prop: 'assignedto',
+          dataType: 'TEXT',
         },
         {
           name: 'modulename',
@@ -87,13 +112,18 @@ export default class MainModel {
           dataType: 'TEXT',
         },
         {
-          name: 'duplicatestory',
-          prop: 'duplicatestory',
-          dataType: 'PICKUP',
+          name: 'plan',
+          prop: 'plan',
+          dataType: 'LONGTEXT',
         },
         {
           name: 'branch',
           prop: 'branch',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'duplicatestory',
+          prop: 'duplicatestory',
           dataType: 'PICKUP',
         },
         {

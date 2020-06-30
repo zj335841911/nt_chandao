@@ -206,8 +206,29 @@ export class GridControllerBase extends MDControlBase {
      * @param {any[]} args
      * @memberof GridControllerBase
      */
-    public refresh(args: any[]): void {
+    public refresh(args?: any[]): void {
         this.load();
+    }
+
+    /**
+     * 消息中心
+     *
+     * @protected
+     * @param {*} data
+     * @memberof GridControllerBase
+     */
+    protected accChange(data: any): void {
+        if (this.isOpenEdit) {
+            this.$Modal.confirm({
+                title: '数据已变更',
+                content: '数据已变更，是否刷新数据?',
+                onOk: () => {
+                    this.refresh();
+                }
+            });
+        } else {
+            this.refresh();
+        }
     }
 
     /**
@@ -217,6 +238,7 @@ export class GridControllerBase extends MDControlBase {
      * @memberof GridControllerBase
      */
     protected ctrlCreated(): void {
+        super.ctrlCreated();
         this.setColState();
         this.$acc.commandLocal(() => {
             this.load()

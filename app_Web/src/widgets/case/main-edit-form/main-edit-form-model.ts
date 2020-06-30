@@ -64,7 +64,7 @@ export default class MainEditModel {
         name: 'formitem',
       },
       {
-        name: 'formitem1',
+        name: 'files',
       },
       {
         name: 'product',

@@ -46,18 +46,18 @@ public class TestResultServiceImpl extends ServiceImpl<TestResultMapper, TestRes
 
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ICaseService caseService;
+    protected cn.ibizlab.pms.core.zentao.service.ICaseService caseService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ICompileService compileService;
+    protected cn.ibizlab.pms.core.zentao.service.ICompileService compileService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IJobService jobService;
+    protected cn.ibizlab.pms.core.zentao.service.IJobService jobService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ITestRunService testrunService;
+    protected cn.ibizlab.pms.core.zentao.service.ITestRunService testrunService;
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

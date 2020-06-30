@@ -32,6 +32,7 @@ import cn.ibizlab.pms.webapi.mapping.*;
 import cn.ibizlab.pms.core.ibiz.domain.ProductModule;
 import cn.ibizlab.pms.core.ibiz.service.IProductModuleService;
 import cn.ibizlab.pms.core.ibiz.filter.ProductModuleSearchContext;
+import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
 @Api(tags = {"需求模块" })

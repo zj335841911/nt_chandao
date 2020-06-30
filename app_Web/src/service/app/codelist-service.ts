@@ -1,10 +1,13 @@
+import ProductBranch_Cache from '@/codelist/product-branch-cache';   
+import CurProductPlan from '@/codelist/cur-product-plan';   
 import UserRealName from '@/codelist/user-real-name';   
 import ProductBranch from '@/codelist/product-branch';   
-import ProductBuild from '@/codelist/product-build';   
+import CurProductBuild from '@/codelist/cur-product-build';   
 import Role from '@/codelist/role';   
 import TestTask from '@/codelist/test-task';   
 import Product from '@/codelist/product';   
-import CurProductPlan from '@/codelist/cur-product-plan';   
+import ProductPlan from '@/codelist/product-plan';   
+import CurStory from '@/codelist/cur-story';   
 import { Store } from 'vuex';
 
 /**
@@ -57,6 +60,22 @@ export default class CodeListService {
 
 
     /**
+     * 代码表--产品平台（动态）_缓存
+     *
+     * @type {ProductBranch_Cache}
+     * @memberof CodeListService
+     */
+    public ProductBranch_Cache: ProductBranch_Cache = new ProductBranch_Cache();
+
+    /**
+     * 代码表--当前产品计划（动态）_缓存
+     *
+     * @type {CurProductPlan}
+     * @memberof CodeListService
+     */
+    public CurProductPlan: CurProductPlan = new CurProductPlan();
+
+    /**
      * 代码表--用户真实名称（动态）
      *
      * @type {UserRealName}
@@ -73,12 +92,12 @@ export default class CodeListService {
     public ProductBranch: ProductBranch = new ProductBranch();
 
     /**
-     * 代码表--产品版本（动态）
+     * 代码表--当前产品版本（动态）
      *
-     * @type {ProductBuild}
+     * @type {CurProductBuild}
      * @memberof CodeListService
      */
-    public ProductBuild: ProductBuild = new ProductBuild();
+    public CurProductBuild: CurProductBuild = new CurProductBuild();
 
     /**
      * 代码表--群组（动态）
@@ -107,10 +126,18 @@ export default class CodeListService {
     /**
      * 代码表--产品计划（动态）
      *
-     * @type {CurProductPlan}
+     * @type {ProductPlan}
      * @memberof CodeListService
      */
-    public CurProductPlan: CurProductPlan = new CurProductPlan();
+    public ProductPlan: ProductPlan = new ProductPlan();
+
+    /**
+     * 代码表--当前需求版本（动态）
+     *
+     * @type {CurStory}
+     * @memberof CodeListService
+     */
+    public CurStory: CurStory = new CurStory();
 
     /**
      * 获取动态代码表

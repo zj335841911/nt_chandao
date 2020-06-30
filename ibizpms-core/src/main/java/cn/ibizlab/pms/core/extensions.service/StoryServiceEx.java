@@ -52,6 +52,16 @@ public class StoryServiceEx extends StoryServiceImpl {
         return super.batchClose(et);
     }
     /**
+     * 自定义行为[GetStorySpec]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Story getStorySpec(Story et) {
+        return super.getStorySpec(et);
+    }
+    /**
      * 自定义行为[Change]用户扩展
      * @param et
      * @return

@@ -8,7 +8,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
     let status = MockAdapter.mockStatus(config);
     return [status,{
                 "producttesttabexpview": {
-            "title": "产品主数据视图",
+            "title": "测试",
             "caption": "测试",
             "viewtype": "DETABEXPVIEW",
             "viewmodule": "zentao",
@@ -1279,14 +1279,6 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectProductListView9",
             "viewtag": "d0454a2ae9eb44aca3613b27169f3b18"
         },
-        "storyspecmainview9": {
-            "title": "需求描述编辑视图",
-            "caption": "需求描述",
-            "viewtype": "DEEDITVIEW9",
-            "viewmodule": "zentao",
-            "viewname": "StorySpecMainView9",
-            "viewtag": "d0c00941809a9dee4e44db3cca606f0a"
-        },
         "testportalview": {
             "title": "测试主页",
             "caption": "测试主页",
@@ -1342,6 +1334,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ActionAllTrendsListView",
             "viewtag": "df57be69540a2e80fee7f3575162b93a"
+        },
+        "storyreviewview": {
+            "title": "需求评审",
+            "caption": "需求评审",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryRevIewView",
+            "viewtag": "df5a966e312ca9c5f5a41428bc2e2672"
         },
         "producteditview": {
             "title": "product编辑视图",
@@ -1528,7 +1528,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "f8ffad31189703973765c5a9c4fc8a5c"
         },
         "projectmaintabexpview": {
-            "title": "项目导航视图",
+            "title": "项目",
             "caption": "项目",
             "viewtype": "DETABEXPVIEW",
             "viewmodule": "zentao",

@@ -123,6 +123,22 @@ export class EditFormControlBase extends FormControlBase {
                 const state = !Object.is(JSON.stringify(this.oldData), JSON.stringify(this.data)) ? true : false;
                 this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: state });
             });
+        this.accLocalTags.push(this.$acc.commandLocal((data: any) => {
+            if (data && this.data.srfkey === data.srfkey && (!data.___localUpdateDate || this.data.___localUpdateDate !== data.___localUpdateDate)) {
+                const appview = this.$store.getters['viewaction/getAppView'](this.viewtag);
+                if (appview && appview.viewdatachange) {
+                    this.$Modal.confirm({
+                        title: '数据已变更',
+                        content: '数据已变更，是否刷新数据?',
+                        onOk: () => {
+                            this.refresh([{}]);
+                        }
+                    });
+                } else {
+                    this.refresh([{}]);
+                }
+            }
+        }, 'update', this.appDeName.toUpperCase()));
     }
 
     /**
@@ -134,7 +150,9 @@ export class EditFormControlBase extends FormControlBase {
     protected watchData(): void {
         for (const key in this.data) {
             if (this.data.hasOwnProperty(key)) {
-                this.$watch(`data.${key}`, this.formDataChange);
+                this.$watch(`data.${key}`, (newVal: any, oldVal: any) => {
+                    this.formDataChange({ name: key, newVal, oldVal });
+                });
             }
         }
     }
@@ -228,6 +246,7 @@ export class EditFormControlBase extends FormControlBase {
             this.onFormLoad(data, 'autoSave');
             this.$emit('save', data);
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
+            this.sendAccMessage(Object.is(data.srfuf, '1') ? 'update' : 'create');
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });
             });
@@ -289,6 +308,7 @@ export class EditFormControlBase extends FormControlBase {
                 this.onFormLoad(data, 'save');
                 this.$emit('save', data);
                 this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
+                this.sendAccMessage(Object.is(data.srfuf, '1') ? 'update' : 'create');
                 this.$nextTick(() => {
                     this.formState.next({ type: 'save', data: data });
                 });
@@ -563,16 +583,15 @@ export class EditFormControlBase extends FormControlBase {
      * @memberof FormControlBase
      */
     public saveAndNew(data: any[]): Promise<any> {
-        let _this = this;
         return new Promise((resolve: any, reject: any) => {
             let arg: any = {};
             if (data && data.length > 0) {
                 Object.assign(arg, data[0]);
             }
-            _this.currentAction = "saveAndNew";
-            _this.save([arg]).then((res) => {
-                _this.ResetData(res);
-                _this.loadDraft({});
+            this.currentAction = "saveAndNew";
+            this.save([arg]).then((res: any) => {
+                this.ResetData(res);
+                this.loadDraft({});
             }).catch((error) => {
                 reject(error);
             })
@@ -587,15 +606,14 @@ export class EditFormControlBase extends FormControlBase {
      * @memberof FormControlBase
      */
     public removeAndExit(data: any[]): Promise<any> {
-        let _this = this;
         return new Promise((resolve: any, reject: any) => {
             let arg: any = {};
             if (data && data.length > 0) {
                 Object.assign(arg, data[0]);
             }
-            _this.remove([arg]).then((res) => {
+            this.remove([arg]).then((res: any) => {
                 if (res) {
-                    _this.closeView(res.data);
+                    this.closeView(res.data);
                 }
                 resolve(res);
             }).catch((error) => {
@@ -612,7 +630,6 @@ export class EditFormControlBase extends FormControlBase {
      * @memberof FormControlBase
      */
     public drdatasaved($event: any) {
-        let _this = this;
         this.drcounter--;
         if (this.drcounter > 0) {
             return;
@@ -620,15 +637,27 @@ export class EditFormControlBase extends FormControlBase {
         this.save(this.drsaveopt, undefined, false).then((res) => {
             this.saveState(res);
             this.drsaveopt = {};
-            if (Object.is(_this.currentAction, "saveAndNew")) {
-                _this.ResetData(res);
-                _this.loadDraft({});
-            } else if (Object.is(_this.currentAction, "saveAndExit")) {
+            if (Object.is(this.currentAction, "saveAndNew")) {
+                this.ResetData(res);
+                this.loadDraft({});
+            } else if (Object.is(this.currentAction, "saveAndExit")) {
                 if (res) {
-                    _this.closeView(res.data);
+                    this.closeView(res.data);
                 }
             }
         });
+    }
+
+    /**
+     * 向消息中中心发送数据变更指令
+     *
+     * @protected
+     * @param {('update' | 'create' | 'remove')} type
+     * @memberof EditFormControlBase
+     */
+    protected sendAccMessage(type: 'update' | 'create' | 'remove'): void {
+        this.data.___localUpdateDate = new Date().getTime();
+        this.$acc.send[type](this.data, this.appDeName.toUpperCase());
     }
 
 }

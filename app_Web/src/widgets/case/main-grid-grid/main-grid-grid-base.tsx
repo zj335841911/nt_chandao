@@ -354,4 +354,111 @@ export class MainGridGridBase extends GridControllerBase {
         ],
     }
 
+    /**
+     * 获取对应列class
+     *
+     * @type {*}
+     * @memberof MainGridBase
+     */
+    public hasRowEdit: any = {
+        'id':false,
+        'pri':false,
+        'title':false,
+        'type':false,
+        'openedby':false,
+        'lastrunner':false,
+        'lastrundate':false,
+        'lastrunresult':false,
+        'status':false,
+        'tobugcnt':false,
+        'resultcnt':false,
+        'casesteps':false,
+        'uagridcolumn1':false,
+    };
+
+    /**
+     * 获取对应列class
+     *
+     * @param {*} $args row 行数据，column 列数据，rowIndex 行索引，列索引
+     * @returns {void}
+     * @memberof MainGridBase
+     */
+    public getCellClassName(args: {row: any, column: any, rowIndex: number, columnIndex: number}): any {
+        return ( this.hasRowEdit[args.column.property] && this.actualIsOpenEdit ) ? "edit-cell" : "info-cell";
+    }
+
+
+    /**
+     * 导出数据格式化
+     *
+     * @param {*} filterVal
+     * @param {*} jsonData
+     * @param {any[]} [codelistColumns=[]]
+     * @returns {Promise<any>}
+     * @memberof MainGridGridBase
+     */
+    public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
+        return super.formatExcelData(filterVal, jsonData, [
+            {
+                name: 'pri',
+                srfkey: 'Testcase__pri',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'type',
+                srfkey: 'Testcase__type',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'lastrunresult',
+                srfkey: 'Testcase__result',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'status',
+                srfkey: 'Testcase__status',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+        ]);
+    }
+
+
+    /**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof MainGridGridBase
+     */
+	public uiAction(row: any, tag: any, $event: any): void {
+        $event.stopPropagation();
+        if(Object.is('OpenTestRunResultView', tag)) {
+            this.grid_uagridcolumn1_u333b640_click(row, tag, $event);
+        }
+        if(Object.is('Execute', tag)) {
+            this.grid_uagridcolumn1_ufc5dbb7_click(row, tag, $event);
+        }
+        if(Object.is('MainEdit', tag)) {
+            this.grid_uagridcolumn1_u5c4f2da_click(row, tag, $event);
+        }
+        if(Object.is('NewBugByCaseResult', tag)) {
+            this.grid_uagridcolumn1_uc64fb7f_click(row, tag, $event);
+        }
+        if(Object.is('Remove', tag)) {
+            this.grid_uagridcolumn1_u5913b24_click(row, tag, $event);
+        }
+    }
 }

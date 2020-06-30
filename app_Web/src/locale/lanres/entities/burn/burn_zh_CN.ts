@@ -14,4 +14,10 @@ export default {
       		title: "燃尽图",
 		},
 	},
+	chartviewtoolbar_toolbar: {
+		deuiaction1_computeburn: {
+			caption: "更新燃尽图",
+			tip: "更新燃尽图",
+		},
+	},
 };

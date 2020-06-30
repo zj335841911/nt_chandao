@@ -79,7 +79,6 @@ export default class StorySpecUIServiceBase extends UIService {
      * @memberof  StorySpecUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'mainview9',srfappde:'storyspecs'});
     }
 
     /**

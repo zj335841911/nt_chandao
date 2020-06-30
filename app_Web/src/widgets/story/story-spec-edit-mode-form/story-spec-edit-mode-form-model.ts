@@ -51,6 +51,11 @@ export default class StorySpec_EditModeModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'status',
+        prop: 'status',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'version',
         prop: 'version',
         dataType: 'INT',
@@ -58,7 +63,7 @@ export default class StorySpec_EditModeModel {
       {
         name: 'reviewedby',
         prop: 'reviewedby',
-        dataType: 'TEXT',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'notreview',
@@ -69,13 +74,13 @@ export default class StorySpec_EditModeModel {
         dataType: 'TEXT',
       },
       {
-        name: 'verify',
-        prop: 'verify',
+        name: 'spec',
+        prop: 'spec',
         dataType: 'TEXT',
       },
       {
-        name: 'spec',
-        prop: 'spec',
+        name: 'verify',
+        prop: 'verify',
         dataType: 'TEXT',
       },
       {

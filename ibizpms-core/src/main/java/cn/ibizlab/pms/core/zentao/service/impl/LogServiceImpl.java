@@ -45,7 +45,7 @@ import org.springframework.util.StringUtils;
 public class LogServiceImpl extends ServiceImpl<LogMapper, Log> implements ILogService {
 
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

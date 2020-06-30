@@ -46,12 +46,12 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
 
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IHistoryService historyService;
+    protected cn.ibizlab.pms.core.zentao.service.IHistoryService historyService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
+    protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

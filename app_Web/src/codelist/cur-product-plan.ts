@@ -1,6 +1,6 @@
 import ProductPlanService from '@service/product-plan/product-plan-service';
 /**
- * 代码表--产品计划（动态）
+ * 代码表--当前产品计划（动态）_缓存
  *
  * @export
  * @class CurProductPlan
@@ -13,7 +13,7 @@ export default class CurProductPlan {
      * @type boolean
      * @memberof CurProductPlan
      */
-    public isEnableCache:boolean = false;
+    public isEnableCache:boolean = true;
 
     /**
      * 过期时间
@@ -29,7 +29,7 @@ export default class CurProductPlan {
      * @type any
      * @memberof CurProductPlan
      */
-    public cacheTimeout:any = -1;
+    public cacheTimeout:any = 600;
 
     /**
      * 代码表模型对象
@@ -101,7 +101,7 @@ export default class CurProductPlan {
     public getItems(context: any={}, data: any={}, isloading?: boolean): Promise<any> {
         return new Promise((resolve, reject) => {
             data = this.handleQueryParam(data);
-            const promise: Promise<any> = this.productplanService.FetchCurProductPlan(context, data, isloading);
+            const promise: Promise<any> = this.productplanService.FetchDefault(context, data, isloading);
             promise.then((response: any) => {
                 if (response && response.status === 200) {
                     const data =  response.data;

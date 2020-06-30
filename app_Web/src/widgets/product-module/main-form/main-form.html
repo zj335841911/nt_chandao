@@ -25,7 +25,7 @@
   :value="data.rootname" 
   editortype="dropdown" 
   style="" 
-  @formitemvaluechange="onFormItemValueChange">
+  @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
@@ -41,7 +41,7 @@
     :localContext ='{ }' 
     :localParam ='{ }' 
     :disabled="detailsModel.branch.disabled"  
-    tag='ProductBranch' 
+    tag='ProductBranch_Cache' 
     codelistType='DYNAMIC'
     placeholder='请选择...' style="">
  </dropdown-list>
@@ -68,7 +68,7 @@
   :value="data.parentname" 
   editortype="dropdown" 
   style="" 
-  @formitemvaluechange="onFormItemValueChange">
+  @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
@@ -90,9 +90,10 @@
     <input-box 
   v-model="data.order"  
   @enter="onEnter($event)"  
-  unit=""
+  
   :disabled="detailsModel.order.disabled" 
   type='number' 
+  :precision="0"
    
   style="">
 </input-box>

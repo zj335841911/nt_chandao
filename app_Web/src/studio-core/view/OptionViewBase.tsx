@@ -16,7 +16,7 @@ export class OptionViewBase extends ViewBase {
      */
     public onClickOk(): void {
         const form: any = this.$refs.form;
-        if (!form) {
+        if (form) {
             form.save().then((res: any) => {
                 if (res.status == 200) {
                     this.$emit('close', [res.data]);

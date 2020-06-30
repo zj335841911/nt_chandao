@@ -45,7 +45,7 @@ import org.springframework.util.StringUtils;
 public class Im_conferenceactionServiceImpl extends ServiceImpl<Im_conferenceactionMapper, Im_conferenceaction> implements IIm_conferenceactionService {
 
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     public boolean checkKey(Im_conferenceaction et) {

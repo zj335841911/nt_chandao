@@ -3,9 +3,7 @@ package cn.ibizlab.pms.core.util.zentao.helper;
 import cn.ibizlab.pms.core.util.zentao.bean.ZTResult;
 import cn.ibizlab.pms.core.util.zentao.constants.ZenTaoConstants;
 import com.alibaba.fastjson.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
-import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.List;
@@ -59,8 +57,6 @@ final public class ZTUserHelper {
     private final static String ACTION_AJAXGETCONTACTUSERS = "ajaxGetContactUsers";
     private final static String ACTION_AJAXGETCONTACTLIST = "ajaxGetContactList";
     private final static String ACTION_AJAXPRINTTEMPLATES = "ajaxPrintTemplates";
-    private final static String ACTION_AJAXSAVETEMPLATE = "ajaxSaveTemplate";
-    private final static String ACTION_AJAXDELETETEMPLATE = "ajaxDeleteTemplate";
 
     // ----------
     // 接口行为HTTP方法（GET、POST）

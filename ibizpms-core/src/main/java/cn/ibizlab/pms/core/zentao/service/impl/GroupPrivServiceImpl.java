@@ -45,7 +45,7 @@ import org.springframework.util.StringUtils;
 public class GroupPrivServiceImpl extends ServiceImpl<GroupPrivMapper, GroupPriv> implements IGroupPrivService {
 
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

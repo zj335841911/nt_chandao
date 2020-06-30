@@ -6,6 +6,7 @@
         :border="isDragendCol"
         :highlight-current-row ="isSingleSelect"
         :row-class-name="getRowClassName.bind(_self)"
+        :cell-class-name="getCellClassName.bind(_self)"
         size="mini"
         stripe
         @row-click="rowClick($event)"  
@@ -68,7 +69,7 @@
               :viewparams="viewparams" 
               :localContext ='{ }' 
               :localParam ='{ }' 
-              tag='ProductBranch' 
+              tag='ProductBranch_Cache' 
               codelistType='DYNAMIC'
               placeholder='请选择...' 
               style="" 
@@ -78,7 +79,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <codelist :value="row.branch" tag='ProductBranch' codelistType='DYNAMIC' ></codelist>
+            <codelist :value="row.branch" tag='ProductBranch_Cache' codelistType='DYNAMIC' ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -118,13 +119,15 @@
                       </span>
                     </template>
                     <template slot-scope="scope">
-                        <span>
-                            
-                            <a title="表格界面_删除操作" @click="uiAction(scope.row, 'Remove', $event)">
+                        <div style="text-align: center;">
+                            <tooltip :transfer="true" :max-width="600">
+                            <a @click="uiAction(scope.row, 'Remove', $event)">
                               <i class='fa fa-remove'></i>
                               
                             </a>
-                        </span>
+                            <div slot='content'>{{$t('entities.productmodule.main_grid.uiactions.productmodule_remove')}}</div>
+                            </tooltip>
+                        </div>
                     </template>
                 </el-table-column>
             </template>

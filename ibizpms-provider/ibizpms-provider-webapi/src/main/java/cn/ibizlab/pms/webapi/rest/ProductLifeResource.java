@@ -32,6 +32,7 @@ import cn.ibizlab.pms.webapi.mapping.*;
 import cn.ibizlab.pms.core.ibiz.domain.ProductLife;
 import cn.ibizlab.pms.core.ibiz.service.IProductLifeService;
 import cn.ibizlab.pms.core.ibiz.filter.ProductLifeSearchContext;
+import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
 @Api(tags = {"产品生命周期" })

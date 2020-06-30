@@ -45,7 +45,7 @@ import org.springframework.util.StringUtils;
 public class WebHookServiceImpl extends ServiceImpl<WebHookMapper, WebHook> implements IWebHookService {
 
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

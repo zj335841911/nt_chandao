@@ -45,42 +45,42 @@ import org.springframework.util.StringUtils;
 public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugService {
 
 
-    private cn.ibizlab.pms.core.zentao.service.IBugService bugService = this;
+    protected cn.ibizlab.pms.core.zentao.service.IBugService bugService = this;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ICaseService caseService;
+    protected cn.ibizlab.pms.core.zentao.service.ICaseService caseService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IStoryService storyService;
+    protected cn.ibizlab.pms.core.zentao.service.IStoryService storyService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ITaskService taskService;
+    protected cn.ibizlab.pms.core.zentao.service.ITaskService taskService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IBranchService branchService;
+    protected cn.ibizlab.pms.core.zentao.service.IBranchService branchService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IEntryService entryService;
+    protected cn.ibizlab.pms.core.zentao.service.IEntryService entryService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IModuleService moduleService;
+    protected cn.ibizlab.pms.core.zentao.service.IModuleService moduleService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IProductPlanService productplanService;
+    protected cn.ibizlab.pms.core.zentao.service.IProductPlanService productplanService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IProductService productService;
+    protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
+    protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IRepoService repoService;
+    protected cn.ibizlab.pms.core.zentao.service.IRepoService repoService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ITestTaskService testtaskService;
+    protected cn.ibizlab.pms.core.zentao.service.ITestTaskService testtaskService;
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

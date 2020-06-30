@@ -46,9 +46,9 @@ public class EntryServiceImpl extends ServiceImpl<EntryMapper, Entry> implements
 
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IBugService bugService;
+    protected cn.ibizlab.pms.core.zentao.service.IBugService bugService;
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

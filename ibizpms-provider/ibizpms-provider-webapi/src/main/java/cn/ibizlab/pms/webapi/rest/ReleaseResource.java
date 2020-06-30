@@ -32,6 +32,7 @@ import cn.ibizlab.pms.webapi.mapping.*;
 import cn.ibizlab.pms.core.zentao.domain.Release;
 import cn.ibizlab.pms.core.zentao.service.IReleaseService;
 import cn.ibizlab.pms.core.zentao.filter.ReleaseSearchContext;
+import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
 @Api(tags = {"发布" })
@@ -57,10 +58,10 @@ public class ReleaseResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/releases/{release_id}/terminate")
     @Transactional
     public ResponseEntity<ReleaseDTO> terminate(@PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
-        Release release = releaseMapping.toDomain(releasedto);
-        release.setId(release_id);
-        release = releaseService.terminate(release);
-        releasedto = releaseMapping.toDto(release);
+        Release domain = releaseMapping.toDomain(releasedto);
+        domain.setId(release_id);
+        domain = releaseService.terminate(domain);
+        releasedto = releaseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(releasedto);
     }
 
@@ -69,10 +70,10 @@ public class ReleaseResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/releases/{release_id}/activate")
     @Transactional
     public ResponseEntity<ReleaseDTO> activate(@PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
-        Release release = releaseMapping.toDomain(releasedto);
-        release.setId(release_id);
-        release = releaseService.activate(release);
-        releasedto = releaseMapping.toDto(release);
+        Release domain = releaseMapping.toDomain(releasedto);
+        domain.setId(release_id);
+        domain = releaseService.activate(domain);
+        releasedto = releaseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(releasedto);
     }
 
@@ -105,10 +106,10 @@ public class ReleaseResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/releases/{release_id}/changestatus")
     @Transactional
     public ResponseEntity<ReleaseDTO> changeStatus(@PathVariable("release_id") BigInteger release_id, @RequestBody ReleaseDTO releasedto) {
-        Release release = releaseMapping.toDomain(releasedto);
-        release.setId(release_id);
-        release = releaseService.changeStatus(release);
-        releasedto = releaseMapping.toDto(release);
+        Release domain = releaseMapping.toDomain(releasedto);
+        domain.setId(release_id);
+        domain = releaseService.changeStatus(domain);
+        releasedto = releaseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(releasedto);
     }
 

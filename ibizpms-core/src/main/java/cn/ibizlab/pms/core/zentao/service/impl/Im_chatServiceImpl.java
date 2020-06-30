@@ -45,7 +45,7 @@ import org.springframework.util.StringUtils;
 public class Im_chatServiceImpl extends ServiceImpl<Im_chatMapper, Im_chat> implements IIm_chatService {
 
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

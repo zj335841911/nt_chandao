@@ -45,7 +45,7 @@ import org.springframework.util.StringUtils;
 public class Im_conferenceServiceImpl extends ServiceImpl<Im_conferenceMapper, Im_conference> implements IIm_conferenceService {
 
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

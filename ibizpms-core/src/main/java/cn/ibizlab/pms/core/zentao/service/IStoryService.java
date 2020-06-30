@@ -31,6 +31,7 @@ public interface IStoryService extends IService<Story>{
     Story batchChangeStage(Story et) ;
     Story batchChangePlan(Story et) ;
     Story batchClose(Story et) ;
+    Story getStorySpec(Story et) ;
     Story change(Story et) ;
     boolean checkKey(Story et) ;
     boolean remove(BigInteger key) ;

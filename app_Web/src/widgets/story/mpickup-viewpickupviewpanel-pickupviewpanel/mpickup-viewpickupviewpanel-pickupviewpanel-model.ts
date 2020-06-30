@@ -144,6 +144,9 @@ export default class MPickupViewpickupviewpanelModel {
       {
         name: 'verify',
       },
+      {
+        name: 'result',
+      },
     ]
   }
 

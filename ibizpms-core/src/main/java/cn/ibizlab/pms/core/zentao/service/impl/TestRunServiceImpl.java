@@ -46,15 +46,15 @@ public class TestRunServiceImpl extends ServiceImpl<TestRunMapper, TestRun> impl
 
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ITestResultService testresultService;
+    protected cn.ibizlab.pms.core.zentao.service.ITestResultService testresultService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ICaseService caseService;
+    protected cn.ibizlab.pms.core.zentao.service.ICaseService caseService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ITestTaskService testtaskService;
+    protected cn.ibizlab.pms.core.zentao.service.ITestTaskService testtaskService;
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     public boolean checkKey(TestRun et) {

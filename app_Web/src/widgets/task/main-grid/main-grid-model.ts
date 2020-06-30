@@ -34,7 +34,7 @@ export default class MainModel {
         {
           name: 'finishedby',
           prop: 'finishedby',
-          dataType: 'TEXT',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'frombug',

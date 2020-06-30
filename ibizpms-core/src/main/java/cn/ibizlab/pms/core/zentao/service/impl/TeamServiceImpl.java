@@ -45,7 +45,7 @@ import org.springframework.util.StringUtils;
 public class TeamServiceImpl extends ServiceImpl<TeamMapper, Team> implements ITeamService {
 
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

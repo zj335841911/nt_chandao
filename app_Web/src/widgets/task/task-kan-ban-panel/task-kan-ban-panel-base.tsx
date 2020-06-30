@@ -342,14 +342,12 @@ export class TaskKanBanPanelBase extends MainControlBase {
                     resolve([...JSON.parse(JSON.stringify(codelist.items))]);
                 } else {
                     resolve([]);
-                    console.log(`----${codeListObject.tag}----代码表不存在`);
                 }
             }else if(codeListObject.tag && Object.is(codeListObject.codelistType,"DYNAMIC")){
                 this.codeListService.getItems(codeListObject.tag).then((res:any) => {
                     resolve(res);
                 }).catch((error:any) => {
                     resolve([]);
-                    console.log(`----${codeListObject.tag}----代码表不存在`);
                 });
             }
         })
@@ -450,8 +448,14 @@ export class TaskKanBanPanelBase extends MainControlBase {
      * @memberof TaskKanBan
      */
     public panelEditItemChange(data: any, property: string, value: any){
-        
-
+        // 面板数据变化事件
+        if((this.dataModel.getDataItems instanceof Function) && this.dataModel.getDataItems().length >0){
+            let modelitem =this.dataModel.getDataItems().find((item:any) =>{
+                return item.name === property;
+            }) 
+            if(modelitem){
+                this.$emit('panelDataChange',{[modelitem.prop]: value});
+            }
+        }
     }
-
 }

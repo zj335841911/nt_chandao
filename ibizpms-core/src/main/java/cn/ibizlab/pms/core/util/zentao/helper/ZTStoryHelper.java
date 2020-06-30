@@ -2,12 +2,9 @@ package cn.ibizlab.pms.core.util.zentao.helper;
 
 import cn.ibizlab.pms.core.util.zentao.bean.ZTResult;
 import cn.ibizlab.pms.core.util.zentao.constants.ZenTaoConstants;
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import org.apache.commons.collections4.map.CaseInsensitiveMap;
 import org.springframework.http.HttpMethod;
 
-import java.math.BigInteger;
 import java.util.*;
 
 /**

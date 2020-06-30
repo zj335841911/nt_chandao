@@ -5,7 +5,7 @@
 
     <!--该方法用于重写mybatis中selectById方法，以实现查询逻辑属性-->
 	<select id="selectById"  resultMap="StorySpecResultMap" databaseId="mysql">
-        <![CDATA[select t1.* from (SELECT t1.`DUPLICATESTORY`, concat(t1.`STORY`,'__',t1.`VERSION`) AS `ID`, t1.`SPEC`, t1.`STORY`, t1.`TITLE`, t1.`VERIFY`, t1.`VERSION` FROM `zt_storyspec` t1  ) t1 where id=#{id}]]>
+        <![CDATA[select t1.* from (SELECT concat(t1.`STORY`,'__',t1.`VERSION`) AS `ID`, t1.`SPEC`, t1.`STORY`, t1.`TITLE`, t1.`VERIFY`, t1.`VERSION` FROM `zt_storyspec` t1  ) t1 where id=#{id}]]>
     </select>
 
     <!--通过mybatis将查询结果注入到entity中,通过配置autoMapping="true"由mybatis自动处理映射关系 -->
@@ -26,6 +26,15 @@
          where  story=#{id}
      </select>
 
+    <!--数据集合[Version]-->
+	 <select id="searchVersion"  parameterType="cn.ibizlab.pms.core.zentao.filter.StorySpecSearchContext"  resultMap="StorySpecResultMap">
+         select t1.* from (
+                <include refid="Version" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据集合[Default]-->
 	 <select id="searchDefault"  parameterType="cn.ibizlab.pms.core.zentao.filter.StorySpecSearchContext"  resultMap="StorySpecResultMap">
          select t1.* from (
@@ -37,12 +46,17 @@
 
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
-		<![CDATA[ SELECT t1.`DUPLICATESTORY`, concat(t1.`STORY`,'__',t1.`VERSION`) AS `ID`, t1.`STORY`, t1.`TITLE`, t1.`VERSION` FROM `zt_storyspec` t1  
+		<![CDATA[ SELECT concat(t1.`STORY`,'__',t1.`VERSION`) AS `ID`, t1.`SPEC`, t1.`STORY`, t1.`TITLE`, t1.`VERIFY`, t1.`VERSION` FROM `zt_storyspec` t1  
+			]]>
+    </sql>
+    <!--数据查询[Version]-->
+    <sql id="Version" databaseId="mysql">
+		<![CDATA[ SELECT concat(t1.`STORY`,'__',t1.`VERSION`) AS `ID`, t1.`STORY`, t1.`VERSION` FROM `zt_storyspec` t1  
 			]]>
     </sql>
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
-		<![CDATA[ SELECT t1.`DUPLICATESTORY`, concat(t1.`STORY`,'__',t1.`VERSION`) AS `ID`, t1.`SPEC`, t1.`STORY`, t1.`TITLE`, t1.`VERIFY`, t1.`VERSION` FROM `zt_storyspec` t1  
+		<![CDATA[ SELECT concat(t1.`STORY`,'__',t1.`VERSION`) AS `ID`, t1.`SPEC`, t1.`STORY`, t1.`TITLE`, t1.`VERIFY`, t1.`VERSION` FROM `zt_storyspec` t1  
 			]]>
     </sql>
 </mapper>

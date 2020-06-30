@@ -32,6 +32,7 @@ import cn.ibizlab.pms.webapi.mapping.*;
 import cn.ibizlab.pms.core.zentao.domain.SuiteCase;
 import cn.ibizlab.pms.core.zentao.service.ISuiteCaseService;
 import cn.ibizlab.pms.core.zentao.filter.SuiteCaseSearchContext;
+import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
 @Api(tags = {"套件用例" })

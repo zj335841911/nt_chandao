@@ -32,14 +32,6 @@ public class StorySpecDTO extends DTOBase implements Serializable {
     private String spec;
 
     /**
-     * 属性 [DUPLICATESTORY]
-     *
-     */
-    @JSONField(name = "duplicatestory")
-    @JsonProperty("duplicatestory")
-    private Integer duplicatestory;
-
-    /**
      * 属性 [VERIFY]
      *
      */
@@ -86,14 +78,6 @@ public class StorySpecDTO extends DTOBase implements Serializable {
     public void setSpec(String  spec){
         this.spec = spec ;
         this.modify("spec",spec);
-    }
-
-    /**
-     * 设置 [DUPLICATESTORY]
-     */
-    public void setDuplicatestory(Integer  duplicatestory){
-        this.duplicatestory = duplicatestory ;
-        this.modify("duplicatestory",duplicatestory);
     }
 
     /**

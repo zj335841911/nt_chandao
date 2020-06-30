@@ -280,7 +280,7 @@ export default class AppFormDRUIPart extends Vue {
         if (Object.is(this.parentdata.SRFPARENTTYPE, 'CUSTOM')) {
             this.isRelationalData = false;
         }
-        const formData: any = data?data:JSON.parse(this.data);
+        const formData: any = data || JSON.parse(this.data);
         const _paramitem = formData[this.paramItem];
         let tempContext:any = {};
         let tempParam:any = {};
@@ -317,7 +317,11 @@ export default class AppFormDRUIPart extends Vue {
             }
         }
         if(!this.isForbidLoad){
-            this.partViewEvent('load', {srfparentdename:this.parentName,srfparentkey:_paramitem}, 0);
+            this.$nextTick(() => {
+                this.$nextTick(() => {
+                    this.partViewEvent('load', {srfparentdename:this.parentName,srfparentkey:_paramitem}, 0);
+                });
+            });
         }
     }
 

@@ -24,6 +24,7 @@ export class ListControllerBase extends MDControlBase {
      * @memberof ListControllerBase
      */
     protected ctrlCreated(): void {
+        super.ctrlCreated();
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(this.name, tag)) {
@@ -53,7 +54,7 @@ export class ListControllerBase extends MDControlBase {
     /**
     * 加载更多
     *
-    * @memberof Mob
+    * @memberof ListControllerBase
     */
     public loadMore() {
         if (this.totalRecord > this.items.length) {
@@ -64,10 +65,21 @@ export class ListControllerBase extends MDControlBase {
     }
 
     /**
+     * 消息中心
+     *
+     * @protected
+     * @param {*} data
+     * @memberof ListControllerBase
+     */
+    protected accChange(data: any): void {
+        this.refresh();
+    }
+
+    /**
      * 刷新
      *
      * @param {*} [opt={}]
-     * @memberof Main
+     * @memberof ListControllerBase
      */
     public refresh(opt: any = {}) {
         this.curPage = 1;

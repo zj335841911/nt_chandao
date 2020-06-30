@@ -1,5 +1,5 @@
 import { Prop } from 'vue-property-decorator';
-import { ViewBase } from './ViewBase';
+import { GridView9Base } from './GridView9Base';
 
 /**
  * 选择表格视图基类
@@ -8,7 +8,7 @@ import { ViewBase } from './ViewBase';
  * @class PickupGridViewBase
  * @extends {ViewBase}
  */
-export class PickupGridViewBase extends ViewBase {
+export class PickupGridViewBase extends GridView9Base {
 
     /**
      * 选中数据字符串

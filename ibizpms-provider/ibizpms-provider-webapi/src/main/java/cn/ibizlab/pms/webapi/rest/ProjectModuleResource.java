@@ -32,6 +32,7 @@ import cn.ibizlab.pms.webapi.mapping.*;
 import cn.ibizlab.pms.core.ibiz.domain.ProjectModule;
 import cn.ibizlab.pms.core.ibiz.service.IProjectModuleService;
 import cn.ibizlab.pms.core.ibiz.filter.ProjectModuleSearchContext;
+import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
 @Api(tags = {"任务模块" })
@@ -142,10 +143,10 @@ public class ProjectModuleResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/projectmodules/{projectmodule_id}/fix")
     @Transactional
     public ResponseEntity<ProjectModuleDTO> fix(@PathVariable("projectmodule_id") BigInteger projectmodule_id, @RequestBody ProjectModuleDTO projectmoduledto) {
-        ProjectModule projectmodule = projectmoduleMapping.toDomain(projectmoduledto);
-        projectmodule.setId(projectmodule_id);
-        projectmodule = projectmoduleService.fix(projectmodule);
-        projectmoduledto = projectmoduleMapping.toDto(projectmodule);
+        ProjectModule domain = projectmoduleMapping.toDomain(projectmoduledto);
+        domain.setId(projectmodule_id);
+        domain = projectmoduleService.fix(domain);
+        projectmoduledto = projectmoduleMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(projectmoduledto);
     }
 

@@ -55,6 +55,15 @@ export class ControlBase extends Vue {
     public showBusyIndicator?: boolean;
 
     /**
+     * 在消息中心订阅的本地消息实例标识
+     *
+     * @protected
+     * @type {string[]}
+     * @memberof ControlBase
+     */
+    protected accLocalTags: string[] = [];
+
+    /**
      * 应用实体名称
      *
      * @protected
@@ -171,6 +180,9 @@ export class ControlBase extends Vue {
     public destroyed(): void {
         this.rxjsEvents.forEach((item: Subscription) => {
             item.unsubscribe();
+        });
+        this.accLocalTags.forEach((str: string) => {
+            this.$acc.unsubscribeLocal(str);
         });
         this.ctrlDestroyed();
     }

@@ -392,13 +392,15 @@ export class FormControlBase extends MainControlBase {
     /**
      * 部件刷新
      *
-     * @param {any[]} args
+     * @param {any[]} [args]
      * @returns {void}
      * @memberof FormControlBase
      */
-    public refresh(args: any[]): void {
+    public refresh(args?: any[]): void {
         const arg: any = {};
-        Object.assign(arg, args[0]);
+        if (args && args.length > 0) {
+            Object.assign(arg, args[0]);
+        }
         if (this.data.srfkey && !Object.is(this.data.srfkey, '')) {
             Object.assign(arg, { srfkey: this.data.srfkey });
             this.load(arg);

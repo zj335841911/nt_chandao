@@ -45,7 +45,7 @@ import org.springframework.util.StringUtils;
 public class RelationServiceImpl extends ServiceImpl<RelationMapper, Relation> implements IRelationService {
 
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

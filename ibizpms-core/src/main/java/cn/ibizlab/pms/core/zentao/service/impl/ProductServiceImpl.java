@@ -46,57 +46,57 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
 
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.ibiz.service.IProductModuleService productmoduleService;
+    protected cn.ibizlab.pms.core.ibiz.service.IProductModuleService productmoduleService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IBranchService branchService;
+    protected cn.ibizlab.pms.core.zentao.service.IBranchService branchService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IBugService bugService;
+    protected cn.ibizlab.pms.core.zentao.service.IBugService bugService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IBuildService buildService;
+    protected cn.ibizlab.pms.core.zentao.service.IBuildService buildService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ICaseService caseService;
+    protected cn.ibizlab.pms.core.zentao.service.ICaseService caseService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IDocLibService doclibService;
+    protected cn.ibizlab.pms.core.zentao.service.IDocLibService doclibService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IDocService docService;
+    protected cn.ibizlab.pms.core.zentao.service.IDocService docService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IProductPlanService productplanService;
+    protected cn.ibizlab.pms.core.zentao.service.IProductPlanService productplanService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IProjectProductService projectproductService;
+    protected cn.ibizlab.pms.core.zentao.service.IProjectProductService projectproductService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IProjectStoryService projectstoryService;
+    protected cn.ibizlab.pms.core.zentao.service.IProjectStoryService projectstoryService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IReleaseService releaseService;
+    protected cn.ibizlab.pms.core.zentao.service.IReleaseService releaseService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IStoryService storyService;
+    protected cn.ibizlab.pms.core.zentao.service.IStoryService storyService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ISuiteCaseService suitecaseService;
+    protected cn.ibizlab.pms.core.zentao.service.ISuiteCaseService suitecaseService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ITestReportService testreportService;
+    protected cn.ibizlab.pms.core.zentao.service.ITestReportService testreportService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ITestSuiteService testsuiteService;
+    protected cn.ibizlab.pms.core.zentao.service.ITestSuiteService testsuiteService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.ITestTaskService testtaskService;
+    protected cn.ibizlab.pms.core.zentao.service.ITestTaskService testtaskService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IModuleService moduleService;
+    protected cn.ibizlab.pms.core.zentao.service.IModuleService moduleService;
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

@@ -45,7 +45,7 @@ import org.springframework.util.StringUtils;
 public class CronServiceImpl extends ServiceImpl<CronMapper, Cron> implements ICronService {
 
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

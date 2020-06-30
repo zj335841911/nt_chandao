@@ -46,15 +46,15 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
 
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IBranchService branchService;
+    protected cn.ibizlab.pms.core.zentao.service.IBranchService branchService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IBuildService buildService;
+    protected cn.ibizlab.pms.core.zentao.service.IBuildService buildService;
     @Autowired
     @Lazy
-    private cn.ibizlab.pms.core.zentao.service.IProductService productService;
+    protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     public boolean checkKey(Release et) {

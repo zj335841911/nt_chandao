@@ -144,6 +144,9 @@ export default class AssignedToMeStoryModel {
       {
         name: 'verify',
       },
+      {
+        name: 'result',
+      },
     ]
   }
 

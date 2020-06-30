@@ -44,7 +44,7 @@
     viewname='action-history-list-view' 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved($event)"
-    style=";overflow: auto;">
+    style="overflow: auto;">
 </app-form-druipart>
 
 </i-col>
@@ -85,7 +85,7 @@
   editortype="" 
   :pickupView="{ viewname: 'product-pickup-view', title: $t('entities.product.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'products', parameterName: 'product' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
   style=""  
-  @formitemvaluechange="onFormItemValueChange">
+  @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 
 </app-form-item>
@@ -136,7 +136,7 @@
     :localContext ='{ }' 
     :localParam ='{ }' 
     :disabled="detailsModel.plan.disabled"  
-    tag='CurProductPlan' 
+    tag='ProductPlan' 
     codelistType='DYNAMIC'
     placeholder='请选择...' style="">
  </dropdown-list>
@@ -346,7 +346,7 @@
   editortype="" 
   :pickupView="{ viewname: 'project-pickup-view', title: $t('entities.project.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'projects', parameterName: 'project' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
   style=""  
-  @formitemvaluechange="onFormItemValueChange">
+  @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 
 </app-form-item>
@@ -408,7 +408,7 @@
     :localContext ='{ }' 
     :localParam ='{ }' 
     :disabled="detailsModel.openedbuild.disabled"  
-    tag='ProductBuild' 
+    tag='CurProductBuild' 
     codelistType='DYNAMIC'
     placeholder='请选择...' style="">
  </dropdown-list>
@@ -462,7 +462,7 @@
     :localContext ='{ }' 
     :localParam ='{ }' 
     :disabled="detailsModel.resolvedbuild.disabled"  
-    tag='ProductBuild' 
+    tag='CurProductBuild' 
     codelistType='DYNAMIC'
     placeholder='请选择...' style="">
  </dropdown-list>

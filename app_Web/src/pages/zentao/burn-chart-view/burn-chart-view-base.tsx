@@ -2,6 +2,7 @@ import { Subject } from 'rxjs';
 import { ChartViewBase } from '@/studio-core';
 import BurnService from '@/service/burn/burn-service';
 import ChartViewEngine from '@engine/view/chart-view-engine';
+import BurnUIService from '@/uiservice/burn/burn-ui-service';
 
 /**
  * 燃尽图视图基类
@@ -52,8 +53,21 @@ export class BurnChartViewBase extends ChartViewBase {
      * @memberof BurnChartViewBase
      */
     protected containerModel: any = {
+        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
         view_chart: { name: 'chart', type: 'CHART' },
     };
+
+    /**
+     * 工具栏模型
+     *
+     * @type {*}
+     * @memberof BurnChartView
+     */
+    public toolBarModels: any = {
+        deuiaction1_computeburn: { name: 'deuiaction1_computeburn', caption: '更新燃尽图','isShowCaption':true,'isShowIcon':true, tooltip: '更新燃尽图', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'ComputeBurn', target: 'SINGLEKEY' }, class: '' },
+
+    };
+
 
 
 	/**
@@ -86,8 +100,22 @@ export class BurnChartViewBase extends ChartViewBase {
             view: this,
             chart: this.$refs.chart,
             keyPSDEField: 'burn',
+            majorPSDEField: 'date',
             isLoadDefault: true,
         });
+    }
+
+    /**
+     * toolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof BurnChartViewBase
+     */
+    public toolbar_click($event: any, $event2?: any): void {
+        if (Object.is($event.tag, 'deuiaction1_computeburn')) {
+            this.toolbar_deuiaction1_computeburn_click(null, '', $event2);
+        }
     }
 
     /**
@@ -110,6 +138,34 @@ export class BurnChartViewBase extends ChartViewBase {
      */
     public chart_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('chart', 'load', $event);
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public toolbar_deuiaction1_computeburn_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:BurnUIService  = new BurnUIService();
+        curUIService.Burn_ComputeBurn(datas,contextJO, paramJO,  $event, xData,this,"Burn");
     }
 
 

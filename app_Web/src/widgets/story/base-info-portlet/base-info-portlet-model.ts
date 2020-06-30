@@ -144,6 +144,9 @@ export default class BaseInfoModel {
       {
         name: 'verify',
       },
+      {
+        name: 'result',
+      },
     ]
   }
 

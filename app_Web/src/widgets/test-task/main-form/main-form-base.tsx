@@ -78,89 +78,9 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public rules: any = {
-        srforikey: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfkey: [
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
-        ],
-        srfmajortext: [
-            { required: false, type: 'string', message: '名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '名称 值不能为空', trigger: 'blur' },
-        ],
-        srftempmode: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfuf: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfdeid: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfsourcekey: [
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        projecttname: [
-            { required: false, type: 'string', message: '项目 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '项目 值不能为空', trigger: 'blur' },
-        ],
-        buildname: [
-            { required: false, type: 'string', message: '版本 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '版本 值不能为空', trigger: 'blur' },
-        ],
-        owner: [
-            { required: false, type: 'string', message: '负责人 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '负责人 值不能为空', trigger: 'blur' },
-        ],
-        pri: [
-            { required: false, type: 'number', message: '优先级 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '优先级 值不能为空', trigger: 'blur' },
-        ],
-        begin: [
-            { required: false, type: 'string', message: '开始日期 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '开始日期 值不能为空', trigger: 'blur' },
-        ],
-        end: [
-            { required: false, type: 'string', message: '结束日期 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '结束日期 值不能为空', trigger: 'blur' },
-        ],
-        status: [
-            { required: false, type: 'string', message: '当前状态 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '当前状态 值不能为空', trigger: 'blur' },
-        ],
         name: [
             { required: true, type: 'string', message: '名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '名称 值不能为空', trigger: 'blur' },
-        ],
-        desc: [
-            { required: false, type: 'string', message: '描述 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '描述 值不能为空', trigger: 'blur' },
-        ],
-        comment: [
-            { required: false, type: 'string', message: '备注 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '备注 值不能为空', trigger: 'blur' },
-        ],
-        mailto: [
-            { required: false, type: 'string', message: '抄送给 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '抄送给 值不能为空', trigger: 'blur' },
-        ],
-        id: [
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
-        ],
-        project: [
-            { required: false, type: 'number', message: '所属项目 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '所属项目 值不能为空', trigger: 'blur' },
-        ],
-        build: [
-            { required: false, type: 'number', message: '版本 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '版本 值不能为空', trigger: 'blur' },
         ],
     }
 

@@ -45,7 +45,7 @@ import org.springframework.util.StringUtils;
 public class Im_queueServiceImpl extends ServiceImpl<Im_queueMapper, Im_queue> implements IIm_queueService {
 
 
-    private int batchSize = 500;
+    protected int batchSize = 500;
 
     @Override
     @Transactional

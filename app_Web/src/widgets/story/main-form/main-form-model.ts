@@ -113,7 +113,7 @@ export default class MainModel {
       {
         name: 'openedby',
         prop: 'openedby',
-        dataType: 'TEXT',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'openeddate',
@@ -133,7 +133,7 @@ export default class MainModel {
       {
         name: 'reviewedby',
         prop: 'reviewedby',
-        dataType: 'TEXT',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'revieweddate',
@@ -143,7 +143,7 @@ export default class MainModel {
       {
         name: 'closedby',
         prop: 'closedby',
-        dataType: 'TEXT',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'closeddate',
@@ -158,7 +158,7 @@ export default class MainModel {
       {
         name: 'lasteditedby',
         prop: 'lasteditedby',
-        dataType: 'TEXT',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'lastediteddate',
