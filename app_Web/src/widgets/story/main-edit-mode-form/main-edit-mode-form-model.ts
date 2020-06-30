@@ -133,7 +133,7 @@ export default class Main_EditModeModel {
       {
         name: 'openedby',
         prop: 'openedby',
-        dataType: 'TEXT',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'openeddate',

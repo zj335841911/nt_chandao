@@ -17,9 +17,10 @@
     <input-box 
   v-model="data.currentconsumed"  
   @enter="onEnter($event)"  
-  unit=""
+  
   :disabled="detailsModel.currentconsumed.disabled" 
   type='number' 
+  :precision="2"
    
   style="">
 </input-box>

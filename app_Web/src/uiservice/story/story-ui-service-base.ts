@@ -155,8 +155,8 @@ export default class StoryUIServiceBase extends UIService {
         const parameters: any[] = [
             { pathName: 'stories', parameterName: 'story' },
         ];
-            const openPopupModal = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
                 container.subscribe((result: any) => {
                     if (!result || !Object.is(result.ret, 'OK')) {
                         return;
@@ -171,11 +171,12 @@ export default class StoryUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'story-rev-iew-view', 
-                height: 600, 
-                width: 800,  
+                height: 0, 
+                width: 0,  
                 title: actionContext.$t('entities.story.views.reviewview.title'),
+                placement: 'DRAWER_RIGHT',
             };
-            openPopupModal(view, data);
+            openDrawer(view, data);
     }
 
     /**
@@ -370,14 +371,29 @@ export default class StoryUIServiceBase extends UIService {
         }
         const parameters: any[] = [
             { pathName: 'cases', parameterName: 'case' },
-            { pathName: 'editview', parameterName: 'editview' },
         ];
-        const openIndexViewTab = (data: any) => {
-            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
-            actionContext.$router.push(routePath);
-            return null;
-        }
-        openIndexViewTab(data);
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if(window.opener){
+                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
+                        window.close();
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'case-main-new-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.case.views.mainnewview.title'),
+                placement: 'DRAWER_RIGHT',
+            };
+            openDrawer(view, data);
     }
 
     /**

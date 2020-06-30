@@ -295,9 +295,8 @@
 </i-col>
 <i-col v-show="detailsModel.mailto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='mailto' :itemRules="this.rules.mailto" class='' :caption="$t('entities.story.main_editmode_form.details.mailto')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.mailto.error" :isEmptyCaption="false" labelPos="LEFT">
-    <div class="ivu-input-wrapper ivu-input-wrapper-default ivu-input-type">
-    <textarea class="ivu-input" :rows="10" v-model="data.mailto" :disabled="detailsModel.mailto.disabled" style="height:200px;"></textarea>
-</div>
+    <input-box v-model="data.mailto" :autoSize="{minRows: 10}"  :disabled="detailsModel.mailto.disabled" type='textarea' style="height:200px;" ></input-box>
+
 </app-form-item>
 
 </i-col>

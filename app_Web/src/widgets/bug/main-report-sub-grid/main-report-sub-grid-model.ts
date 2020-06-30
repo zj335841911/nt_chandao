@@ -49,7 +49,7 @@ export default class Main_ReportSubModel {
         {
           name: 'openedby',
           prop: 'openedby',
-          dataType: 'TEXT',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'duplicatebug',
@@ -134,7 +134,7 @@ export default class Main_ReportSubModel {
         {
           name: 'resolvedby',
           prop: 'resolvedby',
-          dataType: 'TEXT',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'entry',

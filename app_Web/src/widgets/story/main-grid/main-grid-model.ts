@@ -79,7 +79,7 @@ export default class MainModel {
         {
           name: 'openedby',
           prop: 'openedby',
-          dataType: 'TEXT',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'product',

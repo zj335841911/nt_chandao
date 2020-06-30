@@ -57,7 +57,12 @@ export class ZentaoBase extends Vue {
             { pathName: 'testleftsidebarlistview', parameterName: 'testleftsidebarlistview' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
-        this.$router.push(path);
+        if(Object.is(this.$route.fullPath,path)){
+            return;
+        }
+        this.$nextTick(function(){
+            this.$router.push(path);
+        })
     }
     
     /**
@@ -75,7 +80,12 @@ export class ZentaoBase extends Vue {
             { pathName: 'leftsidebarlistview', parameterName: 'leftsidebarlistview' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
-        this.$router.push(path);
+        if(Object.is(this.$route.fullPath,path)){
+            return;
+        }
+        this.$nextTick(function(){
+            this.$router.push(path);
+        })
     }
     
     /**
@@ -93,7 +103,12 @@ export class ZentaoBase extends Vue {
             { pathName: 'htmlview', parameterName: 'htmlview' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
-        this.$router.push(path);
+        if(Object.is(this.$route.fullPath,path)){
+            return;
+        }
+        this.$nextTick(function(){
+            this.$router.push(path);
+        })
     }
     
     /**
@@ -111,7 +126,12 @@ export class ZentaoBase extends Vue {
             { pathName: 'leftsidebarlistview', parameterName: 'leftsidebarlistview' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
-        this.$router.push(path);
+        if(Object.is(this.$route.fullPath,path)){
+            return;
+        }
+        this.$nextTick(function(){
+            this.$router.push(path);
+        })
     }
     
     /**
@@ -128,7 +148,12 @@ export class ZentaoBase extends Vue {
             { pathName: 'projectportalview', parameterName: 'projectportalview' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
-        this.$router.push(path);
+        if(Object.is(this.$route.fullPath,path)){
+            return;
+        }
+        this.$nextTick(function(){
+            this.$router.push(path);
+        })
     }
     
     /**
@@ -145,7 +170,12 @@ export class ZentaoBase extends Vue {
             { pathName: 'productportalview', parameterName: 'productportalview' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
-        this.$router.push(path);
+        if(Object.is(this.$route.fullPath,path)){
+            return;
+        }
+        this.$nextTick(function(){
+            this.$router.push(path);
+        })
     }
     
     /**
@@ -162,7 +192,12 @@ export class ZentaoBase extends Vue {
             { pathName: 'testportalview', parameterName: 'testportalview' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
-        this.$router.push(path);
+        if(Object.is(this.$route.fullPath,path)){
+            return;
+        }
+        this.$nextTick(function(){
+            this.$router.push(path);
+        })
     }
 
     /**

@@ -100,12 +100,12 @@ export default {
       		title: "case表格视图",
 		},
 	},
-	main_form: {
+	mainnew_form: {
 		details: {
-			group1: "case基本信息", 
+			druipart1: "用例步骤", 
+			grouppanel1: "分组面板", 
+			group1: "测试用例基本信息", 
 			formpage1: "基本信息", 
-			group2: "操作信息", 
-			formpage2: "其它", 
 			srforikey: "", 
 			srfkey: "用例编号", 
 			srfmajortext: "用例标题", 
@@ -113,7 +113,17 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			product: "所属产品", 
+			productname: "产品名称", 
+			module: "所属模块", 
+			modulename: "模块名称", 
+			type: "用例类型", 
+			story: "相关需求", 
+			storyname: "需求名称", 
 			title: "用例标题", 
+			pri: "优先级", 
+			precondition: "前置条件", 
+			keywords: "关键词", 
 			id: "用例编号", 
 		},
 		uiactions: {
@@ -214,12 +224,12 @@ export default {
 		uiactions: {
 		},
 	},
-	mainnew_form: {
+	main_form: {
 		details: {
-			druipart1: "用例步骤", 
-			grouppanel1: "分组面板", 
-			group1: "测试用例基本信息", 
+			group1: "case基本信息", 
 			formpage1: "基本信息", 
+			group2: "操作信息", 
+			formpage2: "其它", 
 			srforikey: "", 
 			srfkey: "用例编号", 
 			srfmajortext: "用例标题", 
@@ -227,17 +237,7 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
-			product: "所属产品", 
-			productname: "产品名称", 
-			module: "所属模块", 
-			modulename: "模块名称", 
-			type: "用例类型", 
-			story: "相关需求", 
-			storyname: "需求名称", 
 			title: "用例标题", 
-			pri: "优先级", 
-			precondition: "前置条件", 
-			keywords: "关键词", 
 			id: "用例编号", 
 		},
 		uiactions: {
@@ -314,6 +314,28 @@ export default {
 		uiactions: {
 		},
 	},
+	mainnewviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+	},
+	maineditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+	},
+	batchnewgridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "新建行",
+			tip: "新建行",
+		},
+		deuiaction3: {
+			caption: "保存行",
+			tip: "保存行",
+		},
+	},
 	editviewtoolbar_toolbar: {
 		tbitem3: {
 			caption: "Save",
@@ -380,22 +402,6 @@ export default {
 			tip: "Help",
 		},
 	},
-	maineditviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
-		},
-	},
-	batchnewgridviewtoolbar_toolbar: {
-		deuiaction2: {
-			caption: "新建行",
-			tip: "新建行",
-		},
-		deuiaction3: {
-			caption: "保存行",
-			tip: "保存行",
-		},
-	},
 	maingridviewtoolbar_toolbar: {
 		deuiaction3_batchnew: {
 			caption: "批量新建用例",
@@ -420,12 +426,6 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
-		},
-	},
-	mainnewviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
 		},
 	},
 	curtesttaskgridviewtoolbar_toolbar: {

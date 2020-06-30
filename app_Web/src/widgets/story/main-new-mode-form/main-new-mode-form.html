@@ -100,21 +100,18 @@
 <i-col v-show="detailsModel.reviewedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='reviewedby' :itemRules="this.rules.reviewedby" class='' :caption="$t('entities.story.main_newmode_form.details.reviewedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.reviewedby.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<app-checkbox-list 
-  v-model="data.reviewedby" 
+<dropdown-list-mpicker 
+  v-model="data.reviewedby"
   :data="data" 
   :context="context"
   :viewparams="viewparams" 
-  :disabled="detailsModel.reviewedby.disabled" 
   :localContext ='{ }' 
   :localParam ='{ }' 
   tag='UserRealName' 
   codelistType='DYNAMIC' 
   valueSeparator=","
-  mode="str"
-  name="reviewedby" 
-  style="">
-</app-checkbox-list>
+  placeholder='请选择...' style="">
+</dropdown-list-mpicker>
 </app-form-item>
 
 </i-col>

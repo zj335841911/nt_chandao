@@ -870,7 +870,17 @@ export class TestTaskEditViewBase extends EditViewBase {
      * @memberof TestTaskEditViewBase
      */
     public FirstRecord(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        this.$Notice.error({ title: '错误', desc: '暂不支持此项操作' });
+        let _this:any = this;
+        let navDataService:any = new NavDataService(this.$store);
+        let allNavData:any = Object.is(this.navModel,"route")?navDataService.getPreNavDataById('test-task-edit-view'):navDataService.getPreNavDataByTag(_this.viewtag);
+        if(allNavData && allNavData.data && allNavData.data.length >0){
+            if(_this.parseViewParam && _this.engine){
+                _this.parseViewParam(allNavData.data[0].srfkey);
+                _this.engine.load();
+            }  
+        }else{
+            this.$Notice.warning({ title: '警告', desc: '请确认操作路径是否正确' });
+        }
     }
     /**
      * 上一个记录
@@ -884,7 +894,31 @@ export class TestTaskEditViewBase extends EditViewBase {
      * @memberof TestTaskEditViewBase
      */
     public PrevRecord(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        this.$Notice.error({ title: '错误', desc: '暂不支持此项操作' });
+        if(args.length === 0 || !args[0].srfkey){
+            return;
+        }
+        let _this:any = this;
+        let navDataService:any = new NavDataService(this.$store);
+        let allNavData:any = Object.is(this.navModel,"route")?navDataService.getPreNavDataById('test-task-edit-view'):navDataService.getPreNavDataByTag(_this.viewtag);
+        if(allNavData && allNavData.data && allNavData.data.length >0){
+            let computedIndex:any;
+            for(let i=0;i<allNavData.data.length;i++){
+                if(allNavData.data[i].srfkey === args[0].srfkey){
+                    computedIndex = i-1;
+                    break;
+                }
+            }
+            if(computedIndex >= 0){
+                if(_this.parseViewParam && _this.engine){
+                    _this.parseViewParam(allNavData.data[computedIndex].srfkey);
+                    _this.engine.load();
+                } 
+            }else{
+                this.$Notice.warning({ title: '警告', desc: '当前数据已经是第一条数据' });
+            }
+        }else{
+            this.$Notice.warning({ title: '警告', desc: '请确认操作路径是否正确' });
+        }
     }
 
     /**
@@ -899,7 +933,31 @@ export class TestTaskEditViewBase extends EditViewBase {
      * @memberof TestTaskEditViewBase
      */
     public NextRecord(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        this.$Notice.error({ title: '错误', desc: '暂不支持此项操作' });
+        if(args.length === 0 || !args[0].srfkey){
+            return;
+        }
+        let _this:any = this;
+        let navDataService:any = new NavDataService(this.$store);
+        let allNavData:any = Object.is(this.navModel,"route")?navDataService.getPreNavDataById('test-task-edit-view'):navDataService.getPreNavDataByTag(_this.viewtag);
+        if(allNavData && allNavData.data && allNavData.data.length >0){
+            let computedIndex:any;
+            for(let i=0;i<allNavData.data.length;i++){
+                if(allNavData.data[i].srfkey === args[0].srfkey){
+                    computedIndex = i+1;
+                    break;
+                }
+            }
+            if(computedIndex < allNavData.data.length){
+                if(_this.parseViewParam && _this.engine){
+                    _this.parseViewParam(allNavData.data[computedIndex].srfkey);
+                    _this.engine.load();
+                } 
+            }else{
+                this.$Notice.warning({ title: '警告', desc: '当前数据已经是最后一条数据' });
+            }
+        }else{
+            this.$Notice.warning({ title: '警告', desc: '请确认操作路径是否正确' });
+        }
     }
 
     /**
@@ -914,7 +972,17 @@ export class TestTaskEditViewBase extends EditViewBase {
      * @memberof TestTaskEditViewBase
      */
     public LastRecord(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        this.$Notice.error({ title: '错误', desc: '暂不支持此项操作' });
+        let _this:any = this;
+        let navDataService:any = new NavDataService(this.$store);
+        let allNavData:any = Object.is(this.navModel,"route")?navDataService.getPreNavDataById('test-task-edit-view'):navDataService.getPreNavDataByTag(_this.viewtag);
+        if(allNavData && allNavData.data && allNavData.data.length >0){
+            if(_this.parseViewParam && _this.engine){
+                _this.parseViewParam(allNavData.data[allNavData.data.length - 1].srfkey);
+                _this.engine.load();
+            }   
+        }else{
+            this.$Notice.warning({ title: '警告', desc: '请确认操作路径是否正确' });
+        }
     }
     /**
      * 帮助

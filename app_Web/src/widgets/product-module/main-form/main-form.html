@@ -90,9 +90,10 @@
     <input-box 
   v-model="data.order"  
   @enter="onEnter($event)"  
-  unit=""
+  
   :disabled="detailsModel.order.disabled" 
   type='number' 
+  :precision="0"
    
   style="">
 </input-box>

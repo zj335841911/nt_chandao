@@ -13,9 +13,7 @@
 </i-col>
 <i-col v-show="detailsModel.precondition.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='precondition' :itemRules="this.rules.precondition" class='' :caption="$t('entities.case.mainedit_form.details.precondition')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.precondition.error" :isEmptyCaption="false" labelPos="TOP">
-    <div class="ivu-input-wrapper ivu-input-wrapper-default ivu-input-type">
-    <textarea class="ivu-input" v-model="data.precondition" :disabled="detailsModel.precondition.disabled" style=""></textarea>
-</div>
+    <input-box v-model="data.precondition"  :disabled="detailsModel.precondition.disabled" type='textarea' style="" ></input-box>
 </app-form-item>
 
 </i-col>
