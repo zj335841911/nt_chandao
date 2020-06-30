@@ -150,6 +150,7 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			status: "当前状态", 
 			version: "版本#", 
 			reviewedby: "由谁评审", 
 			notreview: "不需要评审", 

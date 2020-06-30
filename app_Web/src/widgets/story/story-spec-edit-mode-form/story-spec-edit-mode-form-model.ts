@@ -51,6 +51,11 @@ export default class StorySpec_EditModeModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'status',
+        prop: 'status',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'version',
         prop: 'version',
         dataType: 'INT',
