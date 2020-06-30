@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ITestReportService extends IService<TestReport>{
 
+    boolean create(TestReport et) ;
+    void createBatch(List<TestReport> list) ;
     boolean update(TestReport et) ;
     void updateBatch(List<TestReport> list) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
     TestReport get(BigInteger key) ;
+    TestReport getDraft(TestReport et) ;
     boolean checkKey(TestReport et) ;
     boolean save(TestReport et) ;
     void saveBatch(List<TestReport> list) ;
-    boolean create(TestReport et) ;
-    void createBatch(List<TestReport> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    TestReport getDraft(TestReport et) ;
     Page<TestReport> searchDefault(TestReportSearchContext context) ;
     List<TestReport> selectByProduct(BigInteger id) ;
     void removeByProduct(BigInteger id) ;

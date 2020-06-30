@@ -27,15 +27,15 @@ public interface IGroupPrivService extends IService<GroupPriv>{
 
     boolean create(GroupPriv et) ;
     void createBatch(List<GroupPriv> list) ;
-    boolean save(GroupPriv et) ;
-    void saveBatch(List<GroupPriv> list) ;
-    GroupPriv get(String key) ;
-    boolean remove(String key) ;
-    void removeBatch(Collection<String> idList) ;
-    boolean checkKey(GroupPriv et) ;
     boolean update(GroupPriv et) ;
     void updateBatch(List<GroupPriv> list) ;
+    boolean remove(String key) ;
+    void removeBatch(Collection<String> idList) ;
+    GroupPriv get(String key) ;
     GroupPriv getDraft(GroupPriv et) ;
+    boolean checkKey(GroupPriv et) ;
+    boolean save(GroupPriv et) ;
+    void saveBatch(List<GroupPriv> list) ;
     Page<GroupPriv> searchDefault(GroupPrivSearchContext context) ;
     /**
      *自定义查询SQL

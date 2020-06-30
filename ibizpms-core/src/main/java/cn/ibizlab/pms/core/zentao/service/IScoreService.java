@@ -27,15 +27,15 @@ public interface IScoreService extends IService<Score>{
 
     boolean create(Score et) ;
     void createBatch(List<Score> list) ;
-    boolean save(Score et) ;
-    void saveBatch(List<Score> list) ;
-    Score getDraft(Score et) ;
     boolean update(Score et) ;
     void updateBatch(List<Score> list) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
     Score get(BigInteger key) ;
+    Score getDraft(Score et) ;
     boolean checkKey(Score et) ;
+    boolean save(Score et) ;
+    void saveBatch(List<Score> list) ;
     Page<Score> searchDefault(ScoreSearchContext context) ;
     /**
      *自定义查询SQL

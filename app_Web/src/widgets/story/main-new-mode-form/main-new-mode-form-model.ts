@@ -114,7 +114,7 @@ export default class Main_NewModeModel {
       {
         name: 'mailto',
         prop: 'mailto',
-        dataType: 'LONGTEXT',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'keywords',

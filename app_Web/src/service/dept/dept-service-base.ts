@@ -52,22 +52,6 @@ export default class DeptServiceBase extends EntityService {
     }
 
     /**
-     * Save接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof DeptServiceBase
-     */
-    public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let masterData:any = {};
-        Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().post(`/depts/${context.dept}/save`,data,isloading);
-            return res;
-    }
-
-    /**
      * Create接口方法
      *
      * @param {*} [context={}]
@@ -91,6 +75,22 @@ export default class DeptServiceBase extends EntityService {
     }
 
     /**
+     * Update接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DeptServiceBase
+     */
+    public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().put(`/depts/${context.dept}`,data,isloading);
+            return res;
+    }
+
+    /**
      * Remove接口方法
      *
      * @param {*} [context={}]
@@ -104,7 +104,7 @@ export default class DeptServiceBase extends EntityService {
     }
 
     /**
-     * Update接口方法
+     * Get接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -112,10 +112,8 @@ export default class DeptServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof DeptServiceBase
      */
-    public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let masterData:any = {};
-        Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().put(`/depts/${context.dept}`,data,isloading);
+    public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = await Http.getInstance().get(`/depts/${context.dept}`,isloading);
             return res;
     }
 
@@ -135,20 +133,6 @@ export default class DeptServiceBase extends EntityService {
     }
 
     /**
-     * Get接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof DeptServiceBase
-     */
-    public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = await Http.getInstance().get(`/depts/${context.dept}`,isloading);
-            return res;
-    }
-
-    /**
      * CheckKey接口方法
      *
      * @param {*} [context={}]
@@ -159,6 +143,22 @@ export default class DeptServiceBase extends EntityService {
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             return Http.getInstance().post(`/depts/${context.dept}/checkkey`,data,isloading);
+    }
+
+    /**
+     * Save接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DeptServiceBase
+     */
+    public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().post(`/depts/${context.dept}/save`,data,isloading);
+            return res;
     }
 
     /**

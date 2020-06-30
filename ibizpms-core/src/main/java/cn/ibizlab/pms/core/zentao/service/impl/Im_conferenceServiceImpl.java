@@ -49,6 +49,20 @@ public class Im_conferenceServiceImpl extends ServiceImpl<Im_conferenceMapper, I
 
     @Override
     @Transactional
+    public boolean create(Im_conference et) {
+        if(!this.retBool(this.baseMapper.insert(et)))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void createBatch(List<Im_conference> list) {
+        this.saveBatch(list,batchSize);
+    }
+
+    @Override
+    @Transactional
     public boolean update(Im_conference et) {
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
@@ -59,6 +73,18 @@ public class Im_conferenceServiceImpl extends ServiceImpl<Im_conferenceMapper, I
     @Override
     public void updateBatch(List<Im_conference> list) {
         updateBatchById(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean remove(BigInteger key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<BigInteger> idList) {
+        removeByIds(idList);
     }
 
     @Override
@@ -75,35 +101,14 @@ public class Im_conferenceServiceImpl extends ServiceImpl<Im_conferenceMapper, I
     }
 
     @Override
-    @Transactional
-    public boolean create(Im_conference et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void createBatch(List<Im_conference> list) {
-        this.saveBatch(list,batchSize);
+    public Im_conference getDraft(Im_conference et) {
+        return et;
     }
 
     @Override
     public boolean checkKey(Im_conference et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-    @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
-    }
-
     @Override
     @Transactional
     public boolean save(Im_conference et) {
@@ -133,11 +138,6 @@ public class Im_conferenceServiceImpl extends ServiceImpl<Im_conferenceMapper, I
     @Override
     public void saveBatch(List<Im_conference> list) {
         saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    public Im_conference getDraft(Im_conference et) {
-        return et;
     }
 
 

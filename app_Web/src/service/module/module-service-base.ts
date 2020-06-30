@@ -52,21 +52,6 @@ export default class ModuleServiceBase extends EntityService {
     }
 
     /**
-     * GetDraft接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ModuleServiceBase
-     */
-    public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/modules/getdraft`,isloading);
-        res.data.module = data.module;
-        return res;
-    }
-
-    /**
      * Create接口方法
      *
      * @param {*} [context={}]
@@ -90,33 +75,6 @@ export default class ModuleServiceBase extends EntityService {
     }
 
     /**
-     * Get接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ModuleServiceBase
-     */
-    public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = await Http.getInstance().get(`/modules/${context.module}`,isloading);
-            return res;
-    }
-
-    /**
-     * Fix接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ModuleServiceBase
-     */
-    public async Fix(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            return Http.getInstance().post(`/modules/${context.module}/fix`,data,isloading);
-    }
-
-    /**
      * Update接口方法
      *
      * @param {*} [context={}]
@@ -133,7 +91,7 @@ export default class ModuleServiceBase extends EntityService {
     }
 
     /**
-     * Save接口方法
+     * Remove接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -141,11 +99,37 @@ export default class ModuleServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof ModuleServiceBase
      */
-    public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let masterData:any = {};
-        Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().post(`/modules/${context.module}/save`,data,isloading);
+    public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            return Http.getInstance().delete(`/modules/${context.module}`,isloading);
+    }
+
+    /**
+     * Get接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ModuleServiceBase
+     */
+    public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = await Http.getInstance().get(`/modules/${context.module}`,isloading);
             return res;
+    }
+
+    /**
+     * GetDraft接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ModuleServiceBase
+     */
+    public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let res:any = await  Http.getInstance().get(`/modules/getdraft`,isloading);
+        res.data.module = data.module;
+        return res;
     }
 
     /**
@@ -162,7 +146,7 @@ export default class ModuleServiceBase extends EntityService {
     }
 
     /**
-     * Remove接口方法
+     * Fix接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -170,12 +154,12 @@ export default class ModuleServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof ModuleServiceBase
      */
-    public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            return Http.getInstance().delete(`/modules/${context.module}`,isloading);
+    public async Fix(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            return Http.getInstance().post(`/modules/${context.module}/fix`,data,isloading);
     }
 
     /**
-     * FetchLine接口方法
+     * Save接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -183,23 +167,11 @@ export default class ModuleServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof ModuleServiceBase
      */
-    public async FetchLine(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/modules/fetchline`,tempData,isloading);
-    }
-
-    /**
-     * FetchStoryModule接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ModuleServiceBase
-     */
-    public async FetchStoryModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/modules/fetchstorymodule`,tempData,isloading);
+    public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().post(`/modules/${context.module}/save`,data,isloading);
+            return res;
     }
 
     /**
@@ -228,5 +200,33 @@ export default class ModuleServiceBase extends EntityService {
     public async FetchDocModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return Http.getInstance().get(`/modules/fetchdocmodule`,tempData,isloading);
+    }
+
+    /**
+     * FetchLine接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ModuleServiceBase
+     */
+    public async FetchLine(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/modules/fetchline`,tempData,isloading);
+    }
+
+    /**
+     * FetchStoryModule接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ModuleServiceBase
+     */
+    public async FetchStoryModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/modules/fetchstorymodule`,tempData,isloading);
     }
 }

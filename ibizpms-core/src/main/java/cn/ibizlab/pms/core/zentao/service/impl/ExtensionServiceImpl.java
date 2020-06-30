@@ -49,15 +49,16 @@ public class ExtensionServiceImpl extends ServiceImpl<ExtensionMapper, Extension
 
     @Override
     @Transactional
-    public Extension get(BigInteger key) {
-        Extension et = getById(key);
-        if(et==null){
-            et=new Extension();
-            et.setId(key);
-        }
-        else{
-        }
-        return et;
+    public boolean create(Extension et) {
+        if(!this.retBool(this.baseMapper.insert(et)))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void createBatch(List<Extension> list) {
+        this.saveBatch(list,batchSize);
     }
 
     @Override
@@ -74,6 +75,40 @@ public class ExtensionServiceImpl extends ServiceImpl<ExtensionMapper, Extension
         updateBatchById(list,batchSize);
     }
 
+    @Override
+    @Transactional
+    public boolean remove(BigInteger key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<BigInteger> idList) {
+        removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
+    public Extension get(BigInteger key) {
+        Extension et = getById(key);
+        if(et==null){
+            et=new Extension();
+            et.setId(key);
+        }
+        else{
+        }
+        return et;
+    }
+
+    @Override
+    public Extension getDraft(Extension et) {
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(Extension et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
     @Override
     @Transactional
     public boolean save(Extension et) {
@@ -103,41 +138,6 @@ public class ExtensionServiceImpl extends ServiceImpl<ExtensionMapper, Extension
     @Override
     public void saveBatch(List<Extension> list) {
         saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    public Extension getDraft(Extension et) {
-        return et;
-    }
-
-    @Override
-    @Transactional
-    public boolean create(Extension et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void createBatch(List<Extension> list) {
-        this.saveBatch(list,batchSize);
-    }
-
-    @Override
-    public boolean checkKey(Extension et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
-    @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
     }
 
 

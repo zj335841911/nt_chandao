@@ -49,15 +49,30 @@ public class UserViewServiceImpl extends ServiceImpl<UserViewMapper, UserView> i
 
     @Override
     @Transactional
-    public UserView get(String key) {
-        UserView et = getById(key);
-        if(et==null){
-            et=new UserView();
-            et.setId(key);
-        }
-        else{
-        }
-        return et;
+    public boolean create(UserView et) {
+        if(!this.retBool(this.baseMapper.insert(et)))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void createBatch(List<UserView> list) {
+        this.saveBatch(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean update(UserView et) {
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void updateBatch(List<UserView> list) {
+        updateBatchById(list,batchSize);
     }
 
     @Override
@@ -73,6 +88,19 @@ public class UserViewServiceImpl extends ServiceImpl<UserViewMapper, UserView> i
     }
 
     @Override
+    @Transactional
+    public UserView get(String key) {
+        UserView et = getById(key);
+        if(et==null){
+            et=new UserView();
+            et.setId(key);
+        }
+        else{
+        }
+        return et;
+    }
+
+    @Override
     public UserView getDraft(UserView et) {
         return et;
     }
@@ -81,20 +109,6 @@ public class UserViewServiceImpl extends ServiceImpl<UserViewMapper, UserView> i
     public boolean checkKey(UserView et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-    @Override
-    @Transactional
-    public boolean create(UserView et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void createBatch(List<UserView> list) {
-        this.saveBatch(list,batchSize);
-    }
-
     @Override
     @Transactional
     public boolean save(UserView et) {
@@ -124,20 +138,6 @@ public class UserViewServiceImpl extends ServiceImpl<UserViewMapper, UserView> i
     @Override
     public void saveBatch(List<UserView> list) {
         saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public boolean update(UserView et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void updateBatch(List<UserView> list) {
-        updateBatchById(list,batchSize);
     }
 
 

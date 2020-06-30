@@ -27,15 +27,15 @@ public interface IIm_chatuserService extends IService<Im_chatuser>{
 
     boolean create(Im_chatuser et) ;
     void createBatch(List<Im_chatuser> list) ;
-    boolean save(Im_chatuser et) ;
-    void saveBatch(List<Im_chatuser> list) ;
     boolean update(Im_chatuser et) ;
     void updateBatch(List<Im_chatuser> list) ;
-    boolean checkKey(Im_chatuser et) ;
-    Im_chatuser get(BigInteger key) ;
-    Im_chatuser getDraft(Im_chatuser et) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
+    Im_chatuser get(BigInteger key) ;
+    Im_chatuser getDraft(Im_chatuser et) ;
+    boolean checkKey(Im_chatuser et) ;
+    boolean save(Im_chatuser et) ;
+    void saveBatch(List<Im_chatuser> list) ;
     Page<Im_chatuser> searchDefault(Im_chatuserSearchContext context) ;
     /**
      *自定义查询SQL

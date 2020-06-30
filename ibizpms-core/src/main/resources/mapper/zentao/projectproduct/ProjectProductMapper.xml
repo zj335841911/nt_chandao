@@ -56,19 +56,19 @@
          where  project=#{id}
      </select>
 
-    <!--数据集合[RelationPlan]-->
-	 <select id="searchRelationPlan"  parameterType="cn.ibizlab.pms.core.zentao.filter.ProjectProductSearchContext"  resultMap="ProjectProductResultMap">
+    <!--数据集合[Default]-->
+	 <select id="searchDefault"  parameterType="cn.ibizlab.pms.core.zentao.filter.ProjectProductSearchContext"  resultMap="ProjectProductResultMap">
          select t1.* from (
-                <include refid="RelationPlan" />
+                <include refid="Default" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
-    <!--数据集合[Default]-->
-	 <select id="searchDefault"  parameterType="cn.ibizlab.pms.core.zentao.filter.ProjectProductSearchContext"  resultMap="ProjectProductResultMap">
+    <!--数据集合[RelationPlan]-->
+	 <select id="searchRelationPlan"  parameterType="cn.ibizlab.pms.core.zentao.filter.ProjectProductSearchContext"  resultMap="ProjectProductResultMap">
          select t1.* from (
-                <include refid="Default" />
+                <include refid="RelationPlan" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>

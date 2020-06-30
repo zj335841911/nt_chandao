@@ -25,19 +25,19 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IProductLifeService extends IService<ProductLife>{
 
-    ProductLife get(String key) ;
-    ProductLife getDraft(ProductLife et) ;
     boolean create(ProductLife et) ;
     void createBatch(List<ProductLife> list) ;
-    boolean checkKey(ProductLife et) ;
-    boolean save(ProductLife et) ;
-    void saveBatch(List<ProductLife> list) ;
     boolean update(ProductLife et) ;
     void updateBatch(List<ProductLife> list) ;
     boolean remove(String key) ;
     void removeBatch(Collection<String> idList) ;
-    Page<ProductLife> searchGetRoadmap(ProductLifeSearchContext context) ;
+    ProductLife get(String key) ;
+    ProductLife getDraft(ProductLife et) ;
+    boolean checkKey(ProductLife et) ;
+    boolean save(ProductLife et) ;
+    void saveBatch(List<ProductLife> list) ;
     Page<ProductLife> searchDefault(ProductLifeSearchContext context) ;
+    Page<ProductLife> searchGetRoadmap(ProductLifeSearchContext context) ;
     Page<ProductLife> searchRoadMapYear(ProductLifeSearchContext context) ;
     /**
      *自定义查询SQL

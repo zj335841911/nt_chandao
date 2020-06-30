@@ -25,19 +25,19 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IProjectStatsService extends IService<ProjectStats>{
 
-    ProjectStats get(BigInteger key) ;
+    boolean create(ProjectStats et) ;
+    void createBatch(List<ProjectStats> list) ;
     boolean update(ProjectStats et) ;
     void updateBatch(List<ProjectStats> list) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
+    ProjectStats get(BigInteger key) ;
+    ProjectStats getDraft(ProjectStats et) ;
+    boolean checkKey(ProjectStats et) ;
     boolean save(ProjectStats et) ;
     void saveBatch(List<ProjectStats> list) ;
-    boolean create(ProjectStats et) ;
-    void createBatch(List<ProjectStats> list) ;
-    boolean checkKey(ProjectStats et) ;
-    ProjectStats getDraft(ProjectStats et) ;
-    Page<ProjectStats> searchTaskTime(ProjectStatsSearchContext context) ;
     Page<ProjectStats> searchDefault(ProjectStatsSearchContext context) ;
+    Page<ProjectStats> searchTaskTime(ProjectStatsSearchContext context) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

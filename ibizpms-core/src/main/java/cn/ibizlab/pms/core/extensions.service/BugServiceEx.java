@@ -22,16 +22,6 @@ public class BugServiceEx extends BugServiceImpl {
     }
 
     /**
-     * 自定义行为[Close]用户扩展
-     * @param et
-     * @return
-     */
-    @Override
-    @Transactional
-    public Bug close(Bug et) {
-        return super.close(et);
-    }
-    /**
      * 自定义行为[Activate]用户扩展
      * @param et
      * @return
@@ -40,6 +30,16 @@ public class BugServiceEx extends BugServiceImpl {
     @Transactional
     public Bug activate(Bug et) {
         return super.activate(et);
+    }
+    /**
+     * 自定义行为[Close]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Bug close(Bug et) {
+        return super.close(et);
     }
     /**
      * 自定义行为[Confirm]用户扩展

@@ -25,19 +25,19 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IProductPlanService extends IService<ProductPlan>{
 
-    boolean save(ProductPlan et) ;
-    void saveBatch(List<ProductPlan> list) ;
     boolean create(ProductPlan et) ;
     void createBatch(List<ProductPlan> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    boolean checkKey(ProductPlan et) ;
-    ProductPlan getDraft(ProductPlan et) ;
     boolean update(ProductPlan et) ;
     void updateBatch(List<ProductPlan> list) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
     ProductPlan get(BigInteger key) ;
-    Page<ProductPlan> searchDefault(ProductPlanSearchContext context) ;
+    ProductPlan getDraft(ProductPlan et) ;
+    boolean checkKey(ProductPlan et) ;
+    boolean save(ProductPlan et) ;
+    void saveBatch(List<ProductPlan> list) ;
     Page<ProductPlan> searchCurProductPlan(ProductPlanSearchContext context) ;
+    Page<ProductPlan> searchDefault(ProductPlanSearchContext context) ;
     List<ProductPlan> selectByBranch(BigInteger id) ;
     void removeByBranch(BigInteger id) ;
     List<ProductPlan> selectByProduct(BigInteger id) ;

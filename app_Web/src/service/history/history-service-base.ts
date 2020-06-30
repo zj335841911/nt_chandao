@@ -55,28 +55,6 @@ export default class HistoryServiceBase extends EntityService {
     }
 
     /**
-     * Update接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof HistoryServiceBase
-     */
-    public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.action && context.history){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().put(`/actions/${context.action}/histories/${context.history}`,data,isloading);
-            return res;
-        }
-        let masterData:any = {};
-        Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().put(`/histories/${context.history}`,data,isloading);
-            return res;
-    }
-
-    /**
      * Create接口方法
      *
      * @param {*} [context={}]
@@ -113,6 +91,44 @@ export default class HistoryServiceBase extends EntityService {
     }
 
     /**
+     * Update接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof HistoryServiceBase
+     */
+    public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.action && context.history){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/actions/${context.action}/histories/${context.history}`,data,isloading);
+            return res;
+        }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().put(`/histories/${context.history}`,data,isloading);
+            return res;
+    }
+
+    /**
+     * Remove接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof HistoryServiceBase
+     */
+    public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.action && context.history){
+            return Http.getInstance().delete(`/actions/${context.action}/histories/${context.history}`,isloading);
+        }
+            return Http.getInstance().delete(`/histories/${context.history}`,isloading);
+    }
+
+    /**
      * Get接口方法
      *
      * @param {*} [context={}]
@@ -128,6 +144,26 @@ export default class HistoryServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().get(`/histories/${context.history}`,isloading);
             return res;
+    }
+
+    /**
+     * GetDraft接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof HistoryServiceBase
+     */
+    public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.action && true){
+            let res:any = await Http.getInstance().get(`/actions/${context.action}/histories/getdraft`,isloading);
+            res.data.history = data.history;
+            return res;
+        }
+        let res:any = await  Http.getInstance().get(`/histories/getdraft`,isloading);
+        res.data.history = data.history;
+        return res;
     }
 
     /**
@@ -169,42 +205,6 @@ export default class HistoryServiceBase extends EntityService {
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/histories/${context.history}/save`,data,isloading);
             return res;
-    }
-
-    /**
-     * Remove接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof HistoryServiceBase
-     */
-    public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.action && context.history){
-            return Http.getInstance().delete(`/actions/${context.action}/histories/${context.history}`,isloading);
-        }
-            return Http.getInstance().delete(`/histories/${context.history}`,isloading);
-    }
-
-    /**
-     * GetDraft接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof HistoryServiceBase
-     */
-    public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.action && true){
-            let res:any = await Http.getInstance().get(`/actions/${context.action}/histories/getdraft`,isloading);
-            res.data.history = data.history;
-            return res;
-        }
-        let res:any = await  Http.getInstance().get(`/histories/getdraft`,isloading);
-        res.data.history = data.history;
-        return res;
     }
 
     /**

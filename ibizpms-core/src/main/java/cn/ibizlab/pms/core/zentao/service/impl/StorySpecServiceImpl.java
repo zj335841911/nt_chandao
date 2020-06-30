@@ -51,10 +51,6 @@ public class StorySpecServiceImpl extends ServiceImpl<StorySpecMapper, StorySpec
     protected int batchSize = 500;
 
     @Override
-    public boolean checkKey(StorySpec et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
-    @Override
     @Transactional
     public boolean create(StorySpec et) {
         fillParentData(et);
@@ -70,6 +66,57 @@ public class StorySpecServiceImpl extends ServiceImpl<StorySpecMapper, StorySpec
         this.saveBatch(list,batchSize);
     }
 
+    @Override
+    @Transactional
+    public boolean update(StorySpec et) {
+        fillParentData(et);
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void updateBatch(List<StorySpec> list) {
+        list.forEach(item->fillParentData(item));
+        updateBatchById(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean remove(String key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<String> idList) {
+        removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
+    public StorySpec get(String key) {
+        StorySpec et = getById(key);
+        if(et==null){
+            et=new StorySpec();
+            et.setId(key);
+        }
+        else{
+        }
+        return et;
+    }
+
+    @Override
+    public StorySpec getDraft(StorySpec et) {
+        fillParentData(et);
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(StorySpec et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
     @Override
     @Transactional
     public boolean save(StorySpec et) {
@@ -103,53 +150,6 @@ public class StorySpecServiceImpl extends ServiceImpl<StorySpecMapper, StorySpec
         saveOrUpdateBatch(list,batchSize);
     }
 
-    @Override
-    @Transactional
-    public StorySpec get(String key) {
-        StorySpec et = getById(key);
-        if(et==null){
-            et=new StorySpec();
-            et.setId(key);
-        }
-        else{
-        }
-        return et;
-    }
-
-    @Override
-    @Transactional
-    public boolean remove(String key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<String> idList) {
-        removeByIds(idList);
-    }
-
-    @Override
-    @Transactional
-    public boolean update(StorySpec et) {
-        fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void updateBatch(List<StorySpec> list) {
-        list.forEach(item->fillParentData(item));
-        updateBatchById(list,batchSize);
-    }
-
-    @Override
-    public StorySpec getDraft(StorySpec et) {
-        fillParentData(et);
-        return et;
-    }
-
 
 	@Override
     public List<StorySpec> selectByStory(BigInteger id) {
@@ -163,20 +163,20 @@ public class StorySpecServiceImpl extends ServiceImpl<StorySpecMapper, StorySpec
 
 
     /**
-     * 查询集合 版本
-     */
-    @Override
-    public Page<StorySpec> searchVersion(StorySpecSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<StorySpec> pages=baseMapper.searchVersion(context.getPages(),context,context.getSelectCond());
-        return new PageImpl<StorySpec>(pages.getRecords(), context.getPageable(), pages.getTotal());
-    }
-
-    /**
      * 查询集合 DEFAULT
      */
     @Override
     public Page<StorySpec> searchDefault(StorySpecSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<StorySpec> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<StorySpec>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 版本
+     */
+    @Override
+    public Page<StorySpec> searchVersion(StorySpecSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<StorySpec> pages=baseMapper.searchVersion(context.getPages(),context,context.getSelectCond());
         return new PageImpl<StorySpec>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

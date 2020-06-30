@@ -39,11 +39,6 @@ public class IBzDocServiceImpl implements IIBzDocService {
 
 
     @Override
-    public IBzDoc getDraft(IBzDoc et) {
-        return et;
-    }
-
-    @Override
     public boolean create(IBzDoc et) {
         //代码实现
         return true;
@@ -51,6 +46,16 @@ public class IBzDocServiceImpl implements IIBzDocService {
 
     public void createBatch(List<IBzDoc> list){
 
+    }
+
+    @Override
+    public boolean update(IBzDoc et) {
+        //代码实现
+        return true;
+    }
+
+    public void updateBatch(List<IBzDoc> list){
+                    
     }
 
     @Override
@@ -70,6 +75,11 @@ public class IBzDocServiceImpl implements IIBzDocService {
     }
 
     @Override
+    public IBzDoc getDraft(IBzDoc et) {
+        return et;
+    }
+
+    @Override
     public boolean checkKey(IBzDoc et) {
         return false;
     }
@@ -83,16 +93,6 @@ public class IBzDocServiceImpl implements IIBzDocService {
     @Override
     public void saveBatch(List<IBzDoc> list) {
                        
-    }
-
-    @Override
-    public boolean update(IBzDoc et) {
-        //代码实现
-        return true;
-    }
-
-    public void updateBatch(List<IBzDoc> list){
-                    
     }
 
 

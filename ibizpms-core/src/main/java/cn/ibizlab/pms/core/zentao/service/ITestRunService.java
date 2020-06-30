@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ITestRunService extends IService<TestRun>{
 
-    boolean checkKey(TestRun et) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    boolean update(TestRun et) ;
-    void updateBatch(List<TestRun> list) ;
-    TestRun getDraft(TestRun et) ;
-    TestRun get(BigInteger key) ;
-    boolean save(TestRun et) ;
-    void saveBatch(List<TestRun> list) ;
     boolean create(TestRun et) ;
     void createBatch(List<TestRun> list) ;
+    boolean update(TestRun et) ;
+    void updateBatch(List<TestRun> list) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    TestRun get(BigInteger key) ;
+    TestRun getDraft(TestRun et) ;
+    boolean checkKey(TestRun et) ;
+    boolean save(TestRun et) ;
+    void saveBatch(List<TestRun> list) ;
     Page<TestRun> searchDefault(TestRunSearchContext context) ;
     List<TestRun> selectByIbizcase(BigInteger id) ;
     void removeByIbizcase(BigInteger id) ;

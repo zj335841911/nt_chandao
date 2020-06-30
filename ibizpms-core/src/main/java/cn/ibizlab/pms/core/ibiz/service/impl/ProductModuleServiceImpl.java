@@ -61,46 +61,6 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
 
     @Override
     @Transactional
-    public boolean update(ProductModule et) {
-        fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        fixpathLogic.execute(et);
-        return true;
-    }
-
-    @Override
-    public void updateBatch(List<ProductModule> list) {
-        list.forEach(item->fillParentData(item));
-        updateBatchById(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public ProductModule get(BigInteger key) {
-        ProductModule et = getById(key);
-        if(et==null){
-            et=new ProductModule();
-            et.setId(key);
-        }
-        else{
-        }
-        return et;
-    }
-
-    @Override
-    public boolean checkKey(ProductModule et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
-    @Override
-    public ProductModule getDraft(ProductModule et) {
-        fillParentData(et);
-        return et;
-    }
-
-    @Override
-    @Transactional
     public boolean create(ProductModule et) {
         fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
@@ -118,9 +78,19 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
 
     @Override
     @Transactional
-    public ProductModule fix(ProductModule et) {
+    public boolean update(ProductModule et) {
+        fillParentData(et);
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
         fixpathLogic.execute(et);
-         return et ;
+        return true;
+    }
+
+    @Override
+    public void updateBatch(List<ProductModule> list) {
+        list.forEach(item->fillParentData(item));
+        updateBatchById(list,batchSize);
     }
 
     @Override
@@ -133,6 +103,36 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
     @Override
     public void removeBatch(Collection<BigInteger> idList) {
         removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
+    public ProductModule get(BigInteger key) {
+        ProductModule et = getById(key);
+        if(et==null){
+            et=new ProductModule();
+            et.setId(key);
+        }
+        else{
+        }
+        return et;
+    }
+
+    @Override
+    public ProductModule getDraft(ProductModule et) {
+        fillParentData(et);
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(ProductModule et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
+    @Override
+    @Transactional
+    public ProductModule fix(ProductModule et) {
+        fixpathLogic.execute(et);
+         return et ;
     }
 
     @Override
@@ -191,15 +191,6 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
 
 
     /**
-     * 查询集合 DEFAULT
-     */
-    @Override
-    public Page<ProductModule> searchDefault(ProductModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductModule> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
-        return new PageImpl<ProductModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
-    }
-
-    /**
      * 查询集合 BYPATH
      */
     @Override
@@ -209,11 +200,11 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
     }
 
     /**
-     * 查询集合 根模块_无分支
+     * 查询集合 DEFAULT
      */
     @Override
-    public Page<ProductModule> searchRoot_NoBranch(ProductModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductModule> pages=baseMapper.searchRoot_NoBranch(context.getPages(),context,context.getSelectCond());
+    public Page<ProductModule> searchDefault(ProductModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductModule> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProductModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -223,6 +214,15 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
     @Override
     public Page<ProductModule> searchRoot(ProductModuleSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductModule> pages=baseMapper.searchRoot(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<ProductModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 根模块_无分支
+     */
+    @Override
+    public Page<ProductModule> searchRoot_NoBranch(ProductModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductModule> pages=baseMapper.searchRoot_NoBranch(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProductModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

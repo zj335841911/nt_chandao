@@ -27,16 +27,16 @@ public interface IBurnService extends IService<Burn>{
 
     boolean create(Burn et) ;
     void createBatch(List<Burn> list) ;
-    Burn get(String key) ;
-    boolean checkKey(Burn et) ;
-    boolean remove(String key) ;
-    void removeBatch(Collection<String> idList) ;
-    boolean save(Burn et) ;
-    void saveBatch(List<Burn> list) ;
     boolean update(Burn et) ;
     void updateBatch(List<Burn> list) ;
-    Burn computeBurn(Burn et) ;
+    boolean remove(String key) ;
+    void removeBatch(Collection<String> idList) ;
+    Burn get(String key) ;
     Burn getDraft(Burn et) ;
+    boolean checkKey(Burn et) ;
+    Burn computeBurn(Burn et) ;
+    boolean save(Burn et) ;
+    void saveBatch(List<Burn> list) ;
     Page<Burn> searchDefault(BurnSearchContext context) ;
     Page<Burn> searchESTIMATEANDLEFT(BurnSearchContext context) ;
     List<Burn> selectByProject(BigInteger id) ;

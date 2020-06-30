@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface INotifyService extends IService<Notify>{
 
-    boolean update(Notify et) ;
-    void updateBatch(List<Notify> list) ;
-    Notify getDraft(Notify et) ;
-    boolean save(Notify et) ;
-    void saveBatch(List<Notify> list) ;
-    Notify get(BigInteger key) ;
-    boolean checkKey(Notify et) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
     boolean create(Notify et) ;
     void createBatch(List<Notify> list) ;
+    boolean update(Notify et) ;
+    void updateBatch(List<Notify> list) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    Notify get(BigInteger key) ;
+    Notify getDraft(Notify et) ;
+    boolean checkKey(Notify et) ;
+    boolean save(Notify et) ;
+    void saveBatch(List<Notify> list) ;
     Page<Notify> searchDefault(NotifySearchContext context) ;
     /**
      *自定义查询SQL

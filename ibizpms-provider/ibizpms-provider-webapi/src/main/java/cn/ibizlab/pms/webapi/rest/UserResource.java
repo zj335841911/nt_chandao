@@ -47,28 +47,6 @@ public class UserResource {
     @Lazy
     public UserMapping userMapping;
 
-    @ApiOperation(value = "检查用户", tags = {"用户" },  notes = "检查用户")
-	@RequestMapping(method = RequestMethod.POST, value = "/users/checkkey")
-    public ResponseEntity<Boolean> checkKey(@RequestBody UserDTO userdto) {
-        return  ResponseEntity.status(HttpStatus.OK).body(userService.checkKey(userMapping.toDomain(userdto)));
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Remove-all')")
-    @ApiOperation(value = "删除用户", tags = {"用户" },  notes = "删除用户")
-	@RequestMapping(method = RequestMethod.DELETE, value = "/users/{user_id}")
-    @Transactional
-    public ResponseEntity<Boolean> remove(@PathVariable("user_id") BigInteger user_id) {
-         return ResponseEntity.status(HttpStatus.OK).body(userService.remove(user_id));
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Remove-all')")
-    @ApiOperation(value = "批量删除用户", tags = {"用户" },  notes = "批量删除用户")
-	@RequestMapping(method = RequestMethod.DELETE, value = "/users/batch")
-    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
-        userService.removeBatch(ids);
-        return  ResponseEntity.status(HttpStatus.OK).body(true);
-    }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Create-all')")
     @ApiOperation(value = "新建用户", tags = {"用户" },  notes = "新建用户")
 	@RequestMapping(method = RequestMethod.POST, value = "/users")
@@ -86,15 +64,6 @@ public class UserResource {
     public ResponseEntity<Boolean> createBatch(@RequestBody List<UserDTO> userdtos) {
         userService.createBatch(userMapping.toDomain(userdtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Get-all')")
-    @ApiOperation(value = "获取用户", tags = {"用户" },  notes = "获取用户")
-	@RequestMapping(method = RequestMethod.GET, value = "/users/{user_id}")
-    public ResponseEntity<UserDTO> get(@PathVariable("user_id") BigInteger user_id) {
-        User domain = userService.get(user_id);
-        UserDTO dto = userMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Update-all')")
@@ -117,6 +86,43 @@ public class UserResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Remove-all')")
+    @ApiOperation(value = "删除用户", tags = {"用户" },  notes = "删除用户")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/users/{user_id}")
+    @Transactional
+    public ResponseEntity<Boolean> remove(@PathVariable("user_id") BigInteger user_id) {
+         return ResponseEntity.status(HttpStatus.OK).body(userService.remove(user_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Remove-all')")
+    @ApiOperation(value = "批量删除用户", tags = {"用户" },  notes = "批量删除用户")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/users/batch")
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
+        userService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Get-all')")
+    @ApiOperation(value = "获取用户", tags = {"用户" },  notes = "获取用户")
+	@RequestMapping(method = RequestMethod.GET, value = "/users/{user_id}")
+    public ResponseEntity<UserDTO> get(@PathVariable("user_id") BigInteger user_id) {
+        User domain = userService.get(user_id);
+        UserDTO dto = userMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "获取用户草稿", tags = {"用户" },  notes = "获取用户草稿")
+	@RequestMapping(method = RequestMethod.GET, value = "/users/getdraft")
+    public ResponseEntity<UserDTO> getDraft() {
+        return ResponseEntity.status(HttpStatus.OK).body(userMapping.toDto(userService.getDraft(new User())));
+    }
+
+    @ApiOperation(value = "检查用户", tags = {"用户" },  notes = "检查用户")
+	@RequestMapping(method = RequestMethod.POST, value = "/users/checkkey")
+    public ResponseEntity<Boolean> checkKey(@RequestBody UserDTO userdto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(userService.checkKey(userMapping.toDomain(userdto)));
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Save-all')")
     @ApiOperation(value = "保存用户", tags = {"用户" },  notes = "保存用户")
 	@RequestMapping(method = RequestMethod.POST, value = "/users/save")
@@ -130,12 +136,6 @@ public class UserResource {
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<UserDTO> userdtos) {
         userService.saveBatch(userMapping.toDomain(userdtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
-    }
-
-    @ApiOperation(value = "获取用户草稿", tags = {"用户" },  notes = "获取用户草稿")
-	@RequestMapping(method = RequestMethod.GET, value = "/users/getdraft")
-    public ResponseEntity<UserDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(userMapping.toDto(userService.getDraft(new User())));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-searchDefault-all')")

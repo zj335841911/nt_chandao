@@ -52,19 +52,6 @@ export default class ActionServiceBase extends EntityService {
     }
 
     /**
-     * Remove接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ActionServiceBase
-     */
-    public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            return Http.getInstance().delete(`/actions/${context.action}`,isloading);
-    }
-
-    /**
      * Create接口方法
      *
      * @param {*} [context={}]
@@ -104,22 +91,6 @@ export default class ActionServiceBase extends EntityService {
     }
 
     /**
-     * GetDraft接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ActionServiceBase
-     */
-    public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/actions/getdraft`,isloading);
-        res.data.action = data.action;
-            this.tempStorage.setItem(context.srfsessionkey+'_histories',JSON.stringify(res.data.histories));
-        return res;
-    }
-
-    /**
      * Update接口方法
      *
      * @param {*} [context={}]
@@ -149,6 +120,50 @@ export default class ActionServiceBase extends EntityService {
             let res:any = await  Http.getInstance().put(`/actions/${context.action}`,data,isloading);
             this.tempStorage.setItem(context.srfsessionkey+'_histories',JSON.stringify(res.data.histories));
             return res;
+    }
+
+    /**
+     * Remove接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ActionServiceBase
+     */
+    public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            return Http.getInstance().delete(`/actions/${context.action}`,isloading);
+    }
+
+    /**
+     * Get接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ActionServiceBase
+     */
+    public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = await Http.getInstance().get(`/actions/${context.action}`,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_histories',JSON.stringify(res.data.histories));
+            return res;
+    }
+
+    /**
+     * GetDraft接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ActionServiceBase
+     */
+    public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let res:any = await  Http.getInstance().get(`/actions/getdraft`,isloading);
+        res.data.action = data.action;
+            this.tempStorage.setItem(context.srfsessionkey+'_histories',JSON.stringify(res.data.histories));
+        return res;
     }
 
     /**
@@ -192,21 +207,6 @@ export default class ActionServiceBase extends EntityService {
         masterData.histories = historiesData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/actions/${context.action}/save`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_histories',JSON.stringify(res.data.histories));
-            return res;
-    }
-
-    /**
-     * Get接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ActionServiceBase
-     */
-    public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = await Http.getInstance().get(`/actions/${context.action}`,isloading);
             this.tempStorage.setItem(context.srfsessionkey+'_histories',JSON.stringify(res.data.histories));
             return res;
     }

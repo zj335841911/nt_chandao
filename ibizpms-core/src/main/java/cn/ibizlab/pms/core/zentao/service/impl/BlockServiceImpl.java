@@ -49,59 +49,6 @@ public class BlockServiceImpl extends ServiceImpl<BlockMapper, Block> implements
 
     @Override
     @Transactional
-    public boolean save(Block et) {
-        if(!saveOrUpdate(et))
-            return false;
-        return true;
-    }
-
-    @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
-    public boolean saveOrUpdate(Block et) {
-        if (null == et) {
-            return false;
-        } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
-        }
-    }
-
-    @Override
-    public boolean saveBatch(Collection<Block> list) {
-        saveOrUpdateBatch(list,batchSize);
-        return true;
-    }
-
-    @Override
-    public void saveBatch(List<Block> list) {
-        saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    public boolean checkKey(Block et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
-    @Override
-    @Transactional
-    public Block get(BigInteger key) {
-        Block et = getById(key);
-        if(et==null){
-            et=new Block();
-            et.setId(key);
-        }
-        else{
-        }
-        return et;
-    }
-
-    @Override
-    public Block getDraft(Block et) {
-        return et;
-    }
-
-    @Override
-    @Transactional
     public boolean create(Block et) {
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
@@ -138,6 +85,59 @@ public class BlockServiceImpl extends ServiceImpl<BlockMapper, Block> implements
     @Override
     public void removeBatch(Collection<BigInteger> idList) {
         removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
+    public Block get(BigInteger key) {
+        Block et = getById(key);
+        if(et==null){
+            et=new Block();
+            et.setId(key);
+        }
+        else{
+        }
+        return et;
+    }
+
+    @Override
+    public Block getDraft(Block et) {
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(Block et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
+    @Override
+    @Transactional
+    public boolean save(Block et) {
+        if(!saveOrUpdate(et))
+            return false;
+        return true;
+    }
+
+    @Override
+    @Transactional(
+            rollbackFor = {Exception.class}
+    )
+    public boolean saveOrUpdate(Block et) {
+        if (null == et) {
+            return false;
+        } else {
+            return checkKey(et) ? this.update(et) : this.create(et);
+        }
+    }
+
+    @Override
+    public boolean saveBatch(Collection<Block> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
+    public void saveBatch(List<Block> list) {
+        saveOrUpdateBatch(list,batchSize);
     }
 
 

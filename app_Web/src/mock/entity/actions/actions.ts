@@ -140,22 +140,6 @@ mock.onPost(new RegExp(/^\/actions\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((config: 
     console.groupEnd();
     return [status, mockDatas[0]];
 });
-
-// GetDraft
-mock.onGet(new RegExp(/^\/actions\/getdraft$/)).reply((config: any) => {
-    console.groupCollapsed("实体:action 方法: GetDraft");
-    console.table({url:config.url, method: config.method, data:config.data});
-    // GetDraft
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    console.groupCollapsed("response数据  status: "+status+" data: ");
-    console.table({});
-    console.groupEnd();
-    console.groupEnd();
-    return [status, {}];
-});
         
 // Update
 mock.onPut(new RegExp(/^\/actions\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((config: any) => {
@@ -193,6 +177,22 @@ mock.onPut(new RegExp(/^\/actions\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((config: a
     console.groupEnd();
     console.groupEnd();
     return [status, data];
+});
+
+// GetDraft
+mock.onGet(new RegExp(/^\/actions\/getdraft$/)).reply((config: any) => {
+    console.groupCollapsed("实体:action 方法: GetDraft");
+    console.table({url:config.url, method: config.method, data:config.data});
+    // GetDraft
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
 });
         
 // CheckKey

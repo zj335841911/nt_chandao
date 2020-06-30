@@ -48,15 +48,6 @@ public class Im_clientServiceImpl extends ServiceImpl<Im_clientMapper, Im_client
     protected int batchSize = 500;
 
     @Override
-    public boolean checkKey(Im_client et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
-    @Override
-    public Im_client getDraft(Im_client et) {
-        return et;
-    }
-
-    @Override
     @Transactional
     public boolean create(Im_client et) {
         if(!this.retBool(this.baseMapper.insert(et)))
@@ -68,6 +59,20 @@ public class Im_clientServiceImpl extends ServiceImpl<Im_clientMapper, Im_client
     @Override
     public void createBatch(List<Im_client> list) {
         this.saveBatch(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean update(Im_client et) {
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void updateBatch(List<Im_client> list) {
+        updateBatchById(list,batchSize);
     }
 
     @Override
@@ -95,6 +100,15 @@ public class Im_clientServiceImpl extends ServiceImpl<Im_clientMapper, Im_client
         return et;
     }
 
+    @Override
+    public Im_client getDraft(Im_client et) {
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(Im_client et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
     @Override
     @Transactional
     public boolean save(Im_client et) {
@@ -124,20 +138,6 @@ public class Im_clientServiceImpl extends ServiceImpl<Im_clientMapper, Im_client
     @Override
     public void saveBatch(List<Im_client> list) {
         saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public boolean update(Im_client et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void updateBatch(List<Im_client> list) {
-        updateBatchById(list,batchSize);
     }
 
 

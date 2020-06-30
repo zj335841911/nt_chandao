@@ -27,15 +27,15 @@ public interface IFileService extends IService<File>{
 
     boolean create(File et) ;
     void createBatch(List<File> list) ;
-    boolean checkKey(File et) ;
-    File getDraft(File et) ;
     boolean update(File et) ;
     void updateBatch(List<File> list) ;
-    boolean save(File et) ;
-    void saveBatch(List<File> list) ;
-    File get(BigInteger key) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
+    File get(BigInteger key) ;
+    File getDraft(File et) ;
+    boolean checkKey(File et) ;
+    boolean save(File et) ;
+    void saveBatch(List<File> list) ;
     Page<File> searchDefault(FileSearchContext context) ;
     /**
      *自定义查询SQL

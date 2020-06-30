@@ -47,41 +47,23 @@ public class CompanyResource {
     @Lazy
     public CompanyMapping companyMapping;
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Company-Get-all')")
-    @ApiOperation(value = "获取公司", tags = {"公司" },  notes = "获取公司")
-	@RequestMapping(method = RequestMethod.GET, value = "/companies/{company_id}")
-    public ResponseEntity<CompanyDTO> get(@PathVariable("company_id") BigInteger company_id) {
-        Company domain = companyService.get(company_id);
-        CompanyDTO dto = companyMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(dto);
-    }
-
-    @ApiOperation(value = "获取公司草稿", tags = {"公司" },  notes = "获取公司草稿")
-	@RequestMapping(method = RequestMethod.GET, value = "/companies/getdraft")
-    public ResponseEntity<CompanyDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(companyMapping.toDto(companyService.getDraft(new Company())));
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Company-Remove-all')")
-    @ApiOperation(value = "删除公司", tags = {"公司" },  notes = "删除公司")
-	@RequestMapping(method = RequestMethod.DELETE, value = "/companies/{company_id}")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Company-Create-all')")
+    @ApiOperation(value = "新建公司", tags = {"公司" },  notes = "新建公司")
+	@RequestMapping(method = RequestMethod.POST, value = "/companies")
     @Transactional
-    public ResponseEntity<Boolean> remove(@PathVariable("company_id") BigInteger company_id) {
-         return ResponseEntity.status(HttpStatus.OK).body(companyService.remove(company_id));
+    public ResponseEntity<CompanyDTO> create(@RequestBody CompanyDTO companydto) {
+        Company domain = companyMapping.toDomain(companydto);
+		companyService.create(domain);
+        CompanyDTO dto = companyMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Company-Remove-all')")
-    @ApiOperation(value = "批量删除公司", tags = {"公司" },  notes = "批量删除公司")
-	@RequestMapping(method = RequestMethod.DELETE, value = "/companies/batch")
-    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
-        companyService.removeBatch(ids);
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Company-Create-all')")
+    @ApiOperation(value = "批量新建公司", tags = {"公司" },  notes = "批量新建公司")
+	@RequestMapping(method = RequestMethod.POST, value = "/companies/batch")
+    public ResponseEntity<Boolean> createBatch(@RequestBody List<CompanyDTO> companydtos) {
+        companyService.createBatch(companyMapping.toDomain(companydtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
-    }
-
-    @ApiOperation(value = "检查公司", tags = {"公司" },  notes = "检查公司")
-	@RequestMapping(method = RequestMethod.POST, value = "/companies/checkkey")
-    public ResponseEntity<Boolean> checkKey(@RequestBody CompanyDTO companydto) {
-        return  ResponseEntity.status(HttpStatus.OK).body(companyService.checkKey(companyMapping.toDomain(companydto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Company-Update-all')")
@@ -104,6 +86,43 @@ public class CompanyResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Company-Remove-all')")
+    @ApiOperation(value = "删除公司", tags = {"公司" },  notes = "删除公司")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/companies/{company_id}")
+    @Transactional
+    public ResponseEntity<Boolean> remove(@PathVariable("company_id") BigInteger company_id) {
+         return ResponseEntity.status(HttpStatus.OK).body(companyService.remove(company_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Company-Remove-all')")
+    @ApiOperation(value = "批量删除公司", tags = {"公司" },  notes = "批量删除公司")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/companies/batch")
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
+        companyService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Company-Get-all')")
+    @ApiOperation(value = "获取公司", tags = {"公司" },  notes = "获取公司")
+	@RequestMapping(method = RequestMethod.GET, value = "/companies/{company_id}")
+    public ResponseEntity<CompanyDTO> get(@PathVariable("company_id") BigInteger company_id) {
+        Company domain = companyService.get(company_id);
+        CompanyDTO dto = companyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "获取公司草稿", tags = {"公司" },  notes = "获取公司草稿")
+	@RequestMapping(method = RequestMethod.GET, value = "/companies/getdraft")
+    public ResponseEntity<CompanyDTO> getDraft() {
+        return ResponseEntity.status(HttpStatus.OK).body(companyMapping.toDto(companyService.getDraft(new Company())));
+    }
+
+    @ApiOperation(value = "检查公司", tags = {"公司" },  notes = "检查公司")
+	@RequestMapping(method = RequestMethod.POST, value = "/companies/checkkey")
+    public ResponseEntity<Boolean> checkKey(@RequestBody CompanyDTO companydto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(companyService.checkKey(companyMapping.toDomain(companydto)));
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Company-Save-all')")
     @ApiOperation(value = "保存公司", tags = {"公司" },  notes = "保存公司")
 	@RequestMapping(method = RequestMethod.POST, value = "/companies/save")
@@ -116,25 +135,6 @@ public class CompanyResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/companies/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<CompanyDTO> companydtos) {
         companyService.saveBatch(companyMapping.toDomain(companydtos));
-        return  ResponseEntity.status(HttpStatus.OK).body(true);
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Company-Create-all')")
-    @ApiOperation(value = "新建公司", tags = {"公司" },  notes = "新建公司")
-	@RequestMapping(method = RequestMethod.POST, value = "/companies")
-    @Transactional
-    public ResponseEntity<CompanyDTO> create(@RequestBody CompanyDTO companydto) {
-        Company domain = companyMapping.toDomain(companydto);
-		companyService.create(domain);
-        CompanyDTO dto = companyMapping.toDto(domain);
-		return ResponseEntity.status(HttpStatus.OK).body(dto);
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Company-Create-all')")
-    @ApiOperation(value = "批量新建公司", tags = {"公司" },  notes = "批量新建公司")
-	@RequestMapping(method = RequestMethod.POST, value = "/companies/batch")
-    public ResponseEntity<Boolean> createBatch(@RequestBody List<CompanyDTO> companydtos) {
-        companyService.createBatch(companyMapping.toDomain(companydtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 

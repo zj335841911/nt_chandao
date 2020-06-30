@@ -19,8 +19,8 @@ import com.alibaba.fastjson.JSONObject;
 
 public interface ProductPlanMapper extends BaseMapper<ProductPlan>{
 
-    Page<ProductPlan> searchDefault(IPage page, @Param("srf") ProductPlanSearchContext context, @Param("ew") Wrapper<ProductPlan> wrapper) ;
     Page<ProductPlan> searchCurProductPlan(IPage page, @Param("srf") ProductPlanSearchContext context, @Param("ew") Wrapper<ProductPlan> wrapper) ;
+    Page<ProductPlan> searchDefault(IPage page, @Param("srf") ProductPlanSearchContext context, @Param("ew") Wrapper<ProductPlan> wrapper) ;
     @Override
     ProductPlan selectById(Serializable id);
     @Override

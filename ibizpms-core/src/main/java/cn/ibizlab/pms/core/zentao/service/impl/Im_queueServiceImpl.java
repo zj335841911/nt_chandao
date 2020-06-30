@@ -49,6 +49,20 @@ public class Im_queueServiceImpl extends ServiceImpl<Im_queueMapper, Im_queue> i
 
     @Override
     @Transactional
+    public boolean create(Im_queue et) {
+        if(!this.retBool(this.baseMapper.insert(et)))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void createBatch(List<Im_queue> list) {
+        this.saveBatch(list,batchSize);
+    }
+
+    @Override
+    @Transactional
     public boolean update(Im_queue et) {
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
@@ -63,6 +77,18 @@ public class Im_queueServiceImpl extends ServiceImpl<Im_queueMapper, Im_queue> i
 
     @Override
     @Transactional
+    public boolean remove(BigInteger key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<BigInteger> idList) {
+        removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
     public Im_queue get(BigInteger key) {
         Im_queue et = getById(key);
         if(et==null){
@@ -71,6 +97,11 @@ public class Im_queueServiceImpl extends ServiceImpl<Im_queueMapper, Im_queue> i
         }
         else{
         }
+        return et;
+    }
+
+    @Override
+    public Im_queue getDraft(Im_queue et) {
         return et;
     }
 
@@ -107,37 +138,6 @@ public class Im_queueServiceImpl extends ServiceImpl<Im_queueMapper, Im_queue> i
     @Override
     public void saveBatch(List<Im_queue> list) {
         saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    public Im_queue getDraft(Im_queue et) {
-        return et;
-    }
-
-    @Override
-    @Transactional
-    public boolean create(Im_queue et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void createBatch(List<Im_queue> list) {
-        this.saveBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
     }
 
 

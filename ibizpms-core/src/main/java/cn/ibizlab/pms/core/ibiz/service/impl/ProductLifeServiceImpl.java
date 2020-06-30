@@ -49,6 +49,46 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
 
     @Override
     @Transactional
+    public boolean create(ProductLife et) {
+        if(!this.retBool(this.baseMapper.insert(et)))
+            return false;
+        CachedBeanCopier.copy(get(et.getProductlifeid()),et);
+        return true;
+    }
+
+    @Override
+    public void createBatch(List<ProductLife> list) {
+        this.saveBatch(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean update(ProductLife et) {
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("ibz_productlifeid",et.getProductlifeid())))
+            return false;
+        CachedBeanCopier.copy(get(et.getProductlifeid()),et);
+        return true;
+    }
+
+    @Override
+    public void updateBatch(List<ProductLife> list) {
+        updateBatchById(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean remove(String key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<String> idList) {
+        removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
     public ProductLife get(String key) {
         ProductLife et = getById(key);
         if(et==null){
@@ -63,20 +103,6 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
     @Override
     public ProductLife getDraft(ProductLife et) {
         return et;
-    }
-
-    @Override
-    @Transactional
-    public boolean create(ProductLife et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getProductlifeid()),et);
-        return true;
-    }
-
-    @Override
-    public void createBatch(List<ProductLife> list) {
-        this.saveBatch(list,batchSize);
     }
 
     @Override
@@ -114,42 +140,7 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
         saveOrUpdateBatch(list,batchSize);
     }
 
-    @Override
-    @Transactional
-    public boolean update(ProductLife et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("ibz_productlifeid",et.getProductlifeid())))
-            return false;
-        CachedBeanCopier.copy(get(et.getProductlifeid()),et);
-        return true;
-    }
 
-    @Override
-    public void updateBatch(List<ProductLife> list) {
-        updateBatchById(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public boolean remove(String key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<String> idList) {
-        removeByIds(idList);
-    }
-
-
-
-    /**
-     * 查询集合 GetRoadmap
-     */
-    @Override
-    public Page<ProductLife> searchGetRoadmap(ProductLifeSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductLife> pages=baseMapper.searchGetRoadmap(context.getPages(),context,context.getSelectCond());
-        return new PageImpl<ProductLife>(pages.getRecords(), context.getPageable(), pages.getTotal());
-    }
 
     /**
      * 查询集合 DEFAULT
@@ -157,6 +148,15 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
     @Override
     public Page<ProductLife> searchDefault(ProductLifeSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductLife> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<ProductLife>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 GetRoadmap
+     */
+    @Override
+    public Page<ProductLife> searchGetRoadmap(ProductLifeSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductLife> pages=baseMapper.searchGetRoadmap(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProductLife>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

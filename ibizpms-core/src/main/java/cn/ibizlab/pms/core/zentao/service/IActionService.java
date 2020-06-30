@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IActionService extends IService<Action>{
 
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
     boolean create(Action et) ;
     void createBatch(List<Action> list) ;
-    Action getDraft(Action et) ;
     boolean update(Action et) ;
     void updateBatch(List<Action> list) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    Action get(BigInteger key) ;
+    Action getDraft(Action et) ;
     boolean checkKey(Action et) ;
     boolean save(Action et) ;
     void saveBatch(List<Action> list) ;
-    Action get(BigInteger key) ;
     Page<Action> searchDefault(ActionSearchContext context) ;
     Page<Action> searchProductTrends(ActionSearchContext context) ;
     Page<Action> searchProjectTrends(ActionSearchContext context) ;

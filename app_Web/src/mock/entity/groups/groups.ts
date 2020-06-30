@@ -141,16 +141,16 @@ mock.onPost(new RegExp(/^\/groups\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((config: a
     return [status, mockDatas[0]];
 });
         
-// Save
-mock.onPost(new RegExp(/^\/groups\/?([a-zA-Z0-9\-\;]{0,35})\/save$/)).reply((config: any) => {
-    console.groupCollapsed("实体:group 方法: Save");
+// Update
+mock.onPut(new RegExp(/^\/groups\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:group 方法: Update");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }    
     const paramArray:Array<any> = ['id'];
-    const matchArray:any = new RegExp(/^\/groups\/([a-zA-Z0-9\-\;]{1,35})\/save$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/groups\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
@@ -195,16 +195,16 @@ mock.onGet(new RegExp(/^\/groups\/getdraft$/)).reply((config: any) => {
     return [status, {}];
 });
         
-// Update
-mock.onPut(new RegExp(/^\/groups\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((config: any) => {
-    console.groupCollapsed("实体:group 方法: Update");
+// CheckKey
+mock.onPost(new RegExp(/^\/groups\/?([a-zA-Z0-9\-\;]{0,35})\/checkkey$/)).reply((config: any) => {
+    console.groupCollapsed("实体:group 方法: CheckKey");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }    
     const paramArray:Array<any> = ['id'];
-    const matchArray:any = new RegExp(/^\/groups\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/groups\/([a-zA-Z0-9\-\;]{1,35})\/checkkey$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
@@ -233,16 +233,16 @@ mock.onPut(new RegExp(/^\/groups\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((config: an
     return [status, data];
 });
         
-// CheckKey
-mock.onPost(new RegExp(/^\/groups\/?([a-zA-Z0-9\-\;]{0,35})\/checkkey$/)).reply((config: any) => {
-    console.groupCollapsed("实体:group 方法: CheckKey");
+// Save
+mock.onPost(new RegExp(/^\/groups\/?([a-zA-Z0-9\-\;]{0,35})\/save$/)).reply((config: any) => {
+    console.groupCollapsed("实体:group 方法: Save");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }    
     const paramArray:Array<any> = ['id'];
-    const matchArray:any = new RegExp(/^\/groups\/([a-zA-Z0-9\-\;]{1,35})\/checkkey$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/groups\/([a-zA-Z0-9\-\;]{1,35})\/save$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {

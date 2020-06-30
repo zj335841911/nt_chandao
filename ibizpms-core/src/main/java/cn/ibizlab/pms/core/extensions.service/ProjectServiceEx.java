@@ -22,6 +22,16 @@ public class ProjectServiceEx extends ProjectServiceImpl {
     }
 
     /**
+     * 自定义行为[Activate]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Project activate(Project et) {
+        return super.activate(et);
+    }
+    /**
      * 自定义行为[Close]用户扩展
      * @param et
      * @return
@@ -30,16 +40,6 @@ public class ProjectServiceEx extends ProjectServiceImpl {
     @Transactional
     public Project close(Project et) {
         return super.close(et);
-    }
-    /**
-     * 自定义行为[Suspend]用户扩展
-     * @param et
-     * @return
-     */
-    @Override
-    @Transactional
-    public Project suspend(Project et) {
-        return super.suspend(et);
     }
     /**
      * 自定义行为[Putoff]用户扩展
@@ -52,14 +52,24 @@ public class ProjectServiceEx extends ProjectServiceImpl {
         return super.putoff(et);
     }
     /**
-     * 自定义行为[Activate]用户扩展
+     * 自定义行为[Start]用户扩展
      * @param et
      * @return
      */
     @Override
     @Transactional
-    public Project activate(Project et) {
-        return super.activate(et);
+    public Project start(Project et) {
+        return super.start(et);
+    }
+    /**
+     * 自定义行为[Suspend]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Project suspend(Project et) {
+        return super.suspend(et);
     }
     /**
      * 自定义行为[UpdateOrder]用户扩展
@@ -70,16 +80,6 @@ public class ProjectServiceEx extends ProjectServiceImpl {
     @Transactional
     public Project updateOrder(Project et) {
         return super.updateOrder(et);
-    }
-    /**
-     * 自定义行为[Start]用户扩展
-     * @param et
-     * @return
-     */
-    @Override
-    @Transactional
-    public Project start(Project et) {
-        return super.start(et);
     }
 }
 

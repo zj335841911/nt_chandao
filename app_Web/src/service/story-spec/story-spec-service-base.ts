@@ -58,31 +58,6 @@ export default class StorySpecServiceBase extends EntityService {
     }
 
     /**
-     * CheckKey接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof StorySpecServiceBase
-     */
-    public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story && context.storyspec){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/storyspecs/${context.storyspec}/checkkey`,data,isloading);
-            return res;
-        }
-        if(context.story && context.storyspec){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/stories/${context.story}/storyspecs/${context.storyspec}/checkkey`,data,isloading);
-            return res;
-        }
-            return Http.getInstance().post(`/storyspecs/${context.storyspec}/checkkey`,data,isloading);
-    }
-
-    /**
      * Create接口方法
      *
      * @param {*} [context={}]
@@ -132,75 +107,6 @@ export default class StorySpecServiceBase extends EntityService {
     }
 
     /**
-     * Save接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof StorySpecServiceBase
-     */
-    public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story && context.storyspec){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/storyspecs/${context.storyspec}/save`,data,isloading);
-            return res;
-        }
-        if(context.story && context.storyspec){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/stories/${context.story}/storyspecs/${context.storyspec}/save`,data,isloading);
-            return res;
-        }
-        let masterData:any = {};
-        Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().post(`/storyspecs/${context.storyspec}/save`,data,isloading);
-            return res;
-    }
-
-    /**
-     * Get接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof StorySpecServiceBase
-     */
-    public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story && context.storyspec){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/storyspecs/${context.storyspec}`,isloading);
-            return res;
-        }
-        if(context.story && context.storyspec){
-            let res:any = await Http.getInstance().get(`/stories/${context.story}/storyspecs/${context.storyspec}`,isloading);
-            return res;
-        }
-            let res:any = await Http.getInstance().get(`/storyspecs/${context.storyspec}`,isloading);
-            return res;
-    }
-
-    /**
-     * Remove接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof StorySpecServiceBase
-     */
-    public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story && context.storyspec){
-            return Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/storyspecs/${context.storyspec}`,isloading);
-        }
-        if(context.story && context.storyspec){
-            return Http.getInstance().delete(`/stories/${context.story}/storyspecs/${context.storyspec}`,isloading);
-        }
-            return Http.getInstance().delete(`/storyspecs/${context.storyspec}`,isloading);
-    }
-
-    /**
      * Update接口方法
      *
      * @param {*} [context={}]
@@ -225,6 +131,47 @@ export default class StorySpecServiceBase extends EntityService {
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/storyspecs/${context.storyspec}`,data,isloading);
+            return res;
+    }
+
+    /**
+     * Remove接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StorySpecServiceBase
+     */
+    public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.storyspec){
+            return Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/storyspecs/${context.storyspec}`,isloading);
+        }
+        if(context.story && context.storyspec){
+            return Http.getInstance().delete(`/stories/${context.story}/storyspecs/${context.storyspec}`,isloading);
+        }
+            return Http.getInstance().delete(`/storyspecs/${context.storyspec}`,isloading);
+    }
+
+    /**
+     * Get接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StorySpecServiceBase
+     */
+    public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.storyspec){
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/storyspecs/${context.storyspec}`,isloading);
+            return res;
+        }
+        if(context.story && context.storyspec){
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/storyspecs/${context.storyspec}`,isloading);
+            return res;
+        }
+            let res:any = await Http.getInstance().get(`/storyspecs/${context.storyspec}`,isloading);
             return res;
     }
 
@@ -254,7 +201,7 @@ export default class StorySpecServiceBase extends EntityService {
     }
 
     /**
-     * FetchVersion接口方法
+     * CheckKey接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -262,17 +209,48 @@ export default class StorySpecServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof StorySpecServiceBase
      */
-    public async FetchVersion(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/storyspecs/fetchversion`,tempData,isloading);
+    public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.storyspec){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/storyspecs/${context.storyspec}/checkkey`,data,isloading);
+            return res;
         }
-        if(context.story && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/stories/${context.story}/storyspecs/fetchversion`,tempData,isloading);
+        if(context.story && context.storyspec){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/storyspecs/${context.storyspec}/checkkey`,data,isloading);
+            return res;
         }
-        let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/storyspecs/fetchversion`,tempData,isloading);
+            return Http.getInstance().post(`/storyspecs/${context.storyspec}/checkkey`,data,isloading);
+    }
+
+    /**
+     * Save接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StorySpecServiceBase
+     */
+    public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.storyspec){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/storyspecs/${context.storyspec}/save`,data,isloading);
+            return res;
+        }
+        if(context.story && context.storyspec){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/storyspecs/${context.storyspec}/save`,data,isloading);
+            return res;
+        }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().post(`/storyspecs/${context.storyspec}/save`,data,isloading);
+            return res;
     }
 
     /**
@@ -295,5 +273,27 @@ export default class StorySpecServiceBase extends EntityService {
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
         return Http.getInstance().get(`/storyspecs/fetchdefault`,tempData,isloading);
+    }
+
+    /**
+     * FetchVersion接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StorySpecServiceBase
+     */
+    public async FetchVersion(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/storyspecs/fetchversion`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/stories/${context.story}/storyspecs/fetchversion`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/storyspecs/fetchversion`,tempData,isloading);
     }
 }

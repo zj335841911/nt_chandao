@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IBlockService extends IService<Block>{
 
-    boolean save(Block et) ;
-    void saveBatch(List<Block> list) ;
-    boolean checkKey(Block et) ;
-    Block get(BigInteger key) ;
-    Block getDraft(Block et) ;
     boolean create(Block et) ;
     void createBatch(List<Block> list) ;
     boolean update(Block et) ;
     void updateBatch(List<Block> list) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
+    Block get(BigInteger key) ;
+    Block getDraft(Block et) ;
+    boolean checkKey(Block et) ;
+    boolean save(Block et) ;
+    void saveBatch(List<Block> list) ;
     Page<Block> searchDefault(BlockSearchContext context) ;
     /**
      *自定义查询SQL

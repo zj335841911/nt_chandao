@@ -49,6 +49,20 @@ public class Im_messageServiceImpl extends ServiceImpl<Im_messageMapper, Im_mess
 
     @Override
     @Transactional
+    public boolean create(Im_message et) {
+        if(!this.retBool(this.baseMapper.insert(et)))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void createBatch(List<Im_message> list) {
+        this.saveBatch(list,batchSize);
+    }
+
+    @Override
+    @Transactional
     public boolean update(Im_message et) {
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
@@ -63,21 +77,14 @@ public class Im_messageServiceImpl extends ServiceImpl<Im_messageMapper, Im_mess
 
     @Override
     @Transactional
-    public boolean create(Im_message et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
+    public boolean remove(BigInteger key) {
+        boolean result=removeById(key);
+        return result ;
     }
 
     @Override
-    public void createBatch(List<Im_message> list) {
-        this.saveBatch(list,batchSize);
-    }
-
-    @Override
-    public Im_message getDraft(Im_message et) {
-        return et;
+    public void removeBatch(Collection<BigInteger> idList) {
+        removeByIds(idList);
     }
 
     @Override
@@ -94,17 +101,14 @@ public class Im_messageServiceImpl extends ServiceImpl<Im_messageMapper, Im_mess
     }
 
     @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
+    public Im_message getDraft(Im_message et) {
+        return et;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
+    public boolean checkKey(Im_message et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean save(Im_message et) {
@@ -136,10 +140,6 @@ public class Im_messageServiceImpl extends ServiceImpl<Im_messageMapper, Im_mess
         saveOrUpdateBatch(list,batchSize);
     }
 
-    @Override
-    public boolean checkKey(Im_message et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
 
 
     /**

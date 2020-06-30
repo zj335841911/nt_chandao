@@ -49,15 +49,16 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
 
     @Override
     @Transactional
-    public ProjectStats get(BigInteger key) {
-        ProjectStats et = getById(key);
-        if(et==null){
-            et=new ProjectStats();
-            et.setId(key);
-        }
-        else{
-        }
-        return et;
+    public boolean create(ProjectStats et) {
+        if(!this.retBool(this.baseMapper.insert(et)))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void createBatch(List<ProjectStats> list) {
+        this.saveBatch(list,batchSize);
     }
 
     @Override
@@ -86,6 +87,28 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
         removeByIds(idList);
     }
 
+    @Override
+    @Transactional
+    public ProjectStats get(BigInteger key) {
+        ProjectStats et = getById(key);
+        if(et==null){
+            et=new ProjectStats();
+            et.setId(key);
+        }
+        else{
+        }
+        return et;
+    }
+
+    @Override
+    public ProjectStats getDraft(ProjectStats et) {
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(ProjectStats et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
     @Override
     @Transactional
     public boolean save(ProjectStats et) {
@@ -117,39 +140,7 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
         saveOrUpdateBatch(list,batchSize);
     }
 
-    @Override
-    @Transactional
-    public boolean create(ProjectStats et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
 
-    @Override
-    public void createBatch(List<ProjectStats> list) {
-        this.saveBatch(list,batchSize);
-    }
-
-    @Override
-    public boolean checkKey(ProjectStats et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
-    @Override
-    public ProjectStats getDraft(ProjectStats et) {
-        return et;
-    }
-
-
-
-    /**
-     * 查询集合 任务工时消耗剩余查询
-     */
-    @Override
-    public Page<ProjectStats> searchTaskTime(ProjectStatsSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchTaskTime(context.getPages(),context,context.getSelectCond());
-        return new PageImpl<ProjectStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
-    }
 
     /**
      * 查询集合 DEFAULT
@@ -157,6 +148,15 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
     @Override
     public Page<ProjectStats> searchDefault(ProjectStatsSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<ProjectStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 任务工时消耗剩余查询
+     */
+    @Override
+    public Page<ProjectStats> searchTaskTime(ProjectStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchTaskTime(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProjectStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

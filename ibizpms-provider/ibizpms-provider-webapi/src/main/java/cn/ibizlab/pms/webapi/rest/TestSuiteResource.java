@@ -47,21 +47,6 @@ public class TestSuiteResource {
     @Lazy
     public TestSuiteMapping testsuiteMapping;
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-Save-all')")
-    @ApiOperation(value = "保存测试套件", tags = {"测试套件" },  notes = "保存测试套件")
-	@RequestMapping(method = RequestMethod.POST, value = "/testsuites/save")
-    public ResponseEntity<Boolean> save(@RequestBody TestSuiteDTO testsuitedto) {
-        return ResponseEntity.status(HttpStatus.OK).body(testsuiteService.save(testsuiteMapping.toDomain(testsuitedto)));
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-Save-all')")
-    @ApiOperation(value = "批量保存测试套件", tags = {"测试套件" },  notes = "批量保存测试套件")
-	@RequestMapping(method = RequestMethod.POST, value = "/testsuites/savebatch")
-    public ResponseEntity<Boolean> saveBatch(@RequestBody List<TestSuiteDTO> testsuitedtos) {
-        testsuiteService.saveBatch(testsuiteMapping.toDomain(testsuitedtos));
-        return  ResponseEntity.status(HttpStatus.OK).body(true);
-    }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-Create-all')")
     @ApiOperation(value = "新建测试套件", tags = {"测试套件" },  notes = "新建测试套件")
 	@RequestMapping(method = RequestMethod.POST, value = "/testsuites")
@@ -79,27 +64,6 @@ public class TestSuiteResource {
     public ResponseEntity<Boolean> createBatch(@RequestBody List<TestSuiteDTO> testsuitedtos) {
         testsuiteService.createBatch(testsuiteMapping.toDomain(testsuitedtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
-    }
-
-    @ApiOperation(value = "检查测试套件", tags = {"测试套件" },  notes = "检查测试套件")
-	@RequestMapping(method = RequestMethod.POST, value = "/testsuites/checkkey")
-    public ResponseEntity<Boolean> checkKey(@RequestBody TestSuiteDTO testsuitedto) {
-        return  ResponseEntity.status(HttpStatus.OK).body(testsuiteService.checkKey(testsuiteMapping.toDomain(testsuitedto)));
-    }
-
-    @ApiOperation(value = "获取测试套件草稿", tags = {"测试套件" },  notes = "获取测试套件草稿")
-	@RequestMapping(method = RequestMethod.GET, value = "/testsuites/getdraft")
-    public ResponseEntity<TestSuiteDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(testsuiteMapping.toDto(testsuiteService.getDraft(new TestSuite())));
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-Get-all')")
-    @ApiOperation(value = "获取测试套件", tags = {"测试套件" },  notes = "获取测试套件")
-	@RequestMapping(method = RequestMethod.GET, value = "/testsuites/{testsuite_id}")
-    public ResponseEntity<TestSuiteDTO> get(@PathVariable("testsuite_id") BigInteger testsuite_id) {
-        TestSuite domain = testsuiteService.get(testsuite_id);
-        TestSuiteDTO dto = testsuiteMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-Update-all')")
@@ -135,6 +99,42 @@ public class TestSuiteResource {
 	@RequestMapping(method = RequestMethod.DELETE, value = "/testsuites/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
         testsuiteService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-Get-all')")
+    @ApiOperation(value = "获取测试套件", tags = {"测试套件" },  notes = "获取测试套件")
+	@RequestMapping(method = RequestMethod.GET, value = "/testsuites/{testsuite_id}")
+    public ResponseEntity<TestSuiteDTO> get(@PathVariable("testsuite_id") BigInteger testsuite_id) {
+        TestSuite domain = testsuiteService.get(testsuite_id);
+        TestSuiteDTO dto = testsuiteMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "获取测试套件草稿", tags = {"测试套件" },  notes = "获取测试套件草稿")
+	@RequestMapping(method = RequestMethod.GET, value = "/testsuites/getdraft")
+    public ResponseEntity<TestSuiteDTO> getDraft() {
+        return ResponseEntity.status(HttpStatus.OK).body(testsuiteMapping.toDto(testsuiteService.getDraft(new TestSuite())));
+    }
+
+    @ApiOperation(value = "检查测试套件", tags = {"测试套件" },  notes = "检查测试套件")
+	@RequestMapping(method = RequestMethod.POST, value = "/testsuites/checkkey")
+    public ResponseEntity<Boolean> checkKey(@RequestBody TestSuiteDTO testsuitedto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(testsuiteService.checkKey(testsuiteMapping.toDomain(testsuitedto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-Save-all')")
+    @ApiOperation(value = "保存测试套件", tags = {"测试套件" },  notes = "保存测试套件")
+	@RequestMapping(method = RequestMethod.POST, value = "/testsuites/save")
+    public ResponseEntity<Boolean> save(@RequestBody TestSuiteDTO testsuitedto) {
+        return ResponseEntity.status(HttpStatus.OK).body(testsuiteService.save(testsuiteMapping.toDomain(testsuitedto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-Save-all')")
+    @ApiOperation(value = "批量保存测试套件", tags = {"测试套件" },  notes = "批量保存测试套件")
+	@RequestMapping(method = RequestMethod.POST, value = "/testsuites/savebatch")
+    public ResponseEntity<Boolean> saveBatch(@RequestBody List<TestSuiteDTO> testsuitedtos) {
+        testsuiteService.saveBatch(testsuiteMapping.toDomain(testsuitedtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 

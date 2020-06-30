@@ -25,15 +25,15 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ICronService extends IService<Cron>{
 
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
     boolean create(Cron et) ;
     void createBatch(List<Cron> list) ;
     boolean update(Cron et) ;
     void updateBatch(List<Cron> list) ;
-    boolean checkKey(Cron et) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
     Cron get(BigInteger key) ;
     Cron getDraft(Cron et) ;
+    boolean checkKey(Cron et) ;
     boolean save(Cron et) ;
     void saveBatch(List<Cron> list) ;
     Page<Cron> searchDefault(CronSearchContext context) ;

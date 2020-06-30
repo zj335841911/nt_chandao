@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IIm_queueService extends IService<Im_queue>{
 
+    boolean create(Im_queue et) ;
+    void createBatch(List<Im_queue> list) ;
     boolean update(Im_queue et) ;
     void updateBatch(List<Im_queue> list) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
     Im_queue get(BigInteger key) ;
+    Im_queue getDraft(Im_queue et) ;
     boolean checkKey(Im_queue et) ;
     boolean save(Im_queue et) ;
     void saveBatch(List<Im_queue> list) ;
-    Im_queue getDraft(Im_queue et) ;
-    boolean create(Im_queue et) ;
-    void createBatch(List<Im_queue> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
     Page<Im_queue> searchDefault(Im_queueSearchContext context) ;
     /**
      *自定义查询SQL

@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IIm_chatService extends IService<Im_chat>{
 
+    boolean create(Im_chat et) ;
+    void createBatch(List<Im_chat> list) ;
     boolean update(Im_chat et) ;
     void updateBatch(List<Im_chat> list) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
-    boolean save(Im_chat et) ;
-    void saveBatch(List<Im_chat> list) ;
-    boolean checkKey(Im_chat et) ;
-    boolean create(Im_chat et) ;
-    void createBatch(List<Im_chat> list) ;
     Im_chat get(BigInteger key) ;
     Im_chat getDraft(Im_chat et) ;
+    boolean checkKey(Im_chat et) ;
+    boolean save(Im_chat et) ;
+    void saveBatch(List<Im_chat> list) ;
     Page<Im_chat> searchDefault(Im_chatSearchContext context) ;
     /**
      *自定义查询SQL

@@ -22,86 +22,6 @@ public class StoryServiceEx extends StoryServiceImpl {
     }
 
     /**
-     * 自定义行为[BatchChangeStage]用户扩展
-     * @param et
-     * @return
-     */
-    @Override
-    @Transactional
-    public Story batchChangeStage(Story et) {
-        return super.batchChangeStage(et);
-    }
-    /**
-     * 自定义行为[BatchChangePlan]用户扩展
-     * @param et
-     * @return
-     */
-    @Override
-    @Transactional
-    public Story batchChangePlan(Story et) {
-        return super.batchChangePlan(et);
-    }
-    /**
-     * 自定义行为[BatchClose]用户扩展
-     * @param et
-     * @return
-     */
-    @Override
-    @Transactional
-    public Story batchClose(Story et) {
-        return super.batchClose(et);
-    }
-    /**
-     * 自定义行为[GetStorySpec]用户扩展
-     * @param et
-     * @return
-     */
-    @Override
-    @Transactional
-    public Story getStorySpec(Story et) {
-        return super.getStorySpec(et);
-    }
-    /**
-     * 自定义行为[Change]用户扩展
-     * @param et
-     * @return
-     */
-    @Override
-    @Transactional
-    public Story change(Story et) {
-        return super.change(et);
-    }
-    /**
-     * 自定义行为[BatchChangeBranch]用户扩展
-     * @param et
-     * @return
-     */
-    @Override
-    @Transactional
-    public Story batchChangeBranch(Story et) {
-        return super.batchChangeBranch(et);
-    }
-    /**
-     * 自定义行为[BatchReview]用户扩展
-     * @param et
-     * @return
-     */
-    @Override
-    @Transactional
-    public Story batchReview(Story et) {
-        return super.batchReview(et);
-    }
-    /**
-     * 自定义行为[Review]用户扩展
-     * @param et
-     * @return
-     */
-    @Override
-    @Transactional
-    public Story review(Story et) {
-        return super.review(et);
-    }
-    /**
      * 自定义行为[AssignTo]用户扩展
      * @param et
      * @return
@@ -122,6 +42,16 @@ public class StoryServiceEx extends StoryServiceImpl {
         return super.batchAssignTo(et);
     }
     /**
+     * 自定义行为[BatchChangeBranch]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Story batchChangeBranch(Story et) {
+        return super.batchChangeBranch(et);
+    }
+    /**
      * 自定义行为[BatchChangeModule]用户扩展
      * @param et
      * @return
@@ -132,6 +62,56 @@ public class StoryServiceEx extends StoryServiceImpl {
         return super.batchChangeModule(et);
     }
     /**
+     * 自定义行为[BatchChangePlan]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Story batchChangePlan(Story et) {
+        return super.batchChangePlan(et);
+    }
+    /**
+     * 自定义行为[BatchChangeStage]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Story batchChangeStage(Story et) {
+        return super.batchChangeStage(et);
+    }
+    /**
+     * 自定义行为[BatchClose]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Story batchClose(Story et) {
+        return super.batchClose(et);
+    }
+    /**
+     * 自定义行为[BatchReview]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Story batchReview(Story et) {
+        return super.batchReview(et);
+    }
+    /**
+     * 自定义行为[Change]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Story change(Story et) {
+        return super.change(et);
+    }
+    /**
      * 自定义行为[Close]用户扩展
      * @param et
      * @return
@@ -140,6 +120,26 @@ public class StoryServiceEx extends StoryServiceImpl {
     @Transactional
     public Story close(Story et) {
         return super.close(et);
+    }
+    /**
+     * 自定义行为[GetStorySpec]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Story getStorySpec(Story et) {
+        return super.getStorySpec(et);
+    }
+    /**
+     * 自定义行为[Review]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Story review(Story et) {
+        return super.review(et);
     }
 }
 

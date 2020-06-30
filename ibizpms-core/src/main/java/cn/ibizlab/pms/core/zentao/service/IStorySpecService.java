@@ -25,19 +25,19 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IStorySpecService extends IService<StorySpec>{
 
-    boolean checkKey(StorySpec et) ;
     boolean create(StorySpec et) ;
     void createBatch(List<StorySpec> list) ;
-    boolean save(StorySpec et) ;
-    void saveBatch(List<StorySpec> list) ;
-    StorySpec get(String key) ;
-    boolean remove(String key) ;
-    void removeBatch(Collection<String> idList) ;
     boolean update(StorySpec et) ;
     void updateBatch(List<StorySpec> list) ;
+    boolean remove(String key) ;
+    void removeBatch(Collection<String> idList) ;
+    StorySpec get(String key) ;
     StorySpec getDraft(StorySpec et) ;
-    Page<StorySpec> searchVersion(StorySpecSearchContext context) ;
+    boolean checkKey(StorySpec et) ;
+    boolean save(StorySpec et) ;
+    void saveBatch(List<StorySpec> list) ;
     Page<StorySpec> searchDefault(StorySpecSearchContext context) ;
+    Page<StorySpec> searchVersion(StorySpecSearchContext context) ;
     List<StorySpec> selectByStory(BigInteger id) ;
     void removeByStory(BigInteger id) ;
     /**

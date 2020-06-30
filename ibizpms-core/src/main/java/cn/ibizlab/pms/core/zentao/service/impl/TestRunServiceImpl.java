@@ -57,19 +57,19 @@ public class TestRunServiceImpl extends ServiceImpl<TestRunMapper, TestRun> impl
     protected int batchSize = 500;
 
     @Override
-    public boolean checkKey(TestRun et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
-    @Override
     @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
+    public boolean create(TestRun et) {
+        fillParentData(et);
+        if(!this.retBool(this.baseMapper.insert(et)))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
+    public void createBatch(List<TestRun> list) {
+        list.forEach(item->fillParentData(item));
+        this.saveBatch(list,batchSize);
     }
 
     @Override
@@ -89,9 +89,15 @@ public class TestRunServiceImpl extends ServiceImpl<TestRunMapper, TestRun> impl
     }
 
     @Override
-    public TestRun getDraft(TestRun et) {
-        fillParentData(et);
-        return et;
+    @Transactional
+    public boolean remove(BigInteger key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<BigInteger> idList) {
+        removeByIds(idList);
     }
 
     @Override
@@ -107,6 +113,16 @@ public class TestRunServiceImpl extends ServiceImpl<TestRunMapper, TestRun> impl
         return et;
     }
 
+    @Override
+    public TestRun getDraft(TestRun et) {
+        fillParentData(et);
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(TestRun et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
     @Override
     @Transactional
     public boolean save(TestRun et) {
@@ -138,22 +154,6 @@ public class TestRunServiceImpl extends ServiceImpl<TestRunMapper, TestRun> impl
     public void saveBatch(List<TestRun> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public boolean create(TestRun et) {
-        fillParentData(et);
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void createBatch(List<TestRun> list) {
-        list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
     }
 
 

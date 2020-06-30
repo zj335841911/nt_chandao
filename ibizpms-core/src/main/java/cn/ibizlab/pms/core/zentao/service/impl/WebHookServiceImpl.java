@@ -49,6 +49,46 @@ public class WebHookServiceImpl extends ServiceImpl<WebHookMapper, WebHook> impl
 
     @Override
     @Transactional
+    public boolean create(WebHook et) {
+        if(!this.retBool(this.baseMapper.insert(et)))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void createBatch(List<WebHook> list) {
+        this.saveBatch(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean update(WebHook et) {
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void updateBatch(List<WebHook> list) {
+        updateBatchById(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean remove(BigInteger key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<BigInteger> idList) {
+        removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
     public WebHook get(BigInteger key) {
         WebHook et = getById(key);
         if(et==null){
@@ -57,6 +97,11 @@ public class WebHookServiceImpl extends ServiceImpl<WebHookMapper, WebHook> impl
         }
         else{
         }
+        return et;
+    }
+
+    @Override
+    public WebHook getDraft(WebHook et) {
         return et;
     }
 
@@ -93,51 +138,6 @@ public class WebHookServiceImpl extends ServiceImpl<WebHookMapper, WebHook> impl
     @Override
     public void saveBatch(List<WebHook> list) {
         saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public boolean create(WebHook et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void createBatch(List<WebHook> list) {
-        this.saveBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
-    }
-
-    @Override
-    public WebHook getDraft(WebHook et) {
-        return et;
-    }
-
-    @Override
-    @Transactional
-    public boolean update(WebHook et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void updateBatch(List<WebHook> list) {
-        updateBatchById(list,batchSize);
     }
 
 

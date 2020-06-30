@@ -54,75 +54,6 @@ export default class ProductModuleServiceBase extends EntityService {
     }
 
     /**
-     * Update接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ProductModuleServiceBase
-     */
-    public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.productmodule){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().put(`/products/${context.product}/productmodules/${context.productmodule}`,data,isloading);
-            return res;
-        }
-    }
-
-    /**
-     * Get接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ProductModuleServiceBase
-     */
-    public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.productmodule){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/productmodules/${context.productmodule}`,isloading);
-            return res;
-        }
-    }
-
-    /**
-     * CheckKey接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ProductModuleServiceBase
-     */
-    public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.productmodule){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/productmodules/${context.productmodule}/checkkey`,data,isloading);
-            return res;
-        }
-    }
-
-    /**
-     * GetDraft接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ProductModuleServiceBase
-     */
-    public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/productmodules/getdraft`,isloading);
-            res.data.productmodule = data.productmodule;
-            return res;
-        }
-    }
-
-    /**
      * Create接口方法
      *
      * @param {*} [context={}]
@@ -148,7 +79,7 @@ export default class ProductModuleServiceBase extends EntityService {
     }
 
     /**
-     * Fix接口方法
+     * Update接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -156,11 +87,11 @@ export default class ProductModuleServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof ProductModuleServiceBase
      */
-    public async Fix(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productmodule){
             let masterData:any = {};
             Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/productmodules/${context.productmodule}/fix`,data,isloading);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/productmodules/${context.productmodule}`,data,isloading);
             return res;
         }
     }
@@ -177,6 +108,75 @@ export default class ProductModuleServiceBase extends EntityService {
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productmodule){
             return Http.getInstance().delete(`/products/${context.product}/productmodules/${context.productmodule}`,isloading);
+        }
+    }
+
+    /**
+     * Get接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductModuleServiceBase
+     */
+    public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productmodule){
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productmodules/${context.productmodule}`,isloading);
+            return res;
+        }
+    }
+
+    /**
+     * GetDraft接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductModuleServiceBase
+     */
+    public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productmodules/getdraft`,isloading);
+            res.data.productmodule = data.productmodule;
+            return res;
+        }
+    }
+
+    /**
+     * CheckKey接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductModuleServiceBase
+     */
+    public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productmodule){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productmodules/${context.productmodule}/checkkey`,data,isloading);
+            return res;
+        }
+    }
+
+    /**
+     * Fix接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductModuleServiceBase
+     */
+    public async Fix(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productmodule){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productmodules/${context.productmodule}/fix`,data,isloading);
+            return res;
         }
     }
 
@@ -199,22 +199,6 @@ export default class ProductModuleServiceBase extends EntityService {
     }
 
     /**
-     * FetchDefault接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ProductModuleServiceBase
-     */
-    public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/productmodules/fetchdefault`,tempData,isloading);
-        }
-    }
-
-    /**
      * FetchByPath接口方法
      *
      * @param {*} [context={}]
@@ -231,7 +215,7 @@ export default class ProductModuleServiceBase extends EntityService {
     }
 
     /**
-     * FetchRoot_NoBranch接口方法
+     * FetchDefault接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -239,10 +223,10 @@ export default class ProductModuleServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof ProductModuleServiceBase
      */
-    public async FetchRoot_NoBranch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/productmodules/fetchroot_nobranch`,tempData,isloading);
+            return Http.getInstance().get(`/products/${context.product}/productmodules/fetchdefault`,tempData,isloading);
         }
     }
 
@@ -259,6 +243,22 @@ export default class ProductModuleServiceBase extends EntityService {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/products/${context.product}/productmodules/fetchroot`,tempData,isloading);
+        }
+    }
+
+    /**
+     * FetchRoot_NoBranch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductModuleServiceBase
+     */
+    public async FetchRoot_NoBranch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/products/${context.product}/productmodules/fetchroot_nobranch`,tempData,isloading);
         }
     }
 }

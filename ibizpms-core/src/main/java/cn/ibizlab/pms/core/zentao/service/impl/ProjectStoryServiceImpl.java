@@ -58,15 +58,18 @@ public class ProjectStoryServiceImpl extends ServiceImpl<ProjectStoryMapper, Pro
 
     @Override
     @Transactional
-    public ProjectStory get(String key) {
-        ProjectStory et = getById(key);
-        if(et==null){
-            et=new ProjectStory();
-            et.setId(key);
-        }
-        else{
-        }
-        return et;
+    public boolean create(ProjectStory et) {
+        fillParentData(et);
+        if(!this.retBool(this.baseMapper.insert(et)))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void createBatch(List<ProjectStory> list) {
+        list.forEach(item->fillParentData(item));
+        this.saveBatch(list,batchSize);
     }
 
     @Override
@@ -85,6 +88,41 @@ public class ProjectStoryServiceImpl extends ServiceImpl<ProjectStoryMapper, Pro
         updateBatchById(list,batchSize);
     }
 
+    @Override
+    @Transactional
+    public boolean remove(String key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<String> idList) {
+        removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
+    public ProjectStory get(String key) {
+        ProjectStory et = getById(key);
+        if(et==null){
+            et=new ProjectStory();
+            et.setId(key);
+        }
+        else{
+        }
+        return et;
+    }
+
+    @Override
+    public ProjectStory getDraft(ProjectStory et) {
+        fillParentData(et);
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(ProjectStory et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
     @Override
     @Transactional
     public boolean save(ProjectStory et) {
@@ -116,44 +154,6 @@ public class ProjectStoryServiceImpl extends ServiceImpl<ProjectStoryMapper, Pro
     public void saveBatch(List<ProjectStory> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    public boolean checkKey(ProjectStory et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
-    @Override
-    public ProjectStory getDraft(ProjectStory et) {
-        fillParentData(et);
-        return et;
-    }
-
-    @Override
-    @Transactional
-    public boolean remove(String key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<String> idList) {
-        removeByIds(idList);
-    }
-
-    @Override
-    @Transactional
-    public boolean create(ProjectStory et) {
-        fillParentData(et);
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void createBatch(List<ProjectStory> list) {
-        list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
     }
 
 

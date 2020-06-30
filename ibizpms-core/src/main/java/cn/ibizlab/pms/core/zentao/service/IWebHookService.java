@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IWebHookService extends IService<WebHook>{
 
+    boolean create(WebHook et) ;
+    void createBatch(List<WebHook> list) ;
+    boolean update(WebHook et) ;
+    void updateBatch(List<WebHook> list) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
     WebHook get(BigInteger key) ;
+    WebHook getDraft(WebHook et) ;
     boolean checkKey(WebHook et) ;
     boolean save(WebHook et) ;
     void saveBatch(List<WebHook> list) ;
-    boolean create(WebHook et) ;
-    void createBatch(List<WebHook> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    WebHook getDraft(WebHook et) ;
-    boolean update(WebHook et) ;
-    void updateBatch(List<WebHook> list) ;
     Page<WebHook> searchDefault(WebHookSearchContext context) ;
     /**
      *自定义查询SQL

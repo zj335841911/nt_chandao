@@ -22,26 +22,6 @@ public class TestTaskServiceEx extends TestTaskServiceImpl {
     }
 
     /**
-     * 自定义行为[Block]用户扩展
-     * @param et
-     * @return
-     */
-    @Override
-    @Transactional
-    public TestTask block(TestTask et) {
-        return super.block(et);
-    }
-    /**
-     * 自定义行为[Start]用户扩展
-     * @param et
-     * @return
-     */
-    @Override
-    @Transactional
-    public TestTask start(TestTask et) {
-        return super.start(et);
-    }
-    /**
      * 自定义行为[Activate]用户扩展
      * @param et
      * @return
@@ -52,6 +32,16 @@ public class TestTaskServiceEx extends TestTaskServiceImpl {
         return super.activate(et);
     }
     /**
+     * 自定义行为[Block]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public TestTask block(TestTask et) {
+        return super.block(et);
+    }
+    /**
      * 自定义行为[Close]用户扩展
      * @param et
      * @return
@@ -60,6 +50,16 @@ public class TestTaskServiceEx extends TestTaskServiceImpl {
     @Transactional
     public TestTask close(TestTask et) {
         return super.close(et);
+    }
+    /**
+     * 自定义行为[Start]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public TestTask start(TestTask et) {
+        return super.start(et);
     }
 }
 

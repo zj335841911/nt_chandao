@@ -22,16 +22,6 @@ public class ReleaseServiceEx extends ReleaseServiceImpl {
     }
 
     /**
-     * 自定义行为[Terminate]用户扩展
-     * @param et
-     * @return
-     */
-    @Override
-    @Transactional
-    public Release terminate(Release et) {
-        return super.terminate(et);
-    }
-    /**
      * 自定义行为[Activate]用户扩展
      * @param et
      * @return
@@ -50,6 +40,16 @@ public class ReleaseServiceEx extends ReleaseServiceImpl {
     @Transactional
     public Release changeStatus(Release et) {
         return super.changeStatus(et);
+    }
+    /**
+     * 自定义行为[Terminate]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Release terminate(Release et) {
+        return super.terminate(et);
     }
 }
 

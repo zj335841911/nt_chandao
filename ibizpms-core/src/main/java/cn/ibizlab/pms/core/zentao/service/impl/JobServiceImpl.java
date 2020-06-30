@@ -52,20 +52,6 @@ public class JobServiceImpl extends ServiceImpl<JobMapper, Job> implements IJobS
 
     @Override
     @Transactional
-    public boolean update(Job et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void updateBatch(List<Job> list) {
-        updateBatchById(list,batchSize);
-    }
-
-    @Override
-    @Transactional
     public boolean create(Job et) {
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
@@ -76,6 +62,20 @@ public class JobServiceImpl extends ServiceImpl<JobMapper, Job> implements IJobS
     @Override
     public void createBatch(List<Job> list) {
         this.saveBatch(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean update(Job et) {
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void updateBatch(List<Job> list) {
+        updateBatchById(list,batchSize);
     }
 
     @Override
@@ -91,11 +91,6 @@ public class JobServiceImpl extends ServiceImpl<JobMapper, Job> implements IJobS
     }
 
     @Override
-    public Job getDraft(Job et) {
-        return et;
-    }
-
-    @Override
     @Transactional
     public Job get(BigInteger key) {
         Job et = getById(key);
@@ -108,6 +103,15 @@ public class JobServiceImpl extends ServiceImpl<JobMapper, Job> implements IJobS
         return et;
     }
 
+    @Override
+    public Job getDraft(Job et) {
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(Job et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
     @Override
     @Transactional
     public boolean save(Job et) {
@@ -139,10 +143,6 @@ public class JobServiceImpl extends ServiceImpl<JobMapper, Job> implements IJobS
         saveOrUpdateBatch(list,batchSize);
     }
 
-    @Override
-    public boolean checkKey(Job et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
 
 
     /**

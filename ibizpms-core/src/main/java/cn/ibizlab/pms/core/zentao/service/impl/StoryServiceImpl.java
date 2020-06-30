@@ -77,12 +77,6 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     protected int batchSize = 500;
 
     @Override
-    public Story getDraft(Story et) {
-        fillParentData(et);
-        return et;
-    }
-
-    @Override
     @Transactional
     public boolean create(Story et) {
         cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
@@ -100,47 +94,19 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     }
     @Override
     @Transactional
-    public Story batchChangeStage(Story et) {
-        //自定义代码
-        return et;
-    }
-
-    @Override
-    @Transactional
-    public Story batchChangePlan(Story et) {
-        //自定义代码
-        return et;
-    }
-
-    @Override
-    @Transactional
-    public Story batchClose(Story et) {
-        //自定义代码
-        return et;
-    }
-
-    @Override
-    @Transactional
-    public Story getStorySpec(Story et) {
-        //自定义代码
-        return et;
-    }
-
-    @Override
-    @Transactional
-    public Story change(Story et) {
+    public boolean update(Story et) {
         cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.change((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.edit((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return et;
+	    return bRst;
     }
 
     @Override
-    public boolean checkKey(Story et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    public void updateBatch(List<Story> list) {
+
     }
     @Override
     @Transactional
@@ -162,44 +128,23 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     }
     @Override
     @Transactional
-    public boolean update(Story et) {
-        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.edit((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
-        if (bRst && rst.getEtId() != null) {
-            et = this.get(rst.getEtId());
+    public Story get(BigInteger key) {
+        Story tempET=new Story();
+        tempET.set("id",key);
+        Story et = getById(key);
+        if(et==null){
+            et=new Story();
+            et.setId(key);
         }
-	    return bRst;
-    }
-
-    @Override
-    public void updateBatch(List<Story> list) {
-
-    }
-    @Override
-    @Transactional
-    public Story batchChangeBranch(Story et) {
-        //自定义代码
+        else{
+        }
         return et;
     }
 
     @Override
-    @Transactional
-    public Story batchReview(Story et) {
-        //自定义代码
+    public Story getDraft(Story et) {
+        fillParentData(et);
         return et;
-    }
-
-    @Override
-    @Transactional
-    public Story review(Story et) {
-        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.review((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
-        if (bRst && rst.getEtId() != null) {
-            et = this.get(rst.getEtId());
-        }
-	    return et;
     }
 
     @Override
@@ -223,17 +168,91 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
 
     @Override
     @Transactional
-    public Story get(BigInteger key) {
-        Story tempET=new Story();
-        tempET.set("id",key);
-        Story et = getById(key);
-        if(et==null){
-            et=new Story();
-            et.setId(key);
-        }
-        else{
-        }
+    public Story batchChangeBranch(Story et) {
+        //自定义代码
         return et;
+    }
+
+    @Override
+    @Transactional
+    public Story batchChangeModule(Story et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public Story batchChangePlan(Story et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public Story batchChangeStage(Story et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public Story batchClose(Story et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public Story batchReview(Story et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public Story change(Story et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.change((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return et;
+    }
+
+    @Override
+    public boolean checkKey(Story et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
+    @Override
+    @Transactional
+    public Story close(Story et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.close((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return et;
+    }
+
+    @Override
+    @Transactional
+    public Story getStorySpec(Story et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public Story review(Story et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.review((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return et;
     }
 
     @Override
@@ -267,25 +286,6 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     public void saveBatch(List<Story> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public Story batchChangeModule(Story et) {
-        //自定义代码
-        return et;
-    }
-
-    @Override
-    @Transactional
-    public Story close(Story et) {
-        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.close((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
-        if (bRst && rst.getEtId() != null) {
-            et = this.get(rst.getEtId());
-        }
-	    return et;
     }
 
 
@@ -361,11 +361,11 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
 
 
     /**
-     * 查询集合 获取产品发布相关需求
+     * 查询集合 获取版本相关需求
      */
     @Override
-    public Page<Story> searchReleaseStories(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchReleaseStories(context.getPages(),context,context.getSelectCond());
+    public Page<Story> searchBuildStories(StorySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchBuildStories(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -375,33 +375,6 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     @Override
     public Page<Story> searchByModule(StorySearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchByModule(context.getPages(),context,context.getSelectCond());
-        return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
-    }
-
-    /**
-     * 查询集合 通过模块查询
-     */
-    @Override
-    public Page<Story> searchReportStories(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchReportStories(context.getPages(),context,context.getSelectCond());
-        return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
-    }
-
-    /**
-     * 查询集合 项目相关需求
-     */
-    @Override
-    public Page<Story> searchProjectStories(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchProjectStories(context.getPages(),context,context.getSelectCond());
-        return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
-    }
-
-    /**
-     * 查询集合 获取版本相关需求
-     */
-    @Override
-    public Page<Story> searchBuildStories(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchBuildStories(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -420,6 +393,33 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     @Override
     public Page<Story> searchGetProductStories(StorySearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchGetProductStories(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 项目相关需求
+     */
+    @Override
+    public Page<Story> searchProjectStories(StorySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchProjectStories(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 获取产品发布相关需求
+     */
+    @Override
+    public Page<Story> searchReleaseStories(StorySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchReleaseStories(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 通过模块查询
+     */
+    @Override
+    public Page<Story> searchReportStories(StorySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchReportStories(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

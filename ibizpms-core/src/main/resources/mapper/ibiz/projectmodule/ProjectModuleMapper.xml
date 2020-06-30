@@ -37,19 +37,19 @@
          where  root=#{id}
      </select>
 
-    <!--数据集合[Default]-->
-	 <select id="searchDefault"  parameterType="cn.ibizlab.pms.core.ibiz.filter.ProjectModuleSearchContext"  resultMap="ProjectModuleResultMap">
+    <!--数据集合[ByPath]-->
+	 <select id="searchByPath"  parameterType="cn.ibizlab.pms.core.ibiz.filter.ProjectModuleSearchContext"  resultMap="ProjectModuleResultMap">
          select t1.* from (
-                <include refid="Default" />
+                <include refid="ByPath" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
-    <!--数据集合[Root_NoBranch]-->
-	 <select id="searchRoot_NoBranch"  parameterType="cn.ibizlab.pms.core.ibiz.filter.ProjectModuleSearchContext"  resultMap="ProjectModuleResultMap">
+    <!--数据集合[Default]-->
+	 <select id="searchDefault"  parameterType="cn.ibizlab.pms.core.ibiz.filter.ProjectModuleSearchContext"  resultMap="ProjectModuleResultMap">
          select t1.* from (
-                <include refid="Root_NoBranch" />
+                <include refid="Default" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
@@ -64,10 +64,10 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
-    <!--数据集合[ByPath]-->
-	 <select id="searchByPath"  parameterType="cn.ibizlab.pms.core.ibiz.filter.ProjectModuleSearchContext"  resultMap="ProjectModuleResultMap">
+    <!--数据集合[Root_NoBranch]-->
+	 <select id="searchRoot_NoBranch"  parameterType="cn.ibizlab.pms.core.ibiz.filter.ProjectModuleSearchContext"  resultMap="ProjectModuleResultMap">
          select t1.* from (
-                <include refid="ByPath" />
+                <include refid="Root_NoBranch" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>

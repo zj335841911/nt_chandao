@@ -26,19 +26,19 @@
          where  story=#{id}
      </select>
 
-    <!--数据集合[Version]-->
-	 <select id="searchVersion"  parameterType="cn.ibizlab.pms.core.zentao.filter.StorySpecSearchContext"  resultMap="StorySpecResultMap">
+    <!--数据集合[Default]-->
+	 <select id="searchDefault"  parameterType="cn.ibizlab.pms.core.zentao.filter.StorySpecSearchContext"  resultMap="StorySpecResultMap">
          select t1.* from (
-                <include refid="Version" />
+                <include refid="Default" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
-    <!--数据集合[Default]-->
-	 <select id="searchDefault"  parameterType="cn.ibizlab.pms.core.zentao.filter.StorySpecSearchContext"  resultMap="StorySpecResultMap">
+    <!--数据集合[Version]-->
+	 <select id="searchVersion"  parameterType="cn.ibizlab.pms.core.zentao.filter.StorySpecSearchContext"  resultMap="StorySpecResultMap">
          select t1.* from (
-                <include refid="Default" />
+                <include refid="Version" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>

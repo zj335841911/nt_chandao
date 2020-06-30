@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IHistoryService extends IService<History>{
 
-    boolean update(History et) ;
-    void updateBatch(List<History> list) ;
     boolean create(History et) ;
     void createBatch(List<History> list) ;
+    boolean update(History et) ;
+    void updateBatch(List<History> list) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
     History get(BigInteger key) ;
+    History getDraft(History et) ;
     boolean checkKey(History et) ;
     boolean save(History et) ;
     void saveBatch(List<History> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    History getDraft(History et) ;
     Page<History> searchDefault(HistorySearchContext context) ;
     List<History> selectByAction(BigInteger id) ;
     void removeByAction(BigInteger id) ;

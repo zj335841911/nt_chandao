@@ -19,8 +19,8 @@ import com.alibaba.fastjson.JSONObject;
 
 public interface StorySpecMapper extends BaseMapper<StorySpec>{
 
-    Page<StorySpec> searchVersion(IPage page, @Param("srf") StorySpecSearchContext context, @Param("ew") Wrapper<StorySpec> wrapper) ;
     Page<StorySpec> searchDefault(IPage page, @Param("srf") StorySpecSearchContext context, @Param("ew") Wrapper<StorySpec> wrapper) ;
+    Page<StorySpec> searchVersion(IPage page, @Param("srf") StorySpecSearchContext context, @Param("ew") Wrapper<StorySpec> wrapper) ;
     @Override
     StorySpec selectById(Serializable id);
     @Override

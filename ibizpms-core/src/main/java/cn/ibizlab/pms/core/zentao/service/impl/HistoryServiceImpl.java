@@ -52,20 +52,6 @@ public class HistoryServiceImpl extends ServiceImpl<HistoryMapper, History> impl
 
     @Override
     @Transactional
-    public boolean update(History et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void updateBatch(List<History> list) {
-        updateBatchById(list,batchSize);
-    }
-
-    @Override
-    @Transactional
     public boolean create(History et) {
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
@@ -80,6 +66,32 @@ public class HistoryServiceImpl extends ServiceImpl<HistoryMapper, History> impl
 
     @Override
     @Transactional
+    public boolean update(History et) {
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void updateBatch(List<History> list) {
+        updateBatchById(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean remove(BigInteger key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<BigInteger> idList) {
+        removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
     public History get(BigInteger key) {
         History et = getById(key);
         if(et==null){
@@ -88,6 +100,11 @@ public class HistoryServiceImpl extends ServiceImpl<HistoryMapper, History> impl
         }
         else{
         }
+        return et;
+    }
+
+    @Override
+    public History getDraft(History et) {
         return et;
     }
 
@@ -124,23 +141,6 @@ public class HistoryServiceImpl extends ServiceImpl<HistoryMapper, History> impl
     @Override
     public void saveBatch(List<History> list) {
         saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
-    }
-
-    @Override
-    public History getDraft(History et) {
-        return et;
     }
 
 

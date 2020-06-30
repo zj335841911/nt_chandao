@@ -49,6 +49,20 @@ public class ProductStatsServiceImpl extends ServiceImpl<ProductStatsMapper, Pro
 
     @Override
     @Transactional
+    public boolean create(ProductStats et) {
+        if(!this.retBool(this.baseMapper.insert(et)))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void createBatch(List<ProductStats> list) {
+        this.saveBatch(list,batchSize);
+    }
+
+    @Override
+    @Transactional
     public boolean update(ProductStats et) {
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
@@ -62,10 +76,39 @@ public class ProductStatsServiceImpl extends ServiceImpl<ProductStatsMapper, Pro
     }
 
     @Override
+    @Transactional
+    public boolean remove(BigInteger key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<BigInteger> idList) {
+        removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
+    public ProductStats get(BigInteger key) {
+        ProductStats et = getById(key);
+        if(et==null){
+            et=new ProductStats();
+            et.setId(key);
+        }
+        else{
+        }
+        return et;
+    }
+
+    @Override
     public ProductStats getDraft(ProductStats et) {
         return et;
     }
 
+    @Override
+    public boolean checkKey(ProductStats et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
     @Override
     @Transactional
     public boolean save(ProductStats et) {
@@ -95,49 +138,6 @@ public class ProductStatsServiceImpl extends ServiceImpl<ProductStatsMapper, Pro
     @Override
     public void saveBatch(List<ProductStats> list) {
         saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public boolean create(ProductStats et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void createBatch(List<ProductStats> list) {
-        this.saveBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public ProductStats get(BigInteger key) {
-        ProductStats et = getById(key);
-        if(et==null){
-            et=new ProductStats();
-            et.setId(key);
-        }
-        else{
-        }
-        return et;
-    }
-
-    @Override
-    public boolean checkKey(ProductStats et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
-    @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
     }
 
 

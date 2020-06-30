@@ -39,10 +39,13 @@ public class ProductLineServiceImpl implements IProductLineService {
 
 
     @Override
-    public ProductLine get(String key) {
-        ProductLine et = new ProductLine();
-        et.setProductlineid(key);
-        return et;
+    public boolean create(ProductLine et) {
+        //代码实现
+        return true;
+    }
+
+    public void createBatch(List<ProductLine> list){
+
     }
 
     @Override
@@ -65,6 +68,22 @@ public class ProductLineServiceImpl implements IProductLineService {
     }
 
     @Override
+    public ProductLine get(String key) {
+        ProductLine et = new ProductLine();
+        et.setProductlineid(key);
+        return et;
+    }
+
+    @Override
+    public ProductLine getDraft(ProductLine et) {
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(ProductLine et) {
+        return false;
+    }
+    @Override
     @Transactional
     public boolean save(ProductLine et) {
         //代码实现
@@ -74,25 +93,6 @@ public class ProductLineServiceImpl implements IProductLineService {
     @Override
     public void saveBatch(List<ProductLine> list) {
                        
-    }
-
-    @Override
-    public boolean create(ProductLine et) {
-        //代码实现
-        return true;
-    }
-
-    public void createBatch(List<ProductLine> list){
-
-    }
-
-    @Override
-    public boolean checkKey(ProductLine et) {
-        return false;
-    }
-    @Override
-    public ProductLine getDraft(ProductLine et) {
-        return et;
     }
 
 

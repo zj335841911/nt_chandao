@@ -58,106 +58,6 @@ export default class ProjectProductServiceBase extends EntityService {
     }
 
     /**
-     * GetDraft接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ProjectProductServiceBase
-     */
-    public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.project && true){
-            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectproducts/getdraft`,isloading);
-            res.data.projectproduct = data.projectproduct;
-            return res;
-        }
-        if(context.product && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/projectproducts/getdraft`,isloading);
-            res.data.projectproduct = data.projectproduct;
-            return res;
-        }
-        let res:any = await  Http.getInstance().get(`/projectproducts/getdraft`,isloading);
-        res.data.projectproduct = data.projectproduct;
-        return res;
-    }
-
-    /**
-     * Save接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ProjectProductServiceBase
-     */
-    public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.project && context.projectproduct){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/projects/${context.project}/projectproducts/${context.projectproduct}/save`,data,isloading);
-            return res;
-        }
-        if(context.product && context.projectproduct){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/projectproducts/${context.projectproduct}/save`,data,isloading);
-            return res;
-        }
-        let masterData:any = {};
-        Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().post(`/projectproducts/${context.projectproduct}/save`,data,isloading);
-            return res;
-    }
-
-    /**
-     * CheckKey接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ProjectProductServiceBase
-     */
-    public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.project && context.projectproduct){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/projects/${context.project}/projectproducts/${context.projectproduct}/checkkey`,data,isloading);
-            return res;
-        }
-        if(context.product && context.projectproduct){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/projectproducts/${context.projectproduct}/checkkey`,data,isloading);
-            return res;
-        }
-            return Http.getInstance().post(`/projectproducts/${context.projectproduct}/checkkey`,data,isloading);
-    }
-
-    /**
-     * Get接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ProjectProductServiceBase
-     */
-    public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.project && context.projectproduct){
-            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectproducts/${context.projectproduct}`,isloading);
-            return res;
-        }
-        if(context.product && context.projectproduct){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/projectproducts/${context.projectproduct}`,isloading);
-            return res;
-        }
-            let res:any = await Http.getInstance().get(`/projectproducts/${context.projectproduct}`,isloading);
-            return res;
-    }
-
-    /**
      * Create接口方法
      *
      * @param {*} [context={}]
@@ -207,25 +107,6 @@ export default class ProjectProductServiceBase extends EntityService {
     }
 
     /**
-     * Remove接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ProjectProductServiceBase
-     */
-    public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.project && context.projectproduct){
-            return Http.getInstance().delete(`/projects/${context.project}/projectproducts/${context.projectproduct}`,isloading);
-        }
-        if(context.product && context.projectproduct){
-            return Http.getInstance().delete(`/products/${context.product}/projectproducts/${context.projectproduct}`,isloading);
-        }
-            return Http.getInstance().delete(`/projectproducts/${context.projectproduct}`,isloading);
-    }
-
-    /**
      * Update接口方法
      *
      * @param {*} [context={}]
@@ -254,7 +135,7 @@ export default class ProjectProductServiceBase extends EntityService {
     }
 
     /**
-     * FetchRelationPlan接口方法
+     * Remove接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -262,17 +143,114 @@ export default class ProjectProductServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof ProjectProductServiceBase
      */
-    public async FetchRelationPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectproduct){
+            return Http.getInstance().delete(`/projects/${context.project}/projectproducts/${context.projectproduct}`,isloading);
+        }
+        if(context.product && context.projectproduct){
+            return Http.getInstance().delete(`/products/${context.product}/projectproducts/${context.projectproduct}`,isloading);
+        }
+            return Http.getInstance().delete(`/projectproducts/${context.projectproduct}`,isloading);
+    }
+
+    /**
+     * Get接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectProductServiceBase
+     */
+    public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectproduct){
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectproducts/${context.projectproduct}`,isloading);
+            return res;
+        }
+        if(context.product && context.projectproduct){
+            let res:any = await Http.getInstance().get(`/products/${context.product}/projectproducts/${context.projectproduct}`,isloading);
+            return res;
+        }
+            let res:any = await Http.getInstance().get(`/projectproducts/${context.projectproduct}`,isloading);
+            return res;
+    }
+
+    /**
+     * GetDraft接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectProductServiceBase
+     */
+    public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/projects/${context.project}/projectproducts/fetchrelationplan`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectproducts/getdraft`,isloading);
+            res.data.projectproduct = data.projectproduct;
+            return res;
         }
         if(context.product && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/projectproducts/fetchrelationplan`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/projectproducts/getdraft`,isloading);
+            res.data.projectproduct = data.projectproduct;
+            return res;
         }
-        let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/projectproducts/fetchrelationplan`,tempData,isloading);
+        let res:any = await  Http.getInstance().get(`/projectproducts/getdraft`,isloading);
+        res.data.projectproduct = data.projectproduct;
+        return res;
+    }
+
+    /**
+     * CheckKey接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectProductServiceBase
+     */
+    public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectproduct){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/projectproducts/${context.projectproduct}/checkkey`,data,isloading);
+            return res;
+        }
+        if(context.product && context.projectproduct){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/projectproducts/${context.projectproduct}/checkkey`,data,isloading);
+            return res;
+        }
+            return Http.getInstance().post(`/projectproducts/${context.projectproduct}/checkkey`,data,isloading);
+    }
+
+    /**
+     * Save接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectProductServiceBase
+     */
+    public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectproduct){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/projectproducts/${context.projectproduct}/save`,data,isloading);
+            return res;
+        }
+        if(context.product && context.projectproduct){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/projectproducts/${context.projectproduct}/save`,data,isloading);
+            return res;
+        }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().post(`/projectproducts/${context.projectproduct}/save`,data,isloading);
+            return res;
     }
 
     /**
@@ -295,5 +273,27 @@ export default class ProjectProductServiceBase extends EntityService {
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
         return Http.getInstance().get(`/projectproducts/fetchdefault`,tempData,isloading);
+    }
+
+    /**
+     * FetchRelationPlan接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectProductServiceBase
+     */
+    public async FetchRelationPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/projects/${context.project}/projectproducts/fetchrelationplan`,tempData,isloading);
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/products/${context.product}/projectproducts/fetchrelationplan`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/projectproducts/fetchrelationplan`,tempData,isloading);
     }
 }

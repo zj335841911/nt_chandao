@@ -61,35 +61,18 @@ public class TestResultServiceImpl extends ServiceImpl<TestResultMapper, TestRes
 
     @Override
     @Transactional
-    public boolean save(TestResult et) {
-        if(!saveOrUpdate(et))
+    public boolean create(TestResult et) {
+        fillParentData(et);
+        if(!this.retBool(this.baseMapper.insert(et)))
             return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
 
     @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
-    public boolean saveOrUpdate(TestResult et) {
-        if (null == et) {
-            return false;
-        } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
-        }
-    }
-
-    @Override
-    public boolean saveBatch(Collection<TestResult> list) {
+    public void createBatch(List<TestResult> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
-        return true;
-    }
-
-    @Override
-    public void saveBatch(List<TestResult> list) {
-        list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        this.saveBatch(list,batchSize);
     }
 
     @Override
@@ -121,16 +104,6 @@ public class TestResultServiceImpl extends ServiceImpl<TestResultMapper, TestRes
     }
 
     @Override
-    public TestResult getDraft(TestResult et) {
-        fillParentData(et);
-        return et;
-    }
-
-    @Override
-    public boolean checkKey(TestResult et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
-    @Override
     @Transactional
     public TestResult get(BigInteger key) {
         TestResult et = getById(key);
@@ -144,19 +117,46 @@ public class TestResultServiceImpl extends ServiceImpl<TestResultMapper, TestRes
     }
 
     @Override
-    @Transactional
-    public boolean create(TestResult et) {
+    public TestResult getDraft(TestResult et) {
         fillParentData(et);
-        if(!this.retBool(this.baseMapper.insert(et)))
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(TestResult et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
+    @Override
+    @Transactional
+    public boolean save(TestResult et) {
+        if(!saveOrUpdate(et))
             return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
 
     @Override
-    public void createBatch(List<TestResult> list) {
+    @Transactional(
+            rollbackFor = {Exception.class}
+    )
+    public boolean saveOrUpdate(TestResult et) {
+        if (null == et) {
+            return false;
+        } else {
+            return checkKey(et) ? this.update(et) : this.create(et);
+        }
+    }
+
+    @Override
+    public boolean saveBatch(Collection<TestResult> list) {
         list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
+    public void saveBatch(List<TestResult> list) {
+        list.forEach(item->fillParentData(item));
+        saveOrUpdateBatch(list,batchSize);
     }
 
 

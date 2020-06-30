@@ -128,7 +128,7 @@ export default class Main_EditModeModel {
       {
         name: 'mailto',
         prop: 'mailto',
-        dataType: 'LONGTEXT',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'openedby',

@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IUserContactService extends IService<UserContact>{
 
-    UserContact get(BigInteger key) ;
-    boolean checkKey(UserContact et) ;
-    boolean save(UserContact et) ;
-    void saveBatch(List<UserContact> list) ;
-    UserContact getDraft(UserContact et) ;
     boolean create(UserContact et) ;
     void createBatch(List<UserContact> list) ;
     boolean update(UserContact et) ;
     void updateBatch(List<UserContact> list) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
+    UserContact get(BigInteger key) ;
+    UserContact getDraft(UserContact et) ;
+    boolean checkKey(UserContact et) ;
+    boolean save(UserContact et) ;
+    void saveBatch(List<UserContact> list) ;
     Page<UserContact> searchDefault(UserContactSearchContext context) ;
     /**
      *自定义查询SQL

@@ -71,6 +71,34 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
 
     @Override
     @Transactional
+    public boolean update(Burn et) {
+        fillParentData(et);
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void updateBatch(List<Burn> list) {
+        list.forEach(item->fillParentData(item));
+        updateBatchById(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean remove(String key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<String> idList) {
+        removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
     public Burn get(String key) {
         Burn et = getById(key);
         if(et==null){
@@ -83,19 +111,20 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
     }
 
     @Override
+    public Burn getDraft(Burn et) {
+        fillParentData(et);
+        return et;
+    }
+
+    @Override
     public boolean checkKey(Burn et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
-    public boolean remove(String key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<String> idList) {
-        removeByIds(idList);
+    public Burn computeBurn(Burn et) {
+        //自定义代码
+        return et;
     }
 
     @Override
@@ -129,35 +158,6 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
     public void saveBatch(List<Burn> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public boolean update(Burn et) {
-        fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void updateBatch(List<Burn> list) {
-        list.forEach(item->fillParentData(item));
-        updateBatchById(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public Burn computeBurn(Burn et) {
-        //自定义代码
-        return et;
-    }
-
-    @Override
-    public Burn getDraft(Burn et) {
-        fillParentData(et);
-        return et;
     }
 
 

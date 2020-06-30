@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IProductStatsService extends IService<ProductStats>{
 
-    boolean update(ProductStats et) ;
-    void updateBatch(List<ProductStats> list) ;
-    ProductStats getDraft(ProductStats et) ;
-    boolean save(ProductStats et) ;
-    void saveBatch(List<ProductStats> list) ;
     boolean create(ProductStats et) ;
     void createBatch(List<ProductStats> list) ;
-    ProductStats get(BigInteger key) ;
-    boolean checkKey(ProductStats et) ;
+    boolean update(ProductStats et) ;
+    void updateBatch(List<ProductStats> list) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
+    ProductStats get(BigInteger key) ;
+    ProductStats getDraft(ProductStats et) ;
+    boolean checkKey(ProductStats et) ;
+    boolean save(ProductStats et) ;
+    void saveBatch(List<ProductStats> list) ;
     Page<ProductStats> searchDefault(ProductStatsSearchContext context) ;
     /**
      *自定义查询SQL

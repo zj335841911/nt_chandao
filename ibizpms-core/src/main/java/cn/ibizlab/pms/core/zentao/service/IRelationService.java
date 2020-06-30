@@ -27,15 +27,15 @@ public interface IRelationService extends IService<Relation>{
 
     boolean create(Relation et) ;
     void createBatch(List<Relation> list) ;
-    boolean checkKey(Relation et) ;
-    boolean save(Relation et) ;
-    void saveBatch(List<Relation> list) ;
-    Relation getDraft(Relation et) ;
     boolean update(Relation et) ;
     void updateBatch(List<Relation> list) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
     Relation get(BigInteger key) ;
+    Relation getDraft(Relation et) ;
+    boolean checkKey(Relation et) ;
+    boolean save(Relation et) ;
+    void saveBatch(List<Relation> list) ;
     Page<Relation> searchDefault(RelationSearchContext context) ;
     /**
      *自定义查询SQL

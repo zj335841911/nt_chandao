@@ -49,33 +49,30 @@ public class RepoHistoryServiceImpl extends ServiceImpl<RepoHistoryMapper, RepoH
 
     @Override
     @Transactional
-    public boolean save(RepoHistory et) {
-        if(!saveOrUpdate(et))
+    public boolean create(RepoHistory et) {
+        if(!this.retBool(this.baseMapper.insert(et)))
             return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
 
     @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
-    public boolean saveOrUpdate(RepoHistory et) {
-        if (null == et) {
-            return false;
-        } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
-        }
+    public void createBatch(List<RepoHistory> list) {
+        this.saveBatch(list,batchSize);
     }
 
     @Override
-    public boolean saveBatch(Collection<RepoHistory> list) {
-        saveOrUpdateBatch(list,batchSize);
+    @Transactional
+    public boolean update(RepoHistory et) {
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
 
     @Override
-    public void saveBatch(List<RepoHistory> list) {
-        saveOrUpdateBatch(list,batchSize);
+    public void updateBatch(List<RepoHistory> list) {
+        updateBatchById(list,batchSize);
     }
 
     @Override
@@ -104,20 +101,6 @@ public class RepoHistoryServiceImpl extends ServiceImpl<RepoHistoryMapper, RepoH
     }
 
     @Override
-    @Transactional
-    public boolean update(RepoHistory et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void updateBatch(List<RepoHistory> list) {
-        updateBatchById(list,batchSize);
-    }
-
-    @Override
     public RepoHistory getDraft(RepoHistory et) {
         return et;
     }
@@ -128,16 +111,33 @@ public class RepoHistoryServiceImpl extends ServiceImpl<RepoHistoryMapper, RepoH
     }
     @Override
     @Transactional
-    public boolean create(RepoHistory et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
+    public boolean save(RepoHistory et) {
+        if(!saveOrUpdate(et))
             return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
 
     @Override
-    public void createBatch(List<RepoHistory> list) {
-        this.saveBatch(list,batchSize);
+    @Transactional(
+            rollbackFor = {Exception.class}
+    )
+    public boolean saveOrUpdate(RepoHistory et) {
+        if (null == et) {
+            return false;
+        } else {
+            return checkKey(et) ? this.update(et) : this.create(et);
+        }
+    }
+
+    @Override
+    public boolean saveBatch(Collection<RepoHistory> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
+    public void saveBatch(List<RepoHistory> list) {
+        saveOrUpdateBatch(list,batchSize);
     }
 
 

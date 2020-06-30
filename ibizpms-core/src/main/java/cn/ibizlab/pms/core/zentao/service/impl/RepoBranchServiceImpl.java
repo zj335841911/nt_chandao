@@ -48,9 +48,19 @@ public class RepoBranchServiceImpl extends ServiceImpl<RepoBranchMapper, RepoBra
     protected int batchSize = 500;
 
     @Override
-    public boolean checkKey(RepoBranch et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    @Transactional
+    public boolean create(RepoBranch et) {
+        if(!this.retBool(this.baseMapper.insert(et)))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
     }
+
+    @Override
+    public void createBatch(List<RepoBranch> list) {
+        this.saveBatch(list,batchSize);
+    }
+
     @Override
     @Transactional
     public boolean update(RepoBranch et) {
@@ -67,6 +77,18 @@ public class RepoBranchServiceImpl extends ServiceImpl<RepoBranchMapper, RepoBra
 
     @Override
     @Transactional
+    public boolean remove(String key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<String> idList) {
+        removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
     public RepoBranch get(String key) {
         RepoBranch et = getById(key);
         if(et==null){
@@ -78,6 +100,15 @@ public class RepoBranchServiceImpl extends ServiceImpl<RepoBranchMapper, RepoBra
         return et;
     }
 
+    @Override
+    public RepoBranch getDraft(RepoBranch et) {
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(RepoBranch et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
     @Override
     @Transactional
     public boolean save(RepoBranch et) {
@@ -107,37 +138,6 @@ public class RepoBranchServiceImpl extends ServiceImpl<RepoBranchMapper, RepoBra
     @Override
     public void saveBatch(List<RepoBranch> list) {
         saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public boolean create(RepoBranch et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void createBatch(List<RepoBranch> list) {
-        this.saveBatch(list,batchSize);
-    }
-
-    @Override
-    public RepoBranch getDraft(RepoBranch et) {
-        return et;
-    }
-
-    @Override
-    @Transactional
-    public boolean remove(String key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<String> idList) {
-        removeByIds(idList);
     }
 
 

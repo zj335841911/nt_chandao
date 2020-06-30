@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IExtensionService extends IService<Extension>{
 
-    Extension get(BigInteger key) ;
-    boolean update(Extension et) ;
-    void updateBatch(List<Extension> list) ;
-    boolean save(Extension et) ;
-    void saveBatch(List<Extension> list) ;
-    Extension getDraft(Extension et) ;
     boolean create(Extension et) ;
     void createBatch(List<Extension> list) ;
-    boolean checkKey(Extension et) ;
+    boolean update(Extension et) ;
+    void updateBatch(List<Extension> list) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
+    Extension get(BigInteger key) ;
+    Extension getDraft(Extension et) ;
+    boolean checkKey(Extension et) ;
+    boolean save(Extension et) ;
+    void saveBatch(List<Extension> list) ;
     Page<Extension> searchDefault(ExtensionSearchContext context) ;
     /**
      *自定义查询SQL

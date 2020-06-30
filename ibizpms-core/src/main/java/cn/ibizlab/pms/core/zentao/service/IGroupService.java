@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IGroupService extends IService<Group>{
 
+    boolean create(Group et) ;
+    void createBatch(List<Group> list) ;
+    boolean update(Group et) ;
+    void updateBatch(List<Group> list) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
     Group get(BigInteger key) ;
-    boolean create(Group et) ;
-    void createBatch(List<Group> list) ;
+    Group getDraft(Group et) ;
+    boolean checkKey(Group et) ;
     boolean save(Group et) ;
     void saveBatch(List<Group> list) ;
-    Group getDraft(Group et) ;
-    boolean update(Group et) ;
-    void updateBatch(List<Group> list) ;
-    boolean checkKey(Group et) ;
     Page<Group> searchDefault(GroupSearchContext context) ;
     /**
      *自定义查询SQL

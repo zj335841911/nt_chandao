@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IDocLibService extends IService<DocLib>{
 
-    DocLib getDraft(DocLib et) ;
-    DocLib get(BigInteger key) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    boolean checkKey(DocLib et) ;
-    boolean update(DocLib et) ;
-    void updateBatch(List<DocLib> list) ;
-    boolean save(DocLib et) ;
-    void saveBatch(List<DocLib> list) ;
     boolean create(DocLib et) ;
     void createBatch(List<DocLib> list) ;
+    boolean update(DocLib et) ;
+    void updateBatch(List<DocLib> list) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    DocLib get(BigInteger key) ;
+    DocLib getDraft(DocLib et) ;
+    boolean checkKey(DocLib et) ;
+    boolean save(DocLib et) ;
+    void saveBatch(List<DocLib> list) ;
     Page<DocLib> searchDefault(DocLibSearchContext context) ;
     List<DocLib> selectByProduct(BigInteger id) ;
     void removeByProduct(BigInteger id) ;

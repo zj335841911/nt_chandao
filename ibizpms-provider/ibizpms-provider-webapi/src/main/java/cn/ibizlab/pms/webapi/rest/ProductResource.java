@@ -47,40 +47,23 @@ public class ProductResource {
     @Lazy
     public ProductMapping productMapping;
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Get-all')")
-    @ApiOperation(value = "获取产品", tags = {"产品" },  notes = "获取产品")
-	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}")
-    public ResponseEntity<ProductDTO> get(@PathVariable("product_id") BigInteger product_id) {
-        Product domain = productService.get(product_id);
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Create-all')")
+    @ApiOperation(value = "新建产品", tags = {"产品" },  notes = "新建产品")
+	@RequestMapping(method = RequestMethod.POST, value = "/products")
+    @Transactional
+    public ResponseEntity<ProductDTO> create(@RequestBody ProductDTO productdto) {
+        Product domain = productMapping.toDomain(productdto);
+		productService.create(domain);
         ProductDTO dto = productMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(dto);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Save-all')")
-    @ApiOperation(value = "保存产品", tags = {"产品" },  notes = "保存产品")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/save")
-    public ResponseEntity<Boolean> save(@RequestBody ProductDTO productdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(productService.save(productMapping.toDomain(productdto)));
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Save-all')")
-    @ApiOperation(value = "批量保存产品", tags = {"产品" },  notes = "批量保存产品")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/savebatch")
-    public ResponseEntity<Boolean> saveBatch(@RequestBody List<ProductDTO> productdtos) {
-        productService.saveBatch(productMapping.toDomain(productdtos));
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Create-all')")
+    @ApiOperation(value = "批量新建产品", tags = {"产品" },  notes = "批量新建产品")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/batch")
+    public ResponseEntity<Boolean> createBatch(@RequestBody List<ProductDTO> productdtos) {
+        productService.createBatch(productMapping.toDomain(productdtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
-    }
-
-    @ApiOperation(value = "检查产品", tags = {"产品" },  notes = "检查产品")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/checkkey")
-    public ResponseEntity<Boolean> checkKey(@RequestBody ProductDTO productdto) {
-        return  ResponseEntity.status(HttpStatus.OK).body(productService.checkKey(productMapping.toDomain(productdto)));
-    }
-
-    @ApiOperation(value = "获取产品草稿", tags = {"产品" },  notes = "获取产品草稿")
-	@RequestMapping(method = RequestMethod.GET, value = "/products/getdraft")
-    public ResponseEntity<ProductDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(productMapping.toDto(productService.getDraft(new Product())));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Update-all')")
@@ -103,18 +86,6 @@ public class ProductResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Close-all')")
-    @ApiOperation(value = "关闭", tags = {"产品" },  notes = "关闭")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/close")
-    @Transactional
-    public ResponseEntity<ProductDTO> close(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductDTO productdto) {
-        Product domain = productMapping.toDomain(productdto);
-        domain.setId(product_id);
-        domain = productService.close(domain);
-        productdto = productMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(productdto);
-    }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Remove-all')")
     @ApiOperation(value = "删除产品", tags = {"产品" },  notes = "删除产品")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}")
@@ -131,46 +102,54 @@ public class ProductResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Create-all')")
-    @ApiOperation(value = "新建产品", tags = {"产品" },  notes = "新建产品")
-	@RequestMapping(method = RequestMethod.POST, value = "/products")
-    @Transactional
-    public ResponseEntity<ProductDTO> create(@RequestBody ProductDTO productdto) {
-        Product domain = productMapping.toDomain(productdto);
-		productService.create(domain);
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Get-all')")
+    @ApiOperation(value = "获取产品", tags = {"产品" },  notes = "获取产品")
+	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}")
+    public ResponseEntity<ProductDTO> get(@PathVariable("product_id") BigInteger product_id) {
+        Product domain = productService.get(product_id);
         ProductDTO dto = productMapping.toDto(domain);
-		return ResponseEntity.status(HttpStatus.OK).body(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Create-all')")
-    @ApiOperation(value = "批量新建产品", tags = {"产品" },  notes = "批量新建产品")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/batch")
-    public ResponseEntity<Boolean> createBatch(@RequestBody List<ProductDTO> productdtos) {
-        productService.createBatch(productMapping.toDomain(productdtos));
+    @ApiOperation(value = "获取产品草稿", tags = {"产品" },  notes = "获取产品草稿")
+	@RequestMapping(method = RequestMethod.GET, value = "/products/getdraft")
+    public ResponseEntity<ProductDTO> getDraft() {
+        return ResponseEntity.status(HttpStatus.OK).body(productMapping.toDto(productService.getDraft(new Product())));
+    }
+
+    @ApiOperation(value = "检查产品", tags = {"产品" },  notes = "检查产品")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/checkkey")
+    public ResponseEntity<Boolean> checkKey(@RequestBody ProductDTO productdto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(productService.checkKey(productMapping.toDomain(productdto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Close-all')")
+    @ApiOperation(value = "关闭", tags = {"产品" },  notes = "关闭")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/close")
+    @Transactional
+    public ResponseEntity<ProductDTO> close(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductDTO productdto) {
+        Product domain = productMapping.toDomain(productdto);
+        domain.setId(product_id);
+        domain = productService.close(domain);
+        productdto = productMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(productdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Save-all')")
+    @ApiOperation(value = "保存产品", tags = {"产品" },  notes = "保存产品")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/save")
+    public ResponseEntity<Boolean> save(@RequestBody ProductDTO productdto) {
+        return ResponseEntity.status(HttpStatus.OK).body(productService.save(productMapping.toDomain(productdto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Save-all')")
+    @ApiOperation(value = "批量保存产品", tags = {"产品" },  notes = "批量保存产品")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/savebatch")
+    public ResponseEntity<Boolean> saveBatch(@RequestBody List<ProductDTO> productdtos) {
+        productService.saveBatch(productMapping.toDomain(productdtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchDefault-all')")
-	@ApiOperation(value = "获取DEFAULT", tags = {"产品" } ,notes = "获取DEFAULT")
-    @RequestMapping(method= RequestMethod.GET , value="/products/fetchdefault")
-	public ResponseEntity<List<ProductDTO>> fetchDefault(ProductSearchContext context) {
-        Page<Product> domains = productService.searchDefault(context) ;
-        List<ProductDTO> list = productMapping.toDto(domains.getContent());
-        return ResponseEntity.status(HttpStatus.OK)
-                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
-                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
-                .header("x-total", String.valueOf(domains.getTotalElements()))
-                .body(list);
-	}
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchDefault-all')")
-	@ApiOperation(value = "查询DEFAULT", tags = {"产品" } ,notes = "查询DEFAULT")
-    @RequestMapping(method= RequestMethod.POST , value="/products/searchdefault")
-	public ResponseEntity<Page<ProductDTO>> searchDefault(@RequestBody ProductSearchContext context) {
-        Page<Product> domains = productService.searchDefault(context) ;
-	    return ResponseEntity.status(HttpStatus.OK)
-                .body(new PageImpl(productMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
-	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchCurProject-all')")
 	@ApiOperation(value = "获取当前项目", tags = {"产品" } ,notes = "获取当前项目")
     @RequestMapping(method= RequestMethod.GET , value="/products/fetchcurproject")
@@ -189,6 +168,27 @@ public class ProductResource {
     @RequestMapping(method= RequestMethod.POST , value="/products/searchcurproject")
 	public ResponseEntity<Page<ProductDTO>> searchCurProject(@RequestBody ProductSearchContext context) {
         Page<Product> domains = productService.searchCurProject(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(productMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchDefault-all')")
+	@ApiOperation(value = "获取DEFAULT", tags = {"产品" } ,notes = "获取DEFAULT")
+    @RequestMapping(method= RequestMethod.GET , value="/products/fetchdefault")
+	public ResponseEntity<List<ProductDTO>> fetchDefault(ProductSearchContext context) {
+        Page<Product> domains = productService.searchDefault(context) ;
+        List<ProductDTO> list = productMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchDefault-all')")
+	@ApiOperation(value = "查询DEFAULT", tags = {"产品" } ,notes = "查询DEFAULT")
+    @RequestMapping(method= RequestMethod.POST , value="/products/searchdefault")
+	public ResponseEntity<Page<ProductDTO>> searchDefault(@RequestBody ProductSearchContext context) {
+        Page<Product> domains = productService.searchDefault(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

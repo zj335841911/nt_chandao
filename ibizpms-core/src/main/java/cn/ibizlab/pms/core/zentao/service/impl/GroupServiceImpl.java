@@ -49,6 +49,34 @@ public class GroupServiceImpl extends ServiceImpl<GroupMapper, Group> implements
 
     @Override
     @Transactional
+    public boolean create(Group et) {
+        if(!this.retBool(this.baseMapper.insert(et)))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void createBatch(List<Group> list) {
+        this.saveBatch(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean update(Group et) {
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void updateBatch(List<Group> list) {
+        updateBatchById(list,batchSize);
+    }
+
+    @Override
+    @Transactional
     public boolean remove(BigInteger key) {
         boolean result=removeById(key);
         return result ;
@@ -73,19 +101,14 @@ public class GroupServiceImpl extends ServiceImpl<GroupMapper, Group> implements
     }
 
     @Override
-    @Transactional
-    public boolean create(Group et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
+    public Group getDraft(Group et) {
+        return et;
     }
 
     @Override
-    public void createBatch(List<Group> list) {
-        this.saveBatch(list,batchSize);
+    public boolean checkKey(Group et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
     @Override
     @Transactional
     public boolean save(Group et) {
@@ -117,29 +140,6 @@ public class GroupServiceImpl extends ServiceImpl<GroupMapper, Group> implements
         saveOrUpdateBatch(list,batchSize);
     }
 
-    @Override
-    public Group getDraft(Group et) {
-        return et;
-    }
-
-    @Override
-    @Transactional
-    public boolean update(Group et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void updateBatch(List<Group> list) {
-        updateBatchById(list,batchSize);
-    }
-
-    @Override
-    public boolean checkKey(Group et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
 
 
     /**

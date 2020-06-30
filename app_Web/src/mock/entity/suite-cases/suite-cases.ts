@@ -140,22 +140,6 @@ mock.onPost(new RegExp(/^\/suitecases\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((confi
     console.groupEnd();
     return [status, mockDatas[0]];
 });
-
-// GetDraft
-mock.onGet(new RegExp(/^\/suitecases\/getdraft$/)).reply((config: any) => {
-    console.groupCollapsed("实体:suitecase 方法: GetDraft");
-    console.table({url:config.url, method: config.method, data:config.data});
-    // GetDraft
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    console.groupCollapsed("response数据  status: "+status+" data: ");
-    console.table({});
-    console.groupEnd();
-    console.groupEnd();
-    return [status, {}];
-});
         
 // Update
 mock.onPut(new RegExp(/^\/suitecases\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((config: any) => {
@@ -194,17 +178,33 @@ mock.onPut(new RegExp(/^\/suitecases\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((config
     console.groupEnd();
     return [status, data];
 });
+
+// GetDraft
+mock.onGet(new RegExp(/^\/suitecases\/getdraft$/)).reply((config: any) => {
+    console.groupCollapsed("实体:suitecase 方法: GetDraft");
+    console.table({url:config.url, method: config.method, data:config.data});
+    // GetDraft
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
         
-// Save
-mock.onPost(new RegExp(/^\/suitecases\/?([a-zA-Z0-9\-\;]{0,35})\/save$/)).reply((config: any) => {
-    console.groupCollapsed("实体:suitecase 方法: Save");
+// CheckKey
+mock.onPost(new RegExp(/^\/suitecases\/?([a-zA-Z0-9\-\;]{0,35})\/checkkey$/)).reply((config: any) => {
+    console.groupCollapsed("实体:suitecase 方法: CheckKey");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }    
     const paramArray:Array<any> = ['id'];
-    const matchArray:any = new RegExp(/^\/suitecases\/([a-zA-Z0-9\-\;]{1,35})\/save$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/suitecases\/([a-zA-Z0-9\-\;]{1,35})\/checkkey$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
@@ -233,16 +233,16 @@ mock.onPost(new RegExp(/^\/suitecases\/?([a-zA-Z0-9\-\;]{0,35})\/save$/)).reply(
     return [status, data];
 });
         
-// CheckKey
-mock.onPost(new RegExp(/^\/suitecases\/?([a-zA-Z0-9\-\;]{0,35})\/checkkey$/)).reply((config: any) => {
-    console.groupCollapsed("实体:suitecase 方法: CheckKey");
+// Save
+mock.onPost(new RegExp(/^\/suitecases\/?([a-zA-Z0-9\-\;]{0,35})\/save$/)).reply((config: any) => {
+    console.groupCollapsed("实体:suitecase 方法: Save");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }    
     const paramArray:Array<any> = ['id'];
-    const matchArray:any = new RegExp(/^\/suitecases\/([a-zA-Z0-9\-\;]{1,35})\/checkkey$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/suitecases\/([a-zA-Z0-9\-\;]{1,35})\/save$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
@@ -323,9 +323,9 @@ mock.onGet(new RegExp(/^\/suitecases\/fetchdefault(\?[\w-./?%&=,]*)*$/)).reply((
 // URI参数传递情况未实现
 
 
-// Get
-mock.onGet(new RegExp(/^\/suitecases\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
-    console.groupCollapsed("实体:suitecase 方法: Get");
+// Remove
+mock.onDelete(new RegExp(/^\/suitecases\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:suitecase 方法: Remove");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
@@ -351,9 +351,9 @@ mock.onGet(new RegExp(/^\/suitecases\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config:
     return [status, _items?_items:{}];
 });
 
-// Remove
-mock.onDelete(new RegExp(/^\/suitecases\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
-    console.groupCollapsed("实体:suitecase 方法: Remove");
+// Get
+mock.onGet(new RegExp(/^\/suitecases\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:suitecase 方法: Get");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {

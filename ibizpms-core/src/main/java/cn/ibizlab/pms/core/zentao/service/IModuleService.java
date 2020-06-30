@@ -25,22 +25,22 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IModuleService extends IService<Module>{
 
-    Module getDraft(Module et) ;
     boolean create(Module et) ;
     void createBatch(List<Module> list) ;
-    Module get(BigInteger key) ;
-    Module fix(Module et) ;
     boolean update(Module et) ;
     void updateBatch(List<Module> list) ;
-    boolean save(Module et) ;
-    void saveBatch(List<Module> list) ;
-    boolean checkKey(Module et) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
-    Page<Module> searchLine(ModuleSearchContext context) ;
-    Page<Module> searchStoryModule(ModuleSearchContext context) ;
+    Module get(BigInteger key) ;
+    Module getDraft(Module et) ;
+    boolean checkKey(Module et) ;
+    Module fix(Module et) ;
+    boolean save(Module et) ;
+    void saveBatch(List<Module> list) ;
     Page<Module> searchDefault(ModuleSearchContext context) ;
     Page<Module> searchDocModule(ModuleSearchContext context) ;
+    Page<Module> searchLine(ModuleSearchContext context) ;
+    Page<Module> searchStoryModule(ModuleSearchContext context) ;
     List<Module> selectByBranch(BigInteger id) ;
     void removeByBranch(BigInteger id) ;
     List<Module> selectByParent(BigInteger id) ;

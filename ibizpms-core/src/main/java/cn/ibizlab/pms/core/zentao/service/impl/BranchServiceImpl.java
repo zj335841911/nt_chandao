@@ -78,29 +78,6 @@ public class BranchServiceImpl extends ServiceImpl<BranchMapper, Branch> impleme
     protected int batchSize = 500;
 
     @Override
-    public Branch getDraft(Branch et) {
-        return et;
-    }
-
-    @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        Branch et = this.get(key);
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBranchHelper.delete((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
-        return bRst;
-    }
-
-    @Override
-    public void removeBatch(Collection<BigInteger> idList){
-        if (idList != null && !idList.isEmpty()) {
-            for (BigInteger id : idList) {
-                this.remove(id);
-            }
-        }
-    }
-    @Override
     @Transactional
     public boolean create(Branch et) {
         if(!this.retBool(this.baseMapper.insert(et)))
@@ -130,14 +107,38 @@ public class BranchServiceImpl extends ServiceImpl<BranchMapper, Branch> impleme
 
     @Override
     @Transactional
-    public Branch sort(Branch et) {
+    public boolean remove(BigInteger key) {
         cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBranchHelper.sort((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
-        if (bRst && rst.getEtId() != null) {
-            et = this.get(rst.getEtId());
+        Branch et = this.get(key);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBranchHelper.delete((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        return bRst;
+    }
+
+    @Override
+    public void removeBatch(Collection<BigInteger> idList){
+        if (idList != null && !idList.isEmpty()) {
+            for (BigInteger id : idList) {
+                this.remove(id);
+            }
         }
-	    return et;
+    }
+    @Override
+    @Transactional
+    public Branch get(BigInteger key) {
+        Branch et = getById(key);
+        if(et==null){
+            et=new Branch();
+            et.setId(key);
+        }
+        else{
+        }
+        return et;
+    }
+
+    @Override
+    public Branch getDraft(Branch et) {
+        return et;
     }
 
     @Override
@@ -177,15 +178,14 @@ public class BranchServiceImpl extends ServiceImpl<BranchMapper, Branch> impleme
 
     @Override
     @Transactional
-    public Branch get(BigInteger key) {
-        Branch et = getById(key);
-        if(et==null){
-            et=new Branch();
-            et.setId(key);
+    public Branch sort(Branch et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBranchHelper.sort((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
         }
-        else{
-        }
-        return et;
+	    return et;
     }
 
 
@@ -201,20 +201,20 @@ public class BranchServiceImpl extends ServiceImpl<BranchMapper, Branch> impleme
 
 
     /**
-     * 查询集合 DEFAULT
-     */
-    @Override
-    public Page<Branch> searchDefault(BranchSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Branch> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
-        return new PageImpl<Branch>(pages.getRecords(), context.getPageable(), pages.getTotal());
-    }
-
-    /**
      * 查询集合 CurProduct
      */
     @Override
     public Page<Branch> searchCurProduct(BranchSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Branch> pages=baseMapper.searchCurProduct(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Branch>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 DEFAULT
+     */
+    @Override
+    public Page<Branch> searchDefault(BranchSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Branch> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Branch>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

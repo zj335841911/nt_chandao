@@ -62,15 +62,6 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, File> implements IF
     }
 
     @Override
-    public boolean checkKey(File et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
-    @Override
-    public File getDraft(File et) {
-        return et;
-    }
-
-    @Override
     @Transactional
     public boolean update(File et) {
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
@@ -84,6 +75,40 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, File> implements IF
         updateBatchById(list,batchSize);
     }
 
+    @Override
+    @Transactional
+    public boolean remove(BigInteger key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<BigInteger> idList) {
+        removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
+    public File get(BigInteger key) {
+        File et = getById(key);
+        if(et==null){
+            et=new File();
+            et.setId(key);
+        }
+        else{
+        }
+        return et;
+    }
+
+    @Override
+    public File getDraft(File et) {
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(File et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
     @Override
     @Transactional
     public boolean save(File et) {
@@ -113,31 +138,6 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, File> implements IF
     @Override
     public void saveBatch(List<File> list) {
         saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public File get(BigInteger key) {
-        File et = getById(key);
-        if(et==null){
-            et=new File();
-            et.setId(key);
-        }
-        else{
-        }
-        return et;
-    }
-
-    @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
     }
 
 

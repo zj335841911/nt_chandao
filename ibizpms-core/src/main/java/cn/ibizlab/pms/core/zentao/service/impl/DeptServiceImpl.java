@@ -51,6 +51,73 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements ID
 
     @Override
     @Transactional
+    public boolean create(Dept et) {
+        fillParentData(et);
+        if(!this.retBool(this.baseMapper.insert(et)))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void createBatch(List<Dept> list) {
+        list.forEach(item->fillParentData(item));
+        this.saveBatch(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean update(Dept et) {
+        fillParentData(et);
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void updateBatch(List<Dept> list) {
+        list.forEach(item->fillParentData(item));
+        updateBatchById(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean remove(BigInteger key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<BigInteger> idList) {
+        removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
+    public Dept get(BigInteger key) {
+        Dept et = getById(key);
+        if(et==null){
+            et=new Dept();
+            et.setId(key);
+        }
+        else{
+        }
+        return et;
+    }
+
+    @Override
+    public Dept getDraft(Dept et) {
+        fillParentData(et);
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(Dept et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
+    @Override
+    @Transactional
     public boolean save(Dept et) {
         if(!saveOrUpdate(et))
             return false;
@@ -82,73 +149,6 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements ID
         saveOrUpdateBatch(list,batchSize);
     }
 
-    @Override
-    @Transactional
-    public boolean create(Dept et) {
-        fillParentData(et);
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void createBatch(List<Dept> list) {
-        list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
-    }
-
-    @Override
-    @Transactional
-    public boolean update(Dept et) {
-        fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void updateBatch(List<Dept> list) {
-        list.forEach(item->fillParentData(item));
-        updateBatchById(list,batchSize);
-    }
-
-    @Override
-    public Dept getDraft(Dept et) {
-        fillParentData(et);
-        return et;
-    }
-
-    @Override
-    @Transactional
-    public Dept get(BigInteger key) {
-        Dept et = getById(key);
-        if(et==null){
-            et=new Dept();
-            et.setId(key);
-        }
-        else{
-        }
-        return et;
-    }
-
-    @Override
-    public boolean checkKey(Dept et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
 
 	@Override
     public List<Dept> selectByParent(BigInteger id) {

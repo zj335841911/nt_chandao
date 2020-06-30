@@ -66,21 +66,6 @@ public class SuiteCaseResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @ApiOperation(value = "获取套件用例草稿", tags = {"套件用例" },  notes = "获取套件用例草稿")
-	@RequestMapping(method = RequestMethod.GET, value = "/suitecases/getdraft")
-    public ResponseEntity<SuiteCaseDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(suitecaseMapping.toDto(suitecaseService.getDraft(new SuiteCase())));
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SuiteCase-Get-all')")
-    @ApiOperation(value = "获取套件用例", tags = {"套件用例" },  notes = "获取套件用例")
-	@RequestMapping(method = RequestMethod.GET, value = "/suitecases/{suitecase_id}")
-    public ResponseEntity<SuiteCaseDTO> get(@PathVariable("suitecase_id") String suitecase_id) {
-        SuiteCase domain = suitecaseService.get(suitecase_id);
-        SuiteCaseDTO dto = suitecaseMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(dto);
-    }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SuiteCase-Update-all')")
     @ApiOperation(value = "更新套件用例", tags = {"套件用例" },  notes = "更新套件用例")
 	@RequestMapping(method = RequestMethod.PUT, value = "/suitecases/{suitecase_id}")
@@ -117,6 +102,27 @@ public class SuiteCaseResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SuiteCase-Get-all')")
+    @ApiOperation(value = "获取套件用例", tags = {"套件用例" },  notes = "获取套件用例")
+	@RequestMapping(method = RequestMethod.GET, value = "/suitecases/{suitecase_id}")
+    public ResponseEntity<SuiteCaseDTO> get(@PathVariable("suitecase_id") String suitecase_id) {
+        SuiteCase domain = suitecaseService.get(suitecase_id);
+        SuiteCaseDTO dto = suitecaseMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "获取套件用例草稿", tags = {"套件用例" },  notes = "获取套件用例草稿")
+	@RequestMapping(method = RequestMethod.GET, value = "/suitecases/getdraft")
+    public ResponseEntity<SuiteCaseDTO> getDraft() {
+        return ResponseEntity.status(HttpStatus.OK).body(suitecaseMapping.toDto(suitecaseService.getDraft(new SuiteCase())));
+    }
+
+    @ApiOperation(value = "检查套件用例", tags = {"套件用例" },  notes = "检查套件用例")
+	@RequestMapping(method = RequestMethod.POST, value = "/suitecases/checkkey")
+    public ResponseEntity<Boolean> checkKey(@RequestBody SuiteCaseDTO suitecasedto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(suitecaseService.checkKey(suitecaseMapping.toDomain(suitecasedto)));
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SuiteCase-Save-all')")
     @ApiOperation(value = "保存套件用例", tags = {"套件用例" },  notes = "保存套件用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/suitecases/save")
@@ -130,12 +136,6 @@ public class SuiteCaseResource {
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<SuiteCaseDTO> suitecasedtos) {
         suitecaseService.saveBatch(suitecaseMapping.toDomain(suitecasedtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
-    }
-
-    @ApiOperation(value = "检查套件用例", tags = {"套件用例" },  notes = "检查套件用例")
-	@RequestMapping(method = RequestMethod.POST, value = "/suitecases/checkkey")
-    public ResponseEntity<Boolean> checkKey(@RequestBody SuiteCaseDTO suitecasedto) {
-        return  ResponseEntity.status(HttpStatus.OK).body(suitecaseService.checkKey(suitecaseMapping.toDomain(suitecasedto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SuiteCase-searchDefault-all')")

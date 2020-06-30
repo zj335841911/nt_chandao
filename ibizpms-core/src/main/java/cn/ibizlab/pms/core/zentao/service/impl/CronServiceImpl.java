@@ -49,18 +49,6 @@ public class CronServiceImpl extends ServiceImpl<CronMapper, Cron> implements IC
 
     @Override
     @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
-    }
-
-    @Override
-    @Transactional
     public boolean create(Cron et) {
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
@@ -88,9 +76,17 @@ public class CronServiceImpl extends ServiceImpl<CronMapper, Cron> implements IC
     }
 
     @Override
-    public boolean checkKey(Cron et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    @Transactional
+    public boolean remove(BigInteger key) {
+        boolean result=removeById(key);
+        return result ;
     }
+
+    @Override
+    public void removeBatch(Collection<BigInteger> idList) {
+        removeByIds(idList);
+    }
+
     @Override
     @Transactional
     public Cron get(BigInteger key) {
@@ -109,6 +105,10 @@ public class CronServiceImpl extends ServiceImpl<CronMapper, Cron> implements IC
         return et;
     }
 
+    @Override
+    public boolean checkKey(Cron et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
     @Override
     @Transactional
     public boolean save(Cron et) {

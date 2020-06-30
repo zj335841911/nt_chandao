@@ -77,6 +77,18 @@ public class ConfigServiceImpl extends ServiceImpl<ConfigMapper, Config> impleme
 
     @Override
     @Transactional
+    public boolean remove(BigInteger key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<BigInteger> idList) {
+        removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
     public Config get(BigInteger key) {
         Config et = getById(key);
         if(et==null){
@@ -88,6 +100,15 @@ public class ConfigServiceImpl extends ServiceImpl<ConfigMapper, Config> impleme
         return et;
     }
 
+    @Override
+    public Config getDraft(Config et) {
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(Config et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
     @Override
     @Transactional
     public boolean save(Config et) {
@@ -119,27 +140,6 @@ public class ConfigServiceImpl extends ServiceImpl<ConfigMapper, Config> impleme
         saveOrUpdateBatch(list,batchSize);
     }
 
-    @Override
-    public Config getDraft(Config et) {
-        return et;
-    }
-
-    @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
-    }
-
-    @Override
-    public boolean checkKey(Config et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
 
 
     /**
