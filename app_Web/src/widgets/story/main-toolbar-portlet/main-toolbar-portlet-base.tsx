@@ -49,6 +49,33 @@ export class MainToolbarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public dashboard_sysportlet3_u797d4ad_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.Exit(datas, contextJO,paramJO,  $event, xData,this,"Story");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public dashboard_sysportlet3_u9faaee3_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -67,6 +94,34 @@ export class MainToolbarPortletBase extends MainControlBase {
         // 界面行为
         const curUIService:StoryUIService  = new StoryUIService();
         curUIService.Story_ChangeStoryDetail(datas,contextJO, paramJO,  $event, xData,this,"Story");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet3_u5ad249a_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:StoryUIService  = new StoryUIService();
+        curUIService.Story_ReviewStory(datas,contextJO, paramJO,  $event, xData,this,"Story");
     }
 
     /**
@@ -181,6 +236,25 @@ export class MainToolbarPortletBase extends MainControlBase {
     }
 
     /**
+     * 返回
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof StoryMainViewBase
+     */
+    public Exit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        this.closeView(args);
+        if(window.parent){
+            window.parent.postMessage([{ ...args }],'*');
+        }
+    }
+
+
+    /**
      * 删除
      *
      * @param {any[]} args 当前数据
@@ -237,8 +311,14 @@ export class MainToolbarPortletBase extends MainControlBase {
      * @memberof MainToolbarBase
      */
     public actionBarModelData:any[] =[
+        { viewlogicname:"dashboard_sysportlet3_u797d4ad_click",
+        actionName:"返回",
+        },
         { viewlogicname:"dashboard_sysportlet3_u9faaee3_click",
         actionName:"变更",
+        },
+        { viewlogicname:"dashboard_sysportlet3_u5ad249a_click",
+        actionName:"评审",
         },
         { viewlogicname:"dashboard_sysportlet3_u1159f16_click",
         actionName:"指派",
@@ -260,8 +340,14 @@ export class MainToolbarPortletBase extends MainControlBase {
      * @memberof MainToolbarBase
      */
     public handleItemClick($event:any){
+        if(Object.is($event,'dashboard_sysportlet3_u797d4ad_click')){
+            this.dashboard_sysportlet3_u797d4ad_click(null);
+        }
         if(Object.is($event,'dashboard_sysportlet3_u9faaee3_click')){
             this.dashboard_sysportlet3_u9faaee3_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet3_u5ad249a_click')){
+            this.dashboard_sysportlet3_u5ad249a_click(null);
         }
         if(Object.is($event,'dashboard_sysportlet3_u1159f16_click')){
             this.dashboard_sysportlet3_u1159f16_click(null);
