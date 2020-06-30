@@ -157,7 +157,7 @@ export default class DropDownList extends Vue {
      * @memberof DropDownList
      */
     get currentVal() {
-        return this.itemValue;
+        return this.itemValue ? this.itemValue.toString() : undefined;
     }
 
     /**
