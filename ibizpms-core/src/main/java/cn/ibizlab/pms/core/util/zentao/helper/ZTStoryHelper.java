@@ -222,8 +222,8 @@ final public class ZTStoryHelper {
 
         // CHANGE
         ACTION_PARAMS_CHANGE.put("status", null);
-        ACTION_PARAMS_CREATE.put("spec", null);
-        ACTION_PARAMS_CREATE.put("verify", null);
+        ACTION_PARAMS_CHANGE.put("spec", null);
+        ACTION_PARAMS_CHANGE.put("verify", null);
         ACTION_PARAMS_CHANGE.put("title", null);
         ACTION_PARAMS_CHANGE.put("assignedTo", null);
         ACTION_PARAMS_CHANGE.put("comment", null);
