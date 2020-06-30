@@ -56,6 +56,11 @@ export default class DashboardMainEditModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'id',
+        prop: 'id',
+        dataType: 'ACID',
+      },
+      {
         name: 'title',
         prop: 'title',
         dataType: 'TEXT',
@@ -64,6 +69,14 @@ export default class DashboardMainEditModel {
         name: 'steps',
         prop: 'steps',
         dataType: 'LONGTEXT',
+      },
+      {
+        name: 'comment',
+        prop: 'comment',
+        dataType: 'HTMLTEXT',
+      },
+      {
+        name: 'files',
       },
       {
         name: 'product',
@@ -209,11 +222,6 @@ export default class DashboardMainEditModel {
         name: 'lasteditedby',
         prop: 'lasteditedby',
         dataType: 'SSCODELIST',
-      },
-      {
-        name: 'id',
-        prop: 'id',
-        dataType: 'ACID',
       },
       {
         name: 'bug',

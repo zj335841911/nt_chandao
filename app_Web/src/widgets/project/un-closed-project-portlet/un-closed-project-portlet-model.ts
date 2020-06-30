@@ -132,6 +132,9 @@ export default class UnClosedProjectModel {
       {
         name: 'srfarray',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

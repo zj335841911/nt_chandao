@@ -317,4 +317,12 @@ export interface Project {
      * @memberof Project
      */
     srfarray?: any;
+
+    /**
+     * 备注
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    comment?: any;
 }

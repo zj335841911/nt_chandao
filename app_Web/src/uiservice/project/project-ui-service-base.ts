@@ -80,15 +80,20 @@ export default class ProjectUIServiceBase extends UIService {
      */  
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'tasktreeexpview',srfappde:'projects'});
+        this.allViewMap.set(':',{viewname:'editview_putoff',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'burndownchartview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'listexpview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'projects'});
+        this.allViewMap.set(':',{viewname:'editview_activate',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'curproductgridview',srfappde:'projects'});
         this.allViewMap.set('PICKUPVIEW:',{viewname:'pickupview',srfappde:'projects'});
+        this.allViewMap.set(':',{viewname:'mainview_edit',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'leftsidebarlistview',srfappde:'projects'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'projects'});
+        this.allViewMap.set(':',{viewname:'editview_close',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'gridview9_unclosed',srfappde:'projects'});
+        this.allViewMap.set(':',{viewname:'editview_suspend',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'dashboardinfoview',srfappde:'projects'});
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'maintabexpview',srfappde:'projects'});

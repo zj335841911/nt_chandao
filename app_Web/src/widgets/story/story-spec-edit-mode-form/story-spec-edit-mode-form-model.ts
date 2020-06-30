@@ -51,6 +51,11 @@ export default class StorySpec_EditModeModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'id',
+        prop: 'id',
+        dataType: 'ACID',
+      },
+      {
         name: 'status',
         prop: 'status',
         dataType: 'SSCODELIST',
@@ -88,11 +93,6 @@ export default class StorySpec_EditModeModel {
       },
       {
         name: 'files',
-      },
-      {
-        name: 'id',
-        prop: 'id',
-        dataType: 'ACID',
       },
       {
         name: 'story',

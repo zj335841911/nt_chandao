@@ -215,6 +215,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ModuleEditView",
             "viewtag": "2671388d4c12a6f139e6fd806c524dc7"
         },
+        "projecteditview_putoff": {
+            "title": "项目",
+            "caption": "项目",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProjectEditView_Putoff",
+            "viewtag": "28557f7c31a387e1deb552076d51f9f1"
+        },
         "productchartview": {
             "title": "产品图表视图",
             "caption": "产品",
@@ -415,6 +423,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryGridView9_AssignedToMe",
             "viewtag": "4b82e9acf6c784b138b365d6011b296b"
         },
+        "projecteditview_activate": {
+            "title": "项目",
+            "caption": "项目",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProjectEditView_Activate",
+            "viewtag": "4b8db6d139edb8adadbef2f0c0b3350a"
+        },
         "companydeptusertreeexpview": {
             "title": "组织部门人员树导航视图",
             "caption": "公司",
@@ -582,6 +598,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TestTaskEditView",
             "viewtag": "5b139a407fa34f386f3f784f33841184"
+        },
+        "projectmainview_edit": {
+            "title": "项目编辑视图",
+            "caption": "项目",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProjectMainView_Edit",
+            "viewtag": "5b7c1b586dc5e23998a2765d235eaa7e"
         },
         "deptmaingridview": {
             "title": "dept表格视图",
@@ -982,6 +1006,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "ProductLifeRoadMapListView9",
             "viewtag": "985c8eb7591e5e00de8e3cda638d5727"
+        },
+        "projecteditview_close": {
+            "title": "项目",
+            "caption": "项目",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProjectEditView_Close",
+            "viewtag": "9a8c28c2365d7dc8bb5619f39576b558"
         },
         "releasegridview": {
             "title": "release表格视图",
@@ -1438,6 +1470,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "CaseStepGridView",
             "viewtag": "edb7ac4efd8ea387fd7b5945f39d42a6"
+        },
+        "projecteditview_suspend": {
+            "title": "项目",
+            "caption": "项目",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProjectEditView_Suspend",
+            "viewtag": "edd664c8fc682d166b3a027dd08bbd8b"
         },
         "projectdashboardinfoview": {
             "title": "项目信息",

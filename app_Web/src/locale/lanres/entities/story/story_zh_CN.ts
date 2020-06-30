@@ -149,6 +149,7 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			id: "编号", 
 			status: "当前状态", 
 			version: "版本#", 
 			reviewedby: "由谁评审", 
@@ -158,7 +159,6 @@ export default {
 			verify: "验收标准", 
 			comment: "备注", 
 			files: "附件", 
-			id: "编号", 
 		},
 		uiactions: {
 		},

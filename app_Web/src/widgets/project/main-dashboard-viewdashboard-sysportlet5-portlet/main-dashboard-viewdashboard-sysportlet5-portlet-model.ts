@@ -1,16 +1,16 @@
 /**
- * MainTabExpViewtabviewpanel7 部件模型
+ * MainDashboardViewdashboard_sysportlet5 部件模型
  *
  * @export
- * @class MainTabExpViewtabviewpanel7Model
+ * @class MainDashboardViewdashboard_sysportlet5Model
  */
-export default class MainTabExpViewtabviewpanel7Model {
+export default class MainDashboardViewdashboard_sysportlet5Model {
 
   /**
     * 获取数据项集合
     *
     * @returns {any[]}
-    * @memberof MainTabExpViewtabviewpanel7Model
+    * @memberof MainDashboardViewdashboard_sysportlet5Model
     */
   public getDataItems(): any[] {
     return [

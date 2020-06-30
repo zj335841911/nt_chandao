@@ -132,6 +132,9 @@ export default class ProjectExpViewModel {
       {
         name: 'srfarray',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

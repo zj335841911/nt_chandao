@@ -245,6 +245,7 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			id: "编号", 
 			consumed: "之前消耗", 
 			currentconsumed: "本次消耗", 
 			totaltime: "总计耗时", 
@@ -252,7 +253,6 @@ export default {
 			finisheddate: "实际完成", 
 			files: "附件", 
 			comment: "备注", 
-			id: "编号", 
 		},
 		uiactions: {
 		},
@@ -277,6 +277,7 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			id: "编号", 
 			name: "任务名称", 
 			desc: "任务描述", 
 			desc1: "备注", 
@@ -305,7 +306,6 @@ export default {
 			closedby: "由谁关闭", 
 			closedreason: "关闭原因", 
 			closeddate: "关闭时间", 
-			id: "编号", 
 			module: "id", 
 		},
 		uiactions: {

@@ -259,6 +259,16 @@
         "viewtag": "2671388d4c12a6f139e6fd806c524dc7",
         "memo": ""
     },
+    "projecteditview_putoff": {
+        "title": "项目",
+        "caption": "项目",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "ProjectEditView_Putoff",
+        "viewfilename": "project-edit-view-putoff",
+        "viewtag": "28557f7c31a387e1deb552076d51f9f1",
+        "memo": ""
+    },
     "productchartview": {
         "title": "产品图表视图",
         "caption": "产品",
@@ -509,6 +519,16 @@
         "viewtag": "4b82e9acf6c784b138b365d6011b296b",
         "memo": "视图参数中指定了过滤条件"
     },
+    "projecteditview_activate": {
+        "title": "项目",
+        "caption": "项目",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "ProjectEditView_Activate",
+        "viewfilename": "project-edit-view-activate",
+        "viewtag": "4b8db6d139edb8adadbef2f0c0b3350a",
+        "memo": ""
+    },
     "companydeptusertreeexpview": {
         "title": "组织部门人员树导航视图",
         "caption": "公司",
@@ -717,6 +737,16 @@
         "viewname": "TestTaskEditView",
         "viewfilename": "test-task-edit-view",
         "viewtag": "5b139a407fa34f386f3f784f33841184",
+        "memo": ""
+    },
+    "projectmainview_edit": {
+        "title": "项目编辑视图",
+        "caption": "项目",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "ProjectMainView_Edit",
+        "viewfilename": "project-main-view-edit",
+        "viewtag": "5b7c1b586dc5e23998a2765d235eaa7e",
         "memo": ""
     },
     "deptmaingridview": {
@@ -1218,6 +1248,16 @@
         "viewfilename": "product-life-road-map-list-view9",
         "viewtag": "985c8eb7591e5e00de8e3cda638d5727",
         "memo": "视图参数转换"
+    },
+    "projecteditview_close": {
+        "title": "项目",
+        "caption": "项目",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "ProjectEditView_Close",
+        "viewfilename": "project-edit-view-close",
+        "viewtag": "9a8c28c2365d7dc8bb5619f39576b558",
+        "memo": ""
     },
     "releasegridview": {
         "title": "release表格视图",
@@ -1787,6 +1827,16 @@
         "viewname": "CaseStepGridView",
         "viewfilename": "case-step-grid-view",
         "viewtag": "edb7ac4efd8ea387fd7b5945f39d42a6",
+        "memo": ""
+    },
+    "projecteditview_suspend": {
+        "title": "项目",
+        "caption": "项目",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "ProjectEditView_Suspend",
+        "viewfilename": "project-edit-view-suspend",
+        "viewtag": "edd664c8fc682d166b3a027dd08bbd8b",
         "memo": ""
     },
     "projectdashboardinfoview": {

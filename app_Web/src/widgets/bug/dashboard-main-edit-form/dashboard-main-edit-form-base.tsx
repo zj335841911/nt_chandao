@@ -64,8 +64,11 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        id: null,
         title: null,
         steps: null,
+        comment: null,
+        files: null,
         product: null,
         productname: null,
         branch: null,
@@ -95,7 +98,6 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
         resolvedbuild: null,
         closedby: null,
         lasteditedby: null,
-        id: null,
         bug:null,
     };
 
@@ -153,9 +155,15 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
+        id: new FormItemModel({ caption: 'Bug编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 }),
+
         title: new FormItemModel({ caption: 'Bug标题', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 }),
 
         steps: new FormItemModel({ caption: '重现步骤', detailType: 'FORMITEM', name: 'steps', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
+
+        comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
+
+        files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
         product: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
@@ -215,8 +223,6 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
 
         lasteditedby: new FormItemModel({ caption: '最后修改者', detailType: 'FORMITEM', name: 'lasteditedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 }),
 
-        id: new FormItemModel({ caption: 'Bug编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 }),
-
     };
 
     /**
@@ -248,6 +254,9 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
 
 
 
+
+
+
         if (Object.is(name, '') || Object.is(name, 'branch')) {
             let ret = false;
             const _branch = this.data.branch;
@@ -256,7 +265,6 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.branch.setVisible(ret);
         }
-
 
 
 

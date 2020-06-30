@@ -340,6 +340,14 @@ public class ProjectDTO extends DTOBase implements Serializable {
     @JsonProperty("srfarray")
     private String srfarray;
 
+    /**
+     * 属性 [COMMENT]
+     *
+     */
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    private String comment;
+
 
     /**
      * 设置 [OPENEDVERSION]
