@@ -115,6 +115,86 @@ export default {
       		title: "项目",
 		},
 	},
+	putoff_form: {
+		details: {
+			grouppanel1: "分组面板", 
+			druipart1: "", 
+			group1: "project基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "项目编号", 
+			srfmajortext: "项目名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			begin: "开始时间", 
+			end: "结束日期", 
+			formitemex1: "项目周期", 
+			days: "可用工作日", 
+			type: "项目类型", 
+			comment: "备注", 
+			id: "项目编号", 
+		},
+		uiactions: {
+		},
+	},
+	suspendnclose_form: {
+		details: {
+			druipart1: "", 
+			group1: "project基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "项目编号", 
+			srfmajortext: "项目名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			comment: "备注", 
+			id: "项目编号", 
+		},
+		uiactions: {
+		},
+	},
+	main_edit_form: {
+		details: {
+			grouppanel2: "负责人", 
+			grouppanel1: "分组面板", 
+			group1: "project基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "项目编号", 
+			srfmajortext: "项目名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			name: "项目名称", 
+			code: "项目代号", 
+			begin: "开始时间", 
+			end: "结束日期", 
+			formitemex1: "项目周期", 
+			days: "可用工作日", 
+			type: "项目类型", 
+			team: "团队名称", 
+			status: "项目状态", 
+			po: "产品负责人", 
+			pm: "项目负责人", 
+			rd: "发布负责人", 
+			qd: "测试负责人", 
+			srfarray: "关联数据数组", 
+			products: "关联产品集合", 
+			branchs: "关联产品平台集合", 
+			plans: "关联产品产品计划", 
+			formitemex2: "", 
+			desc: "项目描述", 
+			acl: "访问控制", 
+			id: "项目编号", 
+		},
+		uiactions: {
+		},
+	},
 	dashboardinfo_form: {
 		details: {
 			group1: "project基本信息", 
@@ -187,86 +267,6 @@ export default {
 		uiactions: {
 		},
 	},
-	putoff_form: {
-		details: {
-			grouppanel1: "分组面板", 
-			druipart1: "", 
-			group1: "project基本信息", 
-			formpage1: "基本信息", 
-			srforikey: "", 
-			srfkey: "项目编号", 
-			srfmajortext: "项目名称", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			begin: "开始时间", 
-			end: "结束日期", 
-			formitemex1: "项目周期", 
-			days: "可用工作日", 
-			type: "项目类型", 
-			comment: "备注", 
-			id: "项目编号", 
-		},
-		uiactions: {
-		},
-	},
-	main_edit_form: {
-		details: {
-			grouppanel2: "负责人", 
-			grouppanel1: "分组面板", 
-			group1: "project基本信息", 
-			formpage1: "基本信息", 
-			srforikey: "", 
-			srfkey: "项目编号", 
-			srfmajortext: "项目名称", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			name: "项目名称", 
-			code: "项目代号", 
-			begin: "开始时间", 
-			end: "结束日期", 
-			formitemex1: "项目周期", 
-			days: "可用工作日", 
-			type: "项目类型", 
-			team: "团队名称", 
-			status: "项目状态", 
-			po: "产品负责人", 
-			pm: "项目负责人", 
-			rd: "发布负责人", 
-			qd: "测试负责人", 
-			srfarray: "关联数据数组", 
-			products: "关联产品集合", 
-			branchs: "关联产品平台集合", 
-			plans: "关联产品产品计划", 
-			formitemex2: "", 
-			desc: "项目描述", 
-			acl: "访问控制", 
-			id: "项目编号", 
-		},
-		uiactions: {
-		},
-	},
-	suspendnclose_form: {
-		details: {
-			druipart1: "", 
-			group1: "project基本信息", 
-			formpage1: "基本信息", 
-			srforikey: "", 
-			srfkey: "项目编号", 
-			srfmajortext: "项目名称", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			comment: "备注", 
-			id: "项目编号", 
-		},
-		uiactions: {
-		},
-	},
 	main_grid: {
 		columns: {
 			id: "ID",
@@ -294,6 +294,36 @@ export default {
 			formpage1: "常规条件", 
 		},
 		uiactions: {
+		},
+	},
+	editview_putofftoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
+	editview_suspendtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
+	editview_activatetoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
+	editview_closetoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
+	mainview_edittoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
 		},
 	},
 	curproductgridviewtoolbar_toolbar: {
@@ -342,36 +372,6 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
-		},
-	},
-	editview_putofftoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
-		},
-	},
-	editview_activatetoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
-		},
-	},
-	mainview_edittoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
-		},
-	},
-	editview_closetoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
-		},
-	},
-	editview_suspendtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
 		},
 	},
 };

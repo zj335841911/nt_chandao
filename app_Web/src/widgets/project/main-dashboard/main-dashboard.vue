@@ -4,7 +4,7 @@ import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { MainDashboardBase } from './main-dashboard-base';
 import view_dashboard_sysportlet4 from '@widgets/action/action-history-portlet/action-history-portlet.vue';
-import view_dashboard_sysportlet5 from '@widgets/project/main-dashboard-viewdashboard-sysportlet5-portlet/main-dashboard-viewdashboard-sysportlet5-portlet.vue';
+import view_dashboard_sysportlet5 from '@widgets/project/project-main-toolbar-portlet/project-main-toolbar-portlet.vue';
 import view_dashboard_sysportlet2 from '@widgets/action/project-trends-timeline-portlet/project-trends-timeline-portlet.vue';
 import view_dashboard_sysportlet3 from '@widgets/project/dash-borad-info-view-portlet/dash-borad-info-view-portlet.vue';
 import view_dashboard_sysportlet1 from '@widgets/burn/burn-down-chart-portlet/burn-down-chart-portlet.vue';

@@ -22,13 +22,13 @@ export default {
 			caption: "需求模块",
       		title: "产品模块表格视图",
 		},
-		treeexpview: {
-			caption: "需求模块",
-      		title: "需求模块树导航视图",
-		},
 		editview: {
 			caption: "需求模块",
       		title: "产品模块编辑视图",
+		},
+		treeexpview: {
+			caption: "需求模块",
+      		title: "需求模块树导航视图",
 		},
 		quickcfgview: {
 			caption: "需求模块",
