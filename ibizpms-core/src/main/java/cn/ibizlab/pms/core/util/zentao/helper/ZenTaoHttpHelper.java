@@ -2,9 +2,11 @@ package cn.ibizlab.pms.core.util.zentao.helper;
 
 import cn.ibizlab.pms.core.util.zentao.bean.ZTResult;
 import cn.ibizlab.pms.core.util.zentao.constants.ZenTaoConstants;
+import cn.ibizlab.pms.core.util.zentao.constants.ZenTaoMessage;
 import cn.ibizlab.pms.util.helper.HttpUtil;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
@@ -17,6 +19,7 @@ import java.util.*;
 /**
  * 禅道接口辅助类
  */
+@Slf4j
 public class ZenTaoHttpHelper {
     private static Comparator<Double> COMPARATOR_DOUBLE = new Comparator<Double>() {
         @Override
@@ -67,10 +70,13 @@ public class ZenTaoHttpHelper {
             JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, httpMethod, formatJSON(jo, actionParams, dataFormatMap));
             rst = ZenTaoHttpHelper.formatResult(rstJO, rst, returnUrlRegexPrev);
         } catch (Exception e) {
-            // 暂无log时，输出e.printStackTrace();
-            e.printStackTrace();
+            String errMsg = e.getMessage();
+            if (errMsg == null || errMsg.isEmpty()) {
+                errMsg = ZenTaoMessage.MSG_ERROR_0001;
+            }
+            log.error(errMsg);
             rst.setSuccess(false);
-            rst.setMessage(e.getMessage() != null ? e.getMessage() : "调用禅道接口异常");
+            rst.setMessage(errMsg);
         }
         return rst.isSuccess();
     }
@@ -81,7 +87,8 @@ public class ZenTaoHttpHelper {
 
     public static JSONObject doRequest(String zentaoSid, String url, HttpMethod httpMethod, JSONObject paramMap) throws Exception {
         if (url == null) {
-            throw new Exception("没有请求地址");
+            log.error(ZenTaoMessage.MSG_ERROR_0002);
+            throw new Exception(ZenTaoMessage.MSG_ERROR_0002);
         }
         if (!ZenTaoConstants.ZT_URL.endsWith("/")) {
             ZenTaoConstants.ZT_URL += "/";
@@ -92,8 +99,10 @@ public class ZenTaoHttpHelper {
         }
         JSONObject jo = new JSONObject();
         HttpHeaders httpHeaders = HttpUtil.getHttpHeaders(MediaType.MULTIPART_FORM_DATA);
+        log.debug(ZenTaoMessage.MSG_INFO_0001, url, httpMethod, httpHeaders, paramMap);
         ResponseEntity<String> responseEntity = HttpUtil.doRequest(url, httpMethod, httpHeaders, paramMap, String.class);
         String body = responseEntity.getBody();
+        log.debug(ZenTaoMessage.MSG_INFO_0002, body);
         if (body == null || body.isEmpty()) {
             return null;
         }
@@ -173,33 +182,61 @@ public class ZenTaoHttpHelper {
      *              {<br>
      *                 field1: xxx,<br>
      *                  field2: xxx<br>
-     *              }.<br>
+     *              },<br>
      *              {<br>
      *                  field1: xxx,<br>
      *                  field2: xxx<br>
      *              }<br>
      *         ],
-     *         srfarray1 :
+     *         srfarray1 :<br>
      *         [<br>
      *              {<br>
      *                 field3 : xxx,<br>
      *                  field4 : xxx<br>
-     *              }.<br>
+     *              },<br>
      *              {<br>
      *                  field3 : xxx,<br>
      *                  field4 : xxx<br>
      *              }<br>
      *         ],
-     *         srfarray2 :
+     *         srfarray2 :<br>
      *         [<br>
      *              {<br>
      *                 field5 : xxx,<br>
      *                  field6 : xxx<br>
-     *              }.<br>
+     *              },<br>
      *              {<br>
      *                  field5 : xxx,<br>
      *                  field6 : xxx<br>
-     *              }<br>
+     *              },<br>
+     *              {<br>
+     *                  field5 : xxx,<br>
+     *                  field6 : xxx,<br>
+     *                  srfarray3 :<br>
+     *                  [<br>
+     *                      {<br>
+     *                          field5 : xxx,<br>
+     *                          filed6 : xxx<br>
+     *                      },<br>
+     *                      {<br>
+     *                          field5 : xxx,<br>
+     *                          filed6 : xxx<br>
+     *                      }<br>
+     *                  ]<br>
+     *              },<<br>
+     *              {<br>
+     *                  srfarray4 :<br>
+     *                  [<br>
+     *                      {<br>
+     *                          field5 : xxx,<br>
+     *                          filed6 : xxx<br>
+     *                      },<br>
+     *                      {<br>
+     *                          field5 : xxx,<br>
+     *                          filed6 : xxx<br>
+     *                      }<br>
+     *                  ]<br>
+     *              }<<br>
      *         ]
      *     }
      *     解析后目标JSON：
@@ -207,12 +244,48 @@ public class ZenTaoHttpHelper {
      *         pfield1 : xxx,<br>
      *         pfield2 : xxx,<br>
      *         pfield3 : [xxx,xxx,xxx],<br>
-     *         field1 : [xxx,xxx],<br>
-     *         field2 : [xxx,xxx],<br>
-     *         field3 : [xxx,xxx],<br>
-     *         field4 : [xxx,xxx],<br>
-     *         field5 : [xxx,xxx],<br>
-     *         field6 : [xxx,xxx]<br>
+     *         field1 :<br>
+     *         {<br>
+     *             1 : xxx,<br>
+     *             2 : xxx<br>
+     *         }<br>
+     *         field2 :<br>
+     *         {<br>
+     *             1 : xxx,<br>
+     *             2 : xxx<br>
+     *         }<br>
+     *         field3 :<br>
+     *         {<br>
+     *             1 : xxx,<br>
+     *             2 : xxx<br>
+     *         }<br>
+     *         field4 :<br>
+     *         {<br>
+     *             1 : xxx,<br>
+     *             2 : xxx<br>
+     *         }<br>
+     *         field5 :<br>
+     *         {<br>
+     *             1 : xxx,<br>
+     *             2 : xxx,<br>
+     *             3 : xxx,<br>
+     *             3 : xxx,<br>
+     *             3.1 : xxx,<br>
+     *             3.2 : xxx,<br>
+     *             4.1 : xxx,<br>
+     *             4.2 : xxx<br>
+     *         }<br>
+     *         field6 :<br>
+     *         {<br>
+     *             1 : xxx,<br>
+     *             2 : xxx,<br>
+     *             3 : xxx,<br>
+     *             3 : xxx,<br>
+     *             3.1 : xxx,<br>
+     *             3.2 : xxx,<br>
+     *             4.1 : xxx,<br>
+     *             4.2 : xxx<br>
+     *         }<br>
      *     }
      *
      * @param jo 需要解析的对象
@@ -372,7 +445,7 @@ public class ZenTaoHttpHelper {
                     }
                 }
             }
-            String msgStr = "创建数据失败。\n";
+            String msgStr = ZenTaoMessage.MSG_ERROR_0003 + "\n";
             if (!msgList.isEmpty()) {
                 msgStr += String.join("\n", msgList);
             }
