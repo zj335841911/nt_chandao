@@ -90,6 +90,8 @@ export default class StorySpec_EditModeModel {
       },
       {
         name: 'comment',
+        prop: 'comment',
+        dataType: 'HTMLTEXT',
       },
       {
         name: 'files',

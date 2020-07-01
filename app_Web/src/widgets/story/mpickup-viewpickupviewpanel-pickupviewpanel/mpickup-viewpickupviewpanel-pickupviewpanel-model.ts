@@ -147,6 +147,9 @@ export default class MPickupViewpickupviewpanelModel {
       {
         name: 'result',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

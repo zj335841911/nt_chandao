@@ -44,6 +44,7 @@ export default {
     spec: "需求描述",
     verify: "验收标准",
     result: "评审结果",
+    comment: "备注",
   },
 	views: {
 		reportsubgridview: {
