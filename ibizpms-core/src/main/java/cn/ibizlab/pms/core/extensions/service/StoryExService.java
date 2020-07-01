@@ -1,11 +1,15 @@
 package cn.ibizlab.pms.core.extensions.service;
 
+import cn.ibizlab.pms.core.zentao.domain.StorySpec;
+import cn.ibizlab.pms.core.zentao.filter.StorySpecSearchContext;
 import cn.ibizlab.pms.core.zentao.service.impl.StoryServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.zentao.domain.Story;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Primary;
+
+import java.math.BigInteger;
 import java.util.*;
 
 /**
@@ -129,7 +133,14 @@ public class StoryExService extends StoryServiceImpl {
     @Override
     @Transactional
     public Story getStorySpec(Story et) {
-        return super.getStorySpec(et);
+        StorySpecSearchContext context = new StorySpecSearchContext();
+        context.setN_story_eq(et.getId());
+        context.setN_version_eq(et.getVersion());
+        context.setSort("version,desc");
+        StorySpec storySpec = storyspecService.searchDefault(context).getContent().get(0);
+        et.setSpec(storySpec.getSpec());
+        et.setVerify(storySpec.getVerify());
+        return et;
     }
     /**
      * 自定义行为[Review]用户扩展
@@ -140,6 +151,19 @@ public class StoryExService extends StoryServiceImpl {
     @Transactional
     public Story review(Story et) {
         return super.review(et);
+    }
+
+    /**
+     * 预置行为[get]用户扩展
+     * @param key
+     * @return
+     */
+    @Override
+    @Transactional
+    public Story get(BigInteger key) {
+        Story et = super.get(key);
+        this.getStorySpec(et);
+        return et;
     }
 }
 
