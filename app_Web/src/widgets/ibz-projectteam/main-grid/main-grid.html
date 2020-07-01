@@ -24,7 +24,7 @@
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('account')">
-                <el-table-column show-overflow-tooltip :prop="'account'" :label="$t('entities.ibz_projectteam.main_grid.columns.account')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'account'" :label="$t('entities.ibz_projectteam.main_grid.columns.account')" :width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.ibz_projectteam.main_grid.columns.account')}}
@@ -50,7 +50,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('join')">
-                <el-table-column show-overflow-tooltip :prop="'join'" :label="$t('entities.ibz_projectteam.main_grid.columns.join')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'join'" :label="$t('entities.ibz_projectteam.main_grid.columns.join')" :width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.ibz_projectteam.main_grid.columns.join')}}
@@ -62,7 +62,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('days')">
-                <el-table-column show-overflow-tooltip :prop="'days'" :label="$t('entities.ibz_projectteam.main_grid.columns.days')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'days'" :label="$t('entities.ibz_projectteam.main_grid.columns.days')" :width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.ibz_projectteam.main_grid.columns.days')}}
@@ -74,7 +74,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('hours')">
-                <el-table-column show-overflow-tooltip :prop="'hours'" :label="$t('entities.ibz_projectteam.main_grid.columns.hours')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'hours'" :label="$t('entities.ibz_projectteam.main_grid.columns.hours')" :width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.ibz_projectteam.main_grid.columns.hours')}}
@@ -86,7 +86,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('total')">
-                <el-table-column show-overflow-tooltip :prop="'total'" :label="$t('entities.ibz_projectteam.main_grid.columns.total')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'total'" :label="$t('entities.ibz_projectteam.main_grid.columns.total')" :width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.ibz_projectteam.main_grid.columns.total')}}
@@ -98,7 +98,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('limited')">
-                <el-table-column show-overflow-tooltip :prop="'limited'" :label="$t('entities.ibz_projectteam.main_grid.columns.limited')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'limited'" :label="$t('entities.ibz_projectteam.main_grid.columns.limited')" :width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.ibz_projectteam.main_grid.columns.limited')}}

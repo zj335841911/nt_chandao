@@ -238,6 +238,13 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
 
     @Override
     @Transactional
+    public Story getAction(Story et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
     public Story getStorySpec(Story et) {
         //自定义代码
         return et;
