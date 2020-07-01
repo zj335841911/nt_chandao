@@ -128,6 +128,14 @@ public class IBZ_PROJECTTEAMDTO extends DTOBase implements Serializable {
     @JsonProperty("type")
     private String type;
 
+    /**
+     * 属性 [TOTAL]
+     *
+     */
+    @JSONField(name = "total")
+    @JsonProperty("total")
+    private Integer total;
+
 
     /**
      * 设置 [JOIN]

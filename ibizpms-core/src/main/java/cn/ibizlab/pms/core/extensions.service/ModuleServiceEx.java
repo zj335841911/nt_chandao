@@ -1,35 +1,12 @@
 package cn.ibizlab.pms.core.extensions.service;
 
-import cn.ibizlab.pms.core.zentao.service.impl.ModuleServiceImpl;
-import lombok.extern.slf4j.Slf4j;
-import cn.ibizlab.pms.core.zentao.domain.Module;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.context.annotation.Primary;
-import java.util.*;
-
 /**
- * 实体[模块] 自定义服务对象
+ * 扩展目录已变更，请到[cn.ibizlab.pms.core.extensions.service.xxExService]中来进行扩展
+ * 若您之前有在当前目录下扩展过其它的service对象，请将扩展的代码移到新的扩展类中，并注释掉老的扩展类，防止Bean重复
  */
-@Slf4j
-@Primary
-@Service("ModuleServiceEx")
-public class ModuleServiceEx extends ModuleServiceImpl {
+@Deprecated
+public class ModuleServiceEx{
 
-    @Override
-    protected Class currentModelClass() {
-        return com.baomidou.mybatisplus.core.toolkit.ReflectionKit.getSuperClassGenericType(this.getClass().getSuperclass(), 1);
-    }
-
-    /**
-     * 自定义行为[Fix]用户扩展
-     * @param et
-     * @return
-     */
-    @Override
-    @Transactional
-    public Module fix(Module et) {
-        return super.fix(et);
-    }
 }
+
 

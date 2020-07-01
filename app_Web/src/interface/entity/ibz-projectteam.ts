@@ -109,4 +109,12 @@ export interface IBZ_PROJECTTEAM {
      * @memberof IBZ_PROJECTTEAM
      */
     type?: any;
+
+    /**
+     * 总计可用
+     *
+     * @returns {*}
+     * @memberof IBZ_PROJECTTEAM
+     */
+    total?: any;
 }

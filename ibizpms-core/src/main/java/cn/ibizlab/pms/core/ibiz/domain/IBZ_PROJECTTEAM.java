@@ -141,6 +141,13 @@ public class IBZ_PROJECTTEAM extends EntityMP implements Serializable {
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
+    /**
+     * 总计可用
+     */
+    @TableField(exist = false)
+    @JSONField(name = "total")
+    @JsonProperty("total")
+    private Integer total;
 
 
 

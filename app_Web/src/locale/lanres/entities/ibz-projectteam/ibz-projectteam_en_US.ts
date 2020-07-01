@@ -14,5 +14,6 @@ export default {
     limited: "受限用户",
     role: "角色",
     type: "团队类型",
+    total: "总计可用",
   },
 };
