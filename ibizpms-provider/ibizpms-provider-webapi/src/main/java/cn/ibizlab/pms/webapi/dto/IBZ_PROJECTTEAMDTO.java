@@ -33,14 +33,6 @@ public class IBZ_PROJECTTEAMDTO extends DTOBase implements Serializable {
     private Timestamp join;
 
     /**
-     * 属性 [ROOT]
-     *
-     */
-    @JSONField(name = "root")
-    @JsonProperty("root")
-    private Integer root;
-
-    /**
      * 属性 [ACCOUNT]
      *
      */
@@ -136,6 +128,14 @@ public class IBZ_PROJECTTEAMDTO extends DTOBase implements Serializable {
     @JsonProperty("total")
     private Integer total;
 
+    /**
+     * 属性 [ROOT]
+     *
+     */
+    @JSONField(name = "root")
+    @JsonProperty("root")
+    private BigInteger root;
+
 
     /**
      * 设置 [JOIN]
@@ -143,14 +143,6 @@ public class IBZ_PROJECTTEAMDTO extends DTOBase implements Serializable {
     public void setJoin(Timestamp  join){
         this.join = join ;
         this.modify("join",join);
-    }
-
-    /**
-     * 设置 [ROOT]
-     */
-    public void setRoot(Integer  root){
-        this.root = root ;
-        this.modify("root",root);
     }
 
     /**
@@ -231,6 +223,14 @@ public class IBZ_PROJECTTEAMDTO extends DTOBase implements Serializable {
     public void setType(String  type){
         this.type = type ;
         this.modify("type",type);
+    }
+
+    /**
+     * 设置 [ROOT]
+     */
+    public void setRoot(BigInteger  root){
+        this.root = root ;
+        this.modify("root",root);
     }
 
 

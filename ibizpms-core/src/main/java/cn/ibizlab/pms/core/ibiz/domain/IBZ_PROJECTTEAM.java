@@ -49,14 +49,6 @@ public class IBZ_PROJECTTEAM extends EntityMP implements Serializable {
     @JsonProperty("join")
     private Timestamp join;
     /**
-     * 关联编号
-     */
-    @DEField(defaultValue = "0")
-    @TableField(value = "root")
-    @JSONField(name = "root")
-    @JsonProperty("root")
-    private Integer root;
-    /**
      * 用户
      */
     @TableField(value = "account")
@@ -148,6 +140,21 @@ public class IBZ_PROJECTTEAM extends EntityMP implements Serializable {
     @JSONField(name = "total")
     @JsonProperty("total")
     private Integer total;
+    /**
+     * 项目编号
+     */
+    @TableField(value = "root")
+    @JSONField(name = "root")
+    @JsonProperty("root")
+    private BigInteger root;
+
+    /**
+     * 
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private cn.ibizlab.pms.core.zentao.domain.Project projectteam;
 
 
 
@@ -169,14 +176,6 @@ public class IBZ_PROJECTTEAM extends EntityMP implements Serializable {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(join);
     }
-    /**
-     * 设置 [关联编号]
-     */
-    public void setRoot(Integer root){
-        this.root = root ;
-        this.modify("root",root);
-    }
-
     /**
      * 设置 [用户]
      */
@@ -255,6 +254,14 @@ public class IBZ_PROJECTTEAM extends EntityMP implements Serializable {
     public void setType(String type){
         this.type = type ;
         this.modify("type",type);
+    }
+
+    /**
+     * 设置 [项目编号]
+     */
+    public void setRoot(BigInteger root){
+        this.root = root ;
+        this.modify("root",root);
     }
 
 

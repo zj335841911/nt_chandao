@@ -44,6 +44,9 @@ import org.springframework.util.StringUtils;
 @Service("IBZ_PROJECTTEAMServiceImpl")
 public class IBZ_PROJECTTEAMServiceImpl extends ServiceImpl<IBZ_PROJECTTEAMMapper, IBZ_PROJECTTEAM> implements IIBZ_PROJECTTEAMService {
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
 
     protected int batchSize = 500;
 
@@ -140,6 +143,16 @@ public class IBZ_PROJECTTEAMServiceImpl extends ServiceImpl<IBZ_PROJECTTEAMMappe
         saveOrUpdateBatch(list,batchSize);
     }
 
+
+	@Override
+    public List<IBZ_PROJECTTEAM> selectByRoot(BigInteger id) {
+        return baseMapper.selectByRoot(id);
+    }
+
+    @Override
+    public void removeByRoot(BigInteger id) {
+        this.remove(new QueryWrapper<IBZ_PROJECTTEAM>().eq("root",id));
+    }
 
 
     /**

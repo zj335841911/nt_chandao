@@ -1879,6 +1879,16 @@
         "viewtag": "07327890c326f9c806b9343f0c660fc1",
         "memo": "视图参数转换"
     },
+    "ibz_projectteammaingridview": {
+        "title": "项目团队表格视图",
+        "caption": "项目团队",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "IBZ_PROJECTTEAMMainGridView",
+        "viewfilename": "ibz-projectteammain-grid-view",
+        "viewtag": "231eecf4805f0b378601ea1a7912077f",
+        "memo": ""
+    },
     "projectstatsmaindashboardview": {
         "title": "项目统计数据看板视图",
         "caption": "项目统计",

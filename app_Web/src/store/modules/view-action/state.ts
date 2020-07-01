@@ -1694,6 +1694,7 @@ export const viewstate: any = {
                 '8104f8c4c275f6ba17fb969edf52eb37',
                 '85ee867b09a2d6303c061d91374ec975',
                 'bb8860972029d9947daa3652a4b5d291',
+                '231eecf4805f0b378601ea1a7912077f',
                 '7b1cc190cbffe1cd122d87a9d03b2d21',
                 '7d34636d1c24d613abf8d3fdc64ec7ba',
                 '441544d65ca067ea5ea625645b70e610',
@@ -1725,6 +1726,15 @@ export const viewstate: any = {
             viewtag: '07327890c326f9c806b9343f0c660fc1',
             viewmodule: 'ibiz',
             viewname: 'ProductLifeRoadMapListView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: '231eecf4805f0b378601ea1a7912077f',
+            viewmodule: 'ibiz',
+            viewname: 'IBZ_PROJECTTEAMMainGridView',
             viewaction: '',
             viewdatachange: false,
             refviews: [

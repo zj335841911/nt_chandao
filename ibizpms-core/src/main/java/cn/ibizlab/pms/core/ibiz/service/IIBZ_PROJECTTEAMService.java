@@ -37,6 +37,8 @@ public interface IIBZ_PROJECTTEAMService extends IService<IBZ_PROJECTTEAM>{
     boolean save(IBZ_PROJECTTEAM et) ;
     void saveBatch(List<IBZ_PROJECTTEAM> list) ;
     Page<IBZ_PROJECTTEAM> searchDefault(IBZ_PROJECTTEAMSearchContext context) ;
+    List<IBZ_PROJECTTEAM> selectByRoot(BigInteger id) ;
+    void removeByRoot(BigInteger id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

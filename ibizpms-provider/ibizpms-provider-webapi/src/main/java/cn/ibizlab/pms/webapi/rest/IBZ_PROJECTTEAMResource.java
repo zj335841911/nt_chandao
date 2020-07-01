@@ -159,5 +159,137 @@ public class IBZ_PROJECTTEAMResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibz_projectteamMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZ_PROJECTTEAM-Create-all')")
+    @ApiOperation(value = "根据项目建立项目团队", tags = {"项目团队" },  notes = "根据项目建立项目团队")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/ibz_projectteams")
+    @Transactional
+    public ResponseEntity<IBZ_PROJECTTEAMDTO> createByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody IBZ_PROJECTTEAMDTO ibz_projectteamdto) {
+        IBZ_PROJECTTEAM domain = ibz_projectteamMapping.toDomain(ibz_projectteamdto);
+        
+		ibz_projectteamService.create(domain);
+        IBZ_PROJECTTEAMDTO dto = ibz_projectteamMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZ_PROJECTTEAM-Create-all')")
+    @ApiOperation(value = "根据项目批量建立项目团队", tags = {"项目团队" },  notes = "根据项目批量建立项目团队")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/ibz_projectteams/batch")
+    public ResponseEntity<Boolean> createBatchByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody List<IBZ_PROJECTTEAMDTO> ibz_projectteamdtos) {
+        List<IBZ_PROJECTTEAM> domainlist=ibz_projectteamMapping.toDomain(ibz_projectteamdtos);
+        for(IBZ_PROJECTTEAM domain:domainlist){
+            
+        }
+        ibz_projectteamService.createBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZ_PROJECTTEAM-Update-all')")
+    @ApiOperation(value = "根据项目更新项目团队", tags = {"项目团队" },  notes = "根据项目更新项目团队")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/ibz_projectteams/{ibz_projectteam_id}")
+    @Transactional
+    public ResponseEntity<IBZ_PROJECTTEAMDTO> updateByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("ibz_projectteam_id") BigInteger ibz_projectteam_id, @RequestBody IBZ_PROJECTTEAMDTO ibz_projectteamdto) {
+        IBZ_PROJECTTEAM domain = ibz_projectteamMapping.toDomain(ibz_projectteamdto);
+        
+        domain.setId(ibz_projectteam_id);
+		ibz_projectteamService.update(domain);
+        IBZ_PROJECTTEAMDTO dto = ibz_projectteamMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZ_PROJECTTEAM-Update-all')")
+    @ApiOperation(value = "根据项目批量更新项目团队", tags = {"项目团队" },  notes = "根据项目批量更新项目团队")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/ibz_projectteams/batch")
+    public ResponseEntity<Boolean> updateBatchByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody List<IBZ_PROJECTTEAMDTO> ibz_projectteamdtos) {
+        List<IBZ_PROJECTTEAM> domainlist=ibz_projectteamMapping.toDomain(ibz_projectteamdtos);
+        for(IBZ_PROJECTTEAM domain:domainlist){
+            
+        }
+        ibz_projectteamService.updateBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZ_PROJECTTEAM-Remove-all')")
+    @ApiOperation(value = "根据项目删除项目团队", tags = {"项目团队" },  notes = "根据项目删除项目团队")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/ibz_projectteams/{ibz_projectteam_id}")
+    @Transactional
+    public ResponseEntity<Boolean> removeByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("ibz_projectteam_id") BigInteger ibz_projectteam_id) {
+		return ResponseEntity.status(HttpStatus.OK).body(ibz_projectteamService.remove(ibz_projectteam_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZ_PROJECTTEAM-Remove-all')")
+    @ApiOperation(value = "根据项目批量删除项目团队", tags = {"项目团队" },  notes = "根据项目批量删除项目团队")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/ibz_projectteams/batch")
+    public ResponseEntity<Boolean> removeBatchByProject(@RequestBody List<BigInteger> ids) {
+        ibz_projectteamService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZ_PROJECTTEAM-Get-all')")
+    @ApiOperation(value = "根据项目获取项目团队", tags = {"项目团队" },  notes = "根据项目获取项目团队")
+	@RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/ibz_projectteams/{ibz_projectteam_id}")
+    public ResponseEntity<IBZ_PROJECTTEAMDTO> getByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("ibz_projectteam_id") BigInteger ibz_projectteam_id) {
+        IBZ_PROJECTTEAM domain = ibz_projectteamService.get(ibz_projectteam_id);
+        IBZ_PROJECTTEAMDTO dto = ibz_projectteamMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "根据项目获取项目团队草稿", tags = {"项目团队" },  notes = "根据项目获取项目团队草稿")
+    @RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/ibz_projectteams/getdraft")
+    public ResponseEntity<IBZ_PROJECTTEAMDTO> getDraftByProject(@PathVariable("project_id") BigInteger project_id) {
+        IBZ_PROJECTTEAM domain = new IBZ_PROJECTTEAM();
+        
+        return ResponseEntity.status(HttpStatus.OK).body(ibz_projectteamMapping.toDto(ibz_projectteamService.getDraft(domain)));
+    }
+
+    @ApiOperation(value = "根据项目检查项目团队", tags = {"项目团队" },  notes = "根据项目检查项目团队")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/ibz_projectteams/checkkey")
+    public ResponseEntity<Boolean> checkKeyByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody IBZ_PROJECTTEAMDTO ibz_projectteamdto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(ibz_projectteamService.checkKey(ibz_projectteamMapping.toDomain(ibz_projectteamdto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZ_PROJECTTEAM-Save-all')")
+    @ApiOperation(value = "根据项目保存项目团队", tags = {"项目团队" },  notes = "根据项目保存项目团队")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/ibz_projectteams/save")
+    public ResponseEntity<Boolean> saveByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody IBZ_PROJECTTEAMDTO ibz_projectteamdto) {
+        IBZ_PROJECTTEAM domain = ibz_projectteamMapping.toDomain(ibz_projectteamdto);
+        
+        return ResponseEntity.status(HttpStatus.OK).body(ibz_projectteamService.save(domain));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZ_PROJECTTEAM-Save-all')")
+    @ApiOperation(value = "根据项目批量保存项目团队", tags = {"项目团队" },  notes = "根据项目批量保存项目团队")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/ibz_projectteams/savebatch")
+    public ResponseEntity<Boolean> saveBatchByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody List<IBZ_PROJECTTEAMDTO> ibz_projectteamdtos) {
+        List<IBZ_PROJECTTEAM> domainlist=ibz_projectteamMapping.toDomain(ibz_projectteamdtos);
+        for(IBZ_PROJECTTEAM domain:domainlist){
+             
+        }
+        ibz_projectteamService.saveBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZ_PROJECTTEAM-searchDefault-all')")
+	@ApiOperation(value = "根据项目获取DEFAULT", tags = {"项目团队" } ,notes = "根据项目获取DEFAULT")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/ibz_projectteams/fetchdefault")
+	public ResponseEntity<List<IBZ_PROJECTTEAMDTO>> fetchIBZ_PROJECTTEAMDefaultByProject(@PathVariable("project_id") BigInteger project_id,IBZ_PROJECTTEAMSearchContext context) {
+        
+        Page<IBZ_PROJECTTEAM> domains = ibz_projectteamService.searchDefault(context) ;
+        List<IBZ_PROJECTTEAMDTO> list = ibz_projectteamMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZ_PROJECTTEAM-searchDefault-all')")
+	@ApiOperation(value = "根据项目查询DEFAULT", tags = {"项目团队" } ,notes = "根据项目查询DEFAULT")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/ibz_projectteams/searchdefault")
+	public ResponseEntity<Page<IBZ_PROJECTTEAMDTO>> searchIBZ_PROJECTTEAMDefaultByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody IBZ_PROJECTTEAMSearchContext context) {
+        
+        Page<IBZ_PROJECTTEAM> domains = ibz_projectteamService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(ibz_projectteamMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
 }
 

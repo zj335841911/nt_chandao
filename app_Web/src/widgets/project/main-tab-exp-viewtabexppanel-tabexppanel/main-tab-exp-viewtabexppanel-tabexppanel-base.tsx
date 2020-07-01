@@ -57,6 +57,7 @@ export class MainTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
         tabviewpanel9:  false ,
         tabviewpanel3:  false ,
         tabviewpanel10:  false ,
+        tabviewpanel12:  false ,
     }
 
     /**

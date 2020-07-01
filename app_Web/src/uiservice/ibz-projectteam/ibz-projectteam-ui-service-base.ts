@@ -79,6 +79,7 @@ export default class IBZ_PROJECTTEAMUIServiceBase extends UIService {
      * @memberof  IBZ_PROJECTTEAMUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set('MDATAVIEW:',{viewname:'maingridview',srfappde:'ibz_projectteams'});
     }
 
     /**

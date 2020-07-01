@@ -15,14 +15,6 @@ export interface IBZ_PROJECTTEAM {
     join?: any;
 
     /**
-     * 关联编号
-     *
-     * @returns {*}
-     * @memberof IBZ_PROJECTTEAM
-     */
-    root?: any;
-
-    /**
      * 用户
      *
      * @returns {*}
@@ -117,4 +109,12 @@ export interface IBZ_PROJECTTEAM {
      * @memberof IBZ_PROJECTTEAM
      */
     total?: any;
+
+    /**
+     * 项目编号
+     *
+     * @returns {*}
+     * @memberof IBZ_PROJECTTEAM
+     */
+    root?: any;
 }

@@ -1511,6 +1511,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductLifeRoadMapListView",
             "viewtag": "07327890c326f9c806b9343f0c660fc1"
         },
+        "ibz_projectteammaingridview": {
+            "title": "项目团队表格视图",
+            "caption": "项目团队",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IBZ_PROJECTTEAMMainGridView",
+            "viewtag": "231eecf4805f0b378601ea1a7912077f"
+        },
         "projectstatsmaindashboardview": {
             "title": "项目统计数据看板视图",
             "caption": "项目统计",

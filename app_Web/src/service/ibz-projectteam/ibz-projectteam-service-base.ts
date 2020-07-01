@@ -48,6 +48,9 @@ export default class IBZ_PROJECTTEAMServiceBase extends EntityService {
      * @memberof IBZ_PROJECTTEAMServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.ibz_projectteam){
+            return Http.getInstance().get(`/projects/${context.project}/ibz_projectteams/${context.ibz_projectteam}/select`,isloading);
+        }
             return Http.getInstance().get(`/ibz_projectteams/${context.ibz_projectteam}/select`,isloading);
     }
 
@@ -61,6 +64,19 @@ export default class IBZ_PROJECTTEAMServiceBase extends EntityService {
      * @memberof IBZ_PROJECTTEAMServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            if(!data.srffrontuf || data.srffrontuf !== "1"){
+                data[this.APPDEKEY] = null;
+            }
+            if(data.srffrontuf){
+                delete data.srffrontuf;
+            }
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/ibz_projectteams`,data,isloading);
+            return res;
+        }
         let masterData:any = {};
         Object.assign(data,masterData);
         if(!data.srffrontuf || data.srffrontuf !== "1"){
@@ -84,6 +100,12 @@ export default class IBZ_PROJECTTEAMServiceBase extends EntityService {
      * @memberof IBZ_PROJECTTEAMServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.ibz_projectteam){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/projects/${context.project}/ibz_projectteams/${context.ibz_projectteam}`,data,isloading);
+            return res;
+        }
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/ibz_projectteams/${context.ibz_projectteam}`,data,isloading);
@@ -100,6 +122,9 @@ export default class IBZ_PROJECTTEAMServiceBase extends EntityService {
      * @memberof IBZ_PROJECTTEAMServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.ibz_projectteam){
+            return Http.getInstance().delete(`/projects/${context.project}/ibz_projectteams/${context.ibz_projectteam}`,isloading);
+        }
             return Http.getInstance().delete(`/ibz_projectteams/${context.ibz_projectteam}`,isloading);
     }
 
@@ -113,6 +138,10 @@ export default class IBZ_PROJECTTEAMServiceBase extends EntityService {
      * @memberof IBZ_PROJECTTEAMServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.ibz_projectteam){
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/ibz_projectteams/${context.ibz_projectteam}`,isloading);
+            return res;
+        }
             let res:any = await Http.getInstance().get(`/ibz_projectteams/${context.ibz_projectteam}`,isloading);
             return res;
     }
@@ -127,6 +156,11 @@ export default class IBZ_PROJECTTEAMServiceBase extends EntityService {
      * @memberof IBZ_PROJECTTEAMServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/ibz_projectteams/getdraft`,isloading);
+            res.data.ibz_projectteam = data.ibz_projectteam;
+            return res;
+        }
         let res:any = await  Http.getInstance().get(`/ibz_projectteams/getdraft`,isloading);
         res.data.ibz_projectteam = data.ibz_projectteam;
         return res;
@@ -142,6 +176,12 @@ export default class IBZ_PROJECTTEAMServiceBase extends EntityService {
      * @memberof IBZ_PROJECTTEAMServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.ibz_projectteam){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/ibz_projectteams/${context.ibz_projectteam}/checkkey`,data,isloading);
+            return res;
+        }
             return Http.getInstance().post(`/ibz_projectteams/${context.ibz_projectteam}/checkkey`,data,isloading);
     }
 
@@ -155,6 +195,12 @@ export default class IBZ_PROJECTTEAMServiceBase extends EntityService {
      * @memberof IBZ_PROJECTTEAMServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.ibz_projectteam){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/ibz_projectteams/${context.ibz_projectteam}/save`,data,isloading);
+            return res;
+        }
         let masterData:any = {};
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/ibz_projectteams/${context.ibz_projectteam}/save`,data,isloading);
@@ -171,6 +217,10 @@ export default class IBZ_PROJECTTEAMServiceBase extends EntityService {
      * @memberof IBZ_PROJECTTEAMServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/projects/${context.project}/ibz_projectteams/fetchdefault`,tempData,isloading);
+        }
         let tempData:any = JSON.parse(JSON.stringify(data));
         return Http.getInstance().get(`/ibz_projectteams/fetchdefault`,tempData,isloading);
     }

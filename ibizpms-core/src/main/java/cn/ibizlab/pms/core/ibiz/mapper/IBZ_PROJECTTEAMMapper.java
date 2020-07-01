@@ -62,4 +62,6 @@ public interface IBZ_PROJECTTEAMMapper extends BaseMapper<IBZ_PROJECTTEAM>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
+    List<IBZ_PROJECTTEAM> selectByRoot(@Param("id") Serializable id) ;
+
 }
