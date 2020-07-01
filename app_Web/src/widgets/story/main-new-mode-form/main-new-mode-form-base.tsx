@@ -65,8 +65,8 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
         title: null,
         pri: null,
         estimate: null,
-        formitem: null,
-        formitem1: null,
+        spec: null,
+        verify: null,
         mailto: null,
         keywords: null,
         id: null,
@@ -133,9 +133,9 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
 
         estimate: new FormItemModel({ caption: '预计', detailType: 'FORMITEM', name: 'estimate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
-        formitem: new FormItemModel({ caption: '需求描述', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
+        spec: new FormItemModel({ caption: '需求描述', detailType: 'FORMITEM', name: 'spec', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
-        formitem1: new FormItemModel({ caption: '验收标准', detailType: 'FORMITEM', name: 'formitem1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
+        verify: new FormItemModel({ caption: '验收标准', detailType: 'FORMITEM', name: 'verify', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
         mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 

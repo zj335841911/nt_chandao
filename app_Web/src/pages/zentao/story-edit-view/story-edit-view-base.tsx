@@ -4,7 +4,7 @@ import StoryService from '@/service/story/story-service';
 import EditViewEngine from '@engine/view/edit-view-engine';
 
 /**
- * story编辑视图视图基类
+ * 需求视图基类
  *
  * @export
  * @class StoryEditViewBase

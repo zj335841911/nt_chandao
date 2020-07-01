@@ -440,7 +440,7 @@
         "memo": ""
     },
     "storyeditview": {
-        "title": "story编辑视图",
+        "title": "需求",
         "caption": "需求",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "zentao",

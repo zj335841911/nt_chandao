@@ -34,6 +34,7 @@ import './entity/tasks/tasks';
 import './entity/builds/builds';
 import './entity/test-results/test-results';
 import './entity/test-suites/test-suites';
+import './entity/ibz-projectteams/ibz-projectteams';
 import './entity/test-tasks/test-tasks';
 import './entity/test-reports/test-reports';
 import './entity/project-statss/project-statss';

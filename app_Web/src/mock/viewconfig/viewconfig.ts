@@ -360,7 +360,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "48600bd551aa923b5fceabcb83f65239"
         },
         "storyeditview": {
-            "title": "story编辑视图",
+            "title": "需求",
             "caption": "需求",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",

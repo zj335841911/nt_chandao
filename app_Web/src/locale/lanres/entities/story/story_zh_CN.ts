@@ -56,7 +56,7 @@ export default {
 		},
 		editview: {
 			caption: "需求",
-      		title: "story编辑视图",
+      		title: "需求",
 		},
 		gridview9_assignedtome: {
 			caption: "需求",
@@ -273,8 +273,8 @@ export default {
 			title: "需求名称", 
 			pri: "优先级", 
 			estimate: "预计", 
-			formitem: "需求描述", 
-			formitem1: "验收标准", 
+			spec: "需求描述", 
+			verify: "验收标准", 
 			mailto: "抄送给", 
 			keywords: "关键词", 
 			id: "编号", 

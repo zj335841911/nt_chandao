@@ -106,10 +106,14 @@ export default class Main_NewModeModel {
         dataType: 'FLOAT',
       },
       {
-        name: 'formitem',
+        name: 'spec',
+        prop: 'spec',
+        dataType: 'TEXT',
       },
       {
-        name: 'formitem1',
+        name: 'verify',
+        prop: 'verify',
+        dataType: 'TEXT',
       },
       {
         name: 'mailto',

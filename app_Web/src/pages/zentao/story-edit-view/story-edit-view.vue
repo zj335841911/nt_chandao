@@ -6,7 +6,7 @@ import { StoryEditViewBase } from './story-edit-view-base';
 import view_form from '@widgets/story/main-new-mode-form/main-new-mode-form.vue';
 
 /**
- * story编辑视图视图
+ * 需求视图
  *
  * @export
  * @class StoryEditView

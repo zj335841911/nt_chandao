@@ -26,7 +26,7 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.days.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col v-show="detailsModel.days.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='days' :itemRules="this.rules.days" class='' :caption="$t('entities.project.main_form.details.days')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.days.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box v-model="data.days"  @enter="onEnter($event)"   unit="天"  :disabled="detailsModel.days.disabled" type='number'  style=""></input-box>
 </app-form-item>

@@ -165,7 +165,7 @@ export default class ProjectUIServiceBase extends UIService {
                 height: 0, 
                 width: 0,  
                 title: actionContext.$t('entities.project.views.mainview_edit.title'),
-                placement: 'DRAWER_TOP',
+                placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
     }
