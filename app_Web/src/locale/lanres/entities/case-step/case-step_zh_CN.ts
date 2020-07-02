@@ -24,7 +24,6 @@ export default {
 	},
 	main_rowedit_grid: {
 		columns: {
-			id: "编号",
 			desc: "步骤",
 			type: "类型",
 			expect: "预期",

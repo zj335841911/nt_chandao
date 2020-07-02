@@ -73,13 +73,6 @@ export class Main_RowEditGridBase extends GridControllerBase {
      */
     public allColumns: any[] = [
         {
-            name: 'id',
-            label: '编号',
-            langtag: 'entities.casestep.main_rowedit_grid.columns.id',
-            show: true,
-            util: 'PX'
-        },
-        {
             name: 'desc',
             label: '步骤',
             langtag: 'entities.casestep.main_rowedit_grid.columns.desc',
@@ -98,7 +91,7 @@ export class Main_RowEditGridBase extends GridControllerBase {
             label: '预期',
             langtag: 'entities.casestep.main_rowedit_grid.columns.expect',
             show: true,
-            util: 'PX'
+            util: 'STAR'
         },
     ]
 
@@ -149,7 +142,6 @@ export class Main_RowEditGridBase extends GridControllerBase {
      * @memberof Main_RowEditBase
      */
     public hasRowEdit: any = {
-        'id':false,
         'desc':true,
         'type':true,
         'expect':true,
