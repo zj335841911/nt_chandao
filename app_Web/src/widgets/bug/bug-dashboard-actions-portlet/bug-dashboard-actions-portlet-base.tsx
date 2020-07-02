@@ -93,7 +93,10 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      */
     public actionBarModelData:any[] =[
         { viewlogicname:"dashboard_sysportlet5_u1d352f4_click",
-        actionName:"编辑",
+        actionName: "编辑",
+        text: "编辑",
+        iconcls: "fa fa-edit",
+        icon: "",
         }
     ];
 
