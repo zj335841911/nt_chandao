@@ -216,6 +216,10 @@ export class StudioDrawer extends Vue {
     protected renderHeader(): any {
         return <div class="studio-drawer-header">
             <div class="studio-drawer-breadcrumb">
+                <div class="studio-drawer-back" on-click={() => this.closeByIndex(this.viewList.length - 1)}>
+                    <icon type="ios-arrow-back"/>
+                    返回
+                </div>
                 {this.showViewList.map((item, i) => {
                     const ref: any = this.$refs[item.viewname + i];
                     if (!ref) {

@@ -1125,6 +1125,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/release-main-tab-exp-view/release-main-tab-exp-view.vue'),
                 },
                 {
+                    path: 'projects/:project?/ibz_projectteams/:ibz_projectteam?/maingridview_editrow/:maingridview_editrow?',
+                    meta: {
+                        caption: 'entities.ibz_projectteam.views.maingridview_editrow.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'ibz_projectteams', parameterName: 'ibz_projectteam' },
+                            { pathName: 'maingridview_editrow', parameterName: 'maingridview_editrow' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/ibz-projectteammain-grid-view-edit-row/ibz-projectteammain-grid-view-edit-row.vue'),
+                },
+                {
+                    path: 'ibz_projectteams/:ibz_projectteam?/maingridview_editrow/:maingridview_editrow?',
+                    meta: {
+                        caption: 'entities.ibz_projectteam.views.maingridview_editrow.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibz_projectteams', parameterName: 'ibz_projectteam' },
+                            { pathName: 'maingridview_editrow', parameterName: 'maingridview_editrow' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/ibz-projectteammain-grid-view-edit-row/ibz-projectteammain-grid-view-edit-row.vue'),
+                },
+                {
                     path: 'products/:product?/pickupview/:pickupview?',
                     meta: {
                         caption: 'entities.product.views.pickupview.title',

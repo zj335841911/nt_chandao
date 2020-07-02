@@ -1268,6 +1268,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'ac21af5f9696e38031a7c2291ed02d64',
+            viewmodule: 'zentao',
+            viewname: 'IBZ_PROJECTTEAMMainGridView_EditRow',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'ac71a1cfaecb07640c14f75b8f202b1e',
             viewmodule: 'zentao',
             viewname: 'CaseStepMainGridView9_EditMode',
@@ -1738,6 +1747,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'ac21af5f9696e38031a7c2291ed02d64',
             ],
         },
         {

@@ -3,6 +3,7 @@ import { Subject } from 'rxjs';
 import { GridViewBase } from '@/studio-core';
 import IBZ_PROJECTTEAMService from '@/service/ibz-projectteam/ibz-projectteam-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
+import IBZ_PROJECTTEAMUIService from '@/uiservice/ibz-projectteam/ibz-projectteam-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -66,6 +67,8 @@ export class IBZ_PROJECTTEAMMainGridViewBase extends GridViewBase {
      * @memberof IBZ_PROJECTTEAMMainGridView
      */
     public toolBarModels: any = {
+        deuiaction1_managermember: { name: 'deuiaction1_managermember', caption: '团队管理','isShowCaption':true,'isShowIcon':true, tooltip: '团队管理', iconcls: 'fa fa-users', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'ManagerMember', target: 'NONE' }, class: '' },
+
     };
 
 
@@ -108,6 +111,19 @@ export class IBZ_PROJECTTEAMMainGridViewBase extends GridViewBase {
             keyPSDEField: 'ibz_projectteam',
             isLoadDefault: true,
         });
+    }
+
+    /**
+     * toolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof IBZ_PROJECTTEAMMainGridViewBase
+     */
+    public toolbar_click($event: any, $event2?: any): void {
+        if (Object.is($event.tag, 'deuiaction1_managermember')) {
+            this.toolbar_deuiaction1_managermember_click(null, '', $event2);
+        }
     }
 
     /**
@@ -163,6 +179,35 @@ export class IBZ_PROJECTTEAMMainGridViewBase extends GridViewBase {
      */
     public grid_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'load', $event);
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public toolbar_deuiaction1_managermember_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.grid;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:IBZ_PROJECTTEAMUIService  = new IBZ_PROJECTTEAMUIService();
+        curUIService.IBZ_PROJECTTEAM_ManagerMember(datas,contextJO, paramJO,  $event, xData,this,"IBZ_PROJECTTEAM");
     }
 
     /**

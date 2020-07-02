@@ -35,11 +35,24 @@
         background: var(--app-header-background-color);
 
         >.studio-drawer-breadcrumb {
+            position: relative;
             height: 100%;
             vertical-align: 10px;
             padding: 6px;
             font-size: 16px;
             font-weight: 700;
+            padding-left: 55px;
+
+            .studio-drawer-back {
+                position: absolute;
+                cursor: pointer;
+                top: 6px;
+                left: 0;
+            }
+
+            .studio-drawer-back:hover {
+                color: var(--app-header-font-color-active);
+            }
 
             >span {
 

@@ -17,6 +17,10 @@ export default {
     root: "项目编号",
   },
 	views: {
+		maingridview_editrow: {
+			caption: "项目团队",
+      		title: "项目团队表格视图",
+		},
 		maingridview: {
 			caption: "项目团队",
       		title: "项目团队表格视图",
@@ -34,8 +38,34 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
+        ibz_projectteam_removemember: "移除成员",
+		},
+	},
+	main_editrow_grid: {
+		columns: {
+			account: "用户",
+			role: "角色",
+			days: "可用工日",
+			hours: "可用工时/天",
+			limited: "受限用户",
+		},
+		uiactions: {
+		},
+	},
+	maingridview_editrowtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "新建行",
+			tip: "新建行",
+		},
+		deuiaction3: {
+			caption: "保存行",
+			tip: "保存行",
 		},
 	},
 	maingridviewtoolbar_toolbar: {
+		deuiaction1_managermember: {
+			caption: "团队管理",
+			tip: "团队管理",
+		},
 	},
 };

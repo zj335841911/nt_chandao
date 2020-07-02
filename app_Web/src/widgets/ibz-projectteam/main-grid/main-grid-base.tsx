@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, GridControllerBase } from '@/studio-core';
 import IBZ_PROJECTTEAMService from '@/service/ibz-projectteam/ibz-projectteam-service';
 import MainService from './main-grid-service';
+import IBZ_PROJECTTEAMUIService from '@/uiservice/ibz-projectteam/ibz-projectteam-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 
@@ -39,6 +40,34 @@ export class MainGridBase extends GridControllerBase {
      * @memberof MainGridBase
      */
     protected appDeName: string = 'ibz_projectteam';
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_ubcb9fff_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:IBZ_PROJECTTEAMUIService  = new IBZ_PROJECTTEAMUIService();
+        curUIService.IBZ_PROJECTTEAM_RemoveMember(datas,contextJO, paramJO,  $event, xData,this,"IBZ_PROJECTTEAM");
+    }
 
     /**
      * 本地缓存标识
@@ -198,4 +227,19 @@ export class MainGridBase extends GridControllerBase {
         ]);
     }
 
+
+    /**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof MainGridBase
+     */
+	public uiAction(row: any, tag: any, $event: any): void {
+        $event.stopPropagation();
+        if(Object.is('RemoveMember', tag)) {
+            this.grid_uagridcolumn1_ubcb9fff_click(row, tag, $event);
+        }
+    }
 }
