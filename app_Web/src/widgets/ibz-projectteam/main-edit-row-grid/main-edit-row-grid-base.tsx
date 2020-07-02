@@ -50,6 +50,22 @@ export class Main_EditRowGridBase extends GridControllerBase {
     protected localStorageTag: string = 'ibz_projectteam_main_editrow_grid';
 
     /**
+     * 是否支持分页
+     *
+     * @type {boolean}
+     * @memberof Main_EditRowGridBase
+     */
+    public isEnablePagingBar: boolean = false;
+
+    /**
+     * 分页条数
+     *
+     * @type {number}
+     * @memberof Main_EditRowGridBase
+     */
+    public limit: number = 500;
+
+    /**
      * 所有列成员
      *
      * @type {any[]}
@@ -206,11 +222,14 @@ export class Main_EditRowGridBase extends GridControllerBase {
      * @memberof Main_EditRowGridBase
      */
     public createDefault(row: any): void {
+        if (row.hasOwnProperty('limited')) {
+            row['limited'] = 'no';
+        }
         if (row.hasOwnProperty('days')) {
             row['days'] = 0;
         }
         if (row.hasOwnProperty('hours')) {
-            row['hours'] = 0;
+            row['hours'] = 7;
         }
     }
 }

@@ -507,9 +507,8 @@ export class EditFormControlBase extends FormControlBase {
         if (!mode || (mode && Object.is(mode, ''))) {
             return;
         }
-        const arg: any = { ...data };
-        Object.assign(arg, this.viewparams);
-        const post: Promise<any> = this.service.frontLogic(mode, JSON.parse(JSON.stringify(this.context)), arg, showloading);
+        const arg: any = Object.assign(this.viewparams, data);
+        const post: Promise<any> = this.service.frontLogic(mode, this.context, data, showloading);
         post.then((response: any) => {
             if (!response || response.status !== 200) {
                 this.$Notice.error({ title: '错误', desc: '表单项更新失败' });
@@ -525,7 +524,7 @@ export class EditFormControlBase extends FormControlBase {
             });
             this.setFormEnableCond(_data);
             this.fillForm(_data, 'updateFormItem');
-            this.formLogic({ name: '', newVal: null, oldVal: null });
+            // this.formLogic({ name: '', newVal: null, oldVal: null });
             this.dataChang.next(JSON.stringify(this.data));
             this.$nextTick(() => {
                 this.formState.next({ type: 'updateformitem', ufimode: arg.srfufimode, data: _data });

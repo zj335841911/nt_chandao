@@ -39,9 +39,13 @@ export default class HtmlContainer extends Vue {
      */
     @Watch('content', { immediate: true })
     public watchContent(): void {
-        if (this.content && !Object.is(this.content, '')) {
-            this.rHtml = this.content.replace(/\{(\d+)\.(bmp|jpg|jpeg|png|tif|gif|pcx|tga|exif|fpx|svg|psd|cdr|pcd|dxf|ufo|eps|ai|raw|WMF|webp)\}/g, `${Environment.BaseUrl}${Environment.ExportFile}/$1`);
+        if (this.content) {
+            if (!Object.is(this.content, '')) {
+                this.rHtml = this.content.replace(/\{(\d+)\.(bmp|jpg|jpeg|png|tif|gif|pcx|tga|exif|fpx|svg|psd|cdr|pcd|dxf|ufo|eps|ai|raw|WMF|webp)\}/g, `${Environment.BaseUrl}${Environment.ExportFile}/$1`);
+                return;
+            }
         }
+        this.rHtml = '';
     }
 }
 </script>
