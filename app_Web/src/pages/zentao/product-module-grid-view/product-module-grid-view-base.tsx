@@ -41,6 +41,7 @@ export class ProductModuleGridViewBase extends GridViewBase {
 	 * @memberof ProductModuleGridViewBase
 	 */
     protected customViewParams: any = {
+        'product': { isRawValue: false, value: 'product' },
         'moduletype': { isRawValue: false, value: 'moduletype' },
         'root': { isRawValue: false, value: 'product' }
     };
