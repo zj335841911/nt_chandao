@@ -338,6 +338,7 @@ export class ProjectModuleMainGridViewBase extends GridViewBase {
      * @type {boolean}
      * @memberof ProjectModuleMainGridViewBase
      */
+    @Prop()
     protected isSingleSelect: boolean = true;
 
     /**

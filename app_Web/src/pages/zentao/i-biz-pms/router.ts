@@ -2385,7 +2385,7 @@ const router = new Router({
                         ],
                         requireAuth: true,
                     },
-                    component: () => import('@pages/ibiz/ibz-projectteammain-grid-view/ibz-projectteammain-grid-view.vue'),
+                    component: () => import('@pages/ibiz/project-team-main-grid-view/project-team-main-grid-view.vue'),
                 },
                 {
                     path: 'projectteams/:projectteam?/maingridview/:maingridview?',
@@ -2399,7 +2399,7 @@ const router = new Router({
                         ],
                         requireAuth: true,
                     },
-                    component: () => import('@pages/ibiz/ibz-projectteammain-grid-view/ibz-projectteammain-grid-view.vue'),
+                    component: () => import('@pages/ibiz/project-team-main-grid-view/project-team-main-grid-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/mainview/:mainview?',

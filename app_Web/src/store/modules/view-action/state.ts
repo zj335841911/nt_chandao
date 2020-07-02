@@ -1743,7 +1743,7 @@ export const viewstate: any = {
         {
             viewtag: '231eecf4805f0b378601ea1a7912077f',
             viewmodule: 'ibiz',
-            viewname: 'IBZ_PROJECTTEAMMainGridView',
+            viewname: 'ProjectTeamMainGridView',
             viewaction: '',
             viewdatachange: false,
             refviews: [

@@ -326,6 +326,7 @@ export class CaseStepMainGridView9_EditModeBase extends GridView9Base {
      * @type {boolean}
      * @memberof CaseStepMainGridView9_EditModeBase
      */
+    @Prop()
     protected isSingleSelect: boolean = true;
 
     /**
