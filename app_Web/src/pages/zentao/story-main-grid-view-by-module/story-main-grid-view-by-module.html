@@ -1,0 +1,34 @@
+<studio-view viewName="storymaingridview_bymodule" viewTitle="story表格视图" class='degridview story-main-grid-view-by-module'>
+    <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
+    <template slot="quickGroupSearch">
+        <app-quick-group :items="quickGroupModel" @valuechange="quickGroupValueChange($event)"></app-quick-group>
+    </template>
+    <template slot="toolbar">
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click($event)"/>    </template>
+    <view_grid 
+        :viewState="viewState"  
+        :viewparams="viewparams" 
+        :context="context" 
+        :isSingleSelect="isSingleSelect"
+        :showBusyIndicator="true"
+        :isOpenEdit="false"
+        :gridRowActiveMode="gridRowActiveMode"
+        @save="onSave"
+        updateAction=""
+        removeAction="Remove"
+        loaddraftAction=""
+        loadAction=""
+        createAction=""
+        fetchAction="FetchByModule"
+        :newdata="newdata"
+        :opendata="opendata"
+        name="grid"  
+        ref='grid' 
+        @selectionchange="grid_selectionchange($event)"  
+        @beforeload="grid_beforeload($event)"  
+        @rowdblclick="grid_rowdblclick($event)"  
+        @remove="grid_remove($event)"  
+        @load="grid_load($event)"  
+        @closeview="closeView($event)">
+    </view_grid>
+</studio-view>

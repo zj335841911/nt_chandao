@@ -1,0 +1,9 @@
+<div class='tabviewpanel' v-if='isActivied'>
+        <bug-release-sub-grid-view-done 
+      class='viewcontainer2' 
+      :viewdata="viewdata" 
+      :viewparam="viewparam"
+      @viewload="viewDatasChange($event)" 
+      :viewDefaultUsage="false" >
+    </bug-release-sub-grid-view-done>
+</div>
