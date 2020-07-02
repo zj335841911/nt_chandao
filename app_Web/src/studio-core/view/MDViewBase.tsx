@@ -144,9 +144,11 @@ export class MDViewBase extends ViewBase {
      * @memberof MDViewBase
      */
     protected quickGroupValueChange = ($event: any) => {
-        if ($event && $event.data) {
+        if ($event) {
             this.quickGroupData.clearAll();
-            Object.assign(this.quickGroupData, $event.data);
+            if ($event.data) {
+                Object.assign(this.quickGroupData, $event.data);
+            }
             if (this.isEmitQuickGroupValue) {
                 this.onSearch();
             }
