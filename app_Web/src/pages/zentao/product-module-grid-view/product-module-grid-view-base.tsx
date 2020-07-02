@@ -298,7 +298,6 @@ export class ProductModuleGridViewBase extends GridViewBase {
      * @type {boolean}
      * @memberof ProductModuleGridViewBase
      */
-    @Prop()
     protected isSingleSelect: boolean = true;
 
     /**

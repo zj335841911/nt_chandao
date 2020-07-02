@@ -256,6 +256,5 @@ export class ProjectGridView9_UnClosedBase extends GridView9Base {
      * @type {boolean}
      * @memberof ProjectGridView9_UnClosedBase
      */
-    @Prop()
     protected isSingleSelect: boolean = true;
 }

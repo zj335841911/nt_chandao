@@ -254,6 +254,5 @@ export class CaseGridView9Base extends GridView9Base {
      * @type {boolean}
      * @memberof CaseGridView9Base
      */
-    @Prop()
     protected isSingleSelect: boolean = true;
 }
