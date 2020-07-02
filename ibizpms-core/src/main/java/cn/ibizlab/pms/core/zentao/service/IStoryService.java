@@ -44,7 +44,6 @@ public interface IStoryService extends IService<Story>{
     Story change(Story et) ;
     boolean checkKey(Story et) ;
     Story close(Story et) ;
-    Story getAction(Story et) ;
     Story getStorySpec(Story et) ;
     Story review(Story et) ;
     boolean save(Story et) ;

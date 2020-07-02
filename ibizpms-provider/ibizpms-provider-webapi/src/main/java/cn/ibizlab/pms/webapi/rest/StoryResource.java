@@ -243,18 +243,6 @@ public class StoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-GetAction-all')")
-    @ApiOperation(value = "获取备注", tags = {"需求" },  notes = "获取备注")
-	@RequestMapping(method = RequestMethod.GET, value = "/stories/{story_id}/getaction")
-    @Transactional
-    public ResponseEntity<StoryDTO> getAction(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
-        Story domain = storyMapping.toDomain(storydto);
-        domain.setId(story_id);
-        domain = storyService.getAction(domain);
-        storydto = storyMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(storydto);
-    }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-GetStorySpec-all')")
     @ApiOperation(value = "获取需求描述", tags = {"需求" },  notes = "获取需求描述")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/getstoryspec")
@@ -645,18 +633,6 @@ public class StoryResource {
         Story domain = storyMapping.toDomain(storydto);
         domain.setProduct(product_id);
         domain = storyService.close(domain) ;
-        storydto = storyMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(storydto);
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-GetAction-all')")
-    @ApiOperation(value = "根据产品需求", tags = {"需求" },  notes = "根据产品需求")
-	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/stories/{story_id}/getaction")
-    @Transactional
-    public ResponseEntity<StoryDTO> getActionByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
-        Story domain = storyMapping.toDomain(storydto);
-        domain.setProduct(product_id);
-        domain = storyService.getAction(domain) ;
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
     }

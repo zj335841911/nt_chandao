@@ -864,28 +864,6 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
-     * GetAction接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof StoryServiceBase
-     */
-    public async GetAction(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/getaction`,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
-            return res;
-        }
-            let res:any = await Http.getInstance().get(`/stories/${context.story}/getaction`,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
-            return res;
-    }
-
-    /**
      * GetStorySpec接口方法
      *
      * @param {*} [context={}]
