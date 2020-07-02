@@ -56,6 +56,9 @@ public class IBZ_PROJECTTEAMSearchContext extends QueryWrapperContext<IBZ_PROJEC
 	{
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
+            this.getSearchCond().and( wrapper ->
+                     wrapper.like("account", query)   
+            );
 		 }
 	}
 }

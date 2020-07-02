@@ -110,6 +110,7 @@ export class IBZ_PROJECTTEAMMainGridView_EditRowBase extends GridViewBase {
             },
             grid: this.$refs.grid,
             keyPSDEField: 'ibz_projectteam',
+            majorPSDEField: 'account',
             isLoadDefault: true,
         });
     }

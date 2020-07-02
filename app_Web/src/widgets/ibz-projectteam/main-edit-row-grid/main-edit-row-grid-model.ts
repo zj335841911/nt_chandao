@@ -62,6 +62,11 @@ export default class Main_EditRowModel {
           dataType: 'TEXT',
         },
         {
+          name: 'srfmajortext',
+          prop: 'account',
+          dataType: 'TEXT',
+        },
+        {
           name: 'srfdataaccaction',
           prop: 'id',
           dataType: 'ACID',

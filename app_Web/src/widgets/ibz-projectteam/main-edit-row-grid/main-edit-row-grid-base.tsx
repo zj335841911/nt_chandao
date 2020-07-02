@@ -199,4 +199,18 @@ export class Main_EditRowGridBase extends GridControllerBase {
         ]);
     }
 
+
+    /**
+     * 新建默认值
+     * @param {*}  row 行数据
+     * @memberof Main_EditRowGridBase
+     */
+    public createDefault(row: any): void {
+        if (row.hasOwnProperty('days')) {
+            row['days'] = 0;
+        }
+        if (row.hasOwnProperty('hours')) {
+            row['hours'] = 0;
+        }
+    }
 }

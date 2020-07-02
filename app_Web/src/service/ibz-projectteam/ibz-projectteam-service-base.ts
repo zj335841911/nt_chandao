@@ -31,7 +31,7 @@ export default class IBZ_PROJECTTEAMServiceBase extends EntityService {
         this.APPLYDEKEY ='ibz_projectteam';
         this.APPDEKEY = 'id';
         this.APPDENAME = 'ibz_projectteams';
-        this.APPDETEXT = '';
+        this.APPDETEXT = 'account';
         this.APPNAME = 'web';
         this.SYSTEMNAME = 'pms';
     }

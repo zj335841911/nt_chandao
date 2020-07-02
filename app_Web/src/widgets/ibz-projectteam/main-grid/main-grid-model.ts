@@ -67,6 +67,11 @@ export default class MainModel {
           dataType: 'DATE',
         },
         {
+          name: 'srfmajortext',
+          prop: 'account',
+          dataType: 'TEXT',
+        },
+        {
           name: 'srfdataaccaction',
           prop: 'id',
           dataType: 'ACID',
