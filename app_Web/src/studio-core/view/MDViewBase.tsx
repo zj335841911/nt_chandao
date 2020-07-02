@@ -30,15 +30,6 @@ export class MDViewBase extends ViewBase {
     protected isformDruipart?: boolean;
 
     /**
-     * 是否单选
-     *
-     * @readonly
-     * @type {boolean}
-     * @memberof MDViewBase
-     */
-    protected isSingleSelect: boolean = false;
-
-    /**
      * 是否展开搜索表单
      *
      * @readonly

@@ -298,7 +298,7 @@ export class ProductModuleGridViewBase extends GridViewBase {
      * @type {boolean}
      * @memberof ProductModuleGridViewBase
      */
-    protected isSingleSelect: boolean = true;
+    protected isGridSingleSelect: boolean = true;
 
     /**
      * 表格行数据默认激活模式

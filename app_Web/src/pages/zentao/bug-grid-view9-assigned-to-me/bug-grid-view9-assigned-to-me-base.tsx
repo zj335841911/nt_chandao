@@ -280,5 +280,5 @@ export class BugGridView9_AssignedToMeBase extends GridView9Base {
      * @type {boolean}
      * @memberof BugGridView9_AssignedToMeBase
      */
-    protected isSingleSelect: boolean = true;
+    protected isGridSingleSelect: boolean = true;
 }

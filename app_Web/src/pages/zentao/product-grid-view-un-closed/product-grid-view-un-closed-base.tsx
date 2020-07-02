@@ -256,5 +256,5 @@ export class ProductGridView_UnClosedBase extends GridViewBase {
      * @type {boolean}
      * @memberof ProductGridView_UnClosedBase
      */
-    protected isSingleSelect: boolean = true;
+    protected isGridSingleSelect: boolean = true;
 }

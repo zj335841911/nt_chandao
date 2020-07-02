@@ -280,5 +280,5 @@ export class StoryGridView9_SubStoryBase extends GridView9Base {
      * @type {boolean}
      * @memberof StoryGridView9_SubStoryBase
      */
-    protected isSingleSelect: boolean = true;
+    protected isGridSingleSelect: boolean = true;
 }

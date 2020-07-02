@@ -326,7 +326,7 @@ export class CaseStepMainGridView9_EditModeBase extends GridView9Base {
      * @type {boolean}
      * @memberof CaseStepMainGridView9_EditModeBase
      */
-    protected isSingleSelect: boolean = true;
+    protected isGridSingleSelect: boolean = true;
 
     /**
      * 表格行数据默认激活模式
