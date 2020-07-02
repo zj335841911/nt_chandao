@@ -1,3 +1,6 @@
+import { PropOptions } from 'vue';
+import { Constructor } from 'vue/types/options';
+
 /**
  * Vue多层继承生命周期处理装饰器
  *
@@ -13,12 +16,12 @@ export function VueLifeCycleProcessing(params?: any): any {
         // 原型
         const p = constructor.prototype;
         // 方法名数组
-        const methodNames: string[] = ['beforeCreate', 'created', 'beforeMount', 'mounted', 'beforeUpdate', 'updated', 'activated', 'deactivated', 'beforeDestroy', 'destroyed', 'errorCaptured'];
+        const methodNames: string[] = ['beforeCreate', 'beforeMount', 'mounted', 'beforeUpdate', 'updated', 'activated', 'deactivated', 'beforeDestroy', 'destroyed', 'errorCaptured'];
         methodNames.forEach((name: string) => {
             if (!p.hasOwnProperty(name) && p[name]) {
                 p[name] = function () {
                     if (this[name]) {
-                        this[name]();
+                        this[name].apply(this, arguments);
                     }
                 }
             }
@@ -30,6 +33,31 @@ export function VueLifeCycleProcessing(params?: any): any {
                 }
             }
         }
+
+        // 替换原生Prop注解
+        // if (p.___vuePropArr && p.___vuePropArr.length > 0) {
+        //     const arr: any[] = JSON.parse(JSON.stringify(p.___vuePropArr));
+        //     delete p.___vuePropArr;
+        //     const fun = p['beforeCreate'];
+        //     p['beforeCreate'] = function() {
+        //         const props = this.$options.props || {};
+        //         arr.forEach((item: any) => {
+        //             props[item.key] = item.params || {};
+        //         });
+        //         console.log(props);
+        //         this.$options.props = props;
+        //         if (fun) {
+        //             fun.apply(this, arguments);
+        //         }
+        //     }
+        // } else if (!p.hasOwnProperty('beforeCreate') && p['beforeCreate']) {
+        //     p['beforeCreate'] = function () {
+        //         if (this['beforeCreate']) {
+        //             this['beforeCreate'].apply(this, arguments);
+        //         }
+        //     }
+        // }
+
         // 替换原生Watch注解
         if (p.___vueWatchArr && p.___vueWatchArr.length > 0) {
             const arr: any[] = JSON.parse(JSON.stringify(p.___vueWatchArr));
@@ -43,6 +71,12 @@ export function VueLifeCycleProcessing(params?: any): any {
                 });
                 if (fun) {
                     fun.apply(this, arguments);
+                }
+            }
+        } else if (!p.hasOwnProperty('created') && p['created']) {
+            p['created'] = function () {
+                if (this['created']) {
+                    this['created'].apply(this, arguments);
                 }
             }
         }
@@ -69,3 +103,23 @@ export function Watch(key: string, params?: { deep?: boolean, immediate?: boolea
         });
     };
 }
+
+/**
+ * 企划Vue自身Prop注解，实现在继承时不出问题
+ *
+ * @export
+ * @param {string} key 输入属性key
+ * @param {(PropOptions | Constructor[] | Constructor)} [options] 参数
+ * @returns {*}
+ */
+// export function Prop(options?: PropOptions | Constructor[] | Constructor): any {
+//     return function (p: any, key: any) {
+//         if (!p.___vuePropArr) {
+//             p.___vuePropArr = [];
+//         }
+//         p.___vuePropArr.push({
+//             key,
+//             options
+//         });
+//     };
+// }

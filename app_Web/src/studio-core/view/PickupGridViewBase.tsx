@@ -19,4 +19,14 @@ export class PickupGridViewBase extends GridView9Base {
     @Prop()
     public selectedData?: string;
 
+    /**
+     * 是否单选
+     *
+     * @readonly
+     * @type {boolean}
+     * @memberof MDViewBase
+     */
+    @Prop({ default: false })
+    protected isSingleSelect!: boolean;
+
 }

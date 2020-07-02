@@ -36,8 +36,7 @@ export class MDViewBase extends ViewBase {
      * @type {boolean}
      * @memberof MDViewBase
      */
-    @Prop({ default: false })
-    protected isSingleSelect!: boolean;
+    protected isSingleSelect: boolean = false;
 
     /**
      * 是否展开搜索表单
