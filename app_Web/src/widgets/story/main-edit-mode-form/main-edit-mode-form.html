@@ -168,7 +168,7 @@
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :localContext ='{ }' 
+  :localContext ='{ PRODUCT:"%product%" }' 
   :localParam ='{ }' 
   :disabled="detailsModel.modulename.disabled"
   name='modulename' 
@@ -196,7 +196,7 @@
     :localContext ='{ }' 
     :localParam ='{ }' 
     :disabled="detailsModel.plan.disabled"  
-    tag='CurProductPlan' 
+    tag='ProductPlan' 
     codelistType='DYNAMIC'
     placeholder='请选择...' style="">
  </dropdown-list>
