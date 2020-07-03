@@ -6,13 +6,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ZenTaoMessage implements InitializingBean {
-    @Value("${zentao.msg.info.0001:调取禅道接口，地址：\\{\\}，请求方法：\\{\\}，请求参数：\\{\\}。}")
+    @Value("${zentao.msg.info.0001:调取禅道接口，地址：{}，请求方法：{}，请求参数：{}。}")
     private String msg_info_0001;
     public static String MSG_INFO_0001;
 
-  @Value("${zentao.msg.info.0002:禅道接口返回结果，\\{\\}}。")
-  private String msg_info_0002;
-
+    @Value("${zentao.msg.info.0002:禅道接口返回结果，{}}。")
+    private String msg_info_0002;
     public static String MSG_INFO_0002;
 
     @Value("${zentao.msg.error.0001:调用禅道接口异常}")
@@ -30,6 +29,7 @@ public class ZenTaoMessage implements InitializingBean {
     @Override
     public void afterPropertiesSet() throws Exception {
         MSG_INFO_0001 = msg_info_0001;
+        MSG_INFO_0002 = msg_info_0002;
 
         MSG_ERROR_0001 = msg_error_0001;
         MSG_ERROR_0002 = msg_error_0002;

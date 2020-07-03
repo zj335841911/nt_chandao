@@ -224,7 +224,6 @@ final public class ZTBugHelper {
         ACTION_PARAMS_EDIT.put("color", null);
         ACTION_PARAMS_EDIT.put("story", null);
         ACTION_PARAMS_EDIT.put("task", null);
-        ACTION_PARAMS_EDIT.put("oldTaskID", 0);
         ACTION_PARAMS_EDIT.put("case", 0);
         ACTION_PARAMS_EDIT.put("caseVersion", 0);
         ACTION_PARAMS_EDIT.put("result", 0);
@@ -234,16 +233,16 @@ final public class ZTBugHelper {
         ACTION_PARAMS_EDIT.put("steps", null);
         ACTION_PARAMS_EDIT.put("mailto", null);
         ACTION_PARAMS_EDIT.put("keywords", null);
-        ACTION_PARAMS_CREATE.put("status", null);
-        ACTION_PARAMS_CREATE.put("comment", null);
-        ACTION_PARAMS_CREATE.put("resolvedBy", null);
-        ACTION_PARAMS_CREATE.put("resolvedDate", null);
-        ACTION_PARAMS_CREATE.put("resolvedBuild", null);
-        ACTION_PARAMS_CREATE.put("resolution", null);
-        ACTION_PARAMS_CREATE.put("duplicateBug", null);
-        ACTION_PARAMS_CREATE.put("closedBy", null);
-        ACTION_PARAMS_CREATE.put("closedDate", null);
-        ACTION_PARAMS_CREATE.put("linkBug", null);
+        ACTION_PARAMS_EDIT.put("status", null);
+        ACTION_PARAMS_EDIT.put("comment", null);
+        ACTION_PARAMS_EDIT.put("resolvedBy", null);
+        ACTION_PARAMS_EDIT.put("resolvedDate", null);
+        ACTION_PARAMS_EDIT.put("resolvedBuild", null);
+        ACTION_PARAMS_EDIT.put("resolution", null);
+        ACTION_PARAMS_EDIT.put("duplicateBug", null);
+        ACTION_PARAMS_EDIT.put("closedBy", null);
+        ACTION_PARAMS_EDIT.put("closedDate", null);
+        ACTION_PARAMS_EDIT.put("linkBug", null);
 
         // RESOLVE
         ACTION_PARAMS_RESOLVE.put("resolution", null);
