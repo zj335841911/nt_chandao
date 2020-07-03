@@ -195,6 +195,14 @@ export class Main_BuildSubGridBase extends GridControllerBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
+            {
+                name: 'assignedto',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
         ]);
     }
 

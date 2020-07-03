@@ -131,6 +131,11 @@ export default class Main_EditModeModel {
         dataType: 'SMCODELIST',
       },
       {
+        name: 'product',
+        prop: 'product',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'openedby',
         prop: 'openedby',
         dataType: 'SSCODELIST',
@@ -159,11 +164,6 @@ export default class Main_EditModeModel {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
-      },
-      {
-        name: 'product',
-        prop: 'product',
-        dataType: 'PICKUP',
       },
       {
         name: 'module',

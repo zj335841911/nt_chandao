@@ -67,7 +67,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
         id: null,
         name: null,
         desc: null,
-        desc1: null,
+        comment: null,
         files: null,
         projectname: null,
         project: null,
@@ -159,7 +159,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
 
         desc: new FormItemModel({ caption: '任务描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 }),
 
-        desc1: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'desc1', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 }),
+        comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 }),
 
         files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 

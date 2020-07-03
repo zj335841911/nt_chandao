@@ -280,7 +280,7 @@ export default {
 			id: "编号", 
 			name: "任务名称", 
 			desc: "任务描述", 
-			desc1: "备注", 
+			comment: "备注", 
 			files: "附件", 
 			projectname: "所属项目", 
 			project: "所属项目", 
