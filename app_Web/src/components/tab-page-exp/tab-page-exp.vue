@@ -156,11 +156,11 @@ export default class TabPageExp extends Vue {
     /**
      * 切换分页
      *
-     * @param {*} page
+     * @param {*} item
      * @memberof TabPageExp
      */
-    public changePage(page: any) {
-        this.gotoPage(page);
+    public changePage(item: HistoryItem) {
+        this.gotoPage(item.to);
     }
 
     /**

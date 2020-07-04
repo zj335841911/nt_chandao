@@ -72,22 +72,6 @@ export class AppNavHistoryBase {
     public readonly historyList: HistoryItem[] = [];
 
     /**
-     * 参数列表
-     *
-     * @type {string[]}
-     * @memberof AppNavHistoryBase
-     */
-    // public readonly metaList: string[] = [];
-
-    /**
-     * 视图标识
-     *
-     * @type {Map<string, string>}
-     * @memberof AppNavHistoryBase
-     */
-    // public readonly viewTagMap: Map<string, string> = new Map();
-
-    /**
      * 导航缓存，忽略判断的导航参数正则
      *
      * @type {RegExp}
@@ -165,7 +149,6 @@ export class AppNavHistoryBase {
         const i = this.findHistoryIndex(item.to);
         if (i !== -1) {
             this.historyList.splice(i, 1);
-            // this.metaList.splice(i, 1);
         }
     }
 
@@ -177,7 +160,6 @@ export class AppNavHistoryBase {
      */
     public reset(num: number = 0): void {
         this.historyList.splice(num, this.historyList.length);
-        // this.metaList.splice(num, this.metaList.length);
     }
 
     /**
@@ -212,7 +194,6 @@ export class AppNavHistoryBase {
         }
         const item = this.historyList[i];
         item.tag = tag;
-        // this.viewTagMap.set(page.fullPath, tag);
         return true;
     }
 
@@ -226,11 +207,8 @@ export class AppNavHistoryBase {
         const i = this.findHistoryIndex(item.to);
         if (i !== -1) {
             const page = this.historyList[i];
-            // const meta = this.metaList[i];
             this.historyList.splice(0, this.historyList.length);
-            // this.metaList.splice(0, this.metaList.length);
             this.historyList.push(page);
-            // this.metaList.push(meta);
         }
     }
 
@@ -241,7 +219,6 @@ export class AppNavHistoryBase {
      */
     public pop(): void {
         this.historyList.pop();
-        // this.metaList.pop();
     }
 
 }
