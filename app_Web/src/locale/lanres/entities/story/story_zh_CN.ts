@@ -352,6 +352,16 @@ export default {
 		uiactions: {
 		},
 	},
+	pickupgrid_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "需求名称",
+			modulename: "所属模块名称",
+		},
+		uiactions: {
+		},
+	},
 	main3_grid: {
 		columns: {
 			id: "ID",
@@ -390,16 +400,6 @@ export default {
 			story_closestory: "关闭",
 			story_openbaseinfoeditview: "编辑",
 			story_opencasecreateview: "建用例",
-		},
-	},
-	pickupgrid_grid: {
-		columns: {
-			id: "ID",
-			pri: "P",
-			title: "需求名称",
-			modulename: "所属模块名称",
-		},
-		uiactions: {
 		},
 	},
 	main_plansub_grid: {

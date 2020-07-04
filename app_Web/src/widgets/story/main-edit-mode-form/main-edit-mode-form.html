@@ -370,7 +370,23 @@
     <row>
         <i-col v-show="detailsModel.linkstories.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='linkstories' :itemRules="this.rules.linkstories" class='' :caption="$t('entities.story.main_editmode_form.details.linkstories')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.linkstories.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.linkstories"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.linkstories.disabled" type='text'  style=""></input-box>
+    
+<app-mpicker
+    :activeData="data"
+    :disabled="detailsModel.linkstories.disabled"
+    :curvalue="data.linkstories"
+    name="linkstories"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :service="service"
+    :acParams="{ }"
+    :pickupView="{ viewname: 'story-mpickup-view', title: $t('entities.story.views.mpickupview.title'), deResParameters: [{ pathName: 'products', parameterName: 'product' }, ], parameters: [{ pathName: 'stories', parameterName: 'story' }, { pathName: 'mpickupview', parameterName: 'mpickupview' } ], placement:'DRAWER_TOP' }"
+    @formitemvaluechange="onFormItemValueChange($event)" 
+    style="">
+</app-mpicker>
+
 </app-form-item>
 
 </i-col>
