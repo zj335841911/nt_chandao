@@ -18,7 +18,7 @@ import view_treeexpbar from '@widgets/product-module/tree-exp-viewtreeexpbar-tre
     },
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
+            vm.$appService.navHistory.setViewTag(vm.viewtag, to);
         });
     }
 })

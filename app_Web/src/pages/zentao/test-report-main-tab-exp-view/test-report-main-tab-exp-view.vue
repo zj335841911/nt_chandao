@@ -18,7 +18,7 @@ import view_tabexppanel from '@widgets/test-report/main-tab-exp-viewtabexppanel-
     },
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
+            vm.$appService.navHistory.setViewTag(vm.viewtag, to);
         });
     }
 })

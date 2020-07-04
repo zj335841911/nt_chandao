@@ -18,7 +18,7 @@ import view_dashboard from '@widgets/product/main-dashboard/main-dashboard.vue';
     },
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
+            vm.$appService.navHistory.setViewTag(vm.viewtag, to);
         });
     }
 })

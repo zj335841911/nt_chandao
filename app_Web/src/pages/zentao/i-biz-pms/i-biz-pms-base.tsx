@@ -267,7 +267,7 @@ export class IBizPMSBase extends Vue {
           </template> : null}
           {styleMode === 'DEFAULT' ? <tab-page-exp></tab-page-exp> : null}
           <div class="view-warp">
-            <app-keep-alive routerList={this.$store.state.historyPathList}>
+            <app-keep-alive routerList={this.$appService.navHistory.historyList}>
               <router-view key={this.$route.fullPath}></router-view>
             </app-keep-alive>
           </div>

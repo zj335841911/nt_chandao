@@ -18,7 +18,7 @@ import view_grid from '@widgets/case/main-grid-suit-sub-grid/main-grid-suit-sub-
     },
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
+            vm.$appService.navHistory.setViewTag(vm.viewtag, to);
         });
     }
 })

@@ -1,33 +1,29 @@
 <script>
 export default {
     name: 'app-keep-alive',
-    render: function render() {
-        let _this = this;
-        let slot = _this.$slots.default;
-        let vnode = _this.getFirstComponentChild(slot);
-        let componentOptions = vnode && vnode.componentOptions;
+    render() {
+        const slot = this.$slots.default;
+        const vnode = this.getFirstComponentChild(slot);
+        const componentOptions = vnode && vnode.componentOptions;
         if (componentOptions) {
             // check pattern
-            let name = _this.getComponentName(componentOptions);
-            let ref = _this;
-            let include = ref.include;
-            let exclude = ref.exclude;
-            let routerList = ref.routerList;
-            let route = ref.$route;
+            const name = this.getComponentName(componentOptions);
+            const include = this.include;
+            const exclude = this.exclude;
+            const routerList = this.routerList;
+            const route = this.$route;
             if (
                 // not included
-                (include && (!name || !_this.matches(include, name))) ||
+                (include && (!name || !this.matches(include, name))) ||
                 // excluded
-                (exclude && name && _this.matches(exclude, name)) ||
-                (routerList && (!route.fullPath && !_this.matches(routerList, route.fullPath)))
+                (exclude && name && this.matches(exclude, name)) ||
+                (routerList && (!route.fullPath && !this.matches(routerList, route.fullPath)))
             ) {
-                return vnode
+                return vnode;
             }
-
-            let ref$1 = _this;
-            let cache = ref$1.cache;
-            let keys = ref$1.keys;
-            let key = vnode.key == null
+            const cache = this.cache;
+            const keys = this.keys;
+            const key = vnode.key == null
                 // same constructor may get registered as different local components
                 // so cid alone is not enough (#3269)
                 ? componentOptions.Ctor.cid + (componentOptions.tag ? ("::" + (componentOptions.tag)) : '')
@@ -35,17 +31,16 @@ export default {
             if (cache[key]) {
                 vnode.componentInstance = cache[key].componentInstance;
                 // make current key freshest
-                _this.remove(keys, key);
+                this.remove(keys, key);
                 keys.push(key);
             } else {
                 cache[key] = vnode;
                 keys.push(key);
                 // prune oldest entry
-                if (_this.max && keys.length > parseInt(_this.max)) {
-                    _this.pruneCacheEntry(cache, keys[0], keys, _this._vnode);
+                if (this.max && keys.length > parseInt(this.max)) {
+                    this.pruneCacheEntry(cache, keys[0], keys, this._vnode);
                 }
             }
-
             vnode.data.keepAlive = true;
             vnode.data.curPath = route.fullPath;
         }
@@ -57,44 +52,40 @@ export default {
         max: [String, Number],
         routerList: [Array]
     },
-    data: function(){
+    data() {
         return {
             _toString: Object.prototype.toString
         }
     },
-    created: function () {
-        this.cache = Object.create(null);
+    created() {
+        this.cache = {};
         this.keys = [];
     },
-    destroyed: function () {
-        let _this = this;
-        for (let key in _this.cache) {
-            _this.pruneCacheEntry(_this.cache, key, _this.keys);
+    destroyed() {
+        for (let key in this.cache) {
+            this.pruneCacheEntry(this.cache, key, this.keys);
         }
     },
     watch: {
-        'include': function (val) {
-            let _this = this;
-            _this.pruneCache(function (name) {
-                return _this.matches(val, name);
+        include(val) {
+            this.pruneCache((name) => {
+                return this.matches(val, name);
             });
         },
-        'exclude': function (val) {
-            let _this = this;
-            _this.pruneCache(function (name) {
-                return !_this.matches(val, name);
+        exclude(val) {
+            this.pruneCache((name) => {
+                return !this.matches(val, name);
             });
         },
-        'routerList': function(val) {
-            let _this = this;
-            _this.pruneCache2(function (name) {
-                return !_this.matches(val, name);
+        routerList(val) {
+            this.pruneCache2((name) => {
+                return !this.matches(val, name);
             });
         }
     },
     methods: {
         pruneCacheEntry(cache, key, keys, current) {
-            let cached = cache[key];
+            const cached = cache[key];
             if (cached) {
                 cached.componentInstance.$destroy();
             }
@@ -102,82 +93,68 @@ export default {
             this.remove(keys, key);
         },
         pruneCache(filter) {
-            let _this = this;
-            let cache = _this.cache;
-            let keys = _this.keys;
-            let _vnode = _this._vnode;
-            for (let key in cache) {
-                let cachedNode = cache[key];
+            for (let key in this.cache) {
+                const cachedNode = this.cache[key];
                 if (cachedNode) {
-                    let name = _this.getComponentName(cachedNode.componentOptions);
+                    const name = this.getComponentName(cachedNode.componentOptions);
                     if (name && !filter(name)) {
-                        _this.pruneCacheEntry(cache, key, keys, _vnode);
+                        this.pruneCacheEntry(this.cache, key, this.keys, this._vnode);
                     }
                 }
             }
         },
         pruneCache2(filter) {
-            let _this = this;
-            let cache = _this.cache;
-            let keys = _this.keys;
-            let _vnode = _this._vnode;
-            for (let key in cache) {
-                let cachedNode = cache[key];
+            for (let key in this.cache) {
+                const cachedNode = this.cache[key];
                 if (cachedNode) {
-                    let name = cachedNode.data.curPath;
+                    const name = cachedNode.data.curPath;
                     if (name && filter(name)) {
-                        _this.pruneCacheEntry(cache, key, keys, _vnode);
+                        this.pruneCacheEntry(this.cache, key, this.keys, this._vnode);
                     }
                 }
             }
         },
         matches(pattern, name) {
             if (Array.isArray(pattern)) {
-                return pattern.indexOf(name) > -1
+                return pattern.indexOf(name) > -1;
             } else if (typeof pattern === 'string') {
-                return pattern.split(',').indexOf(name) > -1
+                return pattern.split(',').indexOf(name) > -1;
             } else if (this.isRegExp(pattern)) {
-                return pattern.test(name)
+                return pattern.test(name);
             }
             /* istanbul ignore next */
-            return false
+            return false;
         },
         getComponentName(opts) {
             return opts && (opts.Ctor.options.name || opts.tag)
         },
         getFirstComponentChild(children) {
-            let _this = this;
             if (Array.isArray(children)) {
                 for (let i = 0; i < children.length; i++) {
-                    let c = children[i];
-                    if (_this.isDef(c) && (_this.isDef(c.componentOptions) || _this.isAsyncPlaceholder(c))) {
-                        return c
+                    const c = children[i];
+                    if (this.isDef(c) && (this.isDef(c.componentOptions) || this.isAsyncPlaceholder(c))) {
+                        return c;
                     }
                 }
             }
         },
         isAsyncPlaceholder(node) {
-            return node.isComment && node.asyncFactory
+            return node.isComment && node.asyncFactory;
         },
         isDef(v) {
-            return v !== undefined && v !== null
+            return v !== undefined && v !== null;
         },
         isRegExp(v) {
-            return this._toString.call(v) === '[object RegExp]'
+            return this._toString.call(v) === '[object RegExp]';
         },
         remove(arr, item) {
             if (arr.length) {
-                let index = arr.indexOf(item);
+                const index = arr.indexOf(item);
                 if (index > -1) {
-                    return arr.splice(index, 1)
+                    return arr.splice(index, 1);
                 }
             }
         }
     }
 }
 </script>
-
-<style lang="less">
-
-</style>
-

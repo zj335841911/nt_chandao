@@ -20,7 +20,7 @@ import view_list from '@widgets/action/classify-by-type-list/classify-by-type-li
     },
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
+            vm.$appService.navHistory.setViewTag(vm.viewtag, to);
         });
     }
 })

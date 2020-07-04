@@ -18,7 +18,7 @@ import view_listexpbar from '@widgets/project/list-exp-viewlistexpbar-listexpbar
     },
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
+            vm.$appService.navHistory.setViewTag(vm.viewtag, to);
         });
     }
 })

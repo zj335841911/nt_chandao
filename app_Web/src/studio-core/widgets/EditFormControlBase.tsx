@@ -165,11 +165,9 @@ export class EditFormControlBase extends FormControlBase {
      * @memberof EditFormControlBase
      */
     public onFormLoad(data: any = {}, action: string): void {
-        if (Object.is(action, "save") || Object.is(action, "autoSave") || Object.is(action, "submit")) {
-            // 更新context的实体主键
-            if (data[this.appDeName]) {
-                Object.assign(this.context, { [this.appDeName]: data[this.appDeName] })
-            }
+        // 更新context的实体主键
+        if (data[this.appDeName]) {
+            Object.assign(this.context, { [this.appDeName]: data[this.appDeName] })
         }
         this.setFormEnableCond(data);
         this.fillForm(data, action);

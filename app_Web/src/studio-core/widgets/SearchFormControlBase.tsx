@@ -59,7 +59,6 @@ export class SearchFormControlBase extends EditFormControlBase {
         this.fillForm(data, action);
         this.oldData = {};
         Object.assign(this.oldData, JSON.parse(JSON.stringify(this.data)));
-        this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: false });
         this.formLogic({ name: '', newVal: null, oldVal: null });
     }
 

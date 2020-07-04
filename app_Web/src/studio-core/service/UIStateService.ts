@@ -43,7 +43,6 @@ export class UIStateService {
         } catch (error) {
             this.fillLayoutState({});
         }
-        let z = this;
         on(window, 'beforeunload', () => {
             localStorage.setItem(this.localStoreKey, JSON.stringify(this.layoutState));
         });

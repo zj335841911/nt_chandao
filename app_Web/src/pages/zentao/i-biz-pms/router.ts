@@ -3,8 +3,12 @@ import Router from 'vue-router';
 import { AuthGuard } from '@/utils';
 import qs from 'qs';
 import { globalRoutes, indexRoutes} from '@/router'
+import { AppService } from '@/studio-core/service/app-service/AppService';
 
 Vue.use(Router);
+
+const appService = new AppService();
+
 
 const router = new Router({
     routes: [
@@ -5560,7 +5564,7 @@ const router = new Router({
                 ignoreAddPage: true,
             },
             beforeEnter: (to: any, from: any, next: any) => {
-                router.app.$store.commit('resetRootStateData');
+                appService.navHistory.reset();
                 next();
             },
             component: () => import('@components/login/login.vue'),
@@ -5579,4 +5583,12 @@ const router = new Router({
         }
     ]
 });
+
+router.beforeEach((to: any, from: any, next: any) => {
+    if (to.meta && !to.meta.ignoreAddPage) {
+        appService.navHistory.add(to);
+    }
+    next();
+});
+
 export default router;

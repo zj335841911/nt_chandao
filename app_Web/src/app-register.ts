@@ -16,7 +16,6 @@ import InputBox from './components/input-box/input-box.vue'
 import AppKeepAlive from './components/app-keep-alive/app-keep-alive.vue'
 import TabPageExp from './components/tab-page-exp/tab-page-exp.vue'
 import AppLang from './components/app-lang/app-lang.vue'
-import AppTheme from './components/app-theme/app-theme.vue'
 import AppUser from './components/app-user/app-user.vue'
 import AppForm from './components/app-form/app-form.vue'
 import APPAutocomplete from './components/app-autocomplete/app-autocomplete.vue'
@@ -100,7 +99,6 @@ export const AppComponents = {
         v.component('app-keep-alive',AppKeepAlive);
         v.component('tab-page-exp',TabPageExp);
         v.component('app-lang',AppLang);
-        v.component('app-theme',AppTheme);
         v.component('app-user',AppUser);
         v.component('app-form', AppForm);
         v.component('app-autocomplete', APPAutocomplete);

@@ -1,10 +1,12 @@
 import { AppCommunicationsCenter } from "../message-center/app-communications-center";
+import { AppService } from "../service/app-service/AppService";
 import { FooterItemsService } from "../service/FooterItemsService";
 import { UIStateService } from "../service/UIStateService";
 
 declare module "vue/types/vue" {
     interface Vue {
         $acc: AppCommunicationsCenter,
+        $appService: AppService,
         $footerMenuService: FooterItemsService,
         $uiState: UIStateService
     }

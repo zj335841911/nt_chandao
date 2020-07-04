@@ -241,7 +241,9 @@ export class GridControllerBase extends MDControlBase {
         super.ctrlCreated();
         this.setColState();
         this.$acc.commandLocal(() => {
-            this.load()
+            if (this.isActive) {
+                this.load();
+            }
         }, 'all', this.appDeName.toUpperCase());
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {

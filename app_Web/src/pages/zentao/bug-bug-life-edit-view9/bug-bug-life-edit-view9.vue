@@ -18,7 +18,7 @@ import view_form from '@widgets/bug/dashboard-bug-life-form/dashboard-bug-life-f
     },
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
+            vm.$appService.navHistory.setViewTag(vm.viewtag, to);
         });
     }
 })

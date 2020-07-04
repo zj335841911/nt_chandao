@@ -18,7 +18,7 @@ import view_kanban from '@widgets/task/task-kan-ban-kanban/task-kan-ban-kanban.v
     },
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
+            vm.$appService.navHistory.setViewTag(vm.viewtag, to);
         });
     }
 })

@@ -223,6 +223,33 @@ export class ViewBase extends Vue {
     protected viewDataChange(newVal: any, oldVal: any): void { }
 
     /**
+     * 当前组件是否已激活
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof ViewBase
+     */
+    protected isActive: boolean = true;
+
+    /**
+     * keep-alive缓存激活时调用
+     *
+     * @memberof ViewBase
+     */
+    public activated(): void {
+        this.isActive = true;
+    }
+
+    /**
+     * keep-alive缓存时调用
+     *
+     * @memberof ViewBase
+     */
+    public deactivated(): void {
+        this.isActive = false;
+    }
+
+    /**
      * 组件创建完毕
      *
      * @memberof ViewBase
@@ -328,9 +355,7 @@ export class ViewBase extends Vue {
      * @memberof ViewBase
      */
     protected parseViewParam(): void {
-        for (let key in this.context) {
-            delete this.context[key];
-        }
+        this.context.clearAll();
         if (!this.viewDefaultUsage && this.viewdata && !Object.is(this.viewdata, '')) {
             Object.assign(this.context, JSON.parse(this.viewdata));
             if (this.context && this.context.srfparentdename) {
