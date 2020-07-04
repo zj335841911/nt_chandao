@@ -29,7 +29,7 @@ export default class RelatedStory {
      * @type any
      * @memberof RelatedStory
      */
-    public cacheTimeout:any = -1;
+    public cacheTimeout:any = 600;
 
     /**
      * 代码表模型对象
