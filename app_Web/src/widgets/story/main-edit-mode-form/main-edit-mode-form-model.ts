@@ -158,7 +158,7 @@ export default class Main_EditModeModel {
       {
         name: 'linkstories',
         prop: 'linkstories',
-        dataType: 'TEXT',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'id',
