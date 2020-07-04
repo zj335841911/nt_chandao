@@ -125,6 +125,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "RelatedStory",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Story",
+        "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
         srfkey: "Testcase__stage",
         emptytext: "未定义",
         "codelisttype":"static",

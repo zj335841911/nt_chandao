@@ -1,3 +1,4 @@
+import RelatedStory from '@/codelist/related-story';   
 import ProductBranch_Cache from '@/codelist/product-branch-cache';   
 import CurProductPlan from '@/codelist/cur-product-plan';   
 import UserRealName from '@/codelist/user-real-name';   
@@ -58,6 +59,14 @@ export default class CodeListService {
      */
     public static codelistCached:Map<string,any> = new Map();
 
+
+    /**
+     * 代码表--关联需求（动态）
+     *
+     * @type {RelatedStory}
+     * @memberof CodeListService
+     */
+    public RelatedStory: RelatedStory = new RelatedStory();
 
     /**
      * 代码表--产品平台（动态）_缓存
