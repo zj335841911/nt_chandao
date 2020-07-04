@@ -159,6 +159,9 @@ export default class AssignedToMeCaseModel {
       {
         name: 'stepcnt',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

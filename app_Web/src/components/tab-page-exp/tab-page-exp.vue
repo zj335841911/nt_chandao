@@ -1,18 +1,18 @@
 <template>
-    <div class="ibiz-page-tag" v-if="$appService.navHistory.historyPathList > 0">
+    <div class="ibiz-page-tag" v-if="appService.navHistory.metaList.length > 0">
         <div class="move-btn move-left" @click="leftMove">
             <icon type="ios-arrow-back" />
         </div>
         <div ref="scrollBody" class="tags-body">
             <div ref="scrollChild" class="tags-container" :style="{left: styleLeft + 'px'}">
                 <transition-group name="tags-transition">
-                    <template v-for="(page, index) of $appService.navHistory.historyPathList">
-                        <Tag ref="tagElement" :key="index" :class="isActive(page) ? 'tag-is-active' : ''" :name="index" closable @click.native="changePage(page)" @on-close="onClose(page)">
+                    <template v-for="(meta, index) of appService.navHistory.metaList">
+                        <Tag ref="tagElement" :key="index" :class="isActive(appService.navHistory.historyList[index]) ? 'tag-is-active' : ''" :name="index" closable @click.native="changePage(appService.navHistory.historyList[index])" @on-close="onClose(appService.navHistory.historyList[index])">
                             <div class="tag-text">
-                                <div :title="getCaption(page.meta.caption, page.meta.info)" style="max-width: 300px;">
-                                    <i v-if="page.meta.iconCls && !Object.is(page.meta.iconCls, '')" :class="page.meta.iconCls"></i>
-                                    <img v-else :src="page.meta.imgPath" class="text-icon" />
-                                    &nbsp;{{getCaption(page.meta.caption, page.meta.info)}}
+                                <div :title="getCaption(meta.caption, meta.info)" style="max-width: 300px;">
+                                    <i v-if="meta.iconCls && !Object.is(meta.iconCls, '')" :class="meta.iconCls"></i>
+                                    <img v-else :src="meta.imgPath" class="text-icon" />
+                                    &nbsp;{{getCaption(meta.caption, meta.info)}}
                                 </div>
                             </div>
                         </Tag>
@@ -39,9 +39,12 @@
 <script lang="ts">
 import { Vue, Component, Provide, Prop, Watch } from 'vue-property-decorator';
 import { Environment } from '../../environments/environment';
+import { AppService } from '../../studio-core/service/app-service/AppService';
 
 @Component({})
 export default class TabPageExp extends Vue {
+
+    protected appService: AppService = new AppService();
 
     @Provide()
     public styleLeft: number = 0;
@@ -116,11 +119,7 @@ export default class TabPageExp extends Vue {
      * @memberof TabPageExp
      */
     public onClose(page: any) {
-        if (!page) {
-            this.$appService.navHistory.remove(page);
-            this.gotoPage();
-        }
-        const appview = this.$store.getters['viewaction/getAppView'](page.viewtag);
+        const appview = this.$store.getters['viewaction/getAppView'](this.appService.navHistory.viewTagMap.get(page.fullPath));
         if (appview && appview.viewdatachange) {
             const title: any = this.$t('app.tabpage.sureclosetip.title');
             const content: any = this.$t('app.tabpage.sureclosetip.content');
@@ -128,15 +127,15 @@ export default class TabPageExp extends Vue {
                 title: title,
                 content: content,
                 onOk: () => {
-                    this.$appService.navHistory.remove(page);
-                    this.gotoPage();
+                    this.appService.navHistory.remove(page);
+                    this.gotoPage(page);
                 },
                 onCancel: () => {
                 }
             });
         } else {
-            this.$appService.navHistory.remove(page);
-            this.gotoPage();
+            this.appService.navHistory.remove(page);
+            this.gotoPage(page);
         }
     }
 
@@ -147,7 +146,7 @@ export default class TabPageExp extends Vue {
      * @memberof TabPageExp
      */
     public isClose() {
-        if (this.$appService.navHistory.historyList.length > 1) {
+        if (this.appService.navHistory.historyList.length > 1) {
             return true;
         }
         return false;
@@ -195,7 +194,7 @@ export default class TabPageExp extends Vue {
         if(this.$route.meta && (!Object.is(this.$route.meta.caption, caption))) {
             return;
         }
-        this.$store.commit("setCurPageCaption", { route: this.$route, caption: title, info: info });
+        this.appService.navHistory.setCaption({ route: this.$route, caption: title, info: info });
         setTimeout(() => {
             this.moveToView(this.$route);
         }, 1);
@@ -208,7 +207,7 @@ export default class TabPageExp extends Vue {
      * @memberof TabPageExp
      */
     public moveToView(page: any) {
-        const pages: any[] = this.$appService.navHistory.historyList;
+        const pages: any[] = this.appService.navHistory.historyList;
         let leftWidth: number = 0;
         this.$nextTick(() => {
             pages.forEach((page, index) => {
@@ -252,10 +251,10 @@ export default class TabPageExp extends Vue {
      */
     public doTagAction(name: string) {
         if (Object.is(name, 'closeAll')) {
-            this.$appService.navHistory.reset();
+            this.appService.navHistory.reset();
             this.gotoPage();
         } else if (Object.is(name, 'closeOther')) {
-            this.$appService.navHistory.removeOther(this.$route);
+            this.appService.navHistory.removeOther(this.$route);
             this.moveToView(this.$route);
         }
     }  

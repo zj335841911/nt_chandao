@@ -159,6 +159,9 @@ export default class MainDashboardModel {
       {
         name: 'stepcnt',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

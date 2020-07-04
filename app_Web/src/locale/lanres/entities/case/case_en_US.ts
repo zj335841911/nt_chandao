@@ -49,6 +49,7 @@ export default {
     tobugcnt: "转bug数",
     resultcnt: "测试结果数",
     stepcnt: "用例步骤数",
+    comment: "备注",
   },
 	views: {
 		editview: {
@@ -167,7 +168,7 @@ export default {
 			srfsourcekey: "", 
 			title: "用例标题", 
 			precondition: "前置条件", 
-			formitem: "备注", 
+			comment: "备注", 
 			files: "附件", 
 			product: "所属产品", 
 			productname: "产品名称", 

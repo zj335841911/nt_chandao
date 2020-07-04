@@ -1,3 +1,4 @@
+import { SingletonMode } from '../../decorators/SingletonMode';
 import { AppContextStoreBase } from './AppContextStoreBase';
 
 /**
@@ -7,6 +8,7 @@ import { AppContextStoreBase } from './AppContextStoreBase';
  * @class AppContextStore
  * @extends {AppContextStoreBase}
  */
+@SingletonMode()
 export class AppContextStore extends AppContextStoreBase {
 
 }

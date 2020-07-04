@@ -1,3 +1,4 @@
+import { SingletonMode } from '../../decorators/SingletonMode';
 import { AppNavHistoryBase } from './AppNavHistoryBase';
 
 /**
@@ -7,6 +8,7 @@ import { AppNavHistoryBase } from './AppNavHistoryBase';
  * @class AppNavHistory
  * @extends {AppNavHistoryBase}
  */
+@SingletonMode()
 export class AppNavHistory extends AppNavHistoryBase {
 
 }

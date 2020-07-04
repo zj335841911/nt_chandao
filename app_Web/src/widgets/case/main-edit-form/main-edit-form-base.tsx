@@ -65,7 +65,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
         srfsourcekey: null,
         title: null,
         precondition: null,
-        formitem: null,
+        comment: null,
         files: null,
         product: null,
         productname: null,
@@ -143,7 +143,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
 
         precondition: new FormItemModel({ caption: '前置条件', detailType: 'FORMITEM', name: 'precondition', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
-        formitem: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
+        comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
         files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 

@@ -9,7 +9,6 @@ Vue.use(Router);
 
 const appService = new AppService();
 
-
 const router = new Router({
     routes: [
         {

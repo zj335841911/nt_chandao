@@ -159,6 +159,9 @@ export default class MainDetailModel {
       {
         name: 'stepcnt',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

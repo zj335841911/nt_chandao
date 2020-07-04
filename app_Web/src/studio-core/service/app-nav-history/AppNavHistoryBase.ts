@@ -1,3 +1,4 @@
+import { Util } from '@/utils';
 import { AppContextStore } from '../app-context-store/AppContextStore';
 import { UIStateService } from '../UIStateService';
 
@@ -34,6 +35,14 @@ export class AppNavHistoryBase {
     public readonly historyList: any[] = [];
 
     /**
+     * 参数列表
+     *
+     * @type {string[]}
+     * @memberof AppNavHistoryBase
+     */
+    public readonly metaList: string[] = [];
+
+    /**
      * 视图标识
      *
      * @type {Map<string, string>}
@@ -43,6 +52,9 @@ export class AppNavHistoryBase {
 
     /**
      * 导航缓存，忽略判断的导航参数正则
+     *
+     * @type {RegExp}
+     * @memberof AppNavHistoryBase
      */
     public readonly navIgnoreParameters: RegExp = new RegExp(/(srftabactivate|srftreeexpactivate)/);
 
@@ -95,7 +107,11 @@ export class AppNavHistoryBase {
      */
     public add(page: any): void {
         if (this.findHistoryIndex(page) === -1) {
+            if (this.uiStateService.layoutState.styleMode === 'DEFAULT' && page?.matched?.length === 1) {
+                return;
+            }
             this.historyList.push(page);
+            this.metaList.push(Util.deepCopy(page.meta));
         }
     }
 
@@ -109,6 +125,7 @@ export class AppNavHistoryBase {
         const i = this.findHistoryIndex(page);
         if (i !== -1) {
             this.historyList.splice(i, 1);
+            this.metaList.splice(i, 1);
         }
     }
 
@@ -119,6 +136,7 @@ export class AppNavHistoryBase {
      */
     public reset(): void {
         this.historyList.splice(0, this.historyList.length);
+        this.metaList.splice(0, this.metaList.length);
     }
 
     /**
@@ -133,8 +151,8 @@ export class AppNavHistoryBase {
         if (i === -1) {
             return false;
         }
-        const page = this.historyList[i];
-        Object.assign(page.meta, { caption, info });
+        const meta = this.metaList[i];
+        Object.assign(meta, { caption, info });
         return true;
     }
 
@@ -153,7 +171,6 @@ export class AppNavHistoryBase {
         }
         const page = this.historyList[i];
         this.viewTagMap.set(page.fullPath, tag);
-        console.log(this.viewTagMap);
         return true;
     }
 
@@ -167,8 +184,12 @@ export class AppNavHistoryBase {
         const i = this.findHistoryIndex(page);
         if (i !== -1) {
             const page = this.historyList[i];
+            const meta = this.metaList[i];
             this.historyList.splice(0, this.historyList.length);
+            this.metaList.splice(0, this.metaList.length);
             this.historyList.push(page);
+            this.metaList.push(meta);
         }
     }
+
 }

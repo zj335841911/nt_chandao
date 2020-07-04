@@ -116,7 +116,7 @@ export default {
         },
         matches(pattern, name) {
             if (Array.isArray(pattern)) {
-                return pattern.indexOf(name) > -1;
+                return pattern.findIndex(item => item.fullPath === name) !== -1;
             } else if (typeof pattern === 'string') {
                 return pattern.split(',').indexOf(name) > -1;
             } else if (this.isRegExp(pattern)) {
