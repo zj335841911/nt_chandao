@@ -1251,6 +1251,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'e8763999350c7bd92e884e0381d7ac6b',
                 '5b139a407fa34f386f3f784f33841184',
                 '5273dc442a49b8c4d37ba9ff008531e7',
                 '417541fa331fc089b84936b8359403fa',
@@ -1526,6 +1527,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: 'e8763999350c7bd92e884e0381d7ac6b',
+            viewmodule: 'zentao',
+            viewname: 'TestTaskEditView_Edit',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

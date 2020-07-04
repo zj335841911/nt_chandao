@@ -51,6 +51,10 @@ export default {
 			caption: "测试版本",
       		title: "testtask表格视图",
 		},
+		editview_edit: {
+			caption: "测试版本",
+      		title: "testtask编辑视图",
+		},
 	},
 	maindetail_form: {
 		details: {
@@ -95,7 +99,7 @@ export default {
 		uiactions: {
 		},
 	},
-	main_form: {
+	mainedit_form: {
 		details: {
 			grouppanel2: "起止日期", 
 			grouppanel1: "分组面板", 
@@ -126,6 +130,36 @@ export default {
 		uiactions: {
 		},
 	},
+	main_form: {
+		details: {
+			grouppanel2: "起止日期", 
+			grouppanel1: "分组面板", 
+			group1: "基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			projecttname: "项目", 
+			buildname: "版本", 
+			owner: "负责人", 
+			pri: "优先级", 
+			begin: "开始日期", 
+			end: "结束日期", 
+			status: "当前状态", 
+			name: "名称", 
+			desc: "描述", 
+			mailto: "抄送给", 
+			id: "编号", 
+			project: "所属项目", 
+			build: "版本", 
+		},
+		uiactions: {
+		},
+	},
 	main_grid: {
 		columns: {
 			id: "ID",
@@ -142,7 +176,7 @@ export default {
 		uiactions: {
         testtask_linkcase: "关联用例",
         testtask_openinfoview: "概况",
-        edit: "Edit",
+        testtask_editedit: "编辑",
         remove: "Remove",
 		},
 	},
@@ -157,6 +191,12 @@ export default {
 			end: "结束日期",
 		},
 		uiactions: {
+		},
+	},
+	editview_edittoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
 		},
 	},
 	gridviewtoolbar_toolbar: {

@@ -2,7 +2,7 @@ import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import TestTaskService from '@/service/test-task/test-task-service';
-import MainService from './main-form-service';
+import MainEditService from './main-edit-form-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 
 
@@ -11,23 +11,23 @@ import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormP
  *
  * @export
  * @class EditFormControlBase
- * @extends {MainEditFormBase}
+ * @extends {MainEditEditFormBase}
  */
-export class MainEditFormBase extends EditFormControlBase {
+export class MainEditEditFormBase extends EditFormControlBase {
 
     /**
      * 建构部件服务对象
      *
-     * @type {MainService}
-     * @memberof MainEditFormBase
+     * @type {MainEditService}
+     * @memberof MainEditEditFormBase
      */
-    public service: MainService = new MainService({ $store: this.$store });
+    public service: MainEditService = new MainEditService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {TestTaskService}
-     * @memberof MainEditFormBase
+     * @memberof MainEditEditFormBase
      */
     public appEntityService: TestTaskService = new TestTaskService({ $store: this.$store });
 
@@ -36,7 +36,7 @@ export class MainEditFormBase extends EditFormControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof MainEditFormBase
+     * @memberof MainEditEditFormBase
      */
     protected appDeName: string = 'testtask';
 
@@ -44,7 +44,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * 表单数据对象
      *
      * @type {*}
-     * @memberof MainEditFormBase
+     * @memberof MainEditEditFormBase
      */
     public data: any = {
         srforikey: null,
@@ -63,6 +63,7 @@ export class MainEditFormBase extends EditFormControlBase {
         status: null,
         name: null,
         desc: null,
+        comment: null,
         mailto: null,
         id: null,
         project: null,
@@ -74,7 +75,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof MainEditFormBase
+     * @memberof MainEditEditFormBase
      */
     public rules: any = {
         name: [
@@ -87,14 +88,14 @@ export class MainEditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof MainEditFormBase
+     * @memberof MainEditEditFormBase
      */
     public detailsModel: any = {
-        grouppanel2: new FormGroupPanelModel({ caption: '起止日期', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.testtask.main_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel2: new FormGroupPanelModel({ caption: '起止日期', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.testtask.mainedit_form', extractMode: 'ITEM', details: [] } }),
 
-        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.testtask.main_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.testtask.mainedit_form', extractMode: 'ITEM', details: [] } }),
 
-        group1: new FormGroupPanelModel({ caption: '基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.testtask.main_form', extractMode: 'ITEM', details: [] } }),
+        group1: new FormGroupPanelModel({ caption: '基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.testtask.mainedit_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this }),
 
@@ -129,6 +130,8 @@ export class MainEditFormBase extends EditFormControlBase {
         name: new FormItemModel({ caption: '名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
         desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
+
+        comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
         mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 

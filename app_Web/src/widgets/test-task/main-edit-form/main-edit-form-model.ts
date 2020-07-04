@@ -1,16 +1,16 @@
 /**
- * Main 部件模型
+ * MainEdit 部件模型
  *
  * @export
- * @class MainModel
+ * @class MainEditModel
  */
-export default class MainModel {
+export default class MainEditModel {
 
   /**
   * 获取数据项集合
   *
   * @returns {any[]}
-  * @memberof MainModel
+  * @memberof MainEditModel
   */
   public getDataItems(): any[] {
     return [
@@ -94,6 +94,11 @@ export default class MainModel {
         name: 'desc',
         prop: 'desc',
         dataType: 'LONGTEXT',
+      },
+      {
+        name: 'comment',
+        prop: 'comment',
+        dataType: 'HTMLTEXT',
       },
       {
         name: 'mailto',

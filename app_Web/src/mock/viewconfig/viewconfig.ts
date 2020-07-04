@@ -1343,6 +1343,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugCloseView",
             "viewtag": "e67fe0ec86d17b74944c16e187da482d"
         },
+        "testtaskeditview_edit": {
+            "title": "testtask编辑视图",
+            "caption": "测试版本",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestTaskEditView_Edit",
+            "viewtag": "e8763999350c7bd92e884e0381d7ac6b"
+        },
         "buildeditview": {
             "title": "build编辑视图",
             "caption": "版本",

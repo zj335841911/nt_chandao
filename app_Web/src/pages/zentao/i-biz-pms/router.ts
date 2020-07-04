@@ -5021,6 +5021,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-plan-sub-edit-view/story-plan-sub-edit-view.vue'),
                 },
                 {
+                    path: 'products/:product?/testtasks/:testtask?/editview_edit/:editview_edit?',
+                    meta: {
+                        caption: 'entities.testtask.views.editview_edit.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'testtasks', parameterName: 'testtask' },
+                            { pathName: 'editview_edit', parameterName: 'editview_edit' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-task-edit-view-edit/test-task-edit-view-edit.vue'),
+                },
+                {
+                    path: 'testtasks/:testtask?/editview_edit/:editview_edit?',
+                    meta: {
+                        caption: 'entities.testtask.views.editview_edit.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'testtasks', parameterName: 'testtask' },
+                            { pathName: 'editview_edit', parameterName: 'editview_edit' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-task-edit-view-edit/test-task-edit-view-edit.vue'),
+                },
+                {
                     path: 'projects/:project?/editview_putoff/:editview_putoff?',
                     meta: {
                         caption: 'entities.project.views.editview_putoff.title',
