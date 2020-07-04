@@ -3,6 +3,43 @@ import { AppContextStore } from '../app-context-store/AppContextStore';
 import { UIStateService } from '../UIStateService';
 
 /**
+ * 历史记录项
+ *
+ * @export
+ * @interface HistoryItem
+ */
+export interface HistoryItem {
+    /**
+     * 路由信息
+     *
+     * @type {*}
+     * @memberof HistoryItem
+     */
+    to?: any;
+    /**
+     * 参数信息
+     *
+     * @type {*}
+     * @memberof HistoryItem
+     */
+    meta?: any;
+    /**
+     * 视图标识
+     *
+     * @type {string}
+     * @memberof HistoryItem
+     */
+    tag?: string;
+    /**
+     * 上下文
+     *
+     * @type {*}
+     * @memberof HistoryItem
+     */
+    context?: any;
+}
+
+/**
  * 应用导航记录基类
  *
  * @export
@@ -29,10 +66,10 @@ export class AppNavHistoryBase {
     /**
      * 路由记录缓存
      *
-     * @type {any[]}
+     * @type {HistoryItem[]}
      * @memberof AppNavHistoryBase
      */
-    public readonly historyList: any[] = [];
+    public readonly historyList: HistoryItem[] = [];
 
     /**
      * 参数列表
@@ -40,7 +77,7 @@ export class AppNavHistoryBase {
      * @type {string[]}
      * @memberof AppNavHistoryBase
      */
-    public readonly metaList: string[] = [];
+    // public readonly metaList: string[] = [];
 
     /**
      * 视图标识
@@ -48,7 +85,7 @@ export class AppNavHistoryBase {
      * @type {Map<string, string>}
      * @memberof AppNavHistoryBase
      */
-    public readonly viewTagMap: Map<string, string> = new Map();
+    // public readonly viewTagMap: Map<string, string> = new Map();
 
     /**
      * 导航缓存，忽略判断的导航参数正则
@@ -72,10 +109,11 @@ export class AppNavHistoryBase {
             return -1;
         }
         return list.findIndex((item: any) => {
+            const to = item.to;
             // 基本路径是否一致
-            if (Object.is(item.path, page.path)) {
+            if (Object.is(to.path, page.path)) {
                 // 历史路径是否存在参数
-                if (this.uiStateService.layoutState.styleMode === 'STYLE2' && item.query) {
+                if (this.uiStateService.layoutState.styleMode === 'STYLE2' && to.query) {
                     let judge: boolean = true;
                     // 新路径是否存在参数
                     if (page.query) {
@@ -84,7 +122,7 @@ export class AppNavHistoryBase {
                             if (this.navIgnoreParameters.test(`|${key}|`)) {
                                 continue;
                             }
-                            if (item.query[key] === undefined || item.query[key] === null) {
+                            if (to.query[key] === undefined || to.query[key] === null) {
                                 judge = false;
                             }
                         }
@@ -102,41 +140,44 @@ export class AppNavHistoryBase {
     /**
      * 添加视图缓存
      *
-     * @param {*} page 当前路由信息
+     * @param {*} to 当前路由信息
      * @memberof AppNavHistoryBase
      */
-    public add(page: any): void {
-        if (this.findHistoryIndex(page) === -1) {
-            if (this.uiStateService.layoutState.styleMode === 'DEFAULT' && page?.matched?.length === 1) {
+    public add(to: any): void {
+        if (this.findHistoryIndex(to) === -1) {
+            if (this.uiStateService.layoutState.styleMode === 'DEFAULT' && to?.matched?.length === 1) {
                 return;
             }
-            this.historyList.push(page);
-            this.metaList.push(Util.deepCopy(page.meta));
+            this.historyList.push({
+                to,
+                meta: Util.deepCopy(to.meta)
+            });
         }
     }
 
     /**
      * 删除视图缓存
      *
-     * @param {*} page
+     * @param {HistoryItem} item
      * @memberof AppNavHistoryBase
      */
-    public remove(page: any): void {
-        const i = this.findHistoryIndex(page);
+    public remove(item: HistoryItem): void {
+        const i = this.findHistoryIndex(item.to);
         if (i !== -1) {
             this.historyList.splice(i, 1);
-            this.metaList.splice(i, 1);
+            // this.metaList.splice(i, 1);
         }
     }
 
     /**
      * 重置路由缓存
      *
+     * @param {number} [num=0]
      * @memberof AppNavHistoryBase
      */
-    public reset(): void {
-        this.historyList.splice(0, this.historyList.length);
-        this.metaList.splice(0, this.metaList.length);
+    public reset(num: number = 0): void {
+        this.historyList.splice(num, this.historyList.length);
+        // this.metaList.splice(num, this.metaList.length);
     }
 
     /**
@@ -151,8 +192,8 @@ export class AppNavHistoryBase {
         if (i === -1) {
             return false;
         }
-        const meta = this.metaList[i];
-        Object.assign(meta, { caption, info });
+        const item = this.historyList[i];
+        Object.assign(item.meta, { caption, info });
         return true;
     }
 
@@ -169,27 +210,38 @@ export class AppNavHistoryBase {
         if (i === -1) {
             return false;
         }
-        const page = this.historyList[i];
-        this.viewTagMap.set(page.fullPath, tag);
+        const item = this.historyList[i];
+        item.tag = tag;
+        // this.viewTagMap.set(page.fullPath, tag);
         return true;
     }
 
     /**
      * 删除其他缓存
      *
-     * @param {*} page
+     * @param {HistoryItem} item
      * @memberof AppNavHistoryBase
      */
-    public removeOther(page: any): void {
-        const i = this.findHistoryIndex(page);
+    public removeOther(item: HistoryItem): void {
+        const i = this.findHistoryIndex(item.to);
         if (i !== -1) {
             const page = this.historyList[i];
-            const meta = this.metaList[i];
+            // const meta = this.metaList[i];
             this.historyList.splice(0, this.historyList.length);
-            this.metaList.splice(0, this.metaList.length);
+            // this.metaList.splice(0, this.metaList.length);
             this.historyList.push(page);
-            this.metaList.push(meta);
+            // this.metaList.push(meta);
         }
+    }
+
+    /**
+     * 缓存后退
+     *
+     * @memberof AppNavHistoryBase
+     */
+    public pop(): void {
+        this.historyList.pop();
+        // this.metaList.pop();
     }
 
 }

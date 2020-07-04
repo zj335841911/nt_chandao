@@ -466,6 +466,9 @@ export class ViewBase extends Vue {
             this.$emit('close', [args]);
         } else if (this.$tabPageExp) {
             this.$tabPageExp.onClose(this.$route.fullPath);
+        } else {
+            this.$router.back();
+            this.$appService.navHistory.pop();
         }
     }
 }

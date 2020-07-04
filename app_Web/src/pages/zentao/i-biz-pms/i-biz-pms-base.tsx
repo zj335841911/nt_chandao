@@ -1,5 +1,6 @@
 import { Vue } from 'vue-property-decorator';
 import { FooterItemsService } from '@/studio-core/service/FooterItemsService';
+import { AppService } from '@/studio-core/service/app-service/AppService';
 import AppMenusModel from '@/widgets/app/zentao-appmenu/zentao-appmenu-model';
 
 /**
@@ -13,6 +14,15 @@ export class IBizPMSBase extends Vue {
    * @memberof IBizPMSBase
    */
   protected counterServiceArray: any[] = [];
+
+  /**
+   * 应用服务
+   *
+   * @protected
+   * @type {AppService}
+   * @memberof IBizPMSBase
+   */
+  protected appService: AppService = new AppService();
 
   /**
    * 应用菜单集合
@@ -267,7 +277,7 @@ export class IBizPMSBase extends Vue {
           </template> : null}
           {styleMode === 'DEFAULT' ? <tab-page-exp></tab-page-exp> : null}
           <div class="view-warp">
-            <app-keep-alive routerList={this.$appService.navHistory.historyList}>
+            <app-keep-alive routerList={this.appService.navHistory.historyList}>
               <router-view key={this.$route.fullPath}></router-view>
             </app-keep-alive>
           </div>

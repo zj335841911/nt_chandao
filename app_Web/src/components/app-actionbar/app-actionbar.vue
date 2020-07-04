@@ -39,7 +39,6 @@ export default class AppActionBar extends Vue {
    * @memberof AppActionBar
    */
   public handleClick($event: any) {
-    console.log(this.items);
     this.$emit("itemClick", $event);
   }
 }
