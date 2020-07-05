@@ -90,6 +90,9 @@ export default class MainTabExpViewtabexppanelModel {
       {
         name: 'notclosedbugcnt',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

@@ -26,6 +26,7 @@ export default {
     activestorycnt: "激活需求数",
     unconfirmbugcnt: "未确认Bug数",
     notclosedbugcnt: "未关闭Bug数",
+    comment: "备注",
   },
 	views: {
 		testtabexpview: {
@@ -51,6 +52,10 @@ export default {
 		chartview: {
 			caption: "产品",
       		title: "产品图表视图",
+		},
+		editview_close: {
+			caption: "关闭产品",
+      		title: "关闭产品",
 		},
 		gridview_unclosed: {
 			caption: "未关闭产品",
@@ -95,6 +100,10 @@ export default {
 		maindashboardview: {
 			caption: "产品",
       		title: "产品数据看板视图",
+		},
+		mainview_edit: {
+			caption: "产品基本信息",
+      		title: "产品编辑视图",
 		},
 		testlistexpview: {
 			caption: "测试统计",
@@ -160,6 +169,52 @@ export default {
 			qd: "测试负责人", 
 			rd: "发布负责人", 
 			type: "产品类型", 
+			desc: "产品描述	", 
+			acl: "访问控制", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
+	close_form: {
+		details: {
+			druipart1: "", 
+			group1: "基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "产品名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			comment: "备注", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
+	main_edit_form: {
+		details: {
+			grouppanel1: "分组面板", 
+			group1: "product基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "产品名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			name: "产品名称", 
+			code: "产品代号", 
+			line: "产品线", 
+			linename: "产品线", 
+			po: "产品负责人", 
+			qd: "测试负责人", 
+			rd: "发布负责人", 
+			type: "产品类型", 
+			status: "状态", 
 			desc: "产品描述	", 
 			acl: "访问控制", 
 			id: "编号", 
@@ -256,6 +311,12 @@ export default {
 			tip: "Save And Close Window",
 		},
 	},
+	editview_closetoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+	},
 	gridviewtoolbar_toolbar: {
 		deuiaction4: {
 			caption: "Remove",
@@ -271,9 +332,17 @@ export default {
 		},
 	},
 	leftsidebarlistviewtoolbar_toolbar: {
+		deuiaction3_closeproduct: {
+			caption: "关闭",
+			tip: "关闭",
+		},
 		deuiaction3_manager: {
 			caption: "管理",
 			tip: "管理",
+		},
+		deuiaction3_remove: {
+			caption: "Remove",
+			tip: "Remove {0}",
 		},
 		seperator2: {
 			caption: "",
@@ -296,6 +365,12 @@ export default {
 		deuiaction1: {
 			caption: "New",
 			tip: "New",
+		},
+	},
+	mainview_edittoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
 		},
 	},
 };

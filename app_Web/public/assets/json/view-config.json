@@ -379,6 +379,16 @@
         "viewtag": "3f2ca3e560d9082bb56fbf7667a57a66",
         "memo": ""
     },
+    "producteditview_close": {
+        "title": "关闭产品",
+        "caption": "关闭产品",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "ProductEditView_Close",
+        "viewfilename": "product-edit-view-close",
+        "viewtag": "3fa1a1978a4380209df04704e2f8059f",
+        "memo": ""
+    },
     "casemaingridview": {
         "title": "功能测试",
         "caption": "功能测试",
@@ -1457,6 +1467,16 @@
         "viewname": "ModulePickupGridView",
         "viewfilename": "module-pickup-grid-view",
         "viewtag": "bda78773fabbeee54079951afb35f954",
+        "memo": ""
+    },
+    "productmainview_edit": {
+        "title": "产品编辑视图",
+        "caption": "产品基本信息",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "ProductMainView_Edit",
+        "viewfilename": "product-main-view-edit",
+        "viewtag": "c02574075c8c15c67231cd71be040763",
         "memo": ""
     },
     "bugresolveview": {

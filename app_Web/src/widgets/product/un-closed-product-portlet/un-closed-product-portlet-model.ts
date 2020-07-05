@@ -90,6 +90,9 @@ export default class UnClosedProductModel {
       {
         name: 'notclosedbugcnt',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

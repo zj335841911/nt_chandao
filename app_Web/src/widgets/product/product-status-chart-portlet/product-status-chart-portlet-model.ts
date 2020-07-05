@@ -90,6 +90,9 @@ export default class ProductStatusChartModel {
       {
         name: 'notclosedbugcnt',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

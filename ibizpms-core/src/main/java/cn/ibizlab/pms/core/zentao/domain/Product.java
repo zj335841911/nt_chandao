@@ -222,6 +222,13 @@ public class Product extends EntityMP implements Serializable {
     @JSONField(name = "notclosedbugcnt")
     @JsonProperty("notclosedbugcnt")
     private Integer notclosedbugcnt;
+    /**
+     * 备注
+     */
+    @TableField(exist = false)
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    private String comment;
 
     /**
      * 产品线

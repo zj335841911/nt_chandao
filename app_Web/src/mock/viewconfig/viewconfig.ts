@@ -311,6 +311,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryMainView",
             "viewtag": "3f2ca3e560d9082bb56fbf7667a57a66"
         },
+        "producteditview_close": {
+            "title": "关闭产品",
+            "caption": "关闭产品",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProductEditView_Close",
+            "viewtag": "3fa1a1978a4380209df04704e2f8059f"
+        },
         "casemaingridview": {
             "title": "功能测试",
             "caption": "功能测试",
@@ -1174,6 +1182,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ModulePickupGridView",
             "viewtag": "bda78773fabbeee54079951afb35f954"
+        },
+        "productmainview_edit": {
+            "title": "产品编辑视图",
+            "caption": "产品基本信息",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProductMainView_Edit",
+            "viewtag": "c02574075c8c15c67231cd71be040763"
         },
         "bugresolveview": {
             "title": "解决Bug",

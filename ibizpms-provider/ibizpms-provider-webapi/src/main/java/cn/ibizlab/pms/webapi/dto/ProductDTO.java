@@ -224,6 +224,14 @@ public class ProductDTO extends DTOBase implements Serializable {
     @JsonProperty("notclosedbugcnt")
     private Integer notclosedbugcnt;
 
+    /**
+     * 属性 [COMMENT]
+     *
+     */
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    private String comment;
+
 
     /**
      * 设置 [QD]

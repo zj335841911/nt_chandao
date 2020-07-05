@@ -338,6 +338,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '3fa1a1978a4380209df04704e2f8059f',
+            viewmodule: 'zentao',
+            viewname: 'ProductEditView_Close',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
             viewtag: '417541fa331fc089b84936b8359403fa',
             viewmodule: 'zentao',
             viewname: 'CaseMainGridView',
@@ -994,6 +1004,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '6c7b582273d0726bcf77214807cfe40c',
+                '3fa1a1978a4380209df04704e2f8059f',
                 '7caeaef893043533e8f388d25523328c',
                 'e042a1dee405b0a853f315b39a375783',
             ],

@@ -49,33 +49,6 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_u6a93ab9_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.Exit(datas, contextJO,paramJO,  $event, xData,this,"Project");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
     public dashboard_sysportlet5_uad3d648_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -236,25 +209,6 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
     }
 
     /**
-     * 返回
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof ProjectMainDashboardViewBase
-     */
-    public Exit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        this.closeView(args);
-        if(window.parent){
-            window.parent.postMessage([{ ...args }],'*');
-        }
-    }
-
-
-    /**
      * 删除
      *
      * @param {any[]} args 当前数据
@@ -311,11 +265,6 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
      * @memberof ProjectMainToolbarBase
      */
     public actionBarModelData:any[] =[
-        { viewlogicname:"dashboard_sysportlet5_u6a93ab9_click",
-        text: "返回",
-        iconcls: "fa fa-sign-out",
-        icon: "",
-        },
         { viewlogicname:"dashboard_sysportlet5_uad3d648_click",
         text: "延期",
         iconcls: "fa fa-calendar-o",
@@ -328,13 +277,13 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         },
         { viewlogicname:"dashboard_sysportlet5_u2db4a08_click",
         text: "激活",
-        iconcls: null,
-        icon: null,
+        iconcls: "fa fa-plug",
+        icon: "",
         },
         { viewlogicname:"dashboard_sysportlet5_u698efc2_click",
         text: "关闭",
-        iconcls: null,
-        icon: null,
+        iconcls: "fa fa-power-off",
+        icon: "",
         },
         { viewlogicname:"dashboard_sysportlet5_u209627c_click",
         text: "编辑",
@@ -354,9 +303,6 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
      * @memberof ProjectMainToolbarBase
      */
     public handleItemClick($event:any){
-        if(Object.is($event,'dashboard_sysportlet5_u6a93ab9_click')){
-            this.dashboard_sysportlet5_u6a93ab9_click(null);
-        }
         if(Object.is($event,'dashboard_sysportlet5_uad3d648_click')){
             this.dashboard_sysportlet5_uad3d648_click(null);
         }
