@@ -209,6 +209,16 @@
         "viewtag": "1ed8a475f4c185fc99c487900bbcf69e",
         "memo": ""
     },
+    "storymainview9_related": {
+        "title": "需求编辑视图",
+        "caption": "需求",
+        "viewtype": "DEEDITVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "StoryMainView9_Related",
+        "viewfilename": "story-main-view9-related",
+        "viewtag": "1f87f07919b8496e5bf832f95686fada",
+        "memo": ""
+    },
     "bugmpickupview": {
         "title": "关联Bug",
         "caption": "关联Bug",
@@ -669,6 +679,16 @@
         "viewtag": "5890a810365fec51e801d2cffce44fde",
         "memo": ""
     },
+    "taskgridview9_storyrelated": {
+        "title": "任务表格视图",
+        "caption": "相关任务",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "TaskGridView9_StoryRelated",
+        "viewfilename": "task-grid-view9-story-related",
+        "viewtag": "5895951b7f1045198682c8d51cd85482",
+        "memo": ""
+    },
     "productstorytreeexpview": {
         "title": "产品需求导航视图",
         "caption": "产品",
@@ -727,6 +747,16 @@
         "viewname": "DeptMainGridView",
         "viewfilename": "dept-main-grid-view",
         "viewtag": "5c2b20935d511794aeca60376bd81fef",
+        "memo": ""
+    },
+    "casegridview9_storyrelated": {
+        "title": "测试用例表格视图",
+        "caption": "相关用例",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "CaseGridView9_StoryRelated",
+        "viewfilename": "case-grid-view9-story-related",
+        "viewtag": "5d3b1d4c90b8b3a2013ccd3f3a9d5f17",
         "memo": ""
     },
     "tasktasktypeganttview": {
@@ -1517,6 +1547,16 @@
         "viewname": "BugGridView",
         "viewfilename": "bug-grid-view",
         "viewtag": "c9410c9f72535adf1fff569d5243edd1",
+        "memo": ""
+    },
+    "buggridview9_storyrelated": {
+        "title": "Bug表格视图",
+        "caption": "关联Bug",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "BugGridView9_StoryRelated",
+        "viewfilename": "bug-grid-view9-story-related",
+        "viewtag": "c959d7fe98c33b7befcad24e2596633e",
         "memo": ""
     },
     "taskdonetaskview": {

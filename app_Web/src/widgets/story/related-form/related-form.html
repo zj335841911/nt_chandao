@@ -1,0 +1,148 @@
+<i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='story_related' style="">
+    <input style="display:none;" />
+    <row >
+    <tabs :animated="false" size="small" name='related' :value="detailsModel.form.activiedPage" 
+        @on-click="detailsModel.form.clickPage($event)">
+            <tab-pane v-show="detailsModel.formpage1.visible" name='formpage1' :index="0" tab='related' class=''  
+                :label="(h) =>{
+                    return h('span',{
+                        class:'caption'
+                    },[
+                    $t('entities.story.related_form.details.formpage1')
+                    ])
+                }">
+                    
+<i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.related_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <row>
+        <i-col v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem='story' 
+    :parentdata='{"srfparentdefname":"STORY","srfparentdename":"ZT_STORY","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_TASK_ZT_STORY_STORY","SRFDER1NID":"DER1N_ZT_TASK_ZT_STORY_STORY"}'
+    :parameters="[
+        { pathName: 'projects', parameterName: 'project' },
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{}'
+    parameterName='story'
+    parentName="Story"  
+    refviewtype='DEGRIDVIEW9' 
+    refreshitems='' 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname='task-grid-view9-story-related' 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved($event)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+
+
+            </tab-pane> 
+            <tab-pane v-show="detailsModel.formpage2.visible" name='formpage2' :index="1" tab='related' class=''  
+                :label="(h) =>{
+                    return h('span',{
+                        class:'caption'
+                    },[
+                    $t('entities.story.related_form.details.formpage2')
+                    ])
+                }">
+                    
+<i-col v-show="detailsModel.linkstories.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='linkstories' :itemRules="this.rules.linkstories" class='' :caption="$t('entities.story.related_form.details.linkstories')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.linkstories.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='linkstories' :value="data.linkstories" tag='RelatedStory' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.childstories.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='childstories' :itemRules="this.rules.childstories" class='' :caption="$t('entities.story.related_form.details.childstories')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.childstories.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='childstories' :value="data.childstories" tag='CurStory' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.related_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <row>
+        <i-col v-show="detailsModel.druipart2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem='story' 
+    :parentdata='{"srfparentdefname":"TOSTORY","srfparentdename":"ZT_STORY","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_BUG_ZT_STORY_TOSTORY","SRFDER1NID":"DER1N_ZT_BUG_ZT_STORY_TOSTORY"}'
+    :parameters="[
+        { pathName: 'products', parameterName: 'product' },
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{}'
+    parameterName='story'
+    parentName="Story"  
+    refviewtype='DEGRIDVIEW9' 
+    refreshitems='' 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname='bug-grid-view9-story-related' 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved($event)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.related_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <row>
+        <i-col v-show="detailsModel.druipart3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem='story' 
+    :parentdata='{"srfparentdefname":"STORY","srfparentdename":"ZT_STORY","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_CASE_ZT_STORY_STORY","SRFDER1NID":"DER1N_ZT_CASE_ZT_STORY_STORY"}'
+    :parameters="[
+        { pathName: 'products', parameterName: 'product' },
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{}'
+    parameterName='story'
+    parentName="Story"  
+    refviewtype='DEGRIDVIEW9' 
+    refreshitems='' 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname='case-grid-view9-story-related' 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved($event)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+
+
+            </tab-pane> 
+    </tabs>
+    </row>
+</i-form>

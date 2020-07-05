@@ -71,6 +71,10 @@ export default {
 			caption: "功能测试",
       		title: "功能测试",
 		},
+		gridview9_storyrelated: {
+			caption: "相关用例",
+      		title: "测试用例表格视图",
+		},
 		batchnewgridview: {
 			caption: "测试用例",
       		title: "测试用例",
@@ -243,6 +247,14 @@ export default {
 		uiactions: {
 		},
 	},
+	storyrelated_grid: {
+		columns: {
+			pri: "P",
+			title: "用例标题",
+		},
+		uiactions: {
+		},
+	},
 	maingrid_grid: {
 		columns: {
 			id: "id",
@@ -326,6 +338,12 @@ export default {
 			tip: "保存并关闭",
 		},
 	},
+	editviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
 	batchnewgridviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "新建行",
@@ -334,12 +352,6 @@ export default {
 		deuiaction3: {
 			caption: "保存行",
 			tip: "保存行",
-		},
-	},
-	editviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
 		},
 	},
 	maingridviewtoolbar_toolbar: {

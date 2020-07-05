@@ -78,6 +78,10 @@ export default {
 			caption: "任务",
       		title: "任务主数据看板视图",
 		},
+		gridview9_storyrelated: {
+			caption: "相关任务",
+      		title: "任务表格视图",
+		},
 		tasktypeganttview: {
 			caption: "任务",
       		title: "任务甘特视图",
@@ -312,6 +316,29 @@ export default {
 		uiactions: {
 		},
 	},
+	startform_form: {
+		details: {
+			druipart1: "", 
+			grouppanel1: "分组面板", 
+			group1: "任务基本信息", 
+			formpage1: "基本信息", 
+			srfupdatedate: "最后修改日期", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "任务名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			realstarted: "实际开始", 
+			consumed: "总计消耗", 
+			left: "预计剩余", 
+			comment: "备注", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
 	maininfo_form: {
 		details: {
 			group1: "task基本信息", 
@@ -380,29 +407,6 @@ export default {
 		uiactions: {
 		},
 	},
-	startform_form: {
-		details: {
-			druipart1: "", 
-			grouppanel1: "分组面板", 
-			group1: "任务基本信息", 
-			formpage1: "基本信息", 
-			srfupdatedate: "最后修改日期", 
-			srforikey: "", 
-			srfkey: "编号", 
-			srfmajortext: "任务名称", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			realstarted: "实际开始", 
-			consumed: "总计消耗", 
-			left: "预计剩余", 
-			comment: "备注", 
-			id: "编号", 
-		},
-		uiactions: {
-		},
-	},
 	main2_grid: {
 		columns: {
 			id: "编号",
@@ -452,6 +456,15 @@ export default {
 			storyname: "相关需求",
 			modulename: "所属模块",
 			parentname: "父任务",
+		},
+		uiactions: {
+		},
+	},
+	storyrelated_grid: {
+		columns: {
+			id: "编号",
+			name: "任务名称",
+			projectname: "所属项目",
 		},
 		uiactions: {
 		},

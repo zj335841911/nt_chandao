@@ -47,6 +47,10 @@ export default {
     comment: "备注",
   },
 	views: {
+		mainview9_related: {
+			caption: "需求",
+      		title: "需求编辑视图",
+		},
 		reportsubgridview: {
 			caption: "需求",
       		title: "story表格视图",
@@ -352,6 +356,30 @@ export default {
 		uiactions: {
 		},
 	},
+	related_form: {
+		details: {
+			druipart1: "", 
+			group1: "项目任务", 
+			formpage1: "项目任务", 
+			druipart2: "", 
+			grouppanel1: "相关Bug", 
+			druipart3: "", 
+			grouppanel2: "相关用例", 
+			formpage2: "相关信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "需求名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			linkstories: "相关需求", 
+			childstories: "细分需求", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
 	main3_grid: {
 		columns: {
 			id: "ID",
@@ -392,6 +420,16 @@ export default {
 			story_opencasecreateview: "建用例",
 		},
 	},
+	main_buildsub_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "需求名称",
+			modulename: "所属模块名称",
+		},
+		uiactions: {
+		},
+	},
 	pickupgrid_grid: {
 		columns: {
 			id: "ID",
@@ -403,16 +441,6 @@ export default {
 		},
 	},
 	main_plansub_grid: {
-		columns: {
-			id: "ID",
-			pri: "P",
-			title: "需求名称",
-			modulename: "所属模块名称",
-		},
-		uiactions: {
-		},
-	},
-	main_buildsub_grid: {
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -489,6 +517,32 @@ export default {
 			tip: "保存并关闭",
 		},
 	},
+	curprojectgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "新建",
+			tip: "新建",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "编辑",
+			tip: "编辑",
+		},
+	},
+	buildsubgridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
+	releasesubeditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
 	maingridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "新建",
@@ -544,32 +598,6 @@ export default {
 		},
 	},
 	plansubeditviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
-		},
-	},
-	curprojectgridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "新建",
-			tip: "新建",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction2: {
-			caption: "编辑",
-			tip: "编辑",
-		},
-	},
-	buildsubgridviewtoolbar_toolbar: {
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-	},
-	releasesubeditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",

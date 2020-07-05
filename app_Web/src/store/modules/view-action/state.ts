@@ -190,6 +190,18 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '1f87f07919b8496e5bf832f95686fada',
+            viewmodule: 'zentao',
+            viewname: 'StoryMainView9_Related',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '5d3b1d4c90b8b3a2013ccd3f3a9d5f17',
+                'c959d7fe98c33b7befcad24e2596633e',
+                '5895951b7f1045198682c8d51cd85482',
+            ],
+        },
+        {
             viewtag: '21d716ac12c793af54b112a5a3599674',
             viewmodule: 'zentao',
             viewname: 'BugMPickupView',
@@ -332,6 +344,7 @@ export const viewstate: any = {
                 'df5a966e312ca9c5f5a41428bc2e2672',
                 '94e0ee1a97736ff4d28b88a46cd395b7',
                 '538555af88ea31549a5bc7dbf1e6286a',
+                '1f87f07919b8496e5bf832f95686fada',
                 '61f32b2b422e8f1a9825e1f704464a8c',
                 'e54598b1e6d38d7c6ce8231b531b46bd',
                 '770a170098d148e438a7666b248e6519',
@@ -601,6 +614,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '5895951b7f1045198682c8d51cd85482',
+            viewmodule: 'zentao',
+            viewname: 'TaskGridView9_StoryRelated',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '575fecad655143bbd28f17c581725a4e',
+                'ea141fddc78fd1af4d06e494baf12cc1',
+            ],
+        },
+        {
             viewtag: '58a943454a652d4f4ce2702d6447c079',
             viewmodule: 'zentao',
             viewname: 'ProductStoryTreeExpView',
@@ -648,6 +672,17 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: '5d3b1d4c90b8b3a2013ccd3f3a9d5f17',
+            viewmodule: 'zentao',
+            viewname: 'CaseGridView9_StoryRelated',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '6f78b25e86923ab600a2141d50fe49fd',
+                '02b7ecd8e994b90558a9d6c23705f600',
             ],
         },
         {
@@ -910,6 +945,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '6f78b25e86923ab600a2141d50fe49fd',
                 '02b7ecd8e994b90558a9d6c23705f600',
             ],
         },
@@ -931,6 +967,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '1540523a668e920d831510cfbec2c5e2',
                 '46517a803b2470cd0bef27aeda0dbcaf',
             ],
         },
@@ -1366,6 +1403,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '985c8eb7591e5e00de8e3cda638d5727',
+                'c02574075c8c15c67231cd71be040763',
                 'b5d2389c0dd12ae614b319090ecc2361',
                 '97af408e6a6cb088c824cacd1807f353',
                 '770a170098d148e438a7666b248e6519',
@@ -1378,6 +1416,16 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'c02574075c8c15c67231cd71be040763',
+            viewmodule: 'zentao',
+            viewname: 'ProductMainView_Edit',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'cb6c278fd7205b3de3fc041816d15dd8',
             ],
         },
         {
@@ -1425,6 +1473,17 @@ export const viewstate: any = {
                 '46517a803b2470cd0bef27aeda0dbcaf',
                 'c1e9611b6972b1877b75fa5d2c67aad6',
                 '122af527bf38b47ddc53c882847b490e',
+            ],
+        },
+        {
+            viewtag: 'c959d7fe98c33b7befcad24e2596633e',
+            viewmodule: 'zentao',
+            viewname: 'BugGridView9_StoryRelated',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '1540523a668e920d831510cfbec2c5e2',
+                '46517a803b2470cd0bef27aeda0dbcaf',
             ],
         },
         {

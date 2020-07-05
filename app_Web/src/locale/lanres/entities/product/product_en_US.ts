@@ -122,6 +122,34 @@ export default {
       		title: "产品需求导航视图",
 		},
 	},
+	main_edit_form: {
+		details: {
+			grouppanel1: "分组面板", 
+			group1: "product基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "产品名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			name: "产品名称", 
+			code: "产品代号", 
+			line: "产品线", 
+			linename: "产品线", 
+			po: "产品负责人", 
+			qd: "测试负责人", 
+			rd: "发布负责人", 
+			type: "产品类型", 
+			status: "状态", 
+			desc: "产品描述	", 
+			acl: "访问控制", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
 	dashboardinfo_form: {
 		details: {
 			group1: "产品基本信息", 
@@ -194,34 +222,6 @@ export default {
 		uiactions: {
 		},
 	},
-	main_edit_form: {
-		details: {
-			grouppanel1: "分组面板", 
-			group1: "product基本信息", 
-			formpage1: "基本信息", 
-			srforikey: "", 
-			srfkey: "编号", 
-			srfmajortext: "产品名称", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			name: "产品名称", 
-			code: "产品代号", 
-			line: "产品线", 
-			linename: "产品线", 
-			po: "产品负责人", 
-			qd: "测试负责人", 
-			rd: "发布负责人", 
-			type: "产品类型", 
-			status: "状态", 
-			desc: "产品描述	", 
-			acl: "访问控制", 
-			id: "编号", 
-		},
-		uiactions: {
-		},
-	},
 	main_grid: {
 		columns: {
 			name: "产品名称",
@@ -265,6 +265,12 @@ export default {
 			n_name_like: "产品名称(文本包含(%))", 
 		},
 		uiactions: {
+		},
+	},
+	mainview_edittoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
 		},
 	},
 	testgridviewtoolbar_toolbar: {
@@ -365,12 +371,6 @@ export default {
 		deuiaction1: {
 			caption: "New",
 			tip: "New",
-		},
-	},
-	mainview_edittoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
 		},
 	},
 };
