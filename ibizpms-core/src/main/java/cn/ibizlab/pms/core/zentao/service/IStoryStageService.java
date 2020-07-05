@@ -56,8 +56,6 @@ public interface IStoryStageService extends IService<StoryStage>{
      */
     boolean execute(String sql, Map param);
 
-
-
 }
 
 

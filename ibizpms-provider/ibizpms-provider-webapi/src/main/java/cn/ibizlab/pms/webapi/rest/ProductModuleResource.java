@@ -48,6 +48,193 @@ public class ProductModuleResource {
     public ProductModuleMapping productmoduleMapping;
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-Create-all')")
+    @ApiOperation(value = "新建需求模块", tags = {"需求模块" },  notes = "新建需求模块")
+	@RequestMapping(method = RequestMethod.POST, value = "/productmodules")
+    @Transactional
+    public ResponseEntity<ProductModuleDTO> create(@RequestBody ProductModuleDTO productmoduledto) {
+        ProductModule domain = productmoduleMapping.toDomain(productmoduledto);
+		productmoduleService.create(domain);
+        ProductModuleDTO dto = productmoduleMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-Create-all')")
+    @ApiOperation(value = "批量新建需求模块", tags = {"需求模块" },  notes = "批量新建需求模块")
+	@RequestMapping(method = RequestMethod.POST, value = "/productmodules/batch")
+    public ResponseEntity<Boolean> createBatch(@RequestBody List<ProductModuleDTO> productmoduledtos) {
+        productmoduleService.createBatch(productmoduleMapping.toDomain(productmoduledtos));
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-Update-all')")
+    @ApiOperation(value = "更新需求模块", tags = {"需求模块" },  notes = "更新需求模块")
+	@RequestMapping(method = RequestMethod.PUT, value = "/productmodules/{productmodule_id}")
+    @Transactional
+    public ResponseEntity<ProductModuleDTO> update(@PathVariable("productmodule_id") BigInteger productmodule_id, @RequestBody ProductModuleDTO productmoduledto) {
+		ProductModule domain  = productmoduleMapping.toDomain(productmoduledto);
+        domain .setId(productmodule_id);
+		productmoduleService.update(domain );
+		ProductModuleDTO dto = productmoduleMapping.toDto(domain );
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-Update-all')")
+    @ApiOperation(value = "批量更新需求模块", tags = {"需求模块" },  notes = "批量更新需求模块")
+	@RequestMapping(method = RequestMethod.PUT, value = "/productmodules/batch")
+    public ResponseEntity<Boolean> updateBatch(@RequestBody List<ProductModuleDTO> productmoduledtos) {
+        productmoduleService.updateBatch(productmoduleMapping.toDomain(productmoduledtos));
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-Remove-all')")
+    @ApiOperation(value = "删除需求模块", tags = {"需求模块" },  notes = "删除需求模块")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/productmodules/{productmodule_id}")
+    @Transactional
+    public ResponseEntity<Boolean> remove(@PathVariable("productmodule_id") BigInteger productmodule_id) {
+         return ResponseEntity.status(HttpStatus.OK).body(productmoduleService.remove(productmodule_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-Remove-all')")
+    @ApiOperation(value = "批量删除需求模块", tags = {"需求模块" },  notes = "批量删除需求模块")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/productmodules/batch")
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
+        productmoduleService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-Get-all')")
+    @ApiOperation(value = "获取需求模块", tags = {"需求模块" },  notes = "获取需求模块")
+	@RequestMapping(method = RequestMethod.GET, value = "/productmodules/{productmodule_id}")
+    public ResponseEntity<ProductModuleDTO> get(@PathVariable("productmodule_id") BigInteger productmodule_id) {
+        ProductModule domain = productmoduleService.get(productmodule_id);
+        ProductModuleDTO dto = productmoduleMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "获取需求模块草稿", tags = {"需求模块" },  notes = "获取需求模块草稿")
+	@RequestMapping(method = RequestMethod.GET, value = "/productmodules/getdraft")
+    public ResponseEntity<ProductModuleDTO> getDraft() {
+        return ResponseEntity.status(HttpStatus.OK).body(productmoduleMapping.toDto(productmoduleService.getDraft(new ProductModule())));
+    }
+
+    @ApiOperation(value = "检查需求模块", tags = {"需求模块" },  notes = "检查需求模块")
+	@RequestMapping(method = RequestMethod.POST, value = "/productmodules/checkkey")
+    public ResponseEntity<Boolean> checkKey(@RequestBody ProductModuleDTO productmoduledto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(productmoduleService.checkKey(productmoduleMapping.toDomain(productmoduledto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-Fix-all')")
+    @ApiOperation(value = "重建模块路径", tags = {"需求模块" },  notes = "重建模块路径")
+	@RequestMapping(method = RequestMethod.POST, value = "/productmodules/{productmodule_id}/fix")
+    @Transactional
+    public ResponseEntity<ProductModuleDTO> fix(@PathVariable("productmodule_id") BigInteger productmodule_id, @RequestBody ProductModuleDTO productmoduledto) {
+        ProductModule domain = productmoduleMapping.toDomain(productmoduledto);
+        domain.setId(productmodule_id);
+        domain = productmoduleService.fix(domain);
+        productmoduledto = productmoduleMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(productmoduledto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-Save-all')")
+    @ApiOperation(value = "保存需求模块", tags = {"需求模块" },  notes = "保存需求模块")
+	@RequestMapping(method = RequestMethod.POST, value = "/productmodules/save")
+    public ResponseEntity<Boolean> save(@RequestBody ProductModuleDTO productmoduledto) {
+        return ResponseEntity.status(HttpStatus.OK).body(productmoduleService.save(productmoduleMapping.toDomain(productmoduledto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-Save-all')")
+    @ApiOperation(value = "批量保存需求模块", tags = {"需求模块" },  notes = "批量保存需求模块")
+	@RequestMapping(method = RequestMethod.POST, value = "/productmodules/savebatch")
+    public ResponseEntity<Boolean> saveBatch(@RequestBody List<ProductModuleDTO> productmoduledtos) {
+        productmoduleService.saveBatch(productmoduleMapping.toDomain(productmoduledtos));
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-searchByPath-all')")
+	@ApiOperation(value = "获取BYPATH", tags = {"需求模块" } ,notes = "获取BYPATH")
+    @RequestMapping(method= RequestMethod.GET , value="/productmodules/fetchbypath")
+	public ResponseEntity<List<ProductModuleDTO>> fetchByPath(ProductModuleSearchContext context) {
+        Page<ProductModule> domains = productmoduleService.searchByPath(context) ;
+        List<ProductModuleDTO> list = productmoduleMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-searchByPath-all')")
+	@ApiOperation(value = "查询BYPATH", tags = {"需求模块" } ,notes = "查询BYPATH")
+    @RequestMapping(method= RequestMethod.POST , value="/productmodules/searchbypath")
+	public ResponseEntity<Page<ProductModuleDTO>> searchByPath(@RequestBody ProductModuleSearchContext context) {
+        Page<ProductModule> domains = productmoduleService.searchByPath(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(productmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-searchDefault-all')")
+	@ApiOperation(value = "获取DEFAULT", tags = {"需求模块" } ,notes = "获取DEFAULT")
+    @RequestMapping(method= RequestMethod.GET , value="/productmodules/fetchdefault")
+	public ResponseEntity<List<ProductModuleDTO>> fetchDefault(ProductModuleSearchContext context) {
+        Page<ProductModule> domains = productmoduleService.searchDefault(context) ;
+        List<ProductModuleDTO> list = productmoduleMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-searchDefault-all')")
+	@ApiOperation(value = "查询DEFAULT", tags = {"需求模块" } ,notes = "查询DEFAULT")
+    @RequestMapping(method= RequestMethod.POST , value="/productmodules/searchdefault")
+	public ResponseEntity<Page<ProductModuleDTO>> searchDefault(@RequestBody ProductModuleSearchContext context) {
+        Page<ProductModule> domains = productmoduleService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(productmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-searchRoot-all')")
+	@ApiOperation(value = "获取根模块", tags = {"需求模块" } ,notes = "获取根模块")
+    @RequestMapping(method= RequestMethod.GET , value="/productmodules/fetchroot")
+	public ResponseEntity<List<ProductModuleDTO>> fetchRoot(ProductModuleSearchContext context) {
+        Page<ProductModule> domains = productmoduleService.searchRoot(context) ;
+        List<ProductModuleDTO> list = productmoduleMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-searchRoot-all')")
+	@ApiOperation(value = "查询根模块", tags = {"需求模块" } ,notes = "查询根模块")
+    @RequestMapping(method= RequestMethod.POST , value="/productmodules/searchroot")
+	public ResponseEntity<Page<ProductModuleDTO>> searchRoot(@RequestBody ProductModuleSearchContext context) {
+        Page<ProductModule> domains = productmoduleService.searchRoot(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(productmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-searchRoot_NoBranch-all')")
+	@ApiOperation(value = "获取根模块_无分支", tags = {"需求模块" } ,notes = "获取根模块_无分支")
+    @RequestMapping(method= RequestMethod.GET , value="/productmodules/fetchroot_nobranch")
+	public ResponseEntity<List<ProductModuleDTO>> fetchRoot_NoBranch(ProductModuleSearchContext context) {
+        Page<ProductModule> domains = productmoduleService.searchRoot_NoBranch(context) ;
+        List<ProductModuleDTO> list = productmoduleMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-searchRoot_NoBranch-all')")
+	@ApiOperation(value = "查询根模块_无分支", tags = {"需求模块" } ,notes = "查询根模块_无分支")
+    @RequestMapping(method= RequestMethod.POST , value="/productmodules/searchroot_nobranch")
+	public ResponseEntity<Page<ProductModuleDTO>> searchRoot_NoBranch(@RequestBody ProductModuleSearchContext context) {
+        Page<ProductModule> domains = productmoduleService.searchRoot_NoBranch(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(productmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-Create-all')")
     @ApiOperation(value = "根据产品建立需求模块", tags = {"需求模块" },  notes = "根据产品建立需求模块")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productmodules")
     @Transactional

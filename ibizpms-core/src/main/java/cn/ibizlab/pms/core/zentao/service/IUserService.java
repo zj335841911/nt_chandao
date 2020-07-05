@@ -52,8 +52,6 @@ public interface IUserService extends IService<User>{
      */
     boolean execute(String sql, Map param);
 
-
-
 }
 
 

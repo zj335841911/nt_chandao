@@ -118,7 +118,7 @@
     }, 
     {
         "srfkey": "RelatedStory",
-        "emptytext": "未定义",
+        "emptytext": "",
         "codelisttype":"dynamic",
         "appdataentity":"Story",
         "appdedataset":"FetchDefault",

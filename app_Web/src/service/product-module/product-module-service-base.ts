@@ -51,6 +51,7 @@ export default class ProductModuleServiceBase extends EntityService {
         if(context.product && context.productmodule){
             return Http.getInstance().get(`/products/${context.product}/productmodules/${context.productmodule}/select`,isloading);
         }
+            return Http.getInstance().get(`/productmodules/${context.productmodule}/select`,isloading);
     }
 
     /**
@@ -76,6 +77,17 @@ export default class ProductModuleServiceBase extends EntityService {
             let res:any = await Http.getInstance().post(`/products/${context.product}/productmodules`,data,isloading);
             return res;
         }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+        if(!data.srffrontuf || data.srffrontuf !== "1"){
+            data[this.APPDEKEY] = null;
+        }
+        if(data.srffrontuf){
+            delete data.srffrontuf;
+        }
+        let tempContext:any = JSON.parse(JSON.stringify(context));
+        let res:any = await Http.getInstance().post(`/productmodules`,data,isloading);
+        return res;
     }
 
     /**
@@ -94,6 +106,10 @@ export default class ProductModuleServiceBase extends EntityService {
             let res:any = await Http.getInstance().put(`/products/${context.product}/productmodules/${context.productmodule}`,data,isloading);
             return res;
         }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().put(`/productmodules/${context.productmodule}`,data,isloading);
+            return res;
     }
 
     /**
@@ -109,6 +125,7 @@ export default class ProductModuleServiceBase extends EntityService {
         if(context.product && context.productmodule){
             return Http.getInstance().delete(`/products/${context.product}/productmodules/${context.productmodule}`,isloading);
         }
+            return Http.getInstance().delete(`/productmodules/${context.productmodule}`,isloading);
     }
 
     /**
@@ -125,6 +142,8 @@ export default class ProductModuleServiceBase extends EntityService {
             let res:any = await Http.getInstance().get(`/products/${context.product}/productmodules/${context.productmodule}`,isloading);
             return res;
         }
+            let res:any = await Http.getInstance().get(`/productmodules/${context.productmodule}`,isloading);
+            return res;
     }
 
     /**
@@ -142,6 +161,9 @@ export default class ProductModuleServiceBase extends EntityService {
             res.data.productmodule = data.productmodule;
             return res;
         }
+        let res:any = await  Http.getInstance().get(`/productmodules/getdraft`,isloading);
+        res.data.productmodule = data.productmodule;
+        return res;
     }
 
     /**
@@ -160,6 +182,7 @@ export default class ProductModuleServiceBase extends EntityService {
             let res:any = await Http.getInstance().post(`/products/${context.product}/productmodules/${context.productmodule}/checkkey`,data,isloading);
             return res;
         }
+            return Http.getInstance().post(`/productmodules/${context.productmodule}/checkkey`,data,isloading);
     }
 
     /**
@@ -178,6 +201,7 @@ export default class ProductModuleServiceBase extends EntityService {
             let res:any = await Http.getInstance().post(`/products/${context.product}/productmodules/${context.productmodule}/fix`,data,isloading);
             return res;
         }
+            return Http.getInstance().post(`/productmodules/${context.productmodule}/fix`,data,isloading);
     }
 
     /**
@@ -196,6 +220,10 @@ export default class ProductModuleServiceBase extends EntityService {
             let res:any = await Http.getInstance().post(`/products/${context.product}/productmodules/${context.productmodule}/save`,data,isloading);
             return res;
         }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().post(`/productmodules/${context.productmodule}/save`,data,isloading);
+            return res;
     }
 
     /**
@@ -212,6 +240,8 @@ export default class ProductModuleServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/products/${context.product}/productmodules/fetchbypath`,tempData,isloading);
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/productmodules/fetchbypath`,tempData,isloading);
     }
 
     /**
@@ -228,6 +258,8 @@ export default class ProductModuleServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/products/${context.product}/productmodules/fetchdefault`,tempData,isloading);
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/productmodules/fetchdefault`,tempData,isloading);
     }
 
     /**
@@ -244,6 +276,8 @@ export default class ProductModuleServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/products/${context.product}/productmodules/fetchroot`,tempData,isloading);
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/productmodules/fetchroot`,tempData,isloading);
     }
 
     /**
@@ -260,5 +294,7 @@ export default class ProductModuleServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/products/${context.product}/productmodules/fetchroot_nobranch`,tempData,isloading);
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/productmodules/fetchroot_nobranch`,tempData,isloading);
     }
 }

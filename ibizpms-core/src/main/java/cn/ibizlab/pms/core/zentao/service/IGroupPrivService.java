@@ -52,8 +52,6 @@ public interface IGroupPrivService extends IService<GroupPriv>{
      */
     boolean execute(String sql, Map param);
 
-
-
 }
 
 

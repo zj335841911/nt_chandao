@@ -55,8 +55,6 @@ public interface IDeptService extends IService<Dept>{
      */
     boolean execute(String sql, Map param);
 
-
-
 }
 
 

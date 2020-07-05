@@ -52,8 +52,6 @@ public interface ICompileService extends IService<Compile>{
      */
     boolean execute(String sql, Map param);
 
-
-
 }
 
 

@@ -89,8 +89,6 @@ public interface IBugService extends IService<Bug>{
      */
     boolean execute(String sql, Map param);
 
-
-
 }
 
 

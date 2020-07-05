@@ -52,8 +52,6 @@ public interface IIm_conferenceService extends IService<Im_conference>{
      */
     boolean execute(String sql, Map param);
 
-
-
 }
 
 

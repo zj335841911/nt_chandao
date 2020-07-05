@@ -52,8 +52,6 @@ public interface IIm_messageService extends IService<Im_message>{
      */
     boolean execute(String sql, Map param);
 
-
-
 }
 
 

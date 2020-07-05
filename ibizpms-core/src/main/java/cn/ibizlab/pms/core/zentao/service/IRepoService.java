@@ -52,8 +52,6 @@ public interface IRepoService extends IService<Repo>{
      */
     boolean execute(String sql, Map param);
 
-
-
 }
 
 

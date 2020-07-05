@@ -56,8 +56,6 @@ public interface IProductService extends IService<Product>{
      */
     boolean execute(String sql, Map param);
 
-
-
 }
 
 

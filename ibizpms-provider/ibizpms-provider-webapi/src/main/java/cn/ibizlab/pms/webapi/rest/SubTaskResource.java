@@ -358,7 +358,6 @@ public class SubTaskResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(subtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchTypeGroup-all')")
 	@ApiOperation(value = "根据任务获取任务类型分组", tags = {"任务" } ,notes = "根据任务获取任务类型分组")
     @RequestMapping(method= RequestMethod.GET , value="/tasks/{task_id}/subtasks/fetchtypegroup")
 	public ResponseEntity<List<HashMap>> fetchSubTaskTypeGroupByTask(@PathVariable("task_id") BigInteger task_id,TaskSearchContext context) {
@@ -371,7 +370,6 @@ public class SubTaskResource {
                 .body(domains.getContent());
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchTypeGroup-all')")
 	@ApiOperation(value = "根据任务查询任务类型分组", tags = {"任务" } ,notes = "根据任务查询任务类型分组")
     @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/subtasks/searchtypegroup")
 	public ResponseEntity<Page<HashMap>> searchSubTaskTypeGroupByTask(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskSearchContext context) {
@@ -691,7 +689,6 @@ public class SubTaskResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(subtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchTypeGroup-all')")
 	@ApiOperation(value = "根据项目任务获取任务类型分组", tags = {"任务" } ,notes = "根据项目任务获取任务类型分组")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/subtasks/fetchtypegroup")
 	public ResponseEntity<List<HashMap>> fetchSubTaskTypeGroupByProjectTask(@PathVariable("project_id") BigInteger project_id, @PathVariable("task_id") BigInteger task_id,TaskSearchContext context) {
@@ -704,7 +701,6 @@ public class SubTaskResource {
                 .body(domains.getContent());
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchTypeGroup-all')")
 	@ApiOperation(value = "根据项目任务查询任务类型分组", tags = {"任务" } ,notes = "根据项目任务查询任务类型分组")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/subtasks/searchtypegroup")
 	public ResponseEntity<Page<HashMap>> searchSubTaskTypeGroupByProjectTask(@PathVariable("project_id") BigInteger project_id, @PathVariable("task_id") BigInteger task_id, @RequestBody TaskSearchContext context) {

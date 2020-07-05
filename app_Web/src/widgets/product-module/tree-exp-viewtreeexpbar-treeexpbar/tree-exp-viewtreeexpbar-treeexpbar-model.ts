@@ -63,11 +63,6 @@ export default class TreeExpViewtreeexpbarModel {
       {
         name: 'parentname',
       },
-      {
-        name: 'product',
-        prop: 'id',
-        dataType: 'FONTKEY',
-      },
     ]
   }
 

@@ -45,7 +45,6 @@ public class IBzDocServiceImpl implements IIBzDocService {
     }
 
     public void createBatch(List<IBzDoc> list){
-
     }
 
     @Override
@@ -55,7 +54,6 @@ public class IBzDocServiceImpl implements IIBzDocService {
     }
 
     public void updateBatch(List<IBzDoc> list){
-                    
     }
 
     @Override
@@ -64,7 +62,6 @@ public class IBzDocServiceImpl implements IIBzDocService {
     }
 
     public void removeBatch(Collection<String> idList){
-                        
     }
 
     @Override
@@ -92,7 +89,6 @@ public class IBzDocServiceImpl implements IIBzDocService {
 
     @Override
     public void saveBatch(List<IBzDoc> list) {
-                       
     }
 
 

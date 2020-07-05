@@ -63,11 +63,6 @@ export default class CaseExpModel {
       {
         name: 'parentname',
       },
-      {
-        name: 'product',
-        prop: 'id',
-        dataType: 'FONTKEY',
-      },
     ]
   }
 

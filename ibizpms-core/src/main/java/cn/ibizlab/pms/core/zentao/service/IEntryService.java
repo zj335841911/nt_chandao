@@ -52,8 +52,6 @@ public interface IEntryService extends IService<Entry>{
      */
     boolean execute(String sql, Map param);
 
-
-
 }
 
 

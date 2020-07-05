@@ -63,11 +63,6 @@ export default class BugExpModel {
       {
         name: 'parentname',
       },
-      {
-        name: 'product',
-        prop: 'id',
-        dataType: 'FONTKEY',
-      },
     ]
   }
 

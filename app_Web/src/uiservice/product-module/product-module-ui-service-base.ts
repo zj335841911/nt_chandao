@@ -204,9 +204,11 @@ export default class ProductModuleUIServiceBase extends UIService {
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
         let deResParameters: any[] = [];
-        deResParameters = [
+        if(context.product && true){
+            deResParameters = [
             { pathName: 'products', parameterName: 'product' },
-        ];
+            ]
+        }
         const parameters: any[] = [
             { pathName: 'productmodules', parameterName: 'productmodule' },
         ];

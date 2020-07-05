@@ -52,8 +52,6 @@ public interface IExtensionService extends IService<Extension>{
      */
     boolean execute(String sql, Map param);
 
-
-
 }
 
 

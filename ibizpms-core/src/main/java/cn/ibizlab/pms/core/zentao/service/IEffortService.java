@@ -52,8 +52,6 @@ public interface IEffortService extends IService<Effort>{
      */
     boolean execute(String sql, Map param);
 
-
-
 }
 
 

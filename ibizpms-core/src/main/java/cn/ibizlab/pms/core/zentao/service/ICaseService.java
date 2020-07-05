@@ -69,8 +69,6 @@ public interface ICaseService extends IService<Case>{
      */
     boolean execute(String sql, Map param);
 
-
-
 }
 
 

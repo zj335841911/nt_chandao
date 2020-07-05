@@ -56,8 +56,6 @@ public interface IProductLifeService extends IService<ProductLife>{
 
     List<ProductLife> getProductlifeByIds(List<String> ids) ;
     List<ProductLife> getProductlifeByEntities(List<ProductLife> entities) ;
-
-
 }
 
 

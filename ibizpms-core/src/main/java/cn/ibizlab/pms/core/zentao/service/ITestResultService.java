@@ -60,8 +60,6 @@ public interface ITestResultService extends IService<TestResult>{
      */
     boolean execute(String sql, Map param);
 
-
-
 }
 
 

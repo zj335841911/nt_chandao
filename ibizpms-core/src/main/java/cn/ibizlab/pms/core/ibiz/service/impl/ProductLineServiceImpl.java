@@ -45,7 +45,6 @@ public class ProductLineServiceImpl implements IProductLineService {
     }
 
     public void createBatch(List<ProductLine> list){
-
     }
 
     @Override
@@ -55,7 +54,6 @@ public class ProductLineServiceImpl implements IProductLineService {
     }
 
     public void updateBatch(List<ProductLine> list){
-                    
     }
 
     @Override
@@ -64,7 +62,6 @@ public class ProductLineServiceImpl implements IProductLineService {
     }
 
     public void removeBatch(Collection<String> idList){
-                        
     }
 
     @Override
@@ -92,7 +89,6 @@ public class ProductLineServiceImpl implements IProductLineService {
 
     @Override
     public void saveBatch(List<ProductLine> list) {
-                       
     }
 
 
