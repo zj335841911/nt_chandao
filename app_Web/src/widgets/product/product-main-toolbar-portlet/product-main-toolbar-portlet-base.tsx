@@ -49,6 +49,34 @@ export class ProductMainToolbarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public dashboard_sysportlet5_ua3abd8c_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:ProductUIService  = new ProductUIService();
+        curUIService.Product_CloseProduct(datas,contextJO, paramJO,  $event, xData,this,"Product");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public dashboard_sysportlet5_u993e8bf_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -67,6 +95,67 @@ export class ProductMainToolbarPortletBase extends MainControlBase {
         // 界面行为
         const curUIService:ProductUIService  = new ProductUIService();
         curUIService.Product_OpenQuickCfgView(datas,contextJO, paramJO,  $event, xData,this,"Product");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet5_u6bd8e00_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.RemoveAndExit(datas, contextJO,paramJO,  $event, xData,this,"Product");
+    }
+
+    /**
+     * 删除
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof ProductMainDashboardViewBase
+     */
+    public RemoveAndExit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        const _this: any = this;
+        if (xData && xData.removeAndExit instanceof Function) {
+            xData.removeAndExit().then((response: any) => {
+                if (!response || response.status !== 200) {
+                    return;
+                }
+                if(window.parent){
+                    window.parent.postMessage([{ ...response.data }],'*');
+                }
+            });
+        } else if (_this.removeAndExit && _this.removeAndExit instanceof Function) {
+            _this.removeAndExit().then((response: any) => {
+                if (!response || response.status !== 200) {
+                    return;
+                }
+                if(window.parent){
+                    window.parent.postMessage([{ ...response.data }],'*');
+                }
+            });
+        }
     }
 
     /**
@@ -92,9 +181,19 @@ export class ProductMainToolbarPortletBase extends MainControlBase {
      * @memberof ProductMainToolbarBase
      */
     public actionBarModelData:any[] =[
+        { viewlogicname:"dashboard_sysportlet5_ua3abd8c_click",
+        text: "关闭",
+        iconcls: "fa fa-power-off",
+        icon: "",
+        },
         { viewlogicname:"dashboard_sysportlet5_u993e8bf_click",
         text: "编辑",
         iconcls: "fa fa-edit",
+        icon: "",
+        },
+        { viewlogicname:"dashboard_sysportlet5_u6bd8e00_click",
+        text: "删除",
+        iconcls: "fa fa-remove",
         icon: "",
         }
     ];
@@ -105,8 +204,14 @@ export class ProductMainToolbarPortletBase extends MainControlBase {
      * @memberof ProductMainToolbarBase
      */
     public handleItemClick($event:any){
+        if(Object.is($event,'dashboard_sysportlet5_ua3abd8c_click')){
+            this.dashboard_sysportlet5_ua3abd8c_click(null);
+        }
         if(Object.is($event,'dashboard_sysportlet5_u993e8bf_click')){
             this.dashboard_sysportlet5_u993e8bf_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet5_u6bd8e00_click')){
+            this.dashboard_sysportlet5_u6bd8e00_click(null);
         }
     }
 
@@ -153,7 +258,7 @@ export class ProductMainToolbarPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return '300px';
+            return 'auto';
         }
     }
 

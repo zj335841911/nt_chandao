@@ -121,6 +121,24 @@ export default {
       		title: "产品需求导航视图",
 		},
 	},
+	close_form: {
+		details: {
+			druipart1: "", 
+			group1: "基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "产品名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			comment: "备注", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
 	main_edit_form: {
 		details: {
 			grouppanel1: "分组面板", 
@@ -203,24 +221,6 @@ export default {
 		uiactions: {
 		},
 	},
-	close_form: {
-		details: {
-			druipart1: "", 
-			group1: "基本信息", 
-			formpage1: "基本信息", 
-			srforikey: "", 
-			srfkey: "编号", 
-			srfmajortext: "产品名称", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			comment: "备注", 
-			id: "编号", 
-		},
-		uiactions: {
-		},
-	},
 	main_grid: {
 		columns: {
 			name: "产品名称",
@@ -264,6 +264,12 @@ export default {
 			n_name_like: "产品名称(文本包含(%))", 
 		},
 		uiactions: {
+		},
+	},
+	editview_closetoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
 		},
 	},
 	mainview_edittoolbar_toolbar: {
@@ -316,12 +322,6 @@ export default {
 			tip: "保存并关闭",
 		},
 	},
-	editview_closetoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
-		},
-	},
 	gridviewtoolbar_toolbar: {
 		deuiaction4: {
 			caption: "删除",
@@ -337,17 +337,9 @@ export default {
 		},
 	},
 	leftsidebarlistviewtoolbar_toolbar: {
-		deuiaction3_closeproduct: {
-			caption: "关闭",
-			tip: "关闭",
-		},
 		deuiaction3_manager: {
 			caption: "管理",
 			tip: "管理",
-		},
-		deuiaction3_remove: {
-			caption: "删除",
-			tip: "删除",
 		},
 		seperator2: {
 			caption: "",

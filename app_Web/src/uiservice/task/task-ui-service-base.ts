@@ -146,9 +146,9 @@ export default class TaskUIServiceBase extends UIService {
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
         let deResParameters: any[] = [];
-        if(context.project && true){
+        if(context.story && true){
             deResParameters = [
-            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'stories', parameterName: 'story' },
             ]
         }
         const parameters: any[] = [
@@ -213,9 +213,9 @@ export default class TaskUIServiceBase extends UIService {
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
         let deResParameters: any[] = [];
-        if(context.project && true){
+        if(context.story && true){
             deResParameters = [
-            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'stories', parameterName: 'story' },
             ]
         }
         const parameters: any[] = [
@@ -280,9 +280,9 @@ export default class TaskUIServiceBase extends UIService {
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
         let deResParameters: any[] = [];
-        if(context.project && true){
+        if(context.story && true){
             deResParameters = [
-            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'stories', parameterName: 'story' },
             ]
         }
         const parameters: any[] = [
@@ -347,9 +347,9 @@ export default class TaskUIServiceBase extends UIService {
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
         let deResParameters: any[] = [];
-        if(context.project && true){
+        if(context.story && true){
             deResParameters = [
-            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'stories', parameterName: 'story' },
             ]
         }
         const parameters: any[] = [
@@ -415,9 +415,9 @@ export default class TaskUIServiceBase extends UIService {
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
         let deResParameters: any[] = [];
-        if(context.project && true){
+        if(context.story && true){
             deResParameters = [
-            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'stories', parameterName: 'story' },
             ]
         }
         const parameters: any[] = [
@@ -482,9 +482,9 @@ export default class TaskUIServiceBase extends UIService {
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
         let deResParameters: any[] = [];
-        if(context.project && true){
+        if(context.story && true){
             deResParameters = [
-            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'stories', parameterName: 'story' },
             ]
         }
         const parameters: any[] = [
@@ -614,9 +614,9 @@ export default class TaskUIServiceBase extends UIService {
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
         let deResParameters: any[] = [];
-        if(context.project && true){
+        if(context.story && true){
             deResParameters = [
-            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'stories', parameterName: 'story' },
             ]
         }
         const parameters: any[] = [

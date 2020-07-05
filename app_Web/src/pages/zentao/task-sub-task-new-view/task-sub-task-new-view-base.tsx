@@ -265,9 +265,9 @@ export class TaskSubTaskNewViewBase extends GridViewBase {
             Object.assign(tempContext,args[0]);
         }
         let deResParameters: any[] = [];
-        if(tempContext.project && true){
+        if(tempContext.story && true){
             deResParameters = [
-            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'stories', parameterName: 'story' },
             ]
         }
         const parameters: any[] = [
@@ -316,9 +316,9 @@ export class TaskSubTaskNewViewBase extends GridViewBase {
             Object.assign(tempContext,args[0]);
         }
         let deResParameters: any[] = [];
-        if(tempContext.project && true){
+        if(tempContext.story && true){
             deResParameters = [
-            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'stories', parameterName: 'story' },
             ]
         }
         const parameters: any[] = [

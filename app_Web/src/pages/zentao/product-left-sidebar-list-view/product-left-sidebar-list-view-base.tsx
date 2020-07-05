@@ -67,11 +67,7 @@ export class ProductLeftSidebarListViewBase extends ListViewBase {
      * @memberof ProductLeftSidebarListView
      */
     public toolBarModels: any = {
-        deuiaction3_closeproduct: { name: 'deuiaction3_closeproduct', caption: '关闭','isShowCaption':true,'isShowIcon':true, tooltip: '关闭', iconcls: 'fa fa-power-off', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'CloseProduct', target: 'SINGLEKEY' }, class: '' },
-
         deuiaction3_manager: { name: 'deuiaction3_manager', caption: '管理','isShowCaption':true,'isShowIcon':true, tooltip: '管理', iconcls: 'fa fa-list', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Manager', target: 'NONE' }, class: '' },
-
-        deuiaction3_remove: { name: 'deuiaction3_remove', caption: '删除','isShowCaption':true,'isShowIcon':true, tooltip: '删除', iconcls: 'fa fa-remove', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Remove', target: 'MULTIKEY' }, class: '' },
 
         seperator2: {  name: 'seperator2', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
         deuiaction1: { name: 'deuiaction1', caption: '新建','isShowCaption':true,'isShowIcon':true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'New', target: '' }, class: '' },
@@ -132,14 +128,8 @@ export class ProductLeftSidebarListViewBase extends ListViewBase {
      * @memberof ProductLeftSidebarListViewBase
      */
     public toolbar_click($event: any, $event2?: any): void {
-        if (Object.is($event.tag, 'deuiaction3_closeproduct')) {
-            this.toolbar_deuiaction3_closeproduct_click(null, '', $event2);
-        }
         if (Object.is($event.tag, 'deuiaction3_manager')) {
             this.toolbar_deuiaction3_manager_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction3_remove')) {
-            this.toolbar_deuiaction3_remove_click(null, '', $event2);
         }
         if (Object.is($event.tag, 'deuiaction1')) {
             this.toolbar_deuiaction1_click(null, '', $event2);
@@ -212,35 +202,6 @@ export class ProductLeftSidebarListViewBase extends ListViewBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public toolbar_deuiaction3_closeproduct_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this.$refs.list;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:ProductUIService  = new ProductUIService();
-        curUIService.Product_CloseProduct(datas,contextJO, paramJO,  $event, xData,this,"Product");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
     public toolbar_deuiaction3_manager_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
@@ -260,34 +221,6 @@ export class ProductLeftSidebarListViewBase extends ListViewBase {
         // 界面行为
         const curUIService:ProductUIService  = new ProductUIService();
         curUIService.Product_Manager(datas,contextJO, paramJO,  $event, xData,this,"Product");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_deuiaction3_remove_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this.$refs.list;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.Remove(datas, contextJO,paramJO,  $event, xData,this,"Product");
     }
 
     /**
@@ -427,25 +360,6 @@ export class ProductLeftSidebarListViewBase extends ListViewBase {
         openIndexViewTab(data);
     }
 
-
-    /**
-     * 删除
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof ProductLeftSidebarListViewBase
-     */
-    public Remove(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        if (!xData || !(xData.remove instanceof Function)) {
-            return ;
-        }
-        xData.remove(args);
-    }
 
     /**
      * 新建
