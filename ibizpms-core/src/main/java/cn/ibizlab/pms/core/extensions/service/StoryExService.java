@@ -3,6 +3,8 @@ package cn.ibizlab.pms.core.extensions.service;
 import cn.ibizlab.pms.core.zentao.domain.StorySpec;
 import cn.ibizlab.pms.core.zentao.filter.StorySpecSearchContext;
 import cn.ibizlab.pms.core.zentao.service.impl.StoryServiceImpl;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.zentao.domain.Story;
 import org.springframework.stereotype.Service;
@@ -163,6 +165,36 @@ public class StoryExService extends StoryServiceImpl {
     public Story get(BigInteger key) {
         Story et = super.get(key);
         this.getStorySpec(et);
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public boolean create(Story et) {
+        if(et.getReviewedby() != null && !"".equals(et.getReviewedby())) {
+            et.setAssignedto(et.getReviewedby().split(",")[0]);
+
+        }
+        return super.create(et);
+    }
+
+    @Override
+    @Transactional
+    public Story linkStory(Story et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser();
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        JSONObject jo = new JSONObject();
+        ArrayList<Map> list = (ArrayList) et.getExtensionparams().get("srfactionparam");
+        jo.put("id",et.getExtensionparams().get("productplan"));
+        JSONArray jsonArray = new JSONArray();
+        for(Map map : list) {
+            jsonArray.add(map.get("id"));
+        }
+        jo.put("stories[]",jsonArray);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.linkStory((String)user.getSessionParams().get("zentaosid"), jo, rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
         return et;
     }
 }
