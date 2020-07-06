@@ -1162,6 +1162,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-assign-task-view/task-assign-task-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/gridview9_child/:gridview9_child?',
+                    meta: {
+                        caption: 'entities.story.views.gridview9_child.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'gridview9_child', parameterName: 'gridview9_child' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-grid-view9-child/story-grid-view9-child.vue'),
+                },
+                {
+                    path: 'stories/:story?/gridview9_child/:gridview9_child?',
+                    meta: {
+                        caption: 'entities.story.views.gridview9_child.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'gridview9_child', parameterName: 'gridview9_child' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-grid-view9-child/story-grid-view9-child.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/releasesubeditview/:releasesubeditview?',
                     meta: {
                         caption: 'entities.story.views.releasesubeditview.title',

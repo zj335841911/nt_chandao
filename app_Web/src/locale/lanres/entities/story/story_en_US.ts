@@ -132,6 +132,10 @@ export default {
 			caption: "需求",
       		title: "story表格视图",
 		},
+		gridview9_child: {
+			caption: "细分需求",
+      		title: "细分需求",
+		},
 		main2gridview: {
 			caption: "需求",
       		title: "story表格视图",
@@ -372,6 +376,7 @@ export default {
 			group1: "项目任务", 
 			formpage1: "项目任务", 
 			druipart4: "", 
+			druipart5: "", 
 			druipart2: "", 
 			grouppanel1: "相关Bug", 
 			druipart3: "", 

@@ -197,6 +197,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '5d3b1d4c90b8b3a2013ccd3f3a9d5f17',
+                'd6ef7de701a935bd9023cd0eb1338f58',
                 'c959d7fe98c33b7befcad24e2596633e',
                 'a0f93007d7102bd236dc8f50ac4042ea',
                 '5895951b7f1045198682c8d51cd85482',
@@ -1570,6 +1571,17 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'd6ef7de701a935bd9023cd0eb1338f58',
+            viewmodule: 'zentao',
+            viewname: 'StoryGridView9_Child',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3f2ca3e560d9082bb56fbf7667a57a66',
+                '4863a523ac490ebce771717756f0c6a8',
             ],
         },
         {
