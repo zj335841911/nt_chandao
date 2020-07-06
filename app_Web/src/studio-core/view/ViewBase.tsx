@@ -298,7 +298,7 @@ export class ViewBase extends Vue {
         if (this.viewUsage === 1) {
             this.$appService.navHistory.setViewTag(this.viewtag, this.$route);
         }
-        this.parseViewParam();this.$t
+        this.parseViewParam();
         if (this.viewUsage === 1) {
             this.$appService.navHistory.setViewContext(this.context, this.viewtag);
         }
