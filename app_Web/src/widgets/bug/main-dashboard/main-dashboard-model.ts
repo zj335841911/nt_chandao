@@ -192,6 +192,9 @@ export default class MainModel {
       {
         name: 'comment',
       },
+      {
+        name: 'taskname',
+      },
     ]
   }
 

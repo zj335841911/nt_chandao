@@ -192,6 +192,9 @@ export default class DashboardBugLifeModel {
       {
         name: 'comment',
       },
+      {
+        name: 'taskname',
+      },
     ]
   }
 

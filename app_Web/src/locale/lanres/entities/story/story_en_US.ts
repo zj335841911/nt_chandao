@@ -278,6 +278,7 @@ export default {
 			source: "需求来源", 
 			sourcenote: "来源备注", 
 			reviewedby: "由谁评审", 
+			assignedto: "由谁评审", 
 			title: "需求名称", 
 			pri: "优先级", 
 			estimate: "预计", 

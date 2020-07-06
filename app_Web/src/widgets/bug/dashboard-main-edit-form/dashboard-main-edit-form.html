@@ -111,8 +111,8 @@
     :data="data" 
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext ='{ PRODUCT:"%product%" }' 
+    :localParam ='{ product:"%product%" }' 
     :disabled="detailsModel.branch.disabled"  
     tag='ProductBranch' 
     codelistType='DYNAMIC'
@@ -359,8 +359,8 @@
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
+  :localContext ='{ PRODUCT:"%product%" }' 
+  :localParam ='{ product:"%product%" }' 
   :disabled="detailsModel.projectname.disabled"
   name='projectname'
   deMajorField='name'
@@ -378,33 +378,53 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.story.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='story' :itemRules="this.rules.story" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.story')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.story.error" :isEmptyCaption="false" labelPos="LEFT">
+<i-col v-show="detailsModel.storyname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='storyname' :itemRules="this.rules.storyname" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.storyname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.storyname.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<dropdown-list-mpicker 
-  v-model="data.story"
-  :data="data" 
+<app-picker  
+  :formState="formState"
+  :data="data"
   :context="context"
-  :viewparams="viewparams" 
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  placeholder='请选择...' style="">
-</dropdown-list-mpicker>
+  :viewparams="viewparams"
+  :localContext ='{ ZT_PRODUCT:"%product%", PRODUCT:"%product%" }' 
+  :localParam ='{ product:"%product%", n_product_eq:"%product%" }' 
+  :disabled="detailsModel.storyname.disabled"
+  name='storyname' 
+  deMajorField='title'
+  deKeyField='story'
+  :service="service"
+  :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchDefault'}"
+  valueitem='story' 
+  :value="data.storyname" 
+  editortype="dropdown" 
+  style="" 
+  @formitemvaluechange="onFormItemValueChange($event)">
+</app-picker>
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.task.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='task' :itemRules="this.rules.task" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.task')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.task.error" :isEmptyCaption="false" labelPos="LEFT">
+<i-col v-show="detailsModel.taskname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='taskname' :itemRules="this.rules.taskname" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.taskname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.taskname.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<dropdown-list-mpicker 
-  v-model="data.task"
-  :data="data" 
+<app-picker  
+  :formState="formState"
+  :data="data"
   :context="context"
-  :viewparams="viewparams" 
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  placeholder='请选择...' style="">
-</dropdown-list-mpicker>
+  :viewparams="viewparams"
+  :localContext ='{ ZT_PROJECT:"%project%", PROJECT:"%project%" }' 
+  :localParam ='{ project:"%project%", n_project_eq:"%project%" }' 
+  :disabled="detailsModel.taskname.disabled"
+  name='taskname' 
+  deMajorField='name'
+  deKeyField='task'
+  :service="service"
+  :acParams="{ serviceName: 'TaskService', interfaceName: 'FetchDefault'}"
+  valueitem='task' 
+  :value="data.taskname" 
+  editortype="dropdown" 
+  style="" 
+  @formitemvaluechange="onFormItemValueChange($event)">
+</app-picker>
 </app-form-item>
 
 </i-col>
