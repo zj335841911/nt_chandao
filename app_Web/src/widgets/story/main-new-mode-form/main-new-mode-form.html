@@ -39,7 +39,7 @@
   :context="context"
   :viewparams="viewparams"
   :localContext ='{ PRODUCT:"%product%" }' 
-  :localParam ='{ }' 
+  :localParam ='{ product:"%product%" }' 
   :disabled="detailsModel.modulename.disabled"
   name='modulename' 
   deMajorField='name'
@@ -64,7 +64,7 @@
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ PRODUCT:"%product%" }' 
-    :localParam ='{ }' 
+    :localParam ='{ product:"%product%" }' 
     :disabled="detailsModel.plan.disabled"  
     tag='CurProductPlan' 
     codelistType='DYNAMIC'
