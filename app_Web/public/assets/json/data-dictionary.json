@@ -775,7 +775,7 @@
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"Branch",
-        "appdedataset":"FetchCurProduct",
+        "appdedataset":"FetchDefault",
         "items": []
     }, 
     {
@@ -1346,6 +1346,14 @@
                 "disabled": false
             }
         ]
+    }, 
+    {
+        "srfkey": "BugModule",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Module",
+        "appdedataset":"FetchDefault",
+        "items": []
     }, 
     {
         "srfkey": "Role",

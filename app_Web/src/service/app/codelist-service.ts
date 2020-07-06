@@ -4,6 +4,7 @@ import CurProductPlan from '@/codelist/cur-product-plan';
 import UserRealName from '@/codelist/user-real-name';   
 import ProductBranch from '@/codelist/product-branch';   
 import CurProductBuild from '@/codelist/cur-product-build';   
+import BugModule from '@/codelist/bug-module';   
 import Role from '@/codelist/role';   
 import TestTask from '@/codelist/test-task';   
 import Product from '@/codelist/product';   
@@ -107,6 +108,14 @@ export default class CodeListService {
      * @memberof CodeListService
      */
     public CurProductBuild: CurProductBuild = new CurProductBuild();
+
+    /**
+     * 代码表--所属模板（动态）
+     *
+     * @type {BugModule}
+     * @memberof CodeListService
+     */
+    public BugModule: BugModule = new BugModule();
 
     /**
      * 代码表--群组（动态）

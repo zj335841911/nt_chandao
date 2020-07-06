@@ -189,6 +189,9 @@ export default {
         "0": "否",
         "empty": ""
     },
+    BugModule: {
+        "empty": "",
+    },
     Role: {
         "empty": "",
     },

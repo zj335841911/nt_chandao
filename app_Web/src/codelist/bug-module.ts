@@ -1,25 +1,25 @@
-import BranchService from '@service/branch/branch-service';
+import ModuleService from '@service/module/module-service';
 /**
- * 代码表--产品平台（动态）
+ * 代码表--所属模板（动态）
  *
  * @export
- * @class ProductBranch
+ * @class BugModule
  */
-export default class ProductBranch {
+export default class BugModule {
 
     /**
      * 是否启用缓存
      *
      * @type boolean
-     * @memberof ProductBranch
+     * @memberof BugModule
      */
-    public isEnableCache:boolean = false;
+    public isEnableCache:boolean = true;
 
     /**
      * 过期时间
      *
      * @type any
-     * @memberof ProductBranch
+     * @memberof BugModule
      */
     public expirationTime:any;
 
@@ -27,7 +27,7 @@ export default class ProductBranch {
      * 缓存超长时长
      *
      * @type any
-     * @memberof ProductBranch
+     * @memberof BugModule
      */
     public cacheTimeout:any = -1;
 
@@ -35,17 +35,17 @@ export default class ProductBranch {
      * 代码表模型对象
      *
      * @type any
-     * @memberof ProductBranch
+     * @memberof BugModule
      */
     public codelistModel:any = {
-        codelistid:"ProductBranch"
+        codelistid:"BugModule"
     };
 
     /**
      * 自定义参数集合
      *
      * @type any
-     * @memberof ProductBranch
+     * @memberof BugModule
      */
     public userParamNames:any ={
     }
@@ -54,18 +54,18 @@ export default class ProductBranch {
      * 查询参数集合
      *
      * @type any
-     * @memberof ProductBranch
+     * @memberof BugModule
      */
     public queryParamNames:any ={
     }
 
     /**
-     * 产品的分支和平台信息应用实体服务对象
+     * 模块应用实体服务对象
      *
-     * @type {BranchService}
-     * @memberof ProductBranch
+     * @type {ModuleService}
+     * @memberof BugModule
      */
-    public branchService: BranchService = new BranchService();
+    public moduleService: ModuleService = new ModuleService();
 
 
     /**
@@ -74,15 +74,15 @@ export default class ProductBranch {
      * @public
      * @param {any[]} items
      * @returns {any[]}
-     * @memberof ProductBranch
+     * @memberof BugModule
      */
     public doItems(items: any[]): any[] {
         let _items: any[] = [];
         items.forEach((item: any) => {
             let itemdata:any = {};
-            Object.assign(itemdata,{id:item.name});
-            Object.assign(itemdata,{value:item.name});
-            Object.assign(itemdata,{text:item.id});
+            Object.assign(itemdata,{id:item.id});
+            Object.assign(itemdata,{value:item.id});
+            Object.assign(itemdata,{text:item.name});
             
             _items.push(itemdata);
         });
@@ -96,12 +96,12 @@ export default class ProductBranch {
      * @param {*} data
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof ProductBranch
+     * @memberof BugModule
      */
     public getItems(context: any={}, data: any={}, isloading?: boolean): Promise<any> {
         return new Promise((resolve, reject) => {
             data = this.handleQueryParam(data);
-            const promise: Promise<any> = this.branchService.FetchDefault(context, data, isloading);
+            const promise: Promise<any> = this.moduleService.FetchDefault(context, data, isloading);
             promise.then((response: any) => {
                 if (response && response.status === 200) {
                     const data =  response.data;
@@ -119,7 +119,7 @@ export default class ProductBranch {
     /**
      * 处理查询参数
      * @param data 传入data
-     * @memberof ProductBranch
+     * @memberof BugModule
      */
     public handleQueryParam(data:any){
         let tempData:any = data?JSON.parse(JSON.stringify(data)):{};

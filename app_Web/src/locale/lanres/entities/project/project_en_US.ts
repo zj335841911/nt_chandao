@@ -158,6 +158,27 @@ export default {
 		uiactions: {
 		},
 	},
+	activate_form: {
+		details: {
+			druipart1: "", 
+			group1: "project基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "项目编号", 
+			srfmajortext: "项目名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			formitem: "开始时间", 
+			formitem1: "结束日期", 
+			formitemex1: "起止时间", 
+			comment: "备注", 
+			id: "项目编号", 
+		},
+		uiactions: {
+		},
+	},
 	main_edit_form: {
 		details: {
 			grouppanel2: "负责人", 

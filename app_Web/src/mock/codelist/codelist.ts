@@ -783,7 +783,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"Branch",
-        "appdedataset":"FetchCurProduct",
+        "appdedataset":"FetchDefault",
         "items": []
     },
     {
@@ -1354,6 +1354,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 disabled: false,
             },
         ]
+    },
+    {
+        "srfkey": "BugModule",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Module",
+        "appdedataset":"FetchDefault",
+        "items": []
     },
     {
         "srfkey": "Role",

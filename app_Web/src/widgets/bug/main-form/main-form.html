@@ -43,7 +43,7 @@
     :data="data" 
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{ }' 
+    :localContext ='{ PRODUCT:"%product%" }' 
     :localParam ='{ }' 
     :disabled="detailsModel.branch.disabled"  
     tag='ProductBranch' 
@@ -64,6 +64,8 @@
     :localContext ='{ PRODUCT:"%product%" }' 
     :localParam ='{ }' 
     :disabled="detailsModel.module.disabled"  
+    tag='BugModule' 
+    codelistType='DYNAMIC'
     placeholder='请选择...' style="">
  </dropdown-list>
 </app-form-item>
