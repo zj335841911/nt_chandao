@@ -26,6 +26,7 @@ public interface StoryMapper extends BaseMapper<Story>{
     Page<Story> searchProjectStories(IPage page, @Param("srf") StorySearchContext context, @Param("ew") Wrapper<Story> wrapper) ;
     Page<Story> searchReleaseStories(IPage page, @Param("srf") StorySearchContext context, @Param("ew") Wrapper<Story> wrapper) ;
     Page<Story> searchReportStories(IPage page, @Param("srf") StorySearchContext context, @Param("ew") Wrapper<Story> wrapper) ;
+    Page<Story> searchStoryRelated(IPage page, @Param("srf") StorySearchContext context, @Param("ew") Wrapper<Story> wrapper) ;
     @Override
     Story selectById(Serializable id);
     @Override

@@ -41,6 +41,7 @@ export class StoryGridView9_SubStoryBase extends GridView9Base {
 	 * @memberof StoryGridView9_SubStoryBase
 	 */
     protected customViewParams: any = {
+        'story': { isRawValue: false, value: 'story' },
         'n_parent_eq': { isRawValue: false, value: 'srfparentkey' }
     };
 
