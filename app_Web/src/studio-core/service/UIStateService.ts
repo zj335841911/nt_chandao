@@ -110,4 +110,14 @@ export class UIStateService {
         }
     }
 
+    /**
+     * 是否为Style2模式
+     *
+     * @returns {boolean}
+     * @memberof UIStateService
+     */
+    public isStyle2(): boolean {
+        return this.layoutState.styleMode === 'STYLE2';
+    }
+
 }
