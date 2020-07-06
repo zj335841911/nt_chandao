@@ -32,6 +32,16 @@ public class ProjectExService extends ProjectServiceImpl {
         return super.activate(et);
     }
     /**
+     * 自定义行为[BatchUnlinkStory]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Project batchUnlinkStory(Project et) {
+        return super.batchUnlinkStory(et);
+    }
+    /**
      * 自定义行为[Close]用户扩展
      * @param et
      * @return
@@ -40,6 +50,16 @@ public class ProjectExService extends ProjectServiceImpl {
     @Transactional
     public Project close(Project et) {
         return super.close(et);
+    }
+    /**
+     * 自定义行为[LinkStory]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Project linkStory(Project et) {
+        return super.linkStory(et);
     }
     /**
      * 自定义行为[Putoff]用户扩展
@@ -70,6 +90,16 @@ public class ProjectExService extends ProjectServiceImpl {
     @Transactional
     public Project suspend(Project et) {
         return super.suspend(et);
+    }
+    /**
+     * 自定义行为[UnlinkStory]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Project unlinkStory(Project et) {
+        return super.unlinkStory(et);
     }
     /**
      * 自定义行为[UpdateOrder]用户扩展

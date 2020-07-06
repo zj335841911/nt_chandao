@@ -129,6 +129,18 @@ public class ProjectResource {
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-BatchUnlinkStory-all')")
+    @ApiOperation(value = "批量解除关联需求", tags = {"项目" },  notes = "批量解除关联需求")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/batchunlinkstory")
+    @Transactional
+    public ResponseEntity<ProjectDTO> batchUnlinkStory(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectDTO projectdto) {
+        Project domain = projectMapping.toDomain(projectdto);
+        domain.setId(project_id);
+        domain = projectService.batchUnlinkStory(domain);
+        projectdto = projectMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(projectdto);
+    }
+
     @ApiOperation(value = "检查项目", tags = {"项目" },  notes = "检查项目")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody ProjectDTO projectdto) {
@@ -143,6 +155,18 @@ public class ProjectResource {
         Project domain = projectMapping.toDomain(projectdto);
         domain.setId(project_id);
         domain = projectService.close(domain);
+        projectdto = projectMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(projectdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-LinkStory-all')")
+    @ApiOperation(value = "关联需求", tags = {"项目" },  notes = "关联需求")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/linkstory")
+    @Transactional
+    public ResponseEntity<ProjectDTO> linkStory(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectDTO projectdto) {
+        Project domain = projectMapping.toDomain(projectdto);
+        domain.setId(project_id);
+        domain = projectService.linkStory(domain);
         projectdto = projectMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
     }
@@ -194,6 +218,18 @@ public class ProjectResource {
         Project domain = projectMapping.toDomain(projectdto);
         domain.setId(project_id);
         domain = projectService.suspend(domain);
+        projectdto = projectMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(projectdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-UnlinkStory-all')")
+    @ApiOperation(value = "解除关联需求", tags = {"项目" },  notes = "解除关联需求")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/unlinkstory")
+    @Transactional
+    public ResponseEntity<ProjectDTO> unlinkStory(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectDTO projectdto) {
+        Project domain = projectMapping.toDomain(projectdto);
+        domain.setId(project_id);
+        domain = projectService.unlinkStory(domain);
         projectdto = projectMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
     }
