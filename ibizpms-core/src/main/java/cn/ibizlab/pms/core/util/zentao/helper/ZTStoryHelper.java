@@ -216,7 +216,7 @@ final public class ZTStoryHelper {
         ACTION_PARAMS_EDIT.put("estimate", 0);
         ACTION_PARAMS_EDIT.put("color", null);
         ACTION_PARAMS_EDIT.put("mailto", null);
-        ACTION_PARAMS_EDIT.put("linkstories", null);
+        ACTION_PARAMS_EDIT.put("linkStories", null);
         ACTION_PARAMS_EDIT.put("assignedTo", null);
         ACTION_PARAMS_EDIT.put("keywords", null);
         ACTION_PARAMS_EDIT.put("comment", null);
