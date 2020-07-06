@@ -438,14 +438,12 @@ export default {
 	},
 	pickupgird_grid: {
 		columns: {
-			id: "Bug编号",
+			id: "ID",
 			pri: "P",
-			confirmed: "是否确认",
 			title: "Bug标题",
+			openedby: "创建",
+			assignedto: "指派",
 			status: "Bug状态",
-			openedby: "由谁创建",
-			openeddate: "创建日期",
-			assignedto: "指派给",
 		},
 		uiactions: {
 		},

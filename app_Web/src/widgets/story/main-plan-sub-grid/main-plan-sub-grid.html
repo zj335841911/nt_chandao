@@ -158,10 +158,13 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
+                            <tooltip :transfer="true" :max-width="600">
                             <a @click="uiAction(scope.row, 'UnlinkStory', $event)">
                               <i class='fa fa-unlink'></i>
-                              {{$t('entities.story.main_plansub_grid.uiactions.story_unlinkstory')}}
+                              
                             </a>
+                            <div slot='content'>{{$t('entities.story.main_plansub_grid.uiactions.story_unlinkstory')}}</div>
+                            </tooltip>
                         </div>
                     </template>
                 </el-table-column>
