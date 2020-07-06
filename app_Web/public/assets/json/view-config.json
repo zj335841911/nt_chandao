@@ -1269,6 +1269,16 @@
         "viewtag": "9ed41cee96088630f3d4b0a91e705930",
         "memo": "视图参数从上下文中获取对应的对象类型"
     },
+    "storygridview9_related": {
+        "title": "需求表格视图",
+        "caption": "需求",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "StoryGridView9_Related",
+        "viewfilename": "story-grid-view9-related",
+        "viewtag": "a0f93007d7102bd236dc8f50ac4042ea",
+        "memo": "视图参数中指定了过滤条件"
+    },
     "storymaingridview": {
         "title": "story表格视图",
         "caption": "需求",

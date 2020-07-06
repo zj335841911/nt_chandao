@@ -58,11 +58,30 @@
                     ])
                 }">
                     
-<i-col v-show="detailsModel.linkstories.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='linkstories' :itemRules="this.rules.linkstories" class='' :caption="$t('entities.story.related_form.details.linkstories')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.linkstories.error" :isEmptyCaption="false" labelPos="LEFT">
+<i-col v-show="detailsModel.druipart4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-druipart
     
-<app-span name='linkstories' :value="data.linkstories" tag='RelatedStory' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
-</app-form-item>
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem='story' 
+    :parentdata='{"srfparentdename":"ZT_STORY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+        { pathName: 'products', parameterName: 'product' },
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{}'
+    parameterName='story'
+    parentName="Story"  
+    refviewtype='DEGRIDVIEW9' 
+    refreshitems='' 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname='story-grid-view9-related' 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved($event)"
+    style="overflow: auto;">
+</app-form-druipart>
 
 </i-col>
 <i-col v-show="detailsModel.childstories.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">

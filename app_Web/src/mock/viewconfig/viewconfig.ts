@@ -1023,6 +1023,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "FileListView9",
             "viewtag": "9ed41cee96088630f3d4b0a91e705930"
         },
+        "storygridview9_related": {
+            "title": "需求表格视图",
+            "caption": "需求",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "StoryGridView9_Related",
+            "viewtag": "a0f93007d7102bd236dc8f50ac4042ea"
+        },
         "storymaingridview": {
             "title": "story表格视图",
             "caption": "需求",
