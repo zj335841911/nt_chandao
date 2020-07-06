@@ -473,6 +473,18 @@ final public class ZTBugHelper {
     }
 
     /**
+     * linkBug 关联Bug
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean linkBug(String zentaoSid, JSONObject jo, ZTResult rst) {
+        return ZTProductPlanHelper.linkBug(zentaoSid, jo, rst);
+    }
+
+    /**
      * unlinkBug 解除关联Bug
      *
      * @param zentaoSid
@@ -484,4 +496,15 @@ final public class ZTBugHelper {
         return ZTProductPlanHelper.unlinkBug(zentaoSid, jo, rst);
     }
 
+    /**
+     * batchUnlinkBug 批量解除关联Bug
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean batchUnlinkBug(String zentaoSid, JSONObject jo, ZTResult rst) {
+        return ZTProductPlanHelper.batchUnlinkBug(zentaoSid, jo, rst);
+    }
 }
