@@ -15,12 +15,6 @@ import view_pickupviewpanel from '@widgets/project/pickup-viewpickupviewpanel-pi
 @Component({
     components: {
         view_pickupviewpanel, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$appService.navHistory.setViewTag(vm.viewtag, to);
-            vm.$appService.navHistory.setViewContext(vm.context, to);
-        });
     }
 })
 @VueLifeCycleProcessing()

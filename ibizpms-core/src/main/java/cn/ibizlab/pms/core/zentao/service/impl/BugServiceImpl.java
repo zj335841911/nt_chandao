@@ -489,6 +489,16 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
             }
             et.setStoryname(ztstory.getTitle());
         }
+        //实体关系[DER1N_ZT_BUG_ZT_TASK_TASK]
+        if(!ObjectUtils.isEmpty(et.getTask())){
+            cn.ibizlab.pms.core.zentao.domain.Task zttask=et.getZttask();
+            if(ObjectUtils.isEmpty(zttask)){
+                cn.ibizlab.pms.core.zentao.domain.Task majorEntity=taskService.get(et.getTask());
+                et.setZttask(majorEntity);
+                zttask=majorEntity;
+            }
+            et.setTaskname(zttask.getName());
+        }
     }
 
 

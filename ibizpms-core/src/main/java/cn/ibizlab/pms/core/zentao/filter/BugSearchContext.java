@@ -120,14 +120,14 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
             this.getSearchCond().like("projectname", n_projectname_like);
         }
     }
-	private String n_storyname_eq;//[需求]
+	private String n_storyname_eq;//[相关需求]
 	public void setN_storyname_eq(String n_storyname_eq) {
         this.n_storyname_eq = n_storyname_eq;
         if(!ObjectUtils.isEmpty(this.n_storyname_eq)){
             this.getSearchCond().eq("storyname", n_storyname_eq);
         }
     }
-	private String n_storyname_like;//[需求]
+	private String n_storyname_like;//[相关需求]
 	public void setN_storyname_like(String n_storyname_like) {
         this.n_storyname_like = n_storyname_like;
         if(!ObjectUtils.isEmpty(this.n_storyname_like)){
@@ -216,6 +216,20 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
         this.n_testtask_eq = n_testtask_eq;
         if(!ObjectUtils.isEmpty(this.n_testtask_eq)){
             this.getSearchCond().eq("testtask", n_testtask_eq);
+        }
+    }
+	private String n_taskname_eq;//[相关任务]
+	public void setN_taskname_eq(String n_taskname_eq) {
+        this.n_taskname_eq = n_taskname_eq;
+        if(!ObjectUtils.isEmpty(this.n_taskname_eq)){
+            this.getSearchCond().eq("taskname", n_taskname_eq);
+        }
+    }
+	private String n_taskname_like;//[相关任务]
+	public void setN_taskname_like(String n_taskname_like) {
+        this.n_taskname_like = n_taskname_like;
+        if(!ObjectUtils.isEmpty(this.n_taskname_like)){
+            this.getSearchCond().like("taskname", n_taskname_like);
         }
     }
 

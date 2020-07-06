@@ -79,7 +79,7 @@
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :localContext ='{ }' 
+  :localContext ='{ PRODUCT:"%product%" }' 
   :localParam ='{ product:"%product%" }' 
   :disabled="detailsModel.projectname.disabled"
   name='projectname'
@@ -250,7 +250,57 @@
 <i-col v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.main_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
-        <i-col v-show="detailsModel.mailto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+        <i-col v-show="detailsModel.storyname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+    <app-form-item name='storyname' :itemRules="this.rules.storyname" class='' :caption="$t('entities.bug.main_form.details.storyname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.storyname.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-picker  
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :localContext ='{ ZT_PRODUCT:"%product%" }' 
+  :localParam ='{ n_product_eq:"%product%" }' 
+  :disabled="detailsModel.storyname.disabled"
+  name='storyname' 
+  deMajorField='title'
+  deKeyField='story'
+  :service="service"
+  :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchDefault'}"
+  valueitem='story' 
+  :value="data.storyname" 
+  editortype="dropdown" 
+  style="" 
+  @formitemvaluechange="onFormItemValueChange($event)">
+</app-picker>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.taskname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+    <app-form-item name='taskname' :itemRules="this.rules.taskname" class='' :caption="$t('entities.bug.main_form.details.taskname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.taskname.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-picker  
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :localContext ='{ ZT_PROJECT:"%project%" }' 
+  :localParam ='{ n_project_eq:"%project%" }' 
+  :disabled="detailsModel.taskname.disabled"
+  name='taskname' 
+  deMajorField='name'
+  deKeyField='task'
+  :service="service"
+  :acParams="{ serviceName: 'TaskService', interfaceName: 'FetchDefault'}"
+  valueitem='task' 
+  :value="data.taskname" 
+  editortype="dropdown" 
+  style="" 
+  @formitemvaluechange="onFormItemValueChange($event)">
+</app-picker>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.mailto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='mailto' :itemRules="this.rules.mailto" class='' :caption="$t('entities.bug.main_form.details.mailto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.mailto.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list-mpicker 

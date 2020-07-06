@@ -1,7 +1,7 @@
-import { Util } from '@/utils';
+import qs from 'qs';
+import i18n from '@/locale'
 import { AppContextStore } from '../app-context-store/AppContextStore';
 import { UIStateService } from '../UIStateService';
-import qs from 'qs';
 
 /**
  * 历史记录项
@@ -38,6 +38,13 @@ export interface HistoryItem {
      * @memberof HistoryItem
      */
     context?: any;
+    /**
+     * 标题
+     *
+     * @type {string}
+     * @memberof HistoryItem
+     */
+    title?: string;
 }
 
 /**
@@ -115,7 +122,7 @@ export class AppNavHistoryBase {
      * @memberof AppNavHistoryBase
      */
     public findHistoryByTag(tag: string): any {
-        return this.historyList.find((item) => item.tag === tag);
+        return this.historyList.find((item) => (isExistAndNotEmpty(item.tag) && item.tag === tag));
     }
 
     /**
@@ -168,7 +175,6 @@ export class AppNavHistoryBase {
                 continue;
             }
             if (!isExist(oldQuery) || !Object.is(oldQuery[key], newQuery[key])) {
-                console.log('相同');
                 return false;
             }
         }
@@ -188,9 +194,10 @@ export class AppNavHistoryBase {
             }
             this.historyList.push({
                 to,
-                meta: Util.deepCopy(to.meta),
+                meta: JSON.parse(JSON.stringify(to.meta)),
                 tag: '',
-                context: {}
+                context: {},
+                title: i18n.t(to.meta.caption).toString()
             });
         }
     }
@@ -226,13 +233,14 @@ export class AppNavHistoryBase {
      * @memberof AppNavHistoryBase
      */
     public setCaption({ tag, caption, info }: { tag: string, caption?: string, info?: string }): boolean {
-        const item = this.findHistoryByTag(tag);
+        const item: HistoryItem = this.findHistoryByTag(tag);
         if (item) {
             if (caption) {
                 item.meta.caption = caption;
             }
-            if (info) {
+            if (isExistAndNotEmpty(info)) {
                 item.meta.info = info;
+                item.title = `${i18n.t(item.meta.caption)} - ${info}`;
             }
         }
         return true;
@@ -252,6 +260,9 @@ export class AppNavHistoryBase {
             return false;
         }
         const item = this.historyList[i];
+        if (isExistAndNotEmpty(item.tag)) {
+            return false;
+        }
         item.tag = tag;
         return true;
     }
@@ -260,18 +271,17 @@ export class AppNavHistoryBase {
      * 设置路由视图上下文
      *
      * @param {*} context
-     * @param {*} route
+     * @param {*} tag
      * @returns {boolean}
      * @memberof AppNavHistoryBase
      */
-    public setViewContext(context: any, route: any): boolean {
-        const i = this.findHistoryIndex(route);
-        if (i === -1) {
-            return false;
+    public setViewContext(context: any, tag: any): boolean {
+        const item = this.findHistoryByTag(tag);
+        if (item) {
+            item.context = context;
+            return true;
         }
-        const item = this.historyList[i];
-        item.context = context;
-        return true;
+        return false;
     }
 
     /**

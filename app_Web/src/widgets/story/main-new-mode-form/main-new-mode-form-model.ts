@@ -91,6 +91,11 @@ export default class Main_NewModeModel {
         dataType: 'SMCODELIST',
       },
       {
+        name: 'assignedto',
+        prop: 'assignedto',
+        dataType: 'TEXT',
+      },
+      {
         name: 'title',
         prop: 'title',
         dataType: 'TEXT',
