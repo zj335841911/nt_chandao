@@ -216,7 +216,7 @@ final public class ZTStoryHelper {
         ACTION_PARAMS_EDIT.put("estimate", 0);
         ACTION_PARAMS_EDIT.put("color", null);
         ACTION_PARAMS_EDIT.put("mailto", null);
-        ACTION_PARAMS_EDIT.put("linkStories", null);
+        ACTION_PARAMS_EDIT.put("linkStories[]", null);
         ACTION_PARAMS_EDIT.put("assignedTo", null);
         ACTION_PARAMS_EDIT.put("keywords", null);
         ACTION_PARAMS_EDIT.put("comment", null);
@@ -473,6 +473,18 @@ final public class ZTStoryHelper {
     }
 
     /**
+     * linkStory 关联需求
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean linkStory(String zentaoSid, JSONObject jo, ZTResult rst) {
+        return ZTProductPlanHelper.linkStory(zentaoSid, jo, rst);
+    }
+
+    /**
      * unlinkStory 解除关联需求
      *
      * @param zentaoSid
@@ -484,4 +496,15 @@ final public class ZTStoryHelper {
         return ZTProductPlanHelper.unlinkStory(zentaoSid, jo, rst);
     }
 
+    /**
+     * batchUnlinkStory 批量解除关联需求
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean batchUnlinkStory(String zentaoSid, JSONObject jo, ZTResult rst) {
+        return ZTProductPlanHelper.batchUnlinkStory(zentaoSid, jo, rst);
+    }
 }
