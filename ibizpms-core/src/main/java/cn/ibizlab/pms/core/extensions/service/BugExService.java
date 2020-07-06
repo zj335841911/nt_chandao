@@ -61,5 +61,15 @@ public class BugExService extends BugServiceImpl {
     public Bug resolve(Bug et) {
         return super.resolve(et);
     }
+    /**
+     * 自定义行为[UnlinkBug]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Bug unlinkBug(Bug et) {
+        return super.unlinkBug(et);
+    }
 }
 

@@ -40,6 +40,7 @@ public interface IBugService extends IService<Bug>{
     Bug resolve(Bug et) ;
     boolean save(Bug et) ;
     void saveBatch(List<Bug> list) ;
+    Bug unlinkBug(Bug et) ;
     Page<Bug> searchBuildBugs(BugSearchContext context) ;
     Page<Bug> searchBuildOpenBugs(BugSearchContext context) ;
     Page<Bug> searchDefault(BugSearchContext context) ;

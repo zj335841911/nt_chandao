@@ -236,6 +236,18 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
         saveOrUpdateBatch(list,batchSize);
     }
 
+    @Override
+    @Transactional
+    public Bug unlinkBug(Bug et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBugHelper.unlinkBug((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return et;
+    }
+
 
 	@Override
     public List<Bug> selectByBranch(BigInteger id) {

@@ -1668,6 +1668,89 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * UnlinkStory接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async UnlinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story){
+            let masterData:any = {};
+        let casesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
+            casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
+            if(casesData && casesData.length && casesData.length > 0){
+                casesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.cases = casesData;
+        let storyspecsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
+            storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
+            if(storyspecsData && storyspecsData.length && storyspecsData.length > 0){
+                storyspecsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.storyspecs = storyspecsData;
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
+        let bugsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
+            bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
+            if(bugsData && bugsData.length && bugsData.length > 0){
+                bugsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.bugs = bugsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/unlinkstory`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
+            this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
+            this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
+            return res;
+        }
+            return Http.getInstance().post(`/stories/${context.story}/unlinkstory`,data,isloading);
+    }
+
+    /**
      * FetchBuildStories接口方法
      *
      * @param {*} [context={}]
