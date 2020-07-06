@@ -193,6 +193,7 @@ export default class BugUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(context,{BUG:"0"});
         Object.assign(params,{productplan:"%productplan%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
@@ -235,7 +236,20 @@ export default class BugUIServiceBase extends UIService {
                 return response;
             });
         };
-        backend();
+        const view: any = {
+            viewname: 'bug-mpickup-view',
+            title: actionContext.$t('entities.bug.views.mpickupview.title'),
+            height: 0,
+            width: 0,
+            placement: 'DRAWER_TOP'
+        };
+        const appdrawer = actionContext.$appdrawer.openDrawer(view,context,data);
+        appdrawer.subscribe((result: any) => {
+            if (result && Object.is(result.ret, 'OK')) {
+                Object.assign(data, { srfactionparam: result.datas });
+                backend();
+            }
+        });
     }
 
     /**

@@ -43,6 +43,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '46517a803b2470cd0bef27aeda0dbcaf',
+                '21d716ac12c793af54b112a5a3599674',
             ],
         },
         {
@@ -164,6 +165,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '1e7347f3fffc87077dd7f0156125b918',
+            viewmodule: 'zentao',
+            viewname: 'BugPickupGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '1ed8a475f4c185fc99c487900bbcf69e',
             viewmodule: 'zentao',
             viewname: 'iBizPMS',
@@ -189,6 +199,16 @@ export const viewstate: any = {
                 '5d3b1d4c90b8b3a2013ccd3f3a9d5f17',
                 'c959d7fe98c33b7befcad24e2596633e',
                 '5895951b7f1045198682c8d51cd85482',
+            ],
+        },
+        {
+            viewtag: '21d716ac12c793af54b112a5a3599674',
+            viewmodule: 'zentao',
+            viewname: 'BugMPickupView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '1e7347f3fffc87077dd7f0156125b918',
             ],
         },
         {
@@ -964,6 +984,7 @@ export const viewstate: any = {
                 'b9bdfc0e33d333ade00934745d9dc0ad',
                 'aad9a5713d6828d3119b811b26915215',
                 '08ca1b1e6234a0d038e1fbf52478ea7f',
+                '21d716ac12c793af54b112a5a3599674',
             ],
         },
         {
@@ -1380,6 +1401,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '54a5f5fa5f8def88d2aec9c7ee6d85fe',
+                'b9bdfc0e33d333ade00934745d9dc0ad',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
             ],
         },

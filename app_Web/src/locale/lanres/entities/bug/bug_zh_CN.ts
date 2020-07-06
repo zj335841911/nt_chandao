@@ -436,6 +436,20 @@ export default {
 			bug_unlinkbug: "移除关联",
 		},
 	},
+	pickupgird_grid: {
+		columns: {
+			id: "Bug编号",
+			pri: "P",
+			confirmed: "是否确认",
+			title: "Bug标题",
+			status: "Bug状态",
+			openedby: "由谁创建",
+			openeddate: "创建日期",
+			assignedto: "指派给",
+		},
+		uiactions: {
+		},
+	},
 	main_releasesub_grid: {
 		columns: {
 			id: "ID",
@@ -478,20 +492,6 @@ export default {
 			resolvedby: "解决者",
 			resolveddate: "解决日期",
 			status: "Bug状态",
-		},
-		uiactions: {
-		},
-	},
-	pickupgird_grid: {
-		columns: {
-			id: "Bug编号",
-			pri: "P",
-			confirmed: "是否确认",
-			title: "Bug标题",
-			status: "Bug状态",
-			openedby: "由谁创建",
-			openeddate: "创建日期",
-			assignedto: "指派给",
 		},
 		uiactions: {
 		},
