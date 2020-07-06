@@ -15,12 +15,6 @@ import view_form from '@widgets/sub-product-plan/main-sub-plan-form/main-sub-pla
 @Component({
     components: {
         view_form, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$appService.navHistory.setViewTag(vm.viewtag, to);
-            vm.$appService.navHistory.setViewContext(vm.context, to);
-        });
     }
 })
 @VueLifeCycleProcessing()

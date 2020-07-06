@@ -7,12 +7,12 @@
             <div ref="scrollChild" class="tags-container" :style="{left: styleLeft + 'px'}">
                 <transition-group name="tags-transition">
                     <template v-for="(item, index) of appService.navHistory.historyList">
-                        <Tag ref="tagElement" :key="index" :class="isActive(item) ? 'tag-is-active' : ''" :name="index" closable @click.native="changePage(item)" @on-close="onClose(item)">
+                        <Tag ref="tagElement" :key="item.tag + index" :class="isActive(item) ? 'tag-is-active' : ''" :name="index" closable @click.native="changePage(item)" @on-close="onClose(item)">
                             <div class="tag-text">
-                                <div :title="getCaption(item.meta.caption, item.meta.info)" style="max-width: 300px;">
+                                <div :title="item.title" style="max-width: 300px;">
                                     <i v-if="item.meta.iconCls && !Object.is(item.meta.iconCls, '')" :class="item.meta.iconCls"></i>
                                     <img v-else :src="item.meta.imgPath" class="text-icon" />
-                                    &nbsp;{{getCaption(item.meta.caption, item.meta.info)}}
+                                    &nbsp;{{item.title}}
                                 </div>
                             </div>
                         </Tag>
@@ -61,10 +61,6 @@ export default class TabPageExp extends Vue {
 
     public created() {
         Vue.prototype.$tabPageExp = this;
-    }
-
-    public getCaption(caption: any, info: any):any {
-        return  info && !Object.is(info, '') ? `${this.$t(caption)} - ${info}` : this.$t(caption);
     }
 
     /**

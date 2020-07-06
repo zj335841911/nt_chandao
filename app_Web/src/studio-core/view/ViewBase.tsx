@@ -292,10 +292,16 @@ export class ViewBase extends Vue {
         if (this.viewUsage === 1 || this.viewUsage === 2) {
             this.$appService.viewStore.push(this);
         }
-        const secondtag = this.$util.createUUID();
+        const secondtag = (this as any)._uid;
         this.$store.commit('viewaction/createdView', { viewtag: this.viewtag, secondtag: secondtag });
         this.viewtag = secondtag;
-        this.parseViewParam();
+        if (this.viewUsage === 1) {
+            this.$appService.navHistory.setViewTag(this.viewtag, this.$route);
+        }
+        this.parseViewParam();this.$t
+        if (this.viewUsage === 1) {
+            this.$appService.navHistory.setViewContext(this.context, this.viewtag);
+        }
         this.viewCreated();
     }
 
