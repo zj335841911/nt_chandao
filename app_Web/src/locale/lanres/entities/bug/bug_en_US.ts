@@ -534,10 +534,6 @@ export default {
 			caption: "关联Bug",
 			tip: "关联Bug",
 		},
-		deuiaction3_batchunlinkbug: {
-			caption: "移除关联",
-			tip: "移除关联",
-		},
 		seperator2: {
 			caption: "",
 			tip: "",
