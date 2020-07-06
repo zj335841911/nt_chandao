@@ -248,13 +248,12 @@ export default class EditViewEngine extends ViewEngine {
     public setTabCaption(info: string): void {
         let viewdata: any = this.view.model;
         if (viewdata  && info && !Object.is(info, '') && this.view.$tabPageExp && (viewdata.srfTitle.indexOf(" - ") === -1)) {
-            this.view.$tabPageExp.setCurPageCaption(viewdata.srfTitle, viewdata.srfTitle, info);
             if(this.view.$route){
                 this.view.$route.meta.info = info;
             }
             const title = this.view.model.srfTitle = `${this.view.$t(viewdata.srfTitle)} - ${viewdata.dataInfo}`;
             this.view.$emit('viewModelChange', title);
-            this.view.$appService.navHistory.setCaption({ route: this.view.$route, info: viewdata.dataInfo });
+            this.view.$appService.navHistory.setCaption({ tag: this.view.viewtag, info: viewdata.dataInfo });
         }
     }
 

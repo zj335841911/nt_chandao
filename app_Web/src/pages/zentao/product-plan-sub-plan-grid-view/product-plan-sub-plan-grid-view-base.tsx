@@ -394,7 +394,7 @@ export class ProductPlanSubPlanGridViewBase extends GridViewBase {
             height: 0, 
             width: 0,  
             title: this.$t('entities.subproductplan.views.subplaneditview.title'),
-            placement: 'DRAWER_TOP',
+            placement: 'DRAWER_RIGHT',
         };
         openDrawer(view, data);
     }
