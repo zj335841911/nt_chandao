@@ -449,6 +449,7 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
+			story_unlinkstory: "移除关联",
 		},
 	},
 	pickupgrid_grid: {

@@ -279,6 +279,18 @@ public class StoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ProjectBatchUnlinkStory-all')")
+    @ApiOperation(value = "项目批量解除关联需求", tags = {"需求" },  notes = "项目批量解除关联需求")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/projectbatchunlinkstory")
+    @Transactional
+    public ResponseEntity<StoryDTO> projectBatchUnlinkStory(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
+        Story domain = storyMapping.toDomain(storydto);
+        domain.setId(story_id);
+        domain = storyService.projectBatchUnlinkStory(domain);
+        storydto = storyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(storydto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ProjectLinkStory-all')")
     @ApiOperation(value = "项目关联需求", tags = {"需求" },  notes = "项目关联需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/projectlinkstory")
@@ -287,6 +299,18 @@ public class StoryResource {
         Story domain = storyMapping.toDomain(storydto);
         domain.setId(story_id);
         domain = storyService.projectLinkStory(domain);
+        storydto = storyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(storydto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ProjectUnlinkStory-all')")
+    @ApiOperation(value = "项目解除关联需求", tags = {"需求" },  notes = "项目解除关联需求")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/projectunlinkstory")
+    @Transactional
+    public ResponseEntity<StoryDTO> projectUnlinkStory(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
+        Story domain = storyMapping.toDomain(storydto);
+        domain.setId(story_id);
+        domain = storyService.projectUnlinkStory(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
     }
@@ -721,6 +745,18 @@ public class StoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ProjectBatchUnlinkStory-all')")
+    @ApiOperation(value = "根据产品需求", tags = {"需求" },  notes = "根据产品需求")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/projectbatchunlinkstory")
+    @Transactional
+    public ResponseEntity<StoryDTO> projectBatchUnlinkStoryByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
+        Story domain = storyMapping.toDomain(storydto);
+        domain.setProduct(product_id);
+        domain = storyService.projectBatchUnlinkStory(domain) ;
+        storydto = storyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(storydto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ProjectLinkStory-all')")
     @ApiOperation(value = "根据产品需求", tags = {"需求" },  notes = "根据产品需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/projectlinkstory")
@@ -729,6 +765,18 @@ public class StoryResource {
         Story domain = storyMapping.toDomain(storydto);
         domain.setProduct(product_id);
         domain = storyService.projectLinkStory(domain) ;
+        storydto = storyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(storydto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ProjectUnlinkStory-all')")
+    @ApiOperation(value = "根据产品需求", tags = {"需求" },  notes = "根据产品需求")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/projectunlinkstory")
+    @Transactional
+    public ResponseEntity<StoryDTO> projectUnlinkStoryByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
+        Story domain = storyMapping.toDomain(storydto);
+        domain.setProduct(product_id);
+        domain = storyService.projectUnlinkStory(domain) ;
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
     }

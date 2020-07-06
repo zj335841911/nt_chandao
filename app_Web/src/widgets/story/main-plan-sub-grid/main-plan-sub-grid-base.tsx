@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, GridControllerBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import Main_PlanSubService from './main-plan-sub-grid-service';
+import StoryUIService from '@/uiservice/story/story-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 
@@ -39,6 +40,34 @@ export class Main_PlanSubGridBase extends GridControllerBase {
      * @memberof Main_PlanSubGridBase
      */
     protected appDeName: string = 'story';
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_uacf185c_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:StoryUIService  = new StoryUIService();
+        curUIService.Story_UnlinkStory(datas,contextJO, paramJO,  $event, xData,this,"Story");
+    }
 
     /**
      * 本地缓存标识
@@ -238,4 +267,19 @@ export class Main_PlanSubGridBase extends GridControllerBase {
         ]);
     }
 
+
+    /**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof Main_PlanSubGridBase
+     */
+	public uiAction(row: any, tag: any, $event: any): void {
+        $event.stopPropagation();
+        if(Object.is('UnlinkStory', tag)) {
+            this.grid_uagridcolumn1_uacf185c_click(row, tag, $event);
+        }
+    }
 }
