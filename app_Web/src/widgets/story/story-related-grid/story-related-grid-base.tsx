@@ -92,7 +92,7 @@ export class StoryRelatedGridBase extends GridControllerBase {
             label: '需求名称',
             langtag: 'entities.story.storyrelated_grid.columns.title',
             show: true,
-            util: 'PX'
+            util: 'STAR'
         },
     ]
 
