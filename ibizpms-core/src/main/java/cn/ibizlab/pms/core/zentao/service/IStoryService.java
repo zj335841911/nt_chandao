@@ -47,7 +47,9 @@ public interface IStoryService extends IService<Story>{
     Story close(Story et) ;
     Story getStorySpec(Story et) ;
     Story linkStory(Story et) ;
+    Story projectBatchUnlinkStory(Story et) ;
     Story projectLinkStory(Story et) ;
+    Story projectUnlinkStory(Story et) ;
     Story review(Story et) ;
     boolean save(Story et) ;
     void saveBatch(List<Story> list) ;

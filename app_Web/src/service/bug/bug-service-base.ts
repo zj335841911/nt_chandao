@@ -51,17 +51,11 @@ export default class BugServiceBase extends EntityService {
         if(context.product && context.story && context.bug){
             return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/select`,isloading);
         }
-        if(context.product && context.productplan && context.bug){
-            return Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}/select`,isloading);
-        }
         if(context.project && context.bug){
             return Http.getInstance().get(`/projects/${context.project}/bugs/${context.bug}/select`,isloading);
         }
         if(context.story && context.bug){
             return Http.getInstance().get(`/stories/${context.story}/bugs/${context.bug}/select`,isloading);
-        }
-        if(context.productplan && context.bug){
-            return Http.getInstance().get(`/productplans/${context.productplan}/bugs/${context.bug}/select`,isloading);
         }
         if(context.product && context.bug){
             return Http.getInstance().get(`/products/${context.product}/bugs/${context.bug}/select`,isloading);
@@ -92,19 +86,6 @@ export default class BugServiceBase extends EntityService {
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs`,data,isloading);
             return res;
         }
-        if(context.product && context.productplan && true){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            if(!data.srffrontuf || data.srffrontuf !== "1"){
-                data[this.APPDEKEY] = null;
-            }
-            if(data.srffrontuf){
-                delete data.srffrontuf;
-            }
-            let tempContext:any = JSON.parse(JSON.stringify(context));
-            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/bugs`,data,isloading);
-            return res;
-        }
         if(context.project && true){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -129,19 +110,6 @@ export default class BugServiceBase extends EntityService {
             }
             let tempContext:any = JSON.parse(JSON.stringify(context));
             let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs`,data,isloading);
-            return res;
-        }
-        if(context.productplan && true){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            if(!data.srffrontuf || data.srffrontuf !== "1"){
-                data[this.APPDEKEY] = null;
-            }
-            if(data.srffrontuf){
-                delete data.srffrontuf;
-            }
-            let tempContext:any = JSON.parse(JSON.stringify(context));
-            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/bugs`,data,isloading);
             return res;
         }
         if(context.product && true){
@@ -186,12 +154,6 @@ export default class BugServiceBase extends EntityService {
             let res:any = await Http.getInstance().put(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}`,data,isloading);
             return res;
         }
-        if(context.product && context.productplan && context.bug){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().put(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}`,data,isloading);
-            return res;
-        }
         if(context.project && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -202,12 +164,6 @@ export default class BugServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().put(`/stories/${context.story}/bugs/${context.bug}`,data,isloading);
-            return res;
-        }
-        if(context.productplan && context.bug){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().put(`/productplans/${context.productplan}/bugs/${context.bug}`,data,isloading);
             return res;
         }
         if(context.product && context.bug){
@@ -235,17 +191,11 @@ export default class BugServiceBase extends EntityService {
         if(context.product && context.story && context.bug){
             return Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}`,isloading);
         }
-        if(context.product && context.productplan && context.bug){
-            return Http.getInstance().delete(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}`,isloading);
-        }
         if(context.project && context.bug){
             return Http.getInstance().delete(`/projects/${context.project}/bugs/${context.bug}`,isloading);
         }
         if(context.story && context.bug){
             return Http.getInstance().delete(`/stories/${context.story}/bugs/${context.bug}`,isloading);
-        }
-        if(context.productplan && context.bug){
-            return Http.getInstance().delete(`/productplans/${context.productplan}/bugs/${context.bug}`,isloading);
         }
         if(context.product && context.bug){
             return Http.getInstance().delete(`/products/${context.product}/bugs/${context.bug}`,isloading);
@@ -267,20 +217,12 @@ export default class BugServiceBase extends EntityService {
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}`,isloading);
             return res;
         }
-        if(context.product && context.productplan && context.bug){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}`,isloading);
-            return res;
-        }
         if(context.project && context.bug){
             let res:any = await Http.getInstance().get(`/projects/${context.project}/bugs/${context.bug}`,isloading);
             return res;
         }
         if(context.story && context.bug){
             let res:any = await Http.getInstance().get(`/stories/${context.story}/bugs/${context.bug}`,isloading);
-            return res;
-        }
-        if(context.productplan && context.bug){
-            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/bugs/${context.bug}`,isloading);
             return res;
         }
         if(context.product && context.bug){
@@ -306,11 +248,6 @@ export default class BugServiceBase extends EntityService {
             res.data.bug = data.bug;
             return res;
         }
-        if(context.product && context.productplan && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/bugs/getdraft`,isloading);
-            res.data.bug = data.bug;
-            return res;
-        }
         if(context.project && true){
             let res:any = await Http.getInstance().get(`/projects/${context.project}/bugs/getdraft`,isloading);
             res.data.bug = data.bug;
@@ -318,11 +255,6 @@ export default class BugServiceBase extends EntityService {
         }
         if(context.story && true){
             let res:any = await Http.getInstance().get(`/stories/${context.story}/bugs/getdraft`,isloading);
-            res.data.bug = data.bug;
-            return res;
-        }
-        if(context.productplan && true){
-            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/bugs/getdraft`,isloading);
             res.data.bug = data.bug;
             return res;
         }
@@ -352,12 +284,6 @@ export default class BugServiceBase extends EntityService {
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/activate`,data,isloading);
             return res;
         }
-        if(context.product && context.productplan && context.bug){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}/activate`,data,isloading);
-            return res;
-        }
         if(context.project && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -368,12 +294,6 @@ export default class BugServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/activate`,data,isloading);
-            return res;
-        }
-        if(context.productplan && context.bug){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/bugs/${context.bug}/activate`,data,isloading);
             return res;
         }
         if(context.product && context.bug){
@@ -401,12 +321,6 @@ export default class BugServiceBase extends EntityService {
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/batchunlinkbug`,data,isloading);
             return res;
         }
-        if(context.product && context.productplan && context.bug){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}/batchunlinkbug`,data,isloading);
-            return res;
-        }
         if(context.project && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -417,12 +331,6 @@ export default class BugServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/batchunlinkbug`,data,isloading);
-            return res;
-        }
-        if(context.productplan && context.bug){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/bugs/${context.bug}/batchunlinkbug`,data,isloading);
             return res;
         }
         if(context.product && context.bug){
@@ -450,12 +358,6 @@ export default class BugServiceBase extends EntityService {
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/checkkey`,data,isloading);
             return res;
         }
-        if(context.product && context.productplan && context.bug){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}/checkkey`,data,isloading);
-            return res;
-        }
         if(context.project && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -466,12 +368,6 @@ export default class BugServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/checkkey`,data,isloading);
-            return res;
-        }
-        if(context.productplan && context.bug){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/bugs/${context.bug}/checkkey`,data,isloading);
             return res;
         }
         if(context.product && context.bug){
@@ -499,12 +395,6 @@ export default class BugServiceBase extends EntityService {
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/close`,data,isloading);
             return res;
         }
-        if(context.product && context.productplan && context.bug){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}/close`,data,isloading);
-            return res;
-        }
         if(context.project && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -515,12 +405,6 @@ export default class BugServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/close`,data,isloading);
-            return res;
-        }
-        if(context.productplan && context.bug){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/bugs/${context.bug}/close`,data,isloading);
             return res;
         }
         if(context.product && context.bug){
@@ -548,12 +432,6 @@ export default class BugServiceBase extends EntityService {
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/confirm`,data,isloading);
             return res;
         }
-        if(context.product && context.productplan && context.bug){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}/confirm`,data,isloading);
-            return res;
-        }
         if(context.project && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -564,12 +442,6 @@ export default class BugServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/confirm`,data,isloading);
-            return res;
-        }
-        if(context.productplan && context.bug){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/bugs/${context.bug}/confirm`,data,isloading);
             return res;
         }
         if(context.product && context.bug){
@@ -597,12 +469,6 @@ export default class BugServiceBase extends EntityService {
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/linkbug`,data,isloading);
             return res;
         }
-        if(context.product && context.productplan && context.bug){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}/linkbug`,data,isloading);
-            return res;
-        }
         if(context.project && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -613,12 +479,6 @@ export default class BugServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/linkbug`,data,isloading);
-            return res;
-        }
-        if(context.productplan && context.bug){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/bugs/${context.bug}/linkbug`,data,isloading);
             return res;
         }
         if(context.product && context.bug){
@@ -646,12 +506,6 @@ export default class BugServiceBase extends EntityService {
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/resolve`,data,isloading);
             return res;
         }
-        if(context.product && context.productplan && context.bug){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}/resolve`,data,isloading);
-            return res;
-        }
         if(context.project && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -662,12 +516,6 @@ export default class BugServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/resolve`,data,isloading);
-            return res;
-        }
-        if(context.productplan && context.bug){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/bugs/${context.bug}/resolve`,data,isloading);
             return res;
         }
         if(context.product && context.bug){
@@ -695,12 +543,6 @@ export default class BugServiceBase extends EntityService {
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/save`,data,isloading);
             return res;
         }
-        if(context.product && context.productplan && context.bug){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}/save`,data,isloading);
-            return res;
-        }
         if(context.project && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -711,12 +553,6 @@ export default class BugServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/save`,data,isloading);
-            return res;
-        }
-        if(context.productplan && context.bug){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/bugs/${context.bug}/save`,data,isloading);
             return res;
         }
         if(context.product && context.bug){
@@ -747,12 +583,6 @@ export default class BugServiceBase extends EntityService {
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/unlinkbug`,data,isloading);
             return res;
         }
-        if(context.product && context.productplan && context.bug){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}/unlinkbug`,data,isloading);
-            return res;
-        }
         if(context.project && context.bug){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -763,12 +593,6 @@ export default class BugServiceBase extends EntityService {
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/unlinkbug`,data,isloading);
-            return res;
-        }
-        if(context.productplan && context.bug){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/bugs/${context.bug}/unlinkbug`,data,isloading);
             return res;
         }
         if(context.product && context.bug){
@@ -794,10 +618,6 @@ export default class BugServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchbuildbugs`,tempData,isloading);
         }
-        if(context.product && context.productplan && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/bugs/fetchbuildbugs`,tempData,isloading);
-        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/projects/${context.project}/bugs/fetchbuildbugs`,tempData,isloading);
@@ -805,10 +625,6 @@ export default class BugServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/stories/${context.story}/bugs/fetchbuildbugs`,tempData,isloading);
-        }
-        if(context.productplan && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/productplans/${context.productplan}/bugs/fetchbuildbugs`,tempData,isloading);
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -832,10 +648,6 @@ export default class BugServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchbuildopenbugs`,tempData,isloading);
         }
-        if(context.product && context.productplan && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/bugs/fetchbuildopenbugs`,tempData,isloading);
-        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/projects/${context.project}/bugs/fetchbuildopenbugs`,tempData,isloading);
@@ -843,10 +655,6 @@ export default class BugServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/stories/${context.story}/bugs/fetchbuildopenbugs`,tempData,isloading);
-        }
-        if(context.productplan && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/productplans/${context.productplan}/bugs/fetchbuildopenbugs`,tempData,isloading);
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -870,10 +678,6 @@ export default class BugServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchdefault`,tempData,isloading);
         }
-        if(context.product && context.productplan && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/bugs/fetchdefault`,tempData,isloading);
-        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/projects/${context.project}/bugs/fetchdefault`,tempData,isloading);
@@ -881,10 +685,6 @@ export default class BugServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/stories/${context.story}/bugs/fetchdefault`,tempData,isloading);
-        }
-        if(context.productplan && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/productplans/${context.productplan}/bugs/fetchdefault`,tempData,isloading);
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -908,10 +708,6 @@ export default class BugServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchreleasebugs`,tempData,isloading);
         }
-        if(context.product && context.productplan && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/bugs/fetchreleasebugs`,tempData,isloading);
-        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/projects/${context.project}/bugs/fetchreleasebugs`,tempData,isloading);
@@ -919,10 +715,6 @@ export default class BugServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/stories/${context.story}/bugs/fetchreleasebugs`,tempData,isloading);
-        }
-        if(context.productplan && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/productplans/${context.productplan}/bugs/fetchreleasebugs`,tempData,isloading);
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -946,10 +738,6 @@ export default class BugServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchreleaseleftbugs`,tempData,isloading);
         }
-        if(context.product && context.productplan && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/bugs/fetchreleaseleftbugs`,tempData,isloading);
-        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/projects/${context.project}/bugs/fetchreleaseleftbugs`,tempData,isloading);
@@ -957,10 +745,6 @@ export default class BugServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/stories/${context.story}/bugs/fetchreleaseleftbugs`,tempData,isloading);
-        }
-        if(context.productplan && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/productplans/${context.productplan}/bugs/fetchreleaseleftbugs`,tempData,isloading);
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -984,10 +768,6 @@ export default class BugServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchreportbugs`,tempData,isloading);
         }
-        if(context.product && context.productplan && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/bugs/fetchreportbugs`,tempData,isloading);
-        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/projects/${context.project}/bugs/fetchreportbugs`,tempData,isloading);
@@ -995,10 +775,6 @@ export default class BugServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return Http.getInstance().get(`/stories/${context.story}/bugs/fetchreportbugs`,tempData,isloading);
-        }
-        if(context.productplan && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/productplans/${context.productplan}/bugs/fetchreportbugs`,tempData,isloading);
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
