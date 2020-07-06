@@ -34,9 +34,11 @@ public interface IBugService extends IService<Bug>{
     Bug get(BigInteger key) ;
     Bug getDraft(Bug et) ;
     Bug activate(Bug et) ;
+    Bug batchUnlinkBug(Bug et) ;
     boolean checkKey(Bug et) ;
     Bug close(Bug et) ;
     Bug confirm(Bug et) ;
+    Bug linkBug(Bug et) ;
     Bug resolve(Bug et) ;
     boolean save(Bug et) ;
     void saveBatch(List<Bug> list) ;

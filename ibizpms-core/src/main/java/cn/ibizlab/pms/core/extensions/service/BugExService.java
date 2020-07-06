@@ -32,6 +32,16 @@ public class BugExService extends BugServiceImpl {
         return super.activate(et);
     }
     /**
+     * 自定义行为[BatchUnlinkBug]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Bug batchUnlinkBug(Bug et) {
+        return super.batchUnlinkBug(et);
+    }
+    /**
      * 自定义行为[Close]用户扩展
      * @param et
      * @return
@@ -50,6 +60,16 @@ public class BugExService extends BugServiceImpl {
     @Transactional
     public Bug confirm(Bug et) {
         return super.confirm(et);
+    }
+    /**
+     * 自定义行为[LinkBug]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Bug linkBug(Bug et) {
+        return super.linkBug(et);
     }
     /**
      * 自定义行为[Resolve]用户扩展
