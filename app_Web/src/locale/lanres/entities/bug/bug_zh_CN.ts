@@ -421,24 +421,26 @@ export default {
 		uiactions: {
 		},
 	},
-	pickupgird_grid: {
+	main_plansub_grid: {
 		columns: {
-			id: "Bug编号",
+			id: "ID",
 			pri: "P",
-			confirmed: "是否确认",
 			title: "Bug标题",
 			status: "Bug状态",
 			openedby: "由谁创建",
 			openeddate: "创建日期",
 			assignedto: "指派给",
+			uagridcolumn1: "操作",
 		},
 		uiactions: {
+			bug_unlinkbug: "移除关联",
 		},
 	},
-	main_plansub_grid: {
+	pickupgird_grid: {
 		columns: {
-			id: "ID",
+			id: "Bug编号",
 			pri: "P",
+			confirmed: "是否确认",
 			title: "Bug标题",
 			status: "Bug状态",
 			openedby: "由谁创建",

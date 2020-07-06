@@ -33,9 +33,15 @@ public interface IProductPlanService extends IService<ProductPlan>{
     void removeBatch(Collection<BigInteger> idList) ;
     ProductPlan get(BigInteger key) ;
     ProductPlan getDraft(ProductPlan et) ;
+    ProductPlan batchUnlinkBug(ProductPlan et) ;
+    ProductPlan batchUnlinkStory(ProductPlan et) ;
     boolean checkKey(ProductPlan et) ;
+    ProductPlan linkBug(ProductPlan et) ;
+    ProductPlan linkStory(ProductPlan et) ;
     boolean save(ProductPlan et) ;
     void saveBatch(List<ProductPlan> list) ;
+    ProductPlan unlinkBug(ProductPlan et) ;
+    ProductPlan unlinkStory(ProductPlan et) ;
     Page<ProductPlan> searchCurProductPlan(ProductPlanSearchContext context) ;
     Page<ProductPlan> searchDefault(ProductPlanSearchContext context) ;
     List<ProductPlan> selectByBranch(BigInteger id) ;

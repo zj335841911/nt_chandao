@@ -37,9 +37,24 @@ export default class Main_PlanSubModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'parent',
           prop: 'parent',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'estimate',
+          prop: 'estimate',
+          dataType: 'FLOAT',
+        },
+        {
+          name: 'stage',
+          prop: 'stage',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'srfmajortext',
@@ -62,9 +77,9 @@ export default class Main_PlanSubModel {
           dataType: 'ACID',
         },
         {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
+          name: 'openedby',
+          prop: 'openedby',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'product',
@@ -72,9 +87,19 @@ export default class Main_PlanSubModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
           name: 'modulename',
           prop: 'modulename',
           dataType: 'PICKUPTEXT',
+        },
+        {
+          name: 'assignedto',
+          prop: 'assignedto',
+          dataType: 'TEXT',
         },
         {
           name: 'pri',
@@ -87,13 +112,13 @@ export default class Main_PlanSubModel {
           dataType: 'TEXT',
         },
         {
-          name: 'duplicatestory',
-          prop: 'duplicatestory',
+          name: 'branch',
+          prop: 'branch',
           dataType: 'PICKUP',
         },
         {
-          name: 'branch',
-          prop: 'branch',
+          name: 'duplicatestory',
+          prop: 'duplicatestory',
           dataType: 'PICKUP',
         },
         {
