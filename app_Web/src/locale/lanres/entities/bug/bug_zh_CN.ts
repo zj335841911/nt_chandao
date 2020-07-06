@@ -126,8 +126,8 @@ export default {
       		title: "bug表格视图",
 		},
 		gridview9_storyrelated: {
-			caption: "关联Bug",
-      		title: "Bug表格视图",
+			caption: "相关Bug",
+      		title: "相关Bug",
 		},
 		closeview: {
 			caption: "关闭Bug",

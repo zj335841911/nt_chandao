@@ -750,7 +750,7 @@
         "memo": ""
     },
     "casegridview9_storyrelated": {
-        "title": "测试用例表格视图",
+        "title": "相关用例",
         "caption": "相关用例",
         "viewtype": "DEGRIDVIEW9",
         "viewmodule": "zentao",
@@ -1259,6 +1259,16 @@
         "viewtag": "9ddace1c12afee8da3f0254a05ba141a",
         "memo": ""
     },
+    "filelistview9": {
+        "title": "附件",
+        "caption": "附件",
+        "viewtype": "DELISTVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "FileListView9",
+        "viewfilename": "file-list-view9",
+        "viewtag": "9ed41cee96088630f3d4b0a91e705930",
+        "memo": "视图参数从上下文中获取对应的对象类型"
+    },
     "storymaingridview": {
         "title": "story表格视图",
         "caption": "需求",
@@ -1550,8 +1560,8 @@
         "memo": ""
     },
     "buggridview9_storyrelated": {
-        "title": "Bug表格视图",
-        "caption": "关联Bug",
+        "title": "相关Bug",
+        "caption": "相关Bug",
         "viewtype": "DEGRIDVIEW9",
         "viewmodule": "zentao",
         "viewname": "BugGridView9_StoryRelated",

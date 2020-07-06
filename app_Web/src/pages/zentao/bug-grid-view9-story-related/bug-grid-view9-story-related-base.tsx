@@ -7,7 +7,7 @@ import CodeListService from "@service/app/codelist-service";
 
 
 /**
- * Bug表格视图视图基类
+ * 相关Bug视图基类
  *
  * @export
  * @class BugGridView9_StoryRelatedBase

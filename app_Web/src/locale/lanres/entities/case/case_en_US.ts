@@ -74,7 +74,7 @@ export default {
 		},
 		gridview9_storyrelated: {
 			caption: "相关用例",
-      		title: "测试用例表格视图",
+      		title: "相关用例",
 		},
 		batchnewgridview: {
 			caption: "测试用例",

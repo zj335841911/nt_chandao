@@ -6,7 +6,7 @@ import { CaseGridView9_StoryRelatedBase } from './case-grid-view9-story-related-
 import view_grid from '@widgets/case/story-related-grid/story-related-grid.vue';
 
 /**
- * 测试用例表格视图视图
+ * 相关用例视图
  *
  * @export
  * @class CaseGridView9_StoryRelated

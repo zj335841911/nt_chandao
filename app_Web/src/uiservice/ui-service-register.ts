@@ -43,6 +43,7 @@ export class UIServiceRegister {
         this.allUIService.set('projectproduct', () => import('@/uiservice/project-product/project-product-ui-service'));
         this.allUIService.set('case', () => import('@/uiservice/case/case-ui-service'));
         this.allUIService.set('product', () => import('@/uiservice/product/product-ui-service'));
+        this.allUIService.set('file', () => import('@/uiservice/file/file-ui-service'));
         this.allUIService.set('suitecase', () => import('@/uiservice/suite-case/suite-case-ui-service'));
         this.allUIService.set('burn', () => import('@/uiservice/burn/burn-ui-service'));
         this.allUIService.set('subproductplan', () => import('@/uiservice/sub-product-plan/sub-product-plan-ui-service'));

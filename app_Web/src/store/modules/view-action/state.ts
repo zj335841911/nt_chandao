@@ -543,6 +543,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '956ad42e59e60cd8b49e7035147e25cf',
+                '9ed41cee96088630f3d4b0a91e705930',
                 '770a170098d148e438a7666b248e6519',
             ],
         },
@@ -702,6 +703,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '956ad42e59e60cd8b49e7035147e25cf',
+                '9ed41cee96088630f3d4b0a91e705930',
             ],
         },
         {
@@ -1193,6 +1195,15 @@ export const viewstate: any = {
                 '6c7b582273d0726bcf77214807cfe40c',
                 'fffe78c32fb25b287d0c5165d46f8dd2',
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: '9ed41cee96088630f3d4b0a91e705930',
+            viewmodule: 'zentao',
+            viewname: 'FileListView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

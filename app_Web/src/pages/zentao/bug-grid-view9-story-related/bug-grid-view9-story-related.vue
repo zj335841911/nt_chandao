@@ -6,7 +6,7 @@ import { BugGridView9_StoryRelatedBase } from './bug-grid-view9-story-related-ba
 import view_grid from '@widgets/bug/story-related-grid/story-related-grid.vue';
 
 /**
- * Bug表格视图视图
+ * 相关Bug视图
  *
  * @export
  * @class BugGridView9_StoryRelated

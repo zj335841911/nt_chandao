@@ -608,7 +608,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "5c2b20935d511794aeca60376bd81fef"
         },
         "casegridview9_storyrelated": {
-            "title": "测试用例表格视图",
+            "title": "相关用例",
             "caption": "相关用例",
             "viewtype": "DEGRIDVIEW9",
             "viewmodule": "zentao",
@@ -1015,6 +1015,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ReleaseEditView",
             "viewtag": "9ddace1c12afee8da3f0254a05ba141a"
         },
+        "filelistview9": {
+            "title": "附件",
+            "caption": "附件",
+            "viewtype": "DELISTVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "FileListView9",
+            "viewtag": "9ed41cee96088630f3d4b0a91e705930"
+        },
         "storymaingridview": {
             "title": "story表格视图",
             "caption": "需求",
@@ -1248,8 +1256,8 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "c9410c9f72535adf1fff569d5243edd1"
         },
         "buggridview9_storyrelated": {
-            "title": "Bug表格视图",
-            "caption": "关联Bug",
+            "title": "相关Bug",
+            "caption": "相关Bug",
             "viewtype": "DEGRIDVIEW9",
             "viewmodule": "zentao",
             "viewname": "BugGridView9_StoryRelated",

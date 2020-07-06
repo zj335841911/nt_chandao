@@ -7,7 +7,7 @@ import CodeListService from "@service/app/codelist-service";
 
 
 /**
- * 测试用例表格视图视图基类
+ * 相关用例视图基类
  *
  * @export
  * @class CaseGridView9_StoryRelatedBase
