@@ -472,5 +472,16 @@ final public class ZTBugHelper {
         return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
     }
 
+    /**
+     * unlinkBug 解除关联Bug
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean unlinkBug(String zentaoSid, JSONObject jo, ZTResult rst) {
+        return ZTProductPlanHelper.unlinkBug(zentaoSid, jo, rst);
+    }
 
 }
