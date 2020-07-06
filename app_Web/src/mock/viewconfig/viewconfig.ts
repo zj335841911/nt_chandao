@@ -1335,6 +1335,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BranchPMEditView",
             "viewtag": "d4cb26555e6d81a172652580cf7d9f7f"
         },
+        "storygridview9_child": {
+            "title": "细分需求",
+            "caption": "细分需求",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "StoryGridView9_Child",
+            "viewtag": "d6ef7de701a935bd9023cd0eb1338f58"
+        },
         "companymainview9": {
             "title": "公司编辑视图",
             "caption": "公司",
