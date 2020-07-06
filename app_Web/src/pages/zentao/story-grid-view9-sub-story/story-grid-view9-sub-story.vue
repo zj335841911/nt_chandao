@@ -6,7 +6,7 @@ import { StoryGridView9_SubStoryBase } from './story-grid-view9-sub-story-base';
 import view_grid from '@widgets/story/main3-grid/main3-grid.vue';
 
 /**
- * 需求表格视图视图
+ * 子需求视图
  *
  * @export
  * @class StoryGridView9_SubStory

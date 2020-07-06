@@ -7,7 +7,7 @@ import CodeListService from "@service/app/codelist-service";
 
 
 /**
- * 需求表格视图视图基类
+ * 子需求视图基类
  *
  * @export
  * @class StoryGridView9_SubStoryBase
