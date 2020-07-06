@@ -171,10 +171,7 @@ public class StoryExService extends StoryServiceImpl {
     @Override
     @Transactional
     public boolean create(Story et) {
-        if(et.getReviewedby() != null && !"".equals(et.getReviewedby())) {
-            et.setAssignedto(et.getReviewedby().split(",")[0]);
-
-        }
+        et.setReviewedby(et.getAssignedto());
         return super.create(et);
     }
 
