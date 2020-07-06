@@ -1,6 +1,8 @@
 package cn.ibizlab.pms.core.extensions.service;
 
 import cn.ibizlab.pms.core.zentao.service.impl.ProductPlanServiceImpl;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.zentao.domain.ProductPlan;
 import org.springframework.stereotype.Service;
@@ -49,7 +51,20 @@ public class ProductPlanExService extends ProductPlanServiceImpl {
     @Override
     @Transactional
     public ProductPlan linkBug(ProductPlan et) {
-        return super.linkBug(et);
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser();
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        JSONObject jo = (JSONObject) JSONObject.toJSON(et);
+        ArrayList<Map> list = (ArrayList) et.getExtensionparams().get("srfactionparam");
+        JSONArray jsonArray = new JSONArray();
+        for(Map map : list) {
+            jsonArray.add(map.get("id"));
+        }
+        jo.put("bugs[]",jsonArray);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductPlanHelper.linkBug((String)user.getSessionParams().get("zentaosid"), jo, rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        return et;
     }
     /**
      * 自定义行为[LinkStory]用户扩展
@@ -59,7 +74,20 @@ public class ProductPlanExService extends ProductPlanServiceImpl {
     @Override
     @Transactional
     public ProductPlan linkStory(ProductPlan et) {
-        return super.linkStory(et);
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser();
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        JSONObject jo = (JSONObject) JSONObject.toJSON(et);
+        ArrayList<Map> list = (ArrayList) et.getExtensionparams().get("srfactionparam");
+        JSONArray jsonArray = new JSONArray();
+        for(Map map : list) {
+            jsonArray.add(map.get("id"));
+        }
+        jo.put("stories[]",jsonArray);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductPlanHelper.linkStory((String)user.getSessionParams().get("zentaosid"), jo, rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        return et;
     }
     /**
      * 自定义行为[UnlinkBug]用户扩展
