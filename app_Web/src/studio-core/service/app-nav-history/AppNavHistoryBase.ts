@@ -108,6 +108,17 @@ export class AppNavHistoryBase {
     }
 
     /**
+     * 根据视图标识查找记录
+     *
+     * @param {string} tag
+     * @returns {*}
+     * @memberof AppNavHistoryBase
+     */
+    public findHistoryByTag(tag: string): any {
+        return this.historyList.find((item) => item.tag === tag);
+    }
+
+    /**
      * 查找路由缓存
      *
      * @param {*} page
@@ -210,21 +221,19 @@ export class AppNavHistoryBase {
     /**
      * 设置指定缓存视图标题
      *
-     * @param {({ route: any, caption: string | null, info: string | null })} { route, caption, info }
+     * @param {({ tag: string, caption: string | null, info: string | null })} { tag, caption, info }
      * @returns {boolean}
      * @memberof AppNavHistoryBase
      */
-    public setCaption({ route, caption, info }: { route: any, caption?: string, info?: string }): boolean {
-        const i = this.findHistoryIndex(route);
-        if (i === -1) {
-            return false;
-        }
-        const item = this.historyList[i];
-        if (caption) {
-            item.meta.caption = caption;
-        }
-        if (info) {
-            item.meta.info = info;
+    public setCaption({ tag, caption, info }: { tag: string, caption?: string, info?: string }): boolean {
+        const item = this.findHistoryByTag(tag);
+        if (item) {
+            if (caption) {
+                item.meta.caption = caption;
+            }
+            if (info) {
+                item.meta.info = info;
+            }
         }
         return true;
     }

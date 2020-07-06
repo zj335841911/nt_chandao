@@ -87,7 +87,14 @@ export default {
 		uiactions: {
 			productplan_relationstory: "关联需求",
 			productplan_relationbug: "关联Bug",
+			productplan_mainedit: "编辑",
 			productplan_newsubplan: "子计划",
+		},
+	},
+	editviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
 		},
 	},
 	gridviewtoolbar_toolbar: {
@@ -106,12 +113,6 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
-		},
-	},
-	editviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
 		},
 	},
 };

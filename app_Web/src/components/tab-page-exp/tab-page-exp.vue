@@ -107,10 +107,7 @@ export default class TabPageExp extends Vue {
      * @memberof TabPageExp
      */
     public isActive(item: HistoryItem): boolean {
-        if (Object.is(item.to.fullPath, this.$route.fullPath)) {
-            return true;
-        }
-        return false;
+        return this.appService.navHistory.isRouteSame(item.to, this.$route);
     }
 
     /**
@@ -193,22 +190,6 @@ export default class TabPageExp extends Vue {
                 this.$router.push('/');
             }
         }
-    }
-
-    /**
-     * 设置当前页标题
-     *
-     * @param {*} caption
-     * @memberof TabPageExp
-     */
-    public setCurPageCaption(caption: string, title: any, info: string) {
-        if(this.$route.meta && (!Object.is(this.$route.meta.caption, caption))) {
-            return;
-        }
-        this.appService.navHistory.setCaption({ route: this.$route, caption: title, info: info });
-        setTimeout(() => {
-            this.moveToView(this.$route);
-        }, 1);
     }
 
     /**
