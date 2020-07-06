@@ -47,25 +47,22 @@ public class TestRunResource {
     @Lazy
     public TestRunMapping testrunMapping;
 
-    @ApiOperation(value = "检查测试运行", tags = {"测试运行" },  notes = "检查测试运行")
-	@RequestMapping(method = RequestMethod.POST, value = "/testruns/checkkey")
-    public ResponseEntity<Boolean> checkKey(@RequestBody TestRunDTO testrundto) {
-        return  ResponseEntity.status(HttpStatus.OK).body(testrunService.checkKey(testrunMapping.toDomain(testrundto)));
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Remove-all')")
-    @ApiOperation(value = "删除测试运行", tags = {"测试运行" },  notes = "删除测试运行")
-	@RequestMapping(method = RequestMethod.DELETE, value = "/testruns/{testrun_id}")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Create-all')")
+    @ApiOperation(value = "新建测试运行", tags = {"测试运行" },  notes = "新建测试运行")
+	@RequestMapping(method = RequestMethod.POST, value = "/testruns")
     @Transactional
-    public ResponseEntity<Boolean> remove(@PathVariable("testrun_id") BigInteger testrun_id) {
-         return ResponseEntity.status(HttpStatus.OK).body(testrunService.remove(testrun_id));
+    public ResponseEntity<TestRunDTO> create(@RequestBody TestRunDTO testrundto) {
+        TestRun domain = testrunMapping.toDomain(testrundto);
+		testrunService.create(domain);
+        TestRunDTO dto = testrunMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Remove-all')")
-    @ApiOperation(value = "批量删除测试运行", tags = {"测试运行" },  notes = "批量删除测试运行")
-	@RequestMapping(method = RequestMethod.DELETE, value = "/testruns/batch")
-    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
-        testrunService.removeBatch(ids);
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Create-all')")
+    @ApiOperation(value = "批量新建测试运行", tags = {"测试运行" },  notes = "批量新建测试运行")
+	@RequestMapping(method = RequestMethod.POST, value = "/testruns/batch")
+    public ResponseEntity<Boolean> createBatch(@RequestBody List<TestRunDTO> testrundtos) {
+        testrunService.createBatch(testrunMapping.toDomain(testrundtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
@@ -89,10 +86,20 @@ public class TestRunResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @ApiOperation(value = "获取测试运行草稿", tags = {"测试运行" },  notes = "获取测试运行草稿")
-	@RequestMapping(method = RequestMethod.GET, value = "/testruns/getdraft")
-    public ResponseEntity<TestRunDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(testrunMapping.toDto(testrunService.getDraft(new TestRun())));
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Remove-all')")
+    @ApiOperation(value = "删除测试运行", tags = {"测试运行" },  notes = "删除测试运行")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/testruns/{testrun_id}")
+    @Transactional
+    public ResponseEntity<Boolean> remove(@PathVariable("testrun_id") BigInteger testrun_id) {
+         return ResponseEntity.status(HttpStatus.OK).body(testrunService.remove(testrun_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Remove-all')")
+    @ApiOperation(value = "批量删除测试运行", tags = {"测试运行" },  notes = "批量删除测试运行")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/testruns/batch")
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
+        testrunService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Get-all')")
@@ -102,6 +109,18 @@ public class TestRunResource {
         TestRun domain = testrunService.get(testrun_id);
         TestRunDTO dto = testrunMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "获取测试运行草稿", tags = {"测试运行" },  notes = "获取测试运行草稿")
+	@RequestMapping(method = RequestMethod.GET, value = "/testruns/getdraft")
+    public ResponseEntity<TestRunDTO> getDraft() {
+        return ResponseEntity.status(HttpStatus.OK).body(testrunMapping.toDto(testrunService.getDraft(new TestRun())));
+    }
+
+    @ApiOperation(value = "检查测试运行", tags = {"测试运行" },  notes = "检查测试运行")
+	@RequestMapping(method = RequestMethod.POST, value = "/testruns/checkkey")
+    public ResponseEntity<Boolean> checkKey(@RequestBody TestRunDTO testrundto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(testrunService.checkKey(testrunMapping.toDomain(testrundto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Save-all')")
@@ -116,25 +135,6 @@ public class TestRunResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/testruns/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<TestRunDTO> testrundtos) {
         testrunService.saveBatch(testrunMapping.toDomain(testrundtos));
-        return  ResponseEntity.status(HttpStatus.OK).body(true);
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Create-all')")
-    @ApiOperation(value = "新建测试运行", tags = {"测试运行" },  notes = "新建测试运行")
-	@RequestMapping(method = RequestMethod.POST, value = "/testruns")
-    @Transactional
-    public ResponseEntity<TestRunDTO> create(@RequestBody TestRunDTO testrundto) {
-        TestRun domain = testrunMapping.toDomain(testrundto);
-		testrunService.create(domain);
-        TestRunDTO dto = testrunMapping.toDto(domain);
-		return ResponseEntity.status(HttpStatus.OK).body(dto);
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Create-all')")
-    @ApiOperation(value = "批量新建测试运行", tags = {"测试运行" },  notes = "批量新建测试运行")
-	@RequestMapping(method = RequestMethod.POST, value = "/testruns/batch")
-    public ResponseEntity<Boolean> createBatch(@RequestBody List<TestRunDTO> testrundtos) {
-        testrunService.createBatch(testrunMapping.toDomain(testrundtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 

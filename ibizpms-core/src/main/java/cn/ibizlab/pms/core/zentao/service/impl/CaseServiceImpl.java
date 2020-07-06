@@ -81,6 +81,80 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
 
     @Override
     @Transactional
+    public boolean create(Case et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.create((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return bRst;
+    }
+
+    @Override
+    public void createBatch(List<Case> list) {
+
+    }
+    @Override
+    @Transactional
+    public boolean update(Case et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.edit((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return bRst;
+    }
+
+    @Override
+    public void updateBatch(List<Case> list) {
+
+    }
+    @Override
+    @Transactional
+    public boolean remove(BigInteger key) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        Case et = this.get(key);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.delete((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        return bRst;
+    }
+
+    @Override
+    public void removeBatch(Collection<BigInteger> idList){
+        if (idList != null && !idList.isEmpty()) {
+            for (BigInteger id : idList) {
+                this.remove(id);
+            }
+        }
+    }
+    @Override
+    @Transactional
+    public Case get(BigInteger key) {
+        Case et = getById(key);
+        if(et==null){
+            et=new Case();
+            et.setId(key);
+        }
+        else{
+            et.setCasestep(casestepService.selectByIbizcase(key));
+        }
+        return et;
+    }
+
+    @Override
+    public Case getDraft(Case et) {
+        fillParentData(et);
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(Case et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
+    @Override
+    @Transactional
     public Case runCase(Case et) {
         cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
@@ -89,12 +163,6 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
             et = this.get(rst.getEtId());
         }
 	    return et;
-    }
-
-    @Override
-    public Case getDraft(Case et) {
-        fillParentData(et);
-        return et;
     }
 
     @Override
@@ -130,74 +198,6 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
         saveOrUpdateBatch(list,batchSize);
     }
 
-    @Override
-    @Transactional
-    public boolean create(Case et) {
-        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.create((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
-        if (bRst && rst.getEtId() != null) {
-            et = this.get(rst.getEtId());
-        }
-	    return bRst;
-    }
-
-    @Override
-    public void createBatch(List<Case> list) {
-
-    }
-    @Override
-    public boolean checkKey(Case et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
-    @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        Case et = this.get(key);
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.delete((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
-        return bRst;
-    }
-
-    @Override
-    public void removeBatch(Collection<BigInteger> idList){
-        if (idList != null && !idList.isEmpty()) {
-            for (BigInteger id : idList) {
-                this.remove(id);
-            }
-        }
-    }
-    @Override
-    @Transactional
-    public Case get(BigInteger key) {
-        Case et = getById(key);
-        if(et==null){
-            et=new Case();
-            et.setId(key);
-        }
-        else{
-            et.setCasestep(casestepService.selectByIbizcase(key));
-        }
-        return et;
-    }
-
-    @Override
-    @Transactional
-    public boolean update(Case et) {
-        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.edit((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
-        if (bRst && rst.getEtId() != null) {
-            et = this.get(rst.getEtId());
-        }
-	    return bRst;
-    }
-
-    @Override
-    public void updateBatch(List<Case> list) {
-
-    }
 
 	@Override
     public List<Case> selectByBranch(BigInteger id) {
@@ -271,6 +271,15 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
 
 
     /**
+     * 查询集合 套件关联用例
+     */
+    @Override
+    public Page<Case> searchCurSuite(CaseSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Case> pages=baseMapper.searchCurSuite(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 测试单关联用例
      */
     @Override
@@ -285,15 +294,6 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     @Override
     public Page<Case> searchDefault(CaseSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Case> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
-        return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
-    }
-
-    /**
-     * 查询集合 套件关联用例
-     */
-    @Override
-    public Page<Case> searchCurSuite(CaseSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Case> pages=baseMapper.searchCurSuite(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

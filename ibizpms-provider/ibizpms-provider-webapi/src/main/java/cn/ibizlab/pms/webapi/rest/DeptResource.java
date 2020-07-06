@@ -47,21 +47,6 @@ public class DeptResource {
     @Lazy
     public DeptMapping deptMapping;
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-Save-all')")
-    @ApiOperation(value = "保存部门", tags = {"部门" },  notes = "保存部门")
-	@RequestMapping(method = RequestMethod.POST, value = "/depts/save")
-    public ResponseEntity<Boolean> save(@RequestBody DeptDTO deptdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(deptService.save(deptMapping.toDomain(deptdto)));
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-Save-all')")
-    @ApiOperation(value = "批量保存部门", tags = {"部门" },  notes = "批量保存部门")
-	@RequestMapping(method = RequestMethod.POST, value = "/depts/savebatch")
-    public ResponseEntity<Boolean> saveBatch(@RequestBody List<DeptDTO> deptdtos) {
-        deptService.saveBatch(deptMapping.toDomain(deptdtos));
-        return  ResponseEntity.status(HttpStatus.OK).body(true);
-    }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-Create-all')")
     @ApiOperation(value = "新建部门", tags = {"部门" },  notes = "新建部门")
 	@RequestMapping(method = RequestMethod.POST, value = "/depts")
@@ -78,22 +63,6 @@ public class DeptResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/depts/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<DeptDTO> deptdtos) {
         deptService.createBatch(deptMapping.toDomain(deptdtos));
-        return  ResponseEntity.status(HttpStatus.OK).body(true);
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-Remove-all')")
-    @ApiOperation(value = "删除部门", tags = {"部门" },  notes = "删除部门")
-	@RequestMapping(method = RequestMethod.DELETE, value = "/depts/{dept_id}")
-    @Transactional
-    public ResponseEntity<Boolean> remove(@PathVariable("dept_id") BigInteger dept_id) {
-         return ResponseEntity.status(HttpStatus.OK).body(deptService.remove(dept_id));
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-Remove-all')")
-    @ApiOperation(value = "批量删除部门", tags = {"部门" },  notes = "批量删除部门")
-	@RequestMapping(method = RequestMethod.DELETE, value = "/depts/batch")
-    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
-        deptService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
@@ -117,10 +86,20 @@ public class DeptResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @ApiOperation(value = "获取部门草稿", tags = {"部门" },  notes = "获取部门草稿")
-	@RequestMapping(method = RequestMethod.GET, value = "/depts/getdraft")
-    public ResponseEntity<DeptDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(deptMapping.toDto(deptService.getDraft(new Dept())));
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-Remove-all')")
+    @ApiOperation(value = "删除部门", tags = {"部门" },  notes = "删除部门")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/depts/{dept_id}")
+    @Transactional
+    public ResponseEntity<Boolean> remove(@PathVariable("dept_id") BigInteger dept_id) {
+         return ResponseEntity.status(HttpStatus.OK).body(deptService.remove(dept_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-Remove-all')")
+    @ApiOperation(value = "批量删除部门", tags = {"部门" },  notes = "批量删除部门")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/depts/batch")
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
+        deptService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-Get-all')")
@@ -132,10 +111,31 @@ public class DeptResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
+    @ApiOperation(value = "获取部门草稿", tags = {"部门" },  notes = "获取部门草稿")
+	@RequestMapping(method = RequestMethod.GET, value = "/depts/getdraft")
+    public ResponseEntity<DeptDTO> getDraft() {
+        return ResponseEntity.status(HttpStatus.OK).body(deptMapping.toDto(deptService.getDraft(new Dept())));
+    }
+
     @ApiOperation(value = "检查部门", tags = {"部门" },  notes = "检查部门")
 	@RequestMapping(method = RequestMethod.POST, value = "/depts/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody DeptDTO deptdto) {
         return  ResponseEntity.status(HttpStatus.OK).body(deptService.checkKey(deptMapping.toDomain(deptdto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-Save-all')")
+    @ApiOperation(value = "保存部门", tags = {"部门" },  notes = "保存部门")
+	@RequestMapping(method = RequestMethod.POST, value = "/depts/save")
+    public ResponseEntity<Boolean> save(@RequestBody DeptDTO deptdto) {
+        return ResponseEntity.status(HttpStatus.OK).body(deptService.save(deptMapping.toDomain(deptdto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-Save-all')")
+    @ApiOperation(value = "批量保存部门", tags = {"部门" },  notes = "批量保存部门")
+	@RequestMapping(method = RequestMethod.POST, value = "/depts/savebatch")
+    public ResponseEntity<Boolean> saveBatch(@RequestBody List<DeptDTO> deptdtos) {
+        deptService.saveBatch(deptMapping.toDomain(deptdtos));
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-searchDefault-all')")

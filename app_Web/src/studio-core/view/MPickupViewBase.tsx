@@ -122,9 +122,20 @@ export class MPickupViewBase extends PickupViewBase {
                     newSelections.push(this.viewSelections[index]);
                 }
             });
-            this.viewSelections = newSelections;
+            this.viewSelections = this.removeDuplicates([...newSelections,...this.viewSelections]);
         });
-        this.selectedData = JSON.stringify(this.viewSelections);
+    }
+
+    /**
+     * 去重
+     *
+     * @param {*} data
+     * @returns {Array<any>}
+     * @memberof MPickupViewBase
+     */
+    public removeDuplicates(data:any):Array<any> {
+        const uniqueSet = new Set(data);
+        return [...uniqueSet];
     }
 
     /**

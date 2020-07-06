@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IUserGroupService extends IService<UserGroup>{
 
-    boolean save(UserGroup et) ;
-    void saveBatch(List<UserGroup> list) ;
-    UserGroup get(String key) ;
     boolean create(UserGroup et) ;
     void createBatch(List<UserGroup> list) ;
-    boolean checkKey(UserGroup et) ;
-    UserGroup getDraft(UserGroup et) ;
-    boolean remove(String key) ;
-    void removeBatch(Collection<String> idList) ;
     boolean update(UserGroup et) ;
     void updateBatch(List<UserGroup> list) ;
+    boolean remove(String key) ;
+    void removeBatch(Collection<String> idList) ;
+    UserGroup get(String key) ;
+    UserGroup getDraft(UserGroup et) ;
+    boolean checkKey(UserGroup et) ;
+    boolean save(UserGroup et) ;
+    void saveBatch(List<UserGroup> list) ;
     Page<UserGroup> searchDefault(UserGroupSearchContext context) ;
     /**
      *自定义查询SQL
@@ -51,8 +51,6 @@ public interface IUserGroupService extends IService<UserGroup>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

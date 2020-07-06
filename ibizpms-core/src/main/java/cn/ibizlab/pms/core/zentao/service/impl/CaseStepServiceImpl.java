@@ -54,16 +54,19 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
 
     @Override
     @Transactional
-    public CaseStep get(BigInteger key) {
-        CaseStep et = getById(key);
-        if(et==null){
-            et=new CaseStep();
-            et.setId(key);
-        }
-        else{
-            et.setCasestep(casestepService.selectByParent(key));
-        }
-        return et;
+    public boolean create(CaseStep et) {
+        fillParentData(et);
+        if(!this.retBool(this.baseMapper.insert(et)))
+            return false;
+        casestepService.saveByParent(et.getId(),et.getCasestep());
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void createBatch(List<CaseStep> list) {
+        list.forEach(item->fillParentData(item));
+        this.saveBatch(list,batchSize);
     }
 
     @Override
@@ -81,6 +84,32 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
     public void updateBatch(List<CaseStep> list) {
         list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean remove(BigInteger key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<BigInteger> idList) {
+        removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
+    public CaseStep get(BigInteger key) {
+        CaseStep et = getById(key);
+        if(et==null){
+            et=new CaseStep();
+            et.setId(key);
+        }
+        else{
+            et.setCasestep(casestepService.selectByParent(key));
+        }
+        return et;
     }
 
     @Override
@@ -124,35 +153,6 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
     public void saveBatch(List<CaseStep> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public boolean create(CaseStep et) {
-        fillParentData(et);
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        casestepService.saveByParent(et.getId(),et.getCasestep());
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void createBatch(List<CaseStep> list) {
-        list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
     }
 
 

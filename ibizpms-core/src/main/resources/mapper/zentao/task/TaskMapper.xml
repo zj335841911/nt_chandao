@@ -66,19 +66,28 @@
          where  parent=#{id}
      </select>
 
-    <!--数据集合[RootTask]-->
-	 <select id="searchRootTask"  parameterType="cn.ibizlab.pms.core.zentao.filter.TaskSearchContext"  resultMap="TaskResultMap">
+    <!--数据集合[ByModule]-->
+	 <select id="searchByModule"  parameterType="cn.ibizlab.pms.core.zentao.filter.TaskSearchContext"  resultMap="TaskResultMap">
          select t1.* from (
-                <include refid="RootTask" />
+                <include refid="ByModule" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
-    <!--数据集合[ByModule]-->
-	 <select id="searchByModule"  parameterType="cn.ibizlab.pms.core.zentao.filter.TaskSearchContext"  resultMap="TaskResultMap">
+    <!--数据集合[Default]-->
+	 <select id="searchDefault"  parameterType="cn.ibizlab.pms.core.zentao.filter.TaskSearchContext"  resultMap="TaskResultMap">
          select t1.* from (
-                <include refid="ByModule" />
+                <include refid="Default" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
+    <!--数据集合[RootTask]-->
+	 <select id="searchRootTask"  parameterType="cn.ibizlab.pms.core.zentao.filter.TaskSearchContext"  resultMap="TaskResultMap">
+         select t1.* from (
+                <include refid="RootTask" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
@@ -94,15 +103,6 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
 		 ) groupinfo
 		 group by type,ESTSTARTED,DEADLINE,DURATION
-     </select>
-
-    <!--数据集合[Default]-->
-	 <select id="searchDefault"  parameterType="cn.ibizlab.pms.core.zentao.filter.TaskSearchContext"  resultMap="TaskResultMap">
-         select t1.* from (
-                <include refid="Default" />
-         )t1
-         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
-         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
     <!--数据查询[ByModule]-->

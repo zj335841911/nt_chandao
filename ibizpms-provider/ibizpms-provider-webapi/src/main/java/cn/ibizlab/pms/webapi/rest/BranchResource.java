@@ -47,28 +47,6 @@ public class BranchResource {
     @Lazy
     public BranchMapping branchMapping;
 
-    @ApiOperation(value = "获取产品的分支和平台信息草稿", tags = {"产品的分支和平台信息" },  notes = "获取产品的分支和平台信息草稿")
-	@RequestMapping(method = RequestMethod.GET, value = "/branches/getdraft")
-    public ResponseEntity<BranchDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(branchMapping.toDto(branchService.getDraft(new Branch())));
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Remove-all')")
-    @ApiOperation(value = "删除产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "删除产品的分支和平台信息")
-	@RequestMapping(method = RequestMethod.DELETE, value = "/branches/{branch_id}")
-    @Transactional
-    public ResponseEntity<Boolean> remove(@PathVariable("branch_id") BigInteger branch_id) {
-         return ResponseEntity.status(HttpStatus.OK).body(branchService.remove(branch_id));
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Remove-all')")
-    @ApiOperation(value = "批量删除产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "批量删除产品的分支和平台信息")
-	@RequestMapping(method = RequestMethod.DELETE, value = "/branches/batch")
-    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
-        branchService.removeBatch(ids);
-        return  ResponseEntity.status(HttpStatus.OK).body(true);
-    }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Create-all')")
     @ApiOperation(value = "新建产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "新建产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.POST, value = "/branches")
@@ -108,16 +86,35 @@ public class BranchResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Sort-all')")
-    @ApiOperation(value = "排序", tags = {"产品的分支和平台信息" },  notes = "排序")
-	@RequestMapping(method = RequestMethod.POST, value = "/branches/{branch_id}/sort")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Remove-all')")
+    @ApiOperation(value = "删除产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "删除产品的分支和平台信息")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/branches/{branch_id}")
     @Transactional
-    public ResponseEntity<BranchDTO> sort(@PathVariable("branch_id") BigInteger branch_id, @RequestBody BranchDTO branchdto) {
-        Branch domain = branchMapping.toDomain(branchdto);
-        domain.setId(branch_id);
-        domain = branchService.sort(domain);
-        branchdto = branchMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(branchdto);
+    public ResponseEntity<Boolean> remove(@PathVariable("branch_id") BigInteger branch_id) {
+         return ResponseEntity.status(HttpStatus.OK).body(branchService.remove(branch_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Remove-all')")
+    @ApiOperation(value = "批量删除产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "批量删除产品的分支和平台信息")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/branches/batch")
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
+        branchService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Get-all')")
+    @ApiOperation(value = "获取产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "获取产品的分支和平台信息")
+	@RequestMapping(method = RequestMethod.GET, value = "/branches/{branch_id}")
+    public ResponseEntity<BranchDTO> get(@PathVariable("branch_id") BigInteger branch_id) {
+        Branch domain = branchService.get(branch_id);
+        BranchDTO dto = branchMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "获取产品的分支和平台信息草稿", tags = {"产品的分支和平台信息" },  notes = "获取产品的分支和平台信息草稿")
+	@RequestMapping(method = RequestMethod.GET, value = "/branches/getdraft")
+    public ResponseEntity<BranchDTO> getDraft() {
+        return ResponseEntity.status(HttpStatus.OK).body(branchMapping.toDto(branchService.getDraft(new Branch())));
     }
 
     @ApiOperation(value = "检查产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "检查产品的分支和平台信息")
@@ -141,36 +138,18 @@ public class BranchResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Get-all')")
-    @ApiOperation(value = "获取产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "获取产品的分支和平台信息")
-	@RequestMapping(method = RequestMethod.GET, value = "/branches/{branch_id}")
-    public ResponseEntity<BranchDTO> get(@PathVariable("branch_id") BigInteger branch_id) {
-        Branch domain = branchService.get(branch_id);
-        BranchDTO dto = branchMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Sort-all')")
+    @ApiOperation(value = "排序", tags = {"产品的分支和平台信息" },  notes = "排序")
+	@RequestMapping(method = RequestMethod.POST, value = "/branches/{branch_id}/sort")
+    @Transactional
+    public ResponseEntity<BranchDTO> sort(@PathVariable("branch_id") BigInteger branch_id, @RequestBody BranchDTO branchdto) {
+        Branch domain = branchMapping.toDomain(branchdto);
+        domain.setId(branch_id);
+        domain = branchService.sort(domain);
+        branchdto = branchMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(branchdto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-searchDefault-all')")
-	@ApiOperation(value = "获取DEFAULT", tags = {"产品的分支和平台信息" } ,notes = "获取DEFAULT")
-    @RequestMapping(method= RequestMethod.GET , value="/branches/fetchdefault")
-	public ResponseEntity<List<BranchDTO>> fetchDefault(BranchSearchContext context) {
-        Page<Branch> domains = branchService.searchDefault(context) ;
-        List<BranchDTO> list = branchMapping.toDto(domains.getContent());
-        return ResponseEntity.status(HttpStatus.OK)
-                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
-                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
-                .header("x-total", String.valueOf(domains.getTotalElements()))
-                .body(list);
-	}
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-searchDefault-all')")
-	@ApiOperation(value = "查询DEFAULT", tags = {"产品的分支和平台信息" } ,notes = "查询DEFAULT")
-    @RequestMapping(method= RequestMethod.POST , value="/branches/searchdefault")
-	public ResponseEntity<Page<BranchDTO>> searchDefault(@RequestBody BranchSearchContext context) {
-        Page<Branch> domains = branchService.searchDefault(context) ;
-	    return ResponseEntity.status(HttpStatus.OK)
-                .body(new PageImpl(branchMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
-	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-searchCurProduct-all')")
 	@ApiOperation(value = "获取CurProduct", tags = {"产品的分支和平台信息" } ,notes = "获取CurProduct")
     @RequestMapping(method= RequestMethod.GET , value="/branches/fetchcurproduct")
@@ -192,30 +171,27 @@ public class BranchResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(branchMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @ApiOperation(value = "根据产品获取产品的分支和平台信息草稿", tags = {"产品的分支和平台信息" },  notes = "根据产品获取产品的分支和平台信息草稿")
-    @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/branches/getdraft")
-    public ResponseEntity<BranchDTO> getDraftByProduct(@PathVariable("product_id") BigInteger product_id) {
-        Branch domain = new Branch();
-        domain.setProduct(product_id);
-        return ResponseEntity.status(HttpStatus.OK).body(branchMapping.toDto(branchService.getDraft(domain)));
-    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-searchDefault-all')")
+	@ApiOperation(value = "获取DEFAULT", tags = {"产品的分支和平台信息" } ,notes = "获取DEFAULT")
+    @RequestMapping(method= RequestMethod.GET , value="/branches/fetchdefault")
+	public ResponseEntity<List<BranchDTO>> fetchDefault(BranchSearchContext context) {
+        Page<Branch> domains = branchService.searchDefault(context) ;
+        List<BranchDTO> list = branchMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Remove-all')")
-    @ApiOperation(value = "根据产品删除产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "根据产品删除产品的分支和平台信息")
-	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/branches/{branch_id}")
-    @Transactional
-    public ResponseEntity<Boolean> removeByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("branch_id") BigInteger branch_id) {
-		return ResponseEntity.status(HttpStatus.OK).body(branchService.remove(branch_id));
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Remove-all')")
-    @ApiOperation(value = "根据产品批量删除产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "根据产品批量删除产品的分支和平台信息")
-	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/branches/batch")
-    public ResponseEntity<Boolean> removeBatchByProduct(@RequestBody List<BigInteger> ids) {
-        branchService.removeBatch(ids);
-        return  ResponseEntity.status(HttpStatus.OK).body(true);
-    }
-
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-searchDefault-all')")
+	@ApiOperation(value = "查询DEFAULT", tags = {"产品的分支和平台信息" } ,notes = "查询DEFAULT")
+    @RequestMapping(method= RequestMethod.POST , value="/branches/searchdefault")
+	public ResponseEntity<Page<BranchDTO>> searchDefault(@RequestBody BranchSearchContext context) {
+        Page<Branch> domains = branchService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(branchMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Create-all')")
     @ApiOperation(value = "根据产品建立产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "根据产品建立产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/branches")
@@ -265,16 +241,37 @@ public class BranchResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Sort-all')")
-    @ApiOperation(value = "根据产品产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "根据产品产品的分支和平台信息")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/branches/{branch_id}/sort")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Remove-all')")
+    @ApiOperation(value = "根据产品删除产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "根据产品删除产品的分支和平台信息")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/branches/{branch_id}")
     @Transactional
-    public ResponseEntity<BranchDTO> sortByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("branch_id") BigInteger branch_id, @RequestBody BranchDTO branchdto) {
-        Branch domain = branchMapping.toDomain(branchdto);
+    public ResponseEntity<Boolean> removeByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("branch_id") BigInteger branch_id) {
+		return ResponseEntity.status(HttpStatus.OK).body(branchService.remove(branch_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Remove-all')")
+    @ApiOperation(value = "根据产品批量删除产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "根据产品批量删除产品的分支和平台信息")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/branches/batch")
+    public ResponseEntity<Boolean> removeBatchByProduct(@RequestBody List<BigInteger> ids) {
+        branchService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Get-all')")
+    @ApiOperation(value = "根据产品获取产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "根据产品获取产品的分支和平台信息")
+	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/branches/{branch_id}")
+    public ResponseEntity<BranchDTO> getByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("branch_id") BigInteger branch_id) {
+        Branch domain = branchService.get(branch_id);
+        BranchDTO dto = branchMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "根据产品获取产品的分支和平台信息草稿", tags = {"产品的分支和平台信息" },  notes = "根据产品获取产品的分支和平台信息草稿")
+    @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/branches/getdraft")
+    public ResponseEntity<BranchDTO> getDraftByProduct(@PathVariable("product_id") BigInteger product_id) {
+        Branch domain = new Branch();
         domain.setProduct(product_id);
-        domain = branchService.sort(domain) ;
-        branchdto = branchMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(branchdto);
+        return ResponseEntity.status(HttpStatus.OK).body(branchMapping.toDto(branchService.getDraft(domain)));
     }
 
     @ApiOperation(value = "根据产品检查产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "根据产品检查产品的分支和平台信息")
@@ -304,38 +301,18 @@ public class BranchResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Get-all')")
-    @ApiOperation(value = "根据产品获取产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "根据产品获取产品的分支和平台信息")
-	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/branches/{branch_id}")
-    public ResponseEntity<BranchDTO> getByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("branch_id") BigInteger branch_id) {
-        Branch domain = branchService.get(branch_id);
-        BranchDTO dto = branchMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Sort-all')")
+    @ApiOperation(value = "根据产品产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "根据产品产品的分支和平台信息")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/branches/{branch_id}/sort")
+    @Transactional
+    public ResponseEntity<BranchDTO> sortByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("branch_id") BigInteger branch_id, @RequestBody BranchDTO branchdto) {
+        Branch domain = branchMapping.toDomain(branchdto);
+        domain.setProduct(product_id);
+        domain = branchService.sort(domain) ;
+        branchdto = branchMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(branchdto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-searchDefault-all')")
-	@ApiOperation(value = "根据产品获取DEFAULT", tags = {"产品的分支和平台信息" } ,notes = "根据产品获取DEFAULT")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/branches/fetchdefault")
-	public ResponseEntity<List<BranchDTO>> fetchBranchDefaultByProduct(@PathVariable("product_id") BigInteger product_id,BranchSearchContext context) {
-        context.setN_product_eq(product_id);
-        Page<Branch> domains = branchService.searchDefault(context) ;
-        List<BranchDTO> list = branchMapping.toDto(domains.getContent());
-	    return ResponseEntity.status(HttpStatus.OK)
-                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
-                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
-                .header("x-total", String.valueOf(domains.getTotalElements()))
-                .body(list);
-	}
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-searchDefault-all')")
-	@ApiOperation(value = "根据产品查询DEFAULT", tags = {"产品的分支和平台信息" } ,notes = "根据产品查询DEFAULT")
-    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/branches/searchdefault")
-	public ResponseEntity<Page<BranchDTO>> searchBranchDefaultByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BranchSearchContext context) {
-        context.setN_product_eq(product_id);
-        Page<Branch> domains = branchService.searchDefault(context) ;
-	    return ResponseEntity.status(HttpStatus.OK)
-                .body(new PageImpl(branchMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
-	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-searchCurProduct-all')")
 	@ApiOperation(value = "根据产品获取CurProduct", tags = {"产品的分支和平台信息" } ,notes = "根据产品获取CurProduct")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/branches/fetchcurproduct")
@@ -356,6 +333,29 @@ public class BranchResource {
 	public ResponseEntity<Page<BranchDTO>> searchBranchCurProductByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BranchSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Branch> domains = branchService.searchCurProduct(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(branchMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-searchDefault-all')")
+	@ApiOperation(value = "根据产品获取DEFAULT", tags = {"产品的分支和平台信息" } ,notes = "根据产品获取DEFAULT")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/branches/fetchdefault")
+	public ResponseEntity<List<BranchDTO>> fetchBranchDefaultByProduct(@PathVariable("product_id") BigInteger product_id,BranchSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Branch> domains = branchService.searchDefault(context) ;
+        List<BranchDTO> list = branchMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-searchDefault-all')")
+	@ApiOperation(value = "根据产品查询DEFAULT", tags = {"产品的分支和平台信息" } ,notes = "根据产品查询DEFAULT")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/branches/searchdefault")
+	public ResponseEntity<Page<BranchDTO>> searchBranchDefaultByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BranchSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Branch> domains = branchService.searchDefault(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(branchMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

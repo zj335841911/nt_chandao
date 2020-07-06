@@ -73,25 +73,6 @@ public class SuiteCaseServiceImpl extends ServiceImpl<SuiteCaseMapper, SuiteCase
     }
 
     @Override
-    public SuiteCase getDraft(SuiteCase et) {
-        fillParentData(et);
-        return et;
-    }
-
-    @Override
-    @Transactional
-    public SuiteCase get(String key) {
-        SuiteCase et = getById(key);
-        if(et==null){
-            et=new SuiteCase();
-            et.setId(key);
-        }
-        else{
-        }
-        return et;
-    }
-
-    @Override
     @Transactional
     public boolean update(SuiteCase et) {
         fillParentData(et);
@@ -119,6 +100,29 @@ public class SuiteCaseServiceImpl extends ServiceImpl<SuiteCaseMapper, SuiteCase
         removeByIds(idList);
     }
 
+    @Override
+    @Transactional
+    public SuiteCase get(String key) {
+        SuiteCase et = getById(key);
+        if(et==null){
+            et=new SuiteCase();
+            et.setId(key);
+        }
+        else{
+        }
+        return et;
+    }
+
+    @Override
+    public SuiteCase getDraft(SuiteCase et) {
+        fillParentData(et);
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(SuiteCase et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
     @Override
     @Transactional
     public boolean save(SuiteCase et) {
@@ -152,10 +156,6 @@ public class SuiteCaseServiceImpl extends ServiceImpl<SuiteCaseMapper, SuiteCase
         saveOrUpdateBatch(list,batchSize);
     }
 
-    @Override
-    public boolean checkKey(SuiteCase et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
 
 	@Override
     public List<SuiteCase> selectByIbizcase(BigInteger id) {

@@ -139,27 +139,27 @@ export class Interceptors {
         if(localStorage.getItem('token')){
             localStorage.removeItem('token');
         }
-        let leftTime = new Date();
+        const leftTime = new Date();
         leftTime.setTime(leftTime.getSeconds() - 1);
         document.cookie = "ibzuaa-token=;expires=" + leftTime.toUTCString();
         if (data.loginurl && !Object.is(data.loginurl, '') && data.originurl && !Object.is(data.originurl, '')) {
             let _url = encodeURIComponent(encodeURIComponent(window.location.href));
-            let loginurl: string = data.loginurl;
-            const originurl: string = data.originurl;
+            let loginUrl: string = data.loginurl;
+            const originUrl: string = data.originurl;
 
-            if (originurl.indexOf('?') === -1) {
+            if (originUrl.indexOf('?') === -1) {
                 _url = `${encodeURIComponent('?RU=')}${_url}`;
             } else {
                 _url = `${encodeURIComponent('&RU=')}${_url}`;
             }
-            loginurl = `${loginurl}${_url}`;
+            loginUrl = `${loginUrl}${_url}`;
 
-            window.location.href = loginurl;
+            window.location.href = loginUrl;
         } else {
             if (Object.is(this.router.currentRoute.name, 'login')) {
                 return;
             }
-            this.router.push({ name: 'login', query: { redirect: this.router.currentRoute.fullPath } });
+            this.router.push({ name: 'login', query: { redirect: encodeURIComponent(location.href) } });
         }
     }
 

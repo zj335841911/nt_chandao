@@ -55,18 +55,6 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
 
     @Override
     @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
-    }
-
-    @Override
-    @Transactional
     public boolean create(Action et) {
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
@@ -77,11 +65,6 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
     @Override
     public void createBatch(List<Action> list) {
         this.saveBatch(list,batchSize);
-    }
-
-    @Override
-    public Action getDraft(Action et) {
-        return et;
     }
 
     @Override
@@ -96,6 +79,36 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
     @Override
     public void updateBatch(List<Action> list) {
         updateBatchById(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean remove(BigInteger key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<BigInteger> idList) {
+        removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
+    public Action get(BigInteger key) {
+        Action et = getById(key);
+        if(et==null){
+            et=new Action();
+            et.setId(key);
+        }
+        else{
+        }
+        return et;
+    }
+
+    @Override
+    public Action getDraft(Action et) {
+        return et;
     }
 
     @Override
@@ -131,19 +144,6 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
     @Override
     public void saveBatch(List<Action> list) {
         saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public Action get(BigInteger key) {
-        Action et = getById(key);
-        if(et==null){
-            et=new Action();
-            et.setId(key);
-        }
-        else{
-        }
-        return et;
     }
 
 

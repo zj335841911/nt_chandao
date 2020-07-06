@@ -192,6 +192,9 @@ export default class AssignedToMeBugModel {
       {
         name: 'comment',
       },
+      {
+        name: 'taskname',
+      },
     ]
   }
 

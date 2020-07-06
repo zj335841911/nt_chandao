@@ -71,6 +71,20 @@ export class PickupGridGridBase extends GridControllerBase {
             util: 'PX'
         },
         {
+            name: 'plan',
+            label: '所属计划',
+            langtag: 'entities.story.pickupgrid_grid.columns.plan',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'modulename',
+            label: '所属模块名称',
+            langtag: 'entities.story.pickupgrid_grid.columns.modulename',
+            show: true,
+            util: 'PX'
+        },
+        {
             name: 'title',
             label: '需求名称',
             langtag: 'entities.story.pickupgrid_grid.columns.title',
@@ -78,9 +92,37 @@ export class PickupGridGridBase extends GridControllerBase {
             util: 'STAR'
         },
         {
-            name: 'modulename',
-            label: '所属模块名称',
-            langtag: 'entities.story.pickupgrid_grid.columns.modulename',
+            name: 'openedby',
+            label: '创建',
+            langtag: 'entities.story.pickupgrid_grid.columns.openedby',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'assignedto',
+            label: '指派',
+            langtag: 'entities.story.pickupgrid_grid.columns.assignedto',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'estimate',
+            label: '预计',
+            langtag: 'entities.story.pickupgrid_grid.columns.estimate',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'status',
+            label: '状态',
+            langtag: 'entities.story.pickupgrid_grid.columns.status',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'stage',
+            label: '阶段',
+            langtag: 'entities.story.pickupgrid_grid.columns.stage',
             show: true,
             util: 'PX'
         },
@@ -120,8 +162,14 @@ export class PickupGridGridBase extends GridControllerBase {
     public hasRowEdit: any = {
         'id':false,
         'pri':false,
-        'title':false,
+        'plan':false,
         'modulename':false,
+        'title':false,
+        'openedby':false,
+        'assignedto':false,
+        'estimate':false,
+        'status':false,
+        'stage':false,
     };
 
     /**
@@ -150,6 +198,46 @@ export class PickupGridGridBase extends GridControllerBase {
             {
                 name: 'pri',
                 srfkey: 'Story__pri',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'plan',
+                srfkey: 'CurProductPlan',
+                codelistType : 'DYNAMIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'openedby',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
+            {
+                name: 'assignedto',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
+            {
+                name: 'status',
+                srfkey: 'Story__status',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'stage',
+                srfkey: 'Story__stage',
                 codelistType : 'STATIC',
                 renderMode: 'other',
                 textSeparator: '、',

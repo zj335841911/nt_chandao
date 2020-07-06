@@ -48,22 +48,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     protected int batchSize = 500;
 
     @Override
-    public boolean checkKey(User et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
-    @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
-    }
-
-    @Override
     @Transactional
     public boolean create(User et) {
         if(!this.retBool(this.baseMapper.insert(et)))
@@ -75,19 +59,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     @Override
     public void createBatch(List<User> list) {
         this.saveBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public User get(BigInteger key) {
-        User et = getById(key);
-        if(et==null){
-            et=new User();
-            et.setId(key);
-        }
-        else{
-        }
-        return et;
     }
 
     @Override
@@ -104,6 +75,40 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         updateBatchById(list,batchSize);
     }
 
+    @Override
+    @Transactional
+    public boolean remove(BigInteger key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<BigInteger> idList) {
+        removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
+    public User get(BigInteger key) {
+        User et = getById(key);
+        if(et==null){
+            et=new User();
+            et.setId(key);
+        }
+        else{
+        }
+        return et;
+    }
+
+    @Override
+    public User getDraft(User et) {
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(User et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
     @Override
     @Transactional
     public boolean save(User et) {
@@ -133,11 +138,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     @Override
     public void saveBatch(List<User> list) {
         saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    public User getDraft(User et) {
-        return et;
     }
 
 

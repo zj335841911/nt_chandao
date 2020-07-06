@@ -502,6 +502,14 @@ public class BugDTO extends DTOBase implements Serializable {
     @JsonProperty("comment")
     private String comment;
 
+    /**
+     * 属性 [TASKNAME]
+     *
+     */
+    @JSONField(name = "taskname")
+    @JsonProperty("taskname")
+    private String taskname;
+
 
     /**
      * 设置 [SEVERITY]

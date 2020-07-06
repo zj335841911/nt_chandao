@@ -27,6 +27,13 @@ import cn.ibizlab.pms.core.zentao.domain.Action;
 @Data
 public class ActionSearchContext extends QueryWrapperContext<Action> {
 
+	private String n_objecttype_eq;//[对象类型]
+	public void setN_objecttype_eq(String n_objecttype_eq) {
+        this.n_objecttype_eq = n_objecttype_eq;
+        if(!ObjectUtils.isEmpty(this.n_objecttype_eq)){
+            this.getSearchCond().eq("objecttype", n_objecttype_eq);
+        }
+    }
 	private String n_read_eq;//[已读]
 	public void setN_read_eq(String n_read_eq) {
         this.n_read_eq = n_read_eq;
@@ -39,6 +46,13 @@ public class ActionSearchContext extends QueryWrapperContext<Action> {
         this.n_action_eq = n_action_eq;
         if(!ObjectUtils.isEmpty(this.n_action_eq)){
             this.getSearchCond().eq("action", n_action_eq);
+        }
+    }
+	private Integer n_objectid_eq;//[对象ID]
+	public void setN_objectid_eq(Integer n_objectid_eq) {
+        this.n_objectid_eq = n_objectid_eq;
+        if(!ObjectUtils.isEmpty(this.n_objectid_eq)){
+            this.getSearchCond().eq("objectid", n_objectid_eq);
         }
     }
 	private BigInteger n_project_eq;//[项目]

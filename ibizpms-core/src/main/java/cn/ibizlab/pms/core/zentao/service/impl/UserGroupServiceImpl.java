@@ -49,6 +49,68 @@ public class UserGroupServiceImpl extends ServiceImpl<UserGroupMapper, UserGroup
 
     @Override
     @Transactional
+    public boolean create(UserGroup et) {
+        if(!this.retBool(this.baseMapper.insert(et)))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void createBatch(List<UserGroup> list) {
+        this.saveBatch(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean update(UserGroup et) {
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void updateBatch(List<UserGroup> list) {
+        updateBatchById(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean remove(String key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<String> idList) {
+        removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
+    public UserGroup get(String key) {
+        UserGroup et = getById(key);
+        if(et==null){
+            et=new UserGroup();
+            et.setId(key);
+        }
+        else{
+        }
+        return et;
+    }
+
+    @Override
+    public UserGroup getDraft(UserGroup et) {
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(UserGroup et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
+    @Override
+    @Transactional
     public boolean save(UserGroup et) {
         if(!saveOrUpdate(et))
             return false;
@@ -76,68 +138,6 @@ public class UserGroupServiceImpl extends ServiceImpl<UserGroupMapper, UserGroup
     @Override
     public void saveBatch(List<UserGroup> list) {
         saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public UserGroup get(String key) {
-        UserGroup et = getById(key);
-        if(et==null){
-            et=new UserGroup();
-            et.setId(key);
-        }
-        else{
-        }
-        return et;
-    }
-
-    @Override
-    @Transactional
-    public boolean create(UserGroup et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void createBatch(List<UserGroup> list) {
-        this.saveBatch(list,batchSize);
-    }
-
-    @Override
-    public boolean checkKey(UserGroup et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
-    @Override
-    public UserGroup getDraft(UserGroup et) {
-        return et;
-    }
-
-    @Override
-    @Transactional
-    public boolean remove(String key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<String> idList) {
-        removeByIds(idList);
-    }
-
-    @Override
-    @Transactional
-    public boolean update(UserGroup et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void updateBatch(List<UserGroup> list) {
-        updateBatchById(list,batchSize);
     }
 
 

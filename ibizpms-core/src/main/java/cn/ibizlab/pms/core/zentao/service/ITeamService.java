@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ITeamService extends IService<Team>{
 
-    boolean save(Team et) ;
-    void saveBatch(List<Team> list) ;
-    boolean update(Team et) ;
-    void updateBatch(List<Team> list) ;
-    Team get(BigInteger key) ;
-    Team getDraft(Team et) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
     boolean create(Team et) ;
     void createBatch(List<Team> list) ;
+    boolean update(Team et) ;
+    void updateBatch(List<Team> list) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    Team get(BigInteger key) ;
+    Team getDraft(Team et) ;
     boolean checkKey(Team et) ;
+    boolean save(Team et) ;
+    void saveBatch(List<Team> list) ;
     Page<Team> searchDefault(TeamSearchContext context) ;
     /**
      *自定义查询SQL
@@ -51,8 +51,6 @@ public interface ITeamService extends IService<Team>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

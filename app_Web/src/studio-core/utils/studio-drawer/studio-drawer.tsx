@@ -216,6 +216,10 @@ export class StudioDrawer extends Vue {
     protected renderHeader(): any {
         return <div class="studio-drawer-header">
             <div class="studio-drawer-breadcrumb">
+                <div class="studio-drawer-back" on-click={() => this.closeByIndex(this.viewList.length - 1)}>
+                    <icon type="ios-arrow-back"/>
+                    返回
+                </div>
                 {this.showViewList.map((item, i) => {
                     const ref: any = this.$refs[item.viewname + i];
                     if (!ref) {
@@ -266,7 +270,7 @@ export class StudioDrawer extends Vue {
      */
     protected renderViews(h: CreateElement): any {
         return this.showViewList.map((view: any, i: number) => {
-            const props: any = { openMode: 'MODAL', viewDefaultUsage: false, viewdata: JSON.stringify(view.viewdata), viewparams: view.viewparams };
+            const props: any = { openMode: 'MODAL', viewUsage: 2, viewDefaultUsage: false, viewdata: JSON.stringify(view.viewdata), viewparams: view.viewparams };
             const style: any = { 'z-index': i + 1 };
             return <div class={{ 'studio-drawer-item': true, 'active': this.activeIndex === i }}>
                 {h(view.viewname, {

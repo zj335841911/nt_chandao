@@ -48,12 +48,43 @@ public class LangServiceImpl extends ServiceImpl<LangMapper, Lang> implements IL
     protected int batchSize = 500;
 
     @Override
-    public boolean checkKey(Lang et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    @Transactional
+    public boolean create(Lang et) {
+        if(!this.retBool(this.baseMapper.insert(et)))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
     }
+
     @Override
-    public Lang getDraft(Lang et) {
-        return et;
+    public void createBatch(List<Lang> list) {
+        this.saveBatch(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean update(Lang et) {
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void updateBatch(List<Lang> list) {
+        updateBatchById(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean remove(BigInteger key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<BigInteger> idList) {
+        removeByIds(idList);
     }
 
     @Override
@@ -70,31 +101,14 @@ public class LangServiceImpl extends ServiceImpl<LangMapper, Lang> implements IL
     }
 
     @Override
-    @Transactional
-    public boolean create(Lang et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
+    public Lang getDraft(Lang et) {
+        return et;
     }
 
     @Override
-    public void createBatch(List<Lang> list) {
-        this.saveBatch(list,batchSize);
+    public boolean checkKey(Lang et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-
-    @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
-    }
-
     @Override
     @Transactional
     public boolean save(Lang et) {
@@ -124,20 +138,6 @@ public class LangServiceImpl extends ServiceImpl<LangMapper, Lang> implements IL
     @Override
     public void saveBatch(List<Lang> list) {
         saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public boolean update(Lang et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void updateBatch(List<Lang> list) {
-        updateBatchById(list,batchSize);
     }
 
 

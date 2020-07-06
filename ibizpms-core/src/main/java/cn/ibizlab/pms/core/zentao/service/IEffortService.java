@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IEffortService extends IService<Effort>{
 
-    boolean update(Effort et) ;
-    void updateBatch(List<Effort> list) ;
-    boolean checkKey(Effort et) ;
-    boolean save(Effort et) ;
-    void saveBatch(List<Effort> list) ;
     boolean create(Effort et) ;
     void createBatch(List<Effort> list) ;
+    boolean update(Effort et) ;
+    void updateBatch(List<Effort> list) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
     Effort get(BigInteger key) ;
     Effort getDraft(Effort et) ;
+    boolean checkKey(Effort et) ;
+    boolean save(Effort et) ;
+    void saveBatch(List<Effort> list) ;
     Page<Effort> searchDefault(EffortSearchContext context) ;
     /**
      *自定义查询SQL
@@ -51,8 +51,6 @@ public interface IEffortService extends IService<Effort>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

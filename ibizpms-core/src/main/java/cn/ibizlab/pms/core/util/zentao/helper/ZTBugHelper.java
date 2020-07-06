@@ -224,7 +224,6 @@ final public class ZTBugHelper {
         ACTION_PARAMS_EDIT.put("color", null);
         ACTION_PARAMS_EDIT.put("story", null);
         ACTION_PARAMS_EDIT.put("task", null);
-        ACTION_PARAMS_EDIT.put("oldTaskID", 0);
         ACTION_PARAMS_EDIT.put("case", 0);
         ACTION_PARAMS_EDIT.put("caseVersion", 0);
         ACTION_PARAMS_EDIT.put("result", 0);
@@ -234,16 +233,16 @@ final public class ZTBugHelper {
         ACTION_PARAMS_EDIT.put("steps", null);
         ACTION_PARAMS_EDIT.put("mailto", null);
         ACTION_PARAMS_EDIT.put("keywords", null);
-        ACTION_PARAMS_CREATE.put("status", null);
-        ACTION_PARAMS_CREATE.put("comment", null);
-        ACTION_PARAMS_CREATE.put("resolvedBy", null);
-        ACTION_PARAMS_CREATE.put("resolvedDate", null);
-        ACTION_PARAMS_CREATE.put("resolvedBuild", null);
-        ACTION_PARAMS_CREATE.put("resolution", null);
-        ACTION_PARAMS_CREATE.put("duplicateBug", null);
-        ACTION_PARAMS_CREATE.put("closedBy", null);
-        ACTION_PARAMS_CREATE.put("closedDate", null);
-        ACTION_PARAMS_CREATE.put("linkBug", null);
+        ACTION_PARAMS_EDIT.put("status", null);
+        ACTION_PARAMS_EDIT.put("comment", null);
+        ACTION_PARAMS_EDIT.put("resolvedBy", null);
+        ACTION_PARAMS_EDIT.put("resolvedDate", null);
+        ACTION_PARAMS_EDIT.put("resolvedBuild", null);
+        ACTION_PARAMS_EDIT.put("resolution", null);
+        ACTION_PARAMS_EDIT.put("duplicateBug", null);
+        ACTION_PARAMS_EDIT.put("closedBy", null);
+        ACTION_PARAMS_EDIT.put("closedDate", null);
+        ACTION_PARAMS_EDIT.put("linkBug", null);
 
         // RESOLVE
         ACTION_PARAMS_RESOLVE.put("resolution", null);
@@ -473,5 +472,39 @@ final public class ZTBugHelper {
         return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
     }
 
+    /**
+     * linkBug 关联Bug
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean linkBug(String zentaoSid, JSONObject jo, ZTResult rst) {
+        return ZTProductPlanHelper.linkBug(zentaoSid, jo, rst);
+    }
 
+    /**
+     * unlinkBug 解除关联Bug
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean unlinkBug(String zentaoSid, JSONObject jo, ZTResult rst) {
+        return ZTProductPlanHelper.unlinkBug(zentaoSid, jo, rst);
+    }
+
+    /**
+     * batchUnlinkBug 批量解除关联Bug
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean batchUnlinkBug(String zentaoSid, JSONObject jo, ZTResult rst) {
+        return ZTProductPlanHelper.batchUnlinkBug(zentaoSid, jo, rst);
+    }
 }

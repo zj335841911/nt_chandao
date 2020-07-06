@@ -61,7 +61,9 @@ export default class MainEditModel {
         dataType: 'LONGTEXT',
       },
       {
-        name: 'formitem',
+        name: 'comment',
+        prop: 'comment',
+        dataType: 'HTMLTEXT',
       },
       {
         name: 'files',

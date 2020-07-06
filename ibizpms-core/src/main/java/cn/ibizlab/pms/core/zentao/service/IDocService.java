@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IDocService extends IService<Doc>{
 
-    Doc getDraft(Doc et) ;
-    boolean checkKey(Doc et) ;
-    boolean save(Doc et) ;
-    void saveBatch(List<Doc> list) ;
     boolean create(Doc et) ;
     void createBatch(List<Doc> list) ;
-    Doc get(BigInteger key) ;
     boolean update(Doc et) ;
     void updateBatch(List<Doc> list) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
+    Doc get(BigInteger key) ;
+    Doc getDraft(Doc et) ;
+    boolean checkKey(Doc et) ;
+    boolean save(Doc et) ;
+    void saveBatch(List<Doc> list) ;
     Page<Doc> searchDefault(DocSearchContext context) ;
     List<Doc> selectByLib(BigInteger id) ;
     void removeByLib(BigInteger id) ;
@@ -59,8 +59,6 @@ public interface IDocService extends IService<Doc>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

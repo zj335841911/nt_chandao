@@ -58,37 +58,6 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
 
     @Override
     @Transactional
-    public boolean save(TestSuite et) {
-        if(!saveOrUpdate(et))
-            return false;
-        return true;
-    }
-
-    @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
-    public boolean saveOrUpdate(TestSuite et) {
-        if (null == et) {
-            return false;
-        } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
-        }
-    }
-
-    @Override
-    public boolean saveBatch(Collection<TestSuite> list) {
-        saveOrUpdateBatch(list,batchSize);
-        return true;
-    }
-
-    @Override
-    public void saveBatch(List<TestSuite> list) {
-        saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
     public boolean create(TestSuite et) {
         cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
@@ -103,28 +72,6 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
     public void createBatch(List<TestSuite> list) {
 
     }
-    @Override
-    public boolean checkKey(TestSuite et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
-    @Override
-    public TestSuite getDraft(TestSuite et) {
-        return et;
-    }
-
-    @Override
-    @Transactional
-    public TestSuite get(BigInteger key) {
-        TestSuite et = getById(key);
-        if(et==null){
-            et=new TestSuite();
-            et.setId(key);
-        }
-        else{
-        }
-        return et;
-    }
-
     @Override
     @Transactional
     public boolean update(TestSuite et) {
@@ -159,6 +106,59 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
             }
         }
     }
+    @Override
+    @Transactional
+    public TestSuite get(BigInteger key) {
+        TestSuite et = getById(key);
+        if(et==null){
+            et=new TestSuite();
+            et.setId(key);
+        }
+        else{
+        }
+        return et;
+    }
+
+    @Override
+    public TestSuite getDraft(TestSuite et) {
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(TestSuite et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
+    @Override
+    @Transactional
+    public boolean save(TestSuite et) {
+        if(!saveOrUpdate(et))
+            return false;
+        return true;
+    }
+
+    @Override
+    @Transactional(
+            rollbackFor = {Exception.class}
+    )
+    public boolean saveOrUpdate(TestSuite et) {
+        if (null == et) {
+            return false;
+        } else {
+            return checkKey(et) ? this.update(et) : this.create(et);
+        }
+    }
+
+    @Override
+    public boolean saveBatch(Collection<TestSuite> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
+    public void saveBatch(List<TestSuite> list) {
+        saveOrUpdateBatch(list,batchSize);
+    }
+
 
 	@Override
     public List<TestSuite> selectByProduct(BigInteger id) {

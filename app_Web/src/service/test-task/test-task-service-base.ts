@@ -55,104 +55,6 @@ export default class TestTaskServiceBase extends EntityService {
     }
 
     /**
-     * GetDraft接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof TestTaskServiceBase
-     */
-    public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/testtasks/getdraft`,isloading);
-            res.data.testtask = data.testtask;
-            return res;
-        }
-        let res:any = await  Http.getInstance().get(`/testtasks/getdraft`,isloading);
-        res.data.testtask = data.testtask;
-        return res;
-    }
-
-    /**
-     * Get接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof TestTaskServiceBase
-     */
-    public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.testtask){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/testtasks/${context.testtask}`,isloading);
-            return res;
-        }
-            let res:any = await Http.getInstance().get(`/testtasks/${context.testtask}`,isloading);
-            return res;
-    }
-
-    /**
-     * Block接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof TestTaskServiceBase
-     */
-    public async Block(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.testtask){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/block`,data,isloading);
-            return res;
-        }
-            return Http.getInstance().post(`/testtasks/${context.testtask}/block`,data,isloading);
-    }
-
-    /**
-     * Save接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof TestTaskServiceBase
-     */
-    public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.testtask){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/save`,data,isloading);
-            return res;
-        }
-        let masterData:any = {};
-        Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().post(`/testtasks/${context.testtask}/save`,data,isloading);
-            return res;
-    }
-
-    /**
-     * Start接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof TestTaskServiceBase
-     */
-    public async Start(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.testtask){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/start`,data,isloading);
-            return res;
-        }
-            return Http.getInstance().post(`/testtasks/${context.testtask}/start`,data,isloading);
-    }
-
-    /**
      * Create接口方法
      *
      * @param {*} [context={}]
@@ -186,25 +88,6 @@ export default class TestTaskServiceBase extends EntityService {
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/testtasks`,data,isloading);
         return res;
-    }
-
-    /**
-     * Activate接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof TestTaskServiceBase
-     */
-    public async Activate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.testtask){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/activate`,data,isloading);
-            return res;
-        }
-            return Http.getInstance().post(`/testtasks/${context.testtask}/activate`,data,isloading);
     }
 
     /**
@@ -246,7 +129,7 @@ export default class TestTaskServiceBase extends EntityService {
     }
 
     /**
-     * Close接口方法
+     * Get接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -254,14 +137,71 @@ export default class TestTaskServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof TestTaskServiceBase
      */
-    public async Close(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.testtask){
+            let res:any = await Http.getInstance().get(`/products/${context.product}/testtasks/${context.testtask}`,isloading);
+            return res;
+        }
+            let res:any = await Http.getInstance().get(`/testtasks/${context.testtask}`,isloading);
+            return res;
+    }
+
+    /**
+     * GetDraft接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestTaskServiceBase
+     */
+    public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let res:any = await Http.getInstance().get(`/products/${context.product}/testtasks/getdraft`,isloading);
+            res.data.testtask = data.testtask;
+            return res;
+        }
+        let res:any = await  Http.getInstance().get(`/testtasks/getdraft`,isloading);
+        res.data.testtask = data.testtask;
+        return res;
+    }
+
+    /**
+     * Activate接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestTaskServiceBase
+     */
+    public async Activate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.testtask){
             let masterData:any = {};
             Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/close`,data,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/activate`,data,isloading);
             return res;
         }
-            return Http.getInstance().post(`/testtasks/${context.testtask}/close`,data,isloading);
+            return Http.getInstance().post(`/testtasks/${context.testtask}/activate`,data,isloading);
+    }
+
+    /**
+     * Block接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestTaskServiceBase
+     */
+    public async Block(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.testtask){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/block`,data,isloading);
+            return res;
+        }
+            return Http.getInstance().post(`/testtasks/${context.testtask}/block`,data,isloading);
     }
 
     /**
@@ -281,6 +221,66 @@ export default class TestTaskServiceBase extends EntityService {
             return res;
         }
             return Http.getInstance().post(`/testtasks/${context.testtask}/checkkey`,data,isloading);
+    }
+
+    /**
+     * Close接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestTaskServiceBase
+     */
+    public async Close(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.testtask){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/close`,data,isloading);
+            return res;
+        }
+            return Http.getInstance().post(`/testtasks/${context.testtask}/close`,data,isloading);
+    }
+
+    /**
+     * Save接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestTaskServiceBase
+     */
+    public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.testtask){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/save`,data,isloading);
+            return res;
+        }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().post(`/testtasks/${context.testtask}/save`,data,isloading);
+            return res;
+    }
+
+    /**
+     * Start接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestTaskServiceBase
+     */
+    public async Start(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.testtask){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/start`,data,isloading);
+            return res;
+        }
+            return Http.getInstance().post(`/testtasks/${context.testtask}/start`,data,isloading);
     }
 
     /**

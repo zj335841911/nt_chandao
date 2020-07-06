@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IUserService extends IService<User>{
 
-    boolean checkKey(User et) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
     boolean create(User et) ;
     void createBatch(List<User> list) ;
-    User get(BigInteger key) ;
     boolean update(User et) ;
     void updateBatch(List<User> list) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    User get(BigInteger key) ;
+    User getDraft(User et) ;
+    boolean checkKey(User et) ;
     boolean save(User et) ;
     void saveBatch(List<User> list) ;
-    User getDraft(User et) ;
     Page<User> searchDefault(UserSearchContext context) ;
     /**
      *自定义查询SQL
@@ -51,8 +51,6 @@ public interface IUserService extends IService<User>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

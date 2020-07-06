@@ -125,6 +125,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "RelatedStory",
+        "emptytext": "",
+        "codelisttype":"dynamic",
+        "appdataentity":"Story",
+        "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
         srfkey: "Testcase__stage",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -1346,6 +1354,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 disabled: false,
             },
         ]
+    },
+    {
+        "srfkey": "BugModule",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Module",
+        "appdedataset":"FetchDefault",
+        "items": []
     },
     {
         "srfkey": "Role",
@@ -2781,7 +2797,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "ICREATE",
                 label: "由我创建",
                 text: "由我创建",
-                "data":{"n_openedby_eq":"%SRFUSERID%"},
+                "data":{"n_openedby_eq":"%srfloginname%"},
                 "codename":"Icreate",
                 value: "ICREATE",
                 
@@ -2791,7 +2807,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "TOME",
                 label: "指派给我",
                 text: "指派给我",
-                "data":{"n_assignedto_eq":"%SRFUSERID%"},
+                "data":{"n_assignedto_eq":"%srfloginname%"},
                 "codename":"Tome",
                 value: "TOME",
                 
@@ -2801,7 +2817,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "BYME",
                 label: "由我解决",
                 text: "由我解决",
-                "data":{"n_resolvedby_eq":"%SRFUSERID%"},
+                "data":{"n_resolvedby_eq":"%srfloginname%"},
                 "codename":"Byme",
                 value: "BYME",
                 
@@ -3059,7 +3075,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "TOME",
                 label: "指给我",
                 text: "指给我",
-                "data":{"n_assignedto_eq":"%SRFUSERID%"},
+                "data":{"n_assignedto_eq":"%srfloginname%"},
                 "codename":"Tome",
                 value: "TOME",
                 
@@ -3069,7 +3085,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "ICREATE",
                 label: "我创建",
                 text: "我创建",
-                "data":{"n_openedby_eq":"%SRFUSERID%"},
+                "data":{"n_openedby_eq":"%srfloginname%"},
                 "codename":"Icreate",
                 value: "ICREATE",
                 
@@ -3079,7 +3095,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "IREVIEW",
                 label: "我评审",
                 text: "我评审",
-                "data":{"n_reviewedby_eq":"%SRFUSERID%"},
+                "data":{"n_reviewedby_eq":"%srfloginname%"},
                 "codename":"Ireview",
                 value: "IREVIEW",
                 
@@ -3109,7 +3125,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "ICLOSE",
                 label: "我关闭",
                 text: "我关闭",
-                "data":{"n_closedby_eq":"%SRFUSERID%"},
+                "data":{"n_closedby_eq":"%srfloginname%"},
                 "codename":"Iclose",
                 value: "ICLOSE",
                 "pvalue": "MORE",

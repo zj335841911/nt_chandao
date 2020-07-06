@@ -7,7 +7,7 @@ import CodeListService from "@service/app/codelist-service";
 
 
 /**
- * 需求表格视图视图基类
+ * 子需求视图基类
  *
  * @export
  * @class StoryGridView9_SubStoryBase
@@ -41,6 +41,7 @@ export class StoryGridView9_SubStoryBase extends GridView9Base {
 	 * @memberof StoryGridView9_SubStoryBase
 	 */
     protected customViewParams: any = {
+        'story': { isRawValue: false, value: 'story' },
         'n_parent_eq': { isRawValue: false, value: 'srfparentkey' }
     };
 
@@ -280,5 +281,5 @@ export class StoryGridView9_SubStoryBase extends GridView9Base {
      * @type {boolean}
      * @memberof StoryGridView9_SubStoryBase
      */
-    protected isSingleSelect: boolean = true;
+    protected isGridSingleSelect: boolean = true;
 }

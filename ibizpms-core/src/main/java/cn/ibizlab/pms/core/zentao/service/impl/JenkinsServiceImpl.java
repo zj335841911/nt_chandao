@@ -49,6 +49,20 @@ public class JenkinsServiceImpl extends ServiceImpl<JenkinsMapper, Jenkins> impl
 
     @Override
     @Transactional
+    public boolean create(Jenkins et) {
+        if(!this.retBool(this.baseMapper.insert(et)))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void createBatch(List<Jenkins> list) {
+        this.saveBatch(list,batchSize);
+    }
+
+    @Override
+    @Transactional
     public boolean update(Jenkins et) {
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
@@ -74,24 +88,6 @@ public class JenkinsServiceImpl extends ServiceImpl<JenkinsMapper, Jenkins> impl
     }
 
     @Override
-    public boolean checkKey(Jenkins et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
-    @Override
-    @Transactional
-    public boolean create(Jenkins et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void createBatch(List<Jenkins> list) {
-        this.saveBatch(list,batchSize);
-    }
-
-    @Override
     @Transactional
     public Jenkins get(BigInteger key) {
         Jenkins et = getById(key);
@@ -109,6 +105,10 @@ public class JenkinsServiceImpl extends ServiceImpl<JenkinsMapper, Jenkins> impl
         return et;
     }
 
+    @Override
+    public boolean checkKey(Jenkins et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
     @Override
     @Transactional
     public boolean save(Jenkins et) {

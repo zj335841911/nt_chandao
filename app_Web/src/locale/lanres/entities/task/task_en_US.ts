@@ -78,6 +78,10 @@ export default {
 			caption: "任务",
       		title: "任务主数据看板视图",
 		},
+		gridview9_storyrelated: {
+			caption: "相关任务",
+      		title: "任务表格视图",
+		},
 		tasktypeganttview: {
 			caption: "任务",
       		title: "任务甘特视图",
@@ -246,6 +250,7 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			id: "编号", 
 			consumed: "之前消耗", 
 			currentconsumed: "本次消耗", 
 			totaltime: "总计耗时", 
@@ -253,7 +258,6 @@ export default {
 			finisheddate: "实际完成", 
 			files: "附件", 
 			comment: "备注", 
-			id: "编号", 
 		},
 		uiactions: {
 		},
@@ -278,9 +282,10 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			id: "编号", 
 			name: "任务名称", 
 			desc: "任务描述", 
-			desc1: "备注", 
+			comment: "备注", 
 			files: "附件", 
 			projectname: "所属项目", 
 			project: "所属项目", 
@@ -306,8 +311,30 @@ export default {
 			closedby: "由谁关闭", 
 			closedreason: "关闭原因", 
 			closeddate: "关闭时间", 
-			id: "编号", 
 			module: "id", 
+		},
+		uiactions: {
+		},
+	},
+	startform_form: {
+		details: {
+			druipart1: "", 
+			grouppanel1: "分组面板", 
+			group1: "任务基本信息", 
+			formpage1: "基本信息", 
+			srfupdatedate: "最后修改日期", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "任务名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			realstarted: "实际开始", 
+			consumed: "总计消耗", 
+			left: "预计剩余", 
+			comment: "备注", 
+			id: "编号", 
 		},
 		uiactions: {
 		},
@@ -380,29 +407,6 @@ export default {
 		uiactions: {
 		},
 	},
-	startform_form: {
-		details: {
-			druipart1: "", 
-			grouppanel1: "分组面板", 
-			group1: "任务基本信息", 
-			formpage1: "基本信息", 
-			srfupdatedate: "最后修改日期", 
-			srforikey: "", 
-			srfkey: "编号", 
-			srfmajortext: "任务名称", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			realstarted: "实际开始", 
-			consumed: "总计消耗", 
-			left: "预计剩余", 
-			comment: "备注", 
-			id: "编号", 
-		},
-		uiactions: {
-		},
-	},
 	main2_grid: {
 		columns: {
 			id: "编号",
@@ -452,6 +456,15 @@ export default {
 			storyname: "相关需求",
 			modulename: "所属模块",
 			parentname: "父任务",
+		},
+		uiactions: {
+		},
+	},
+	storyrelated_grid: {
+		columns: {
+			id: "编号",
+			name: "任务名称",
+			projectname: "所属项目",
 		},
 		uiactions: {
 		},

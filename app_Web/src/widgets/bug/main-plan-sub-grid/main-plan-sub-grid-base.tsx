@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, GridControllerBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import Main_PlanSubService from './main-plan-sub-grid-service';
+import BugUIService from '@/uiservice/bug/bug-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 
@@ -39,6 +40,34 @@ export class Main_PlanSubGridBase extends GridControllerBase {
      * @memberof Main_PlanSubGridBase
      */
     protected appDeName: string = 'bug';
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_uda12208_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:BugUIService  = new BugUIService();
+        curUIService.Bug_UnlinkBug(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+    }
 
     /**
      * 本地缓存标识
@@ -105,6 +134,13 @@ export class Main_PlanSubGridBase extends GridControllerBase {
             show: true,
             util: 'PX'
         },
+        {
+            name: 'uagridcolumn1',
+            label: '操作',
+            langtag: 'entities.bug.main_plansub_grid.columns.uagridcolumn1',
+            show: true,
+            util: 'PX'
+        },
     ]
 
     /**
@@ -146,6 +182,7 @@ export class Main_PlanSubGridBase extends GridControllerBase {
         'openedby':false,
         'openeddate':false,
         'assignedto':false,
+        'uagridcolumn1':false,
     };
 
     /**
@@ -195,7 +232,30 @@ export class Main_PlanSubGridBase extends GridControllerBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
+            {
+                name: 'assignedto',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
         ]);
     }
 
+
+    /**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof Main_PlanSubGridBase
+     */
+	public uiAction(row: any, tag: any, $event: any): void {
+        $event.stopPropagation();
+        if(Object.is('UnlinkBug', tag)) {
+            this.grid_uagridcolumn1_uda12208_click(row, tag, $event);
+        }
+    }
 }

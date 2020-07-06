@@ -159,10 +159,14 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
      */
     public actionBarModelData:any[] =[
         { viewlogicname:"dashboard_sysportlet4_u947bac5_click",
-        actionName:"返回",
+        text: "返回",
+        iconcls: "fa fa-sign-out",
+        icon: "",
         },
         { viewlogicname:"dashboard_sysportlet4_u4c22fea_click",
-        actionName:"编辑",
+        text: "编辑",
+        iconcls: "fa fa-edit",
+        icon: "",
         }
     ];
 

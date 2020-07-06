@@ -15,11 +15,6 @@ import view_chart from '@widgets/burn/burn-down2-chart/burn-down2-chart.vue';
 @Component({
     components: {
         view_chart, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
-        });
     }
 })
 @VueLifeCycleProcessing()

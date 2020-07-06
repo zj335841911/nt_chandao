@@ -15,11 +15,6 @@ import view_form from '@widgets/product-stats/test-main2-form/test-main2-form.vu
 @Component({
     components: {
         view_form, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
-        });
     }
 })
 @VueLifeCycleProcessing()

@@ -55,42 +55,6 @@ export default class BranchServiceBase extends EntityService {
     }
 
     /**
-     * GetDraft接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof BranchServiceBase
-     */
-    public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/branches/getdraft`,isloading);
-            res.data.branch = data.branch;
-            return res;
-        }
-        let res:any = await  Http.getInstance().get(`/branches/getdraft`,isloading);
-        res.data.branch = data.branch;
-        return res;
-    }
-
-    /**
-     * Remove接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof BranchServiceBase
-     */
-    public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.branch){
-            return Http.getInstance().delete(`/products/${context.product}/branches/${context.branch}`,isloading);
-        }
-            return Http.getInstance().delete(`/branches/${context.branch}`,isloading);
-    }
-
-    /**
      * Create接口方法
      *
      * @param {*} [context={}]
@@ -149,7 +113,7 @@ export default class BranchServiceBase extends EntityService {
     }
 
     /**
-     * Sort接口方法
+     * Remove接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -157,14 +121,49 @@ export default class BranchServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof BranchServiceBase
      */
-    public async Sort(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.branch){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/branches/${context.branch}/sort`,data,isloading);
+            return Http.getInstance().delete(`/products/${context.product}/branches/${context.branch}`,isloading);
+        }
+            return Http.getInstance().delete(`/branches/${context.branch}`,isloading);
+    }
+
+    /**
+     * Get接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BranchServiceBase
+     */
+    public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.branch){
+            let res:any = await Http.getInstance().get(`/products/${context.product}/branches/${context.branch}`,isloading);
             return res;
         }
-            return Http.getInstance().post(`/branches/${context.branch}/sort`,data,isloading);
+            let res:any = await Http.getInstance().get(`/branches/${context.branch}`,isloading);
+            return res;
+    }
+
+    /**
+     * GetDraft接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BranchServiceBase
+     */
+    public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let res:any = await Http.getInstance().get(`/products/${context.product}/branches/getdraft`,isloading);
+            res.data.branch = data.branch;
+            return res;
+        }
+        let res:any = await  Http.getInstance().get(`/branches/getdraft`,isloading);
+        res.data.branch = data.branch;
+        return res;
     }
 
     /**
@@ -209,7 +208,7 @@ export default class BranchServiceBase extends EntityService {
     }
 
     /**
-     * Get接口方法
+     * Sort接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -217,31 +216,14 @@ export default class BranchServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof BranchServiceBase
      */
-    public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async Sort(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.branch){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/branches/${context.branch}`,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/branches/${context.branch}/sort`,data,isloading);
             return res;
         }
-            let res:any = await Http.getInstance().get(`/branches/${context.branch}`,isloading);
-            return res;
-    }
-
-    /**
-     * FetchDefault接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof BranchServiceBase
-     */
-    public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/branches/fetchdefault`,tempData,isloading);
-        }
-        let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/branches/fetchdefault`,tempData,isloading);
+            return Http.getInstance().post(`/branches/${context.branch}/sort`,data,isloading);
     }
 
     /**
@@ -260,5 +242,23 @@ export default class BranchServiceBase extends EntityService {
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
         return Http.getInstance().get(`/branches/fetchcurproduct`,tempData,isloading);
+    }
+
+    /**
+     * FetchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BranchServiceBase
+     */
+    public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/products/${context.product}/branches/fetchdefault`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/branches/fetchdefault`,tempData,isloading);
     }
 }

@@ -52,14 +52,18 @@ public class DocContentServiceImpl extends ServiceImpl<DocContentMapper, DocCont
 
     @Override
     @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
+    public boolean create(DocContent et) {
+        fillParentData(et);
+        if(!this.retBool(this.baseMapper.insert(et)))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
+    public void createBatch(List<DocContent> list) {
+        list.forEach(item->fillParentData(item));
+        this.saveBatch(list,batchSize);
     }
 
     @Override
@@ -80,18 +84,14 @@ public class DocContentServiceImpl extends ServiceImpl<DocContentMapper, DocCont
 
     @Override
     @Transactional
-    public boolean create(DocContent et) {
-        fillParentData(et);
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
+    public boolean remove(BigInteger key) {
+        boolean result=removeById(key);
+        return result ;
     }
 
     @Override
-    public void createBatch(List<DocContent> list) {
-        list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
+    public void removeBatch(Collection<BigInteger> idList) {
+        removeByIds(idList);
     }
 
     @Override
@@ -113,6 +113,10 @@ public class DocContentServiceImpl extends ServiceImpl<DocContentMapper, DocCont
         return et;
     }
 
+    @Override
+    public boolean checkKey(DocContent et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
     @Override
     @Transactional
     public boolean save(DocContent et) {
@@ -146,10 +150,6 @@ public class DocContentServiceImpl extends ServiceImpl<DocContentMapper, DocCont
         saveOrUpdateBatch(list,batchSize);
     }
 
-    @Override
-    public boolean checkKey(DocContent et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
 
 	@Override
     public List<DocContent> selectByDoc(BigInteger id) {

@@ -27,15 +27,15 @@ public interface IEntryService extends IService<Entry>{
 
     boolean create(Entry et) ;
     void createBatch(List<Entry> list) ;
-    Entry get(BigInteger key) ;
-    Entry getDraft(Entry et) ;
     boolean update(Entry et) ;
     void updateBatch(List<Entry> list) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    Entry get(BigInteger key) ;
+    Entry getDraft(Entry et) ;
     boolean checkKey(Entry et) ;
     boolean save(Entry et) ;
     void saveBatch(List<Entry> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
     Page<Entry> searchDefault(EntrySearchContext context) ;
     /**
      *自定义查询SQL
@@ -51,8 +51,6 @@ public interface IEntryService extends IService<Entry>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

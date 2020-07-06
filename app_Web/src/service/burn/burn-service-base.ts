@@ -91,81 +91,6 @@ export default class BurnServiceBase extends EntityService {
     }
 
     /**
-     * Get接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof BurnServiceBase
-     */
-    public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.project && context.burn){
-            let res:any = await Http.getInstance().get(`/projects/${context.project}/burns/${context.burn}`,isloading);
-            return res;
-        }
-            let res:any = await Http.getInstance().get(`/burns/${context.burn}`,isloading);
-            return res;
-    }
-
-    /**
-     * CheckKey接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof BurnServiceBase
-     */
-    public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.project && context.burn){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/projects/${context.project}/burns/${context.burn}/checkkey`,data,isloading);
-            return res;
-        }
-            return Http.getInstance().post(`/burns/${context.burn}/checkkey`,data,isloading);
-    }
-
-    /**
-     * Remove接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof BurnServiceBase
-     */
-    public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.project && context.burn){
-            return Http.getInstance().delete(`/projects/${context.project}/burns/${context.burn}`,isloading);
-        }
-            return Http.getInstance().delete(`/burns/${context.burn}`,isloading);
-    }
-
-    /**
-     * Save接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof BurnServiceBase
-     */
-    public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.project && context.burn){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/projects/${context.project}/burns/${context.burn}/save`,data,isloading);
-            return res;
-        }
-        let masterData:any = {};
-        Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().post(`/burns/${context.burn}/save`,data,isloading);
-            return res;
-    }
-
-    /**
      * Update接口方法
      *
      * @param {*} [context={}]
@@ -188,7 +113,7 @@ export default class BurnServiceBase extends EntityService {
     }
 
     /**
-     * ComputeBurn接口方法
+     * Remove接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -196,14 +121,29 @@ export default class BurnServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof BurnServiceBase
      */
-    public async ComputeBurn(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.burn){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/projects/${context.project}/burns/${context.burn}/computeburn`,data,isloading);
+            return Http.getInstance().delete(`/projects/${context.project}/burns/${context.burn}`,isloading);
+        }
+            return Http.getInstance().delete(`/burns/${context.burn}`,isloading);
+    }
+
+    /**
+     * Get接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BurnServiceBase
+     */
+    public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.burn){
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/burns/${context.burn}`,isloading);
             return res;
         }
-            return Http.getInstance().post(`/burns/${context.burn}/computeburn`,data,isloading);
+            let res:any = await Http.getInstance().get(`/burns/${context.burn}`,isloading);
+            return res;
     }
 
     /**
@@ -224,6 +164,66 @@ export default class BurnServiceBase extends EntityService {
         let res:any = await  Http.getInstance().get(`/burns/getdraft`,isloading);
         res.data.burn = data.burn;
         return res;
+    }
+
+    /**
+     * CheckKey接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BurnServiceBase
+     */
+    public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.burn){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/burns/${context.burn}/checkkey`,data,isloading);
+            return res;
+        }
+            return Http.getInstance().post(`/burns/${context.burn}/checkkey`,data,isloading);
+    }
+
+    /**
+     * ComputeBurn接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BurnServiceBase
+     */
+    public async ComputeBurn(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.burn){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/burns/${context.burn}/computeburn`,data,isloading);
+            return res;
+        }
+            return Http.getInstance().post(`/burns/${context.burn}/computeburn`,data,isloading);
+    }
+
+    /**
+     * Save接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BurnServiceBase
+     */
+    public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.burn){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/burns/${context.burn}/save`,data,isloading);
+            return res;
+        }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().post(`/burns/${context.burn}/save`,data,isloading);
+            return res;
     }
 
     /**

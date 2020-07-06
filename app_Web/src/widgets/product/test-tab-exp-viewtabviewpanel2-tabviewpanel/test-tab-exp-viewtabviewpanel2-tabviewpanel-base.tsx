@@ -39,8 +39,16 @@ export class TestTabExpViewtabviewpanel2TabviewpanelBase extends MainControlBase
      */
     protected appDeName: string = 'product';
 
+    /**
+     * 导航模式下项是否激活
+     *
+     * @type {*}
+     * @memberof TestTabExpViewtabviewpanel2
+     */
+    @Prop()
+    public expActive!: any;
 
- /**
+    /**
      * 获取多项数据
      *
      * @returns {any[]}

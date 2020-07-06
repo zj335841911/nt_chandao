@@ -17,11 +17,6 @@ import view_list from '@widgets/action/classify-by-type-list/classify-by-type-li
     components: {
         view_history, 
         view_list, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
-        });
     }
 })
 @VueLifeCycleProcessing()

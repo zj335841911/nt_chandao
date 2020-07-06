@@ -132,6 +132,9 @@ export default class PickupViewpickupviewpanelModel {
       {
         name: 'srfarray',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

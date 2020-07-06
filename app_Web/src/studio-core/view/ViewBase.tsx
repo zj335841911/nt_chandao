@@ -49,6 +49,31 @@ export class ViewBase extends Vue {
     public viewparam!: string;
 
     /**
+     * 导航嵌入模式激活状态
+     *
+     * @type {boolean}
+     * @memberof ViewBase
+     */
+    @Prop({ default: true })
+    public expActive!: boolean;
+
+    /**
+     * 导航激活状态变更
+     *
+     * @memberof ViewBase
+     */
+    @Watch('expActive', { immediate: true })
+    public watchExpActive(): void {
+        if (this.viewUsage === 7) {
+            if (this.expActive) {
+                this.$appService.viewStore.push(this);
+            } else {
+                this.$appService.viewStore.pop(this);
+            }
+        }
+    }
+
+    /**
      * 是否为默认模式，默认模式为导航模式
      *
      * @type {boolean}
@@ -56,6 +81,15 @@ export class ViewBase extends Vue {
      */
     @Prop({ default: true })
     public viewDefaultUsage!: boolean;
+
+    /**
+     * 视图使用模式
+     *
+     * @type {(1 | 2 | 4 | 7)} 1：路由模式；2：模态模式；4：嵌入模式；7：导航嵌入模式，如「分页导航、树导航等」内嵌入使用的视图
+     * @memberof ViewBase
+     */
+    @Prop({ default: 1 })
+    public viewUsage!: 1 | 2 | 4 | 7;
 
     /**
      * 快速搜索值
@@ -72,7 +106,7 @@ export class ViewBase extends Vue {
      * @type {*}
      * @memberof ViewBase
      */
-    public context: any = {};
+    public readonly context: any = {};
 
     /**
      * 视图参数
@@ -223,15 +257,51 @@ export class ViewBase extends Vue {
     protected viewDataChange(newVal: any, oldVal: any): void { }
 
     /**
+     * 当前组件是否已激活
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof ViewBase
+     */
+    protected isActive: boolean = true;
+
+    /**
+     * keep-alive缓存激活时调用
+     *
+     * @memberof ViewBase
+     */
+    public activated(): void {
+        this.isActive = true;
+    }
+
+    /**
+     * keep-alive缓存时调用
+     *
+     * @memberof ViewBase
+     */
+    public deactivated(): void {
+        this.isActive = false;
+    }
+
+    /**
      * 组件创建完毕
      *
      * @memberof ViewBase
      */
     public created(): void {
-        const secondtag = this.$util.createUUID();
+        if (this.viewUsage === 1 || this.viewUsage === 2) {
+            this.$appService.viewStore.push(this);
+        }
+        const secondtag = (this as any)._uid;
         this.$store.commit('viewaction/createdView', { viewtag: this.viewtag, secondtag: secondtag });
         this.viewtag = secondtag;
+        if (this.viewUsage === 1) {
+            this.$appService.navHistory.setViewTag(this.viewtag, this.$route);
+        }
         this.parseViewParam();
+        if (this.viewUsage === 1) {
+            this.$appService.navHistory.setViewContext(this.context, this.viewtag);
+        }
         this.viewCreated();
     }
 
@@ -278,6 +348,9 @@ export class ViewBase extends Vue {
      * @memberof ViewBase
      */
     public destroyed(): void {
+        if (this.viewUsage === 1 || this.viewUsage === 2) {
+            this.$appService.viewStore.pop();
+        }
         if (this.viewDefaultUsage) {
             const regExp = new RegExp(`^${this.context.srfsessionid}_(.*)`);
             for (const key in localStorage) {
@@ -328,9 +401,7 @@ export class ViewBase extends Vue {
      * @memberof ViewBase
      */
     protected parseViewParam(): void {
-        for (let key in this.context) {
-            delete this.context[key];
-        }
+        this.context.clearAll();
         if (!this.viewDefaultUsage && this.viewdata && !Object.is(this.viewdata, '')) {
             Object.assign(this.context, JSON.parse(this.viewdata));
             if (this.context && this.context.srfparentdename) {
@@ -441,6 +512,9 @@ export class ViewBase extends Vue {
             this.$emit('close', [args]);
         } else if (this.$tabPageExp) {
             this.$tabPageExp.onClose(this.$route.fullPath);
+        } else {
+            this.$router.back();
+            this.$appService.navHistory.pop();
         }
     }
 }

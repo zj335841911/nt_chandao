@@ -15,11 +15,6 @@ import view_treeexpbar from '@widgets/product/bug-tree-exp-viewtreeexpbar-treeex
 @Component({
     components: {
         view_treeexpbar, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
-        });
     }
 })
 @VueLifeCycleProcessing()

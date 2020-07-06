@@ -49,13 +49,13 @@ public class WebApiSecurityConfig extends WebSecurityConfigurerAdapter {
     @Value("${ibiz.file.uploadpath:ibizutil/upload}")
     private String uploadpath;
 
-    @Value("${ibiz.file.uploadpath:ibizutil/ztupload}")
+    @Value("${zentao.file.uploadpath:ibizutil/ztupload}")
     private String ztuploadpath;
 
     @Value("${ibiz.file.downloadpath:ibizutil/download}")
     private String downloadpath;
 
-    @Value("${ibiz.file.downloadpath:ibizutil/ztdownload}")
+    @Value("${zentao.file.downloadpath:ibizutil/ztdownload}")
     private String ztdownloadpath;
 
     @Value("${ibiz.file.previewpath:ibizutil/preview}")

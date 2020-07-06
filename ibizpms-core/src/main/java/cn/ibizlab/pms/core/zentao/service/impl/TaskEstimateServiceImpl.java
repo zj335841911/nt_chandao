@@ -66,6 +66,54 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
 
     @Override
     @Transactional
+    public boolean update(TaskEstimate et) {
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void updateBatch(List<TaskEstimate> list) {
+        updateBatchById(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean remove(BigInteger key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<BigInteger> idList) {
+        removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
+    public TaskEstimate get(BigInteger key) {
+        TaskEstimate et = getById(key);
+        if(et==null){
+            et=new TaskEstimate();
+            et.setId(key);
+        }
+        else{
+        }
+        return et;
+    }
+
+    @Override
+    public TaskEstimate getDraft(TaskEstimate et) {
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(TaskEstimate et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
+    @Override
+    @Transactional
     public boolean save(TaskEstimate et) {
         if(!saveOrUpdate(et))
             return false;
@@ -93,54 +141,6 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
     @Override
     public void saveBatch(List<TaskEstimate> list) {
         saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    public TaskEstimate getDraft(TaskEstimate et) {
-        return et;
-    }
-
-    @Override
-    @Transactional
-    public boolean update(TaskEstimate et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void updateBatch(List<TaskEstimate> list) {
-        updateBatchById(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public TaskEstimate get(BigInteger key) {
-        TaskEstimate et = getById(key);
-        if(et==null){
-            et=new TaskEstimate();
-            et.setId(key);
-        }
-        else{
-        }
-        return et;
-    }
-
-    @Override
-    public boolean checkKey(TaskEstimate et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
-    @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
     }
 
 

@@ -37,24 +37,6 @@
          where  parent=#{id}
      </select>
 
-    <!--数据集合[Line]-->
-	 <select id="searchLine"  parameterType="cn.ibizlab.pms.core.zentao.filter.ModuleSearchContext"  resultMap="ModuleResultMap">
-         select t1.* from (
-                <include refid="Line" />
-         )t1
-         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
-         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
-     </select>
-
-    <!--数据集合[StoryModule]-->
-	 <select id="searchStoryModule"  parameterType="cn.ibizlab.pms.core.zentao.filter.ModuleSearchContext"  resultMap="ModuleResultMap">
-         select t1.* from (
-                <include refid="StoryModule" />
-         )t1
-         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
-         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
-     </select>
-
     <!--数据集合[Default]-->
 	 <select id="searchDefault"  parameterType="cn.ibizlab.pms.core.zentao.filter.ModuleSearchContext"  resultMap="ModuleResultMap">
          select t1.* from (
@@ -68,6 +50,24 @@
 	 <select id="searchDocModule"  parameterType="cn.ibizlab.pms.core.zentao.filter.ModuleSearchContext"  resultMap="ModuleResultMap">
          select t1.* from (
                 <include refid="DocModule" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
+    <!--数据集合[Line]-->
+	 <select id="searchLine"  parameterType="cn.ibizlab.pms.core.zentao.filter.ModuleSearchContext"  resultMap="ModuleResultMap">
+         select t1.* from (
+                <include refid="Line" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
+    <!--数据集合[StoryModule]-->
+	 <select id="searchStoryModule"  parameterType="cn.ibizlab.pms.core.zentao.filter.ModuleSearchContext"  resultMap="ModuleResultMap">
+         select t1.* from (
+                <include refid="StoryModule" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>

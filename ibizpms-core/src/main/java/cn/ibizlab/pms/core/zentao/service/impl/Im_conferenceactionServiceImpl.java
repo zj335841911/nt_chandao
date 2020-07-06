@@ -48,10 +48,6 @@ public class Im_conferenceactionServiceImpl extends ServiceImpl<Im_conferenceact
     protected int batchSize = 500;
 
     @Override
-    public boolean checkKey(Im_conferenceaction et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
-    @Override
     @Transactional
     public boolean create(Im_conferenceaction et) {
         if(!this.retBool(this.baseMapper.insert(et)))
@@ -65,6 +61,54 @@ public class Im_conferenceactionServiceImpl extends ServiceImpl<Im_conferenceact
         this.saveBatch(list,batchSize);
     }
 
+    @Override
+    @Transactional
+    public boolean update(Im_conferenceaction et) {
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void updateBatch(List<Im_conferenceaction> list) {
+        updateBatchById(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean remove(BigInteger key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<BigInteger> idList) {
+        removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
+    public Im_conferenceaction get(BigInteger key) {
+        Im_conferenceaction et = getById(key);
+        if(et==null){
+            et=new Im_conferenceaction();
+            et.setId(key);
+        }
+        else{
+        }
+        return et;
+    }
+
+    @Override
+    public Im_conferenceaction getDraft(Im_conferenceaction et) {
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(Im_conferenceaction et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
     @Override
     @Transactional
     public boolean save(Im_conferenceaction et) {
@@ -94,50 +138,6 @@ public class Im_conferenceactionServiceImpl extends ServiceImpl<Im_conferenceact
     @Override
     public void saveBatch(List<Im_conferenceaction> list) {
         saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public Im_conferenceaction get(BigInteger key) {
-        Im_conferenceaction et = getById(key);
-        if(et==null){
-            et=new Im_conferenceaction();
-            et.setId(key);
-        }
-        else{
-        }
-        return et;
-    }
-
-    @Override
-    public Im_conferenceaction getDraft(Im_conferenceaction et) {
-        return et;
-    }
-
-    @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
-    }
-
-    @Override
-    @Transactional
-    public boolean update(Im_conferenceaction et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void updateBatch(List<Im_conferenceaction> list) {
-        updateBatchById(list,batchSize);
     }
 
 

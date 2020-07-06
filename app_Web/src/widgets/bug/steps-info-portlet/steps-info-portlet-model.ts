@@ -192,6 +192,9 @@ export default class StepsInfoModel {
       {
         name: 'comment',
       },
+      {
+        name: 'taskname',
+      },
     ]
   }
 

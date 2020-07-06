@@ -20,6 +20,7 @@ import com.alibaba.fastjson.JSONObject;
 public interface FileMapper extends BaseMapper<File>{
 
     Page<File> searchDefault(IPage page, @Param("srf") FileSearchContext context, @Param("ew") Wrapper<File> wrapper) ;
+    Page<File> searchType(IPage page, @Param("srf") FileSearchContext context, @Param("ew") Wrapper<File> wrapper) ;
     @Override
     File selectById(Serializable id);
     @Override

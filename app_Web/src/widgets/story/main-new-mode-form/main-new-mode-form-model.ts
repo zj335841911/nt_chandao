@@ -91,6 +91,11 @@ export default class Main_NewModeModel {
         dataType: 'SMCODELIST',
       },
       {
+        name: 'assignedto',
+        prop: 'assignedto',
+        dataType: 'TEXT',
+      },
+      {
         name: 'title',
         prop: 'title',
         dataType: 'TEXT',
@@ -106,15 +111,19 @@ export default class Main_NewModeModel {
         dataType: 'FLOAT',
       },
       {
-        name: 'formitem',
+        name: 'spec',
+        prop: 'spec',
+        dataType: 'TEXT',
       },
       {
-        name: 'formitem1',
+        name: 'verify',
+        prop: 'verify',
+        dataType: 'TEXT',
       },
       {
         name: 'mailto',
         prop: 'mailto',
-        dataType: 'LONGTEXT',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'keywords',

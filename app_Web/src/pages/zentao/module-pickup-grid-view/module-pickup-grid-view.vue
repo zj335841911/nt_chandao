@@ -17,11 +17,6 @@ import view_searchform from '@widgets/module/default-searchform/default-searchfo
     components: {
         view_grid, 
         view_searchform, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
-        });
     }
 })
 @VueLifeCycleProcessing()

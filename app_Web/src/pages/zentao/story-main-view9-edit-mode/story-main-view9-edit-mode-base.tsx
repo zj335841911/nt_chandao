@@ -31,14 +31,14 @@ export class StoryMainView9_EditModeBase extends EditView9Base {
     protected counterServiceArray: Array<any> = [];
 
 	/**
-	 * 自定义视图导航参数集合
+	 * 自定义视图导航上下文集合
 	 *
      * @protected
 	 * @type {*}
 	 * @memberof StoryMainView9_EditModeBase
 	 */
-    protected customViewParams: any = {
-        'product': { isRawValue: false, value: 'product' }
+    protected customViewNavContexts: any = {
+        'PRODUCT': { isRawValue: true, value: 'null' }
     };
 
     /**

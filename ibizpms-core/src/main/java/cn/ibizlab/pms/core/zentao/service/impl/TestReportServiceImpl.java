@@ -55,6 +55,22 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
 
     @Override
     @Transactional
+    public boolean create(TestReport et) {
+        fillParentData(et);
+        if(!this.retBool(this.baseMapper.insert(et)))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void createBatch(List<TestReport> list) {
+        list.forEach(item->fillParentData(item));
+        this.saveBatch(list,batchSize);
+    }
+
+    @Override
+    @Transactional
     public boolean update(TestReport et) {
         fillParentData(et);
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
@@ -71,6 +87,18 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
 
     @Override
     @Transactional
+    public boolean remove(BigInteger key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<BigInteger> idList) {
+        removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
     public TestReport get(BigInteger key) {
         TestReport et = getById(key);
         if(et==null){
@@ -79,6 +107,12 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
         }
         else{
         }
+        return et;
+    }
+
+    @Override
+    public TestReport getDraft(TestReport et) {
+        fillParentData(et);
         return et;
     }
 
@@ -117,40 +151,6 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
     public void saveBatch(List<TestReport> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public boolean create(TestReport et) {
-        fillParentData(et);
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void createBatch(List<TestReport> list) {
-        list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
-    }
-
-    @Override
-    public TestReport getDraft(TestReport et) {
-        fillParentData(et);
-        return et;
     }
 
 

@@ -118,13 +118,11 @@ export class ProjectMainTabExpViewBase extends TabExpViewBase {
                 const { data: _data } = response;
                 if (_data.name) {
                     Object.assign(this.model, { dataInfo: _data.name });
-                    if (this.$tabPageExp) {
-                        this.$tabPageExp.setCurPageCaption(this.model.srfTitle, this.model.srfTitle, this.model.dataInfo);
-                    }
                     if(this.$route){
                         this.$route.meta.info = this.model.dataInfo;
                     }
                     Object.assign(this.model, { srfTitle: `${this.$t(this.model.srfTitle)} - ${this.model.dataInfo}` });
+                    this.$appService.navHistory.setCaption({ tag: this.viewtag, info: this.model.dataInfo });
                 }
             })
         }

@@ -90,6 +90,9 @@ export default class PickupViewpickupviewpanelModel {
       {
         name: 'notclosedbugcnt',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

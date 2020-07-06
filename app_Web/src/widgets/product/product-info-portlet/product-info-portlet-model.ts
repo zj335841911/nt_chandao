@@ -90,6 +90,9 @@ export default class ProductInfoModel {
       {
         name: 'notclosedbugcnt',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

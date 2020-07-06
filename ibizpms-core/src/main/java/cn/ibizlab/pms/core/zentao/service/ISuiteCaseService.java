@@ -27,15 +27,15 @@ public interface ISuiteCaseService extends IService<SuiteCase>{
 
     boolean create(SuiteCase et) ;
     void createBatch(List<SuiteCase> list) ;
-    SuiteCase getDraft(SuiteCase et) ;
-    SuiteCase get(String key) ;
     boolean update(SuiteCase et) ;
     void updateBatch(List<SuiteCase> list) ;
     boolean remove(String key) ;
     void removeBatch(Collection<String> idList) ;
+    SuiteCase get(String key) ;
+    SuiteCase getDraft(SuiteCase et) ;
+    boolean checkKey(SuiteCase et) ;
     boolean save(SuiteCase et) ;
     void saveBatch(List<SuiteCase> list) ;
-    boolean checkKey(SuiteCase et) ;
     Page<SuiteCase> searchDefault(SuiteCaseSearchContext context) ;
     List<SuiteCase> selectByIbizcase(BigInteger id) ;
     void removeByIbizcase(BigInteger id) ;
@@ -57,8 +57,6 @@ public interface ISuiteCaseService extends IService<SuiteCase>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

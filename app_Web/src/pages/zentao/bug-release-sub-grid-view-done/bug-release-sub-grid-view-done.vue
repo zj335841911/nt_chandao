@@ -15,11 +15,6 @@ import view_grid from '@widgets/bug/main-plan-sub-grid/main-plan-sub-grid.vue';
 @Component({
     components: {
         view_grid, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
-        });
     }
 })
 @VueLifeCycleProcessing()

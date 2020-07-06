@@ -389,4 +389,12 @@ export interface Case {
      * @memberof Case
      */
     stepcnt?: any;
+
+    /**
+     * 备注
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    comment?: any;
 }

@@ -39,8 +39,16 @@ export class MainTabExpViewtabviewpanel10TabviewpanelBase extends MainControlBas
      */
     protected appDeName: string = 'project';
 
+    /**
+     * 导航模式下项是否激活
+     *
+     * @type {*}
+     * @memberof MainTabExpViewtabviewpanel10
+     */
+    @Prop()
+    public expActive!: any;
 
- /**
+    /**
      * 获取多项数据
      *
      * @returns {any[]}

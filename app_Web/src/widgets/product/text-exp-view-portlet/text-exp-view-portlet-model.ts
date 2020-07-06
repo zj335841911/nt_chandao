@@ -90,6 +90,9 @@ export default class TextExpViewModel {
       {
         name: 'notclosedbugcnt',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

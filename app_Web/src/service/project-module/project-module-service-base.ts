@@ -91,26 +91,6 @@ export default class ProjectModuleServiceBase extends EntityService {
     }
 
     /**
-     * GetDraft接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ProjectModuleServiceBase
-     */
-    public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.project && true){
-            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/getdraft`,isloading);
-            res.data.projectmodule = data.projectmodule;
-            return res;
-        }
-        let res:any = await  Http.getInstance().get(`/projectmodules/getdraft`,isloading);
-        res.data.projectmodule = data.projectmodule;
-        return res;
-    }
-
-    /**
      * Update接口方法
      *
      * @param {*} [context={}]
@@ -133,7 +113,7 @@ export default class ProjectModuleServiceBase extends EntityService {
     }
 
     /**
-     * Save接口方法
+     * Remove接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -141,17 +121,11 @@ export default class ProjectModuleServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof ProjectModuleServiceBase
      */
-    public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/save`,data,isloading);
-            return res;
+            return Http.getInstance().delete(`/projects/${context.project}/projectmodules/${context.projectmodule}`,isloading);
         }
-        let masterData:any = {};
-        Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().post(`/projectmodules/${context.projectmodule}/save`,data,isloading);
-            return res;
+            return Http.getInstance().delete(`/projectmodules/${context.projectmodule}`,isloading);
     }
 
     /**
@@ -173,7 +147,7 @@ export default class ProjectModuleServiceBase extends EntityService {
     }
 
     /**
-     * Remove接口方法
+     * GetDraft接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -181,11 +155,15 @@ export default class ProjectModuleServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof ProjectModuleServiceBase
      */
-    public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.project && context.projectmodule){
-            return Http.getInstance().delete(`/projects/${context.project}/projectmodules/${context.projectmodule}`,isloading);
+    public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/getdraft`,isloading);
+            res.data.projectmodule = data.projectmodule;
+            return res;
         }
-            return Http.getInstance().delete(`/projectmodules/${context.projectmodule}`,isloading);
+        let res:any = await  Http.getInstance().get(`/projectmodules/getdraft`,isloading);
+        res.data.projectmodule = data.projectmodule;
+        return res;
     }
 
     /**
@@ -227,6 +205,46 @@ export default class ProjectModuleServiceBase extends EntityService {
     }
 
     /**
+     * Save接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectModuleServiceBase
+     */
+    public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/save`,data,isloading);
+            return res;
+        }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().post(`/projectmodules/${context.projectmodule}/save`,data,isloading);
+            return res;
+    }
+
+    /**
+     * FetchByPath接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectModuleServiceBase
+     */
+    public async FetchByPath(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/projects/${context.project}/projectmodules/fetchbypath`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/projectmodules/fetchbypath`,tempData,isloading);
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]
@@ -242,24 +260,6 @@ export default class ProjectModuleServiceBase extends EntityService {
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
         return Http.getInstance().get(`/projectmodules/fetchdefault`,tempData,isloading);
-    }
-
-    /**
-     * FetchRoot_NoBranch接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ProjectModuleServiceBase
-     */
-    public async FetchRoot_NoBranch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.project && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/projects/${context.project}/projectmodules/fetchroot_nobranch`,tempData,isloading);
-        }
-        let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/projectmodules/fetchroot_nobranch`,tempData,isloading);
     }
 
     /**
@@ -281,7 +281,7 @@ export default class ProjectModuleServiceBase extends EntityService {
     }
 
     /**
-     * FetchByPath接口方法
+     * FetchRoot_NoBranch接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -289,13 +289,13 @@ export default class ProjectModuleServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof ProjectModuleServiceBase
      */
-    public async FetchByPath(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async FetchRoot_NoBranch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/projects/${context.project}/projectmodules/fetchbypath`,tempData,isloading);
+            return Http.getInstance().get(`/projects/${context.project}/projectmodules/fetchroot_nobranch`,tempData,isloading);
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/projectmodules/fetchbypath`,tempData,isloading);
+        return Http.getInstance().get(`/projectmodules/fetchroot_nobranch`,tempData,isloading);
     }
 
     /**

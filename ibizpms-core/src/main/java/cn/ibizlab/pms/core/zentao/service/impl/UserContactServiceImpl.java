@@ -49,59 +49,6 @@ public class UserContactServiceImpl extends ServiceImpl<UserContactMapper, UserC
 
     @Override
     @Transactional
-    public UserContact get(BigInteger key) {
-        UserContact et = getById(key);
-        if(et==null){
-            et=new UserContact();
-            et.setId(key);
-        }
-        else{
-        }
-        return et;
-    }
-
-    @Override
-    public boolean checkKey(UserContact et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
-    @Override
-    @Transactional
-    public boolean save(UserContact et) {
-        if(!saveOrUpdate(et))
-            return false;
-        return true;
-    }
-
-    @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
-    public boolean saveOrUpdate(UserContact et) {
-        if (null == et) {
-            return false;
-        } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
-        }
-    }
-
-    @Override
-    public boolean saveBatch(Collection<UserContact> list) {
-        saveOrUpdateBatch(list,batchSize);
-        return true;
-    }
-
-    @Override
-    public void saveBatch(List<UserContact> list) {
-        saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    public UserContact getDraft(UserContact et) {
-        return et;
-    }
-
-    @Override
-    @Transactional
     public boolean create(UserContact et) {
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
@@ -138,6 +85,59 @@ public class UserContactServiceImpl extends ServiceImpl<UserContactMapper, UserC
     @Override
     public void removeBatch(Collection<BigInteger> idList) {
         removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
+    public UserContact get(BigInteger key) {
+        UserContact et = getById(key);
+        if(et==null){
+            et=new UserContact();
+            et.setId(key);
+        }
+        else{
+        }
+        return et;
+    }
+
+    @Override
+    public UserContact getDraft(UserContact et) {
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(UserContact et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
+    @Override
+    @Transactional
+    public boolean save(UserContact et) {
+        if(!saveOrUpdate(et))
+            return false;
+        return true;
+    }
+
+    @Override
+    @Transactional(
+            rollbackFor = {Exception.class}
+    )
+    public boolean saveOrUpdate(UserContact et) {
+        if (null == et) {
+            return false;
+        } else {
+            return checkKey(et) ? this.update(et) : this.create(et);
+        }
+    }
+
+    @Override
+    public boolean saveBatch(Collection<UserContact> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
+    public void saveBatch(List<UserContact> list) {
+        saveOrUpdateBatch(list,batchSize);
     }
 
 

@@ -262,10 +262,10 @@ export class BugGridView9_AssignedToMeBase extends GridView9Base {
             });
         }
         const view: any = {
-            viewname: 'bug-edit-view', 
+            viewname: 'bug-main-dashboard-view', 
             height: 0, 
             width: 0,  
-            title: this.$t('entities.bug.views.editview.title'),
+            title: this.$t('entities.bug.views.maindashboardview.title'),
             placement: 'DRAWER_TOP',
         };
         openDrawer(view, data);
@@ -280,5 +280,5 @@ export class BugGridView9_AssignedToMeBase extends GridView9Base {
      * @type {boolean}
      * @memberof BugGridView9_AssignedToMeBase
      */
-    protected isSingleSelect: boolean = true;
+    protected isGridSingleSelect: boolean = true;
 }

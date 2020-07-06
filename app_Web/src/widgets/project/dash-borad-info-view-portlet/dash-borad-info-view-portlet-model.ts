@@ -132,6 +132,9 @@ export default class DashBoradInfoViewModel {
       {
         name: 'srfarray',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

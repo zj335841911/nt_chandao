@@ -77,12 +77,6 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
     }
 
     @Override
-    public ProjectModule getDraft(ProjectModule et) {
-        fillParentData(et);
-        return et;
-    }
-
-    @Override
     @Transactional
     public boolean update(ProjectModule et) {
         fillParentData(et);
@@ -97,6 +91,48 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
     public void updateBatch(List<ProjectModule> list) {
         list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean remove(BigInteger key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<BigInteger> idList) {
+        removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
+    public ProjectModule get(BigInteger key) {
+        ProjectModule et = getById(key);
+        if(et==null){
+            et=new ProjectModule();
+            et.setId(key);
+        }
+        else{
+        }
+        return et;
+    }
+
+    @Override
+    public ProjectModule getDraft(ProjectModule et) {
+        fillParentData(et);
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(ProjectModule et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
+    @Override
+    @Transactional
+    public ProjectModule fix(ProjectModule et) {
+        fixpathLogic.execute(et);
+         return et ;
     }
 
     @Override
@@ -132,42 +168,6 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
         saveOrUpdateBatch(list,batchSize);
     }
 
-    @Override
-    @Transactional
-    public ProjectModule get(BigInteger key) {
-        ProjectModule et = getById(key);
-        if(et==null){
-            et=new ProjectModule();
-            et.setId(key);
-        }
-        else{
-        }
-        return et;
-    }
-
-    @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
-    }
-
-    @Override
-    public boolean checkKey(ProjectModule et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
-    @Override
-    @Transactional
-    public ProjectModule fix(ProjectModule et) {
-        fixpathLogic.execute(et);
-         return et ;
-    }
-
 
 	@Override
     public List<ProjectModule> selectByParent(BigInteger id) {
@@ -191,20 +191,20 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
 
 
     /**
+     * 查询集合 BYPATH
+     */
+    @Override
+    public Page<ProjectModule> searchByPath(ProjectModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchByPath(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<ProjectModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 DEFAULT
      */
     @Override
     public Page<ProjectModule> searchDefault(ProjectModuleSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
-        return new PageImpl<ProjectModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
-    }
-
-    /**
-     * 查询集合 根模块_无分支
-     */
-    @Override
-    public Page<ProjectModule> searchRoot_NoBranch(ProjectModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchRoot_NoBranch(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProjectModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -218,11 +218,11 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
     }
 
     /**
-     * 查询集合 BYPATH
+     * 查询集合 根模块_无分支
      */
     @Override
-    public Page<ProjectModule> searchByPath(ProjectModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchByPath(context.getPages(),context,context.getSelectCond());
+    public Page<ProjectModule> searchRoot_NoBranch(ProjectModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchRoot_NoBranch(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProjectModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

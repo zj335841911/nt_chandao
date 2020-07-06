@@ -342,7 +342,7 @@ public class Bug extends EntityMP implements Serializable {
     @JsonProperty("projectname")
     private String projectname;
     /**
-     * 需求
+     * 相关需求
      */
     @TableField(exist = false)
     @JSONField(name = "storyname")
@@ -473,6 +473,13 @@ public class Bug extends EntityMP implements Serializable {
     @JSONField(name = "comment")
     @JsonProperty("comment")
     private String comment;
+    /**
+     * 相关任务
+     */
+    @TableField(exist = false)
+    @JSONField(name = "taskname")
+    @JsonProperty("taskname")
+    private String taskname;
 
     /**
      * 

@@ -63,22 +63,6 @@ public class Im_messagestatusServiceImpl extends ServiceImpl<Im_messagestatusMap
 
     @Override
     @Transactional
-    public boolean remove(String key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<String> idList) {
-        removeByIds(idList);
-    }
-
-    @Override
-    public boolean checkKey(Im_messagestatus et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
-    @Override
-    @Transactional
     public boolean update(Im_messagestatus et) {
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
@@ -91,6 +75,40 @@ public class Im_messagestatusServiceImpl extends ServiceImpl<Im_messagestatusMap
         updateBatchById(list,batchSize);
     }
 
+    @Override
+    @Transactional
+    public boolean remove(String key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<String> idList) {
+        removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
+    public Im_messagestatus get(String key) {
+        Im_messagestatus et = getById(key);
+        if(et==null){
+            et=new Im_messagestatus();
+            et.setId(key);
+        }
+        else{
+        }
+        return et;
+    }
+
+    @Override
+    public Im_messagestatus getDraft(Im_messagestatus et) {
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(Im_messagestatus et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
     @Override
     @Transactional
     public boolean save(Im_messagestatus et) {
@@ -120,24 +138,6 @@ public class Im_messagestatusServiceImpl extends ServiceImpl<Im_messagestatusMap
     @Override
     public void saveBatch(List<Im_messagestatus> list) {
         saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    public Im_messagestatus getDraft(Im_messagestatus et) {
-        return et;
-    }
-
-    @Override
-    @Transactional
-    public Im_messagestatus get(String key) {
-        Im_messagestatus et = getById(key);
-        if(et==null){
-            et=new Im_messagestatus();
-            et.setId(key);
-        }
-        else{
-        }
-        return et;
     }
 
 

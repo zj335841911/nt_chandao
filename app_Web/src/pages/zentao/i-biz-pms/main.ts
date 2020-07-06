@@ -29,7 +29,7 @@ import store from '@/store';
 import router from './router';
 
 Vue.config.errorHandler = function (err: any, vm: any, info: any) {
-  console.log(err);
+    console.error(err);
 }
 Vue.config.productionTip = false;
 Vue.use(Print);
@@ -37,10 +37,10 @@ Vue.use(Print);
 Vue.use(Vuex);
 Vue.use(VueRouter);;
 Vue.use(ElementUi, {
-  i18n: (key: any, value: any) => i18n.t(key, value)
+    i18n: (key: any, value: any) => i18n.t(key, value)
 });
 Vue.use(ViewUI, {
-  i18n: (key: any, value: any) => i18n.t(key, value)
+    i18n: (key: any, value: any) => i18n.t(key, value)
 });
 
 // Vue.use(utils);
@@ -50,21 +50,14 @@ Vue.use(PageComponents);
 Vue.use(UserComponent);
 Vue.use(PortletComponent);
 
-router.beforeEach((to: any, from: any, next: any) => {
-  if (to.meta && !to.meta.ignoreAddPage) {
-    router.app.$store.commit('addPage', to);
-  }
-  next();
-});
-
 Interceptors.getInstance(router, store);
 
 const init = async () => {
-  new Vue({
-    i18n,
-    store,
-    router,
-    render: (h: any) => h(App),
-  }).$mount('#app');
+    new Vue({
+        i18n,
+        store,
+        router,
+        render: (h: any) => h(App),
+    }).$mount('#app');
 };
 init();

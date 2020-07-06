@@ -56,6 +56,11 @@ export default class DashboardMainEditModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'id',
+        prop: 'id',
+        dataType: 'ACID',
+      },
+      {
         name: 'title',
         prop: 'title',
         dataType: 'TEXT',
@@ -64,6 +69,14 @@ export default class DashboardMainEditModel {
         name: 'steps',
         prop: 'steps',
         dataType: 'LONGTEXT',
+      },
+      {
+        name: 'comment',
+        prop: 'comment',
+        dataType: 'HTMLTEXT',
+      },
+      {
+        name: 'files',
       },
       {
         name: 'product',
@@ -166,14 +179,14 @@ export default class DashboardMainEditModel {
         dataType: 'PICKUPTEXT',
       },
       {
-        name: 'story',
-        prop: 'story',
-        dataType: 'PICKUP',
+        name: 'storyname',
+        prop: 'storyname',
+        dataType: 'PICKUPTEXT',
       },
       {
-        name: 'task',
-        prop: 'task',
-        dataType: 'PICKUP',
+        name: 'taskname',
+        prop: 'taskname',
+        dataType: 'PICKUPTEXT',
       },
       {
         name: 'openedby',
@@ -211,9 +224,14 @@ export default class DashboardMainEditModel {
         dataType: 'SSCODELIST',
       },
       {
-        name: 'id',
-        prop: 'id',
-        dataType: 'ACID',
+        name: 'story',
+        prop: 'story',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'task',
+        prop: 'task',
+        dataType: 'PICKUP',
       },
       {
         name: 'bug',

@@ -105,6 +105,34 @@ export class MainGridBase extends GridControllerBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public grid_actions_u7a43501_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:ProductPlanUIService  = new ProductPlanUIService();
+        curUIService.ProductPlan_MainEdit(datas,contextJO, paramJO,  $event, xData,this,"ProductPlan");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public grid_actions_u663d352_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -259,6 +287,9 @@ export class MainGridBase extends GridControllerBase {
         }
         if(Object.is('RelationBug', tag)) {
             this.grid_actions_uae31417_click(row, tag, $event);
+        }
+        if(Object.is('MainEdit', tag)) {
+            this.grid_actions_u7a43501_click(row, tag, $event);
         }
         if(Object.is('NewSubPlan', tag)) {
             this.grid_actions_u663d352_click(row, tag, $event);

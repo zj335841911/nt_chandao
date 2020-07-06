@@ -29,13 +29,13 @@ public interface ICompileService extends IService<Compile>{
     void createBatch(List<Compile> list) ;
     boolean update(Compile et) ;
     void updateBatch(List<Compile> list) ;
-    Compile get(BigInteger key) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
+    Compile get(BigInteger key) ;
     Compile getDraft(Compile et) ;
+    boolean checkKey(Compile et) ;
     boolean save(Compile et) ;
     void saveBatch(List<Compile> list) ;
-    boolean checkKey(Compile et) ;
     Page<Compile> searchDefault(CompileSearchContext context) ;
     /**
      *自定义查询SQL
@@ -51,8 +51,6 @@ public interface ICompileService extends IService<Compile>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

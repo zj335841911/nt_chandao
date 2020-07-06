@@ -31,10 +31,12 @@ export default {
       		title: "计划",
 		},
 	},
-	main_form: {
+	info_form: {
 		details: {
 			grouppanel1: "分组面板", 
-			group1: "productplan基本信息", 
+			group1: "基本信息", 
+			druipart1: "", 
+			grouppanel2: "历史记录", 
 			formpage1: "基本信息", 
 			srforikey: "", 
 			srfkey: "编号", 
@@ -53,12 +55,10 @@ export default {
 		uiactions: {
 		},
 	},
-	info_form: {
+	main_form: {
 		details: {
 			grouppanel1: "分组面板", 
-			group1: "基本信息", 
-			druipart1: "", 
-			grouppanel2: "历史记录", 
+			group1: "productplan基本信息", 
 			formpage1: "基本信息", 
 			srforikey: "", 
 			srfkey: "编号", 
@@ -88,7 +88,14 @@ export default {
 		uiactions: {
         productplan_relationstory: "关联需求",
         productplan_relationbug: "关联Bug",
+        productplan_mainedit: "编辑",
         productplan_newsubplan: "子计划",
+		},
+	},
+	editviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
 		},
 	},
 	gridviewtoolbar_toolbar: {
@@ -107,12 +114,6 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
-		},
-	},
-	editviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
 		},
 	},
 };

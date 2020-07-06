@@ -6,9 +6,15 @@
         :count="item.counterService.counterData[item.counterId]"
         type="info"
       >
-        <i-button type="text" ghost @click="handleClick(item.viewlogicname)">{{item.actionName}}</i-button>
+        <i-button type="text" ghost @click="handleClick(item.viewlogicname)">
+          <i v-if="item.iconcls != ''" :class="item.iconcls" />
+          {{item.text}}
+        </i-button>
       </Badge>
-      <i-button v-else type="text" ghost @click="handleClick(item.viewlogicname)">{{item.actionName}}</i-button>
+      <i-button v-else type="text" ghost @click="handleClick(item.viewlogicname)">
+        <i v-if="item.iconcls != ''" :class="item.iconcls" />
+        {{item.text}}
+      </i-button>
     </div>
   </div>
 </template>

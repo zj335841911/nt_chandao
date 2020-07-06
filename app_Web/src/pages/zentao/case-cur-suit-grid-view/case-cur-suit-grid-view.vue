@@ -15,11 +15,6 @@ import view_grid from '@widgets/case/main-grid-suit-sub-grid/main-grid-suit-sub-
 @Component({
     components: {
         view_grid, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
-        });
     }
 })
 @VueLifeCycleProcessing()

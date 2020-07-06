@@ -16,7 +16,6 @@ import InputBox from './components/input-box/input-box.vue'
 import AppKeepAlive from './components/app-keep-alive/app-keep-alive.vue'
 import TabPageExp from './components/tab-page-exp/tab-page-exp.vue'
 import AppLang from './components/app-lang/app-lang.vue'
-import AppTheme from './components/app-theme/app-theme.vue'
 import AppUser from './components/app-user/app-user.vue'
 import AppForm from './components/app-form/app-form.vue'
 import APPAutocomplete from './components/app-autocomplete/app-autocomplete.vue'
@@ -70,7 +69,6 @@ import AppColumnFormat from './components/app-column-format/app-column-format.vu
 import AppQuickGroup from './components/app-quick-group/app-quick-group.vue'
 import AppGroupPicker from './components/app-group-picker/app-group-picker.vue'
 import AppWFApproval from './components/app-wf-approval/app-wf-approval.vue'
-import Breadcrumb from './components/app-breadcrumb/app-breadcrumb.vue'
 import AppTransfer from './components/app-transfer/app-transfer.vue'
 import ContextMenuDrag from './components/context-menu-drag/context-menu-drag.vue'
 import AppOrgSelect from './components/app-org-select/app-org-select.vue'
@@ -100,7 +98,6 @@ export const AppComponents = {
         v.component('app-keep-alive',AppKeepAlive);
         v.component('tab-page-exp',TabPageExp);
         v.component('app-lang',AppLang);
-        v.component('app-theme',AppTheme);
         v.component('app-user',AppUser);
         v.component('app-form', AppForm);
         v.component('app-autocomplete', APPAutocomplete);
@@ -160,7 +157,6 @@ export const AppComponents = {
         v.component('app-group-select',AppGroupSelect);
         v.component('app-group-picker',AppGroupPicker);
         v.component('app-wf-approval',AppWFApproval);
-        v.component('app-breadcrumb',Breadcrumb);
         v.component('app-transfer',AppTransfer);
         v.component('context-menu-drag',ContextMenuDrag);
     },

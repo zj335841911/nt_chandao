@@ -25,6 +25,7 @@
     v-if="isInit.tabviewpanel"
     name="tabviewpanel"  
     ref='tabviewpanel'
+    :expActive="activatedTabViewPanel === 'tabviewpanel'"
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel>
@@ -54,6 +55,7 @@
     v-if="isInit.tabviewpanel2"
     name="tabviewpanel2"  
     ref='tabviewpanel2'
+    :expActive="activatedTabViewPanel === 'tabviewpanel2'"
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel2>
@@ -83,6 +85,7 @@
     v-if="isInit.tabviewpanel6"
     name="tabviewpanel6"  
     ref='tabviewpanel6'
+    :expActive="activatedTabViewPanel === 'tabviewpanel6'"
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel6>
@@ -112,6 +115,7 @@
     v-if="isInit.tabviewpanel11"
     name="tabviewpanel11"  
     ref='tabviewpanel11'
+    :expActive="activatedTabViewPanel === 'tabviewpanel11'"
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel11>
@@ -141,6 +145,7 @@
     v-if="isInit.tabviewpanel5"
     name="tabviewpanel5"  
     ref='tabviewpanel5'
+    :expActive="activatedTabViewPanel === 'tabviewpanel5'"
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel5>
@@ -170,6 +175,7 @@
     v-if="isInit.tabviewpanel4"
     name="tabviewpanel4"  
     ref='tabviewpanel4'
+    :expActive="activatedTabViewPanel === 'tabviewpanel4'"
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel4>
@@ -199,6 +205,7 @@
     v-if="isInit.tabviewpanel7"
     name="tabviewpanel7"  
     ref='tabviewpanel7'
+    :expActive="activatedTabViewPanel === 'tabviewpanel7'"
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel7>
@@ -228,6 +235,7 @@
     v-if="isInit.tabviewpanel8"
     name="tabviewpanel8"  
     ref='tabviewpanel8'
+    :expActive="activatedTabViewPanel === 'tabviewpanel8'"
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel8>
@@ -257,6 +265,7 @@
     v-if="isInit.tabviewpanel9"
     name="tabviewpanel9"  
     ref='tabviewpanel9'
+    :expActive="activatedTabViewPanel === 'tabviewpanel9'"
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel9>
@@ -286,6 +295,7 @@
     v-if="isInit.tabviewpanel3"
     name="tabviewpanel3"  
     ref='tabviewpanel3'
+    :expActive="activatedTabViewPanel === 'tabviewpanel3'"
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel3>
@@ -309,9 +319,40 @@
     v-if="isInit.tabviewpanel10"
     name="tabviewpanel10"  
     ref='tabviewpanel10'
+    :expActive="activatedTabViewPanel === 'tabviewpanel10'"
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel10>
+        </tab-pane>
+        <tab-pane :index="11" name='tabviewpanel12' tab='maintabexpviewtabexppanel' class=''  
+            :label="(h) =>{
+                return h('div', [
+                    h('i',{
+                        class:'fa fa-users',
+                        style:{
+                            'margin-right' : '2px'
+                        }
+                    }),
+                    h('span', '团队'),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel12 
+    :viewState="viewState"  
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel12"
+    name="tabviewpanel12"  
+    ref='tabviewpanel12'
+    :expActive="activatedTabViewPanel === 'tabviewpanel12'"
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
+    @closeview="closeView($event)">
+</view_tabviewpanel12>
         </tab-pane>
     </tabs>
 </div>

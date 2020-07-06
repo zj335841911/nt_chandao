@@ -65,12 +65,6 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     protected int batchSize = 500;
 
     @Override
-    public Module getDraft(Module et) {
-        fillParentData(et);
-        return et;
-    }
-
-    @Override
     @Transactional
     public boolean create(Module et) {
         fillParentData(et);
@@ -84,31 +78,6 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     public void createBatch(List<Module> list) {
         list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public Module get(BigInteger key) {
-        Module et = getById(key);
-        if(et==null){
-            et=new Module();
-            et.setId(key);
-        }
-        else{
-        }
-        return et;
-    }
-
-    @Override
-    @Transactional
-    public Module fix(Module et) {
-        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTModuleHelper.fix((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
-        if (bRst && rst.getEtId() != null) {
-            et = this.get(rst.getEtId());
-        }
-	    return et;
     }
 
     @Override
@@ -127,6 +96,59 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     public void updateBatch(List<Module> list) {
 
     }
+    @Override
+    @Transactional
+    public boolean remove(BigInteger key) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        Module et = this.get(key);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTModuleHelper.delete((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        return bRst;
+    }
+
+    @Override
+    public void removeBatch(Collection<BigInteger> idList){
+        if (idList != null && !idList.isEmpty()) {
+            for (BigInteger id : idList) {
+                this.remove(id);
+            }
+        }
+    }
+    @Override
+    @Transactional
+    public Module get(BigInteger key) {
+        Module et = getById(key);
+        if(et==null){
+            et=new Module();
+            et.setId(key);
+        }
+        else{
+        }
+        return et;
+    }
+
+    @Override
+    public Module getDraft(Module et) {
+        fillParentData(et);
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(Module et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
+    @Override
+    @Transactional
+    public Module fix(Module et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTModuleHelper.fix((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return et;
+    }
+
     @Override
     @Transactional
     public boolean save(Module et) {
@@ -160,28 +182,6 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
         saveOrUpdateBatch(list,batchSize);
     }
 
-    @Override
-    public boolean checkKey(Module et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
-    @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        Module et = this.get(key);
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTModuleHelper.delete((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
-        return bRst;
-    }
-
-    @Override
-    public void removeBatch(Collection<BigInteger> idList){
-        if (idList != null && !idList.isEmpty()) {
-            for (BigInteger id : idList) {
-                this.remove(id);
-            }
-        }
-    }
 
 	@Override
     public List<Module> selectByBranch(BigInteger id) {
@@ -205,24 +205,6 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
 
 
     /**
-     * 查询集合 产品线
-     */
-    @Override
-    public Page<Module> searchLine(ModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchLine(context.getPages(),context,context.getSelectCond());
-        return new PageImpl<Module>(pages.getRecords(), context.getPageable(), pages.getTotal());
-    }
-
-    /**
-     * 查询集合 需求模块
-     */
-    @Override
-    public Page<Module> searchStoryModule(ModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchStoryModule(context.getPages(),context,context.getSelectCond());
-        return new PageImpl<Module>(pages.getRecords(), context.getPageable(), pages.getTotal());
-    }
-
-    /**
      * 查询集合 DEFAULT
      */
     @Override
@@ -237,6 +219,24 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     @Override
     public Page<Module> searchDocModule(ModuleSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchDocModule(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Module>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 产品线
+     */
+    @Override
+    public Page<Module> searchLine(ModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchLine(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Module>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 需求模块
+     */
+    @Override
+    public Page<Module> searchStoryModule(ModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchStoryModule(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Module>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

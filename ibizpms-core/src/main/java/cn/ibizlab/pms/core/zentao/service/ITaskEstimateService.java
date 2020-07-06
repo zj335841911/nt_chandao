@@ -27,15 +27,15 @@ public interface ITaskEstimateService extends IService<TaskEstimate>{
 
     boolean create(TaskEstimate et) ;
     void createBatch(List<TaskEstimate> list) ;
-    boolean save(TaskEstimate et) ;
-    void saveBatch(List<TaskEstimate> list) ;
-    TaskEstimate getDraft(TaskEstimate et) ;
     boolean update(TaskEstimate et) ;
     void updateBatch(List<TaskEstimate> list) ;
-    TaskEstimate get(BigInteger key) ;
-    boolean checkKey(TaskEstimate et) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
+    TaskEstimate get(BigInteger key) ;
+    TaskEstimate getDraft(TaskEstimate et) ;
+    boolean checkKey(TaskEstimate et) ;
+    boolean save(TaskEstimate et) ;
+    void saveBatch(List<TaskEstimate> list) ;
     Page<TaskEstimate> searchDefault(TaskEstimateSearchContext context) ;
     List<TaskEstimate> selectByTask(BigInteger id) ;
     void removeByTask(BigInteger id) ;
@@ -53,8 +53,6 @@ public interface ITaskEstimateService extends IService<TaskEstimate>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

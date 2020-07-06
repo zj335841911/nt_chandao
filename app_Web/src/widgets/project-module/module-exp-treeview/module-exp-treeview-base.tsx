@@ -242,7 +242,7 @@ export class ModuleExpTreeBase extends MainControlBase {
           datas = [params];
         }
         // 界面行为
-        this.RefreshParent(datas, contextJO,paramJO,  $event, xData,this,"ProjectModule");
+        this.RefreshAll(datas, contextJO,paramJO,  $event, xData,this,"ProjectModule");
     }
 
     /**

@@ -49,6 +49,20 @@ public class NotifyServiceImpl extends ServiceImpl<NotifyMapper, Notify> impleme
 
     @Override
     @Transactional
+    public boolean create(Notify et) {
+        if(!this.retBool(this.baseMapper.insert(et)))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void createBatch(List<Notify> list) {
+        this.saveBatch(list,batchSize);
+    }
+
+    @Override
+    @Transactional
     public boolean update(Notify et) {
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
@@ -62,10 +76,39 @@ public class NotifyServiceImpl extends ServiceImpl<NotifyMapper, Notify> impleme
     }
 
     @Override
+    @Transactional
+    public boolean remove(BigInteger key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<BigInteger> idList) {
+        removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
+    public Notify get(BigInteger key) {
+        Notify et = getById(key);
+        if(et==null){
+            et=new Notify();
+            et.setId(key);
+        }
+        else{
+        }
+        return et;
+    }
+
+    @Override
     public Notify getDraft(Notify et) {
         return et;
     }
 
+    @Override
+    public boolean checkKey(Notify et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
     @Override
     @Transactional
     public boolean save(Notify et) {
@@ -95,49 +138,6 @@ public class NotifyServiceImpl extends ServiceImpl<NotifyMapper, Notify> impleme
     @Override
     public void saveBatch(List<Notify> list) {
         saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public Notify get(BigInteger key) {
-        Notify et = getById(key);
-        if(et==null){
-            et=new Notify();
-            et.setId(key);
-        }
-        else{
-        }
-        return et;
-    }
-
-    @Override
-    public boolean checkKey(Notify et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
-    @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
-    }
-
-    @Override
-    @Transactional
-    public boolean create(Notify et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void createBatch(List<Notify> list) {
-        this.saveBatch(list,batchSize);
     }
 
 

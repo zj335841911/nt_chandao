@@ -66,6 +66,32 @@ public class EntryServiceImpl extends ServiceImpl<EntryMapper, Entry> implements
 
     @Override
     @Transactional
+    public boolean update(Entry et) {
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void updateBatch(List<Entry> list) {
+        updateBatchById(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean remove(BigInteger key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<BigInteger> idList) {
+        removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
     public Entry get(BigInteger key) {
         Entry et = getById(key);
         if(et==null){
@@ -80,20 +106,6 @@ public class EntryServiceImpl extends ServiceImpl<EntryMapper, Entry> implements
     @Override
     public Entry getDraft(Entry et) {
         return et;
-    }
-
-    @Override
-    @Transactional
-    public boolean update(Entry et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void updateBatch(List<Entry> list) {
-        updateBatchById(list,batchSize);
     }
 
     @Override
@@ -129,18 +141,6 @@ public class EntryServiceImpl extends ServiceImpl<EntryMapper, Entry> implements
     @Override
     public void saveBatch(List<Entry> list) {
         saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
     }
 
 

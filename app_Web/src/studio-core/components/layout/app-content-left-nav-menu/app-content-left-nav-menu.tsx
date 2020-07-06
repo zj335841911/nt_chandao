@@ -74,9 +74,31 @@ export class AppContentLeftNavMenu extends Vue {
      * @memberof AppContentLeftNavMenu
      */
     public created(): void {
+        if (this.$route && this.$route.matched.length === 1) {
+            this.openDefault();
+        }
         this.$footerMenuService.registerLeftItem((h: any) => {
             return <icon title={this.uiState.layoutState.leftNavMenuCollapse ? '展开菜单' : '收起菜单'} type="md-menu" style="font-size: 20px;vertical-align: -3px;" on-click={() => this.uiState.leftNavMenuCollapseChange()} />;
         }, 0);
+    }
+
+    /**
+     * 打开默认菜单
+     *
+     * @protected
+     * @memberof AppContentLeftNavMenu
+     */
+    protected openDefault(): void {
+        let menu: any;
+        for (const [key, item] of this.menuMap) {
+            if (item.opendefault === true) {
+                menu = item;
+                break;
+            }
+        }
+        if (menu) {
+            this.itemClick(menu);
+        }
     }
 
     /**
@@ -87,8 +109,10 @@ export class AppContentLeftNavMenu extends Vue {
      * @memberof AppContentLeftExp
      */
     protected itemClick(item: any): void {
-        this.changeActiveItem(item);
-        this.menuClick(item);
+        if (item.id !== this.activeItem.id) {
+            this.changeActiveItem(item);
+            this.menuClick(item);
+        }
     }
 
     /**

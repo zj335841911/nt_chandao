@@ -357,4 +357,12 @@ export interface Story {
      * @memberof Story
      */
     result?: any;
+
+    /**
+     * 备注
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    comment?: any;
 }

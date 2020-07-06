@@ -147,6 +147,9 @@ export default class MainToolbarModel {
       {
         name: 'result',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

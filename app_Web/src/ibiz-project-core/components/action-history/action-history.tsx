@@ -145,9 +145,20 @@ export class ActionHistory extends Vue {
     protected renderActionContent(item: ActionItem): any {
         return <div class="action-content">
             <div class="text">{item.date}，由&nbsp;<strong>{item.actor}</strong>&nbsp;{item.actionText}</div>
-            {Object.is(item.action, 'edited') && this.load ? <div class="show-history">
+            { (Object.is(item.action, 'changed') || Object.is(item.action, 'edited')  || Object.is(item.action, 'commented') ) && this.load ? <div class="show-history">
                 <i-button title="切换显示" type="text" ghost icon={item.expand === true ? 'md-remove-circle' : 'md-add-circle'} on-click={() => this.loadChildren(item)} />
             </div> : null}
+        </div>;
+    }
+
+    /**
+     * @protected
+     * @param {ActionItem} item
+     *
+     */
+    protected  renderActionComment(item : ActionItem): any {
+        return <div class="action-comment">
+            <html-container content={item.comment}></html-container>
         </div>;
     }
 
@@ -164,6 +175,7 @@ export class ActionHistory extends Vue {
                 return <div class="action-item">
                     {this.renderActionContent(item)}
                     {(item.children && item.expand) ? this.renderHistory(item, item.children) : null}
+                    {item.comment ? this.renderActionComment(item) : null}
                 </div>;
             })}
         </div>;

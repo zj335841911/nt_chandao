@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IIm_clientService extends IService<Im_client>{
 
-    boolean checkKey(Im_client et) ;
-    Im_client getDraft(Im_client et) ;
     boolean create(Im_client et) ;
     void createBatch(List<Im_client> list) ;
+    boolean update(Im_client et) ;
+    void updateBatch(List<Im_client> list) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
     Im_client get(BigInteger key) ;
+    Im_client getDraft(Im_client et) ;
+    boolean checkKey(Im_client et) ;
     boolean save(Im_client et) ;
     void saveBatch(List<Im_client> list) ;
-    boolean update(Im_client et) ;
-    void updateBatch(List<Im_client> list) ;
     Page<Im_client> searchDefault(Im_clientSearchContext context) ;
     /**
      *自定义查询SQL
@@ -51,8 +51,6 @@ public interface IIm_clientService extends IService<Im_client>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

@@ -25,21 +25,21 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ITestTaskService extends IService<TestTask>{
 
-    TestTask getDraft(TestTask et) ;
-    TestTask get(BigInteger key) ;
-    TestTask block(TestTask et) ;
-    boolean save(TestTask et) ;
-    void saveBatch(List<TestTask> list) ;
-    TestTask start(TestTask et) ;
     boolean create(TestTask et) ;
     void createBatch(List<TestTask> list) ;
-    TestTask activate(TestTask et) ;
     boolean update(TestTask et) ;
     void updateBatch(List<TestTask> list) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
-    TestTask close(TestTask et) ;
+    TestTask get(BigInteger key) ;
+    TestTask getDraft(TestTask et) ;
+    TestTask activate(TestTask et) ;
+    TestTask block(TestTask et) ;
     boolean checkKey(TestTask et) ;
+    TestTask close(TestTask et) ;
+    boolean save(TestTask et) ;
+    void saveBatch(List<TestTask> list) ;
+    TestTask start(TestTask et) ;
     Page<TestTask> searchDefault(TestTaskSearchContext context) ;
     List<TestTask> selectByBuild(BigInteger id) ;
     void removeByBuild(BigInteger id) ;
@@ -61,8 +61,6 @@ public interface ITestTaskService extends IService<TestTask>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

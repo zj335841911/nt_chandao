@@ -2,6 +2,7 @@ import productplan_en_US from '@locale/lanres/entities/product-plan/product-plan
 import projectproduct_en_US from '@locale/lanres/entities/project-product/project-product_en_US';
 import case_en_US from '@locale/lanres/entities/case/case_en_US';
 import product_en_US from '@locale/lanres/entities/product/product_en_US';
+import file_en_US from '@locale/lanres/entities/file/file_en_US';
 import suitecase_en_US from '@locale/lanres/entities/suite-case/suite-case_en_US';
 import burn_en_US from '@locale/lanres/entities/burn/burn_en_US';
 import subproductplan_en_US from '@locale/lanres/entities/sub-product-plan/sub-product-plan_en_US';
@@ -25,6 +26,7 @@ import task_en_US from '@locale/lanres/entities/task/task_en_US';
 import build_en_US from '@locale/lanres/entities/build/build_en_US';
 import testresult_en_US from '@locale/lanres/entities/test-result/test-result_en_US';
 import testsuite_en_US from '@locale/lanres/entities/test-suite/test-suite_en_US';
+import projectteam_en_US from '@locale/lanres/entities/project-team/project-team_en_US';
 import testtask_en_US from '@locale/lanres/entities/test-task/test-task_en_US';
 import testreport_en_US from '@locale/lanres/entities/test-report/test-report_en_US';
 import projectstats_en_US from '@locale/lanres/entities/project-stats/project-stats_en_US';
@@ -124,6 +126,7 @@ export default {
         projectproduct: projectproduct_en_US,
         case: case_en_US,
         product: product_en_US,
+        file: file_en_US,
         suitecase: suitecase_en_US,
         burn: burn_en_US,
         subproductplan: subproductplan_en_US,
@@ -147,6 +150,7 @@ export default {
         build: build_en_US,
         testresult: testresult_en_US,
         testsuite: testsuite_en_US,
+        projectteam: projectteam_en_US,
         testtask: testtask_en_US,
         testreport: testreport_en_US,
         projectstats: projectstats_en_US,

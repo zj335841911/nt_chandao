@@ -25,20 +25,20 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IReleaseService extends IService<Release>{
 
-    boolean checkKey(Release et) ;
-    Release terminate(Release et) ;
-    Release activate(Release et) ;
-    Release get(BigInteger key) ;
-    boolean save(Release et) ;
-    void saveBatch(List<Release> list) ;
-    Release changeStatus(Release et) ;
     boolean create(Release et) ;
     void createBatch(List<Release> list) ;
-    Release getDraft(Release et) ;
     boolean update(Release et) ;
     void updateBatch(List<Release> list) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
+    Release get(BigInteger key) ;
+    Release getDraft(Release et) ;
+    Release activate(Release et) ;
+    Release changeStatus(Release et) ;
+    boolean checkKey(Release et) ;
+    boolean save(Release et) ;
+    void saveBatch(List<Release> list) ;
+    Release terminate(Release et) ;
     Page<Release> searchDefault(ReleaseSearchContext context) ;
     List<Release> selectByBranch(BigInteger id) ;
     void removeByBranch(BigInteger id) ;
@@ -60,8 +60,6 @@ public interface IReleaseService extends IService<Release>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

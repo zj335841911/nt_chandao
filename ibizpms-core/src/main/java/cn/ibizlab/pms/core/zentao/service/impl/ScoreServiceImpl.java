@@ -63,42 +63,6 @@ public class ScoreServiceImpl extends ServiceImpl<ScoreMapper, Score> implements
 
     @Override
     @Transactional
-    public boolean save(Score et) {
-        if(!saveOrUpdate(et))
-            return false;
-        return true;
-    }
-
-    @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
-    public boolean saveOrUpdate(Score et) {
-        if (null == et) {
-            return false;
-        } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
-        }
-    }
-
-    @Override
-    public boolean saveBatch(Collection<Score> list) {
-        saveOrUpdateBatch(list,batchSize);
-        return true;
-    }
-
-    @Override
-    public void saveBatch(List<Score> list) {
-        saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    public Score getDraft(Score et) {
-        return et;
-    }
-
-    @Override
-    @Transactional
     public boolean update(Score et) {
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
@@ -137,9 +101,45 @@ public class ScoreServiceImpl extends ServiceImpl<ScoreMapper, Score> implements
     }
 
     @Override
+    public Score getDraft(Score et) {
+        return et;
+    }
+
+    @Override
     public boolean checkKey(Score et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
+    @Override
+    @Transactional
+    public boolean save(Score et) {
+        if(!saveOrUpdate(et))
+            return false;
+        return true;
+    }
+
+    @Override
+    @Transactional(
+            rollbackFor = {Exception.class}
+    )
+    public boolean saveOrUpdate(Score et) {
+        if (null == et) {
+            return false;
+        } else {
+            return checkKey(et) ? this.update(et) : this.create(et);
+        }
+    }
+
+    @Override
+    public boolean saveBatch(Collection<Score> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
+    public void saveBatch(List<Score> list) {
+        saveOrUpdateBatch(list,batchSize);
+    }
+
 
 
     /**

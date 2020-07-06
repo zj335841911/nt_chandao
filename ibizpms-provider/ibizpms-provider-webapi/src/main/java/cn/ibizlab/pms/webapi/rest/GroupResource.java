@@ -47,6 +47,45 @@ public class GroupResource {
     @Lazy
     public GroupMapping groupMapping;
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Group-Create-all')")
+    @ApiOperation(value = "新建群组", tags = {"群组" },  notes = "新建群组")
+	@RequestMapping(method = RequestMethod.POST, value = "/groups")
+    @Transactional
+    public ResponseEntity<GroupDTO> create(@RequestBody GroupDTO groupdto) {
+        Group domain = groupMapping.toDomain(groupdto);
+		groupService.create(domain);
+        GroupDTO dto = groupMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Group-Create-all')")
+    @ApiOperation(value = "批量新建群组", tags = {"群组" },  notes = "批量新建群组")
+	@RequestMapping(method = RequestMethod.POST, value = "/groups/batch")
+    public ResponseEntity<Boolean> createBatch(@RequestBody List<GroupDTO> groupdtos) {
+        groupService.createBatch(groupMapping.toDomain(groupdtos));
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Group-Update-all')")
+    @ApiOperation(value = "更新群组", tags = {"群组" },  notes = "更新群组")
+	@RequestMapping(method = RequestMethod.PUT, value = "/groups/{group_id}")
+    @Transactional
+    public ResponseEntity<GroupDTO> update(@PathVariable("group_id") BigInteger group_id, @RequestBody GroupDTO groupdto) {
+		Group domain  = groupMapping.toDomain(groupdto);
+        domain .setId(group_id);
+		groupService.update(domain );
+		GroupDTO dto = groupMapping.toDto(domain );
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Group-Update-all')")
+    @ApiOperation(value = "批量更新群组", tags = {"群组" },  notes = "批量更新群组")
+	@RequestMapping(method = RequestMethod.PUT, value = "/groups/batch")
+    public ResponseEntity<Boolean> updateBatch(@RequestBody List<GroupDTO> groupdtos) {
+        groupService.updateBatch(groupMapping.toDomain(groupdtos));
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Group-Remove-all')")
     @ApiOperation(value = "删除群组", tags = {"群组" },  notes = "删除群组")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/groups/{group_id}")
@@ -72,23 +111,16 @@ public class GroupResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Group-Create-all')")
-    @ApiOperation(value = "新建群组", tags = {"群组" },  notes = "新建群组")
-	@RequestMapping(method = RequestMethod.POST, value = "/groups")
-    @Transactional
-    public ResponseEntity<GroupDTO> create(@RequestBody GroupDTO groupdto) {
-        Group domain = groupMapping.toDomain(groupdto);
-		groupService.create(domain);
-        GroupDTO dto = groupMapping.toDto(domain);
-		return ResponseEntity.status(HttpStatus.OK).body(dto);
+    @ApiOperation(value = "获取群组草稿", tags = {"群组" },  notes = "获取群组草稿")
+	@RequestMapping(method = RequestMethod.GET, value = "/groups/getdraft")
+    public ResponseEntity<GroupDTO> getDraft() {
+        return ResponseEntity.status(HttpStatus.OK).body(groupMapping.toDto(groupService.getDraft(new Group())));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Group-Create-all')")
-    @ApiOperation(value = "批量新建群组", tags = {"群组" },  notes = "批量新建群组")
-	@RequestMapping(method = RequestMethod.POST, value = "/groups/batch")
-    public ResponseEntity<Boolean> createBatch(@RequestBody List<GroupDTO> groupdtos) {
-        groupService.createBatch(groupMapping.toDomain(groupdtos));
-        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    @ApiOperation(value = "检查群组", tags = {"群组" },  notes = "检查群组")
+	@RequestMapping(method = RequestMethod.POST, value = "/groups/checkkey")
+    public ResponseEntity<Boolean> checkKey(@RequestBody GroupDTO groupdto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(groupService.checkKey(groupMapping.toDomain(groupdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Group-Save-all')")
@@ -104,38 +136,6 @@ public class GroupResource {
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<GroupDTO> groupdtos) {
         groupService.saveBatch(groupMapping.toDomain(groupdtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
-    }
-
-    @ApiOperation(value = "获取群组草稿", tags = {"群组" },  notes = "获取群组草稿")
-	@RequestMapping(method = RequestMethod.GET, value = "/groups/getdraft")
-    public ResponseEntity<GroupDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(groupMapping.toDto(groupService.getDraft(new Group())));
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Group-Update-all')")
-    @ApiOperation(value = "更新群组", tags = {"群组" },  notes = "更新群组")
-	@RequestMapping(method = RequestMethod.PUT, value = "/groups/{group_id}")
-    @Transactional
-    public ResponseEntity<GroupDTO> update(@PathVariable("group_id") BigInteger group_id, @RequestBody GroupDTO groupdto) {
-		Group domain  = groupMapping.toDomain(groupdto);
-        domain .setId(group_id);
-		groupService.update(domain );
-		GroupDTO dto = groupMapping.toDto(domain );
-        return ResponseEntity.status(HttpStatus.OK).body(dto);
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Group-Update-all')")
-    @ApiOperation(value = "批量更新群组", tags = {"群组" },  notes = "批量更新群组")
-	@RequestMapping(method = RequestMethod.PUT, value = "/groups/batch")
-    public ResponseEntity<Boolean> updateBatch(@RequestBody List<GroupDTO> groupdtos) {
-        groupService.updateBatch(groupMapping.toDomain(groupdtos));
-        return  ResponseEntity.status(HttpStatus.OK).body(true);
-    }
-
-    @ApiOperation(value = "检查群组", tags = {"群组" },  notes = "检查群组")
-	@RequestMapping(method = RequestMethod.POST, value = "/groups/checkkey")
-    public ResponseEntity<Boolean> checkKey(@RequestBody GroupDTO groupdto) {
-        return  ResponseEntity.status(HttpStatus.OK).body(groupService.checkKey(groupMapping.toDomain(groupdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Group-searchDefault-all')")

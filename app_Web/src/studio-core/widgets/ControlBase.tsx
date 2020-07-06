@@ -139,6 +139,33 @@ export class ControlBase extends Vue {
     public service: any;
 
     /**
+     * 当前组件是否已激活
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof ControlBase
+     */
+    protected isActive: boolean = true;
+
+    /**
+     * keep-alive缓存激活时调用
+     *
+     * @memberof ControlBase
+     */
+    public activated(): void {
+        this.isActive = true;
+    }
+
+    /**
+     * keep-alive缓存时调用
+     *
+     * @memberof ControlBase
+     */
+    public deactivated(): void {
+        this.isActive = false;
+    }
+
+    /**
      * 组件创建完毕
      *
      * @memberof ControlBase
@@ -161,6 +188,7 @@ export class ControlBase extends Vue {
      * @memberof ControlBase
      */
     public mounted(): void {
+        this.context.srfappdename = this.appDeName;
         this.ctrlMounted();
     }
 

@@ -128,7 +128,12 @@ export default class Main_EditModeModel {
       {
         name: 'mailto',
         prop: 'mailto',
-        dataType: 'LONGTEXT',
+        dataType: 'SMCODELIST',
+      },
+      {
+        name: 'product',
+        prop: 'product',
+        dataType: 'PICKUP',
       },
       {
         name: 'openedby',
@@ -153,17 +158,12 @@ export default class Main_EditModeModel {
       {
         name: 'linkstories',
         prop: 'linkstories',
-        dataType: 'TEXT',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
-      },
-      {
-        name: 'product',
-        prop: 'product',
-        dataType: 'PICKUP',
       },
       {
         name: 'module',

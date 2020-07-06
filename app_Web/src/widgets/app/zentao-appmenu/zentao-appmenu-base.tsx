@@ -8,36 +8,34 @@ export class ZentaoBase extends Vue {
     /**
      * 菜单点击
      *
-     * @private
+     * @protected
      * @param {*} item 菜单数据
      * @memberof Zentao
      */
-    private click(item: any) {
+    protected click(item: any) {
         if (item) {
+            let judge = true;
             switch (item.appfunctag) {
                 case '_6': 
-                    this.click_6(item);
-                    return;
+                    this.click_6(item); break;
                 case 'Auto5': 
-                    this.clickAuto5(item);
-                    return;
+                    this.clickAuto5(item); break;
                 case '_4': 
-                    this.click_4(item);
-                    return;
+                    this.click_4(item); break;
                 case 'Auto2': 
-                    this.clickAuto2(item);
-                    return;
+                    this.clickAuto2(item); break;
                 case '_2': 
-                    this.click_2(item);
-                    return;
+                    this.click_2(item); break;
                 case 'Auto1': 
-                    this.clickAuto1(item);
-                    return;
+                    this.clickAuto1(item); break;
                 case '_5': 
-                    this.click_5(item);
-                    return;
+                    this.click_5(item); break;
                 default:
+                    judge = false;
                     console.warn('未指定应用功能');
+            }
+            if (judge && this.$uiState.isStyle2()) {
+                this.$appService.navHistory.reset();
             }
         }
     }

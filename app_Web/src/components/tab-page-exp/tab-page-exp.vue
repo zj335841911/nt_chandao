@@ -1,18 +1,18 @@
 <template>
-    <div class="ibiz-page-tag" v-if="$store.state.pageMetas.length > 0">
+    <div class="ibiz-page-tag" v-if="appService.navHistory.historyList.length > 0">
         <div class="move-btn move-left" @click="leftMove">
             <icon type="ios-arrow-back" />
         </div>
         <div ref="scrollBody" class="tags-body">
             <div ref="scrollChild" class="tags-container" :style="{left: styleLeft + 'px'}">
                 <transition-group name="tags-transition">
-                    <template v-for="(meta, index) of $store.state.pageMetas">
-                        <Tag ref="tagElement" :key="index" :class="isActive(index) ? 'tag-is-active' : ''" :name="index" closable @click.native="changePage(index)" @on-close="onClose(index)">
+                    <template v-for="(item, index) of appService.navHistory.historyList">
+                        <Tag ref="tagElement" :key="item.tag + index" :class="isActive(item) ? 'tag-is-active' : ''" :name="index" closable @click.native="changePage(item)" @on-close="onClose(item)">
                             <div class="tag-text">
-                                <div :title="getCaption(meta.caption, meta.info)" style="max-width: 300px;">
-                                    <i v-if="meta.iconCls && !Object.is(meta.iconCls, '')" :class="meta.iconCls"></i>
-                                    <img v-else :src="meta.imgPath" class="text-icon" />
-                                    &nbsp;{{getCaption(meta.caption, meta.info)}}
+                                <div :title="item.title" style="max-width: 300px;">
+                                    <i v-if="item.meta.iconCls && !Object.is(item.meta.iconCls, '')" :class="item.meta.iconCls"></i>
+                                    <img v-else :src="item.meta.imgPath" class="text-icon" />
+                                    &nbsp;{{item.title}}
                                 </div>
                             </div>
                         </Tag>
@@ -39,9 +39,14 @@
 <script lang="ts">
 import { Vue, Component, Provide, Prop, Watch } from 'vue-property-decorator';
 import { Environment } from '../../environments/environment';
+import { AppService } from '../../studio-core/service/app-service/AppService';
+import { HistoryItem } from '../../studio-core/service/app-nav-history/AppNavHistoryBase';
 
 @Component({})
 export default class TabPageExp extends Vue {
+
+    protected appService: AppService = new AppService();
+
     @Provide()
     public styleLeft: number = 0;
 
@@ -56,10 +61,6 @@ export default class TabPageExp extends Vue {
 
     public created() {
         Vue.prototype.$tabPageExp = this;
-    }
-
-    public getCaption(caption: any, info: any):any {
-        return  info && !Object.is(info, '') ? `${this.$t(caption)} - ${info}` : this.$t(caption);
     }
 
     /**
@@ -97,32 +98,22 @@ export default class TabPageExp extends Vue {
     /**
      * 是否选中
      *
-     * @param {(string | number)} index
-     * @returns
+     * @param {HistoryItem} item
+     * @returns {boolean}
      * @memberof TabPageExp
      */
-    public isActive(index: string | number) {
-        const page = this.$store.state.pageTagList[index];
-        if (Object.is(page.fullPath, this.$route.fullPath)) {
-            return true;
-        }
-        return false;
+    public isActive(item: HistoryItem): boolean {
+        return this.appService.navHistory.isRouteSame(item.to, this.$route);
     }
 
     /**
      * 关闭
      *
-     * @param {*} event
-     * @param {*} name
+     * @param {HistoryItem} item
      * @memberof TabPageExp
      */
-    public onClose(name: any) {
-        const page = this.$store.getters.getPage(name);
-        if (!page) {
-            this.$store.commit("deletePage", name);
-            this.gotoPage();
-        }
-        const appview = this.$store.getters['viewaction/getAppView'](page.viewtag);
+    public onClose(item: HistoryItem) {
+        const appview = this.$store.getters['viewaction/getAppView'](item.tag);
         if (appview && appview.viewdatachange) {
             const title: any = this.$t('app.tabpage.sureclosetip.title');
             const content: any = this.$t('app.tabpage.sureclosetip.content');
@@ -130,15 +121,25 @@ export default class TabPageExp extends Vue {
                 title: title,
                 content: content,
                 onOk: () => {
-                    this.$store.commit("deletePage", name);
-                    this.gotoPage();
-                },
-                onCancel: () => {
+                    this.appService.navHistory.remove(item);
+                    if (this.appService.navHistory.historyList.length > 0) {
+                        if (this.appService.navHistory.isRouteSame(item.to, this.$route)) {
+                            this.$router.back();
+                        }
+                    } else {
+                        this.$router.push('/');
+                    }
                 }
             });
         } else {
-            this.$store.commit("deletePage", name);
-            this.gotoPage();
+            this.appService.navHistory.remove(item);
+            if (this.appService.navHistory.historyList.length > 0) {
+                if (this.appService.navHistory.isRouteSame(item.to, this.$route)) {
+                    this.$router.back();
+                }
+            } else {
+                this.$router.push('/');
+            }
         }
     }
 
@@ -149,8 +150,7 @@ export default class TabPageExp extends Vue {
      * @memberof TabPageExp
      */
     public isClose() {
-        const pageTagList = this.$store.state.pageTagList;
-        if (pageTagList.length > 1) {
+        if (this.appService.navHistory.historyList.length > 1) {
             return true;
         }
         return false;
@@ -159,12 +159,11 @@ export default class TabPageExp extends Vue {
     /**
      * 切换分页
      *
-     * @param {*} index
+     * @param {*} item
      * @memberof TabPageExp
      */
-    public changePage(index: any) {
-        this.$store.commit("setCurPage", index);
-        this.gotoPage();
+    public changePage(item: HistoryItem) {
+        this.gotoPage(item.to);
     }
 
     /**
@@ -173,22 +172,16 @@ export default class TabPageExp extends Vue {
      * @returns
      * @memberof TabPageExp
      */
-    public gotoPage() {
-        const length = this.$store.state.historyPathList.length;
-        if (length > 0) {
-            const path = this.$store.state.historyPathList[length - 1];
-            if (Object.is(path, this.$route.fullPath)) {
+    public gotoPage(page?: any) {
+        if (page && this.appService.navHistory.historyList.length > 0) {
+            if (Object.is(page.fullPath, this.$route.fullPath)) {
                 return;
             }
-            const index = this.$store.state.pageTagList.findIndex((page: any) => Object.is(page.fullPath, path));
-            if (index >= 0) {
-                const page = this.$store.state.pageTagList[index];
-                this.$router.push({ path: page.path, params: page.params, query: page.query });
-            }
+            this.$router.push({ path: page.path, params: page.params, query: page.query });
         } else {
-            let path: string | null = window.sessionStorage.getItem(Environment.AppName);
+            const path: string | null = window.sessionStorage.getItem(Environment.AppName);
             if(path) {
-                this.$router.push({path: path});
+                this.$router.push({ path: path });
             } else {
                 this.$router.push('/');
             }
@@ -196,29 +189,13 @@ export default class TabPageExp extends Vue {
     }
 
     /**
-     * 设置当前页标题
-     *
-     * @param {*} caption
-     * @memberof TabPageExp
-     */
-    public setCurPageCaption(caption: string, title: any, info: string) {
-        if(this.$route.meta && (!Object.is(this.$route.meta.caption, caption))) {
-            return;
-        }
-        this.$store.commit("setCurPageCaption", { route: this.$route, caption: title, info: info });
-        setTimeout(() => {
-            this.moveToView(this.$route);
-        }, 1);
-    }
-
-    /**
      * 移动至指定页面标签
      *
-     * @param {*} to
+     * @param {*} page
      * @memberof TabPageExp
      */
-    public moveToView(to: any) {
-        const pages: any[] = this.$store.state.pageTagList;
+    public moveToView(page: any) {
+        const pages: any[] = this.appService.navHistory.historyList;
         let leftWidth: number = 0;
         this.$nextTick(() => {
             pages.forEach((page, index) => {
@@ -227,7 +204,7 @@ export default class TabPageExp extends Vue {
                     return ;
                 }
                 const el = tag[index].$el;
-                if (Object.is(page.fullPath, to.fullPath)) {
+                if (Object.is(page.fullPath, page.fullPath)) {
                     this.setLeft(el, leftWidth);
                 } else {
                     leftWidth += el.offsetWidth;
@@ -262,10 +239,10 @@ export default class TabPageExp extends Vue {
      */
     public doTagAction(name: string) {
         if (Object.is(name, 'closeAll')) {
-            this.$store.commit("removeAllPage");
+            this.appService.navHistory.reset();
             this.gotoPage();
         } else if (Object.is(name, 'closeOther')) {
-            this.$store.commit("removeOtherPage");
+            this.appService.navHistory.removeOther({ to: this.$route });
             this.moveToView(this.$route);
         }
     }  

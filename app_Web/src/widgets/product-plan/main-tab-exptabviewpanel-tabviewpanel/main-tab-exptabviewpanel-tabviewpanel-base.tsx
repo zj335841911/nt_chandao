@@ -39,8 +39,16 @@ export class MainTabExptabviewpanelTabviewpanelBase extends MainControlBase {
      */
     protected appDeName: string = 'productplan';
 
+    /**
+     * 导航模式下项是否激活
+     *
+     * @type {*}
+     * @memberof MainTabExptabviewpanel
+     */
+    @Prop()
+    public expActive!: any;
 
- /**
+    /**
      * 获取多项数据
      *
      * @returns {any[]}

@@ -47,6 +47,25 @@ public class ProductStatsResource {
     @Lazy
     public ProductStatsMapping productstatsMapping;
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-Create-all')")
+    @ApiOperation(value = "新建产品统计", tags = {"产品统计" },  notes = "新建产品统计")
+	@RequestMapping(method = RequestMethod.POST, value = "/productstats")
+    @Transactional
+    public ResponseEntity<ProductStatsDTO> create(@RequestBody ProductStatsDTO productstatsdto) {
+        ProductStats domain = productstatsMapping.toDomain(productstatsdto);
+		productstatsService.create(domain);
+        ProductStatsDTO dto = productstatsMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-Create-all')")
+    @ApiOperation(value = "批量新建产品统计", tags = {"产品统计" },  notes = "批量新建产品统计")
+	@RequestMapping(method = RequestMethod.POST, value = "/productstats/batch")
+    public ResponseEntity<Boolean> createBatch(@RequestBody List<ProductStatsDTO> productstatsdtos) {
+        productstatsService.createBatch(productstatsMapping.toDomain(productstatsdtos));
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-Update-all')")
     @ApiOperation(value = "更新产品统计", tags = {"产品统计" },  notes = "更新产品统计")
 	@RequestMapping(method = RequestMethod.PUT, value = "/productstats/{productstats_id}")
@@ -67,10 +86,41 @@ public class ProductStatsResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-Remove-all')")
+    @ApiOperation(value = "删除产品统计", tags = {"产品统计" },  notes = "删除产品统计")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/productstats/{productstats_id}")
+    @Transactional
+    public ResponseEntity<Boolean> remove(@PathVariable("productstats_id") BigInteger productstats_id) {
+         return ResponseEntity.status(HttpStatus.OK).body(productstatsService.remove(productstats_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-Remove-all')")
+    @ApiOperation(value = "批量删除产品统计", tags = {"产品统计" },  notes = "批量删除产品统计")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/productstats/batch")
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
+        productstatsService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-Get-all')")
+    @ApiOperation(value = "获取产品统计", tags = {"产品统计" },  notes = "获取产品统计")
+	@RequestMapping(method = RequestMethod.GET, value = "/productstats/{productstats_id}")
+    public ResponseEntity<ProductStatsDTO> get(@PathVariable("productstats_id") BigInteger productstats_id) {
+        ProductStats domain = productstatsService.get(productstats_id);
+        ProductStatsDTO dto = productstatsMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
     @ApiOperation(value = "获取产品统计草稿", tags = {"产品统计" },  notes = "获取产品统计草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/productstats/getdraft")
     public ResponseEntity<ProductStatsDTO> getDraft() {
         return ResponseEntity.status(HttpStatus.OK).body(productstatsMapping.toDto(productstatsService.getDraft(new ProductStats())));
+    }
+
+    @ApiOperation(value = "检查产品统计", tags = {"产品统计" },  notes = "检查产品统计")
+	@RequestMapping(method = RequestMethod.POST, value = "/productstats/checkkey")
+    public ResponseEntity<Boolean> checkKey(@RequestBody ProductStatsDTO productstatsdto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(productstatsService.checkKey(productstatsMapping.toDomain(productstatsdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-Save-all')")
@@ -85,56 +135,6 @@ public class ProductStatsResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/productstats/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<ProductStatsDTO> productstatsdtos) {
         productstatsService.saveBatch(productstatsMapping.toDomain(productstatsdtos));
-        return  ResponseEntity.status(HttpStatus.OK).body(true);
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-Create-all')")
-    @ApiOperation(value = "新建产品统计", tags = {"产品统计" },  notes = "新建产品统计")
-	@RequestMapping(method = RequestMethod.POST, value = "/productstats")
-    @Transactional
-    public ResponseEntity<ProductStatsDTO> create(@RequestBody ProductStatsDTO productstatsdto) {
-        ProductStats domain = productstatsMapping.toDomain(productstatsdto);
-		productstatsService.create(domain);
-        ProductStatsDTO dto = productstatsMapping.toDto(domain);
-		return ResponseEntity.status(HttpStatus.OK).body(dto);
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-Create-all')")
-    @ApiOperation(value = "批量新建产品统计", tags = {"产品统计" },  notes = "批量新建产品统计")
-	@RequestMapping(method = RequestMethod.POST, value = "/productstats/batch")
-    public ResponseEntity<Boolean> createBatch(@RequestBody List<ProductStatsDTO> productstatsdtos) {
-        productstatsService.createBatch(productstatsMapping.toDomain(productstatsdtos));
-        return  ResponseEntity.status(HttpStatus.OK).body(true);
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-Get-all')")
-    @ApiOperation(value = "获取产品统计", tags = {"产品统计" },  notes = "获取产品统计")
-	@RequestMapping(method = RequestMethod.GET, value = "/productstats/{productstats_id}")
-    public ResponseEntity<ProductStatsDTO> get(@PathVariable("productstats_id") BigInteger productstats_id) {
-        ProductStats domain = productstatsService.get(productstats_id);
-        ProductStatsDTO dto = productstatsMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(dto);
-    }
-
-    @ApiOperation(value = "检查产品统计", tags = {"产品统计" },  notes = "检查产品统计")
-	@RequestMapping(method = RequestMethod.POST, value = "/productstats/checkkey")
-    public ResponseEntity<Boolean> checkKey(@RequestBody ProductStatsDTO productstatsdto) {
-        return  ResponseEntity.status(HttpStatus.OK).body(productstatsService.checkKey(productstatsMapping.toDomain(productstatsdto)));
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-Remove-all')")
-    @ApiOperation(value = "删除产品统计", tags = {"产品统计" },  notes = "删除产品统计")
-	@RequestMapping(method = RequestMethod.DELETE, value = "/productstats/{productstats_id}")
-    @Transactional
-    public ResponseEntity<Boolean> remove(@PathVariable("productstats_id") BigInteger productstats_id) {
-         return ResponseEntity.status(HttpStatus.OK).body(productstatsService.remove(productstats_id));
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-Remove-all')")
-    @ApiOperation(value = "批量删除产品统计", tags = {"产品统计" },  notes = "批量删除产品统计")
-	@RequestMapping(method = RequestMethod.DELETE, value = "/productstats/batch")
-    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
-        productstatsService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 

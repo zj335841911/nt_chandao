@@ -15,11 +15,6 @@ import view_tabexppanel from '@widgets/product-plan/main-tab-exptabexppanel-tabe
 @Component({
     components: {
         view_tabexppanel, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
-        });
     }
 })
 @VueLifeCycleProcessing()

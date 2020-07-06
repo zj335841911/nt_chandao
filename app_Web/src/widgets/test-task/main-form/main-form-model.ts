@@ -96,11 +96,6 @@ export default class MainModel {
         dataType: 'LONGTEXT',
       },
       {
-        name: 'comment',
-        prop: 'comment',
-        dataType: 'HTMLTEXT',
-      },
-      {
         name: 'mailto',
         prop: 'mailto',
         dataType: 'LONGTEXT',

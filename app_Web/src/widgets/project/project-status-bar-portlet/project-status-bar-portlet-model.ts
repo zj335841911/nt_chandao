@@ -132,6 +132,9 @@ export default class ProjectStatusBarModel {
       {
         name: 'srfarray',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

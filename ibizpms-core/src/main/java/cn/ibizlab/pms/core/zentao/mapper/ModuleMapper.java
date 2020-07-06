@@ -19,10 +19,10 @@ import com.alibaba.fastjson.JSONObject;
 
 public interface ModuleMapper extends BaseMapper<Module>{
 
-    Page<Module> searchLine(IPage page, @Param("srf") ModuleSearchContext context, @Param("ew") Wrapper<Module> wrapper) ;
-    Page<Module> searchStoryModule(IPage page, @Param("srf") ModuleSearchContext context, @Param("ew") Wrapper<Module> wrapper) ;
     Page<Module> searchDefault(IPage page, @Param("srf") ModuleSearchContext context, @Param("ew") Wrapper<Module> wrapper) ;
     Page<Module> searchDocModule(IPage page, @Param("srf") ModuleSearchContext context, @Param("ew") Wrapper<Module> wrapper) ;
+    Page<Module> searchLine(IPage page, @Param("srf") ModuleSearchContext context, @Param("ew") Wrapper<Module> wrapper) ;
+    Page<Module> searchStoryModule(IPage page, @Param("srf") ModuleSearchContext context, @Param("ew") Wrapper<Module> wrapper) ;
     @Override
     Module selectById(Serializable id);
     @Override

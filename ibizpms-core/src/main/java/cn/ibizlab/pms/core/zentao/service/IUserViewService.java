@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IUserViewService extends IService<UserView>{
 
-    UserView get(String key) ;
-    boolean remove(String key) ;
-    void removeBatch(Collection<String> idList) ;
-    UserView getDraft(UserView et) ;
-    boolean checkKey(UserView et) ;
     boolean create(UserView et) ;
     void createBatch(List<UserView> list) ;
-    boolean save(UserView et) ;
-    void saveBatch(List<UserView> list) ;
     boolean update(UserView et) ;
     void updateBatch(List<UserView> list) ;
+    boolean remove(String key) ;
+    void removeBatch(Collection<String> idList) ;
+    UserView get(String key) ;
+    UserView getDraft(UserView et) ;
+    boolean checkKey(UserView et) ;
+    boolean save(UserView et) ;
+    void saveBatch(List<UserView> list) ;
     Page<UserView> searchDefault(UserViewSearchContext context) ;
     /**
      *自定义查询SQL
@@ -51,8 +51,6 @@ public interface IUserViewService extends IService<UserView>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

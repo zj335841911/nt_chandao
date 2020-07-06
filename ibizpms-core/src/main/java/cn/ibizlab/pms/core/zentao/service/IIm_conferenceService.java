@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IIm_conferenceService extends IService<Im_conference>{
 
-    boolean update(Im_conference et) ;
-    void updateBatch(List<Im_conference> list) ;
-    Im_conference get(BigInteger key) ;
     boolean create(Im_conference et) ;
     void createBatch(List<Im_conference> list) ;
-    boolean checkKey(Im_conference et) ;
+    boolean update(Im_conference et) ;
+    void updateBatch(List<Im_conference> list) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
+    Im_conference get(BigInteger key) ;
+    Im_conference getDraft(Im_conference et) ;
+    boolean checkKey(Im_conference et) ;
     boolean save(Im_conference et) ;
     void saveBatch(List<Im_conference> list) ;
-    Im_conference getDraft(Im_conference et) ;
     Page<Im_conference> searchDefault(Im_conferenceSearchContext context) ;
     /**
      *自定义查询SQL
@@ -51,8 +51,6 @@ public interface IIm_conferenceService extends IService<Im_conference>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

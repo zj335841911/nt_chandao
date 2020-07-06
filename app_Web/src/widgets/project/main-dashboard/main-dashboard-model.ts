@@ -132,6 +132,9 @@ export default class MainModel {
       {
         name: 'srfarray',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

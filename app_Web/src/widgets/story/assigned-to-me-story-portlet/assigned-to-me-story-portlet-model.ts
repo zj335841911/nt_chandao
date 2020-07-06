@@ -147,6 +147,9 @@ export default class AssignedToMeStoryModel {
       {
         name: 'result',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

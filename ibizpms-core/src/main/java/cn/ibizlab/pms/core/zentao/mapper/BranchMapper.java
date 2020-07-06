@@ -19,8 +19,8 @@ import com.alibaba.fastjson.JSONObject;
 
 public interface BranchMapper extends BaseMapper<Branch>{
 
-    Page<Branch> searchDefault(IPage page, @Param("srf") BranchSearchContext context, @Param("ew") Wrapper<Branch> wrapper) ;
     Page<Branch> searchCurProduct(IPage page, @Param("srf") BranchSearchContext context, @Param("ew") Wrapper<Branch> wrapper) ;
+    Page<Branch> searchDefault(IPage page, @Param("srf") BranchSearchContext context, @Param("ew") Wrapper<Branch> wrapper) ;
     @Override
     Branch selectById(Serializable id);
     @Override

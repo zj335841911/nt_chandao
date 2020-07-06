@@ -49,6 +49,7 @@ export default {
     tobugcnt: "转bug数",
     resultcnt: "测试结果数",
     stepcnt: "用例步骤数",
+    comment: "备注",
   },
 	views: {
 		editview: {
@@ -70,6 +71,10 @@ export default {
 		mainnewview: {
 			caption: "功能测试",
       		title: "功能测试",
+		},
+		gridview9_storyrelated: {
+			caption: "相关用例",
+      		title: "相关用例",
 		},
 		batchnewgridview: {
 			caption: "测试用例",
@@ -167,7 +172,7 @@ export default {
 			srfsourcekey: "", 
 			title: "用例标题", 
 			precondition: "前置条件", 
-			formitem: "备注", 
+			comment: "备注", 
 			files: "附件", 
 			product: "所属产品", 
 			productname: "产品名称", 
@@ -239,6 +244,14 @@ export default {
 			srfsourcekey: "", 
 			title: "用例标题", 
 			id: "用例编号", 
+		},
+		uiactions: {
+		},
+	},
+	storyrelated_grid: {
+		columns: {
+			pri: "P",
+			title: "用例标题",
 		},
 		uiactions: {
 		},
@@ -326,6 +339,12 @@ export default {
 			tip: "Save And Close Window",
 		},
 	},
+	editviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+	},
 	batchnewgridviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "新建行",
@@ -334,12 +353,6 @@ export default {
 		deuiaction3: {
 			caption: "保存行",
 			tip: "保存行",
-		},
-	},
-	editviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
 		},
 	},
 	maingridviewtoolbar_toolbar: {

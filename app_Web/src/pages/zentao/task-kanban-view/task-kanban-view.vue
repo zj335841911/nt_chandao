@@ -15,11 +15,6 @@ import view_kanban from '@widgets/task/task-kan-ban-kanban/task-kan-ban-kanban.v
 @Component({
     components: {
         view_kanban, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
-        });
     }
 })
 @VueLifeCycleProcessing()

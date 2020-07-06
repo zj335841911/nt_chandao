@@ -14,6 +14,7 @@
         <component
             :is="viewname"
             class="viewcontainer2"
+            :viewUsage="2"
             :viewDefaultUsage="false"
             :viewdata="JSON.stringify(viewdata)"
             :viewparam="JSON.stringify(viewparams)"

@@ -205,4 +205,12 @@ export interface Product {
      * @memberof Product
      */
     notclosedbugcnt?: any;
+
+    /**
+     * 备注
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    comment?: any;
 }

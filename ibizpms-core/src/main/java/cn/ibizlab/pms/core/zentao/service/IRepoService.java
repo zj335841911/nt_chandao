@@ -27,15 +27,15 @@ public interface IRepoService extends IService<Repo>{
 
     boolean create(Repo et) ;
     void createBatch(List<Repo> list) ;
-    boolean save(Repo et) ;
-    void saveBatch(List<Repo> list) ;
-    Repo get(BigInteger key) ;
     boolean update(Repo et) ;
     void updateBatch(List<Repo> list) ;
-    Repo getDraft(Repo et) ;
-    boolean checkKey(Repo et) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
+    Repo get(BigInteger key) ;
+    Repo getDraft(Repo et) ;
+    boolean checkKey(Repo et) ;
+    boolean save(Repo et) ;
+    void saveBatch(List<Repo> list) ;
     Page<Repo> searchDefault(RepoSearchContext context) ;
     /**
      *自定义查询SQL
@@ -51,8 +51,6 @@ public interface IRepoService extends IService<Repo>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

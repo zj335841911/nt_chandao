@@ -43,7 +43,6 @@ export class UIStateService {
         } catch (error) {
             this.fillLayoutState({});
         }
-        let z = this;
         on(window, 'beforeunload', () => {
             localStorage.setItem(this.localStoreKey, JSON.stringify(this.layoutState));
         });
@@ -109,6 +108,16 @@ export class UIStateService {
         } else {
             this.layoutState.leftNavMenuCollapse = !this.layoutState.leftNavMenuCollapse;
         }
+    }
+
+    /**
+     * 是否为Style2模式
+     *
+     * @returns {boolean}
+     * @memberof UIStateService
+     */
+    public isStyle2(): boolean {
+        return this.layoutState.styleMode === 'STYLE2';
     }
 
 }

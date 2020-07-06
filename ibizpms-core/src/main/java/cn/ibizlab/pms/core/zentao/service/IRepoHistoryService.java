@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IRepoHistoryService extends IService<RepoHistory>{
 
-    boolean save(RepoHistory et) ;
-    void saveBatch(List<RepoHistory> list) ;
+    boolean create(RepoHistory et) ;
+    void createBatch(List<RepoHistory> list) ;
+    boolean update(RepoHistory et) ;
+    void updateBatch(List<RepoHistory> list) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
     RepoHistory get(BigInteger key) ;
-    boolean update(RepoHistory et) ;
-    void updateBatch(List<RepoHistory> list) ;
     RepoHistory getDraft(RepoHistory et) ;
     boolean checkKey(RepoHistory et) ;
-    boolean create(RepoHistory et) ;
-    void createBatch(List<RepoHistory> list) ;
+    boolean save(RepoHistory et) ;
+    void saveBatch(List<RepoHistory> list) ;
     Page<RepoHistory> searchDefault(RepoHistorySearchContext context) ;
     /**
      *自定义查询SQL
@@ -51,8 +51,6 @@ public interface IRepoHistoryService extends IService<RepoHistory>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

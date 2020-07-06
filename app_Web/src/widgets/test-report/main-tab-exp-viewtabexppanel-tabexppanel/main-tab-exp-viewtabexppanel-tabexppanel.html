@@ -19,6 +19,7 @@
     v-if="isInit.tabviewpanel"
     name="tabviewpanel"  
     ref='tabviewpanel'
+    :expActive="activatedTabViewPanel === 'tabviewpanel'"
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel>
@@ -42,6 +43,7 @@
     v-if="isInit.tabviewpanel2"
     name="tabviewpanel2"  
     ref='tabviewpanel2'
+    :expActive="activatedTabViewPanel === 'tabviewpanel2'"
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel2>

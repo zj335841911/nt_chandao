@@ -48,15 +48,6 @@ public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> impl
     protected int batchSize = 500;
 
     @Override
-    public UserTpl getDraft(UserTpl et) {
-        return et;
-    }
-
-    @Override
-    public boolean checkKey(UserTpl et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
-    @Override
     @Transactional
     public boolean create(UserTpl et) {
         cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
@@ -72,50 +63,6 @@ public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> impl
     public void createBatch(List<UserTpl> list) {
 
     }
-    @Override
-    @Transactional
-    public boolean save(UserTpl et) {
-        if(!saveOrUpdate(et))
-            return false;
-        return true;
-    }
-
-    @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
-    public boolean saveOrUpdate(UserTpl et) {
-        if (null == et) {
-            return false;
-        } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
-        }
-    }
-
-    @Override
-    public boolean saveBatch(Collection<UserTpl> list) {
-        saveOrUpdateBatch(list,batchSize);
-        return true;
-    }
-
-    @Override
-    public void saveBatch(List<UserTpl> list) {
-        saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public UserTpl get(BigInteger key) {
-        UserTpl et = getById(key);
-        if(et==null){
-            et=new UserTpl();
-            et.setId(key);
-        }
-        else{
-        }
-        return et;
-    }
-
     @Override
     @Transactional
     public boolean update(UserTpl et) {
@@ -148,6 +95,59 @@ public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> impl
             }
         }
     }
+    @Override
+    @Transactional
+    public UserTpl get(BigInteger key) {
+        UserTpl et = getById(key);
+        if(et==null){
+            et=new UserTpl();
+            et.setId(key);
+        }
+        else{
+        }
+        return et;
+    }
+
+    @Override
+    public UserTpl getDraft(UserTpl et) {
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(UserTpl et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
+    @Override
+    @Transactional
+    public boolean save(UserTpl et) {
+        if(!saveOrUpdate(et))
+            return false;
+        return true;
+    }
+
+    @Override
+    @Transactional(
+            rollbackFor = {Exception.class}
+    )
+    public boolean saveOrUpdate(UserTpl et) {
+        if (null == et) {
+            return false;
+        } else {
+            return checkKey(et) ? this.update(et) : this.create(et);
+        }
+    }
+
+    @Override
+    public boolean saveBatch(Collection<UserTpl> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
+    public void saveBatch(List<UserTpl> list) {
+        saveOrUpdateBatch(list,batchSize);
+    }
+
 
 
     /**

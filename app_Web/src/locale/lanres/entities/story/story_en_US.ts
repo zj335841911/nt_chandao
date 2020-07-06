@@ -45,8 +45,13 @@ export default {
     spec: "需求描述",
     verify: "验收标准",
     result: "评审结果",
+    comment: "备注",
   },
 	views: {
+		mainview9_related: {
+			caption: "需求",
+      		title: "需求编辑视图",
+		},
 		reportsubgridview: {
 			caption: "需求",
       		title: "story表格视图",
@@ -57,7 +62,7 @@ export default {
 		},
 		editview: {
 			caption: "需求",
-      		title: "story编辑视图",
+      		title: "需求",
 		},
 		gridview9_assignedtome: {
 			caption: "需求",
@@ -105,11 +110,15 @@ export default {
 		},
 		gridview9_substory: {
 			caption: "子需求",
-      		title: "需求表格视图",
+      		title: "子需求",
 		},
 		maingridview_bymodule: {
 			caption: "需求",
       		title: "story表格视图",
+		},
+		gridview9_related: {
+			caption: "相关需求",
+      		title: "相关需求",
 		},
 		maingridview: {
 			caption: "需求",
@@ -122,6 +131,10 @@ export default {
 		plansubgridview: {
 			caption: "需求",
       		title: "story表格视图",
+		},
+		gridview9_child: {
+			caption: "细分需求",
+      		title: "细分需求",
 		},
 		main2gridview: {
 			caption: "需求",
@@ -150,6 +163,7 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			id: "编号", 
 			status: "当前状态", 
 			version: "版本#", 
 			reviewedby: "由谁评审", 
@@ -159,7 +173,6 @@ export default {
 			verify: "验收标准", 
 			comment: "备注", 
 			files: "附件", 
-			id: "编号", 
 		},
 		uiactions: {
 		},
@@ -201,6 +214,8 @@ export default {
 			grouppanel11: "需求描述", 
 			grouppanel21: "验收标准", 
 			group11: "需求描述信息", 
+			_druipart2: "", 
+			_grouppanel1: "附件", 
 			druipart1: "", 
 			grouppanel31: "需求描述", 
 			druipart12: "操作历史", 
@@ -238,13 +253,13 @@ export default {
 			estimate: "预计工时", 
 			keywords: "关键词", 
 			mailto: "抄送给", 
+			product: "所属产品", 
 			openedby: "由谁创建", 
 			openeddate: "于", 
 			assignedto: "指派给", 
 			assigneddate: "于", 
 			linkstories: "相关需求", 
 			id: "编号", 
-			product: "所属产品", 
 			module: "所属模块", 
 		},
 		uiactions: {
@@ -271,11 +286,12 @@ export default {
 			source: "需求来源", 
 			sourcenote: "来源备注", 
 			reviewedby: "由谁评审", 
+			assignedto: "由谁评审", 
 			title: "需求名称", 
 			pri: "优先级", 
 			estimate: "预计", 
-			formitem: "需求描述", 
-			formitem1: "验收标准", 
+			spec: "需求描述", 
+			verify: "验收标准", 
 			mailto: "抄送给", 
 			keywords: "关键词", 
 			id: "编号", 
@@ -288,6 +304,8 @@ export default {
 			grouppanel11: "需求描述", 
 			grouppanel21: "验收标准", 
 			group11: "需求描述信息", 
+			_druipart2: "", 
+			_grouppanel1: "附件", 
 			druipart1: "", 
 			grouppanel31: "需求描述", 
 			formpage1: "基本信息", 
@@ -352,6 +370,32 @@ export default {
 		uiactions: {
 		},
 	},
+	related_form: {
+		details: {
+			druipart1: "", 
+			group1: "项目任务", 
+			formpage1: "项目任务", 
+			druipart4: "", 
+			druipart5: "", 
+			druipart2: "", 
+			grouppanel1: "相关Bug", 
+			druipart3: "", 
+			grouppanel2: "相关用例", 
+			formpage2: "相关信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "需求名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			linkstories: "相关需求", 
+			childstories: "细分需求", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
 	main3_grid: {
 		columns: {
 			id: "ID",
@@ -392,12 +436,20 @@ export default {
         story_opencasecreateview: "建用例",
 		},
 	},
-	pickupgrid_grid: {
+	main_buildsub_grid: {
 		columns: {
 			id: "ID",
 			pri: "P",
 			title: "需求名称",
 			modulename: "所属模块名称",
+		},
+		uiactions: {
+		},
+	},
+	storyrelated_grid: {
+		columns: {
+			id: "编号",
+			title: "需求名称",
 		},
 		uiactions: {
 		},
@@ -406,18 +458,31 @@ export default {
 		columns: {
 			id: "ID",
 			pri: "P",
-			title: "需求名称",
 			modulename: "所属模块名称",
+			title: "需求名称",
+			openedby: "创建",
+			assignedto: "指派",
+			estimate: "预计",
+			status: "状态",
+			stage: "阶段",
+			uagridcolumn1: "操作",
 		},
 		uiactions: {
+        story_unlinkstory: "移除关联",
 		},
 	},
-	main_buildsub_grid: {
+	pickupgrid_grid: {
 		columns: {
 			id: "ID",
 			pri: "P",
-			title: "需求名称",
+			plan: "所属计划",
 			modulename: "所属模块名称",
+			title: "需求名称",
+			openedby: "创建",
+			assignedto: "指派",
+			estimate: "预计",
+			status: "状态",
+			stage: "阶段",
 		},
 		uiactions: {
 		},
@@ -489,6 +554,32 @@ export default {
 			tip: "Save And Close Window",
 		},
 	},
+	curprojectgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "New",
+			tip: "New",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "Edit",
+			tip: "Edit {0}",
+		},
+	},
+	buildsubgridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
+	releasesubeditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+	},
 	maingridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "New",
@@ -544,32 +635,6 @@ export default {
 		},
 	},
 	plansubeditviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
-		},
-	},
-	curprojectgridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction2: {
-			caption: "Edit",
-			tip: "Edit {0}",
-		},
-	},
-	buildsubgridviewtoolbar_toolbar: {
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-	},
-	releasesubeditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",

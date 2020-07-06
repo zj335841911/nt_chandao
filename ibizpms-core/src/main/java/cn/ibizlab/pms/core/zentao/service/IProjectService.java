@@ -25,23 +25,26 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IProjectService extends IService<Project>{
 
-    Project close(Project et) ;
-    Project suspend(Project et) ;
-    Project putoff(Project et) ;
-    boolean checkKey(Project et) ;
-    boolean save(Project et) ;
-    void saveBatch(List<Project> list) ;
-    boolean update(Project et) ;
-    void updateBatch(List<Project> list) ;
-    Project activate(Project et) ;
-    Project get(BigInteger key) ;
-    Project updateOrder(Project et) ;
-    Project start(Project et) ;
     boolean create(Project et) ;
     void createBatch(List<Project> list) ;
+    boolean update(Project et) ;
+    void updateBatch(List<Project> list) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
+    Project get(BigInteger key) ;
     Project getDraft(Project et) ;
+    Project activate(Project et) ;
+    Project batchUnlinkStory(Project et) ;
+    boolean checkKey(Project et) ;
+    Project close(Project et) ;
+    Project linkStory(Project et) ;
+    Project putoff(Project et) ;
+    boolean save(Project et) ;
+    void saveBatch(List<Project> list) ;
+    Project start(Project et) ;
+    Project suspend(Project et) ;
+    Project unlinkStory(Project et) ;
+    Project updateOrder(Project et) ;
     Page<Project> searchCurProduct(ProjectSearchContext context) ;
     Page<Project> searchDefault(ProjectSearchContext context) ;
     List<Project> selectByParent(BigInteger id) ;
@@ -60,8 +63,6 @@ public interface IProjectService extends IService<Project>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

@@ -15,11 +15,6 @@ import view_pickupviewpanel from '@widgets/story/mpickup-viewpickupviewpanel-pic
 @Component({
     components: {
         view_pickupviewpanel, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
-        });
     }
 })
 @VueLifeCycleProcessing()

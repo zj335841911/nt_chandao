@@ -25,36 +25,44 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IStoryService extends IService<Story>{
 
-    Story getDraft(Story et) ;
     boolean create(Story et) ;
     void createBatch(List<Story> list) ;
-    Story batchChangeStage(Story et) ;
-    Story batchChangePlan(Story et) ;
-    Story batchClose(Story et) ;
-    Story getStorySpec(Story et) ;
-    Story change(Story et) ;
-    boolean checkKey(Story et) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
     boolean update(Story et) ;
     void updateBatch(List<Story> list) ;
-    Story batchChangeBranch(Story et) ;
-    Story batchReview(Story et) ;
-    Story review(Story et) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    Story get(BigInteger key) ;
+    Story getDraft(Story et) ;
     Story assignTo(Story et) ;
     Story batchAssignTo(Story et) ;
-    Story get(BigInteger key) ;
+    Story batchChangeBranch(Story et) ;
+    Story batchChangeModule(Story et) ;
+    Story batchChangePlan(Story et) ;
+    Story batchChangeStage(Story et) ;
+    Story batchClose(Story et) ;
+    Story batchReview(Story et) ;
+    Story batchUnlinkStory(Story et) ;
+    Story change(Story et) ;
+    boolean checkKey(Story et) ;
+    Story close(Story et) ;
+    Story getStorySpec(Story et) ;
+    Story linkStory(Story et) ;
+    Story projectBatchUnlinkStory(Story et) ;
+    Story projectLinkStory(Story et) ;
+    Story projectUnlinkStory(Story et) ;
+    Story review(Story et) ;
     boolean save(Story et) ;
     void saveBatch(List<Story> list) ;
-    Story batchChangeModule(Story et) ;
-    Story close(Story et) ;
-    Page<Story> searchReleaseStories(StorySearchContext context) ;
-    Page<Story> searchByModule(StorySearchContext context) ;
-    Page<Story> searchReportStories(StorySearchContext context) ;
-    Page<Story> searchProjectStories(StorySearchContext context) ;
+    Story unlinkStory(Story et) ;
     Page<Story> searchBuildStories(StorySearchContext context) ;
+    Page<Story> searchByModule(StorySearchContext context) ;
     Page<Story> searchDefault(StorySearchContext context) ;
     Page<Story> searchGetProductStories(StorySearchContext context) ;
+    Page<Story> searchProjectStories(StorySearchContext context) ;
+    Page<Story> searchReleaseStories(StorySearchContext context) ;
+    Page<Story> searchReportStories(StorySearchContext context) ;
+    Page<Story> searchStoryChild(StorySearchContext context) ;
+    Page<Story> searchStoryRelated(StorySearchContext context) ;
     List<Story> selectByModule(BigInteger id) ;
     void removeByModule(BigInteger id) ;
     List<Story> selectByBranch(BigInteger id) ;
@@ -83,8 +91,6 @@ public interface IStoryService extends IService<Story>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

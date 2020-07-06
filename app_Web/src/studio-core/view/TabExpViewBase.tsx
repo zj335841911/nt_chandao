@@ -1,12 +1,12 @@
-import { ViewBase } from './ViewBase';
+import { ExpViewBase } from './ExpViewBase';
 
 /**
  * 分页导航视图基类
  *
  * @export
  * @class TabExpViewBase
- * @extends {ViewBase}
+ * @extends {ExpViewBase}
  */
-export class TabExpViewBase extends ViewBase {
+export class TabExpViewBase extends ExpViewBase {
 
 }

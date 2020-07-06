@@ -64,6 +64,7 @@ export class CompleteFormEditFormBase extends EditFormControlBase {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        id: null,
         consumed: null,
         currentconsumed: null,
         totaltime: null,
@@ -71,7 +72,6 @@ export class CompleteFormEditFormBase extends EditFormControlBase {
         finisheddate: null,
         files: null,
         comment: null,
-        id: null,
         task:null,
     };
 
@@ -115,6 +115,8 @@ export class CompleteFormEditFormBase extends EditFormControlBase {
 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
+        id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 }),
+
         consumed: new FormItemModel({ caption: '之前消耗', detailType: 'FORMITEM', name: 'consumed', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
         currentconsumed: new FormItemModel({ caption: '本次消耗', detailType: 'FORMITEM', name: 'currentconsumed', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
@@ -128,8 +130,6 @@ export class CompleteFormEditFormBase extends EditFormControlBase {
         files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
         comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
-
-        id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 }),
 
     };
 

@@ -338,7 +338,7 @@ export class ProjectModuleMainGridViewBase extends GridViewBase {
      * @type {boolean}
      * @memberof ProjectModuleMainGridViewBase
      */
-    protected isSingleSelect: boolean = true;
+    protected isGridSingleSelect: boolean = true;
 
     /**
      * 表格行数据默认激活模式

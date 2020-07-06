@@ -62,6 +62,39 @@
 </app-form-group>
 
 </i-col>
+<i-col v-show="detailsModel._grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel._grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.main_editmode_form.details._grouppanel1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" :iconInfo="{'iconclass':'fa fa-paperclip'}">    
+    <row>
+        <i-col v-show="detailsModel._druipart2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem='story' 
+    :parentdata='{"srfparentdename":"ZT_STORY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{}'
+    parameterName='story'
+    parentName="Story"  
+    refviewtype='DELISTVIEW9' 
+    refreshitems='' 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname='file-list-view9' 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved($event)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
 <i-col v-show="detailsModel.druipart1.visible" :style="{'height': '300px !important',}"  :lg="{ span: 24, offset: 0 }">
     <app-form-druipart
     
@@ -168,8 +201,8 @@
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
+  :localContext ='{ PRODUCT:"%product%" }' 
+  :localParam ='{ product:"%product%" }' 
   :disabled="detailsModel.modulename.disabled"
   name='modulename' 
   deMajorField='name'
@@ -193,8 +226,8 @@
     :data="data" 
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext ='{ PRODUCT:"%product%" }' 
+    :localParam ='{ product:"%product%" }' 
     :disabled="detailsModel.plan.disabled"  
     tag='CurProductPlan' 
     codelistType='DYNAMIC'
@@ -295,8 +328,19 @@
 </i-col>
 <i-col v-show="detailsModel.mailto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='mailto' :itemRules="this.rules.mailto" class='' :caption="$t('entities.story.main_editmode_form.details.mailto')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.mailto.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.mailto" :autoSize="{minRows: 10}"  :disabled="detailsModel.mailto.disabled" type='textarea' style="height:200px;" ></input-box>
-
+    
+<dropdown-list-mpicker 
+  v-model="data.mailto"
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams" 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  tag='UserRealName' 
+  codelistType='DYNAMIC' 
+  valueSeparator=","
+  placeholder='请选择...' style="">
+</dropdown-list-mpicker>
 </app-form-item>
 
 </i-col>
@@ -359,7 +403,19 @@
     <row>
         <i-col v-show="detailsModel.linkstories.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='linkstories' :itemRules="this.rules.linkstories" class='' :caption="$t('entities.story.main_editmode_form.details.linkstories')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.linkstories.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.linkstories"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.linkstories.disabled" type='text'  style=""></input-box>
+    
+<dropdown-list-mpicker 
+  v-model="data.linkstories"
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams" 
+  :localContext ='{ PRODUCT:"%product%" }' 
+  :localParam ='{ product:"%product%" }' 
+  tag='RelatedStory' 
+  codelistType='DYNAMIC' 
+  valueSeparator=","
+  placeholder='请选择...' style="">
+</dropdown-list-mpicker>
 </app-form-item>
 
 </i-col>

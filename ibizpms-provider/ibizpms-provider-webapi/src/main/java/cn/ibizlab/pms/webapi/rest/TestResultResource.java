@@ -47,18 +47,22 @@ public class TestResultResource {
     @Lazy
     public TestResultMapping testresultMapping;
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Save-all')")
-    @ApiOperation(value = "保存测试结果", tags = {"测试结果" },  notes = "保存测试结果")
-	@RequestMapping(method = RequestMethod.POST, value = "/testresults/save")
-    public ResponseEntity<Boolean> save(@RequestBody TestResultDTO testresultdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(testresultService.save(testresultMapping.toDomain(testresultdto)));
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Create-all')")
+    @ApiOperation(value = "新建测试结果", tags = {"测试结果" },  notes = "新建测试结果")
+	@RequestMapping(method = RequestMethod.POST, value = "/testresults")
+    @Transactional
+    public ResponseEntity<TestResultDTO> create(@RequestBody TestResultDTO testresultdto) {
+        TestResult domain = testresultMapping.toDomain(testresultdto);
+		testresultService.create(domain);
+        TestResultDTO dto = testresultMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Save-all')")
-    @ApiOperation(value = "批量保存测试结果", tags = {"测试结果" },  notes = "批量保存测试结果")
-	@RequestMapping(method = RequestMethod.POST, value = "/testresults/savebatch")
-    public ResponseEntity<Boolean> saveBatch(@RequestBody List<TestResultDTO> testresultdtos) {
-        testresultService.saveBatch(testresultMapping.toDomain(testresultdtos));
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Create-all')")
+    @ApiOperation(value = "批量新建测试结果", tags = {"测试结果" },  notes = "批量新建测试结果")
+	@RequestMapping(method = RequestMethod.POST, value = "/testresults/batch")
+    public ResponseEntity<Boolean> createBatch(@RequestBody List<TestResultDTO> testresultdtos) {
+        testresultService.createBatch(testresultMapping.toDomain(testresultdtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
@@ -98,6 +102,15 @@ public class TestResultResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Get-all')")
+    @ApiOperation(value = "获取测试结果", tags = {"测试结果" },  notes = "获取测试结果")
+	@RequestMapping(method = RequestMethod.GET, value = "/testresults/{testresult_id}")
+    public ResponseEntity<TestResultDTO> get(@PathVariable("testresult_id") BigInteger testresult_id) {
+        TestResult domain = testresultService.get(testresult_id);
+        TestResultDTO dto = testresultMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
     @ApiOperation(value = "获取测试结果草稿", tags = {"测试结果" },  notes = "获取测试结果草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/testresults/getdraft")
     public ResponseEntity<TestResultDTO> getDraft() {
@@ -110,31 +123,18 @@ public class TestResultResource {
         return  ResponseEntity.status(HttpStatus.OK).body(testresultService.checkKey(testresultMapping.toDomain(testresultdto)));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Get-all')")
-    @ApiOperation(value = "获取测试结果", tags = {"测试结果" },  notes = "获取测试结果")
-	@RequestMapping(method = RequestMethod.GET, value = "/testresults/{testresult_id}")
-    public ResponseEntity<TestResultDTO> get(@PathVariable("testresult_id") BigInteger testresult_id) {
-        TestResult domain = testresultService.get(testresult_id);
-        TestResultDTO dto = testresultMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Save-all')")
+    @ApiOperation(value = "保存测试结果", tags = {"测试结果" },  notes = "保存测试结果")
+	@RequestMapping(method = RequestMethod.POST, value = "/testresults/save")
+    public ResponseEntity<Boolean> save(@RequestBody TestResultDTO testresultdto) {
+        return ResponseEntity.status(HttpStatus.OK).body(testresultService.save(testresultMapping.toDomain(testresultdto)));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Create-all')")
-    @ApiOperation(value = "新建测试结果", tags = {"测试结果" },  notes = "新建测试结果")
-	@RequestMapping(method = RequestMethod.POST, value = "/testresults")
-    @Transactional
-    public ResponseEntity<TestResultDTO> create(@RequestBody TestResultDTO testresultdto) {
-        TestResult domain = testresultMapping.toDomain(testresultdto);
-		testresultService.create(domain);
-        TestResultDTO dto = testresultMapping.toDto(domain);
-		return ResponseEntity.status(HttpStatus.OK).body(dto);
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Create-all')")
-    @ApiOperation(value = "批量新建测试结果", tags = {"测试结果" },  notes = "批量新建测试结果")
-	@RequestMapping(method = RequestMethod.POST, value = "/testresults/batch")
-    public ResponseEntity<Boolean> createBatch(@RequestBody List<TestResultDTO> testresultdtos) {
-        testresultService.createBatch(testresultMapping.toDomain(testresultdtos));
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Save-all')")
+    @ApiOperation(value = "批量保存测试结果", tags = {"测试结果" },  notes = "批量保存测试结果")
+	@RequestMapping(method = RequestMethod.POST, value = "/testresults/savebatch")
+    public ResponseEntity<Boolean> saveBatch(@RequestBody List<TestResultDTO> testresultdtos) {
+        testresultService.saveBatch(testresultMapping.toDomain(testresultdtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 

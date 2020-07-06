@@ -25,21 +25,21 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ICaseService extends IService<Case>{
 
-    Case runCase(Case et) ;
-    Case getDraft(Case et) ;
-    boolean save(Case et) ;
-    void saveBatch(List<Case> list) ;
     boolean create(Case et) ;
     void createBatch(List<Case> list) ;
-    boolean checkKey(Case et) ;
+    boolean update(Case et) ;
+    void updateBatch(List<Case> list) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
     Case get(BigInteger key) ;
-    boolean update(Case et) ;
-    void updateBatch(List<Case> list) ;
+    Case getDraft(Case et) ;
+    boolean checkKey(Case et) ;
+    Case runCase(Case et) ;
+    boolean save(Case et) ;
+    void saveBatch(List<Case> list) ;
+    Page<Case> searchCurSuite(CaseSearchContext context) ;
     Page<Case> searchCurTestTask(CaseSearchContext context) ;
     Page<Case> searchDefault(CaseSearchContext context) ;
-    Page<Case> searchCurSuite(CaseSearchContext context) ;
     List<Case> selectByBranch(BigInteger id) ;
     void removeByBranch(BigInteger id) ;
     List<Case> selectByFrombug(BigInteger id) ;
@@ -68,8 +68,6 @@ public interface ICaseService extends IService<Case>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

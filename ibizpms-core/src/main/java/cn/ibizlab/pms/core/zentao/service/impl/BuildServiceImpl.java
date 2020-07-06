@@ -63,6 +63,75 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     protected int batchSize = 500;
 
     @Override
+    @Transactional
+    public boolean create(Build et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBuildHelper.create((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return bRst;
+    }
+
+    @Override
+    public void createBatch(List<Build> list) {
+
+    }
+    @Override
+    @Transactional
+    public boolean update(Build et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBuildHelper.edit((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+	    return bRst;
+    }
+
+    @Override
+    public void updateBatch(List<Build> list) {
+
+    }
+    @Override
+    @Transactional
+    public boolean remove(BigInteger key) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        Build et = this.get(key);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBuildHelper.delete((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        return bRst;
+    }
+
+    @Override
+    public void removeBatch(Collection<BigInteger> idList){
+        if (idList != null && !idList.isEmpty()) {
+            for (BigInteger id : idList) {
+                this.remove(id);
+            }
+        }
+    }
+    @Override
+    @Transactional
+    public Build get(BigInteger key) {
+        Build et = getById(key);
+        if(et==null){
+            et=new Build();
+            et.setId(key);
+        }
+        else{
+        }
+        return et;
+    }
+
+    @Override
+    public Build getDraft(Build et) {
+        fillParentData(et);
+        return et;
+    }
+
+    @Override
     public boolean checkKey(Build et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
@@ -99,75 +168,6 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
         saveOrUpdateBatch(list,batchSize);
     }
 
-    @Override
-    @Transactional
-    public Build get(BigInteger key) {
-        Build et = getById(key);
-        if(et==null){
-            et=new Build();
-            et.setId(key);
-        }
-        else{
-        }
-        return et;
-    }
-
-    @Override
-    public Build getDraft(Build et) {
-        fillParentData(et);
-        return et;
-    }
-
-    @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        Build et = this.get(key);
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBuildHelper.delete((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
-        return bRst;
-    }
-
-    @Override
-    public void removeBatch(Collection<BigInteger> idList){
-        if (idList != null && !idList.isEmpty()) {
-            for (BigInteger id : idList) {
-                this.remove(id);
-            }
-        }
-    }
-    @Override
-    @Transactional
-    public boolean create(Build et) {
-        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBuildHelper.create((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
-        if (bRst && rst.getEtId() != null) {
-            et = this.get(rst.getEtId());
-        }
-	    return bRst;
-    }
-
-    @Override
-    public void createBatch(List<Build> list) {
-
-    }
-    @Override
-    @Transactional
-    public boolean update(Build et) {
-        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBuildHelper.edit((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
-        if (bRst && rst.getEtId() != null) {
-            et = this.get(rst.getEtId());
-        }
-	    return bRst;
-    }
-
-    @Override
-    public void updateBatch(List<Build> list) {
-
-    }
 
 	@Override
     public List<Build> selectByBranch(BigInteger id) {

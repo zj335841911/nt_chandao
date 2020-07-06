@@ -147,6 +147,9 @@ export default class BaseInfoModel {
       {
         name: 'result',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

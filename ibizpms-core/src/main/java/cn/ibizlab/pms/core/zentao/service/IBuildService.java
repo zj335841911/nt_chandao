@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IBuildService extends IService<Build>{
 
-    boolean checkKey(Build et) ;
-    boolean save(Build et) ;
-    void saveBatch(List<Build> list) ;
-    Build get(BigInteger key) ;
-    Build getDraft(Build et) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
     boolean create(Build et) ;
     void createBatch(List<Build> list) ;
     boolean update(Build et) ;
     void updateBatch(List<Build> list) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    Build get(BigInteger key) ;
+    Build getDraft(Build et) ;
+    boolean checkKey(Build et) ;
+    boolean save(Build et) ;
+    void saveBatch(List<Build> list) ;
     Page<Build> searchCurProduct(BuildSearchContext context) ;
     Page<Build> searchDefault(BuildSearchContext context) ;
     List<Build> selectByBranch(BigInteger id) ;
@@ -58,8 +58,6 @@ public interface IBuildService extends IService<Build>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

@@ -30,10 +30,6 @@ export default {
 		details: {
 			grouppanel1: "分组面板", 
 			group1: "productplan基本信息", 
-			button1: "保存", 
-			button2: "关闭", 
-			grouppanel3: "分组面板", 
-			grouppanel2: "分组面板", 
 			formpage1: "基本信息", 
 			srforikey: "", 
 			srfkey: "编号", 
@@ -52,8 +48,6 @@ export default {
 			id: "编号", 
 		},
 		uiactions: {
-			saveandexit: "保存并关闭",
-			exit: "返回",
 		},
 	},
 	mainsubplan_grid: {
@@ -85,6 +79,12 @@ export default {
 		},
 	},
 	subplancreateviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
+	subplaneditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",

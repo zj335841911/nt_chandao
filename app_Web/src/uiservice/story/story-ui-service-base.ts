@@ -79,6 +79,7 @@ export default class StoryUIServiceBase extends UIService {
      * @memberof  StoryUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'mainview9_related',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'reportsubgridview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'mainview',srfappde:'stories'});
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'stories'});
@@ -95,9 +96,11 @@ export default class StoryUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'mainview9',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'gridview9_substory',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'maingridview_bymodule',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'gridview9_related',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'maingridview',srfappde:'stories'});
         this.allViewMap.set('MPICKUPVIEW:',{viewname:'mpickupview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'plansubgridview',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'gridview9_child',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'main2gridview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'reviewview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'editview_storychange',srfappde:'stories'});
@@ -408,12 +411,13 @@ export default class StoryUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Story_PlanRelationStory(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
+    public async Story_PlanRelationStory(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(context,{STORY:"0"});
+        Object.assign(params,{productplan:"%productplan%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
         if(_this.context){
@@ -428,37 +432,50 @@ export default class StoryUIServiceBase extends UIService {
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        if(context.product && true){
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
         }
-        const parameters: any[] = [
-            { pathName: 'stories', parameterName: 'story' },
-        ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    if(window.opener){
-                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
-                        window.close();
-                    }
-                    return result.datas;
-                });
+        const backend = () => {
+            const curService:StoryService =  new StoryService();
+            curService.LinkStory(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '关联需求成功！' });
+
+                const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        const view: any = {
+            viewname: 'story-mpickup-view',
+            title: actionContext.$t('entities.story.views.mpickupview.title'),
+            height: 0,
+            width: 0,
+            placement: 'DRAWER_TOP'
+        };
+        const appdrawer = actionContext.$appdrawer.openDrawer(view,context,data);
+        appdrawer.subscribe((result: any) => {
+            if (result && Object.is(result.ret, 'OK')) {
+                Object.assign(data, { srfactionparam: result.datas });
+                backend();
             }
-            const view: any = {
-                viewname: 'story-mpickup-view', 
-                height: 0, 
-                width: 0,  
-                title: actionContext.$t('entities.story.views.mpickupview.title'),
-                placement: 'DRAWER_TOP',
-            };
-            openDrawer(view, data);
+        });
     }
 
     /**
@@ -527,6 +544,86 @@ export default class StoryUIServiceBase extends UIService {
                 placement: 'DRAWER_TOP',
             };
             openDrawer(view, data);
+    }
+
+    /**
+     * 移除关联
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_UnlinkStory(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let confirmResult:boolean = await new Promise((resolve: any, reject: any) => {
+          actionContext.$Modal.confirm({
+              title: '警告',
+              content: '是否移除需求关联',
+              onOk: () => {resolve(true);},
+              onCancel: () => {resolve(false);}
+          });
+        });
+        if(!confirmResult){
+            return;
+        }
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{STORY:"0"});
+        Object.assign(params,{productplan:"%productplan%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { story: '%story%' });
+        Object.assign(params, { id: '%story%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        const backend = () => {
+            const curService:StoryService =  new StoryService();
+            curService.UnlinkStory(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '移除成功' });
+
+                const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        backend();
     }
 
     /**

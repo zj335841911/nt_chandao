@@ -62,46 +62,6 @@ public class RelationServiceImpl extends ServiceImpl<RelationMapper, Relation> i
     }
 
     @Override
-    public boolean checkKey(Relation et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
-    @Override
-    @Transactional
-    public boolean save(Relation et) {
-        if(!saveOrUpdate(et))
-            return false;
-        return true;
-    }
-
-    @Override
-    @Transactional(
-            rollbackFor = {Exception.class}
-    )
-    public boolean saveOrUpdate(Relation et) {
-        if (null == et) {
-            return false;
-        } else {
-            return checkKey(et) ? this.update(et) : this.create(et);
-        }
-    }
-
-    @Override
-    public boolean saveBatch(Collection<Relation> list) {
-        saveOrUpdateBatch(list,batchSize);
-        return true;
-    }
-
-    @Override
-    public void saveBatch(List<Relation> list) {
-        saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    public Relation getDraft(Relation et) {
-        return et;
-    }
-
-    @Override
     @Transactional
     public boolean update(Relation et) {
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
@@ -138,6 +98,46 @@ public class RelationServiceImpl extends ServiceImpl<RelationMapper, Relation> i
         else{
         }
         return et;
+    }
+
+    @Override
+    public Relation getDraft(Relation et) {
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(Relation et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
+    @Override
+    @Transactional
+    public boolean save(Relation et) {
+        if(!saveOrUpdate(et))
+            return false;
+        return true;
+    }
+
+    @Override
+    @Transactional(
+            rollbackFor = {Exception.class}
+    )
+    public boolean saveOrUpdate(Relation et) {
+        if (null == et) {
+            return false;
+        } else {
+            return checkKey(et) ? this.update(et) : this.create(et);
+        }
+    }
+
+    @Override
+    public boolean saveBatch(Collection<Relation> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
+    public void saveBatch(List<Relation> list) {
+        saveOrUpdateBatch(list,batchSize);
     }
 
 

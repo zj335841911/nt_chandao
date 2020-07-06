@@ -15,11 +15,6 @@ import view_listexpbar from '@widgets/project/list-exp-viewlistexpbar-listexpbar
 @Component({
     components: {
         view_listexpbar, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
-        });
     }
 })
 @VueLifeCycleProcessing()

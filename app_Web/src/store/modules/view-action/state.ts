@@ -36,15 +36,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '0568d197dda832ceb89ad0442ab9f230',
-            viewmodule: 'ibiz',
-            viewname: 'ProjectModuleQuickCfgView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: '07004de8a7d23e97b76460f888c8b290',
             viewmodule: 'zentao',
             viewname: 'BugPlanSubGridView',
@@ -53,15 +44,6 @@ export const viewstate: any = {
             refviews: [
                 '46517a803b2470cd0bef27aeda0dbcaf',
                 '21d716ac12c793af54b112a5a3599674',
-            ],
-        },
-        {
-            viewtag: '07327890c326f9c806b9343f0c660fc1',
-            viewmodule: 'ibiz',
-            viewname: 'ProductLifeRoadMapListView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
             ],
         },
         {
@@ -208,6 +190,20 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '1f87f07919b8496e5bf832f95686fada',
+            viewmodule: 'zentao',
+            viewname: 'StoryMainView9_Related',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '5d3b1d4c90b8b3a2013ccd3f3a9d5f17',
+                'd6ef7de701a935bd9023cd0eb1338f58',
+                'c959d7fe98c33b7befcad24e2596633e',
+                'a0f93007d7102bd236dc8f50ac4042ea',
+                '5895951b7f1045198682c8d51cd85482',
+            ],
+        },
+        {
             viewtag: '21d716ac12c793af54b112a5a3599674',
             viewmodule: 'zentao',
             viewname: 'BugMPickupView',
@@ -221,6 +217,16 @@ export const viewstate: any = {
             viewtag: '21e00a7239d9737bbfda5c1608b4129c',
             viewmodule: 'zentao',
             viewname: 'TaskMainEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: '28557f7c31a387e1deb552076d51f9f1',
+            viewmodule: 'zentao',
+            viewname: 'ProjectEditView_Putoff',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -337,10 +343,22 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'df5a966e312ca9c5f5a41428bc2e2672',
                 '94e0ee1a97736ff4d28b88a46cd395b7',
                 '538555af88ea31549a5bc7dbf1e6286a',
+                '1f87f07919b8496e5bf832f95686fada',
                 '61f32b2b422e8f1a9825e1f704464a8c',
                 'e54598b1e6d38d7c6ce8231b531b46bd',
+                '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: '3fa1a1978a4380209df04704e2f8059f',
+            viewmodule: 'zentao',
+            viewname: 'ProductEditView_Close',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
                 '770a170098d148e438a7666b248e6519',
             ],
         },
@@ -355,15 +373,6 @@ export const viewstate: any = {
                 '6f78b25e86923ab600a2141d50fe49fd',
                 '5890a810365fec51e801d2cffce44fde',
                 '66769499a681f12bd2ebff8859f1d4ea',
-            ],
-        },
-        {
-            viewtag: '41dab4e36aef71df5c66acca4db7d045',
-            viewmodule: 'ibiz',
-            viewname: 'ProjectModuleMainGridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
             ],
         },
         {
@@ -443,6 +452,16 @@ export const viewstate: any = {
             refviews: [
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 '4863a523ac490ebce771717756f0c6a8',
+            ],
+        },
+        {
+            viewtag: '4b8db6d139edb8adadbef2f0c0b3350a',
+            viewmodule: 'zentao',
+            viewname: 'ProjectEditView_Activate',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
             ],
         },
         {
@@ -526,6 +545,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '956ad42e59e60cd8b49e7035147e25cf',
+                '9ed41cee96088630f3d4b0a91e705930',
                 '770a170098d148e438a7666b248e6519',
             ],
         },
@@ -597,6 +617,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '5895951b7f1045198682c8d51cd85482',
+            viewmodule: 'zentao',
+            viewname: 'TaskGridView9_StoryRelated',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '575fecad655143bbd28f17c581725a4e',
+                'ea141fddc78fd1af4d06e494baf12cc1',
+            ],
+        },
+        {
             viewtag: '58a943454a652d4f4ce2702d6447c079',
             viewmodule: 'zentao',
             viewname: 'ProductStoryTreeExpView',
@@ -638,17 +669,23 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '5d468f620cc30181773d875b3bb8be6e',
-            viewmodule: 'ibiz',
-            viewname: 'ProductStatsEditView9',
+            viewtag: '5b7c1b586dc5e23998a2765d235eaa7e',
+            viewmodule: 'zentao',
+            viewname: 'ProjectMainView_Edit',
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '6c7b582273d0726bcf77214807cfe40c',
-                'f83dac873b9215483c4bb91673284b41',
-                'aad9a5713d6828d3119b811b26915215',
-                '9ddace1c12afee8da3f0254a05ba141a',
-                '4863a523ac490ebce771717756f0c6a8',
+            ],
+        },
+        {
+            viewtag: '5d3b1d4c90b8b3a2013ccd3f3a9d5f17',
+            viewmodule: 'zentao',
+            viewname: 'CaseGridView9_StoryRelated',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '6f78b25e86923ab600a2141d50fe49fd',
+                '02b7ecd8e994b90558a9d6c23705f600',
             ],
         },
         {
@@ -668,6 +705,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '956ad42e59e60cd8b49e7035147e25cf',
+                '9ed41cee96088630f3d4b0a91e705930',
             ],
         },
         {
@@ -911,6 +949,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '6f78b25e86923ab600a2141d50fe49fd',
                 '02b7ecd8e994b90558a9d6c23705f600',
             ],
         },
@@ -932,6 +971,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '1540523a668e920d831510cfbec2c5e2',
                 '46517a803b2470cd0bef27aeda0dbcaf',
             ],
         },
@@ -947,17 +987,6 @@ export const viewstate: any = {
                 'aad9a5713d6828d3119b811b26915215',
                 '08ca1b1e6234a0d038e1fbf52478ea7f',
                 '21d716ac12c793af54b112a5a3599674',
-            ],
-        },
-        {
-            viewtag: '84104216ff9049079f9442c9cbd54342',
-            viewmodule: 'ibiz',
-            viewname: 'ProductModuleTreeExpView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'a9be826f6c53b091270f492be52f2519',
-                '523abe6eb852ca08fe4a3c140ff47b42',
             ],
         },
         {
@@ -980,7 +1009,12 @@ export const viewstate: any = {
             refviews: [
                 'ef1a8c8701140368af895304274c602a',
                 '96ec3f978c1cc22acc532331d5dc2a41',
+                'edd664c8fc682d166b3a027dd08bbd8b',
+                '28557f7c31a387e1deb552076d51f9f1',
+                '9a8c28c2365d7dc8bb5619f39576b558',
+                '5b7c1b586dc5e23998a2765d235eaa7e',
                 '770a170098d148e438a7666b248e6519',
+                '4b8db6d139edb8adadbef2f0c0b3350a',
             ],
         },
         {
@@ -1133,12 +1167,13 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '985c8eb7591e5e00de8e3cda638d5727',
-            viewmodule: 'ibiz',
-            viewname: 'ProductLifeRoadMapListView9',
+            viewtag: '9a8c28c2365d7dc8bb5619f39576b558',
+            viewmodule: 'zentao',
+            viewname: 'ProjectEditView_Close',
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '770a170098d148e438a7666b248e6519',
             ],
         },
         {
@@ -1162,6 +1197,26 @@ export const viewstate: any = {
                 '6c7b582273d0726bcf77214807cfe40c',
                 'fffe78c32fb25b287d0c5165d46f8dd2',
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: '9ed41cee96088630f3d4b0a91e705930',
+            viewmodule: 'zentao',
+            viewname: 'FileListView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: 'a0f93007d7102bd236dc8f50ac4042ea',
+            viewmodule: 'zentao',
+            viewname: 'StoryGridView9_Related',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3f2ca3e560d9082bb56fbf7667a57a66',
+                '4863a523ac490ebce771717756f0c6a8',
             ],
         },
         {
@@ -1252,15 +1307,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: 'a9be826f6c53b091270f492be52f2519',
-            viewmodule: 'ibiz',
-            viewname: 'ProductModuleQuickCfgView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: 'aad9a5713d6828d3119b811b26915215',
             viewmodule: 'zentao',
             viewname: 'ProductPlanEditView',
@@ -1276,6 +1322,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'e8763999350c7bd92e884e0381d7ac6b',
                 '5b139a407fa34f386f3f784f33841184',
                 '5273dc442a49b8c4d37ba9ff008531e7',
                 '417541fa331fc089b84936b8359403fa',
@@ -1290,6 +1337,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: 'ac21af5f9696e38031a7c2291ed02d64',
+            viewmodule: 'zentao',
+            viewname: 'IBZ_PROJECTTEAMMainGridView_EditRow',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -1363,18 +1419,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: 'bb8860972029d9947daa3652a4b5d291',
-            viewmodule: 'ibiz',
-            viewname: 'ProjectModuleTreeExpView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'a9be826f6c53b091270f492be52f2519',
-                '41dab4e36aef71df5c66acca4db7d045',
-                '0568d197dda832ceb89ad0442ab9f230',
-            ],
-        },
-        {
             viewtag: 'bc36be2ee4a78e69c13665a8ad03ab6a',
             viewmodule: 'zentao',
             viewname: 'ProductMainDashboardView',
@@ -1382,6 +1426,8 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '985c8eb7591e5e00de8e3cda638d5727',
+                'c02574075c8c15c67231cd71be040763',
+                '3fa1a1978a4380209df04704e2f8059f',
                 'b5d2389c0dd12ae614b319090ecc2361',
                 '97af408e6a6cb088c824cacd1807f353',
                 '770a170098d148e438a7666b248e6519',
@@ -1394,6 +1440,16 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'c02574075c8c15c67231cd71be040763',
+            viewmodule: 'zentao',
+            viewname: 'ProductMainView_Edit',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'cb6c278fd7205b3de3fc041816d15dd8',
             ],
         },
         {
@@ -1441,6 +1497,17 @@ export const viewstate: any = {
                 '46517a803b2470cd0bef27aeda0dbcaf',
                 'c1e9611b6972b1877b75fa5d2c67aad6',
                 '122af527bf38b47ddc53c882847b490e',
+            ],
+        },
+        {
+            viewtag: 'c959d7fe98c33b7befcad24e2596633e',
+            viewmodule: 'zentao',
+            viewname: 'BugGridView9_StoryRelated',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '1540523a668e920d831510cfbec2c5e2',
+                '46517a803b2470cd0bef27aeda0dbcaf',
             ],
         },
         {
@@ -1498,25 +1565,23 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: 'D1283E46-401A-4CFD-A7A1-BF5B90197463',
-            viewmodule: 'Ungroup',
-            viewname: 'TestPortalView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '7f9b2e4d5b622528df75121b824b6fcc',
-                '3091670967914b91fb4b6f46751dcd7e',
-                '81893d14e76cac341d4218a9c5ef185d',
-                'c539f1585371e9943b90177eaef08b6b',
-            ],
-        },
-        {
             viewtag: 'd4cb26555e6d81a172652580cf7d9f7f',
             viewmodule: 'zentao',
             viewname: 'BranchPMEditView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'd6ef7de701a935bd9023cd0eb1338f58',
+            viewmodule: 'zentao',
+            viewname: 'StoryGridView9_Child',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3f2ca3e560d9082bb56fbf7667a57a66',
+                '4863a523ac490ebce771717756f0c6a8',
             ],
         },
         {
@@ -1550,15 +1615,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: 'e444135470a806822b9b950e15c42a3e',
-            viewmodule: 'ibiz',
-            viewname: 'ProjectStatsEditView9',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: 'e54598b1e6d38d7c6ce8231b531b46bd',
             viewmodule: 'zentao',
             viewname: 'StoryEditView_StoryChange',
@@ -1576,6 +1632,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: 'e8763999350c7bd92e884e0381d7ac6b',
+            viewmodule: 'zentao',
+            viewname: 'TestTaskEditView_Edit',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -1626,6 +1691,16 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'edd664c8fc682d166b3a027dd08bbd8b',
+            viewmodule: 'zentao',
+            viewname: 'ProjectEditView_Suspend',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
             ],
         },
         {
@@ -1743,6 +1818,7 @@ export const viewstate: any = {
                 '8104f8c4c275f6ba17fb969edf52eb37',
                 '85ee867b09a2d6303c061d91374ec975',
                 'bb8860972029d9947daa3652a4b5d291',
+                '231eecf4805f0b378601ea1a7912077f',
                 '7b1cc190cbffe1cd122d87a9d03b2d21',
                 '7d34636d1c24d613abf8d3fdc64ec7ba',
                 '441544d65ca067ea5ea625645b70e610',
@@ -1759,6 +1835,120 @@ export const viewstate: any = {
                 '5b1056f95f9015cdb45901308a758e25',
                 '09b6c2af7dcc4b719d4c8aad2319f1c5',
                 'f8ffad31189703973765c5a9c4fc8a5c',
+            ],
+        },
+        {
+            viewtag: '0568d197dda832ceb89ad0442ab9f230',
+            viewmodule: 'ibiz',
+            viewname: 'ProjectModuleQuickCfgView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: '07327890c326f9c806b9343f0c660fc1',
+            viewmodule: 'ibiz',
+            viewname: 'ProductLifeRoadMapListView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: '231eecf4805f0b378601ea1a7912077f',
+            viewmodule: 'ibiz',
+            viewname: 'ProjectTeamMainGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'ac21af5f9696e38031a7c2291ed02d64',
+            ],
+        },
+        {
+            viewtag: '41dab4e36aef71df5c66acca4db7d045',
+            viewmodule: 'ibiz',
+            viewname: 'ProjectModuleMainGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: '5d468f620cc30181773d875b3bb8be6e',
+            viewmodule: 'ibiz',
+            viewname: 'ProductStatsEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '6c7b582273d0726bcf77214807cfe40c',
+                'f83dac873b9215483c4bb91673284b41',
+                'aad9a5713d6828d3119b811b26915215',
+                '9ddace1c12afee8da3f0254a05ba141a',
+                '4863a523ac490ebce771717756f0c6a8',
+            ],
+        },
+        {
+            viewtag: '84104216ff9049079f9442c9cbd54342',
+            viewmodule: 'ibiz',
+            viewname: 'ProductModuleTreeExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'a9be826f6c53b091270f492be52f2519',
+                '523abe6eb852ca08fe4a3c140ff47b42',
+            ],
+        },
+        {
+            viewtag: '985c8eb7591e5e00de8e3cda638d5727',
+            viewmodule: 'ibiz',
+            viewname: 'ProductLifeRoadMapListView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: 'a9be826f6c53b091270f492be52f2519',
+            viewmodule: 'ibiz',
+            viewname: 'ProductModuleQuickCfgView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: 'bb8860972029d9947daa3652a4b5d291',
+            viewmodule: 'ibiz',
+            viewname: 'ProjectModuleTreeExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'a9be826f6c53b091270f492be52f2519',
+                '41dab4e36aef71df5c66acca4db7d045',
+                '0568d197dda832ceb89ad0442ab9f230',
+            ],
+        },
+        {
+            viewtag: 'e444135470a806822b9b950e15c42a3e',
+            viewmodule: 'ibiz',
+            viewname: 'ProjectStatsEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: 'D1283E46-401A-4CFD-A7A1-BF5B90197463',
+            viewmodule: 'Ungroup',
+            viewname: 'TestPortalView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '7f9b2e4d5b622528df75121b824b6fcc',
+                '3091670967914b91fb4b6f46751dcd7e',
+                '81893d14e76cac341d4218a9c5ef185d',
+                'c539f1585371e9943b90177eaef08b6b',
             ],
         },
     ],

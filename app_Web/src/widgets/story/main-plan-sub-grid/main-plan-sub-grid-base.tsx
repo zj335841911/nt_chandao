@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, GridControllerBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import Main_PlanSubService from './main-plan-sub-grid-service';
+import StoryUIService from '@/uiservice/story/story-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 
@@ -41,6 +42,34 @@ export class Main_PlanSubGridBase extends GridControllerBase {
     protected appDeName: string = 'story';
 
     /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_uacf185c_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:StoryUIService  = new StoryUIService();
+        curUIService.Story_UnlinkStory(datas,contextJO, paramJO,  $event, xData,this,"Story");
+    }
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -71,6 +100,13 @@ export class Main_PlanSubGridBase extends GridControllerBase {
             util: 'PX'
         },
         {
+            name: 'modulename',
+            label: '所属模块名称',
+            langtag: 'entities.story.main_plansub_grid.columns.modulename',
+            show: true,
+            util: 'PX'
+        },
+        {
             name: 'title',
             label: '需求名称',
             langtag: 'entities.story.main_plansub_grid.columns.title',
@@ -78,9 +114,44 @@ export class Main_PlanSubGridBase extends GridControllerBase {
             util: 'STAR'
         },
         {
-            name: 'modulename',
-            label: '所属模块名称',
-            langtag: 'entities.story.main_plansub_grid.columns.modulename',
+            name: 'openedby',
+            label: '创建',
+            langtag: 'entities.story.main_plansub_grid.columns.openedby',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'assignedto',
+            label: '指派',
+            langtag: 'entities.story.main_plansub_grid.columns.assignedto',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'estimate',
+            label: '预计',
+            langtag: 'entities.story.main_plansub_grid.columns.estimate',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'status',
+            label: '状态',
+            langtag: 'entities.story.main_plansub_grid.columns.status',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'stage',
+            label: '阶段',
+            langtag: 'entities.story.main_plansub_grid.columns.stage',
+            show: true,
+            util: 'PX'
+        },
+        {
+            name: 'uagridcolumn1',
+            label: '操作',
+            langtag: 'entities.story.main_plansub_grid.columns.uagridcolumn1',
             show: true,
             util: 'PX'
         },
@@ -120,8 +191,14 @@ export class Main_PlanSubGridBase extends GridControllerBase {
     public hasRowEdit: any = {
         'id':false,
         'pri':false,
-        'title':false,
         'modulename':false,
+        'title':false,
+        'openedby':false,
+        'assignedto':false,
+        'estimate':false,
+        'status':false,
+        'stage':false,
+        'uagridcolumn1':false,
     };
 
     /**
@@ -155,7 +232,54 @@ export class Main_PlanSubGridBase extends GridControllerBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+            {
+                name: 'openedby',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
+            {
+                name: 'assignedto',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
+            {
+                name: 'status',
+                srfkey: 'Story__status',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'stage',
+                srfkey: 'Story__stage',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
         ]);
     }
 
+
+    /**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof Main_PlanSubGridBase
+     */
+	public uiAction(row: any, tag: any, $event: any): void {
+        $event.stopPropagation();
+        if(Object.is('UnlinkStory', tag)) {
+            this.grid_uagridcolumn1_uacf185c_click(row, tag, $event);
+        }
+    }
 }

@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IUserTplService extends IService<UserTpl>{
 
-    UserTpl getDraft(UserTpl et) ;
-    boolean checkKey(UserTpl et) ;
     boolean create(UserTpl et) ;
     void createBatch(List<UserTpl> list) ;
-    boolean save(UserTpl et) ;
-    void saveBatch(List<UserTpl> list) ;
-    UserTpl get(BigInteger key) ;
     boolean update(UserTpl et) ;
     void updateBatch(List<UserTpl> list) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
+    UserTpl get(BigInteger key) ;
+    UserTpl getDraft(UserTpl et) ;
+    boolean checkKey(UserTpl et) ;
+    boolean save(UserTpl et) ;
+    void saveBatch(List<UserTpl> list) ;
     Page<UserTpl> searchDefault(UserTplSearchContext context) ;
     /**
      *自定义查询SQL
@@ -51,8 +51,6 @@ public interface IUserTplService extends IService<UserTpl>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

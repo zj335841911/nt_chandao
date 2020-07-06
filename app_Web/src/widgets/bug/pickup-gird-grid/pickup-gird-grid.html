@@ -24,7 +24,7 @@
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('id')">
-                <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.bug.pickupgird_grid.columns.id')" :width="80"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.bug.pickupgird_grid.columns.id')" :width="70"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.bug.pickupgird_grid.columns.id')}}
@@ -36,7 +36,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('pri')">
-                <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.bug.pickupgird_grid.columns.pri')" :width="80"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.bug.pickupgird_grid.columns.pri')" :width="70"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.bug.pickupgird_grid.columns.pri')}}
@@ -45,20 +45,6 @@
                     <template v-slot="{row,column,$index}">
                         <template >
             <codelist :value="row.pri" tag='Bug__pri' codelistType='STATIC' ></codelist>
-                        </template>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('confirmed')">
-                <el-table-column show-overflow-tooltip :prop="'confirmed'" :label="$t('entities.bug.pickupgird_grid.columns.confirmed')" :width="80"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.bug.pickupgird_grid.columns.confirmed')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <template >
-            <codelist :value="row.confirmed" tag='YesNo2' codelistType='STATIC' ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -72,20 +58,6 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <span>{{row.title}}</span>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('status')">
-                <el-table-column show-overflow-tooltip :prop="'status'" :label="$t('entities.bug.pickupgird_grid.columns.status')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.bug.pickupgird_grid.columns.status')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <template >
-            <codelist :value="row.status" tag='Bug__status' codelistType='STATIC' ></codelist>
-                        </template>
                     </template>
                 </el-table-column>
             </template>
@@ -103,18 +75,6 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('openeddate')">
-                <el-table-column show-overflow-tooltip :prop="'openeddate'" :label="$t('entities.bug.pickupgird_grid.columns.openeddate')" :width="120"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.bug.pickupgird_grid.columns.openeddate')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <app-format-data format="YYYY-MM-DD hh:mm:ss" :data="row.openeddate"></app-format-data>
-                    </template>
-                </el-table-column>
-            </template>
             <template v-if="getColumnState('assignedto')">
                 <el-table-column show-overflow-tooltip :prop="'assignedto'" :label="$t('entities.bug.pickupgird_grid.columns.assignedto')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
@@ -123,7 +83,23 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.assignedto}}</span>
+                        <template >
+            <codelist :value="row.assignedto" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('status')">
+                <el-table-column show-overflow-tooltip :prop="'status'" :label="$t('entities.bug.pickupgird_grid.columns.status')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.bug.pickupgird_grid.columns.status')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template >
+            <codelist :value="row.status" tag='Bug__status' codelistType='STATIC' ></codelist>
+                        </template>
                     </template>
                 </el-table-column>
             </template>

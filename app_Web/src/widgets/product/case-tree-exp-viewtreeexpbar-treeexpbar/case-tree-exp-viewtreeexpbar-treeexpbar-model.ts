@@ -90,6 +90,9 @@ export default class CaseTreeExpViewtreeexpbarModel {
       {
         name: 'notclosedbugcnt',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

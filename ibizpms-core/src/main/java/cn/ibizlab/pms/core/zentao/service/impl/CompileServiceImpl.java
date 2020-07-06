@@ -80,6 +80,18 @@ public class CompileServiceImpl extends ServiceImpl<CompileMapper, Compile> impl
 
     @Override
     @Transactional
+    public boolean remove(BigInteger key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<BigInteger> idList) {
+        removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
     public Compile get(BigInteger key) {
         Compile et = getById(key);
         if(et==null){
@@ -92,22 +104,14 @@ public class CompileServiceImpl extends ServiceImpl<CompileMapper, Compile> impl
     }
 
     @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
-    }
-
-    @Override
     public Compile getDraft(Compile et) {
         return et;
     }
 
+    @Override
+    public boolean checkKey(Compile et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
     @Override
     @Transactional
     public boolean save(Compile et) {
@@ -139,10 +143,6 @@ public class CompileServiceImpl extends ServiceImpl<CompileMapper, Compile> impl
         saveOrUpdateBatch(list,batchSize);
     }
 
-    @Override
-    public boolean checkKey(Compile et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
 
 
     /**

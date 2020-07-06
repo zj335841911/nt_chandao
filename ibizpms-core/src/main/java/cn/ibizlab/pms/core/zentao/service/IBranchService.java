@@ -25,20 +25,20 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IBranchService extends IService<Branch>{
 
-    Branch getDraft(Branch et) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
     boolean create(Branch et) ;
     void createBatch(List<Branch> list) ;
     boolean update(Branch et) ;
     void updateBatch(List<Branch> list) ;
-    Branch sort(Branch et) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    Branch get(BigInteger key) ;
+    Branch getDraft(Branch et) ;
     boolean checkKey(Branch et) ;
     boolean save(Branch et) ;
     void saveBatch(List<Branch> list) ;
-    Branch get(BigInteger key) ;
-    Page<Branch> searchDefault(BranchSearchContext context) ;
+    Branch sort(Branch et) ;
     Page<Branch> searchCurProduct(BranchSearchContext context) ;
+    Page<Branch> searchDefault(BranchSearchContext context) ;
     List<Branch> selectByProduct(BigInteger id) ;
     void removeByProduct(BigInteger id) ;
     /**
@@ -55,8 +55,6 @@ public interface IBranchService extends IService<Branch>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

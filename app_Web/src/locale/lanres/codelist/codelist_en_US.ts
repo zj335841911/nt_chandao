@@ -15,6 +15,9 @@ export default {
         "bydesign": "设计如此",
         "empty": ""
     },
+    RelatedStory: {
+        "empty": "",
+    },
     Testcase__stage: {
         "unittest": "单元测试阶段",
         "feature": "功能测试阶段",
@@ -185,6 +188,9 @@ export default {
         "1": "是",
         "0": "否",
         "empty": ""
+    },
+    BugModule: {
+        "empty": "",
     },
     Role: {
         "empty": "",

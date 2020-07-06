@@ -42,7 +42,7 @@ export default {
     title: "Bug标题",
     productname: "产品",
     projectname: "项目",
-    storyname: "需求",
+    storyname: "相关需求",
     caseversion: "用例版本",
     repotype: "代码类型",
     tostory: "转需求",
@@ -60,6 +60,7 @@ export default {
     task: "相关任务",
     testtask: "测试单",
     comment: "备注",
+    taskname: "相关任务",
   },
 	views: {
 		plansubgridview: {
@@ -126,6 +127,10 @@ export default {
 			caption: "Bug",
       		title: "bug表格视图",
 		},
+		gridview9_storyrelated: {
+			caption: "相关Bug",
+      		title: "相关Bug",
+		},
 		closeview: {
 			caption: "关闭Bug",
       		title: "关闭Bug",
@@ -187,11 +192,13 @@ export default {
 			severity: "严重程度", 
 			pri: "优先级", 
 			steps: "重现步骤", 
-			story: "相关需求", 
-			task: "相关任务", 
+			storyname: "相关需求", 
+			taskname: "相关任务", 
 			mailto: "抄送给", 
 			keywords: "关键词", 
 			id: "Bug编号", 
+			story: "相关需求", 
+			task: "相关任务", 
 		},
 		uiactions: {
 		},
@@ -215,8 +222,11 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			id: "Bug编号", 
 			title: "Bug标题", 
 			steps: "重现步骤", 
+			comment: "备注", 
+			files: "附件", 
 			product: "所属产品", 
 			productname: "产品", 
 			branch: "平台/分支", 
@@ -237,8 +247,8 @@ export default {
 			mailto: "抄送给", 
 			project: "所属项目", 
 			projectname: "项目", 
-			story: "相关需求", 
-			task: "相关任务", 
+			storyname: "相关需求", 
+			taskname: "相关任务", 
 			openedby: "由谁创建", 
 			openedbuild: "影响版本", 
 			resolvedby: "由谁解决", 
@@ -246,7 +256,8 @@ export default {
 			resolvedbuild: "解决版本", 
 			closedby: "由谁关闭", 
 			lasteditedby: "最后修改者", 
-			id: "Bug编号", 
+			story: "相关需求", 
+			task: "相关任务", 
 		},
 		uiactions: {
 		},
@@ -359,13 +370,13 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			id: "Bug编号", 
 			resolution: "解决方案", 
 			resolvedbuild: "解决版本", 
 			resolveddate: "解决日期", 
 			assignedto: "指派给", 
 			files: "附件", 
 			comment: "备注", 
-			id: "Bug编号", 
 		},
 		uiactions: {
 		},
@@ -390,16 +401,23 @@ export default {
 		uiactions: {
 		},
 	},
-	pickupgird_grid: {
+	main_buildsub_grid: {
 		columns: {
-			id: "Bug编号",
+			id: "ID",
 			pri: "P",
-			confirmed: "是否确认",
 			title: "Bug标题",
 			status: "Bug状态",
 			openedby: "由谁创建",
 			openeddate: "创建日期",
 			assignedto: "指派给",
+		},
+		uiactions: {
+		},
+	},
+	storyrelated_grid: {
+		columns: {
+			id: "ID",
+			title: "Bug标题",
 		},
 		uiactions: {
 		},
@@ -413,19 +431,20 @@ export default {
 			openedby: "由谁创建",
 			openeddate: "创建日期",
 			assignedto: "指派给",
+			uagridcolumn1: "操作",
 		},
 		uiactions: {
+        bug_unlinkbug: "移除关联",
 		},
 	},
-	main_buildsub_grid: {
+	pickupgird_grid: {
 		columns: {
 			id: "ID",
 			pri: "P",
 			title: "Bug标题",
+			openedby: "创建",
+			assignedto: "指派",
 			status: "Bug状态",
-			openedby: "由谁创建",
-			openeddate: "创建日期",
-			assignedto: "指派给",
 		},
 		uiactions: {
 		},
@@ -492,6 +511,24 @@ export default {
 			tip: "Save And Close Window",
 		},
 	},
+	buildsubgridview_donetoolbar_toolbar: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
+	editviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+	},
+	buildsubgridview_newtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
 	plansubgridviewtoolbar_toolbar: {
 		deuiaction3_planrelationbug: {
 			caption: "关联Bug",
@@ -509,24 +546,6 @@ export default {
 			caption: "",
 			tip: "",
 		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-	},
-	editviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
-		},
-	},
-	buildsubgridview_donetoolbar_toolbar: {
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-	},
-	buildsubgridview_newtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",

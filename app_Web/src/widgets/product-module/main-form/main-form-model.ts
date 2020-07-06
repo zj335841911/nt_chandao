@@ -96,11 +96,6 @@ export default class MainModel {
         dataType: 'PICKUP',
       },
       {
-        name: 'product',
-        prop: 'id',
-        dataType: 'FONTKEY',
-      },
-      {
         name: 'productmodule',
         prop: 'id',
         dataType: 'FONTKEY',

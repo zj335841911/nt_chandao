@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ICompanyService extends IService<Company>{
 
-    Company get(BigInteger key) ;
-    Company getDraft(Company et) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    boolean checkKey(Company et) ;
-    boolean update(Company et) ;
-    void updateBatch(List<Company> list) ;
-    boolean save(Company et) ;
-    void saveBatch(List<Company> list) ;
     boolean create(Company et) ;
     void createBatch(List<Company> list) ;
+    boolean update(Company et) ;
+    void updateBatch(List<Company> list) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    Company get(BigInteger key) ;
+    Company getDraft(Company et) ;
+    boolean checkKey(Company et) ;
+    boolean save(Company et) ;
+    void saveBatch(List<Company> list) ;
     Page<Company> searchDefault(CompanySearchContext context) ;
     /**
      *自定义查询SQL
@@ -51,8 +51,6 @@ public interface ICompanyService extends IService<Company>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

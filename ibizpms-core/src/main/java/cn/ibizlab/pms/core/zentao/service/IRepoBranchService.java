@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IRepoBranchService extends IService<RepoBranch>{
 
-    boolean checkKey(RepoBranch et) ;
-    boolean update(RepoBranch et) ;
-    void updateBatch(List<RepoBranch> list) ;
-    RepoBranch get(String key) ;
-    boolean save(RepoBranch et) ;
-    void saveBatch(List<RepoBranch> list) ;
     boolean create(RepoBranch et) ;
     void createBatch(List<RepoBranch> list) ;
-    RepoBranch getDraft(RepoBranch et) ;
+    boolean update(RepoBranch et) ;
+    void updateBatch(List<RepoBranch> list) ;
     boolean remove(String key) ;
     void removeBatch(Collection<String> idList) ;
+    RepoBranch get(String key) ;
+    RepoBranch getDraft(RepoBranch et) ;
+    boolean checkKey(RepoBranch et) ;
+    boolean save(RepoBranch et) ;
+    void saveBatch(List<RepoBranch> list) ;
     Page<RepoBranch> searchDefault(RepoBranchSearchContext context) ;
     /**
      *自定义查询SQL
@@ -51,8 +51,6 @@ public interface IRepoBranchService extends IService<RepoBranch>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

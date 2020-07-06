@@ -41,6 +41,7 @@ export class ProductModuleGridViewBase extends GridViewBase {
 	 * @memberof ProductModuleGridViewBase
 	 */
     protected customViewParams: any = {
+        'product': { isRawValue: false, value: 'product' },
         'moduletype': { isRawValue: false, value: 'moduletype' },
         'root': { isRawValue: false, value: 'product' }
     };
@@ -298,7 +299,7 @@ export class ProductModuleGridViewBase extends GridViewBase {
      * @type {boolean}
      * @memberof ProductModuleGridViewBase
      */
-    protected isSingleSelect: boolean = true;
+    protected isGridSingleSelect: boolean = true;
 
     /**
      * 表格行数据默认激活模式

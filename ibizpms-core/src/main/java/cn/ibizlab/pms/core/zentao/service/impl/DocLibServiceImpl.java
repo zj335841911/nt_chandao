@@ -57,8 +57,43 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
     protected int batchSize = 500;
 
     @Override
-    public DocLib getDraft(DocLib et) {
-        return et;
+    @Transactional
+    public boolean create(DocLib et) {
+        if(!this.retBool(this.baseMapper.insert(et)))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void createBatch(List<DocLib> list) {
+        this.saveBatch(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean update(DocLib et) {
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void updateBatch(List<DocLib> list) {
+        updateBatchById(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean remove(BigInteger key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<BigInteger> idList) {
+        removeByIds(idList);
     }
 
     @Override
@@ -75,35 +110,14 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
     }
 
     @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
+    public DocLib getDraft(DocLib et) {
+        return et;
     }
 
     @Override
     public boolean checkKey(DocLib et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-    @Override
-    @Transactional
-    public boolean update(DocLib et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void updateBatch(List<DocLib> list) {
-        updateBatchById(list,batchSize);
-    }
-
     @Override
     @Transactional
     public boolean save(DocLib et) {
@@ -133,20 +147,6 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
     @Override
     public void saveBatch(List<DocLib> list) {
         saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public boolean create(DocLib et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void createBatch(List<DocLib> list) {
-        this.saveBatch(list,batchSize);
     }
 
 

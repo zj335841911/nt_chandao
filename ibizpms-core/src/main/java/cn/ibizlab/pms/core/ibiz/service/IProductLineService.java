@@ -23,17 +23,17 @@ import cn.ibizlab.pms.core.ibiz.filter.ProductLineSearchContext;
  */
 public interface IProductLineService{
 
-    ProductLine get(String key) ;
+    boolean create(ProductLine et) ;
+    void createBatch(List<ProductLine> list) ;
     boolean update(ProductLine et) ;
     void updateBatch(List<ProductLine> list) ;
     boolean remove(String key) ;
     void removeBatch(Collection<String> idList) ;
+    ProductLine get(String key) ;
+    ProductLine getDraft(ProductLine et) ;
+    boolean checkKey(ProductLine et) ;
     boolean save(ProductLine et) ;
     void saveBatch(List<ProductLine> list) ;
-    boolean create(ProductLine et) ;
-    void createBatch(List<ProductLine> list) ;
-    boolean checkKey(ProductLine et) ;
-    ProductLine getDraft(ProductLine et) ;
     Page<ProductLine> searchDefault(ProductLineSearchContext context) ;
 
 }

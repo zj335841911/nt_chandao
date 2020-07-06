@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IUserQueryService extends IService<UserQuery>{
 
-    boolean checkKey(UserQuery et) ;
-    UserQuery get(BigInteger key) ;
-    UserQuery getDraft(UserQuery et) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
     boolean create(UserQuery et) ;
     void createBatch(List<UserQuery> list) ;
-    boolean save(UserQuery et) ;
-    void saveBatch(List<UserQuery> list) ;
     boolean update(UserQuery et) ;
     void updateBatch(List<UserQuery> list) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    UserQuery get(BigInteger key) ;
+    UserQuery getDraft(UserQuery et) ;
+    boolean checkKey(UserQuery et) ;
+    boolean save(UserQuery et) ;
+    void saveBatch(List<UserQuery> list) ;
     Page<UserQuery> searchDefault(UserQuerySearchContext context) ;
     /**
      *自定义查询SQL
@@ -51,8 +51,6 @@ public interface IUserQueryService extends IService<UserQuery>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

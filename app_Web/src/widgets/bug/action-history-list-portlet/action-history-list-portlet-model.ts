@@ -192,6 +192,9 @@ export default class ActionHistoryListModel {
       {
         name: 'comment',
       },
+      {
+        name: 'taskname',
+      },
     ]
   }
 

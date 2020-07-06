@@ -15,11 +15,6 @@ import view_gantt from '@widgets/task/type-gantt-gantt/type-gantt-gantt.vue';
 @Component({
     components: {
         view_gantt, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
-        });
     }
 })
 @VueLifeCycleProcessing()

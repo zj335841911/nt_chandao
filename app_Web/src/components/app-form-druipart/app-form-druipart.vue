@@ -3,6 +3,7 @@
     <component 
       :is="viewname" 
       class="viewcontainer2" 
+      :viewUsage="4"
       :viewdata ="viewdata"
       :viewparam="viewparam"
       :viewDefaultUsage="false"

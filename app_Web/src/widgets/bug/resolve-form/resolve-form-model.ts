@@ -56,6 +56,11 @@ export default class ResolveModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'id',
+        prop: 'id',
+        dataType: 'ACID',
+      },
+      {
         name: 'resolution',
         prop: 'resolution',
         dataType: 'SSCODELIST',
@@ -82,11 +87,6 @@ export default class ResolveModel {
         name: 'comment',
         prop: 'comment',
         dataType: 'HTMLTEXT',
-      },
-      {
-        name: 'id',
-        prop: 'id',
-        dataType: 'ACID',
       },
       {
         name: 'bug',

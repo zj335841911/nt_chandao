@@ -25,19 +25,19 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IProjectProductService extends IService<ProjectProduct>{
 
-    ProjectProduct getDraft(ProjectProduct et) ;
-    boolean save(ProjectProduct et) ;
-    void saveBatch(List<ProjectProduct> list) ;
-    boolean checkKey(ProjectProduct et) ;
-    ProjectProduct get(String key) ;
     boolean create(ProjectProduct et) ;
     void createBatch(List<ProjectProduct> list) ;
-    boolean remove(String key) ;
-    void removeBatch(Collection<String> idList) ;
     boolean update(ProjectProduct et) ;
     void updateBatch(List<ProjectProduct> list) ;
-    Page<ProjectProduct> searchRelationPlan(ProjectProductSearchContext context) ;
+    boolean remove(String key) ;
+    void removeBatch(Collection<String> idList) ;
+    ProjectProduct get(String key) ;
+    ProjectProduct getDraft(ProjectProduct et) ;
+    boolean checkKey(ProjectProduct et) ;
+    boolean save(ProjectProduct et) ;
+    void saveBatch(List<ProjectProduct> list) ;
     Page<ProjectProduct> searchDefault(ProjectProductSearchContext context) ;
+    Page<ProjectProduct> searchRelationPlan(ProjectProductSearchContext context) ;
     List<ProjectProduct> selectByBranch(BigInteger id) ;
     void removeByBranch(BigInteger id) ;
     List<ProjectProduct> selectByPlan(BigInteger id) ;
@@ -60,8 +60,6 @@ public interface IProjectProductService extends IService<ProjectProduct>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

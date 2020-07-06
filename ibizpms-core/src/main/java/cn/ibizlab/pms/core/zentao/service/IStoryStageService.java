@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IStoryStageService extends IService<StoryStage>{
 
-    StoryStage get(String key) ;
-    boolean checkKey(StoryStage et) ;
     boolean create(StoryStage et) ;
     void createBatch(List<StoryStage> list) ;
-    boolean save(StoryStage et) ;
-    void saveBatch(List<StoryStage> list) ;
-    StoryStage getDraft(StoryStage et) ;
-    boolean remove(String key) ;
-    void removeBatch(Collection<String> idList) ;
     boolean update(StoryStage et) ;
     void updateBatch(List<StoryStage> list) ;
+    boolean remove(String key) ;
+    void removeBatch(Collection<String> idList) ;
+    StoryStage get(String key) ;
+    StoryStage getDraft(StoryStage et) ;
+    boolean checkKey(StoryStage et) ;
+    boolean save(StoryStage et) ;
+    void saveBatch(List<StoryStage> list) ;
     Page<StoryStage> searchDefault(StoryStageSearchContext context) ;
     List<StoryStage> selectByBranch(BigInteger id) ;
     void removeByBranch(BigInteger id) ;
@@ -55,8 +55,6 @@ public interface IStoryStageService extends IService<StoryStage>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

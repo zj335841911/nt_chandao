@@ -147,6 +147,9 @@ export default class MainPanelModel {
       {
         name: 'result',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

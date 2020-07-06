@@ -29,13 +29,13 @@ public interface IConfigService extends IService<Config>{
     void createBatch(List<Config> list) ;
     boolean update(Config et) ;
     void updateBatch(List<Config> list) ;
-    Config get(BigInteger key) ;
-    boolean save(Config et) ;
-    void saveBatch(List<Config> list) ;
-    Config getDraft(Config et) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
+    Config get(BigInteger key) ;
+    Config getDraft(Config et) ;
     boolean checkKey(Config et) ;
+    boolean save(Config et) ;
+    void saveBatch(List<Config> list) ;
     Page<Config> searchDefault(ConfigSearchContext context) ;
     /**
      *自定义查询SQL
@@ -51,8 +51,6 @@ public interface IConfigService extends IService<Config>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

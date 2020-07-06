@@ -6,7 +6,7 @@ import { StoryEditViewBase } from './story-edit-view-base';
 import view_form from '@widgets/story/main-new-mode-form/main-new-mode-form.vue';
 
 /**
- * story编辑视图视图
+ * 需求视图
  *
  * @export
  * @class StoryEditView
@@ -15,11 +15,6 @@ import view_form from '@widgets/story/main-new-mode-form/main-new-mode-form.vue'
 @Component({
     components: {
         view_form, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
-        });
     }
 })
 @VueLifeCycleProcessing()

@@ -15,11 +15,6 @@ import view_dashboard from '@widgets/test-task/dash-board-dashboard/dash-board-d
 @Component({
     components: {
         view_dashboard, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$store.commit('addCurPageViewtag', { route: to, viewtag: vm.viewtag });
-        });
     }
 })
 @VueLifeCycleProcessing()

@@ -75,35 +75,6 @@ export default class SuiteCaseServiceBase extends EntityService {
     }
 
     /**
-     * GetDraft接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof SuiteCaseServiceBase
-     */
-    public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/suitecases/getdraft`,isloading);
-        res.data.suitecase = data.suitecase;
-        return res;
-    }
-
-    /**
-     * Get接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof SuiteCaseServiceBase
-     */
-    public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = await Http.getInstance().get(`/suitecases/${context.suitecase}`,isloading);
-            return res;
-    }
-
-    /**
      * Update接口方法
      *
      * @param {*} [context={}]
@@ -133,7 +104,7 @@ export default class SuiteCaseServiceBase extends EntityService {
     }
 
     /**
-     * Save接口方法
+     * Get接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -141,11 +112,24 @@ export default class SuiteCaseServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof SuiteCaseServiceBase
      */
-    public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let masterData:any = {};
-        Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().post(`/suitecases/${context.suitecase}/save`,data,isloading);
+    public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = await Http.getInstance().get(`/suitecases/${context.suitecase}`,isloading);
             return res;
+    }
+
+    /**
+     * GetDraft接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SuiteCaseServiceBase
+     */
+    public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let res:any = await  Http.getInstance().get(`/suitecases/getdraft`,isloading);
+        res.data.suitecase = data.suitecase;
+        return res;
     }
 
     /**
@@ -159,6 +143,22 @@ export default class SuiteCaseServiceBase extends EntityService {
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             return Http.getInstance().post(`/suitecases/${context.suitecase}/checkkey`,data,isloading);
+    }
+
+    /**
+     * Save接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SuiteCaseServiceBase
+     */
+    public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().post(`/suitecases/${context.suitecase}/save`,data,isloading);
+            return res;
     }
 
     /**

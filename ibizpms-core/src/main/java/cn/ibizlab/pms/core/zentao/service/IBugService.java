@@ -25,27 +25,30 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IBugService extends IService<Bug>{
 
-    Bug close(Bug et) ;
-    Bug get(BigInteger key) ;
-    Bug activate(Bug et) ;
-    Bug getDraft(Bug et) ;
-    boolean checkKey(Bug et) ;
-    boolean save(Bug et) ;
-    void saveBatch(List<Bug> list) ;
     boolean create(Bug et) ;
     void createBatch(List<Bug> list) ;
-    Bug confirm(Bug et) ;
-    Bug resolve(Bug et) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
     boolean update(Bug et) ;
     void updateBatch(List<Bug> list) ;
-    Page<Bug> searchReportBugs(BugSearchContext context) ;
-    Page<Bug> searchReleaseBugs(BugSearchContext context) ;
-    Page<Bug> searchBuildOpenBugs(BugSearchContext context) ;
-    Page<Bug> searchReleaseLeftBugs(BugSearchContext context) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    Bug get(BigInteger key) ;
+    Bug getDraft(Bug et) ;
+    Bug activate(Bug et) ;
+    Bug batchUnlinkBug(Bug et) ;
+    boolean checkKey(Bug et) ;
+    Bug close(Bug et) ;
+    Bug confirm(Bug et) ;
+    Bug linkBug(Bug et) ;
+    Bug resolve(Bug et) ;
+    boolean save(Bug et) ;
+    void saveBatch(List<Bug> list) ;
+    Bug unlinkBug(Bug et) ;
     Page<Bug> searchBuildBugs(BugSearchContext context) ;
+    Page<Bug> searchBuildOpenBugs(BugSearchContext context) ;
     Page<Bug> searchDefault(BugSearchContext context) ;
+    Page<Bug> searchReleaseBugs(BugSearchContext context) ;
+    Page<Bug> searchReleaseLeftBugs(BugSearchContext context) ;
+    Page<Bug> searchReportBugs(BugSearchContext context) ;
     List<Bug> selectByBranch(BigInteger id) ;
     void removeByBranch(BigInteger id) ;
     List<Bug> selectByDuplicatebug(BigInteger id) ;
@@ -88,8 +91,6 @@ public interface IBugService extends IService<Bug>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

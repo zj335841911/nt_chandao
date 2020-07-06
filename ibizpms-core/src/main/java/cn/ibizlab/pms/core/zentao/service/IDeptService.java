@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IDeptService extends IService<Dept>{
 
-    boolean save(Dept et) ;
-    void saveBatch(List<Dept> list) ;
     boolean create(Dept et) ;
     void createBatch(List<Dept> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
     boolean update(Dept et) ;
     void updateBatch(List<Dept> list) ;
-    Dept getDraft(Dept et) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
     Dept get(BigInteger key) ;
+    Dept getDraft(Dept et) ;
     boolean checkKey(Dept et) ;
+    boolean save(Dept et) ;
+    void saveBatch(List<Dept> list) ;
     Page<Dept> searchDefault(DeptSearchContext context) ;
     Page<Dept> searchRoot(DeptSearchContext context) ;
     List<Dept> selectByParent(BigInteger id) ;
@@ -54,8 +54,6 @@ public interface IDeptService extends IService<Dept>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

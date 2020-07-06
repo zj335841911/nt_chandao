@@ -27,66 +27,6 @@ export default class PickupGirdModel {
     }else{
 		  return [
         {
-          name: 'tostory',
-          prop: 'tostory',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'openedby',
-          prop: 'openedby',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'duplicatebug',
-          prop: 'duplicatebug',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'assignedto',
-          prop: 'assignedto',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'story',
-          prop: 'story',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'title',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'confirmed',
-          prop: 'confirmed',
-          dataType: 'NSCODELIST',
-        },
-        {
-          name: 'repo',
-          prop: 'repo',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'totask',
           prop: 'totask',
           dataType: 'PICKUP',
@@ -95,11 +35,6 @@ export default class PickupGirdModel {
           name: 'module',
           prop: 'module',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'openeddate',
-          prop: 'openeddate',
-          dataType: 'DATETIME',
         },
         {
           name: 'status',
@@ -117,6 +52,41 @@ export default class PickupGirdModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'tostory',
+          prop: 'tostory',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'srfmajortext',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'srfkey',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'duplicatebug',
+          prop: 'duplicatebug',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'openedby',
+          prop: 'openedby',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
           name: 'product',
           prop: 'product',
           dataType: 'PICKUP',
@@ -127,13 +97,33 @@ export default class PickupGirdModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'story',
+          prop: 'story',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'assignedto',
+          prop: 'assignedto',
+          dataType: 'TEXT',
+        },
+        {
           name: 'pri',
           prop: 'pri',
           dataType: 'NSCODELIST',
         },
         {
+          name: 'title',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
           name: 'plan',
           prop: 'plan',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'repo',
+          prop: 'repo',
           dataType: 'PICKUP',
         },
         {

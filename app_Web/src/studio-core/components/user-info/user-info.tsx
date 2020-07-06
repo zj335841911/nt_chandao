@@ -56,12 +56,7 @@ export class UserInfo extends Vue {
             return;
         }
         if (name === 'custom-logout') {
-            const leftTime = new Date();
-            leftTime.setTime(leftTime.getSeconds() - 1000);
-            document.cookie = "ibzuaa-token=;expires=" + leftTime.toUTCString();
-            localStorage.removeItem('token');
-            location.href = location.origin + location.pathname + '#/login?redirect=' + encodeURIComponent(location.href);
-            return;
+            return this.$appService.logout();
         }
         const item: any = this.findMenuByName(name);
         if (item) {

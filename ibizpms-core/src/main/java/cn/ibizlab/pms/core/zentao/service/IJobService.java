@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IJobService extends IService<Job>{
 
-    boolean update(Job et) ;
-    void updateBatch(List<Job> list) ;
     boolean create(Job et) ;
     void createBatch(List<Job> list) ;
+    boolean update(Job et) ;
+    void updateBatch(List<Job> list) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
-    Job getDraft(Job et) ;
     Job get(BigInteger key) ;
+    Job getDraft(Job et) ;
+    boolean checkKey(Job et) ;
     boolean save(Job et) ;
     void saveBatch(List<Job> list) ;
-    boolean checkKey(Job et) ;
     Page<Job> searchDefault(JobSearchContext context) ;
     /**
      *自定义查询SQL
@@ -51,8 +51,6 @@ public interface IJobService extends IService<Job>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

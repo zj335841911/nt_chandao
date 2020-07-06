@@ -90,6 +90,9 @@ export default class ProductExpViewModel {
       {
         name: 'notclosedbugcnt',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

@@ -47,6 +47,25 @@ public class TestReportResource {
     @Lazy
     public TestReportMapping testreportMapping;
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-Create-all')")
+    @ApiOperation(value = "新建测试报告", tags = {"测试报告" },  notes = "新建测试报告")
+	@RequestMapping(method = RequestMethod.POST, value = "/testreports")
+    @Transactional
+    public ResponseEntity<TestReportDTO> create(@RequestBody TestReportDTO testreportdto) {
+        TestReport domain = testreportMapping.toDomain(testreportdto);
+		testreportService.create(domain);
+        TestReportDTO dto = testreportMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-Create-all')")
+    @ApiOperation(value = "批量新建测试报告", tags = {"测试报告" },  notes = "批量新建测试报告")
+	@RequestMapping(method = RequestMethod.POST, value = "/testreports/batch")
+    public ResponseEntity<Boolean> createBatch(@RequestBody List<TestReportDTO> testreportdtos) {
+        testreportService.createBatch(testreportMapping.toDomain(testreportdtos));
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-Update-all')")
     @ApiOperation(value = "更新测试报告", tags = {"测试报告" },  notes = "更新测试报告")
 	@RequestMapping(method = RequestMethod.PUT, value = "/testreports/{testreport_id}")
@@ -67,6 +86,22 @@ public class TestReportResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-Remove-all')")
+    @ApiOperation(value = "删除测试报告", tags = {"测试报告" },  notes = "删除测试报告")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/testreports/{testreport_id}")
+    @Transactional
+    public ResponseEntity<Boolean> remove(@PathVariable("testreport_id") BigInteger testreport_id) {
+         return ResponseEntity.status(HttpStatus.OK).body(testreportService.remove(testreport_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-Remove-all')")
+    @ApiOperation(value = "批量删除测试报告", tags = {"测试报告" },  notes = "批量删除测试报告")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/testreports/batch")
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
+        testreportService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-Get-all')")
     @ApiOperation(value = "获取测试报告", tags = {"测试报告" },  notes = "获取测试报告")
 	@RequestMapping(method = RequestMethod.GET, value = "/testreports/{testreport_id}")
@@ -74,6 +109,12 @@ public class TestReportResource {
         TestReport domain = testreportService.get(testreport_id);
         TestReportDTO dto = testreportMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "获取测试报告草稿", tags = {"测试报告" },  notes = "获取测试报告草稿")
+	@RequestMapping(method = RequestMethod.GET, value = "/testreports/getdraft")
+    public ResponseEntity<TestReportDTO> getDraft() {
+        return ResponseEntity.status(HttpStatus.OK).body(testreportMapping.toDto(testreportService.getDraft(new TestReport())));
     }
 
     @ApiOperation(value = "检查测试报告", tags = {"测试报告" },  notes = "检查测试报告")
@@ -97,47 +138,6 @@ public class TestReportResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-Create-all')")
-    @ApiOperation(value = "新建测试报告", tags = {"测试报告" },  notes = "新建测试报告")
-	@RequestMapping(method = RequestMethod.POST, value = "/testreports")
-    @Transactional
-    public ResponseEntity<TestReportDTO> create(@RequestBody TestReportDTO testreportdto) {
-        TestReport domain = testreportMapping.toDomain(testreportdto);
-		testreportService.create(domain);
-        TestReportDTO dto = testreportMapping.toDto(domain);
-		return ResponseEntity.status(HttpStatus.OK).body(dto);
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-Create-all')")
-    @ApiOperation(value = "批量新建测试报告", tags = {"测试报告" },  notes = "批量新建测试报告")
-	@RequestMapping(method = RequestMethod.POST, value = "/testreports/batch")
-    public ResponseEntity<Boolean> createBatch(@RequestBody List<TestReportDTO> testreportdtos) {
-        testreportService.createBatch(testreportMapping.toDomain(testreportdtos));
-        return  ResponseEntity.status(HttpStatus.OK).body(true);
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-Remove-all')")
-    @ApiOperation(value = "删除测试报告", tags = {"测试报告" },  notes = "删除测试报告")
-	@RequestMapping(method = RequestMethod.DELETE, value = "/testreports/{testreport_id}")
-    @Transactional
-    public ResponseEntity<Boolean> remove(@PathVariable("testreport_id") BigInteger testreport_id) {
-         return ResponseEntity.status(HttpStatus.OK).body(testreportService.remove(testreport_id));
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-Remove-all')")
-    @ApiOperation(value = "批量删除测试报告", tags = {"测试报告" },  notes = "批量删除测试报告")
-	@RequestMapping(method = RequestMethod.DELETE, value = "/testreports/batch")
-    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
-        testreportService.removeBatch(ids);
-        return  ResponseEntity.status(HttpStatus.OK).body(true);
-    }
-
-    @ApiOperation(value = "获取测试报告草稿", tags = {"测试报告" },  notes = "获取测试报告草稿")
-	@RequestMapping(method = RequestMethod.GET, value = "/testreports/getdraft")
-    public ResponseEntity<TestReportDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(testreportMapping.toDto(testreportService.getDraft(new TestReport())));
-    }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"测试报告" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/testreports/fetchdefault")
@@ -159,6 +159,30 @@ public class TestReportResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(testreportMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-Create-all')")
+    @ApiOperation(value = "根据产品建立测试报告", tags = {"测试报告" },  notes = "根据产品建立测试报告")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testreports")
+    @Transactional
+    public ResponseEntity<TestReportDTO> createByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody TestReportDTO testreportdto) {
+        TestReport domain = testreportMapping.toDomain(testreportdto);
+        domain.setProduct(product_id);
+		testreportService.create(domain);
+        TestReportDTO dto = testreportMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-Create-all')")
+    @ApiOperation(value = "根据产品批量建立测试报告", tags = {"测试报告" },  notes = "根据产品批量建立测试报告")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testreports/batch")
+    public ResponseEntity<Boolean> createBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<TestReportDTO> testreportdtos) {
+        List<TestReport> domainlist=testreportMapping.toDomain(testreportdtos);
+        for(TestReport domain:domainlist){
+            domain.setProduct(product_id);
+        }
+        testreportService.createBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-Update-all')")
     @ApiOperation(value = "根据产品更新测试报告", tags = {"测试报告" },  notes = "根据产品更新测试报告")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/testreports/{testreport_id}")
@@ -184,6 +208,22 @@ public class TestReportResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-Remove-all')")
+    @ApiOperation(value = "根据产品删除测试报告", tags = {"测试报告" },  notes = "根据产品删除测试报告")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/testreports/{testreport_id}")
+    @Transactional
+    public ResponseEntity<Boolean> removeByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("testreport_id") BigInteger testreport_id) {
+		return ResponseEntity.status(HttpStatus.OK).body(testreportService.remove(testreport_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-Remove-all')")
+    @ApiOperation(value = "根据产品批量删除测试报告", tags = {"测试报告" },  notes = "根据产品批量删除测试报告")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/testreports/batch")
+    public ResponseEntity<Boolean> removeBatchByProduct(@RequestBody List<BigInteger> ids) {
+        testreportService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-Get-all')")
     @ApiOperation(value = "根据产品获取测试报告", tags = {"测试报告" },  notes = "根据产品获取测试报告")
 	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/testreports/{testreport_id}")
@@ -191,6 +231,14 @@ public class TestReportResource {
         TestReport domain = testreportService.get(testreport_id);
         TestReportDTO dto = testreportMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "根据产品获取测试报告草稿", tags = {"测试报告" },  notes = "根据产品获取测试报告草稿")
+    @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/testreports/getdraft")
+    public ResponseEntity<TestReportDTO> getDraftByProduct(@PathVariable("product_id") BigInteger product_id) {
+        TestReport domain = new TestReport();
+        domain.setProduct(product_id);
+        return ResponseEntity.status(HttpStatus.OK).body(testreportMapping.toDto(testreportService.getDraft(domain)));
     }
 
     @ApiOperation(value = "根据产品检查测试报告", tags = {"测试报告" },  notes = "根据产品检查测试报告")
@@ -218,54 +266,6 @@ public class TestReportResource {
         }
         testreportService.saveBatch(domainlist);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-Create-all')")
-    @ApiOperation(value = "根据产品建立测试报告", tags = {"测试报告" },  notes = "根据产品建立测试报告")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testreports")
-    @Transactional
-    public ResponseEntity<TestReportDTO> createByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody TestReportDTO testreportdto) {
-        TestReport domain = testreportMapping.toDomain(testreportdto);
-        domain.setProduct(product_id);
-		testreportService.create(domain);
-        TestReportDTO dto = testreportMapping.toDto(domain);
-		return ResponseEntity.status(HttpStatus.OK).body(dto);
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-Create-all')")
-    @ApiOperation(value = "根据产品批量建立测试报告", tags = {"测试报告" },  notes = "根据产品批量建立测试报告")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testreports/batch")
-    public ResponseEntity<Boolean> createBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<TestReportDTO> testreportdtos) {
-        List<TestReport> domainlist=testreportMapping.toDomain(testreportdtos);
-        for(TestReport domain:domainlist){
-            domain.setProduct(product_id);
-        }
-        testreportService.createBatch(domainlist);
-        return  ResponseEntity.status(HttpStatus.OK).body(true);
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-Remove-all')")
-    @ApiOperation(value = "根据产品删除测试报告", tags = {"测试报告" },  notes = "根据产品删除测试报告")
-	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/testreports/{testreport_id}")
-    @Transactional
-    public ResponseEntity<Boolean> removeByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("testreport_id") BigInteger testreport_id) {
-		return ResponseEntity.status(HttpStatus.OK).body(testreportService.remove(testreport_id));
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-Remove-all')")
-    @ApiOperation(value = "根据产品批量删除测试报告", tags = {"测试报告" },  notes = "根据产品批量删除测试报告")
-	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/testreports/batch")
-    public ResponseEntity<Boolean> removeBatchByProduct(@RequestBody List<BigInteger> ids) {
-        testreportService.removeBatch(ids);
-        return  ResponseEntity.status(HttpStatus.OK).body(true);
-    }
-
-    @ApiOperation(value = "根据产品获取测试报告草稿", tags = {"测试报告" },  notes = "根据产品获取测试报告草稿")
-    @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/testreports/getdraft")
-    public ResponseEntity<TestReportDTO> getDraftByProduct(@PathVariable("product_id") BigInteger product_id) {
-        TestReport domain = new TestReport();
-        domain.setProduct(product_id);
-        return ResponseEntity.status(HttpStatus.OK).body(testreportMapping.toDto(testreportService.getDraft(domain)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-searchDefault-all')")

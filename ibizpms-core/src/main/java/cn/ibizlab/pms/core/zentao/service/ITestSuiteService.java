@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ITestSuiteService extends IService<TestSuite>{
 
-    boolean save(TestSuite et) ;
-    void saveBatch(List<TestSuite> list) ;
     boolean create(TestSuite et) ;
     void createBatch(List<TestSuite> list) ;
-    boolean checkKey(TestSuite et) ;
-    TestSuite getDraft(TestSuite et) ;
-    TestSuite get(BigInteger key) ;
     boolean update(TestSuite et) ;
     void updateBatch(List<TestSuite> list) ;
     boolean remove(BigInteger key) ;
     void removeBatch(Collection<BigInteger> idList) ;
+    TestSuite get(BigInteger key) ;
+    TestSuite getDraft(TestSuite et) ;
+    boolean checkKey(TestSuite et) ;
+    boolean save(TestSuite et) ;
+    void saveBatch(List<TestSuite> list) ;
     Page<TestSuite> searchDefault(TestSuiteSearchContext context) ;
     List<TestSuite> selectByProduct(BigInteger id) ;
     void removeByProduct(BigInteger id) ;
@@ -53,8 +53,6 @@ public interface ITestSuiteService extends IService<TestSuite>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

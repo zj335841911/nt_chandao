@@ -82,11 +82,6 @@ export default class MainModel {
           dataType: 'ACID',
         },
         {
-          name: 'product',
-          prop: 'id',
-          dataType: 'FONTKEY',
-        },
-        {
           name: 'productmodule',
           prop: 'id',
         },

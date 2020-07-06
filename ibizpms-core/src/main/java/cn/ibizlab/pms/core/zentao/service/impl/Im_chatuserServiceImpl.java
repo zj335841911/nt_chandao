@@ -63,6 +63,54 @@ public class Im_chatuserServiceImpl extends ServiceImpl<Im_chatuserMapper, Im_ch
 
     @Override
     @Transactional
+    public boolean update(Im_chatuser et) {
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void updateBatch(List<Im_chatuser> list) {
+        updateBatchById(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean remove(BigInteger key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<BigInteger> idList) {
+        removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
+    public Im_chatuser get(BigInteger key) {
+        Im_chatuser et = getById(key);
+        if(et==null){
+            et=new Im_chatuser();
+            et.setId(key);
+        }
+        else{
+        }
+        return et;
+    }
+
+    @Override
+    public Im_chatuser getDraft(Im_chatuser et) {
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(Im_chatuser et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
+    @Override
+    @Transactional
     public boolean save(Im_chatuser et) {
         if(!saveOrUpdate(et))
             return false;
@@ -90,54 +138,6 @@ public class Im_chatuserServiceImpl extends ServiceImpl<Im_chatuserMapper, Im_ch
     @Override
     public void saveBatch(List<Im_chatuser> list) {
         saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public boolean update(Im_chatuser et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void updateBatch(List<Im_chatuser> list) {
-        updateBatchById(list,batchSize);
-    }
-
-    @Override
-    public boolean checkKey(Im_chatuser et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
-    @Override
-    @Transactional
-    public Im_chatuser get(BigInteger key) {
-        Im_chatuser et = getById(key);
-        if(et==null){
-            et=new Im_chatuser();
-            et.setId(key);
-        }
-        else{
-        }
-        return et;
-    }
-
-    @Override
-    public Im_chatuser getDraft(Im_chatuser et) {
-        return et;
-    }
-
-    @Override
-    @Transactional
-    public boolean remove(BigInteger key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<BigInteger> idList) {
-        removeByIds(idList);
     }
 
 

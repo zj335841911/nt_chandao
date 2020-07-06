@@ -27,15 +27,15 @@ public interface IIm_messagestatusService extends IService<Im_messagestatus>{
 
     boolean create(Im_messagestatus et) ;
     void createBatch(List<Im_messagestatus> list) ;
-    boolean remove(String key) ;
-    void removeBatch(Collection<String> idList) ;
-    boolean checkKey(Im_messagestatus et) ;
     boolean update(Im_messagestatus et) ;
     void updateBatch(List<Im_messagestatus> list) ;
+    boolean remove(String key) ;
+    void removeBatch(Collection<String> idList) ;
+    Im_messagestatus get(String key) ;
+    Im_messagestatus getDraft(Im_messagestatus et) ;
+    boolean checkKey(Im_messagestatus et) ;
     boolean save(Im_messagestatus et) ;
     void saveBatch(List<Im_messagestatus> list) ;
-    Im_messagestatus getDraft(Im_messagestatus et) ;
-    Im_messagestatus get(String key) ;
     Page<Im_messagestatus> searchDefault(Im_messagestatusSearchContext context) ;
     /**
      *自定义查询SQL
@@ -51,8 +51,6 @@ public interface IIm_messagestatusService extends IService<Im_messagestatus>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

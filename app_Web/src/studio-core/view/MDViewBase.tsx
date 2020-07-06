@@ -30,16 +30,6 @@ export class MDViewBase extends ViewBase {
     protected isformDruipart?: boolean;
 
     /**
-     * 是否单选
-     *
-     * @readonly
-     * @type {boolean}
-     * @memberof MDViewBase
-     */
-    @Prop({ default: false })
-    protected isSingleSelect!: boolean;
-
-    /**
      * 是否展开搜索表单
      *
      * @readonly
@@ -144,9 +134,11 @@ export class MDViewBase extends ViewBase {
      * @memberof MDViewBase
      */
     protected quickGroupValueChange = ($event: any) => {
-        if ($event && $event.data) {
+        if ($event) {
             this.quickGroupData.clearAll();
-            Object.assign(this.quickGroupData, $event.data);
+            if ($event.data) {
+                Object.assign(this.quickGroupData, $event.data);
+            }
             if (this.isEmitQuickGroupValue) {
                 this.onSearch();
             }

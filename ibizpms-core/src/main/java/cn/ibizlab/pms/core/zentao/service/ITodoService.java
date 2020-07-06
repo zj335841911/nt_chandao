@@ -27,15 +27,15 @@ public interface ITodoService extends IService<Todo>{
 
     boolean create(Todo et) ;
     void createBatch(List<Todo> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    Todo getDraft(Todo et) ;
-    boolean save(Todo et) ;
-    void saveBatch(List<Todo> list) ;
-    Todo get(BigInteger key) ;
-    boolean checkKey(Todo et) ;
     boolean update(Todo et) ;
     void updateBatch(List<Todo> list) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    Todo get(BigInteger key) ;
+    Todo getDraft(Todo et) ;
+    boolean checkKey(Todo et) ;
+    boolean save(Todo et) ;
+    void saveBatch(List<Todo> list) ;
     Page<Todo> searchDefault(TodoSearchContext context) ;
     /**
      *自定义查询SQL
@@ -51,8 +51,6 @@ public interface ITodoService extends IService<Todo>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

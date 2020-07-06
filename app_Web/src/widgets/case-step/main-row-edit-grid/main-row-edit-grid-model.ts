@@ -32,11 +32,6 @@ export default class Main_RowEditModel {
           dataType: 'LONGTEXT',
         },
         {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
           name: 'desc',
           prop: 'desc',
           dataType: 'LONGTEXT',

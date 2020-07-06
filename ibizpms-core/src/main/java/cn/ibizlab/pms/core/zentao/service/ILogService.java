@@ -27,15 +27,15 @@ public interface ILogService extends IService<Log>{
 
     boolean create(Log et) ;
     void createBatch(List<Log> list) ;
-    boolean save(Log et) ;
-    void saveBatch(List<Log> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
     boolean update(Log et) ;
     void updateBatch(List<Log> list) ;
-    Log getDraft(Log et) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
     Log get(BigInteger key) ;
+    Log getDraft(Log et) ;
     boolean checkKey(Log et) ;
+    boolean save(Log et) ;
+    void saveBatch(List<Log> list) ;
     Page<Log> searchDefault(LogSearchContext context) ;
     /**
      *自定义查询SQL
@@ -51,8 +51,6 @@ public interface ILogService extends IService<Log>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

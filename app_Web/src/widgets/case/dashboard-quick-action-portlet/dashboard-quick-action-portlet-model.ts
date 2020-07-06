@@ -159,6 +159,9 @@ export default class DashboardQuickActionModel {
       {
         name: 'stepcnt',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

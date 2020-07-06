@@ -47,22 +47,6 @@ public class ActionResource {
     @Lazy
     public ActionMapping actionMapping;
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Remove-all')")
-    @ApiOperation(value = "删除系统日志", tags = {"系统日志" },  notes = "删除系统日志")
-	@RequestMapping(method = RequestMethod.DELETE, value = "/actions/{action_id}")
-    @Transactional
-    public ResponseEntity<Boolean> remove(@PathVariable("action_id") BigInteger action_id) {
-         return ResponseEntity.status(HttpStatus.OK).body(actionService.remove(action_id));
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Remove-all')")
-    @ApiOperation(value = "批量删除系统日志", tags = {"系统日志" },  notes = "批量删除系统日志")
-	@RequestMapping(method = RequestMethod.DELETE, value = "/actions/batch")
-    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
-        actionService.removeBatch(ids);
-        return  ResponseEntity.status(HttpStatus.OK).body(true);
-    }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Create-all')")
     @ApiOperation(value = "新建系统日志", tags = {"系统日志" },  notes = "新建系统日志")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions")
@@ -80,12 +64,6 @@ public class ActionResource {
     public ResponseEntity<Boolean> createBatch(@RequestBody List<ActionDTO> actiondtos) {
         actionService.createBatch(actionMapping.toDomain(actiondtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
-    }
-
-    @ApiOperation(value = "获取系统日志草稿", tags = {"系统日志" },  notes = "获取系统日志草稿")
-	@RequestMapping(method = RequestMethod.GET, value = "/actions/getdraft")
-    public ResponseEntity<ActionDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(actionMapping.toDto(actionService.getDraft(new Action())));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Update-all')")
@@ -108,6 +86,37 @@ public class ActionResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Remove-all')")
+    @ApiOperation(value = "删除系统日志", tags = {"系统日志" },  notes = "删除系统日志")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/actions/{action_id}")
+    @Transactional
+    public ResponseEntity<Boolean> remove(@PathVariable("action_id") BigInteger action_id) {
+         return ResponseEntity.status(HttpStatus.OK).body(actionService.remove(action_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Remove-all')")
+    @ApiOperation(value = "批量删除系统日志", tags = {"系统日志" },  notes = "批量删除系统日志")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/actions/batch")
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
+        actionService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Get-all')")
+    @ApiOperation(value = "获取系统日志", tags = {"系统日志" },  notes = "获取系统日志")
+	@RequestMapping(method = RequestMethod.GET, value = "/actions/{action_id}")
+    public ResponseEntity<ActionDTO> get(@PathVariable("action_id") BigInteger action_id) {
+        Action domain = actionService.get(action_id);
+        ActionDTO dto = actionMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "获取系统日志草稿", tags = {"系统日志" },  notes = "获取系统日志草稿")
+	@RequestMapping(method = RequestMethod.GET, value = "/actions/getdraft")
+    public ResponseEntity<ActionDTO> getDraft() {
+        return ResponseEntity.status(HttpStatus.OK).body(actionMapping.toDto(actionService.getDraft(new Action())));
+    }
+
     @ApiOperation(value = "检查系统日志", tags = {"系统日志" },  notes = "检查系统日志")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody ActionDTO actiondto) {
@@ -127,15 +136,6 @@ public class ActionResource {
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<ActionDTO> actiondtos) {
         actionService.saveBatch(actionMapping.toDomain(actiondtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Get-all')")
-    @ApiOperation(value = "获取系统日志", tags = {"系统日志" },  notes = "获取系统日志")
-	@RequestMapping(method = RequestMethod.GET, value = "/actions/{action_id}")
-    public ResponseEntity<ActionDTO> get(@PathVariable("action_id") BigInteger action_id) {
-        Action domain = actionService.get(action_id);
-        ActionDTO dto = actionMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-searchDefault-all')")

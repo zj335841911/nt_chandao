@@ -49,6 +49,20 @@ public class Im_chatServiceImpl extends ServiceImpl<Im_chatMapper, Im_chat> impl
 
     @Override
     @Transactional
+    public boolean create(Im_chat et) {
+        if(!this.retBool(this.baseMapper.insert(et)))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void createBatch(List<Im_chat> list) {
+        this.saveBatch(list,batchSize);
+    }
+
+    @Override
+    @Transactional
     public boolean update(Im_chat et) {
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
@@ -73,6 +87,28 @@ public class Im_chatServiceImpl extends ServiceImpl<Im_chatMapper, Im_chat> impl
         removeByIds(idList);
     }
 
+    @Override
+    @Transactional
+    public Im_chat get(BigInteger key) {
+        Im_chat et = getById(key);
+        if(et==null){
+            et=new Im_chat();
+            et.setId(key);
+        }
+        else{
+        }
+        return et;
+    }
+
+    @Override
+    public Im_chat getDraft(Im_chat et) {
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(Im_chat et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
     @Override
     @Transactional
     public boolean save(Im_chat et) {
@@ -102,42 +138,6 @@ public class Im_chatServiceImpl extends ServiceImpl<Im_chatMapper, Im_chat> impl
     @Override
     public void saveBatch(List<Im_chat> list) {
         saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    public boolean checkKey(Im_chat et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
-    @Override
-    @Transactional
-    public boolean create(Im_chat et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void createBatch(List<Im_chat> list) {
-        this.saveBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public Im_chat get(BigInteger key) {
-        Im_chat et = getById(key);
-        if(et==null){
-            et=new Im_chat();
-            et.setId(key);
-        }
-        else{
-        }
-        return et;
-    }
-
-    @Override
-    public Im_chat getDraft(Im_chat et) {
-        return et;
     }
 
 

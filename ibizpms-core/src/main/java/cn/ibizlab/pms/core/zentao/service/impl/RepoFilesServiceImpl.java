@@ -51,15 +51,16 @@ public class RepoFilesServiceImpl extends ServiceImpl<RepoFilesMapper, RepoFiles
 
     @Override
     @Transactional
-    public RepoFiles get(BigInteger key) {
-        RepoFiles et = getById(key);
-        if(et==null){
-            et=new RepoFiles();
-            et.setId(key);
-        }
-        else{
-        }
-        return et;
+    public boolean create(RepoFiles et) {
+        if(!this.retBool(this.baseMapper.insert(et)))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void createBatch(List<RepoFiles> list) {
+        this.saveBatch(list,batchSize);
     }
 
     @Override
@@ -89,22 +90,21 @@ public class RepoFilesServiceImpl extends ServiceImpl<RepoFilesMapper, RepoFiles
     }
 
     @Override
-    public RepoFiles getDraft(RepoFiles et) {
+    @Transactional
+    public RepoFiles get(BigInteger key) {
+        RepoFiles et = getById(key);
+        if(et==null){
+            et=new RepoFiles();
+            et.setId(key);
+        }
+        else{
+        }
         return et;
     }
 
     @Override
-    @Transactional
-    public boolean create(RepoFiles et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void createBatch(List<RepoFiles> list) {
-        this.saveBatch(list,batchSize);
+    public RepoFiles getDraft(RepoFiles et) {
+        return et;
     }
 
     @Override

@@ -132,6 +132,9 @@ export default class TaskTreeExpViewtreeexpbarModel {
       {
         name: 'srfarray',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

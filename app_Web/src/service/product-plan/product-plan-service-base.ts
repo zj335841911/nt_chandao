@@ -55,92 +55,6 @@ export default class ProductPlanServiceBase extends EntityService {
     }
 
     /**
-     * Save接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ProductPlanServiceBase
-     */
-    public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.productplan){
-            let masterData:any = {};
-        let subproductplansData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans'),'undefined')){
-            subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans') as any);
-            if(subproductplansData && subproductplansData.length && subproductplansData.length > 0){
-                subproductplansData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subproductplans = subproductplansData;
-        let bugsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
-            bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
-            if(bugsData && bugsData.length && bugsData.length > 0){
-                bugsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.bugs = bugsData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/save`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
-            this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
-            return res;
-        }
-        let masterData:any = {};
-        let subproductplansData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans'),'undefined')){
-            subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans') as any);
-            if(subproductplansData && subproductplansData.length && subproductplansData.length > 0){
-                subproductplansData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subproductplans = subproductplansData;
-        let bugsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
-            bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
-            if(bugsData && bugsData.length && bugsData.length > 0){
-                bugsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.bugs = bugsData;
-        Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().post(`/productplans/${context.productplan}/save`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
-            this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
-            return res;
-    }
-
-    /**
      * Create接口方法
      *
      * @param {*} [context={}]
@@ -167,21 +81,6 @@ export default class ProductPlanServiceBase extends EntityService {
             }
         }
         masterData.subproductplans = subproductplansData;
-        let bugsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
-            bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
-            if(bugsData && bugsData.length && bugsData.length > 0){
-                bugsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.bugs = bugsData;
             Object.assign(data,masterData);
             if(!data.srffrontuf || data.srffrontuf !== "1"){
                 data[this.APPDEKEY] = null;
@@ -192,7 +91,6 @@ export default class ProductPlanServiceBase extends EntityService {
             let tempContext:any = JSON.parse(JSON.stringify(context));
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans`,data,isloading);
             this.tempStorage.setItem(tempContext.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
-            this.tempStorage.setItem(tempContext.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
         let masterData:any = {};
@@ -211,21 +109,6 @@ export default class ProductPlanServiceBase extends EntityService {
             }
         }
         masterData.subproductplans = subproductplansData;
-        let bugsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
-            bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
-            if(bugsData && bugsData.length && bugsData.length > 0){
-                bugsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.bugs = bugsData;
         Object.assign(data,masterData);
         if(!data.srffrontuf || data.srffrontuf !== "1"){
             data[this.APPDEKEY] = null;
@@ -236,98 +119,6 @@ export default class ProductPlanServiceBase extends EntityService {
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/productplans`,data,isloading);
         this.tempStorage.setItem(tempContext.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
-        this.tempStorage.setItem(tempContext.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
-        return res;
-    }
-
-    /**
-     * Remove接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ProductPlanServiceBase
-     */
-    public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.productplan){
-            return Http.getInstance().delete(`/products/${context.product}/productplans/${context.productplan}`,isloading);
-        }
-            return Http.getInstance().delete(`/productplans/${context.productplan}`,isloading);
-    }
-
-    /**
-     * CheckKey接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ProductPlanServiceBase
-     */
-    public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.productplan){
-            let masterData:any = {};
-        let subproductplansData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans'),'undefined')){
-            subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans') as any);
-            if(subproductplansData && subproductplansData.length && subproductplansData.length > 0){
-                subproductplansData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.subproductplans = subproductplansData;
-        let bugsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
-            bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
-            if(bugsData && bugsData.length && bugsData.length > 0){
-                bugsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.bugs = bugsData;
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/checkkey`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
-            this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
-            return res;
-        }
-            return Http.getInstance().post(`/productplans/${context.productplan}/checkkey`,data,isloading);
-    }
-
-    /**
-     * GetDraft接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ProductPlanServiceBase
-     */
-    public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/getdraft`,isloading);
-            res.data.productplan = data.productplan;
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
-            this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
-            return res;
-        }
-        let res:any = await  Http.getInstance().get(`/productplans/getdraft`,isloading);
-        res.data.productplan = data.productplan;
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
-            this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
         return res;
     }
 
@@ -358,25 +149,9 @@ export default class ProductPlanServiceBase extends EntityService {
             }
         }
         masterData.subproductplans = subproductplansData;
-        let bugsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
-            bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
-            if(bugsData && bugsData.length && bugsData.length > 0){
-                bugsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.bugs = bugsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().put(`/products/${context.product}/productplans/${context.productplan}`,data,isloading);
             this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
-            this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
         let masterData:any = {};
@@ -395,26 +170,26 @@ export default class ProductPlanServiceBase extends EntityService {
             }
         }
         masterData.subproductplans = subproductplansData;
-        let bugsData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
-            bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
-            if(bugsData && bugsData.length && bugsData.length > 0){
-                bugsData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.bugs = bugsData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/productplans/${context.productplan}`,data,isloading);
             this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
-            this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
+    }
+
+    /**
+     * Remove接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan){
+            return Http.getInstance().delete(`/products/${context.product}/productplans/${context.productplan}`,isloading);
+        }
+            return Http.getInstance().delete(`/productplans/${context.productplan}`,isloading);
     }
 
     /**
@@ -430,17 +205,15 @@ export default class ProductPlanServiceBase extends EntityService {
         if(context.product && context.productplan){
             let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}`,isloading);
             this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
-            this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
             let res:any = await Http.getInstance().get(`/productplans/${context.productplan}`,isloading);
             this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
-            this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
     }
 
     /**
-     * FetchDefault接口方法
+     * GetDraft接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -448,13 +221,316 @@ export default class ProductPlanServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof ProductPlanServiceBase
      */
-    public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            return Http.getInstance().get(`/products/${context.product}/productplans/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/getdraft`,isloading);
+            res.data.productplan = data.productplan;
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
+            return res;
         }
-        let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/productplans/fetchdefault`,tempData,isloading);
+        let res:any = await  Http.getInstance().get(`/productplans/getdraft`,isloading);
+        res.data.productplan = data.productplan;
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
+        return res;
+    }
+
+    /**
+     * BatchUnlinkBug接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async BatchUnlinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan){
+            let masterData:any = {};
+        let subproductplansData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans'),'undefined')){
+            subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans') as any);
+            if(subproductplansData && subproductplansData.length && subproductplansData.length > 0){
+                subproductplansData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subproductplans = subproductplansData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/batchunlinkbug`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
+            return res;
+        }
+            return Http.getInstance().post(`/productplans/${context.productplan}/batchunlinkbug`,data,isloading);
+    }
+
+    /**
+     * BatchUnlinkStory接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async BatchUnlinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan){
+            let masterData:any = {};
+        let subproductplansData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans'),'undefined')){
+            subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans') as any);
+            if(subproductplansData && subproductplansData.length && subproductplansData.length > 0){
+                subproductplansData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subproductplans = subproductplansData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/batchunlinkstory`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
+            return res;
+        }
+            return Http.getInstance().post(`/productplans/${context.productplan}/batchunlinkstory`,data,isloading);
+    }
+
+    /**
+     * CheckKey接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan){
+            let masterData:any = {};
+        let subproductplansData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans'),'undefined')){
+            subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans') as any);
+            if(subproductplansData && subproductplansData.length && subproductplansData.length > 0){
+                subproductplansData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subproductplans = subproductplansData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/checkkey`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
+            return res;
+        }
+            return Http.getInstance().post(`/productplans/${context.productplan}/checkkey`,data,isloading);
+    }
+
+    /**
+     * LinkBug接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async LinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan){
+            let masterData:any = {};
+        let subproductplansData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans'),'undefined')){
+            subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans') as any);
+            if(subproductplansData && subproductplansData.length && subproductplansData.length > 0){
+                subproductplansData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subproductplans = subproductplansData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/linkbug`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
+            return res;
+        }
+            return Http.getInstance().post(`/productplans/${context.productplan}/linkbug`,data,isloading);
+    }
+
+    /**
+     * LinkStory接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async LinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan){
+            let masterData:any = {};
+        let subproductplansData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans'),'undefined')){
+            subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans') as any);
+            if(subproductplansData && subproductplansData.length && subproductplansData.length > 0){
+                subproductplansData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subproductplans = subproductplansData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/linkstory`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
+            return res;
+        }
+            return Http.getInstance().post(`/productplans/${context.productplan}/linkstory`,data,isloading);
+    }
+
+    /**
+     * Save接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan){
+            let masterData:any = {};
+        let subproductplansData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans'),'undefined')){
+            subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans') as any);
+            if(subproductplansData && subproductplansData.length && subproductplansData.length > 0){
+                subproductplansData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subproductplans = subproductplansData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/save`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
+            return res;
+        }
+        let masterData:any = {};
+        let subproductplansData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans'),'undefined')){
+            subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans') as any);
+            if(subproductplansData && subproductplansData.length && subproductplansData.length > 0){
+                subproductplansData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subproductplans = subproductplansData;
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().post(`/productplans/${context.productplan}/save`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
+            return res;
+    }
+
+    /**
+     * UnlinkBug接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async UnlinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan){
+            let masterData:any = {};
+        let subproductplansData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans'),'undefined')){
+            subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans') as any);
+            if(subproductplansData && subproductplansData.length && subproductplansData.length > 0){
+                subproductplansData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subproductplans = subproductplansData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/unlinkbug`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
+            return res;
+        }
+            return Http.getInstance().post(`/productplans/${context.productplan}/unlinkbug`,data,isloading);
+    }
+
+    /**
+     * UnlinkStory接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async UnlinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan){
+            let masterData:any = {};
+        let subproductplansData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans'),'undefined')){
+            subproductplansData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subproductplans') as any);
+            if(subproductplansData && subproductplansData.length && subproductplansData.length > 0){
+                subproductplansData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subproductplans = subproductplansData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/unlinkstory`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
+            return res;
+        }
+            return Http.getInstance().post(`/productplans/${context.productplan}/unlinkstory`,data,isloading);
     }
 
     /**
@@ -473,5 +549,23 @@ export default class ProductPlanServiceBase extends EntityService {
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
         return Http.getInstance().get(`/productplans/fetchcurproductplan`,tempData,isloading);
+    }
+
+    /**
+     * FetchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/products/${context.product}/productplans/fetchdefault`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/productplans/fetchdefault`,tempData,isloading);
     }
 }

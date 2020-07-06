@@ -23,6 +23,15 @@ export class GridViewBase extends MDViewBase {
     protected gridRowActiveMode: 0 | 1 | 2 = 2;
 
     /**
+     * 是否单选
+     *
+     * @readonly
+     * @type {boolean}
+     * @memberof GridViewBase
+     */
+    protected isGridSingleSelect: boolean = false;
+
+    /**
      * 刷新数据
      *
      * @readonly

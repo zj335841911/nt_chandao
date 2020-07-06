@@ -56,6 +56,11 @@ export default class MainEditModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'id',
+        prop: 'id',
+        dataType: 'ACID',
+      },
+      {
         name: 'name',
         prop: 'name',
         dataType: 'TEXT',
@@ -66,7 +71,9 @@ export default class MainEditModel {
         dataType: 'LONGTEXT',
       },
       {
-        name: 'desc1',
+        name: 'comment',
+        prop: 'comment',
+        dataType: 'HTMLTEXT',
       },
       {
         name: 'files',
@@ -190,11 +197,6 @@ export default class MainEditModel {
         name: 'closeddate',
         prop: 'closeddate',
         dataType: 'DATETIME',
-      },
-      {
-        name: 'id',
-        prop: 'id',
-        dataType: 'ACID',
       },
       {
         name: 'module',

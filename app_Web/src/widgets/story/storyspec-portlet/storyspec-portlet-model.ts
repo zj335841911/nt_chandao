@@ -147,6 +147,9 @@ export default class StoryspecModel {
       {
         name: 'result',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 

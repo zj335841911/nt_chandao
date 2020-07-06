@@ -25,17 +25,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ILangService extends IService<Lang>{
 
-    boolean checkKey(Lang et) ;
-    Lang getDraft(Lang et) ;
-    Lang get(BigInteger key) ;
     boolean create(Lang et) ;
     void createBatch(List<Lang> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    boolean save(Lang et) ;
-    void saveBatch(List<Lang> list) ;
     boolean update(Lang et) ;
     void updateBatch(List<Lang> list) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    Lang get(BigInteger key) ;
+    Lang getDraft(Lang et) ;
+    boolean checkKey(Lang et) ;
+    boolean save(Lang et) ;
+    void saveBatch(List<Lang> list) ;
     Page<Lang> searchDefault(LangSearchContext context) ;
     /**
      *自定义查询SQL
@@ -51,8 +51,6 @@ public interface ILangService extends IService<Lang>{
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
-
-
 
 }
 

@@ -108,6 +108,24 @@
                                     </card>
                                     </div>
                                 </i-col>
+                                <i-col :md="{ span: 24, offset: 0 }">
+                                    <div class="portlet-without-title">
+                                      <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+                                      <span>
+                                                      <view_dashboard_sysportlet5 
+                                          :viewState="viewState"  
+                                          :viewparams="viewparams" 
+                                          :context="context" 
+                                          :height="0"
+                                          :width="0"
+                                          name="dashboard_sysportlet5"  
+                                          ref='dashboard_sysportlet5' 
+                                          @closeview="closeView($event)">
+                                      </view_dashboard_sysportlet5>
+                                      </span>
+                                    </card>
+                                    </div>
+                                </i-col>
                               </row>
                           </div>
                         </span>

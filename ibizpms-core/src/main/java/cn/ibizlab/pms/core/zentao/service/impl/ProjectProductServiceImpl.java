@@ -60,11 +60,72 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
     protected int batchSize = 500;
 
     @Override
+    @Transactional
+    public boolean create(ProjectProduct et) {
+        fillParentData(et);
+        if(!this.retBool(this.baseMapper.insert(et)))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void createBatch(List<ProjectProduct> list) {
+        list.forEach(item->fillParentData(item));
+        this.saveBatch(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean update(ProjectProduct et) {
+        fillParentData(et);
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void updateBatch(List<ProjectProduct> list) {
+        list.forEach(item->fillParentData(item));
+        updateBatchById(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean remove(String key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<String> idList) {
+        removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
+    public ProjectProduct get(String key) {
+        ProjectProduct et = getById(key);
+        if(et==null){
+            et=new ProjectProduct();
+            et.setId(key);
+        }
+        else{
+        }
+        return et;
+    }
+
+    @Override
     public ProjectProduct getDraft(ProjectProduct et) {
         fillParentData(et);
         return et;
     }
 
+    @Override
+    public boolean checkKey(ProjectProduct et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
     @Override
     @Transactional
     public boolean save(ProjectProduct et) {
@@ -96,67 +157,6 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
     public void saveBatch(List<ProjectProduct> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
-    }
-
-    @Override
-    public boolean checkKey(ProjectProduct et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
-    @Override
-    @Transactional
-    public ProjectProduct get(String key) {
-        ProjectProduct et = getById(key);
-        if(et==null){
-            et=new ProjectProduct();
-            et.setId(key);
-        }
-        else{
-        }
-        return et;
-    }
-
-    @Override
-    @Transactional
-    public boolean create(ProjectProduct et) {
-        fillParentData(et);
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void createBatch(List<ProjectProduct> list) {
-        list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
-    }
-
-    @Override
-    @Transactional
-    public boolean remove(String key) {
-        boolean result=removeById(key);
-        return result ;
-    }
-
-    @Override
-    public void removeBatch(Collection<String> idList) {
-        removeByIds(idList);
-    }
-
-    @Override
-    @Transactional
-    public boolean update(ProjectProduct et) {
-        fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
-    }
-
-    @Override
-    public void updateBatch(List<ProjectProduct> list) {
-        list.forEach(item->fillParentData(item));
-        updateBatchById(list,batchSize);
     }
 
 
@@ -202,20 +202,20 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
 
 
     /**
-     * 查询集合 关联计划
-     */
-    @Override
-    public Page<ProjectProduct> searchRelationPlan(ProjectProductSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectProduct> pages=baseMapper.searchRelationPlan(context.getPages(),context,context.getSelectCond());
-        return new PageImpl<ProjectProduct>(pages.getRecords(), context.getPageable(), pages.getTotal());
-    }
-
-    /**
      * 查询集合 DEFAULT
      */
     @Override
     public Page<ProjectProduct> searchDefault(ProjectProductSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectProduct> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<ProjectProduct>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 关联计划
+     */
+    @Override
+    public Page<ProjectProduct> searchRelationPlan(ProjectProductSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectProduct> pages=baseMapper.searchRelationPlan(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProjectProduct>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

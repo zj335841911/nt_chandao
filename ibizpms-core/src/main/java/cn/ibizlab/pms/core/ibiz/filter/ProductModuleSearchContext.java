@@ -55,6 +55,34 @@ public class ProductModuleSearchContext extends QueryWrapperContext<ProductModul
             this.getSearchCond().eq("parent", n_parent_eq);
         }
     }
+	private String n_rootname_eq;//[所属产品]
+	public void setN_rootname_eq(String n_rootname_eq) {
+        this.n_rootname_eq = n_rootname_eq;
+        if(!ObjectUtils.isEmpty(this.n_rootname_eq)){
+            this.getSearchCond().eq("rootname", n_rootname_eq);
+        }
+    }
+	private String n_rootname_like;//[所属产品]
+	public void setN_rootname_like(String n_rootname_like) {
+        this.n_rootname_like = n_rootname_like;
+        if(!ObjectUtils.isEmpty(this.n_rootname_like)){
+            this.getSearchCond().like("rootname", n_rootname_like);
+        }
+    }
+	private String n_parentname_eq;//[上级模块]
+	public void setN_parentname_eq(String n_parentname_eq) {
+        this.n_parentname_eq = n_parentname_eq;
+        if(!ObjectUtils.isEmpty(this.n_parentname_eq)){
+            this.getSearchCond().eq("parentname", n_parentname_eq);
+        }
+    }
+	private String n_parentname_like;//[上级模块]
+	public void setN_parentname_like(String n_parentname_like) {
+        this.n_parentname_like = n_parentname_like;
+        if(!ObjectUtils.isEmpty(this.n_parentname_like)){
+            this.getSearchCond().like("parentname", n_parentname_like);
+        }
+    }
 
     /**
 	 * 启用快速搜索

@@ -132,6 +132,9 @@ export default class MainTabExpViewtabviewpanelModel {
       {
         name: 'srfarray',
       },
+      {
+        name: 'comment',
+      },
     ]
   }
 
