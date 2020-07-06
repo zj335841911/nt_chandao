@@ -1170,7 +1170,7 @@
         "memo": ""
     },
     "storygridview9_substory": {
-        "title": "需求表格视图",
+        "title": "子需求",
         "caption": "子需求",
         "viewtype": "DEGRIDVIEW9",
         "viewmodule": "zentao",

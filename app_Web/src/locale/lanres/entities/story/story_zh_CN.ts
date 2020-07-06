@@ -109,7 +109,7 @@ export default {
 		},
 		gridview9_substory: {
 			caption: "子需求",
-      		title: "需求表格视图",
+      		title: "子需求",
 		},
 		maingridview_bymodule: {
 			caption: "需求",
