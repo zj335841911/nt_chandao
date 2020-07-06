@@ -456,8 +456,14 @@ export default {
 		columns: {
 			id: "ID",
 			pri: "P",
-			title: "需求名称",
+			plan: "所属计划",
 			modulename: "所属模块名称",
+			title: "需求名称",
+			openedby: "创建",
+			assignedto: "指派",
+			estimate: "预计",
+			status: "状态",
+			stage: "阶段",
 		},
 		uiactions: {
 		},

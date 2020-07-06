@@ -58,7 +58,7 @@ export class PickupGirdGridBase extends GridControllerBase {
     public allColumns: any[] = [
         {
             name: 'id',
-            label: 'Bug编号',
+            label: 'ID',
             langtag: 'entities.bug.pickupgird_grid.columns.id',
             show: true,
             util: 'PX'
@@ -71,13 +71,6 @@ export class PickupGirdGridBase extends GridControllerBase {
             util: 'PX'
         },
         {
-            name: 'confirmed',
-            label: '是否确认',
-            langtag: 'entities.bug.pickupgird_grid.columns.confirmed',
-            show: true,
-            util: 'PX'
-        },
-        {
             name: 'title',
             label: 'Bug标题',
             langtag: 'entities.bug.pickupgird_grid.columns.title',
@@ -85,30 +78,23 @@ export class PickupGirdGridBase extends GridControllerBase {
             util: 'STAR'
         },
         {
-            name: 'status',
-            label: 'Bug状态',
-            langtag: 'entities.bug.pickupgird_grid.columns.status',
-            show: true,
-            util: 'PX'
-        },
-        {
             name: 'openedby',
-            label: '由谁创建',
+            label: '创建',
             langtag: 'entities.bug.pickupgird_grid.columns.openedby',
             show: true,
             util: 'PX'
         },
         {
-            name: 'openeddate',
-            label: '创建日期',
-            langtag: 'entities.bug.pickupgird_grid.columns.openeddate',
+            name: 'assignedto',
+            label: '指派',
+            langtag: 'entities.bug.pickupgird_grid.columns.assignedto',
             show: true,
             util: 'PX'
         },
         {
-            name: 'assignedto',
-            label: '指派给',
-            langtag: 'entities.bug.pickupgird_grid.columns.assignedto',
+            name: 'status',
+            label: 'Bug状态',
+            langtag: 'entities.bug.pickupgird_grid.columns.status',
             show: true,
             util: 'PX'
         },
@@ -148,12 +134,10 @@ export class PickupGirdGridBase extends GridControllerBase {
     public hasRowEdit: any = {
         'id':false,
         'pri':false,
-        'confirmed':false,
         'title':false,
-        'status':false,
         'openedby':false,
-        'openeddate':false,
         'assignedto':false,
+        'status':false,
     };
 
     /**
@@ -188,22 +172,6 @@ export class PickupGirdGridBase extends GridControllerBase {
                 valueSeparator: ',',
             },
             {
-                name: 'confirmed',
-                srfkey: 'YesNo2',
-                codelistType : 'STATIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
-            {
-                name: 'status',
-                srfkey: 'Bug__status',
-                codelistType : 'STATIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
-            {
                 name: 'openedby',
                 srfkey: 'UserRealName',
                 codelistType : 'DYNAMIC',
@@ -218,6 +186,14 @@ export class PickupGirdGridBase extends GridControllerBase {
                 textSeparator: ',',
                 renderMode: 'string',
                 valueSeparator: ",",
+            },
+            {
+                name: 'status',
+                srfkey: 'Bug__status',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
             },
         ]);
     }
