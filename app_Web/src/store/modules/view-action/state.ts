@@ -165,15 +165,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '1e4670d0cbac90b7321c40270ef28dec',
-            viewmodule: 'zentao',
-            viewname: 'FileFileDowloadView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: '1e7347f3fffc87077dd7f0156125b918',
             viewmodule: 'zentao',
             viewname: 'BugPickupGridView',
@@ -1213,7 +1204,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '1e4670d0cbac90b7321c40270ef28dec',
             ],
         },
         {

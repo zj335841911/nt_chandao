@@ -4502,20 +4502,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-edit-view-activate/project-edit-view-activate.vue'),
                 },
                 {
-                    path: 'files/:file?/filedowloadview/:filedowloadview?',
-                    meta: {
-                        caption: 'entities.file.views.filedowloadview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'files', parameterName: 'file' },
-                            { pathName: 'filedowloadview', parameterName: 'filedowloadview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/file-file-dowload-view/file-file-dowload-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/confirmview/:confirmview?',
                     meta: {
                         caption: 'entities.bug.views.confirmview.title',

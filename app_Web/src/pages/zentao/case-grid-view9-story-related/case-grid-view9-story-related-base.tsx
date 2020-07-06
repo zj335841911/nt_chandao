@@ -249,4 +249,13 @@ export class CaseGridView9_StoryRelatedBase extends GridView9Base {
     }
 
 
+
+    /**
+     * 是否单选
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof CaseGridView9_StoryRelatedBase
+     */
+    protected isGridSingleSelect: boolean = true;
 }

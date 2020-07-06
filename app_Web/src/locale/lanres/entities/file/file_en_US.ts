@@ -15,10 +15,6 @@ export default {
     extra: "备注",
   },
 	views: {
-		filedowloadview: {
-			caption: "附件",
-      		title: "附件下载",
-		},
 		listview9: {
 			caption: "附件",
       		title: "附件",

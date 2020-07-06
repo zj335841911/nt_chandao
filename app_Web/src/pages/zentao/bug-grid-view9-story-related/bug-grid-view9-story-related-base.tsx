@@ -261,4 +261,13 @@ export class BugGridView9_StoryRelatedBase extends GridView9Base {
     }
 
 
+
+    /**
+     * 是否单选
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof BugGridView9_StoryRelatedBase
+     */
+    protected isGridSingleSelect: boolean = true;
 }

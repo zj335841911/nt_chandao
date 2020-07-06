@@ -79,7 +79,6 @@ export default class FileUIServiceBase extends UIService {
      * @memberof  FileUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'filedowloadview',srfappde:'files'});
         this.allViewMap.set(':',{viewname:'listview9',srfappde:'files'});
     }
 
