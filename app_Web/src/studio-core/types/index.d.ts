@@ -34,16 +34,16 @@ declare global {
     /**
      * 判断字符串是否为空
      *
-     * @param {string} str
+     * @param {string | undefined | null} str
      * @returns {boolean}
      */
-    function isEmpty(str: string): boolean;
+    function isEmpty(str: string | undefined | null): boolean;
 
     /**
      * 判断字符串，存在并且不为空
      *
-     * @param {string} str
+     * @param {string | undefined | null} str
      * @returns {boolean}
      */
-    function isExistAndNotEmpty(str: string): boolean;
+    function isExistAndNotEmpty(str: string | undefined | null): boolean;
 }

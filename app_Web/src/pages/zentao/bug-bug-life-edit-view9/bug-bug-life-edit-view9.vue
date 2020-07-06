@@ -15,12 +15,6 @@ import view_form from '@widgets/bug/dashboard-bug-life-form/dashboard-bug-life-f
 @Component({
     components: {
         view_form, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$appService.navHistory.setViewTag(vm.viewtag, to);
-            vm.$appService.navHistory.setViewContext(vm.context, to);
-        });
     }
 })
 @VueLifeCycleProcessing()

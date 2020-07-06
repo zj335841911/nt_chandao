@@ -15,12 +15,6 @@ import view_grid from '@widgets/project-team/main-edit-row-grid/main-edit-row-gr
 @Component({
     components: {
         view_grid, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$appService.navHistory.setViewTag(vm.viewtag, to);
-            vm.$appService.navHistory.setViewContext(vm.context, to);
-        });
     }
 })
 @VueLifeCycleProcessing()

@@ -15,12 +15,6 @@ import view_form from '@widgets/story/main-edit-mode-form/main-edit-mode-form.vu
 @Component({
     components: {
         view_form, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$appService.navHistory.setViewTag(vm.viewtag, to);
-            vm.$appService.navHistory.setViewContext(vm.context, to);
-        });
     }
 })
 @VueLifeCycleProcessing()

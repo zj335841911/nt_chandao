@@ -29,7 +29,7 @@ window.isExist = function(obj: any) {
  * 
  * @param str 
  */
-window.isEmpty = function(str: string) {
+window.isEmpty = function(str: string | undefined | null) {
     return Object.is(str, '');
 }
 
@@ -38,7 +38,7 @@ window.isEmpty = function(str: string) {
  * 
  * @param str 
  */
-window.isExistAndNotEmpty = function(str: string) {
+window.isExistAndNotEmpty = function(str: string | undefined | null) {
     return isExist(str) && !isEmpty(str);
 }
 

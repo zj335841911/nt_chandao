@@ -13,12 +13,6 @@ import { ProductHtmlViewBase } from './product-html-view-base';
  */
 @Component({
     components: {
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$appService.navHistory.setViewTag(vm.viewtag, to);
-            vm.$appService.navHistory.setViewContext(vm.context, to);
-        });
     }
 })
 @VueLifeCycleProcessing()

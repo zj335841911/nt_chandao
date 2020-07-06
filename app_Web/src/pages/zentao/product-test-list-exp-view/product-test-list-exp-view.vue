@@ -15,12 +15,6 @@ import view_listexpbar from '@widgets/product/test-list-exp-viewlistexpbar-liste
 @Component({
     components: {
         view_listexpbar, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$appService.navHistory.setViewTag(vm.viewtag, to);
-            vm.$appService.navHistory.setViewContext(vm.context, to);
-        });
     }
 })
 @VueLifeCycleProcessing()

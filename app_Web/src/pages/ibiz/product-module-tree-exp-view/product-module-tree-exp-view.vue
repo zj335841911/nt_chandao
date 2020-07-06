@@ -15,12 +15,6 @@ import view_treeexpbar from '@widgets/product-module/tree-exp-viewtreeexpbar-tre
 @Component({
     components: {
         view_treeexpbar, 
-    },
-    beforeRouteEnter: (to: any, from: any, next: any) => {
-        next((vm: any) => {
-            vm.$appService.navHistory.setViewTag(vm.viewtag, to);
-            vm.$appService.navHistory.setViewContext(vm.context, to);
-        });
     }
 })
 @VueLifeCycleProcessing()
