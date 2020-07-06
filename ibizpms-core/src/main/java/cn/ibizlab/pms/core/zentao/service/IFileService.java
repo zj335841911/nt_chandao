@@ -37,6 +37,7 @@ public interface IFileService extends IService<File>{
     boolean save(File et) ;
     void saveBatch(List<File> list) ;
     Page<File> searchDefault(FileSearchContext context) ;
+    Page<File> searchType(FileSearchContext context) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

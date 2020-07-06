@@ -14,6 +14,26 @@ export default class ListModel {
 	 */
 	public getDataItems(): any[] {
 		return [
+			{
+				name: 'title',
+				prop: 'title',
+				dataType: 'TEXT',
+			},
+			{
+				name: 'srfkey',
+				prop: 'id',
+				dataType: 'ACID',
+			},
+			{
+				name: 'srfmajortext',
+				prop: 'title',
+				dataType: 'TEXT',
+			},
+			{
+				name: 'file',
+				prop: 'id',
+				dataType: 'FONTKEY',
+			},
       {
         name:'size',
         prop:'size'

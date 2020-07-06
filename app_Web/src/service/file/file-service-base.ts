@@ -174,4 +174,18 @@ export default class FileServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return Http.getInstance().get(`/files/fetchdefault`,tempData,isloading);
     }
+
+    /**
+     * FetchType接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof FileServiceBase
+     */
+    public async FetchType(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/files/fetchtype`,tempData,isloading);
+    }
 }

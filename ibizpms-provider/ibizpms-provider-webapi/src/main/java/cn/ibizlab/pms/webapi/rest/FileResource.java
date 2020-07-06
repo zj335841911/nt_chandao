@@ -159,5 +159,26 @@ public class FileResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(fileMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-File-searchType-all')")
+	@ApiOperation(value = "获取动态(根据类型过滤)", tags = {"附件" } ,notes = "获取动态(根据类型过滤)")
+    @RequestMapping(method= RequestMethod.GET , value="/files/fetchtype")
+	public ResponseEntity<List<FileDTO>> fetchType(FileSearchContext context) {
+        Page<File> domains = fileService.searchType(context) ;
+        List<FileDTO> list = fileMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-File-searchType-all')")
+	@ApiOperation(value = "查询动态(根据类型过滤)", tags = {"附件" } ,notes = "查询动态(根据类型过滤)")
+    @RequestMapping(method= RequestMethod.POST , value="/files/searchtype")
+	public ResponseEntity<Page<FileDTO>> searchType(@RequestBody FileSearchContext context) {
+        Page<File> domains = fileService.searchType(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(fileMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
 }
 
