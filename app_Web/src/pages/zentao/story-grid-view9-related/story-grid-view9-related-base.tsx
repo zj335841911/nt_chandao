@@ -41,7 +41,7 @@ export class StoryGridView9_RelatedBase extends GridView9Base {
 	 * @memberof StoryGridView9_RelatedBase
 	 */
     protected customViewParams: any = {
-        'e_assignedto_eq': { isRawValue: false, value: 'SRFUSERID' }
+        'linkstories': { isRawValue: false, value: 'linkStories' }
     };
 
     /**
