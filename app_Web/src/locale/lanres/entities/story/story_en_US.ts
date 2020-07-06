@@ -117,8 +117,8 @@ export default {
       		title: "story表格视图",
 		},
 		gridview9_related: {
-			caption: "需求",
-      		title: "需求表格视图",
+			caption: "相关需求",
+      		title: "相关需求",
 		},
 		maingridview: {
 			caption: "需求",

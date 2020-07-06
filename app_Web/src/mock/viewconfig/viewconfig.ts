@@ -1024,8 +1024,8 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "9ed41cee96088630f3d4b0a91e705930"
         },
         "storygridview9_related": {
-            "title": "需求表格视图",
-            "caption": "需求",
+            "title": "相关需求",
+            "caption": "相关需求",
             "viewtype": "DEGRIDVIEW9",
             "viewmodule": "zentao",
             "viewname": "StoryGridView9_Related",
