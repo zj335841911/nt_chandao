@@ -116,6 +116,10 @@ export default {
 			caption: "需求",
       		title: "story表格视图",
 		},
+		gridview9_related: {
+			caption: "需求",
+      		title: "需求表格视图",
+		},
 		maingridview: {
 			caption: "需求",
       		title: "story表格视图",
@@ -367,6 +371,7 @@ export default {
 			druipart1: "", 
 			group1: "项目任务", 
 			formpage1: "项目任务", 
+			druipart4: "", 
 			druipart2: "", 
 			grouppanel1: "相关Bug", 
 			druipart3: "", 
@@ -432,6 +437,14 @@ export default {
 			pri: "P",
 			title: "需求名称",
 			modulename: "所属模块名称",
+		},
+		uiactions: {
+		},
+	},
+	storyrelated_grid: {
+		columns: {
+			id: "编号",
+			title: "需求名称",
 		},
 		uiactions: {
 		},

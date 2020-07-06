@@ -96,6 +96,7 @@ export default class StoryUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'mainview9',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'gridview9_substory',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'maingridview_bymodule',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'gridview9_related',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'maingridview',srfappde:'stories'});
         this.allViewMap.set('MPICKUPVIEW:',{viewname:'mpickupview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'plansubgridview',srfappde:'stories'});
@@ -445,6 +446,9 @@ export default class StoryUIServiceBase extends UIService {
                 actionContext.$Notice.success({ title: '成功', desc: '关联需求成功！' });
 
                 const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
                 return response;
             }).catch((response: any) => {
                 if (!response || !response.status || !response.data) {
