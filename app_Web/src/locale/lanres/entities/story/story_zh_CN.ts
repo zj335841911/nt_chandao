@@ -435,16 +435,6 @@ export default {
 		uiactions: {
 		},
 	},
-	pickupgrid_grid: {
-		columns: {
-			id: "ID",
-			pri: "P",
-			title: "需求名称",
-			modulename: "所属模块名称",
-		},
-		uiactions: {
-		},
-	},
 	main_plansub_grid: {
 		columns: {
 			id: "ID",
@@ -457,6 +447,16 @@ export default {
 			status: "状态",
 			stage: "阶段",
 			uagridcolumn1: "操作",
+		},
+		uiactions: {
+		},
+	},
+	pickupgrid_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "需求名称",
+			modulename: "所属模块名称",
 		},
 		uiactions: {
 		},
@@ -586,6 +586,10 @@ export default {
 		deuiaction3_planrelationstory: {
 			caption: "关联需求",
 			tip: "关联需求",
+		},
+		deuiaction3_unlinkstory: {
+			caption: "移除关联",
+			tip: "移除关联",
 		},
 		seperator2: {
 			caption: "",

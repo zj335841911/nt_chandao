@@ -41,10 +41,12 @@ public interface IStoryService extends IService<Story>{
     Story batchChangeStage(Story et) ;
     Story batchClose(Story et) ;
     Story batchReview(Story et) ;
+    Story batchUnlinkStory(Story et) ;
     Story change(Story et) ;
     boolean checkKey(Story et) ;
     Story close(Story et) ;
     Story getStorySpec(Story et) ;
+    Story linkStory(Story et) ;
     Story review(Story et) ;
     boolean save(Story et) ;
     void saveBatch(List<Story> list) ;

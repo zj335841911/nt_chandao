@@ -61,12 +61,6 @@ export default {
 		uiactions: {
 		},
 	},
-	subplaneditviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
-		},
-	},
 	subplangridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "New",
@@ -86,6 +80,12 @@ export default {
 		},
 	},
 	subplancreateviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+	},
+	subplaneditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",

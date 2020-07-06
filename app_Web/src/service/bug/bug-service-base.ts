@@ -386,6 +386,55 @@ export default class BugServiceBase extends EntityService {
     }
 
     /**
+     * BatchUnlinkBug接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async BatchUnlinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/batchunlinkbug`,data,isloading);
+            return res;
+        }
+        if(context.product && context.productplan && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}/batchunlinkbug`,data,isloading);
+            return res;
+        }
+        if(context.project && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/batchunlinkbug`,data,isloading);
+            return res;
+        }
+        if(context.story && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/batchunlinkbug`,data,isloading);
+            return res;
+        }
+        if(context.productplan && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/bugs/${context.bug}/batchunlinkbug`,data,isloading);
+            return res;
+        }
+        if(context.product && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/batchunlinkbug`,data,isloading);
+            return res;
+        }
+            return Http.getInstance().post(`/bugs/${context.bug}/batchunlinkbug`,data,isloading);
+    }
+
+    /**
      * CheckKey接口方法
      *
      * @param {*} [context={}]
@@ -530,6 +579,55 @@ export default class BugServiceBase extends EntityService {
             return res;
         }
             return Http.getInstance().post(`/bugs/${context.bug}/confirm`,data,isloading);
+    }
+
+    /**
+     * LinkBug接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async LinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/linkbug`,data,isloading);
+            return res;
+        }
+        if(context.product && context.productplan && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/bugs/${context.bug}/linkbug`,data,isloading);
+            return res;
+        }
+        if(context.project && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/linkbug`,data,isloading);
+            return res;
+        }
+        if(context.story && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/linkbug`,data,isloading);
+            return res;
+        }
+        if(context.productplan && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/bugs/${context.bug}/linkbug`,data,isloading);
+            return res;
+        }
+        if(context.product && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/linkbug`,data,isloading);
+            return res;
+        }
+            return Http.getInstance().post(`/bugs/${context.bug}/linkbug`,data,isloading);
     }
 
     /**

@@ -31,10 +31,12 @@ export default {
       		title: "计划",
 		},
 	},
-	main_form: {
+	info_form: {
 		details: {
 			grouppanel1: "分组面板", 
-			group1: "productplan基本信息", 
+			group1: "基本信息", 
+			druipart1: "", 
+			grouppanel2: "历史记录", 
 			formpage1: "基本信息", 
 			srforikey: "", 
 			srfkey: "编号", 
@@ -53,12 +55,10 @@ export default {
 		uiactions: {
 		},
 	},
-	info_form: {
+	main_form: {
 		details: {
 			grouppanel1: "分组面板", 
-			group1: "基本信息", 
-			druipart1: "", 
-			grouppanel2: "历史记录", 
+			group1: "productplan基本信息", 
 			formpage1: "基本信息", 
 			srforikey: "", 
 			srfkey: "编号", 
