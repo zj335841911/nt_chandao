@@ -192,6 +192,9 @@ export default class BugDashboardActionsModel {
       {
         name: 'comment',
       },
+      {
+        name: 'taskname',
+      },
     ]
   }
 

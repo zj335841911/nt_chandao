@@ -179,14 +179,14 @@ export default class DashboardMainEditModel {
         dataType: 'PICKUPTEXT',
       },
       {
-        name: 'story',
-        prop: 'story',
-        dataType: 'PICKUP',
+        name: 'storyname',
+        prop: 'storyname',
+        dataType: 'PICKUPTEXT',
       },
       {
-        name: 'task',
-        prop: 'task',
-        dataType: 'PICKUP',
+        name: 'taskname',
+        prop: 'taskname',
+        dataType: 'PICKUPTEXT',
       },
       {
         name: 'openedby',
@@ -222,6 +222,16 @@ export default class DashboardMainEditModel {
         name: 'lasteditedby',
         prop: 'lasteditedby',
         dataType: 'SSCODELIST',
+      },
+      {
+        name: 'story',
+        prop: 'story',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'task',
+        prop: 'task',
+        dataType: 'PICKUP',
       },
       {
         name: 'bug',

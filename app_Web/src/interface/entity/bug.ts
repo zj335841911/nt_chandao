@@ -335,7 +335,7 @@ export interface Bug {
     projectname?: any;
 
     /**
-     * 需求
+     * 相关需求
      *
      * @returns {*}
      * @memberof Bug
@@ -477,4 +477,12 @@ export interface Bug {
      * @memberof Bug
      */
     comment?: any;
+
+    /**
+     * 相关任务
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    taskname?: any;
 }

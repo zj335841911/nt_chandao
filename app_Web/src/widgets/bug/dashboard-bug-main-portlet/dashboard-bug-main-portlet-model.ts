@@ -192,6 +192,9 @@ export default class DashboardBugMainModel {
       {
         name: 'comment',
       },
+      {
+        name: 'taskname',
+      },
     ]
   }
 

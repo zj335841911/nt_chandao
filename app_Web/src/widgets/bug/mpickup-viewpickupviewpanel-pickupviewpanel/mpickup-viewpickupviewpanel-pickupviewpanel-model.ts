@@ -192,6 +192,9 @@ export default class MPickupViewpickupviewpanelModel {
       {
         name: 'comment',
       },
+      {
+        name: 'taskname',
+      },
     ]
   }
 

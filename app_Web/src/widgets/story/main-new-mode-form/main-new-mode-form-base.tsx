@@ -62,6 +62,7 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
         source: null,
         sourcenote: null,
         reviewedby: null,
+        assignedto: null,
         title: null,
         pri: null,
         estimate: null,
@@ -126,6 +127,8 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
         sourcenote: new FormItemModel({ caption: '来源备注', detailType: 'FORMITEM', name: 'sourcenote', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
         reviewedby: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'reviewedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
+
+        assignedto: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
         title: new FormItemModel({ caption: '需求名称', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 

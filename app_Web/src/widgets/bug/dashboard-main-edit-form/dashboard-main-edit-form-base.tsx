@@ -89,8 +89,8 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
         mailto: null,
         project: null,
         projectname: null,
-        story: null,
-        task: null,
+        storyname: null,
+        taskname: null,
         openedby: null,
         openedbuild: null,
         resolvedby: null,
@@ -98,6 +98,8 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
         resolvedbuild: null,
         closedby: null,
         lasteditedby: null,
+        story: null,
+        task: null,
         bug:null,
     };
 
@@ -205,9 +207,9 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
 
         projectname: new FormItemModel({ caption: '项目', detailType: 'FORMITEM', name: 'projectname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
-        story: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'story', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
+        storyname: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'storyname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
-        task: new FormItemModel({ caption: '相关任务', detailType: 'FORMITEM', name: 'task', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
+        taskname: new FormItemModel({ caption: '相关任务', detailType: 'FORMITEM', name: 'taskname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
         openedby: new FormItemModel({ caption: '由谁创建', detailType: 'FORMITEM', name: 'openedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
@@ -222,6 +224,10 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
         closedby: new FormItemModel({ caption: '由谁关闭', detailType: 'FORMITEM', name: 'closedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
         lasteditedby: new FormItemModel({ caption: '最后修改者', detailType: 'FORMITEM', name: 'lasteditedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 }),
+
+        story: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'story', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
+
+        task: new FormItemModel({ caption: '相关任务', detailType: 'FORMITEM', name: 'task', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
     };
 
@@ -265,6 +271,8 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.branch.setVisible(ret);
         }
+
+
 
 
 
