@@ -1,4 +1,7 @@
-<studio-embed-view viewName="storygridview9_related" viewTitle="需求表格视图" class='degridview9 story-grid-view9-related'>
+<studio-embed-view viewName="storygridview9_related" viewTitle="相关需求" class='degridview9 story-grid-view9-related'>
+    <template slot='title'>
+    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
+    </template>
     <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 

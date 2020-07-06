@@ -6,7 +6,7 @@ import { StoryGridView9_RelatedBase } from './story-grid-view9-related-base';
 import view_grid from '@widgets/story/story-related-grid/story-related-grid.vue';
 
 /**
- * 需求表格视图视图
+ * 相关需求视图
  *
  * @export
  * @class StoryGridView9_Related
