@@ -1,6 +1,7 @@
 import { Util } from '@/utils';
 import { AppContextStore } from '../app-context-store/AppContextStore';
 import { UIStateService } from '../UIStateService';
+import qs from 'qs';
 
 /**
  * 历史记录项
@@ -89,12 +90,21 @@ export class AppNavHistoryBase {
 
     /**
      * Creates an instance of AppNavHistoryBase.
+     * 
      * @memberof AppNavHistoryBase
      */
     constructor() {
-        addEventListener('popstate', (event) => {
-            this.pop();
-        });
+        if (this.uiStateService.layoutState.styleMode === 'STYLE2') {
+            addEventListener('hashchange', ({ oldURL }) => {
+                const hash = oldURL.substring(oldURL.indexOf('#') + 1);
+                const queryIndex = hash.indexOf('?');
+                const path = queryIndex === -1 ? hash : hash.substring(0, queryIndex);
+                const queryStr = queryIndex === -1 ? '' : hash.substring(queryIndex + 1);
+                if (this.isRouteSame({ path, query: !isEmpty(queryStr) ? qs.parse(queryStr) : {} }, this.historyList[this.historyList.length - 1].to)) {
+                    this.pop();
+                }
+            });
+        }
     }
 
     /**
@@ -106,36 +116,52 @@ export class AppNavHistoryBase {
      * @memberof AppNavHistoryBase
      */
     public findHistoryIndex(page: any, list: any[] = this.historyList): number {
-        if (page === undefined || page === null) {
+        if (!isExist(page)) {
             return -1;
         }
         return list.findIndex((item: any) => {
-            const to = item.to;
-            // 基本路径是否一致
-            if (Object.is(to.path, page.path)) {
-                // 历史路径是否存在参数
-                if (this.uiStateService.layoutState.styleMode === 'STYLE2' && to.query) {
-                    let judge: boolean = true;
-                    // 新路径是否存在参数
-                    if (page.query) {
-                        for (const key in page.query) {
-                            // 忽略的参数略过
-                            if (this.navIgnoreParameters.test(`|${key}|`)) {
-                                continue;
-                            }
-                            if (to.query[key] === undefined || to.query[key] === null) {
-                                judge = false;
-                            }
-                        }
-                    } else {
-                        judge = false;
-                    }
-                    return judge;
-                }
-                return true;
-            }
-            return false;
+            return this.isRouteSame(page, item.to);
         });;
+    }
+
+    /**
+     * 新旧路由是否相同
+     *
+     * @param {*} newRoute
+     * @param {*} oldRoute
+     * @returns {boolean}
+     * @memberof AppNavHistoryBase
+     */
+    public isRouteSame(newRoute: any, oldRoute: any): boolean {
+        if (Object.is(newRoute.path, oldRoute.path)) {
+            return this.isQuerySame(newRoute.query, oldRoute.query);
+        }
+        return false;
+    }
+
+    /**
+     * 判断查询参数是否相同，会排除预定义的忽略参数
+     *
+     * @param {*} newQuery 新查询参数
+     * @param {*} oldQuery 旧查询参数
+     * @returns {boolean}
+     * @memberof AppNavHistoryBase
+     */
+    public isQuerySame(newQuery: any, oldQuery: any): boolean {
+        if (Object.keys(newQuery).length !== Object.keys(oldQuery).length) {
+            return false;
+        }
+        for (const key in newQuery) {
+            // 忽略的参数略过
+            if (this.navIgnoreParameters.test(`|${key}|`)) {
+                continue;
+            }
+            if (!isExist(oldQuery) || !Object.is(oldQuery[key], newQuery[key])) {
+                console.log('相同');
+                return false;
+            }
+        }
+        return true;
     }
 
     /**

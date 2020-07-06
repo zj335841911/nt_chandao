@@ -129,14 +129,24 @@ export default class TabPageExp extends Vue {
                 content: content,
                 onOk: () => {
                     this.appService.navHistory.remove(item);
-                    this.gotoPage(item.to);
-                },
-                onCancel: () => {
+                    if (this.appService.navHistory.historyList.length > 0) {
+                        if (this.appService.navHistory.isRouteSame(item.to, this.$route)) {
+                            this.$router.back();
+                        }
+                    } else {
+                        this.$router.push('/');
+                    }
                 }
             });
         } else {
             this.appService.navHistory.remove(item);
-            this.gotoPage(item.to);
+            if (this.appService.navHistory.historyList.length > 0) {
+                if (this.appService.navHistory.isRouteSame(item.to, this.$route)) {
+                    this.$router.back();
+                }
+            } else {
+                this.$router.push('/');
+            }
         }
     }
 
@@ -170,7 +180,7 @@ export default class TabPageExp extends Vue {
      * @memberof TabPageExp
      */
     public gotoPage(page?: any) {
-        if (page) {
+        if (page && this.appService.navHistory.historyList.length > 0) {
             if (Object.is(page.fullPath, this.$route.fullPath)) {
                 return;
             }
@@ -178,7 +188,7 @@ export default class TabPageExp extends Vue {
         } else {
             const path: string | null = window.sessionStorage.getItem(Environment.AppName);
             if(path) {
-                this.$router.push({path: path});
+                this.$router.push({ path: path });
             } else {
                 this.$router.push('/');
             }
