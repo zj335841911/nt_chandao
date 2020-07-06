@@ -6,6 +6,7 @@ import cn.ibizlab.pms.core.util.zentao.constants.ZenTaoMessage;
 import cn.ibizlab.pms.util.helper.HttpUtil;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.models.auth.In;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -54,18 +55,23 @@ public class ZenTaoHttpHelper {
      * @return true：成功，false：失败
      */
     public static boolean doZTRequest(JSONObject jo,
-                                            ZTResult rst,
-                                            String zentaoSid,
-                                            String urlExt,
-                                            HttpMethod httpMethod,
-                                            String moduleName,
-                                            String actionName,
-                                            List<String> urlParams,
-                                            Map<String, Object> actionParams,
-                                            Map<String, String> dataFormatMap,
-                                            String returnUrlRegexPrev
-                                            ) {
+                                      ZTResult rst,
+                                      String zentaoSid,
+                                      String urlExt,
+                                      HttpMethod httpMethod,
+                                      String moduleName,
+                                      String actionName,
+                                      List<String> urlParams,
+                                      Map<String, Object> actionParams,
+                                      Map<String, String> dataFormatMap,
+                                      String returnUrlRegexPrev
+    ) {
         try {
+            // 本地抓包请打开注释
+//            System.setProperty("http.proxyHost", "127.0.0.1");
+//            System.setProperty("https.proxyHost", "127.0.0.1");
+//            System.setProperty("http.proxyPort", "8888");
+//            System.setProperty("https.proxyPort", "8888");
             String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt, jo, urlParams);
             JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, httpMethod, formatJSON(jo, actionParams, dataFormatMap));
             rst = ZenTaoHttpHelper.formatResult(rstJO, rst, returnUrlRegexPrev);
@@ -99,7 +105,7 @@ public class ZenTaoHttpHelper {
         }
         JSONObject jo = new JSONObject();
         HttpHeaders httpHeaders = HttpUtil.getHttpHeaders(MediaType.MULTIPART_FORM_DATA);
-        log.debug(ZenTaoMessage.MSG_INFO_0001, url, httpMethod, httpHeaders, paramMap);
+        log.debug(ZenTaoMessage.MSG_INFO_0001, url, httpMethod, paramMap);
         ResponseEntity<String> responseEntity = HttpUtil.doRequest(url, httpMethod, httpHeaders, paramMap, String.class);
         String body = responseEntity.getBody();
         log.debug(ZenTaoMessage.MSG_INFO_0002, body);
@@ -134,7 +140,21 @@ public class ZenTaoHttpHelper {
                 if (key.endsWith("[]")) {
                     String tmpKey = key.substring(0, key.length() - 2);
                     if (jo.containsKey(tmpKey) || jo.containsKey(tmpKey.toLowerCase())) {
-                        value = jo.get(tmpKey.toLowerCase()) != null ? jo.get(tmpKey.toLowerCase()) : jo.get(tmpKey);
+                        Object tmpValue = jo.get(tmpKey.toLowerCase()) != null ? jo.get(tmpKey.toLowerCase()) : jo.get(tmpKey);
+                        if (tmpValue instanceof String && tmpValue != null && ((String) tmpValue).contains(",")) {
+                            String[] array = ((String) tmpValue).split(",", -1);
+                            if (array.length > 0) {
+                                Map<Double, String> map = new HashMap<>();
+                                for (int ai = 0; ai < array.length; ai++) {
+                                    map.put(Double.valueOf(ai), array[ai]);
+                                }
+                                value = map;
+                            } else {
+                                value = tmpValue;
+                            }
+                        } else {
+                            value = tmpValue;
+                        }
                     }
                 }
             }
@@ -493,18 +513,18 @@ public class ZenTaoHttpHelper {
         return formatResultJSON(rstJO, rst, null);
     }
 
-  /**
-   * 返回结果为JSON<br>
-   * {<br>
-   *     "result":success/fail,<br>
-   *     "html":"xxx",<br>
-   * }<br>
-   *
-   * @param rstJO
-   * @param rst
-   * @return
-   */
-  public static ZTResult formatResultHTML(JSONObject rstJO, ZTResult rst) {
+    /**
+     * 返回结果为JSON<br>
+     * {<br>
+     *     "result":success/fail,<br>
+     *     "html":"xxx",<br>
+     * }<br>
+     *
+     * @param rstJO
+     * @param rst
+     * @return
+     */
+    public static ZTResult formatResultHTML(JSONObject rstJO, ZTResult rst) {
         rst.setSuccess(true);
         rst.setResult(rstJO);
         rst.setMessage(rstJO.getString("html"));
