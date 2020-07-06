@@ -196,7 +196,18 @@ export class FileListView9Base extends ListView9Base {
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
         let localContext:any = null;
         let localViewParam:any =null;
-    this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
+        const data: any = {};
+        let tempContext = JSON.parse(JSON.stringify(this.context));
+        if(args.length >0){
+            Object.assign(tempContext,args[0]);
+        }
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'files', parameterName: 'file' },
+        ];
+        const _this: any = this;
+        const routePath = this.$viewTool.buildUpRoutePath(this.$route, tempContext, deResParameters, parameters, args, data);
+        window.open('./#'+routePath, '_blank');
     }
 
 

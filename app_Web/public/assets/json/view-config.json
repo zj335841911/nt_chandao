@@ -189,6 +189,16 @@
         "viewtag": "1d697dd8e47a4781be8f690bcc5f7800",
         "memo": ""
     },
+    "filefiledowloadview": {
+        "title": "附件下载",
+        "caption": "附件",
+        "viewtype": "DEHTMLVIEW",
+        "viewmodule": "zentao",
+        "viewname": "FileFileDowloadView",
+        "viewfilename": "file-file-dowload-view",
+        "viewtag": "1e4670d0cbac90b7321c40270ef28dec",
+        "memo": ""
+    },
     "bugpickupgridview": {
         "title": "bug选择表格视图",
         "caption": "Bug",

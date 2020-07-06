@@ -1,0 +1,7 @@
+<studio-view viewName="filefiledowloadview" viewTitle="附件下载" class='dehtmlview file-file-dowload-view'>
+    <template slot='title'>
+    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
+    </template>
+    <iframe class="iframe-container" src="../ibizutil/ztdownload/${context.file}
+    "/>
+</studio-view>

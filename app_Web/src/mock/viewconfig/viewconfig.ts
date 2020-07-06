@@ -159,6 +159,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductTestGridView",
             "viewtag": "1d697dd8e47a4781be8f690bcc5f7800"
         },
+        "filefiledowloadview": {
+            "title": "附件下载",
+            "caption": "附件",
+            "viewtype": "DEHTMLVIEW",
+            "viewmodule": "zentao",
+            "viewname": "FileFileDowloadView",
+            "viewtag": "1e4670d0cbac90b7321c40270ef28dec"
+        },
         "bugpickupgridview": {
             "title": "bug选择表格视图",
             "caption": "Bug",
