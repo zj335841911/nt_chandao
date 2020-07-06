@@ -19,6 +19,7 @@ import view_form from '@widgets/story/story-spec-edit-mode-form/story-spec-edit-
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
             vm.$appService.navHistory.setViewTag(vm.viewtag, to);
+            vm.$appService.navHistory.setViewContext(vm.context, to);
         });
     }
 })

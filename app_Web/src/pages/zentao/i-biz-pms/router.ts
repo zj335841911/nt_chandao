@@ -26,6 +26,15 @@ const router = new Router({
                 }).catch(() => {
                     next();
                 });
+                appService.navHistory.indexMeta = {
+                    caption: 'app.views.ibizpms.title',
+                    info:'',
+                    viewType: 'APPINDEX',
+                    parameters: [
+                        { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                    ],
+                    requireAuth: true,
+                };
             },
             meta: {  
                 caption: 'app.views.ibizpms.title',

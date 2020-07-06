@@ -19,6 +19,7 @@ import view_pickupviewpanel from '@widgets/product/pickup-viewpickupviewpanel-pi
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
             vm.$appService.navHistory.setViewTag(vm.viewtag, to);
+            vm.$appService.navHistory.setViewContext(vm.context, to);
         });
     }
 })

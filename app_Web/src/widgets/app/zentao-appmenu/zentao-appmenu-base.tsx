@@ -35,7 +35,7 @@ export class ZentaoBase extends Vue {
                     console.warn('未指定应用功能');
             }
             if (judge) {
-                this.$appService.navHistory.reset(1);
+                this.$appService.navHistory.reset();
             }
         }
     }

@@ -25,6 +25,7 @@
     v-if="isInit.tabviewpanel2"
     name="tabviewpanel2"  
     ref='tabviewpanel2'
+    :expActive="activatedTabViewPanel === 'tabviewpanel2'"
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel2>
@@ -54,6 +55,7 @@
     v-if="isInit.tabviewpanel3"
     name="tabviewpanel3"  
     ref='tabviewpanel3'
+    :expActive="activatedTabViewPanel === 'tabviewpanel3'"
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel3>
@@ -83,6 +85,7 @@
     v-if="isInit.tabviewpanel4"
     name="tabviewpanel4"  
     ref='tabviewpanel4'
+    :expActive="activatedTabViewPanel === 'tabviewpanel4'"
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel4>
@@ -112,6 +115,7 @@
     v-if="isInit.tabviewpanel5"
     name="tabviewpanel5"  
     ref='tabviewpanel5'
+    :expActive="activatedTabViewPanel === 'tabviewpanel5'"
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel5>
@@ -141,6 +145,7 @@
     v-if="isInit.tabviewpanel6"
     name="tabviewpanel6"  
     ref='tabviewpanel6'
+    :expActive="activatedTabViewPanel === 'tabviewpanel6'"
     @viewpanelDatasChange = "tabViewPanelDatasChange"
     @closeview="closeView($event)">
 </view_tabviewpanel6>

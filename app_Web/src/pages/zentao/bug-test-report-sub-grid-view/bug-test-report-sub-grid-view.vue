@@ -19,6 +19,7 @@ import view_grid from '@widgets/bug/main-report-sub-grid/main-report-sub-grid.vu
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
             vm.$appService.navHistory.setViewTag(vm.viewtag, to);
+            vm.$appService.navHistory.setViewContext(vm.context, to);
         });
     }
 })

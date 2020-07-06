@@ -1,5 +1,6 @@
 import { AppNavHistory } from '../app-nav-history/AppNavHistory';
 import { AppContextStore } from '../app-context-store/AppContextStore';
+import { AppViewStore } from '../app-view-store/AppViewStore';
 
 /**
  * 应用服务基类
@@ -24,6 +25,14 @@ export class AppServiceBase {
      * @memberof AppServiceBase
      */
     public readonly contextStore: AppContextStore = this.navHistory.contextStore;
+
+    /**
+     * 应用视图仓库
+     *
+     * @type {AppViewStore}
+     * @memberof AppServiceBase
+     */
+    public readonly viewStore: AppViewStore = new AppViewStore();
 
     /**
      * 退出登录

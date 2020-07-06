@@ -80,15 +80,32 @@ export class AppNavHistoryBase {
     public readonly navIgnoreParameters: RegExp = new RegExp(/(srftabactivate|srftreeexpactivate)/);
 
     /**
+     * 首页mate信息
+     *
+     * @type {*}
+     * @memberof AppNavHistoryBase
+     */
+    public indexMeta: any = null;
+
+    /**
+     * Creates an instance of AppNavHistoryBase.
+     * @memberof AppNavHistoryBase
+     */
+    constructor() {
+        addEventListener('popstate', (event) => {
+            this.pop();
+        });
+    }
+
+    /**
      * 查找路由缓存
      *
-     * @protected
      * @param {*} page
      * @param {any[]} [list=this.historyList]
      * @returns {number}
      * @memberof AppNavHistoryBase
      */
-    protected findHistoryIndex(page: any, list: any[] = this.historyList): number {
+    public findHistoryIndex(page: any, list: any[] = this.historyList): number {
         if (page === undefined || page === null) {
             return -1;
         }
@@ -134,7 +151,9 @@ export class AppNavHistoryBase {
             }
             this.historyList.push({
                 to,
-                meta: Util.deepCopy(to.meta)
+                meta: Util.deepCopy(to.meta),
+                tag: '',
+                context: {}
             });
         }
     }
@@ -169,18 +188,23 @@ export class AppNavHistoryBase {
      * @returns {boolean}
      * @memberof AppNavHistoryBase
      */
-    public setCaption({ route, caption, info }: { route: any, caption: string | null, info: string | null }): boolean {
+    public setCaption({ route, caption, info }: { route: any, caption?: string, info?: string }): boolean {
         const i = this.findHistoryIndex(route);
         if (i === -1) {
             return false;
         }
         const item = this.historyList[i];
-        Object.assign(item.meta, { caption, info });
+        if (caption) {
+            item.meta.caption = caption;
+        }
+        if (info) {
+            item.meta.info = info;
+        }
         return true;
     }
 
     /**
-     * 设置缓存视图标识
+     * 设置路由视图标识
      *
      * @param {string} tag
      * @param {*} route
@@ -194,6 +218,24 @@ export class AppNavHistoryBase {
         }
         const item = this.historyList[i];
         item.tag = tag;
+        return true;
+    }
+
+    /**
+     * 设置路由视图上下文
+     *
+     * @param {*} context
+     * @param {*} route
+     * @returns {boolean}
+     * @memberof AppNavHistoryBase
+     */
+    public setViewContext(context: any, route: any): boolean {
+        const i = this.findHistoryIndex(route);
+        if (i === -1) {
+            return false;
+        }
+        const item = this.historyList[i];
+        item.context = context;
         return true;
     }
 

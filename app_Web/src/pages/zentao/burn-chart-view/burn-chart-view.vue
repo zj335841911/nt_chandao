@@ -19,6 +19,7 @@ import view_chart from '@widgets/burn/burn-down2-chart/burn-down2-chart.vue';
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
             vm.$appService.navHistory.setViewTag(vm.viewtag, to);
+            vm.$appService.navHistory.setViewContext(vm.context, to);
         });
     }
 })

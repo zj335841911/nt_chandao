@@ -14,6 +14,7 @@ import view_appmenu from '@widgets/app/zentao-appmenu/zentao-appmenu.vue';
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
             vm.$appService.navHistory.setViewTag(vm.viewtag, to);
+            vm.$appService.navHistory.setViewContext(vm.context, to);
         });
     },
 })

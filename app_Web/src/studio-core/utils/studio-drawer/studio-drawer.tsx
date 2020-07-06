@@ -270,7 +270,7 @@ export class StudioDrawer extends Vue {
      */
     protected renderViews(h: CreateElement): any {
         return this.showViewList.map((view: any, i: number) => {
-            const props: any = { openMode: 'MODAL', viewDefaultUsage: false, viewdata: JSON.stringify(view.viewdata), viewparams: view.viewparams };
+            const props: any = { openMode: 'MODAL', viewUsage: 2, viewDefaultUsage: false, viewdata: JSON.stringify(view.viewdata), viewparams: view.viewparams };
             const style: any = { 'z-index': i + 1 };
             return <div class={{ 'studio-drawer-item': true, 'active': this.activeIndex === i }}>
                 {h(view.viewname, {

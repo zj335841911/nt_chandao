@@ -64,6 +64,7 @@ import { AppContentLeftExp } from './components/layout/app-content-left-exp/app-
 import { AppContentLeftNavMenu } from './components/layout/app-content-left-nav-menu/app-content-left-nav-menu';
 import { AppContentBottomExp } from './components/layout/app-content-bottom-exp/app-content-bottom-exp';
 import { AppFooter } from './components/layout/app-footer/app-footer';
+import { AppBreadcrumb } from './components/app-breadcrumb/app-breadcrumb';
 import { MenuIcon } from './components/menu-icon/menu-icon';
 import { UserInfo } from './components/user-info/user-info';
 import { StudioViewStyle2 } from './components/studio-view-style2/studio-view-style2';
@@ -101,6 +102,7 @@ export const StudioCore = {
         v.component('app-content-left-nav-menu', AppContentLeftNavMenu);
         v.component('app-content-bottom-exp', AppContentBottomExp);
         v.component('app-footer', AppFooter);
+        v.component('app-breadcrumb', AppBreadcrumb);
         v.component('menu-icon', MenuIcon);
         v.component('user-info', UserInfo);
         v.component('studio-view-style2', StudioViewStyle2);

@@ -21,6 +21,7 @@ import view_searchform from '@widgets/build/default-searchform/default-searchfor
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
             vm.$appService.navHistory.setViewTag(vm.viewtag, to);
+            vm.$appService.navHistory.setViewContext(vm.context, to);
         });
     }
 })

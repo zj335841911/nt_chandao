@@ -69,7 +69,6 @@ import AppColumnFormat from './components/app-column-format/app-column-format.vu
 import AppQuickGroup from './components/app-quick-group/app-quick-group.vue'
 import AppGroupPicker from './components/app-group-picker/app-group-picker.vue'
 import AppWFApproval from './components/app-wf-approval/app-wf-approval.vue'
-import Breadcrumb from './components/app-breadcrumb/app-breadcrumb.vue'
 import AppTransfer from './components/app-transfer/app-transfer.vue'
 import ContextMenuDrag from './components/context-menu-drag/context-menu-drag.vue'
 import AppOrgSelect from './components/app-org-select/app-org-select.vue'
@@ -158,7 +157,6 @@ export const AppComponents = {
         v.component('app-group-select',AppGroupSelect);
         v.component('app-group-picker',AppGroupPicker);
         v.component('app-wf-approval',AppWFApproval);
-        v.component('app-breadcrumb',Breadcrumb);
         v.component('app-transfer',AppTransfer);
         v.component('context-menu-drag',ContextMenuDrag);
     },

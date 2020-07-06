@@ -125,6 +125,7 @@ export class ProductMainTabExpViewBase extends TabExpViewBase {
                         this.$route.meta.info = this.model.dataInfo;
                     }
                     Object.assign(this.model, { srfTitle: `${this.$t(this.model.srfTitle)} - ${this.model.dataInfo}` });
+                    this.$appService.navHistory.setCaption({ route: this.$route, info: this.model.dataInfo });
                 }
             })
         }

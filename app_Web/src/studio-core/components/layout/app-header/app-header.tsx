@@ -22,6 +22,7 @@ export class AppHeader extends Vue {
         return <div class="app-header">
             <div class="app-header-left">
                 {this.$slots.header_left}
+                {Object.is(this.$uiState.layoutState.styleMode, 'STYLE2') ? <app-breadcrumb></app-breadcrumb> : null}
             </div>
             <div class="app-header-center">
                 {this.$slots.header_content}

@@ -49,6 +49,31 @@ export class ViewBase extends Vue {
     public viewparam!: string;
 
     /**
+     * 导航嵌入模式激活状态
+     *
+     * @type {boolean}
+     * @memberof ViewBase
+     */
+    @Prop({ default: true })
+    public expActive!: boolean;
+
+    /**
+     * 导航激活状态变更
+     *
+     * @memberof ViewBase
+     */
+    @Watch('expActive', { immediate: true })
+    public watchExpActive(): void {
+        if (this.viewUsage === 7) {
+            if (this.expActive) {
+                this.$appService.viewStore.push(this);
+            } else {
+                this.$appService.viewStore.pop(this);
+            }
+        }
+    }
+
+    /**
      * 是否为默认模式，默认模式为导航模式
      *
      * @type {boolean}
@@ -56,6 +81,15 @@ export class ViewBase extends Vue {
      */
     @Prop({ default: true })
     public viewDefaultUsage!: boolean;
+
+    /**
+     * 视图使用模式
+     *
+     * @type {(1 | 2 | 4 | 7)} 1：路由模式；2：模态模式；4：嵌入模式；7：导航嵌入模式，如「分页导航、树导航等」内嵌入使用的视图
+     * @memberof ViewBase
+     */
+    @Prop({ default: 1 })
+    public viewUsage!: 1 | 2 | 4 | 7;
 
     /**
      * 快速搜索值
@@ -72,7 +106,7 @@ export class ViewBase extends Vue {
      * @type {*}
      * @memberof ViewBase
      */
-    public context: any = {};
+    public readonly context: any = {};
 
     /**
      * 视图参数
@@ -255,6 +289,9 @@ export class ViewBase extends Vue {
      * @memberof ViewBase
      */
     public created(): void {
+        if (this.viewUsage === 1 || this.viewUsage === 2) {
+            this.$appService.viewStore.push(this);
+        }
         const secondtag = this.$util.createUUID();
         this.$store.commit('viewaction/createdView', { viewtag: this.viewtag, secondtag: secondtag });
         this.viewtag = secondtag;
@@ -305,6 +342,9 @@ export class ViewBase extends Vue {
      * @memberof ViewBase
      */
     public destroyed(): void {
+        if (this.viewUsage === 1 || this.viewUsage === 2) {
+            this.$appService.viewStore.pop();
+        }
         if (this.viewDefaultUsage) {
             const regExp = new RegExp(`^${this.context.srfsessionid}_(.*)`);
             for (const key in localStorage) {

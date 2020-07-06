@@ -19,6 +19,7 @@ import view_dashboard from '@widgets/story/main-panel-dashboard/main-panel-dashb
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
             vm.$appService.navHistory.setViewTag(vm.viewtag, to);
+            vm.$appService.navHistory.setViewContext(vm.context, to);
         });
     }
 })

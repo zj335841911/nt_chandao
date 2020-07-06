@@ -19,6 +19,7 @@ import view_kanban from '@widgets/task/task-kan-ban-kanban/task-kan-ban-kanban.v
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
             vm.$appService.navHistory.setViewTag(vm.viewtag, to);
+            vm.$appService.navHistory.setViewContext(vm.context, to);
         });
     }
 })

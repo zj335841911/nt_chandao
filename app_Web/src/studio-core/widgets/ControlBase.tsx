@@ -188,6 +188,7 @@ export class ControlBase extends Vue {
      * @memberof ControlBase
      */
     public mounted(): void {
+        this.context.srfappdename = this.appDeName;
         this.ctrlMounted();
     }
 

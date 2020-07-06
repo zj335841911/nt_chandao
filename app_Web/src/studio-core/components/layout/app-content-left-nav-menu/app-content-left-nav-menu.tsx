@@ -109,8 +109,10 @@ export class AppContentLeftNavMenu extends Vue {
      * @memberof AppContentLeftExp
      */
     protected itemClick(item: any): void {
-        this.changeActiveItem(item);
-        this.menuClick(item);
+        if (item.id !== this.activeItem.id) {
+            this.changeActiveItem(item);
+            this.menuClick(item);
+        }
     }
 
     /**
