@@ -595,10 +595,6 @@ export default {
 			caption: "关联需求",
 			tip: "关联需求",
 		},
-		deuiaction3_unlinkstory: {
-			caption: "移除关联",
-			tip: "移除关联",
-		},
 		seperator2: {
 			caption: "",
 			tip: "",

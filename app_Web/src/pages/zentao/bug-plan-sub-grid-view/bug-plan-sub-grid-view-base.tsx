@@ -91,8 +91,6 @@ export class BugPlanSubGridViewBase extends GridViewBase {
     public toolBarModels: any = {
         deuiaction3_planrelationbug: { name: 'deuiaction3_planrelationbug', caption: '关联Bug','isShowCaption':true,'isShowIcon':true, tooltip: '关联Bug', iconcls: 'fa fa-chain', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'PlanRelationBug', target: 'NONE' }, class: '' },
 
-        deuiaction3_batchunlinkbug: { name: 'deuiaction3_batchunlinkbug', caption: '移除关联','isShowCaption':true,'isShowIcon':true, tooltip: '移除关联', iconcls: 'fa fa-unlink', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'BatchUnlinkBug', target: 'MULTIKEY' }, class: '' },
-
         seperator2: {  name: 'seperator2', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
         deuiaction4: { name: 'deuiaction4', caption: '删除','isShowCaption':true,'isShowIcon':true, tooltip: '删除', iconcls: 'fa fa-remove', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Remove', target: 'MULTIKEY' }, class: '' },
 
@@ -154,9 +152,6 @@ export class BugPlanSubGridViewBase extends GridViewBase {
     public toolbar_click($event: any, $event2?: any): void {
         if (Object.is($event.tag, 'deuiaction3_planrelationbug')) {
             this.toolbar_deuiaction3_planrelationbug_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction3_batchunlinkbug')) {
-            this.toolbar_deuiaction3_batchunlinkbug_click(null, '', $event2);
         }
         if (Object.is($event.tag, 'deuiaction4')) {
             this.toolbar_deuiaction4_click(null, '', $event2);
@@ -248,35 +243,6 @@ export class BugPlanSubGridViewBase extends GridViewBase {
         // 界面行为
         const curUIService:BugUIService  = new BugUIService();
         curUIService.Bug_PlanRelationBug(datas,contextJO, paramJO,  $event, xData,this,"Bug");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_deuiaction3_batchunlinkbug_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:BugUIService  = new BugUIService();
-        curUIService.Bug_BatchUnlinkBug(datas,contextJO, paramJO,  $event, xData,this,"Bug");
     }
 
     /**

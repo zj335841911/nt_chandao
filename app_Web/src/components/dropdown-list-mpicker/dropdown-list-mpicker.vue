@@ -3,6 +3,7 @@
         class='dropdown-list-mpicker'
         multiple 
         :transfer="true"
+        transfer-class-name="dropdown-list-mpicker-transfer"
         v-model="currentVal"
         :disabled="disabled === true ? true : false"
         :clearable="true"
@@ -10,7 +11,7 @@
         @on-open-change="onClick"
         :placeholder="$t('components.dropDownListMpicker.placeholder')">
         <i-option v-for="(item, index) in items" :key="index" :value="item.value.toString()" :label="item.text">
-          <Checkbox :value = "(currentVal.indexOf(item.value))==-1?false:true">
+          <Checkbox :value = "(currentVal.indexOf(item.value.toString()))==-1?false:true">
              {{Object.is(codelistType,'STATIC') ? $t('codelist.'+tag+'.'+item.value) : item.text}}
           </Checkbox>
         </i-option>
