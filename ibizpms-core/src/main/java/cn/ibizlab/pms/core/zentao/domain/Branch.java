@@ -66,7 +66,8 @@ public class Branch extends EntityMP implements Serializable {
     /**
      * 排序
      */
-    @TableField(value = "order")
+    @DEField(defaultValue = "0")
+    @TableField(value = "`order`")
     @JSONField(name = "order")
     @JsonProperty("order")
     private Integer order;

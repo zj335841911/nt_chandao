@@ -200,6 +200,7 @@ final public class ZTStoryHelper {
         ACTION_PARAMS_CREATE.put("mailto", null);
         ACTION_PARAMS_CREATE.put("keywords", null);
         ACTION_PARAMS_CREATE.put("type", "story");
+        ACTION_PARAMS_CREATE.put("assignedTo", null);
 
         // EDIT
         ACTION_PARAMS_EDIT.put("product", 0);

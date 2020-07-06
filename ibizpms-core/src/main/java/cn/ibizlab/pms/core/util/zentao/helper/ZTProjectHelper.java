@@ -309,9 +309,6 @@ final public class ZTProjectHelper {
         // CLOSE
         ACTION_PARAMS_CLOSE.put("comment", null);
 
-        // CLOSE
-        ACTION_PARAMS_CLOSE.put("comment", null);
-
         // UPDATEORDER
         ACTION_PARAMS_UPDATEORDER.put("projects", null);
         ACTION_PARAMS_UPDATEORDER.put("orderBy", null);
@@ -335,6 +332,9 @@ final public class ZTProjectHelper {
 
         // PUTOFF
         ACTION_URL_PARAMS_PUTOFF.add("id");
+
+        // ACTIVATE
+        ACTION_URL_PARAMS_ACTIVATE.add("id");
 
         // SUSPEND
         ACTION_URL_PARAMS_SUSPEND.add("id");
