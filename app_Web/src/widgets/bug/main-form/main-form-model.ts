@@ -136,14 +136,14 @@ export default class MainModel {
         dataType: 'LONGTEXT',
       },
       {
-        name: 'story',
-        prop: 'story',
-        dataType: 'PICKUP',
+        name: 'storyname',
+        prop: 'storyname',
+        dataType: 'PICKUPTEXT',
       },
       {
-        name: 'task',
-        prop: 'task',
-        dataType: 'PICKUP',
+        name: 'taskname',
+        prop: 'taskname',
+        dataType: 'PICKUPTEXT',
       },
       {
         name: 'mailto',
@@ -159,6 +159,16 @@ export default class MainModel {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
+      },
+      {
+        name: 'story',
+        prop: 'story',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'task',
+        prop: 'task',
+        dataType: 'PICKUP',
       },
       {
         name: 'bug',
