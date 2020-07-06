@@ -775,7 +775,7 @@
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"Branch",
-        "appdedataset":"FetchDefault",
+        "appdedataset":"FetchCurProduct",
         "items": []
     }, 
     {

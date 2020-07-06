@@ -40,41 +40,8 @@
 </i-col>
 <i-col v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.subproductplan.mainsubplan_form.details.desc')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.desc" :autoSize="{minRows: 10}"  :disabled="detailsModel.desc.disabled" type='textarea' style="height:200px;" ></input-box>
-
+    <app-rich-text-editor :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled"  name="desc" style=""></app-rich-text-editor>
 </app-form-item>
-
-</i-col>
-    
-    </row>
-</app-form-group>
-
-</i-col>
-<i-col v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.subproductplan.mainsubplan_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
-    <row>
-        <i-col v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 11 }">
-    <app-form-group layoutType="FLEX" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.subproductplan.mainsubplan_form.details.grouppanel3')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
-    <div style="height: 100%;display: flex;justify-content: space-around;">
-        <div  v-show="detailsModel.button1.visible" :style="{}">
-    <i-button type="primary" @click="button1_click($event)"
-         style="">
-           
-        <span >{{$t('entities.subproductplan.mainsubplan_form.details.button1')}}</span>
-    </i-button>
-
-</div>
-<div  v-show="detailsModel.button2.visible" :style="{}">
-    <i-button type="primary" @click="button2_click($event)"
-         style="">
-           
-        <span >{{$t('entities.subproductplan.mainsubplan_form.details.button2')}}</span>
-    </i-button>
-
-</div>
-
-    </div>
-</app-form-group>
 
 </i-col>
     

@@ -80,9 +80,9 @@ export default class ProductBranch {
         let _items: any[] = [];
         items.forEach((item: any) => {
             let itemdata:any = {};
-            Object.assign(itemdata,{id:item.name});
-            Object.assign(itemdata,{value:item.name});
-            Object.assign(itemdata,{text:item.id});
+            Object.assign(itemdata,{id:item.id});
+            Object.assign(itemdata,{value:item.id});
+            Object.assign(itemdata,{text:item.name});
             
             _items.push(itemdata);
         });
@@ -101,7 +101,7 @@ export default class ProductBranch {
     public getItems(context: any={}, data: any={}, isloading?: boolean): Promise<any> {
         return new Promise((resolve, reject) => {
             data = this.handleQueryParam(data);
-            const promise: Promise<any> = this.branchService.FetchDefault(context, data, isloading);
+            const promise: Promise<any> = this.branchService.FetchCurProduct(context, data, isloading);
             promise.then((response: any) => {
                 if (response && response.status === 200) {
                     const data =  response.data;
