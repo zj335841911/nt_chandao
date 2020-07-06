@@ -472,4 +472,16 @@ final public class ZTStoryHelper {
         return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
     }
 
+    /**
+     * unlinkStory 解除关联需求
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean unlinkStory(String zentaoSid, JSONObject jo, ZTResult rst) {
+        return ZTProductPlanHelper.unlinkStory(zentaoSid, jo, rst);
+    }
+
 }
