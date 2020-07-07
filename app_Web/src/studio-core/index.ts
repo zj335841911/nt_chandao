@@ -38,6 +38,7 @@ export { DataViewBase } from './view/DataViewBase';
 export { PickupView3Base } from './view/PickupView3Base';
 export { TreeExpViewBase } from './view/TreeExpViewBase';
 export { TreeView9Base } from './view/TreeView9Base';
+export { TreeGridExViewBase } from './view/TreeGridExViewBase';
 export { TreeViewBase } from './view/TreeViewBase';
 export { PickupTreeViewBase } from './view/PickupTreeViewBase';
 export { WizardViewBase } from './view/WizardViewBase';

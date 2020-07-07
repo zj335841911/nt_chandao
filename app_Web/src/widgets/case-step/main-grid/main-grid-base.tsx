@@ -76,7 +76,7 @@ export class MainGridBase extends GridControllerBase {
             name: 'id',
             label: '编号',
             langtag: 'entities.casestep.main_grid.columns.id',
-            show: true,
+            show: false,
             util: 'PX'
         },
         {
@@ -90,7 +90,7 @@ export class MainGridBase extends GridControllerBase {
             name: 'type',
             label: '类型',
             langtag: 'entities.casestep.main_grid.columns.type',
-            show: true,
+            show: false,
             util: 'PX'
         },
         {
@@ -178,14 +178,6 @@ export class MainGridBase extends GridControllerBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
-            {
-                name: 'type',
-                srfkey: 'Casestep__type',
-                codelistType : 'STATIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
         ]);
     }
 
