@@ -6,7 +6,7 @@ zentao:
   rootPath: /app/file/
   file:
     uploadpath: ibizutil/ztupload
-    downloadpath: ibizutil/ztdownload
+#    downloadpath: ibizutil/ztdownload/{id}
 ibiz:
   auth:
     service: IBZUAAZTUserService
