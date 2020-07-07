@@ -15,6 +15,15 @@ import GetRoadmapService from './get-roadmap-list-service';
 export class GetRoadmapListBase extends ListControllerBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof GetRoadmapListBase
+     */
+    protected controlType: string = 'LIST';
+
+    /**
      * 建构部件服务对象
      *
      * @type {GetRoadmapService}

@@ -16,6 +16,15 @@ import { FormItemModel } from '@/model/form-detail';
 export class PickupGirdGridBase extends GridControllerBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof PickupGirdGridBase
+     */
+    protected controlType: string = 'GRID';
+
+    /**
      * 建构部件服务对象
      *
      * @type {PickupGirdService}

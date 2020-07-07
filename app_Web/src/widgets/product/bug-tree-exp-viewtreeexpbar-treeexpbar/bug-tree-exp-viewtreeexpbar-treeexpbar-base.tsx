@@ -15,6 +15,15 @@ import BugTreeExpViewtreeexpbarService from './bug-tree-exp-viewtreeexpbar-treee
 export class BugTreeExpViewtreeexpbarTreeExpBarBase extends MainControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugTreeExpViewtreeexpbarTreeExpBarBase
+     */
+    protected controlType: string = 'TREEEXPBAR';
+
+    /**
      * 建构部件服务对象
      *
      * @type {BugTreeExpViewtreeexpbarService}

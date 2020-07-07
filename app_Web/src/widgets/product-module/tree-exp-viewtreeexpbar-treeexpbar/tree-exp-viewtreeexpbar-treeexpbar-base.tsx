@@ -16,6 +16,15 @@ import ProductModuleUIService from '@/uiservice/product-module/product-module-ui
 export class TreeExpViewtreeexpbarTreeExpBarBase extends MainControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof TreeExpViewtreeexpbarTreeExpBarBase
+     */
+    protected controlType: string = 'TREEEXPBAR';
+
+    /**
      * 建构部件服务对象
      *
      * @type {TreeExpViewtreeexpbarService}

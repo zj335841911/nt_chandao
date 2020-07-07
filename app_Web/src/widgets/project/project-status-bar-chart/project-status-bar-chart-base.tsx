@@ -19,6 +19,15 @@ import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,Char
 export class ProjectStatusBarChartBase extends MainControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectStatusBarChartBase
+     */
+    protected controlType: string = 'CHART';
+
+    /**
      * 建构部件服务对象
      *
      * @type {ProjectStatusBarService}

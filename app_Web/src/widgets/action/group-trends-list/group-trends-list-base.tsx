@@ -15,6 +15,15 @@ import GroupTrendsService from './group-trends-list-service';
 export class GroupTrendsListBase extends ListControllerBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof GroupTrendsListBase
+     */
+    protected controlType: string = 'LIST';
+
+    /**
      * 建构部件服务对象
      *
      * @type {GroupTrendsService}

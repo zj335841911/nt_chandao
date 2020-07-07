@@ -17,6 +17,15 @@ import { FormItemModel } from '@/model/form-detail';
 export class MainGrid_SuitSubGridBase extends GridControllerBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainGrid_SuitSubGridBase
+     */
+    protected controlType: string = 'GRID';
+
+    /**
      * 建构部件服务对象
      *
      * @type {MainGrid_SuitSubService}

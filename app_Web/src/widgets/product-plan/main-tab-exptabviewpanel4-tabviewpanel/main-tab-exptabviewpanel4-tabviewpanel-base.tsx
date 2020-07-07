@@ -15,6 +15,15 @@ import MainTabExptabviewpanel4Service from './main-tab-exptabviewpanel4-tabviewp
 export class MainTabExptabviewpanel4TabviewpanelBase extends MainControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainTabExptabviewpanel4TabviewpanelBase
+     */
+    protected controlType: string = 'TABVIEWPANEL';
+
+    /**
      * 建构部件服务对象
      *
      * @type {MainTabExptabviewpanel4Service}

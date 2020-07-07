@@ -15,6 +15,15 @@ import TaskModuleExpService from './task-module-exp-treeview-service';
 export class TaskModuleExpTreeBase extends MainControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskModuleExpTreeBase
+     */
+    protected controlType: string = 'TREEVIEW';
+
+    /**
      * 建构部件服务对象
      *
      * @type {TaskModuleExpService}

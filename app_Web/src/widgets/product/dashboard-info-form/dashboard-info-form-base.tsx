@@ -16,6 +16,15 @@ import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormP
 export class DashboardInfoEditFormBase extends EditFormControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof DashboardInfoEditFormBase
+     */
+    protected controlType: string = 'FORM';
+
+    /**
      * 建构部件服务对象
      *
      * @type {DashboardInfoService}

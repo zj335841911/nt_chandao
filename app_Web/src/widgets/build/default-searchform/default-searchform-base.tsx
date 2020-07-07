@@ -17,6 +17,15 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 export class DefaultSearchFormBase extends SearchFormControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof DefaultSearchFormBase
+     */
+    protected controlType: string = 'SEARCHFORM';
+
+    /**
      * 建构部件服务对象
      *
      * @type {DefaultService}

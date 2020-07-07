@@ -16,6 +16,15 @@ import PickupViewpickupviewpanelModel from './pickup-viewpickupviewpanel-pickupv
 export class PickupViewpickupviewpanelPickupviewpanelBase extends MainControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof PickupViewpickupviewpanelPickupviewpanelBase
+     */
+    protected controlType: string = 'PICKUPVIEWPANEL';
+
+    /**
      * 建构部件服务对象
      *
      * @type {PickupViewpickupviewpanelService}

@@ -15,6 +15,15 @@ import TestSidebarService from './test-sidebar-list-service';
 export class TestSidebarListBase extends ListControllerBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestSidebarListBase
+     */
+    protected controlType: string = 'LIST';
+
+    /**
      * 建构部件服务对象
      *
      * @type {TestSidebarService}

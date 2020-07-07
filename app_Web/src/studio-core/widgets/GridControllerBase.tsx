@@ -439,7 +439,7 @@ export class GridControllerBase extends MDControlBase {
             this.items.forEach(() => { this.gridItemsModel.push(this.getGridRowModel()) });
             this.$emit('load', this.items);
             // 向上下文中填充当前数据
-            Object.assign(this.context, { [`srf${this.appDeName}`]: { items: this.items }, [`srfdatakey`]: `srf${this.appDeName}` });
+            this.$appService.contextStore.setContextData(this.context, this.appDeName, { items: this.items });
             // 设置默认选中
             setTimeout(() => {
                 if (this.isSelectFirstDefault) {
