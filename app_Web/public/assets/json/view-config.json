@@ -910,7 +910,7 @@
         "memo": ""
     },
     "producttestleftsidebarlistview": {
-        "title": "所有产品",
+        "title": "所有测试",
         "caption": "测试",
         "viewtype": "DELISTVIEW",
         "viewmodule": "zentao",

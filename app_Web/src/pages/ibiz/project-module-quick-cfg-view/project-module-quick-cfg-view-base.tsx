@@ -13,6 +13,15 @@ import OptionViewEngine from '@engine/view/option-view-engine';
 export class ProjectModuleQuickCfgViewBase extends OptionViewBase {
 
     /**
+     * 视图对应应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectModuleQuickCfgViewBase
+     */
+    protected appDeName: string = 'projectmodule';
+
+    /**
      * 实体服务对象
      *
      * @type {ProjectModuleService}

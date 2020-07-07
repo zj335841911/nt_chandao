@@ -75,7 +75,7 @@ export default {
 		},
 		testleftsidebarlistview: {
 			caption: "测试",
-      		title: "所有产品",
+      		title: "所有测试",
 		},
 		gridview: {
 			caption: "所有产品",

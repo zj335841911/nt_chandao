@@ -14,6 +14,15 @@ import BurnUIService from '@/uiservice/burn/burn-ui-service';
 export class BurnChartViewBase extends ChartViewBase {
 
     /**
+     * 视图对应应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BurnChartViewBase
+     */
+    protected appDeName: string = 'burn';
+
+    /**
      * 实体服务对象
      *
      * @type {BurnService}

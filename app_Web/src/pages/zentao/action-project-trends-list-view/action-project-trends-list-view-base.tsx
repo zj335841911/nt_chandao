@@ -16,6 +16,15 @@ import CodeListService from "@service/app/codelist-service";
 export class ActionProjectTrendsListViewBase extends ListViewBase {
 
     /**
+     * 视图对应应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ActionProjectTrendsListViewBase
+     */
+    protected appDeName: string = 'action';
+
+    /**
      * 实体服务对象
      *
      * @type {ActionService}

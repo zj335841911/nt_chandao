@@ -250,13 +250,13 @@ export class IBizPMSBase extends Vue {
     let leftContent: any;
     switch (styleMode) {
       case 'DEFAULT':
-        leftContent = <app-content-left-exp menus={this.left_exp.items} />;
+        leftContent = <app-content-left-exp ref="leftExp" menus={this.left_exp.items} />;
         break;
       case 'STYLE2':
-        leftContent = <app-content-left-nav-menu menus={this.left_exp.items} on-menu-click={(item: any) => this.click(item)}/>;
+        leftContent = <app-content-left-nav-menu ref="leftNavMenu" menus={this.left_exp.items} on-menu-click={(item: any) => this.click(item)}/>;
     }
     return (
-      <app-layout>
+      <app-layout ref="appLayout">
         <template slot="header">
           <app-header>
             <template slot="header_left">
@@ -265,8 +265,8 @@ export class IBizPMSBase extends Vue {
               </div>
             </template>
             <template slot="header_right">
-              <app-header-menus menus={this.top_menus.items} on-menu-click={(item: any) => this.click(item)}/>
-              <user-info menus={this.user_menus.items} on-menu-click={(item: any) => this.click(item)}/>
+              <app-header-menus ref="headerMenus" menus={this.top_menus.items} on-menu-click={(item: any) => this.click(item)}/>
+              <user-info ref="userInfo" menus={this.user_menus.items} on-menu-click={(item: any) => this.click(item)}/>
             </template>
           </app-header>
           <view_appmenu ref='appmenu'/>
@@ -275,18 +275,18 @@ export class IBizPMSBase extends Vue {
           {this.left_exp.items ? <template slot="content_left">
             {leftContent}
           </template> : null}
-          {styleMode === 'DEFAULT' ? <tab-page-exp></tab-page-exp> : null}
+          {styleMode === 'DEFAULT' ? <tab-page-exp ref="tabExp"></tab-page-exp> : null}
           <div class="view-warp">
             <app-keep-alive routerList={this.appService.navHistory.historyList}>
               <router-view key={this.$route.fullPath}></router-view>
             </app-keep-alive>
           </div>
           {this.bottom_exp.items ? <template slot="content_bottom">
-            <app-content-bottom-exp menus={this.bottom_exp.items} />
+            <app-content-bottom-exp ref="bootomExp" menus={this.bottom_exp.items} />
           </template> : null}
         </app-content>
         <template slot="footer">
-          <app-footer/>
+          <app-footer ref="footer"/>
         </template>
       </app-layout>
     );

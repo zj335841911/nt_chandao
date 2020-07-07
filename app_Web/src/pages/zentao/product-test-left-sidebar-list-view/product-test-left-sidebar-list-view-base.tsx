@@ -8,13 +8,22 @@ import CodeListService from "@service/app/codelist-service";
 
 
 /**
- * 所有产品视图基类
+ * 所有测试视图基类
  *
  * @export
  * @class ProductTestLeftSidebarListViewBase
  * @extends {ListViewBase}
  */
 export class ProductTestLeftSidebarListViewBase extends ListViewBase {
+
+    /**
+     * 视图对应应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductTestLeftSidebarListViewBase
+     */
+    protected appDeName: string = 'product';
 
     /**
      * 实体服务对象

@@ -13,6 +13,15 @@ import EditView9Engine from '@engine/view/edit-view9-engine';
 export class ProductDashboardInfoMainView9Base extends EditView9Base {
 
     /**
+     * 视图对应应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductDashboardInfoMainView9Base
+     */
+    protected appDeName: string = 'product';
+
+    /**
      * 实体服务对象
      *
      * @type {ProductService}
