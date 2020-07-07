@@ -90,7 +90,7 @@ export default class MainModel {
       },
       {
         name: 'custom2',
-        prop: 'undonetaskcnt',
+        prop: 'finishtaskcnt',
         dataType: 'INT',
       },
       {
@@ -113,7 +113,7 @@ export default class MainModel {
       },
       {
         name: 'custom4',
-        prop: 'unclosedstorycnt',
+        prop: 'closedstorycnt',
         dataType: 'INT',
       },
       {
@@ -136,7 +136,7 @@ export default class MainModel {
       },
       {
         name: 'custom6',
-        prop: 'unclosedbugcnt',
+        prop: 'finishbugcnt',
         dataType: 'INT',
       },
       {
