@@ -174,6 +174,14 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'notreview')) {
+            let ret = false;
+            const _notreview = this.data.notreview;
+            if (this.$verify.testCond(_notreview, 'EQ', '0') || this.$verify.testCond(_notreview, 'ISNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.reviewedby.setDisabled(!ret);
+        }
 
 
 
@@ -184,6 +192,10 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
         if (Object.is(name, 'version')) {
             const details: string[] = ['verify', 'spec'];
             this.updateFormItems('GetStorySpec', this.data, details, true);
+        }
+        if (Object.is(name, 'notreview')) {
+            const details: string[] = ['reviewedby'];
+            this.updateFormItems('UpdateREVIEWEDBY', this.data, details, true);
         }
     }
 }
