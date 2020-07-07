@@ -19,6 +19,15 @@ export class ViewBase extends Vue {
     public viewState: Subject<ViewState> = new Subject();
 
     /**
+     * 视图对应应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+    protected appDeName: string = '';
+
+    /**
      * 数据变化
      *
      * @param {*} val
@@ -413,27 +422,28 @@ export class ViewBase extends Vue {
             if (this.$store.getters.getAppData() && this.$store.getters.getAppData().context) {
                 Object.assign(this.context, this.$store.getters.getAppData().context);
             }
-            this.handleCustomViewData();
-            return;
-        }
-        const path = (this.$route.matched[this.$route.matched.length - 1]).path;
-        const keys: Array<any> = [];
-        const curReg = this.$pathToRegExp.pathToRegexp(path, keys);
-        const matchArray = curReg.exec(this.$route.path);
-        const tempValue: Object = {};
-        keys.forEach((item: any, index: number) => {
-            Object.defineProperty(tempValue, item.name, {
-                enumerable: true,
-                value: matchArray[index + 1]
+        } else {
+            const path = (this.$route.matched[this.$route.matched.length - 1]).path;
+            const keys: Array<any> = [];
+            const curReg = this.$pathToRegExp.pathToRegexp(path, keys);
+            const matchArray = curReg.exec(this.$route.path);
+            const tempValue: Object = {};
+            keys.forEach((item: any, index: number) => {
+                Object.defineProperty(tempValue, item.name, {
+                    enumerable: true,
+                    value: matchArray[index + 1]
+                });
             });
-        });
-        this.$viewTool.formatRouteParams(tempValue, this.$route, this.context, this.viewparams);
-        if (this.$store.getters.getAppData() && this.$store.getters.getAppData().context) {
-            Object.assign(this.context, this.$store.getters.getAppData().context);
+            this.$viewTool.formatRouteParams(tempValue, this.$route, this.context, this.viewparams);
+            if (this.$store.getters.getAppData() && this.$store.getters.getAppData().context) {
+                Object.assign(this.context, this.$store.getters.getAppData().context);
+            }
+            if (this.isDeView) {
+                this.context.srfsessionid = this.$util.createUUID();
+            }
         }
-        if (this.isDeView) {
-            //初始化视图唯一标识
-            Object.assign(this.context, { srfsessionid: this.$util.createUUID() });
+        if (this.isDeView && !isEmpty(this.appDeName)) {
+            this.context.srfappdename = this.appDeName;
         }
         this.handleCustomViewData();
     }

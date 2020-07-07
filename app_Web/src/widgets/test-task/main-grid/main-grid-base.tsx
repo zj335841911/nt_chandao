@@ -200,7 +200,7 @@ export class MainGridBase extends GridControllerBase {
             label: '名称',
             langtag: 'entities.testtask.main_grid.columns.name',
             show: true,
-            util: 'STAR'
+            util: 'PX'
         },
         {
             name: 'productname',
