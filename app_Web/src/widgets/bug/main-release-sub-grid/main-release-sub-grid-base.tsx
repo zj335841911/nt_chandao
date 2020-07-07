@@ -16,6 +16,15 @@ import { FormItemModel } from '@/model/form-detail';
 export class Main_ReleaseSubGridBase extends GridControllerBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof Main_ReleaseSubGridBase
+     */
+    protected controlType: string = 'GRID';
+
+    /**
      * 建构部件服务对象
      *
      * @type {Main_ReleaseSubService}
@@ -75,7 +84,7 @@ export class Main_ReleaseSubGridBase extends GridControllerBase {
             label: 'Bug标题',
             langtag: 'entities.bug.main_releasesub_grid.columns.title',
             show: true,
-            util: 'STAR'
+            util: 'PX'
         },
         {
             name: 'status',

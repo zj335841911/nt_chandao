@@ -15,6 +15,15 @@ import TrendsService from './trends-list-service';
 export class TrendsListBase extends ListControllerBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof TrendsListBase
+     */
+    protected controlType: string = 'LIST';
+
+    /**
      * 建构部件服务对象
      *
      * @type {TrendsService}

@@ -15,6 +15,15 @@ import TaskKanBanService from './task-kan-ban-kanban-service';
 export class TaskKanBanKanbanBase extends MainControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskKanBanKanbanBase
+     */
+    protected controlType: string = 'KANBAN';
+
+    /**
      * 建构部件服务对象
      *
      * @type {TaskKanBanService}

@@ -533,14 +533,6 @@ export default {
 			caption: "关联Bug",
 			tip: "关联Bug",
 		},
-		seperator2: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction4: {
-			caption: "删除",
-			tip: "删除",
-		},
 		seperator1: {
 			caption: "",
 			tip: "",

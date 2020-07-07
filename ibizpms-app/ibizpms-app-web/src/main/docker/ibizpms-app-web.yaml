@@ -15,7 +15,7 @@ services:
       - SPRING_REDIS_DATABASE=0
       - SPRING_DATASOURCE_USERNAME=zentao
       - SPRING_DATASOURCE_PASSWORD=123456
-      - SPRING_DATASOURCE_URL=jdbc:mysql://172.16.100.202:3306/zentao?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
+      - SPRING_DATASOURCE_URL=jdbc:mysql://172.16.180.217:3306/zentao?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull
       - SPRING_DATASOURCE_DRIVER-CLASS-NAME=com.mysql.jdbc.Driver
       - SPRING_DATASOURCE_DEFAULTSCHEMA=zentao
       - CAS=https://passport.ibizlab.cn

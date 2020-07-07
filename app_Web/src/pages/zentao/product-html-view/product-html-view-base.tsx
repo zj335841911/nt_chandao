@@ -13,6 +13,15 @@ import HtmlViewEngine from '@engine/view/html-view-engine';
 export class ProductHtmlViewBase extends ViewBase {
 
     /**
+     * 视图对应应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductHtmlViewBase
+     */
+    protected appDeName: string = 'product';
+
+    /**
      * 实体服务对象
      *
      * @type {ProductService}

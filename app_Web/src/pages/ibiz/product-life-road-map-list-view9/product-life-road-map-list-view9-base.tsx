@@ -16,6 +16,15 @@ import CodeListService from "@service/app/codelist-service";
 export class ProductLifeRoadMapListView9Base extends ListView9Base {
 
     /**
+     * 视图对应应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductLifeRoadMapListView9Base
+     */
+    protected appDeName: string = 'productlife';
+
+    /**
      * 实体服务对象
      *
      * @type {ProductLifeService}

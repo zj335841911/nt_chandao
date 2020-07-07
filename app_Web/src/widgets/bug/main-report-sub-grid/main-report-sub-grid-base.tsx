@@ -16,6 +16,15 @@ import { FormItemModel } from '@/model/form-detail';
 export class Main_ReportSubGridBase extends GridControllerBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof Main_ReportSubGridBase
+     */
+    protected controlType: string = 'GRID';
+
+    /**
      * 建构部件服务对象
      *
      * @type {Main_ReportSubService}
@@ -91,7 +100,7 @@ export class Main_ReportSubGridBase extends GridControllerBase {
             label: 'Bug标题',
             langtag: 'entities.bug.main_reportsub_grid.columns.title',
             show: true,
-            util: 'STAR'
+            util: 'PX'
         },
         {
             name: 'openedby',

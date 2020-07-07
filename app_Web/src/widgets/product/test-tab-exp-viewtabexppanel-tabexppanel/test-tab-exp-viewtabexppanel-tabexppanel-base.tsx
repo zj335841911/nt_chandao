@@ -15,6 +15,15 @@ import TestTabExpViewtabexppanelService from './test-tab-exp-viewtabexppanel-tab
 export class TestTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestTabExpViewtabexppanelTabexppanelBase
+     */
+    protected controlType: string = 'TABEXPPANEL';
+
+    /**
      * 建构部件服务对象
      *
      * @type {TestTabExpViewtabexppanelService}

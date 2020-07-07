@@ -69,8 +69,7 @@ export class AppBreadcrumb extends Vue {
         if (tag) {
             const view = this.$appService.viewStore.findParentByTag(tag);
             if (view) {
-                const c = view.context;
-                const data = c[`srf${context.srfappdename}`];
+                const data = this.appService.contextStore.getContextData(view.context, context.srfappdename);
                 if (data && data.items) {
                     return data.items;
                 }

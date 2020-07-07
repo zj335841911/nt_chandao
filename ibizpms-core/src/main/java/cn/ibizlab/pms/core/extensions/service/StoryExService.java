@@ -181,18 +181,33 @@ public class StoryExService extends StoryServiceImpl {
         cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser();
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         JSONObject jo = new JSONObject();
-        ArrayList<Map> list = (ArrayList) et.getExtensionparams().get("srfactionparam");
-        jo.put("id",et.getExtensionparams().get("productplan"));
-        JSONArray jsonArray = new JSONArray();
-        for(Map map : list) {
-            jsonArray.add(map.get("id"));
+        if(et.get("srfactionparam") != null) {
+            ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
+            JSONArray jsonArray = new JSONArray();
+            for(Map map : list) {
+                if (map.get("id") != null) {
+                    jsonArray.add(map.get("id"));
+                }
+            }
+            jo.put("stories",jsonArray);
         }
-        jo.put("stories[]",jsonArray);
+        if(et.get("productplan") != null) {
+            jo.put("id", et.get("productplan"));
+        }
         boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.linkStory((String)user.getSessionParams().get("zentaosid"), jo, rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
         return et;
+    }
+
+    @Override
+    @Transactional
+    public Story unlinkStory(Story et) {
+        if (et.get("productplan") != null) {
+            et.setPlan(String.valueOf(et.get("productplan")));
+        }
+        return super.unlinkStory(et);
     }
 }
 

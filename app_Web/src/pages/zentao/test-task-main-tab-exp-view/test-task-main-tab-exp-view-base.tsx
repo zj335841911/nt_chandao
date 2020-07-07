@@ -13,6 +13,15 @@ import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
 export class TestTaskMainTabExpViewBase extends TabExpViewBase {
 
     /**
+     * 视图对应应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestTaskMainTabExpViewBase
+     */
+    protected appDeName: string = 'testtask';
+
+    /**
      * 实体服务对象
      *
      * @type {TestTaskService}
@@ -104,9 +113,9 @@ export class TestTaskMainTabExpViewBase extends TabExpViewBase {
                 if (!response || response.status !== 200) {
                     return;
                 }
-                const { data: _data } = response;
-                if (_data.name) {
-                    Object.assign(this.model, { dataInfo: _data.name });
+                const { data } = response;
+                if (data.name) {
+                    Object.assign(this.model, { dataInfo: data.name });
                     if(this.$route){
                         this.$route.meta.info = this.model.dataInfo;
                     }

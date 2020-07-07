@@ -16,6 +16,15 @@ import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormP
 export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof StorySpec_EditModeEditFormBase
+     */
+    protected controlType: string = 'FORM';
+
+    /**
      * 建构部件服务对象
      *
      * @type {StorySpec_EditModeService}
@@ -165,6 +174,14 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'notreview')) {
+            let ret = false;
+            const _notreview = this.data.notreview;
+            if (this.$verify.testCond(_notreview, 'EQ', '0') || this.$verify.testCond(_notreview, 'ISNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.reviewedby.setDisabled(!ret);
+        }
 
 
 

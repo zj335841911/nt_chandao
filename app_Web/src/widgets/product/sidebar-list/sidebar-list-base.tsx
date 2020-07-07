@@ -15,6 +15,15 @@ import SidebarService from './sidebar-list-service';
 export class SidebarListBase extends ListControllerBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof SidebarListBase
+     */
+    protected controlType: string = 'LIST';
+
+    /**
      * 建构部件服务对象
      *
      * @type {SidebarService}

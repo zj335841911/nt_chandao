@@ -17,6 +17,15 @@ import CodeListService from "@service/app/codelist-service";
 export class CaseMainGridViewBase extends GridViewBase {
 
     /**
+     * 视图对应应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseMainGridViewBase
+     */
+    protected appDeName: string = 'case';
+
+    /**
      * 实体服务对象
      *
      * @type {CaseService}

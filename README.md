@@ -137,43 +137,81 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 
 ## 系统展示
 
-产品概况
+### 产品
+
+- 产品--主页
 
 ![show1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show1.png)
 
-甘特图
+- 产品--概况
 
-![show2](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show2.png)
+![show1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show2.png)
 
-项目主页
+- 产品--需求
 
-![show3](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show3.png)
+![show1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show3.png)
 
-产品路线图
+- 产品--路线图
 
-![show4](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show4.png)
+![show1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show4.png)
 
-产品动态
+- 产品--动态
 
-![show4](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show5.png)
+![show1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show5.png)
 
-产品主页
+### 项目
 
-![show4](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show6.png)
+- 项目--主页
 
-需求
+![show1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show6.png)
 
-![show4](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show7.png)
+- 项目--概况
 
-接口列表
+![show1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show7.png)
+
+- 项目--任务
+
+![show1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show8.png)
+
+- 项目--看板
+
+![show1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show9.png)
+
+- 项目--燃尽图
+
+![show1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show10.png)
+
+- 项目--甘特图
+
+![show1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show11.png)
+
+### 测试
+
+- 测试--主页
+
+![show1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show12.png)
+
+- 测试-Bug
+
+![show1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show13.png)
+
+- 测试-功能测试
+
+![show1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show14.png)
+
+### 接口
+
+- 接口列表
 
 ![swagger1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/swagger1.png)
 
-产品接口
+![swagger2](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/swagger1.png)
+
+- 产品接口
 
 ![swagger2](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/swagger2.png)
 
-新建产品接口
+- 新建产品接口
 
 ![swagger3](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/swagger3.png)
 
@@ -181,20 +219,18 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 
 ### 里程碑
 
-> **我们计划在7月完成iBizPMS第一版功能**
+| 序号 | 时间       | 事件                   | 备注                               |
+| ---- | ---------- | ---------------------- | ---------------------------------- |
+| 1    | 2020-05-06 | 选型预研               | 国内外项目管理软件整理和对比       |
+| 2    | 2020-05-11 | 禅道业务分析、技术预研 |                                    |
+| 3    | 2020-05-18 | 项目启动               |                                    |
+| 4    | 2020-05-18 | 禅道模型整理           | 梳理禅道的业务数据模型以及模型关系 |
+| 5    | 2020-05-18 | 禅道界面、组件整理     | 梳理禅道界面表现和组件模型         |
+| 6    | 2020-05-25 | 禅道API整理            | 梳理禅道API，抽象共通性            |
+| 7    | 2020-06-01 | 联通iBizPMS与禅道      | iBizPMS与禅道API和数据库联通       |
+| 8    | 2020-07-07 | 项目管理主功能完成     | 产品、项目、测试功能完成           |
 
-| 序号 | 时间       | 事件                     | 备注                                       |
-| ---- | ---------- | ------------------------ | ------------------------------------------ |
-| 1    | 2020-05-06 | 选型预研。               | 国内外项目管理软件整理和对比。             |
-| 2    | 2020-05-11 | 禅道业务分析、技术预研。 |                                            |
-| 3    | 2020-05-18 | 项目启动。               |                                            |
-| 4    | 2020-05-18 | 禅道模型整理。           | 梳理禅道的业务数据模型以及模型关系。       |
-| 5    | 2020-05-18 | 禅道界面、组件整理。     | 梳理禅道界面表现和组件模型。               |
-| 6    | 2020-05-25 | 禅道API整理。            | 梳理禅道API，抽象共通性。                  |
-| 7    | 2020-06-01 | 联通iBizPMS与禅道。      | iBizPMS与禅道API和数据库联通。             |
-| 8    | 2020-06-08 | 功能持续完善。           | 产品、项目、测试功能逐步完善中。           |
-| 9    | 2020-06-22 | 功能持续完善。           | 产品、项目主功能完成，测试功能逐步完善中。 |
-| 10   | 2020-06-27 | 功能持续完善。           | 测试主功能基本完成，剩余功能逐步完善中。   |
+> 后续将陆续细腻各功能内容，并完成个人主页“我的地盘”，用户、认证、权限功能，连通生产系统的数据。
 
 ### 快速建立issue
 

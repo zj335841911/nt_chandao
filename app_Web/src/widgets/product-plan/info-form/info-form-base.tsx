@@ -16,6 +16,15 @@ import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormP
 export class InfoEditFormBase extends EditFormControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof InfoEditFormBase
+     */
+    protected controlType: string = 'FORM';
+
+    /**
      * 建构部件服务对象
      *
      * @type {InfoService}
@@ -94,7 +103,7 @@ export class InfoEditFormBase extends EditFormControlBase {
 
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this }),
 
-        grouppanel2: new FormGroupPanelModel({ caption: '历史记录', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.productplan.info_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel2: new FormGroupPanelModel({ caption: '历史记录', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.productplan.info_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this }),
 

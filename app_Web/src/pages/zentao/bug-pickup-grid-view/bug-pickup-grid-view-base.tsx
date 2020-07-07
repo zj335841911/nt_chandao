@@ -13,6 +13,15 @@ import PickupGridViewEngine from '@engine/view/pickup-grid-view-engine';
 export class BugPickupGridViewBase extends PickupGridViewBase {
 
     /**
+     * 视图对应应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugPickupGridViewBase
+     */
+    protected appDeName: string = 'bug';
+
+    /**
      * 实体服务对象
      *
      * @type {BugService}

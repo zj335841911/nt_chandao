@@ -17,6 +17,15 @@ import CodeListService from "@service/app/codelist-service";
 export class BugPlanSubGridViewBase extends GridViewBase {
 
     /**
+     * 视图对应应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugPlanSubGridViewBase
+     */
+    protected appDeName: string = 'bug';
+
+    /**
      * 实体服务对象
      *
      * @type {BugService}
@@ -91,9 +100,6 @@ export class BugPlanSubGridViewBase extends GridViewBase {
     public toolBarModels: any = {
         deuiaction3_planrelationbug: { name: 'deuiaction3_planrelationbug', caption: '关联Bug','isShowCaption':true,'isShowIcon':true, tooltip: '关联Bug', iconcls: 'fa fa-chain', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'PlanRelationBug', target: 'NONE' }, class: '' },
 
-        seperator2: {  name: 'seperator2', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
-        deuiaction4: { name: 'deuiaction4', caption: '删除','isShowCaption':true,'isShowIcon':true, tooltip: '删除', iconcls: 'fa fa-remove', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Remove', target: 'MULTIKEY' }, class: '' },
-
         seperator1: {  name: 'seperator1', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
         deuiaction2: { name: 'deuiaction2', caption: '刷新','isShowCaption':true,'isShowIcon':true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Refresh', target: '' }, class: '' },
 
@@ -152,9 +158,6 @@ export class BugPlanSubGridViewBase extends GridViewBase {
     public toolbar_click($event: any, $event2?: any): void {
         if (Object.is($event.tag, 'deuiaction3_planrelationbug')) {
             this.toolbar_deuiaction3_planrelationbug_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction4')) {
-            this.toolbar_deuiaction4_click(null, '', $event2);
         }
         if (Object.is($event.tag, 'deuiaction2')) {
             this.toolbar_deuiaction2_click(null, '', $event2);
@@ -243,34 +246,6 @@ export class BugPlanSubGridViewBase extends GridViewBase {
         // 界面行为
         const curUIService:BugUIService  = new BugUIService();
         curUIService.Bug_PlanRelationBug(datas,contextJO, paramJO,  $event, xData,this,"Bug");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_deuiaction4_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.Remove(datas, contextJO,paramJO,  $event, xData,this,"Bug");
     }
 
     /**
@@ -406,25 +381,6 @@ export class BugPlanSubGridViewBase extends GridViewBase {
         openDrawer(view, data);
     }
 
-
-    /**
-     * 删除
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof BugPlanSubGridViewBase
-     */
-    public Remove(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        if (!xData || !(xData.remove instanceof Function)) {
-            return ;
-        }
-        xData.remove(args);
-    }
 
     /**
      * 刷新

@@ -17,6 +17,15 @@ import { Environment } from '@/environments/environment';
 export class MainToolbarPortletBase extends MainControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainToolbarPortletBase
+     */
+    protected controlType: string = 'PORTLET';
+
+    /**
      * 建构部件服务对象
      *
      * @type {MainToolbarService}

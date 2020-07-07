@@ -13,6 +13,15 @@ import PortalViewEngine from '@engine/view/portal-view-engine';
 export class BugMainDashboardViewBase extends DashboardViewBase {
 
     /**
+     * 视图对应应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugMainDashboardViewBase
+     */
+    protected appDeName: string = 'bug';
+
+    /**
      * 实体服务对象
      *
      * @type {BugService}

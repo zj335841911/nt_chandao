@@ -19,6 +19,15 @@ import CodeListService from "@service/app/codelist-service";
 export class TaskKanBanPanelBase extends MainControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskKanBanPanelBase
+     */
+    protected controlType: string = 'PANEL';
+
+    /**
      * 建构部件服务对象
      *
      * @type {TaskKanBanService}

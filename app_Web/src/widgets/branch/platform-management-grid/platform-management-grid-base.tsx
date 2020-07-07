@@ -16,6 +16,15 @@ import { FormItemModel } from '@/model/form-detail';
 export class PlatformManagementGridBase extends GridControllerBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof PlatformManagementGridBase
+     */
+    protected controlType: string = 'GRID';
+
+    /**
      * 建构部件服务对象
      *
      * @type {PlatformManagementService}
@@ -68,7 +77,7 @@ export class PlatformManagementGridBase extends GridControllerBase {
             label: '名称',
             langtag: 'entities.branch.platformmanagement_grid.columns.name',
             show: true,
-            util: 'PX'
+            util: 'STAR'
         },
         {
             name: 'order',

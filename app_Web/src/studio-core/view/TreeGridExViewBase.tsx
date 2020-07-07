@@ -1,4 +1,3 @@
-import { Prop, Watch } from 'vue-property-decorator';
 import { GridViewBase } from './GridViewBase';
 
 /**

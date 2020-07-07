@@ -15,6 +15,15 @@ import BugExpService from './bug-exp-treeview-service';
 export class BugExpTreeBase extends MainControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugExpTreeBase
+     */
+    protected controlType: string = 'TREEVIEW';
+
+    /**
      * 建构部件服务对象
      *
      * @type {BugExpService}

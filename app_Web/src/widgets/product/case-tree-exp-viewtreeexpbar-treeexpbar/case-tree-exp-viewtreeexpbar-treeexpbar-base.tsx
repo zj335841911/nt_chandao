@@ -15,6 +15,15 @@ import CaseTreeExpViewtreeexpbarService from './case-tree-exp-viewtreeexpbar-tre
 export class CaseTreeExpViewtreeexpbarTreeExpBarBase extends MainControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseTreeExpViewtreeexpbarTreeExpBarBase
+     */
+    protected controlType: string = 'TREEEXPBAR';
+
+    /**
      * 建构部件服务对象
      *
      * @type {CaseTreeExpViewtreeexpbarService}

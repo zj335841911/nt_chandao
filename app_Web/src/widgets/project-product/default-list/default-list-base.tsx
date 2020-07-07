@@ -15,6 +15,15 @@ import DEFAULTService from './default-list-service';
 export class DEFAULTListBase extends ListControllerBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof DEFAULTListBase
+     */
+    protected controlType: string = 'LIST';
+
+    /**
      * 建构部件服务对象
      *
      * @type {DEFAULTService}

@@ -13,6 +13,15 @@ import EditViewEngine from '@engine/view/edit-view-engine';
 export class CaseMainNewViewBase extends EditViewBase {
 
     /**
+     * 视图对应应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseMainNewViewBase
+     */
+    protected appDeName: string = 'case';
+
+    /**
      * 实体服务对象
      *
      * @type {CaseService}

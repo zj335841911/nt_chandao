@@ -13,6 +13,15 @@ import TreeExpViewEngine from '@engine/view/tree-exp-view-engine';
 export class ProductCaseTreeExpViewBase extends TreeExpViewBase {
 
     /**
+     * 视图对应应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductCaseTreeExpViewBase
+     */
+    protected appDeName: string = 'product';
+
+    /**
      * 实体服务对象
      *
      * @type {ProductService}

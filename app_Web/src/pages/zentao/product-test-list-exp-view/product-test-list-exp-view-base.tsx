@@ -13,6 +13,15 @@ import ListExpViewEngine from '@engine/view/list-exp-view-engine';
 export class ProductTestListExpViewBase extends ListExpViewBase {
 
     /**
+     * 视图对应应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductTestListExpViewBase
+     */
+    protected appDeName: string = 'product';
+
+    /**
      * 实体服务对象
      *
      * @type {ProductService}

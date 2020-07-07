@@ -48,7 +48,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('title')">
-                <el-table-column show-overflow-tooltip :prop="'title'" :label="$t('entities.story.main3_grid.columns.title')" :min-width="1"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'title'" :label="$t('entities.story.main3_grid.columns.title')" :min-width="0"  :align="'left'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.story.main3_grid.columns.title')}}

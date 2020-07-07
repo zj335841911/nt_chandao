@@ -13,6 +13,15 @@ import EditViewEngine from '@engine/view/edit-view-engine';
 export class BuildEditViewBase extends EditViewBase {
 
     /**
+     * 视图对应应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BuildEditViewBase
+     */
+    protected appDeName: string = 'build';
+
+    /**
      * 实体服务对象
      *
      * @type {BuildService}

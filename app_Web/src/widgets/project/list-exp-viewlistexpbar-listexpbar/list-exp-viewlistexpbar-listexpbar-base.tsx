@@ -15,6 +15,15 @@ import ListExpViewlistexpbarService from './list-exp-viewlistexpbar-listexpbar-s
 export class ListExpViewlistexpbarListexpbarBase extends MainControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof ListExpViewlistexpbarListexpbarBase
+     */
+    protected controlType: string = 'LISTEXPBAR';
+
+    /**
      * 建构部件服务对象
      *
      * @type {ListExpViewlistexpbarService}

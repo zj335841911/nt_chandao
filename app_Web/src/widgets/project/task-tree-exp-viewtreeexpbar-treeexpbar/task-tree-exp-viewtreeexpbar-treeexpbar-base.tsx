@@ -15,6 +15,15 @@ import TaskTreeExpViewtreeexpbarService from './task-tree-exp-viewtreeexpbar-tre
 export class TaskTreeExpViewtreeexpbarTreeExpBarBase extends MainControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskTreeExpViewtreeexpbarTreeExpBarBase
+     */
+    protected controlType: string = 'TREEEXPBAR';
+
+    /**
      * 建构部件服务对象
      *
      * @type {TaskTreeExpViewtreeexpbarService}

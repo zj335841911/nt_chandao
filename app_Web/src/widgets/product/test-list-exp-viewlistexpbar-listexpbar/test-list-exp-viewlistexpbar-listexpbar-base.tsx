@@ -15,6 +15,15 @@ import TestListExpViewlistexpbarService from './test-list-exp-viewlistexpbar-lis
 export class TestListExpViewlistexpbarListexpbarBase extends MainControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestListExpViewlistexpbarListexpbarBase
+     */
+    protected controlType: string = 'LISTEXPBAR';
+
+    /**
      * 建构部件服务对象
      *
      * @type {TestListExpViewlistexpbarService}

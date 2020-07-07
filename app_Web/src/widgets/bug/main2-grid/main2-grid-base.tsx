@@ -16,6 +16,15 @@ import { FormItemModel } from '@/model/form-detail';
 export class Main2GridBase extends GridControllerBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof Main2GridBase
+     */
+    protected controlType: string = 'GRID';
+
+    /**
      * 建构部件服务对象
      *
      * @type {Main2Service}
@@ -83,7 +92,7 @@ export class Main2GridBase extends GridControllerBase {
             label: 'Bug标题',
             langtag: 'entities.bug.main2_grid.columns.title',
             show: true,
-            util: 'STAR'
+            util: 'PX'
         },
         {
             name: 'status',

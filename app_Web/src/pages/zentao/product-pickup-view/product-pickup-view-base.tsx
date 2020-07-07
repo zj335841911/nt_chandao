@@ -13,6 +13,15 @@ import PickupViewEngine from '@engine/view/pickup-view-engine';
 export class ProductPickupViewBase extends PickupViewBase {
 
     /**
+     * 视图对应应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductPickupViewBase
+     */
+    protected appDeName: string = 'product';
+
+    /**
      * 实体服务对象
      *
      * @type {ProductService}

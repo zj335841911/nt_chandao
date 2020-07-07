@@ -15,6 +15,15 @@ import TestExpService from './test-exp-list-service';
 export class TestExpListBase extends ListControllerBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestExpListBase
+     */
+    protected controlType: string = 'LIST';
+
+    /**
      * 建构部件服务对象
      *
      * @type {TestExpService}

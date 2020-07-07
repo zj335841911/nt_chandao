@@ -16,6 +16,15 @@ import CodeListService from "@service/app/codelist-service";
 export class ProductPlanSubPlanGridViewBase extends GridViewBase {
 
     /**
+     * 视图对应应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductPlanSubPlanGridViewBase
+     */
+    protected appDeName: string = 'subproductplan';
+
+    /**
      * 实体服务对象
      *
      * @type {SubProductPlanService}

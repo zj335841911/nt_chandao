@@ -16,6 +16,15 @@ import { FormItemModel } from '@/model/form-detail';
 export class PickupGridGridBase extends GridControllerBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof PickupGridGridBase
+     */
+    protected controlType: string = 'GRID';
+
+    /**
      * 建构部件服务对象
      *
      * @type {PickupGridService}
@@ -89,7 +98,7 @@ export class PickupGridGridBase extends GridControllerBase {
             label: '需求名称',
             langtag: 'entities.story.pickupgrid_grid.columns.title',
             show: true,
-            util: 'STAR'
+            util: 'PX'
         },
         {
             name: 'openedby',

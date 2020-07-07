@@ -16,6 +16,15 @@ import { Environment } from '@/environments/environment';
 export class AssignedToMeCasePortletBase extends MainControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof AssignedToMeCasePortletBase
+     */
+    protected controlType: string = 'PORTLET';
+
+    /**
      * 建构部件服务对象
      *
      * @type {AssignedToMeCaseService}

@@ -56,6 +56,7 @@ export class StudioViewStyle2Base extends StudioViewBase {
             </div> : null,
             this.isShowHeader ? <div class="view-header">
                 {this.$slots.title ? <div class="title">{this.$slots.title}</div> : null}
+                {this.$slots.quickSummary ? <div class="quickSummary">{this.$slots.quickSummary}</div> : null}
                 {this.$slots.quickGroupSearch ? <div class="quick-group-search">
                     {this.$slots.quickGroupSearch}
                 </div> : null}

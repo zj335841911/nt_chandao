@@ -19,6 +19,15 @@ import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,Char
 export class BurnDown2ChartBase extends MainControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof BurnDown2ChartBase
+     */
+    protected controlType: string = 'CHART';
+
+    /**
      * 建构部件服务对象
      *
      * @type {BurnDown2Service}

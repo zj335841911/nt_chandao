@@ -13,6 +13,15 @@ import PortalViewEngine from '@engine/view/portal-view-engine';
 export class ProjectMainDashboardViewBase extends DashboardViewBase {
 
     /**
+     * 视图对应应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectMainDashboardViewBase
+     */
+    protected appDeName: string = 'project';
+
+    /**
      * 实体服务对象
      *
      * @type {ProjectService}

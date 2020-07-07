@@ -1,5 +1,9 @@
 server:
   port: 10120
+#Log配置
+logging:
+  level:
+    cn.ibizlab.pms: info
 #zuul网关路由设置
 zuul:
   routes:
@@ -17,6 +21,14 @@ zuul:
       stripPrefix: false
     zt_product:
       path: /products/**
+      serviceId: pms-webapi
+      stripPrefix: false
+    zt_file:
+      path: /files/**
+      serviceId: pms-webapi
+      stripPrefix: false
+    zt_suitecase:
+      path: /suitecases/**
       serviceId: pms-webapi
       stripPrefix: false
     zt_burn:
@@ -99,12 +111,32 @@ zuul:
       path: /builds/**
       serviceId: pms-webapi
       stripPrefix: false
+    zt_testresult:
+      path: /testresults/**
+      serviceId: pms-webapi
+      stripPrefix: false
+    zt_testsuite:
+      path: /testsuites/**
+      serviceId: pms-webapi
+      stripPrefix: false
+    ibz_projectteam:
+      path: /projectteams/**
+      serviceId: pms-webapi
+      stripPrefix: false
     zt_testtask:
       path: /testtasks/**
       serviceId: pms-webapi
       stripPrefix: false
+    zt_testreport:
+      path: /testreports/**
+      serviceId: pms-webapi
+      stripPrefix: false
     ibz_projectstats:
       path: /projectstats/**
+      serviceId: pms-webapi
+      stripPrefix: false
+    zt_testrun:
+      path: /testruns/**
       serviceId: pms-webapi
       stripPrefix: false
     zt_bug:

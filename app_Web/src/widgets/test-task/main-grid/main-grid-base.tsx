@@ -17,6 +17,15 @@ import { FormItemModel } from '@/model/form-detail';
 export class MainGridBase extends GridControllerBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    protected controlType: string = 'GRID';
+
+    /**
      * 建构部件服务对象
      *
      * @type {MainService}
@@ -200,7 +209,7 @@ export class MainGridBase extends GridControllerBase {
             label: '名称',
             langtag: 'entities.testtask.main_grid.columns.name',
             show: true,
-            util: 'STAR'
+            util: 'PX'
         },
         {
             name: 'productname',

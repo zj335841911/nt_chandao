@@ -13,6 +13,15 @@ import EditViewEngine from '@engine/view/edit-view-engine';
 export class ProjectEditView_CloseBase extends EditViewBase {
 
     /**
+     * 视图对应应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectEditView_CloseBase
+     */
+    protected appDeName: string = 'project';
+
+    /**
      * 实体服务对象
      *
      * @type {ProjectService}

@@ -13,6 +13,15 @@ import EditView9Engine from '@engine/view/edit-view9-engine';
 export class TestTaskEditView9_InfoBase extends EditView9Base {
 
     /**
+     * 视图对应应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestTaskEditView9_InfoBase
+     */
+    protected appDeName: string = 'testtask';
+
+    /**
      * 实体服务对象
      *
      * @type {TestTaskService}
