@@ -336,6 +336,7 @@
   :viewparams="viewparams" 
   :localContext ='{ }' 
   :localParam ='{ }' 
+  :disabled="detailsModel.mailto.disabled"
   tag='UserRealName' 
   codelistType='DYNAMIC' 
   valueSeparator=","
@@ -411,6 +412,7 @@
   :viewparams="viewparams" 
   :localContext ='{ PRODUCT:"%product%" }' 
   :localParam ='{ product:"%product%" }' 
+  :disabled="detailsModel.linkstories.disabled"
   tag='RelatedStory' 
   codelistType='DYNAMIC' 
   valueSeparator=","
