@@ -68,7 +68,7 @@ export class PlatformManagementGridBase extends GridControllerBase {
             label: '名称',
             langtag: 'entities.branch.platformmanagement_grid.columns.name',
             show: true,
-            util: 'PX'
+            util: 'STAR'
         },
         {
             name: 'order',

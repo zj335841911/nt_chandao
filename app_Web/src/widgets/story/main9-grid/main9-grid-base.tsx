@@ -84,7 +84,7 @@ export class Main9GridBase extends GridControllerBase {
             label: '需求名称',
             langtag: 'entities.story.main9_grid.columns.title',
             show: true,
-            util: 'PX'
+            util: 'STAR'
         },
         {
             name: 'status',
