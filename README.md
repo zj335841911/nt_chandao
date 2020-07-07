@@ -205,8 +205,6 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 
 ![swagger1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/swagger1.png)
 
-![swagger2](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/swagger1.png)
-
 - 产品接口
 
 ![swagger2](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/swagger2.png)
