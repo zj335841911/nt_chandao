@@ -181,7 +181,7 @@ export class MainGridBase extends GridControllerBase {
             label: '名称',
             langtag: 'entities.productplan.main_grid.columns.title',
             show: true,
-            util: 'STAR'
+            util: 'PX'
         },
         {
             name: 'begin',
