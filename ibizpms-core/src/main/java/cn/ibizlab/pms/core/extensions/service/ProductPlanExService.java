@@ -54,12 +54,16 @@ public class ProductPlanExService extends ProductPlanServiceImpl {
         cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser();
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         JSONObject jo = (JSONObject) JSONObject.toJSON(et);
-        ArrayList<Map> list = (ArrayList) et.getExtensionparams().get("srfactionparam");
-        JSONArray jsonArray = new JSONArray();
-        for(Map map : list) {
-            jsonArray.add(map.get("id"));
+        if(et.get("srfactionparam") != null) {
+            ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
+            JSONArray jsonArray = new JSONArray();
+            for(Map map : list) {
+                if (map.get("id") != null) {
+                    jsonArray.add(map.get("id"));
+                }
+            }
+            jo.put("bugs",jsonArray);
         }
-        jo.put("bugs[]",jsonArray);
         boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductPlanHelper.linkBug((String)user.getSessionParams().get("zentaosid"), jo, rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
@@ -77,12 +81,16 @@ public class ProductPlanExService extends ProductPlanServiceImpl {
         cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser();
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         JSONObject jo = (JSONObject) JSONObject.toJSON(et);
-        ArrayList<Map> list = (ArrayList) et.getExtensionparams().get("srfactionparam");
-        JSONArray jsonArray = new JSONArray();
-        for(Map map : list) {
-            jsonArray.add(map.get("id"));
+        if(et.get("srfactionparam") != null) {
+            ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
+            JSONArray jsonArray = new JSONArray();
+            for(Map map : list) {
+                if (map.get("id") != null) {
+                    jsonArray.add(map.get("id"));
+                }
+            }
+            jo.put("stories",jsonArray);
         }
-        jo.put("stories[]",jsonArray);
         boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductPlanHelper.linkStory((String)user.getSessionParams().get("zentaosid"), jo, rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
