@@ -75,7 +75,7 @@ export class Main_BuildSubGridBase extends GridControllerBase {
             label: '需求名称',
             langtag: 'entities.story.main_buildsub_grid.columns.title',
             show: true,
-            util: 'PX'
+            util: 'STAR'
         },
         {
             name: 'modulename',

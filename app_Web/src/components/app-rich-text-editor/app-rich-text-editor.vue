@@ -312,6 +312,3 @@ export default class AppRichTextEditor extends Vue {
     }
 }
 </script>
-<style lang="less">
-@import './app-rich-text-editor.less';
-</style>
