@@ -193,5 +193,9 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
             const details: string[] = ['verify', 'spec'];
             this.updateFormItems('GetStorySpec', this.data, details, true);
         }
+        if (Object.is(name, 'notreview')) {
+            const details: string[] = ['reviewedby'];
+            this.updateFormItems('ResetReviewedBy', this.data, details, true);
+        }
     }
 }
