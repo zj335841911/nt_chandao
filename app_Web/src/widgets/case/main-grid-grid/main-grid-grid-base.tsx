@@ -255,7 +255,7 @@ export class MainGridGridBase extends GridControllerBase {
             label: '用例标题',
             langtag: 'entities.case.maingrid_grid.columns.title',
             show: true,
-            util: 'STAR'
+            util: 'PX'
         },
         {
             name: 'type',

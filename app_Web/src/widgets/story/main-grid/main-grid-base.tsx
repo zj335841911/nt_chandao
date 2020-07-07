@@ -216,7 +216,7 @@ export class MainGridBase extends GridControllerBase {
             label: '需求名称',
             langtag: 'entities.story.main_grid.columns.title',
             show: true,
-            util: 'STAR'
+            util: 'PX'
         },
         {
             name: 'plan',
