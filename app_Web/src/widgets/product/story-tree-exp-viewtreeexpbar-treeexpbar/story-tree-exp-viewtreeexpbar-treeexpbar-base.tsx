@@ -15,6 +15,15 @@ import StoryTreeExpViewtreeexpbarService from './story-tree-exp-viewtreeexpbar-t
 export class StoryTreeExpViewtreeexpbarTreeExpBarBase extends MainControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryTreeExpViewtreeexpbarTreeExpBarBase
+     */
+    protected controlType: string = 'TREEEXPBAR';
+
+    /**
      * 建构部件服务对象
      *
      * @type {StoryTreeExpViewtreeexpbarService}

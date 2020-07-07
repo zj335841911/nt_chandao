@@ -16,6 +16,15 @@ import DEFAULTService from '@/widgets/history/default-list/default-list-service'
 export class ClassifyByTypeListBase extends MainControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof ClassifyByTypeListBase
+     */
+    protected controlType: string = 'LIST';
+
+    /**
      * 建构部件服务对象
      *
      * @type {ClassifyByTypeService}

@@ -170,7 +170,7 @@ export class EditFormControlBase extends FormControlBase {
             Object.assign(this.context, { [this.appDeName]: data[this.appDeName] })
         }
         // 更新上下文，当前数据视图数据
-        Object.assign(this.context, { [`src${this.appDeName}`]: { data }, [`srfdatakey`]: `srf${this.appDeName}` });
+        this.$appService.contextStore.setContextData(this.context, this.appDeName, { data })
         this.setFormEnableCond(data);
         this.fillForm(data, action);
         this.oldData = {};

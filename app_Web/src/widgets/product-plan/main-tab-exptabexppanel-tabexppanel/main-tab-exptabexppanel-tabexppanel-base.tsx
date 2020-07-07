@@ -15,6 +15,15 @@ import MainTabExptabexppanelService from './main-tab-exptabexppanel-tabexppanel-
 export class MainTabExptabexppanelTabexppanelBase extends TabExpPanelControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainTabExptabexppanelTabexppanelBase
+     */
+    protected controlType: string = 'TABEXPPANEL';
+
+    /**
      * 建构部件服务对象
      *
      * @type {MainTabExptabexppanelService}

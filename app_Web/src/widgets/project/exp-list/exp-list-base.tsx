@@ -15,6 +15,15 @@ import ExpService from './exp-list-service';
 export class ExpListBase extends ListControllerBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof ExpListBase
+     */
+    protected controlType: string = 'LIST';
+
+    /**
      * 建构部件服务对象
      *
      * @type {ExpService}

@@ -15,6 +15,15 @@ import MainTabExpViewtabviewpanel9Service from './main-tab-exp-viewtabviewpanel9
 export class MainTabExpViewtabviewpanel9TabviewpanelBase extends MainControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainTabExpViewtabviewpanel9TabviewpanelBase
+     */
+    protected controlType: string = 'TABVIEWPANEL';
+
+    /**
      * 建构部件服务对象
      *
      * @type {MainTabExpViewtabviewpanel9Service}

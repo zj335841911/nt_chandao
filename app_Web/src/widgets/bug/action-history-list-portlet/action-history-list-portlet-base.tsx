@@ -16,6 +16,15 @@ import { Environment } from '@/environments/environment';
 export class ActionHistoryListPortletBase extends MainControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof ActionHistoryListPortletBase
+     */
+    protected controlType: string = 'PORTLET';
+
+    /**
      * 建构部件服务对象
      *
      * @type {ActionHistoryListService}

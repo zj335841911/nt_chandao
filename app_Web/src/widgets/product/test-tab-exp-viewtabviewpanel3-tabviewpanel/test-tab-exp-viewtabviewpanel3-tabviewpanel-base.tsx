@@ -15,6 +15,15 @@ import TestTabExpViewtabviewpanel3Service from './test-tab-exp-viewtabviewpanel3
 export class TestTabExpViewtabviewpanel3TabviewpanelBase extends MainControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestTabExpViewtabviewpanel3TabviewpanelBase
+     */
+    protected controlType: string = 'TABVIEWPANEL';
+
+    /**
      * 建构部件服务对象
      *
      * @type {TestTabExpViewtabviewpanel3Service}

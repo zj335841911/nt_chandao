@@ -16,6 +16,15 @@ import GetRoadmapService from '@/widgets/product-life/get-roadmap-list/get-roadm
 export class GetRoadmapYearListBase extends MainControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof GetRoadmapYearListBase
+     */
+    protected controlType: string = 'LIST';
+
+    /**
      * 建构部件服务对象
      *
      * @type {GetRoadmapYearService}

@@ -15,6 +15,15 @@ import TypeGanttService from './type-gantt-gantt-service';
 export class TypeGanttGanttBase extends MainControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof TypeGanttGanttBase
+     */
+    protected controlType: string = 'GANTT';
+
+    /**
      * 建构部件服务对象
      *
      * @type {TypeGanttService}

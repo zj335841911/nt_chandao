@@ -16,6 +16,15 @@ import UtilService from '@/utilservice/util-service';
 export class MainPanelDashboardBase extends MainControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof MainPanelDashboardBase
+     */
+    protected controlType: string = 'DASHBOARD';
+
+    /**
      * 建构部件服务对象
      *
      * @type {MainPanelService}

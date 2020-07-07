@@ -15,6 +15,15 @@ import CaseExpService from './case-exp-treeview-service';
 export class CaseExpTreeBase extends MainControlBase {
 
     /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseExpTreeBase
+     */
+    protected controlType: string = 'TREEVIEW';
+
+    /**
      * 建构部件服务对象
      *
      * @type {CaseExpService}
