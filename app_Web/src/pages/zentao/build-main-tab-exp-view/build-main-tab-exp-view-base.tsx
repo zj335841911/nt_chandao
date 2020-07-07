@@ -113,9 +113,9 @@ export class BuildMainTabExpViewBase extends TabExpViewBase {
                 if (!response || response.status !== 200) {
                     return;
                 }
-                const { data: _data } = response;
-                if (_data.name) {
-                    Object.assign(this.model, { dataInfo: _data.name });
+                const { data } = response;
+                if (data.name) {
+                    Object.assign(this.model, { dataInfo: data.name });
                     if(this.$route){
                         this.$route.meta.info = this.model.dataInfo;
                     }

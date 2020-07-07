@@ -113,9 +113,9 @@ export class TestReportMainTabExpViewBase extends TabExpViewBase {
                 if (!response || response.status !== 200) {
                     return;
                 }
-                const { data: _data } = response;
-                if (_data.title) {
-                    Object.assign(this.model, { dataInfo: _data.title });
+                const { data } = response;
+                if (data.title) {
+                    Object.assign(this.model, { dataInfo: data.title });
                     if(this.$route){
                         this.$route.meta.info = this.model.dataInfo;
                     }
