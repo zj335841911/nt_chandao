@@ -534,14 +534,6 @@ export default {
 			caption: "关联Bug",
 			tip: "关联Bug",
 		},
-		seperator2: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction4: {
-			caption: "Remove",
-			tip: "Remove {0}",
-		},
 		seperator1: {
 			caption: "",
 			tip: "",

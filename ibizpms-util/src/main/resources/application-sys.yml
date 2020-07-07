@@ -23,7 +23,7 @@ spring:
   datasource:
     username: zentao
     password: '123456'
-    url: jdbc:mysql://172.16.100.202:3306/zentao?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
+    url: jdbc:mysql://172.16.180.217:3306/zentao?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull
     driver-class-name: com.mysql.jdbc.Driver
     filters: stat,wall,log4j2
     #配置初始化大小/最小/最大
