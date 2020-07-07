@@ -141,7 +141,7 @@ export class MainEditFormBase extends EditFormControlBase {
 
         custom1: new FormItemModel({ caption: '任务总数', detailType: 'FORMITEM', name: 'custom1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
-        custom2: new FormItemModel({ caption: '未完成任务总数', detailType: 'FORMITEM', name: 'custom2', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
+        custom2: new FormItemModel({ caption: '已结束任务总数', detailType: 'FORMITEM', name: 'custom2', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
         formitemex1: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
@@ -151,7 +151,7 @@ export class MainEditFormBase extends EditFormControlBase {
 
         custom3: new FormItemModel({ caption: '需求总数', detailType: 'FORMITEM', name: 'custom3', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
-        custom4: new FormItemModel({ caption: '未关闭需求总数', detailType: 'FORMITEM', name: 'custom4', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
+        custom4: new FormItemModel({ caption: '关闭需求总数', detailType: 'FORMITEM', name: 'custom4', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
         formitemex2: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex2', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
@@ -161,7 +161,7 @@ export class MainEditFormBase extends EditFormControlBase {
 
         custom5: new FormItemModel({ caption: 'Bug总数', detailType: 'FORMITEM', name: 'custom5', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
-        custom6: new FormItemModel({ caption: '未关闭Bug总数', detailType: 'FORMITEM', name: 'custom6', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
+        custom6: new FormItemModel({ caption: '已解决Bug总数', detailType: 'FORMITEM', name: 'custom6', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
         formitemex3: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex3', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
