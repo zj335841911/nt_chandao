@@ -104,7 +104,7 @@ export class Main_PlanSubGridBase extends GridControllerBase {
             label: 'Bug标题',
             langtag: 'entities.bug.main_plansub_grid.columns.title',
             show: true,
-            util: 'PX'
+            util: 'STAR'
         },
         {
             name: 'status',
