@@ -13,6 +13,15 @@ import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
 export class ReleaseMainTabExpViewBase extends TabExpViewBase {
 
     /**
+     * 视图对应应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ReleaseMainTabExpViewBase
+     */
+    protected appDeName: string = 'release';
+
+    /**
      * 实体服务对象
      *
      * @type {ReleaseService}

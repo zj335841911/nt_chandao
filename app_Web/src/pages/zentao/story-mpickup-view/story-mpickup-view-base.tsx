@@ -13,6 +13,15 @@ import MPickupViewEngine from '@engine/view/mpickup-view-engine';
 export class StoryMPickupViewBase extends MPickupViewBase {
 
     /**
+     * 视图对应应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryMPickupViewBase
+     */
+    protected appDeName: string = 'story';
+
+    /**
      * 实体服务对象
      *
      * @type {StoryService}

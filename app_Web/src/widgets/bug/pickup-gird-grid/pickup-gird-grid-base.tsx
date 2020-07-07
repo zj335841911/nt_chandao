@@ -75,7 +75,7 @@ export class PickupGirdGridBase extends GridControllerBase {
             label: 'Bug标题',
             langtag: 'entities.bug.pickupgird_grid.columns.title',
             show: true,
-            util: 'STAR'
+            util: 'PX'
         },
         {
             name: 'openedby',

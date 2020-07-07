@@ -16,6 +16,15 @@ import CodeListService from "@service/app/codelist-service";
 export class TaskPivotTableViewBase extends GridViewBase {
 
     /**
+     * 视图对应应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskPivotTableViewBase
+     */
+    protected appDeName: string = 'task';
+
+    /**
      * 实体服务对象
      *
      * @type {TaskService}

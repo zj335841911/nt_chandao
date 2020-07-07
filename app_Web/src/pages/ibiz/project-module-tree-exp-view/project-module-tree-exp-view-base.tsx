@@ -13,6 +13,15 @@ import TreeExpViewEngine from '@engine/view/tree-exp-view-engine';
 export class ProjectModuleTreeExpViewBase extends TreeExpViewBase {
 
     /**
+     * 视图对应应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectModuleTreeExpViewBase
+     */
+    protected appDeName: string = 'projectmodule';
+
+    /**
      * 实体服务对象
      *
      * @type {ProjectModuleService}

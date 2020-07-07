@@ -195,7 +195,7 @@ export class MainGridBase extends GridControllerBase {
             label: 'Bug标题',
             langtag: 'entities.bug.main_grid.columns.title',
             show: true,
-            util: 'STAR'
+            util: 'PX'
         },
         {
             name: 'status',

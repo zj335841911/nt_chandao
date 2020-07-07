@@ -736,7 +736,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "7a983ef690626958a9897f58efe15e58"
         },
         "producttestleftsidebarlistview": {
-            "title": "所有产品",
+            "title": "所有测试",
             "caption": "测试",
             "viewtype": "DELISTVIEW",
             "viewmodule": "zentao",

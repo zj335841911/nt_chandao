@@ -17,6 +17,15 @@ import CodeListService from "@service/app/codelist-service";
 export class ProductLeftSidebarListViewBase extends ListViewBase {
 
     /**
+     * 视图对应应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductLeftSidebarListViewBase
+     */
+    protected appDeName: string = 'product';
+
+    /**
      * 实体服务对象
      *
      * @type {ProductService}

@@ -16,6 +16,15 @@ import CodeListService from "@service/app/codelist-service";
 export class TaskGridView9_StoryRelatedBase extends GridView9Base {
 
     /**
+     * 视图对应应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskGridView9_StoryRelatedBase
+     */
+    protected appDeName: string = 'task';
+
+    /**
      * 实体服务对象
      *
      * @type {TaskService}

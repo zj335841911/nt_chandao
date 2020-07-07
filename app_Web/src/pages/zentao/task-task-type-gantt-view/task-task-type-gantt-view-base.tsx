@@ -12,6 +12,15 @@ import TaskService from '@/service/task/task-service';
 export class TaskTaskTypeGanttViewBase extends GanttViewBase {
 
     /**
+     * 视图对应应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskTaskTypeGanttViewBase
+     */
+    protected appDeName: string = 'task';
+
+    /**
      * 实体服务对象
      *
      * @type {TaskService}
