@@ -75,7 +75,7 @@ export class Main_ReleaseSubGridBase extends GridControllerBase {
             label: '需求名称',
             langtag: 'entities.story.main_releasesub_grid.columns.title',
             show: true,
-            util: 'PX'
+            util: 'STAR'
         },
         {
             name: 'modulename',
