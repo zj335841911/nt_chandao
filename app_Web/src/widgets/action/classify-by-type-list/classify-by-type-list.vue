@@ -18,5 +18,21 @@ import { ClassifyByTypeListBase } from './classify-by-type-list-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class ClassifyByTypeList extends ClassifyByTypeListBase { }
+export default class ClassifyByTypeList extends ClassifyByTypeListBase {
+
+    /**
+     * 部件挂载完毕
+     *
+     * @memberof ClassifyByTypeListBase
+     */
+    public ctrlMounted(): void {
+        super.ctrlMounted();
+        if (this.context && isExistAndNotEmpty(this.context.objecttype)) {
+            this.accLocalTags.push(this.$acc.commandLocal(() => {
+                this.refresh();
+            }, 'all', this.context.objecttype.toUpperCase()));
+        }
+    }
+
+}
 </script>
