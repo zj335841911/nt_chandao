@@ -89,7 +89,7 @@ export class PickupGridGridBase extends GridControllerBase {
             label: '需求名称',
             langtag: 'entities.story.pickupgrid_grid.columns.title',
             show: true,
-            util: 'STAR'
+            util: 'PX'
         },
         {
             name: 'openedby',
