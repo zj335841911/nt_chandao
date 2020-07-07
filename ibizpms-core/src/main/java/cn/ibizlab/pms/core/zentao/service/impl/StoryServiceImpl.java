@@ -360,13 +360,6 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
 	    return et;
     }
 
-    @Override
-    @Transactional
-    public Story updateREVIEWEDBY(Story et) {
-        //自定义代码
-        return et;
-    }
-
 
 	@Override
     public List<Story> selectByModule(BigInteger id) {
