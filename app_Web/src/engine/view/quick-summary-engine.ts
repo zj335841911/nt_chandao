@@ -52,8 +52,21 @@ export class QuickSummaryEngine extends ViewEngine {
         }
         if (opt.quicksummary) {
             this.quickSummary = opt.quicksummary;
-            console.log(this.quickSummary, this.quickSummary.controlType);
         }
-        console.log(this.context);
     }
+
+    /**
+     * 向快捷信息栏部件填充数据
+     *
+     * @memberof QuickSummaryEngine
+     */
+    public setData(): void {
+        const data = this.view.$appService.contextStore.getContextData(this.context, this.view.appDeName);
+        if (this.quickSummary && Object.is(this.quickSummary.controlType, 'FORM')) {
+            if (data && data.data) {
+                this.quickSummary.fillForm(data.data);
+            }
+        }
+    }
+
 }
