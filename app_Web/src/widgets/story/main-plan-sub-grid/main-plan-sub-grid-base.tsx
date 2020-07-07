@@ -111,7 +111,7 @@ export class Main_PlanSubGridBase extends GridControllerBase {
             label: '需求名称',
             langtag: 'entities.story.main_plansub_grid.columns.title',
             show: true,
-            util: 'STAR'
+            util: 'PX'
         },
         {
             name: 'openedby',

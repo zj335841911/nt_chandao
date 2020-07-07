@@ -97,7 +97,7 @@ export class MainGridBase extends GridControllerBase {
             label: '角色',
             langtag: 'entities.projectteam.main_grid.columns.role',
             show: true,
-            util: 'STAR'
+            util: 'PX'
         },
         {
             name: 'join',

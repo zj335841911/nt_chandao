@@ -68,7 +68,7 @@ export class MainSubPlanGridBase extends GridControllerBase {
             label: '名称',
             langtag: 'entities.subproductplan.mainsubplan_grid.columns.title',
             show: true,
-            util: 'STAR'
+            util: 'PX'
         },
         {
             name: 'begin',
