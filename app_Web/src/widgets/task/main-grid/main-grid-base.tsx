@@ -253,7 +253,7 @@ export class MainGridBase extends GridControllerBase {
             label: '任务名称',
             langtag: 'entities.task.main_grid.columns.name',
             show: true,
-            util: 'PX'
+            util: 'STAR'
         },
         {
             name: 'status',
