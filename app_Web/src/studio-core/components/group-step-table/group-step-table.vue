@@ -3,8 +3,8 @@
         <thead>
             <tr>
                 <th :width="50">编号</th>
-                <template v-for="(col, index) of cols">
-                    <th :key="index"> {{col.label}} </th>
+                <template v-for="(col, index) of getCols()">
+                    <th :key="index" v-if="col.show"> {{col.label}} </th>
                 </template>
             </tr>
         </thead>
@@ -14,11 +14,11 @@
                     <td>
                         <div class="table-order">{{ item.order_num }}</div>
                     </td>
-                    <template v-for="(col, i) of cols">
-                        <td :key="i">
+                    <template v-for="(col, i) of getCols()">
+                        <td :key="i" v-if="col.show">
                             <div class="table-item">
                                 <div  class="table-order" v-if="item.hasOwnProperty('child_order_num') && i === 0"> {{ item.child_order_num }} </div>
-                                <div>
+                                <div class="table-td">
                                     <slot :item="{data: item, index: index, col: col}">
                                         {{ item[col.name] }}
                                     </slot>
@@ -92,6 +92,22 @@ export default class GroupStepTable extends Vue {
         });
         return items;
     }
+
+    /**
+     * 获取数据集合
+     * 
+     * @type *
+     * @memberof GroupStepTable
+     */
+    public getCols() {
+        let items: any[] = [];
+        this.cols.map((col: any) => {
+            if(col.show) {
+                items.push(col);
+            }
+        });
+        return items;
+    }
 }
 </script>
 
@@ -122,6 +138,9 @@ export default class GroupStepTable extends Vue {
             height: 30px;
             width: 49px;
             text-align: center;
+        }
+        .table-td {
+            padding: 0 4px;
         }
     }
 }
