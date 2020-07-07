@@ -74,19 +74,27 @@ public class BugExService extends BugServiceImpl {
         cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser();
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         JSONObject jo = new JSONObject();
-        ArrayList<Map> list = (ArrayList) et.getExtensionparams().get("srfactionparam");
-        jo.put("id",et.getExtensionparams().get("productplan"));
-        JSONArray jsonArray = new JSONArray();
-        for(Map map : list) {
-            jsonArray.add(map.get("id"));
+        if(et.get("srfactionparam") != null) {
+            ArrayList<Map> list = (ArrayList<Map>) et.get("srfactionparam");
+            JSONArray jsonArray = new JSONArray();
+            for(Map map : list) {
+                if (map.get("id") != null) {
+                    jsonArray.add(map.get("id"));
+                }
+            }
+            jo.put("bugs",jsonArray);
         }
-        jo.put("bugs[]",jsonArray);
+        if(et.get("productplan") != null) {
+            jo.put("id", et.get("productplan"));
+        }
         boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBugHelper.linkBug((String)user.getSessionParams().get("zentaosid"), jo, rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
         return et;
     }
+
+
     /**
      * 自定义行为[Resolve]用户扩展
      * @param et
