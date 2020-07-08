@@ -9,11 +9,11 @@
                 <th v-if="isEdit" :width="100">操作</th>
             </tr>
         </thead>
-        <tbody>
+        <draggable :list="data" :disabled="!isEdit" element="tbody" handle=".table-tr-drag" @end="onDraggable">
             <template v-for="(item, index) of getItems(data)">
                 <tr :key="index">
                     <td>
-                        <div class="table-order">{{ item.order_num }}</div>
+                        <div class="table-order"> {{ item.order_num }} </div>
                     </td>
                     <template v-for="(col, i) of getCols()">
                         <td :key="i" v-if="col.show">
@@ -40,13 +40,14 @@
                     <td v-if="isEdit">
                         <div class="table-action">
                             <Icon type="md-add" @click="onAdd(item, index)"/>
-                            <Icon type="md-move" />
+                            <Icon type="md-move" class="table-tr-drag"/>
                             <Icon type="md-close" @click="onRemove(item, index)"/>
                         </div>
                     </td>
                 </tr>
             </template>
-        </tbody>
+        </draggable>
+
     </table>
 </template>
 
@@ -115,9 +116,8 @@ export default class GroupStepTable extends Vue {
      * @memberof GroupStepTable
      */
     public getItems(datas: any[]) {
-        const items: any[] = [];
         if(!datas || datas.length == 0) {
-            return items;
+            return [];
         }
         let groupNum: number = 0; //分组编号
         let num: number = 1;
@@ -139,9 +139,8 @@ export default class GroupStepTable extends Vue {
                 num = 1;
                 data.order_num = order++;
             }
-            items.push(data);
         });
-        return items;
+        return datas;
     }
 
     /**
@@ -186,6 +185,7 @@ export default class GroupStepTable extends Vue {
     public onRemove(row: any, index: number) {
         this.$emit('remove', [row]);
     }
+
     /**
      * 编辑数据变化
      * 
@@ -194,6 +194,16 @@ export default class GroupStepTable extends Vue {
      */
     public onEditChange(row: any, field: string, index: number) {
         this.$emit('change', row, field, row[field], index);
+    }
+
+    /**
+     * 顺序拖动
+     * 
+     * @returns {*}
+     * @memberof GroupStepTable
+     */
+    public onDraggable($event: any) {
+        this.$forceUpdate();
     }
 }
 </script>
