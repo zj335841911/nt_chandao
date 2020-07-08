@@ -384,6 +384,7 @@ export class MainGridBase extends MainControlBase {
             langtag: 'entities.casestep.main_grid.columns.type',
             show: false,
             util: 'PX',
+            codelistId: 'Casestep__type',
             render: (val: any) => {
                 return this.renderColValue('type', val);
             }
@@ -1309,5 +1310,44 @@ export class MainGridBase extends MainControlBase {
      * @memberof Main
      */
     public createDefault(row: any){                    
+    }
+
+    /**
+     * 添加数据
+     * @param {*}  row 行数据
+     * @memberof Main
+     */
+    public add({ row, index }: { row: any, index: number }, func: Function) {
+        if(!this.loaddraftAction){
+            this.$Notice.error({ title: '错误', desc: 'CaseStepMainGridView9_EditMode视图表格loaddraftAction参数未配置' });
+            return;
+        }
+        let _this = this;
+        let param: any = {};
+        Object.assign(param,{viewparams:this.viewparams});
+        let post: Promise<any> = this.service.loadDraft(this.loaddraftAction, JSON.parse(JSON.stringify(this.context)), param, this.showBusyIndicator);
+        post.then((response: any) => {
+            if (!response.status || response.status !== 200) {
+                if (response.errorMessage) {
+                    this.$Notice.error({ title: '错误', desc: response.errorMessage });
+                }
+                return;
+            }
+            const data = response.data;
+            this.createDefault(data);
+            data.rowDataState = "create";
+            if(func instanceof Function) {
+                func(data);
+            }
+            _this.gridItemsModel.push(_this.getGridRowModel());
+        }).catch((response: any) => {
+            if (response && response.status === 401) {
+                return;
+            }
+            if (!response || !response.status || !response.data) {
+                this.$Notice.error({ title: '错误', desc: '系统异常' });
+                return;
+            }
+        });
     }
 }
