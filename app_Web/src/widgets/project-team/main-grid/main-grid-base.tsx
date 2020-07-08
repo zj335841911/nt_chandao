@@ -88,6 +88,22 @@ export class MainGridBase extends GridControllerBase {
     protected localStorageTag: string = 'ibz_projectteam_main_grid';
 
     /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    public minorSortDir: string = 'ASC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    public minorSortPSDEF: string = 'order';
+
+    /**
      * 所有列成员
      *
      * @type {any[]}

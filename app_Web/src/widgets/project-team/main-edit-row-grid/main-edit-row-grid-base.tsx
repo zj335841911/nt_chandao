@@ -67,6 +67,22 @@ export class Main_EditRowGridBase extends GridControllerBase {
     public isEnablePagingBar: boolean = false;
 
     /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof Main_EditRowGridBase
+     */
+    public minorSortDir: string = 'ASC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof Main_EditRowGridBase
+     */
+    public minorSortPSDEF: string = 'order';
+
+    /**
      * 分页条数
      *
      * @type {number}
