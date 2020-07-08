@@ -31,7 +31,15 @@ export class ProjectProductPlanListView9Base extends ListView9Base {
      * @memberof ProjectProductPlanListView9Base
      */
     protected appDeKey: string = 'id';
-// 应用实体「ProjectProduct」未设置主文本属性
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectProductPlanListView9Base
+     */
+    protected appDeMajor: string = 'productname';
 
     /**
      * 实体服务对象
@@ -113,6 +121,7 @@ export class ProjectProductPlanListView9Base extends ListView9Base {
                 this.newdata(args,fullargs, params, $event, xData);
             },
             keyPSDEField: 'projectproduct',
+            majorPSDEField: 'productname',
             isLoadDefault: true,
         });
     }
