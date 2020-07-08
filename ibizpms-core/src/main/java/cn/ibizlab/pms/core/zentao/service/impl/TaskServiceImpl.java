@@ -73,6 +73,26 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ITaskRemove__MSDenyLogic remove__msdenyLogic;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskGet__MSDenyLogic get__msdenyLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskActivate__MSDenyLogic activate__msdenyLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskAssignTo__MSDenyLogic assignto__msdenyLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskClose__MSDenyLogic close__msdenyLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskSave__MSDenyLogic save__msdenyLogic;
+
     protected int batchSize = 500;
 
     @Override
@@ -128,6 +148,8 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Override
     @Transactional
     public Task get(BigInteger key) {
+        Task tempET=new Task();
+        tempET.set("id",key);
         Task et = getById(key);
         if(et==null){
             et=new Task();

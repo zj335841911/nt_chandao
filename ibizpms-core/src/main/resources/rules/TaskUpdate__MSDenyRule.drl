@@ -28,15 +28,6 @@ ruleflow-group "taskupdate__msdenyget"
     update(taskupdate__msdenydefault);//更新fact中变量值
     end
 
-//逻辑处理节点[状态[未进行]拒绝[update]操作]
-rule "denybywait"
-ruleflow-group "taskupdate__msdenydenybywait"
-    when
-    then
-    update(taskupdate__msdenytemp);//更新fact中变量值
-    update(taskupdate__msdenydefault);//更新fact中变量值
-    end
-
 //逻辑处理节点[准备临时参数]
 rule "preparetemp"
 ruleflow-group "taskupdate__msdenypreparetemp"
@@ -47,9 +38,9 @@ ruleflow-group "taskupdate__msdenypreparetemp"
     update(taskupdate__msdenydefault);//更新fact中变量值
     end
 
-//逻辑处理节点[状态[已暂停]拒绝[update]操作]
-rule "denybypause"
-ruleflow-group "taskupdate__msdenydenybypause"
+//逻辑处理节点[状态[已完成]拒绝[update]操作]
+rule "denybydone"
+ruleflow-group "taskupdate__msdenydenybydone"
     when
     then
     update(taskupdate__msdenytemp);//更新fact中变量值

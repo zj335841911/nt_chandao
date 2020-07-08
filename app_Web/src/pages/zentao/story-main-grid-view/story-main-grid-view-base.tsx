@@ -483,6 +483,15 @@ export class StoryMainGridViewBase extends GridViewBase {
     }
 
     /**
+     * 是否展开搜索表单
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof StoryMainGridViewBase
+     */
+    protected isExpandSearchForm: boolean = true;
+
+    /**
      * 加载快速分组模型
      *
      * @protected
