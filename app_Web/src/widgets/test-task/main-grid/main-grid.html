@@ -43,11 +43,11 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='build' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'build-main-tab-exp-view', height: 0,width: 0,title: $t('entities.build.views.maintabexpview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+                        <app-column-link deKeyField='testtask' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'test-task-main-tab-exp-view', height: 0,width: 0,title: $t('entities.testtask.views.maintabexpview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
             { pathName: 'products', parameterName: 'product' },
             ]
             ,parameters: [
-            { pathName: 'builds', parameterName: 'build' },
+            { pathName: 'testtasks', parameterName: 'testtask' },
             { pathName: 'maintabexpview', parameterName: 'maintabexpview' }
             ]}" valueitem="srfkey">
                             <span>{{row.name}}</span>
