@@ -129,10 +129,10 @@ export default class GroupStepTable extends Vue {
             if(data.hasOwnProperty('child_order_num')) {
                 delete data.child_order_num;
             }
-            if(Object.is(data[this.groupfield].toLowerCase(), 'group')) {
+            if(data[this.groupfield] && Object.is(data[this.groupfield].toLowerCase(), 'group')) {
                 groupNum = order;
                 data.order_num = order++;
-            } else if(Object.is(data[this.groupfield].toLowerCase(), 'item') && groupNum > 0) {
+            } else if(data[this.groupfield] && Object.is(data[this.groupfield].toLowerCase(), 'item') && groupNum > 0) {
                 data.child_order_num = groupNum + '.' + num++;
             } else {
                 groupNum = 0;
