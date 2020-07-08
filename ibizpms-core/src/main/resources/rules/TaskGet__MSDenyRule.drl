@@ -37,6 +37,24 @@ ruleflow-group "taskget__msdenydenybydone"
     update(taskget__msdenydefault);//更新fact中变量值
     end
 
+//逻辑处理节点[状态[已取消]拒绝[get]操作]
+rule "denybycancel"
+ruleflow-group "taskget__msdenydenybycancel"
+    when
+    then
+    update(taskget__msdenytemp);//更新fact中变量值
+    update(taskget__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已关闭]拒绝[get]操作]
+rule "denybyclosed"
+ruleflow-group "taskget__msdenydenybyclosed"
+    when
+    then
+    update(taskget__msdenytemp);//更新fact中变量值
+    update(taskget__msdenydefault);//更新fact中变量值
+    end
+
 //逻辑处理节点[获取数据]
 rule "get"
 ruleflow-group "taskget__msdenyget"

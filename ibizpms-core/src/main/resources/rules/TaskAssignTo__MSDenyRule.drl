@@ -28,6 +28,15 @@ ruleflow-group "taskassignto__msdenypreparetemp"
     update(taskassignto__msdenydefault);//更新fact中变量值
     end
 
+//逻辑处理节点[状态[已关闭]拒绝[指派/转交]操作]
+rule "denybyclosed"
+ruleflow-group "taskassignto__msdenydenybyclosed"
+    when
+    then
+    update(taskassignto__msdenytemp);//更新fact中变量值
+    update(taskassignto__msdenydefault);//更新fact中变量值
+    end
+
 //逻辑处理节点[状态[已完成]拒绝[指派/转交]操作]
 rule "denybydone"
 ruleflow-group "taskassignto__msdenydenybydone"
