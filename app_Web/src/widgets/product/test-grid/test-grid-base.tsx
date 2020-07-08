@@ -70,7 +70,7 @@ export class TestGridBase extends GridControllerBase {
             label: '产品名称',
             langtag: 'entities.product.test_grid.columns.name',
             show: true,
-            util: 'PX'
+            util: 'STAR'
         },
         {
             name: 'code',
