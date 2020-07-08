@@ -1,1 +1,9 @@
-<group-step-table class="grid" groupfield="type" :data="items" :cols="allColumns" :isEdit="actualIsOpenEdit"></group-step-table>
+<group-step-table class="grid" 
+    groupfield="type"
+    :data="items"
+    :cols="allColumns"
+    :isEdit="actualIsOpenEdit"
+    @change="gridEditItemChange.apply(_self, arguments)"
+    @remove="remove.apply(_self, arguments)"
+    @add="add.apply(_self, arguments)">
+</group-step-table>

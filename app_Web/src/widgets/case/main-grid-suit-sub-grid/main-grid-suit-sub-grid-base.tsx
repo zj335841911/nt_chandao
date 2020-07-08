@@ -141,7 +141,7 @@ export class MainGrid_SuitSubGridBase extends GridControllerBase {
             label: '用例标题',
             langtag: 'entities.case.maingrid_suitsub_grid.columns.title',
             show: true,
-            util: 'PX'
+            util: 'STAR'
         },
         {
             name: 'type',

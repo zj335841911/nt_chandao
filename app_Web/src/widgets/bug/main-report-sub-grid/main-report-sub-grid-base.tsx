@@ -100,7 +100,7 @@ export class Main_ReportSubGridBase extends GridControllerBase {
             label: 'Bug标题',
             langtag: 'entities.bug.main_reportsub_grid.columns.title',
             show: true,
-            util: 'PX'
+            util: 'STAR'
         },
         {
             name: 'openedby',
