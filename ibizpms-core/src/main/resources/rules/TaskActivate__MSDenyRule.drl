@@ -31,6 +31,15 @@ ruleflow-group "taskactivate__msdenyget"
     update(taskactivate__msdenytemp);//更新fact中变量值
     end
 
+//逻辑处理节点[状态[已取消]拒绝[激活]操作]
+rule "denybycancel"
+ruleflow-group "taskactivate__msdenydenybycancel"
+    when
+    then
+    update(taskactivate__msdenydefault);//更新fact中变量值
+    update(taskactivate__msdenytemp);//更新fact中变量值
+    end
+
 //逻辑处理节点[开始]
 rule "begin"
 ruleflow-group "taskactivate__msdenybegin"
@@ -41,6 +50,15 @@ ruleflow-group "taskactivate__msdenybegin"
 //逻辑处理节点[状态[已完成]拒绝[激活]操作]
 rule "denybydone"
 ruleflow-group "taskactivate__msdenydenybydone"
+    when
+    then
+    update(taskactivate__msdenydefault);//更新fact中变量值
+    update(taskactivate__msdenytemp);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已关闭]拒绝[激活]操作]
+rule "denybyclosed"
+ruleflow-group "taskactivate__msdenydenybyclosed"
     when
     then
     update(taskactivate__msdenydefault);//更新fact中变量值

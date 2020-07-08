@@ -11,12 +11,24 @@
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskclose__msdenydenybydone" id="1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__done" implementation="http://www.jboss.org/drools/rule" name="状态[已完成]拒绝[关闭]操作"/>
      <endEvent id="1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__done_End" name="End"/>
      <sequenceFlow id="1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__done_End_Line" sourceRef="1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__done" targetRef="1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__done_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskclose__msdenydenybycancel" id="1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__cancel" implementation="http://www.jboss.org/drools/rule" name="状态[已取消]拒绝[关闭]操作"/>
+     <endEvent id="1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__cancel_End" name="End"/>
+     <sequenceFlow id="1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__cancel_End_Line" sourceRef="1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__cancel" targetRef="1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__cancel_End"/>
      <startEvent id="1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__BEGIN" isInterrupting="true"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskclose__msdenypreparetemp" id="1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__PREPARETEMP" implementation="http://www.jboss.org/drools/rule" name="准备临时参数"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskclose__msdenyget" id="1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__GET" implementation="http://www.jboss.org/drools/rule" name="获取数据"/>
      <sequenceFlow id="1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__PREPARETEMP" sourceRef="1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__BEGIN" targetRef="1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__PREPARETEMP">
      </sequenceFlow>
      <sequenceFlow id="1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__GET" sourceRef="1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__PREPARETEMP" targetRef="1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__GET">
+     </sequenceFlow>
+     <sequenceFlow id="1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__cancel" sourceRef="gateway-1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__GET" targetRef="1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__cancel">
+            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+            $taskclose__msdenytemp:Task();
+            $taskclose__msdenydefault:Task();
+            eval($taskclose__msdenytemp==taskclose__msdenytemp && $taskclose__msdenydefault==taskclose__msdenydefault);
+                eval((RuleUtils.test($taskclose__msdenytemp.get("STATUS"),"EQ","cancel")))
+                ]]>
+            </conditionExpression>
      </sequenceFlow>
      <sequenceFlow id="1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__done" sourceRef="gateway-1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__GET" targetRef="1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__done">
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
@@ -28,7 +40,7 @@
             </conditionExpression>
      </sequenceFlow>
     <exclusiveGateway id="gateway-1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__GET" name="Gateway" gatewayDirection="Diverging" default="gateway-1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__GET_End_Line"></exclusiveGateway>
-    <sequenceFlow id="1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__done-gatewayline" sourceRef="1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__GET" targetRef="gateway-1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__GET"></sequenceFlow>
+    <sequenceFlow id="1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__cancel-gatewayline" sourceRef="1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__GET" targetRef="gateway-1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__GET"></sequenceFlow>
     <sequenceFlow id="gateway-1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__GET_End_Line" sourceRef="gateway-1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__GET" targetRef="gateway-1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__GET_End"/>
     <endEvent id="gateway-1C47F67D-4A64-4EFC-9267-4634A4450564__MSDENY__GET_End" name="End"/>
     </process>

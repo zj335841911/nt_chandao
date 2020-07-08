@@ -29,6 +29,24 @@ export default {
       		title: "测试套件数据看板视图",
 		},
 	},
+	maininfo_form: {
+		details: {
+			group1: "基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			name: "名称", 
+			desc: "描述", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
 	main_form: {
 		details: {
 			group1: "testsuite基本信息", 
@@ -43,24 +61,6 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			name: "名称", 
-			id: "编号", 
-		},
-		uiactions: {
-		},
-	},
-	maininfo_form: {
-		details: {
-			group1: "基本信息", 
-			formpage1: "基本信息", 
-			srforikey: "", 
-			srfkey: "编号", 
-			srfmajortext: "名称", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			name: "名称", 
-			desc: "描述", 
 			id: "编号", 
 		},
 		uiactions: {

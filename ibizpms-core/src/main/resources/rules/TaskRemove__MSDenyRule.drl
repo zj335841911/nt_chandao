@@ -28,9 +28,27 @@ ruleflow-group "taskremove__msdenyget"
     update(taskremove__msdenytemp);//更新fact中变量值
     end
 
+//逻辑处理节点[状态[已关闭]拒绝[remove]操作]
+rule "denybyclosed"
+ruleflow-group "taskremove__msdenydenybyclosed"
+    when
+    then
+    update(taskremove__msdenydefault);//更新fact中变量值
+    update(taskremove__msdenytemp);//更新fact中变量值
+    end
+
 //逻辑处理节点[状态[已完成]拒绝[remove]操作]
 rule "denybydone"
 ruleflow-group "taskremove__msdenydenybydone"
+    when
+    then
+    update(taskremove__msdenydefault);//更新fact中变量值
+    update(taskremove__msdenytemp);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已取消]拒绝[remove]操作]
+rule "denybycancel"
+ruleflow-group "taskremove__msdenydenybycancel"
     when
     then
     update(taskremove__msdenydefault);//更新fact中变量值

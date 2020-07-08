@@ -20,6 +20,15 @@ ruleflow-group "taskclose__msdenydenybydone"
     update(taskclose__msdenydefault);//更新fact中变量值
     end
 
+//逻辑处理节点[状态[已取消]拒绝[关闭]操作]
+rule "denybycancel"
+ruleflow-group "taskclose__msdenydenybycancel"
+    when
+    then
+    update(taskclose__msdenytemp);//更新fact中变量值
+    update(taskclose__msdenydefault);//更新fact中变量值
+    end
+
 //逻辑处理节点[开始]
 rule "begin"
 ruleflow-group "taskclose__msdenybegin"

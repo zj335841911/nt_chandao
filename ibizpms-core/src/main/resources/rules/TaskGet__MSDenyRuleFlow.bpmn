@@ -13,10 +13,34 @@
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskget__msdenydenybydone" id="cc75fd7b86b2690faa93d49958a431f7__MSDENY__done" implementation="http://www.jboss.org/drools/rule" name="状态[已完成]拒绝[Get]操作"/>
      <endEvent id="cc75fd7b86b2690faa93d49958a431f7__MSDENY__done_End" name="End"/>
      <sequenceFlow id="cc75fd7b86b2690faa93d49958a431f7__MSDENY__done_End_Line" sourceRef="cc75fd7b86b2690faa93d49958a431f7__MSDENY__done" targetRef="cc75fd7b86b2690faa93d49958a431f7__MSDENY__done_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskget__msdenydenybycancel" id="cc75fd7b86b2690faa93d49958a431f7__MSDENY__cancel" implementation="http://www.jboss.org/drools/rule" name="状态[已取消]拒绝[Get]操作"/>
+     <endEvent id="cc75fd7b86b2690faa93d49958a431f7__MSDENY__cancel_End" name="End"/>
+     <sequenceFlow id="cc75fd7b86b2690faa93d49958a431f7__MSDENY__cancel_End_Line" sourceRef="cc75fd7b86b2690faa93d49958a431f7__MSDENY__cancel" targetRef="cc75fd7b86b2690faa93d49958a431f7__MSDENY__cancel_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskget__msdenydenybyclosed" id="cc75fd7b86b2690faa93d49958a431f7__MSDENY__closed" implementation="http://www.jboss.org/drools/rule" name="状态[已关闭]拒绝[Get]操作"/>
+     <endEvent id="cc75fd7b86b2690faa93d49958a431f7__MSDENY__closed_End" name="End"/>
+     <sequenceFlow id="cc75fd7b86b2690faa93d49958a431f7__MSDENY__closed_End_Line" sourceRef="cc75fd7b86b2690faa93d49958a431f7__MSDENY__closed" targetRef="cc75fd7b86b2690faa93d49958a431f7__MSDENY__closed_End"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskget__msdenyget" id="cc75fd7b86b2690faa93d49958a431f7__MSDENY__GET" implementation="http://www.jboss.org/drools/rule" name="获取数据"/>
      <sequenceFlow id="cc75fd7b86b2690faa93d49958a431f7__MSDENY__PREPARETEMP" sourceRef="cc75fd7b86b2690faa93d49958a431f7__MSDENY__BEGIN" targetRef="cc75fd7b86b2690faa93d49958a431f7__MSDENY__PREPARETEMP">
      </sequenceFlow>
      <sequenceFlow id="cc75fd7b86b2690faa93d49958a431f7__MSDENY__GET" sourceRef="cc75fd7b86b2690faa93d49958a431f7__MSDENY__PREPARETEMP" targetRef="cc75fd7b86b2690faa93d49958a431f7__MSDENY__GET">
+     </sequenceFlow>
+     <sequenceFlow id="cc75fd7b86b2690faa93d49958a431f7__MSDENY__cancel" sourceRef="gateway-cc75fd7b86b2690faa93d49958a431f7__MSDENY__GET" targetRef="cc75fd7b86b2690faa93d49958a431f7__MSDENY__cancel">
+            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+            $taskget__msdenytemp:Task();
+            $taskget__msdenydefault:Task();
+            eval($taskget__msdenytemp==taskget__msdenytemp && $taskget__msdenydefault==taskget__msdenydefault);
+                eval((RuleUtils.test($taskget__msdenytemp.get("STATUS"),"EQ","cancel")))
+                ]]>
+            </conditionExpression>
+     </sequenceFlow>
+     <sequenceFlow id="cc75fd7b86b2690faa93d49958a431f7__MSDENY__closed" sourceRef="gateway-cc75fd7b86b2690faa93d49958a431f7__MSDENY__GET" targetRef="cc75fd7b86b2690faa93d49958a431f7__MSDENY__closed">
+            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+            $taskget__msdenytemp:Task();
+            $taskget__msdenydefault:Task();
+            eval($taskget__msdenytemp==taskget__msdenytemp && $taskget__msdenydefault==taskget__msdenydefault);
+                eval((RuleUtils.test($taskget__msdenytemp.get("STATUS"),"EQ","closed")))
+                ]]>
+            </conditionExpression>
      </sequenceFlow>
      <sequenceFlow id="cc75fd7b86b2690faa93d49958a431f7__MSDENY__done" sourceRef="gateway-cc75fd7b86b2690faa93d49958a431f7__MSDENY__GET" targetRef="cc75fd7b86b2690faa93d49958a431f7__MSDENY__done">
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
@@ -28,7 +52,7 @@
             </conditionExpression>
      </sequenceFlow>
     <exclusiveGateway id="gateway-cc75fd7b86b2690faa93d49958a431f7__MSDENY__GET" name="Gateway" gatewayDirection="Diverging" default="gateway-cc75fd7b86b2690faa93d49958a431f7__MSDENY__GET_End_Line"></exclusiveGateway>
-    <sequenceFlow id="cc75fd7b86b2690faa93d49958a431f7__MSDENY__done-gatewayline" sourceRef="cc75fd7b86b2690faa93d49958a431f7__MSDENY__GET" targetRef="gateway-cc75fd7b86b2690faa93d49958a431f7__MSDENY__GET"></sequenceFlow>
+    <sequenceFlow id="cc75fd7b86b2690faa93d49958a431f7__MSDENY__cancel-gatewayline" sourceRef="cc75fd7b86b2690faa93d49958a431f7__MSDENY__GET" targetRef="gateway-cc75fd7b86b2690faa93d49958a431f7__MSDENY__GET"></sequenceFlow>
     <sequenceFlow id="gateway-cc75fd7b86b2690faa93d49958a431f7__MSDENY__GET_End_Line" sourceRef="gateway-cc75fd7b86b2690faa93d49958a431f7__MSDENY__GET" targetRef="gateway-cc75fd7b86b2690faa93d49958a431f7__MSDENY__GET_End"/>
     <endEvent id="gateway-cc75fd7b86b2690faa93d49958a431f7__MSDENY__GET_End" name="End"/>
     </process>
