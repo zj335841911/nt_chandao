@@ -150,6 +150,9 @@ export default class BaseInfoModel {
       {
         name: 'comment',
       },
+      {
+        name: 'isleaf',
+      },
     ]
   }
 

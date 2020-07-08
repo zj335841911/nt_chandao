@@ -156,6 +156,9 @@ export default class ToolbarModel {
       {
         name: 'totaltime',
       },
+      {
+        name: 'isleaf',
+      },
     ]
   }
 

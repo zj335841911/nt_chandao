@@ -372,6 +372,13 @@ public class Story extends EntityMP implements Serializable {
     @JSONField(name = "comment")
     @JsonProperty("comment")
     private String comment;
+    /**
+     * 是否子需求
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isleaf")
+    @JsonProperty("isleaf")
+    private String isleaf;
 
     /**
      * 

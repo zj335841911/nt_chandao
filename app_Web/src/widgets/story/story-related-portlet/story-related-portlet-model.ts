@@ -150,6 +150,9 @@ export default class StoryRelatedModel {
       {
         name: 'comment',
       },
+      {
+        name: 'isleaf',
+      },
     ]
   }
 

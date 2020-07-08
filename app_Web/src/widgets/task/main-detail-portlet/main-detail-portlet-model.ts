@@ -156,6 +156,9 @@ export default class MainDetailModel {
       {
         name: 'totaltime',
       },
+      {
+        name: 'isleaf',
+      },
     ]
   }
 

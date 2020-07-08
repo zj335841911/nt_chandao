@@ -150,6 +150,9 @@ export default class StoryspecModel {
       {
         name: 'comment',
       },
+      {
+        name: 'isleaf',
+      },
     ]
   }
 

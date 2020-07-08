@@ -150,6 +150,9 @@ export default class MainPanelModel {
       {
         name: 'comment',
       },
+      {
+        name: 'isleaf',
+      },
     ]
   }
 

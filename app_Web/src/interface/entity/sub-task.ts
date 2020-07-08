@@ -381,4 +381,12 @@ export interface SubTask {
      * @memberof SubTask
      */
     totaltime?: any;
+
+    /**
+     * 是否子任务
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    isleaf?: any;
 }

@@ -150,6 +150,9 @@ export default class MainToolbarModel {
       {
         name: 'comment',
       },
+      {
+        name: 'isleaf',
+      },
     ]
   }
 

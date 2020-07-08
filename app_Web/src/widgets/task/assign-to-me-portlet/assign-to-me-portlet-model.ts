@@ -156,6 +156,9 @@ export default class AssignToMeModel {
       {
         name: 'totaltime',
       },
+      {
+        name: 'isleaf',
+      },
     ]
   }
 

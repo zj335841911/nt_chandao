@@ -101,6 +101,9 @@ export class StudioViewBase extends Vue {
                 {this.$slots.searchForm ? <div class="search-form-wrapper">
                     {this.$slots.searchForm}
                 </div> : null}
+                {this.$slots.searchBar ? <div class="search-bar-wrapper">
+                    {this.$slots.searchBar}
+                </div> : null}
                 <div class="content-wrapper">
                     {this.$slots.default}
                 </div>

@@ -408,6 +408,14 @@ public class TaskDTO extends DTOBase implements Serializable {
     @JsonProperty("totaltime")
     private Double totaltime;
 
+    /**
+     * 属性 [ISLEAF]
+     *
+     */
+    @JSONField(name = "isleaf")
+    @JsonProperty("isleaf")
+    private String isleaf;
+
 
     /**
      * 设置 [CANCELEDBY]

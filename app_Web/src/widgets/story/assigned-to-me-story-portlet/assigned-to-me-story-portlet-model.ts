@@ -150,6 +150,9 @@ export default class AssignedToMeStoryModel {
       {
         name: 'comment',
       },
+      {
+        name: 'isleaf',
+      },
     ]
   }
 
