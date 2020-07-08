@@ -50,7 +50,7 @@ export class CaseGridView9Base extends GridView9Base {
 	 * @memberof CaseGridView9Base
 	 */
     protected customViewParams: any = {
-        'e_assignedto_eq': { isRawValue: false, value: 'SRFUSERID' }
+        'n_assignedto_eq': { isRawValue: false, value: 'srfloginname' }
     };
 
     /**
