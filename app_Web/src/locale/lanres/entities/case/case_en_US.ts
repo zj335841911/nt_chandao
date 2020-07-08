@@ -100,6 +100,10 @@ export default {
 			caption: "测试用例",
       		title: "测试用例编辑视图",
 		},
+		gridview9_mecretae: {
+			caption: "测试用例",
+      		title: "测试用例表格视图",
+		},
 		gridview: {
 			caption: "测试用例",
       		title: "case表格视图",

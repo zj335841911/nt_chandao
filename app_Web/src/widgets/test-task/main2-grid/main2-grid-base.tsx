@@ -93,7 +93,7 @@ export class Main2GridBase extends GridControllerBase {
             label: '产品',
             langtag: 'entities.testtask.main2_grid.columns.productname',
             show: true,
-            util: 'PX'
+            util: 'STAR'
         },
         {
             name: 'name',

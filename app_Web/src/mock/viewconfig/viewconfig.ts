@@ -1255,6 +1255,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductTestListExpView",
             "viewtag": "c539f1585371e9943b90177eaef08b6b"
         },
+        "casegridview9_mecretae": {
+            "title": "测试用例表格视图",
+            "caption": "测试用例",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "CaseGridView9_MeCretae",
+            "viewtag": "c5b7fb7289325c348ca867eb86185986"
+        },
         "buggridview": {
             "title": "bug表格视图",
             "caption": "Bug",

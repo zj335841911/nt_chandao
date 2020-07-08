@@ -948,17 +948,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '7f9b2e4d5b622528df75121b824b6fcc',
-            viewmodule: 'zentao',
-            viewname: 'CaseGridView9',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '6f78b25e86923ab600a2141d50fe49fd',
-                '02b7ecd8e994b90558a9d6c23705f600',
-            ],
-        },
-        {
             viewtag: '8104f8c4c275f6ba17fb969edf52eb37',
             viewmodule: 'zentao',
             viewname: 'BuildMainGridView',
@@ -1490,6 +1479,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'c5b7fb7289325c348ca867eb86185986',
+            viewmodule: 'zentao',
+            viewname: 'CaseGridView9_MeCretae',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '6f78b25e86923ab600a2141d50fe49fd',
+                '02b7ecd8e994b90558a9d6c23705f600',
+            ],
+        },
+        {
             viewtag: 'c9410c9f72535adf1fff569d5243edd1',
             viewmodule: 'zentao',
             viewname: 'BugGridView',
@@ -1950,10 +1950,10 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '7f9b2e4d5b622528df75121b824b6fcc',
                 '3091670967914b91fb4b6f46751dcd7e',
                 '81893d14e76cac341d4218a9c5ef185d',
                 'c539f1585371e9943b90177eaef08b6b',
+                'c5b7fb7289325c348ca867eb86185986',
             ],
         },
     ],
