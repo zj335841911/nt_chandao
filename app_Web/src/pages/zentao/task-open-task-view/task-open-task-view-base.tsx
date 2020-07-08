@@ -11,7 +11,6 @@ import OptionViewEngine from '@engine/view/option-view-engine';
  * @extends {OptionViewBase}
  */
 export class TaskOpenTaskViewBase extends OptionViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -20,6 +19,24 @@ export class TaskOpenTaskViewBase extends OptionViewBase {
      * @memberof TaskOpenTaskViewBase
      */
     protected appDeName: string = 'task';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskOpenTaskViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskOpenTaskViewBase
+     */
+    protected appDeMajor: string = 'name';
 
     /**
      * 实体服务对象

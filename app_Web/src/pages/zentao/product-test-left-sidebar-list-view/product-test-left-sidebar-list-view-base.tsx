@@ -15,7 +15,6 @@ import CodeListService from "@service/app/codelist-service";
  * @extends {ListViewBase}
  */
 export class ProductTestLeftSidebarListViewBase extends ListViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -24,6 +23,24 @@ export class ProductTestLeftSidebarListViewBase extends ListViewBase {
      * @memberof ProductTestLeftSidebarListViewBase
      */
     protected appDeName: string = 'product';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductTestLeftSidebarListViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductTestLeftSidebarListViewBase
+     */
+    protected appDeMajor: string = 'name';
 
     /**
      * 实体服务对象

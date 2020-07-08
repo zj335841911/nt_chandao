@@ -11,7 +11,6 @@ import EditViewEngine from '@engine/view/edit-view-engine';
  * @extends {EditViewBase}
  */
 export class ReleaseEditViewBase extends EditViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -20,6 +19,24 @@ export class ReleaseEditViewBase extends EditViewBase {
      * @memberof ReleaseEditViewBase
      */
     protected appDeName: string = 'release';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ReleaseEditViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ReleaseEditViewBase
+     */
+    protected appDeMajor: string = 'name';
 
     /**
      * 实体服务对象

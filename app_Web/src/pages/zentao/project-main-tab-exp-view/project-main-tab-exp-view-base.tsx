@@ -11,7 +11,6 @@ import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
  * @extends {TabExpViewBase}
  */
 export class ProjectMainTabExpViewBase extends TabExpViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -20,6 +19,24 @@ export class ProjectMainTabExpViewBase extends TabExpViewBase {
      * @memberof ProjectMainTabExpViewBase
      */
     protected appDeName: string = 'project';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectMainTabExpViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectMainTabExpViewBase
+     */
+    protected appDeMajor: string = 'name';
 
     /**
      * 实体服务对象
@@ -108,33 +125,6 @@ export class ProjectMainTabExpViewBase extends TabExpViewBase {
             majorPSDEField: 'name',
             isLoadDefault: true,
         });
-    }
-
-
-
-    /**
-     * 加载模型
-     *
-     * @protected
-     * @memberof ProjectMainTabExpViewBase
-     */
-    protected async loadModel(): Promise<any> {
-        if(this.context.project){
-            this.appEntityService.getDataInfo(JSON.parse(JSON.stringify(this.context)),{},false).then((response:any) =>{
-                if (!response || response.status !== 200) {
-                    return;
-                }
-                const { data } = response;
-                if (data.name) {
-                    Object.assign(this.model, { dataInfo: data.name });
-                    if(this.$route){
-                        this.$route.meta.info = this.model.dataInfo;
-                    }
-                    Object.assign(this.model, { srfTitle: `${this.$t(this.model.srfTitle)} - ${this.model.dataInfo}` });
-                    this.$appService.navHistory.setCaption({ tag: this.viewtag, info: this.model.dataInfo });
-                }
-            })
-        }
     }
 
 

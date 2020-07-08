@@ -14,7 +14,6 @@ import CodeListService from "@service/app/codelist-service";
  * @extends {GridView9Base}
  */
 export class CaseStepMainGridView9Base extends GridView9Base {
-
     /**
      * 视图对应应用实体名称
      *
@@ -23,6 +22,24 @@ export class CaseStepMainGridView9Base extends GridView9Base {
      * @memberof CaseStepMainGridView9Base
      */
     protected appDeName: string = 'casestep';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseStepMainGridView9Base
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseStepMainGridView9Base
+     */
+    protected appDeMajor: string = 'expect';
 
     /**
      * 实体服务对象

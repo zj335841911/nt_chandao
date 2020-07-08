@@ -11,7 +11,6 @@ import PickupViewEngine from '@engine/view/pickup-view-engine';
  * @extends {PickupViewBase}
  */
 export class ModulePickupViewBase extends PickupViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -20,6 +19,24 @@ export class ModulePickupViewBase extends PickupViewBase {
      * @memberof ModulePickupViewBase
      */
     protected appDeName: string = 'module';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ModulePickupViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ModulePickupViewBase
+     */
+    protected appDeMajor: string = 'name';
 
     /**
      * 实体服务对象

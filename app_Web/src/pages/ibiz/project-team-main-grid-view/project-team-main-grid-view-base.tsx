@@ -15,7 +15,6 @@ import CodeListService from "@service/app/codelist-service";
  * @extends {GridViewBase}
  */
 export class ProjectTeamMainGridViewBase extends GridViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -24,6 +23,24 @@ export class ProjectTeamMainGridViewBase extends GridViewBase {
      * @memberof ProjectTeamMainGridViewBase
      */
     protected appDeName: string = 'projectteam';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectTeamMainGridViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectTeamMainGridViewBase
+     */
+    protected appDeMajor: string = 'account';
 
     /**
      * 实体服务对象

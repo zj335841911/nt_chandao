@@ -14,7 +14,6 @@ import CodeListService from "@service/app/codelist-service";
  * @extends {ListView9Base}
  */
 export class ActionProjectTrendsListView9Base extends ListView9Base {
-
     /**
      * 视图对应应用实体名称
      *
@@ -23,6 +22,24 @@ export class ActionProjectTrendsListView9Base extends ListView9Base {
      * @memberof ActionProjectTrendsListView9Base
      */
     protected appDeName: string = 'action';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ActionProjectTrendsListView9Base
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ActionProjectTrendsListView9Base
+     */
+    protected appDeMajor: string = 'comment';
 
     /**
      * 实体服务对象

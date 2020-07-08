@@ -28,6 +28,33 @@ export class ViewBase extends Vue {
     protected appDeName: string = '';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+    protected appDeKey: string = '';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */
+    protected appDeMajor: string = '';
+
+    /**
+     * 视图模型数据
+     *
+     * @protected
+     * @type {*}
+     * @memberof ViewBase
+     */
+    protected model: any = {};
+
+    /**
      * 数据变化
      *
      * @param {*} val

@@ -72,6 +72,9 @@ export default class Main2Model {
           dataType: 'PICKUP',
         },
         {
+          name: 'srfmstag',
+        },
+        {
           name: 'srfmajortext',
           prop: 'name',
           dataType: 'TEXT',

@@ -14,7 +14,6 @@ import CodeListService from "@service/app/codelist-service";
  * @extends {GridViewBase}
  */
 export class IBZ_PROJECTTEAMMainGridView_EditRowBase extends GridViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -23,6 +22,24 @@ export class IBZ_PROJECTTEAMMainGridView_EditRowBase extends GridViewBase {
      * @memberof IBZ_PROJECTTEAMMainGridView_EditRowBase
      */
     protected appDeName: string = 'projectteam';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof IBZ_PROJECTTEAMMainGridView_EditRowBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof IBZ_PROJECTTEAMMainGridView_EditRowBase
+     */
+    protected appDeMajor: string = 'account';
 
     /**
      * 实体服务对象

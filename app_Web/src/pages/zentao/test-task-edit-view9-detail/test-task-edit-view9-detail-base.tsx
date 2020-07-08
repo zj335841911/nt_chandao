@@ -11,7 +11,6 @@ import EditView9Engine from '@engine/view/edit-view9-engine';
  * @extends {EditView9Base}
  */
 export class TestTaskEditView9_DetailBase extends EditView9Base {
-
     /**
      * 视图对应应用实体名称
      *
@@ -20,6 +19,24 @@ export class TestTaskEditView9_DetailBase extends EditView9Base {
      * @memberof TestTaskEditView9_DetailBase
      */
     protected appDeName: string = 'testtask';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestTaskEditView9_DetailBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestTaskEditView9_DetailBase
+     */
+    protected appDeMajor: string = 'name';
 
     /**
      * 实体服务对象

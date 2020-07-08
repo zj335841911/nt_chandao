@@ -11,7 +11,6 @@ import EditViewEngine from '@engine/view/edit-view-engine';
  * @extends {EditViewBase}
  */
 export class ProjectEditView_PutoffBase extends EditViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -20,6 +19,24 @@ export class ProjectEditView_PutoffBase extends EditViewBase {
      * @memberof ProjectEditView_PutoffBase
      */
     protected appDeName: string = 'project';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectEditView_PutoffBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectEditView_PutoffBase
+     */
+    protected appDeMajor: string = 'name';
 
     /**
      * 实体服务对象

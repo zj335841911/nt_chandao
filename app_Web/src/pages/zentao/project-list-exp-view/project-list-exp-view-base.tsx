@@ -11,7 +11,6 @@ import ListExpViewEngine from '@engine/view/list-exp-view-engine';
  * @extends {ListExpViewBase}
  */
 export class ProjectListExpViewBase extends ListExpViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -20,6 +19,24 @@ export class ProjectListExpViewBase extends ListExpViewBase {
      * @memberof ProjectListExpViewBase
      */
     protected appDeName: string = 'project';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectListExpViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectListExpViewBase
+     */
+    protected appDeMajor: string = 'name';
 
     /**
      * 实体服务对象

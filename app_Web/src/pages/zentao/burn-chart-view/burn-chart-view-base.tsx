@@ -12,7 +12,6 @@ import BurnUIService from '@/uiservice/burn/burn-ui-service';
  * @extends {ChartViewBase}
  */
 export class BurnChartViewBase extends ChartViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -21,6 +20,24 @@ export class BurnChartViewBase extends ChartViewBase {
      * @memberof BurnChartViewBase
      */
     protected appDeName: string = 'burn';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof BurnChartViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof BurnChartViewBase
+     */
+    protected appDeMajor: string = 'date';
 
     /**
      * 实体服务对象

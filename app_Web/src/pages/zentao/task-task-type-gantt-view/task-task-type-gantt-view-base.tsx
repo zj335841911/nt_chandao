@@ -10,7 +10,6 @@ import TaskService from '@/service/task/task-service';
  * @extends {GanttViewBase}
  */
 export class TaskTaskTypeGanttViewBase extends GanttViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -19,6 +18,24 @@ export class TaskTaskTypeGanttViewBase extends GanttViewBase {
      * @memberof TaskTaskTypeGanttViewBase
      */
     protected appDeName: string = 'task';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskTaskTypeGanttViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskTaskTypeGanttViewBase
+     */
+    protected appDeMajor: string = 'name';
 
     /**
      * 实体服务对象
