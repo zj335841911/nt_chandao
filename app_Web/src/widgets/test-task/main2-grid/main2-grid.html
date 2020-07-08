@@ -36,7 +36,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('productname')">
-                <el-table-column show-overflow-tooltip :prop="'productname'" :label="$t('entities.testtask.main2_grid.columns.productname')" :width="200"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'productname'" :label="$t('entities.testtask.main2_grid.columns.productname')" :min-width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.testtask.main2_grid.columns.productname')}}

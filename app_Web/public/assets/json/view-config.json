@@ -1559,6 +1559,16 @@
         "viewtag": "c539f1585371e9943b90177eaef08b6b",
         "memo": ""
     },
+    "casegridview9_mecretae": {
+        "title": "测试用例表格视图",
+        "caption": "测试用例",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "CaseGridView9_MeCretae",
+        "viewfilename": "case-grid-view9-me-cretae",
+        "viewtag": "c5b7fb7289325c348ca867eb86185986",
+        "memo": ""
+    },
     "buggridview": {
         "title": "bug表格视图",
         "caption": "Bug",

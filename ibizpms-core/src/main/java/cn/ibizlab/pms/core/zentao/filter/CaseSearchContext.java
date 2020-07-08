@@ -41,6 +41,13 @@ public class CaseSearchContext extends QueryWrapperContext<Case> {
             this.getSearchCond().eq("lastrunresult", n_lastrunresult_eq);
         }
     }
+	private String n_openedby_eq;//[由谁创建]
+	public void setN_openedby_eq(String n_openedby_eq) {
+        this.n_openedby_eq = n_openedby_eq;
+        if(!ObjectUtils.isEmpty(this.n_openedby_eq)){
+            this.getSearchCond().eq("openedby", n_openedby_eq);
+        }
+    }
 	private String n_type_eq;//[用例类型]
 	public void setN_type_eq(String n_type_eq) {
         this.n_type_eq = n_type_eq;
