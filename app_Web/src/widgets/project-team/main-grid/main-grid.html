@@ -38,7 +38,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('role')">
-                <el-table-column show-overflow-tooltip :prop="'role'" :label="$t('entities.projectteam.main_grid.columns.role')" :width="200"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'role'" :label="$t('entities.projectteam.main_grid.columns.role')" :min-width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.projectteam.main_grid.columns.role')}}

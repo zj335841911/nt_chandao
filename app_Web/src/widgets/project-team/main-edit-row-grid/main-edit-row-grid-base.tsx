@@ -80,7 +80,7 @@ export class Main_EditRowGridBase extends GridControllerBase {
      * @type {string}
      * @memberof Main_EditRowGridBase
      */
-    public minorSortPSDEF: string = 'order';
+    public minorSortPSDEF: string = 'id';
 
     /**
      * 分页条数
