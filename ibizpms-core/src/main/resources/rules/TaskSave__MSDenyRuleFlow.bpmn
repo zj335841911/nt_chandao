@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+    <process id="cn.ibizlab.pms.core.zentao.service.logic.tasksave__msdeny" isClosed="false" isExecutable="true" name="ScoreRule" processType="Private" tns:packageName="cn.ibizlab.pms.core.zentao.service.logic.tasksave__msdeny">
+        <extensionElements>
+            <tns:import name="java.util.Map" />
+            <tns:import name="org.springframework.util.StringUtils"/>
+            <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+        <tns:global identifier="tasksave__msdenytemp" type="cn.ibizlab.pms.core.zentao.domain.Task" />
+        <tns:global identifier="tasksave__msdenydefault" type="cn.ibizlab.pms.core.zentao.domain.Task" />
+        </extensionElements>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="tasksave__msdenyget" id="a973fdd5ab2fbb4e09f4316f6d290d56__MSDENY__GET" implementation="http://www.jboss.org/drools/rule" name="获取数据"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="tasksave__msdenydenybydone" id="a973fdd5ab2fbb4e09f4316f6d290d56__MSDENY__done" implementation="http://www.jboss.org/drools/rule" name="状态[已完成]拒绝[Save]操作"/>
+     <endEvent id="a973fdd5ab2fbb4e09f4316f6d290d56__MSDENY__done_End" name="End"/>
+     <sequenceFlow id="a973fdd5ab2fbb4e09f4316f6d290d56__MSDENY__done_End_Line" sourceRef="a973fdd5ab2fbb4e09f4316f6d290d56__MSDENY__done" targetRef="a973fdd5ab2fbb4e09f4316f6d290d56__MSDENY__done_End"/>
+     <startEvent id="a973fdd5ab2fbb4e09f4316f6d290d56__MSDENY__BEGIN" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="tasksave__msdenypreparetemp" id="a973fdd5ab2fbb4e09f4316f6d290d56__MSDENY__PREPARETEMP" implementation="http://www.jboss.org/drools/rule" name="准备临时参数"/>
+     <sequenceFlow id="a973fdd5ab2fbb4e09f4316f6d290d56__MSDENY__PREPARETEMP" sourceRef="a973fdd5ab2fbb4e09f4316f6d290d56__MSDENY__BEGIN" targetRef="a973fdd5ab2fbb4e09f4316f6d290d56__MSDENY__PREPARETEMP">
+     </sequenceFlow>
+     <sequenceFlow id="a973fdd5ab2fbb4e09f4316f6d290d56__MSDENY__GET" sourceRef="a973fdd5ab2fbb4e09f4316f6d290d56__MSDENY__PREPARETEMP" targetRef="a973fdd5ab2fbb4e09f4316f6d290d56__MSDENY__GET">
+     </sequenceFlow>
+     <sequenceFlow id="a973fdd5ab2fbb4e09f4316f6d290d56__MSDENY__done" sourceRef="gateway-a973fdd5ab2fbb4e09f4316f6d290d56__MSDENY__GET" targetRef="a973fdd5ab2fbb4e09f4316f6d290d56__MSDENY__done">
+            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+            $tasksave__msdenytemp:Task();
+            $tasksave__msdenydefault:Task();
+            eval($tasksave__msdenytemp==tasksave__msdenytemp && $tasksave__msdenydefault==tasksave__msdenydefault);
+                eval((RuleUtils.test($tasksave__msdenytemp.get("STATUS"),"EQ","done")))
+                ]]>
+            </conditionExpression>
+     </sequenceFlow>
+    <exclusiveGateway id="gateway-a973fdd5ab2fbb4e09f4316f6d290d56__MSDENY__GET" name="Gateway" gatewayDirection="Diverging" default="gateway-a973fdd5ab2fbb4e09f4316f6d290d56__MSDENY__GET_End_Line"></exclusiveGateway>
+    <sequenceFlow id="a973fdd5ab2fbb4e09f4316f6d290d56__MSDENY__done-gatewayline" sourceRef="a973fdd5ab2fbb4e09f4316f6d290d56__MSDENY__GET" targetRef="gateway-a973fdd5ab2fbb4e09f4316f6d290d56__MSDENY__GET"></sequenceFlow>
+    <sequenceFlow id="gateway-a973fdd5ab2fbb4e09f4316f6d290d56__MSDENY__GET_End_Line" sourceRef="gateway-a973fdd5ab2fbb4e09f4316f6d290d56__MSDENY__GET" targetRef="gateway-a973fdd5ab2fbb4e09f4316f6d290d56__MSDENY__GET_End"/>
+    <endEvent id="gateway-a973fdd5ab2fbb4e09f4316f6d290d56__MSDENY__GET_End" name="End"/>
+    </process>
+</definitions>
+
