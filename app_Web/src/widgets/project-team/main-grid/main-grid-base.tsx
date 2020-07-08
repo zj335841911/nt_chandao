@@ -101,7 +101,7 @@ export class MainGridBase extends GridControllerBase {
      * @type {string}
      * @memberof MainGridBase
      */
-    public minorSortPSDEF: string = 'order';
+    public minorSortPSDEF: string = 'id';
 
     /**
      * 所有列成员
@@ -122,7 +122,7 @@ export class MainGridBase extends GridControllerBase {
             label: '角色',
             langtag: 'entities.projectteam.main_grid.columns.role',
             show: true,
-            util: 'PX'
+            util: 'STAR'
         },
         {
             name: 'join',
