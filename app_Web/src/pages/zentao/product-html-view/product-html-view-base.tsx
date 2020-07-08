@@ -11,7 +11,6 @@ import HtmlViewEngine from '@engine/view/html-view-engine';
  * @extends {ViewBase}
  */
 export class ProductHtmlViewBase extends ViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -20,6 +19,24 @@ export class ProductHtmlViewBase extends ViewBase {
      * @memberof ProductHtmlViewBase
      */
     protected appDeName: string = 'product';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductHtmlViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductHtmlViewBase
+     */
+    protected appDeMajor: string = 'name';
 
     /**
      * 实体服务对象

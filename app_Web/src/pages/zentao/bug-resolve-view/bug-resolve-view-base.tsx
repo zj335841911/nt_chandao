@@ -11,7 +11,6 @@ import OptionViewEngine from '@engine/view/option-view-engine';
  * @extends {OptionViewBase}
  */
 export class BugResolveViewBase extends OptionViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -20,6 +19,24 @@ export class BugResolveViewBase extends OptionViewBase {
      * @memberof BugResolveViewBase
      */
     protected appDeName: string = 'bug';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugResolveViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugResolveViewBase
+     */
+    protected appDeMajor: string = 'title';
 
     /**
      * 实体服务对象

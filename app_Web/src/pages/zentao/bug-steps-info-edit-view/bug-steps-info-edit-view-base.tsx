@@ -11,7 +11,6 @@ import EditViewEngine from '@engine/view/edit-view-engine';
  * @extends {EditViewBase}
  */
 export class BugStepsInfoEditViewBase extends EditViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -20,6 +19,24 @@ export class BugStepsInfoEditViewBase extends EditViewBase {
      * @memberof BugStepsInfoEditViewBase
      */
     protected appDeName: string = 'bug';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugStepsInfoEditViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugStepsInfoEditViewBase
+     */
+    protected appDeMajor: string = 'title';
 
     /**
      * 实体服务对象

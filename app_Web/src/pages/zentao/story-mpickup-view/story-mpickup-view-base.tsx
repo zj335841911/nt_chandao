@@ -11,7 +11,6 @@ import MPickupViewEngine from '@engine/view/mpickup-view-engine';
  * @extends {MPickupViewBase}
  */
 export class StoryMPickupViewBase extends MPickupViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -20,6 +19,24 @@ export class StoryMPickupViewBase extends MPickupViewBase {
      * @memberof StoryMPickupViewBase
      */
     protected appDeName: string = 'story';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryMPickupViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryMPickupViewBase
+     */
+    protected appDeMajor: string = 'title';
 
     /**
      * 实体服务对象

@@ -11,7 +11,6 @@ import PickupGridViewEngine from '@engine/view/pickup-grid-view-engine';
  * @extends {PickupGridViewBase}
  */
 export class ProductPickupGridViewBase extends PickupGridViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -20,6 +19,24 @@ export class ProductPickupGridViewBase extends PickupGridViewBase {
      * @memberof ProductPickupGridViewBase
      */
     protected appDeName: string = 'product';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductPickupGridViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductPickupGridViewBase
+     */
+    protected appDeMajor: string = 'name';
 
     /**
      * 实体服务对象

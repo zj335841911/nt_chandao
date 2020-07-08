@@ -11,7 +11,6 @@ import EditViewEngine from '@engine/view/edit-view-engine';
  * @extends {EditViewBase}
  */
 export class TestReportMainInfoViewBase extends EditViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -20,6 +19,24 @@ export class TestReportMainInfoViewBase extends EditViewBase {
      * @memberof TestReportMainInfoViewBase
      */
     protected appDeName: string = 'testreport';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestReportMainInfoViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestReportMainInfoViewBase
+     */
+    protected appDeMajor: string = 'title';
 
     /**
      * 实体服务对象

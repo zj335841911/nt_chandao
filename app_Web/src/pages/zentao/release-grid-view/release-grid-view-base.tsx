@@ -14,7 +14,6 @@ import CodeListService from "@service/app/codelist-service";
  * @extends {GridViewBase}
  */
 export class ReleaseGridViewBase extends GridViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -23,6 +22,24 @@ export class ReleaseGridViewBase extends GridViewBase {
      * @memberof ReleaseGridViewBase
      */
     protected appDeName: string = 'release';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ReleaseGridViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ReleaseGridViewBase
+     */
+    protected appDeMajor: string = 'name';
 
     /**
      * 实体服务对象

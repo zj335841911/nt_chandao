@@ -15,7 +15,6 @@ import CodeListService from "@service/app/codelist-service";
  * @extends {KanBanViewBase}
  */
 export class TaskKanbanViewBase extends KanBanViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -24,6 +23,24 @@ export class TaskKanbanViewBase extends KanBanViewBase {
      * @memberof TaskKanbanViewBase
      */
     protected appDeName: string = 'task';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskKanbanViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskKanbanViewBase
+     */
+    protected appDeMajor: string = 'name';
 
     /**
      * 实体服务对象

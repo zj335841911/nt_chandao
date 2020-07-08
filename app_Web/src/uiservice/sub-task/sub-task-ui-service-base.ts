@@ -52,7 +52,7 @@ export default class SubTaskUIServiceBase extends UIService {
      * 
      * @memberof  SubTaskUIServiceBase
      */  
-    public mainStateFields:Array<any> = [];
+    public mainStateFields:Array<any> = ['status'];
 
     /**
      * 主状态集合Map
@@ -88,6 +88,12 @@ export default class SubTaskUIServiceBase extends UIService {
      * @memberof  SubTaskUIServiceBase
      */  
     public initDeMainStateMap(){
+        this.allDeMainStateMap.set('cancel','cancel');
+        this.allDeMainStateMap.set('closed','closed');
+        this.allDeMainStateMap.set('doing','doing');
+        this.allDeMainStateMap.set('done','done');
+        this.allDeMainStateMap.set('pause','pause');
+        this.allDeMainStateMap.set('wait','wait');
     }
 
 

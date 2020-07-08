@@ -67,6 +67,9 @@ export default class StoryRelatedModel {
           dataType: 'PICKUPTEXT',
         },
         {
+          name: 'srfmstag',
+        },
+        {
           name: 'srfmajortext',
           prop: 'name',
           dataType: 'TEXT',

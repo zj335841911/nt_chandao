@@ -11,7 +11,6 @@ import PortalViewEngine from '@engine/view/portal-view-engine';
  * @extends {DashboardViewBase}
  */
 export class TestTaskMainDashboardViewBase extends DashboardViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -20,6 +19,24 @@ export class TestTaskMainDashboardViewBase extends DashboardViewBase {
      * @memberof TestTaskMainDashboardViewBase
      */
     protected appDeName: string = 'testtask';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestTaskMainDashboardViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestTaskMainDashboardViewBase
+     */
+    protected appDeMajor: string = 'name';
 
     /**
      * 实体服务对象

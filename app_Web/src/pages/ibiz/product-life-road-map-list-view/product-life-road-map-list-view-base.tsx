@@ -14,7 +14,6 @@ import CodeListService from "@service/app/codelist-service";
  * @extends {ListViewBase}
  */
 export class ProductLifeRoadMapListViewBase extends ListViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -23,6 +22,24 @@ export class ProductLifeRoadMapListViewBase extends ListViewBase {
      * @memberof ProductLifeRoadMapListViewBase
      */
     protected appDeName: string = 'productlife';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductLifeRoadMapListViewBase
+     */
+    protected appDeKey: string = 'ibz_productlifeid';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductLifeRoadMapListViewBase
+     */
+    protected appDeMajor: string = 'ibz_productlifename';
 
     /**
      * 实体服务对象

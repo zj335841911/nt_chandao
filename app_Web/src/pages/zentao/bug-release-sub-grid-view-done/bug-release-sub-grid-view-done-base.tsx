@@ -14,7 +14,6 @@ import CodeListService from "@service/app/codelist-service";
  * @extends {GridViewBase}
  */
 export class BugReleaseSubGridView_DoneBase extends GridViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -23,6 +22,24 @@ export class BugReleaseSubGridView_DoneBase extends GridViewBase {
      * @memberof BugReleaseSubGridView_DoneBase
      */
     protected appDeName: string = 'bug';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugReleaseSubGridView_DoneBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugReleaseSubGridView_DoneBase
+     */
+    protected appDeMajor: string = 'title';
 
     /**
      * 实体服务对象

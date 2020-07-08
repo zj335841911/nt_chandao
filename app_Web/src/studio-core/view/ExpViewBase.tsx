@@ -1,4 +1,5 @@
 import { ViewBase } from './ViewBase';
+import { events } from '../global/events';
 
 /**
  * 导航视图基类
@@ -8,5 +9,41 @@ import { ViewBase } from './ViewBase';
  * @extends {ViewBase}
  */
 export class ExpViewBase extends ViewBase {
+
+    /**
+     * 应用实体服务
+     *
+     * @protected
+     * @type {*}
+     * @memberof ExpViewBase
+     */
+    protected appEntityService: any;
+
+    /**
+     * 加载模型
+     *
+     * @protected
+     * @memberof AccountInfoBase
+     */
+    protected async loadModel(): Promise<any> {
+        if (this.appEntityService && this.context[this.appDeName]) {
+            this.appEntityService.getDataInfo(this.context, {}, false).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    return;
+                }
+                const { data } = response;
+                if (data && data[this.appDeMajor]) {
+                    this.$appService.contextStore.setContextData(this.context, this.appDeName, { data });
+                    Object.assign(this.model, { dataInfo: data[this.appDeMajor] });
+                    if (this.$route) {
+                        this.$route.meta.info = this.model.dataInfo;
+                    }
+                    Object.assign(this.model, { srfTitle: `${this.$t(this.model.srfTitle)} - ${this.model.dataInfo}` });
+                    this.$appService.navHistory.setCaption({ tag: this.viewtag, info: this.model.dataInfo });
+                    this.$emit(events.view.MODEL_LOADED, data);
+                }
+            })
+        }
+    }
 
 }

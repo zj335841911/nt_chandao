@@ -11,7 +11,6 @@ import EditViewEngine from '@engine/view/edit-view-engine';
  * @extends {EditViewBase}
  */
 export class ProductPlanSubPlanCreateViewBase extends EditViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -20,6 +19,24 @@ export class ProductPlanSubPlanCreateViewBase extends EditViewBase {
      * @memberof ProductPlanSubPlanCreateViewBase
      */
     protected appDeName: string = 'subproductplan';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductPlanSubPlanCreateViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductPlanSubPlanCreateViewBase
+     */
+    protected appDeMajor: string = 'title';
 
     /**
      * 实体服务对象

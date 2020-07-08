@@ -14,7 +14,6 @@ import CodeListService from "@service/app/codelist-service";
  * @extends {GridView9Base}
  */
 export class StoryGridView9_RelatedBase extends GridView9Base {
-
     /**
      * 视图对应应用实体名称
      *
@@ -23,6 +22,24 @@ export class StoryGridView9_RelatedBase extends GridView9Base {
      * @memberof StoryGridView9_RelatedBase
      */
     protected appDeName: string = 'story';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryGridView9_RelatedBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryGridView9_RelatedBase
+     */
+    protected appDeMajor: string = 'title';
 
     /**
      * 实体服务对象

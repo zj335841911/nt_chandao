@@ -11,7 +11,6 @@ import EditView9Engine from '@engine/view/edit-view9-engine';
  * @extends {EditView9Base}
  */
 export class CaseMainInfoEditView9Base extends EditView9Base {
-
     /**
      * 视图对应应用实体名称
      *
@@ -20,6 +19,24 @@ export class CaseMainInfoEditView9Base extends EditView9Base {
      * @memberof CaseMainInfoEditView9Base
      */
     protected appDeName: string = 'case';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseMainInfoEditView9Base
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseMainInfoEditView9Base
+     */
+    protected appDeMajor: string = 'title';
 
     /**
      * 实体服务对象

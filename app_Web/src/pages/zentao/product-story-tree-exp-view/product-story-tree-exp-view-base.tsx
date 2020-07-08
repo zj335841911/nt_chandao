@@ -11,7 +11,6 @@ import TreeExpViewEngine from '@engine/view/tree-exp-view-engine';
  * @extends {TreeExpViewBase}
  */
 export class ProductStoryTreeExpViewBase extends TreeExpViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -20,6 +19,24 @@ export class ProductStoryTreeExpViewBase extends TreeExpViewBase {
      * @memberof ProductStoryTreeExpViewBase
      */
     protected appDeName: string = 'product';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductStoryTreeExpViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductStoryTreeExpViewBase
+     */
+    protected appDeMajor: string = 'name';
 
     /**
      * 实体服务对象
