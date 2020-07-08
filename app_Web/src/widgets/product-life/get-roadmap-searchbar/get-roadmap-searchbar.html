@@ -1,0 +1,11 @@
+<div class='portlet get-roadmap ' :style="{'height': isAdaptiveSize ? 'calc(100% - 16px)' : getHeight,}">
+        <p class='portlet-title'>
+            <span>
+            
+            产品路线图
+            </span>
+        </p>
+        <div class="portlet-with-title">
+        <product-life-road-map-list-view9 :viewUsage="4" :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></product-life-road-map-list-view9>
+        </div>
+</div>
