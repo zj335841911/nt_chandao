@@ -1,5 +1,5 @@
 import ViewEngine from '../view/view-engine';
-import { events } from '@/studio-core/global/events';
+import { events, ctrl } from '@/studio-core/global';
 
 /**
  * 快速摘要栏引擎
@@ -69,6 +69,11 @@ export default class DataPanelEngine extends ViewEngine {
                 this.setData();
             });
         }
+        if (this.form) {
+            this.form.$on(events.ctrl.LOAD, () => {
+                this.setData();
+            });
+        }
     }
 
     /**
@@ -78,10 +83,18 @@ export default class DataPanelEngine extends ViewEngine {
      */
     public setData(): void {
         const data = this.view.$appService.contextStore.getContextData(this.context, this.view.appDeName);
-        if (this.dataPanel && Object.is(this.dataPanel.controlType, 'FORM')) {
-            if (data && data.data) {
-                this.dataPanel.fillForm(data.data);
+        if (this.dataPanel) {
+            if (Object.is(this.dataPanel.controlType, ctrl.type.Form)) {
+                if (data && data.data) {
+                    this.dataPanel.fillForm(data.data);
+                }
+            } else if (Object.is(this.dataPanel.controlType, ctrl.type.Panel)) {
+                if (data && data.data) {
+                    this.dataPanel.data = data.data;
+                    this.dataPanel.$forceUpdate();
+                }
             }
+
         }
     }
 

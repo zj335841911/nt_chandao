@@ -1,7 +1,8 @@
 import { Prop } from 'vue-property-decorator';
-import { Subject, Subscription } from 'rxjs';
-import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
+import { Subject } from 'rxjs';
+import { FormItemModel } from '@/model/form-detail';
 import { MainControlBase } from './MainControlBase';
+import { events } from '../global';
 
 /**
  * 表单部件基类
@@ -453,7 +454,7 @@ export class FormControlBase extends MainControlBase {
             if (response && response.status === 200) {
                 const data = response.data;
                 this.onFormLoad(data, 'load');
-                this.$emit('load', data);
+                this.$emit(events.ctrl.LOAD, data);
                 this.$nextTick(() => {
                     this.formState.next({ type: 'load', data: data });
                 });

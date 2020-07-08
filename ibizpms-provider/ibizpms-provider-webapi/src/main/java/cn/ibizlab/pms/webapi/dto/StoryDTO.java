@@ -388,6 +388,14 @@ public class StoryDTO extends DTOBase implements Serializable {
     @JsonProperty("comment")
     private String comment;
 
+    /**
+     * 属性 [ISLEAF]
+     *
+     */
+    @JSONField(name = "isleaf")
+    @JsonProperty("isleaf")
+    private String isleaf;
+
 
     /**
      * 设置 [ASSIGNEDTO]

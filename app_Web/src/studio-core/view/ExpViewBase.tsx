@@ -1,5 +1,5 @@
 import { ViewBase } from './ViewBase';
-import { events } from '../global/events';
+import { events } from '../global';
 
 /**
  * 导航视图基类

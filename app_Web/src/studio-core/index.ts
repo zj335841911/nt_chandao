@@ -54,6 +54,7 @@ export { GridControllerBase } from './widgets/GridControllerBase';
 export { ListControllerBase } from './widgets/ListControllerBase';
 export { EditFormControlBase } from './widgets/EditFormControlBase';
 export { MDControlBase } from './widgets/MDControlBase';
+export { PanelControlBase } from './widgets/PanelControlBase';
 export { SearchFormControlBase } from './widgets/SearchFormControlBase';
 export { TabExpPanelControlBase } from './widgets/TabExpPanelControlBase';
 // 组件 Start

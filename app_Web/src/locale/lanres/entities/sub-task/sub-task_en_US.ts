@@ -48,6 +48,7 @@ export default {
     comment: "备注",
     currentconsumed: "本次消耗",
     totaltime: "总计耗时",
+    isleaf: "是否子任务",
   },
 	views: {
 		subtasknewview: {

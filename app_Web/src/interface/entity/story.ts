@@ -365,4 +365,12 @@ export interface Story {
      * @memberof Story
      */
     comment?: any;
+
+    /**
+     * 是否子需求
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    isleaf?: any;
 }

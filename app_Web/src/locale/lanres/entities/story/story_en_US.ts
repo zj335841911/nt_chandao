@@ -46,6 +46,7 @@ export default {
     verify: "验收标准",
     result: "评审结果",
     comment: "备注",
+    isleaf: "是否子需求",
   },
 	views: {
 		mainview9_related: {

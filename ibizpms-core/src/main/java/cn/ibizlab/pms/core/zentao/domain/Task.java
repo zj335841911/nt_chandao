@@ -389,6 +389,13 @@ public class Task extends EntityMP implements Serializable {
     @JSONField(name = "totaltime")
     @JsonProperty("totaltime")
     private Double totaltime;
+    /**
+     * 是否子任务
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isleaf")
+    @JsonProperty("isleaf")
+    private String isleaf;
 
     /**
      * 

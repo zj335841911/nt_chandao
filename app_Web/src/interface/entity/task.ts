@@ -381,4 +381,12 @@ export interface Task {
      * @memberof Task
      */
     totaltime?: any;
+
+    /**
+     * 是否子任务
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    isleaf?: any;
 }

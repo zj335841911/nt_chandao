@@ -553,6 +553,13 @@ export default class TypeGanttService extends ControlService {
                         Object.assign(treeNode, { id: strNodeId + '_#_' + filter.srfnodeid });
                         Object.assign(treeNode, { collapsed: true });
                         Object.assign(treeNode, { leaf: true });
+                        let objLeafFlag = entity.isleaf;
+                        if (objLeafFlag != null ) {
+                            let strLeafFlag: string = objLeafFlag.toString().toLowerCase();
+                            if (Object.is(strLeafFlag, '1') || Object.is(strLeafFlag, 'true')){
+                                Object.assign(treeNode, { leaf: true });
+                            }
+                        }
                         Object.assign(treeNode, { navparams: '{}' });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
@@ -710,6 +717,13 @@ export default class TypeGanttService extends ControlService {
                         Object.assign(treeNode, { id: strNodeId + '_#_' + filter.srfnodeid });
                         Object.assign(treeNode, { collapsed: true });
                         Object.assign(treeNode, { leaf: false });
+                        let objLeafFlag = entity.isleaf;
+                        if (objLeafFlag != null ) {
+                            let strLeafFlag: string = objLeafFlag.toString().toLowerCase();
+                            if (Object.is(strLeafFlag, '1') || Object.is(strLeafFlag, 'true')){
+                                Object.assign(treeNode, { leaf: true });
+                            }
+                        }
                         Object.assign(treeNode, { navparams: '{}' });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });

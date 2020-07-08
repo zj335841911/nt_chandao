@@ -156,6 +156,9 @@ export default class WorkInfoModel {
       {
         name: 'totaltime',
       },
+      {
+        name: 'isleaf',
+      },
     ]
   }
 
