@@ -41,12 +41,7 @@
 </app-form-item>
 
 </i-col>
-    
-    </row>
-</app-form-group>
-
-</i-col>
-<i-col v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 23, offset: 1 }" :xl="{ span: 23, offset: 1 }">
+<i-col v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productplan.info_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
         <i-col v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
@@ -72,6 +67,11 @@
     @drdatasaved="drdatasaved($event)"
     style="overflow: auto;">
 </app-form-druipart>
+
+</i-col>
+    
+    </row>
+</app-form-group>
 
 </i-col>
     
