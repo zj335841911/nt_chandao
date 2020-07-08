@@ -50,7 +50,7 @@ export class StoryGridView9_AssignedToMeBase extends GridView9Base {
 	 * @memberof StoryGridView9_AssignedToMeBase
 	 */
     protected customViewParams: any = {
-        'e_assignedto_eq': { isRawValue: false, value: 'SRFUSERID' }
+        'n_assignedto_eq': { isRawValue: false, value: 'srfloginname' }
     };
 
     /**

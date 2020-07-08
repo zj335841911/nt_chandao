@@ -98,7 +98,7 @@ export class MainGridBase extends GridControllerBase {
             label: '产品线',
             langtag: 'entities.product.main_grid.columns.linename',
             show: true,
-            util: 'PX'
+            util: 'STAR'
         },
     ]
 
