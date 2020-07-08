@@ -48,6 +48,15 @@ public class ProductSearchContext extends QueryWrapperContext<Product> {
             this.getSearchCond().eq("status", n_status_eq);
         }
     }
+	private String n_status_isnotnull;//[状态]
+	public void setN_status_isnotnull(String n_status_isnotnull) {
+        this.n_status_isnotnull = n_status_isnotnull;
+        if(!ObjectUtils.isEmpty(this.n_status_isnotnull)){
+			if(this.n_status_isnotnull.toString().equals("1")){
+				this.getSearchCond().isNotNull("status");
+			}
+        }
+    }
 	private String n_linename_eq;//[产品线]
 	public void setN_linename_eq(String n_linename_eq) {
         this.n_linename_eq = n_linename_eq;
