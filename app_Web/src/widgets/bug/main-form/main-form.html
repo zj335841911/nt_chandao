@@ -243,7 +243,7 @@
 </i-col>
 <i-col v-show="detailsModel.steps.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='steps' :itemRules="this.rules.steps" class='' :caption="$t('entities.bug.main_form.details.steps')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.steps.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-rich-text-editor :formState="formState" :value="data.steps" @change="(val) =>{this.data.steps =val}" :disabled="detailsModel.steps.disabled"  name="steps" style=""></app-rich-text-editor>
+    <app-rich-text-editor :formState="formState" :value="data.steps" @change="(val) =>{this.data.steps =val}" :disabled="detailsModel.steps.disabled" :data="JSON.stringify(this.data)"  name="steps" :uploadparams='{}' :exportparams='{}'  style=""></app-rich-text-editor>
 </app-form-item>
 
 </i-col>
