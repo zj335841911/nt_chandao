@@ -315,6 +315,42 @@ public class StoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ReleaseBatchUnlinkStory-all')")
+    @ApiOperation(value = "项目批量解除关联需求", tags = {"需求" },  notes = "项目批量解除关联需求")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/releasebatchunlinkstory")
+    @Transactional
+    public ResponseEntity<StoryDTO> releaseBatchUnlinkStory(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
+        Story domain = storyMapping.toDomain(storydto);
+        domain.setId(story_id);
+        domain = storyService.releaseBatchUnlinkStory(domain);
+        storydto = storyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(storydto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ReleaseLinkStory-all')")
+    @ApiOperation(value = "项目关联需求", tags = {"需求" },  notes = "项目关联需求")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/releaselinkstory")
+    @Transactional
+    public ResponseEntity<StoryDTO> releaseLinkStory(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
+        Story domain = storyMapping.toDomain(storydto);
+        domain.setId(story_id);
+        domain = storyService.releaseLinkStory(domain);
+        storydto = storyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(storydto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ReleaseUnlinkStory-all')")
+    @ApiOperation(value = "项目解除关联需求", tags = {"需求" },  notes = "项目解除关联需求")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/releaseunlinkstory")
+    @Transactional
+    public ResponseEntity<StoryDTO> releaseUnlinkStory(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
+        Story domain = storyMapping.toDomain(storydto);
+        domain.setId(story_id);
+        domain = storyService.releaseUnlinkStory(domain);
+        storydto = storyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(storydto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ResetReviewedBy-all')")
     @ApiOperation(value = "重置由谁评审", tags = {"需求" },  notes = "重置由谁评审")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/resetreviewedby")
@@ -831,6 +867,42 @@ public class StoryResource {
         Story domain = storyMapping.toDomain(storydto);
         domain.setProduct(product_id);
         domain = storyService.projectUnlinkStory(domain) ;
+        storydto = storyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(storydto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ReleaseBatchUnlinkStory-all')")
+    @ApiOperation(value = "根据产品需求", tags = {"需求" },  notes = "根据产品需求")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/releasebatchunlinkstory")
+    @Transactional
+    public ResponseEntity<StoryDTO> releaseBatchUnlinkStoryByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
+        Story domain = storyMapping.toDomain(storydto);
+        domain.setProduct(product_id);
+        domain = storyService.releaseBatchUnlinkStory(domain) ;
+        storydto = storyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(storydto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ReleaseLinkStory-all')")
+    @ApiOperation(value = "根据产品需求", tags = {"需求" },  notes = "根据产品需求")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/releaselinkstory")
+    @Transactional
+    public ResponseEntity<StoryDTO> releaseLinkStoryByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
+        Story domain = storyMapping.toDomain(storydto);
+        domain.setProduct(product_id);
+        domain = storyService.releaseLinkStory(domain) ;
+        storydto = storyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(storydto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ReleaseUnlinkStory-all')")
+    @ApiOperation(value = "根据产品需求", tags = {"需求" },  notes = "根据产品需求")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/releaseunlinkstory")
+    @Transactional
+    public ResponseEntity<StoryDTO> releaseUnlinkStoryByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
+        Story domain = storyMapping.toDomain(storydto);
+        domain.setProduct(product_id);
+        domain = storyService.releaseUnlinkStory(domain) ;
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
     }

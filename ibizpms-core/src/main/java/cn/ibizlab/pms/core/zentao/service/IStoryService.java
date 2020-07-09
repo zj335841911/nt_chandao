@@ -50,6 +50,9 @@ public interface IStoryService extends IService<Story>{
     Story projectBatchUnlinkStory(Story et) ;
     Story projectLinkStory(Story et) ;
     Story projectUnlinkStory(Story et) ;
+    Story releaseBatchUnlinkStory(Story et) ;
+    Story releaseLinkStory(Story et) ;
+    Story releaseUnlinkStory(Story et) ;
     Story resetReviewedBy(Story et) ;
     Story review(Story et) ;
     boolean save(Story et) ;
