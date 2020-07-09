@@ -5401,6 +5401,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-grid-view/project-grid-view.vue'),
                 },
                 {
+                    path: 'products/:product?/productmodules/:productmodule?/gridviewbranch/:gridviewbranch?',
+                    meta: {
+                        caption: 'entities.productmodule.views.gridviewbranch.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productmodules', parameterName: 'productmodule' },
+                            { pathName: 'gridviewbranch', parameterName: 'gridviewbranch' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/product-module-grid-view-branch/product-module-grid-view-branch.vue'),
+                },
+                {
+                    path: 'productmodules/:productmodule?/gridviewbranch/:gridviewbranch?',
+                    meta: {
+                        caption: 'entities.productmodule.views.gridviewbranch.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productmodules', parameterName: 'productmodule' },
+                            { pathName: 'gridviewbranch', parameterName: 'gridviewbranch' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/product-module-grid-view-branch/product-module-grid-view-branch.vue'),
+                },
+                {
                     path: 'projects/:project?/projectmodules/:projectmodule?/treeexpview/:treeexpview?',
                     meta: {
                         caption: 'entities.projectmodule.views.treeexpview.title',

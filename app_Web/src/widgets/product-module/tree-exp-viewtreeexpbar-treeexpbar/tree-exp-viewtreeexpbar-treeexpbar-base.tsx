@@ -300,6 +300,20 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends MainControlBase {
                 deKeyField:'productmodule'
 			};
         }
+        if (Object.is(expmode, 'BRANCHS')) {
+            return {  
+                viewname: 'product-module-grid-view-branch', 
+                parentdata: {"srfparentdefname":"n_branch_eq"},
+                deKeyField:'productmodule'
+			};
+        }
+        if (Object.is(expmode, 'BRANCH')) {
+            return {  
+                viewname: 'product-module-grid-view-branch', 
+                parentdata: {},
+                deKeyField:'productmodule'
+			};
+        }
         if (Object.is(expmode, 'ROOTMODULE')) {
             return {  
                 viewname: 'product-module-grid-view', 
