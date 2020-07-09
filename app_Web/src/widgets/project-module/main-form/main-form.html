@@ -3,7 +3,7 @@
     <row >
             
 <i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.projectmodule.main_form.details.group1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.projectmodule.main_form.details.group1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <row>
         <i-col v-show="detailsModel.rootname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='rootname' :itemRules="this.rules.rootname" class='' :caption="$t('entities.projectmodule.main_form.details.rootname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.rootname.error" :isEmptyCaption="false" labelPos="LEFT">

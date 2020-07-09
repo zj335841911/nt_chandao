@@ -3,10 +3,10 @@
     <row >
             
 <i-col v-show="detailsModel.grouppanel4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel4.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.projectstats.main_form.details.grouppanel4')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group :model="detailsModel.grouppanel4" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel4.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.projectstats.main_form.details.grouppanel4')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
         <i-col v-show="detailsModel.grouppanel6.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel6.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.projectstats.main_form.details.grouppanel6')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group :model="detailsModel.grouppanel6" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel6.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.projectstats.main_form.details.grouppanel6')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
         <i-col v-show="detailsModel.formitemex4.visible" :style="{'height': '250px !important',}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='formitemex4' :itemRules="this.rules.formitemex4" class='' :caption="$t('entities.projectstats.main_form.details.formitemex4')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.formitemex4.error" :isEmptyCaption="false" labelPos="NONE">
@@ -20,7 +20,7 @@
 
 </i-col>
 <i-col v-show="detailsModel.grouppanel5.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel5.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.projectstats.main_form.details.grouppanel5')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group :model="detailsModel.grouppanel5" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel5.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.projectstats.main_form.details.grouppanel5')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
         <i-col v-show="detailsModel.totalestimate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='totalestimate' :itemRules="this.rules.totalestimate" class='text-center' :caption="$t('entities.projectstats.main_form.details.totalestimate')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.totalestimate.error" :isEmptyCaption="false" labelPos="TOP">
@@ -54,10 +54,10 @@
 
 </i-col>
 <i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.projectstats.main_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.projectstats.main_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
         <i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.projectstats.main_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group :model="detailsModel.grouppanel1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.projectstats.main_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
         <i-col v-show="detailsModel.taskcnt.visible" :style="{}"  :lg="{ span: 4, offset: 20 }" :xl="{ span: 4, offset: 20 }">
     <app-form-item name='taskcnt' :itemRules="this.rules.taskcnt" class='' :caption="$t('entities.projectstats.main_form.details.taskcnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.taskcnt.error" :isEmptyCaption="false" labelPos="LEFT">
@@ -85,7 +85,7 @@
 
 </i-col>
 <i-col v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.projectstats.main_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group :model="detailsModel.grouppanel2" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.projectstats.main_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
         <i-col v-show="detailsModel.storycnt.visible" :style="{}"  :lg="{ span: 4, offset: 20 }" :xl="{ span: 4, offset: 20 }">
     <app-form-item name='storycnt' :itemRules="this.rules.storycnt" class='' :caption="$t('entities.projectstats.main_form.details.storycnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.storycnt.error" :isEmptyCaption="false" labelPos="LEFT">
@@ -113,7 +113,7 @@
 
 </i-col>
 <i-col v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.projectstats.main_form.details.grouppanel3')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group :model="detailsModel.grouppanel3" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.projectstats.main_form.details.grouppanel3')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <row>
         <i-col v-show="detailsModel.bugcnt.visible" :style="{}"  :lg="{ span: 4, offset: 20 }" :xl="{ span: 4, offset: 20 }">
     <app-form-item name='bugcnt' :itemRules="this.rules.bugcnt" class='' :caption="$t('entities.projectstats.main_form.details.bugcnt')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.bugcnt.error" :isEmptyCaption="false" labelPos="LEFT">
