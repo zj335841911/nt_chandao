@@ -264,23 +264,19 @@
 <i-col v-show="detailsModel.mailto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='mailto' :itemRules="this.rules.mailto" class='' :caption="$t('entities.task.mainedit_form.details.mailto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.mailto.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<app-picker  
-  :formState="formState"
-  :data="data"
+<dropdown-list-mpicker 
+  v-model="data.mailto"
+  :data="data" 
   :context="context"
-  :viewparams="viewparams"
+  :viewparams="viewparams" 
   :localContext ='{ }' 
   :localParam ='{ }' 
   :disabled="detailsModel.mailto.disabled"
-  name='mailto' 
-  :service="service"
-  :acParams="{ }"
-  valueitem='' 
-  :value="data.mailto" 
-  editortype="dropdown" 
-  style="" 
-  @formitemvaluechange="onFormItemValueChange($event)">
-</app-picker>
+  tag='UserRealName' 
+  codelistType='DYNAMIC' 
+  valueSeparator=","
+  placeholder='请选择...' style="">
+</dropdown-list-mpicker>
 </app-form-item>
 
 </i-col>
