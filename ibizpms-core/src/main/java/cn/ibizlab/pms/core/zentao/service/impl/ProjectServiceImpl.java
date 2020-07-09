@@ -86,6 +86,14 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
 
     protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService = this;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IProjectUpdate__MSDenyLogic update__msdenyLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IProjectUpdateOrder__MSDenyLogic updateorder__msdenyLogic;
+
     protected int batchSize = 500;
 
     @Override

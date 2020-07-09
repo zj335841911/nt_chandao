@@ -52,7 +52,7 @@ export default class ProjectUIServiceBase extends UIService {
      * 
      * @memberof  ProjectUIServiceBase
      */  
-    public mainStateFields:Array<any> = [];
+    public mainStateFields:Array<any> = ['status'];
 
     /**
      * 主状态集合Map
@@ -105,6 +105,10 @@ export default class ProjectUIServiceBase extends UIService {
      * @memberof  ProjectUIServiceBase
      */  
     public initDeMainStateMap(){
+        this.allDeMainStateMap.set('closed','closed');
+        this.allDeMainStateMap.set('doing','doing');
+        this.allDeMainStateMap.set('suspended','suspended');
+        this.allDeMainStateMap.set('wait','wait');
     }
 
     /**

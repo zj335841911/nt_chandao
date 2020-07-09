@@ -30,6 +30,9 @@ export default class TestExpModel {
 				dataType: 'PICKUP',
 			},
 			{
+				name: 'srfmstag',
+			},
+			{
 				name: 'product',
 				prop: 'id',
 				dataType: 'FONTKEY',

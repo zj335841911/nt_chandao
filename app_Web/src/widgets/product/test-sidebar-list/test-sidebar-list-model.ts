@@ -56,6 +56,9 @@ export default class TestSidebarModel {
 				dataType: 'PICKUP',
 			},
 			{
+				name: 'srfmstag',
+			},
+			{
 				name: 'product',
 				prop: 'id',
 				dataType: 'FONTKEY',

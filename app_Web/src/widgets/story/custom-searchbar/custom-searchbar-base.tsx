@@ -67,9 +67,9 @@ export class CustomSearchbarBase extends MainControlBase {
      * @memberof CustomBase
      */
     public detailsModel: any = {
-        'id': {
+        'ideq': {
             label: '编号',
-            name: 'id',
+            name: 'ideq',
             prop: 'id',
             disabled: false
         },
@@ -85,21 +85,27 @@ export class CustomSearchbarBase extends MainControlBase {
             prop: 'pri',
             disabled: false
         },
-        'stage': {
+        'stageeq': {
             label: '所处阶段',
-            name: 'stage',
+            name: 'stageeq',
             prop: 'stage',
             disabled: false
         },
-        'status': {
+        'stagenoteq': {
+            label: '所处阶段',
+            name: 'stagenoteq',
+            prop: 'stage',
+            disabled: false
+        },
+        'statuseq': {
             label: '当前状态',
-            name: 'status',
+            name: 'statuseq',
             prop: 'status',
             disabled: false
         },
-        'title': {
+        'titlelike': {
             label: '需求名称',
-            name: 'title',
+            name: 'titlelike',
             prop: 'title',
             disabled: false
         },

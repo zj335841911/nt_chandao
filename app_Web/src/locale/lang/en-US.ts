@@ -21,6 +21,7 @@ import history_en_US from '@locale/lanres/entities/history/history_en_US';
 import user_en_US from '@locale/lanres/entities/user/user_en_US';
 import productmodule_en_US from '@locale/lanres/entities/product-module/product-module_en_US';
 import module_en_US from '@locale/lanres/entities/module/module_en_US';
+import testmodule_en_US from '@locale/lanres/entities/test-module/test-module_en_US';
 import productlife_en_US from '@locale/lanres/entities/product-life/product-life_en_US';
 import task_en_US from '@locale/lanres/entities/task/task_en_US';
 import build_en_US from '@locale/lanres/entities/build/build_en_US';
@@ -145,6 +146,7 @@ export default {
         user: user_en_US,
         productmodule: productmodule_en_US,
         module: module_en_US,
+        testmodule: testmodule_en_US,
         productlife: productlife_en_US,
         task: task_en_US,
         build: build_en_US,

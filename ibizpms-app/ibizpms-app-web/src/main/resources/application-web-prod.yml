@@ -99,6 +99,10 @@ zuul:
       path: /modules/**
       serviceId: pms-webapi
       stripPrefix: false
+    ibz_testmodule:
+      path: /testmodules/**
+      serviceId: pms-webapi
+      stripPrefix: false
     ibz_productlife:
       path: /productlives/**
       serviceId: pms-webapi

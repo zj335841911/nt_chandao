@@ -52,6 +52,9 @@ export default class MainModel {
           dataType: 'TEXT',
         },
         {
+          name: 'srfmstag',
+        },
+        {
           name: 'srfmajortext',
           prop: 'name',
           dataType: 'TEXT',

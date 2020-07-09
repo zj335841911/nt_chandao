@@ -30,6 +30,9 @@ export default class ExpModel {
 				dataType: 'PICKUP',
 			},
 			{
+				name: 'srfmstag',
+			},
+			{
 				name: 'project',
 				prop: 'id',
 				dataType: 'FONTKEY',

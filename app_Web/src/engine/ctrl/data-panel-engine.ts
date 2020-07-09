@@ -90,8 +90,7 @@ export default class DataPanelEngine extends ViewEngine {
                 }
             } else if (Object.is(this.dataPanel.controlType, ctrl.type.Panel)) {
                 if (data && data.data) {
-                    this.dataPanel.data = data.data;
-                    this.dataPanel.$forceUpdate();
+                    this.dataPanel.onInputDataChange(data.data);
                 }
             }
 

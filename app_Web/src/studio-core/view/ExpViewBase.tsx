@@ -33,6 +33,7 @@ export class ExpViewBase extends ViewBase {
                 }
                 const { data } = response;
                 if (data && data[this.appDeMajor]) {
+                    data[this.appDeName] = data[this.appDeKey];
                     this.$appService.contextStore.setContextData(this.context, this.appDeName, { data });
                     Object.assign(this.model, { dataInfo: data[this.appDeMajor] });
                     if (this.$route) {
