@@ -593,6 +593,14 @@ export default {
 			caption: "编辑",
 			tip: "编辑",
 		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction3: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	maingridview_bymoduletoolbar_toolbar: {
 		deuiaction1: {

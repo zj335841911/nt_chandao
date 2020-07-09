@@ -72,15 +72,21 @@ export class CustomSearchbarBase extends MainControlBase {
             prop: 'id',
             disabled: false
         },
-        'keywords': {
-            label: '关键词',
-            name: 'keywords',
-            prop: 'keywords',
-            disabled: false
-        },
         'pri': {
             label: '优先级',
             name: 'pri',
+            prop: 'pri',
+            disabled: false
+        },
+        'prigteq': {
+            label: '优先级',
+            name: 'prigteq',
+            prop: 'pri',
+            disabled: false
+        },
+        'prilteq': {
+            label: '优先级',
+            name: 'prilteq',
             prop: 'pri',
             disabled: false
         },
@@ -96,16 +102,22 @@ export class CustomSearchbarBase extends MainControlBase {
             prop: 'stage',
             disabled: false
         },
+        'titlelike': {
+            label: '需求名称',
+            name: 'titlelike',
+            prop: 'title',
+            disabled: false
+        },
         'statuseq': {
             label: '当前状态',
             name: 'statuseq',
             prop: 'status',
             disabled: false
         },
-        'titlelike': {
-            label: '需求名称',
-            name: 'titlelike',
-            prop: 'title',
+        'keywords': {
+            label: '关键词',
+            name: 'keywords',
+            prop: 'keywords',
             disabled: false
         },
     };
