@@ -20,6 +20,7 @@ import com.alibaba.fastjson.JSONObject;
 public interface CaseStepMapper extends BaseMapper<CaseStep>{
 
     Page<CaseStep> searchDefault(IPage page, @Param("srf") CaseStepSearchContext context, @Param("ew") Wrapper<CaseStep> wrapper) ;
+    Page<CaseStep> searchVersion(IPage page, @Param("srf") CaseStepSearchContext context, @Param("ew") Wrapper<CaseStep> wrapper) ;
     @Override
     CaseStep selectById(Serializable id);
     @Override

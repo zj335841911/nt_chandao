@@ -23,6 +23,7 @@ import './entity/groups/groups';
 import './entity/case-steps/case-steps';
 import './entity/depts/depts';
 import './entity/companys/companys';
+import './entity/case-steps/case-steps';
 import './entity/storys/storys';
 import './entity/sub-tasks/sub-tasks';
 import './entity/projects/projects';

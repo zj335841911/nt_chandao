@@ -330,6 +330,11 @@ export default class AppRichTextEditor extends Vue {
                 this.uploadUrl = _url;
                 richtexteditor.uploadFile(_url, formData).subscribe((file: any) => {
                     let downloadUrl =   richtexteditor.downloadUrl;
+                    if (file.filename) {
+                        const id: string = file.fileid;
+                        const url: string = `${downloadUrl}/${id}`
+                        success(url);
+                    }
                     if (this.export_params.length > 0) {
                         downloadUrl +='?';
                         this.export_params.forEach((item:any,i:any)=>{
@@ -338,11 +343,6 @@ export default class AppRichTextEditor extends Vue {
                                 downloadUrl += '&';
                             }
                         })
-                    }
-                    if (file.filename) {
-                        const id: string = file.fileid;
-                        const url: string = `${downloadUrl}/${id}`
-                        success(url);
                     }
                 }, (error: any) => {
                     console.log(error);

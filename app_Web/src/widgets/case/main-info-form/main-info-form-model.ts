@@ -51,6 +51,11 @@ export default class MainInfoModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'version',
+        prop: 'version',
+        dataType: 'INT',
+      },
+      {
         name: 'precondition',
         prop: 'precondition',
         dataType: 'LONGTEXT',

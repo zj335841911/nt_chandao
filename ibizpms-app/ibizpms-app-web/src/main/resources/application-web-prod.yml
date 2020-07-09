@@ -71,6 +71,10 @@ zuul:
       path: /companies/**
       serviceId: pms-webapi
       stripPrefix: false
+    ibz_casestep:
+      path: /casesteps/**
+      serviceId: pms-webapi
+      stripPrefix: false
     zt_story:
       path: /stories/**
       serviceId: pms-webapi

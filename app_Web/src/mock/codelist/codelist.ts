@@ -2422,6 +2422,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "CurCaseVersion",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"CaseStep",
+        "appdedataset":"FetchVersion",
+        "items": []
+    },
+    {
         srfkey: "User__gender",
         emptytext: "未定义",
         "codelisttype":"static",
