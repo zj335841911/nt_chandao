@@ -152,6 +152,18 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
     };
 
     /**
+     * 重置表单项值
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @memberof StorySpec_EditModeEditFormBase
+     */
+    public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+        if (Object.is(name, 'notreview')) {
+            this.onFormItemValueChange({ name: 'reviewedby', value: null });
+        }
+    }
+
+    /**
      * 表单逻辑
      *
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }

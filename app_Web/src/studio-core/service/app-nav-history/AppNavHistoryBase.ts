@@ -102,16 +102,38 @@ export class AppNavHistoryBase {
      */
     constructor() {
         if (this.uiStateService.layoutState.styleMode === 'STYLE2') {
-            addEventListener('hashchange', ({ oldURL }) => {
-                const hash = oldURL.substring(oldURL.indexOf('#') + 1);
-                const queryIndex = hash.indexOf('?');
-                const path = queryIndex === -1 ? hash : hash.substring(0, queryIndex);
-                const queryStr = queryIndex === -1 ? '' : hash.substring(queryIndex + 1);
-                if (this.isRouteSame({ path, query: !isEmpty(queryStr) ? qs.parse(queryStr) : {} }, this.historyList[this.historyList.length - 1].to)) {
-                    this.pop();
+            addEventListener('hashchange', ({ oldURL, newURL }) => {
+                if (this.historyList.length > 0) {
+                    const param = this.calcRouteParam(oldURL);
+                    const param2 = this.calcRouteParam(newURL);
+                    const lastHistory = this.historyList[this.historyList.length - 1];
+                    if (this.isRouteSame(param, lastHistory.to)) {
+                        this.pop();
+                    } else if (this.isRouteSame(param2, lastHistory.to) && this.historyList.length > 1) {
+                        const item = this.historyList[this.historyList.length - 2];
+                        if (this.isRouteSame(param, item.to)) {
+                            this.historyList.splice(this.historyList.length - 2, 1);
+                        }
+                    }
                 }
             });
         }
+    }
+
+    /**
+     * 根据url计算路由参数
+     *
+     * @protected
+     * @param {string} url
+     * @returns {*}
+     * @memberof AppNavHistoryBase
+     */
+    protected calcRouteParam(url: string): any {
+        const hash = url.substring(url.indexOf('#') + 1);
+        const queryIndex = hash.indexOf('?');
+        const path = queryIndex === -1 ? hash : hash.substring(0, queryIndex);
+        const queryStr = queryIndex === -1 ? '' : hash.substring(queryIndex + 1);
+        return { path, query: !isEmpty(queryStr) ? qs.parse(queryStr) : {} };
     }
 
     /**

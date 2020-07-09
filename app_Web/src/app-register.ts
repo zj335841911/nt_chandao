@@ -74,6 +74,7 @@ import ContextMenuDrag from './components/context-menu-drag/context-menu-drag.vu
 import AppOrgSelect from './components/app-org-select/app-org-select.vue'
 import AppDepartmentSelect from './components/app-department-select/app-department-select.vue'
 import AppGroupSelect from './components/app-group-select/app-group-select.vue'
+import FilterTree from './components/filter-tree/filter-tree.vue';
 // 全局挂载UI实体服务注册中心
 window['uiServiceRegister'] = uiServiceRegister;
 // 全局挂载功能服务注册中心
@@ -159,5 +160,6 @@ export const AppComponents = {
         v.component('app-wf-approval',AppWFApproval);
         v.component('app-transfer',AppTransfer);
         v.component('context-menu-drag',ContextMenuDrag);
+        v.component('filter-tree',FilterTree);
     },
 };
