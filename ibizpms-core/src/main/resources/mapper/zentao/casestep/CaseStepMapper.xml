@@ -61,7 +61,7 @@
     </sql>
     <!--数据查询[Version]-->
     <sql id="Version" databaseId="mysql">
-		<![CDATA[ SELECT t1.`ID`, t1.`VERSION` FROM `zt_casestep` t1  
+		<![CDATA[ SELECT t1.`ID`, t1.`CASE`,t1.`VERSION` FROM `zt_casestep` t1 group by t1.`CASE`,t1.`VERSION`
 			]]>
     </sql>
     <!--数据查询[View]-->
