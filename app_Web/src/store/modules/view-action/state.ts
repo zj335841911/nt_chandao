@@ -1844,6 +1844,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '01384caaa1bc452610f056415c86aaf4',
+            viewmodule: 'ibiz',
+            viewname: 'ProductModuleGridViewBranch',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '0568d197dda832ceb89ad0442ab9f230',
             viewmodule: 'ibiz',
             viewname: 'ProjectModuleQuickCfgView',
@@ -1903,6 +1912,7 @@ export const viewstate: any = {
             refviews: [
                 'a9be826f6c53b091270f492be52f2519',
                 '523abe6eb852ca08fe4a3c140ff47b42',
+                '01384caaa1bc452610f056415c86aaf4',
             ],
         },
         {

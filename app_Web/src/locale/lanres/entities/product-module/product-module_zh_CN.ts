@@ -26,6 +26,10 @@ export default {
 			caption: "需求模块",
       		title: "产品模块编辑视图",
 		},
+		gridviewbranch: {
+			caption: "需求模块",
+      		title: "产品模块表格视图",
+		},
 		treeexpview: {
 			caption: "需求模块",
       		title: "需求模块树导航视图",
@@ -59,6 +63,17 @@ export default {
 		uiactions: {
 		},
 	},
+	mainbranch_grid: {
+		columns: {
+			name: "名称",
+			branch: "平台",
+			short: "简称",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+			remove: "删除",
+		},
+	},
 	main_grid: {
 		columns: {
 			name: "名称",
@@ -68,6 +83,16 @@ export default {
 		},
 		uiactions: {
 			remove: "删除",
+		},
+	},
+	gridviewbranchtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "新建行",
+			tip: "新建行",
+		},
+		deuiaction3: {
+			caption: "保存行",
+			tip: "保存行",
 		},
 	},
 	gridviewtoolbar_toolbar: {

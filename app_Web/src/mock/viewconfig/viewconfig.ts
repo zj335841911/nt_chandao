@@ -1583,6 +1583,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BuildMainTabExpView",
             "viewtag": "fffe78c32fb25b287d0c5165d46f8dd2"
         },
+        "productmodulegridviewbranch": {
+            "title": "产品模块表格视图",
+            "caption": "需求模块",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "ProductModuleGridViewBranch",
+            "viewtag": "01384caaa1bc452610f056415c86aaf4"
+        },
         "projectmodulequickcfgview": {
             "title": "任务模块",
             "caption": "任务模块",
