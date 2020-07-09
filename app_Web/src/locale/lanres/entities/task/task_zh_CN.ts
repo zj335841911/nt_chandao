@@ -297,6 +297,8 @@ export default {
 			assignedto: "指派给", 
 			type: "任务类型", 
 			status: "任务状态", 
+			pri: "优先级", 
+			mailto: "抄送给", 
 			eststarted: "预计开始", 
 			deadline: "截止日期", 
 			estimate: "最初预计", 

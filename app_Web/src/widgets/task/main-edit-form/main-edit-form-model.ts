@@ -129,6 +129,16 @@ export default class MainEditModel {
         dataType: 'SSCODELIST',
       },
       {
+        name: 'pri',
+        prop: 'pri',
+        dataType: 'NSCODELIST',
+      },
+      {
+        name: 'mailto',
+        prop: 'mailto',
+        dataType: 'LONGTEXT',
+      },
+      {
         name: 'eststarted',
         prop: 'eststarted',
         dataType: 'DATE',

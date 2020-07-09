@@ -171,5 +171,149 @@ public class TestModuleResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(testmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-Create-all')")
+    @ApiOperation(value = "根据产品建立测试模块", tags = {"测试模块" },  notes = "根据产品建立测试模块")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testmodules")
+    @Transactional
+    public ResponseEntity<TestModuleDTO> createByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody TestModuleDTO testmoduledto) {
+        TestModule domain = testmoduleMapping.toDomain(testmoduledto);
+        domain.setRoot(product_id);
+		testmoduleService.create(domain);
+        TestModuleDTO dto = testmoduleMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-Create-all')")
+    @ApiOperation(value = "根据产品批量建立测试模块", tags = {"测试模块" },  notes = "根据产品批量建立测试模块")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testmodules/batch")
+    public ResponseEntity<Boolean> createBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<TestModuleDTO> testmoduledtos) {
+        List<TestModule> domainlist=testmoduleMapping.toDomain(testmoduledtos);
+        for(TestModule domain:domainlist){
+            domain.setRoot(product_id);
+        }
+        testmoduleService.createBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-Update-all')")
+    @ApiOperation(value = "根据产品更新测试模块", tags = {"测试模块" },  notes = "根据产品更新测试模块")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/testmodules/{testmodule_id}")
+    @Transactional
+    public ResponseEntity<TestModuleDTO> updateByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("testmodule_id") BigInteger testmodule_id, @RequestBody TestModuleDTO testmoduledto) {
+        TestModule domain = testmoduleMapping.toDomain(testmoduledto);
+        domain.setRoot(product_id);
+        domain.setId(testmodule_id);
+		testmoduleService.update(domain);
+        TestModuleDTO dto = testmoduleMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-Update-all')")
+    @ApiOperation(value = "根据产品批量更新测试模块", tags = {"测试模块" },  notes = "根据产品批量更新测试模块")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/testmodules/batch")
+    public ResponseEntity<Boolean> updateBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<TestModuleDTO> testmoduledtos) {
+        List<TestModule> domainlist=testmoduleMapping.toDomain(testmoduledtos);
+        for(TestModule domain:domainlist){
+            domain.setRoot(product_id);
+        }
+        testmoduleService.updateBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-Remove-all')")
+    @ApiOperation(value = "根据产品删除测试模块", tags = {"测试模块" },  notes = "根据产品删除测试模块")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/testmodules/{testmodule_id}")
+    @Transactional
+    public ResponseEntity<Boolean> removeByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("testmodule_id") BigInteger testmodule_id) {
+		return ResponseEntity.status(HttpStatus.OK).body(testmoduleService.remove(testmodule_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-Remove-all')")
+    @ApiOperation(value = "根据产品批量删除测试模块", tags = {"测试模块" },  notes = "根据产品批量删除测试模块")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/testmodules/batch")
+    public ResponseEntity<Boolean> removeBatchByProduct(@RequestBody List<BigInteger> ids) {
+        testmoduleService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-Get-all')")
+    @ApiOperation(value = "根据产品获取测试模块", tags = {"测试模块" },  notes = "根据产品获取测试模块")
+	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/testmodules/{testmodule_id}")
+    public ResponseEntity<TestModuleDTO> getByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("testmodule_id") BigInteger testmodule_id) {
+        TestModule domain = testmoduleService.get(testmodule_id);
+        TestModuleDTO dto = testmoduleMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "根据产品获取测试模块草稿", tags = {"测试模块" },  notes = "根据产品获取测试模块草稿")
+    @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/testmodules/getdraft")
+    public ResponseEntity<TestModuleDTO> getDraftByProduct(@PathVariable("product_id") BigInteger product_id) {
+        TestModule domain = new TestModule();
+        domain.setRoot(product_id);
+        return ResponseEntity.status(HttpStatus.OK).body(testmoduleMapping.toDto(testmoduleService.getDraft(domain)));
+    }
+
+    @ApiOperation(value = "根据产品检查测试模块", tags = {"测试模块" },  notes = "根据产品检查测试模块")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testmodules/checkkey")
+    public ResponseEntity<Boolean> checkKeyByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody TestModuleDTO testmoduledto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(testmoduleService.checkKey(testmoduleMapping.toDomain(testmoduledto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-Fix-all')")
+    @ApiOperation(value = "根据产品测试模块", tags = {"测试模块" },  notes = "根据产品测试模块")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testmodules/{testmodule_id}/fix")
+    @Transactional
+    public ResponseEntity<TestModuleDTO> fixByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("testmodule_id") BigInteger testmodule_id, @RequestBody TestModuleDTO testmoduledto) {
+        TestModule domain = testmoduleMapping.toDomain(testmoduledto);
+        domain.setRoot(product_id);
+        domain = testmoduleService.fix(domain) ;
+        testmoduledto = testmoduleMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testmoduledto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-Save-all')")
+    @ApiOperation(value = "根据产品保存测试模块", tags = {"测试模块" },  notes = "根据产品保存测试模块")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testmodules/save")
+    public ResponseEntity<Boolean> saveByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody TestModuleDTO testmoduledto) {
+        TestModule domain = testmoduleMapping.toDomain(testmoduledto);
+        domain.setRoot(product_id);
+        return ResponseEntity.status(HttpStatus.OK).body(testmoduleService.save(domain));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-Save-all')")
+    @ApiOperation(value = "根据产品批量保存测试模块", tags = {"测试模块" },  notes = "根据产品批量保存测试模块")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testmodules/savebatch")
+    public ResponseEntity<Boolean> saveBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<TestModuleDTO> testmoduledtos) {
+        List<TestModule> domainlist=testmoduleMapping.toDomain(testmoduledtos);
+        for(TestModule domain:domainlist){
+             domain.setRoot(product_id);
+        }
+        testmoduleService.saveBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-searchDefault-all')")
+	@ApiOperation(value = "根据产品获取DEFAULT", tags = {"测试模块" } ,notes = "根据产品获取DEFAULT")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/testmodules/fetchdefault")
+	public ResponseEntity<List<TestModuleDTO>> fetchTestModuleDefaultByProduct(@PathVariable("product_id") BigInteger product_id,TestModuleSearchContext context) {
+        context.setN_root_eq(product_id);
+        Page<TestModule> domains = testmoduleService.searchDefault(context) ;
+        List<TestModuleDTO> list = testmoduleMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-searchDefault-all')")
+	@ApiOperation(value = "根据产品查询DEFAULT", tags = {"测试模块" } ,notes = "根据产品查询DEFAULT")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/testmodules/searchdefault")
+	public ResponseEntity<Page<TestModuleDTO>> searchTestModuleDefaultByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody TestModuleSearchContext context) {
+        context.setN_root_eq(product_id);
+        Page<TestModule> domains = testmoduleService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(testmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
 }
 
