@@ -115,10 +115,10 @@
     </div>
     <div class="search-bar-footer">
         <div class="search-bar-action">
-            <el-select size="small" v-if="historyItems.length > 0" v-model="selectItem" @change="onFilterChange">
+            <el-select size="small" v-if="historyItems.length > 0" v-model="selectItem" @change="onFilterChange.apply(_self, arguments)">
                 <el-option v-for="item in historyItems" :key="item.value" :label="item.name" :value="item.value"></el-option>
             </el-select>
-            <i-button type="primary" @click="onSearch">{{ $t('app.searchButton.search') }}</i-button>
+            <i-button type="primary" @click="onSearch.apply(_self, arguments)">{{ $t('app.searchButton.search') }}</i-button>
             <i-button @click="onReset">{{ $t('app.searchButton.reset') }}</i-button>
             <Poptip ref="propip" trigger="hover" placement="top-end" :title="$t('app.searchForm.custom')" :width="250" @on-popper-show="openPoper">
                 <i-button><i class="fa fa-floppy-o" aria-hidden="true"></i></i-button>
@@ -126,7 +126,7 @@
                     <div>
                         <i-input v-model="saveItemName" :placeholder="$t('app.searchForm.title')"></i-input>
                         <div class="save-action">
-                            <i-button @click="onCancel">{{ $t('app.commonWords.cancel') }}</i-button>
+                            <i-button @click="onCancel.apply(_self, arguments)">{{ $t('app.commonWords.cancel') }}</i-button>
                             <i-button type="primary" @click="onOk">{{ $t('app.commonWords.save') }}</i-button>
                         </div>
                     </div>
