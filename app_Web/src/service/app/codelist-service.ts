@@ -8,6 +8,7 @@ import BugModule from '@/codelist/bug-module';
 import Role from '@/codelist/role';   
 import TestTask from '@/codelist/test-task';   
 import Product from '@/codelist/product';   
+import CurCaseVersion from '@/codelist/cur-case-version';   
 import ProductPlan from '@/codelist/product-plan';   
 import CurStory from '@/codelist/cur-story';   
 import { Store } from 'vuex';
@@ -140,6 +141,14 @@ export default class CodeListService {
      * @memberof CodeListService
      */
     public Product: Product = new Product();
+
+    /**
+     * 代码表--当前用例版本（动态）
+     *
+     * @type {CurCaseVersion}
+     * @memberof CodeListService
+     */
+    public CurCaseVersion: CurCaseVersion = new CurCaseVersion();
 
     /**
      * 代码表--产品计划（动态）

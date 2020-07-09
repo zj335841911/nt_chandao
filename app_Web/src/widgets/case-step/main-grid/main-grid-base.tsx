@@ -936,7 +936,7 @@ export class MainGridBase extends MainControlBase {
         this.afterCreated();
         this.$acc.commandLocal(() => {
             this.load()
-        }, 'all', 'ZT_CASESTEP');
+        }, 'all', 'IBZ_CASESTEP');
     }
 
     /**

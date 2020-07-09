@@ -318,6 +318,9 @@ export default {
         "deletechildrenstory": "删除子需求",
         "empty": "",
     },
+    CurCaseVersion: {
+        "empty": "",
+    },
     User__gender: {
         "f": "女",
         "m": "男",

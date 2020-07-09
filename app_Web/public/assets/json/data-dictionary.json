@@ -2414,6 +2414,14 @@
         ]
     }, 
     {
+        "srfkey": "CurCaseVersion",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"CaseStep",
+        "appdedataset":"FetchVersion",
+        "items": []
+    }, 
+    {
         "srfkey": "User__gender",
         "emptytext": "未定义",
         "codelisttype":"static",

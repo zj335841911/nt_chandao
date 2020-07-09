@@ -149,6 +149,7 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			version: "版本#", 
 			precondition: "前置条件", 
 			id: "用例编号", 
 		},
