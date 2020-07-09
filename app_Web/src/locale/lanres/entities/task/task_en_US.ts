@@ -175,6 +175,8 @@ export default {
 		details: {
 			grouppanel3: "任务描述", 
 			grouppanel2: "需求描述", 
+			druipart2: "", 
+			grouppanel4: "附件", 
 			druipart1: "", 
 			grouppanel1: "子任务", 
 			group1: "task基本信息", 

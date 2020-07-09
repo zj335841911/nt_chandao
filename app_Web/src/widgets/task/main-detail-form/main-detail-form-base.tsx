@@ -100,6 +100,10 @@ export class MainDetailEditFormBase extends EditFormControlBase {
 
         grouppanel2: new FormGroupPanelModel({ caption: '需求描述', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: false, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.task.maindetail_form', extractMode: 'ITEM', details: [] } }),
 
+        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this }),
+
+        grouppanel4: new FormGroupPanelModel({ caption: '附件', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.task.maindetail_form', extractMode: 'ITEM', details: [] } }),
+
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this }),
 
         grouppanel1: new FormGroupPanelModel({ caption: '子任务', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: false, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'entities.task.maindetail_form', extractMode: 'ITEM', details: [] } }),
@@ -151,6 +155,8 @@ export class MainDetailEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.grouppanel2.setVisible(ret);
         }
+
+
 
 
         if (Object.is(name, '') || Object.is(name, 'parent')) {
