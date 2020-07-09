@@ -30,6 +30,7 @@ import './entity/historys/historys';
 import './entity/users/users';
 import './entity/product-modules/product-modules';
 import './entity/modules/modules';
+import './entity/test-modules/test-modules';
 import './entity/product-lifes/product-lifes';
 import './entity/tasks/tasks';
 import './entity/builds/builds';

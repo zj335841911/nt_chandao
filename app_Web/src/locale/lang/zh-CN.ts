@@ -21,6 +21,7 @@ import history_zh_CN from '@locale/lanres/entities/history/history_zh_CN';
 import user_zh_CN from '@locale/lanres/entities/user/user_zh_CN';
 import productmodule_zh_CN from '@locale/lanres/entities/product-module/product-module_zh_CN';
 import module_zh_CN from '@locale/lanres/entities/module/module_zh_CN';
+import testmodule_zh_CN from '@locale/lanres/entities/test-module/test-module_zh_CN';
 import productlife_zh_CN from '@locale/lanres/entities/product-life/product-life_zh_CN';
 import task_zh_CN from '@locale/lanres/entities/task/task_zh_CN';
 import build_zh_CN from '@locale/lanres/entities/build/build_zh_CN';
@@ -145,6 +146,7 @@ export default {
         user: user_zh_CN,
         productmodule: productmodule_zh_CN,
         module: module_zh_CN,
+        testmodule: testmodule_zh_CN,
         productlife: productlife_zh_CN,
         task: task_zh_CN,
         build: build_zh_CN,

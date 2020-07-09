@@ -2,8 +2,9 @@
     <div v-if="filterFields.length > 0" class="filter-group">
         <filter-tree :datas="filterItems" :fields="filterFields">
             <template slot-scope="{ data }">
-                                <template v-if="Object.is(data.field, 'id')">
-                    <input-box v-model="data.id"  @enter="onEnter($event)"    :disabled="detailsModel.id.disabled" type='number'  style=""></input-box>
+                                <template v-if="Object.is(data.field, 'ideq')">
+                    
+<app-span name='ideq' :value="data.ideq" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="width:100px;"></app-span>
                 </template>
                 <template v-if="Object.is(data.field, 'keywords')">
                     <input-box v-model="data.keywords"  @enter="onEnter($event)"    :disabled="detailsModel.keywords.disabled" type='text'  style=""></input-box>
@@ -11,14 +12,53 @@
                 <template v-if="Object.is(data.field, 'pri')">
                     <input-box v-model="data.pri"  @enter="onEnter($event)"    :disabled="detailsModel.pri.disabled" type='number'  style=""></input-box>
                 </template>
-                <template v-if="Object.is(data.field, 'stage')">
-                    <input-box v-model="data.stage"  @enter="onEnter($event)"    :disabled="detailsModel.stage.disabled" type='text'  style=""></input-box>
+                <template v-if="Object.is(data.field, 'stageeq')">
+                    
+ <dropdown-list 
+    v-model="data.stageeq" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.stageeq.disabled"  
+    tag='Story__stage' 
+    codelistType='STATIC'
+    placeholder='请选择...' style="width:100px;">
+ </dropdown-list>
                 </template>
-                <template v-if="Object.is(data.field, 'status')">
-                    <input-box v-model="data.status"  @enter="onEnter($event)"    :disabled="detailsModel.status.disabled" type='text'  style=""></input-box>
+                <template v-if="Object.is(data.field, 'stagenoteq')">
+                    
+ <dropdown-list 
+    v-model="data.stagenoteq" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.stagenoteq.disabled"  
+    tag='Story__stage' 
+    codelistType='STATIC'
+    placeholder='请选择...' style="width:100px;">
+ </dropdown-list>
                 </template>
-                <template v-if="Object.is(data.field, 'title')">
-                    <input-box v-model="data.title"  @enter="onEnter($event)"    :disabled="detailsModel.title.disabled" type='text'  style=""></input-box>
+                <template v-if="Object.is(data.field, 'statuseq')">
+                    
+ <dropdown-list 
+    v-model="data.statuseq" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.statuseq.disabled"  
+    tag='Story__status' 
+    codelistType='STATIC'
+    placeholder='请选择...' style="width:100px;">
+ </dropdown-list>
+                </template>
+                <template v-if="Object.is(data.field, 'titlelike')">
+                    <input-box v-model="data.titlelike"  @enter="onEnter($event)"    :disabled="detailsModel.titlelike.disabled" type='text'  style="width:100px;"></input-box>
                 </template>
             </template>
         </filter-tree>

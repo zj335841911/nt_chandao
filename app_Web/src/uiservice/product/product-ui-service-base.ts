@@ -52,7 +52,7 @@ export default class ProductUIServiceBase extends UIService {
      * 
      * @memberof  ProductUIServiceBase
      */  
-    public mainStateFields:Array<any> = [];
+    public mainStateFields:Array<any> = ['status'];
 
     /**
      * 主状态集合Map
@@ -110,6 +110,8 @@ export default class ProductUIServiceBase extends UIService {
      * @memberof  ProductUIServiceBase
      */  
     public initDeMainStateMap(){
+        this.allDeMainStateMap.set('closed','closed');
+        this.allDeMainStateMap.set('normal','normal');
     }
 
     /**

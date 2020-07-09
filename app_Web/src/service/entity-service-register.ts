@@ -62,6 +62,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('user', () => import('@/service/user/user-service'));
         this.allEntityService.set('productmodule', () => import('@/service/product-module/product-module-service'));
         this.allEntityService.set('module', () => import('@/service/module/module-service'));
+        this.allEntityService.set('testmodule', () => import('@/service/test-module/test-module-service'));
         this.allEntityService.set('productlife', () => import('@/service/product-life/product-life-service'));
         this.allEntityService.set('task', () => import('@/service/task/task-service'));
         this.allEntityService.set('build', () => import('@/service/build/build-service'));
