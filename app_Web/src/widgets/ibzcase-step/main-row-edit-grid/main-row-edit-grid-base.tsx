@@ -1,8 +1,8 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
-import CaseStepService from '@/service/case-step/case-step-service';
-import MainService from './main-grid-service';
+import IBZCaseStepService from '@/service/ibzcase-step/ibzcase-step-service';
+import Main_RowEditService from './main-row-edit-grid-service';
 import CodeListService from "@service/app/codelist-service";
 import { FormItemModel } from '@/model/form-detail';
 
@@ -12,49 +12,49 @@ import { FormItemModel } from '@/model/form-detail';
  *
  * @export
  * @class MainControlBase
- * @extends {MainGridBase}
+ * @extends {Main_RowEditGridBase}
  */
-export class MainGridBase extends MainControlBase {
+export class Main_RowEditGridBase extends MainControlBase {
 
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof MainGridBase
+     * @memberof Main_RowEditGridBase
      */
     protected controlType: string = 'GRID';
 
     /**
      * 建构部件服务对象
      *
-     * @type {MainService}
-     * @memberof MainGridBase
+     * @type {Main_RowEditService}
+     * @memberof Main_RowEditGridBase
      */
-    public service: MainService = new MainService({ $store: this.$store });
+    public service: Main_RowEditService = new Main_RowEditService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
-     * @type {CaseStepService}
-     * @memberof MainGridBase
+     * @type {IBZCaseStepService}
+     * @memberof Main_RowEditGridBase
      */
-    public appEntityService: CaseStepService = new CaseStepService({ $store: this.$store });
+    public appEntityService: IBZCaseStepService = new IBZCaseStepService({ $store: this.$store });
 
     /**
      * 应用实体名称
      *
      * @protected
      * @type {string}
-     * @memberof MainGridBase
+     * @memberof Main_RowEditGridBase
      */
-    protected appDeName: string = 'casestep';
+    protected appDeName: string = 'ibzcasestep';
 
     /**
      * 代码表服务对象
      *
      * @type {CodeListService}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */  
     public codeListService:CodeListService = new CodeListService({ $store: this.$store });
 
@@ -62,7 +62,7 @@ export class MainGridBase extends MainControlBase {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public getDatas(): any[] {
         return this.selections;
@@ -72,7 +72,7 @@ export class MainGridBase extends MainControlBase {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public getData(): any {
         return this.selections[0];
@@ -82,14 +82,14 @@ export class MainGridBase extends MainControlBase {
      * 打开新建数据视图
      *
      * @type {any}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     @Prop() public newdata: any;
     /**
      * 打开编辑数据视图
      *
      * @type {any}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     @Prop() public opendata: any;
 
@@ -97,7 +97,7 @@ export class MainGridBase extends MainControlBase {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     @Prop({ default: true }) public showBusyIndicator?: boolean;
 
@@ -105,7 +105,7 @@ export class MainGridBase extends MainControlBase {
      * 部件行为--update
      *
      * @type {string}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     @Prop() public updateAction!: string;
     
@@ -113,7 +113,7 @@ export class MainGridBase extends MainControlBase {
      * 部件行为--fetch
      *
      * @type {string}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     @Prop() public fetchAction!: string;
     
@@ -121,7 +121,7 @@ export class MainGridBase extends MainControlBase {
      * 部件行为--remove
      *
      * @type {string}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     @Prop() public removeAction!: string;
     
@@ -129,7 +129,7 @@ export class MainGridBase extends MainControlBase {
      * 部件行为--load
      *
      * @type {string}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     @Prop() public loadAction!: string;
     
@@ -137,7 +137,7 @@ export class MainGridBase extends MainControlBase {
      * 部件行为--loaddraft
      *
      * @type {string}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     @Prop() public loaddraftAction!: string;
     
@@ -145,7 +145,7 @@ export class MainGridBase extends MainControlBase {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     @Prop() public createAction!: string;
 
@@ -153,7 +153,7 @@ export class MainGridBase extends MainControlBase {
      * 当前页
      *
      * @type {number}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public curPage: number = 1;
 
@@ -161,7 +161,7 @@ export class MainGridBase extends MainControlBase {
      * 数据
      *
      * @type {any[]}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public items: any[] = [];
 
@@ -169,7 +169,7 @@ export class MainGridBase extends MainControlBase {
      * 是否支持分页
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public isEnablePagingBar: boolean = false;
 
@@ -177,7 +177,7 @@ export class MainGridBase extends MainControlBase {
      * 是否禁用排序
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public isNoSort: boolean = false;
 
@@ -185,7 +185,7 @@ export class MainGridBase extends MainControlBase {
      * 排序方向
      *
      * @type {string}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public minorSortDir: string = '';
 
@@ -193,7 +193,7 @@ export class MainGridBase extends MainControlBase {
      * 排序字段
      *
      * @type {string}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public minorSortPSDEF: string = '';
 
@@ -201,7 +201,7 @@ export class MainGridBase extends MainControlBase {
      * 分页条数
      *
      * @type {number}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public limit: number = 500;
 
@@ -209,7 +209,7 @@ export class MainGridBase extends MainControlBase {
      * 是否显示标题
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public isHideHeader: boolean = false;
 
@@ -217,7 +217,7 @@ export class MainGridBase extends MainControlBase {
      * 是否默认选中第一条数据
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     @Prop({ default: false }) public isSelectFirstDefault!: boolean;
 
@@ -225,7 +225,7 @@ export class MainGridBase extends MainControlBase {
      * 是否单选
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     @Prop() public isSingleSelect?: boolean;
 
@@ -233,7 +233,7 @@ export class MainGridBase extends MainControlBase {
      * 选中数据字符串
      *
      * @type {string}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     @Prop() public selectedData?: string;
 
@@ -242,7 +242,7 @@ export class MainGridBase extends MainControlBase {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     @Watch('selectedData')
     public onValueChange(newVal: any, oldVal: any) {
@@ -270,7 +270,7 @@ export class MainGridBase extends MainControlBase {
      * 2 双击激活
      *
      * @type {(number | 0 | 1 | 2)}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     @Prop({default: 2}) public gridRowActiveMode!: number;
 
@@ -278,7 +278,7 @@ export class MainGridBase extends MainControlBase {
      * 是否开启行编辑
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     @Prop({default: false}) public isOpenEdit!: boolean;
 
@@ -286,7 +286,7 @@ export class MainGridBase extends MainControlBase {
      * 实际是否开启行编辑
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public actualIsOpenEdit: boolean = this.isOpenEdit;
 
@@ -294,7 +294,7 @@ export class MainGridBase extends MainControlBase {
      * 总条数
      *
      * @type {number}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public totalrow: number = 0;
 
@@ -302,7 +302,7 @@ export class MainGridBase extends MainControlBase {
      * 选中行数据
      *
      * @type {any[]}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public selections: any[] = [];
 
@@ -310,7 +310,7 @@ export class MainGridBase extends MainControlBase {
      * 拦截行选中
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public stopRowClick: boolean = false;
 
@@ -321,7 +321,7 @@ export class MainGridBase extends MainControlBase {
      * 表格是否显示
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public isDisplay:boolean = true;
 
@@ -329,7 +329,7 @@ export class MainGridBase extends MainControlBase {
      * 部件刷新
      *
      * @param {any[]} args
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public refresh(args: any[]): void {
         this.load();
@@ -339,7 +339,7 @@ export class MainGridBase extends MainControlBase {
     * 选项框列宽
     *
     * @type {number}
-    * @memberof Main
+    * @memberof Main_RowEdit
     */
     public checkboxColWidth: number = 35;
 
@@ -347,7 +347,7 @@ export class MainGridBase extends MainControlBase {
      * 是否允许拖动列宽
      *
      * @type {boolean}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public isDragendCol: boolean = false;
 
@@ -355,23 +355,13 @@ export class MainGridBase extends MainControlBase {
      * 所有列成员
      *
      * @type {any[]}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public allColumns: any[] = [
         {
-            name: 'id',
-            label: '编号',
-            langtag: 'entities.casestep.main_grid.columns.id',
-            show: false,
-            util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('id', val);
-            }
-        },
-        {
             name: 'desc',
             label: '步骤',
-            langtag: 'entities.casestep.main_grid.columns.desc',
+            langtag: 'entities.ibzcasestep.main_rowedit_grid.columns.desc',
             show: true,
             util: 'PX',
             render: (val: any) => {
@@ -381,7 +371,7 @@ export class MainGridBase extends MainControlBase {
         {
             name: 'type',
             label: '类型',
-            langtag: 'entities.casestep.main_grid.columns.type',
+            langtag: 'entities.ibzcasestep.main_rowedit_grid.columns.type',
             show: false,
             util: 'PX',
             codelistId: 'Casestep__type',
@@ -392,9 +382,9 @@ export class MainGridBase extends MainControlBase {
         {
             name: 'expect',
             label: '预期',
-            langtag: 'entities.casestep.main_grid.columns.expect',
+            langtag: 'entities.ibzcasestep.main_rowedit_grid.columns.expect',
             show: true,
-            util: 'PX',
+            util: 'STAR',
             render: (val: any) => {
                 return this.renderColValue('expect', val);
             }
@@ -405,7 +395,7 @@ export class MainGridBase extends MainControlBase {
      * 表格模型集合
      *
      * @type {*}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public gridItemsModel: any[] = [];
 
@@ -429,7 +419,7 @@ export class MainGridBase extends MainControlBase {
      * 获取代码项
      *
      * @public
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public getCodeListItem(codelist: any, val: any) {
         for(let i = 0; i < codelist.items.length; i++) {
@@ -444,7 +434,7 @@ export class MainGridBase extends MainControlBase {
      * 获取表格行模型
      *
      * @type {*}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public getGridRowModel(){
         return {
@@ -459,7 +449,7 @@ export class MainGridBase extends MainControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public rules: any = {
         expect: [
@@ -488,7 +478,7 @@ export class MainGridBase extends MainControlBase {
      * @param {number} rowIndex 行索引
      * @returns Promise<any>
      * 
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public validate(property:string, data:any, rowIndex:number):Promise<any>{
         return new Promise((resolve, reject) => {
@@ -506,7 +496,7 @@ export class MainGridBase extends MainControlBase {
      * 校验所有修改过的编辑项
      *
      * @returns Promise<any>
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public async validateAll(){
         let validateState = true;
@@ -528,11 +518,11 @@ export class MainGridBase extends MainControlBase {
      * 表格数据加载
      *
      * @param {*} [arg={}]
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public load(opt: any = {}, pageReset: boolean = false): void {
         if(!this.fetchAction){
-            this.$Notice.error({ title: '错误', desc: 'CaseStepMainGridView9视图表格fetchAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'CaseStepMainGridView9_EditMode视图表格fetchAction参数未配置' });
             return;
         }
         if(pageReset){
@@ -605,11 +595,11 @@ export class MainGridBase extends MainControlBase {
      *
      * @param {any[]} datas
      * @returns {Promise<any>}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public async remove(datas: any[]): Promise<any> {
         if(!this.removeAction){
-            this.$Notice.error({ title: '错误', desc: 'CaseStepMainGridView9视图表格removeAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'CaseStepMainGridView9_EditMode视图表格removeAction参数未配置' });
             return;
         }
         let _datas:any[] = [];
@@ -656,7 +646,7 @@ export class MainGridBase extends MainControlBase {
             let _removeAction = keys.length > 1 ? 'removeBatch' : this.removeAction ;
             let _keys = keys.length > 1 ? keys : keys[0] ;
             const context:any = JSON.parse(JSON.stringify(this.context));
-            const post: Promise<any> = this.service.delete(_removeAction,Object.assign(context,{ casestep: _keys }),Object.assign({ casestep: _keys },{viewparams:this.viewparams}), this.showBusyIndicator);
+            const post: Promise<any> = this.service.delete(_removeAction,Object.assign(context,{ ibzcasestep: _keys }),Object.assign({ ibzcasestep: _keys },{viewparams:this.viewparams}), this.showBusyIndicator);
             return new Promise((resolve: any, reject: any) => {
                 post.then((response: any) => {
                     if (!response || response.status !== 200) {
@@ -711,11 +701,11 @@ export class MainGridBase extends MainControlBase {
      * 批量添加
      *
      * @param {*} [arg={}]
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public addBatch(arg: any = {}): void {
         if(!this.fetchAction){
-            this.$Notice.error({ title: '错误', desc: 'CaseStepMainGridView9视图表格fetchAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: 'CaseStepMainGridView9_EditMode视图表格fetchAction参数未配置' });
             return;
         }
         if(!arg){
@@ -728,7 +718,7 @@ export class MainGridBase extends MainControlBase {
      * 数据导入
      *
      * @param {*} data
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
      public importExcel(data:any ={}):void{
         //导入excel
@@ -757,7 +747,7 @@ export class MainGridBase extends MainControlBase {
      * 数据导出
      *
      * @param {*} data
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public exportExcel(data: any = {}): void {
         // 导出Excel
@@ -828,7 +818,7 @@ export class MainGridBase extends MainControlBase {
      * @param {*} filterVal
      * @param {*} jsonData
      * @returns {[]}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public async formatExcelData(filterVal:any, jsonData:any) {
         let codelistColumns:Array<any> = [
@@ -860,7 +850,7 @@ export class MainGridBase extends MainControlBase {
      * @param {any[]} items 代码表数据
      * @param {*} value
      * @returns {*}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public getCodelistValue(items: any[], value: any, codelist: any,){
         if(!value){
@@ -913,7 +903,7 @@ export class MainGridBase extends MainControlBase {
      * @param {any[]} items
      * @param {*} value
      * @returns {*}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public getItem(items: any[], value: any, codelist: any): any {
         const arr: Array<any> = items.filter(item => {return item.value == value});
@@ -930,19 +920,19 @@ export class MainGridBase extends MainControlBase {
     /**
      * 生命周期
      *
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public created(): void {
         this.afterCreated();
         this.$acc.commandLocal(() => {
             this.load()
-        }, 'all', 'ZT_CASESTEP');
+        }, 'all', 'IBZ_CASESTEP');
     }
 
     /**
      * 执行created后的逻辑
      *
-     *  @memberof Main
+     *  @memberof Main_RowEdit
      */    
     public afterCreated(){
         this.setColState();
@@ -967,7 +957,7 @@ export class MainGridBase extends MainControlBase {
     /**
      * vue 生命周期
      *
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public destroyed() {
         this.afterDestroy();
@@ -976,7 +966,7 @@ export class MainGridBase extends MainControlBase {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -988,7 +978,7 @@ export class MainGridBase extends MainControlBase {
      * 获取选中行胡数据
      *
      * @returns {any[]}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public getSelection(): any[] {
         return this.selections;
@@ -999,7 +989,7 @@ export class MainGridBase extends MainControlBase {
      *
      * @param {*} $event
      * @returns {void}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public rowDBLClick($event: any): void {
         if (!$event || this.actualIsOpenEdit || Object.is(this.gridRowActiveMode,0)) {
@@ -1023,7 +1013,7 @@ export class MainGridBase extends MainControlBase {
      *
      * @param {*} $event
      * @returns {void}
-     * @memberof  Main
+     * @memberof  Main_RowEdit
      */
     public select($event: any): void {
         if (!$event) {
@@ -1038,7 +1028,7 @@ export class MainGridBase extends MainControlBase {
      * 复选框数据全部选中
      *
      * @param {*} $event
-     * @memberof  Main
+     * @memberof  Main_RowEdit
      */
     public selectAll($event: any): void {
         if (!$event) {
@@ -1055,7 +1045,7 @@ export class MainGridBase extends MainControlBase {
      *
      * @param {*} $event
      * @returns {void}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public rowClick($event: any, ifAlways: boolean = false): void {
         if (!ifAlways && (!$event || this.actualIsOpenEdit)) {
@@ -1097,7 +1087,7 @@ export class MainGridBase extends MainControlBase {
      *
      * @param {*} $event
      * @returns {void}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public pageOnChange($event: any): void {
         if (!$event) {
@@ -1115,7 +1105,7 @@ export class MainGridBase extends MainControlBase {
      *
      * @param {*} $event
      * @returns {void}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public onPageSizeChange($event: any): void {
         if (!$event) {
@@ -1133,7 +1123,7 @@ export class MainGridBase extends MainControlBase {
     /**
      * 分页刷新
      *
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public pageRefresh(): void {
         this.load({});
@@ -1143,7 +1133,7 @@ export class MainGridBase extends MainControlBase {
      * 排序变化
      *
      * @param {{ column: any, prop: any, order: any }} { column, prop, order }
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public onSortChange({ column, prop, order }: { column: any, prop: any, order: any }): void {
         const dir = Object.is(order, 'ascending') ? 'asc' : Object.is(order, 'descending') ? 'desc' : '';
@@ -1160,7 +1150,7 @@ export class MainGridBase extends MainControlBase {
      *
      * @param {{ row: any, rowIndex: any }} { row, rowIndex }
      * @returns {string}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public onRowClassName({ row, rowIndex }: { row: any, rowIndex: any }): string {
         const index = this.selections.findIndex((select: any) => Object.is(select.srfkey, row.srfkey));
@@ -1175,7 +1165,7 @@ export class MainGridBase extends MainControlBase {
      * @param {*} row
      * @param {*} tag
      * @param {*} $event
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
 	public uiAction(row: any, tag: any, $event: any) {
         $event.stopPropagation();
@@ -1184,10 +1174,10 @@ export class MainGridBase extends MainControlBase {
     /**
      * 设置列状态
      *
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public setColState() {
-		const _data: any = localStorage.getItem('zt_casestep_main_grid');
+		const _data: any = localStorage.getItem('zt_casestep_main_rowedit_grid');
 		if (_data) {
 			let columns = JSON.parse(_data);
 			columns.forEach((col: any) => {
@@ -1202,10 +1192,10 @@ export class MainGridBase extends MainControlBase {
     /**
      * 列变化
      *
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public onColChange() {
-        localStorage.setItem('zt_casestep_main_grid', JSON.stringify(this.allColumns));
+        localStorage.setItem('zt_casestep_main_rowedit_grid', JSON.stringify(this.allColumns));
     }
 
     /**
@@ -1213,7 +1203,7 @@ export class MainGridBase extends MainControlBase {
      *
      * @param {string} name
      * @returns {boolean}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public getColumnState(name: string): boolean {
         let column = this.allColumns.find((col: any) =>
@@ -1227,7 +1217,7 @@ export class MainGridBase extends MainControlBase {
      *
      * @readonly
      * @type {boolean}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     get adaptiveState(): boolean {
         return !this.allColumns.find((column: any) => column.show && Object.is(column.util, 'STAR'));
@@ -1238,7 +1228,7 @@ export class MainGridBase extends MainControlBase {
      *
      * @param {*} $event
      * @returns {Promise<any>}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public async save(args: any[], params?: any, $event?: any, xData?: any){
         let _this = this;
@@ -1253,7 +1243,7 @@ export class MainGridBase extends MainControlBase {
             try {
                 if(Object.is(item.rowDataState, 'create')){
                     if(!this.createAction){
-                        this.$Notice.error({ title: '错误', desc: 'CaseStepMainGridView9视图表格createAction参数未配置' });
+                        this.$Notice.error({ title: '错误', desc: 'CaseStepMainGridView9_EditMode视图表格createAction参数未配置' });
                     }else{
                       Object.assign(item,{viewparams:this.viewparams});
                       let response = await this.service.add(this.createAction, JSON.parse(JSON.stringify(this.context)),item, this.showBusyIndicator);
@@ -1261,11 +1251,11 @@ export class MainGridBase extends MainControlBase {
                     }
                 }else if(Object.is(item.rowDataState, 'update')){
                     if(!this.updateAction){
-                        this.$Notice.error({ title: '错误', desc: 'CaseStepMainGridView9视图表格updateAction参数未配置' });
+                        this.$Notice.error({ title: '错误', desc: 'CaseStepMainGridView9_EditMode视图表格updateAction参数未配置' });
                     }else{
                         Object.assign(item,{viewparams:this.viewparams});
-                        if(item.casestep){
-                            Object.assign(this.context,{casestep:item.casestep});
+                        if(item.ibzcasestep){
+                            Object.assign(this.context,{ibzcasestep:item.ibzcasestep});
                         }
                         let response = await this.service.add(this.updateAction,JSON.parse(JSON.stringify(this.context)),item, this.showBusyIndicator);
                         successItems.push(JSON.parse(JSON.stringify(response.data)));
@@ -1289,17 +1279,131 @@ export class MainGridBase extends MainControlBase {
         return successItems;
     }
 
+    /**
+     * 新建行
+     *
+     * @param {*} $event
+     * @returns {void}
+     * @memberof Main_RowEdit
+     */
+    public newRow(args: any[], params?: any, $event?: any, xData?: any): void {
+        if(!this.loaddraftAction){
+            this.$Notice.error({ title: '错误', desc: 'CaseStepMainGridView9_EditMode视图表格loaddraftAction参数未配置' });
+            return;
+        }
+        let _this = this;
+        Object.assign(args[0],{viewparams:this.viewparams});
+        let post: Promise<any> = this.service.loadDraft(this.loaddraftAction, JSON.parse(JSON.stringify(this.context)), args[0], this.showBusyIndicator);
+        post.then((response: any) => {
+            if (!response.status || response.status !== 200) {
+                if (response.errorMessage) {
+                    this.$Notice.error({ title: '错误', desc: response.errorMessage });
+                }
+                return;
+            }
+            const data = response.data;
+            this.createDefault(data);
+            data.rowDataState = "create";
+            _this.items.push(data);
+            _this.gridItemsModel.push(_this.getGridRowModel());
+        }).catch((response: any) => {
+            if (response && response.status === 401) {
+                return;
+            }
+            if (!response || !response.status || !response.data) {
+                this.$Notice.error({ title: '错误', desc: '系统异常' });
+                return;
+            }
+        });
+    }
+
+    /**
+     * 表格编辑项值变更
+     *  
+     * @param row 行数据
+     * @param {{ name: string, value: any }} $event
+     * @returns {void}
+     * @memberof Main_RowEdit
+     */
+    public onGridItemValueChange(row: any,$event: { name: string, value: any },rowIndex: number): void {
+        if (!$event) {
+            return;
+        }
+        if (!$event.name || Object.is($event.name, '') || !row.hasOwnProperty($event.name)) {
+            return;
+        }
+        row[$event.name] = $event.value;
+        this.gridEditItemChange(row, $event.name, $event.value, rowIndex);
+    }
+
+    /**
+     * 表格编辑项值变化
+     *
+     * @public
+     * @param row 行数据
+     * @param property 列编辑项名
+     * @param row 列编辑项值
+     * @returns {void}
+     * @memberof Main_RowEdit
+     */
+    public gridEditItemChange(row: any, property: string, value: any, rowIndex: number){
+        row.rowDataState = row.rowDataState ? row.rowDataState : "update" ;
+        this.validate(property,row,rowIndex);
+    }
+
+    /**
+     * 表格编辑项更新
+     *
+     * @param {string} mode 界面行为名称
+     * @param {*} [data={}] 请求数据
+     * @param {string[]} updateDetails 更新项
+     * @param {boolean} [showloading] 是否显示加载状态
+     * @returns {void}
+     * @memberof Main_RowEdit
+     */
+    public updateGridEditItem(mode: string, data: any = {}, updateDetails: string[], showloading?: boolean): void {
+        if (!mode || (mode && Object.is(mode, ''))) {
+            return;
+        }
+        const arg: any = JSON.parse(JSON.stringify(data));
+        Object.assign(arg,{viewparams:this.viewparams});
+        const post: Promise<any> = this.service.frontLogic(mode,JSON.parse(JSON.stringify(this.context)),arg, showloading);
+        post.then((response: any) => {
+            if (!response || response.status !== 200) {
+                this.$Notice.error({ title: '错误', desc: '表单项更新失败' });
+                return;
+            }
+            const _data: any = response.data;
+            if(!_data){
+                return;
+            }
+            updateDetails.forEach((name: string) => {
+                if (!_data.hasOwnProperty(name)) {
+                    return;
+                }
+                data[name] = _data[name];
+            });
+        }).catch((response: any) => {
+            if (response && response.status === 401) {
+                return;
+            }
+            if (!response || !response.status || !response.data) {
+                this.$Notice.error({ title: '错误', desc: '系统异常' });
+                return;
+            }
+        });
+    }
 
     /**
      * 获取对应行class
      *
      * @param {*} $args row 行数据，rowIndex 行索引
      * @returns {void}
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public getRowClassName(args:{row: any,rowIndex: number}){
         let isSelected = this.selections.some((item:any)=>{
-            return Object.is(item.casestep,args.row.casestep);
+            return Object.is(item.ibzcasestep,args.row.ibzcasestep);
         });
         return isSelected ? "grid-selected-row" : "";
     }
@@ -1307,7 +1411,7 @@ export class MainGridBase extends MainControlBase {
     /**
      * 新建默认值
      * @param {*}  row 行数据
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public createDefault(row: any){                    
     }
@@ -1315,7 +1419,7 @@ export class MainGridBase extends MainControlBase {
     /**
      * 添加数据
      * @param {*}  row 行数据
-     * @memberof Main
+     * @memberof Main_RowEdit
      */
     public add({ row, index }: { row: any, index: number }, func: Function) {
         if(!this.loaddraftAction){

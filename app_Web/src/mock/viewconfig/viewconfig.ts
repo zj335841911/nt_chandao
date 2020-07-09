@@ -1471,14 +1471,6 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ReleaseQuickCreateView",
             "viewtag": "ed51615a22255e84a3b276815ef5c96e"
         },
-        "casestepgridview": {
-            "title": "casestep表格视图",
-            "caption": "用例步骤",
-            "viewtype": "DEGRIDVIEW",
-            "viewmodule": "zentao",
-            "viewname": "CaseStepGridView",
-            "viewtag": "edb7ac4efd8ea387fd7b5945f39d42a6"
-        },
         "projecteditview_suspend": {
             "title": "项目",
             "caption": "项目",

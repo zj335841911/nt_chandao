@@ -1,16 +1,16 @@
 /**
- * Main 部件模型
+ * Main_RowEdit 部件模型
  *
  * @export
- * @class MainModel
+ * @class Main_RowEditModel
  */
-export default class MainModel {
+export default class Main_RowEditModel {
 
 	/**
 	 * 是否是实体数据导出
 	 *
 	 * @returns {any[]}
-	 * @memberof MainGridMode
+	 * @memberof Main_RowEditGridMode
 	 */
 	public isDEExport: boolean = false;
 
@@ -18,7 +18,7 @@ export default class MainModel {
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof MainGridMode
+	 * @memberof Main_RowEditGridMode
 	 */
 	public getDataItems(): any[] {
     if(this.isDEExport){
@@ -30,11 +30,6 @@ export default class MainModel {
           name: 'expect',
           prop: 'expect',
           dataType: 'LONGTEXT',
-        },
-        {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
         },
         {
           name: 'desc',
@@ -77,7 +72,7 @@ export default class MainModel {
           dataType: 'FONTKEY',
         },
         {
-          name: 'casestep',
+          name: 'ibzcasestep',
           prop: 'id',
         },
         {
