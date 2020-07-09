@@ -20,6 +20,19 @@ export class ExpViewBase extends ViewBase {
     protected appEntityService: any;
 
     /**
+     * 视图挂载完毕
+     *
+     * @protected
+     * @memberof ExpViewBase
+     */
+    protected viewMounted(): void {
+        super.viewMounted();
+        this.accLocalTags.push(this.$acc.commandLocal(() => {
+            this.loadModel();
+        }, 'update', this.appDeName.toUpperCase()));
+    }
+
+    /**
      * 加载模型
      *
      * @protected
@@ -39,7 +52,7 @@ export class ExpViewBase extends ViewBase {
                     if (this.$route) {
                         this.$route.meta.info = this.model.dataInfo;
                     }
-                    Object.assign(this.model, { srfTitle: `${this.$t(this.model.srfTitle)} - ${this.model.dataInfo}` });
+                    Object.assign(this.model, { srfTitle: `${this.$t(this.model.srfCaption)} - ${this.model.dataInfo}` });
                     this.$appService.navHistory.setCaption({ tag: this.viewtag, info: this.model.dataInfo });
                     this.$emit(events.view.MODEL_LOADED, data);
                 }
