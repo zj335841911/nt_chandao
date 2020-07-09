@@ -116,6 +116,11 @@ export default class Main_NewModeModel {
         dataType: 'TEXT',
       },
       {
+        name: 'files',
+        prop: 'files',
+        dataType: 'TEXT',
+      },
+      {
         name: 'verify',
         prop: 'verify',
         dataType: 'TEXT',

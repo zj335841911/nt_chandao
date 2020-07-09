@@ -153,6 +153,9 @@ export default class AssignedToMeStoryModel {
       {
         name: 'isleaf',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

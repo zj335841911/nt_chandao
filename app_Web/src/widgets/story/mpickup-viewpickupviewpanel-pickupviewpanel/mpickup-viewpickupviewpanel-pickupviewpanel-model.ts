@@ -153,6 +153,9 @@ export default class MPickupViewpickupviewpanelModel {
       {
         name: 'isleaf',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

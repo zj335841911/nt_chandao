@@ -47,6 +47,7 @@ export default {
     result: "评审结果",
     comment: "备注",
     isleaf: "是否子需求",
+    files: "附件",
   },
 	views: {
 		mainview9_related: {
@@ -292,6 +293,7 @@ export default {
 			pri: "优先级", 
 			estimate: "预计", 
 			spec: "需求描述", 
+			files: "附件", 
 			verify: "验收标准", 
 			mailto: "抄送给", 
 			keywords: "关键词", 

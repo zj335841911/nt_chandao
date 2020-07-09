@@ -153,6 +153,9 @@ export default class BaseInfoModel {
       {
         name: 'isleaf',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 
