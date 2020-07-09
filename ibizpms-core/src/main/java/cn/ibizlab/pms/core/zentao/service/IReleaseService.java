@@ -34,11 +34,16 @@ public interface IReleaseService extends IService<Release>{
     Release get(BigInteger key) ;
     Release getDraft(Release et) ;
     Release activate(Release et) ;
+    Release batchUnlinkBug(Release et) ;
     Release changeStatus(Release et) ;
     boolean checkKey(Release et) ;
+    Release linkBug(Release et) ;
+    Release linkBugbyBug(Release et) ;
+    Release linkBugbyLeftBug(Release et) ;
     boolean save(Release et) ;
     void saveBatch(List<Release> list) ;
     Release terminate(Release et) ;
+    Release unlinkBug(Release et) ;
     Page<Release> searchDefault(ReleaseSearchContext context) ;
     List<Release> selectByBranch(BigInteger id) ;
     void removeByBranch(BigInteger id) ;

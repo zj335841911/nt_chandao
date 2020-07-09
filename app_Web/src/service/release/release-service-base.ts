@@ -186,6 +186,25 @@ export default class ReleaseServiceBase extends EntityService {
     }
 
     /**
+     * BatchUnlinkBug接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ReleaseServiceBase
+     */
+    public async BatchUnlinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.release){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/releases/${context.release}/batchunlinkbug`,data,isloading);
+            return res;
+        }
+            return Http.getInstance().post(`/releases/${context.release}/batchunlinkbug`,data,isloading);
+    }
+
+    /**
      * ChangeStatus接口方法
      *
      * @param {*} [context={}]
@@ -221,6 +240,63 @@ export default class ReleaseServiceBase extends EntityService {
             return res;
         }
             return Http.getInstance().post(`/releases/${context.release}/checkkey`,data,isloading);
+    }
+
+    /**
+     * LinkBug接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ReleaseServiceBase
+     */
+    public async LinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.release){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/releases/${context.release}/linkbug`,data,isloading);
+            return res;
+        }
+            return Http.getInstance().post(`/releases/${context.release}/linkbug`,data,isloading);
+    }
+
+    /**
+     * LinkBugbyBug接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ReleaseServiceBase
+     */
+    public async LinkBugbyBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.release){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/releases/${context.release}/linkbugbybug`,data,isloading);
+            return res;
+        }
+            return Http.getInstance().post(`/releases/${context.release}/linkbugbybug`,data,isloading);
+    }
+
+    /**
+     * LinkBugbyLeftBug接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ReleaseServiceBase
+     */
+    public async LinkBugbyLeftBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.release){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/releases/${context.release}/linkbugbyleftbug`,data,isloading);
+            return res;
+        }
+            return Http.getInstance().post(`/releases/${context.release}/linkbugbyleftbug`,data,isloading);
     }
 
     /**
@@ -262,6 +338,25 @@ export default class ReleaseServiceBase extends EntityService {
             return res;
         }
             return Http.getInstance().post(`/releases/${context.release}/terminate`,data,isloading);
+    }
+
+    /**
+     * UnlinkBug接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ReleaseServiceBase
+     */
+    public async UnlinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.release){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/releases/${context.release}/unlinkbug`,data,isloading);
+            return res;
+        }
+            return Http.getInstance().post(`/releases/${context.release}/unlinkbug`,data,isloading);
     }
 
     /**
