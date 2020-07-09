@@ -153,6 +153,9 @@ export default class StoryRelatedModel {
       {
         name: 'isleaf',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

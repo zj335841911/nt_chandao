@@ -153,6 +153,9 @@ export default class MainPanelModel {
       {
         name: 'isleaf',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

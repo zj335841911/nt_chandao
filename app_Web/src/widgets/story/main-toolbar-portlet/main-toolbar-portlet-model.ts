@@ -153,6 +153,9 @@ export default class MainToolbarModel {
       {
         name: 'isleaf',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

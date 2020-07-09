@@ -153,6 +153,9 @@ export default class StoryspecModel {
       {
         name: 'isleaf',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

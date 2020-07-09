@@ -373,4 +373,12 @@ export interface Story {
      * @memberof Story
      */
     isleaf?: any;
+
+    /**
+     * 附件
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    files?: any;
 }

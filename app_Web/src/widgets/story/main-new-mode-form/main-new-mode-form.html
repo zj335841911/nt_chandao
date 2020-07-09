@@ -151,6 +151,12 @@
 </app-form-item>
 
 </i-col>
+<i-col v-show="detailsModel.files.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='files' :itemRules="this.rules.files" class='' :caption="$t('entities.story.main_newmode_form.details.files')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.files.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange($event)" :data="JSON.stringify(this.data)" name='files' :value="data.files" :disabled="detailsModel.files.disabled" :uploadparams='{objecttype:"story",objectid:"%id%",version:"%version%"}' :exportparams='{objecttype:"story",objectid:"%id%",version:"%version%"}'  style="overflow: auto;"></app-file-upload>
+</app-form-item>
+
+</i-col>
 <i-col v-show="detailsModel.verify.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='verify' :itemRules="this.rules.verify" class='' :caption="$t('entities.story.main_newmode_form.details.verify')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.verify.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-rich-text-editor :formState="formState" :value="data.verify" @change="(val) =>{this.data.verify =val}" :disabled="detailsModel.verify.disabled" :data="JSON.stringify(this.data)"  name="verify" :uploadparams='{objecttype:"story",objectid: "%id%",version:"editor"}' :exportparams='{objecttype:"story",objectid: "%id%",version:"editor"}'  style=""></app-rich-text-editor>
