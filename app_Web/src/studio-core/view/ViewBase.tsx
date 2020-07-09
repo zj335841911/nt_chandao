@@ -55,6 +55,15 @@ export class ViewBase extends Vue {
     protected model: any = {};
 
     /**
+     * 在消息中心订阅的本地消息实例标识
+     *
+     * @protected
+     * @type {string[]}
+     * @memberof ViewBase
+     */
+    protected accLocalTags: string[] = [];
+
+    /**
      * 数据变化
      *
      * @param {*} val
@@ -395,6 +404,9 @@ export class ViewBase extends Vue {
                 }
             }
         }
+        this.accLocalTags.forEach(((str: string) => {
+            this.$acc.unsubscribeLocal(str);
+        }));
     }
 
     /**
