@@ -594,6 +594,14 @@ export default {
 			caption: "Edit",
 			tip: "Edit {0}",
 		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction3: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	maingridview_bymoduletoolbar_toolbar: {
 		deuiaction1: {

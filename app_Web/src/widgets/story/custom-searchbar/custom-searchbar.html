@@ -3,14 +3,61 @@
         <filter-tree :datas="filterItems" :fields="filterFields">
             <template slot-scope="{ data }">
                                 <template v-if="Object.is(data.field, 'ideq')">
-                    
-<app-span name='ideq' :value="data.ideq" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="width:100px;"></app-span>
-                </template>
-                <template v-if="Object.is(data.field, 'keywords')">
-                    <input-box v-model="data.keywords"  @enter="onEnter($event)"    :disabled="detailsModel.keywords.disabled" type='text'  style=""></input-box>
+                    <input-box 
+  v-model="data.ideq"  
+  @enter="onEnter($event)"  
+  
+  :disabled="detailsModel.ideq.disabled" 
+  type='number' 
+  :precision="0"
+   
+  style="">
+</input-box>
                 </template>
                 <template v-if="Object.is(data.field, 'pri')">
-                    <input-box v-model="data.pri"  @enter="onEnter($event)"    :disabled="detailsModel.pri.disabled" type='number'  style=""></input-box>
+                    
+ <dropdown-list 
+    v-model="data.pri" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.pri.disabled"  
+    tag='Story__pri' 
+    codelistType='STATIC'
+    placeholder='请选择...' style="width:100px;">
+ </dropdown-list>
+                </template>
+                <template v-if="Object.is(data.field, 'prigteq')">
+                    
+ <dropdown-list 
+    v-model="data.prigteq" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.prigteq.disabled"  
+    tag='Story__pri' 
+    codelistType='STATIC'
+    placeholder='请选择...' style="width:100px;">
+ </dropdown-list>
+                </template>
+                <template v-if="Object.is(data.field, 'prilteq')">
+                    
+ <dropdown-list 
+    v-model="data.prilteq" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.prilteq.disabled"  
+    tag='Story__pri' 
+    codelistType='STATIC'
+    placeholder='请选择...' style="width:100px;">
+ </dropdown-list>
                 </template>
                 <template v-if="Object.is(data.field, 'stageeq')">
                     
@@ -42,6 +89,9 @@
     placeholder='请选择...' style="width:100px;">
  </dropdown-list>
                 </template>
+                <template v-if="Object.is(data.field, 'titlelike')">
+                    <input-box v-model="data.titlelike"  @enter="onEnter($event)"    :disabled="detailsModel.titlelike.disabled" type='text'  style="width:100px;"></input-box>
+                </template>
                 <template v-if="Object.is(data.field, 'statuseq')">
                     
  <dropdown-list 
@@ -57,8 +107,8 @@
     placeholder='请选择...' style="width:100px;">
  </dropdown-list>
                 </template>
-                <template v-if="Object.is(data.field, 'titlelike')">
-                    <input-box v-model="data.titlelike"  @enter="onEnter($event)"    :disabled="detailsModel.titlelike.disabled" type='text'  style="width:100px;"></input-box>
+                <template v-if="Object.is(data.field, 'keywords')">
+                    <input-box v-model="data.keywords"  @enter="onEnter($event)"    :disabled="detailsModel.keywords.disabled" type='text'  style=""></input-box>
                 </template>
             </template>
         </filter-tree>

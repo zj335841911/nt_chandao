@@ -22,7 +22,7 @@
 </i-col>
 <i-col v-show="detailsModel.formitemex1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='formitemex1' :itemRules="this.rules.formitemex1" class='' :caption="$t('entities.project.main_form.details.formitemex1')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitemex1.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-range-editor v-model="data.formitemex1" :activeData="data" :disabled="detailsModel.formitemex1.disabled" name="formitemex1" editorType="DATEPICKEREX" format="YYYY-MM-DD HH:mm:ss" :refFormItem="['begin','end']" @formitemvaluechange="onFormItemValueChange($event)" style=""></app-range-editor>
+    <app-range-editor v-model="data.formitemex1" :activeData="data" :disabled="detailsModel.formitemex1.disabled" name="formitemex1" editorType="DATEPICKEREX_NOTIME" format="YYYY-MM-DD" :refFormItem="['begin','end']" @formitemvaluechange="onFormItemValueChange($event)" style=""></app-range-editor>
 </app-form-item>
 
 </i-col>
@@ -57,7 +57,7 @@
 
 </i-col>
 <i-col v-show="detailsModel.formitemex2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <comb-form-item name="srfarray" :value="data.srfarray" :formItems="[{ name: '关联产品集合', prop: 'products', unique: true },{ name: '关联产品平台集合', prop: 'branchs', hidden: true },{ name: '关联产品产品计划', prop: 'plans' },]" @formitemvaluechange="onFormItemValueChange">
+    <comb-form-item name="srfarray" :value="data.srfarray" :formItems="[{ name: '关联产品集合', prop: 'products', unique: true },{ name: '关联产品平台集合', prop: 'branchs', hidden: true },{ name: '关联产品产品计划', prop: 'plans' },]" @formitemvaluechange="onFormItemValueChange($event)">
    <template slot="products" slot-scope="{item}">
       <div style="display: flex;">
          <dropdown-list-dynamic 
