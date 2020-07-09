@@ -2,70 +2,70 @@ import { Environment } from '@/environments/environment';
 import { UIActionTool,Util } from '@/utils';
 import UIService from '../ui-service';
 import { Subject } from 'rxjs';
-import CaseStepService from '@/service/case-step/case-step-service';
+import IBZCaseStepService from '@/service/ibzcase-step/ibzcase-step-service';
 
 /**
  * 用例步骤UI服务对象基类
  *
  * @export
- * @class CaseStepUIServiceBase
+ * @class IBZCaseStepUIServiceBase
  */
-export default class CaseStepUIServiceBase extends UIService {
+export default class IBZCaseStepUIServiceBase extends UIService {
 
     /**
      * 是否支持工作流
      * 
-     * @memberof  CaseStepUIServiceBase
+     * @memberof  IBZCaseStepUIServiceBase
      */
     public isEnableWorkflow:boolean = false;
 
     /**
      * 当前UI服务对应的数据服务对象
      * 
-     * @memberof  CaseStepUIServiceBase
+     * @memberof  IBZCaseStepUIServiceBase
      */
-    public dataService:CaseStepService = new CaseStepService();
+    public dataService:IBZCaseStepService = new IBZCaseStepService();
 
     /**
      * 所有关联视图
      * 
-     * @memberof  CaseStepUIServiceBase
+     * @memberof  IBZCaseStepUIServiceBase
      */ 
     public allViewMap: Map<string, Object> = new Map();
 
     /**
      * 状态值
      * 
-     * @memberof  CaseStepUIServiceBase
+     * @memberof  IBZCaseStepUIServiceBase
      */ 
     public stateValue: number = 0;
 
     /**
      * 状态属性
      * 
-     * @memberof  CaseStepUIServiceBase
+     * @memberof  IBZCaseStepUIServiceBase
      */ 
     public stateField: string = "";
 
     /**
      * 主状态属性集合
      * 
-     * @memberof  CaseStepUIServiceBase
+     * @memberof  IBZCaseStepUIServiceBase
      */  
     public mainStateFields:Array<any> = [];
 
     /**
      * 主状态集合Map
      * 
-     * @memberof  CaseStepUIServiceBase
+     * @memberof  IBZCaseStepUIServiceBase
      */  
     public allDeMainStateMap:Map<string,string> = new Map();
 
     /**
-     * Creates an instance of  CaseStepUIServiceBase.
+     * Creates an instance of  IBZCaseStepUIServiceBase.
      * 
      * @param {*} [opts={}]
-     * @memberof  CaseStepUIServiceBase
+     * @memberof  IBZCaseStepUIServiceBase
      */
     constructor(opts: any = {}) {
         super(opts);
@@ -76,17 +76,16 @@ export default class CaseStepUIServiceBase extends UIService {
     /**
      * 初始化视图Map
      * 
-     * @memberof  CaseStepUIServiceBase
+     * @memberof  IBZCaseStepUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'maingridview9_editmode',srfappde:'casesteps'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'casesteps'});
+        this.allViewMap.set(':',{viewname:'maingridview9',srfappde:'ibzcasesteps'});
     }
 
     /**
      * 初始化主状态集合
      * 
-     * @memberof  CaseStepUIServiceBase
+     * @memberof  IBZCaseStepUIServiceBase
      */  
     public initDeMainStateMap(){
     }
@@ -97,12 +96,12 @@ export default class CaseStepUIServiceBase extends UIService {
      * 
      * @param srfkey 数据主键
      * @param isEnableWorkflow  重定向视图是否需要处理流程中的数据
-     * @memberof  CaseStepUIServiceBase
+     * @memberof  IBZCaseStepUIServiceBase
      */
     public async getRDAppView(srfkey:string,isEnableWorkflow:boolean){
         this.isEnableWorkflow = isEnableWorkflow;
         // 进行数据查询
-        let result:any = await this.dataService.Get({casestep:srfkey});
+        let result:any = await this.dataService.Get({ibzcasestep:srfkey});
         const curData:any = result.data;
         //判断当前数据模式,默认为true，todo
         const iRealDEModel:boolean = true;
@@ -129,7 +128,7 @@ export default class CaseStepUIServiceBase extends UIService {
     /**
 	 * 获取实际的数据类型
      * 
-     * @memberof  CaseStepUIServiceBase
+     * @memberof  IBZCaseStepUIServiceBase
 	 */
 	public getRealDEType(entity:any){
 
@@ -141,7 +140,7 @@ export default class CaseStepUIServiceBase extends UIService {
      * @param curData 当前数据
      * @param bDataInWF 是否有数据在工作流中
      * @param bWFMode   是否工作流模式
-     * @memberof  CaseStepUIServiceBase
+     * @memberof  IBZCaseStepUIServiceBase
      */
     public async getDESDDEViewPDTParam(curData:any, bDataInWF:boolean, bWFMode:boolean){
         let strPDTParam:string = '';
@@ -175,7 +174,7 @@ export default class CaseStepUIServiceBase extends UIService {
      * 获取数据对象的主状态标识
      * 
      * @param curData 当前数据
-     * @memberof  CaseStepUIServiceBase
+     * @memberof  IBZCaseStepUIServiceBase
      */  
     public async getDEMainStateTag(curData:any){
         if(this.mainStateFields.length === 0) return null;

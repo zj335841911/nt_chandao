@@ -2823,13 +2823,13 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-report-edit-view/test-report-edit-view.vue'),
                 },
                 {
-                    path: 'casesteps/:casestep?/maingridview9/:maingridview9?',
+                    path: 'ibzcasesteps/:ibzcasestep?/maingridview9/:maingridview9?',
                     meta: {
-                        caption: 'entities.casestep.views.maingridview9.title',
+                        caption: 'entities.ibzcasestep.views.maingridview9.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'casesteps', parameterName: 'casestep' },
+                            { pathName: 'ibzcasesteps', parameterName: 'ibzcasestep' },
                             { pathName: 'maingridview9', parameterName: 'maingridview9' },
                         ],
                         requireAuth: true,

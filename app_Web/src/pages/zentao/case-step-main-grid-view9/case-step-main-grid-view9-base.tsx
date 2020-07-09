@@ -1,7 +1,7 @@
 
 import { Subject } from 'rxjs';
 import { GridView9Base } from '@/studio-core';
-import CaseStepService from '@/service/case-step/case-step-service';
+import IBZCaseStepService from '@/service/ibzcase-step/ibzcase-step-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
 import CodeListService from "@service/app/codelist-service";
 
@@ -21,7 +21,7 @@ export class CaseStepMainGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof CaseStepMainGridView9Base
      */
-    protected appDeName: string = 'casestep';
+    protected appDeName: string = 'ibzcasestep';
 
     /**
      * 应用实体主键
@@ -44,10 +44,10 @@ export class CaseStepMainGridView9Base extends GridView9Base {
     /**
      * 实体服务对象
      *
-     * @type {CaseStepService}
+     * @type {IBZCaseStepService}
      * @memberof CaseStepMainGridView9Base
      */
-    protected appEntityService: CaseStepService = new CaseStepService;
+    protected appEntityService: IBZCaseStepService = new IBZCaseStepService;
 
 
     /**
@@ -67,9 +67,9 @@ export class CaseStepMainGridView9Base extends GridView9Base {
      * @memberof CaseStepMainGridView9Base
      */
     protected model: any = {
-        srfCaption: 'entities.casestep.views.maingridview9.caption',
-        srfTitle: 'entities.casestep.views.maingridview9.title',
-        srfSubTitle: 'entities.casestep.views.maingridview9.subtitle',
+        srfCaption: 'entities.ibzcasestep.views.maingridview9.caption',
+        srfTitle: 'entities.ibzcasestep.views.maingridview9.title',
+        srfSubTitle: 'entities.ibzcasestep.views.maingridview9.subtitle',
         dataInfo: ''
     }
 
@@ -133,7 +133,7 @@ export class CaseStepMainGridView9Base extends GridView9Base {
                 this.newdata(args,fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
-            keyPSDEField: 'casestep',
+            keyPSDEField: 'ibzcasestep',
             majorPSDEField: 'expect',
             isLoadDefault: true,
         });
@@ -232,7 +232,7 @@ export class CaseStepMainGridView9Base extends GridView9Base {
           datas = [params];
         }
         // 界面行为
-        this.Refresh(datas, contextJO,paramJO,  $event, xData,this,"CaseStep");
+        this.Refresh(datas, contextJO,paramJO,  $event, xData,this,"IBZCaseStep");
     }
 
     /**
