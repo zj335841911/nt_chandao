@@ -2823,16 +2823,16 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-report-edit-view/test-report-edit-view.vue'),
                 },
                 {
-                    path: 'products/:product?/stories/:story?/cases/:case?/ibzcasesteps/:ibzcasestep?/maingridview9/:maingridview9?',
+                    path: 'products/:product?/stories/:story?/cases/:case?/casesteps/:casestep?/maingridview9/:maingridview9?',
                     meta: {
-                        caption: 'entities.ibzcasestep.views.maingridview9.title',
+                        caption: 'entities.casestep.views.maingridview9.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
                             { pathName: 'stories', parameterName: 'story' },
                             { pathName: 'cases', parameterName: 'case' },
-                            { pathName: 'ibzcasesteps', parameterName: 'ibzcasestep' },
+                            { pathName: 'casesteps', parameterName: 'casestep' },
                             { pathName: 'maingridview9', parameterName: 'maingridview9' },
                         ],
                         requireAuth: true,
@@ -2840,15 +2840,15 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-step-main-grid-view9/case-step-main-grid-view9.vue'),
                 },
                 {
-                    path: 'stories/:story?/cases/:case?/ibzcasesteps/:ibzcasestep?/maingridview9/:maingridview9?',
+                    path: 'stories/:story?/cases/:case?/casesteps/:casestep?/maingridview9/:maingridview9?',
                     meta: {
-                        caption: 'entities.ibzcasestep.views.maingridview9.title',
+                        caption: 'entities.casestep.views.maingridview9.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
                             { pathName: 'cases', parameterName: 'case' },
-                            { pathName: 'ibzcasesteps', parameterName: 'ibzcasestep' },
+                            { pathName: 'casesteps', parameterName: 'casestep' },
                             { pathName: 'maingridview9', parameterName: 'maingridview9' },
                         ],
                         requireAuth: true,
@@ -2856,15 +2856,15 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-step-main-grid-view9/case-step-main-grid-view9.vue'),
                 },
                 {
-                    path: 'products/:product?/cases/:case?/ibzcasesteps/:ibzcasestep?/maingridview9/:maingridview9?',
+                    path: 'products/:product?/cases/:case?/casesteps/:casestep?/maingridview9/:maingridview9?',
                     meta: {
-                        caption: 'entities.ibzcasestep.views.maingridview9.title',
+                        caption: 'entities.casestep.views.maingridview9.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
                             { pathName: 'cases', parameterName: 'case' },
-                            { pathName: 'ibzcasesteps', parameterName: 'ibzcasestep' },
+                            { pathName: 'casesteps', parameterName: 'casestep' },
                             { pathName: 'maingridview9', parameterName: 'maingridview9' },
                         ],
                         requireAuth: true,
@@ -2872,14 +2872,14 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-step-main-grid-view9/case-step-main-grid-view9.vue'),
                 },
                 {
-                    path: 'cases/:case?/ibzcasesteps/:ibzcasestep?/maingridview9/:maingridview9?',
+                    path: 'cases/:case?/casesteps/:casestep?/maingridview9/:maingridview9?',
                     meta: {
-                        caption: 'entities.ibzcasestep.views.maingridview9.title',
+                        caption: 'entities.casestep.views.maingridview9.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },
-                            { pathName: 'ibzcasesteps', parameterName: 'ibzcasestep' },
+                            { pathName: 'casesteps', parameterName: 'casestep' },
                             { pathName: 'maingridview9', parameterName: 'maingridview9' },
                         ],
                         requireAuth: true,
@@ -2887,13 +2887,13 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-step-main-grid-view9/case-step-main-grid-view9.vue'),
                 },
                 {
-                    path: 'ibzcasesteps/:ibzcasestep?/maingridview9/:maingridview9?',
+                    path: 'casesteps/:casestep?/maingridview9/:maingridview9?',
                     meta: {
-                        caption: 'entities.ibzcasestep.views.maingridview9.title',
+                        caption: 'entities.casestep.views.maingridview9.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibzcasesteps', parameterName: 'ibzcasestep' },
+                            { pathName: 'casesteps', parameterName: 'casestep' },
                             { pathName: 'maingridview9', parameterName: 'maingridview9' },
                         ],
                         requireAuth: true,
@@ -6442,16 +6442,16 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-cur-test-task-grid-view/case-cur-test-task-grid-view.vue'),
                 },
                 {
-                    path: 'products/:product?/stories/:story?/cases/:case?/casesteps/:casestep?/maingridview9_editmode/:maingridview9_editmode?',
+                    path: 'products/:product?/stories/:story?/cases/:case?/ibzcasesteps/:ibzcasestep?/maingridview9_editmode/:maingridview9_editmode?',
                     meta: {
-                        caption: 'entities.casestep.views.maingridview9_editmode.title',
+                        caption: 'entities.ibzcasestep.views.maingridview9_editmode.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
                             { pathName: 'stories', parameterName: 'story' },
                             { pathName: 'cases', parameterName: 'case' },
-                            { pathName: 'casesteps', parameterName: 'casestep' },
+                            { pathName: 'ibzcasesteps', parameterName: 'ibzcasestep' },
                             { pathName: 'maingridview9_editmode', parameterName: 'maingridview9_editmode' },
                         ],
                         requireAuth: true,
@@ -6459,15 +6459,15 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-step-main-grid-view9-edit-mode/case-step-main-grid-view9-edit-mode.vue'),
                 },
                 {
-                    path: 'stories/:story?/cases/:case?/casesteps/:casestep?/maingridview9_editmode/:maingridview9_editmode?',
+                    path: 'stories/:story?/cases/:case?/ibzcasesteps/:ibzcasestep?/maingridview9_editmode/:maingridview9_editmode?',
                     meta: {
-                        caption: 'entities.casestep.views.maingridview9_editmode.title',
+                        caption: 'entities.ibzcasestep.views.maingridview9_editmode.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
                             { pathName: 'cases', parameterName: 'case' },
-                            { pathName: 'casesteps', parameterName: 'casestep' },
+                            { pathName: 'ibzcasesteps', parameterName: 'ibzcasestep' },
                             { pathName: 'maingridview9_editmode', parameterName: 'maingridview9_editmode' },
                         ],
                         requireAuth: true,
@@ -6475,15 +6475,15 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-step-main-grid-view9-edit-mode/case-step-main-grid-view9-edit-mode.vue'),
                 },
                 {
-                    path: 'products/:product?/cases/:case?/casesteps/:casestep?/maingridview9_editmode/:maingridview9_editmode?',
+                    path: 'products/:product?/cases/:case?/ibzcasesteps/:ibzcasestep?/maingridview9_editmode/:maingridview9_editmode?',
                     meta: {
-                        caption: 'entities.casestep.views.maingridview9_editmode.title',
+                        caption: 'entities.ibzcasestep.views.maingridview9_editmode.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
                             { pathName: 'cases', parameterName: 'case' },
-                            { pathName: 'casesteps', parameterName: 'casestep' },
+                            { pathName: 'ibzcasesteps', parameterName: 'ibzcasestep' },
                             { pathName: 'maingridview9_editmode', parameterName: 'maingridview9_editmode' },
                         ],
                         requireAuth: true,
@@ -6491,14 +6491,14 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-step-main-grid-view9-edit-mode/case-step-main-grid-view9-edit-mode.vue'),
                 },
                 {
-                    path: 'cases/:case?/casesteps/:casestep?/maingridview9_editmode/:maingridview9_editmode?',
+                    path: 'cases/:case?/ibzcasesteps/:ibzcasestep?/maingridview9_editmode/:maingridview9_editmode?',
                     meta: {
-                        caption: 'entities.casestep.views.maingridview9_editmode.title',
+                        caption: 'entities.ibzcasestep.views.maingridview9_editmode.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },
-                            { pathName: 'casesteps', parameterName: 'casestep' },
+                            { pathName: 'ibzcasesteps', parameterName: 'ibzcasestep' },
                             { pathName: 'maingridview9_editmode', parameterName: 'maingridview9_editmode' },
                         ],
                         requireAuth: true,
@@ -6506,13 +6506,13 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-step-main-grid-view9-edit-mode/case-step-main-grid-view9-edit-mode.vue'),
                 },
                 {
-                    path: 'casesteps/:casestep?/maingridview9_editmode/:maingridview9_editmode?',
+                    path: 'ibzcasesteps/:ibzcasestep?/maingridview9_editmode/:maingridview9_editmode?',
                     meta: {
-                        caption: 'entities.casestep.views.maingridview9_editmode.title',
+                        caption: 'entities.ibzcasestep.views.maingridview9_editmode.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'casesteps', parameterName: 'casestep' },
+                            { pathName: 'ibzcasesteps', parameterName: 'ibzcasestep' },
                             { pathName: 'maingridview9_editmode', parameterName: 'maingridview9_editmode' },
                         ],
                         requireAuth: true,

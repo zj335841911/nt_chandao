@@ -79,7 +79,7 @@ export default class IBZCaseStepUIServiceBase extends UIService {
      * @memberof  IBZCaseStepUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'maingridview9',srfappde:'ibzcasesteps'});
+        this.allViewMap.set(':',{viewname:'maingridview9_editmode',srfappde:'ibzcasesteps'});
     }
 
     /**

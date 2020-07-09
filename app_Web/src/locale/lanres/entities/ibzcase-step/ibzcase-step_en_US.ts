@@ -10,14 +10,13 @@ export default {
     parent: "分组用例步骤的组编号",
   },
 	views: {
-		maingridview9: {
+		maingridview9_editmode: {
 			caption: "用例步骤",
       		title: "用例步骤",
 		},
 	},
-	main_grid: {
+	main_rowedit_grid: {
 		columns: {
-			id: "编号",
 			desc: "步骤",
 			type: "类型",
 			expect: "预期",
@@ -25,10 +24,10 @@ export default {
 		uiactions: {
 		},
 	},
-	maingridview9toolbar_toolbar: {
+	maingridview9_editmodetoolbar_toolbar: {
 		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
+			caption: "新建行",
+			tip: "新建行",
 		},
 	},
 };

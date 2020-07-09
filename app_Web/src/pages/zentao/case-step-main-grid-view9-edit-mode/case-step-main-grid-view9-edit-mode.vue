@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { CaseStepMainGridView9_EditModeBase } from './case-step-main-grid-view9-edit-mode-base';
-import view_grid from '@widgets/case-step/main-row-edit-grid/main-row-edit-grid.vue';
+import view_grid from '@widgets/ibzcase-step/main-row-edit-grid/main-row-edit-grid.vue';
 
 /**
  * 用例步骤视图
