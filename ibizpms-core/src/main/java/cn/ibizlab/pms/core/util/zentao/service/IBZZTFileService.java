@@ -1,8 +1,9 @@
 package cn.ibizlab.pms.core.util.zentao.service;
 
 import cn.ibizlab.pms.core.util.zentao.bean.ZTDownloadFile;
+import cn.ibizlab.pms.core.util.zentao.bean.ZTFileItem;
+import cn.ibizlab.pms.core.util.zentao.constants.ZenTaoMessage;
 import cn.ibizlab.pms.core.zentao.service.IFileService;
-import cn.ibizlab.pms.util.domain.FileItem;
 import cn.ibizlab.pms.util.errors.InternalServerErrorException;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.alibaba.fastjson.JSONObject;
@@ -35,13 +36,13 @@ public class IBZZTFileService implements IIBZZTFileService {
     private IFileService fileService;
 
     @Override
-    public FileItem saveFile(MultipartFile multipartFile) {
+    public ZTFileItem saveFile(MultipartFile multipartFile) {
         return saveFile(multipartFile, null);
     }
 
     @Override
-    public FileItem saveFile(MultipartFile multipartFile, JSONObject params) {
-        FileItem item = null;
+    public ZTFileItem saveFile(MultipartFile multipartFile, JSONObject params) {
+        ZTFileItem item = null;
         // 获取文件名
         String fileName = multipartFile.getOriginalFilename();
         // 获取文件后缀
@@ -91,22 +92,22 @@ public class IBZZTFileService implements IIBZZTFileService {
 
                 String objectType = params.getString("objecttype");
                 Integer objectId = params.getInteger("objectid");
-                Integer version = params.getInteger("version");
+                String version = params.getString("version");
+                String extra = params.getString("extra");
 
-//                ztFile.setPathname(fileFullPathWithoutExt);
                 ztFile.setPathname(fileFullPath);
                 ztFile.setTitle(fileName);
                 ztFile.setExtension(getExtensionName(fileName));
                 ztFile.setSize(new Long(multipartFile.getSize()).intValue());
                 ztFile.setObjecttype(objectType);
                 ztFile.setObjectid(objectId);
-                ztFile.setExtra(version == null ? null : version.toString());
+                ztFile.setExtra(version == null ? extra : version);
                 ztFile.setDeleted("0");
                 ztFile.setAddedby(addedBy);
                 fileService.create(ztFile);
                 String fileId = ztFile.getId().toString();
 
-                item = new FileItem(fileId, fileName, fileId, fileName, (int)multipartFile.getSize(), extname);
+                item = new ZTFileItem(fileId, fileName, fileId, fileName, (int)multipartFile.getSize(), extname, objectType, objectId, extra, version);
             } else {
                 String fileid = DigestUtils.md5DigestAsHex(multipartFile.getInputStream());
                 String fileFullPath = filePath + "ibizutil/" + fileid + "/" + fileName;
@@ -116,10 +117,10 @@ public class IBZZTFileService implements IIBZZTFileService {
                     parent.mkdirs();
                 }
                 FileCopyUtils.copy(multipartFile.getInputStream(), Files.newOutputStream(file.toPath()));
-                item = new FileItem(fileid, fileName, fileid, fileName, new Long(multipartFile.getSize()).intValue(), extname);
+                item = new ZTFileItem(fileid, fileName, fileid, fileName, new Long(multipartFile.getSize()).intValue(), extname, null, null, null, null);
             }
         } catch (IOException e) {
-            throw new InternalServerErrorException("文件上传失败");
+            throw new InternalServerErrorException(ZenTaoMessage.MSG_ERROR_0005);
         }
         return item;
     }
