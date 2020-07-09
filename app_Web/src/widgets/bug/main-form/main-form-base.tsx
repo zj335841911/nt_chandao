@@ -181,4 +181,27 @@ export class MainEditFormBase extends EditFormControlBase {
         task: new FormItemModel({ caption: '相关任务', detailType: 'FORMITEM', name: 'task', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 }),
 
     };
+
+    /**
+     * 重置表单项值
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @memberof MainEditFormBase
+     */
+    public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+        if (Object.is(name, 'product')) {
+            this.onFormItemValueChange({ name: 'storyname', value: null });
+            this.onFormItemValueChange({ name: 'story', value: null });
+        }
+        if (Object.is(name, 'project')) {
+            this.onFormItemValueChange({ name: 'taskname', value: null });
+            this.onFormItemValueChange({ name: 'task', value: null });
+        }
+        if (Object.is(name, 'product')) {
+            this.onFormItemValueChange({ name: 'story', value: null });
+        }
+        if (Object.is(name, 'project')) {
+            this.onFormItemValueChange({ name: 'task', value: null });
+        }
+    }
 }

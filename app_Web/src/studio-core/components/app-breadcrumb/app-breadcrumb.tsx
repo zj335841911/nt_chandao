@@ -135,7 +135,7 @@ export class AppBreadcrumb extends Vue {
             }
             items.push(<span class={{ 'app-breadcrumb-item': true, 'last': i === (arr.length - 1) }}>
                 {(!indexMeta && i === 0) ? null : <span class="separator">/</span>}
-                <span class="content" on-click={() => this.click(item.to)}>{this.$t(item.meta?.caption)}{dropdown ? null : (item.meta?.info && item.meta?.info !== '') ? ` - ${item.meta?.info}` : ''}</span>
+                <span class="content" on-click={() => this.click(item.to)}>{this.$t(item.meta?.caption)}{dropdown ? null : (item.meta?.info && item.meta?.info !== '') ? ' - ' + item.meta?.info : ''}</span>
                 {dropdown ? <span class="select"> - {dropdown}</span> : null}
             </span>);
         });

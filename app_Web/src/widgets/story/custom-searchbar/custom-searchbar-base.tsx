@@ -3,7 +3,6 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import CustomService from './custom-searchbar-service';
-import FilterTree from '@components/filter-tree/filter-tree.vue';
 import moment from 'moment';
 
 

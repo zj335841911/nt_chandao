@@ -181,4 +181,19 @@ export class DashboardMainEditFormBase extends EditFormControlBase {
 
         form: new FormTabPanelModel({ caption: 'form', detailType: 'TABPANEL', name: 'form', visible: true, isShowCaption: true, form: this, tabPages: [{ name: 'formpage1', index: 0, visible: true }, { name: 'formpage2', index: 1, visible: true }] }),
     };
+
+    /**
+     * 重置表单项值
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @memberof DashboardMainEditFormBase
+     */
+    public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+        if (Object.is(name, 'product')) {
+            this.onFormItemValueChange({ name: 'story', value: null });
+        }
+        if (Object.is(name, 'project')) {
+            this.onFormItemValueChange({ name: 'task', value: null });
+        }
+    }
 }
