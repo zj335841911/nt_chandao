@@ -41,6 +41,13 @@ public class ProductModuleSearchContext extends QueryWrapperContext<ProductModul
             this.getSearchCond().eq("branch", n_branch_eq);
         }
     }
+	private Integer n_branch_noteq;//[branch]
+	public void setN_branch_noteq(Integer n_branch_noteq) {
+        this.n_branch_noteq = n_branch_noteq;
+        if(!ObjectUtils.isEmpty(this.n_branch_noteq)){
+            this.getSearchCond().ne("branch", n_branch_noteq);
+        }
+    }
 	private BigInteger n_root_eq;//[产品]
 	public void setN_root_eq(BigInteger n_root_eq) {
         this.n_root_eq = n_root_eq;
