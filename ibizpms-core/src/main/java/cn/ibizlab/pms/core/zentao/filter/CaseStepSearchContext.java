@@ -42,6 +42,13 @@ public class CaseStepSearchContext extends QueryWrapperContext<CaseStep> {
         }
     }
 
+    private Integer n_version_eq;//[用例]
+    public void setN_version_eq(Integer n_version_eq) {
+        this.n_version_eq = n_version_eq;
+        if(!ObjectUtils.isEmpty(this.n_version_eq)){
+            this.getSearchCond().eq("`version`", n_version_eq);
+        }
+    }
     /**
 	 * 启用快速搜索
 	 */
