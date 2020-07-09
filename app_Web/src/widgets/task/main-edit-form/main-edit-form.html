@@ -41,7 +41,7 @@
 </i-col>
 <i-col v-show="detailsModel.files.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='files' :itemRules="this.rules.files" class='' :caption="$t('entities.task.mainedit_form.details.files')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.files.error" :isEmptyCaption="false" labelPos="TOP">
-    <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange($event)" :data="JSON.stringify(this.data)" name='files' :value="data.files" :disabled="detailsModel.files.disabled" :uploadparams='{objecttype:"task",objectid: "%id%"}' :exportparams='{objecttype:"task",objectid: "%id%"}'  style="overflow: auto;"></app-file-upload>
+    <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange($event)" :data="JSON.stringify(this.data)" name='files' :value="data.files" :disabled="detailsModel.files.disabled" :uploadparams='{objecttype:"task",objectid: "%id%",version:"%version%"}' :exportparams='{objecttype:"task",objectid: "%id%",version:"%version%"}'  style="overflow: auto;"></app-file-upload>
 </app-form-item>
 
 </i-col>
@@ -240,6 +240,47 @@
     codelistType='STATIC'
     placeholder='请选择...' style="">
  </dropdown-list>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.pri.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='pri' :itemRules="this.rules.pri" class='' :caption="$t('entities.task.mainedit_form.details.pri')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.pri.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+ <dropdown-list 
+    v-model="data.pri" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.pri.disabled"  
+    tag='Task__pri' 
+    codelistType='STATIC'
+    placeholder='请选择...' style="">
+ </dropdown-list>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.mailto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='mailto' :itemRules="this.rules.mailto" class='' :caption="$t('entities.task.mainedit_form.details.mailto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.mailto.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-picker  
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.mailto.disabled"
+  name='mailto' 
+  :service="service"
+  :acParams="{ }"
+  valueitem='' 
+  :value="data.mailto" 
+  editortype="dropdown" 
+  style="" 
+  @formitemvaluechange="onFormItemValueChange($event)">
+</app-picker>
 </app-form-item>
 
 </i-col>
