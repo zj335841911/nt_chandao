@@ -2,7 +2,7 @@
     <div v-if="filterFields.length > 0" class="filter-group">
         <filter-tree :datas="filterItems" :fields="filterFields">
             <template slot-scope="{ data }">
-                                <template v-if="Object.is(data.field, 'ideq')">
+                                <template v-if="Object.is(data.editor, 'ideq')">
                     <input-box 
   v-model="data.ideq"  
   @enter="onEnter($event)"  
@@ -14,7 +14,7 @@
   style="">
 </input-box>
                 </template>
-                <template v-if="Object.is(data.field, 'pri')">
+                <template v-if="Object.is(data.editor, 'pri')">
                     
  <dropdown-list 
     v-model="data.pri" 
@@ -29,7 +29,7 @@
     placeholder='请选择...' style="width:100px;">
  </dropdown-list>
                 </template>
-                <template v-if="Object.is(data.field, 'prigteq')">
+                <template v-if="Object.is(data.editor, 'prigteq')">
                     
  <dropdown-list 
     v-model="data.prigteq" 
@@ -44,7 +44,7 @@
     placeholder='请选择...' style="width:100px;">
  </dropdown-list>
                 </template>
-                <template v-if="Object.is(data.field, 'prilteq')">
+                <template v-if="Object.is(data.editor, 'prilteq')">
                     
  <dropdown-list 
     v-model="data.prilteq" 
@@ -59,7 +59,7 @@
     placeholder='请选择...' style="width:100px;">
  </dropdown-list>
                 </template>
-                <template v-if="Object.is(data.field, 'stageeq')">
+                <template v-if="Object.is(data.editor, 'stageeq')">
                     
  <dropdown-list 
     v-model="data.stageeq" 
@@ -74,7 +74,7 @@
     placeholder='请选择...' style="width:100px;">
  </dropdown-list>
                 </template>
-                <template v-if="Object.is(data.field, 'stagenoteq')">
+                <template v-if="Object.is(data.editor, 'stagenoteq')">
                     
  <dropdown-list 
     v-model="data.stagenoteq" 
@@ -89,10 +89,10 @@
     placeholder='请选择...' style="width:100px;">
  </dropdown-list>
                 </template>
-                <template v-if="Object.is(data.field, 'titlelike')">
+                <template v-if="Object.is(data.editor, 'titlelike')">
                     <input-box v-model="data.titlelike"  @enter="onEnter($event)"    :disabled="detailsModel.titlelike.disabled" type='text'  style="width:100px;"></input-box>
                 </template>
-                <template v-if="Object.is(data.field, 'statuseq')">
+                <template v-if="Object.is(data.editor, 'statuseq')">
                     
  <dropdown-list 
     v-model="data.statuseq" 
@@ -107,7 +107,7 @@
     placeholder='请选择...' style="width:100px;">
  </dropdown-list>
                 </template>
-                <template v-if="Object.is(data.field, 'keywords')">
+                <template v-if="Object.is(data.editor, 'keywords')">
                     <input-box v-model="data.keywords"  @enter="onEnter($event)"    :disabled="detailsModel.keywords.disabled" type='text'  style=""></input-box>
                 </template>
             </template>
@@ -118,16 +118,16 @@
             <el-select size="small" v-if="historyItems.length > 0" v-model="selectItem" @change="onFilterChange">
                 <el-option v-for="item in historyItems" :key="item.value" :label="item.name" :value="item.value"></el-option>
             </el-select>
-            <i-button type="primary" @click="onSearch">搜索</i-button>
-            <i-button @click="onReset">重置</i-button>
-            <Poptip ref="propip" trigger="hover" placement="top-end" title="存储自定义查询" :width="250" @on-popper-show="openPoper">
+            <i-button type="primary" @click="onSearch">{{ $t('app.searchButton.search') }}</i-button>
+            <i-button @click="onReset">{{ $t('app.searchButton.reset') }}</i-button>
+            <Poptip ref="propip" trigger="hover" placement="top-end" :title="$t('app.searchForm.custom')" :width="250" @on-popper-show="openPoper">
                 <i-button><i class="fa fa-floppy-o" aria-hidden="true"></i></i-button>
                 <template slot="content">
                     <div>
-                        <i-input v-model="saveItemName" placeholder="名称"></i-input>
+                        <i-input v-model="saveItemName" :placeholder="$t('app.searchForm.title')"></i-input>
                         <div class="save-action">
-                            <i-button @click="onCancel">取消</i-button>
-                            <i-button type="primary" @click="onOk">保存</i-button>
+                            <i-button @click="onCancel">{{ $t('app.commonWords.cancel') }}</i-button>
+                            <i-button type="primary" @click="onOk">{{ $t('app.commonWords.save') }}</i-button>
                         </div>
                     </div>
                 </template>

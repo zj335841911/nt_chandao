@@ -70,48 +70,56 @@ export class CustomSearchbarBase extends MainControlBase {
             label: '编号',
             name: 'ideq',
             prop: 'id',
+            mode: 'EQ',
             disabled: false
         },
         'pri': {
             label: '优先级',
             name: 'pri',
             prop: 'pri',
+            mode: 'EQ',
             disabled: false
         },
         'prigteq': {
             label: '优先级',
             name: 'prigteq',
             prop: 'pri',
+            mode: 'GTANDEQ',
             disabled: false
         },
         'prilteq': {
             label: '优先级',
             name: 'prilteq',
             prop: 'pri',
+            mode: 'LTANDEQ',
             disabled: false
         },
         'stageeq': {
             label: '所处阶段',
             name: 'stageeq',
             prop: 'stage',
+            mode: 'EQ',
             disabled: false
         },
         'stagenoteq': {
             label: '所处阶段',
             name: 'stagenoteq',
             prop: 'stage',
+            mode: 'NOTEQ',
             disabled: false
         },
         'titlelike': {
             label: '需求名称',
             name: 'titlelike',
             prop: 'title',
+            mode: 'LIKE',
             disabled: false
         },
         'statuseq': {
             label: '当前状态',
             name: 'statuseq',
             prop: 'status',
+            mode: 'EQ',
             disabled: false
         },
         'keywords': {
@@ -253,9 +261,9 @@ export class CustomSearchbarBase extends MainControlBase {
         datas.forEach((data: any) => {
             let item: any = {};
             if(data.field && data.mode) {
-                let field: any = this.detailsModel[data.field];
-                item[field.prop] = {};
-                item[field.prop][data.mode] = (data[data.field] == null ? '' : data[data.field]);
+                item[data.field] = {};
+                let valField: string = data.editor ? data.editor : data.field;
+                item[data.field][data.mode] = (data[valField] == null  ? '' : data[valField]);
                 result.push(item)
             } else if(Object.is(data.label, '$and')) {
                 let items: any[] = this.transformAnd(data.children);
@@ -279,9 +287,9 @@ export class CustomSearchbarBase extends MainControlBase {
         datas.forEach((data: any) => {
             let item: any = {};
             if(data.field && data.mode) {
-                let field: any = this.detailsModel[data.field];
-                item[field.prop] = {};
-                item[field.prop][data.mode] = (data[data.field] == null ? '' : data[data.field]);
+                item[data.field] = {};
+                let valField: string = data.editor ? data.editor : data.field;
+                item[data.field][data.mode] = (data[valField] == null ? '' : data[valField]);
                 result.push(item);
             } else if(Object.is(data.label, '$and')) {
                 item[data.label] = this.transformAnd(data.children);
