@@ -1,11 +1,14 @@
 package cn.ibizlab.pms.core.extensions.service;
 
+import cn.ibizlab.pms.core.zentao.filter.CaseStepSearchContext;
 import cn.ibizlab.pms.core.zentao.service.impl.CaseServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.zentao.domain.Case;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Primary;
+
+import java.math.BigInteger;
 import java.util.*;
 
 /**
@@ -30,6 +33,28 @@ public class CaseExService extends CaseServiceImpl {
     @Transactional
     public Case runCase(Case et) {
         return super.runCase(et);
+    }
+
+    /**
+     * 行为[Get]用户扩展
+     * @param key
+     * @return
+     */
+    @Override
+    @Transactional
+    public Case get(BigInteger key) {
+        Case et = getById(key);
+        if(et==null){
+            et=new Case();
+            et.setId(key);
+        }
+        else{
+            CaseStepSearchContext context = new CaseStepSearchContext();
+            context.setN_case_eq(key);
+            context.setN_version_eq(et.getVersion());
+            et.setCasestep(casestepService.searchDefault(context).getContent());
+        }
+        return et;
     }
 }
 
