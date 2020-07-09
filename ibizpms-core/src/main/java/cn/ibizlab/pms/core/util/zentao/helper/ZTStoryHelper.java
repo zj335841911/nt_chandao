@@ -543,4 +543,40 @@ final public class ZTStoryHelper {
     public static boolean projectBatchUnlinkStory(String zentaoSid, JSONObject jo, ZTResult rst) {
         return ZTProjectHelper.batchUnlinkStory(zentaoSid, jo, rst);
     }
+
+    /**
+     * releaseLinkStory 项目关联需求
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean releaseLinkStory(String zentaoSid, JSONObject jo, ZTResult rst) {
+        return ZTReleaseHelper.linkStory(zentaoSid, jo, rst);
+    }
+
+    /**
+     * releaseUnlinkStory 项目解除关联需求
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean releaseUnlinkStory(String zentaoSid, JSONObject jo, ZTResult rst) {
+        return ZTReleaseHelper.unlinkStory(zentaoSid, jo, rst);
+    }
+
+    /**
+     * releaseBatchUnlinkStory 项目批量解除关联需求
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean releaseBatchUnlinkStory(String zentaoSid, JSONObject jo, ZTResult rst) {
+        return ZTReleaseHelper.batchUnlinkStory(zentaoSid, jo, rst);
+    }
 }

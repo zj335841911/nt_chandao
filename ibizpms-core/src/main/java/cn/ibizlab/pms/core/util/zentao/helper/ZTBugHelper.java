@@ -507,4 +507,52 @@ final public class ZTBugHelper {
     public static boolean batchUnlinkBug(String zentaoSid, JSONObject jo, ZTResult rst) {
         return ZTProductPlanHelper.batchUnlinkBug(zentaoSid, jo, rst);
     }
+
+    /**
+     * releaseLinkBugbyBug 关联Bug（解决Bug）
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean releaseLinkBugbyBug(String zentaoSid, JSONObject jo, ZTResult rst) {
+        return ZTReleaseHelper.linkBugbyBug(zentaoSid, jo, rst);
+    }
+
+    /**
+     * releaseLinkBugbyLeftBug 关联Bug（遗留Bug）
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean releaseLinkBugbyLeftBug(String zentaoSid, JSONObject jo, ZTResult rst) {
+        return ZTReleaseHelper.linkBugbyLeftBug(zentaoSid, jo, rst);
+    }
+
+    /**
+     * releaseUnlinkBug 解除关联Bug
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean releaseUnlinkBug(String zentaoSid, JSONObject jo, ZTResult rst) {
+        return ZTReleaseHelper.unlinkBug(zentaoSid, jo, rst);
+    }
+
+    /**
+     * releaaseBatchUnlinkBug 批量解除关联Bug
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean releaaseBatchUnlinkBug(String zentaoSid, JSONObject jo, ZTResult rst) {
+        return ZTReleaseHelper.batchUnlinkBug(zentaoSid, jo, rst);
+    }
 }
