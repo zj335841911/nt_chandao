@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
@@ -25,13 +26,13 @@ public class IBZZTFileController {
 	private IIBZZTFileService fileService;
 
 	@PostMapping(value = "${zentao.file.uploadpath:ibizutil/ztupload}")
-	public ResponseEntity<ZTFileItem> upload(@RequestBody ZTUploadFile file){
+	public ResponseEntity<ZTFileItem> upload(@RequestParam("file") MultipartFile multipartFile, ZTUploadFile file){
 		JSONObject params = new JSONObject();
 		params.put("objecttype", file.getObjecttype());
-		params.put("objectid", file.getObjectid());
+		params.put("objectid", file.getObjectid() == null ? 0 : file.getObjectid());
 		params.put("version", file.getVersion());
-        params.put("extra", file.getExtra());
-        return ResponseEntity.ok().body(fileService.saveFile(file.getFile(), params));
+        params.put("extra", file.getExtra() == null ? "" : file.getExtra());
+        return ResponseEntity.ok().body(fileService.saveFile(multipartFile, params));
 	}
 
     @GetMapping(value = "${zentao.file.downloadpath:ibizutil/ztdownload/" + "{id}" + "}")
