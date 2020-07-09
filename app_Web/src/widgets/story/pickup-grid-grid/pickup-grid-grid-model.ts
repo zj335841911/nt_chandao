@@ -139,6 +139,10 @@ export default class PickupGridModel {
           prop:'query'
         },
         {
+          name:'filter',
+          prop:'filter'
+        },
+        {
           name:'page',
           prop:'page'
         },

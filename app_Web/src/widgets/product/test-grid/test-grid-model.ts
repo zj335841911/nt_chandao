@@ -113,6 +113,10 @@ export default class TestModel {
           prop:'query'
         },
         {
+          name:'filter',
+          prop:'filter'
+        },
+        {
           name:'page',
           prop:'page'
         },

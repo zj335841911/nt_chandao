@@ -119,6 +119,10 @@ export default class Main3Model {
           prop:'query'
         },
         {
+          name:'filter',
+          prop:'filter'
+        },
+        {
           name:'page',
           prop:'page'
         },

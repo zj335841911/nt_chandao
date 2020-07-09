@@ -132,6 +132,10 @@ export default class SubTaskNewModel {
           prop:'query'
         },
         {
+          name:'filter',
+          prop:'filter'
+        },
+        {
           name:'page',
           prop:'page'
         },

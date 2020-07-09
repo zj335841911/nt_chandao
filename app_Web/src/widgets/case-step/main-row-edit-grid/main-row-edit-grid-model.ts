@@ -84,6 +84,10 @@ export default class Main_RowEditModel {
           prop:'query'
         },
         {
+          name:'filter',
+          prop:'filter'
+        },
+        {
           name:'page',
           prop:'page'
         },
