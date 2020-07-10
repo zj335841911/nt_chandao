@@ -251,7 +251,7 @@ export default {
         "93": "三个月",
         "186": "半年",
         "365": "一年",
-        "empty": "",
+        "empty": "按时间段",
     },
     Action__type: {
         "created": "创建",

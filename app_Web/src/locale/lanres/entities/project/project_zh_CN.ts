@@ -181,6 +181,7 @@ export default {
 	},
 	main_edit_form: {
 		details: {
+			grouppanel3: "分组面板", 
 			grouppanel2: "负责人", 
 			grouppanel1: "分组面板", 
 			group1: "project基本信息", 
@@ -197,6 +198,7 @@ export default {
 			begin: "开始时间", 
 			end: "结束日期", 
 			formitemex1: "项目周期", 
+			period: "", 
 			days: "可用工作日", 
 			type: "项目类型", 
 			team: "团队名称", 
@@ -259,6 +261,7 @@ export default {
 	},
 	main_form: {
 		details: {
+			grouppanel2: "分组面板", 
 			grouppanel1: "分组面板", 
 			group1: "project基本信息", 
 			formpage1: "基本信息", 

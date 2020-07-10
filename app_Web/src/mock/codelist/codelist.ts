@@ -1696,7 +1696,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
     },
     {
         srfkey: "Zt__delta",
-        emptytext: "未定义",
+        emptytext: "按时间段",
         "codelisttype":"static",
         items: [
             {
