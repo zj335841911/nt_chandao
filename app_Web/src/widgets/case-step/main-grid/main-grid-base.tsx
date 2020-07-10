@@ -87,9 +87,6 @@ export class MainGridBase extends GridControllerBase {
             langtag: 'entities.casestep.main_grid.columns.id',
             show: false,
             util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('id', val);
-            }
         },
         {
             name: 'desc',
@@ -97,9 +94,6 @@ export class MainGridBase extends GridControllerBase {
             langtag: 'entities.casestep.main_grid.columns.desc',
             show: true,
             util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('desc', val);
-            }
         },
         {
             name: 'type',
@@ -107,10 +101,7 @@ export class MainGridBase extends GridControllerBase {
             langtag: 'entities.casestep.main_grid.columns.type',
             show: false,
             util: 'PX',
-            codelistId: 'Casestep__type',
-            render: (val: any) => {
-                return this.renderColValue('type', val);
-            }
+            codelistId: 'Casestep__type'
         },
         {
             name: 'expect',
@@ -118,9 +109,6 @@ export class MainGridBase extends GridControllerBase {
             langtag: 'entities.casestep.main_grid.columns.expect',
             show: true,
             util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('expect', val);
-            }
         },
     ]
 

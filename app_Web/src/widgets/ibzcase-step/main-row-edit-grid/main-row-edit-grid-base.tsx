@@ -87,9 +87,6 @@ export class Main_RowEditGridBase extends GridControllerBase {
             langtag: 'entities.ibzcasestep.main_rowedit_grid.columns.desc',
             show: true,
             util: 'PX',
-            render: (val: any) => {
-                return this.renderColValue('desc', val);
-            }
         },
         {
             name: 'type',
@@ -97,10 +94,7 @@ export class Main_RowEditGridBase extends GridControllerBase {
             langtag: 'entities.ibzcasestep.main_rowedit_grid.columns.type',
             show: false,
             util: 'PX',
-            codelistId: 'Casestep__type',
-            render: (val: any) => {
-                return this.renderColValue('type', val);
-            }
+            codelistId: 'Casestep__type'
         },
         {
             name: 'expect',
@@ -108,9 +102,6 @@ export class Main_RowEditGridBase extends GridControllerBase {
             langtag: 'entities.ibzcasestep.main_rowedit_grid.columns.expect',
             show: true,
             util: 'STAR',
-            render: (val: any) => {
-                return this.renderColValue('expect', val);
-            }
         },
     ]
 
