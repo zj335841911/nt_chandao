@@ -41,6 +41,7 @@ export default {
     plans: "关联产品产品计划",
     srfarray: "关联数据数组",
     comment: "备注",
+    period: "时间段",
   },
 	views: {
 		tasktreeexpview: {
@@ -274,6 +275,7 @@ export default {
 			begin: "开始时间", 
 			end: "结束日期", 
 			formitemex1: "项目周期", 
+			period: "", 
 			days: "可用工作日", 
 			team: "团队名称", 
 			type: "项目类型", 

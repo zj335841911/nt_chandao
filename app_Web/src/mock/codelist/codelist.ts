@@ -1695,6 +1695,83 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
+        srfkey: "Zt__delta",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "7",
+                label: "一星期",
+                text: "一星期",
+                "data":"",
+                "codename":"Item_7",
+                value: "7",
+                
+                disabled: false,
+            },
+            {
+                id: "14",
+                label: "两星期",
+                text: "两星期",
+                "data":"",
+                "codename":"Item_14",
+                value: "14",
+                
+                disabled: false,
+            },
+            {
+                id: "31",
+                label: "一个月",
+                text: "一个月",
+                "data":"",
+                "codename":"Item_31",
+                value: "31",
+                
+                disabled: false,
+            },
+            {
+                id: "62",
+                label: "两个月",
+                text: "两个月",
+                "data":"",
+                "codename":"Item_62",
+                value: "62",
+                
+                disabled: false,
+            },
+            {
+                id: "93",
+                label: "三个月",
+                text: "三个月",
+                "data":"",
+                "codename":"Item_93",
+                value: "93",
+                
+                disabled: false,
+            },
+            {
+                id: "186",
+                label: "半年",
+                text: "半年",
+                "data":"",
+                "codename":"Item_186",
+                value: "186",
+                
+                disabled: false,
+            },
+            {
+                id: "365",
+                label: "一年",
+                text: "一年",
+                "data":"",
+                "codename":"Item_365",
+                value: "365",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Action__type",
         emptytext: "未定义",
         "codelisttype":"static",

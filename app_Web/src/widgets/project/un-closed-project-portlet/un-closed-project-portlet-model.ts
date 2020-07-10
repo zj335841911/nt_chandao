@@ -135,6 +135,9 @@ export default class UnClosedProjectModel {
       {
         name: 'comment',
       },
+      {
+        name: 'period',
+      },
     ]
   }
 

@@ -90,6 +90,13 @@ public class ProjectSearchContext extends QueryWrapperContext<Project> {
             this.getSearchCond().eq("parent", n_parent_eq);
         }
     }
+	private String n_period_eq;//[时间段]
+	public void setN_period_eq(String n_period_eq) {
+        this.n_period_eq = n_period_eq;
+        if(!ObjectUtils.isEmpty(this.n_period_eq)){
+            this.getSearchCond().eq("period", n_period_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

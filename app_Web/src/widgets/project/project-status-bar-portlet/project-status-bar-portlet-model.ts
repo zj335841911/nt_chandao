@@ -135,6 +135,9 @@ export default class ProjectStatusBarModel {
       {
         name: 'comment',
       },
+      {
+        name: 'period',
+      },
     ]
   }
 

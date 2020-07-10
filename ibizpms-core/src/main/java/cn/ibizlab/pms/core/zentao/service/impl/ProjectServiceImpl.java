@@ -94,6 +94,10 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IProjectUpdateOrder__MSDenyLogic updateorder__msdenyLogic;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IProjectUpdateProjectCycle__MSDenyLogic updateprojectcycle__msdenyLogic;
+
     protected int batchSize = 500;
 
     @Override
@@ -308,6 +312,13 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
             et = this.get(rst.getEtId());
         }
 	    return et;
+    }
+
+    @Override
+    @Transactional
+    public Project updateProjectCycle(Project et) {
+        //自定义代码
+        return et;
     }
 
 

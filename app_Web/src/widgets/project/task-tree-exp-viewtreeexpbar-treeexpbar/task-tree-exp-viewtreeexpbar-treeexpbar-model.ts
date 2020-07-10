@@ -135,6 +135,9 @@ export default class TaskTreeExpViewtreeexpbarModel {
       {
         name: 'comment',
       },
+      {
+        name: 'period',
+      },
     ]
   }
 

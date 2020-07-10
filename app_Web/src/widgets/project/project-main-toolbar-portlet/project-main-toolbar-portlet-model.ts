@@ -135,6 +135,9 @@ export default class ProjectMainToolbarModel {
       {
         name: 'comment',
       },
+      {
+        name: 'period',
+      },
     ]
   }
 
