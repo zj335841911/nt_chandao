@@ -139,6 +139,37 @@ export class EditFormControlBase extends FormControlBase {
                 }
             }
         }, 'update', this.appDeName.toUpperCase()));
+        this.fillDetailModels();
+    }
+
+    /**
+     * 填充表单模型
+     *
+     * @protected
+     * @memberof EditFormControlBase
+     */
+    protected fillDetailModels(): void {
+        for (const key in this.detailsModel) {
+            if (this.detailsModel.hasOwnProperty(key)) {
+                const item = this.detailsModel[key];
+                if (item.detailType === 'GROUPPANEL') {
+                    if (item.opts.anchorPoints) {
+                        item.opts.anchorPoints.forEach((str: string) => {
+                            if (this.detailsModel[str]) {
+                                item.anchorPoints[str] = this.detailsModel[str];
+                            }
+                        });
+                    }
+                    if (item.opts.controlledItems) {
+                        item.opts.controlledItems.forEach((str: string) => {
+                            if (this.detailsModel[str]) {
+                                item.controlledItems[str] = this.detailsModel[str];
+                            }
+                        });
+                    }
+                }
+            }
+        }
     }
 
     /**
