@@ -32,6 +32,11 @@ export default class Main_EditRowModel {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'username',
+          prop: 'username',
+          dataType: 'TEXT',
+        },
+        {
           name: 'days',
           prop: 'days',
           dataType: 'INT',
@@ -47,13 +52,13 @@ export default class Main_EditRowModel {
           dataType: 'FLOAT',
         },
         {
-          name: 'role',
-          prop: 'role',
+          name: 'account',
+          prop: 'account',
           dataType: 'TEXT',
         },
         {
-          name: 'account',
-          prop: 'account',
+          name: 'role',
+          prop: 'role',
           dataType: 'TEXT',
         },
         {
