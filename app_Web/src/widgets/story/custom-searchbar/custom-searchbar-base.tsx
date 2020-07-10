@@ -206,7 +206,7 @@ export class CustomSearchbarBase extends MainControlBase {
         let data: any = {};
         if(this.filterFields.length > 0) {
             let filter: any = this.getFilter();
-            Object.assign(data, { filter: filter ? JSON.stringify(filter) : null })
+            Object.assign(data, { filter: filter ? filter : null })
         }
         return data;
     }

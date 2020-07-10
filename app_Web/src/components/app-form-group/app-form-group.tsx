@@ -281,7 +281,7 @@ export default class AppFormGroup extends Vue {
         return <card bordered={false} dis-hover={true} class={this.classes}>
             <p slot='title'>
                 <span class="arrow-forward">
-                {this.titleBarCloseMode !== 0 ? <icon type={this.collapseContant ? 'ivu-icon ivu-icon-ios-arrow-back' : 'ivu-icon ivu-icon-ios-arrow-down'} on-click={() => this.clickCollapse()}></icon> : null}
+                    {this.titleBarCloseMode !== 0 ? <icon type={this.collapseContant ? 'ivu-icon ivu-icon-ios-arrow-forward' : 'ivu-icon ivu-icon-ios-arrow-down'} on-click={() => this.clickCollapse()}></icon> : null}
                 </span>
                 <span class={this.titleClass}>{this.caption}</span>
             </p>

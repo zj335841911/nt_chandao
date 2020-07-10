@@ -87,6 +87,7 @@ export default class DataPanelEngine extends ViewEngine {
             if (Object.is(this.dataPanel.controlType, ctrl.type.Form)) {
                 if (data && data.data) {
                     this.dataPanel.fillForm(data.data);
+                    this.dataPanel.formLogic({ name: '', newVal: null, oldVal: null });
                 }
             } else if (Object.is(this.dataPanel.controlType, ctrl.type.Panel)) {
                 if (data && data.data) {
