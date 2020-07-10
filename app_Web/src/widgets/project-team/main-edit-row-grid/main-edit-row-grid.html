@@ -34,21 +34,25 @@
                         <template v-if="actualIsOpenEdit">
                             <app-form-item :error="gridItemsModel[$index][column.property].error">
                                 
-             <dropdown-list 
-              v-model="row[column.property]" 
-              :disabled="row.srfuf === 1 ? (1 & 2) !== 2 : (1 & 1) !== 1" 
-              :data="row" 
+            <app-picker  
+              :formState="viewState" 
+              :data="row"
               :context="context"
-              :viewparams="viewparams" 
+              :viewparams="viewparams"
               :localContext ='{ }' 
               :localParam ='{ }' 
-              tag='UserRealName' 
-              codelistType='DYNAMIC'
-              placeholder='请选择...' 
+              :disabled="row.srfuf === 1 ? (1 & 2) !== 2 : (1 & 1) !== 1" 
+              name='account' 
+              deMajorField='realname'
+              deKeyField='user'
+              :service="service"
+              :acParams="{ serviceName: 'UserService', interfaceName: 'FetchDefault'}"
+              valueitem='' 
+              :value="row[column.property]" 
+              editortype="dropdown" 
               style="" 
-              @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
-             </dropdown-list>
-            
+              @formitemvaluechange="($event)=>{onGridItemValueChange(row,$event,$index)}">
+            </app-picker>
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
