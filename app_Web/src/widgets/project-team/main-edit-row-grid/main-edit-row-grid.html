@@ -24,7 +24,7 @@
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('username')">
-                <el-table-column show-overflow-tooltip :prop="'username'" :label="$t('entities.projectteam.main_editrow_grid.columns.username')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'username'" :label="$t('entities.projectteam.main_editrow_grid.columns.username')" :width="400"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.projectteam.main_editrow_grid.columns.username')}}
