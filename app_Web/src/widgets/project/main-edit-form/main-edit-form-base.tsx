@@ -68,6 +68,7 @@ export class Main_EditEditFormBase extends EditFormControlBase {
         begin: null,
         end: null,
         formitemex1: null,
+        period: null,
         days: null,
         type: null,
         team: null,
@@ -111,6 +112,8 @@ export class Main_EditEditFormBase extends EditFormControlBase {
      * @memberof Main_EditEditFormBase
      */
     public detailsModel: any = {
+        grouppanel3: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.project.main_edit_form', extractMode: 'ITEM', details: [] } }),
+
         grouppanel2: new FormGroupPanelModel({ caption: '负责人', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.project.main_edit_form', extractMode: 'ITEM', details: [] } }),
 
         grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.project.main_edit_form', extractMode: 'ITEM', details: [] } }),
@@ -142,6 +145,8 @@ export class Main_EditEditFormBase extends EditFormControlBase {
         end: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         formitemex1: new FormItemModel({ caption: '项目周期', detailType: 'FORMITEM', name: 'formitemex1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        period: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'period', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         days: new FormItemModel({ caption: '可用工作日', detailType: 'FORMITEM', name: 'days', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -176,4 +181,52 @@ export class Main_EditEditFormBase extends EditFormControlBase {
         id: new FormItemModel({ caption: '项目编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
     };
+
+    /**
+     * 表单逻辑
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @memberof Main_EditEditFormBase
+     */
+    public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if (Object.is(name, 'period')) {
+            const details: string[] = ['end', 'days'];
+            this.updateFormItems('UpdateProjectCycle', this.data, details, true);
+        }
+    }
 }

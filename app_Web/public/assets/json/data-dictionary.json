@@ -1688,7 +1688,7 @@
     }, 
     {
         "srfkey": "Zt__delta",
-        "emptytext": "未定义",
+        "emptytext": "按时间段",
         "codelisttype":"static",
         "items": [
              {

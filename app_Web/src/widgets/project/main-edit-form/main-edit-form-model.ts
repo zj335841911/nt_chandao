@@ -74,6 +74,11 @@ export default class Main_EditModel {
         name: 'formitemex1',
       },
       {
+        name: 'period',
+        prop: 'period',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'days',
         prop: 'days',
         dataType: 'INT',
