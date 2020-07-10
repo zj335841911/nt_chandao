@@ -686,6 +686,35 @@ export class TaskKanBanKanbanBase extends MainControlBase {
         }
     }
 
+    public getUpdateView(group: any) {
+        switch() {
+            case 'refview.getName()?substring(9)': 
+                return {
+                    
+                };
+            case 'refview.getName()?substring(9)': 
+                return {
+                    
+                };
+            case 'refview.getName()?substring(9)': 
+                return {
+                    
+                };
+            case 'refview.getName()?substring(9)': 
+                return {
+                    
+                };
+            case 'refview.getName()?substring(9)': 
+                return {
+                    
+                };
+            case 'refview.getName()?substring(9)': 
+                return {
+                    
+                };
+        }
+    }
+
     /**
      * 获取头部样式
      *
