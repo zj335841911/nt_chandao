@@ -98,9 +98,9 @@ export class Main_EditRowGridBase extends GridControllerBase {
      */
     public allColumns: any[] = [
         {
-            name: 'account',
+            name: 'username',
             label: '用户',
-            langtag: 'entities.projectteam.main_editrow_grid.columns.account',
+            langtag: 'entities.projectteam.main_editrow_grid.columns.username',
             show: true,
             util: 'PX'
         },
@@ -143,10 +143,11 @@ export class Main_EditRowGridBase extends GridControllerBase {
     public getGridRowModel(){
         return {
           limited: new FormItemModel(),
+          username: new FormItemModel(),
           days: new FormItemModel(),
           hours: new FormItemModel(),
-          role: new FormItemModel(),
           account: new FormItemModel(),
+          role: new FormItemModel(),
           srfkey: new FormItemModel(),
         }
     }
@@ -162,6 +163,10 @@ export class Main_EditRowGridBase extends GridControllerBase {
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '受限用户 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '受限用户 值不能为空', trigger: 'blur' },
         ],
+        username: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用户 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用户 值不能为空', trigger: 'blur' },
+        ],
         days: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '可用工日 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '可用工日 值不能为空', trigger: 'blur' },
@@ -170,13 +175,13 @@ export class Main_EditRowGridBase extends GridControllerBase {
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '可用工时/天 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '可用工时/天 值不能为空', trigger: 'blur' },
         ],
-        role: [
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '角色 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '角色 值不能为空', trigger: 'blur' },
-        ],
         account: [
             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用户 值不能为空', trigger: 'change' },
             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用户 值不能为空', trigger: 'blur' },
+        ],
+        role: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '角色 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '角色 值不能为空', trigger: 'blur' },
         ],
         srfkey: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
@@ -191,7 +196,7 @@ export class Main_EditRowGridBase extends GridControllerBase {
      * @memberof Main_EditRowBase
      */
     public hasRowEdit: any = {
-        'account':true,
+        'username':true,
         'role':true,
         'days':true,
         'hours':true,
@@ -221,14 +226,6 @@ export class Main_EditRowGridBase extends GridControllerBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
-            {
-                name: 'account',
-                srfkey: 'UserRealName',
-                codelistType : 'DYNAMIC',
-                textSeparator: ',',
-                renderMode: 'string',
-                valueSeparator: ",",
-            },
             {
                 name: 'limited',
                 srfkey: 'YesNo3',

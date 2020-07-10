@@ -14,6 +14,7 @@ export default {
     type: "团队类型",
     total: "总计可用",
     root: "项目编号",
+    username: "用户",
   },
 	views: {
 		maingridview_editrow: {
@@ -42,7 +43,7 @@ export default {
 	},
 	main_editrow_grid: {
 		columns: {
-			account: "用户",
+			username: "用户",
 			role: "角色",
 			days: "可用工日",
 			hours: "可用工时/天",
