@@ -690,27 +690,23 @@ export class TaskKanBanKanbanBase extends MainControlBase {
         switch(group) {
             case 'CANCEL': 
                 return {
-
+                    viewname: 'task-cancel-task-view'
                 };
             case 'PAUSE': 
                 return {
-
+                    viewname: 'task-pause-task-view'
                 };
             case 'DONE': 
                 return {
-
+                    viewname: 'task-done-task-view'
                 };
             case 'CLOSED': 
                 return {
-
+                    viewname: 'task-close-task-view'
                 };
             case 'DOING': 
                 return {
-
-                };
-            case 'MSTAG:WAIT': 
-                return {
-
+                    viewname: 'task-open-task-view'
                 };
         }
     }

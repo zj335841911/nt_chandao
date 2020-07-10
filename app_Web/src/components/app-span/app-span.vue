@@ -152,7 +152,11 @@ export default class AppSpan extends Vue {
               this.text += index === 0 ? item.srfmajortext : ","+item.srfmajortext;
             });
         }else{
-            this.text = this.value;
+            if (isExistAndNotEmpty(this.value)) {
+                this.text = this.value;
+            } else {
+                this.text = '---';
+            }
         }
     }
     

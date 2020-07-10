@@ -33,6 +33,7 @@ import PropertyLayout from './components/property-layout/property-layout.vue'
 import AppRangeEditor from './components/app-range-editor/app-range-editor.vue'
 import AppExportExcel from './components/app-export-excel/app-export-excel.vue'
 import AppFormGroup from './components/app-form-group/app-form-group'
+import AppFormGroupDataPanel from './components/app-form-group-data-panel/app-form-group-data-panel'
 import AppFormItem from './components/app-form-item/app-form-item.vue'
 import AppPicker from './components/app-picker/app-picker.vue'
 import AppMpicker from './components/app-mpicker/app-mpicker.vue'
@@ -108,6 +109,7 @@ export const AppComponents = {
         v.component('context-menu-container', ContextMenuContainer);
         v.component('app-checkbox-list',AppCheckboxList);
         v.component('app-radio-group',AppRadioGroup);
+        v.component('app-radio-group-data-panel',AppFormGroupDataPanel);
         v.component('app-embed-picker', AppEmbedPicker);
         v.component('app-tree-picker', AppTreePicker);
         v.component('app-rich-text-editor', () => import('./components/app-rich-text-editor/app-rich-text-editor.vue'));

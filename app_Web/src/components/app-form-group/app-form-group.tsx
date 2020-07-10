@@ -26,7 +26,8 @@ export default class AppFormGroup extends Vue {
      * @type {string}
      * @memberof AppFormGroup
      */
-    @Prop() public caption?: string;
+    @Prop()
+    public caption?: string;
 
     /**
      * 内置界面样式
@@ -34,7 +35,8 @@ export default class AppFormGroup extends Vue {
      * @type {string}
      * @memberof AppFormGroup
      */
-    @Prop({ default: 'DEFAULT' }) public uiStyle!: string;
+    @Prop({ default: 'DEFAULT' })
+    public uiStyle!: string;
 
     /**
      * 布局模式
@@ -42,7 +44,8 @@ export default class AppFormGroup extends Vue {
      * @type {string}
      * @memberof AppFormGroup
      */
-    @Prop() public layoutType?: string;
+    @Prop()
+    public layoutType?: string;
 
     /**
      * 标题样式
@@ -50,7 +53,8 @@ export default class AppFormGroup extends Vue {
      * @type {string}
      * @memberof AppFormGroup
      */
-    @Prop() public titleStyle?: string;
+    @Prop()
+    public titleStyle?: string;
 
     /**
      * 分组图标
@@ -58,7 +62,8 @@ export default class AppFormGroup extends Vue {
      * @type {string}
      * @memberof AppFormGroup
      */
-    @Prop() public iconInfo?: any;
+    @Prop()
+    public iconInfo?: any;
 
     /**
      * 是否显示标题
@@ -66,7 +71,8 @@ export default class AppFormGroup extends Vue {
      * @type {boolean}
      * @memberof AppFormGroup
      */
-    @Prop({ default: true }) public isShowCaption!: boolean;
+    @Prop({ default: true })
+    public isShowCaption!: boolean;
 
     /**
      * 信息面板模式
@@ -74,7 +80,8 @@ export default class AppFormGroup extends Vue {
      * @type {boolean}
      * @memberof AppFormGroup
      */
-    @Prop({ default: false }) public isInfoGroupMode!: boolean;
+    @Prop({ default: false })
+    public isInfoGroupMode!: boolean;
 
     /**
      * 界面行为组
@@ -82,7 +89,8 @@ export default class AppFormGroup extends Vue {
      * @type {*}
      * @memberof AppFormGroup
      */
-    @Prop() public uiActionGroup?: any;
+    @Prop()
+    public uiActionGroup?: any;
 
     /**
      * 标题栏关闭模式
@@ -93,7 +101,8 @@ export default class AppFormGroup extends Vue {
      * @type {(number | 0 | 1 | 2)} 
      * @memberof AppFormGroup
      */
-    @Prop({ default: 0 }) public titleBarCloseMode!: number | 0 | 1 | 2;
+    @Prop({ default: 0 })
+    public titleBarCloseMode!: number | 0 | 1 | 2;
 
     /**
      * 收缩内容
@@ -229,9 +238,8 @@ export default class AppFormGroup extends Vue {
      */
     protected renderActionGroup(): any {
         if (this.uiActionGroup) {
-            let content: any;
             if (this.uiActionGroup.extractMode && Object.is(this.uiActionGroup.extractMode, 'ITEMS')) {
-                content = <dropdown transfer={true} trigger='click'>
+                return <dropdown transfer={true} trigger='click'>
                     <a href='javascript:void(0)'>
                         {this.uiActionGroup.caption}
                     </a>
@@ -247,7 +255,7 @@ export default class AppFormGroup extends Vue {
                     </dropdown-menu>
                 </dropdown >;
             } else {
-                content = <span class='item-extract-mode'>
+                return <span class='item-extract-mode'>
                     {this.uiActionGroup.details.map((detail: any, i: number) => {
                         return <span key={i} class='item' on-click={(e: any) => this.doUIAction(e, detail)}>
                             {this.getIcon(detail)}
@@ -256,7 +264,6 @@ export default class AppFormGroup extends Vue {
                     })}
                 </span >;
             }
-            return <a slot='extra'>{content}</a>;
         }
     }
 
@@ -273,10 +280,15 @@ export default class AppFormGroup extends Vue {
         }
         return <card bordered={false} dis-hover={true} class={this.classes}>
             <p slot='title'>
-                {this.titleBarCloseMode !== 0 ? <icon type={this.collapseContant ? 'ios-arrow-dropright-circle' : 'ios-arrow-dropdown-circle'} on-click={() => this.clickCollapse()}></icon> : null}
+                <span class="arrow-forward">
+                {this.titleBarCloseMode !== 0 ? <icon type={this.collapseContant ? 'ivu-icon ivu-icon-ios-arrow-back' : 'ivu-icon ivu-icon-ios-arrow-down'} on-click={() => this.clickCollapse()}></icon> : null}
+                </span>
                 <span class={this.titleClass}>{this.caption}</span>
             </p>
-            {this.renderActionGroup()}
+            <template slot="extra">
+                <span class="ui-actions"><a>{this.renderActionGroup()}</a></span>
+                {this.$slots.dataInfoPanel}
+            </template>
             {Object.is(this.layoutType, 'FLEX') ? this.$slots.default : <row gutter={10}>{this.$slots.default}</row>}
             <div class="show-more" v-show={this.model.showMoreMode === 2}>
                 <i-button on-click={() => this.model.changeShowMore()} size="small">
