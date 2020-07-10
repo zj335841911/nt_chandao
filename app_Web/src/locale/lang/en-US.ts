@@ -123,6 +123,12 @@ export default {
             },
         },
     },
+    form: {
+        group: {
+            show_more: "Show More",
+            hidden_more: "Hide More"
+        }
+    },
     entities: {
         productplan: productplan_en_US,
         projectproduct: projectproduct_en_US,

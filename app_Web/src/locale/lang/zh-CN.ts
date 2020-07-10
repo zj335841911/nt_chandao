@@ -123,6 +123,12 @@ export default {
             },
         },
     },
+    form: {
+        group: {
+            show_more: "显示更多",
+            hidden_more: "隐藏更多"
+        }
+    },
     entities: {
         productplan: productplan_zh_CN,
         projectproduct: projectproduct_zh_CN,
