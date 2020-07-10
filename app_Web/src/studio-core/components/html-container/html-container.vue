@@ -53,5 +53,9 @@ export default class HtmlContainer extends Vue {
     .html-container {
         height: 100%;
         width: 100%;
+
+        img {
+            width: 100%;
+        }
     }
 </style>

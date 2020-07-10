@@ -681,24 +681,8 @@ export class TaskKanBanKanbanBase extends MainControlBase {
     public onDragChange(evt: any, name: string) {
         if(evt && evt.added && evt.added.element) {
             let item: any = JSON.parse(JSON.stringify(evt.added.element));
-            if(this.getUpdateView(name)) {
-                const view: any = { ...this.getUpdateView(name) };
-                const _context: any = JSON.parse(JSON.stringify(this.context));
-                const _param: any = JSON.parse(JSON.stringify(this.viewparams));
-                Object.assign(_context, { srfkey: item.srfkey });
-                let container: Subject<any>;
-                if (view.placement && !Object.is(view.placement, '') && Object.is(view.placement, 'DRAWER')) {
-                    container = this.$appdrawer.openDrawer(view, _context, _param);
-                } else {
-                    container = this.$appmodal.openModal(view, _context, _param);
-                }
-                container.subscribe((result: any) => {
-                    console.log(result);
-                });
-            } else {
                 item[this.groupField] = name;
                 this.updateData(item);
-            }
         }
     }
 
@@ -707,23 +691,43 @@ export class TaskKanBanKanbanBase extends MainControlBase {
             case 'cancel': 
                 return {
                     viewname: 'task-cancel-task-view',
-title: $t('entities.task.views.canceltaskview.title'),width: 800,height: 600,placement:'POPUPMODAL'                };
+                    title: this.$t('entities.task.views.canceltaskview.title'),
+                    width: 800,
+                    height: 600,
+                    placement:'POPUPMODAL'
+                };
             case 'pause': 
                 return {
                     viewname: 'task-pause-task-view',
-title: $t('entities.task.views.pausetaskview.title'),width: 800,height: 600,placement:'POPUPMODAL'                };
+                    title: this.$t('entities.task.views.pausetaskview.title'),
+                    width: 800,
+                    height: 600,
+                    placement:'POPUPMODAL'
+                };
             case 'done': 
                 return {
                     viewname: 'task-done-task-view',
-title: $t('entities.task.views.donetaskview.title'),width: 800,height: 600,placement:'POPUPMODAL'                };
+                    title: this.$t('entities.task.views.donetaskview.title'),
+                    width: 800,
+                    height: 600,
+                    placement:'POPUPMODAL'
+                };
             case 'closed': 
                 return {
                     viewname: 'task-close-task-view',
-title: $t('entities.task.views.closetaskview.title'),width: 800,height: 600,placement:'POPUPMODAL'                };
+                    title: this.$t('entities.task.views.closetaskview.title'),
+                    width: 800,
+                    height: 600,
+                    placement:'POPUPMODAL'
+                };
             case 'doing': 
                 return {
                     viewname: 'task-open-task-view',
-title: $t('entities.task.views.opentaskview.title'),width: 800,height: 600,placement:'POPUPMODAL'                };
+                    title: this.$t('entities.task.views.opentaskview.title'),
+                    width: 800,
+                    height: 600,
+                    placement:'POPUPMODAL'
+                };
         }
     }
 
