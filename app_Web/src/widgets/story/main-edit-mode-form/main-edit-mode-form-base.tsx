@@ -213,10 +213,6 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
      * @memberof Main_EditModeEditFormBase
      */
     public rules: any = {
-        title: [
-            { required: true, type: 'string', message: '需求名称 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '需求名称 值不能为空', trigger: 'blur' },
-        ],
     }
 
     /**
