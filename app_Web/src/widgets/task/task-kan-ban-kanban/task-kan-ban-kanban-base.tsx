@@ -687,30 +687,30 @@ export class TaskKanBanKanbanBase extends MainControlBase {
     }
 
     public getUpdateView(group: any) {
-        switch() {
-            case 'refview.getName()?substring(9)': 
+        switch(group) {
+            case 'CANCEL': 
                 return {
-                    
+
                 };
-            case 'refview.getName()?substring(9)': 
+            case 'PAUSE': 
                 return {
-                    
+
                 };
-            case 'refview.getName()?substring(9)': 
+            case 'DONE': 
                 return {
-                    
+
                 };
-            case 'refview.getName()?substring(9)': 
+            case 'CLOSED': 
                 return {
-                    
+
                 };
-            case 'refview.getName()?substring(9)': 
+            case 'DOING': 
                 return {
-                    
+
                 };
-            case 'refview.getName()?substring(9)': 
+            case 'MSTAG:WAIT': 
                 return {
-                    
+
                 };
         }
     }
