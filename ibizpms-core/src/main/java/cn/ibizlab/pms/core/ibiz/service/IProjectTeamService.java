@@ -37,6 +37,7 @@ public interface IProjectTeamService extends IService<ProjectTeam>{
     boolean save(ProjectTeam et) ;
     void saveBatch(List<ProjectTeam> list) ;
     Page<ProjectTeam> searchDefault(ProjectTeamSearchContext context) ;
+    Page<ProjectTeam> searchRowEditDefault(ProjectTeamSearchContext context) ;
     List<ProjectTeam> selectByRoot(BigInteger id) ;
     void removeByRoot(BigInteger id) ;
     /**

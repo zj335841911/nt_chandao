@@ -20,6 +20,7 @@ import com.alibaba.fastjson.JSONObject;
 public interface ProjectTeamMapper extends BaseMapper<ProjectTeam>{
 
     Page<ProjectTeam> searchDefault(IPage page, @Param("srf") ProjectTeamSearchContext context, @Param("ew") Wrapper<ProjectTeam> wrapper) ;
+    Page<ProjectTeam> searchRowEditDefault(IPage page, @Param("srf") ProjectTeamSearchContext context, @Param("ew") Wrapper<ProjectTeam> wrapper) ;
     @Override
     ProjectTeam selectById(Serializable id);
     @Override

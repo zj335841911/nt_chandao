@@ -314,13 +314,6 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
 	    return et;
     }
 
-    @Override
-    @Transactional
-    public Project updateProjectCycle(Project et) {
-        //自定义代码
-        return et;
-    }
-
 
 	@Override
     public List<Project> selectByParent(BigInteger id) {

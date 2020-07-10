@@ -35,10 +35,24 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据集合[RowEditDefault]-->
+	 <select id="searchRowEditDefault"  parameterType="cn.ibizlab.pms.core.ibiz.filter.ProjectTeamSearchContext"  resultMap="ProjectTeamResultMap">
+         select t1.* from (
+                <include refid="RowEditDefault" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
 		<![CDATA[ SELECT t1.`ACCOUNT`, t1.`CONSUMED`, t1.`DAYS`, t1.`ESTIMATE`, t1.`HOURS`, t1.`ID`, t1.`JOIN`, t1.`LEFT`, t1.`LIMITED`, t1.`ORDER`, t1.`ROLE`, t1.`ROOT`, (t1.`DAYS` * t1.`HOURS`) AS `TOTAL`, t1.`TYPE`, t1.account AS `USERNAME` FROM `zt_team` t1  
 					 WHERE 	( t1.`TYPE` = 'project' )
+			]]>
+    </sql>
+    <!--数据查询[RowEditDefault]-->
+    <sql id="RowEditDefault" databaseId="mysql">
+		<![CDATA[ 
 			]]>
     </sql>
     <!--数据查询[View]-->
