@@ -47,11 +47,6 @@ export default class Main_EditRowModel {
           dataType: 'FLOAT',
         },
         {
-          name: 'account_text',
-          prop: 'account',
-          dataType: 'TEXT',
-        },
-        {
           name: 'role',
           prop: 'role',
           dataType: 'TEXT',

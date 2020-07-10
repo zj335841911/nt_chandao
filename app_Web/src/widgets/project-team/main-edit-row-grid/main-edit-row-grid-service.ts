@@ -2,6 +2,7 @@ import { Http,Util,Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import ProjectTeamService from '@/service/project-team/project-team-service';
 import Main_EditRowModel from './main-edit-row-grid-model';
+import UserService from '@/service/user/user-service';
 
 
 /**
@@ -43,6 +44,14 @@ export default class Main_EditRowService extends ControlService {
 
 
     /**
+     * 用户服务对象
+     *
+     * @type {UserService}
+     * @memberof Main_EditRowService
+     */
+    public userService: UserService = new UserService();
+
+    /**
      * 处理数据
      *
      * @public
@@ -81,6 +90,9 @@ export default class Main_EditRowService extends ControlService {
      */
     @Errorlog
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
+        if (Object.is(serviceName, 'UserService') && Object.is(interfaceName, 'FetchDefault')) {
+            return this.doItems(this.userService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'user');
+        }
 
         return Promise.reject([])
     }
