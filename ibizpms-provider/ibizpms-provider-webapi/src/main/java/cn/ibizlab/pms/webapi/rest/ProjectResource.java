@@ -246,18 +246,6 @@ public class ProjectResource {
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-UpdateProjectCycle-all')")
-    @ApiOperation(value = "更新项目周期及可用工作日", tags = {"项目" },  notes = "更新项目周期及可用工作日")
-	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/updateprojectcycle")
-    @Transactional
-    public ResponseEntity<ProjectDTO> updateProjectCycle(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectDTO projectdto) {
-        Project domain = projectMapping.toDomain(projectdto);
-        domain.setId(project_id);
-        domain = projectService.updateProjectCycle(domain);
-        projectdto = projectMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(projectdto);
-    }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-searchCurProduct-all')")
 	@ApiOperation(value = "获取当前项目", tags = {"项目" } ,notes = "获取当前项目")
     @RequestMapping(method= RequestMethod.GET , value="/projects/fetchcurproduct")
