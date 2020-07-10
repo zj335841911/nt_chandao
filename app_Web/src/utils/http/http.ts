@@ -46,7 +46,7 @@ export class Http {
         }
         params = this.handleRequestData(params);
         try {
-            const response = await axios({ method: 'post', url: url, data: { ...params }, headers: { 'Content-Type': 'application/json;charset=UTF-8', 'Accept': 'application/json' } });
+            const response = await axios({ method: 'post', url: url, data: params, headers: { 'Content-Type': 'application/json;charset=UTF-8', 'Accept': 'application/json' } });
             this.doResponseResult(response, serialNumber);
             return response;
         } catch (response) {
