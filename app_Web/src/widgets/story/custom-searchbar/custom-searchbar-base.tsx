@@ -205,7 +205,8 @@ export class CustomSearchbarBase extends MainControlBase {
     public getData(): any {
         let data: any = {};
         if(this.filterFields.length > 0) {
-            Object.assign(data, { filter: this.getFilter() })
+            let filter: any = this.getFilter();
+            Object.assign(data, { filter: filter ? JSON.stringify(filter) : null })
         }
         return data;
     }
@@ -222,6 +223,9 @@ export class CustomSearchbarBase extends MainControlBase {
         }
         let ands: any[] = this.transformAnd(this.filterItems);
         this.transformResult(ands, '$and');
+        if(ands.length === 0) {
+            return null;
+        }
         return { '$and': ands };
     }
 
