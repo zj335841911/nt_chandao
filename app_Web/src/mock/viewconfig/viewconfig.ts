@@ -1119,12 +1119,12 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskOpenTaskView",
             "viewtag": "abca63015fc84466991c6479f955f6d0"
         },
-        "ibz_projectteammaingridview_editrow": {
+        "projectteammaingridview_editrow": {
             "title": "项目团队表格视图",
             "caption": "项目团队",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",
-            "viewname": "IBZ_PROJECTTEAMMainGridView_EditRow",
+            "viewname": "ProjectTeamMainGridView_EditRow",
             "viewtag": "ac21af5f9696e38031a7c2291ed02d64"
         },
         "casestepmaingridview9_editmode": {

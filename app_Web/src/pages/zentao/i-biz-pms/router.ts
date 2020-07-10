@@ -1408,7 +1408,7 @@ const router = new Router({
                         ],
                         requireAuth: true,
                     },
-                    component: () => import('@pages/zentao/ibz-projectteammain-grid-view-edit-row/ibz-projectteammain-grid-view-edit-row.vue'),
+                    component: () => import('@pages/zentao/project-team-main-grid-view-edit-row/project-team-main-grid-view-edit-row.vue'),
                 },
                 {
                     path: 'projectteams/:projectteam?/maingridview_editrow/:maingridview_editrow?',
@@ -1422,7 +1422,7 @@ const router = new Router({
                         ],
                         requireAuth: true,
                     },
-                    component: () => import('@pages/zentao/ibz-projectteammain-grid-view-edit-row/ibz-projectteammain-grid-view-edit-row.vue'),
+                    component: () => import('@pages/zentao/project-team-main-grid-view-edit-row/project-team-main-grid-view-edit-row.vue'),
                 },
                 {
                     path: 'products/:product?/pickupview/:pickupview?',
