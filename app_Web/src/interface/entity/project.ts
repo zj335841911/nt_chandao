@@ -325,4 +325,12 @@ export interface Project {
      * @memberof Project
      */
     comment?: any;
+
+    /**
+     * 时间段
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    period?: any;
 }

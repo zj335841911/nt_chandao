@@ -68,6 +68,7 @@ export class MainEditFormBase extends EditFormControlBase {
         begin: null,
         end: null,
         formitemex1: null,
+        period: null,
         days: null,
         team: null,
         type: null,
@@ -136,6 +137,8 @@ export class MainEditFormBase extends EditFormControlBase {
 
         formitemex1: new FormItemModel({ caption: '项目周期', detailType: 'FORMITEM', name: 'formitemex1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        period: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'period', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         days: new FormItemModel({ caption: '可用工作日', detailType: 'FORMITEM', name: 'days', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         team: new FormItemModel({ caption: '团队名称', detailType: 'FORMITEM', name: 'team', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -159,4 +162,45 @@ export class MainEditFormBase extends EditFormControlBase {
         id: new FormItemModel({ caption: '项目编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
     };
+
+    /**
+     * 表单逻辑
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @memberof MainEditFormBase
+     */
+    public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if (Object.is(name, 'period')) {
+            const details: string[] = ['days', 'end'];
+            this.updateFormItems('UpdateProjectCycle', this.data, details, true);
+        }
+    }
 }

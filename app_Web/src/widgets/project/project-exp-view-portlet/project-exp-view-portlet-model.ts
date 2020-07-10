@@ -135,6 +135,9 @@ export default class ProjectExpViewModel {
       {
         name: 'comment',
       },
+      {
+        name: 'period',
+      },
     ]
   }
 

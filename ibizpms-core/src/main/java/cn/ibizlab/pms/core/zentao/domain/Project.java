@@ -333,6 +333,13 @@ public class Project extends EntityMP implements Serializable {
     @JSONField(name = "comment")
     @JsonProperty("comment")
     private String comment;
+    /**
+     * 时间段
+     */
+    @TableField(exist = false)
+    @JSONField(name = "period")
+    @JsonProperty("period")
+    private String period;
 
     /**
      * 

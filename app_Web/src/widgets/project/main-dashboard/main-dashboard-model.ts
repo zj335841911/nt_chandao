@@ -135,6 +135,9 @@ export default class MainModel {
       {
         name: 'comment',
       },
+      {
+        name: 'period',
+      },
     ]
   }
 

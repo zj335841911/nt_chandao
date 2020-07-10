@@ -135,6 +135,9 @@ export default class DashBoradInfoViewModel {
       {
         name: 'comment',
       },
+      {
+        name: 'period',
+      },
     ]
   }
 

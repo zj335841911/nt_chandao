@@ -111,5 +111,15 @@ public class ProjectExService extends ProjectServiceImpl {
     public Project updateOrder(Project et) {
         return super.updateOrder(et);
     }
+    /**
+     * 自定义行为[UpdateProjectCycle]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Project updateProjectCycle(Project et) {
+        return super.updateProjectCycle(et);
+    }
 }
 
