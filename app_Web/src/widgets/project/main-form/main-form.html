@@ -20,14 +20,14 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.formitemex1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col v-show="detailsModel.formitemex1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 24, offset: 0 }">
     <app-form-item name='formitemex1' :itemRules="this.rules.formitemex1" class='' :caption="$t('entities.project.main_form.details.formitemex1')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitemex1.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-range-editor v-model="data.formitemex1" :activeData="data" :disabled="detailsModel.formitemex1.disabled" name="formitemex1" editorType="DATEPICKEREX_NOTIME" format="YYYY-MM-DD" :refFormItem="['begin','end']" @formitemvaluechange="onFormItemValueChange($event)" style=""></app-range-editor>
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.period.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
-    <app-form-item name='period' :itemRules="this.rules.period" class='' :caption="$t('entities.project.main_form.details.period')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="true" :error="detailsModel.period.error" :isEmptyCaption="true" labelPos="LEFT">
+<i-col v-show="detailsModel.period.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 24, offset: 0 }">
+    <app-form-item name='period' :itemRules="this.rules.period" class='' :caption="$t('entities.project.main_form.details.period')" uiStyle="DEFAULT" :labelWidth="1" :isShowCaption="true" :error="detailsModel.period.error" :isEmptyCaption="true" labelPos="LEFT">
     
 <app-radio-group 
   v-model="data.period"
