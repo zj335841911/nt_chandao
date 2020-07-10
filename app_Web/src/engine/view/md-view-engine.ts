@@ -383,7 +383,7 @@ export default class MDViewEngine extends ViewEngine {
         if (this.view.viewparams && Object.keys(this.view.viewparams).length > 0) {
             Object.assign(arg, this.view.viewparams);
         }
-        if (this.view && this.view.$refs.searchbar) {
+        if (this.view && this.view.$refs.searchbar && this.view.isExpandSearchForm) {
             Object.assign(arg, this.view.$refs.searchbar.getData());
         }
         if (this.getSearchForm() && this.view.isExpandSearchForm) {
