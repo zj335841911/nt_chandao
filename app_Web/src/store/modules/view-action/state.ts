@@ -1336,7 +1336,7 @@ export const viewstate: any = {
         {
             viewtag: 'ac21af5f9696e38031a7c2291ed02d64',
             viewmodule: 'zentao',
-            viewname: 'IBZ_PROJECTTEAMMainGridView_EditRow',
+            viewname: 'ProjectTeamMainGridView_EditRow',
             viewaction: '',
             viewdatachange: false,
             refviews: [
