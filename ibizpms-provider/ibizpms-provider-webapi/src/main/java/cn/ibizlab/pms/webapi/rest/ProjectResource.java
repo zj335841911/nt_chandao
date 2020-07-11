@@ -171,6 +171,18 @@ public class ProjectResource {
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-ManageMembers-all')")
+    @ApiOperation(value = "团队管理", tags = {"项目" },  notes = "团队管理")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/managemembers")
+    @Transactional
+    public ResponseEntity<ProjectDTO> manageMembers(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectDTO projectdto) {
+        Project domain = projectMapping.toDomain(projectdto);
+        domain.setId(project_id);
+        domain = projectService.manageMembers(domain);
+        projectdto = projectMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(projectdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-Putoff-all')")
     @ApiOperation(value = "延期", tags = {"项目" },  notes = "延期")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/putoff")
@@ -218,6 +230,18 @@ public class ProjectResource {
         Project domain = projectMapping.toDomain(projectdto);
         domain.setId(project_id);
         domain = projectService.suspend(domain);
+        projectdto = projectMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(projectdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-UnlinkMember-all')")
+    @ApiOperation(value = "移除成员", tags = {"项目" },  notes = "移除成员")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/unlinkmember")
+    @Transactional
+    public ResponseEntity<ProjectDTO> unlinkMember(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectDTO projectdto) {
+        Project domain = projectMapping.toDomain(projectdto);
+        domain.setId(project_id);
+        domain = projectService.unlinkMember(domain);
         projectdto = projectMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
     }

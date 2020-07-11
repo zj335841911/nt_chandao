@@ -34,6 +34,13 @@ public class TestModuleSearchContext extends QueryWrapperContext<TestModule> {
             this.getSearchCond().like("name", n_name_like);
         }
     }
+	private Integer n_branch_eq;//[branch]
+	public void setN_branch_eq(Integer n_branch_eq) {
+        this.n_branch_eq = n_branch_eq;
+        if(!ObjectUtils.isEmpty(this.n_branch_eq)){
+            this.getSearchCond().eq("branch", n_branch_eq);
+        }
+    }
 	private BigInteger n_parent_eq;//[id]
 	public void setN_parent_eq(BigInteger n_parent_eq) {
         this.n_parent_eq = n_parent_eq;
