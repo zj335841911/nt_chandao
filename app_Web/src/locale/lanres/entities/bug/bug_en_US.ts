@@ -354,6 +354,7 @@ export default {
 			title: "Bug标题", 
 			productname: "产品", 
 			branch: "平台/分支", 
+			branchname: "平台/分支", 
 			module: "所属模块", 
 			plan: "所属计划", 
 			type: "Bug类型", 
