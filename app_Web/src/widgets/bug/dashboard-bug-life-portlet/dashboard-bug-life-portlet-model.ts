@@ -198,6 +198,9 @@ export default class DashboardBugLifeModel {
       {
         name: 'modulename',
       },
+      {
+        name: 'branchname',
+      },
     ]
   }
 

@@ -80,7 +80,9 @@ export default class BranchUIServiceBase extends UIService {
      */  
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'pmgridview',srfappde:'branches'});
+        this.allViewMap.set('PICKUPVIEW:',{viewname:'pickupview',srfappde:'branches'});
         this.allViewMap.set(':',{viewname:'pmeditview',srfappde:'branches'});
+        this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'branches'});
     }
 
     /**

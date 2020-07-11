@@ -381,4 +381,12 @@ export interface Story {
      * @memberof Story
      */
     files?: any;
+
+    /**
+     * 平台/分支
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    branchname?: any;
 }

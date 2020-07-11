@@ -47,6 +47,7 @@ export default {
     comment: "备注",
     isleaf: "是否子需求",
     files: "附件",
+    branchname: "平台/分支",
   },
 	views: {
 		mainview9_related: {
@@ -347,6 +348,7 @@ export default {
 			title: "需求名称", 
 			prodoctname: "所属产品", 
 			branch: "平台/分支", 
+			branchname: "平台/分支", 
 			modulename: "所属模块", 
 			plan: "所属计划", 
 			source: "需求来源", 

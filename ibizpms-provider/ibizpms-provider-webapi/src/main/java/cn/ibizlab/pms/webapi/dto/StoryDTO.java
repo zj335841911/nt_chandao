@@ -404,6 +404,14 @@ public class StoryDTO extends DTOBase implements Serializable {
     @JsonProperty("files")
     private String files;
 
+    /**
+     * 属性 [BRANCHNAME]
+     *
+     */
+    @JSONField(name = "branchname")
+    @JsonProperty("branchname")
+    private String branchname;
+
 
     /**
      * 设置 [ASSIGNEDTO]

@@ -198,6 +198,9 @@ export default class ActionHistoryListModel {
       {
         name: 'modulename',
       },
+      {
+        name: 'branchname',
+      },
     ]
   }
 

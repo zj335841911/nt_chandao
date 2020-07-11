@@ -156,6 +156,9 @@ export default class MainPanelModel {
       {
         name: 'files',
       },
+      {
+        name: 'branchname',
+      },
     ]
   }
 

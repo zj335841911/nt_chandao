@@ -523,6 +523,16 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
      * @param et
      */
     private void fillParentData(Bug et){
+        //实体关系[DER1N_ZT_BUG_ZT_BRANCH_BRANCH]
+        if(!ObjectUtils.isEmpty(et.getBranch())){
+            cn.ibizlab.pms.core.zentao.domain.Branch ztrranch=et.getZtrranch();
+            if(ObjectUtils.isEmpty(ztrranch)){
+                cn.ibizlab.pms.core.zentao.domain.Branch majorEntity=branchService.get(et.getBranch());
+                et.setZtrranch(majorEntity);
+                ztrranch=majorEntity;
+            }
+            et.setBranchname(ztrranch.getName());
+        }
         //实体关系[DER1N_ZT_BUG_ZT_CASE_CASEID]
         if(!ObjectUtils.isEmpty(et.getIbizcase())){
             cn.ibizlab.pms.core.zentao.domain.Case ztcase=et.getZtcase();

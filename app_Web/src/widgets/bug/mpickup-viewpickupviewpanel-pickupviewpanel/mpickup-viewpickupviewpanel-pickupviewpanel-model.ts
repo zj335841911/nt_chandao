@@ -198,6 +198,9 @@ export default class MPickupViewpickupviewpanelModel {
       {
         name: 'modulename',
       },
+      {
+        name: 'branchname',
+      },
     ]
   }
 

@@ -156,6 +156,9 @@ export default class StoryspecModel {
       {
         name: 'files',
       },
+      {
+        name: 'branchname',
+      },
     ]
   }
 

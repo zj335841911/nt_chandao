@@ -156,6 +156,9 @@ export default class StoryRelatedModel {
       {
         name: 'files',
       },
+      {
+        name: 'branchname',
+      },
     ]
   }
 

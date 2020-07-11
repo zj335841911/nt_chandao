@@ -156,6 +156,9 @@ export default class AssignedToMeStoryModel {
       {
         name: 'files',
       },
+      {
+        name: 'branchname',
+      },
     ]
   }
 

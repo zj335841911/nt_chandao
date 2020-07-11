@@ -1639,6 +1639,16 @@
         "viewtag": "d0454a2ae9eb44aca3613b27169f3b18",
         "memo": ""
     },
+    "branchpickupview": {
+        "title": "branch数据选择视图",
+        "caption": "产品的分支和平台信息",
+        "viewtype": "DEPICKUPVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BranchPickupView",
+        "viewfilename": "branch-pickup-view",
+        "viewtag": "d0851a0acfe0e92a6a5ba34b1552bc66",
+        "memo": ""
+    },
     "groupeditview": {
         "title": "group编辑视图",
         "caption": "分组信息",
@@ -1947,6 +1957,16 @@
         "viewname": "BugBuildSubGridView_Done",
         "viewfilename": "bug-build-sub-grid-view-done",
         "viewtag": "f8ffad31189703973765c5a9c4fc8a5c",
+        "memo": ""
+    },
+    "branchpickupgridview": {
+        "title": "branch选择表格视图",
+        "caption": "产品的分支和平台信息",
+        "viewtype": "DEPICKUPGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BranchPickupGridView",
+        "viewfilename": "branch-pickup-grid-view",
+        "viewtag": "fa64e271c22e6aaa89873d2556edf529",
         "memo": ""
     },
     "projectmaintabexpview": {
