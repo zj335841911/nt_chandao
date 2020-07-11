@@ -207,6 +207,13 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends MainControlBase {
                 deKeyField:'testmodule'
 			};
         }
+        if (Object.is(expmode, 'BRANCH')) {
+            return {  
+                viewname: 'test-module-grid-view-branch', 
+                parentdata: {},
+                deKeyField:'testmodule'
+			};
+        }
         if (Object.is(expmode, 'ROOTMODULE')) {
             return {  
                 viewname: 'test-module-grid-view', 

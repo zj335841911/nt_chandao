@@ -559,35 +559,6 @@ const router = new Router({
                     component: () => import('@pages/ungroup/test-portal-view/test-portal-view.vue'),
                 },
                 {
-                    path: 'products/:product?/testmodules/:testmodule?/editview/:editview?',
-                    meta: {
-                        caption: 'entities.testmodule.views.editview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'testmodules', parameterName: 'testmodule' },
-                            { pathName: 'editview', parameterName: 'editview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/test-module-edit-view/test-module-edit-view.vue'),
-                },
-                {
-                    path: 'testmodules/:testmodule?/editview/:editview?',
-                    meta: {
-                        caption: 'entities.testmodule.views.editview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'testmodules', parameterName: 'testmodule' },
-                            { pathName: 'editview', parameterName: 'editview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/test-module-edit-view/test-module-edit-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/pickupgridview/:pickupgridview?',
                     meta: {
                         caption: 'entities.bug.views.pickupgridview.title',

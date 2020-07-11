@@ -875,6 +875,8 @@ export default class ModuleExpService extends ControlService {
 
             Object.assign(treeNode, { expanded: true });
             Object.assign(treeNode, { leaf: false });
+            Object.assign(treeNode, {navigateContext: {SRFPARENTKEY:"0"} });
+            Object.assign(treeNode, {navigateParams: {n_branch_noteq:"0"} });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
             list.push(treeNode);

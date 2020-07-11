@@ -1,5 +1,4 @@
 <studio-view viewName="testmodulegridview" viewTitle="测试模块表格视图" class='degridview test-module-grid-view'>
-    <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
                 <view-toolbar :model="toolBarModels" @item-click="toolbar_click($event)"/>    </template>
     <view_grid 
@@ -17,8 +16,6 @@
         loadAction="Get"
         createAction="Create"
         fetchAction="FetchDefault"
-        :newdata="newdata.bind(_self)"
-        :opendata="opendata.bind(_self)"
         name="grid"  
         ref='grid' 
         @selectionchange="grid_selectionchange($event)"  

@@ -1892,15 +1892,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '0c0709bca7ef7c8bf0b359158b8a3cf3',
-            viewmodule: 'ibiz',
-            viewname: 'TestModuleEditView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: '231eecf4805f0b378601ea1a7912077f',
             viewmodule: 'ibiz',
             viewname: 'ProjectTeamMainGridView',
@@ -1917,7 +1908,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '0c0709bca7ef7c8bf0b359158b8a3cf3',
             ],
         },
         {

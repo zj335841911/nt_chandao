@@ -141,12 +141,6 @@ export class TestModuleGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
-            },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
-            },
             grid: this.$refs.grid,
             keyPSDEField: 'testmodule',
             majorPSDEField: 'name',
@@ -282,86 +276,6 @@ export class TestModuleGridViewBase extends GridViewBase {
     }
 
     /**
-     * 打开新建数据视图
-     *
-     * @param {any[]} args
-     * @param {*} [params]
-     * @param {*} [fullargs]
-     * @param {*} [$event]
-     * @param {*} [xData]
-     * @memberof TestModuleGridView
-     */
-    public newdata(args: any[],fullargs?:any[], params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
-        const data: any = {};
-        if(args[0].srfsourcekey){
-            data.srfsourcekey = args[0].srfsourcekey;
-        }
-        let tempContext = JSON.parse(JSON.stringify(this.context));
-        delete tempContext.testmodule;
-        if(args.length >0){
-            Object.assign(tempContext,args[0]);
-        }
-        let deResParameters: any[] = [];
-        if(tempContext.product && true){
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
-        const parameters: any[] = [
-            { pathName: 'testmodules', parameterName: 'testmodule' },
-            { pathName: 'editview', parameterName: 'editview' },
-        ];
-        const _this: any = this;
-        const openIndexViewTab = (data: any) => {
-            const _data: any = { w: (new Date().getTime()) };
-            Object.assign(_data, data);
-            const routePath = this.$viewTool.buildUpRoutePath(this.$route, tempContext, deResParameters, parameters, args, _data);
-            this.$router.push(routePath);
-        }
-        openIndexViewTab(data);
-    }
-
-
-    /**
-     * 打开编辑数据视图
-     *
-     * @param {any[]} args
-     * @param {*} [params]
-     * @param {*} [fullargs]
-     * @param {*} [$event]
-     * @param {*} [xData]
-     * @memberof TestModuleGridView
-     */
-    public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
-        const data: any = {};
-        let tempContext = JSON.parse(JSON.stringify(this.context));
-        if(args.length >0){
-            Object.assign(tempContext,args[0]);
-        }
-        let deResParameters: any[] = [];
-        if(tempContext.product && true){
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
-        const parameters: any[] = [
-            { pathName: 'testmodules', parameterName: 'testmodule' },
-            { pathName: 'editview', parameterName: 'editview' },
-        ];
-        const _this: any = this;
-        const openIndexViewTab = (data: any) => {
-            const routePath = this.$viewTool.buildUpRoutePath(this.$route, tempContext, deResParameters, parameters, args, data);
-            this.$router.push(routePath);
-        }
-        openIndexViewTab(data);
-    }
-
-
-    /**
      * 新建行
      *
      * @param {any[]} args 当前数据
@@ -403,4 +317,16 @@ export class TestModuleGridViewBase extends GridViewBase {
             _this.save();
         }
     }
+
+    /**
+     * 表格行数据默认激活模式
+     * 0 不激活
+     * 1 单击激活
+     * 2 双击激活
+     *
+     * @protected
+     * @type {(0 | 1 | 2)}
+     * @memberof TestModuleGridViewBase
+     */
+    protected gridRowActiveMode: 0 | 1 | 2 = 0;
 }
