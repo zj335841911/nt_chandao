@@ -74,6 +74,10 @@ export default {
 			caption: "需求",
       		title: "需求编辑视图",
 		},
+		tostoryeditview: {
+			caption: "需求",
+      		title: "需求",
+		},
 		plansubeditview: {
 			caption: "需求",
       		title: "需求",
@@ -654,6 +658,12 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+	},
+	tostoryeditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
 		},
 	},
 	reportsubgridviewtoolbar_toolbar: {

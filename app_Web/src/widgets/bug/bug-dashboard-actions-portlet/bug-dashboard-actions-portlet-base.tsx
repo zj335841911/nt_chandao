@@ -79,6 +79,118 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
     }
 
     /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet5_u09d7603_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:BugUIService  = new BugUIService();
+        curUIService.Bug_CloseBug(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet5_u84080b5_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:BugUIService  = new BugUIService();
+        curUIService.Bug_ResolveBug(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet5_u279d3f0_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:BugUIService  = new BugUIService();
+        curUIService.Bug_ConfirmBug(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet5_uf577fc4_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:BugUIService  = new BugUIService();
+        curUIService.Bug_toStory(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+    }
+
+    /**
      * 长度
      *
      * @type {number}
@@ -105,6 +217,26 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
+        },
+        { viewlogicname:"dashboard_sysportlet5_u09d7603_click",
+        text: "关闭",
+        iconcls: "fa fa-power-off",
+        icon: "",
+        },
+        { viewlogicname:"dashboard_sysportlet5_u84080b5_click",
+        text: "解决",
+        iconcls: "fa fa-check-square-o",
+        icon: "",
+        },
+        { viewlogicname:"dashboard_sysportlet5_u279d3f0_click",
+        text: "确认",
+        iconcls: "fa fa-eye",
+        icon: "",
+        },
+        { viewlogicname:"dashboard_sysportlet5_uf577fc4_click",
+        text: "提需求",
+        iconcls: null,
+        icon: null,
         }
     ];
 
@@ -116,6 +248,18 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
     public handleItemClick($event:any){
         if(Object.is($event,'dashboard_sysportlet5_u1d352f4_click')){
             this.dashboard_sysportlet5_u1d352f4_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet5_u09d7603_click')){
+            this.dashboard_sysportlet5_u09d7603_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet5_u84080b5_click')){
+            this.dashboard_sysportlet5_u84080b5_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet5_u279d3f0_click')){
+            this.dashboard_sysportlet5_u279d3f0_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet5_uf577fc4_click')){
+            this.dashboard_sysportlet5_uf577fc4_click(null);
         }
     }
 

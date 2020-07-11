@@ -599,6 +599,16 @@
         "viewtag": "538555af88ea31549a5bc7dbf1e6286a",
         "memo": ""
     },
+    "storytostoryeditview": {
+        "title": "需求",
+        "caption": "需求",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "StorytoStoryEditView",
+        "viewfilename": "storyto-story-edit-view",
+        "viewtag": "542c854d7aaafdecc9235e9f285d289a",
+        "memo": ""
+    },
     "storyplansubeditview": {
         "title": "需求",
         "caption": "需求",
@@ -2097,6 +2107,16 @@
         "viewname": "ProductModuleTreeExpView",
         "viewfilename": "product-module-tree-exp-view",
         "viewtag": "84104216ff9049079f9442c9cbd54342",
+        "memo": ""
+    },
+    "testmodulegridviewmain": {
+        "title": "产品模块表格视图",
+        "caption": "测试模块",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "TestModuleGridViewMain",
+        "viewfilename": "test-module-grid-view-main",
+        "viewtag": "9396442ba87e188748229e6bc6927156",
         "memo": ""
     },
     "productliferoadmaplistview9": {

@@ -487,6 +487,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryMainView9_EditMode",
             "viewtag": "538555af88ea31549a5bc7dbf1e6286a"
         },
+        "storytostoryeditview": {
+            "title": "需求",
+            "caption": "需求",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StorytoStoryEditView",
+            "viewtag": "542c854d7aaafdecc9235e9f285d289a"
+        },
         "storyplansubeditview": {
             "title": "需求",
             "caption": "需求",
@@ -1686,6 +1694,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "ProductModuleTreeExpView",
             "viewtag": "84104216ff9049079f9442c9cbd54342"
+        },
+        "testmodulegridviewmain": {
+            "title": "产品模块表格视图",
+            "caption": "测试模块",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "TestModuleGridViewMain",
+            "viewtag": "9396442ba87e188748229e6bc6927156"
         },
         "productliferoadmaplistview9": {
             "title": "路线图",
