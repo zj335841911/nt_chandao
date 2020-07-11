@@ -13,7 +13,7 @@ export default class BugModule {
      * @type boolean
      * @memberof BugModule
      */
-    public isEnableCache:boolean = true;
+    public isEnableCache:boolean = false;
 
     /**
      * 过期时间
