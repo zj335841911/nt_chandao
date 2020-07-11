@@ -55,21 +55,30 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.module.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
-    <app-form-item name='module' :itemRules="this.rules.module" class='' :caption="$t('entities.bug.main_form.details.module')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.module.error" :isEmptyCaption="false" labelPos="LEFT">
+<i-col v-show="detailsModel.modulename.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+    <app-form-item name='modulename' :itemRules="this.rules.modulename" class='' :caption="$t('entities.bug.main_form.details.modulename')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.modulename.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.module" 
-    :data="data" 
-    :context="context"
-    :viewparams="viewparams"
-    :localContext ='{ PRODUCT:"%product%" }' 
-    :localParam ='{ product:"%product%" }' 
-    :disabled="detailsModel.module.disabled"  
-    tag='BugModule' 
-    codelistType='DYNAMIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+<app-picker 
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :localContext ='{ PRODUCT:"%product%" }' 
+  :localParam ='{ product:"%product%" }' 
+  :disabled="detailsModel.modulename.disabled"
+  name='modulename'
+  deMajorField='name'
+  deKeyField='module'
+  :service="service"
+  :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchDefault'}"
+  valueitem='module' 
+  :value="data.modulename" 
+  editortype="" 
+  :pickupView="{ viewname: 'module-pickup-view', title: $t('entities.module.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'modules', parameterName: 'module' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
+  style=""  
+  @formitemvaluechange="onFormItemValueChange($event)">
+</app-picker>
+
 </app-form-item>
 
 </i-col>

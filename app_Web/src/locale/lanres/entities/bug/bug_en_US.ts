@@ -61,6 +61,7 @@ export default {
     testtask: "测试单",
     comment: "备注",
     taskname: "相关任务",
+    modulename: "模块名称",
   },
 	views: {
 		plansubgridview: {
@@ -179,6 +180,7 @@ export default {
 			productname: "产品", 
 			branch: "平台/分支", 
 			product: "所属产品", 
+			modulename: "所属模块", 
 			module: "所属模块", 
 			project: "所属项目", 
 			projectname: "项目", 
