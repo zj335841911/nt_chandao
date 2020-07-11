@@ -215,9 +215,9 @@ export class MainRowGridBase extends GridControllerBase {
      * @memberof MainRowBase
      */
     public hasRowEdit: any = {
-        'name':false,
-        'branch':false,
-        'short':false,
+        'name':true,
+        'branch':true,
+        'short':true,
         'uagridcolumn1':false,
     };
 

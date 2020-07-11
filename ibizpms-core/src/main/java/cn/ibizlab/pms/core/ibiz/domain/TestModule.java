@@ -98,7 +98,7 @@ public class TestModule extends EntityMP implements Serializable {
     /**
      * 类型（story）
      */
-    @DEField(defaultValue = "bug")
+    @DEField(defaultValue = "story")
     @TableField(value = "type")
     @JSONField(name = "type")
     @JsonProperty("type")

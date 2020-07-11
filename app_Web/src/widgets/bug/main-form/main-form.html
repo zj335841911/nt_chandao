@@ -63,8 +63,8 @@
     :data="data" 
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{ PRODUCT:"%product%" }' 
-    :localParam ='{ product:"%product%" }' 
+    :localContext ='{ PRODUCT:"%product%", BRANCH:"%branch%" }' 
+    :localParam ='{ product:"%product%", branch:"%branch%" }' 
     :disabled="detailsModel.module.disabled"  
     tag='BugModule' 
     codelistType='DYNAMIC'

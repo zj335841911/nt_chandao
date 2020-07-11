@@ -1360,7 +1360,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"Module",
-        "appdedataset":"FetchDefault",
+        "appdedataset":"FetchStoryModule",
         "items": []
     },
     {
