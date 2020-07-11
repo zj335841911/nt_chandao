@@ -262,6 +262,16 @@ final public class ZTStoryHelper {
     // ----------
 
     static {
+        // CREATE
+        ACTION_URL_PARAMS_CREATE.add("product");
+        ACTION_URL_PARAMS_CREATE.add("branch");
+        ACTION_URL_PARAMS_CREATE.add("module");
+        ACTION_URL_PARAMS_CREATE.add("parent");
+        ACTION_URL_PARAMS_CREATE.add("project");
+        ACTION_URL_PARAMS_CREATE.add("fromBug");
+        ACTION_URL_PARAMS_CREATE.add("plan");
+        ACTION_URL_PARAMS_CREATE.add("todo");
+
         // EDIT
         ACTION_URL_PARAMS_EDIT.add("id");
 

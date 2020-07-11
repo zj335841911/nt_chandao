@@ -555,4 +555,16 @@ final public class ZTBugHelper {
     public static boolean releaaseBatchUnlinkBug(String zentaoSid, JSONObject jo, ZTResult rst) {
         return ZTReleaseHelper.batchUnlinkBug(zentaoSid, jo, rst);
     }
+
+    /**
+     * toStory Bug转需求
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean toStory(String zentaoSid, JSONObject jo, ZTResult rst) {
+        return ZTStoryHelper.create(zentaoSid, jo, rst);
+    }
 }
