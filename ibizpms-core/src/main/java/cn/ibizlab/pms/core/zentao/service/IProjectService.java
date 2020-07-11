@@ -38,11 +38,13 @@ public interface IProjectService extends IService<Project>{
     boolean checkKey(Project et) ;
     Project close(Project et) ;
     Project linkStory(Project et) ;
+    Project manageMembers(Project et) ;
     Project putoff(Project et) ;
     boolean save(Project et) ;
     void saveBatch(List<Project> list) ;
     Project start(Project et) ;
     Project suspend(Project et) ;
+    Project unlinkMember(Project et) ;
     Project unlinkStory(Project et) ;
     Project updateOrder(Project et) ;
     Page<Project> searchCurProduct(ProjectSearchContext context) ;
