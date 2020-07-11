@@ -3,8 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TestModuleGridViewBase } from './test-module-grid-view-base';
-import view_grid from '@widgets/test-module/main-grid/main-grid.vue';
-import view_searchform from '@widgets/test-module/default-searchform/default-searchform.vue';
+import view_grid from '@widgets/test-module/main-row-grid/main-row-grid.vue';
 
 /**
  * 测试模块表格视图视图
@@ -16,7 +15,6 @@ import view_searchform from '@widgets/test-module/default-searchform/default-sea
 @Component({
     components: {
         view_grid, 
-        view_searchform, 
     }
 })
 @VueLifeCycleProcessing()
