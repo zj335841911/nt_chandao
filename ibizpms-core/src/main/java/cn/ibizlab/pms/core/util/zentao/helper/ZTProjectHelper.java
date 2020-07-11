@@ -319,6 +319,14 @@ final public class ZTProjectHelper {
         // BATCHUNLINKSTORY
         ACTION_PARAMS_BATCHUNLINKSTORY.put("storyIdList[]", null);
 
+        // MANAGEMEMBERS
+        ACTION_PARAMS_MANAGEMEMBERS.put("realnames[]", null);
+        ACTION_PARAMS_MANAGEMEMBERS.put("roles[]", null);
+        ACTION_PARAMS_MANAGEMEMBERS.put("days[]", null);
+        ACTION_PARAMS_MANAGEMEMBERS.put("hours[]", null);
+        ACTION_PARAMS_MANAGEMEMBERS.put("accounts[]", null);
+        ACTION_PARAMS_MANAGEMEMBERS.put("limited[]", null);
+
     }
 
     // ----------
@@ -359,6 +367,17 @@ final public class ZTProjectHelper {
         ACTION_URL_PARAMS_UNLINKSTORY.add("id");
         ACTION_URL_PARAMS_UNLINKSTORY.add("story");
         ACTION_URL_PARAMS_UNLINKSTORY.add("confirm");
+
+        // MANAGEMEMBERS
+        ACTION_URL_PARAMS_MANAGEMEMBERS.add("id");
+
+        // UNLINKMEMBER
+        // id为project的id
+        // account为成员的账户名account，即loginname
+        ACTION_URL_PARAMS_UNLINKMEMBER.add("id");
+        ACTION_URL_PARAMS_UNLINKMEMBER.add("account");
+        ACTION_URL_PARAMS_UNLINKMEMBER.add("confirm");
+
 
     }
 
@@ -630,4 +649,49 @@ final public class ZTProjectHelper {
 
         return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
     }
+
+    /**
+     * manageMembers 团队管理
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean manageMembers(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_MANAGEMEMBERS;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_MANAGEMEMBERS;
+        Map<String, Object> actionParams = ACTION_PARAMS_MANAGEMEMBERS;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_MANAGEMEMBERS;
+        String returnUrlRegexPrev = null;
+
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
+    }
+
+    /**
+     * unlinkMember 移除成员
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean unlinkMember(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_UNLINKMEMBER;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_UNLINKMEMBER;
+        Map<String, Object> actionParams = ACTION_PARAMS_UNLINKMEMBER;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_UNLINKMEMBER;
+        String returnUrlRegexPrev = null;
+
+        jo.put("confirm", "yes");
+
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
+    }
+
 }
