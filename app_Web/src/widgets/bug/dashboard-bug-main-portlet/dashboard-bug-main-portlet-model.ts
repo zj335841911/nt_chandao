@@ -195,6 +195,9 @@ export default class DashboardBugMainModel {
       {
         name: 'taskname',
       },
+      {
+        name: 'modulename',
+      },
     ]
   }
 

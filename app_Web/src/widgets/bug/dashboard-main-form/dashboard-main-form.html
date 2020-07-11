@@ -50,7 +50,18 @@
 <i-col v-show="detailsModel.branch.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='branch' :itemRules="this.rules.branch" class='' :caption="$t('entities.bug.dashboardmain_form.details.branch')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.branch.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<app-span name='branch' :value="data.branch" tag='ProductBranch' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
+ <dropdown-list 
+    v-model="data.branch" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.branch.disabled"  
+    tag='ProductBranch' 
+    codelistType='DYNAMIC'
+    placeholder='请选择...' style="">
+ </dropdown-list>
 </app-form-item>
 
 </i-col>

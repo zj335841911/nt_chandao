@@ -195,6 +195,9 @@ export default class BugDashboardActionsModel {
       {
         name: 'taskname',
       },
+      {
+        name: 'modulename',
+      },
     ]
   }
 

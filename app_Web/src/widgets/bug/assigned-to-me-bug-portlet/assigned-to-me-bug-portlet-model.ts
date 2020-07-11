@@ -195,6 +195,9 @@ export default class AssignedToMeBugModel {
       {
         name: 'taskname',
       },
+      {
+        name: 'modulename',
+      },
     ]
   }
 

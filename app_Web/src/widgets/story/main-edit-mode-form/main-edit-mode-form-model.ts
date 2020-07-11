@@ -81,6 +81,11 @@ export default class Main_EditModeModel {
         dataType: 'PICKUPTEXT',
       },
       {
+        name: 'branch',
+        prop: 'branch',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'modulename',
         prop: 'modulename',
         dataType: 'PICKUPTEXT',

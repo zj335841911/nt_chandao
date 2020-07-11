@@ -185,6 +185,7 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
         verify: null,
         title: null,
         prodoctname: null,
+        branch: null,
         modulename: null,
         plan: null,
         source: null,
@@ -286,6 +287,8 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
 
         prodoctname: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'prodoctname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        branch: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'branch', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         modulename: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'modulename', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         plan: new FormItemModel({ caption: '所属计划', detailType: 'FORMITEM', name: 'plan', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -345,6 +348,7 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.druipart1.setVisible(ret);
         }
+
 
 
 

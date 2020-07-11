@@ -66,6 +66,11 @@ export default class Main_NewModeModel {
         dataType: 'PICKUPTEXT',
       },
       {
+        name: 'branch',
+        prop: 'branch',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'modulename',
         prop: 'modulename',
         dataType: 'PICKUPTEXT',

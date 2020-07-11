@@ -47,6 +47,24 @@
 </app-form-item>
 
 </i-col>
+<i-col v-show="detailsModel.branch.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='branch' :itemRules="this.rules.branch" class='' :caption="$t('entities.story.main_form.details.branch')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.branch.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+ <dropdown-list 
+    v-model="data.branch" 
+    :data="data" 
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.branch.disabled"  
+    tag='ProductBranch' 
+    codelistType='DYNAMIC'
+    placeholder='请选择...' style="">
+ </dropdown-list>
+</app-form-item>
+
+</i-col>
 <i-col v-show="detailsModel.modulename.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='modulename' :itemRules="this.rules.modulename" class='' :caption="$t('entities.story.main_form.details.modulename')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.modulename.error" :isEmptyCaption="false" labelPos="LEFT">
     
