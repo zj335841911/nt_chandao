@@ -37,7 +37,10 @@ public interface ITestModuleService extends IService<TestModule>{
     TestModule fix(TestModule et) ;
     boolean save(TestModule et) ;
     void saveBatch(List<TestModule> list) ;
+    Page<TestModule> searchByPath(TestModuleSearchContext context) ;
     Page<TestModule> searchDefault(TestModuleSearchContext context) ;
+    Page<TestModule> searchRoot(TestModuleSearchContext context) ;
+    Page<TestModule> searchRoot_NoBranch(TestModuleSearchContext context) ;
     List<TestModule> selectByParent(BigInteger id) ;
     void removeByParent(BigInteger id) ;
     List<TestModule> selectByRoot(BigInteger id) ;

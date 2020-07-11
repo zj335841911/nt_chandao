@@ -19,7 +19,10 @@ import com.alibaba.fastjson.JSONObject;
 
 public interface TestModuleMapper extends BaseMapper<TestModule>{
 
+    Page<TestModule> searchByPath(IPage page, @Param("srf") TestModuleSearchContext context, @Param("ew") Wrapper<TestModule> wrapper) ;
     Page<TestModule> searchDefault(IPage page, @Param("srf") TestModuleSearchContext context, @Param("ew") Wrapper<TestModule> wrapper) ;
+    Page<TestModule> searchRoot(IPage page, @Param("srf") TestModuleSearchContext context, @Param("ew") Wrapper<TestModule> wrapper) ;
+    Page<TestModule> searchRoot_NoBranch(IPage page, @Param("srf") TestModuleSearchContext context, @Param("ew") Wrapper<TestModule> wrapper) ;
     @Override
     TestModule selectById(Serializable id);
     @Override
