@@ -386,7 +386,7 @@ export default class BugUIServiceBase extends UIService {
                 height: 0, 
                 width: 0,  
                 title: actionContext.$t('entities.story.views.tostoryeditview.title'),
-                placement: 'DRAWER_LEFT',
+                placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
     }
