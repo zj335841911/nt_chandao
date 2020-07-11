@@ -150,6 +150,27 @@ public class TestModuleResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-searchByPath-all')")
+	@ApiOperation(value = "获取BYPATH", tags = {"测试模块" } ,notes = "获取BYPATH")
+    @RequestMapping(method= RequestMethod.GET , value="/testmodules/fetchbypath")
+	public ResponseEntity<List<TestModuleDTO>> fetchByPath(TestModuleSearchContext context) {
+        Page<TestModule> domains = testmoduleService.searchByPath(context) ;
+        List<TestModuleDTO> list = testmoduleMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-searchByPath-all')")
+	@ApiOperation(value = "查询BYPATH", tags = {"测试模块" } ,notes = "查询BYPATH")
+    @RequestMapping(method= RequestMethod.POST , value="/testmodules/searchbypath")
+	public ResponseEntity<Page<TestModuleDTO>> searchByPath(@RequestBody TestModuleSearchContext context) {
+        Page<TestModule> domains = testmoduleService.searchByPath(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(testmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"测试模块" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/testmodules/fetchdefault")
@@ -168,6 +189,48 @@ public class TestModuleResource {
     @RequestMapping(method= RequestMethod.POST , value="/testmodules/searchdefault")
 	public ResponseEntity<Page<TestModuleDTO>> searchDefault(@RequestBody TestModuleSearchContext context) {
         Page<TestModule> domains = testmoduleService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(testmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-searchRoot-all')")
+	@ApiOperation(value = "获取根模块", tags = {"测试模块" } ,notes = "获取根模块")
+    @RequestMapping(method= RequestMethod.GET , value="/testmodules/fetchroot")
+	public ResponseEntity<List<TestModuleDTO>> fetchRoot(TestModuleSearchContext context) {
+        Page<TestModule> domains = testmoduleService.searchRoot(context) ;
+        List<TestModuleDTO> list = testmoduleMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-searchRoot-all')")
+	@ApiOperation(value = "查询根模块", tags = {"测试模块" } ,notes = "查询根模块")
+    @RequestMapping(method= RequestMethod.POST , value="/testmodules/searchroot")
+	public ResponseEntity<Page<TestModuleDTO>> searchRoot(@RequestBody TestModuleSearchContext context) {
+        Page<TestModule> domains = testmoduleService.searchRoot(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(testmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-searchRoot_NoBranch-all')")
+	@ApiOperation(value = "获取根模块_无分支", tags = {"测试模块" } ,notes = "获取根模块_无分支")
+    @RequestMapping(method= RequestMethod.GET , value="/testmodules/fetchroot_nobranch")
+	public ResponseEntity<List<TestModuleDTO>> fetchRoot_NoBranch(TestModuleSearchContext context) {
+        Page<TestModule> domains = testmoduleService.searchRoot_NoBranch(context) ;
+        List<TestModuleDTO> list = testmoduleMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-searchRoot_NoBranch-all')")
+	@ApiOperation(value = "查询根模块_无分支", tags = {"测试模块" } ,notes = "查询根模块_无分支")
+    @RequestMapping(method= RequestMethod.POST , value="/testmodules/searchroot_nobranch")
+	public ResponseEntity<Page<TestModuleDTO>> searchRoot_NoBranch(@RequestBody TestModuleSearchContext context) {
+        Page<TestModule> domains = testmoduleService.searchRoot_NoBranch(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(testmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -292,6 +355,29 @@ public class TestModuleResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-searchByPath-all')")
+	@ApiOperation(value = "根据产品获取BYPATH", tags = {"测试模块" } ,notes = "根据产品获取BYPATH")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/testmodules/fetchbypath")
+	public ResponseEntity<List<TestModuleDTO>> fetchTestModuleByPathByProduct(@PathVariable("product_id") BigInteger product_id,TestModuleSearchContext context) {
+        context.setN_root_eq(product_id);
+        Page<TestModule> domains = testmoduleService.searchByPath(context) ;
+        List<TestModuleDTO> list = testmoduleMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-searchByPath-all')")
+	@ApiOperation(value = "根据产品查询BYPATH", tags = {"测试模块" } ,notes = "根据产品查询BYPATH")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/testmodules/searchbypath")
+	public ResponseEntity<Page<TestModuleDTO>> searchTestModuleByPathByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody TestModuleSearchContext context) {
+        context.setN_root_eq(product_id);
+        Page<TestModule> domains = testmoduleService.searchByPath(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(testmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-searchDefault-all')")
 	@ApiOperation(value = "根据产品获取DEFAULT", tags = {"测试模块" } ,notes = "根据产品获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/testmodules/fetchdefault")
@@ -312,6 +398,52 @@ public class TestModuleResource {
 	public ResponseEntity<Page<TestModuleDTO>> searchTestModuleDefaultByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody TestModuleSearchContext context) {
         context.setN_root_eq(product_id);
         Page<TestModule> domains = testmoduleService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(testmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-searchRoot-all')")
+	@ApiOperation(value = "根据产品获取根模块", tags = {"测试模块" } ,notes = "根据产品获取根模块")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/testmodules/fetchroot")
+	public ResponseEntity<List<TestModuleDTO>> fetchTestModuleRootByProduct(@PathVariable("product_id") BigInteger product_id,TestModuleSearchContext context) {
+        context.setN_root_eq(product_id);
+        Page<TestModule> domains = testmoduleService.searchRoot(context) ;
+        List<TestModuleDTO> list = testmoduleMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-searchRoot-all')")
+	@ApiOperation(value = "根据产品查询根模块", tags = {"测试模块" } ,notes = "根据产品查询根模块")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/testmodules/searchroot")
+	public ResponseEntity<Page<TestModuleDTO>> searchTestModuleRootByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody TestModuleSearchContext context) {
+        context.setN_root_eq(product_id);
+        Page<TestModule> domains = testmoduleService.searchRoot(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(testmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-searchRoot_NoBranch-all')")
+	@ApiOperation(value = "根据产品获取根模块_无分支", tags = {"测试模块" } ,notes = "根据产品获取根模块_无分支")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/testmodules/fetchroot_nobranch")
+	public ResponseEntity<List<TestModuleDTO>> fetchTestModuleRoot_NoBranchByProduct(@PathVariable("product_id") BigInteger product_id,TestModuleSearchContext context) {
+        context.setN_root_eq(product_id);
+        Page<TestModule> domains = testmoduleService.searchRoot_NoBranch(context) ;
+        List<TestModuleDTO> list = testmoduleMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-searchRoot_NoBranch-all')")
+	@ApiOperation(value = "根据产品查询根模块_无分支", tags = {"测试模块" } ,notes = "根据产品查询根模块_无分支")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/testmodules/searchroot_nobranch")
+	public ResponseEntity<Page<TestModuleDTO>> searchTestModuleRoot_NoBranchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody TestModuleSearchContext context) {
+        context.setN_root_eq(product_id);
+        Page<TestModule> domains = testmoduleService.searchRoot_NoBranch(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(testmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

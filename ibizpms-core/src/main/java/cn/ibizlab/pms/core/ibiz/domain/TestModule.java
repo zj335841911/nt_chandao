@@ -21,6 +21,7 @@ import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
+import cn.ibizlab.pms.util.annotation.Audit;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -97,7 +98,7 @@ public class TestModule extends EntityMP implements Serializable {
     /**
      * 类型（story）
      */
-    @DEField(defaultValue = "story")
+    @DEField(defaultValue = "bug")
     @TableField(value = "type")
     @JSONField(name = "type")
     @JsonProperty("type")

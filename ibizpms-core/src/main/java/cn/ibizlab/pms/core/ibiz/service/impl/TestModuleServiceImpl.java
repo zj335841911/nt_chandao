@@ -188,11 +188,38 @@ public class TestModuleServiceImpl extends ServiceImpl<TestModuleMapper, TestMod
 
 
     /**
+     * 查询集合 BYPATH
+     */
+    @Override
+    public Page<TestModule> searchByPath(TestModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TestModule> pages=baseMapper.searchByPath(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<TestModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 DEFAULT
      */
     @Override
     public Page<TestModule> searchDefault(TestModuleSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<TestModule> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<TestModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 根模块
+     */
+    @Override
+    public Page<TestModule> searchRoot(TestModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TestModule> pages=baseMapper.searchRoot(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<TestModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 根模块_无分支
+     */
+    @Override
+    public Page<TestModule> searchRoot_NoBranch(TestModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TestModule> pages=baseMapper.searchRoot_NoBranch(context.getPages(),context,context.getSelectCond());
         return new PageImpl<TestModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
