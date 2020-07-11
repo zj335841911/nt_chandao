@@ -116,8 +116,8 @@
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
+  :localContext ='{ PRODUCT:"%product%" }' 
+  :localParam ='{ product:"%product%" }' 
   :disabled="detailsModel.branchname.disabled"
   name='branchname'
   deMajorField='name'
@@ -143,8 +143,8 @@
     :data="data" 
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext ='{ PRODUCT:"%product%", BRANCH:"%branch%" }' 
+    :localParam ='{ product:"%product%", branch:"%branch%" }' 
     :disabled="detailsModel.module.disabled"  
     tag='BugModule' 
     codelistType='DYNAMIC'

@@ -1352,7 +1352,7 @@
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"Module",
-        "appdedataset":"FetchDefault",
+        "appdedataset":"FetchStoryModule",
         "items": []
     }, 
     {
