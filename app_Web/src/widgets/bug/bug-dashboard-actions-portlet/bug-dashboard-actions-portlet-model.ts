@@ -198,6 +198,9 @@ export default class BugDashboardActionsModel {
       {
         name: 'modulename',
       },
+      {
+        name: 'branchname',
+      },
     ]
   }
 

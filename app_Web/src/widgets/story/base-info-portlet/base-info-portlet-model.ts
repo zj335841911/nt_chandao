@@ -156,6 +156,9 @@ export default class BaseInfoModel {
       {
         name: 'files',
       },
+      {
+        name: 'branchname',
+      },
     ]
   }
 

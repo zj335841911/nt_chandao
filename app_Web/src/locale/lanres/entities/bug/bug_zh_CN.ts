@@ -61,6 +61,7 @@ export default {
     comment: "备注",
     taskname: "相关任务",
     modulename: "模块名称",
+    branchname: "平台/分支",
   },
 	views: {
 		plansubgridview: {
@@ -231,6 +232,7 @@ export default {
 			product: "所属产品", 
 			productname: "产品", 
 			branch: "平台/分支", 
+			branchname: "平台/分支", 
 			module: "所属模块", 
 			plan: "所属计划", 
 			type: "Bug类型", 

@@ -198,6 +198,9 @@ export default class MainModel {
       {
         name: 'modulename',
       },
+      {
+        name: 'branchname',
+      },
     ]
   }
 

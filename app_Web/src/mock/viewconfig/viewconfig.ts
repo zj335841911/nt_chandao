@@ -1319,6 +1319,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectProductListView9",
             "viewtag": "d0454a2ae9eb44aca3613b27169f3b18"
         },
+        "branchpickupview": {
+            "title": "branch数据选择视图",
+            "caption": "产品的分支和平台信息",
+            "viewtype": "DEPICKUPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BranchPickupView",
+            "viewtag": "d0851a0acfe0e92a6a5ba34b1552bc66"
+        },
         "groupeditview": {
             "title": "group编辑视图",
             "caption": "分组信息",
@@ -1566,6 +1574,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "BugBuildSubGridView_Done",
             "viewtag": "f8ffad31189703973765c5a9c4fc8a5c"
+        },
+        "branchpickupgridview": {
+            "title": "branch选择表格视图",
+            "caption": "产品的分支和平台信息",
+            "viewtype": "DEPICKUPGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BranchPickupGridView",
+            "viewtag": "fa64e271c22e6aaa89873d2556edf529"
         },
         "projectmaintabexpview": {
             "title": "项目",

@@ -81,6 +81,7 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
         product: null,
         productname: null,
         branch: null,
+        branchname: null,
         module: null,
         plan: null,
         type: null,
@@ -181,6 +182,8 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
         productname: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'productname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         branch: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branch', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        branchname: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branchname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         module: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'module', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -303,6 +306,7 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.branch.setVisible(ret);
         }
+
 
 
 

@@ -198,6 +198,9 @@ export default class StepsInfoModel {
       {
         name: 'modulename',
       },
+      {
+        name: 'branchname',
+      },
     ]
   }
 

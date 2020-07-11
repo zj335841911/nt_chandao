@@ -574,6 +574,16 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
             et.setPath(ibzproductmodule.getPath());
             et.setModulename(ibzproductmodule.getName());
         }
+        //实体关系[DER1N_ZT_STORY_ZT_BRANCH_BRANCH]
+        if(!ObjectUtils.isEmpty(et.getBranch())){
+            cn.ibizlab.pms.core.zentao.domain.Branch ztbranch=et.getZtbranch();
+            if(ObjectUtils.isEmpty(ztbranch)){
+                cn.ibizlab.pms.core.zentao.domain.Branch majorEntity=branchService.get(et.getBranch());
+                et.setZtbranch(majorEntity);
+                ztbranch=majorEntity;
+            }
+            et.setBranchname(ztbranch.getName());
+        }
         //实体关系[DER1N_ZT_STORY_ZT_PRODUCT_PRODUCT]
         if(!ObjectUtils.isEmpty(et.getProduct())){
             cn.ibizlab.pms.core.zentao.domain.Product ztproduct=et.getZtproduct();

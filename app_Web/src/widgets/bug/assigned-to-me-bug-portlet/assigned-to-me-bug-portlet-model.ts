@@ -198,6 +198,9 @@ export default class AssignedToMeBugModel {
       {
         name: 'modulename',
       },
+      {
+        name: 'branchname',
+      },
     ]
   }
 

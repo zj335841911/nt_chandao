@@ -12,9 +12,17 @@ export default {
 			caption: "平台管理",
       		title: "平台管理",
 		},
+		pickupview: {
+			caption: "产品的分支和平台信息",
+      		title: "branch数据选择视图",
+		},
 		pmeditview: {
 			caption: "产品的分支和平台信息",
       		title: "平台管理",
+		},
+		pickupgridview: {
+			caption: "产品的分支和平台信息",
+      		title: "branch选择表格视图",
 		},
 	},
 	platformmanagement_form: {
@@ -40,6 +48,20 @@ export default {
 			id: "编号",
 			name: "名称",
 			order: "排序",
+		},
+		uiactions: {
+		},
+	},
+	main_grid: {
+		columns: {
+			name: "名称",
+		},
+		uiactions: {
+		},
+	},
+	default_searchform: {
+		details: {
+			formpage1: "常规条件", 
 		},
 		uiactions: {
 		},

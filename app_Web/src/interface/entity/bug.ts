@@ -493,4 +493,12 @@ export interface Bug {
      * @memberof Bug
      */
     modulename?: any;
+
+    /**
+     * 平台/分支
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    branchname?: any;
 }

@@ -156,6 +156,9 @@ export default class MainToolbarModel {
       {
         name: 'files',
       },
+      {
+        name: 'branchname',
+      },
     ]
   }
 
