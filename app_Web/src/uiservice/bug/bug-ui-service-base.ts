@@ -366,14 +366,28 @@ export default class BugUIServiceBase extends UIService {
         }
         const parameters: any[] = [
             { pathName: 'stories', parameterName: 'story' },
-            { pathName: 'tostoryeditview', parameterName: 'tostoryeditview' },
         ];
-        const openIndexViewTab = (data: any) => {
-            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
-            actionContext.$router.push(routePath);
-            return null;
-        }
-        openIndexViewTab(data);
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if(window.opener){
+                        window.opener.postMessage({status:'OK',identification:'WF'},Environment.uniteAddress);
+                        window.close();
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'storyto-story-edit-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.story.views.tostoryeditview.title'),
+            };
+            openPopupModal(view, data);
     }
 
     /**

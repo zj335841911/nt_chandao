@@ -47,21 +47,10 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.branch.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='branch' :itemRules="this.rules.branch" class='' :caption="$t('entities.bug.dashboardmain_form.details.branch')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.branch.error" :isEmptyCaption="false" labelPos="LEFT">
+<i-col v-show="detailsModel.branchname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='branchname' :itemRules="this.rules.branchname" class='' :caption="$t('entities.bug.dashboardmain_form.details.branchname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.branchname.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.branch" 
-    :data="data" 
-    :context="context"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.branch.disabled"  
-    tag='ProductBranch' 
-    codelistType='DYNAMIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+<app-span name='branchname' :value="data.branchname" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
 
 </i-col>
