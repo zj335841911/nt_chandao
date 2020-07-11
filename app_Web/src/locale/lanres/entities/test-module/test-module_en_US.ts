@@ -31,6 +31,10 @@ export default {
 			caption: "测试模块",
       		title: "产品模块表格视图",
 		},
+		gridviewmain: {
+			caption: "测试模块",
+      		title: "产品模块表格视图",
+		},
 		treeexpview: {
 			caption: "测试模块",
       		title: "测试模块树导航视图",
@@ -90,7 +94,7 @@ export default {
 			tip: "保存行",
 		},
 	},
-	gridviewtoolbar_toolbar: {
+	gridviewmaintoolbar_toolbar: {
 		deuiaction2: {
 			caption: "新建行",
 			tip: "新建行",
@@ -104,6 +108,16 @@ export default {
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
+		},
+	},
+	gridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "新建行",
+			tip: "新建行",
+		},
+		deuiaction3: {
+			caption: "保存行",
+			tip: "保存行",
 		},
 	},
 	moduleexp_treeview: {

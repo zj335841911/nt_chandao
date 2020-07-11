@@ -42,6 +42,7 @@ public interface IStoryService extends IService<Story>{
     Story batchClose(Story et) ;
     Story batchReview(Story et) ;
     Story batchUnlinkStory(Story et) ;
+    Story bugToStory(Story et) ;
     Story change(Story et) ;
     boolean checkKey(Story et) ;
     Story close(Story et) ;
@@ -57,6 +58,7 @@ public interface IStoryService extends IService<Story>{
     Story review(Story et) ;
     boolean save(Story et) ;
     void saveBatch(List<Story> list) ;
+    Story toStory(Story et) ;
     Story unlinkStory(Story et) ;
     Page<Story> searchBuildStories(StorySearchContext context) ;
     Page<Story> searchByModule(StorySearchContext context) ;

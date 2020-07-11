@@ -188,14 +188,14 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends MainControlBase {
         }
         if (Object.is(expmode, 'MODULE')) {
             return {  
-                viewname: 'test-module-grid-view', 
+                viewname: 'test-module-grid-view-main', 
                 parentdata: {"srfparentdefname":"n_parent_eq"},
                 deKeyField:'testmodule'
 			};
         }
         if (Object.is(expmode, 'ROOT_NOBRANCH')) {
             return {  
-                viewname: 'test-module-grid-view', 
+                viewname: 'test-module-grid-view-main', 
                 parentdata: {"srfparentdefname":"n_parent_eq"},
                 deKeyField:'testmodule'
 			};
@@ -216,14 +216,14 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends MainControlBase {
         }
         if (Object.is(expmode, 'ROOTMODULE')) {
             return {  
-                viewname: 'test-module-grid-view', 
+                viewname: 'test-module-grid-view-main', 
                 parentdata: {"srfparentdefname":"n_parent_eq"},
                 deKeyField:'testmodule'
 			};
         }
         if (Object.is(expmode, 'ALL')) {
             return {  
-                viewname: 'test-module-grid-view', 
+                viewname: 'test-module-grid-view-main', 
                 parentdata: {},
                 deKeyField:'testmodule'
 			};

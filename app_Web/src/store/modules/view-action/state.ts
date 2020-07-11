@@ -130,7 +130,11 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '542c854d7aaafdecc9235e9f285d289a',
+                'e67fe0ec86d17b74944c16e187da482d',
                 '6558930042f15c2297572f51d7e77df5',
+                '7c6956b0c4bcc773697adb506d3ce5e9',
+                'c1e9611b6972b1877b75fa5d2c67aad6',
                 '122af527bf38b47ddc53c882847b490e',
                 '443935a0b9d0fa8daf3131956a8bacc9',
                 'ec9a5987de12c718961f243f4034efea',
@@ -549,6 +553,15 @@ export const viewstate: any = {
                 '956ad42e59e60cd8b49e7035147e25cf',
                 '9ed41cee96088630f3d4b0a91e705930',
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: '542c854d7aaafdecc9235e9f285d289a',
+            viewmodule: 'zentao',
+            viewname: 'StorytoStoryEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -1902,15 +1915,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '3eac093f9fabd7b62f7aa61c7315e624',
-            viewmodule: 'ibiz',
-            viewname: 'TestModuleGridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: '41dab4e36aef71df5c66acca4db7d045',
             viewmodule: 'ibiz',
             viewname: 'ProjectModuleMainGridView',
@@ -1955,6 +1959,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '9396442ba87e188748229e6bc6927156',
+            viewmodule: 'ibiz',
+            viewname: 'TestModuleGridViewMain',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '985c8eb7591e5e00de8e3cda638d5727',
             viewmodule: 'ibiz',
             viewname: 'ProductLifeRoadMapListView9',
@@ -1972,7 +1985,7 @@ export const viewstate: any = {
             refviews: [
                 'd337f5c3c125dc2641321f2d93b65476',
                 '65129e5f76f96cbb1d2d1c9e9bb2afed',
-                '3eac093f9fabd7b62f7aa61c7315e624',
+                '9396442ba87e188748229e6bc6927156',
             ],
         },
         {
