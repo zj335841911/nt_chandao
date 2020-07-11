@@ -33,14 +33,26 @@
                     <template v-slot="{row,column,$index}">
                         <template v-if="actualIsOpenEdit">
                             <app-form-item :error="gridItemsModel[$index][column.property].error">
-                                !!!!模版产生代码错误:----
-            Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-            ----
-            
-            ----
-            FTL stack trace ("~" means nesting-related):
-            	- Failed at: @getNavigateContext editor  [in template "TEMPLCODE_zh_CN" at line 6, column 18]
-            ----
+                                
+            <app-picker  
+              :formState="viewState" 
+              :data="row"
+              :context="context"
+              :viewparams="viewparams"
+              :localContext ='{ }' 
+              :localParam ='{ }' 
+              :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1" 
+              name='username' 
+              deMajorField='realname'
+              deKeyField='user'
+              :service="service"
+              :acParams="{ serviceName: 'UserService', interfaceName: 'FetchDefault'}"
+              valueitem='account' 
+              :value="row[column.property]" 
+              editortype="dropdown" 
+              style="" 
+              @formitemvaluechange="($event)=>{onGridItemValueChange(row,$event,$index)}">
+            </app-picker>
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">

@@ -64,7 +64,7 @@ export class TestModuleTreeExpViewBase extends TreeExpViewBase {
 	 * @memberof TestModuleTreeExpViewBase
 	 */
     protected customViewNavContexts: any = {
-        'MODULETYPE': { isRawValue: true, value: 'bug' }
+        'MODULETYPE': { isRawValue: true, value: 'story' }
     };
 
     /**

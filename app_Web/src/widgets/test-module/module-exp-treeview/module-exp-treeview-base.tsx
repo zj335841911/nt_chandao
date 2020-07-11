@@ -63,6 +63,19 @@ export class ModuleExpTreeBase extends MainControlBase {
     }
 
     /**
+     * all_cm 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ModuleExpTreeBase
+     */
+    public all_cm_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.all_cm_deuiaction1_click(null, 'all_cm', $event2);
+        }
+    }
+
+    /**
      * rootmodule_cm 部件 click 事件
      *
      * @param {*} [args={}]
@@ -189,6 +202,34 @@ export class ModuleExpTreeBase extends MainControlBase {
      * @memberof 
      */
     public root_nobranch_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.RefreshAll(datas, contextJO,paramJO,  $event, xData,this,"TestModule");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public all_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];
@@ -941,6 +982,9 @@ export class ModuleExpTreeBase extends MainControlBase {
             if (tags[0] === "BRANCHS") {
                 content = this.renderContextMenuBranchs();
             }
+            if (tags[0] === "ALL") {
+                content = this.renderContextMenuAll();
+            }
             if (tags[0] === "ROOTMODULE") {
                 content = this.renderContextMenuRootmodule();
             }
@@ -967,6 +1011,26 @@ export class ModuleExpTreeBase extends MainControlBase {
     public renderContextMenuBranchs() {
         return (
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.branchs_cm_click({tag: $event})}>
+                <dropdown-menu slot="list">
+                            <dropdown-item name="deuiaction1">
+                        <i class='fa fa-refresh'></i>
+                        刷新
+                    </dropdown-item>
+                </dropdown-menu>
+            </dropdown>
+        );
+    }
+
+    /**
+     * 绘制ALL类型右键菜单
+     *
+     * @param {*} node
+     * @returns
+     * @memberof ModuleExp
+     */
+    public renderContextMenuAll() {
+        return (
+            <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.all_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
                             <dropdown-item name="deuiaction1">
                         <i class='fa fa-refresh'></i>
