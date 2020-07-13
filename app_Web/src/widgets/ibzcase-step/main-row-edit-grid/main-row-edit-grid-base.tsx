@@ -224,6 +224,11 @@ export class Main_RowEditGridBase extends GridControllerBase {
             const data = response.data;
             this.createDefault(data);
             data.rowDataState = "create";
+            if(Object.is(row.type.toLowerCase(), 'group') || Object.is(row.type.toLowerCase(), 'item')) {
+                data.type = 'item';
+            } else {
+                data.type = 'step';
+            }
             if(func instanceof Function) {
                 func(data);
             }
