@@ -191,7 +191,7 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
 
         productname: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'productname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        branch: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branch', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        branch: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branch', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         branchname: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branchname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -274,78 +274,5 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
         if (Object.is(name, 'project')) {
             this.onFormItemValueChange({ name: 'task', value: null });
         }
-    }
-
-    /**
-     * 表单项逻辑
-     *
-     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @returns {Promise<void>}
-     * @memberof DashboardMainEditEditFormBase
-     */
-    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
-                
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        if (Object.is(name, '') || Object.is(name, 'branch')) {
-            let ret = false;
-            const _branch = this.data.branch;
-            if (this.$verify.testCond(_branch, 'NOTEQ', '0')) {
-                ret = true;
-            }
-            this.detailsModel.branch.setVisible(ret);
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
