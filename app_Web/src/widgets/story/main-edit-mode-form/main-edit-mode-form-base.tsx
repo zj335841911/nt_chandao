@@ -190,6 +190,8 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         parent: null,
+        id: null,
+        title: null,
         version: null,
         spec: null,
         verify: null,
@@ -212,7 +214,6 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
         assignedto: null,
         assigneddate: null,
         linkstories: null,
-        id: null,
         module: null,
         story:null,
     };
@@ -224,6 +225,10 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
      * @memberof Main_EditModeEditFormBase
      */
     public rules: any = {
+        title: [
+            { required: true, type: 'string', message: ' 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: ' 值不能为空', trigger: 'blur' },
+        ],
     }
 
     /**
@@ -287,7 +292,11 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
 
         parent: new FormItemModel({ caption: '父需求', detailType: 'FORMITEM', name: 'parent', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        version: new FormItemModel({ caption: '版本#', detailType: 'FORMITEM', name: 'version', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        id: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
+
+        title: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        version: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'version', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         spec: new FormItemModel({ caption: '需求描述', detailType: 'FORMITEM', name: 'spec', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -330,8 +339,6 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
         assigneddate: new FormItemModel({ caption: '于', detailType: 'FORMITEM', name: 'assigneddate', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         linkstories: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'linkstories', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
-        id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
         module: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'module', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -399,6 +406,8 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
 
 
 
+
+
         if (Object.is(name, '') || Object.is(name, 'openeddate')) {
             let ret = false;
             const _openeddate = this.data.openeddate;
@@ -420,9 +429,8 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
 
 
 
-
         if (Object.is(name, 'version')) {
-            const details: string[] = ['verify', 'spec'];
+            const details: string[] = ['title', 'verify', 'spec'];
             this.updateFormItems('GetStorySpec', this.data, details, true);
         }
     }
