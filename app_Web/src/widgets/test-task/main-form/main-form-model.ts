@@ -86,6 +86,11 @@ export default class MainModel {
         dataType: 'SSCODELIST',
       },
       {
+        name: 'product',
+        prop: 'product',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'name',
         prop: 'name',
         dataType: 'TEXT',

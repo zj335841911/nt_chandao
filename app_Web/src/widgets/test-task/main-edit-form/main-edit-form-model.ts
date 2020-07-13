@@ -56,6 +56,11 @@ export default class MainEditModel {
         dataType: 'PICKUPTEXT',
       },
       {
+        name: 'product',
+        prop: 'product',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'buildname',
         prop: 'buildname',
         dataType: 'PICKUPTEXT',
