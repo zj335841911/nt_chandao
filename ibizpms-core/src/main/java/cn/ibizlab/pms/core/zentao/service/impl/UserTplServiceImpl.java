@@ -84,6 +84,7 @@ public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> impl
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         UserTpl et = this.get(key);
         boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTUserTplHelper.delete((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        et.set("ztrst", rst);
         return bRst;
     }
 

@@ -81,7 +81,8 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return bRst;
+        et.set("ztrst", rst);
+        return bRst;
     }
 
     @Override
@@ -95,6 +96,7 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         Release et = this.get(key);
         boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTReleaseHelper.delete((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        et.set("ztrst", rst);
         return bRst;
     }
 
@@ -134,7 +136,8 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return et;
+        et.set("ztrst", rst);
+        return et;
     }
 
     @Override
@@ -146,7 +149,8 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return et;
+        et.set("ztrst", rst);
+        return et;
     }
 
     @Override
@@ -158,7 +162,8 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return et;
+        et.set("ztrst", rst);
+        return et;
     }
 
     @Override
@@ -174,7 +179,8 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return et;
+        et.set("ztrst", rst);
+        return et;
     }
 
     @Override
@@ -186,7 +192,8 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return et;
+        et.set("ztrst", rst);
+        return et;
     }
 
     @Override
@@ -198,7 +205,8 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return et;
+        et.set("ztrst", rst);
+        return et;
     }
 
     @Override
@@ -243,7 +251,8 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return et;
+        et.set("ztrst", rst);
+        return et;
     }
 
     @Override
@@ -255,7 +264,8 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return et;
+        et.set("ztrst", rst);
+        return et;
     }
 
 
