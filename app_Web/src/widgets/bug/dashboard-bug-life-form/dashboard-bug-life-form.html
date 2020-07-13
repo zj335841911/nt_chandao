@@ -25,9 +25,19 @@
 </i-col>
 <i-col v-show="detailsModel.openedbuild.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='openedbuild' :itemRules="this.rules.openedbuild" class='' :caption="$t('entities.bug.dashboardbuglife_form.details.openedbuild')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.openedbuild.error" :isEmptyCaption="false" labelPos="LEFT">
-    <div style="">
-  <app-checkbox :value="this.data.openedbuild" @change="($event)=>{this.data.openedbuild = $event} " :disabled="detailsModel.openedbuild.disabled"></app-checkbox>
-</div>
+    
+<dropdown-list-mpicker 
+  v-model="data.openedbuild"
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams" 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.openedbuild.disabled"
+  tag='CurProductBuild' 
+  codelistType='DYNAMIC' 
+  placeholder='请选择...' style="">
+</dropdown-list-mpicker>
 </app-form-item>
 
 </i-col>
