@@ -137,6 +137,13 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     }
     @Override
     @Transactional
+    public Build linkStory(Build et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
     public boolean save(Build et) {
         if(!saveOrUpdate(et))
             return false;
