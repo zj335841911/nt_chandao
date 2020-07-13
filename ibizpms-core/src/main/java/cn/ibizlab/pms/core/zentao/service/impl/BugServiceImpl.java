@@ -91,7 +91,8 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return bRst;
+        et.set("ztrst", rst);
+        return bRst;
     }
 
     @Override

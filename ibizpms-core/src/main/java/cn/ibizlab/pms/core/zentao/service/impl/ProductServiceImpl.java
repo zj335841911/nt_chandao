@@ -110,7 +110,8 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return bRst;
+        et.set("ztrst", rst);
+        return bRst;
     }
 
     @Override
