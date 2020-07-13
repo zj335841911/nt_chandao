@@ -173,7 +173,7 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
      * @type {number}
      * @memberof Main_EditModeEditFormBase
      */
-    protected drCount: number = 0;
+    protected drCount: number = 3;
 
     /**
      * 表单数据对象

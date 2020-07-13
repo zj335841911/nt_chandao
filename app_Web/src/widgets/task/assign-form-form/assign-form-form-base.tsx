@@ -66,7 +66,7 @@ export class AssignFormEditFormBase extends EditFormControlBase {
      * @type {number}
      * @memberof AssignFormEditFormBase
      */
-    protected drCount: number = 0;
+    protected drCount: number = 1;
 
     /**
      * 表单数据对象

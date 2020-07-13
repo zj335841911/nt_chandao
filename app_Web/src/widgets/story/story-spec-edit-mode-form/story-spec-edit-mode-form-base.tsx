@@ -66,7 +66,7 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
      * @type {number}
      * @memberof StorySpec_EditModeEditFormBase
      */
-    protected drCount: number = 0;
+    protected drCount: number = 1;
 
     /**
      * 表单数据对象
