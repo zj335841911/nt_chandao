@@ -87,7 +87,8 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return bRst;
+        et.set("ztrst", rst);
+        return bRst;
     }
 
     @Override
@@ -101,6 +102,7 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         TestTask et = this.get(key);
         boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTestTaskHelper.delete((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        et.set("ztrst", rst);
         return bRst;
     }
 
@@ -140,7 +142,8 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return et;
+        et.set("ztrst", rst);
+        return et;
     }
 
     @Override
@@ -152,7 +155,8 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return et;
+        et.set("ztrst", rst);
+        return et;
     }
 
     @Override
@@ -168,7 +172,8 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return et;
+        et.set("ztrst", rst);
+        return et;
     }
 
     @Override
@@ -213,7 +218,8 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return et;
+        et.set("ztrst", rst);
+        return et;
     }
 
 

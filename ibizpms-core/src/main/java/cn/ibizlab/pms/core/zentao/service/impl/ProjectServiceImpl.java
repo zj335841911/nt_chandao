@@ -125,7 +125,8 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return bRst;
+        et.set("ztrst", rst);
+        return bRst;
     }
 
     @Override
@@ -139,6 +140,7 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         Project et = this.get(key);
         boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProjectHelper.delete((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        et.set("ztrst", rst);
         return bRst;
     }
 
@@ -178,7 +180,8 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return et;
+        et.set("ztrst", rst);
+        return et;
     }
 
     @Override
@@ -190,7 +193,8 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return et;
+        et.set("ztrst", rst);
+        return et;
     }
 
     @Override
@@ -206,7 +210,8 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return et;
+        et.set("ztrst", rst);
+        return et;
     }
 
     @Override
@@ -218,7 +223,8 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return et;
+        et.set("ztrst", rst);
+        return et;
     }
 
     @Override
@@ -230,7 +236,8 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return et;
+        et.set("ztrst", rst);
+        return et;
     }
 
     @Override
@@ -242,7 +249,8 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return et;
+        et.set("ztrst", rst);
+        return et;
     }
 
     @Override
@@ -287,7 +295,8 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return et;
+        et.set("ztrst", rst);
+        return et;
     }
 
     @Override
@@ -299,7 +308,8 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return et;
+        et.set("ztrst", rst);
+        return et;
     }
 
     @Override
@@ -311,7 +321,8 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return et;
+        et.set("ztrst", rst);
+        return et;
     }
 
     @Override
@@ -323,7 +334,8 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return et;
+        et.set("ztrst", rst);
+        return et;
     }
 
     @Override
@@ -335,7 +347,8 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return et;
+        et.set("ztrst", rst);
+        return et;
     }
 
 
