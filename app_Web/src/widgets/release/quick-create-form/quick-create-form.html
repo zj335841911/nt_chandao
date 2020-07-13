@@ -66,19 +66,20 @@
         <i-col v-show="detailsModel.marker.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='marker' :itemRules="this.rules.marker" class='' :caption="$t('entities.release.quickcreate_form.details.marker')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.marker.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-  v-model="data.marker" 
-  :data="data" 
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.marker.disabled" 
-  style="width:100px;width: 100px;" 
-  tag='YesNo2' 
-  codelistType='STATIC'
-  placeholder='请选择...'>
- </dropdown-list>
+<dropdown-list 
+    v-model="data.marker"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.marker.disabled"
+    style="width:100px;width: 100px;"
+    valueType="number"
+    tag='YesNo2' 
+    codelistType='STATIC'
+    placeholder='请选择...'
+/>
 </app-form-item>
 
 </i-col>

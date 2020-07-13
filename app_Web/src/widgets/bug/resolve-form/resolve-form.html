@@ -13,36 +13,40 @@
         <i-col v-show="detailsModel.resolution.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='resolution' :itemRules="this.rules.resolution" class='' :caption="$t('entities.bug.resolve_form.details.resolution')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resolution.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.resolution" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.resolution"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.resolution.disabled"  
-    tag='Bug__resolution' 
+    :disabled="detailsModel.resolution.disabled"
+    valueType="string"
+    tag='Bug__resolution'
     codelistType='STATIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.resolvedbuild.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='resolvedbuild' :itemRules="this.rules.resolvedbuild" class='' :caption="$t('entities.bug.resolve_form.details.resolvedbuild')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resolvedbuild.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.resolvedbuild" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.resolvedbuild"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.resolvedbuild.disabled"  
-    tag='CurProductBuild' 
+    :disabled="detailsModel.resolvedbuild.disabled"
+    valueType="string"
+    tag='CurProductBuild'
     codelistType='DYNAMIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
@@ -55,18 +59,20 @@
 <i-col v-show="detailsModel.assignedto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='assignedto' :itemRules="this.rules.assignedto" class='' :caption="$t('entities.bug.resolve_form.details.assignedto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.assignedto.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.assignedto" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.assignedto"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.assignedto.disabled"  
-    tag='UserRealName' 
+    :disabled="detailsModel.assignedto.disabled"
+    valueType="string"
+    tag='UserRealName'
     codelistType='DYNAMIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>

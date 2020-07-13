@@ -190,18 +190,20 @@
 <i-col v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='type' :itemRules="this.rules.type" class='' :caption="$t('entities.case.mainedit_form.details.type')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.type" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.type"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.type.disabled"  
-    tag='Testcase__type' 
+    :disabled="detailsModel.type.disabled"
+    valueType="string"
+    tag='Testcase__type'
     codelistType='STATIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
@@ -228,36 +230,40 @@
 <i-col v-show="detailsModel.pri.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='pri' :itemRules="this.rules.pri" class='' :caption="$t('entities.case.mainedit_form.details.pri')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.pri.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.pri" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.pri"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.pri.disabled"  
-    tag='Testcase__pri' 
+    :disabled="detailsModel.pri.disabled"
+    valueType="number"
+    tag='Testcase__pri'
     codelistType='STATIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.status.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='status' :itemRules="this.rules.status" class='' :caption="$t('entities.case.mainedit_form.details.status')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.status.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.status" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.status"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.status.disabled"  
-    tag='Testcase__status' 
+    :disabled="detailsModel.status.disabled"
+    valueType="string"
+    tag='Testcase__status'
     codelistType='STATIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>

@@ -138,108 +138,120 @@
 <i-col v-show="detailsModel.module.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='module' :itemRules="this.rules.module" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.module')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.module.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.module" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.module"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ PRODUCT:"%product%", BRANCH:"%branch%" }' 
     :localParam ='{ product:"%product%", branch:"%branch%" }' 
-    :disabled="detailsModel.module.disabled"  
-    tag='BugModule' 
+    :disabled="detailsModel.module.disabled"
+    valueType="number"
+    tag='BugModule'
     codelistType='DYNAMIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.plan.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='plan' :itemRules="this.rules.plan" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.plan')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.plan.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.plan" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.plan"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.plan.disabled"  
-    tag='ProductPlan' 
+    :disabled="detailsModel.plan.disabled"
+    valueType="number"
+    tag='ProductPlan'
     codelistType='DYNAMIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='type' :itemRules="this.rules.type" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.type')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.type" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.type"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.type.disabled"  
-    tag='Bug__type' 
+    :disabled="detailsModel.type.disabled"
+    valueType="string"
+    tag='Bug__type'
     codelistType='STATIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.severity.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='severity' :itemRules="this.rules.severity" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.severity')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.severity.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.severity" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.severity"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.severity.disabled"  
-    tag='Bug__severity' 
+    :disabled="detailsModel.severity.disabled"
+    valueType="number"
+    tag='Bug__severity'
     codelistType='STATIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.pri.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='pri' :itemRules="this.rules.pri" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.pri')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.pri.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.pri" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.pri"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.pri.disabled"  
-    tag='Bug__pri' 
+    :disabled="detailsModel.pri.disabled"
+    valueType="number"
+    tag='Bug__pri'
     codelistType='STATIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.status.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='status' :itemRules="this.rules.status" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.status')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.status.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.status" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.status"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.status.disabled"  
-    tag='Bug__status' 
+    :disabled="detailsModel.status.disabled"
+    valueType="string"
+    tag='Bug__status'
     codelistType='STATIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
@@ -258,36 +270,40 @@
 <i-col v-show="detailsModel.confirmed.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='confirmed' :itemRules="this.rules.confirmed" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.confirmed')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.confirmed.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.confirmed" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.confirmed"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.confirmed.disabled"  
-    tag='YesNo2' 
+    :disabled="detailsModel.confirmed.disabled"
+    valueType="number"
+    tag='YesNo2'
     codelistType='STATIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.assignedto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='assignedto' :itemRules="this.rules.assignedto" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.assignedto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.assignedto.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.assignedto" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.assignedto"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.assignedto.disabled"  
-    tag='UserRealName' 
+    :disabled="detailsModel.assignedto.disabled"
+    valueType="string"
+    tag='UserRealName'
     codelistType='DYNAMIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
@@ -300,36 +316,40 @@
 <i-col v-show="detailsModel.os.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='os' :itemRules="this.rules.os" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.os')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.os.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.os" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.os"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.os.disabled"  
-    tag='Bug__os' 
+    :disabled="detailsModel.os.disabled"
+    valueType="string"
+    tag='Bug__os'
     codelistType='STATIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.browser.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='browser' :itemRules="this.rules.browser" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.browser')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.browser.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.browser" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.browser"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.browser.disabled"  
-    tag='Bug__browser' 
+    :disabled="detailsModel.browser.disabled"
+    valueType="string"
+    tag='Bug__browser'
     codelistType='STATIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
@@ -382,7 +402,7 @@
   deMajorField='name'
   deKeyField='project'
   :service="service"
-  :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchDefault'}"
+  :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchBugProject'}"
   valueitem='project' 
   :value="data.projectname" 
   editortype="" 
@@ -463,108 +483,120 @@
 <i-col v-show="detailsModel.openedbuild.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='openedbuild' :itemRules="this.rules.openedbuild" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.openedbuild')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.openedbuild.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.openedbuild" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.openedbuild"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.openedbuild.disabled"  
-    tag='CurProductBuild' 
+    :disabled="detailsModel.openedbuild.disabled"
+    valueType="string"
+    tag='CurProductBuild'
     codelistType='DYNAMIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.resolvedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='resolvedby' :itemRules="this.rules.resolvedby" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.resolvedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resolvedby.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.resolvedby" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.resolvedby"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.resolvedby.disabled"  
-    tag='UserRealName' 
+    :disabled="detailsModel.resolvedby.disabled"
+    valueType="string"
+    tag='UserRealName'
     codelistType='DYNAMIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.resolution.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='resolution' :itemRules="this.rules.resolution" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.resolution')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resolution.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.resolution" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.resolution"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.resolution.disabled"  
-    tag='Bug__resolution' 
+    :disabled="detailsModel.resolution.disabled"
+    valueType="string"
+    tag='Bug__resolution'
     codelistType='STATIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.resolvedbuild.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='resolvedbuild' :itemRules="this.rules.resolvedbuild" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.resolvedbuild')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resolvedbuild.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.resolvedbuild" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.resolvedbuild"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.resolvedbuild.disabled"  
-    tag='CurProductBuild' 
+    :disabled="detailsModel.resolvedbuild.disabled"
+    valueType="string"
+    tag='CurProductBuild'
     codelistType='DYNAMIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.closedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='closedby' :itemRules="this.rules.closedby" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.closedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.closedby.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.closedby" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.closedby"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.closedby.disabled"  
-    tag='UserRealName' 
+    :disabled="detailsModel.closedby.disabled"
+    valueType="string"
+    tag='UserRealName'
     codelistType='DYNAMIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.lasteditedby.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='lasteditedby' :itemRules="this.rules.lasteditedby" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.lasteditedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.lasteditedby.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.lasteditedby" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.lasteditedby"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.lasteditedby.disabled"  
-    tag='UserRealName' 
+    :disabled="detailsModel.lasteditedby.disabled"
+    valueType="string"
+    tag='UserRealName'
     codelistType='DYNAMIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>

@@ -63,36 +63,40 @@
 <i-col v-show="detailsModel.owner.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='owner' :itemRules="this.rules.owner" class='' :caption="$t('entities.testtask.main_form.details.owner')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.owner.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.owner" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.owner"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.owner.disabled"  
-    tag='UserRealName' 
+    :disabled="detailsModel.owner.disabled"
+    valueType="string"
+    tag='UserRealName'
     codelistType='DYNAMIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
 <i-col v-show="detailsModel.pri.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='pri' :itemRules="this.rules.pri" class='' :caption="$t('entities.testtask.main_form.details.pri')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.pri.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.pri" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.pri"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.pri.disabled"  
-    tag='Testtask__pri' 
+    :disabled="detailsModel.pri.disabled"
+    valueType="number"
+    tag='Testtask__pri'
     codelistType='STATIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
@@ -120,18 +124,20 @@
 <i-col v-show="detailsModel.status.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='status' :itemRules="this.rules.status" class='' :caption="$t('entities.testtask.main_form.details.status')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.status.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.status" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.status"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.status.disabled"  
-    tag='Testtask__status' 
+    :disabled="detailsModel.status.disabled"
+    valueType="string"
+    tag='Testtask__status'
     codelistType='STATIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
