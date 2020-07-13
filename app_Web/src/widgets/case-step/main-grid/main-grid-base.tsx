@@ -251,4 +251,42 @@ export class MainGridBase extends GridControllerBase {
             }
         });
     }
+
+    /**
+     * 保存
+     *
+     * @param {any[]} args
+     * @param {*} [params]
+     * @param {*} [$event]
+     * @param {*} [xData]
+     * @returns
+     * @memberof Main
+     */
+    public async save(args: any[], params?: any, $event?: any, xData?: any) {
+        if (!await this.validateAll()) {
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.rulesException') as string) });
+            return [];
+        }
+        let successItems: any = [];
+        let errorItems: any = [];
+        let errorMessage: any = [];
+        let param: any = {};
+        Object.assign(param, { 
+            viewparams: this.viewparams,
+            srfArray: JSON.stringify(this.items)
+        });
+        let response = await this.service.add(this.createAction, JSON.parse(JSON.stringify(this.context)), param, this.showBusyIndicator);
+        successItems.push(JSON.parse(JSON.stringify(response.data)));
+        this.$emit('save', successItems);
+        this.refresh([]);
+        if (errorItems.length === 0) {
+            this.$Notice.success({ title: '', desc: (this.$t('app.commonWords.saveSuccess') as string) });
+        } else {
+            errorItems.forEach((item: any, index: number) => {
+                this.$Notice.error({ title: (this.$t('app.commonWords.saveFailed') as string), desc: item.majorentityname + (this.$t('app.commonWords.saveFailed') as string) + '!' });
+                console.error(errorMessage[index]);
+            });
+        }
+        return successItems;
+    }
 }
