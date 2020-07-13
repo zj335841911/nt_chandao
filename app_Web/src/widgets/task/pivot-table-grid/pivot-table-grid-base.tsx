@@ -535,9 +535,13 @@ export class PivotTableGridBase extends MainControlBase {
             }
         }
         if(Object.is('assignedto', name)) {
-            let codelist: any[] = this.$store.getters.getCodeList('UserRealName');
-            if(codelist) {
-                return this.getCodeListItem(codelist, value);
+            let items = await _this.codeListService.getItems('UserRealName');
+            if(items) {
+                for(let i = 0; i < items.length; i++) {
+                    if(Object.is(items[i].value, val)) {
+                        return items[i].text;
+                    }
+                }
             }
         }
         return value;

@@ -47,6 +47,7 @@ public interface IProjectService extends IService<Project>{
     Project unlinkMember(Project et) ;
     Project unlinkStory(Project et) ;
     Project updateOrder(Project et) ;
+    Page<Project> searchBugProject(ProjectSearchContext context) ;
     Page<Project> searchCurProduct(ProjectSearchContext context) ;
     Page<Project> searchDefault(ProjectSearchContext context) ;
     List<Project> selectByParent(BigInteger id) ;

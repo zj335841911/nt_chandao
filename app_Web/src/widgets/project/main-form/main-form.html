@@ -36,18 +36,20 @@
 <i-col v-show="detailsModel.period.visible" :style="{}"  :sm="{ span: 4, offset: 0 }" :md="{ span: 4, offset: 0 }" :lg="{ span: 4, offset: 0 }" :xl="{ span: 4, offset: 0 }">
     <app-form-item name='period' :itemRules="this.rules.period" class='' :caption="$t('entities.project.main_form.details.period')" uiStyle="DEFAULT" :labelWidth="1" :isShowCaption="true" :error="detailsModel.period.error" :isEmptyCaption="true" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.period" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.period"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.period.disabled"  
-    tag='Zt__delta' 
+    :disabled="detailsModel.period.disabled"
+    valueType="string"
+    tag='Zt__delta'
     codelistType='STATIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
@@ -70,18 +72,20 @@
 <i-col v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='type' :itemRules="this.rules.type" class='' :caption="$t('entities.project.main_form.details.type')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.type" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.type"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.type.disabled"  
-    tag='Project__type' 
+    :disabled="detailsModel.type.disabled"
+    valueType="string"
+    tag='Project__type'
     codelistType='STATIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
@@ -147,18 +151,20 @@
 <i-col v-show="detailsModel.acl.visible" :style="{}"  :sm="{ span: 16, offset: 0 }" :md="{ span: 16, offset: 0 }" :lg="{ span: 16, offset: 0 }" :xl="{ span: 16, offset: 0 }">
     <app-form-item name='acl' :itemRules="this.rules.acl" class='' :caption="$t('entities.project.main_form.details.acl')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.acl.error" :isEmptyCaption="false" labelPos="LEFT">
     
- <dropdown-list 
-    v-model="data.acl" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.acl"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.acl.disabled"  
-    tag='Product__acl' 
+    :disabled="detailsModel.acl.disabled"
+    valueType="string"
+    tag='Product__acl'
     codelistType='STATIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>

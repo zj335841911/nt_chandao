@@ -34,18 +34,20 @@
 <i-col v-show="detailsModel.branch.visible" :style="{}"  :lg="{ span: 8, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='branch' :itemRules="this.rules.branch" class='' :caption="$t('entities.productmodule.main_form.details.branch')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.branch.error" :isEmptyCaption="false" labelPos="NONE">
     
- <dropdown-list 
-    v-model="data.branch" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.branch"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.branch.disabled"  
-    tag='ProductBranch_Cache' 
+    :disabled="detailsModel.branch.disabled"
+    valueType="number"
+    tag='ProductBranch_Cache'
     codelistType='DYNAMIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>

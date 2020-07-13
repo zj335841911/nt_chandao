@@ -16,96 +16,108 @@
                 </template>
                 <template v-if="Object.is(data.editor, 'pri')">
                     
- <dropdown-list 
-    v-model="data.pri" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.pri"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.pri.disabled"  
-    tag='Story__pri' 
+    :disabled="detailsModel.pri.disabled"
+    valueType="number"
+    tag='Story__pri'
     codelistType='STATIC'
-    placeholder='请选择...' style="width:100px;">
- </dropdown-list>
+    placeholder='请选择...'
+    style="width:100px;"
+/>
                 </template>
                 <template v-if="Object.is(data.editor, 'prigteq')">
                     
- <dropdown-list 
-    v-model="data.prigteq" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.prigteq"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.prigteq.disabled"  
-    tag='Story__pri' 
+    :disabled="detailsModel.prigteq.disabled"
+    valueType="number"
+    tag='Story__pri'
     codelistType='STATIC'
-    placeholder='请选择...' style="width:100px;">
- </dropdown-list>
+    placeholder='请选择...'
+    style="width:100px;"
+/>
                 </template>
                 <template v-if="Object.is(data.editor, 'prilteq')">
                     
- <dropdown-list 
-    v-model="data.prilteq" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.prilteq"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.prilteq.disabled"  
-    tag='Story__pri' 
+    :disabled="detailsModel.prilteq.disabled"
+    valueType="number"
+    tag='Story__pri'
     codelistType='STATIC'
-    placeholder='请选择...' style="width:100px;">
- </dropdown-list>
+    placeholder='请选择...'
+    style="width:100px;"
+/>
                 </template>
                 <template v-if="Object.is(data.editor, 'stageeq')">
                     
- <dropdown-list 
-    v-model="data.stageeq" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.stageeq"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.stageeq.disabled"  
-    tag='Story__stage' 
+    :disabled="detailsModel.stageeq.disabled"
+    valueType="string"
+    tag='Story__stage'
     codelistType='STATIC'
-    placeholder='请选择...' style="width:100px;">
- </dropdown-list>
+    placeholder='请选择...'
+    style="width:100px;"
+/>
                 </template>
                 <template v-if="Object.is(data.editor, 'stagenoteq')">
                     
- <dropdown-list 
-    v-model="data.stagenoteq" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.stagenoteq"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.stagenoteq.disabled"  
-    tag='Story__stage' 
+    :disabled="detailsModel.stagenoteq.disabled"
+    valueType="string"
+    tag='Story__stage'
     codelistType='STATIC'
-    placeholder='请选择...' style="width:100px;">
- </dropdown-list>
+    placeholder='请选择...'
+    style="width:100px;"
+/>
                 </template>
                 <template v-if="Object.is(data.editor, 'titlelike')">
                     <input-box v-model="data.titlelike"  @enter="onEnter($event)"    :disabled="detailsModel.titlelike.disabled" type='text'  style="width:100px;"></input-box>
                 </template>
                 <template v-if="Object.is(data.editor, 'statuseq')">
                     
- <dropdown-list 
-    v-model="data.statuseq" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.statuseq"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.statuseq.disabled"  
-    tag='Story__status' 
+    :disabled="detailsModel.statuseq.disabled"
+    valueType="string"
+    tag='Story__status'
     codelistType='STATIC'
-    placeholder='请选择...' style="width:100px;">
- </dropdown-list>
+    placeholder='请选择...'
+    style="width:100px;"
+/>
                 </template>
                 <template v-if="Object.is(data.editor, 'keywords')">
                     <input-box v-model="data.keywords"  @enter="onEnter($event)"    :disabled="detailsModel.keywords.disabled" type='text'  style=""></input-box>
