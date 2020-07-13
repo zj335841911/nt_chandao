@@ -1,0 +1,58 @@
+package cn.ibizlab.pms.zentao.logic.tasklogic.assignto__msdeny;
+
+import java.util.Map;
+import java.util.HashMap;
+import com.alibaba.fastjson.JSONObject;
+global cn.ibizlab.pms.core.zentao.domain.Task taskassignto__msdenytemp;
+global cn.ibizlab.pms.core.zentao.domain.Task taskassignto__msdenydefault;
+global cn.ibizlab.pms.core.zentao.service.ITaskService taskservice;
+global cn.ibizlab.pms.core.zentao.service.ITaskService iBzSysTaskDefaultService;
+global cn.ibizlab.pms.util.security.AuthenticationUser curuser;
+
+no-loop
+
+//逻辑处理节点[开始]
+rule "begin"
+ruleflow-group "taskassignto__msdenybegin"
+    when
+    then
+    end
+
+//逻辑处理节点[准备临时参数]
+rule "preparetemp"
+ruleflow-group "taskassignto__msdenypreparetemp"
+    when
+    then
+    taskassignto__msdenytemp.set("id",taskassignto__msdenydefault.get("id"));
+    update(taskassignto__msdenytemp);//更新fact中变量值
+    update(taskassignto__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已关闭]拒绝[指派/转交]操作]
+rule "denybyclosed"
+ruleflow-group "taskassignto__msdenydenybyclosed"
+    when
+    then
+    update(taskassignto__msdenytemp);//更新fact中变量值
+    update(taskassignto__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已完成]拒绝[指派/转交]操作]
+rule "denybydone"
+ruleflow-group "taskassignto__msdenydenybydone"
+    when
+    then
+    update(taskassignto__msdenytemp);//更新fact中变量值
+    update(taskassignto__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[获取数据]
+rule "get"
+ruleflow-group "taskassignto__msdenyget"
+    when
+    then
+    cn.ibizlab.pms.util.helper.CachedBeanCopier.copy(taskservice.get(taskassignto__msdenytemp.getId()),taskassignto__msdenytemp);
+    update(taskassignto__msdenytemp);//更新fact中变量值
+    update(taskassignto__msdenydefault);//更新fact中变量值
+    end
+
