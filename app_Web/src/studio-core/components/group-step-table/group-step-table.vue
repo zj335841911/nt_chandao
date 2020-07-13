@@ -167,11 +167,6 @@ export default class GroupStepTable extends Vue {
      */
     public onAdd(row: any, index: number) {
         this.$emit('add', { row: row, index: index }, (data: any) => {
-            if(Object.is(row[this.groupfield].toLowerCase(), 'group') || Object.is(row[this.groupfield].toLowerCase(), 'item')) {
-                data[this.groupfield] = 'item';
-            } else {
-                data[this.groupfield] = 'step';
-            }
             this.data.splice(index + 1, 0, data);
         });
     }
