@@ -77,6 +77,24 @@
 </app-form-item>
 
 </i-col>
+<i-col v-show="detailsModel.openedbuild.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 24, offset: 0 }">
+    <app-form-item name='openedbuild' :itemRules="this.rules.openedbuild" class='' :caption="$t('entities.bug.main_form.details.openedbuild')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.openedbuild.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<dropdown-list-mpicker 
+  v-model="data.openedbuild"
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams" 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.openedbuild.disabled"
+  tag='CurProductBuild' 
+  codelistType='DYNAMIC' 
+  placeholder='请选择...' style="">
+</dropdown-list-mpicker>
+</app-form-item>
+
+</i-col>
 <i-col v-show="detailsModel.projectname.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='projectname' :itemRules="this.rules.projectname" class='' :caption="$t('entities.bug.main_form.details.projectname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.projectname.error" :isEmptyCaption="false" labelPos="LEFT">
     
@@ -101,24 +119,6 @@
   @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 
-</app-form-item>
-
-</i-col>
-<i-col v-show="detailsModel.openedbuild.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
-    <app-form-item name='openedbuild' :itemRules="this.rules.openedbuild" class='' :caption="$t('entities.bug.main_form.details.openedbuild')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.openedbuild.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<dropdown-list-mpicker 
-  v-model="data.openedbuild"
-  :data="data" 
-  :context="context"
-  :viewparams="viewparams" 
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.openedbuild.disabled"
-  tag='CurProductBuild' 
-  codelistType='DYNAMIC' 
-  placeholder='请选择...' style="">
-</dropdown-list-mpicker>
 </app-form-item>
 
 </i-col>
