@@ -23,7 +23,7 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.productname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col v-show="detailsModel.productname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 18, offset: 0 }">
     <app-form-item name='productname' :itemRules="this.rules.productname" class='' :caption="$t('entities.bug.dashboardmain_form.details.productname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.productname.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-picker 
@@ -47,8 +47,8 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.branchname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='branchname' :itemRules="this.rules.branchname" class='' :caption="$t('entities.bug.dashboardmain_form.details.branchname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.branchname.error" :isEmptyCaption="false" labelPos="LEFT">
+<i-col v-show="detailsModel.branchname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+    <app-form-item name='branchname' :itemRules="this.rules.branchname" class='' :caption="$t('entities.bug.dashboardmain_form.details.branchname')" uiStyle="DEFAULT" :labelWidth="1" :isShowCaption="true" :error="detailsModel.branchname.error" :isEmptyCaption="true" labelPos="LEFT">
     
 <app-span name='branchname' :value="data.branchname" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""></app-span>
 </app-form-item>
