@@ -77,6 +77,22 @@ export class PlatformManagementGridBase extends GridControllerBase {
     protected localStorageTag: string = 'zt_branch_platformmanagement_grid';
 
     /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof PlatformManagementGridBase
+     */
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof PlatformManagementGridBase
+     */
+    public minorSortPSDEF: string = 'id';
+
+    /**
      * 所有列成员
      *
      * @type {any[]}

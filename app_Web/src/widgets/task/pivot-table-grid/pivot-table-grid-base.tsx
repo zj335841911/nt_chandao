@@ -188,7 +188,7 @@ export class PivotTableGridBase extends MainControlBase {
      * @type {string}
      * @memberof PivotTable
      */
-    public minorSortDir: string = '';
+    public minorSortDir: string = 'DESC';
 
     /**
      * 排序字段
@@ -196,7 +196,7 @@ export class PivotTableGridBase extends MainControlBase {
      * @type {string}
      * @memberof PivotTable
      */
-    public minorSortPSDEF: string = '';
+    public minorSortPSDEF: string = 'id';
 
     /**
      * 分页条数
