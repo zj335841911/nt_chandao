@@ -369,7 +369,7 @@ export class CaseExpTreeBase extends MainControlBase {
         }
         let curNode:any = {}; 
         const { parent: _parent } = node;
-        curNode = Util.deepObjectMerge(curNode,_parent);
+        curNode = this.$util.deepObjectMerge(curNode,_parent);
         let tempContext:any = {};
         if(curNode.data && curNode.data.srfappctx){
             Object.assign(tempContext,curNode.data.srfappctx);
@@ -398,7 +398,7 @@ export class CaseExpTreeBase extends MainControlBase {
         };
         let tempViewParams:any = JSON.parse(JSON.stringify(this.viewparams));
         let curNode:any = {}; 
-        curNode = Util.deepObjectMerge(curNode,node);
+        curNode = this.$util.deepObjectMerge(curNode,node);
         let tempContext:any = this.computecurNodeContext(curNode);
         if(curNode.data && curNode.data.srfparentdename){
             Object.assign(tempContext,{srfparentdename:curNode.data.srfparentdename});
