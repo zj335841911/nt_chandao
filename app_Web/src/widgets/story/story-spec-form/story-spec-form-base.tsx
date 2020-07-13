@@ -83,10 +83,11 @@ export class StorySpecEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         parent: null,
+        id: null,
+        title: null,
         version: null,
         spec: null,
         verify: null,
-        id: null,
         story:null,
     };
 
@@ -138,13 +139,15 @@ export class StorySpecEditFormBase extends EditFormControlBase {
 
         parent: new FormItemModel({ caption: '父需求', detailType: 'FORMITEM', name: 'parent', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        version: new FormItemModel({ caption: '版本#', detailType: 'FORMITEM', name: 'version', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        id: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
+
+        title: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        version: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'version', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         spec: new FormItemModel({ caption: '需求描述', detailType: 'FORMITEM', name: 'spec', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         verify: new FormItemModel({ caption: '验收标准', detailType: 'FORMITEM', name: 'verify', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
-        id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
     };
 
@@ -185,8 +188,9 @@ export class StorySpecEditFormBase extends EditFormControlBase {
 
 
 
+
         if (Object.is(name, 'version')) {
-            const details: string[] = ['verify', 'spec'];
+            const details: string[] = ['title', 'verify', 'spec'];
             this.updateFormItems('GetStorySpec', this.data, details, true);
         }
     }
