@@ -74,6 +74,7 @@ export class BugMainEditViewBase extends EditViewBase {
 	 * @memberof BugMainEditViewBase
 	 */
     protected customViewNavContexts: any = {
+        'PRODUCT': { isRawValue: false, value: 'product' },
         'OBJECTTYPE': { isRawValue: true, value: 'bug' },
         'SRFPARENTKEY': { isRawValue: false, value: 'bug' }
     };
