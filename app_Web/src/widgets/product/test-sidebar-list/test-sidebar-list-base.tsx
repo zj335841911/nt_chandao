@@ -63,5 +63,13 @@ export class TestSidebarListBase extends ListControllerBase {
      * @type {string}
      * @memberof TestSidebarListBase
      */
-    public minorSortDir: string = '';
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof TestSidebarListBase
+     */
+    public minorSortPSDEF: string = 'id';
 }

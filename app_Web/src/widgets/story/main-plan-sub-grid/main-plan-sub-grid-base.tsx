@@ -106,6 +106,22 @@ export class Main_PlanSubGridBase extends GridControllerBase {
     protected localStorageTag: string = 'zt_story_main_plansub_grid';
 
     /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof Main_PlanSubGridBase
+     */
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof Main_PlanSubGridBase
+     */
+    public minorSortPSDEF: string = 'id';
+
+    /**
      * 所有列成员
      *
      * @type {any[]}
