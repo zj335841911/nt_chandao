@@ -108,30 +108,23 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.branchname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='branchname' :itemRules="this.rules.branchname" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.branchname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.branchname.error" :isEmptyCaption="false" labelPos="LEFT">
+<i-col v-show="detailsModel.branch.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='branch' :itemRules="this.rules.branch" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.branch')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.branch.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<app-picker 
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ PRODUCT:"%product%" }' 
-  :localParam ='{ product:"%product%" }' 
-  :disabled="detailsModel.branchname.disabled"
-  name='branchname'
-  deMajorField='name'
-  deKeyField='branch'
-  :service="service"
-  :acParams="{ serviceName: 'BranchService', interfaceName: 'FetchDefault'}"
-  valueitem='branch' 
-  :value="data.branchname" 
-  editortype="" 
-  :pickupView="{ viewname: 'branch-pickup-view', title: $t('entities.branch.views.pickupview.title'), deResParameters: [{ pathName: 'products', parameterName: 'product' }, ], parameters: [{ pathName: 'branches', parameterName: 'branch' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
-  style=""  
-  @formitemvaluechange="onFormItemValueChange($event)">
-</app-picker>
-
+<dropdown-list 
+    v-model="data.branch"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ PRODUCT:"%product%" }' 
+    :localParam ='{ product:"%product%" }' 
+    :disabled="detailsModel.branch.disabled"
+    valueType="number"
+    tag='ProductBranch'
+    codelistType='DYNAMIC'
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>

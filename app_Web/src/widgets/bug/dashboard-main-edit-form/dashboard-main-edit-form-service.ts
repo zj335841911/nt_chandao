@@ -3,7 +3,6 @@ import ControlService from '@/widgets/control-service';
 import BugService from '@/service/bug/bug-service';
 import DashboardMainEditModel from './dashboard-main-edit-form-model';
 import ProductService from '@/service/product/product-service';
-import BranchService from '@/service/branch/branch-service';
 import ProjectService from '@/service/project/project-service';
 import StoryService from '@/service/story/story-service';
 import TaskService from '@/service/task/task-service';
@@ -53,14 +52,6 @@ export default class DashboardMainEditService extends ControlService {
      * @memberof DashboardMainEditService
      */
     public productService: ProductService = new ProductService();
-
-    /**
-     * 产品的分支和平台信息服务对象
-     *
-     * @type {BranchService}
-     * @memberof DashboardMainEditService
-     */
-    public branchService: BranchService = new BranchService();
 
     /**
      * 项目服务对象
@@ -127,9 +118,6 @@ export default class DashboardMainEditService extends ControlService {
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
         if (Object.is(serviceName, 'ProductService') && Object.is(interfaceName, 'FetchDefault')) {
             return this.doItems(this.productService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'product');
-        }
-        if (Object.is(serviceName, 'BranchService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.branchService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'branch');
         }
         if (Object.is(serviceName, 'ProjectService') && Object.is(interfaceName, 'FetchBugProject')) {
             return this.doItems(this.projectService.FetchBugProject(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'project');

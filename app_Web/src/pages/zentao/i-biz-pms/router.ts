@@ -1015,35 +1015,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-pickup-grid-view/project-pickup-grid-view.vue'),
                 },
                 {
-                    path: 'products/:product?/branches/:branch?/pickupgridview/:pickupgridview?',
-                    meta: {
-                        caption: 'entities.branch.views.pickupgridview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'branches', parameterName: 'branch' },
-                            { pathName: 'pickupgridview', parameterName: 'pickupgridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/branch-pickup-grid-view/branch-pickup-grid-view.vue'),
-                },
-                {
-                    path: 'branches/:branch?/pickupgridview/:pickupgridview?',
-                    meta: {
-                        caption: 'entities.branch.views.pickupgridview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'branches', parameterName: 'branch' },
-                            { pathName: 'pickupgridview', parameterName: 'pickupgridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/branch-pickup-grid-view/branch-pickup-grid-view.vue'),
-                },
-                {
                     path: 'projects/:project?/curproductgridview/:curproductgridview?',
                     meta: {
                         caption: 'entities.project.views.curproductgridview.title',
@@ -2865,35 +2836,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/project-team-main-grid-view/project-team-main-grid-view.vue'),
-                },
-                {
-                    path: 'products/:product?/branches/:branch?/pickupview/:pickupview?',
-                    meta: {
-                        caption: 'entities.branch.views.pickupview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'branches', parameterName: 'branch' },
-                            { pathName: 'pickupview', parameterName: 'pickupview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/branch-pickup-view/branch-pickup-view.vue'),
-                },
-                {
-                    path: 'branches/:branch?/pickupview/:pickupview?',
-                    meta: {
-                        caption: 'entities.branch.views.pickupview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'branches', parameterName: 'branch' },
-                            { pathName: 'pickupview', parameterName: 'pickupview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/branch-pickup-view/branch-pickup-view.vue'),
                 },
                 {
                     path: 'products/:product?/testlistexpview/:testlistexpview?',
