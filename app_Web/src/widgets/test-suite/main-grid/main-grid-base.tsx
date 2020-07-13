@@ -77,6 +77,22 @@ export class MainGridBase extends GridControllerBase {
     protected localStorageTag: string = 'zt_testsuite_main_grid';
 
     /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    public minorSortPSDEF: string = 'id';
+
+    /**
      * 所有列成员
      *
      * @type {any[]}
