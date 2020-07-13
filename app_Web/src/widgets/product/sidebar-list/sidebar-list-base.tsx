@@ -63,5 +63,13 @@ export class SidebarListBase extends ListControllerBase {
      * @type {string}
      * @memberof SidebarListBase
      */
-    public minorSortDir: string = '';
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof SidebarListBase
+     */
+    public minorSortPSDEF: string = 'id';
 }

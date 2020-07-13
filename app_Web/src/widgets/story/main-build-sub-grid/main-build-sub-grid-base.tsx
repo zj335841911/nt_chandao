@@ -77,6 +77,22 @@ export class Main_BuildSubGridBase extends GridControllerBase {
     protected localStorageTag: string = 'zt_story_main_buildsub_grid';
 
     /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof Main_BuildSubGridBase
+     */
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof Main_BuildSubGridBase
+     */
+    public minorSortPSDEF: string = 'id';
+
+    /**
      * 所有列成员
      *
      * @type {any[]}

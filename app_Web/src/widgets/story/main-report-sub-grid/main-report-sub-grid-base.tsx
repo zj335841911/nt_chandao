@@ -85,6 +85,22 @@ export class Main_ReportSubGridBase extends GridControllerBase {
     public isEnablePagingBar: boolean = false;
 
     /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof Main_ReportSubGridBase
+     */
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof Main_ReportSubGridBase
+     */
+    public minorSortPSDEF: string = 'id';
+
+    /**
      * 分页条数
      *
      * @type {number}

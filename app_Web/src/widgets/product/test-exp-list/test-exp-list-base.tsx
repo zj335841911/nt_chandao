@@ -125,5 +125,13 @@ export class TestExpListBase extends ListControllerBase {
      * @type {string}
      * @memberof TestExpListBase
      */
-    public minorSortDir: string = '';
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof TestExpListBase
+     */
+    public minorSortPSDEF: string = 'id';
 }

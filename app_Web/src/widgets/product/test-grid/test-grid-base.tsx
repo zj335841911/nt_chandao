@@ -77,6 +77,22 @@ export class TestGridBase extends GridControllerBase {
     protected localStorageTag: string = 'zt_product_test_grid';
 
     /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof TestGridBase
+     */
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof TestGridBase
+     */
+    public minorSortPSDEF: string = 'id';
+
+    /**
      * 所有列成员
      *
      * @type {any[]}

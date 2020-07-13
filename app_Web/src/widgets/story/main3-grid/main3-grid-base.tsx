@@ -238,6 +238,22 @@ export class Main3GridBase extends GridControllerBase {
     public isNoSort: boolean = true;
 
     /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof Main3GridBase
+     */
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof Main3GridBase
+     */
+    public minorSortPSDEF: string = 'id';
+
+    /**
      * 分页条数
      *
      * @type {number}

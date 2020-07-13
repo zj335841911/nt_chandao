@@ -77,6 +77,22 @@ export class MainSubPlanGridBase extends GridControllerBase {
     protected localStorageTag: string = 'ibz_subproductplan_mainsubplan_grid';
 
     /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof MainSubPlanGridBase
+     */
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof MainSubPlanGridBase
+     */
+    public minorSortPSDEF: string = 'id';
+
+    /**
      * 所有列成员
      *
      * @type {any[]}

@@ -63,5 +63,13 @@ export class ExpListBase extends ListControllerBase {
      * @type {string}
      * @memberof ExpListBase
      */
-    public minorSortDir: string = '';
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof ExpListBase
+     */
+    public minorSortPSDEF: string = 'id';
 }
