@@ -352,7 +352,15 @@ export default {
 			tip: "保存并关闭",
 		},
 	},
-	curproductgridviewtoolbar_toolbar: {
+	gridviewtoolbar_toolbar: {
+		deuiaction4: {
+			caption: "删除",
+			tip: "删除",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
@@ -364,15 +372,7 @@ export default {
 			tip: "保存并关闭",
 		},
 	},
-	gridviewtoolbar_toolbar: {
-		deuiaction4: {
-			caption: "删除",
-			tip: "删除",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
+	curproductgridviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",

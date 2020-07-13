@@ -353,7 +353,15 @@ export default {
 			tip: "Save And Close Window",
 		},
 	},
-	curproductgridviewtoolbar_toolbar: {
+	gridviewtoolbar_toolbar: {
+		deuiaction4: {
+			caption: "Remove",
+			tip: "Remove {0}",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
@@ -365,15 +373,7 @@ export default {
 			tip: "Save And Close Window",
 		},
 	},
-	gridviewtoolbar_toolbar: {
-		deuiaction4: {
-			caption: "Remove",
-			tip: "Remove {0}",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
+	curproductgridviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
