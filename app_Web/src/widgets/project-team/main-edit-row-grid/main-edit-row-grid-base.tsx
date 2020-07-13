@@ -271,7 +271,7 @@ export class Main_EditRowGridBase extends GridControllerBase {
             row['limited'] = 'no';
         }
         if (row.hasOwnProperty('days')) {
-            row['days'] = 0;
+            row['days'] = 45;
         }
         if (row.hasOwnProperty('hours')) {
             row['hours'] = 7;
