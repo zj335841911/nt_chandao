@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import CompleteFormService from './complete-form-form-service';
+import TaskUIService from '@/uiservice/task/task-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 
 
@@ -48,6 +49,15 @@ export class CompleteFormEditFormBase extends EditFormControlBase {
      * @memberof CompleteFormEditFormBase
      */
     protected appDeName: string = 'task';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TaskUIService}
+     * @memberof CompleteFormEditFormBase
+     */  
+    public appUIService:TaskUIService = new TaskUIService(this.$store);
+
 
     /**
      * 关系界面数量
@@ -143,12 +153,13 @@ export class CompleteFormEditFormBase extends EditFormControlBase {
     };
 
     /**
-     * 表单逻辑
+     * 表单项逻辑
      *
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {Promise<void>}
      * @memberof CompleteFormEditFormBase
      */
-    public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
                 
 
 

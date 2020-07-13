@@ -191,6 +191,15 @@ export class Main2EditFormBase extends EditFormControlBase {
     }
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {ProductStatsUIService}
+     * @memberof Main2EditFormBase
+     */  
+    public appUIService:ProductStatsUIService = new ProductStatsUIService(this.$store);
+
+
+    /**
      * 表单数据对象
      *
      * @type {*}
@@ -347,12 +356,13 @@ export class Main2EditFormBase extends EditFormControlBase {
     };
 
     /**
-     * 表单逻辑
+     * 表单项逻辑
      *
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {Promise<void>}
      * @memberof Main2EditFormBase
      */
-    public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
                 
 
         if (Object.is(name, '') || Object.is(name, 'storycnt')) {

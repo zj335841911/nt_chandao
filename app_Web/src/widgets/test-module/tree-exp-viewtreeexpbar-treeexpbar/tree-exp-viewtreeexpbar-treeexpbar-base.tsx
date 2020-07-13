@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
 import TestModuleService from '@/service/test-module/test-module-service';
 import TreeExpViewtreeexpbarService from './tree-exp-viewtreeexpbar-treeexpbar-service';
+import TestModuleUIService from '@/uiservice/test-module/test-module-ui-service';
 
 
 /**

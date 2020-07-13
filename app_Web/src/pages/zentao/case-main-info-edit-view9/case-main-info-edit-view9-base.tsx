@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditView9Base } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
+import CaseAuthService from '@/authservice/case/case-auth-service';
 import EditView9Engine from '@engine/view/edit-view9-engine';
+import CaseUIService from '@/uiservice/case/case-ui-service';
 
 /**
  * 测试用例编辑视图视图基类
@@ -45,6 +47,14 @@ export class CaseMainInfoEditView9Base extends EditView9Base {
      * @memberof CaseMainInfoEditView9Base
      */
     protected appEntityService: CaseService = new CaseService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type CaseUIService
+     * @memberof CaseMainInfoEditView9Base
+     */
+    public appUIService: CaseUIService = new CaseUIService(this.$store);
 
 
     /**

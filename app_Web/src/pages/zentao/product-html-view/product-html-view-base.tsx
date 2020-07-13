@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { ViewBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
+import ProductAuthService from '@/authservice/product/product-auth-service';
 import HtmlViewEngine from '@engine/view/html-view-engine';
+import ProductUIService from '@/uiservice/product/product-ui-service';
 
 /**
  * iBiz软件生产管理视图基类
@@ -45,6 +47,14 @@ export class ProductHtmlViewBase extends ViewBase {
      * @memberof ProductHtmlViewBase
      */
     protected appEntityService: ProductService = new ProductService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProductUIService
+     * @memberof ProductHtmlViewBase
+     */
+    public appUIService: ProductUIService = new ProductUIService(this.$store);
 
 
     /**

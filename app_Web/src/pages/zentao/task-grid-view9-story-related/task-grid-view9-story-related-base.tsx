@@ -2,7 +2,9 @@
 import { Subject } from 'rxjs';
 import { GridView9Base } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
+import TaskAuthService from '@/authservice/task/task-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
+import TaskUIService from '@/uiservice/task/task-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -48,6 +50,14 @@ export class TaskGridView9_StoryRelatedBase extends GridView9Base {
      * @memberof TaskGridView9_StoryRelatedBase
      */
     protected appEntityService: TaskService = new TaskService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type TaskUIService
+     * @memberof TaskGridView9_StoryRelatedBase
+     */
+    public appUIService: TaskUIService = new TaskUIService(this.$store);
 
 
     /**
@@ -247,8 +257,8 @@ export class TaskGridView9_StoryRelatedBase extends GridView9Base {
      * @memberof TaskGridView9_StoryRelated
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
+        const localContext: any = null;
+        const localViewParam: any =null;
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){

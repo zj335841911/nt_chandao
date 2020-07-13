@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditView9Base } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
+import ProjectAuthService from '@/authservice/project/project-auth-service';
 import EditView9Engine from '@engine/view/edit-view9-engine';
+import ProjectUIService from '@/uiservice/project/project-ui-service';
 
 /**
  * 项目信息视图基类
@@ -45,6 +47,14 @@ export class ProjectDashboardInfoViewBase extends EditView9Base {
      * @memberof ProjectDashboardInfoViewBase
      */
     protected appEntityService: ProjectService = new ProjectService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProjectUIService
+     * @memberof ProjectDashboardInfoViewBase
+     */
+    public appUIService: ProjectUIService = new ProjectUIService(this.$store);
 
 
     /**

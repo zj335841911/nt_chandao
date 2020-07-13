@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditViewBase } from '@/studio-core';
 import TestTaskService from '@/service/test-task/test-task-service';
+import TestTaskAuthService from '@/authservice/test-task/test-task-auth-service';
 import EditViewEngine from '@engine/view/edit-view-engine';
+import TestTaskUIService from '@/uiservice/test-task/test-task-ui-service';
 
 /**
  * testtask编辑视图视图基类
@@ -46,6 +48,14 @@ export class TestTaskEditViewBase extends EditViewBase {
      */
     protected appEntityService: TestTaskService = new TestTaskService;
 
+    /**
+     * 实体权限服务对象
+     *
+     * @type TestTaskUIService
+     * @memberof TestTaskEditViewBase
+     */
+    public appUIService: TestTaskUIService = new TestTaskUIService(this.$store);
+
 
     /**
      * 计数器服务对象集合
@@ -89,7 +99,7 @@ export class TestTaskEditViewBase extends EditViewBase {
      * @memberof TestTaskEditView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭','isShowCaption':true,'isShowIcon':true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'SaveAndExit', target: '' }, class: '' },
+        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
 
     };
 

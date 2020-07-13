@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
 import BurnService from '@/service/burn/burn-service';
 import BurnDownChartService from './burn-down-chart-portlet-service';
+import BurnUIService from '@/uiservice/burn/burn-ui-service';
 import { Environment } from '@/environments/environment';
 
 

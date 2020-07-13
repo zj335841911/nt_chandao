@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import MainPanelService from './main-panel-dashboard-service';
+import StoryUIService from '@/uiservice/story/story-ui-service';
 import UtilService from '@/utilservice/util-service';
 
 
@@ -236,7 +237,7 @@ export class MainPanelDashboardBase extends MainControlBase {
     public handleClick(){
       const view:any ={
         viewname: 'app-portal-design',
-        title: '面板设计',
+        title: (this.$t('app.dashBoard.handleClick.title')),
         width: 1600,
         placement: 'DRAWER_RIGHT'
       }

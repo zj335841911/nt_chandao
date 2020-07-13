@@ -2,7 +2,9 @@
 import { Subject } from 'rxjs';
 import { ListViewBase } from '@/studio-core';
 import ActionService from '@/service/action/action-service';
+import ActionAuthService from '@/authservice/action/action-auth-service';
 import ListViewEngine from '@engine/view/list-view-engine';
+import ActionUIService from '@/uiservice/action/action-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -48,6 +50,14 @@ export class ActionProjectTrendsListViewBase extends ListViewBase {
      * @memberof ActionProjectTrendsListViewBase
      */
     protected appEntityService: ActionService = new ActionService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ActionUIService
+     * @memberof ActionProjectTrendsListViewBase
+     */
+    public appUIService: ActionUIService = new ActionUIService(this.$store);
 
 
     /**
@@ -230,8 +240,8 @@ export class ActionProjectTrendsListViewBase extends ListViewBase {
      * @memberof ActionProjectTrendsListView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
+        const localContext: any = null;
+        const localViewParam: any =null;
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){

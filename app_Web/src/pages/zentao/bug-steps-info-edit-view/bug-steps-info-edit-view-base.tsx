@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
+import BugAuthService from '@/authservice/bug/bug-auth-service';
 import EditViewEngine from '@engine/view/edit-view-engine';
+import BugUIService from '@/uiservice/bug/bug-ui-service';
 
 /**
  * Bug编辑视图视图基类
@@ -45,6 +47,14 @@ export class BugStepsInfoEditViewBase extends EditViewBase {
      * @memberof BugStepsInfoEditViewBase
      */
     protected appEntityService: BugService = new BugService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type BugUIService
+     * @memberof BugStepsInfoEditViewBase
+     */
+    public appUIService: BugUIService = new BugUIService(this.$store);
 
 
     /**

@@ -90,6 +90,8 @@ export default class Main_EditRowService extends ControlService {
      */
     @Errorlog
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
+        data.page = data.page ? data.page : 0;
+        data.size = data.size ? data.size : 1000;
         if (Object.is(serviceName, 'UserService') && Object.is(interfaceName, 'FetchDefault')) {
             return this.doItems(this.userService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'user');
         }

@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditViewBase } from '@/studio-core';
 import BuildService from '@/service/build/build-service';
+import BuildAuthService from '@/authservice/build/build-auth-service';
 import EditViewEngine from '@engine/view/edit-view-engine';
+import BuildUIService from '@/uiservice/build/build-ui-service';
 
 /**
  * 版本编辑视图视图基类
@@ -45,6 +47,14 @@ export class BuildMainViewBase extends EditViewBase {
      * @memberof BuildMainViewBase
      */
     protected appEntityService: BuildService = new BuildService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type BuildUIService
+     * @memberof BuildMainViewBase
+     */
+    public appUIService: BuildUIService = new BuildUIService(this.$store);
 
 
     /**

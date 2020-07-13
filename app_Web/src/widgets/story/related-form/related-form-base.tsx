@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import RelatedService from './related-form-service';
+import StoryUIService from '@/uiservice/story/story-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 
 
@@ -48,6 +49,15 @@ export class RelatedEditFormBase extends EditFormControlBase {
      * @memberof RelatedEditFormBase
      */
     protected appDeName: string = 'story';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {StoryUIService}
+     * @memberof RelatedEditFormBase
+     */  
+    public appUIService:StoryUIService = new StoryUIService(this.$store);
+
 
     /**
      * 关系界面数量

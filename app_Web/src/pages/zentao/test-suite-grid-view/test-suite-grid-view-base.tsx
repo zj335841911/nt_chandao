@@ -2,7 +2,9 @@
 import { Subject } from 'rxjs';
 import { GridViewBase } from '@/studio-core';
 import TestSuiteService from '@/service/test-suite/test-suite-service';
+import TestSuiteAuthService from '@/authservice/test-suite/test-suite-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
+import TestSuiteUIService from '@/uiservice/test-suite/test-suite-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -49,6 +51,14 @@ export class TestSuiteGridViewBase extends GridViewBase {
      */
     protected appEntityService: TestSuiteService = new TestSuiteService;
 
+    /**
+     * 实体权限服务对象
+     *
+     * @type TestSuiteUIService
+     * @memberof TestSuiteGridViewBase
+     */
+    public appUIService: TestSuiteUIService = new TestSuiteUIService(this.$store);
+
 
     /**
      * 计数器服务对象集合
@@ -92,10 +102,10 @@ export class TestSuiteGridViewBase extends GridViewBase {
      * @memberof TestSuiteGridView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '新建','isShowCaption':true,'isShowIcon':true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'New', target: '' }, class: '' },
+        deuiaction1: { name: 'deuiaction1', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'New', target: '', class: '' } },
 
         seperator1: {  name: 'seperator1', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
-        deuiaction2: { name: 'deuiaction2', caption: '刷新','isShowCaption':true,'isShowIcon':true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Refresh', target: '' }, class: '' },
+        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
     };
 
@@ -318,8 +328,8 @@ export class TestSuiteGridViewBase extends GridViewBase {
      * @memberof TestSuiteGridView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
+        const localContext: any = null;
+        const localViewParam: any =null;
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){

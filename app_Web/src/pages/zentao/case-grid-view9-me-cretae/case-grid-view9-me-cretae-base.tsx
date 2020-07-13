@@ -2,7 +2,9 @@
 import { Subject } from 'rxjs';
 import { GridView9Base } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
+import CaseAuthService from '@/authservice/case/case-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
+import CaseUIService from '@/uiservice/case/case-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -48,6 +50,14 @@ export class CaseGridView9_MeCretaeBase extends GridView9Base {
      * @memberof CaseGridView9_MeCretaeBase
      */
     protected appEntityService: CaseService = new CaseService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type CaseUIService
+     * @memberof CaseGridView9_MeCretaeBase
+     */
+    public appUIService: CaseUIService = new CaseUIService(this.$store);
 
 
     /**
@@ -246,8 +256,8 @@ export class CaseGridView9_MeCretaeBase extends GridView9Base {
      * @memberof CaseGridView9_MeCretae
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
+        const localContext: any = null;
+        const localViewParam: any =null;
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){

@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import AssignFormService from './assign-form-form-service';
+import TaskUIService from '@/uiservice/task/task-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 
 
@@ -48,6 +49,15 @@ export class AssignFormEditFormBase extends EditFormControlBase {
      * @memberof AssignFormEditFormBase
      */
     protected appDeName: string = 'task';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TaskUIService}
+     * @memberof AssignFormEditFormBase
+     */  
+    public appUIService:TaskUIService = new TaskUIService(this.$store);
+
 
     /**
      * 关系界面数量

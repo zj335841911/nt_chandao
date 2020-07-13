@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import TestReportService from '@/service/test-report/test-report-service';
 import TestRangeService from './test-range-form-service';
+import TestReportUIService from '@/uiservice/test-report/test-report-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 
 
@@ -48,6 +49,15 @@ export class TestRangeEditFormBase extends EditFormControlBase {
      * @memberof TestRangeEditFormBase
      */
     protected appDeName: string = 'testreport';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {TestReportUIService}
+     * @memberof TestRangeEditFormBase
+     */  
+    public appUIService:TestReportUIService = new TestReportUIService(this.$store);
+
 
     /**
      * 关系界面数量

@@ -2,7 +2,9 @@
 import { Subject } from 'rxjs';
 import { GridViewBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
+import CaseAuthService from '@/authservice/case/case-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
+import CaseUIService from '@/uiservice/case/case-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -49,6 +51,14 @@ export class CaseBatchNewGridViewBase extends GridViewBase {
      */
     protected appEntityService: CaseService = new CaseService;
 
+    /**
+     * 实体权限服务对象
+     *
+     * @type CaseUIService
+     * @memberof CaseBatchNewGridViewBase
+     */
+    public appUIService: CaseUIService = new CaseUIService(this.$store);
+
 
     /**
      * 计数器服务对象集合
@@ -92,9 +102,9 @@ export class CaseBatchNewGridViewBase extends GridViewBase {
      * @memberof CaseBatchNewGridView
      */
     public toolBarModels: any = {
-        deuiaction2: { name: 'deuiaction2', caption: '新建行','isShowCaption':true,'isShowIcon':true, tooltip: '新建行', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'NewRow', target: '' }, class: '' },
+        deuiaction2: { name: 'deuiaction2', caption: '新建行', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建行', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'NewRow', target: '', class: '' } },
 
-        deuiaction3: { name: 'deuiaction3', caption: '保存行','isShowCaption':true,'isShowIcon':true, tooltip: '保存行', iconcls: 'fa fa-save', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'SaveRow', target: '' }, class: '' },
+        deuiaction3: { name: 'deuiaction3', caption: '保存行', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存行', iconcls: 'fa fa-save', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'SaveRow', target: '', class: '' } },
 
     };
 
@@ -322,8 +332,8 @@ export class CaseBatchNewGridViewBase extends GridViewBase {
      * @memberof CaseBatchNewGridView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
+        const localContext: any = null;
+        const localViewParam: any =null;
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){

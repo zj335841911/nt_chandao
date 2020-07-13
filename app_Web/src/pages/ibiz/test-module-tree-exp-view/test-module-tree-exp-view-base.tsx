@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { TreeExpViewBase } from '@/studio-core';
 import TestModuleService from '@/service/test-module/test-module-service';
+import TestModuleAuthService from '@/authservice/test-module/test-module-auth-service';
 import TreeExpViewEngine from '@engine/view/tree-exp-view-engine';
+import TestModuleUIService from '@/uiservice/test-module/test-module-ui-service';
 
 /**
  * 测试模块树导航视图视图基类
@@ -45,6 +47,14 @@ export class TestModuleTreeExpViewBase extends TreeExpViewBase {
      * @memberof TestModuleTreeExpViewBase
      */
     protected appEntityService: TestModuleService = new TestModuleService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type TestModuleUIService
+     * @memberof TestModuleTreeExpViewBase
+     */
+    public appUIService: TestModuleUIService = new TestModuleUIService(this.$store);
 
 
     /**
@@ -189,8 +199,6 @@ export class TestModuleTreeExpViewBase extends TreeExpViewBase {
      * @memberof TestModuleTreeExpView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
     this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
     }
 

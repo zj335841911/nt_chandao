@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { DashboardViewBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
+import StoryAuthService from '@/authservice/story/story-auth-service';
 import PortalViewEngine from '@engine/view/portal-view-engine';
+import StoryUIService from '@/uiservice/story/story-ui-service';
 
 /**
  * 需求数据看板视图视图基类
@@ -45,6 +47,14 @@ export class StoryMainViewBase extends DashboardViewBase {
      * @memberof StoryMainViewBase
      */
     protected appEntityService: StoryService = new StoryService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type StoryUIService
+     * @memberof StoryMainViewBase
+     */
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
 
     /**

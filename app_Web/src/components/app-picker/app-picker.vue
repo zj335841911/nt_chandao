@@ -242,7 +242,7 @@ export default class AppPicker extends Vue {
      * @param {*} oldVal
      * @memberof AppPicker
      */
-    @Watch('value',{immediate: true})
+    @Watch('value')
     public onValueChange(newVal: any, oldVal: any) {
         this.curvalue = newVal;
         if (Object.is(this.editortype, 'dropdown') && this.valueitem) {
@@ -267,6 +267,9 @@ export default class AppPicker extends Vue {
     public created() {
         if(Object.is(this.editortype, 'dropdown')){
             this.onSearch("", null, true);
+        }
+        if(!Object.is(this.editortype, 'pickup-no-ac') && !Object.is(this.editortype, 'dropdown')){
+            this.curvalue = this.value;
         }
     }
 

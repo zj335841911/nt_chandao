@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { TabExpViewBase } from '@/studio-core';
 import ReleaseService from '@/service/release/release-service';
+import ReleaseAuthService from '@/authservice/release/release-auth-service';
 import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
+import ReleaseUIService from '@/uiservice/release/release-ui-service';
 
 /**
  * 发布分页导航视图视图基类
@@ -45,6 +47,14 @@ export class ReleaseMainTabExpViewBase extends TabExpViewBase {
      * @memberof ReleaseMainTabExpViewBase
      */
     protected appEntityService: ReleaseService = new ReleaseService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ReleaseUIService
+     * @memberof ReleaseMainTabExpViewBase
+     */
+    public appUIService: ReleaseUIService = new ReleaseUIService(this.$store);
 
 
     /**

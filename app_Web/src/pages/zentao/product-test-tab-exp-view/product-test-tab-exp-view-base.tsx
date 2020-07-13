@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { TabExpViewBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
+import ProductAuthService from '@/authservice/product/product-auth-service';
 import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
+import ProductUIService from '@/uiservice/product/product-ui-service';
 
 /**
  * 测试视图基类
@@ -45,6 +47,14 @@ export class ProductTestTabExpViewBase extends TabExpViewBase {
      * @memberof ProductTestTabExpViewBase
      */
     protected appEntityService: ProductService = new ProductService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProductUIService
+     * @memberof ProductTestTabExpViewBase
+     */
+    public appUIService: ProductUIService = new ProductUIService(this.$store);
 
 
     /**

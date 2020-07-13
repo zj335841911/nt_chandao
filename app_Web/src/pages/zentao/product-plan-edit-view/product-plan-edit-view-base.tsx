@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditViewBase } from '@/studio-core';
 import ProductPlanService from '@/service/product-plan/product-plan-service';
+import ProductPlanAuthService from '@/authservice/product-plan/product-plan-auth-service';
 import EditViewEngine from '@engine/view/edit-view-engine';
+import ProductPlanUIService from '@/uiservice/product-plan/product-plan-ui-service';
 
 /**
  * 计划视图基类
@@ -46,6 +48,14 @@ export class ProductPlanEditViewBase extends EditViewBase {
      */
     protected appEntityService: ProductPlanService = new ProductPlanService;
 
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProductPlanUIService
+     * @memberof ProductPlanEditViewBase
+     */
+    public appUIService: ProductPlanUIService = new ProductPlanUIService(this.$store);
+
 
     /**
      * 计数器服务对象集合
@@ -89,7 +99,7 @@ export class ProductPlanEditViewBase extends EditViewBase {
      * @memberof ProductPlanEditView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭','isShowCaption':true,'isShowIcon':true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'SaveAndExit', target: '' }, class: '' },
+        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
 
     };
 

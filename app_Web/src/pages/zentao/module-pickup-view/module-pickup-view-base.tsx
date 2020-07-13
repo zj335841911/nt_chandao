@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { PickupViewBase } from '@/studio-core';
 import ModuleService from '@/service/module/module-service';
+import ModuleAuthService from '@/authservice/module/module-auth-service';
 import PickupViewEngine from '@engine/view/pickup-view-engine';
+import ModuleUIService from '@/uiservice/module/module-ui-service';
 
 /**
  * 模块选择视图基类
@@ -45,6 +47,14 @@ export class ModulePickupViewBase extends PickupViewBase {
      * @memberof ModulePickupViewBase
      */
     protected appEntityService: ModuleService = new ModuleService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ModuleUIService
+     * @memberof ModulePickupViewBase
+     */
+    public appUIService: ModuleUIService = new ModuleUIService(this.$store);
 
 
     /**

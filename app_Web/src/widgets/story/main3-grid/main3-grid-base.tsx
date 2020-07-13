@@ -191,6 +191,28 @@ export class Main3GridBase extends GridControllerBase {
     }
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {StoryUIService}
+     * @memberof Main3Base
+     */  
+    public appUIService:StoryUIService = new StoryUIService(this.$store);
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof Main3Base
+     */  
+    public ActionModel: any = {
+        ChangeStoryDetail: { name: 'ChangeStoryDetail',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
+        ReviewStory: { name: 'ReviewStory',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
+        CloseStory: { name: 'CloseStory',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
+        OpenBaseInfoEditView: { name: 'OpenBaseInfoEditView',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
+        OpenCaseCreateView: { name: 'OpenCaseCreateView',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'}
+    };
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -235,49 +257,56 @@ export class Main3GridBase extends GridControllerBase {
             label: 'ID',
             langtag: 'entities.story.main3_grid.columns.id',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'pri',
             label: 'P',
             langtag: 'entities.story.main3_grid.columns.pri',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'title',
             label: '需求名称',
             langtag: 'entities.story.main3_grid.columns.title',
             show: true,
-            util: 'STAR'
+            util: 'STAR',
+            isEnableRowEdit: false,
         },
         {
             name: 'assignedto',
             label: '指派给',
             langtag: 'entities.story.main3_grid.columns.assignedto',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'estimate',
             label: '预计工时',
             langtag: 'entities.story.main3_grid.columns.estimate',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'status',
             label: '当前状态',
             langtag: 'entities.story.main3_grid.columns.status',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'uagridcolumn1',
             label: '操作',
             langtag: 'entities.story.main3_grid.columns.uagridcolumn1',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
     ]
 

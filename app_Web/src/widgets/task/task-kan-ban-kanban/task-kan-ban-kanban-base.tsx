@@ -3,6 +3,8 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TaskKanBanService from './task-kan-ban-kanban-service';
+import TaskUIService from '@/uiservice/task/task-ui-service';
+import draggable from "vuedraggable";
 
 
 /**
@@ -47,12 +49,11 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * @memberof TaskKanBanKanbanBase
      */
     protected appDeName: string = 'task';
-
     /**
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
     public getDatas(): any[] {
         return this.selections;
@@ -62,7 +63,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
     public getData(): any {
         return null;
@@ -72,7 +73,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * 是否默认选中第一条数据
      *
      * @type {boolean}
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
     @Prop({ default: false }) public isSelectFirstDefault!: boolean;
 
@@ -80,7 +81,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
     @Prop({ default: true }) public showBusyIndicator?: boolean;
 
@@ -88,7 +89,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
     @Prop() public createAction!: string;
 
@@ -96,7 +97,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * 部件行为--remove
      *
      * @type {string}
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
     @Prop() public removeAction!: string;
 
@@ -104,7 +105,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * 部件行为--update
      *
      * @type {string}
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
     @Prop() public updateAction!: string;
 
@@ -112,7 +113,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * 部件行为--fetch
      *
      * @type {string}
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
     @Prop() public fetchAction!: string;
 
@@ -120,7 +121,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * 部件行为--updateGroup
      *
      * @type {string}
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
     @Prop() public updateGroupAction!: string;
 
@@ -128,7 +129,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * 是否单选
      *
      * @type {boolean}
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
     @Prop() public isSingleSelect?: boolean;
 
@@ -136,7 +137,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * 数据
      *
      * @type {any[]}
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
     public items: any[] = [];
 
@@ -144,7 +145,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * 是否支持分页
      *
      * @type {boolean}
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
     public isEnablePagingBar: boolean = false;;
 
@@ -152,7 +153,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * 总条数
      *
      * @type {number}
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
     public totalRecord: number = 0;
 
@@ -160,14 +161,14 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * 加载的数据是否附加在items之后
      *
      * @type {boolean}
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
     public isAddBehind:boolean = false;
 
     /**
      * 选中数组
      * @type {Array<any>}
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
     public selections: Array<any> = [];
 
@@ -175,7 +176,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * 当前页
      *
      * @type {number}
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
     public curPage: number = 1;
 
@@ -183,7 +184,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * 分页条数
      *
      * @type {number}
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
     public limit: number = 1000;
 
@@ -191,7 +192,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * 排序方向
      *
      * @type {string}
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */    
     public sortDir:string = '';
 
@@ -199,7 +200,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * 排序字段
      *
      * @type {string}
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */    
     public sortField: string = '';
 
@@ -207,42 +208,42 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * 是否分组
      *
      * @type {string}
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */   
     public isGroup: boolean = true;
     /**
      * 分组集合
      *
      * @type {string}
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */ 
     public groups: any[] = [];
     /**
      * 分组属性名称
      *
      * @type {string}
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */ 
     public groupField: string = 'status';
     /**
      * 分组模式
      *
      * @type {string}
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */ 
     public groupMode: string = 'CODELIST'
     /**
      * 分组模式
      *
      * @type {string}
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */ 
     public groupCodelist: string = 'Task__status'
 
     /**
      * Vue声明周期，组件挂载完毕
      *
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
     public mounted () {
         this.afterMounted();
@@ -251,7 +252,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
     /**
      * 执行mounted后的逻辑
      *
-     *  @memberof TaskKanBan
+     *  @memberof TaskKanBanBase
      */    
     public afterMounted(){
         this.$el.addEventListener('scroll', ()=> {
@@ -264,7 +265,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
     /**
      * Vue声明周期，组件创建完毕
      *
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
     public created() {
         this.afterCreated();
@@ -273,7 +274,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof TaskKanBan
+     *  @memberof TaskKanBanBase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -294,7 +295,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
     /**
 	 * 加载更多
 	 *
-	 * @memberof TaskKanBan
+	 * @memberof TaskKanBanBase
 	 */
     public loadMore(){
         if(this.totalRecord>this.items.length)
@@ -309,7 +310,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * 刷新
      *
      * @param {*} [opt={}]
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
     public refresh(opt: any = {}) {
         this.curPage = 1;
@@ -319,7 +320,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
     /**
      * vue 生命周期
      *
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -328,7 +329,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -342,11 +343,11 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * @public
      * @param {*} [arg={}]
      * @param {boolean} [isReset=false] 是否重置items
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
     public load(opt: any = {}, isReset: boolean = false): void {
         if(!this.fetchAction){
-            this.$Notice.error({ title: '错误', desc: 'TaskKanbanView视图列表fetchAction参数未配置' });
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: 'TaskKanbanView' + (this.$t('app.kanban.notConfig.fetchAction') as string) });
             return;
         }      
         const arg: any = {...opt};
@@ -370,7 +371,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
         post.then((response: any) => {
             if (!response || response.status !== 200) {
                 if (response.errorMessage) {
-                    this.$Notice.error({ title: '错误', desc: response.errorMessage });
+                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.errorMessage });
                 }
                 return;
             }
@@ -400,7 +401,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
             if (response && response.status === 401) {
                 return;
             }
-            this.$Notice.error({ title: '错误', desc: response.errorMessage });
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.errorMessage });
         });
     }
 
@@ -409,11 +410,11 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      *
      * @param {any[]} datas
      * @returns {Promise<any>}
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
     public async remove(datas: any[]): Promise<any> {
         if(!this.removeAction){
-            this.$Notice.error({ title: '错误', desc: 'TaskKanbanView视图表格removeAction参数未配置' });
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: 'TaskKanbanView' + (this.$t('app.kanban.notConfig.removeAction') as string) });
             return;
         }
         let _datas:any[] = [];
@@ -462,10 +463,10 @@ export class TaskKanBanKanbanBase extends MainControlBase {
             return new Promise((resolve: any, reject: any) => {
                 post.then((response: any) => {
                     if (!response || response.status !== 200) {
-                        this.$Notice.error({ title: '', desc: '删除数据失败,' + response.info });
+                        this.$Notice.error({ title: '', desc: (this.$t('app.commonWords.delDataFail') as string) + ',' + response.info });
                         return;
                     } else {
-                        this.$Notice.success({ title: '', desc: '删除成功!' });
+                        this.$Notice.success({ title: '', desc: (this.$t('app.commonWords.deleteSuccess') as string) });
                     }
                     //删除items中已删除的项
                     _datas.forEach((data: any) => {
@@ -484,7 +485,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
                         return;
                     }
                     if (!response || !response.status || !response.data) {
-                        this.$Notice.error({ title: '错误', desc: '系统异常' });
+                        this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.sysException') as string) });
                         reject(response);
                         return;
                     }
@@ -495,8 +496,8 @@ export class TaskKanBanKanbanBase extends MainControlBase {
 
         dataInfo = dataInfo.replace(/[null]/g, '').replace(/[undefined]/g, '').replace(/[ ]/g, '');
         this.$Modal.confirm({
-            title: '警告',
-            content: '确认要删除 ' + dataInfo + '，删除操作将不可恢复？',
+            title: (this.$t('app.commonWords.warning') as string),
+            content: (this.$t('app.kanban.delete1') as string) + dataInfo + '，' + (this.$t('app.kanban.delete2') as string),
             onOk: () => {
                 removeData();
             },
@@ -509,7 +510,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * 设置分组集合
      *
      * @param {*}
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
     public updateData(opt: any) {
         const arg: any = { ...opt };
@@ -520,7 +521,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
         post.then((response: any) => {
             if (!response.status || response.status !== 200) {
                 if (response.data) {
-                    this.$Notice.error({ title: '错误', desc: response.data.message });
+                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
                 }
                 this.setGroups();
                 return;
@@ -531,11 +532,11 @@ export class TaskKanBanKanbanBase extends MainControlBase {
             this.$emit('update', this.items);
         }).catch((response: any) => {
             if (response && response.status  && response.data) {
-                this.$Notice.error({ title: '错误', desc: response.data.message });
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
                 return;
             }
             if (!response || !response.status || !response.data) {
-                this.$Notice.error({ title: '错误', desc: '系统异常' });
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.sysException') as string) });
                 return;
             }
         });
@@ -545,7 +546,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * 设置分组集合
      *
      * @param {}
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
     public setGroups() {
         if(!this.isGroup || !this.groupField || Object.is(this.groupMode, 'NONE')) {
@@ -581,7 +582,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * 设置分组集合
      *
      * @param {string} name
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
     public getGroupItems(name: string) {
         let datas: any = [];
@@ -597,7 +598,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * 设置分组集合
      *
      * @param {string} name
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
     public getGroupText(name: string) {
         if(Object.is(this.groupMode, 'CODELIST') && this.groupCodelist) {
@@ -617,7 +618,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
 
     /**
      * 选择数据
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      *
      */
     public handleClick(args: any) {
@@ -632,7 +633,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
 
     /**
      * 双击数据
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      *
      */
     public handleDblClick(args: any) {
@@ -647,7 +648,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
 
     /**
      * 触发事件
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      *
      */
     public selectchange() {
@@ -665,7 +666,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      *
      * @param {*} tag
      * @param {*} $event
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
 	public uiAction(tag: any, $event: any) {
         let row = this.selections.length > 0 ? this.selections[0] : {};
@@ -676,58 +677,13 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      *
      * @param {*} evt
      * @param {*} name
-     * @memberof TaskKanBan
+     * @memberof TaskKanBanBase
      */
     public onDragChange(evt: any, name: string) {
         if(evt && evt.added && evt.added.element) {
-            let item: any = JSON.parse(JSON.stringify(evt.added.element));
-                item[this.groupField] = name;
-                this.updateData(item);
-        }
-    }
-
-    public getUpdateView(group: any) {
-        switch(group) {
-            case 'cancel': 
-                return {
-                    viewname: 'task-cancel-task-view',
-                    title: this.$t('entities.task.views.canceltaskview.title'),
-                    width: 800,
-                    height: 600,
-                    placement:'POPUPMODAL'
-                };
-            case 'pause': 
-                return {
-                    viewname: 'task-pause-task-view',
-                    title: this.$t('entities.task.views.pausetaskview.title'),
-                    width: 800,
-                    height: 600,
-                    placement:'POPUPMODAL'
-                };
-            case 'done': 
-                return {
-                    viewname: 'task-done-task-view',
-                    title: this.$t('entities.task.views.donetaskview.title'),
-                    width: 800,
-                    height: 600,
-                    placement:'POPUPMODAL'
-                };
-            case 'closed': 
-                return {
-                    viewname: 'task-close-task-view',
-                    title: this.$t('entities.task.views.closetaskview.title'),
-                    width: 800,
-                    height: 600,
-                    placement:'POPUPMODAL'
-                };
-            case 'doing': 
-                return {
-                    viewname: 'task-open-task-view',
-                    title: this.$t('entities.task.views.opentaskview.title'),
-                    width: 800,
-                    height: 600,
-                    placement:'POPUPMODAL'
-                };
+            let item: any = JSON.parse(JSON.stringify(evt.added.element))
+            item[this.groupField] = name;
+            this.updateData(item)
         }
     }
 

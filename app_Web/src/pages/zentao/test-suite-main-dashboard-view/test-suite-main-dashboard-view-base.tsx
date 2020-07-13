@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { DashboardViewBase } from '@/studio-core';
 import TestSuiteService from '@/service/test-suite/test-suite-service';
+import TestSuiteAuthService from '@/authservice/test-suite/test-suite-auth-service';
 import PortalViewEngine from '@engine/view/portal-view-engine';
+import TestSuiteUIService from '@/uiservice/test-suite/test-suite-ui-service';
 
 /**
  * 测试套件数据看板视图视图基类
@@ -45,6 +47,14 @@ export class TestSuiteMainDashboardViewBase extends DashboardViewBase {
      * @memberof TestSuiteMainDashboardViewBase
      */
     protected appEntityService: TestSuiteService = new TestSuiteService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type TestSuiteUIService
+     * @memberof TestSuiteMainDashboardViewBase
+     */
+    public appUIService: TestSuiteUIService = new TestSuiteUIService(this.$store);
 
 
     /**

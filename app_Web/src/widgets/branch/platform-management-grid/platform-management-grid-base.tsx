@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, GridControllerBase } from '@/studio-core';
 import BranchService from '@/service/branch/branch-service';
 import PlatformManagementService from './platform-management-grid-service';
+import BranchUIService from '@/uiservice/branch/branch-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 
@@ -50,6 +51,23 @@ export class PlatformManagementGridBase extends GridControllerBase {
     protected appDeName: string = 'branch';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {BranchUIService}
+     * @memberof PlatformManagementBase
+     */  
+    public appUIService:BranchUIService = new BranchUIService(this.$store);
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof PlatformManagementBase
+     */  
+    public ActionModel: any = {
+    };
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -70,21 +88,24 @@ export class PlatformManagementGridBase extends GridControllerBase {
             label: '编号',
             langtag: 'entities.branch.platformmanagement_grid.columns.id',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'name',
             label: '名称',
             langtag: 'entities.branch.platformmanagement_grid.columns.name',
             show: true,
-            util: 'STAR'
+            util: 'STAR',
+            isEnableRowEdit: false,
         },
         {
             name: 'order',
             label: '排序',
             langtag: 'entities.branch.platformmanagement_grid.columns.order',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
     ]
 

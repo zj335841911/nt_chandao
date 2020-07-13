@@ -2,7 +2,9 @@
 import { Subject } from 'rxjs';
 import { GridViewBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
+import ProductAuthService from '@/authservice/product/product-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
+import ProductUIService from '@/uiservice/product/product-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -49,6 +51,14 @@ export class ProductTestGridViewBase extends GridViewBase {
      */
     protected appEntityService: ProductService = new ProductService;
 
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProductUIService
+     * @memberof ProductTestGridViewBase
+     */
+    public appUIService: ProductUIService = new ProductUIService(this.$store);
+
 
     /**
      * 计数器服务对象集合
@@ -93,12 +103,12 @@ export class ProductTestGridViewBase extends GridViewBase {
      * @memberof ProductTestGridView
      */
     public toolBarModels: any = {
-        tbitem4: { name: 'tbitem4', caption: '编辑','isShowCaption':true,'isShowIcon':true, tooltip: '编辑', iconcls: 'fa fa-edit', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Edit', target: 'SINGLEKEY' }, class: '' },
+        tbitem4: { name: 'tbitem4', caption: '编辑', 'isShowCaption': true, 'isShowIcon': true, tooltip: '编辑', iconcls: 'fa fa-edit', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Edit', target: 'SINGLEKEY', class: '' } },
 
         tbitem7: {  name: 'tbitem7', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
         tbitem16: { name: 'tbitem16', caption: '其它', disabled: false, type: 'ITEMS', visabled: true, dataaccaction: '',
     model: {
-        tbitem21: { name: 'tbitem21', caption: '导出数据模型','isShowCaption':true,'isShowIcon':true, tooltip: '导出数据模型', iconcls: 'fa fa-download', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'ExportModel', target: '' }, class: '' },
+        tbitem21: { name: 'tbitem21', caption: '导出数据模型', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出数据模型', iconcls: 'fa fa-download', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportModel', target: '', class: '' } },
 
     }
 }, 
@@ -657,8 +667,8 @@ export class ProductTestGridViewBase extends GridViewBase {
      * @memberof ProductTestGridView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
+        const localContext: any = null;
+        const localViewParam: any =null;
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){

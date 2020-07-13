@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TypeGanttService from './type-gantt-gantt-service';
+import TaskUIService from '@/uiservice/task/task-ui-service';
 
 
 /**
@@ -59,8 +60,8 @@ export class TypeGanttGanttBase extends MainControlBase {
      * @memberof TaskTaskTypeGanttView
      */
     public childtasks_opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
+        const localContext: any = null;
+        const localViewParam: any =null;
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){
@@ -110,8 +111,8 @@ export class TypeGanttGanttBase extends MainControlBase {
      * @memberof TaskTaskTypeGanttView
      */
     public tasks_opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
+        const localContext: any = null;
+        const localViewParam: any =null;
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){
@@ -392,7 +393,7 @@ export class TypeGanttGanttBase extends MainControlBase {
         Object.assign(params,{viewparams:tempViewParams});
         this.service.getNodes(tempContext,params).then((response: any) => {
             if (!response || response.status !== 200) {
-                this.$Notice.error({ title: "错误", desc: response.info });
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.info });
                 return;
             }
             this.tasks = [...this.tasks, ...response.data];
@@ -406,7 +407,7 @@ export class TypeGanttGanttBase extends MainControlBase {
             if (response && response.status === 401) {
                 return;
             }
-            this.$Notice.error({ title: "错误", desc: response.info });
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.info });
         });
     }
 

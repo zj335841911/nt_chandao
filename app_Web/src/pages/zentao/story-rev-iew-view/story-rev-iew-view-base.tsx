@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { OptionViewBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
+import StoryAuthService from '@/authservice/story/story-auth-service';
 import OptionViewEngine from '@engine/view/option-view-engine';
+import StoryUIService from '@/uiservice/story/story-ui-service';
 
 /**
  * 需求评审视图基类
@@ -45,6 +47,14 @@ export class StoryRevIewViewBase extends OptionViewBase {
      * @memberof StoryRevIewViewBase
      */
     protected appEntityService: StoryService = new StoryService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type StoryUIService
+     * @memberof StoryRevIewViewBase
+     */
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
 
     /**

@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, GridControllerBase } from '@/studio-core';
 import TestModuleService from '@/service/test-module/test-module-service';
 import MainBranchService from './main-branch-grid-service';
+import TestModuleUIService from '@/uiservice/test-module/test-module-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 
@@ -97,6 +98,24 @@ export class MainBranchGridBase extends GridControllerBase {
 
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {TestModuleUIService}
+     * @memberof MainBranchBase
+     */  
+    public appUIService:TestModuleUIService = new TestModuleUIService(this.$store);
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof MainBranchBase
+     */  
+    public ActionModel: any = {
+        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'MULTIKEY'}
+    };
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -133,28 +152,32 @@ export class MainBranchGridBase extends GridControllerBase {
             label: '名称',
             langtag: 'entities.testmodule.mainbranch_grid.columns.name',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: true,
         },
         {
             name: 'branch',
             label: '平台',
             langtag: 'entities.testmodule.mainbranch_grid.columns.branch',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: true,
         },
         {
             name: 'short',
             label: '简称',
             langtag: 'entities.testmodule.mainbranch_grid.columns.short',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: true,
         },
         {
             name: 'uagridcolumn1',
             label: '操作',
             langtag: 'entities.testmodule.mainbranch_grid.columns.uagridcolumn1',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
     ]
 

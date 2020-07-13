@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
 import TestReportService from '@/service/test-report/test-report-service';
 import MainTabExpViewtabviewpanel2Service from './main-tab-exp-viewtabviewpanel2-tabviewpanel-service';
+import TestReportUIService from '@/uiservice/test-report/test-report-ui-service';
 
 
 /**

@@ -2,7 +2,9 @@
 import { Subject } from 'rxjs';
 import { GridView9Base } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
+import ProjectAuthService from '@/authservice/project/project-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
+import ProjectUIService from '@/uiservice/project/project-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -48,6 +50,14 @@ export class ProjectGridView9_UnClosedBase extends GridView9Base {
      * @memberof ProjectGridView9_UnClosedBase
      */
     protected appEntityService: ProjectService = new ProjectService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProjectUIService
+     * @memberof ProjectGridView9_UnClosedBase
+     */
+    public appUIService: ProjectUIService = new ProjectUIService(this.$store);
 
 
     /**
@@ -253,8 +263,8 @@ export class ProjectGridView9_UnClosedBase extends GridView9Base {
      * @memberof ProjectGridView9_UnClosed
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
+        const localContext: any = null;
+        const localViewParam: any =null;
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){

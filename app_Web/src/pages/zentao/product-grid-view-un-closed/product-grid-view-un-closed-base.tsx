@@ -2,7 +2,9 @@
 import { Subject } from 'rxjs';
 import { GridViewBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
+import ProductAuthService from '@/authservice/product/product-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
+import ProductUIService from '@/uiservice/product/product-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -48,6 +50,14 @@ export class ProductGridView_UnClosedBase extends GridViewBase {
      * @memberof ProductGridView_UnClosedBase
      */
     protected appEntityService: ProductService = new ProductService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProductUIService
+     * @memberof ProductGridView_UnClosedBase
+     */
+    public appUIService: ProductUIService = new ProductUIService(this.$store);
 
 
     /**
@@ -253,8 +263,8 @@ export class ProductGridView_UnClosedBase extends GridViewBase {
      * @memberof ProductGridView_UnClosed
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
+        const localContext: any = null;
+        const localViewParam: any =null;
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){

@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditView9Base } from '@/studio-core';
 import ProductStatsService from '@/service/product-stats/product-stats-service';
+import ProductStatsAuthService from '@/authservice/product-stats/product-stats-auth-service';
 import EditView9Engine from '@engine/view/edit-view9-engine';
+import ProductStatsUIService from '@/uiservice/product-stats/product-stats-ui-service';
 
 /**
  * 产品统计编辑视图视图基类
@@ -45,6 +47,14 @@ export class ProductStatsTestEditView9Base extends EditView9Base {
      * @memberof ProductStatsTestEditView9Base
      */
     protected appEntityService: ProductStatsService = new ProductStatsService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProductStatsUIService
+     * @memberof ProductStatsTestEditView9Base
+     */
+    public appUIService: ProductStatsUIService = new ProductStatsUIService(this.$store);
 
 
     /**

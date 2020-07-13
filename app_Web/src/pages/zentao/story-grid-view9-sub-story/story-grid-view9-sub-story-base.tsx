@@ -2,7 +2,9 @@
 import { Subject } from 'rxjs';
 import { GridView9Base } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
+import StoryAuthService from '@/authservice/story/story-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
+import StoryUIService from '@/uiservice/story/story-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -48,6 +50,14 @@ export class StoryGridView9_SubStoryBase extends GridView9Base {
      * @memberof StoryGridView9_SubStoryBase
      */
     protected appEntityService: StoryService = new StoryService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type StoryUIService
+     * @memberof StoryGridView9_SubStoryBase
+     */
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
 
     /**
@@ -259,8 +269,8 @@ export class StoryGridView9_SubStoryBase extends GridView9Base {
      * @memberof StoryGridView9_SubStory
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
+        const localContext: any = null;
+        const localViewParam: any =null;
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){

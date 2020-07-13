@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, SearchFormControlBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import DefaultService from './default-searchform-service';
+import ProductUIService from '@/uiservice/product/product-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 

@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import BranchService from '@/service/branch/branch-service';
 import PlatformManagementService from './platform-management-form-service';
+import BranchUIService from '@/uiservice/branch/branch-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 
 
@@ -48,6 +49,15 @@ export class PlatformManagementEditFormBase extends EditFormControlBase {
      * @memberof PlatformManagementEditFormBase
      */
     protected appDeName: string = 'branch';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {BranchUIService}
+     * @memberof PlatformManagementEditFormBase
+     */  
+    public appUIService:BranchUIService = new BranchUIService(this.$store);
+
 
     /**
      * 表单数据对象

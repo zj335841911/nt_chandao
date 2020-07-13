@@ -2,7 +2,9 @@
 import { Subject } from 'rxjs';
 import { GridView9Base } from '@/studio-core';
 import IBZCaseStepService from '@/service/ibzcase-step/ibzcase-step-service';
+import IBZCaseStepAuthService from '@/authservice/ibzcase-step/ibzcase-step-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
+import IBZCaseStepUIService from '@/uiservice/ibzcase-step/ibzcase-step-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -49,6 +51,14 @@ export class CaseStepMainGridView9_EditModeBase extends GridView9Base {
      */
     protected appEntityService: IBZCaseStepService = new IBZCaseStepService;
 
+    /**
+     * 实体权限服务对象
+     *
+     * @type IBZCaseStepUIService
+     * @memberof CaseStepMainGridView9_EditModeBase
+     */
+    public appUIService: IBZCaseStepUIService = new IBZCaseStepUIService(this.$store);
+
 
     /**
      * 计数器服务对象集合
@@ -92,7 +102,7 @@ export class CaseStepMainGridView9_EditModeBase extends GridView9Base {
      * @memberof CaseStepMainGridView9_EditMode
      */
     public toolBarModels: any = {
-        deuiaction2: { name: 'deuiaction2', caption: '新建行','isShowCaption':true,'isShowIcon':true, tooltip: '新建行', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'NewRow', target: '' }, class: '' },
+        deuiaction2: { name: 'deuiaction2', caption: '新建行', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建行', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'NewRow', target: '', class: '' } },
 
     };
 
@@ -263,8 +273,6 @@ export class CaseStepMainGridView9_EditModeBase extends GridView9Base {
      * @memberof CaseStepMainGridView9_EditMode
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
     this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
     }
 

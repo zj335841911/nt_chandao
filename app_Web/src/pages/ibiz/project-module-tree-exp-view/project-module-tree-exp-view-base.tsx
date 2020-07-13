@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { TreeExpViewBase } from '@/studio-core';
 import ProjectModuleService from '@/service/project-module/project-module-service';
+import ProjectModuleAuthService from '@/authservice/project-module/project-module-auth-service';
 import TreeExpViewEngine from '@engine/view/tree-exp-view-engine';
+import ProjectModuleUIService from '@/uiservice/project-module/project-module-ui-service';
 
 /**
  * 任务模块树导航视图视图基类
@@ -45,6 +47,14 @@ export class ProjectModuleTreeExpViewBase extends TreeExpViewBase {
      * @memberof ProjectModuleTreeExpViewBase
      */
     protected appEntityService: ProjectModuleService = new ProjectModuleService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProjectModuleUIService
+     * @memberof ProjectModuleTreeExpViewBase
+     */
+    public appUIService: ProjectModuleUIService = new ProjectModuleUIService(this.$store);
 
 
     /**
@@ -99,9 +109,9 @@ export class ProjectModuleTreeExpViewBase extends TreeExpViewBase {
      * @memberof ProjectModuleTreeExpView
      */
     public treeexpviewtreeexpbar_toolbarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '修复','isShowCaption':true,'isShowIcon':true, tooltip: '修复', iconcls: 'fa fa-wrench', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Fix', target: 'NONE' }, class: '' },
+        deuiaction1: { name: 'deuiaction1', caption: '修复', 'isShowCaption': true, 'isShowIcon': true, tooltip: '修复', iconcls: 'fa fa-wrench', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Fix', target: 'NONE', class: '' } },
 
-        deuiaction2: { name: 'deuiaction2', caption: '刷新','isShowCaption':true,'isShowIcon':true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'RefreshAll', target: '' }, class: '' },
+        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'RefreshAll', target: '', class: '' } },
 
     };
 
@@ -203,8 +213,6 @@ export class ProjectModuleTreeExpViewBase extends TreeExpViewBase {
      * @memberof ProjectModuleTreeExpView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
     this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
     }
 

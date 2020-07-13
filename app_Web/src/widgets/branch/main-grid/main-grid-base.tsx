@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, GridControllerBase } from '@/studio-core';
 import BranchService from '@/service/branch/branch-service';
 import MainService from './main-grid-service';
+import BranchUIService from '@/uiservice/branch/branch-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 
@@ -50,6 +51,23 @@ export class MainGridBase extends GridControllerBase {
     protected appDeName: string = 'branch';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {BranchUIService}
+     * @memberof MainBase
+     */  
+    public appUIService:BranchUIService = new BranchUIService(this.$store);
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof MainBase
+     */  
+    public ActionModel: any = {
+    };
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -70,7 +88,8 @@ export class MainGridBase extends GridControllerBase {
             label: '名称',
             langtag: 'entities.branch.main_grid.columns.name',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
     ]
 

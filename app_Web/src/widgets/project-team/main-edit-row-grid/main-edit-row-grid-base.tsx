@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, GridControllerBase } from '@/studio-core';
 import ProjectTeamService from '@/service/project-team/project-team-service';
 import Main_EditRowService from './main-edit-row-grid-service';
+import ProjectTeamUIService from '@/uiservice/project-team/project-team-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 
@@ -48,6 +49,23 @@ export class Main_EditRowGridBase extends GridControllerBase {
      * @memberof Main_EditRowGridBase
      */
     protected appDeName: string = 'projectteam';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProjectTeamUIService}
+     * @memberof Main_EditRowBase
+     */  
+    public appUIService:ProjectTeamUIService = new ProjectTeamUIService(this.$store);
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof Main_EditRowBase
+     */  
+    public ActionModel: any = {
+    };
 
     /**
      * 本地缓存标识
@@ -102,35 +120,40 @@ export class Main_EditRowGridBase extends GridControllerBase {
             label: '用户',
             langtag: 'entities.projectteam.main_editrow_grid.columns.username',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: true,
         },
         {
             name: 'role',
             label: '角色',
             langtag: 'entities.projectteam.main_editrow_grid.columns.role',
             show: true,
-            util: 'STAR'
+            util: 'STAR',
+            isEnableRowEdit: true,
         },
         {
             name: 'days',
             label: '可用工日',
             langtag: 'entities.projectteam.main_editrow_grid.columns.days',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: true,
         },
         {
             name: 'hours',
             label: '可用工时/天',
             langtag: 'entities.projectteam.main_editrow_grid.columns.hours',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: true,
         },
         {
             name: 'limited',
             label: '受限用户',
             langtag: 'entities.projectteam.main_editrow_grid.columns.limited',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: true,
         },
     ]
 

@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditViewBase } from '@/studio-core';
 import TestReportService from '@/service/test-report/test-report-service';
+import TestReportAuthService from '@/authservice/test-report/test-report-auth-service';
 import EditViewEngine from '@engine/view/edit-view-engine';
+import TestReportUIService from '@/uiservice/test-report/test-report-ui-service';
 
 /**
  * 测试报告编辑视图视图基类
@@ -45,6 +47,14 @@ export class TestReportEditView_TestRangeBase extends EditViewBase {
      * @memberof TestReportEditView_TestRangeBase
      */
     protected appEntityService: TestReportService = new TestReportService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type TestReportUIService
+     * @memberof TestReportEditView_TestRangeBase
+     */
+    public appUIService: TestReportUIService = new TestReportUIService(this.$store);
 
 
     /**

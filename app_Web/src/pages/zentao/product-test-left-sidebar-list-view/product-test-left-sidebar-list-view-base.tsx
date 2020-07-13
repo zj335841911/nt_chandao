@@ -2,6 +2,7 @@
 import { Subject } from 'rxjs';
 import { ListViewBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
+import ProductAuthService from '@/authservice/product/product-auth-service';
 import ListViewEngine from '@engine/view/list-view-engine';
 import ProductUIService from '@/uiservice/product/product-ui-service';
 import CodeListService from "@service/app/codelist-service";
@@ -50,6 +51,14 @@ export class ProductTestLeftSidebarListViewBase extends ListViewBase {
      */
     protected appEntityService: ProductService = new ProductService;
 
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProductUIService
+     * @memberof ProductTestLeftSidebarListViewBase
+     */
+    public appUIService: ProductUIService = new ProductUIService(this.$store);
+
 
     /**
      * 计数器服务对象集合
@@ -93,10 +102,10 @@ export class ProductTestLeftSidebarListViewBase extends ListViewBase {
      * @memberof ProductTestLeftSidebarListView
      */
     public toolBarModels: any = {
-        deuiaction3_testmanager: { name: 'deuiaction3_testmanager', caption: '管理','isShowCaption':true,'isShowIcon':true, tooltip: '管理', iconcls: 'fa fa-list', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'TestManager', target: 'NONE' }, class: '' },
+        deuiaction3_testmanager: { name: 'deuiaction3_testmanager', caption: '管理', 'isShowCaption': true, 'isShowIcon': true, tooltip: '管理', iconcls: 'fa fa-list', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'TestManager', target: 'NONE', class: '' } },
 
         seperator1: {  name: 'seperator1', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
-        deuiaction2: { name: 'deuiaction2', caption: '刷新','isShowCaption':true,'isShowIcon':true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Refresh', target: '' }, class: '' },
+        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
     };
 
@@ -332,8 +341,8 @@ export class ProductTestLeftSidebarListViewBase extends ListViewBase {
      * @memberof ProductTestLeftSidebarListView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
+        const localContext: any = null;
+        const localViewParam: any =null;
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){

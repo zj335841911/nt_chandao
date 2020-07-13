@@ -2,7 +2,9 @@
 import { Subject } from 'rxjs';
 import { GridViewBase } from '@/studio-core';
 import TestModuleService from '@/service/test-module/test-module-service';
+import TestModuleAuthService from '@/authservice/test-module/test-module-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
+import TestModuleUIService from '@/uiservice/test-module/test-module-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -48,6 +50,14 @@ export class TestModuleGridViewMainBase extends GridViewBase {
      * @memberof TestModuleGridViewMainBase
      */
     protected appEntityService: TestModuleService = new TestModuleService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type TestModuleUIService
+     * @memberof TestModuleGridViewMainBase
+     */
+    public appUIService: TestModuleUIService = new TestModuleUIService(this.$store);
 
 
     /**
@@ -105,9 +115,9 @@ export class TestModuleGridViewMainBase extends GridViewBase {
      * @memberof TestModuleGridViewMain
      */
     public toolBarModels: any = {
-        deuiaction2: { name: 'deuiaction2', caption: '新建行','isShowCaption':true,'isShowIcon':true, tooltip: '新建行', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'NewRow', target: '' }, class: '' },
+        deuiaction2: { name: 'deuiaction2', caption: '新建行', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建行', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'NewRow', target: '', class: '' } },
 
-        deuiaction3: { name: 'deuiaction3', caption: '保存行','isShowCaption':true,'isShowIcon':true, tooltip: '保存行', iconcls: 'fa fa-save', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'SaveRow', target: '' }, class: '' },
+        deuiaction3: { name: 'deuiaction3', caption: '保存行', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存行', iconcls: 'fa fa-save', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'SaveRow', target: '', class: '' } },
 
     };
 

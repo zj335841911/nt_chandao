@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { MPickupViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
+import BugAuthService from '@/authservice/bug/bug-auth-service';
 import MPickupViewEngine from '@engine/view/mpickup-view-engine';
+import BugUIService from '@/uiservice/bug/bug-ui-service';
 
 /**
  * 关联Bug视图基类
@@ -45,6 +47,14 @@ export class BugMPickupViewBase extends MPickupViewBase {
      * @memberof BugMPickupViewBase
      */
     protected appEntityService: BugService = new BugService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type BugUIService
+     * @memberof BugMPickupViewBase
+     */
+    public appUIService: BugUIService = new BugUIService(this.$store);
 
 
     /**

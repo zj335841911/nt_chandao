@@ -3,6 +3,7 @@ import { UIActionTool,Util } from '@/utils';
 import UIService from '../ui-service';
 import { Subject } from 'rxjs';
 import CaseService from '@/service/case/case-service';
+import CaseAuthService from '@/authservice/case/case-auth-service';
 
 /**
  * 测试用例UI服务对象基类
@@ -62,6 +63,13 @@ export default class CaseUIServiceBase extends UIService {
     public allDeMainStateMap:Map<string,string> = new Map();
 
     /**
+     * 主状态操作标识Map
+     * 
+     * @memberof  CaseUIServiceBase
+     */ 
+    public allDeMainStateOPPrivsMap:Map<string,any> = new Map();
+
+    /**
      * Creates an instance of  CaseUIServiceBase.
      * 
      * @param {*} [opts={}]
@@ -69,8 +77,10 @@ export default class CaseUIServiceBase extends UIService {
      */
     constructor(opts: any = {}) {
         super(opts);
+        this.authService = new CaseAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();
+        this.initDeMainStateOPPrivsMap();
     }
 
     /**
@@ -101,6 +111,14 @@ export default class CaseUIServiceBase extends UIService {
      * @memberof  CaseUIServiceBase
      */  
     public initDeMainStateMap(){
+    }
+
+    /**
+     * 初始化主状态操作标识
+     * 
+     * @memberof  CaseUIServiceBase
+     */  
+    public initDeMainStateOPPrivsMap(){
     }
 
     /**
@@ -512,12 +530,12 @@ export default class CaseUIServiceBase extends UIService {
         }
 		if(!Environment.isAppMode){
             if(this.getDEMainStateTag(curData)){
-                return `MOBEDITVIEW:MSTAG:${ await this.getDEMainStateTag(curData)}`;
+                return `MOBEDITVIEW:MSTAG:${ this.getDEMainStateTag(curData)}`;
             }
 			return 'MOBEDITVIEW:';
         }
         if(this.getDEMainStateTag(curData)){
-            return `EDITVIEW:MSTAG:${ await this.getDEMainStateTag(curData)}`;
+            return `EDITVIEW:MSTAG:${ this.getDEMainStateTag(curData)}`;
         }
 		return 'EDITVIEW:';
     }
@@ -528,7 +546,7 @@ export default class CaseUIServiceBase extends UIService {
      * @param curData 当前数据
      * @memberof  CaseUIServiceBase
      */  
-    public async getDEMainStateTag(curData:any){
+    public getDEMainStateTag(curData:any){
         if(this.mainStateFields.length === 0) return null;
 
         this.mainStateFields.forEach((singleMainField:any) =>{
@@ -536,8 +554,6 @@ export default class CaseUIServiceBase extends UIService {
                 console.error(`当前数据对象不包含属性singleMainField，可能会发生错误`);
             }
         })
-
-        let strTag:String = "";
         for (let i = 0; i <= 1; i++) {
             let strTag:string = (curData[this.mainStateFields[0]])?(i == 0) ? curData[this.mainStateFields[0]] : "":"";
             if (this.mainStateFields.length >= 2) {
@@ -559,5 +575,29 @@ export default class CaseUIServiceBase extends UIService {
         }
         return null;
     }
+
+    /**
+    * 获取数据对象当前操作标识
+    * 
+    * @param data 当前数据
+    * @memberof  CaseUIServiceBase
+    */  
+   public getDEMainStateOPPrivs(data:any){
+        if(this.getDEMainStateTag(data)){
+            return this.allDeMainStateOPPrivsMap.get((this.getDEMainStateTag(data) as string));
+        }else{
+            return null;
+        }
+   }
+
+    /**
+    * 获取数据对象所有的操作标识
+    * 
+    * @param data 当前数据
+    * @memberof  CaseUIServiceBase
+    */ 
+   public getAllOPPrivs(data:any){
+       return this.authService.getOPPrivs(this.getDEMainStateOPPrivs(data));
+   }
 
 }

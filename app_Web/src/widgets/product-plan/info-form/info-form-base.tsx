@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import ProductPlanService from '@/service/product-plan/product-plan-service';
 import InfoService from './info-form-service';
+import ProductPlanUIService from '@/uiservice/product-plan/product-plan-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 
 
@@ -48,6 +49,15 @@ export class InfoEditFormBase extends EditFormControlBase {
      * @memberof InfoEditFormBase
      */
     protected appDeName: string = 'productplan';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProductPlanUIService}
+     * @memberof InfoEditFormBase
+     */  
+    public appUIService:ProductPlanUIService = new ProductPlanUIService(this.$store);
+
 
     /**
      * 关系界面数量

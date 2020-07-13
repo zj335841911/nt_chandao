@@ -2,7 +2,9 @@
 import { Subject } from 'rxjs';
 import { GridView9Base } from '@/studio-core';
 import CaseStepService from '@/service/case-step/case-step-service';
+import CaseStepAuthService from '@/authservice/case-step/case-step-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
+import CaseStepUIService from '@/uiservice/case-step/case-step-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -49,6 +51,14 @@ export class CaseStepMainGridView9Base extends GridView9Base {
      */
     protected appEntityService: CaseStepService = new CaseStepService;
 
+    /**
+     * 实体权限服务对象
+     *
+     * @type CaseStepUIService
+     * @memberof CaseStepMainGridView9Base
+     */
+    public appUIService: CaseStepUIService = new CaseStepUIService(this.$store);
+
 
     /**
      * 计数器服务对象集合
@@ -92,7 +102,7 @@ export class CaseStepMainGridView9Base extends GridView9Base {
      * @memberof CaseStepMainGridView9
      */
     public toolBarModels: any = {
-        deuiaction2: { name: 'deuiaction2', caption: '刷新','isShowCaption':true,'isShowIcon':true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Refresh', target: '' }, class: '' },
+        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
     };
 
@@ -263,8 +273,6 @@ export class CaseStepMainGridView9Base extends GridView9Base {
      * @memberof CaseStepMainGridView9
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
     this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
     }
 

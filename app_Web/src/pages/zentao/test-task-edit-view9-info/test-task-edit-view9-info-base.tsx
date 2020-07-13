@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditView9Base } from '@/studio-core';
 import TestTaskService from '@/service/test-task/test-task-service';
+import TestTaskAuthService from '@/authservice/test-task/test-task-auth-service';
 import EditView9Engine from '@engine/view/edit-view9-engine';
+import TestTaskUIService from '@/uiservice/test-task/test-task-ui-service';
 
 /**
  * 测试版本编辑视图视图基类
@@ -45,6 +47,14 @@ export class TestTaskEditView9_InfoBase extends EditView9Base {
      * @memberof TestTaskEditView9_InfoBase
      */
     protected appEntityService: TestTaskService = new TestTaskService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type TestTaskUIService
+     * @memberof TestTaskEditView9_InfoBase
+     */
+    public appUIService: TestTaskUIService = new TestTaskUIService(this.$store);
 
 
     /**

@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, GridControllerBase } from '@/studio-core';
 import BuildService from '@/service/build/build-service';
 import MainService from './main-grid-service';
+import BuildUIService from '@/uiservice/build/build-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 
@@ -50,6 +51,23 @@ export class MainGridBase extends GridControllerBase {
     protected appDeName: string = 'build';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {BuildUIService}
+     * @memberof MainBase
+     */  
+    public appUIService:BuildUIService = new BuildUIService(this.$store);
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof MainBase
+     */  
+    public ActionModel: any = {
+    };
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -70,56 +88,64 @@ export class MainGridBase extends GridControllerBase {
             label: 'ID',
             langtag: 'entities.build.main_grid.columns.id',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'productname',
             label: '产品名称',
             langtag: 'entities.build.main_grid.columns.productname',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'name',
             label: '名称编号',
             langtag: 'entities.build.main_grid.columns.name',
             show: true,
-            util: 'STAR'
+            util: 'STAR',
+            isEnableRowEdit: false,
         },
         {
             name: 'scmpath',
             label: '源代码地址',
             langtag: 'entities.build.main_grid.columns.scmpath',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'filepath',
             label: '下载地址',
             langtag: 'entities.build.main_grid.columns.filepath',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'date',
             label: '打包日期',
             langtag: 'entities.build.main_grid.columns.date',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'builder',
             label: '构建者',
             langtag: 'entities.build.main_grid.columns.builder',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'uagridcolumn1',
             label: '操作',
             langtag: 'entities.build.main_grid.columns.uagridcolumn1',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
     ]
 

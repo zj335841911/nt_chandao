@@ -2,7 +2,9 @@
 import { Subject } from 'rxjs';
 import { ListView9Base } from '@/studio-core';
 import FileService from '@/service/file/file-service';
+import FileAuthService from '@/authservice/file/file-auth-service';
 import ListView9Engine from '@engine/view/list-view9-engine';
+import FileUIService from '@/uiservice/file/file-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -48,6 +50,14 @@ export class FileListView9Base extends ListView9Base {
      * @memberof FileListView9Base
      */
     protected appEntityService: FileService = new FileService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type FileUIService
+     * @memberof FileListView9Base
+     */
+    public appUIService: FileUIService = new FileUIService(this.$store);
 
 
     /**
@@ -220,8 +230,6 @@ export class FileListView9Base extends ListView9Base {
      * @memberof FileListView9
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
     this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
     }
 

@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditViewBase } from '@/studio-core';
 import ProductPlanService from '@/service/product-plan/product-plan-service';
+import ProductPlanAuthService from '@/authservice/product-plan/product-plan-auth-service';
 import EditViewEngine from '@engine/view/edit-view-engine';
+import ProductPlanUIService from '@/uiservice/product-plan/product-plan-ui-service';
 
 /**
  * 计划详情视图基类
@@ -45,6 +47,14 @@ export class ProductPlanMainEditViewBase extends EditViewBase {
      * @memberof ProductPlanMainEditViewBase
      */
     protected appEntityService: ProductPlanService = new ProductPlanService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProductPlanUIService
+     * @memberof ProductPlanMainEditViewBase
+     */
+    public appUIService: ProductPlanUIService = new ProductPlanUIService(this.$store);
 
 
     /**

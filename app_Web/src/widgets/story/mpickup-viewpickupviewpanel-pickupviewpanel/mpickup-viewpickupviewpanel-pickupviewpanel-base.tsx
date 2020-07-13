@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import MPickupViewpickupviewpanelService from './mpickup-viewpickupviewpanel-pickupviewpanel-service';
+import StoryUIService from '@/uiservice/story/story-ui-service';
 import MPickupViewpickupviewpanelModel from './mpickup-viewpickupviewpanel-pickupviewpanel-model';
 
 

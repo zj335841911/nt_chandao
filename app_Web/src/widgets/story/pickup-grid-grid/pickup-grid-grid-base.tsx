@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, GridControllerBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import PickupGridService from './pickup-grid-grid-service';
+import StoryUIService from '@/uiservice/story/story-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 
@@ -50,6 +51,23 @@ export class PickupGridGridBase extends GridControllerBase {
     protected appDeName: string = 'story';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {StoryUIService}
+     * @memberof PickupGridBase
+     */  
+    public appUIService:StoryUIService = new StoryUIService(this.$store);
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof PickupGridBase
+     */  
+    public ActionModel: any = {
+    };
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -70,70 +88,80 @@ export class PickupGridGridBase extends GridControllerBase {
             label: 'ID',
             langtag: 'entities.story.pickupgrid_grid.columns.id',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'pri',
             label: 'P',
             langtag: 'entities.story.pickupgrid_grid.columns.pri',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'plan',
             label: '所属计划',
             langtag: 'entities.story.pickupgrid_grid.columns.plan',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'modulename',
             label: '所属模块名称',
             langtag: 'entities.story.pickupgrid_grid.columns.modulename',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'title',
             label: '需求名称',
             langtag: 'entities.story.pickupgrid_grid.columns.title',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'openedby',
             label: '创建',
             langtag: 'entities.story.pickupgrid_grid.columns.openedby',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'assignedto',
             label: '指派',
             langtag: 'entities.story.pickupgrid_grid.columns.assignedto',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'estimate',
             label: '预计',
             langtag: 'entities.story.pickupgrid_grid.columns.estimate',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'status',
             label: '状态',
             langtag: 'entities.story.pickupgrid_grid.columns.status',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'stage',
             label: '阶段',
             langtag: 'entities.story.pickupgrid_grid.columns.stage',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
     ]
 

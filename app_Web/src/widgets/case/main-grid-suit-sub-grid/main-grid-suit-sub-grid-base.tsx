@@ -107,6 +107,25 @@ export class MainGrid_SuitSubGridBase extends GridControllerBase {
     }
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {CaseUIService}
+     * @memberof MainGrid_SuitSubBase
+     */  
+    public appUIService:CaseUIService = new CaseUIService(this.$store);
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof MainGrid_SuitSubBase
+     */  
+    public ActionModel: any = {
+        OpenTestRunResultView: { name: 'OpenTestRunResultView',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
+        Execute: { name: 'Execute',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'}
+    };
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -127,70 +146,80 @@ export class MainGrid_SuitSubGridBase extends GridControllerBase {
             label: 'id',
             langtag: 'entities.case.maingrid_suitsub_grid.columns.id',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'pri',
             label: 'P',
             langtag: 'entities.case.maingrid_suitsub_grid.columns.pri',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'title',
             label: '用例标题',
             langtag: 'entities.case.maingrid_suitsub_grid.columns.title',
             show: true,
-            util: 'STAR'
+            util: 'STAR',
+            isEnableRowEdit: false,
         },
         {
             name: 'type',
             label: '用例类型',
             langtag: 'entities.case.maingrid_suitsub_grid.columns.type',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'lastrunresult',
             label: '结果',
             langtag: 'entities.case.maingrid_suitsub_grid.columns.lastrunresult',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'status',
             label: '状态',
             langtag: 'entities.case.maingrid_suitsub_grid.columns.status',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'tobugcnt',
             label: 'B',
             langtag: 'entities.case.maingrid_suitsub_grid.columns.tobugcnt',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'resultcnt',
             label: 'R',
             langtag: 'entities.case.maingrid_suitsub_grid.columns.resultcnt',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'casesteps',
             label: 'S',
             langtag: 'entities.case.maingrid_suitsub_grid.columns.casesteps',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'uagridcolumn1',
             label: '操作',
             langtag: 'entities.case.maingrid_suitsub_grid.columns.uagridcolumn1',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
     ]
 

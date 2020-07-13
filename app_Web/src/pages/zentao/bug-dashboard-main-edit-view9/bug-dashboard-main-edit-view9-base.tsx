@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditView9Base } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
+import BugAuthService from '@/authservice/bug/bug-auth-service';
 import EditView9Engine from '@engine/view/edit-view9-engine';
+import BugUIService from '@/uiservice/bug/bug-ui-service';
 
 /**
  * 主信息视图基类
@@ -45,6 +47,14 @@ export class BugDashboardMainEditView9Base extends EditView9Base {
      * @memberof BugDashboardMainEditView9Base
      */
     protected appEntityService: BugService = new BugService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type BugUIService
+     * @memberof BugDashboardMainEditView9Base
+     */
+    public appUIService: BugUIService = new BugUIService(this.$store);
 
 
     /**

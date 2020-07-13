@@ -1,8 +1,10 @@
+
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
 import BurnService from '@/service/burn/burn-service';
 import BurnDownService from './burn-down-chart-service';
+import BurnUIService from '@/uiservice/burn/burn-ui-service';
 import echarts from 'echarts';
 import moment from "moment"; 
 import CodeListService from "@service/app/codelist-service";
@@ -56,7 +58,7 @@ export class BurnDownChartBase extends MainControlBase {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof BurnDown
+     * @memberof BurnDownBase
      */
     public getDatas(): any[] {
         return [];
@@ -66,7 +68,7 @@ export class BurnDownChartBase extends MainControlBase {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof BurnDown
+     * @memberof BurnDownBase
      */
     public getData(): any {
         return null;
@@ -76,7 +78,7 @@ export class BurnDownChartBase extends MainControlBase {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof BurnDown
+     * @memberof BurnDownBase
      */
     @Prop({ default: true }) public showBusyIndicator!: boolean;
 
@@ -84,14 +86,14 @@ export class BurnDownChartBase extends MainControlBase {
      * 部件行为--fetch
      *
      * @type {string}
-     * @memberof BurnDown
+     * @memberof BurnDownBase
      */
     @Prop() public fetchAction!: string;  
 
     /**
     * Vue声明周期(组件初始化完毕)
     *
-    * @memberof BurnDown
+    * @memberof BurnDownBase
     */
     public created() {
          this.afterCreated();     
@@ -100,7 +102,7 @@ export class BurnDownChartBase extends MainControlBase {
     /**
     * 执行created后的逻辑
     *
-    * @memberof BurnDown
+    * @memberof BurnDownBase
     */
     public afterCreated(){
         if (this.viewState) {
@@ -118,7 +120,7 @@ export class BurnDownChartBase extends MainControlBase {
     /**
      * vue 生命周期
      *
-     * @memberof BurnDown
+     * @memberof BurnDownBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -127,7 +129,7 @@ export class BurnDownChartBase extends MainControlBase {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof BurnDown
+     * @memberof BurnDownBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {

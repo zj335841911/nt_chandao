@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditViewBase } from '@/studio-core';
 import ReleaseService from '@/service/release/release-service';
+import ReleaseAuthService from '@/authservice/release/release-auth-service';
 import EditViewEngine from '@engine/view/edit-view-engine';
+import ReleaseUIService from '@/uiservice/release/release-ui-service';
 
 /**
  * 发布编辑视图视图基类
@@ -45,6 +47,14 @@ export class ReleaseMainInfoViewBase extends EditViewBase {
      * @memberof ReleaseMainInfoViewBase
      */
     protected appEntityService: ReleaseService = new ReleaseService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ReleaseUIService
+     * @memberof ReleaseMainInfoViewBase
+     */
+    public appUIService: ReleaseUIService = new ReleaseUIService(this.$store);
 
 
     /**

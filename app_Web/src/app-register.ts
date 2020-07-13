@@ -8,6 +8,7 @@ import { AppPopover } from './utils/app-popover/app-popover';
 import { AppModal } from './utils/app-modal/app-modal';
 import { AppDrawer } from './utils/app-drawer/app-drawer';
 import { uiServiceRegister } from '@/uiservice/ui-service-register';
+import { authServiceRegister } from '@/authservice/auth-service-register';
 import { utilServiceRegister } from '@/utilservice/util-service-register';
 import { entityServiceRegister } from '@/service/entity-service-register';
 import { counterServiceRegister } from '@/counter/counter-service-register';
@@ -32,8 +33,6 @@ import AppImageUpload from './components/app-image-upload/app-image-upload.vue'
 import PropertyLayout from './components/property-layout/property-layout.vue'
 import AppRangeEditor from './components/app-range-editor/app-range-editor.vue'
 import AppExportExcel from './components/app-export-excel/app-export-excel.vue'
-import AppFormGroup from './components/app-form-group/app-form-group'
-import AppFormGroupDataPanel from './components/app-form-group-data-panel/app-form-group-data-panel'
 import AppFormItem from './components/app-form-item/app-form-item.vue'
 import AppPicker from './components/app-picker/app-picker.vue'
 import AppMpicker from './components/app-mpicker/app-mpicker.vue'
@@ -45,7 +44,6 @@ import AppCheckbox from './components/app-checkbox/app-checkbox.vue'
 import AppColumnRender from './components/app-column-render/app-column-render.vue'
 import AppPickerSelectView from './components/app-picker-select-view/app-picker-select-view.vue'
 import AppSiderMenus from './components/app-sider-menus/app-sider-menus.vue'
-import AppSpan from './components/app-span/app-span'
 import AppAddressSelection from './components/app-address-selection/app-address-selection.vue'
 import DropdownListMpicker  from './components/dropdown-list-mpicker/dropdown-list-mpicker.vue'
 import AppRate from './components/app-rate/app-rate.vue'
@@ -75,9 +73,11 @@ import ContextMenuDrag from './components/context-menu-drag/context-menu-drag.vu
 import AppOrgSelect from './components/app-org-select/app-org-select.vue'
 import AppDepartmentSelect from './components/app-department-select/app-department-select.vue'
 import AppGroupSelect from './components/app-group-select/app-group-select.vue'
-import FilterTree from './components/filter-tree/filter-tree.vue';
+import UpdatePwd from './components/app-update-password/app-update-password.vue'
 // 全局挂载UI实体服务注册中心
 window['uiServiceRegister'] = uiServiceRegister;
+// 全局挂载实体权限服务注册中心
+window['authServiceRegister'] = authServiceRegister;
 // 全局挂载功能服务注册中心
 window['utilServiceRegister'] = utilServiceRegister;
 // 全局挂载数据服务注册中心
@@ -109,7 +109,6 @@ export const AppComponents = {
         v.component('context-menu-container', ContextMenuContainer);
         v.component('app-checkbox-list',AppCheckboxList);
         v.component('app-radio-group',AppRadioGroup);
-        v.component('app-radio-group-data-panel',AppFormGroupDataPanel);
         v.component('app-embed-picker', AppEmbedPicker);
         v.component('app-tree-picker', AppTreePicker);
         v.component('app-rich-text-editor', () => import('./components/app-rich-text-editor/app-rich-text-editor.vue'));
@@ -118,7 +117,6 @@ export const AppComponents = {
         v.component('property-layout',PropertyLayout);
         v.component('app-range-editor',AppRangeEditor);
         v.component('app-export-excel',AppExportExcel);
-        v.component('app-form-group',AppFormGroup);
         v.component('app-form-item',AppFormItem);
         v.component('app-picker', AppPicker);
         v.component('app-mpicker', AppMpicker);
@@ -130,7 +128,6 @@ export const AppComponents = {
         v.component('app-column-render',AppColumnRender);
         v.component('app-picker-select-view',AppPickerSelectView);
         v.component('app-sider-menus',AppSiderMenus);
-        v.component('app-span', AppSpan);
         v.component('app-address-selection', AppAddressSelection);
         v.component('dropdown-list-mpicker', DropdownListMpicker);
         v.component('app-rate', AppRate);
@@ -162,6 +159,6 @@ export const AppComponents = {
         v.component('app-wf-approval',AppWFApproval);
         v.component('app-transfer',AppTransfer);
         v.component('context-menu-drag',ContextMenuDrag);
-        v.component('filter-tree',FilterTree);
+        v.component('app-update-password',UpdatePwd);
     },
 };

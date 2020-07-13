@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { OptionViewBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
+import TaskAuthService from '@/authservice/task/task-auth-service';
 import OptionViewEngine from '@engine/view/option-view-engine';
+import TaskUIService from '@/uiservice/task/task-ui-service';
 
 /**
  * 指派任务视图基类
@@ -45,6 +47,14 @@ export class TaskAssignTaskViewBase extends OptionViewBase {
      * @memberof TaskAssignTaskViewBase
      */
     protected appEntityService: TaskService = new TaskService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type TaskUIService
+     * @memberof TaskAssignTaskViewBase
+     */
+    public appUIService: TaskUIService = new TaskUIService(this.$store);
 
 
     /**

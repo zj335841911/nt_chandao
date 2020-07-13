@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import ActionHistoryListService from './action-history-list-portlet-service';
+import BugUIService from '@/uiservice/bug/bug-ui-service';
 import { Environment } from '@/environments/environment';
 
 
