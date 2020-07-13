@@ -85,6 +85,22 @@ export class Main2GridBase extends GridControllerBase {
     public isEnablePagingBar: boolean = false;
 
     /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof Main2GridBase
+     */
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof Main2GridBase
+     */
+    public minorSortPSDEF: string = 'id';
+
+    /**
      * 所有列成员
      *
      * @type {any[]}

@@ -85,6 +85,22 @@ export class SubTaskNewGridBase extends GridControllerBase {
     public isEnablePagingBar: boolean = false;
 
     /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof SubTaskNewGridBase
+     */
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof SubTaskNewGridBase
+     */
+    public minorSortPSDEF: string = 'id';
+
+    /**
      * 分页条数
      *
      * @type {number}

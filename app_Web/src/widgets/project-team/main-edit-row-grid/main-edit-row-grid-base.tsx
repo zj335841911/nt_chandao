@@ -90,7 +90,7 @@ export class Main_EditRowGridBase extends GridControllerBase {
      * @type {string}
      * @memberof Main_EditRowGridBase
      */
-    public minorSortDir: string = 'ASC';
+    public minorSortDir: string = 'DESC';
 
     /**
      * 排序字段
