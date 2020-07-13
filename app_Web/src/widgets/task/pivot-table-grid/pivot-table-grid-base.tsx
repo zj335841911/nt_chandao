@@ -515,7 +515,7 @@ export class PivotTableGridBase extends MainControlBase {
      * @type {*}
      * @memberof PivotTable
      */
-    public renderColValue(name: string, value: any) {
+    public async renderColValue(name: string, value: any) {
         if(Object.is('pri', name)) {
             let codelist: any[] = this.$store.getters.getCodeList('Task__pri');
             if(codelist) {
@@ -535,10 +535,10 @@ export class PivotTableGridBase extends MainControlBase {
             }
         }
         if(Object.is('assignedto', name)) {
-            let items = await _this.codeListService.getItems('UserRealName');
+            let items = await this.codeListService.getItems('UserRealName');
             if(items) {
                 for(let i = 0; i < items.length; i++) {
-                    if(Object.is(items[i].value, val)) {
+                    if(Object.is(items[i].value, value)) {
                         return items[i].text;
                     }
                 }
