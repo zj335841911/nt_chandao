@@ -81,11 +81,6 @@ export default class Main_EditModeModel {
         dataType: 'TEXT',
       },
       {
-        name: 'title',
-        prop: 'title',
-        dataType: 'TEXT',
-      },
-      {
         name: 'prodoctname',
         prop: 'productname',
         dataType: 'PICKUPTEXT',
