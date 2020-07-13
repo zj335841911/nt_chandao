@@ -26,7 +26,7 @@ import java.util.Date;
 @Service("IBZZTFileService")
 public class IBZZTFileService implements IIBZZTFileService {
 
-    @Value("${zentao.filePath:#{null}}")
+    @Value("${zentao.filePath:/app/file/}")
     private String filePath;
 
     @Value("${zentao.rootPath:/app/zentao/file/}")
