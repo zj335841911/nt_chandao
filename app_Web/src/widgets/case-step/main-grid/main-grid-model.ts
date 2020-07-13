@@ -110,6 +110,10 @@ export default class MainModel {
           prop: 'srffrontuf',
           dataType: 'TEXT',
         },
+        {
+          name:'srfArray',
+          prop:'srfArray'
+        },
       ]
     }
   }
