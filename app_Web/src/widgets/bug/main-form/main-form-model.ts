@@ -86,14 +86,14 @@ export default class MainModel {
         dataType: 'PICKUP',
       },
       {
-        name: 'projectname',
-        prop: 'projectname',
-        dataType: 'PICKUPTEXT',
-      },
-      {
         name: 'openedbuild',
         prop: 'openedbuild',
         dataType: 'SSCODELIST',
+      },
+      {
+        name: 'projectname',
+        prop: 'projectname',
+        dataType: 'PICKUPTEXT',
       },
       {
         name: 'assignedto',

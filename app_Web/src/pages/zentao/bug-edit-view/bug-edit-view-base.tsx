@@ -66,6 +66,17 @@ export class BugEditViewBase extends EditViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof BugEditViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'PRODUCT': { isRawValue: false, value: 'product' }
+    };
+
     /**
      * 视图模型数据
      *
