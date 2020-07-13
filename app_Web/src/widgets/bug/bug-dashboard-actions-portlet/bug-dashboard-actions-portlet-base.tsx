@@ -58,6 +58,33 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public dashboard_sysportlet5_u3f6a0e7_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.Exit(datas, contextJO,paramJO,  $event, xData,this,"Bug");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public dashboard_sysportlet5_u1d352f4_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -191,6 +218,25 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
     }
 
     /**
+     * 返回
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof BugMainDashboardViewBase
+     */
+    public Exit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        this.closeView(args);
+        if(window.parent){
+            window.parent.postMessage([{ ...args }],'*');
+        }
+    }
+
+
+    /**
      * 长度
      *
      * @type {number}
@@ -213,6 +259,11 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @memberof BugDashboardActionsBase
      */
     public actionBarModelData:any[] =[
+        { viewlogicname:"dashboard_sysportlet5_u3f6a0e7_click",
+        text: "返回",
+        iconcls: "fa fa-sign-out",
+        icon: "",
+        },
         { viewlogicname:"dashboard_sysportlet5_u1d352f4_click",
         text: "编辑",
         iconcls: "fa fa-edit",
@@ -246,6 +297,9 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @memberof BugDashboardActionsBase
      */
     public handleItemClick($event:any){
+        if(Object.is($event,'dashboard_sysportlet5_u3f6a0e7_click')){
+            this.dashboard_sysportlet5_u3f6a0e7_click(null);
+        }
         if(Object.is($event,'dashboard_sysportlet5_u1d352f4_click')){
             this.dashboard_sysportlet5_u1d352f4_click(null);
         }
