@@ -150,4 +150,14 @@ export class ResolveEditFormBase extends EditFormControlBase {
         comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
     };
+
+    /**
+     * 更新默认值
+     * @memberof ResolveEditFormBase
+     */
+    public updateDefault(){                    
+        if (this.data.hasOwnProperty('resolveddate') && !this.data.resolveddate) {
+            this.data['resolveddate'] = '';
+        }
+    }
 }
