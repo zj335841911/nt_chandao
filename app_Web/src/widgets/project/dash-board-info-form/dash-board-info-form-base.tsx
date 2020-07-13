@@ -66,7 +66,7 @@ export class DashBoardInfoEditFormBase extends EditFormControlBase {
      * @type {number}
      * @memberof DashBoardInfoEditFormBase
      */
-    protected drCount: number = 0;
+    protected drCount: number = 2;
 
     /**
      * 表单数据对象
