@@ -74,6 +74,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         projecttname: null,
+        product: null,
         buildname: null,
         owner: null,
         pri: null,
@@ -133,6 +134,8 @@ export class MainEditEditFormBase extends EditFormControlBase {
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         projecttname: new FormItemModel({ caption: '项目', detailType: 'FORMITEM', name: 'projecttname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        product: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         buildname: new FormItemModel({ caption: '版本', detailType: 'FORMITEM', name: 'buildname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
