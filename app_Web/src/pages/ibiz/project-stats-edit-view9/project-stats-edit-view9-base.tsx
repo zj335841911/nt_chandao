@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditView9Base } from '@/studio-core';
 import ProjectStatsService from '@/service/project-stats/project-stats-service';
+import ProjectStatsAuthService from '@/authservice/project-stats/project-stats-auth-service';
 import EditView9Engine from '@engine/view/edit-view9-engine';
+import ProjectStatsUIService from '@/uiservice/project-stats/project-stats-ui-service';
 
 /**
  * 项目统计编辑视图视图基类
@@ -45,6 +47,14 @@ export class ProjectStatsEditView9Base extends EditView9Base {
      * @memberof ProjectStatsEditView9Base
      */
     protected appEntityService: ProjectStatsService = new ProjectStatsService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProjectStatsUIService
+     * @memberof ProjectStatsEditView9Base
+     */
+    public appUIService: ProjectStatsUIService = new ProjectStatsUIService(this.$store);
 
 
     /**

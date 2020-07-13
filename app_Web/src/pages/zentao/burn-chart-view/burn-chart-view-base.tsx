@@ -1,6 +1,7 @@
 import { Subject } from 'rxjs';
 import { ChartViewBase } from '@/studio-core';
 import BurnService from '@/service/burn/burn-service';
+import BurnAuthService from '@/authservice/burn/burn-auth-service';
 import ChartViewEngine from '@engine/view/chart-view-engine';
 import BurnUIService from '@/uiservice/burn/burn-ui-service';
 
@@ -47,6 +48,14 @@ export class BurnChartViewBase extends ChartViewBase {
      */
     protected appEntityService: BurnService = new BurnService;
 
+    /**
+     * 实体权限服务对象
+     *
+     * @type BurnUIService
+     * @memberof BurnChartViewBase
+     */
+    public appUIService: BurnUIService = new BurnUIService(this.$store);
+
 
     /**
      * 计数器服务对象集合
@@ -90,7 +99,7 @@ export class BurnChartViewBase extends ChartViewBase {
      * @memberof BurnChartView
      */
     public toolBarModels: any = {
-        deuiaction1_computeburn: { name: 'deuiaction1_computeburn', caption: '更新燃尽图','isShowCaption':true,'isShowIcon':true, tooltip: '更新燃尽图', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'ComputeBurn', target: 'SINGLEKEY' }, class: '' },
+        deuiaction1_computeburn: { name: 'deuiaction1_computeburn', caption: '更新燃尽图', 'isShowCaption': true, 'isShowIcon': true, tooltip: '更新燃尽图', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ComputeBurn', target: 'SINGLEKEY', class: '' } },
 
     };
 

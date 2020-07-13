@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { TabExpViewBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
+import ProjectAuthService from '@/authservice/project/project-auth-service';
 import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
+import ProjectUIService from '@/uiservice/project/project-ui-service';
 
 /**
  * 项目视图基类
@@ -45,6 +47,14 @@ export class ProjectMainTabExpViewBase extends TabExpViewBase {
      * @memberof ProjectMainTabExpViewBase
      */
     protected appEntityService: ProjectService = new ProjectService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProjectUIService
+     * @memberof ProjectMainTabExpViewBase
+     */
+    public appUIService: ProjectUIService = new ProjectUIService(this.$store);
 
 
     /**

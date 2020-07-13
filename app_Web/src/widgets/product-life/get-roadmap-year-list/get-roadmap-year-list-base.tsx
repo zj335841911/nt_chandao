@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
 import ProductLifeService from '@/service/product-life/product-life-service';
 import GetRoadmapYearService from './get-roadmap-year-list-service';
+import ProductLifeUIService from '@/uiservice/product-life/product-life-ui-service';
 import GetRoadmapService from '@/widgets/product-life/get-roadmap-list/get-roadmap-list-service';
 
 

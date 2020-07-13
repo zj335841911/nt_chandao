@@ -2,7 +2,9 @@
 import { Subject } from 'rxjs';
 import { GridViewBase } from '@/studio-core';
 import SubProductPlanService from '@/service/sub-product-plan/sub-product-plan-service';
+import SubProductPlanAuthService from '@/authservice/sub-product-plan/sub-product-plan-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
+import SubProductPlanUIService from '@/uiservice/sub-product-plan/sub-product-plan-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -48,6 +50,14 @@ export class ProductPlanSubPlanGridViewBase extends GridViewBase {
      * @memberof ProductPlanSubPlanGridViewBase
      */
     protected appEntityService: SubProductPlanService = new SubProductPlanService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type SubProductPlanUIService
+     * @memberof ProductPlanSubPlanGridViewBase
+     */
+    public appUIService: SubProductPlanUIService = new SubProductPlanUIService(this.$store);
 
 
     /**
@@ -103,12 +113,12 @@ export class ProductPlanSubPlanGridViewBase extends GridViewBase {
      * @memberof ProductPlanSubPlanGridView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '新建','isShowCaption':true,'isShowIcon':true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'New', target: '' }, class: '' },
+        deuiaction1: { name: 'deuiaction1', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'New', target: '', class: '' } },
 
-        deuiaction4: { name: 'deuiaction4', caption: '删除','isShowCaption':true,'isShowIcon':true, tooltip: '删除', iconcls: 'fa fa-remove', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Remove', target: 'MULTIKEY' }, class: '' },
+        deuiaction4: { name: 'deuiaction4', caption: '删除', 'isShowCaption': true, 'isShowIcon': true, tooltip: '删除', iconcls: 'fa fa-remove', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Remove', target: 'MULTIKEY', class: '' } },
 
         seperator1: {  name: 'seperator1', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
-        deuiaction2: { name: 'deuiaction2', caption: '刷新','isShowCaption':true,'isShowIcon':true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Refresh', target: '' }, class: '' },
+        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
     };
 
@@ -388,8 +398,8 @@ export class ProductPlanSubPlanGridViewBase extends GridViewBase {
      * @memberof ProductPlanSubPlanGridView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
+        const localContext: any = null;
+        const localViewParam: any =null;
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){

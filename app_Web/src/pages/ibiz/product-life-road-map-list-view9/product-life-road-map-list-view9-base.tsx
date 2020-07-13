@@ -2,7 +2,9 @@
 import { Subject } from 'rxjs';
 import { ListView9Base } from '@/studio-core';
 import ProductLifeService from '@/service/product-life/product-life-service';
+import ProductLifeAuthService from '@/authservice/product-life/product-life-auth-service';
 import ListView9Engine from '@engine/view/list-view9-engine';
+import ProductLifeUIService from '@/uiservice/product-life/product-life-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -48,6 +50,14 @@ export class ProductLifeRoadMapListView9Base extends ListView9Base {
      * @memberof ProductLifeRoadMapListView9Base
      */
     protected appEntityService: ProductLifeService = new ProductLifeService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProductLifeUIService
+     * @memberof ProductLifeRoadMapListView9Base
+     */
+    public appUIService: ProductLifeUIService = new ProductLifeUIService(this.$store);
 
 
     /**
@@ -221,8 +231,6 @@ export class ProductLifeRoadMapListView9Base extends ListView9Base {
      * @memberof ProductLifeRoadMapListView9
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
     this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
     }
 

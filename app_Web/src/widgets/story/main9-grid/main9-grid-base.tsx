@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, GridControllerBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import Main9Service from './main9-grid-service';
+import StoryUIService from '@/uiservice/story/story-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 
@@ -50,6 +51,23 @@ export class Main9GridBase extends GridControllerBase {
     protected appDeName: string = 'story';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {StoryUIService}
+     * @memberof Main9Base
+     */  
+    public appUIService:StoryUIService = new StoryUIService(this.$store);
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof Main9Base
+     */  
+    public ActionModel: any = {
+    };
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -65,6 +83,22 @@ export class Main9GridBase extends GridControllerBase {
      * @memberof Main9GridBase
      */
     public isEnablePagingBar: boolean = false;
+
+    /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof Main9GridBase
+     */
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof Main9GridBase
+     */
+    public minorSortPSDEF: string = 'id';
 
     /**
      * 分页条数
@@ -86,21 +120,24 @@ export class Main9GridBase extends GridControllerBase {
             label: 'P',
             langtag: 'entities.story.main9_grid.columns.pri',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'title',
             label: '需求名称',
             langtag: 'entities.story.main9_grid.columns.title',
             show: true,
-            util: 'STAR'
+            util: 'STAR',
+            isEnableRowEdit: false,
         },
         {
             name: 'status',
             label: '状态',
             langtag: 'entities.story.main9_grid.columns.status',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
     ]
 

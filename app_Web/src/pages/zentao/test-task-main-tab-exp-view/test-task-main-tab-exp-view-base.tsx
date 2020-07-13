@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { TabExpViewBase } from '@/studio-core';
 import TestTaskService from '@/service/test-task/test-task-service';
+import TestTaskAuthService from '@/authservice/test-task/test-task-auth-service';
 import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
+import TestTaskUIService from '@/uiservice/test-task/test-task-ui-service';
 
 /**
  * 测试版本分页导航视图视图基类
@@ -45,6 +47,14 @@ export class TestTaskMainTabExpViewBase extends TabExpViewBase {
      * @memberof TestTaskMainTabExpViewBase
      */
     protected appEntityService: TestTaskService = new TestTaskService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type TestTaskUIService
+     * @memberof TestTaskMainTabExpViewBase
+     */
+    public appUIService: TestTaskUIService = new TestTaskUIService(this.$store);
 
 
     /**

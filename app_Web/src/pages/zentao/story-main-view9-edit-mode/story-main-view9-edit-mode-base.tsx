@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditView9Base } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
+import StoryAuthService from '@/authservice/story/story-auth-service';
 import EditView9Engine from '@engine/view/edit-view9-engine';
+import StoryUIService from '@/uiservice/story/story-ui-service';
 
 /**
  * 需求编辑视图视图基类
@@ -45,6 +47,14 @@ export class StoryMainView9_EditModeBase extends EditView9Base {
      * @memberof StoryMainView9_EditModeBase
      */
     protected appEntityService: StoryService = new StoryService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type StoryUIService
+     * @memberof StoryMainView9_EditModeBase
+     */
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
 
     /**

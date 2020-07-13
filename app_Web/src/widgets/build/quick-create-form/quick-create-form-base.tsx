@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import BuildService from '@/service/build/build-service';
 import QuickCreateService from './quick-create-form-service';
+import BuildUIService from '@/uiservice/build/build-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 
 
@@ -48,6 +49,15 @@ export class QuickCreateEditFormBase extends EditFormControlBase {
      * @memberof QuickCreateEditFormBase
      */
     protected appDeName: string = 'build';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {BuildUIService}
+     * @memberof QuickCreateEditFormBase
+     */  
+    public appUIService:BuildUIService = new BuildUIService(this.$store);
+
 
     /**
      * 表单数据对象

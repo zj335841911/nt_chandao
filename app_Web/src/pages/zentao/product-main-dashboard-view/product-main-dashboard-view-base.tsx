@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { DashboardViewBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
+import ProductAuthService from '@/authservice/product/product-auth-service';
 import PortalViewEngine from '@engine/view/portal-view-engine';
+import ProductUIService from '@/uiservice/product/product-ui-service';
 
 /**
  * 产品数据看板视图视图基类
@@ -45,6 +47,14 @@ export class ProductMainDashboardViewBase extends DashboardViewBase {
      * @memberof ProductMainDashboardViewBase
      */
     protected appEntityService: ProductService = new ProductService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProductUIService
+     * @memberof ProductMainDashboardViewBase
+     */
+    public appUIService: ProductUIService = new ProductUIService(this.$store);
 
 
     /**

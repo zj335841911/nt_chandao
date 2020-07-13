@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { PickupGridViewBase } from '@/studio-core';
 import BranchService from '@/service/branch/branch-service';
+import BranchAuthService from '@/authservice/branch/branch-auth-service';
 import PickupGridViewEngine from '@engine/view/pickup-grid-view-engine';
+import BranchUIService from '@/uiservice/branch/branch-ui-service';
 
 /**
  * branch选择表格视图视图基类
@@ -45,6 +47,14 @@ export class BranchPickupGridViewBase extends PickupGridViewBase {
      * @memberof BranchPickupGridViewBase
      */
     protected appEntityService: BranchService = new BranchService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type BranchUIService
+     * @memberof BranchPickupGridViewBase
+     */
+    public appUIService: BranchUIService = new BranchUIService(this.$store);
 
 
     /**

@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { ListExpViewBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
+import ProjectAuthService from '@/authservice/project/project-auth-service';
 import ListExpViewEngine from '@engine/view/list-exp-view-engine';
+import ProjectUIService from '@/uiservice/project/project-ui-service';
 
 /**
  * 项目列表导航视图视图基类
@@ -45,6 +47,14 @@ export class ProjectListExpViewBase extends ListExpViewBase {
      * @memberof ProjectListExpViewBase
      */
     protected appEntityService: ProjectService = new ProjectService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProjectUIService
+     * @memberof ProjectListExpViewBase
+     */
+    public appUIService: ProjectUIService = new ProjectUIService(this.$store);
 
 
     /**
@@ -178,8 +188,6 @@ export class ProjectListExpViewBase extends ListExpViewBase {
      * @memberof ProjectListExpView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
     this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
     }
 

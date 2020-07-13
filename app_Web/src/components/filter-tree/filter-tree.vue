@@ -26,9 +26,7 @@
                     <filter-mode class="filter-item-mode" v-model="data.mode" :modes="getModes(data.field)" @on-change="onModeChange($event, data)"></filter-mode>
                     <div class="filter-item-value">
                         <i-input v-if="!data.editor"></i-input>
-                        <div v-else :key="data.editor">
-                            <slot :data="data"></slot>
-                        </div>
+                        <slot v-else :data="data"></slot>
                     </div>
                     <div class="filter-tree-action">
                         <icon type="md-close"  @click="onRemoveItem(node, data)"/>

@@ -3,6 +3,7 @@ import { UIActionTool,Util } from '@/utils';
 import UIService from '../ui-service';
 import { Subject } from 'rxjs';
 import SuiteCaseService from '@/service/suite-case/suite-case-service';
+import SuiteCaseAuthService from '@/authservice/suite-case/suite-case-auth-service';
 
 /**
  * 套件用例UI服务对象基类
@@ -62,6 +63,13 @@ export default class SuiteCaseUIServiceBase extends UIService {
     public allDeMainStateMap:Map<string,string> = new Map();
 
     /**
+     * 主状态操作标识Map
+     * 
+     * @memberof  SuiteCaseUIServiceBase
+     */ 
+    public allDeMainStateOPPrivsMap:Map<string,any> = new Map();
+
+    /**
      * Creates an instance of  SuiteCaseUIServiceBase.
      * 
      * @param {*} [opts={}]
@@ -69,8 +77,10 @@ export default class SuiteCaseUIServiceBase extends UIService {
      */
     constructor(opts: any = {}) {
         super(opts);
+        this.authService = new SuiteCaseAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();
+        this.initDeMainStateOPPrivsMap();
     }
 
     /**
@@ -87,6 +97,14 @@ export default class SuiteCaseUIServiceBase extends UIService {
      * @memberof  SuiteCaseUIServiceBase
      */  
     public initDeMainStateMap(){
+    }
+
+    /**
+     * 初始化主状态操作标识
+     * 
+     * @memberof  SuiteCaseUIServiceBase
+     */  
+    public initDeMainStateOPPrivsMap(){
     }
 
 
@@ -159,12 +177,12 @@ export default class SuiteCaseUIServiceBase extends UIService {
         }
 		if(!Environment.isAppMode){
             if(this.getDEMainStateTag(curData)){
-                return `MOBEDITVIEW:MSTAG:${ await this.getDEMainStateTag(curData)}`;
+                return `MOBEDITVIEW:MSTAG:${ this.getDEMainStateTag(curData)}`;
             }
 			return 'MOBEDITVIEW:';
         }
         if(this.getDEMainStateTag(curData)){
-            return `EDITVIEW:MSTAG:${ await this.getDEMainStateTag(curData)}`;
+            return `EDITVIEW:MSTAG:${ this.getDEMainStateTag(curData)}`;
         }
 		return 'EDITVIEW:';
     }
@@ -175,7 +193,7 @@ export default class SuiteCaseUIServiceBase extends UIService {
      * @param curData 当前数据
      * @memberof  SuiteCaseUIServiceBase
      */  
-    public async getDEMainStateTag(curData:any){
+    public getDEMainStateTag(curData:any){
         if(this.mainStateFields.length === 0) return null;
 
         this.mainStateFields.forEach((singleMainField:any) =>{
@@ -183,8 +201,6 @@ export default class SuiteCaseUIServiceBase extends UIService {
                 console.error(`当前数据对象不包含属性singleMainField，可能会发生错误`);
             }
         })
-
-        let strTag:String = "";
         for (let i = 0; i <= 1; i++) {
             let strTag:string = (curData[this.mainStateFields[0]])?(i == 0) ? curData[this.mainStateFields[0]] : "":"";
             if (this.mainStateFields.length >= 2) {
@@ -206,5 +222,29 @@ export default class SuiteCaseUIServiceBase extends UIService {
         }
         return null;
     }
+
+    /**
+    * 获取数据对象当前操作标识
+    * 
+    * @param data 当前数据
+    * @memberof  SuiteCaseUIServiceBase
+    */  
+   public getDEMainStateOPPrivs(data:any){
+        if(this.getDEMainStateTag(data)){
+            return this.allDeMainStateOPPrivsMap.get((this.getDEMainStateTag(data) as string));
+        }else{
+            return null;
+        }
+   }
+
+    /**
+    * 获取数据对象所有的操作标识
+    * 
+    * @param data 当前数据
+    * @memberof  SuiteCaseUIServiceBase
+    */ 
+   public getAllOPPrivs(data:any){
+       return this.authService.getOPPrivs(this.getDEMainStateOPPrivs(data));
+   }
 
 }

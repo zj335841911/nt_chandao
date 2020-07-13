@@ -1,6 +1,8 @@
 import { Subject } from 'rxjs';
 import { GanttViewBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
+import TaskAuthService from '@/authservice/task/task-auth-service';
+import TaskUIService from '@/uiservice/task/task-ui-service';
 
 /**
  * 任务甘特视图视图基类
@@ -44,6 +46,14 @@ export class TaskTaskTypeGanttViewBase extends GanttViewBase {
      * @memberof TaskTaskTypeGanttViewBase
      */
     protected appEntityService: TaskService = new TaskService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type TaskUIService
+     * @memberof TaskTaskTypeGanttViewBase
+     */
+    public appUIService: TaskUIService = new TaskUIService(this.$store);
 
 
     /**

@@ -101,11 +101,12 @@ export default class EditViewEngine extends ViewEngine {
      * @memberof EditViewEngine
      */
     public onFormLoad(arg: any): void {
-        this.view.model.dataInfo = Object.is(arg.srfuf, '1') ? (this.majorPSDEField?arg[this.majorPSDEField]:arg.srfmajortext) : this.view.$t('app.local.new');
+        this.view.model.dataInfo = Object.is(arg.srfuf, '1') ? (this.majorPSDEField ? arg[this.majorPSDEField] : arg.srfmajortext) : this.view.$t('app.local.new');
 
-        this.setTabCaption(this.view.model.dataInfo);
+        this.setTabCaption(this.view.model.dataInfo, Object.is(arg.srfuf, '0'));
         const newdata: boolean = !Object.is(arg.srfuf, '1');
         this.calcToolbarItemState(newdata);
+        this.calcToolbarItemAuthState(this.transformData(arg));
     }
 
     /**
@@ -115,13 +116,14 @@ export default class EditViewEngine extends ViewEngine {
      * @memberof EditViewEngine
      */
     public onFormSave(arg: any): void {
-        this.view.model.dataInfo = Object.is(arg.srfuf, '1') ? (this.majorPSDEField?arg[this.majorPSDEField]:arg.srfmajortext) : this.view.$t('app.local.new');
+        this.view.model.dataInfo = Object.is(arg.srfuf, '1') ? (this.majorPSDEField ? arg[this.majorPSDEField] : arg.srfmajortext) : this.view.$t('app.local.new');
 
-        this.setTabCaption(this.view.model.dataInfo);
+        this.setTabCaption(this.view.model.dataInfo, Object.is(arg.srfuf, '0'));
         const newdata: boolean = !Object.is(arg.srfuf, '1');
         this.calcToolbarItemState(newdata);
-        this.view.$emit('save',arg);
-        this.view.$emit('viewdataschange',JSON.stringify({action:'save',status:'success',data:arg}));
+        this.calcToolbarItemAuthState(this.transformData(arg));
+        this.view.$emit('save', arg);
+        this.view.$emit('viewdataschange', JSON.stringify({ action: 'save', status: 'success', data: arg }));
     }
 
     /**
@@ -131,8 +133,8 @@ export default class EditViewEngine extends ViewEngine {
      * @memberof EditViewEngine
      */
     public onFormRemove(arg: any): void {
-        this.view.$emit('remove',arg);
-        this.view.$emit('viewdataschange',JSON.stringify({action:'remove',status:'success',data:arg}));
+        this.view.$emit('remove', arg);
+        this.view.$emit('viewdataschange', JSON.stringify({ action: 'remove', status: 'success', data: arg }));
     }
 
     /**
@@ -144,66 +146,10 @@ export default class EditViewEngine extends ViewEngine {
      * @memberof EditViewEngine
      */
     public doSysUIAction(tag: string, actionmode?: string): void {
-        // if (Object.is(tag, 'Help')) {
-        //     this.doHelp();
-        //     return;
-        // }
-        // if (Object.is(tag, 'SaveAndStart')) {
-        //     this.doSaveAndStart();
-        //     return;
-        // }
-        // if (Object.is(tag, 'SaveAndExit')) {
-        //     this.doSaveAndExit();
-        //     return;
-        // }
-        // if (Object.is(tag, 'SaveAndNew')) {
-        //     this.doSaveAndNew();
-        //     return;
-        // }
         if (Object.is(tag, 'Save')) {
             this.doSave();
             return;
         }
-        // if (Object.is(tag, 'Print')) {
-        //     this.doPrint();
-        //     return;
-        // }
-        // if (Object.is(tag, 'Copy')) {
-        //     this.doCopy();
-        //     return;
-        // }
-        // if (Object.is(tag, 'RemoveAndExit')) {
-        //     this.doRemoveAndExit();
-        //     return;
-        // }
-        // if (Object.is(tag, 'Refresh')) {
-        //     this.doRefresh();
-        //     return;
-        // }
-        // if (Object.is(tag, 'New')) {
-        //     this.doNew();
-        //     return;
-        // }
-        // if (Object.is(tag, 'FirstRecord')) {
-        //     this.doMoveToRecord('first');
-        //     return;
-        // }
-        // if (Object.is(tag, 'PrevRecord')) {
-        //     this.doMoveToRecord('prev');
-        //     return;
-        // }
-        // if (Object.is(tag, 'NextRecord')) {
-        //     this.doMoveToRecord('next');
-        //     return;
-        // }
-        // if (Object.is(tag, 'LastRecord')) {
-        //     this.doMoveToRecord('last');
-        //     return;
-        // }
-        // if (Object.is(tag, 'Exit') || Object.is(tag, 'Close')) {
-        //     this.doExit();
-        //     return;
-        // }
         super.doSysUIAction(tag, actionmode);
     }
 
@@ -243,18 +189,32 @@ export default class EditViewEngine extends ViewEngine {
     /**
      * 设置分页标题
      *
+     * @param {string} info
+     * @param {boolean} isNew
      * @memberof EditViewEngine
      */
-    public setTabCaption(info: string): void {
+    public setTabCaption(info: string, isNew: boolean): void {
         let viewdata: any = this.view.model;
-        if (viewdata  && info && !Object.is(info, '') && this.view.$tabPageExp && (viewdata.srfTitle.indexOf(" - ") === -1)) {
-            if(this.view.$route){
+        if (viewdata && info && !Object.is(info, '') && this.view.$tabPageExp && (viewdata.srfTitle.indexOf(" - ") === -1)) {
+            if (this.view.$route) {
                 this.view.$route.meta.info = info;
             }
             const title = this.view.model.srfTitle = `${this.view.$t(viewdata.srfTitle)} - ${viewdata.dataInfo}`;
             this.view.$emit('viewModelChange', title);
             this.view.$appService.navHistory.setCaption({ tag: this.view.viewtag, info: viewdata.dataInfo });
         }
+    }
+
+    /**
+     * 转化数据
+     *
+     * @memberof EditViewEngine
+     */
+    public transformData(arg: any) {
+        if (!this.getForm() || !(this.getForm().transformData instanceof Function)) {
+            return null;
+        }
+        return this.getForm().transformData(arg);
     }
 
 }

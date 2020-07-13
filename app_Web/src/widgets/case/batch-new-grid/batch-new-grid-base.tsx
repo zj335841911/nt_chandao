@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, GridControllerBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
 import BatchNewService from './batch-new-grid-service';
+import CaseUIService from '@/uiservice/case/case-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 
@@ -50,6 +51,23 @@ export class BatchNewGridBase extends GridControllerBase {
     protected appDeName: string = 'case';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {CaseUIService}
+     * @memberof BatchNewBase
+     */  
+    public appUIService:CaseUIService = new CaseUIService(this.$store);
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof BatchNewBase
+     */  
+    public ActionModel: any = {
+    };
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -86,28 +104,32 @@ export class BatchNewGridBase extends GridControllerBase {
             label: '所属模块',
             langtag: 'entities.case.batchnew_grid.columns.modulename',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'storyname',
             label: '相关需求',
             langtag: 'entities.case.batchnew_grid.columns.storyname',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'title',
             label: '用例标题',
             langtag: 'entities.case.batchnew_grid.columns.title',
             show: true,
-            util: 'STAR'
+            util: 'STAR',
+            isEnableRowEdit: true,
         },
         {
             name: 'type',
             label: '用例类型',
             langtag: 'entities.case.batchnew_grid.columns.type',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
     ]
 

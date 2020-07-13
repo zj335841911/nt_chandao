@@ -2,7 +2,9 @@
 import { Subject } from 'rxjs';
 import { GridViewBase } from '@/studio-core';
 import SubTaskService from '@/service/sub-task/sub-task-service';
+import SubTaskAuthService from '@/authservice/sub-task/sub-task-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
+import SubTaskUIService from '@/uiservice/sub-task/sub-task-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -49,6 +51,14 @@ export class TaskSubTaskNewViewBase extends GridViewBase {
      */
     protected appEntityService: SubTaskService = new SubTaskService;
 
+    /**
+     * 实体权限服务对象
+     *
+     * @type SubTaskUIService
+     * @memberof TaskSubTaskNewViewBase
+     */
+    public appUIService: SubTaskUIService = new SubTaskUIService(this.$store);
+
 
     /**
      * 计数器服务对象集合
@@ -92,9 +102,9 @@ export class TaskSubTaskNewViewBase extends GridViewBase {
      * @memberof TaskSubTaskNewView
      */
     public toolBarModels: any = {
-        deuiaction2: { name: 'deuiaction2', caption: '新建行','isShowCaption':true,'isShowIcon':true, tooltip: '新建行', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'NewRow', target: '' }, class: '' },
+        deuiaction2: { name: 'deuiaction2', caption: '新建行', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建行', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'NewRow', target: '', class: '' } },
 
-        deuiaction3: { name: 'deuiaction3', caption: '保存行','isShowCaption':true,'isShowIcon':true, tooltip: '保存行', iconcls: 'fa fa-save', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'SaveRow', target: '' }, class: '' },
+        deuiaction3: { name: 'deuiaction3', caption: '保存行', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存行', iconcls: 'fa fa-save', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'SaveRow', target: '', class: '' } },
 
     };
 
@@ -334,8 +344,8 @@ export class TaskSubTaskNewViewBase extends GridViewBase {
      * @memberof TaskSubTaskNewView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
+        const localContext: any = null;
+        const localViewParam: any =null;
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){

@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
+import BugAuthService from '@/authservice/bug/bug-auth-service';
 import EditViewEngine from '@engine/view/edit-view-engine';
+import BugUIService from '@/uiservice/bug/bug-ui-service';
 
 /**
  * Bug编辑视图基类
@@ -45,6 +47,14 @@ export class BugMainEditViewBase extends EditViewBase {
      * @memberof BugMainEditViewBase
      */
     protected appEntityService: BugService = new BugService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type BugUIService
+     * @memberof BugMainEditViewBase
+     */
+    public appUIService: BugUIService = new BugUIService(this.$store);
 
 
     /**
@@ -101,7 +111,7 @@ export class BugMainEditViewBase extends EditViewBase {
      * @memberof BugMainEditView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭','isShowCaption':true,'isShowIcon':true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'SaveAndExit', target: '' }, class: '' },
+        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
 
     };
 

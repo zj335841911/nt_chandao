@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import PutoffService from './putoff-form-service';
+import ProjectUIService from '@/uiservice/project/project-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 
 
@@ -48,6 +49,15 @@ export class PutoffEditFormBase extends EditFormControlBase {
      * @memberof PutoffEditFormBase
      */
     protected appDeName: string = 'project';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProjectUIService}
+     * @memberof PutoffEditFormBase
+     */  
+    public appUIService:ProjectUIService = new ProjectUIService(this.$store);
+
 
     /**
      * 关系界面数量

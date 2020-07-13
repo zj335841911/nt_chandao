@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditViewBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
+import CaseAuthService from '@/authservice/case/case-auth-service';
 import EditViewEngine from '@engine/view/edit-view-engine';
+import CaseUIService from '@/uiservice/case/case-ui-service';
 
 /**
  * 功能测试视图基类
@@ -46,6 +48,14 @@ export class CaseMainNewViewBase extends EditViewBase {
      */
     protected appEntityService: CaseService = new CaseService;
 
+    /**
+     * 实体权限服务对象
+     *
+     * @type CaseUIService
+     * @memberof CaseMainNewViewBase
+     */
+    public appUIService: CaseUIService = new CaseUIService(this.$store);
+
 
     /**
      * 计数器服务对象集合
@@ -89,7 +99,7 @@ export class CaseMainNewViewBase extends EditViewBase {
      * @memberof CaseMainNewView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭','isShowCaption':true,'isShowIcon':true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'SaveAndExit', target: '' }, class: '' },
+        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
 
     };
 

@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
 import MainInfoService from './main-info-form-service';
+import CaseUIService from '@/uiservice/case/case-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 
 
@@ -48,6 +49,15 @@ export class MainInfoEditFormBase extends EditFormControlBase {
      * @memberof MainInfoEditFormBase
      */
     protected appDeName: string = 'case';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {CaseUIService}
+     * @memberof MainInfoEditFormBase
+     */  
+    public appUIService:CaseUIService = new CaseUIService(this.$store);
+
 
     /**
      * 关系界面数量
@@ -123,12 +133,13 @@ export class MainInfoEditFormBase extends EditFormControlBase {
     };
 
     /**
-     * 表单逻辑
+     * 表单项逻辑
      *
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {Promise<void>}
      * @memberof MainInfoEditFormBase
      */
-    public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
                 
 
 

@@ -4,7 +4,7 @@
             
 <i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.project.dashboardinfo_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <app-radio-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col v-show="detailsModel.id.visible" :style="{'width':'35px !important'}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='id' :itemRules="this.rules.id" class='' :caption="$t('entities.project.dashboardinfo_form.details.id')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.id.error" :isEmptyCaption="false" labelPos="NONE">
@@ -54,7 +54,7 @@
 </i-col>
 <i-col v-show="detailsModel.grouppanel6.visible" :style="{'height': '220px !important',}"  :lg="{ span: 24, offset: 0 }">
     <app-form-group :model="detailsModel.grouppanel6" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel6.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.project.dashboardinfo_form.details.grouppanel6')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <app-radio-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel6" :data="data" :context="context" :viewparams="viewparams"/>
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel6" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col v-show="detailsModel.druipart1.visible" :style="{'height': '150px !important',}"  :lg="{ span: 24, offset: 0 }">
     <app-form-druipart
@@ -89,7 +89,7 @@
 </i-col>
 <i-col v-show="detailsModel.grouppanel7.visible" :style="{'height': '220px !important',}"  :lg="{ span: 24, offset: 0 }">
     <app-form-group :model="detailsModel.grouppanel7" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel7.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.project.dashboardinfo_form.details.grouppanel7')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <app-radio-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel7" :data="data" :context="context" :viewparams="viewparams"/>
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel7" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col v-show="detailsModel.druipart2.visible" :style="{'height': '150px !important',}"  :lg="{ span: 24, offset: 0 }">
     <app-form-druipart
@@ -124,11 +124,11 @@
 </i-col>
 <i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-group :model="detailsModel.grouppanel1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.project.dashboardinfo_form.details.grouppanel1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <app-radio-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel1" :data="data" :context="context" :viewparams="viewparams"/>
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col v-show="detailsModel.grouppanel2.visible" :style="{}"  :sm="{ span: 12, offset: 0 }" :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-group :model="detailsModel.grouppanel2" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.project.dashboardinfo_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <app-radio-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel2" :data="data" :context="context" :viewparams="viewparams"/>
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel2" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col v-show="detailsModel.begin.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='begin' :itemRules="this.rules.begin" class='' :caption="$t('entities.project.dashboardinfo_form.details.begin')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.begin.error" :isEmptyCaption="false" labelPos="LEFT">
@@ -158,7 +158,7 @@
 </i-col>
 <i-col v-show="detailsModel.grouppanel3.visible" :style="{}"  :sm="{ span: 12, offset: 0 }" :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-group :model="detailsModel.grouppanel3" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.project.dashboardinfo_form.details.grouppanel3')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <app-radio-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel3" :data="data" :context="context" :viewparams="viewparams"/>
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel3" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='formitem' :itemRules="this.rules.formitem" class='' :caption="$t('entities.project.dashboardinfo_form.details.formitem')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem.error" :isEmptyCaption="false" labelPos="LEFT">
@@ -193,7 +193,7 @@
 </i-col>
 <i-col v-show="detailsModel.grouppanel4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-group :model="detailsModel.grouppanel4" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel4.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.project.dashboardinfo_form.details.grouppanel4')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <app-radio-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel4" :data="data" :context="context" :viewparams="viewparams"/>
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel4" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col v-show="detailsModel.formitem3.visible" :style="{}"  :lg="{ span: 8, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='formitem3' :itemRules="this.rules.formitem3" class='' :caption="$t('entities.project.dashboardinfo_form.details.formitem3')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitem3.error" :isEmptyCaption="false" labelPos="LEFT">
@@ -223,7 +223,7 @@
 </i-col>
 <i-col v-show="detailsModel.grouppanel5.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-group :model="detailsModel.grouppanel5" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel5.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.project.dashboardinfo_form.details.grouppanel5')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <app-radio-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel5" :data="data" :context="context" :viewparams="viewparams"/>
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel5" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col v-show="detailsModel.acl.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='acl' :itemRules="this.rules.acl" class='' :caption="$t('entities.project.dashboardinfo_form.details.acl')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.acl.error" :isEmptyCaption="false" labelPos="NONE">

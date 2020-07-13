@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, GridControllerBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import PickupGirdService from './pickup-gird-grid-service';
+import BugUIService from '@/uiservice/bug/bug-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 
@@ -50,6 +51,23 @@ export class PickupGirdGridBase extends GridControllerBase {
     protected appDeName: string = 'bug';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {BugUIService}
+     * @memberof PickupGirdBase
+     */  
+    public appUIService:BugUIService = new BugUIService(this.$store);
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof PickupGirdBase
+     */  
+    public ActionModel: any = {
+    };
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -57,6 +75,22 @@ export class PickupGirdGridBase extends GridControllerBase {
      * @memberof GridControllerBase
      */
     protected localStorageTag: string = 'zt_bug_pickupgird_grid';
+
+    /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof PickupGirdGridBase
+     */
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof PickupGirdGridBase
+     */
+    public minorSortPSDEF: string = 'id';
 
     /**
      * 所有列成员
@@ -70,42 +104,48 @@ export class PickupGirdGridBase extends GridControllerBase {
             label: 'ID',
             langtag: 'entities.bug.pickupgird_grid.columns.id',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'pri',
             label: 'P',
             langtag: 'entities.bug.pickupgird_grid.columns.pri',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'title',
             label: 'Bug标题',
             langtag: 'entities.bug.pickupgird_grid.columns.title',
             show: true,
-            util: 'STAR'
+            util: 'STAR',
+            isEnableRowEdit: false,
         },
         {
             name: 'openedby',
             label: '创建',
             langtag: 'entities.bug.pickupgird_grid.columns.openedby',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'assignedto',
             label: '指派',
             langtag: 'entities.bug.pickupgird_grid.columns.assignedto',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'status',
             label: 'Bug状态',
             langtag: 'entities.bug.pickupgird_grid.columns.status',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
     ]
 

@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, GridControllerBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import Main2Service from './main2-grid-service';
+import TaskUIService from '@/uiservice/task/task-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 
@@ -50,6 +51,23 @@ export class Main2GridBase extends GridControllerBase {
     protected appDeName: string = 'task';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {TaskUIService}
+     * @memberof Main2Base
+     */  
+    public appUIService:TaskUIService = new TaskUIService(this.$store);
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof Main2Base
+     */  
+    public ActionModel: any = {
+    };
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -78,28 +96,32 @@ export class Main2GridBase extends GridControllerBase {
             label: '编号',
             langtag: 'entities.task.main2_grid.columns.id',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'pri',
             label: 'P',
             langtag: 'entities.task.main2_grid.columns.pri',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'name',
             label: '任务名称',
             langtag: 'entities.task.main2_grid.columns.name',
             show: true,
-            util: 'STAR'
+            util: 'STAR',
+            isEnableRowEdit: false,
         },
         {
             name: 'status',
             label: '任务状态',
             langtag: 'entities.task.main2_grid.columns.status',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
     ]
 

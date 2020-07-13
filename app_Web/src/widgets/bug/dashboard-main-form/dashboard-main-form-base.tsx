@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import DashboardMainService from './dashboard-main-form-service';
+import BugUIService from '@/uiservice/bug/bug-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 
 
@@ -48,6 +49,15 @@ export class DashboardMainEditFormBase extends EditFormControlBase {
      * @memberof DashboardMainEditFormBase
      */
     protected appDeName: string = 'bug';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {BugUIService}
+     * @memberof DashboardMainEditFormBase
+     */  
+    public appUIService:BugUIService = new BugUIService(this.$store);
+
 
     /**
      * 表单数据对象

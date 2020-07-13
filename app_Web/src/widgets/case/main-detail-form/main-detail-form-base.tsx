@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
 import MainDetailService from './main-detail-form-service';
+import CaseUIService from '@/uiservice/case/case-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 
 
@@ -48,6 +49,15 @@ export class MainDetailEditFormBase extends EditFormControlBase {
      * @memberof MainDetailEditFormBase
      */
     protected appDeName: string = 'case';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {CaseUIService}
+     * @memberof MainDetailEditFormBase
+     */  
+    public appUIService:CaseUIService = new CaseUIService(this.$store);
+
 
     /**
      * 表单数据对象

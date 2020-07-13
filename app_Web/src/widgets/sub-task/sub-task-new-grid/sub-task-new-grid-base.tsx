@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, GridControllerBase } from '@/studio-core';
 import SubTaskService from '@/service/sub-task/sub-task-service';
 import SubTaskNewService from './sub-task-new-grid-service';
+import SubTaskUIService from '@/uiservice/sub-task/sub-task-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 
@@ -50,6 +51,23 @@ export class SubTaskNewGridBase extends GridControllerBase {
     protected appDeName: string = 'subtask';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {SubTaskUIService}
+     * @memberof SubTaskNewBase
+     */  
+    public appUIService:SubTaskUIService = new SubTaskUIService(this.$store);
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof SubTaskNewBase
+     */  
+    public ActionModel: any = {
+    };
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -86,56 +104,64 @@ export class SubTaskNewGridBase extends GridControllerBase {
             label: '所属模块',
             langtag: 'entities.subtask.subtasknew_grid.columns.modulename',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'storyname',
             label: '相关需求',
             langtag: 'entities.subtask.subtasknew_grid.columns.storyname',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'name',
             label: '任务名称',
             langtag: 'entities.subtask.subtasknew_grid.columns.name',
             show: true,
-            util: 'STAR'
+            util: 'STAR',
+            isEnableRowEdit: true,
         },
         {
             name: 'type',
             label: '任务类型',
             langtag: 'entities.subtask.subtasknew_grid.columns.type',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: true,
         },
         {
             name: 'assignedto',
             label: '指派给',
             langtag: 'entities.subtask.subtasknew_grid.columns.assignedto',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: true,
         },
         {
             name: 'left',
             label: '预计',
             langtag: 'entities.subtask.subtasknew_grid.columns.left',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: true,
         },
         {
             name: 'desc',
             label: '任务描述',
             langtag: 'entities.subtask.subtasknew_grid.columns.desc',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: true,
         },
         {
             name: 'pri',
             label: '优先级',
             langtag: 'entities.subtask.subtasknew_grid.columns.pri',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: true,
         },
     ]
 

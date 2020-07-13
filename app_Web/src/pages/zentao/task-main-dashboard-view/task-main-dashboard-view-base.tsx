@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { DashboardViewBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
+import TaskAuthService from '@/authservice/task/task-auth-service';
 import PortalViewEngine from '@engine/view/portal-view-engine';
+import TaskUIService from '@/uiservice/task/task-ui-service';
 
 /**
  * 任务主数据看板视图视图基类
@@ -45,6 +47,14 @@ export class TaskMainDashboardViewBase extends DashboardViewBase {
      * @memberof TaskMainDashboardViewBase
      */
     protected appEntityService: TaskService = new TaskService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type TaskUIService
+     * @memberof TaskMainDashboardViewBase
+     */
+    public appUIService: TaskUIService = new TaskUIService(this.$store);
 
 
     /**

@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, GridControllerBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import StoryRelatedService from './story-related-grid-service';
+import BugUIService from '@/uiservice/bug/bug-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 
@@ -50,6 +51,23 @@ export class StoryRelatedGridBase extends GridControllerBase {
     protected appDeName: string = 'bug';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {BugUIService}
+     * @memberof StoryRelatedBase
+     */  
+    public appUIService:BugUIService = new BugUIService(this.$store);
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof StoryRelatedBase
+     */  
+    public ActionModel: any = {
+    };
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -65,6 +83,22 @@ export class StoryRelatedGridBase extends GridControllerBase {
      * @memberof StoryRelatedGridBase
      */
     public isEnablePagingBar: boolean = false;
+
+    /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof StoryRelatedGridBase
+     */
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof StoryRelatedGridBase
+     */
+    public minorSortPSDEF: string = 'id';
 
     /**
      * 分页条数
@@ -94,14 +128,16 @@ export class StoryRelatedGridBase extends GridControllerBase {
             label: 'ID',
             langtag: 'entities.bug.storyrelated_grid.columns.id',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'title',
             label: 'Bug标题',
             langtag: 'entities.bug.storyrelated_grid.columns.title',
             show: true,
-            util: 'STAR'
+            util: 'STAR',
+            isEnableRowEdit: false,
         },
     ]
 

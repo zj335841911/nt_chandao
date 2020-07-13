@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, ListControllerBase } from '@/studio-core';
 import ProjectProductService from '@/service/project-product/project-product-service';
 import PlanService from './plan-list-service';
+import ProjectProductUIService from '@/uiservice/project-product/project-product-ui-service';
 
 
 /**

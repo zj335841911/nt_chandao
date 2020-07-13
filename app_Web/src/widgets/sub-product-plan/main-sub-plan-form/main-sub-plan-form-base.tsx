@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import SubProductPlanService from '@/service/sub-product-plan/sub-product-plan-service';
 import MainSubPlanService from './main-sub-plan-form-service';
+import SubProductPlanUIService from '@/uiservice/sub-product-plan/sub-product-plan-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 
 
@@ -48,6 +49,15 @@ export class MainSubPlanEditFormBase extends EditFormControlBase {
      * @memberof MainSubPlanEditFormBase
      */
     protected appDeName: string = 'subproductplan';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {SubProductPlanUIService}
+     * @memberof MainSubPlanEditFormBase
+     */  
+    public appUIService:SubProductPlanUIService = new SubProductPlanUIService(this.$store);
+
 
     /**
      * 表单数据对象
@@ -133,12 +143,13 @@ export class MainSubPlanEditFormBase extends EditFormControlBase {
     };
 
     /**
-     * 表单逻辑
+     * 表单项逻辑
      *
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {Promise<void>}
      * @memberof MainSubPlanEditFormBase
      */
-    public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
                 
 
 

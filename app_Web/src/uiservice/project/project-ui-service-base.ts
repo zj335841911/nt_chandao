@@ -3,6 +3,7 @@ import { UIActionTool,Util } from '@/utils';
 import UIService from '../ui-service';
 import { Subject } from 'rxjs';
 import ProjectService from '@/service/project/project-service';
+import ProjectAuthService from '@/authservice/project/project-auth-service';
 
 /**
  * 项目UI服务对象基类
@@ -62,6 +63,13 @@ export default class ProjectUIServiceBase extends UIService {
     public allDeMainStateMap:Map<string,string> = new Map();
 
     /**
+     * 主状态操作标识Map
+     * 
+     * @memberof  ProjectUIServiceBase
+     */ 
+    public allDeMainStateOPPrivsMap:Map<string,any> = new Map();
+
+    /**
      * Creates an instance of  ProjectUIServiceBase.
      * 
      * @param {*} [opts={}]
@@ -69,8 +77,10 @@ export default class ProjectUIServiceBase extends UIService {
      */
     constructor(opts: any = {}) {
         super(opts);
+        this.authService = new ProjectAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();
+        this.initDeMainStateOPPrivsMap();
     }
 
     /**
@@ -109,6 +119,18 @@ export default class ProjectUIServiceBase extends UIService {
         this.allDeMainStateMap.set('doing','doing');
         this.allDeMainStateMap.set('suspended','suspended');
         this.allDeMainStateMap.set('wait','wait');
+    }
+
+    /**
+     * 初始化主状态操作标识
+     * 
+     * @memberof  ProjectUIServiceBase
+     */  
+    public initDeMainStateOPPrivsMap(){
+        this.allDeMainStateOPPrivsMap.set('closed',{'DELETE':0,'ACTIVATION':0,'EDIT':0});
+        this.allDeMainStateOPPrivsMap.set('doing',{'SUSPEND':0,'CLOSED':0,'DELAY':0,'DELETE':0,'EDIT':0});
+        this.allDeMainStateOPPrivsMap.set('suspended',{'CLOSED':0,'ACTIVATION':0,'EDIT':0,'DELETE':0});
+        this.allDeMainStateOPPrivsMap.set('wait',{'CLOSED':0,'EDIT':0,'SUSPEND':0,'START':0,'DELETE':0,'DELAY':0});
     }
 
     /**
@@ -541,12 +563,12 @@ export default class ProjectUIServiceBase extends UIService {
         }
 		if(!Environment.isAppMode){
             if(this.getDEMainStateTag(curData)){
-                return `MOBEDITVIEW:MSTAG:${ await this.getDEMainStateTag(curData)}`;
+                return `MOBEDITVIEW:MSTAG:${ this.getDEMainStateTag(curData)}`;
             }
 			return 'MOBEDITVIEW:';
         }
         if(this.getDEMainStateTag(curData)){
-            return `EDITVIEW:MSTAG:${ await this.getDEMainStateTag(curData)}`;
+            return `EDITVIEW:MSTAG:${ this.getDEMainStateTag(curData)}`;
         }
 		return 'EDITVIEW:';
     }
@@ -557,7 +579,7 @@ export default class ProjectUIServiceBase extends UIService {
      * @param curData 当前数据
      * @memberof  ProjectUIServiceBase
      */  
-    public async getDEMainStateTag(curData:any){
+    public getDEMainStateTag(curData:any){
         if(this.mainStateFields.length === 0) return null;
 
         this.mainStateFields.forEach((singleMainField:any) =>{
@@ -565,8 +587,6 @@ export default class ProjectUIServiceBase extends UIService {
                 console.error(`当前数据对象不包含属性singleMainField，可能会发生错误`);
             }
         })
-
-        let strTag:String = "";
         for (let i = 0; i <= 1; i++) {
             let strTag:string = (curData[this.mainStateFields[0]])?(i == 0) ? curData[this.mainStateFields[0]] : "":"";
             if (this.mainStateFields.length >= 2) {
@@ -588,5 +608,29 @@ export default class ProjectUIServiceBase extends UIService {
         }
         return null;
     }
+
+    /**
+    * 获取数据对象当前操作标识
+    * 
+    * @param data 当前数据
+    * @memberof  ProjectUIServiceBase
+    */  
+   public getDEMainStateOPPrivs(data:any){
+        if(this.getDEMainStateTag(data)){
+            return this.allDeMainStateOPPrivsMap.get((this.getDEMainStateTag(data) as string));
+        }else{
+            return null;
+        }
+   }
+
+    /**
+    * 获取数据对象所有的操作标识
+    * 
+    * @param data 当前数据
+    * @memberof  ProjectUIServiceBase
+    */ 
+   public getAllOPPrivs(data:any){
+       return this.authService.getOPPrivs(this.getDEMainStateOPPrivs(data));
+   }
 
 }

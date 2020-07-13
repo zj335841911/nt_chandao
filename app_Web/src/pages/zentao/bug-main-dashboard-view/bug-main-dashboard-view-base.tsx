@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { DashboardViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
+import BugAuthService from '@/authservice/bug/bug-auth-service';
 import PortalViewEngine from '@engine/view/portal-view-engine';
+import BugUIService from '@/uiservice/bug/bug-ui-service';
 
 /**
  * Bug数据看板视图视图基类
@@ -45,6 +47,14 @@ export class BugMainDashboardViewBase extends DashboardViewBase {
      * @memberof BugMainDashboardViewBase
      */
     protected appEntityService: BugService = new BugService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type BugUIService
+     * @memberof BugMainDashboardViewBase
+     */
+    public appUIService: BugUIService = new BugUIService(this.$store);
 
 
     /**

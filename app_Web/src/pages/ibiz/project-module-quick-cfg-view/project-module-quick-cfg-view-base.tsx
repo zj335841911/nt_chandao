@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { OptionViewBase } from '@/studio-core';
 import ProjectModuleService from '@/service/project-module/project-module-service';
+import ProjectModuleAuthService from '@/authservice/project-module/project-module-auth-service';
 import OptionViewEngine from '@engine/view/option-view-engine';
+import ProjectModuleUIService from '@/uiservice/project-module/project-module-ui-service';
 
 /**
  * 任务模块视图基类
@@ -45,6 +47,14 @@ export class ProjectModuleQuickCfgViewBase extends OptionViewBase {
      * @memberof ProjectModuleQuickCfgViewBase
      */
     protected appEntityService: ProjectModuleService = new ProjectModuleService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProjectModuleUIService
+     * @memberof ProjectModuleQuickCfgViewBase
+     */
+    public appUIService: ProjectModuleUIService = new ProjectModuleUIService(this.$store);
 
 
     /**

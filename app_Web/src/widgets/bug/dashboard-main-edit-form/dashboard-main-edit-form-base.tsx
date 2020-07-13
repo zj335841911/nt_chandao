@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import DashboardMainEditService from './dashboard-main-edit-form-service';
+import BugUIService from '@/uiservice/bug/bug-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 
 
@@ -48,6 +49,15 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
      * @memberof DashboardMainEditEditFormBase
      */
     protected appDeName: string = 'bug';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {BugUIService}
+     * @memberof DashboardMainEditEditFormBase
+     */  
+    public appUIService:BugUIService = new BugUIService(this.$store);
+
 
     /**
      * 关系界面数量
@@ -267,12 +277,13 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
     }
 
     /**
-     * 表单逻辑
+     * 表单项逻辑
      *
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {Promise<void>}
      * @memberof DashboardMainEditEditFormBase
      */
-    public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
                 
 
 

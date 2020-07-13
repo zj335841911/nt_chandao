@@ -1,5 +1,6 @@
 import { Prop } from 'vue-property-decorator';
 import { Watch } from '@/studio-core';
+import { ViewTool } from '@/utils';
 import { MDControlBase } from './MDControlBase';
 
 /**
@@ -10,6 +11,14 @@ import { MDControlBase } from './MDControlBase';
  * @extends {MDControlBase}
  */
 export class GridControllerBase extends MDControlBase {
+
+    /**
+     * 界面服务
+     *
+     * @type {*}
+     * @memberof GridControllerBase
+     */
+    public appUIService: any;
 
     /**
      * 是否显示标题
@@ -183,6 +192,14 @@ export class GridControllerBase extends MDControlBase {
     protected isDeExport: boolean = false;
 
     /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof GridControllerBase
+     */
+    public ActionModel: any = {};
+
+    /**
      * 所有导出列成员
      *
      * @type {any[]}
@@ -343,7 +360,7 @@ export class GridControllerBase extends MDControlBase {
      */
     public async save(args: any[], params?: any, $event?: any, xData?: any) {
         if (!await this.validateAll()) {
-            this.$Notice.error({ title: '错误', desc: '值规则校验异常' });
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.rulesException') as string) });
             return [];
         }
         let successItems: any = [];
@@ -353,7 +370,7 @@ export class GridControllerBase extends MDControlBase {
             try {
                 if (Object.is(item.rowDataState, 'create')) {
                     if (!this.createAction) {
-                        this.$Notice.error({ title: '错误', desc: '${view.getName()}视图表格createAction参数未配置' });
+                        this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: '${view.getName()}' + (this.$t('app.gridpage.notConfig.createAction') as string) });
                     } else {
                         Object.assign(item, { viewparams: this.viewparams });
                         let response = await this.service.add(this.createAction, JSON.parse(JSON.stringify(this.context)), item, this.showBusyIndicator);
@@ -361,7 +378,7 @@ export class GridControllerBase extends MDControlBase {
                     }
                 } else if (Object.is(item.rowDataState, 'update')) {
                     if (!this.updateAction) {
-                        this.$Notice.error({ title: '错误', desc: '${view.getName()}视图表格updateAction参数未配置' });
+                        this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: '${view.getName()}' + (this.$t('app.gridpage.notConfig.updateAction') as string) });
                     } else {
                         Object.assign(item, { viewparams: this.viewparams });
                         if (item[this.appDeName]) {
@@ -379,10 +396,10 @@ export class GridControllerBase extends MDControlBase {
         this.$emit('save', successItems);
         this.refresh([]);
         if (errorItems.length === 0) {
-            this.$Notice.success({ title: '', desc: '保存成功!' });
+            this.$Notice.success({ title: '', desc: (this.$t('app.commonWords.saveSuccess') as string) });
         } else {
             errorItems.forEach((item: any, index: number) => {
-                this.$Notice.error({ title: '保存失败', desc: item.majorentityname + '保存失败！' });
+                this.$Notice.error({ title: (this.$t('app.commonWords.saveFailed') as string), desc: item.majorentityname + (this.$t('app.commonWords.saveFailed') as string) + '!' });
                 console.error(errorMessage[index]);
             });
         }
@@ -399,7 +416,7 @@ export class GridControllerBase extends MDControlBase {
      */
     public load(opt: any = {}, pageReset: boolean = false): void {
         if (!this.fetchAction) {
-            this.$Notice.error({ title: '错误', desc: '${view.getName()}视图表格fetchAction参数未配置' });
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: '${view.getName()}' + (this.$t('app.gridpage.notConfig.fetchAction') as string) });
             return;
         }
         if (pageReset) {
@@ -426,7 +443,7 @@ export class GridControllerBase extends MDControlBase {
         post.then((response: any) => {
             if (!response.status || response.status !== 200) {
                 if (response.errorMessage) {
-                    this.$Notice.error({ title: '错误', desc: response.errorMessage });
+                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.errorMessage });
                 }
                 return;
             }
@@ -437,6 +454,9 @@ export class GridControllerBase extends MDControlBase {
             this.selections = [];
             this.gridItemsModel = [];
             this.items.forEach(() => { this.gridItemsModel.push(this.getGridRowModel()) });
+            this.items.forEach((item: any) => {
+                Object.assign(item, this.getActionState(item));
+            });
             this.$emit('load', this.items);
             // 向上下文中填充当前数据
             this.$appService.contextStore.setContextData(this.context, this.appDeName, { items: this.items });
@@ -467,7 +487,7 @@ export class GridControllerBase extends MDControlBase {
             if (response && response.status === 401) {
                 return;
             }
-            this.$Notice.error({ title: '错误', desc: response.errorMessage });
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.errorMessage });
         });
     }
 
@@ -480,7 +500,7 @@ export class GridControllerBase extends MDControlBase {
      */
     public async remove(items: any[]): Promise<any> {
         if (!this.removeAction) {
-            this.$Notice.error({ title: '错误', desc: '${view.getName()}视图表格removeAction参数未配置' });
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: '${view.getName()}' + (this.$t('app.gridpage.notConfig.removeAction') as string) });
             return;
         }
         const arr: any[] = [];
@@ -514,9 +534,9 @@ export class GridControllerBase extends MDControlBase {
         });
 
         if (arr.length < 5) {
-            dataInfo = dataInfo + ' 共' + arr.length + '条数据';
+            dataInfo = dataInfo + ' ' + (this.$t('app.gridpage.totle') as string) + arr.length + (this.$t('app.gridpage.records') as string) + (this.$t('app.gridpage.data') as string);
         } else {
-            dataInfo = dataInfo + '...' + ' 共' + arr.length + '条数据';
+            dataInfo = dataInfo + '...' + ' ' + (this.$t('app.gridpage.totle') as string) + arr.length + (this.$t('app.gridpage.desc2') as string);
         }
 
         const removeData = () => {
@@ -531,10 +551,10 @@ export class GridControllerBase extends MDControlBase {
             return new Promise((resolve: any, reject: any) => {
                 post.then((response: any) => {
                     if (!response || response.status !== 200) {
-                        this.$Notice.error({ title: '', desc: '删除数据失败,' + response.info });
+                        this.$Notice.error({ title: '', desc: (this.$t('app.gridpage.delDataFail') as string) + ',' + response.info });
                         return;
                     } else {
-                        this.$Notice.success({ title: '', desc: '删除成功!' });
+                        this.$Notice.success({ title: '', desc: (this.$t('app.gridpage.delSuccess') as string) });
                     }
                     //删除items中已删除的项
                     console.log(this.items);
@@ -556,7 +576,7 @@ export class GridControllerBase extends MDControlBase {
                         return;
                     }
                     if (!response || !response.status || !response.data) {
-                        this.$Notice.error({ title: '错误', desc: '系统异常' });
+                        this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.sysException') as string) });
                         reject(response);
                         return;
                     }
@@ -567,8 +587,8 @@ export class GridControllerBase extends MDControlBase {
 
         dataInfo = dataInfo.replace(/[null]/g, '').replace(/[undefined]/g, '');
         this.$Modal.confirm({
-            title: '警告',
-            content: '确认要删除 ' + dataInfo + '，删除操作将不可恢复？',
+            title: (this.$t('app.commonWords.warning') as string),
+            content: (this.$t('app.gridpage.confirmDel') as string) + ' ' + dataInfo + '，' + (this.$t('app.gridpage.notRecoverable') as string),
             onOk: () => {
                 removeData();
             },
@@ -584,7 +604,7 @@ export class GridControllerBase extends MDControlBase {
      * @memberof GridControllerBase
      */
     public addBatch(arg: any = {}): void {
-        console.warn('批量添加未实现');
+        console.error((this.$t('app.gridpage.notBatch') as string));
     }
 
     /**
@@ -635,7 +655,7 @@ export class GridControllerBase extends MDControlBase {
                 excel.export_json_to_excel({
                     header: tHeader, //表头 必填
                     data, //具体数据 必填
-                    filename: "${ctrl.getPSAppDataEntity().getLogicName()}表", //非必填
+                    filename: "${ctrl.getPSAppDataEntity().getLogicName()}" + (this.$t('app.gridpage.grid') as string), //非必填
                     autoWidth: true, //非必填
                     bookType: "xlsx" //非必填
                 });
@@ -676,7 +696,7 @@ export class GridControllerBase extends MDControlBase {
         }
         post.then((response: any) => {
             if (!response || response.status !== 200) {
-                this.$Notice.error({ title: '', desc: '数据导出失败,' + response.info });
+                this.$Notice.error({ title: '', desc: (this.$t('app.gridpage.exportFail') as string) + ',' + response.info });
                 return;
             }
             try {
@@ -688,7 +708,7 @@ export class GridControllerBase extends MDControlBase {
             if (response && response.status === 401) {
                 return;
             }
-            this.$Notice.error({ title: '', desc: '数据导出失败' });
+            this.$Notice.error({ title: '', desc: (this.$t('app.gridpage.exportFail') as string) });
         });
     }
 
@@ -1010,7 +1030,7 @@ export class GridControllerBase extends MDControlBase {
      */
     public newRow(args: any[], params?: any, $event?: any, xData?: any): void {
         if (!this.loaddraftAction) {
-            this.$Notice.error({ title: '错误', desc: '${view.getName()}视图表格loaddraftAction参数未配置' });
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: '${view.getName()}' + (this.$t('app.gridpage.notConfig.loaddraftAction') as string) });
             return;
         }
         Object.assign(args[0], { viewparams: this.viewparams });
@@ -1018,7 +1038,7 @@ export class GridControllerBase extends MDControlBase {
         post.then((response: any) => {
             if (!response.status || response.status !== 200) {
                 if (response.errorMessage) {
-                    this.$Notice.error({ title: '错误', desc: response.errorMessage });
+                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.errorMessage });
                 }
                 return;
             }
@@ -1032,7 +1052,7 @@ export class GridControllerBase extends MDControlBase {
                 return;
             }
             if (!response || !response.status || !response.data) {
-                this.$Notice.error({ title: '错误', desc: '系统异常' });
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.sysException') as string) });
                 return;
             }
         });
@@ -1077,7 +1097,7 @@ export class GridControllerBase extends MDControlBase {
         const post: Promise<any> = this.service.frontLogic(mode, JSON.parse(JSON.stringify(this.context)), arg, showloading);
         post.then((response: any) => {
             if (!response || response.status !== 200) {
-                this.$Notice.error({ title: '错误', desc: '表单项更新失败' });
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.gridpage.formitemFailed') as string) });
                 return;
             }
             const _data: any = response.data;
@@ -1095,10 +1115,24 @@ export class GridControllerBase extends MDControlBase {
                 return;
             }
             if (!response || !response.status || !response.data) {
-                this.$Notice.error({ title: '错误', desc: '系统异常' });
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.sysException') as string) });
                 return;
             }
         });
+    }
+
+    /**
+     * 获取界面行为权限状态
+     *
+     * @param {*} data
+     * @returns
+     * @memberof GridControllerBase
+     */
+    public getActionState(data: any) {
+        const targetData: any = this.transformData(data);
+        const tempActionModel: any = JSON.parse(JSON.stringify(this.ActionModel));
+        ViewTool.calcActionItemAuthState(targetData, tempActionModel, this.appUIService);
+        return tempActionModel;
     }
 
     /**

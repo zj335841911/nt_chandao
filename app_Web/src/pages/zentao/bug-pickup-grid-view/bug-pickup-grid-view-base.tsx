@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { PickupGridViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
+import BugAuthService from '@/authservice/bug/bug-auth-service';
 import PickupGridViewEngine from '@engine/view/pickup-grid-view-engine';
+import BugUIService from '@/uiservice/bug/bug-ui-service';
 
 /**
  * bug选择表格视图视图基类
@@ -45,6 +47,14 @@ export class BugPickupGridViewBase extends PickupGridViewBase {
      * @memberof BugPickupGridViewBase
      */
     protected appEntityService: BugService = new BugService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type BugUIService
+     * @memberof BugPickupGridViewBase
+     */
+    public appUIService: BugUIService = new BugUIService(this.$store);
 
 
     /**

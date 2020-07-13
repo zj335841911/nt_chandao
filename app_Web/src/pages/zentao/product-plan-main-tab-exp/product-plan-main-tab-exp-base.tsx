@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { TabExpViewBase } from '@/studio-core';
 import ProductPlanService from '@/service/product-plan/product-plan-service';
+import ProductPlanAuthService from '@/authservice/product-plan/product-plan-auth-service';
 import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
+import ProductPlanUIService from '@/uiservice/product-plan/product-plan-ui-service';
 
 /**
  * 计划视图基类
@@ -45,6 +47,14 @@ export class ProductPlanMainTabExpBase extends TabExpViewBase {
      * @memberof ProductPlanMainTabExpBase
      */
     protected appEntityService: ProductPlanService = new ProductPlanService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProductPlanUIService
+     * @memberof ProductPlanMainTabExpBase
+     */
+    public appUIService: ProductPlanUIService = new ProductPlanUIService(this.$store);
 
 
     /**

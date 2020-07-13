@@ -182,6 +182,27 @@ export class MainGridBase extends GridControllerBase {
 
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {TestTaskUIService}
+     * @memberof MainBase
+     */  
+    public appUIService:TestTaskUIService = new TestTaskUIService(this.$store);
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof MainBase
+     */  
+    public ActionModel: any = {
+        LinkCase: { name: 'LinkCase',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
+        OpenInfoView: { name: 'OpenInfoView',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
+        EditEdit: { name: 'EditEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
+        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'MULTIKEY'}
+    };
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -202,70 +223,80 @@ export class MainGridBase extends GridControllerBase {
             label: 'ID',
             langtag: 'entities.testtask.main_grid.columns.id',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'name',
             label: '名称',
             langtag: 'entities.testtask.main_grid.columns.name',
             show: true,
-            util: 'STAR'
+            util: 'STAR',
+            isEnableRowEdit: false,
         },
         {
             name: 'productname',
             label: '产品',
             langtag: 'entities.testtask.main_grid.columns.productname',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'projecttname',
             label: '项目',
             langtag: 'entities.testtask.main_grid.columns.projecttname',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'build',
             label: '版本',
             langtag: 'entities.testtask.main_grid.columns.build',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'owner',
             label: '负责人',
             langtag: 'entities.testtask.main_grid.columns.owner',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'begin',
             label: '开始日期',
             langtag: 'entities.testtask.main_grid.columns.begin',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'end',
             label: '结束日期',
             langtag: 'entities.testtask.main_grid.columns.end',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'status',
             label: '当前状态',
             langtag: 'entities.testtask.main_grid.columns.status',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'uagridcolumn1',
             label: '操作',
             langtag: 'entities.testtask.main_grid.columns.uagridcolumn1',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
     ]
 

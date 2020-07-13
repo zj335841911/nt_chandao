@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { OptionViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
+import BugAuthService from '@/authservice/bug/bug-auth-service';
 import OptionViewEngine from '@engine/view/option-view-engine';
+import BugUIService from '@/uiservice/bug/bug-ui-service';
 
 /**
  * 关闭Bug视图基类
@@ -45,6 +47,14 @@ export class BugCloseViewBase extends OptionViewBase {
      * @memberof BugCloseViewBase
      */
     protected appEntityService: BugService = new BugService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type BugUIService
+     * @memberof BugCloseViewBase
+     */
+    public appUIService: BugUIService = new BugUIService(this.$store);
 
 
     /**

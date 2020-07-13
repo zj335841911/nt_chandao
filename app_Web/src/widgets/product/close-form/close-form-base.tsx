@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import CloseService from './close-form-service';
+import ProductUIService from '@/uiservice/product/product-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 
 
@@ -48,6 +49,15 @@ export class CloseEditFormBase extends EditFormControlBase {
      * @memberof CloseEditFormBase
      */
     protected appDeName: string = 'product';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProductUIService}
+     * @memberof CloseEditFormBase
+     */  
+    public appUIService:ProductUIService = new ProductUIService(this.$store);
+
 
     /**
      * 关系界面数量

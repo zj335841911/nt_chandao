@@ -2,7 +2,9 @@
 import { Subject } from 'rxjs';
 import { GridViewBase } from '@/studio-core';
 import ProjectTeamService from '@/service/project-team/project-team-service';
+import ProjectTeamAuthService from '@/authservice/project-team/project-team-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
+import ProjectTeamUIService from '@/uiservice/project-team/project-team-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -49,6 +51,14 @@ export class ProjectTeamMainGridView_EditRowBase extends GridViewBase {
      */
     protected appEntityService: ProjectTeamService = new ProjectTeamService;
 
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProjectTeamUIService
+     * @memberof ProjectTeamMainGridView_EditRowBase
+     */
+    public appUIService: ProjectTeamUIService = new ProjectTeamUIService(this.$store);
+
 
     /**
      * 计数器服务对象集合
@@ -92,9 +102,9 @@ export class ProjectTeamMainGridView_EditRowBase extends GridViewBase {
      * @memberof ProjectTeamMainGridView_EditRow
      */
     public toolBarModels: any = {
-        deuiaction2: { name: 'deuiaction2', caption: '新建行','isShowCaption':true,'isShowIcon':true, tooltip: '新建行', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'NewRow', target: '' }, class: '' },
+        deuiaction2: { name: 'deuiaction2', caption: '新建行', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建行', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'NewRow', target: '', class: '' } },
 
-        deuiaction3: { name: 'deuiaction3', caption: '保存行','isShowCaption':true,'isShowIcon':true, tooltip: '保存行', iconcls: 'fa fa-save', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'SaveRow', target: '' }, class: '' },
+        deuiaction3: { name: 'deuiaction3', caption: '保存行', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存行', iconcls: 'fa fa-save', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'SaveRow', target: '', class: '' } },
 
     };
 
@@ -296,8 +306,6 @@ export class ProjectTeamMainGridView_EditRowBase extends GridViewBase {
      * @memberof ProjectTeamMainGridView_EditRow
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
     this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
     }
 

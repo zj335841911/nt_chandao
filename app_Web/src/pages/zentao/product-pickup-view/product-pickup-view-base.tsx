@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { PickupViewBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
+import ProductAuthService from '@/authservice/product/product-auth-service';
 import PickupViewEngine from '@engine/view/pickup-view-engine';
+import ProductUIService from '@/uiservice/product/product-ui-service';
 
 /**
  * product数据选择视图视图基类
@@ -45,6 +47,14 @@ export class ProductPickupViewBase extends PickupViewBase {
      * @memberof ProductPickupViewBase
      */
     protected appEntityService: ProductService = new ProductService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProductUIService
+     * @memberof ProductPickupViewBase
+     */
+    public appUIService: ProductUIService = new ProductUIService(this.$store);
 
 
     /**

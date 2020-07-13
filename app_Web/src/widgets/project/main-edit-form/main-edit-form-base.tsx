@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import Main_EditService from './main-edit-form-service';
+import ProjectUIService from '@/uiservice/project/project-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 
 
@@ -48,6 +49,15 @@ export class Main_EditEditFormBase extends EditFormControlBase {
      * @memberof Main_EditEditFormBase
      */
     protected appDeName: string = 'project';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {ProjectUIService}
+     * @memberof Main_EditEditFormBase
+     */  
+    public appUIService:ProjectUIService = new ProjectUIService(this.$store);
+
 
     /**
      * 表单数据对象
@@ -183,12 +193,13 @@ export class Main_EditEditFormBase extends EditFormControlBase {
     };
 
     /**
-     * 表单逻辑
+     * 表单项逻辑
      *
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {Promise<void>}
      * @memberof Main_EditEditFormBase
      */
-    public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
                 
 
 

@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, TabExpPanelControlBase } from '@/studio-core';
 import ProductPlanService from '@/service/product-plan/product-plan-service';
 import MainTabExptabexppanelService from './main-tab-exptabexppanel-tabexppanel-service';
+import ProductPlanUIService from '@/uiservice/product-plan/product-plan-ui-service';
 
 
 /**

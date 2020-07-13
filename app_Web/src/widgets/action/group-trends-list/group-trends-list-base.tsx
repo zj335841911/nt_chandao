@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, ListControllerBase } from '@/studio-core';
 import ActionService from '@/service/action/action-service';
 import GroupTrendsService from './group-trends-list-service';
+import ActionUIService from '@/uiservice/action/action-ui-service';
 
 
 /**

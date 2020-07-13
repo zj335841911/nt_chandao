@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import AssignToMeService from './assign-to-me-portlet-service';
+import TaskUIService from '@/uiservice/task/task-ui-service';
 import { Environment } from '@/environments/environment';
 
 

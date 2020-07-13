@@ -2,7 +2,9 @@
 import { Subject } from 'rxjs';
 import { GridViewBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
+import ProductAuthService from '@/authservice/product/product-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
+import ProductUIService from '@/uiservice/product/product-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -49,6 +51,14 @@ export class ProductGridViewBase extends GridViewBase {
      */
     protected appEntityService: ProductService = new ProductService;
 
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProductUIService
+     * @memberof ProductGridViewBase
+     */
+    public appUIService: ProductUIService = new ProductUIService(this.$store);
+
 
     /**
      * 计数器服务对象集合
@@ -92,10 +102,10 @@ export class ProductGridViewBase extends GridViewBase {
      * @memberof ProductGridView
      */
     public toolBarModels: any = {
-        deuiaction4: { name: 'deuiaction4', caption: '删除','isShowCaption':true,'isShowIcon':true, tooltip: '删除', iconcls: 'fa fa-remove', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Remove', target: 'MULTIKEY' }, class: '' },
+        deuiaction4: { name: 'deuiaction4', caption: '删除', 'isShowCaption': true, 'isShowIcon': true, tooltip: '删除', iconcls: 'fa fa-remove', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Remove', target: 'MULTIKEY', class: '' } },
 
         seperator1: {  name: 'seperator1', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
-        deuiaction2: { name: 'deuiaction2', caption: '刷新','isShowCaption':true,'isShowIcon':true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Refresh', target: '' }, class: '' },
+        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
     };
 
@@ -330,8 +340,8 @@ export class ProductGridViewBase extends GridViewBase {
      * @memberof ProductGridView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
+        const localContext: any = null;
+        const localViewParam: any =null;
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){

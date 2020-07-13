@@ -3,6 +3,7 @@ import { UIActionTool,Util } from '@/utils';
 import UIService from '../ui-service';
 import { Subject } from 'rxjs';
 import TaskService from '@/service/task/task-service';
+import TaskAuthService from '@/authservice/task/task-auth-service';
 
 /**
  * 任务UI服务对象基类
@@ -62,6 +63,13 @@ export default class TaskUIServiceBase extends UIService {
     public allDeMainStateMap:Map<string,string> = new Map();
 
     /**
+     * 主状态操作标识Map
+     * 
+     * @memberof  TaskUIServiceBase
+     */ 
+    public allDeMainStateOPPrivsMap:Map<string,any> = new Map();
+
+    /**
      * Creates an instance of  TaskUIServiceBase.
      * 
      * @param {*} [opts={}]
@@ -69,8 +77,10 @@ export default class TaskUIServiceBase extends UIService {
      */
     constructor(opts: any = {}) {
         super(opts);
+        this.authService = new TaskAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();
+        this.initDeMainStateOPPrivsMap();
     }
 
     /**
@@ -114,6 +124,20 @@ export default class TaskUIServiceBase extends UIService {
         this.allDeMainStateMap.set('done','done');
         this.allDeMainStateMap.set('pause','pause');
         this.allDeMainStateMap.set('wait','wait');
+    }
+
+    /**
+     * 初始化主状态操作标识
+     * 
+     * @memberof  TaskUIServiceBase
+     */  
+    public initDeMainStateOPPrivsMap(){
+        this.allDeMainStateOPPrivsMap.set('cancel',{'ASSIGN':0,'ACTIVATION':0,'EDIT':0,'CLOSE':0,'SUBTASKS':0});
+        this.allDeMainStateOPPrivsMap.set('closed',{'SUBTASKS':1,'ACTIVATION':1,'EDIT':1,'DELETE':1});
+        this.allDeMainStateOPPrivsMap.set('doing',{'PAUSE':1,'CANCEL':1,'EDIT':1,'SUBTASKS':1,'COMPLETE':1,'ASSIGN':1});
+        this.allDeMainStateOPPrivsMap.set('done',{'CLOSE':0,'EDIT':0,'ASSIGN':0,'ACTIVATION':0,'SUBTASKS':0,'DELETE':0});
+        this.allDeMainStateOPPrivsMap.set('pause',{'CANCEL':1,'PROCEED':1,'EDIT':1,'ASSIGN':1,'SUBTASKS':1,'DELETE':1,'COMPLETE':1});
+        this.allDeMainStateOPPrivsMap.set('wait',{'DELETE':1,'ASSIGN':1,'ACTIVATION':1,'EDIT':1,'CANCEL':1,'START':1,'SUBTASKS':1});
     }
 
     /**
@@ -721,12 +745,12 @@ export default class TaskUIServiceBase extends UIService {
         }
 		if(!Environment.isAppMode){
             if(this.getDEMainStateTag(curData)){
-                return `MOBEDITVIEW:MSTAG:${ await this.getDEMainStateTag(curData)}`;
+                return `MOBEDITVIEW:MSTAG:${ this.getDEMainStateTag(curData)}`;
             }
 			return 'MOBEDITVIEW:';
         }
         if(this.getDEMainStateTag(curData)){
-            return `EDITVIEW:MSTAG:${ await this.getDEMainStateTag(curData)}`;
+            return `EDITVIEW:MSTAG:${ this.getDEMainStateTag(curData)}`;
         }
 		return 'EDITVIEW:';
     }
@@ -737,7 +761,7 @@ export default class TaskUIServiceBase extends UIService {
      * @param curData 当前数据
      * @memberof  TaskUIServiceBase
      */  
-    public async getDEMainStateTag(curData:any){
+    public getDEMainStateTag(curData:any){
         if(this.mainStateFields.length === 0) return null;
 
         this.mainStateFields.forEach((singleMainField:any) =>{
@@ -745,8 +769,6 @@ export default class TaskUIServiceBase extends UIService {
                 console.error(`当前数据对象不包含属性singleMainField，可能会发生错误`);
             }
         })
-
-        let strTag:String = "";
         for (let i = 0; i <= 1; i++) {
             let strTag:string = (curData[this.mainStateFields[0]])?(i == 0) ? curData[this.mainStateFields[0]] : "":"";
             if (this.mainStateFields.length >= 2) {
@@ -768,5 +790,29 @@ export default class TaskUIServiceBase extends UIService {
         }
         return null;
     }
+
+    /**
+    * 获取数据对象当前操作标识
+    * 
+    * @param data 当前数据
+    * @memberof  TaskUIServiceBase
+    */  
+   public getDEMainStateOPPrivs(data:any){
+        if(this.getDEMainStateTag(data)){
+            return this.allDeMainStateOPPrivsMap.get((this.getDEMainStateTag(data) as string));
+        }else{
+            return null;
+        }
+   }
+
+    /**
+    * 获取数据对象所有的操作标识
+    * 
+    * @param data 当前数据
+    * @memberof  TaskUIServiceBase
+    */ 
+   public getAllOPPrivs(data:any){
+       return this.authService.getOPPrivs(this.getDEMainStateOPPrivs(data));
+   }
 
 }

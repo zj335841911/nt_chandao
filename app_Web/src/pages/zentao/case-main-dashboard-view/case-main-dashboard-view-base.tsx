@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { DashboardViewBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
+import CaseAuthService from '@/authservice/case/case-auth-service';
 import PortalViewEngine from '@engine/view/portal-view-engine';
+import CaseUIService from '@/uiservice/case/case-ui-service';
 
 /**
  * 功能测试视图基类
@@ -45,6 +47,14 @@ export class CaseMainDashboardViewBase extends DashboardViewBase {
      * @memberof CaseMainDashboardViewBase
      */
     protected appEntityService: CaseService = new CaseService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type CaseUIService
+     * @memberof CaseMainDashboardViewBase
+     */
+    public appUIService: CaseUIService = new CaseUIService(this.$store);
 
 
     /**

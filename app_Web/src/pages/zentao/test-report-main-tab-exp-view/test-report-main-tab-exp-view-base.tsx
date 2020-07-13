@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { TabExpViewBase } from '@/studio-core';
 import TestReportService from '@/service/test-report/test-report-service';
+import TestReportAuthService from '@/authservice/test-report/test-report-auth-service';
 import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
+import TestReportUIService from '@/uiservice/test-report/test-report-ui-service';
 
 /**
  * 测试报告分页导航视图视图基类
@@ -45,6 +47,14 @@ export class TestReportMainTabExpViewBase extends TabExpViewBase {
      * @memberof TestReportMainTabExpViewBase
      */
     protected appEntityService: TestReportService = new TestReportService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type TestReportUIService
+     * @memberof TestReportMainTabExpViewBase
+     */
+    public appUIService: TestReportUIService = new TestReportUIService(this.$store);
 
 
     /**

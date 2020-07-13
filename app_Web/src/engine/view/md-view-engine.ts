@@ -358,6 +358,9 @@ export default class MDViewEngine extends ViewEngine {
         }
         const state = args.length > 0 && !Object.is(args[0].srfkey, '') ? false : true;
         this.calcToolbarItemState(state);
+        if(args && args.length > 0){
+            this.calcToolbarItemAuthState(this.transformData(args[0]));
+        }
     }
 
     /**
@@ -367,6 +370,13 @@ export default class MDViewEngine extends ViewEngine {
      * @memberof MDViewEngine
      */
     public MDCtrlLoad(args: any[]) {
+        let cacheArray:Array<any> = [];
+        if(args.length >0){
+            args.forEach((item:any) =>{
+                cacheArray.push({srfkey:item.srfkey,srfmajortext:item.srfmajortext});
+            })
+        }
+        this.view.viewCacheData = cacheArray;
         if (this.view) {
             this.view.$emit('viewload', args);
         }
@@ -383,11 +393,11 @@ export default class MDViewEngine extends ViewEngine {
         if (this.view.viewparams && Object.keys(this.view.viewparams).length > 0) {
             Object.assign(arg, this.view.viewparams);
         }
-        if (this.view && this.view.$refs.searchbar && this.view.isExpandSearchForm) {
-            Object.assign(arg, this.view.$refs.searchbar.getData());
-        }
         if (this.getSearchForm() && this.view.isExpandSearchForm) {
             Object.assign(arg, this.getSearchForm().getData());
+        }
+        if (this.view && this.view.$refs.searchbar) {
+            Object.assign(arg, this.view.$refs.searchbar.getData());
         }
         if (this.view && !this.view.isExpandSearchForm) {
             Object.assign(arg, { query: this.view.query });
@@ -426,5 +436,18 @@ export default class MDViewEngine extends ViewEngine {
     public getPropertyPanel() {
         return this.propertypanel;
     }
+
+    /**
+     * 转化数据
+     *
+     * @memberof EditViewEngine
+     */
+    public transformData(arg:any){
+        if(!this.getMDCtrl() || !(this.getMDCtrl().transformData instanceof Function)){
+            return null;
+        }
+        return this.getMDCtrl().transformData(arg);
+    }
+
 
 }

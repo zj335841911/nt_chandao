@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { TabExpViewBase } from '@/studio-core';
 import BuildService from '@/service/build/build-service';
+import BuildAuthService from '@/authservice/build/build-auth-service';
 import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
+import BuildUIService from '@/uiservice/build/build-ui-service';
 
 /**
  * 版本分页导航视图视图基类
@@ -45,6 +47,14 @@ export class BuildMainTabExpViewBase extends TabExpViewBase {
      * @memberof BuildMainTabExpViewBase
      */
     protected appEntityService: BuildService = new BuildService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type BuildUIService
+     * @memberof BuildMainTabExpViewBase
+     */
+    public appUIService: BuildUIService = new BuildUIService(this.$store);
 
 
     /**

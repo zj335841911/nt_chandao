@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, GridControllerBase } from '@/studio-core';
 import SubProductPlanService from '@/service/sub-product-plan/sub-product-plan-service';
 import MainSubPlanService from './main-sub-plan-grid-service';
+import SubProductPlanUIService from '@/uiservice/sub-product-plan/sub-product-plan-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 
@@ -50,6 +51,23 @@ export class MainSubPlanGridBase extends GridControllerBase {
     protected appDeName: string = 'subproductplan';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {SubProductPlanUIService}
+     * @memberof MainSubPlanBase
+     */  
+    public appUIService:SubProductPlanUIService = new SubProductPlanUIService(this.$store);
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof MainSubPlanBase
+     */  
+    public ActionModel: any = {
+    };
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -70,28 +88,32 @@ export class MainSubPlanGridBase extends GridControllerBase {
             label: '编号',
             langtag: 'entities.subproductplan.mainsubplan_grid.columns.id',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'title',
             label: '名称',
             langtag: 'entities.subproductplan.mainsubplan_grid.columns.title',
             show: true,
-            util: 'STAR'
+            util: 'STAR',
+            isEnableRowEdit: false,
         },
         {
             name: 'begin',
             label: '开始日期',
             langtag: 'entities.subproductplan.mainsubplan_grid.columns.begin',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'end',
             label: '结束日期',
             langtag: 'entities.subproductplan.mainsubplan_grid.columns.end',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
     ]
 

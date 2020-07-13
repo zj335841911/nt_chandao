@@ -2,7 +2,9 @@
 import { Subject } from 'rxjs';
 import { GridView9Base } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
+import BugAuthService from '@/authservice/bug/bug-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
+import BugUIService from '@/uiservice/bug/bug-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -48,6 +50,14 @@ export class BugGridView9_AssignedToMeBase extends GridView9Base {
      * @memberof BugGridView9_AssignedToMeBase
      */
     protected appEntityService: BugService = new BugService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type BugUIService
+     * @memberof BugGridView9_AssignedToMeBase
+     */
+    public appUIService: BugUIService = new BugUIService(this.$store);
 
 
     /**
@@ -258,8 +268,8 @@ export class BugGridView9_AssignedToMeBase extends GridView9Base {
      * @memberof BugGridView9_AssignedToMe
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
+        const localContext: any = null;
+        const localViewParam: any =null;
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){

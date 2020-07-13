@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, GridControllerBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import Main_ReportSubService from './main-report-sub-grid-service';
+import StoryUIService from '@/uiservice/story/story-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 
@@ -50,6 +51,23 @@ export class Main_ReportSubGridBase extends GridControllerBase {
     protected appDeName: string = 'story';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {StoryUIService}
+     * @memberof Main_ReportSubBase
+     */  
+    public appUIService:StoryUIService = new StoryUIService(this.$store);
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof Main_ReportSubBase
+     */  
+    public ActionModel: any = {
+    };
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -86,56 +104,64 @@ export class Main_ReportSubGridBase extends GridControllerBase {
             label: 'ID',
             langtag: 'entities.story.main_reportsub_grid.columns.id',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'pri',
             label: 'P',
             langtag: 'entities.story.main_reportsub_grid.columns.pri',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'title',
             label: '需求名称',
             langtag: 'entities.story.main_reportsub_grid.columns.title',
             show: true,
-            util: 'STAR'
+            util: 'STAR',
+            isEnableRowEdit: false,
         },
         {
             name: 'openedby',
             label: '创建',
             langtag: 'entities.story.main_reportsub_grid.columns.openedby',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'assignedto',
             label: '指派',
             langtag: 'entities.story.main_reportsub_grid.columns.assignedto',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'estimate',
             label: '预计',
             langtag: 'entities.story.main_reportsub_grid.columns.estimate',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'status',
             label: '状态',
             langtag: 'entities.story.main_reportsub_grid.columns.status',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'stage',
             label: '阶段',
             langtag: 'entities.story.main_reportsub_grid.columns.stage',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
     ]
 

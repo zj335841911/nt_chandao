@@ -163,6 +163,27 @@ export class MainGridBase extends GridControllerBase {
     }
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {ProductPlanUIService}
+     * @memberof MainBase
+     */  
+    public appUIService:ProductPlanUIService = new ProductPlanUIService(this.$store);
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof MainBase
+     */  
+    public ActionModel: any = {
+        RelationStory: { name: 'RelationStory',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
+        RelationBug: { name: 'RelationBug',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
+        MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
+        NewSubPlan: { name: 'NewSubPlan',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'}
+    };
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -183,35 +204,40 @@ export class MainGridBase extends GridControllerBase {
             label: '编号',
             langtag: 'entities.productplan.main_grid.columns.id',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'title',
             label: '名称',
             langtag: 'entities.productplan.main_grid.columns.title',
             show: true,
-            util: 'STAR'
+            util: 'STAR',
+            isEnableRowEdit: false,
         },
         {
             name: 'begin',
             label: '开始日期',
             langtag: 'entities.productplan.main_grid.columns.begin',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'end',
             label: '结束日期',
             langtag: 'entities.productplan.main_grid.columns.end',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'actions',
             label: '操作',
             langtag: 'entities.productplan.main_grid.columns.actions',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
     ]
 

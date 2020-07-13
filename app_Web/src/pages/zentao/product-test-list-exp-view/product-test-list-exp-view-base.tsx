@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { ListExpViewBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
+import ProductAuthService from '@/authservice/product/product-auth-service';
 import ListExpViewEngine from '@engine/view/list-exp-view-engine';
+import ProductUIService from '@/uiservice/product/product-ui-service';
 
 /**
  * 测试统计视图基类
@@ -46,6 +48,14 @@ export class ProductTestListExpViewBase extends ListExpViewBase {
      */
     protected appEntityService: ProductService = new ProductService;
 
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProductUIService
+     * @memberof ProductTestListExpViewBase
+     */
+    public appUIService: ProductUIService = new ProductUIService(this.$store);
+
 
     /**
      * 计数器服务对象集合
@@ -88,7 +98,7 @@ export class ProductTestListExpViewBase extends ListExpViewBase {
      * @memberof ProductTestListExpView
      */
     public testlistexpviewlistexpbar_list_quicktoolbarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '新建','isShowCaption':true,'isShowIcon':true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'New', target: '' }, class: '' },
+        deuiaction1: { name: 'deuiaction1', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'New', target: '', class: '' } },
 
     };
 
@@ -190,8 +200,6 @@ export class ProductTestListExpViewBase extends ListExpViewBase {
      * @memberof ProductTestListExpView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
     this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
     }
 

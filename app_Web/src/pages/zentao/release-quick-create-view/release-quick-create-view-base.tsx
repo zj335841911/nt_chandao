@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditViewBase } from '@/studio-core';
 import ReleaseService from '@/service/release/release-service';
+import ReleaseAuthService from '@/authservice/release/release-auth-service';
 import EditViewEngine from '@engine/view/edit-view-engine';
+import ReleaseUIService from '@/uiservice/release/release-ui-service';
 
 /**
  * 发布编辑视图视图基类
@@ -46,6 +48,14 @@ export class ReleaseQuickCreateViewBase extends EditViewBase {
      */
     protected appEntityService: ReleaseService = new ReleaseService;
 
+    /**
+     * 实体权限服务对象
+     *
+     * @type ReleaseUIService
+     * @memberof ReleaseQuickCreateViewBase
+     */
+    public appUIService: ReleaseUIService = new ReleaseUIService(this.$store);
+
 
     /**
      * 计数器服务对象集合
@@ -89,7 +99,7 @@ export class ReleaseQuickCreateViewBase extends EditViewBase {
      * @memberof ReleaseQuickCreateView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭','isShowCaption':true,'isShowIcon':true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'SaveAndExit', target: '' }, class: '' },
+        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
 
     };
 

@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { MPickupViewBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
+import StoryAuthService from '@/authservice/story/story-auth-service';
 import MPickupViewEngine from '@engine/view/mpickup-view-engine';
+import StoryUIService from '@/uiservice/story/story-ui-service';
 
 /**
  * 关联需求视图基类
@@ -45,6 +47,14 @@ export class StoryMPickupViewBase extends MPickupViewBase {
      * @memberof StoryMPickupViewBase
      */
     protected appEntityService: StoryService = new StoryService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type StoryUIService
+     * @memberof StoryMPickupViewBase
+     */
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
 
     /**

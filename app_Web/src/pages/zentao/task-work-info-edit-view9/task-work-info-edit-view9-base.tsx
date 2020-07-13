@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditView9Base } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
+import TaskAuthService from '@/authservice/task/task-auth-service';
 import EditView9Engine from '@engine/view/edit-view9-engine';
+import TaskUIService from '@/uiservice/task/task-ui-service';
 
 /**
  * 工时信息视图基类
@@ -45,6 +47,14 @@ export class TaskWorkInfoEditView9Base extends EditView9Base {
      * @memberof TaskWorkInfoEditView9Base
      */
     protected appEntityService: TaskService = new TaskService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type TaskUIService
+     * @memberof TaskWorkInfoEditView9Base
+     */
+    public appUIService: TaskUIService = new TaskUIService(this.$store);
 
 
     /**

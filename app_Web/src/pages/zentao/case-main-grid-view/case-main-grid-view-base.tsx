@@ -2,6 +2,7 @@
 import { Subject } from 'rxjs';
 import { GridViewBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
+import CaseAuthService from '@/authservice/case/case-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import CaseUIService from '@/uiservice/case/case-ui-service';
 import CodeListService from "@service/app/codelist-service";
@@ -50,6 +51,14 @@ export class CaseMainGridViewBase extends GridViewBase {
      */
     protected appEntityService: CaseService = new CaseService;
 
+    /**
+     * 实体权限服务对象
+     *
+     * @type CaseUIService
+     * @memberof CaseMainGridViewBase
+     */
+    public appUIService: CaseUIService = new CaseUIService(this.$store);
+
 
     /**
      * 计数器服务对象集合
@@ -93,15 +102,15 @@ export class CaseMainGridViewBase extends GridViewBase {
      * @memberof CaseMainGridView
      */
     public toolBarModels: any = {
-        deuiaction3_batchnew: { name: 'deuiaction3_batchnew', caption: '批量新建用例','isShowCaption':true,'isShowIcon':true, tooltip: '批量新建用例', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'BatchNew', target: 'NONE' }, class: '' },
+        deuiaction3_batchnew: { name: 'deuiaction3_batchnew', caption: '批量新建用例', 'isShowCaption': true, 'isShowIcon': true, tooltip: '批量新建用例', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'BatchNew', target: 'NONE', class: '' } },
 
         seperator2: {  name: 'seperator2', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
-        deuiaction1: { name: 'deuiaction1', caption: '新建','isShowCaption':true,'isShowIcon':true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'New', target: '' }, class: '' },
+        deuiaction1: { name: 'deuiaction1', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'New', target: '', class: '' } },
 
-        deuiaction4: { name: 'deuiaction4', caption: '删除','isShowCaption':true,'isShowIcon':true, tooltip: '删除', iconcls: 'fa fa-remove', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Remove', target: 'MULTIKEY' }, class: '' },
+        deuiaction4: { name: 'deuiaction4', caption: '删除', 'isShowCaption': true, 'isShowIcon': true, tooltip: '删除', iconcls: 'fa fa-remove', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Remove', target: 'MULTIKEY', class: '' } },
 
         seperator1: {  name: 'seperator1', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
-        deuiaction2: { name: 'deuiaction2', caption: '刷新','isShowCaption':true,'isShowIcon':true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Refresh', target: '' }, class: '' },
+        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
     };
 
@@ -404,8 +413,8 @@ export class CaseMainGridViewBase extends GridViewBase {
      * @memberof CaseMainGridView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
+        const localContext: any = null;
+        const localViewParam: any =null;
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){

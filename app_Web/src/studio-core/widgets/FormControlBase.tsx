@@ -3,6 +3,7 @@ import { Subject } from 'rxjs';
 import { FormItemModel } from '@/model/form-detail';
 import { MainControlBase } from './MainControlBase';
 import { events } from '../global';
+import schema from 'async-validator';
 
 /**
  * 表单部件基类
@@ -354,6 +355,24 @@ export class FormControlBase extends MainControlBase {
     }
 
     /**
+     * 表单项检查逻辑
+     *
+     * @public
+     * @param name 属性名
+     * @memberof FormControlBase
+     */
+    public async checkItem(name: string): Promise<any> {
+        const validator = new schema({ [name]: this.rules[name] });
+        try {
+            await validator.validate({ [name]: this.data[name] });
+            return true;
+        } catch (err) {
+            console.error(err);
+        }
+        return false;
+    }
+
+    /**
      * 表单值变化
      *
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
@@ -444,7 +463,7 @@ export class FormControlBase extends MainControlBase {
      */
     public load(opt: any = {}): void {
         if (!this.loadAction) {
-            this.$Notice.error({ title: '错误', desc: '${view.getName()}视图表单loadAction参数未配置' });
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: '${view.getName()}' + (this.$t('app.formpage.notconfig.loadaction') as string) });
             return;
         }
         const arg: any = { ...opt };
@@ -461,11 +480,11 @@ export class FormControlBase extends MainControlBase {
             }
         }).catch((response: any) => {
             if (response && response.status && response.data) {
-                this.$Notice.error({ title: '错误', desc: response.data.message });
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
                 return;
             }
             if (!response || !response.status || !response.data) {
-                this.$Notice.error({ title: '错误', desc: '系统异常' });
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.sysException') as string) });
                 return;
             }
         });

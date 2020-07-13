@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import UnClosedProductService from './un-closed-product-portlet-service';
+import ProductUIService from '@/uiservice/product/product-ui-service';
 import { Environment } from '@/environments/environment';
 
 

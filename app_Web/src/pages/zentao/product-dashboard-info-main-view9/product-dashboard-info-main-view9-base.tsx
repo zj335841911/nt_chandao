@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditView9Base } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
+import ProductAuthService from '@/authservice/product/product-auth-service';
 import EditView9Engine from '@engine/view/edit-view9-engine';
+import ProductUIService from '@/uiservice/product/product-ui-service';
 
 /**
  * 产品信息视图基类
@@ -45,6 +47,14 @@ export class ProductDashboardInfoMainView9Base extends EditView9Base {
      * @memberof ProductDashboardInfoMainView9Base
      */
     protected appEntityService: ProductService = new ProductService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProductUIService
+     * @memberof ProductDashboardInfoMainView9Base
+     */
+    public appUIService: ProductUIService = new ProductUIService(this.$store);
 
 
     /**
