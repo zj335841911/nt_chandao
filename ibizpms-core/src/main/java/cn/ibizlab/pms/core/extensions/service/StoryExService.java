@@ -142,6 +142,7 @@ public class StoryExService extends StoryServiceImpl {
         StorySpec storySpec = storyspecService.searchDefault(context).getContent().get(0);
         et.setSpec(storySpec.getSpec());
         et.setVerify(storySpec.getVerify());
+        et.setTitle(storySpec.getTitle());
         return et;
     }
     /**
