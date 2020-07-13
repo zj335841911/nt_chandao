@@ -71,7 +71,8 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return bRst;
+        et.set("ztrst", rst);
+        return bRst;
     }
 
     @Override

@@ -85,7 +85,8 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return bRst;
+        et.set("ztrst", rst);
+        return bRst;
     }
 
     @Override

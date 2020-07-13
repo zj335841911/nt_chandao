@@ -104,7 +104,8 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return bRst;
+        et.set("ztrst", rst);
+        return bRst;
     }
 
     @Override

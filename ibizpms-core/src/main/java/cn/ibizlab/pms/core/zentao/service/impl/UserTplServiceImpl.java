@@ -56,7 +56,8 @@ public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> impl
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return bRst;
+        et.set("ztrst", rst);
+        return bRst;
     }
 
     @Override
