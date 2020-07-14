@@ -73,7 +73,7 @@ export class MainGridBase extends GridControllerBase {
      * @type {string}
      * @memberof MainGridBase
      */
-    public minorSortDir: string = 'DESC';
+    public minorSortDir: string = 'ASC';
 
     /**
      * 排序字段
