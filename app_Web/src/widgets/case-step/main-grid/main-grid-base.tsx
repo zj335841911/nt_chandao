@@ -263,10 +263,6 @@ export class MainGridBase extends GridControllerBase {
      * @memberof Main
      */
     public async save(args: any[], params?: any, $event?: any, xData?: any) {
-        if (!await this.validateAll()) {
-            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.rulesException') as string) });
-            return [];
-        }
         let successItems: any = [];
         let errorItems: any = [];
         let errorMessage: any = [];
