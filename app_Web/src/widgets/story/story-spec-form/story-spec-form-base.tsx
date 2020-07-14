@@ -83,9 +83,7 @@ export class StorySpecEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         parent: null,
-        formitem: null,
         id: null,
-        formitem1: null,
         title: null,
         version: null,
         spec: null,
@@ -141,11 +139,7 @@ export class StorySpecEditFormBase extends EditFormControlBase {
 
         parent: new FormItemModel({ caption: '父需求', detailType: 'FORMITEM', name: 'parent', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        formitem: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
         id: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
-
-        formitem1: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitem1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         title: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -179,8 +173,6 @@ export class StorySpecEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.druipart1.setVisible(ret);
         }
-
-
 
 
 
