@@ -339,6 +339,16 @@
         "viewtag": "36337c95eb6a21369e5673e64e708925",
         "memo": ""
     },
+    "bugactivationview": {
+        "title": "解决Bug",
+        "caption": "解决Bug",
+        "viewtype": "DEOPTVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BugActivationView",
+        "viewfilename": "bug-activation-view",
+        "viewtag": "37166f95166299e28f1a366b0b375d06",
+        "memo": ""
+    },
     "projectburndownchartview": {
         "title": "燃尽图",
         "caption": "项目",

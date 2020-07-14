@@ -89,6 +89,10 @@ export default {
 			caption: "关联Bug",
       		title: "关联Bug",
 		},
+		activationview: {
+			caption: "解决Bug",
+      		title: "解决Bug",
+		},
 		buglifeeditview9: {
 			caption: "Bug",
       		title: "Bug的一生",
@@ -332,6 +336,30 @@ export default {
 			mailto: "抄送给", 
 			comment: "备注", 
 			id: "Bug编号", 
+		},
+		uiactions: {
+		},
+	},
+	activation_form: {
+		details: {
+			grouppanel1: "分组面板", 
+			druipart1: "", 
+			grouppanel6: "历史记录", 
+			group1: "Bug基本信息", 
+			formpage1: "基本信息", 
+			srfupdatedate: "修改日期", 
+			srforikey: "", 
+			srfkey: "Bug编号", 
+			srfmajortext: "Bug标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			id: "Bug编号", 
+			resolvedbuild: "影响版本", 
+			assignedto: "指派给", 
+			files: "附件", 
+			comment: "备注", 
 		},
 		uiactions: {
 		},

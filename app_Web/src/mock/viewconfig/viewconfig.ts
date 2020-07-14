@@ -279,6 +279,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseCurTestTaskGridView",
             "viewtag": "36337c95eb6a21369e5673e64e708925"
         },
+        "bugactivationview": {
+            "title": "解决Bug",
+            "caption": "解决Bug",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugActivationView",
+            "viewtag": "37166f95166299e28f1a366b0b375d06"
+        },
         "projectburndownchartview": {
             "title": "燃尽图",
             "caption": "项目",
