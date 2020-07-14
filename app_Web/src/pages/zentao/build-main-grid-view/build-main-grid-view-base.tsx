@@ -108,10 +108,10 @@ export class BuildMainGridViewBase extends GridViewBase {
         deuiaction2: { name: 'deuiaction2', caption: '编辑', 'isShowCaption': true, 'isShowIcon': true, tooltip: '编辑', iconcls: 'fa fa-edit', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Edit', target: 'SINGLEKEY', class: '' } },
 
         seperator1: {  name: 'seperator1', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
-        deuiaction4: { name: 'deuiaction4', caption: '删除', 'isShowCaption': true, 'isShowIcon': true, tooltip: '删除', iconcls: 'sx-tb-delete', icon: '../sasrfex/images/default/icon_delete.png', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Remove', target: 'MULTIKEY', class: '' } },
+        deuiaction4: { name: 'deuiaction4', caption: '删除', 'isShowCaption': true, 'isShowIcon': true, tooltip: '删除', iconcls: 'fa fa-remove', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Remove', target: 'MULTIKEY', class: '' } },
 
         seperator2: {  name: 'seperator2', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
-        deuiaction5: { name: 'deuiaction5', caption: '提交测试', 'isShowCaption': true, 'isShowIcon': true, tooltip: '提交测试', iconcls: 'fa fa-send-o', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'submitToTesting', target: 'SINGLEDATA', class: '' } },
+        deuiaction5: { name: 'deuiaction5', caption: '提交测试', 'isShowCaption': true, 'isShowIcon': true, tooltip: '提交测试', iconcls: 'fa fa-send-o', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'submitToTesting', target: 'SINGLEKEY', class: '' } },
 
         deuiaction6: { name: 'deuiaction6', caption: '查看Bug', 'isShowCaption': true, 'isShowIcon': true, tooltip: '查看Bug', iconcls: 'fa fa-bug', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'viewBugs', target: 'SINGLEKEY', class: '' } },
 
