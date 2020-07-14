@@ -115,10 +115,6 @@ export default {
 			caption: "Edit",
 			tip: "Edit {0}",
 		},
-		deuiaction3: {
-			caption: "Copy",
-			tip: "Copy {0}",
-		},
 		seperator1: {
 			caption: "",
 			tip: "",

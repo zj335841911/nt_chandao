@@ -114,10 +114,6 @@ export default {
 			caption: "编辑",
 			tip: "编辑",
 		},
-		deuiaction3: {
-			caption: "拷贝",
-			tip: "拷贝",
-		},
 		seperator1: {
 			caption: "",
 			tip: "",
