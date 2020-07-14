@@ -56,15 +56,9 @@ export default class Main_EditModeModel {
         dataType: 'PICKUP',
       },
       {
-        name: 'formitem',
-      },
-      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
-      },
-      {
-        name: 'formitem1',
       },
       {
         name: 'title',
