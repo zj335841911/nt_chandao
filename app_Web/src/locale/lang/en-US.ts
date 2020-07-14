@@ -7,6 +7,7 @@ import suitecase_en_US from '@locale/lanres/entities/suite-case/suite-case_en_US
 import burn_en_US from '@locale/lanres/entities/burn/burn_en_US';
 import subproductplan_en_US from '@locale/lanres/entities/sub-product-plan/sub-product-plan_en_US';
 import storyspec_en_US from '@locale/lanres/entities/story-spec/story-spec_en_US';
+import usertpl_en_US from '@locale/lanres/entities/user-tpl/user-tpl_en_US';
 import branch_en_US from '@locale/lanres/entities/branch/branch_en_US';
 import productstats_en_US from '@locale/lanres/entities/product-stats/product-stats_en_US';
 import action_en_US from '@locale/lanres/entities/action/action_en_US';
@@ -287,6 +288,7 @@ export default {
         burn: burn_en_US,
         subproductplan: subproductplan_en_US,
         storyspec: storyspec_en_US,
+        usertpl: usertpl_en_US,
         branch: branch_en_US,
         productstats: productstats_en_US,
         action: action_en_US,

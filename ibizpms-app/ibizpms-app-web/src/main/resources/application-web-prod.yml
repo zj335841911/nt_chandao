@@ -43,6 +43,10 @@ zuul:
       path: /storyspecs/**
       serviceId: pms-webapi
       stripPrefix: false
+    zt_usertpl:
+      path: /usertpls/**
+      serviceId: pms-webapi
+      stripPrefix: false
     zt_branch:
       path: /branches/**
       serviceId: pms-webapi
