@@ -8,7 +8,8 @@ import { Environment } from '@/environments/environment';
 import axios from 'axios';
 
 import tinymce from "tinymce/tinymce";
-import 'tinymce/themes/modern';
+// import 'tinymce/themes/modern';
+import 'tinymce/themes/silver';
 import 'tinymce/plugins/link';
 import 'tinymce/plugins/paste';
 import 'tinymce/plugins/table';
@@ -18,6 +19,7 @@ import 'tinymce/plugins/codesample';
 import 'tinymce/plugins/code';
 import 'tinymce/plugins/fullscreen';
 import 'tinymce/plugins/preview';
+import 'tinymce/icons/default/icons.min.js';
 
 const tinymceCode:any = tinymce;
 
@@ -290,6 +292,7 @@ export default class AppRichTextEditor extends Vue {
             min_height: 400,
             branding: false,
             plugins: ['link', 'paste', 'table', 'image', 'codesample', 'code', 'fullscreen', 'preview'],
+            toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | link image',
             codesample_languages: [
                 { text: 'HTML/XML', value: 'markup' },
                 { text: 'JavaScript', value: 'javascript' },
@@ -304,7 +307,7 @@ export default class AppRichTextEditor extends Vue {
             ],
             paste_data_images: true,
             codesample_content_css: 'assets/tinymce/prism.css',
-            skin_url: './assets/tinymce/skins/lightgray',
+            skin_url: './assets/tinymce/skins/lightgray/ui/oxide',
             language_url: './assets/tinymce/langs/' + richtexteditor.languMap[richtexteditor.langu] + '.js',
             language:richtexteditor.languMap[richtexteditor.langu],
             setup: (editor: any) => {

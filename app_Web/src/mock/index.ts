@@ -16,6 +16,7 @@ import './entity/suite-cases/suite-cases';
 import './entity/burns/burns';
 import './entity/sub-product-plans/sub-product-plans';
 import './entity/story-specs/story-specs';
+import './entity/user-tpls/user-tpls';
 import './entity/branchs/branchs';
 import './entity/product-statss/product-statss';
 import './entity/actions/actions';

@@ -106,61 +106,33 @@ export default {
 		},
 	},
 	maingridviewtoolbar_toolbar: {
-		tbitem3: {
+		deuiaction1: {
 			caption: "新建",
 			tip: "新建",
 		},
-		tbitem4: {
+		deuiaction2: {
 			caption: "编辑",
 			tip: "编辑",
 		},
-		tbitem6: {
-			caption: "拷贝",
-			tip: "拷贝",
-		},
-		tbitem7: {
-			caption: "-",
+		seperator1: {
+			caption: "",
 			tip: "",
 		},
-		tbitem8: {
+		deuiaction4: {
 			caption: "删除",
 			tip: "删除",
 		},
-		tbitem9: {
-			caption: "-",
+		seperator2: {
+			caption: "",
 			tip: "",
 		},
-		tbitem13: {
-			caption: "导出",
-			tip: "导出",
+		deuiaction5: {
+			caption: "提交测试",
+			tip: "提交测试",
 		},
-		tbitem10: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem16: {
-			caption: "其它",
-			tip: "其它",
-		},
-		tbitem21: {
-			caption: "导出数据模型",
-			tip: "导出数据模型",
-		},
-		tbitem23: {
-			caption: "数据导入",
-			tip: "数据导入",
-		},
-		tbitem17: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem19: {
-			caption: "过滤",
-			tip: "过滤",
-		},
-		tbitem18: {
-			caption: "帮助",
-			tip: "帮助",
+		deuiaction6: {
+			caption: "查看Bug",
+			tip: "查看Bug",
 		},
 	},
 	editviewtoolbar_toolbar: {

@@ -255,26 +255,18 @@ export class Main_RowEditGridBase extends GridControllerBase {
      * @memberof Main_RowEdit
      */
     public async save(args: any[], params?: any, $event?: any, xData?: any) {
-        let successItems: any = [];
-        let errorItems: any = [];
-        let errorMessage: any = [];
-        let param: any = {};
-        Object.assign(param, { 
-            viewparams: this.viewparams,
-            srfArray: JSON.stringify(this.items)
-        });
-        let response = await this.service.add(this.createAction, JSON.parse(JSON.stringify(this.context)), param, this.showBusyIndicator);
-        successItems.push(JSON.parse(JSON.stringify(response.data)));
-        this.$emit('save', successItems);
-        this.refresh([]);
-        if (errorItems.length === 0) {
-            this.$Notice.success({ title: '', desc: (this.$t('app.commonWords.saveSuccess') as string) });
-        } else {
-            errorItems.forEach((item: any, index: number) => {
-                this.$Notice.error({ title: (this.$t('app.commonWords.saveFailed') as string), desc: item.majorentityname + (this.$t('app.commonWords.saveFailed') as string) + '!' });
-                console.error(errorMessage[index]);
-            });
+        for (const item of this.items) {
+            let _removeAction = this.removeAction;
+            let _keys = item.srfkey;
+            const context: any = JSON.parse(JSON.stringify(this.context));
+            await this.service.delete(_removeAction, Object.assign(context, { [this.appDeName]: _keys }), Object.assign({ [this.appDeName]: _keys }, { viewparams: this.viewparams }), this.showBusyIndicator);
         }
-        return successItems;
+        let successItems: any = [];
+        for (const item of this.items) {
+            Object.assign(item, { viewparams: this.viewparams });
+            let response = await this.service.add(this.createAction, JSON.parse(JSON.stringify(this.context)), item, this.showBusyIndicator);
+            successItems.push(JSON.parse(JSON.stringify(response.data)));
+        }
+        this.$emit('save', successItems);
     }
 }

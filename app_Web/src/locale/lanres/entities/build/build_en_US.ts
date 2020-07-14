@@ -107,61 +107,33 @@ export default {
 		},
 	},
 	maingridviewtoolbar_toolbar: {
-		tbitem3: {
+		deuiaction1: {
 			caption: "New",
 			tip: "New",
 		},
-		tbitem4: {
+		deuiaction2: {
 			caption: "Edit",
 			tip: "Edit {0}",
 		},
-		tbitem6: {
-			caption: "Copy",
-			tip: "Copy {0}",
-		},
-		tbitem7: {
-			caption: "-",
+		seperator1: {
+			caption: "",
 			tip: "",
 		},
-		tbitem8: {
+		deuiaction4: {
 			caption: "Remove",
 			tip: "Remove {0}",
 		},
-		tbitem9: {
-			caption: "-",
+		seperator2: {
+			caption: "",
 			tip: "",
 		},
-		tbitem13: {
-			caption: "Export",
-			tip: "Export {0} Data To Excel",
+		deuiaction5: {
+			caption: "提交测试",
+			tip: "提交测试",
 		},
-		tbitem10: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem16: {
-			caption: "其它",
-			tip: "其它",
-		},
-		tbitem21: {
-			caption: "Export Data Model",
-			tip: "导出数据模型",
-		},
-		tbitem23: {
-			caption: "数据导入",
-			tip: "数据导入",
-		},
-		tbitem17: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem19: {
-			caption: "Filter",
-			tip: "Filter",
-		},
-		tbitem18: {
-			caption: "Help",
-			tip: "Help",
+		deuiaction6: {
+			caption: "查看Bug",
+			tip: "查看Bug",
 		},
 	},
 	editviewtoolbar_toolbar: {
