@@ -6,7 +6,7 @@ import OptionViewEngine from '@engine/view/option-view-engine';
 import BugUIService from '@/uiservice/bug/bug-ui-service';
 
 /**
- * 解决Bug视图基类
+ * 激活Bug视图基类
  *
  * @export
  * @class BugActivationViewBase
