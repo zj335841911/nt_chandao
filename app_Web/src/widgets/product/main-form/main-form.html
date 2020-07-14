@@ -39,8 +39,7 @@
   :service="service"
   :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchLine'}"
   valueitem='line' 
-  :value="data.linename" 
-  editortype="" 
+  :value="data.linename"
   :pickupView="{ viewname: 'module-pickup-view', title: $t('entities.module.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'modules', parameterName: 'module' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
   style=""  
   @formitemvaluechange="onFormItemValueChange($event)">

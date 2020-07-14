@@ -324,6 +324,7 @@ export class EditFormControlBase extends FormControlBase {
             Object.assign(arg, data);
             Object.assign(arg, this.context);
             if (ifStateNext && this.drCount > 0) {
+                this.drcounter = this.drCount;
                 this.drsaveopt = opt;
                 this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存
                 this.saveState = resolve;

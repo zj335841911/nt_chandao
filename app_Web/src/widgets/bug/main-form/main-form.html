@@ -27,8 +27,7 @@
   :service="service"
   :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchDefault'}"
   valueitem='product' 
-  :value="data.productname" 
-  editortype="" 
+  :value="data.productname"
   :pickupView="{ viewname: 'product-pickup-view', title: $t('entities.product.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'products', parameterName: 'product' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
   style=""  
   @formitemvaluechange="onFormItemValueChange($event)">
@@ -112,8 +111,7 @@
   :service="service"
   :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchBugProject'}"
   valueitem='project' 
-  :value="data.projectname" 
-  editortype="" 
+  :value="data.projectname"
   :pickupView="{ viewname: 'project-grid-view', title: $t('entities.project.views.gridview.title'), deResParameters: [], parameters: [{ pathName: 'projects', parameterName: 'project' }, { pathName: 'gridview', parameterName: 'gridview' } ], placement:'' }"
   style=""  
   @formitemvaluechange="onFormItemValueChange($event)">
@@ -287,7 +285,7 @@
   :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchDefault'}"
   valueitem='story' 
   :value="data.storyname" 
-  editortype="dropdown" 
+  editortype="dropdown"
   style="" 
   @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
@@ -312,7 +310,7 @@
   :acParams="{ serviceName: 'TaskService', interfaceName: 'FetchDefault'}"
   valueitem='task' 
   :value="data.taskname" 
-  editortype="dropdown" 
+  editortype="dropdown"
   style="" 
   @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
