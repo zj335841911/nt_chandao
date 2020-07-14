@@ -60,7 +60,7 @@
   :context="context"
   :viewparams="viewparams"
   :localContext ='{ PROJECT:"%project%", ALLMODULES:"%allmodules%" }' 
-  :localParam ='{ }' 
+  :localParam ='{ project:"%project%", allmodules:"%allmodules%" }' 
   :disabled="detailsModel.modulename.disabled"
   name='modulename' 
   deMajorField='name'
@@ -116,8 +116,8 @@
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
+  :localContext ='{ PROJECT:"%project%" }' 
+  :localParam ='{ project:"%project%" }' 
   :disabled="detailsModel.storyname.disabled"
   name='storyname' 
   deMajorField='title'
