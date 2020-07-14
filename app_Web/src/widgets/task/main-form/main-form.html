@@ -173,7 +173,7 @@
 </i-col>
 <i-col v-show="detailsModel.formitemex1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='formitemex1' :itemRules="this.rules.formitemex1" class='' :caption="$t('entities.task.main_form.details.formitemex1')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.formitemex1.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-range-editor v-model="data.formitemex1" :activeData="data" :disabled="detailsModel.formitemex1.disabled" name="formitemex1" editorType="TEXTBOX" format="" :refFormItem="['estsarted','deadline']" @formitemvaluechange="onFormItemValueChange($event)" style=""></app-range-editor>
+    <app-range-editor v-model="data.formitemex1" :activeData="data" :disabled="detailsModel.formitemex1.disabled" name="formitemex1" editorType="DATEPICKEREX_NOTIME" format="YYYY-MM-DD" :refFormItem="['estsarted','deadline']" @formitemvaluechange="onFormItemValueChange($event)" style=""></app-range-editor>
 </app-form-item>
 
 </i-col>

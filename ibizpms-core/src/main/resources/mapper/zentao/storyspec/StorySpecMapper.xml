@@ -51,7 +51,7 @@
     </sql>
     <!--数据查询[Version]-->
     <sql id="Version" databaseId="mysql">
-		<![CDATA[ SELECT concat(t1.`STORY`,'__',t1.`VERSION`) AS `ID`, t1.`STORY`, t1.`VERSION` FROM `zt_storyspec` t1  
+		<![CDATA[ SELECT concat(t1.`STORY`,'__',t1.`VERSION`) AS `ID`, t1.`STORY`, t1.`VERSION`, CONCAT('#',t1.`version`) as `TITLE` FROM `zt_storyspec` t1  
 			]]>
     </sql>
     <!--数据查询[View]-->
