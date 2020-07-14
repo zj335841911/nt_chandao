@@ -47,6 +47,9 @@ export default class Main_ReportSubModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'srfmstag',
+        },
+        {
           name: 'estimate',
           prop: 'estimate',
           dataType: 'FLOAT',

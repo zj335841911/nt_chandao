@@ -197,6 +197,34 @@ export class MainToolbarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public dashboard_sysportlet3_u77b985d_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:StoryUIService  = new StoryUIService();
+        curUIService.Story_Activite(datas,contextJO, paramJO,  $event, xData,this,"Story");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public dashboard_sysportlet3_u80095ee_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -345,6 +373,11 @@ export class MainToolbarPortletBase extends MainControlBase {
         iconcls: "fa fa-power-off",
         icon: "",
         },
+        { viewlogicname:"dashboard_sysportlet3_u77b985d_click",
+        text: "激活",
+        iconcls: null,
+        icon: null,
+        },
         { viewlogicname:"dashboard_sysportlet3_u80095ee_click",
         text: "编辑",
         iconcls: "fa fa-edit",
@@ -377,6 +410,9 @@ export class MainToolbarPortletBase extends MainControlBase {
         }
         if(Object.is($event,'dashboard_sysportlet3_u7e5d174_click')){
             this.dashboard_sysportlet3_u7e5d174_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet3_u77b985d_click')){
+            this.dashboard_sysportlet3_u77b985d_click(null);
         }
         if(Object.is($event,'dashboard_sysportlet3_u80095ee_click')){
             this.dashboard_sysportlet3_u80095ee_click(null);

@@ -33,6 +33,7 @@ public interface IStoryService extends IService<Story>{
     void removeBatch(Collection<BigInteger> idList) ;
     Story get(BigInteger key) ;
     Story getDraft(Story et) ;
+    Story activate(Story et) ;
     Story assignTo(Story et) ;
     Story batchAssignTo(Story et) ;
     Story batchChangeBranch(Story et) ;
