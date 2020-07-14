@@ -20,3 +20,6 @@ import { Main_EditModeEditFormBase } from './main-edit-mode-form-base';
 @VueLifeCycleProcessing()
 export default class Main_EditModeEditForm extends Main_EditModeEditFormBase { }
 </script>
+<style lang='less'>
+@import './main-edit-mode-form.less';
+</style>
