@@ -389,4 +389,12 @@ export interface Task {
      * @memberof Task
      */
     isleaf?: any;
+
+    /**
+     * 所有模块
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    allmodules?: any;
 }

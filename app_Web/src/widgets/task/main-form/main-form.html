@@ -59,14 +59,14 @@
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :localContext ='{ PROJECT:"%project%" }' 
+  :localContext ='{ PROJECT:"%project%", ALLMODULES:"%allmodules%" }' 
   :localParam ='{ }' 
   :disabled="detailsModel.modulename.disabled"
   name='modulename' 
   deMajorField='name'
   deKeyField='projectmodule'
   :service="service"
-  :acParams="{ serviceName: 'ProjectModuleService', interfaceName: 'FetchDefault'}"
+  :acParams="{ serviceName: 'ProjectModuleService', interfaceName: 'FetchTaskModules'}"
   valueitem='module' 
   :value="data.modulename" 
   editortype="dropdown" 
@@ -76,9 +76,9 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
-    <app-form-item name='formitem' :itemRules="this.rules.formitem" class='' :caption="$t('entities.task.main_form.details.formitem')" uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true" :error="detailsModel.formitem.error" :isEmptyCaption="false" labelPos="RIGHT">
-    <app-switch name='formitem' :value="this.data.formitem" @change="($event)=>{this.data.formitem = $event} " :disabled="detailsModel.formitem.disabled" style=""></app-switch>
+<i-col v-show="detailsModel.allmodules.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+    <app-form-item name='allmodules' :itemRules="this.rules.allmodules" class='' :caption="$t('entities.task.main_form.details.allmodules')" uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true" :error="detailsModel.allmodules.error" :isEmptyCaption="false" labelPos="RIGHT">
+    <app-switch name='allmodules' :value="this.data.allmodules" @change="($event)=>{this.data.allmodules = $event} " :disabled="detailsModel.allmodules.disabled" style=""></app-switch>
 </app-form-item>
 
 </i-col>
@@ -123,7 +123,7 @@
   deMajorField='title'
   deKeyField='story'
   :service="service"
-  :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchDefault'}"
+  :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchStoryRelated'}"
   valueitem='story' 
   :value="data.storyname" 
   editortype="dropdown" 

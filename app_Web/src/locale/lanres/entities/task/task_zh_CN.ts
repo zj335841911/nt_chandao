@@ -48,6 +48,7 @@ export default {
     currentconsumed: "本次消耗",
     totaltime: "总计耗时",
     isleaf: "是否子任务",
+    allmodules: "所有模块",
   },
 	views: {
 		assigntaskview: {
@@ -97,6 +98,10 @@ export default {
 		gridview9_assignedtome: {
 			caption: "任务",
       		title: "任务表格视图",
+		},
+		activationtaskview: {
+			caption: "激活任务",
+      		title: "激活任务",
 		},
 		workinfoeditview9: {
 			caption: "工时信息",
@@ -151,7 +156,7 @@ export default {
 			project: "所属项目", 
 			type: "任务类型", 
 			modulename: "所属模块", 
-			formitem: "所有模块", 
+			allmodules: "所有模块", 
 			assignedto: "指派给", 
 			formitem1: "多人任务", 
 			story: "相关需求", 
@@ -238,6 +243,28 @@ export default {
 		uiactions: {
 		},
 	},
+	activation_form: {
+		details: {
+			druipart1: "", 
+			grouppanel1: "分组面板", 
+			group1: "任务基本信息", 
+			formpage1: "基本信息", 
+			srfupdatedate: "最后修改日期", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "任务名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			assignedto: "指派给", 
+			left: "预计剩余", 
+			comment: "备注", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
 	completeform_form: {
 		details: {
 			druipart1: "", 
@@ -292,6 +319,7 @@ export default {
 			projectname: "所属项目", 
 			project: "所属项目", 
 			modulename: "所属模块", 
+			allmodules: "所有模块", 
 			storyname: "相关需求", 
 			story: "相关需求", 
 			parentname: "父任务", 

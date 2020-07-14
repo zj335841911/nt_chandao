@@ -159,6 +159,9 @@ export default class MainModel {
       {
         name: 'isleaf',
       },
+      {
+        name: 'allmodules',
+      },
     ]
   }
 

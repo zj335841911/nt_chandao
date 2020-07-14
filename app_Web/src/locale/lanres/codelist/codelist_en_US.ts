@@ -80,6 +80,11 @@ export default {
         "CANCELLED": "已取消",
         "empty": ""
     },
+    YesNo: {
+        "1": "是",
+        "0": "否",
+        "empty": ""
+    },
     Bug__os: {
         "all": "全部",
         "windows": "Windows",

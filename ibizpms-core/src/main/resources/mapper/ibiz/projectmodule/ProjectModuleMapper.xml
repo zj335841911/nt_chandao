@@ -82,6 +82,15 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据集合[TaskModules]-->
+	 <select id="searchTaskModules"  parameterType="cn.ibizlab.pms.core.ibiz.filter.ProjectModuleSearchContext"  resultMap="ProjectModuleResultMap">
+         select t1.* from (
+                <include refid="TaskModules" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据查询[ByPath]-->
     <sql id="ByPath" databaseId="mysql">
 		<![CDATA[ SELECT t1.`BRANCH`, t1.`DELETED`, t1.`GRADE`, t1.`ID`, (CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`, t1.`NAME`, t1.`ORDER`, t1.`OWNER`, t1.`PARENT`, t1.`PATH`, t1.`ROOT`, t1.`SHORT`, t1.`TYPE` FROM `zt_module` t1  
@@ -116,6 +125,13 @@
 		<![CDATA[ SELECT t1.`BRANCH`, t1.`DELETED`, t1.`GRADE`, t1.`ID`, (CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`, t1.`NAME`, t1.`ORDER`, t1.`OWNER`, t1.`PARENT`, t21.`NAME` AS `PARENTNAME`, t1.`PATH`, t1.`ROOT`, t11.`NAME` AS `ROOTNAME`, t1.`SHORT`, t1.`TYPE` FROM `zt_module` t1  LEFT JOIN zt_project t11 ON t1.ROOT = t11.ID  LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID  
 					 WHERE 	t1.DELETED = '0'
 						 AND ( t1.`TYPE` = 'task'  AND  ( t1.`PARENT` IS NULL  OR  t1.`PARENT` = 0 ) )
+			]]>
+    </sql>
+    <!--数据查询[TaskModules]-->
+    <sql id="TaskModules" databaseId="mysql">
+		<![CDATA[ SELECT t1.`BRANCH`, t1.`DELETED`, t1.`GRADE`, t1.`ID`, (CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`, t1.`NAME`, t1.`ORDER`, t1.`OWNER`, t1.`PARENT`, t21.`NAME` AS `PARENTNAME`, t1.`PATH`, t1.`ROOT`, t11.`NAME` AS `ROOTNAME`, t1.`SHORT`, t1.`TYPE` FROM `zt_module` t1  LEFT JOIN zt_project t11 ON t1.ROOT = t11.ID  LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID  
+					 WHERE 	t1.DELETED = '0'
+						 AND ( ( t1.`type` = 'task' and t1.`ROOT` = #{srf.webcontext.project} )  or  (#{srf.webcontext.allmodules} = '1' and t1.`type` = 'story' and t1.`root` in (select product from zt_projectproduct where project =  #{srf.webcontext.project})))
 			]]>
     </sql>
     <!--数据查询[View]-->

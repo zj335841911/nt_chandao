@@ -389,4 +389,12 @@ export interface SubTask {
      * @memberof SubTask
      */
     isleaf?: any;
+
+    /**
+     * 所有模块
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    allmodules?: any;
 }

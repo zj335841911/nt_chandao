@@ -416,6 +416,14 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JsonProperty("isleaf")
     private String isleaf;
 
+    /**
+     * 属性 [ALLMODULES]
+     *
+     */
+    @JSONField(name = "allmodules")
+    @JsonProperty("allmodules")
+    private String allmodules;
+
 
     /**
      * 设置 [CANCELEDBY]
