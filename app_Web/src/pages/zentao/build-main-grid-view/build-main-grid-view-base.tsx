@@ -496,7 +496,7 @@ export class BuildMainGridViewBase extends GridViewBase {
             ]
         }
         const parameters: any[] = [
-            { pathName: 'builds', parameterName: 'build' },
+            { pathName: 'bugs', parameterName: 'bug' },
         ];
         const _this: any = this;
         const openDrawer = (view: any, data: any) => {
@@ -512,10 +512,10 @@ export class BuildMainGridViewBase extends GridViewBase {
             });
         }
         const view: any = {
-            viewname: 'build-main-view', 
+            viewname: 'bug-main-edit-view', 
             height: 0, 
             width: 0,  
-            title: this.$t('entities.build.views.mainview.title'),
+            title: this.$t('entities.bug.views.maineditview.title'),
             placement: 'DRAWER_RIGHT',
         };
         openDrawer(view, data);
