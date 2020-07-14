@@ -69,6 +69,10 @@ export default class DropDownList extends Vue {
             } else {
                 this.value = this.itemValue.toString();
             }
+            // 代码表集合中不存在改选项，重新准备集合
+            if(this.value && !this.items.find((item: any) => Object.is(this.value, item.value))) {
+                this.readyCodelist();
+            }
         } catch (error) {
             console.log('下拉列表，值转换失败');
         }
@@ -264,7 +268,16 @@ export default class DropDownList extends Vue {
      * @memberof DropDownList
      */
     public created() {
-      if(this.tag && Object.is(this.codelistType,"STATIC")){
+        this.readyCodelist();
+    }
+    
+    /**
+     * 准备代码表
+     *
+     * @memberof DropDownList
+     */
+    public readyCodelist() {
+        if(this.tag && Object.is(this.codelistType,"STATIC")){
           const codelist = this.$store.getters.getCodeList(this.tag);
           if (codelist) {
               this.formatCodeList(JSON.parse(JSON.stringify(codelist.items)));
@@ -285,7 +298,7 @@ export default class DropDownList extends Vue {
           });
       }
     }
-    
+
     /**
      * 下拉点击事件
      *

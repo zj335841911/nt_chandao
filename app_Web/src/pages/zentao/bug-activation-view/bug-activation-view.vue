@@ -6,7 +6,7 @@ import { BugActivationViewBase } from './bug-activation-view-base';
 import view_form from '@widgets/bug/activation-form/activation-form.vue';
 
 /**
- * 解决Bug视图
+ * 激活Bug视图
  *
  * @export
  * @class BugActivationView

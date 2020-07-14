@@ -280,8 +280,8 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "36337c95eb6a21369e5673e64e708925"
         },
         "bugactivationview": {
-            "title": "解决Bug",
-            "caption": "解决Bug",
+            "title": "激活Bug",
+            "caption": "激活Bug",
             "viewtype": "DEOPTVIEW",
             "viewmodule": "zentao",
             "viewname": "BugActivationView",

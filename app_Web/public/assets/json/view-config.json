@@ -340,8 +340,8 @@
         "memo": ""
     },
     "bugactivationview": {
-        "title": "解决Bug",
-        "caption": "解决Bug",
+        "title": "激活Bug",
+        "caption": "激活Bug",
         "viewtype": "DEOPTVIEW",
         "viewmodule": "zentao",
         "viewname": "BugActivationView",

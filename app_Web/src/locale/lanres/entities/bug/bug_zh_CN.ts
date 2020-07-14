@@ -89,8 +89,8 @@ export default {
       		title: "关联Bug",
 		},
 		activationview: {
-			caption: "解决Bug",
-      		title: "解决Bug",
+			caption: "激活Bug",
+      		title: "激活Bug",
 		},
 		buglifeeditview9: {
 			caption: "Bug",
