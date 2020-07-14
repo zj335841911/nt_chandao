@@ -1001,6 +1001,22 @@ export default class CaseServiceBase extends EntityService {
     }
 
     /**
+     * BugCreateCase接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async BugCreateCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // URI参数传递情况未实现
+        // URI参数传递情况未实现
+        // URI参数传递情况未实现
+        // URI参数传递情况未实现
+    }
+
+    /**
      * FetchTempCurSuite接口方法
      *
      * @param {*} [context={}]

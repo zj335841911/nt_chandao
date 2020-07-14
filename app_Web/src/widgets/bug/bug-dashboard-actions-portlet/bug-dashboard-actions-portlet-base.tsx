@@ -197,6 +197,34 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public dashboard_sysportlet5_u1b279b1_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:BugUIService  = new BugUIService();
+        curUIService.Bug_Activation(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public dashboard_sysportlet5_uf577fc4_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -215,6 +243,34 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         // 界面行为
         const curUIService:BugUIService  = new BugUIService();
         curUIService.Bug_toStory(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet5_ucf86385_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:BugUIService  = new BugUIService();
+        curUIService.Bug_BuildUseCase(datas,contextJO, paramJO,  $event, xData,this,"Bug");
     }
 
     /**
@@ -284,8 +340,18 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         iconcls: "fa fa-eye",
         icon: "",
         },
+        { viewlogicname:"dashboard_sysportlet5_u1b279b1_click",
+        text: "激活",
+        iconcls: null,
+        icon: null,
+        },
         { viewlogicname:"dashboard_sysportlet5_uf577fc4_click",
         text: "提需求",
+        iconcls: null,
+        icon: null,
+        },
+        { viewlogicname:"dashboard_sysportlet5_ucf86385_click",
+        text: "建用例",
         iconcls: null,
         icon: null,
         }
@@ -312,8 +378,14 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         if(Object.is($event,'dashboard_sysportlet5_u279d3f0_click')){
             this.dashboard_sysportlet5_u279d3f0_click(null);
         }
+        if(Object.is($event,'dashboard_sysportlet5_u1b279b1_click')){
+            this.dashboard_sysportlet5_u1b279b1_click(null);
+        }
         if(Object.is($event,'dashboard_sysportlet5_uf577fc4_click')){
             this.dashboard_sysportlet5_uf577fc4_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet5_ucf86385_click')){
+            this.dashboard_sysportlet5_ucf86385_click(null);
         }
     }
 
