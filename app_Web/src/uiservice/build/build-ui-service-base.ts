@@ -154,7 +154,7 @@ export default class BuildUIServiceBase extends UIService {
         }
         const parameters: any[] = [
             { pathName: 'bugs', parameterName: 'bug' },
-            { pathName: 'gridview', parameterName: 'gridview' },
+            { pathName: 'buildsubgridview_new', parameterName: 'buildsubgridview_new' },
         ];
         const openIndexViewTab = (data: any) => {
             const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
