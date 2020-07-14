@@ -56,9 +56,15 @@ export default class StorySpecModel {
         dataType: 'PICKUP',
       },
       {
+        name: 'formitem',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
+      },
+      {
+        name: 'formitem1',
       },
       {
         name: 'title',
