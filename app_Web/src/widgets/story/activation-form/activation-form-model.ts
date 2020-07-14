@@ -56,11 +56,6 @@ export default class ActivationModel {
         dataType: 'TEXT',
       },
       {
-        name: 'status',
-        prop: 'status',
-        dataType: 'SSCODELIST',
-      },
-      {
         name: 'comment',
         prop: 'comment',
         dataType: 'HTMLTEXT',

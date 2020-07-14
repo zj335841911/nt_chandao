@@ -401,7 +401,6 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			assignedto: "指派给", 
-			status: "当前状态", 
 			comment: "备注", 
 			id: "编号", 
 		},
