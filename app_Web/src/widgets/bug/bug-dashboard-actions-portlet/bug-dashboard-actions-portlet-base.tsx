@@ -169,6 +169,34 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public dashboard_sysportlet5_ubef0a95_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:BugUIService  = new BugUIService();
+        curUIService.Bug_AssingToBug(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public dashboard_sysportlet5_u279d3f0_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -335,6 +363,11 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         iconcls: "fa fa-check-square-o",
         icon: "",
         },
+        { viewlogicname:"dashboard_sysportlet5_ubef0a95_click",
+        text: "指派",
+        iconcls: null,
+        icon: null,
+        },
         { viewlogicname:"dashboard_sysportlet5_u279d3f0_click",
         text: "确认",
         iconcls: "fa fa-eye",
@@ -374,6 +407,9 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         }
         if(Object.is($event,'dashboard_sysportlet5_u84080b5_click')){
             this.dashboard_sysportlet5_u84080b5_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet5_ubef0a95_click')){
+            this.dashboard_sysportlet5_ubef0a95_click(null);
         }
         if(Object.is($event,'dashboard_sysportlet5_u279d3f0_click')){
             this.dashboard_sysportlet5_u279d3f0_click(null);
