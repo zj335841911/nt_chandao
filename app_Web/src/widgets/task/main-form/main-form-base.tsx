@@ -78,7 +78,7 @@ export class MainEditFormBase extends EditFormControlBase {
         project: null,
         type: null,
         modulename: null,
-        formitem: null,
+        allmodules: null,
         assignedto: null,
         formitem1: null,
         story: null,
@@ -152,7 +152,7 @@ export class MainEditFormBase extends EditFormControlBase {
 
         modulename: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'modulename', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        formitem: new FormItemModel({ caption: '所有模块', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        allmodules: new FormItemModel({ caption: '所有模块', detailType: 'FORMITEM', name: 'allmodules', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -183,4 +183,14 @@ export class MainEditFormBase extends EditFormControlBase {
         module: new FormItemModel({ caption: 'id', detailType: 'FORMITEM', name: 'module', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
     };
+
+    /**
+     * 新建默认值
+     * @memberof MainEditFormBase
+     */
+    public createDefault(){                    
+        if (this.data.hasOwnProperty('allmodules')) {
+            this.data['allmodules'] = '1';
+        }
+    }
 }

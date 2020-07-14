@@ -255,6 +255,27 @@ public class ProjectModuleResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-searchTaskModules-all')")
+	@ApiOperation(value = "获取任务模块", tags = {"任务模块" } ,notes = "获取任务模块")
+    @RequestMapping(method= RequestMethod.GET , value="/projectmodules/fetchtaskmodules")
+	public ResponseEntity<List<ProjectModuleDTO>> fetchTaskModules(ProjectModuleSearchContext context) {
+        Page<ProjectModule> domains = projectmoduleService.searchTaskModules(context) ;
+        List<ProjectModuleDTO> list = projectmoduleMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-searchTaskModules-all')")
+	@ApiOperation(value = "查询任务模块", tags = {"任务模块" } ,notes = "查询任务模块")
+    @RequestMapping(method= RequestMethod.POST , value="/projectmodules/searchtaskmodules")
+	public ResponseEntity<Page<ProjectModuleDTO>> searchTaskModules(@RequestBody ProjectModuleSearchContext context) {
+        Page<ProjectModule> domains = projectmoduleService.searchTaskModules(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(projectmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Create-all')")
     @ApiOperation(value = "根据项目建立任务模块", tags = {"任务模块" },  notes = "根据项目建立任务模块")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectmodules")
@@ -488,6 +509,29 @@ public class ProjectModuleResource {
 	public ResponseEntity<Page<ProjectModuleDTO>> searchProjectModuleRoot_TaskByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectModuleSearchContext context) {
         context.setN_root_eq(project_id);
         Page<ProjectModule> domains = projectmoduleService.searchRoot_Task(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(projectmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-searchTaskModules-all')")
+	@ApiOperation(value = "根据项目获取任务模块", tags = {"任务模块" } ,notes = "根据项目获取任务模块")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/projectmodules/fetchtaskmodules")
+	public ResponseEntity<List<ProjectModuleDTO>> fetchProjectModuleTaskModulesByProject(@PathVariable("project_id") BigInteger project_id,ProjectModuleSearchContext context) {
+        context.setN_root_eq(project_id);
+        Page<ProjectModule> domains = projectmoduleService.searchTaskModules(context) ;
+        List<ProjectModuleDTO> list = projectmoduleMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-searchTaskModules-all')")
+	@ApiOperation(value = "根据项目查询任务模块", tags = {"任务模块" } ,notes = "根据项目查询任务模块")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/projectmodules/searchtaskmodules")
+	public ResponseEntity<Page<ProjectModuleDTO>> searchProjectModuleTaskModulesByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectModuleSearchContext context) {
+        context.setN_root_eq(project_id);
+        Page<ProjectModule> domains = projectmoduleService.searchTaskModules(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

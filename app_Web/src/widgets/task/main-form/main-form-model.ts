@@ -76,7 +76,9 @@ export default class MainModel {
         dataType: 'PICKUPTEXT',
       },
       {
-        name: 'formitem',
+        name: 'allmodules',
+        prop: 'allmodules',
+        dataType: 'TEXT',
       },
       {
         name: 'assignedto',

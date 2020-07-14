@@ -1,25 +1,22 @@
 import { Http,Util,Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import TaskService from '@/service/task/task-service';
-import MainEditModel from './main-edit-form-model';
-import ProjectService from '@/service/project/project-service';
-import ProjectModuleService from '@/service/project-module/project-module-service';
-import StoryService from '@/service/story/story-service';
+import ActivationModel from './activation-form-model';
 
 
 /**
- * MainEdit 部件服务对象
+ * Activation 部件服务对象
  *
  * @export
- * @class MainEditService
+ * @class ActivationService
  */
-export default class MainEditService extends ControlService {
+export default class ActivationService extends ControlService {
 
     /**
      * 任务服务对象
      *
      * @type {TaskService}
-     * @memberof MainEditService
+     * @memberof ActivationService
      */
     public appEntityService: TaskService = new TaskService({ $store: this.getStore() });
 
@@ -27,46 +24,22 @@ export default class MainEditService extends ControlService {
      * 设置从数据模式
      *
      * @type {boolean}
-     * @memberof MainEditService
+     * @memberof ActivationService
      */
     public setTempMode(){
         this.isTempMode = false;
     }
 
     /**
-     * Creates an instance of MainEditService.
+     * Creates an instance of ActivationService.
      * 
      * @param {*} [opts={}]
-     * @memberof MainEditService
+     * @memberof ActivationService
      */
     constructor(opts: any = {}) {
         super(opts);
-        this.model = new MainEditModel();
+        this.model = new ActivationModel();
     }
-
-    /**
-     * 项目服务对象
-     *
-     * @type {ProjectService}
-     * @memberof MainEditService
-     */
-    public projectService: ProjectService = new ProjectService();
-
-    /**
-     * 任务模块服务对象
-     *
-     * @type {ProjectModuleService}
-     * @memberof MainEditService
-     */
-    public projectmoduleService: ProjectModuleService = new ProjectModuleService();
-
-    /**
-     * 需求服务对象
-     *
-     * @type {StoryService}
-     * @memberof MainEditService
-     */
-    public storyService: StoryService = new StoryService();
 
     /**
      * 处理数据
@@ -74,7 +47,7 @@ export default class MainEditService extends ControlService {
      * @private
      * @param {Promise<any>} promise
      * @returns {Promise<any>}
-     * @memberof MainEditService
+     * @memberof ActivationService
      */
     private doItems(promise: Promise<any>, deKeyField: string, deName: string): Promise<any> {
         return new Promise((resolve, reject) => {
@@ -103,22 +76,10 @@ export default class MainEditService extends ControlService {
      * @param {*} data
      * @param {boolean} [isloading]
      * @returns {Promise<any[]>}
-     * @memberof  MainEditService
+     * @memberof  ActivationService
      */
     @Errorlog
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
-        if (Object.is(serviceName, 'ProjectService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.projectService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'project');
-        }
-        if (Object.is(serviceName, 'ProjectModuleService') && Object.is(interfaceName, 'FetchTaskModules')) {
-            return this.doItems(this.projectmoduleService.FetchTaskModules(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'projectmodule');
-        }
-        if (Object.is(serviceName, 'StoryService') && Object.is(interfaceName, 'FetchStoryRelated')) {
-            return this.doItems(this.storyService.FetchStoryRelated(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'story');
-        }
-        if (Object.is(serviceName, 'TaskService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.appEntityService.FetchDefault(JSON.parse(JSON.stringify(context)), data, isloading), 'id', 'task');
-        }
 
         return Promise.reject([])
     }
@@ -132,7 +93,7 @@ export default class MainEditService extends ControlService {
      * @param {boolean} [isloading]
      * @param {*} [localdata]
      * @returns {Promise<any>}
-     * @memberof MainEditService
+     * @memberof ActivationService
      */
     @Errorlog
     public wfstart(action: string,context: any = {},data: any = {}, isloading?: boolean,localdata?:any): Promise<any> {
@@ -164,7 +125,7 @@ export default class MainEditService extends ControlService {
      * @param {boolean} [isloading]
      * @param {*} [localdata]
      * @returns {Promise<any>}
-     * @memberof MainEditService
+     * @memberof ActivationService
      */
     @Errorlog
     public wfsubmit(action: string,context: any = {}, data: any = {}, isloading?: boolean,localdata?:any): Promise<any> {
@@ -196,7 +157,7 @@ export default class MainEditService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof MainEditService
+     * @memberof ActivationService
      */
     @Errorlog
     public add(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
@@ -226,7 +187,7 @@ export default class MainEditService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof MainEditService
+     * @memberof ActivationService
      */
     @Errorlog
     public delete(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
@@ -255,7 +216,7 @@ export default class MainEditService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof MainEditService
+     * @memberof ActivationService
      */
     @Errorlog
     public update(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
@@ -285,7 +246,7 @@ export default class MainEditService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof MainEditService
+     * @memberof ActivationService
      */
     @Errorlog
     public get(action: string,context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
@@ -315,7 +276,7 @@ export default class MainEditService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof MainEditService
+     * @memberof ActivationService
      */
     @Errorlog
     public loadDraft(action: string,context: any = {}, data: any = {}, isloading?: boolean): Promise<any> {
@@ -349,7 +310,7 @@ export default class MainEditService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof MainEditService
+     * @memberof ActivationService
      */
     @Errorlog
     public frontLogic(action:string,context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
@@ -376,7 +337,7 @@ export default class MainEditService extends ControlService {
      * 
      * @param action 行为 
      * @param data 数据
-     * @memberof MainEditService
+     * @memberof ActivationService
      */
     public handleRequestData(action: string,context:any, data: any = {},isMerge:boolean = false){
         let mode: any = this.getMode();

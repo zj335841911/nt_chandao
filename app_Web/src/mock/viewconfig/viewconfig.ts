@@ -879,6 +879,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "UserEditView",
             "viewtag": "83b1f6c353e9383e36b8d58eec845267"
         },
+        "taskactivationtaskview": {
+            "title": "激活任务",
+            "caption": "激活任务",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskActivationTaskView",
+            "viewtag": "843526ee13bf0af6fe937470853bf36b"
+        },
         "projectgridview": {
             "title": "项目",
             "caption": "项目",

@@ -120,7 +120,7 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.modulename.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col v-show="detailsModel.modulename.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
     <app-form-item name='modulename' :itemRules="this.rules.modulename" class='' :caption="$t('entities.task.mainedit_form.details.modulename')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.modulename.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-picker  
@@ -128,20 +128,26 @@
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :localContext ='{ PROJECT:"%project%" }' 
-  :localParam ='{ project:"%project%" }' 
+  :localContext ='{ PROJECT:"%project%", ALLMODULES:"%allmodules%" }' 
+  :localParam ='{ project:"%project%", allmodules:"%allmodules%" }' 
   :disabled="detailsModel.modulename.disabled"
   name='modulename' 
   deMajorField='name'
   deKeyField='projectmodule'
   :service="service"
-  :acParams="{ serviceName: 'ProjectModuleService', interfaceName: 'FetchDefault'}"
+  :acParams="{ serviceName: 'ProjectModuleService', interfaceName: 'FetchTaskModules'}"
   valueitem='module' 
   :value="data.modulename" 
   editortype="dropdown" 
   style="" 
   @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
+</app-form-item>
+
+</i-col>
+<i-col v-show="detailsModel.allmodules.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+    <app-form-item name='allmodules' :itemRules="this.rules.allmodules" class='' :caption="$t('entities.task.mainedit_form.details.allmodules')" uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true" :error="detailsModel.allmodules.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-switch name='allmodules' :value="this.data.allmodules" @change="($event)=>{this.data.allmodules = $event} " :disabled="detailsModel.allmodules.disabled" style=""></app-switch>
 </app-form-item>
 
 </i-col>
@@ -160,7 +166,7 @@
   deMajorField='title'
   deKeyField='story'
   :service="service"
-  :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchDefault'}"
+  :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchStoryRelated'}"
   valueitem='story' 
   :value="data.storyname" 
   editortype="dropdown" 

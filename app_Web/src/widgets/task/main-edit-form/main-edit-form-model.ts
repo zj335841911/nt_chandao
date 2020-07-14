@@ -94,6 +94,11 @@ export default class MainEditModel {
         dataType: 'PICKUPTEXT',
       },
       {
+        name: 'allmodules',
+        prop: 'allmodules',
+        dataType: 'TEXT',
+      },
+      {
         name: 'storyname',
         prop: 'storyname',
         dataType: 'PICKUPTEXT',

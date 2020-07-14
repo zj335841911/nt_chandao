@@ -24,6 +24,7 @@ public interface ProjectModuleMapper extends BaseMapper<ProjectModule>{
     Page<ProjectModule> searchRoot(IPage page, @Param("srf") ProjectModuleSearchContext context, @Param("ew") Wrapper<ProjectModule> wrapper) ;
     Page<ProjectModule> searchRoot_NoBranch(IPage page, @Param("srf") ProjectModuleSearchContext context, @Param("ew") Wrapper<ProjectModule> wrapper) ;
     Page<ProjectModule> searchRoot_Task(IPage page, @Param("srf") ProjectModuleSearchContext context, @Param("ew") Wrapper<ProjectModule> wrapper) ;
+    Page<ProjectModule> searchTaskModules(IPage page, @Param("srf") ProjectModuleSearchContext context, @Param("ew") Wrapper<ProjectModule> wrapper) ;
     @Override
     ProjectModule selectById(Serializable id);
     @Override

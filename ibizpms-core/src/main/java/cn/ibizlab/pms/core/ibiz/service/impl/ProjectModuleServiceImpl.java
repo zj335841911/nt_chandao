@@ -235,6 +235,15 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
         return new PageImpl<ProjectModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 任务模块
+     */
+    @Override
+    public Page<ProjectModule> searchTaskModules(ProjectModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchTaskModules(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<ProjectModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
     /**

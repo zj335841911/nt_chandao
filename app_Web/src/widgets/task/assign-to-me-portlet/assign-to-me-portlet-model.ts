@@ -159,6 +159,9 @@ export default class AssignToMeModel {
       {
         name: 'isleaf',
       },
+      {
+        name: 'allmodules',
+      },
     ]
   }
 

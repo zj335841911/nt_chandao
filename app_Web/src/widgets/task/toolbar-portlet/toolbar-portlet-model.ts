@@ -159,6 +159,9 @@ export default class ToolbarModel {
       {
         name: 'isleaf',
       },
+      {
+        name: 'allmodules',
+      },
     ]
   }
 

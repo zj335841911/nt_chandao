@@ -49,6 +49,7 @@ export default {
     currentconsumed: "本次消耗",
     totaltime: "总计耗时",
     isleaf: "是否子任务",
+    allmodules: "所有模块",
   },
 	views: {
 		subtasknewview: {

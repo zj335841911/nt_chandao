@@ -159,6 +159,9 @@ export default class WorkInfoModel {
       {
         name: 'isleaf',
       },
+      {
+        name: 'allmodules',
+      },
     ]
   }
 
