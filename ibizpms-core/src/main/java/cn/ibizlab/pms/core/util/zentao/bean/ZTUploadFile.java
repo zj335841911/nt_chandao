@@ -10,7 +10,6 @@ import java.io.Serializable;
 @Data
 public class ZTUploadFile implements Serializable {
 
-
     @JSONField(name = "objecttype")
     @JsonProperty("objecttype")
     private String objecttype;
