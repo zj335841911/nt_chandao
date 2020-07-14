@@ -27,8 +27,7 @@
   :service="service"
   :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchDefault'}"
   valueitem='product' 
-  :value="data.productname" 
-  editortype="" 
+  :value="data.productname"
   :pickupView="{ viewname: 'product-pickup-view', title: $t('entities.product.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'products', parameterName: 'product' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
   style=""  
   @formitemvaluechange="onFormItemValueChange($event)">
