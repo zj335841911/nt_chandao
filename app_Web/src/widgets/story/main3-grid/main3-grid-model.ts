@@ -47,6 +47,9 @@ export default class Main3Model {
           dataType: 'PICKUP',
         },
         {
+          name: 'srfmstag',
+        },
+        {
           name: 'estimate',
           prop: 'estimate',
           dataType: 'FLOAT',

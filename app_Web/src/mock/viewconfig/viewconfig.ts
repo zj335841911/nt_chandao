@@ -951,6 +951,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseMainEditView",
             "viewtag": "8e070a3e9ad67b127db723463198f9ac"
         },
+        "storyassigntoview": {
+            "title": "指派",
+            "caption": "指派",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryAssignToView",
+            "viewtag": "90d6a9dc6032a7a7e19fee6ac22fccc0"
+        },
         "storyreleasesubeditview": {
             "title": "需求",
             "caption": "需求",
@@ -1423,6 +1431,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductEditView",
             "viewtag": "e042a1dee405b0a853f315b39a375783"
         },
+        "storycloseview": {
+            "title": "需求关闭",
+            "caption": "需求关闭",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryCloseView",
+            "viewtag": "e0fbca7627cdd68765e173028b07f687"
+        },
         "productlistexpview": {
             "title": "产品列表导航视图",
             "caption": "产品统计",
@@ -1446,6 +1462,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "DeptPickupGridView",
             "viewtag": "e644f7976b08c3d7f14fd7e1d5329da8"
+        },
+        "storyactiviteview": {
+            "title": "需求激活",
+            "caption": "需求激活",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryActiviteView",
+            "viewtag": "e6797f4a1585954f5bb2f682880fa9d6"
         },
         "bugcloseview": {
             "title": "关闭Bug",

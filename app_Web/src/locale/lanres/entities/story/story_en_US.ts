@@ -107,6 +107,10 @@ export default {
 			caption: "需求",
       		title: "story表格视图",
 		},
+		assigntoview: {
+			caption: "指派",
+      		title: "指派",
+		},
 		releasesubeditview: {
 			caption: "需求",
       		title: "需求",
@@ -151,9 +155,17 @@ export default {
 			caption: "需求评审",
       		title: "需求评审",
 		},
+		closeview: {
+			caption: "需求关闭",
+      		title: "需求关闭",
+		},
 		editview_storychange: {
 			caption: "变更",
       		title: "需求编辑视图",
+		},
+		activiteview: {
+			caption: "需求激活",
+      		title: "需求激活",
 		},
 	},
 	storyspec_editmode_form: {
@@ -211,6 +223,26 @@ export default {
 			closedreason: "拒绝原因", 
 			assignedto: "指派给", 
 			reviewedby: "由谁评审", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
+	cosed_form: {
+		details: {
+			druipart1: "", 
+			grouppanel2: "分组面板", 
+			group1: "需求描述信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "需求名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			closedreason: "关闭原因", 
+			comment: "备注", 
 			id: "编号", 
 		},
 		uiactions: {
@@ -331,6 +363,47 @@ export default {
 			version: "", 
 			spec: "需求描述", 
 			verify: "验收标准", 
+		},
+		uiactions: {
+		},
+	},
+	assignto_form: {
+		details: {
+			druipart1: "", 
+			grouppanel2: "分组面板", 
+			group1: "需求描述信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "需求名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			assignedto: "指派给", 
+			comment: "备注", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
+	activation_form: {
+		details: {
+			druipart1: "", 
+			grouppanel2: "分组面板", 
+			group1: "需求描述信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "需求名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			assignedto: "指派给", 
+			status: "当前状态", 
+			comment: "备注", 
+			id: "编号", 
 		},
 		uiactions: {
 		},
