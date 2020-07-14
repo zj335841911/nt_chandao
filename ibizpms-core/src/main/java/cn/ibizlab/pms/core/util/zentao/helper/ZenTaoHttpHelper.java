@@ -1,8 +1,10 @@
 package cn.ibizlab.pms.core.util.zentao.helper;
 
+import cn.ibizlab.pms.core.util.zentao.bean.ZTCheckItem;
 import cn.ibizlab.pms.core.util.zentao.bean.ZTResult;
 import cn.ibizlab.pms.core.util.zentao.constants.ZenTaoConstants;
 import cn.ibizlab.pms.core.util.zentao.constants.ZenTaoMessage;
+import cn.ibizlab.pms.core.util.zentao.exception.ZenTaoException;
 import cn.ibizlab.pms.util.helper.HttpUtil;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -52,6 +54,7 @@ public class ZenTaoHttpHelper {
      * @param actionParams 表单参数
      * @param dataFormatMap 属性日期格式表
      * @param returnUrlRegexPrev 相应URL匹配前缀（例如：/zentao/product-view-）
+     * @param checkList 结果检查列表
      * @return true：成功，false：失败
      */
     public static boolean doZTRequest(JSONObject jo,
@@ -64,7 +67,8 @@ public class ZenTaoHttpHelper {
                                       List<String> urlParams,
                                       Map<String, Object> actionParams,
                                       Map<String, String> dataFormatMap,
-                                      String returnUrlRegexPrev
+                                      String returnUrlRegexPrev,
+                                      List<ZTCheckItem> checkList
     ) {
         try {
             // 本地抓包请打开注释
@@ -74,7 +78,7 @@ public class ZenTaoHttpHelper {
 //            System.setProperty("https.proxyPort", "8888");
             String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt, jo, urlParams);
             JSONObject rstJO = ZenTaoHttpHelper.doRequest(zentaoSid, url, httpMethod, formatJSON(jo, actionParams, dataFormatMap));
-            rst = ZenTaoHttpHelper.formatResult(rstJO, rst, returnUrlRegexPrev);
+            rst = ZenTaoHttpHelper.formatResult(rstJO, rst, returnUrlRegexPrev, checkList);
         } catch (Exception e) {
             String errMsg = e.getMessage();
             if (errMsg == null || errMsg.isEmpty()) {
@@ -83,6 +87,9 @@ public class ZenTaoHttpHelper {
             log.error(errMsg);
             rst.setSuccess(false);
             rst.setMessage(errMsg);
+        }
+        if (!rst.isSuccess()) {
+            throw new ZenTaoException(rst.getMessage());
         }
         return rst.isSuccess();
     }
@@ -450,10 +457,12 @@ public class ZenTaoHttpHelper {
      * }<br>
      *
      * @param rstJO
+     * @param rst
      * @param returnUrlRegexPrev
+     * @param checkList
      * @return
      */
-    public static ZTResult formatResultJSON(JSONObject rstJO, ZTResult rst, String returnUrlRegexPrev) {
+    public static ZTResult formatResultJSON(JSONObject rstJO, ZTResult rst, String returnUrlRegexPrev, List<ZTCheckItem> checkList) {
         if ("fail".equals(rstJO.getString("result"))) {
             JSONObject message = rstJO.getJSONObject("message");
             List<String> msgList = new ArrayList<>();
@@ -489,28 +498,20 @@ public class ZenTaoHttpHelper {
      * 解析返回结果<br>
      *
      * @param rstJO
+     * @param rst
+     * @param returnUrlRegexPrev
+     * @param checkList
      * @return
      */
-    public static ZTResult formatResult(JSONObject rstJO, ZTResult rst, String returnUrlRegexPrev) {
-        if (rstJO.containsKey("html")) {
-            return formatResultHTML(rstJO, rst);
+    public static ZTResult formatResult(JSONObject rstJO, ZTResult rst, String returnUrlRegexPrev, List<ZTCheckItem> checkList) {
+        if (checkList == null) {
+            checkList = new ArrayList<>();
         }
-        return formatResultJSON(rstJO, rst, returnUrlRegexPrev);
-    }
-
-    /**
-     * 返回结果为JSON（返回JSON无法解析出ID）<br>
-     * {<br>
-     *     "result":success/fail,<br>
-     *     "message":"xxx",<br>
-     *     "locate":"xxx-xxxx-xxxx.json"<br>
-     * }<br>
-     *
-     * @param rstJO
-     * @return
-     */
-    public static ZTResult formatResultJSON(JSONObject rstJO, ZTResult rst) {
-        return formatResultJSON(rstJO, rst, null);
+        checkList.addAll(genCommonCheckItems());
+        if (rstJO.containsKey("html")) {
+            return formatResultHTML(rstJO, rst, checkList);
+        }
+        return formatResultJSON(rstJO, rst, returnUrlRegexPrev, checkList);
     }
 
     /**
@@ -522,13 +523,66 @@ public class ZenTaoHttpHelper {
      *
      * @param rstJO
      * @param rst
+     * @param checkList
      * @return
      */
-    public static ZTResult formatResultHTML(JSONObject rstJO, ZTResult rst) {
-        rst.setSuccess(true);
+    public static ZTResult formatResultHTML(JSONObject rstJO, ZTResult rst, List<ZTCheckItem> checkList) {
+        String html = rstJO.getString("html");
         rst.setResult(rstJO);
-        rst.setMessage(rstJO.getString("html"));
+        rst.setSuccess(checkResult(rst, html, checkList));
+        if (rst.isSuccess() || rst.getMessage() == null) {
+            rst.setMessage(html);
+        }
         return rst;
     }
 
+    /**
+     * 检查目标字符串对象中是否包含检查列表中的值
+     *
+     * @param target
+     * @param checkList
+     * @return
+     */
+    public static boolean checkResult(ZTResult rst, String target, List<ZTCheckItem> checkList) {
+        if (checkList == null || checkList.isEmpty()) {
+            return true;
+        }
+        if (target == null || target.isEmpty()) {
+            return false;
+        }
+        for (ZTCheckItem checkItem : checkList) {
+            if (checkItem == null) {
+                continue;
+            }
+            if (!checkItem.check(target)) {
+                rst.setMessage(checkItem.getErrorMessage());
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 构建通用检查项
+     *
+     * @return
+     */
+    public static List<ZTCheckItem> genCommonCheckItems() {
+        List<ZTCheckItem> ztCheckItems = new ArrayList<>();
+
+//        // 用户未登录
+//        ZTCheckItem checkItem1 = new ZTCheckItem();
+//        checkItem1.setItem("/zentao/user-deny-");
+//        checkItem1.setNegative(true);
+//        ztCheckItems.add(checkItem1);
+
+        // 用户无操作权限
+        ZTCheckItem checkItem2 = new ZTCheckItem();
+        checkItem2.setItem("/zentao/user-deny-");
+        checkItem2.setNegative(true);
+        checkItem2.setErrorMessage(ZenTaoMessage.MSG_ERROR_0007);
+        ztCheckItems.add(checkItem2);
+
+        return ztCheckItems;
+    }
 }

@@ -2,7 +2,10 @@ package cn.ibizlab.pms.core.util.zentao.helper;
 
 import cn.ibizlab.pms.core.util.zentao.bean.ZTResult;
 import cn.ibizlab.pms.core.util.zentao.constants.ZenTaoConstants;
+import cn.ibizlab.pms.core.util.zentao.constants.ZenTaoMessage;
+import cn.ibizlab.pms.core.util.zentao.exception.ZenTaoException;
 import com.alibaba.fastjson.JSONObject;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpMethod;
 
 import java.util.HashMap;
@@ -12,6 +15,7 @@ import java.util.Map;
 /**
  * 【禅道接口-API】 辅助类
  */
+@Slf4j
 final public class ZTAPIHelper {
     // ----------
     // 接口模块
@@ -53,24 +57,25 @@ final public class ZTAPIHelper {
         String urlExt = ZenTaoConstants.ZT_URL_EXT;
         String actionName = ACTION_GETSESSIONID;
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_GETSESSIONID;
-        Map<String, Object> actionParams = null;
-        List<String> actionUrlParams = null;
 
         try {
             String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt);
             JSONObject rstJO = ZenTaoHttpHelper.doRequest(null, url, actionHttpMethod);
             rst.setResult(rstJO);
             if (!"success".equals(rstJO.getString("status")) || !rstJO.containsKey("data") || !rstJO.getString("data").contains("zentaosid")) {
-                rst.setMessage("禅道接口相应结果不正确");
+                rst.setMessage(ZenTaoMessage.MSG_ERROR_0006);
                 rst.setSuccess(false);
             } else {
                 rst.setSuccess(true);
             }
         } catch (Exception e) {
-            // 暂无log时，输出e.printStackTrace();
-            e.printStackTrace();
+            String errMsg = e.getMessage() != null ? e.getMessage() : ZenTaoMessage.MSG_ERROR_0001;
+            log.error(errMsg, e);
             rst.setSuccess(false);
-            rst.setMessage(e.getMessage() != null ? e.getMessage() : "调用禅道接口异常");
+            rst.setMessage(errMsg);
+        }
+        if (!rst.isSuccess()) {
+            throw new ZenTaoException(rst.getMessage());
         }
         return rst.isSuccess();
     }

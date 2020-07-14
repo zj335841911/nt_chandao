@@ -34,6 +34,15 @@ public class ZenTaoMessage implements InitializingBean {
     private String msg_error_0005;
     public static String MSG_ERROR_0005;
 
+    @Value("${zentao.msg.error.0006:禅道接口相应结果不正确}")
+    private String msg_error_0006;
+    public static String MSG_ERROR_0006;
+
+    @Value("${zentao.msg.error.0007:当前用户没有操作权限}")
+    private String msg_error_0007;
+    public static String MSG_ERROR_0007;
+
+
     @Override
     public void afterPropertiesSet() throws Exception {
         MSG_INFO_0001 = msg_info_0001;
@@ -44,5 +53,7 @@ public class ZenTaoMessage implements InitializingBean {
         MSG_ERROR_0003 = msg_error_0003;
         MSG_ERROR_0004 = msg_error_0004;
         MSG_ERROR_0005 = msg_error_0005;
+        MSG_ERROR_0006 = msg_error_0006;
+        MSG_ERROR_0007 = msg_error_0007;
     }
 }
