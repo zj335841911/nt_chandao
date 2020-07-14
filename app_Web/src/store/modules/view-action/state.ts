@@ -136,6 +136,7 @@ export const viewstate: any = {
                 '5890a810365fec51e801d2cffce44fde',
                 'c1e9611b6972b1877b75fa5d2c67aad6',
                 '37166f95166299e28f1a366b0b375d06',
+                'e897cf80a700c92025004c4696d9ae10',
                 '122af527bf38b47ddc53c882847b490e',
                 '443935a0b9d0fa8daf3131956a8bacc9',
                 'ec9a5987de12c718961f243f4034efea',
@@ -1720,6 +1721,16 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'e897cf80a700c92025004c4696d9ae10',
+            viewmodule: 'zentao',
+            viewname: 'BugAssingToView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
             ],
         },
         {

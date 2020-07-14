@@ -141,6 +141,10 @@ export default {
 			caption: "关闭Bug",
       		title: "关闭Bug",
 		},
+		assingtoview: {
+			caption: "指派Bug",
+      		title: "指派Bug",
+		},
 		dashboardmaineditview9: {
 			caption: "Bug",
       		title: "主信息",
@@ -312,6 +316,29 @@ export default {
 			assignedto: "指派给", 
 			files: "附件", 
 			comment: "备注", 
+		},
+		uiactions: {
+		},
+	},
+	assignto_form: {
+		details: {
+			grouppanel1: "分组面板", 
+			druipart1: "", 
+			grouppanel6: "历史记录", 
+			group1: "Bug基本信息", 
+			formpage1: "基本信息", 
+			srfupdatedate: "修改日期", 
+			srforikey: "", 
+			srfkey: "Bug编号", 
+			srfmajortext: "Bug标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			assignedto: "指派给", 
+			mailto: "抄送给", 
+			comment: "备注", 
+			id: "Bug编号", 
 		},
 		uiactions: {
 		},
