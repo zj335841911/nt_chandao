@@ -26,11 +26,11 @@ import java.util.Date;
 @Service("IBZZTFileService")
 public class IBZZTFileService implements IIBZZTFileService {
 
-    @Value("${zentao.filePath:/app/file/}")
+    /**
+     * 如果需要禅道系统查看文件，需要映射至禅道文件上传路径
+     */
+    @Value("${ibiz.filePath:/app/file/}")
     private String filePath;
-
-    @Value("${zentao.rootPath:/app/zentao/file/}")
-    private String rootPath;
 
     @Autowired
     private IFileService fileService;
@@ -57,14 +57,6 @@ public class IBZZTFileService implements IIBZZTFileService {
         if (!filePath.isEmpty() && !filePath.endsWith("/")) {
             filePath += "/";
         }
-        String rootPath = this.rootPath;
-        if (rootPath == null) {
-            rootPath = "";
-        }
-        rootPath = rootPath.replaceAll("\\\\", "/");
-        if (!rootPath.endsWith("/")) {
-            rootPath += "/";
-        }
         try {
             if (params != null && params.get("objecttype") != null) {
                 String md5FileName = fileName;
@@ -79,9 +71,9 @@ public class IBZZTFileService implements IIBZZTFileService {
                 md5FileName = DigestUtils.md5DigestAsHex(md5FileName.getBytes());
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");
                 String curDate = sdf.format(new Date(curTime));
-//                String fileFullPathWithoutExt = filePath + curDate + "/" + md5FileName;
-                String fileFullPath = filePath + curDate + "/" + md5FileName + extname;
-                File file = new File(rootPath + fileFullPath);
+                String fileShortPath = curDate + "/" + md5FileName + extname;
+                String fileFullPath = filePath + fileShortPath;
+                File file = new File(fileFullPath);
                 File parent = new File(file.getParent());
                 if(!parent.exists()) {
                     parent.mkdirs();
@@ -95,7 +87,7 @@ public class IBZZTFileService implements IIBZZTFileService {
                 String version = params.getString("version");
                 String extra = params.getString("extra");
 
-                ztFile.setPathname(fileFullPath);
+                ztFile.setPathname(fileShortPath);
                 ztFile.setTitle(fileName);
                 ztFile.setExtension(getExtensionName(fileName));
                 ztFile.setSize(new Long(multipartFile.getSize()).intValue());
@@ -135,14 +127,6 @@ public class IBZZTFileService implements IIBZZTFileService {
         if (!filePath.isEmpty() && !filePath.endsWith("/")) {
             filePath += "/";
         }
-        String rootPath = this.rootPath;
-        if (rootPath == null) {
-            rootPath = "";
-        }
-        rootPath = rootPath.replaceAll("\\\\", "/");
-        if (!rootPath.endsWith("/")) {
-            rootPath += "/";
-        }
 
         ZTDownloadFile downloadFile = new ZTDownloadFile();
         String dirpath = filePath + "ibizutil/" + fileId;
@@ -156,7 +140,7 @@ public class IBZZTFileService implements IIBZZTFileService {
         if (ztFile == null) {
             throw new InternalServerErrorException("文件不存在");
         }
-        File file = new File(rootPath + ztFile.getPathname());
+        File file = new File(filePath + ztFile.getPathname());
         if (!file.exists()) {
             throw new InternalServerErrorException("文件不存在");
         }
