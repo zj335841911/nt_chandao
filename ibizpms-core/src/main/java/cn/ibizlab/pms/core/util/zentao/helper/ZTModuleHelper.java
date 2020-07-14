@@ -1,8 +1,10 @@
 package cn.ibizlab.pms.core.util.zentao.helper;
 
+import cn.ibizlab.pms.core.util.zentao.bean.ZTCheckItem;
 import cn.ibizlab.pms.core.util.zentao.bean.ZTResult;
 import cn.ibizlab.pms.core.util.zentao.constants.ZenTaoConstants;
 import com.alibaba.fastjson.JSONObject;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpMethod;
 
 import java.util.ArrayList;
@@ -13,6 +15,7 @@ import java.util.Map;
 /**
  * 【禅道接口-Module】 辅助类
  */
+@Slf4j
 final public class ZTModuleHelper {
     // ----------
     // 接口模块
@@ -45,7 +48,6 @@ final public class ZTModuleHelper {
     private final static String  ACTION_AJAXGETMODULES = "ajaxGetModules";
     private final static String  ACTION_AJAXGETSONMODULES = "ajaxGetSonModules";
 
-
     // ----------
     // 接口行为HTTP方法（GET、POST）
     // ----------
@@ -61,7 +63,6 @@ final public class ZTModuleHelper {
     private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETDROPMENU = HttpMethod.POST;
     private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETMODULES = HttpMethod.POST;
     private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETSONMODULES = HttpMethod.POST;
-
 
     // ----------
     // 接口行为POST参数
@@ -79,7 +80,6 @@ final public class ZTModuleHelper {
     private final static Map<String, Object> ACTION_PARAMS_AJAXGETMODULES = new HashMap<>();
     private final static Map<String, Object> ACTION_PARAMS_AJAXGETSONMODULES = new HashMap<>();
 
-
     // ----------
     // 接口行为URL参数
     // ----------
@@ -96,6 +96,35 @@ final public class ZTModuleHelper {
     private final static List<String> ACTION_URL_PARAMS_AJAXGETMODULES = new ArrayList<>();
     private final static List<String> ACTION_URL_PARAMS_AJAXGETSONMODULES = new ArrayList<>();
 
+    // ----------
+    // 返回结果CheckList
+    // ----------
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_BROWSE = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_BROWSETASK = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_EDIT = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_FIX = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_UPDATEORDER = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_MANAGECHILD = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_DELETE = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_AJAXGETOPTIONMENU = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_AJAXGETDROPMENU = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_AJAXGETMODULES = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_AJAXGETSONMODULES = new ArrayList<>();
+
+    // ----------
+    // 返回URL正则
+    // ----------
+    private final static String ACTION_RETURNURL_BROWSE = null;
+    private final static String ACTION_RETURNURL_BROWSETASK = null;
+    private final static String ACTION_RETURNURL_EDIT = null;
+    private final static String ACTION_RETURNURL_FIX = null;
+    private final static String ACTION_RETURNURL_UPDATEORDER = null;
+    private final static String ACTION_RETURNURL_MANAGECHILD = null;
+    private final static String ACTION_RETURNURL_DELETE = null;
+    private final static String ACTION_RETURNURL_AJAXGETOPTIONMENU = null;
+    private final static String ACTION_RETURNURL_AJAXGETDROPMENU = null;
+    private final static String ACTION_RETURNURL_AJAXGETMODULES = null;
+    private final static String ACTION_RETURNURL_AJAXGETSONMODULES = null;
 
     // ----------
     // 接口行为POST参数设置
@@ -157,9 +186,10 @@ final public class ZTModuleHelper {
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_EDIT;
         Map<String, Object> actionParams = ACTION_PARAMS_EDIT;
         List<String> actionUrlParams = ACTION_URL_PARAMS_EDIT;
-        String returnUrlRegexPrev = null;
+        String returnUrlRegexPrev = ACTION_RETURNURL_EDIT;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_EDIT;
 
-        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
     }
 
     /**
@@ -178,11 +208,12 @@ final public class ZTModuleHelper {
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_DELETE;
         Map<String, Object> actionParams = ACTION_PARAMS_DELETE;
         List<String> actionUrlParams = ACTION_URL_PARAMS_DELETE;
-        String returnUrlRegexPrev = null;
+        String returnUrlRegexPrev = ACTION_RETURNURL_DELETE;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_DELETE;
 
         jo.put("confirm", "yes");
 
-        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
     }
 
     /**
@@ -201,9 +232,10 @@ final public class ZTModuleHelper {
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_FIX;
         Map<String, Object> actionParams = ACTION_PARAMS_FIX;
         List<String> actionUrlParams = ACTION_URL_PARAMS_FIX;
-        String returnUrlRegexPrev = null;
+        String returnUrlRegexPrev = ACTION_RETURNURL_FIX;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_FIX;
 
-        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
     }
 
 }

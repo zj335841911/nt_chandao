@@ -1,8 +1,10 @@
 package cn.ibizlab.pms.core.util.zentao.helper;
 
+import cn.ibizlab.pms.core.util.zentao.bean.ZTCheckItem;
 import cn.ibizlab.pms.core.util.zentao.bean.ZTResult;
 import cn.ibizlab.pms.core.util.zentao.constants.ZenTaoConstants;
 import com.alibaba.fastjson.JSONObject;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpMethod;
 
 import java.util.ArrayList;
@@ -13,6 +15,7 @@ import java.util.Map;
 /**
  * 【禅道接口-Branch】 辅助类
  */
+@Slf4j
 final public class ZTBranchHelper {
     // ----------
     // 接口模块
@@ -72,6 +75,23 @@ final public class ZTBranchHelper {
     private final static List<String> ACTION_URL_PARAMS_DELETE = new ArrayList<>();
     private final static List<String> ACTION_URL_PARAMS_AJAXGETBRANCHES = new ArrayList<>();
 
+    // ----------
+    // 返回结果CheckList
+    // ----------
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_MANAGE = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_SORT = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_AJAXGETDROPMENU = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_DELETE = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_AJAXGETBRANCHES = new ArrayList<>();
+
+    // ----------
+    // 返回URL正则
+    // ----------
+    private final static String ACTION_RETURNURL_MANAGE = null;
+    private final static String ACTION_RETURNURL_SORT = null;
+    private final static String ACTION_RETURNURL_AJAXGETDROPMENU = null;
+    private final static String ACTION_RETURNURL_DELETE = null;
+    private final static String ACTION_RETURNURL_AJAXGETBRANCHES = null;
 
     // ----------
     // 接口行为POST参数设置
@@ -89,11 +109,9 @@ final public class ZTBranchHelper {
     // ----------
 
     static {
-
         // DELETE
         ACTION_URL_PARAMS_DELETE.add("id");
         ACTION_URL_PARAMS_DELETE.add("confirm");
-
 
     }
 
@@ -122,9 +140,10 @@ final public class ZTBranchHelper {
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_SORT;
         Map<String, Object> actionParams = ACTION_PARAMS_SORT;
         List<String> actionUrlParams = ACTION_URL_PARAMS_SORT;
-        String returnUrlRegexPrev = null;
+        String returnUrlRegexPrev = ACTION_RETURNURL_SORT;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_SORT;
 
-        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
     }
 
 
@@ -144,10 +163,12 @@ final public class ZTBranchHelper {
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_DELETE;
         Map<String, Object> actionParams = ACTION_PARAMS_DELETE;
         List<String> actionUrlParams = ACTION_URL_PARAMS_DELETE;
-        String returnUrlRegexPrev = null;
+        String returnUrlRegexPrev = ACTION_RETURNURL_DELETE;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_DELETE;
+
         jo.put("confirm", "yes");
 
-        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
     }
 
 }
