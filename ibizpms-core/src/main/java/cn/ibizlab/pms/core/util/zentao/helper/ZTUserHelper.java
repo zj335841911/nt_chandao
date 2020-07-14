@@ -2,7 +2,10 @@ package cn.ibizlab.pms.core.util.zentao.helper;
 
 import cn.ibizlab.pms.core.util.zentao.bean.ZTResult;
 import cn.ibizlab.pms.core.util.zentao.constants.ZenTaoConstants;
+import cn.ibizlab.pms.core.util.zentao.constants.ZenTaoMessage;
+import cn.ibizlab.pms.core.util.zentao.exception.ZenTaoException;
 import com.alibaba.fastjson.JSONObject;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpMethod;
 
 import java.util.HashMap;
@@ -12,6 +15,7 @@ import java.util.Map;
 /**
  * 【禅道接口-User】 辅助类
  */
+@Slf4j
 final public class ZTUserHelper {
     // ----------
     // 接口模块
@@ -99,7 +103,6 @@ final public class ZTUserHelper {
         String actionName = ACTION_LOGIN;
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_LOGIN;
         Map<String, Object> actionParams = ACTION_PARAMS_LOGIN;
-        List<String> actionUrlParams = null;
 
         try {
             String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt);
@@ -120,8 +123,13 @@ final public class ZTUserHelper {
             }
             rst.setSuccess(jo.getString("account").equals(user.getString("account")));
         } catch (Exception e) {
+            String errMsg = e.getMessage() != null ? e.getMessage() : ZenTaoMessage.MSG_ERROR_0001;
+            log.error(errMsg, e);
             rst.setSuccess(false);
-            rst.setMessage(e.getMessage() != null ? e.getMessage() : "调用禅道接口异常");
+            rst.setMessage(errMsg);
+        }
+        if (!rst.isSuccess()) {
+            throw new ZenTaoException(rst.getMessage());
         }
         return rst.isSuccess();
     }

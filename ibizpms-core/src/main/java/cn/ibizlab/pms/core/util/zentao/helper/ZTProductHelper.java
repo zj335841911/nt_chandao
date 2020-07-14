@@ -1,8 +1,10 @@
 package cn.ibizlab.pms.core.util.zentao.helper;
 
+import cn.ibizlab.pms.core.util.zentao.bean.ZTCheckItem;
 import cn.ibizlab.pms.core.util.zentao.bean.ZTResult;
 import cn.ibizlab.pms.core.util.zentao.constants.ZenTaoConstants;
 import com.alibaba.fastjson.JSONObject;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpMethod;
 
 import java.util.ArrayList;
@@ -13,6 +15,7 @@ import java.util.Map;
 /**
  * 【禅道接口-Product】 辅助类
  */
+@Slf4j
 final public class ZTProductHelper {
     // ----------
     // 接口模块
@@ -130,6 +133,54 @@ final public class ZTProductHelper {
     private final static List<String> ACTION_URL_PARAMS_BUILD = new ArrayList<>();
 
     // ----------
+    // 返回结果CheckList
+    // ----------
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_INDEX = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_PROJECT = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_BROWSE = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_CREATE = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_EDIT = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_BATCHEDIT = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_CLOSE = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_VIEW = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_DELETE = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_ROADMAP = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_DYNAMIC = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_AJAXGETPROJECTS = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_AJAXGETPLANS = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_AJAXGETDROPMENU = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_UPDATEORDER = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_SHOWERRORNONE = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_ALL = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_EXPORT = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_DOC = new ArrayList<>();
+    private final static List<ZTCheckItem> ACTION_CHECKLIST_BUILD = new ArrayList<>();
+
+    // ----------
+    // 返回URL正则
+    // ----------
+    private final static String ACTION_RETURNURL_INDEX = null;
+    private final static String ACTION_RETURNURL_PROJECT = null;
+    private final static String ACTION_RETURNURL_BROWSE = null;
+    private final static String ACTION_RETURNURL_CREATE = "/zentao/product-browse-";
+    private final static String ACTION_RETURNURL_EDIT = "/zentao/product-view-";
+    private final static String ACTION_RETURNURL_BATCHEDIT = null;
+    private final static String ACTION_RETURNURL_CLOSE = null;
+    private final static String ACTION_RETURNURL_VIEW = null;
+    private final static String ACTION_RETURNURL_DELETE = null;
+    private final static String ACTION_RETURNURL_ROADMAP = null;
+    private final static String ACTION_RETURNURL_DYNAMIC = null;
+    private final static String ACTION_RETURNURL_AJAXGETPROJECTS = null;
+    private final static String ACTION_RETURNURL_AJAXGETPLANS = null;
+    private final static String ACTION_RETURNURL_AJAXGETDROPMENU = null;
+    private final static String ACTION_RETURNURL_UPDATEORDER = null;
+    private final static String ACTION_RETURNURL_SHOWERRORNONE = null;
+    private final static String ACTION_RETURNURL_ALL = null;
+    private final static String ACTION_RETURNURL_EXPORT = null;
+    private final static String ACTION_RETURNURL_DOC = null;
+    private final static String ACTION_RETURNURL_BUILD = null;
+
+    // ----------
     // 接口行为POST参数设置
     // ----------
 
@@ -196,10 +247,11 @@ final public class ZTProductHelper {
         String actionName = ACTION_CREATE;
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_CREATE;
         Map<String, Object> actionParams = ACTION_PARAMS_CREATE;
-        List<String> actionUrlParams = null;
-        String returnUrlRegexPrev = "/zentao/product-browse-";
+        List<String> actionUrlParams = ACTION_URL_PARAMS_CREATE;
+        String returnUrlRegexPrev = ACTION_RETURNURL_CREATE;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_CREATE;
 
-        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
     }
 
     /**
@@ -218,9 +270,10 @@ final public class ZTProductHelper {
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_EDIT;
         Map<String, Object> actionParams = ACTION_PARAMS_EDIT;
         List<String> actionUrlParams = ACTION_URL_PARAMS_EDIT;
-        String returnUrlRegexPrev = "/zentao/product-view-";
+        String returnUrlRegexPrev = ACTION_RETURNURL_EDIT;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_EDIT;
 
-        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
     }
 
     /**
@@ -239,11 +292,12 @@ final public class ZTProductHelper {
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_DELETE;
         Map<String, Object> actionParams = ACTION_PARAMS_DELETE;
         List<String> actionUrlParams = ACTION_URL_PARAMS_DELETE;
-        String returnUrlRegexPrev = null;
+        String returnUrlRegexPrev = ACTION_RETURNURL_DELETE;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_DELETE;
 
         jo.put("confirm", "yes");
 
-        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
     }
 
     /**
@@ -262,9 +316,10 @@ final public class ZTProductHelper {
         HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_CLOSE;
         Map<String, Object> actionParams = ACTION_PARAMS_CLOSE;
         List<String> actionUrlParams = ACTION_URL_PARAMS_CLOSE;
-        String returnUrlRegexPrev = null;
+        String returnUrlRegexPrev = ACTION_RETURNURL_CLOSE;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_CLOSE;
 
-        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
     }
 
 }
