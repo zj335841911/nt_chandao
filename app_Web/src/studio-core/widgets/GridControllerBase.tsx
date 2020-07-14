@@ -328,7 +328,7 @@ export class GridControllerBase extends MDControlBase {
      *
      * @param {string} name
      * @returns {boolean}
-     * @memberof ${srfclassname(ctrl.codeName)}${srfclassname(ctrl.getControlType()?lower_case)}Base
+     * @memberof GridControllerBase
      */
     public getColumnState(name: string): boolean {
         let column = this.allColumns.find((col: any) =>
@@ -342,7 +342,7 @@ export class GridControllerBase extends MDControlBase {
      *
      * @readonly
      * @type {boolean}
-     * @memberof ${srfclassname(ctrl.codeName)}${srfclassname(ctrl.getControlType()?lower_case)}Base
+     * @memberof GridControllerBase
      */
     get adaptiveState(): boolean {
         return !this.allColumns.find((column: any) => column.show && Object.is(column.util, 'STAR'));
