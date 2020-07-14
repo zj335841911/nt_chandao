@@ -78,12 +78,6 @@ export class AppPopover {
         if (AppPopover.$popover) {
             return AppPopover.$popover;
         }
-        on(document, 'click', () => {
-            if (!this.showPopper || !this.isAutoClose) {
-                return;
-            }
-            this.popperDestroy();
-        });
     }
 
     /**
@@ -95,8 +89,17 @@ export class AppPopover {
      */
     private initVueExample(): void {
         const self = this;
+        const container = document.createElement('div');
+        container.className = 'app-popover-wrapper';
+        on(container, 'click', () => {
+            if (!this.showPopper || !this.isAutoClose) {
+                return;
+            }
+            this.popperDestroy();
+        });
         const div = document.createElement('div');
-        document.body.appendChild(div);
+        container.appendChild(div);
+        document.body.appendChild(container);
         this.vueExample = new Vue({
             el: div,
             store: store,
@@ -109,6 +112,7 @@ export class AppPopover {
             },
             render(h: CreateElement) {
                 const content: any = this.content;
+                container.style.zIndex = (self.zIndex - 1).toString();
                 return <div v-show={self.showPopper} style={{ width: this.width + 'px', height: this.height + 'px', 'z-index': self.zIndex }} class="app-popover app-popper" on-click={this.click}>{(self.showPopper && content) ? content(h) : null}</div>;
             }
         });
