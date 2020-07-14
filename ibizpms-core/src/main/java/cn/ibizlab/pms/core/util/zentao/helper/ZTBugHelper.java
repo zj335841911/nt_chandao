@@ -410,6 +410,27 @@ final public class ZTBugHelper {
     }
 
     /**
+     * resolve 解决
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean assignTo(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_ASSIGNTO;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_ASSIGNTO;
+        Map<String, Object> actionParams = ACTION_PARAMS_ASSIGNTO;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_ASSIGNTO;
+        String returnUrlRegexPrev = null;
+
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev);
+    }
+
+    /**
      * close 关闭
      *
      * @param zentaoSid
