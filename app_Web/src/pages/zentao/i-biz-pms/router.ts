@@ -7079,7 +7079,7 @@ const router = new Router({
                 appService.navHistory.reset();
                 next();
             },
-            component: () => import('@components/login/login.vue'),
+            component: () => import('@components/login/login'),
         },
         {
             path: '/404',
