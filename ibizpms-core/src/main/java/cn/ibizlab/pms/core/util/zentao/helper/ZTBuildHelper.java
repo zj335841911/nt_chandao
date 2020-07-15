@@ -56,15 +56,15 @@ final public class ZTBuildHelper {
     private final static HttpMethod ACTION_HTTPMETHOD_CREATE = HttpMethod.POST;
     private final static HttpMethod ACTION_HTTPMETHOD_EDIT = HttpMethod.POST;
     private final static HttpMethod ACTION_HTTPMETHOD_VIEW = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_DELETE = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETPRODUCTBUILDS = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETPROJECTBUILDS = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_DELETE = HttpMethod.GET;
+    private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETPRODUCTBUILDS = HttpMethod.GET;
+    private final static HttpMethod ACTION_HTTPMETHOD_AJAXGETPROJECTBUILDS = HttpMethod.GET;
     private final static HttpMethod ACTION_HTTPMETHOD_LINKSTORY = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_UNLINKSTORY = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_BATCHUNLINKSTORY = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_UNLINKSTORY = HttpMethod.GET;
+    private final static HttpMethod ACTION_HTTPMETHOD_BATCHUNLINKSTORY = HttpMethod.GET;
     private final static HttpMethod ACTION_HTTPMETHOD_LINKBUG = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_UNLINKBUG = HttpMethod.POST;
-    private final static HttpMethod ACTION_HTTPMETHOD_BATCHUNLINKBUG = HttpMethod.POST;
+    private final static HttpMethod ACTION_HTTPMETHOD_UNLINKBUG = HttpMethod.GET;
+    private final static HttpMethod ACTION_HTTPMETHOD_BATCHUNLINKBUG = HttpMethod.GET;
 
     // ----------
     // 接口行为POST参数
