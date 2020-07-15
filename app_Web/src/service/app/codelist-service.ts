@@ -10,6 +10,7 @@ import TestTask from '@/codelist/test-task';
 import Product from '@/codelist/product';   
 import CurCaseVersion from '@/codelist/cur-case-version';   
 import ProductPlan from '@/codelist/product-plan';   
+import UserRealNameProject from '@/codelist/user-real-name-project';   
 import CurStory from '@/codelist/cur-story';   
 import { Store } from 'vuex';
 
@@ -157,6 +158,14 @@ export default class CodeListService {
      * @memberof CodeListService
      */
     public ProductPlan: ProductPlan = new ProductPlan();
+
+    /**
+     * 代码表--用户真实名称（项目团队成员）
+     *
+     * @type {UserRealNameProject}
+     * @memberof CodeListService
+     */
+    public UserRealNameProject: UserRealNameProject = new UserRealNameProject();
 
     /**
      * 代码表--当前需求版本（动态）

@@ -597,6 +597,19 @@ export default class EntityService {
     }
 
     /**
+     * saveBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EntityService
+     */
+    public async saveBatch(context: any = {}, data: any, isloading?: boolean): Promise<any> {
+        return Http.getInstance().post(`/${this.APPDENAME}/savebatch`, data, isloading);
+    }
+
+    /**
      * updateBatch接口方法
      *
      * @param {*} [context={}]
