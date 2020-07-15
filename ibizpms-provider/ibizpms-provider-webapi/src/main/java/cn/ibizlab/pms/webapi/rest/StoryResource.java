@@ -426,6 +426,27 @@ domain.setId(story_id);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildLinkableStories-all')")
+	@ApiOperation(value = "获取版本可关联的需求（产品内）", tags = {"需求" } ,notes = "获取版本可关联的需求（产品内）")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/fetchbuildlinkablestories")
+	public ResponseEntity<List<StoryDTO>> fetchBuildLinkableStories(StorySearchContext context) {
+        Page<Story> domains = storyService.searchBuildLinkableStories(context) ;
+        List<StoryDTO> list = storyMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildLinkableStories-all')")
+	@ApiOperation(value = "查询版本可关联的需求（产品内）", tags = {"需求" } ,notes = "查询版本可关联的需求（产品内）")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/searchbuildlinkablestories")
+	public ResponseEntity<Page<StoryDTO>> searchBuildLinkableStories(@RequestBody StorySearchContext context) {
+        Page<Story> domains = storyService.searchBuildLinkableStories(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(storyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildStories-all')")
 	@ApiOperation(value = "获取获取版本相关需求", tags = {"需求" } ,notes = "获取获取版本相关需求")
     @RequestMapping(method= RequestMethod.GET , value="/stories/fetchbuildstories")
@@ -1033,6 +1054,29 @@ domain.setId(story_id);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildLinkableStories-all')")
+	@ApiOperation(value = "根据产品获取版本可关联的需求（产品内）", tags = {"需求" } ,notes = "根据产品获取版本可关联的需求（产品内）")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/fetchbuildlinkablestories")
+	public ResponseEntity<List<StoryDTO>> fetchStoryBuildLinkableStoriesByProduct(@PathVariable("product_id") BigInteger product_id,StorySearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Story> domains = storyService.searchBuildLinkableStories(context) ;
+        List<StoryDTO> list = storyMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildLinkableStories-all')")
+	@ApiOperation(value = "根据产品查询版本可关联的需求（产品内）", tags = {"需求" } ,notes = "根据产品查询版本可关联的需求（产品内）")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/searchbuildlinkablestories")
+	public ResponseEntity<Page<StoryDTO>> searchStoryBuildLinkableStoriesByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody StorySearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Story> domains = storyService.searchBuildLinkableStories(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(storyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildStories-all')")
 	@ApiOperation(value = "根据产品获取获取版本相关需求", tags = {"需求" } ,notes = "根据产品获取获取版本相关需求")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/fetchbuildstories")
