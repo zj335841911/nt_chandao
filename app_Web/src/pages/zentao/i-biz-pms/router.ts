@@ -1044,6 +1044,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-pickup-grid-view/project-pickup-grid-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/pickupgridview2/:pickupgridview2?',
+                    meta: {
+                        caption: 'entities.story.views.pickupgridview2.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'pickupgridview2', parameterName: 'pickupgridview2' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-pickup-grid-view2/story-pickup-grid-view2.vue'),
+                },
+                {
+                    path: 'stories/:story?/pickupgridview2/:pickupgridview2?',
+                    meta: {
+                        caption: 'entities.story.views.pickupgridview2.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'pickupgridview2', parameterName: 'pickupgridview2' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-pickup-grid-view2/story-pickup-grid-view2.vue'),
+                },
+                {
                     path: 'projects/:project?/curproductgridview/:curproductgridview?',
                     meta: {
                         caption: 'entities.project.views.curproductgridview.title',

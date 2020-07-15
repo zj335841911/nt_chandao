@@ -86,7 +86,7 @@ export class MPickupView2pickupviewpanelPickupviewpanelBase extends MainControlB
      * @memberof MPickupView2pickupviewpanel
      */
     public view: any = {
-        viewname: 'story-pickup-grid-view',
+        viewname: 'story-pickup-grid-view2',
         data: {},
     }
 

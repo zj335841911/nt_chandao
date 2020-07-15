@@ -1194,6 +1194,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '971a6faeda9b1b090521472c06eba003',
+            viewmodule: 'zentao',
+            viewname: 'StoryPickupGridView2',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '97af408e6a6cb088c824cacd1807f353',
             viewmodule: 'zentao',
             viewname: 'ActionProductTrendsListView9',
@@ -1342,7 +1351,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '569cd532c6b545ffc53cf5fb93427028',
+                '971a6faeda9b1b090521472c06eba003',
             ],
         },
         {

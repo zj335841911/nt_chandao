@@ -66,6 +66,21 @@ export default class StoryServiceBase extends EntityService {
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -96,21 +111,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -135,13 +135,28 @@ export default class StoryServiceBase extends EntityService {
             }
             let tempContext:any = JSON.parse(JSON.stringify(context));
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories`,data,isloading);
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(tempContext.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(tempContext.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(tempContext.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(tempContext.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
         let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -172,21 +187,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -211,9 +211,9 @@ export default class StoryServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/stories`,data,isloading);
+        this.tempStorage.setItem(tempContext.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
         this.tempStorage.setItem(tempContext.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
         this.tempStorage.setItem(tempContext.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-        this.tempStorage.setItem(tempContext.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
         this.tempStorage.setItem(tempContext.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
         return res;
     }
@@ -230,6 +230,21 @@ export default class StoryServiceBase extends EntityService {
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -260,21 +275,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -292,13 +292,28 @@ export default class StoryServiceBase extends EntityService {
         masterData.bugs = bugsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().put(`/products/${context.product}/stories/${context.story}`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
         let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -329,21 +344,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -361,9 +361,9 @@ export default class StoryServiceBase extends EntityService {
         masterData.bugs = bugsData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/stories/${context.story}`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
     }
@@ -396,16 +396,16 @@ export default class StoryServiceBase extends EntityService {
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}`,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
             let res:any = await Http.getInstance().get(`/stories/${context.story}`,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
     }
@@ -423,17 +423,17 @@ export default class StoryServiceBase extends EntityService {
         if(context.product && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/getdraft`,isloading);
             res.data.story = data.story;
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
         let res:any = await  Http.getInstance().get(`/stories/getdraft`,isloading);
         res.data.story = data.story;
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
         return res;
     }
@@ -450,6 +450,21 @@ export default class StoryServiceBase extends EntityService {
     public async Activate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -480,21 +495,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -512,9 +512,9 @@ export default class StoryServiceBase extends EntityService {
         masterData.bugs = bugsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/activate`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
@@ -533,6 +533,21 @@ export default class StoryServiceBase extends EntityService {
     public async AssignTo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -563,21 +578,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -595,9 +595,9 @@ export default class StoryServiceBase extends EntityService {
         masterData.bugs = bugsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/assignto`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
@@ -616,6 +616,21 @@ export default class StoryServiceBase extends EntityService {
     public async BatchAssignTo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -646,21 +661,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -678,9 +678,9 @@ export default class StoryServiceBase extends EntityService {
         masterData.bugs = bugsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchassignto`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
@@ -699,6 +699,21 @@ export default class StoryServiceBase extends EntityService {
     public async BatchChangeBranch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -729,21 +744,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -761,9 +761,9 @@ export default class StoryServiceBase extends EntityService {
         masterData.bugs = bugsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchchangebranch`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
@@ -782,6 +782,21 @@ export default class StoryServiceBase extends EntityService {
     public async BatchChangeModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -812,21 +827,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -844,9 +844,9 @@ export default class StoryServiceBase extends EntityService {
         masterData.bugs = bugsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchchangemodule`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
@@ -865,6 +865,21 @@ export default class StoryServiceBase extends EntityService {
     public async BatchChangePlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -895,21 +910,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -927,9 +927,9 @@ export default class StoryServiceBase extends EntityService {
         masterData.bugs = bugsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchchangeplan`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
@@ -948,6 +948,21 @@ export default class StoryServiceBase extends EntityService {
     public async BatchChangeStage(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -978,21 +993,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -1010,9 +1010,9 @@ export default class StoryServiceBase extends EntityService {
         masterData.bugs = bugsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchchangestage`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
@@ -1031,6 +1031,21 @@ export default class StoryServiceBase extends EntityService {
     public async BatchClose(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -1061,21 +1076,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -1093,9 +1093,9 @@ export default class StoryServiceBase extends EntityService {
         masterData.bugs = bugsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchclose`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
@@ -1114,6 +1114,21 @@ export default class StoryServiceBase extends EntityService {
     public async BatchReview(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -1144,21 +1159,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -1176,9 +1176,9 @@ export default class StoryServiceBase extends EntityService {
         masterData.bugs = bugsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchreview`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
@@ -1197,6 +1197,21 @@ export default class StoryServiceBase extends EntityService {
     public async BatchUnlinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -1227,21 +1242,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -1259,9 +1259,9 @@ export default class StoryServiceBase extends EntityService {
         masterData.bugs = bugsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/batchunlinkstory`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
@@ -1280,6 +1280,21 @@ export default class StoryServiceBase extends EntityService {
     public async BugToStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -1310,21 +1325,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -1342,9 +1342,9 @@ export default class StoryServiceBase extends EntityService {
         masterData.bugs = bugsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugtostory`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
@@ -1363,6 +1363,21 @@ export default class StoryServiceBase extends EntityService {
     public async Change(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -1393,21 +1408,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -1425,9 +1425,9 @@ export default class StoryServiceBase extends EntityService {
         masterData.bugs = bugsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/change`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
@@ -1446,6 +1446,21 @@ export default class StoryServiceBase extends EntityService {
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -1476,21 +1491,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -1508,9 +1508,9 @@ export default class StoryServiceBase extends EntityService {
         masterData.bugs = bugsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/checkkey`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
@@ -1529,6 +1529,21 @@ export default class StoryServiceBase extends EntityService {
     public async Close(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -1559,21 +1574,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -1591,9 +1591,9 @@ export default class StoryServiceBase extends EntityService {
         masterData.bugs = bugsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/close`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
@@ -1612,6 +1612,21 @@ export default class StoryServiceBase extends EntityService {
     public async GetStorySpec(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -1642,21 +1657,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -1674,9 +1674,9 @@ export default class StoryServiceBase extends EntityService {
         masterData.bugs = bugsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/getstoryspec`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
@@ -1695,6 +1695,21 @@ export default class StoryServiceBase extends EntityService {
     public async LinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -1725,21 +1740,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -1757,9 +1757,9 @@ export default class StoryServiceBase extends EntityService {
         masterData.bugs = bugsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/linkstory`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
@@ -1778,6 +1778,21 @@ export default class StoryServiceBase extends EntityService {
     public async ProjectBatchUnlinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -1808,21 +1823,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -1840,9 +1840,9 @@ export default class StoryServiceBase extends EntityService {
         masterData.bugs = bugsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/projectbatchunlinkstory`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
@@ -1861,6 +1861,21 @@ export default class StoryServiceBase extends EntityService {
     public async ProjectLinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -1891,21 +1906,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -1923,9 +1923,9 @@ export default class StoryServiceBase extends EntityService {
         masterData.bugs = bugsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/projectlinkstory`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
@@ -1944,6 +1944,21 @@ export default class StoryServiceBase extends EntityService {
     public async ProjectUnlinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -1974,21 +1989,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -2006,9 +2006,9 @@ export default class StoryServiceBase extends EntityService {
         masterData.bugs = bugsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/projectunlinkstory`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
@@ -2027,6 +2027,21 @@ export default class StoryServiceBase extends EntityService {
     public async ReleaseBatchUnlinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -2057,21 +2072,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -2089,9 +2089,9 @@ export default class StoryServiceBase extends EntityService {
         masterData.bugs = bugsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/releasebatchunlinkstory`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
@@ -2110,6 +2110,21 @@ export default class StoryServiceBase extends EntityService {
     public async ReleaseLinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -2140,21 +2155,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -2172,9 +2172,9 @@ export default class StoryServiceBase extends EntityService {
         masterData.bugs = bugsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/releaselinkstory`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
@@ -2193,6 +2193,21 @@ export default class StoryServiceBase extends EntityService {
     public async ReleaseUnlinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -2223,21 +2238,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -2255,9 +2255,9 @@ export default class StoryServiceBase extends EntityService {
         masterData.bugs = bugsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/releaseunlinkstory`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
@@ -2276,6 +2276,21 @@ export default class StoryServiceBase extends EntityService {
     public async ResetReviewedBy(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -2306,21 +2321,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -2338,9 +2338,9 @@ export default class StoryServiceBase extends EntityService {
         masterData.bugs = bugsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/resetreviewedby`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
@@ -2359,6 +2359,21 @@ export default class StoryServiceBase extends EntityService {
     public async Review(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -2389,21 +2404,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -2421,9 +2421,9 @@ export default class StoryServiceBase extends EntityService {
         masterData.bugs = bugsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/review`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
@@ -2442,6 +2442,21 @@ export default class StoryServiceBase extends EntityService {
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -2472,21 +2487,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -2504,13 +2504,28 @@ export default class StoryServiceBase extends EntityService {
         masterData.bugs = bugsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/save`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
         let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -2541,21 +2556,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -2573,9 +2573,9 @@ export default class StoryServiceBase extends EntityService {
         masterData.bugs = bugsData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/stories/${context.story}/save`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
     }
@@ -2592,6 +2592,21 @@ export default class StoryServiceBase extends EntityService {
     public async UnlinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         let storyspecsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs'),'undefined')){
             storyspecsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_storyspecs') as any);
@@ -2622,21 +2637,6 @@ export default class StoryServiceBase extends EntityService {
             }
         }
         masterData.cases = casesData;
-        let tasksData:any = [];
-        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
-            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
-                tasksData.forEach((item:any) => {
-                    if(item.srffrontuf){
-                        if(Object.is(item.srffrontuf,"0")){
-                            item.id = null;
-                        }
-                        delete item.srffrontuf;
-                    }
-                });
-            }
-        }
-        masterData.tasks = tasksData;
         let bugsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_bugs'),'undefined')){
             bugsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_bugs') as any);
@@ -2654,9 +2654,9 @@ export default class StoryServiceBase extends EntityService {
         masterData.bugs = bugsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/unlinkstory`,data,isloading);
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs));
             this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases));
-            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks));
             this.tempStorage.setItem(context.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs));
             return res;
         }
