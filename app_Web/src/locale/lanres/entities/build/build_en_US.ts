@@ -101,8 +101,7 @@ export default {
         build_submittotesting: "提交测试",
         build_viewbugs: "viewBugs",
         edit: "Edit",
-        build_removeonecolumn: "表格列删除",
-        removeandexit: "Remove And Close",
+        remove: "Remove",
 		},
 	},
 	default_searchform: {
@@ -116,10 +115,6 @@ export default {
 		deuiaction1: {
 			caption: "New",
 			tip: "New",
-		},
-		deuiaction2: {
-			caption: "Remove",
-			tip: "Remove {0}",
 		},
 	},
 	editviewtoolbar_toolbar: {
