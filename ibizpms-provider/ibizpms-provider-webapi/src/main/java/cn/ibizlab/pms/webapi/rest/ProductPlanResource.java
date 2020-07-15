@@ -123,7 +123,7 @@ public class ProductPlanResource {
     @Transactional
     public ResponseEntity<ProductPlanDTO> batchUnlinkBug(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody ProductPlanDTO productplandto) {
         ProductPlan domain = productplanMapping.toDomain(productplandto);
-        domain.setId(productplan_id);
+domain.setId(productplan_id);
         domain = productplanService.batchUnlinkBug(domain);
         productplandto = productplanMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(productplandto);
@@ -135,7 +135,7 @@ public class ProductPlanResource {
     @Transactional
     public ResponseEntity<ProductPlanDTO> batchUnlinkStory(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody ProductPlanDTO productplandto) {
         ProductPlan domain = productplanMapping.toDomain(productplandto);
-        domain.setId(productplan_id);
+domain.setId(productplan_id);
         domain = productplanService.batchUnlinkStory(domain);
         productplandto = productplanMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(productplandto);
@@ -153,7 +153,7 @@ public class ProductPlanResource {
     @Transactional
     public ResponseEntity<ProductPlanDTO> linkBug(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody ProductPlanDTO productplandto) {
         ProductPlan domain = productplanMapping.toDomain(productplandto);
-        domain.setId(productplan_id);
+domain.setId(productplan_id);
         domain = productplanService.linkBug(domain);
         productplandto = productplanMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(productplandto);
@@ -165,7 +165,7 @@ public class ProductPlanResource {
     @Transactional
     public ResponseEntity<ProductPlanDTO> linkStory(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody ProductPlanDTO productplandto) {
         ProductPlan domain = productplanMapping.toDomain(productplandto);
-        domain.setId(productplan_id);
+domain.setId(productplan_id);
         domain = productplanService.linkStory(domain);
         productplandto = productplanMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(productplandto);
@@ -192,7 +192,7 @@ public class ProductPlanResource {
     @Transactional
     public ResponseEntity<ProductPlanDTO> unlinkBug(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody ProductPlanDTO productplandto) {
         ProductPlan domain = productplanMapping.toDomain(productplandto);
-        domain.setId(productplan_id);
+domain.setId(productplan_id);
         domain = productplanService.unlinkBug(domain);
         productplandto = productplanMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(productplandto);
@@ -204,7 +204,7 @@ public class ProductPlanResource {
     @Transactional
     public ResponseEntity<ProductPlanDTO> unlinkStory(@PathVariable("productplan_id") BigInteger productplan_id, @RequestBody ProductPlanDTO productplandto) {
         ProductPlan domain = productplanMapping.toDomain(productplandto);
-        domain.setId(productplan_id);
+domain.setId(productplan_id);
         domain = productplanService.unlinkStory(domain);
         productplandto = productplanMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(productplandto);

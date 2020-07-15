@@ -135,7 +135,7 @@ public class CaseResource {
     @Transactional
     public ResponseEntity<CaseDTO> runCase(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseDTO casedto) {
         Case domain = caseMapping.toDomain(casedto);
-        domain.setId(case_id);
+domain.setId(case_id);
         domain = caseService.runCase(domain);
         casedto = caseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(casedto);

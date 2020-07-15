@@ -123,7 +123,7 @@ public class StoryResource {
     @Transactional
     public ResponseEntity<StoryDTO> activate(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-        domain.setId(story_id);
+domain.setId(story_id);
         domain = storyService.activate(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -135,7 +135,7 @@ public class StoryResource {
     @Transactional
     public ResponseEntity<StoryDTO> assignTo(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-        domain.setId(story_id);
+domain.setId(story_id);
         domain = storyService.assignTo(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -147,7 +147,7 @@ public class StoryResource {
     @Transactional
     public ResponseEntity<StoryDTO> batchAssignTo(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-        domain.setId(story_id);
+domain.setId(story_id);
         domain = storyService.batchAssignTo(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -159,7 +159,7 @@ public class StoryResource {
     @Transactional
     public ResponseEntity<StoryDTO> batchChangeBranch(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-        domain.setId(story_id);
+domain.setId(story_id);
         domain = storyService.batchChangeBranch(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -171,7 +171,7 @@ public class StoryResource {
     @Transactional
     public ResponseEntity<StoryDTO> batchChangeModule(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-        domain.setId(story_id);
+domain.setId(story_id);
         domain = storyService.batchChangeModule(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -183,7 +183,7 @@ public class StoryResource {
     @Transactional
     public ResponseEntity<StoryDTO> batchChangePlan(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-        domain.setId(story_id);
+domain.setId(story_id);
         domain = storyService.batchChangePlan(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -195,7 +195,7 @@ public class StoryResource {
     @Transactional
     public ResponseEntity<StoryDTO> batchChangeStage(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-        domain.setId(story_id);
+domain.setId(story_id);
         domain = storyService.batchChangeStage(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -207,7 +207,7 @@ public class StoryResource {
     @Transactional
     public ResponseEntity<StoryDTO> batchClose(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-        domain.setId(story_id);
+domain.setId(story_id);
         domain = storyService.batchClose(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -219,7 +219,7 @@ public class StoryResource {
     @Transactional
     public ResponseEntity<StoryDTO> batchReview(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-        domain.setId(story_id);
+domain.setId(story_id);
         domain = storyService.batchReview(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -231,7 +231,7 @@ public class StoryResource {
     @Transactional
     public ResponseEntity<StoryDTO> batchUnlinkStory(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-        domain.setId(story_id);
+domain.setId(story_id);
         domain = storyService.batchUnlinkStory(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -243,7 +243,7 @@ public class StoryResource {
     @Transactional
     public ResponseEntity<StoryDTO> bugToStory(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-        domain.setId(story_id);
+domain.setId(story_id);
         domain = storyService.bugToStory(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -255,7 +255,7 @@ public class StoryResource {
     @Transactional
     public ResponseEntity<StoryDTO> change(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-        domain.setId(story_id);
+domain.setId(story_id);
         domain = storyService.change(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -273,7 +273,7 @@ public class StoryResource {
     @Transactional
     public ResponseEntity<StoryDTO> close(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-        domain.setId(story_id);
+domain.setId(story_id);
         domain = storyService.close(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -285,7 +285,7 @@ public class StoryResource {
     @Transactional
     public ResponseEntity<StoryDTO> getStorySpec(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-        domain.setId(story_id);
+domain.setId(story_id);
         domain = storyService.getStorySpec(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -297,7 +297,7 @@ public class StoryResource {
     @Transactional
     public ResponseEntity<StoryDTO> linkStory(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-        domain.setId(story_id);
+domain.setId(story_id);
         domain = storyService.linkStory(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -309,7 +309,7 @@ public class StoryResource {
     @Transactional
     public ResponseEntity<StoryDTO> projectBatchUnlinkStory(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-        domain.setId(story_id);
+domain.setId(story_id);
         domain = storyService.projectBatchUnlinkStory(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -321,7 +321,7 @@ public class StoryResource {
     @Transactional
     public ResponseEntity<StoryDTO> projectLinkStory(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-        domain.setId(story_id);
+domain.setId(story_id);
         domain = storyService.projectLinkStory(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -333,7 +333,7 @@ public class StoryResource {
     @Transactional
     public ResponseEntity<StoryDTO> projectUnlinkStory(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-        domain.setId(story_id);
+domain.setId(story_id);
         domain = storyService.projectUnlinkStory(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -345,7 +345,7 @@ public class StoryResource {
     @Transactional
     public ResponseEntity<StoryDTO> releaseBatchUnlinkStory(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-        domain.setId(story_id);
+domain.setId(story_id);
         domain = storyService.releaseBatchUnlinkStory(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -357,7 +357,7 @@ public class StoryResource {
     @Transactional
     public ResponseEntity<StoryDTO> releaseLinkStory(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-        domain.setId(story_id);
+domain.setId(story_id);
         domain = storyService.releaseLinkStory(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -369,7 +369,7 @@ public class StoryResource {
     @Transactional
     public ResponseEntity<StoryDTO> releaseUnlinkStory(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-        domain.setId(story_id);
+domain.setId(story_id);
         domain = storyService.releaseUnlinkStory(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -381,7 +381,7 @@ public class StoryResource {
     @Transactional
     public ResponseEntity<StoryDTO> resetReviewedBy(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-        domain.setId(story_id);
+domain.setId(story_id);
         domain = storyService.resetReviewedBy(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -393,7 +393,7 @@ public class StoryResource {
     @Transactional
     public ResponseEntity<StoryDTO> review(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-        domain.setId(story_id);
+domain.setId(story_id);
         domain = storyService.review(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
@@ -420,7 +420,7 @@ public class StoryResource {
     @Transactional
     public ResponseEntity<StoryDTO> unlinkStory(@PathVariable("story_id") BigInteger story_id, @RequestBody StoryDTO storydto) {
         Story domain = storyMapping.toDomain(storydto);
-        domain.setId(story_id);
+domain.setId(story_id);
         domain = storyService.unlinkStory(domain);
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);

@@ -129,7 +129,7 @@ public class BuildResource {
     @Transactional
     public ResponseEntity<BuildDTO> linkStory(@PathVariable("build_id") BigInteger build_id, @RequestBody BuildDTO builddto) {
         Build domain = buildMapping.toDomain(builddto);
-        domain.setId(build_id);
+domain.setId(build_id);
         domain = buildService.linkStory(domain);
         builddto = buildMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(builddto);
