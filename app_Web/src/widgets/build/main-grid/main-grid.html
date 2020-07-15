@@ -165,10 +165,13 @@
                             <div slot='content'>{{$t('entities.build.main_grid.uiactions.build_edit')}}</div>
                             </tooltip>
                             <divider type='vertical'></divider>
+                            <tooltip :transfer="true" :max-width="600">
                             <a @click="uiAction(scope.row, 'removeOneColumn', $event)">
                               <i class='fa fa-remove'></i>
-                              {{$t('entities.build.main_grid.uiactions.build_removeonecolumn')}}
+                              
                             </a>
+                            <div slot='content'>{{$t('entities.build.main_grid.uiactions.build_removeonecolumn')}}</div>
+                            </tooltip>
                         </div>
                     </template>
                 </el-table-column>
