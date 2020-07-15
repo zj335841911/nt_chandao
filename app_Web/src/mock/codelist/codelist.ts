@@ -3025,6 +3025,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "UserRealNameProject",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"User",
+        "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
         srfkey: "Testcase__type",
         emptytext: "未定义",
         "codelisttype":"static",
