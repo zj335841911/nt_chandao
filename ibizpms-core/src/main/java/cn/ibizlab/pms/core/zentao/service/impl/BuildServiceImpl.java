@@ -140,6 +140,19 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     }
     @Override
     @Transactional
+    public Build linkStories(Build et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser(); 
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBuildHelper.linkStories((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        et.set("ztrst", rst);
+        return et;
+    }
+
+    @Override
+    @Transactional
     public Build linkStory(Build et) {
         //自定义代码
         return et;
