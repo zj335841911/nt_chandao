@@ -999,6 +999,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ActionProjectTrendsListView9",
             "viewtag": "96ec3f978c1cc22acc532331d5dc2a41"
         },
+        "storypickupgridview2": {
+            "title": "需求",
+            "caption": "需求",
+            "viewtype": "DEPICKUPGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryPickupGridView2",
+            "viewtag": "971a6faeda9b1b090521472c06eba003"
+        },
         "actionproducttrendslistview9": {
             "title": "产品动态",
             "caption": "系统日志",
@@ -1102,6 +1110,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "BuildMainView",
             "viewtag": "a6d8bd7fa388f638832b33dddaa6df86"
+        },
+        "storympickupview2": {
+            "title": "关联需求",
+            "caption": "关联需求",
+            "viewtype": "DEMPICKUPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryMPickupView2",
+            "viewtag": "a74d54220e97fb172fdb2117118f665d"
         },
         "projectgridview9_unclosed": {
             "title": "项目表格视图",

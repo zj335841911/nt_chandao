@@ -223,10 +223,10 @@ export default class BuildUIServiceBase extends UIService {
                 });
             }
             const view: any = {
-                viewname: 'story-mpickup-view', 
+                viewname: 'story-mpickup-view2', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.story.views.mpickupview.title'),
+                title: actionContext.$t('entities.story.views.mpickupview2.title'),
                 placement: 'DRAWER_TOP',
             };
             openDrawer(view, data);
