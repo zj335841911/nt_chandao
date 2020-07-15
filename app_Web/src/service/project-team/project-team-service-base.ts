@@ -186,6 +186,24 @@ export default class ProjectTeamServiceBase extends EntityService {
     }
 
     /**
+     * GetUserRole接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectTeamServiceBase
+     */
+    public async GetUserRole(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectteam){
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectteams/${context.projectteam}/getuserrole`,isloading);
+            return res;
+        }
+            let res:any = await Http.getInstance().get(`/projectteams/${context.projectteam}/getuserrole`,isloading);
+            return res;
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]

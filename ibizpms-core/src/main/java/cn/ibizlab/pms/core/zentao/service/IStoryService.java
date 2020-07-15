@@ -69,6 +69,7 @@ public interface IStoryService extends IService<Story>{
     Page<Story> searchReportStories(StorySearchContext context) ;
     Page<Story> searchStoryChild(StorySearchContext context) ;
     Page<Story> searchStoryRelated(StorySearchContext context) ;
+    Page<Story> searchTaskRelatedStory(StorySearchContext context) ;
     List<Story> selectByModule(BigInteger id) ;
     void removeByModule(BigInteger id) ;
     List<Story> selectByBranch(BigInteger id) ;

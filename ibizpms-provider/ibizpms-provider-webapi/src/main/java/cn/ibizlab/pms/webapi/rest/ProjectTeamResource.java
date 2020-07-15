@@ -123,6 +123,18 @@ public class ProjectTeamResource {
         return  ResponseEntity.status(HttpStatus.OK).body(projectteamService.checkKey(projectteamMapping.toDomain(projectteamdto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-GetUserRole-all')")
+    @ApiOperation(value = "获取成员角色", tags = {"项目团队" },  notes = "获取成员角色")
+	@RequestMapping(method = RequestMethod.GET, value = "/projectteams/{projectteam_id}/getuserrole")
+    @Transactional
+    public ResponseEntity<ProjectTeamDTO> getUserRole(@PathVariable("projectteam_id") BigInteger projectteam_id, @RequestBody ProjectTeamDTO projectteamdto) {
+        ProjectTeam domain = projectteamMapping.toDomain(projectteamdto);
+domain.setId(projectteam_id);
+        domain = projectteamService.getUserRole(domain);
+        projectteamdto = projectteamMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(projectteamdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-Save-all')")
     @ApiOperation(value = "保存项目团队", tags = {"项目团队" },  notes = "保存项目团队")
 	@RequestMapping(method = RequestMethod.POST, value = "/projectteams/save")
@@ -266,6 +278,18 @@ public class ProjectTeamResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectteams/checkkey")
     public ResponseEntity<Boolean> checkKeyByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectTeamDTO projectteamdto) {
         return  ResponseEntity.status(HttpStatus.OK).body(projectteamService.checkKey(projectteamMapping.toDomain(projectteamdto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-GetUserRole-all')")
+    @ApiOperation(value = "根据项目项目团队", tags = {"项目团队" },  notes = "根据项目项目团队")
+	@RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/projectteams/{projectteam_id}/getuserrole")
+    @Transactional
+    public ResponseEntity<ProjectTeamDTO> getUserRoleByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("projectteam_id") BigInteger projectteam_id, @RequestBody ProjectTeamDTO projectteamdto) {
+        ProjectTeam domain = projectteamMapping.toDomain(projectteamdto);
+        domain.setRoot(project_id);
+        domain = projectteamService.getUserRole(domain) ;
+        projectteamdto = projectteamMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(projectteamdto);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-Save-all')")
