@@ -123,7 +123,7 @@ public class ProjectResource {
     @Transactional
     public ResponseEntity<ProjectDTO> activate(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectDTO projectdto) {
         Project domain = projectMapping.toDomain(projectdto);
-        domain.setId(project_id);
+domain.setId(project_id);
         domain = projectService.activate(domain);
         projectdto = projectMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
@@ -135,7 +135,7 @@ public class ProjectResource {
     @Transactional
     public ResponseEntity<ProjectDTO> batchUnlinkStory(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectDTO projectdto) {
         Project domain = projectMapping.toDomain(projectdto);
-        domain.setId(project_id);
+domain.setId(project_id);
         domain = projectService.batchUnlinkStory(domain);
         projectdto = projectMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
@@ -153,7 +153,7 @@ public class ProjectResource {
     @Transactional
     public ResponseEntity<ProjectDTO> close(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectDTO projectdto) {
         Project domain = projectMapping.toDomain(projectdto);
-        domain.setId(project_id);
+domain.setId(project_id);
         domain = projectService.close(domain);
         projectdto = projectMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
@@ -165,7 +165,7 @@ public class ProjectResource {
     @Transactional
     public ResponseEntity<ProjectDTO> linkStory(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectDTO projectdto) {
         Project domain = projectMapping.toDomain(projectdto);
-        domain.setId(project_id);
+domain.setId(project_id);
         domain = projectService.linkStory(domain);
         projectdto = projectMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
@@ -177,7 +177,7 @@ public class ProjectResource {
     @Transactional
     public ResponseEntity<ProjectDTO> manageMembers(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectDTO projectdto) {
         Project domain = projectMapping.toDomain(projectdto);
-        domain.setId(project_id);
+domain.setId(project_id);
         domain = projectService.manageMembers(domain);
         projectdto = projectMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
@@ -189,7 +189,7 @@ public class ProjectResource {
     @Transactional
     public ResponseEntity<ProjectDTO> putoff(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectDTO projectdto) {
         Project domain = projectMapping.toDomain(projectdto);
-        domain.setId(project_id);
+domain.setId(project_id);
         domain = projectService.putoff(domain);
         projectdto = projectMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
@@ -216,7 +216,7 @@ public class ProjectResource {
     @Transactional
     public ResponseEntity<ProjectDTO> start(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectDTO projectdto) {
         Project domain = projectMapping.toDomain(projectdto);
-        domain.setId(project_id);
+domain.setId(project_id);
         domain = projectService.start(domain);
         projectdto = projectMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
@@ -228,7 +228,7 @@ public class ProjectResource {
     @Transactional
     public ResponseEntity<ProjectDTO> suspend(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectDTO projectdto) {
         Project domain = projectMapping.toDomain(projectdto);
-        domain.setId(project_id);
+domain.setId(project_id);
         domain = projectService.suspend(domain);
         projectdto = projectMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
@@ -240,7 +240,7 @@ public class ProjectResource {
     @Transactional
     public ResponseEntity<ProjectDTO> unlinkMember(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectDTO projectdto) {
         Project domain = projectMapping.toDomain(projectdto);
-        domain.setId(project_id);
+domain.setId(project_id);
         domain = projectService.unlinkMember(domain);
         projectdto = projectMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
@@ -252,7 +252,7 @@ public class ProjectResource {
     @Transactional
     public ResponseEntity<ProjectDTO> unlinkStory(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectDTO projectdto) {
         Project domain = projectMapping.toDomain(projectdto);
-        domain.setId(project_id);
+domain.setId(project_id);
         domain = projectService.unlinkStory(domain);
         projectdto = projectMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
@@ -264,7 +264,7 @@ public class ProjectResource {
     @Transactional
     public ResponseEntity<ProjectDTO> updateOrder(@PathVariable("project_id") BigInteger project_id, @RequestBody ProjectDTO projectdto) {
         Project domain = projectMapping.toDomain(projectdto);
-        domain.setId(project_id);
+domain.setId(project_id);
         domain = projectService.updateOrder(domain);
         projectdto = projectMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);

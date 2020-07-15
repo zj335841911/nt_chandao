@@ -129,7 +129,7 @@ public class ProductResource {
     @Transactional
     public ResponseEntity<ProductDTO> close(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductDTO productdto) {
         Product domain = productMapping.toDomain(productdto);
-        domain.setId(product_id);
+domain.setId(product_id);
         domain = productService.close(domain);
         productdto = productMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(productdto);
