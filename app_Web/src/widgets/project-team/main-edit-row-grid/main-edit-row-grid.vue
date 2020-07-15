@@ -33,11 +33,10 @@ export default class Main_EditRowGrid extends Main_EditRowGridBase {
         let _context = JSON.parse(JSON.stringify(this.context));
         let result: Array<any> = [];
         for(const item of this.items){
-            let _item: any = JSON.parse(JSON.stringify(item));
+            let { data: Data,context: Context } = this.service.handleRequestData(action, _context, item, true);
             if (Object.is(item.rowDataState, 'create')){
-                _item.id = null;
+                Data.id = null;
             }
-            let { data: Data,context: Context } = this.service.handleRequestData(action, _context, _item, true);
             result.push(Data);
         }
         const post: Promise<any> = this.appEntityService.saveBatch(_context, result, true);
