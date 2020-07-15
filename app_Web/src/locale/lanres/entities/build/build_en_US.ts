@@ -111,30 +111,6 @@ export default {
 			caption: "New",
 			tip: "New",
 		},
-		deuiaction2: {
-			caption: "Edit",
-			tip: "Edit {0}",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction4: {
-			caption: "Remove",
-			tip: "Remove {0}",
-		},
-		seperator2: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction5: {
-			caption: "提交测试",
-			tip: "提交测试",
-		},
-		deuiaction6: {
-			caption: "查看Bug",
-			tip: "查看Bug",
-		},
 	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {

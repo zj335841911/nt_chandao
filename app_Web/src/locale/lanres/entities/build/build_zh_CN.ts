@@ -107,32 +107,8 @@ export default {
 	},
 	maingridviewtoolbar_toolbar: {
 		deuiaction1: {
-			caption: "新建",
-			tip: "新建",
-		},
-		deuiaction2: {
-			caption: "编辑",
-			tip: "编辑",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction4: {
-			caption: "删除",
-			tip: "删除",
-		},
-		seperator2: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction5: {
-			caption: "提交测试",
-			tip: "提交测试",
-		},
-		deuiaction6: {
-			caption: "查看Bug",
-			tip: "查看Bug",
+			caption: "创建版本",
+			tip: "创建版本",
 		},
 	},
 	editviewtoolbar_toolbar: {
