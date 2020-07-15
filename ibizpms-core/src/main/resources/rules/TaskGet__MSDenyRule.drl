@@ -1,0 +1,67 @@
+package cn.ibizlab.pms.zentao.logic.tasklogic.get__msdeny;
+
+import java.util.Map;
+import java.util.HashMap;
+import com.alibaba.fastjson.JSONObject;
+global cn.ibizlab.pms.core.zentao.domain.Task taskget__msdenytemp;
+global cn.ibizlab.pms.core.zentao.domain.Task taskget__msdenydefault;
+global cn.ibizlab.pms.core.zentao.service.ITaskService taskservice;
+global cn.ibizlab.pms.core.zentao.service.ITaskService iBzSysTaskDefaultService;
+global cn.ibizlab.pms.util.security.AuthenticationUser curuser;
+
+no-loop
+
+//逻辑处理节点[开始]
+rule "begin"
+ruleflow-group "taskget__msdenybegin"
+    when
+    then
+    end
+
+//逻辑处理节点[准备临时参数]
+rule "preparetemp"
+ruleflow-group "taskget__msdenypreparetemp"
+    when
+    then
+    taskget__msdenytemp.set("id",taskget__msdenydefault.get("id"));
+    update(taskget__msdenytemp);//更新fact中变量值
+    update(taskget__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已完成]拒绝[get]操作]
+rule "denybydone"
+ruleflow-group "taskget__msdenydenybydone"
+    when
+    then
+    update(taskget__msdenytemp);//更新fact中变量值
+    update(taskget__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已取消]拒绝[get]操作]
+rule "denybycancel"
+ruleflow-group "taskget__msdenydenybycancel"
+    when
+    then
+    update(taskget__msdenytemp);//更新fact中变量值
+    update(taskget__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已关闭]拒绝[get]操作]
+rule "denybyclosed"
+ruleflow-group "taskget__msdenydenybyclosed"
+    when
+    then
+    update(taskget__msdenytemp);//更新fact中变量值
+    update(taskget__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[获取数据]
+rule "get"
+ruleflow-group "taskget__msdenyget"
+    when
+    then
+    cn.ibizlab.pms.util.helper.CachedBeanCopier.copy(taskservice.get(taskget__msdenytemp.getId()),taskget__msdenytemp);
+    update(taskget__msdenytemp);//更新fact中变量值
+    update(taskget__msdenydefault);//更新fact中变量值
+    end
+
