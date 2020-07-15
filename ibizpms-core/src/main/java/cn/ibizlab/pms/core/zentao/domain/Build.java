@@ -50,6 +50,7 @@ public class Build extends EntityMP implements Serializable {
     /**
      * 构建者
      */
+    @DEField(defaultValueType = DEFieldDefaultValueType.OPERATORNAME)
     @TableField(value = "builder")
     @JSONField(name = "builder")
     @JsonProperty("builder")
