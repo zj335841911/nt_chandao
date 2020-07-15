@@ -118,7 +118,7 @@ export default class MainInfoModel {
       {
         name: 'finisheddate',
         prop: 'finisheddate',
-        dataType: 'DATETIME',
+        dataType: 'DATE',
       },
       {
         name: 'canceledby',

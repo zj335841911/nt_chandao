@@ -263,8 +263,8 @@ public class Task extends EntityMP implements Serializable {
      * 实际完成
      */
     @TableField(value = "finisheddate")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "finisheddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "finisheddate" , format="yyyy-MM-dd")
     @JsonProperty("finisheddate")
     private Timestamp finisheddate;
     /**
@@ -714,7 +714,7 @@ public class Task extends EntityMP implements Serializable {
         if (this.finisheddate == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(finisheddate);
     }
     /**

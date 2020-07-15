@@ -267,8 +267,8 @@ public class TaskDTO extends DTOBase implements Serializable {
      * 属性 [FINISHEDDATE]
      *
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "finisheddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "finisheddate" , format="yyyy-MM-dd")
     @JsonProperty("finisheddate")
     private Timestamp finisheddate;
 

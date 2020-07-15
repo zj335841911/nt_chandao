@@ -396,7 +396,7 @@
 </i-col>
 <i-col v-show="detailsModel.finisheddate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='finisheddate' :itemRules="this.rules.finisheddate" class='' :caption="$t('entities.task.mainedit_form.details.finisheddate')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.finisheddate.error" :isEmptyCaption="false" labelPos="LEFT">
-    <date-picker type="datetime" :transfer="true" format="yyyy-MM-dd HH:mm:ss" placeholder="请选择时间..." :value="data.finisheddate" :disabled="detailsModel.finisheddate.disabled" style="min-width: 150px; width:160px;" @on-change="(val1, val2) => { this.data.finisheddate = val1 }"></date-picker>
+    <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.finisheddate" :disabled="detailsModel.finisheddate.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.finisheddate = val1 }"></date-picker>
 </app-form-item>
 
 </i-col>
