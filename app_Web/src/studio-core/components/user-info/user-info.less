@@ -1,29 +1,35 @@
 .ivu-dropdown.user-info-dropdown-menus {
+    height: 100%;
 
     >.ivu-dropdown-rel {
+        height: 100%;
 
         >.user-info {
-            width: 40px;
             height: 100%;
             display: flex;
             align-items: center;
             cursor: pointer;
         
-            >.user-head-sculpture {
-                width: 28px;
-                height: 28px;
-                border-radius: 50%;
-                border: 1px solid #8893a7;
-                font-size: 18px;
+            >.user-head {
+                height: 100%;
+                border-radius: 2px;
+                font-size: 20px;
                 font-weight: 900;
                 text-align: center;
+                padding: 0px 5px;
             }
         
             >span {
-                display: inline-block;
-                margin-left: 3px;
-                margin-top: 5px;
+                fill: var(--app-header-color);
+
+                svg {
+                    vertical-align: -5px;
+                }
             }
+        }
+
+        >.user-info:hover {
+            background-color: var(--app-header-background-color-active);
         }
     }
 }

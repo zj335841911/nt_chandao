@@ -173,12 +173,15 @@ export class UserInfo extends Vue {
      * @memberof UserInfo
      */
     public render(): any {
+        const appData = this.$store.getters.getAppData();
         return <dropdown class="studio-dropdown user-info-dropdown-menus" placement="bottom-end" on-on-click={(name: string) => this.onSelect(name)}>
             <div class="user-info">
-                <div class="user-head-sculpture">埃</div>
                 <span>
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAUCAYAAACqJ5zlAAAAN0lEQVQoU2PsmLzCk5Hh/0wGBgaG/wyM6Yydk5c/+s/AIAsSYGRgeIwpgKEFpBQZMJIhMIzcAQAhOjo7JEcKTQAAAABJRU5ErkJggg=="></img>
+                    <svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+                        <path d="M512 85.333333c235.52 0 426.666667 191.146667 426.666667 426.666667s-191.146667 426.666667-426.666667 426.666667S85.333333 747.52 85.333333 512 276.48 85.333333 512 85.333333z m0 85.333334c-188.373333 0-341.333333 152.96-341.333333 341.333333s152.96 341.333333 341.333333 341.333333 341.333333-152.96 341.333333-341.333333-152.96-341.333333-341.333333-341.333333z m0 597.333333c-84.010667 0-161.450667-34.858667-213.333333-93.098667 26.154667-39.68 121.941333-77.568 213.333333-77.568s187.178667 37.888 213.333333 77.568C673.450667 733.141333 596.010667 768 512 768z m0-469.333333c70.826667 0 128 57.173333 128 128s-57.173333 128-128 128-128-57.173333-128-128 57.173333-128 128-128z"></path>
+                    </svg>
                 </span>
+                <div class="user-head">{appData?.context?.srfloginname}</div>
             </div>
             <template slot="list">
                 <dropdownMenu>
