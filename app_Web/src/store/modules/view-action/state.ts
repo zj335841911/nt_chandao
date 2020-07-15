@@ -987,8 +987,8 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'e9d61d4506a28dec9a6f1d7b9e1fff6a',
-                'b9bdfc0e33d333ade00934745d9dc0ad',
                 '09b6c2af7dcc4b719d4c8aad2319f1c5',
+                'a74d54220e97fb172fdb2117118f665d',
             ],
         },
         {
@@ -1333,6 +1333,16 @@ export const viewstate: any = {
             refviews: [
                 '6c7b582273d0726bcf77214807cfe40c',
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: 'a74d54220e97fb172fdb2117118f665d',
+            viewmodule: 'zentao',
+            viewname: 'StoryMPickupView2',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '569cd532c6b545ffc53cf5fb93427028',
             ],
         },
         {

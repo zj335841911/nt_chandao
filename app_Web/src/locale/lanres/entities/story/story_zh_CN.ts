@@ -126,6 +126,10 @@ export default {
 			caption: "需求",
       		title: "story表格视图",
 		},
+		pickupgridview2: {
+			caption: "需求",
+      		title: "需求",
+		},
 		gridview9_related: {
 			caption: "相关需求",
       		title: "相关需求",
@@ -133,6 +137,10 @@ export default {
 		maingridview: {
 			caption: "需求",
       		title: "story表格视图",
+		},
+		mpickupview2: {
+			caption: "关联需求",
+      		title: "关联需求",
 		},
 		mpickupview: {
 			caption: "关联需求",

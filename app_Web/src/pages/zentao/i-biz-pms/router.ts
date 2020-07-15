@@ -2646,6 +2646,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-main-dashboard-view/product-main-dashboard-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/mpickupview2/:mpickupview2?',
+                    meta: {
+                        caption: 'entities.story.views.mpickupview2.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'mpickupview2', parameterName: 'mpickupview2' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-mpickup-view2/story-mpickup-view2.vue'),
+                },
+                {
+                    path: 'stories/:story?/mpickupview2/:mpickupview2?',
+                    meta: {
+                        caption: 'entities.story.views.mpickupview2.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'mpickupview2', parameterName: 'mpickupview2' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-mpickup-view2/story-mpickup-view2.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/mpickupview/:mpickupview?',
                     meta: {
                         caption: 'entities.bug.views.mpickupview.title',
