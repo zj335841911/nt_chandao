@@ -172,6 +172,11 @@
                             </a>
                             <div slot='content'>{{$t('entities.build.main_grid.uiactions.build_removeonecolumn')}}</div>
                             </tooltip>
+                            <divider type='vertical'></divider>
+                            <a @click="uiAction(scope.row, 'RemoveAndExit', $event)">
+                              <i class='fa fa-remove'></i>
+                              {{$t('entities.build.main_grid.uiactions.build_removeandexit')}}
+                            </a>
                         </div>
                     </template>
                 </el-table-column>
