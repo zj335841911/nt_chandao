@@ -40,19 +40,21 @@ export class Http {
      * @returns {Promise<any>}
      * @memberof Http
      */
-    public async post(url: string, params: any = {}, isLoading?: boolean, serialNumber?: number): Promise<any> {
-        if (isLoading) {
-            this.beginLoading();
-        }
-        params = this.handleRequestData(params);
-        try {
-            const response = await axios({ method: 'post', url: url, data: params, headers: { 'Content-Type': 'application/json;charset=UTF-8', 'Accept': 'application/json' } });
-            this.doResponseResult(response, serialNumber);
-            return response;
-        } catch (response) {
-            this.doResponseResult(response, serialNumber);
-            Promise.reject(response);
-        }
+    public post(url: string, params: any = {}, isLoading?: boolean, serialNumber?: number): Promise<any> {
+        return new Promise((resolve: any, reject: any) => {
+            if (isLoading) {
+                this.beginLoading();
+            }
+            params = this.handleRequestData(params);
+            axios({ method: 'post', url: url, data: params, headers: { 'Content-Type': 'application/json;charset=UTF-8', 'Accept': 'application/json' } })
+                .then((response: any) => {
+                    this.doResponseResult(response, serialNumber);
+                    resolve(response);
+                }).catch((err: any) => {
+                    this.doResponseResult(err, serialNumber);
+                    reject(err);
+                });
+        });
     }
 
     /**
@@ -65,7 +67,7 @@ export class Http {
      * @returns {Promise<any>}
      * @memberof Http
      */
-    public async get(url: string, params: any = {}, isLoading?: boolean, serialNumber?: number): Promise<any> {
+    public get(url: string, params: any = {}, isLoading?: boolean, serialNumber?: number): Promise<any> {
         params = this.handleRequestData(params);
         if (params.srfparentdata) {
             Object.assign(params, params.srfparentdata);
@@ -88,17 +90,18 @@ export class Http {
                 url += '&sort=' + sort;
             }
         }
-        if (isLoading) {
-            this.beginLoading();
-        }
-        try {
-            const response = await axios.get(url);
-            this.doResponseResult(response, serialNumber);
-            return response;
-        } catch (response) {
-            this.doResponseResult(response, serialNumber);
-            Promise.reject(response);
-        }
+        return new Promise((resolve: any, reject: any) => {
+            if (isLoading) {
+                this.beginLoading();
+            }
+            axios.get(url).then((response) => {
+                this.doResponseResult(response, serialNumber);
+                resolve(response);
+            }).catch((err) => {
+                this.doResponseResult(err, serialNumber);
+                reject(err);
+            });
+        });
     }
 
     /**
@@ -110,18 +113,20 @@ export class Http {
      * @returns {Promise<any>}
      * @memberof Http
      */
-    public async delete(url: string, isLoading?: boolean, serialNumber?: number): Promise<any> {
-        if (isLoading) {
-            this.beginLoading();
-        }
-        try {
-            const response = await axios.delete(url);
-            this.doResponseResult(response, serialNumber);
-            return response;
-        } catch (response) {
-            this.doResponseResult(response, serialNumber);
-            Promise.reject(response);
-        }
+    public delete(url: string, isLoading?: boolean, serialNumber?: number): Promise<any> {
+        return new Promise((resolve: any, reject: any) => {
+            if (isLoading) {
+                this.beginLoading();
+            }
+            axios.delete(url)
+                .then((response) => {
+                    this.doResponseResult(response, serialNumber);
+                    resolve(response);
+                }).catch((err) => {
+                    this.doResponseResult(err, serialNumber);
+                    reject(err);
+                });
+        });
     }
 
     /**
@@ -134,19 +139,20 @@ export class Http {
      * @returns {Promise<any>}
      * @memberof Http
      */
-    public async put(url: string, data: any, isLoading?: boolean, serialNumber?: number): Promise<any> {
-        if (isLoading) {
-            this.beginLoading();
-        }
-        data = this.handleRequestData(data);
-        try {
-            const response = await axios.put(url, data);
-            this.doResponseResult(response, serialNumber);
-            return response;
-        } catch (response) {
-            this.doResponseResult(response, serialNumber);
-            Promise.reject(response);
-        }
+    public put(url: string, data: any, isLoading?: boolean, serialNumber?: number): Promise<any> {
+        return new Promise((resolve: any, reject: any) => {
+            if (isLoading) {
+                this.beginLoading();
+            }
+            data = this.handleRequestData(data);
+            axios.put(url, data).then((response) => {
+                this.doResponseResult(response, serialNumber);
+                resolve(response);
+            }).catch((err) => {
+                this.doResponseResult(err, serialNumber);
+                reject(err);
+            });
+        });
     }
 
     /**
