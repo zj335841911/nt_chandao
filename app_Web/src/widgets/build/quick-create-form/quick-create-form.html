@@ -44,7 +44,21 @@
 </i-col>
 <i-col v-show="detailsModel.builder.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='builder' :itemRules="this.rules.builder" class='' :caption="$t('entities.build.quickcreate_form.details.builder')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.builder.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.builder"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.builder.disabled" type='text'  style=""></input-box>
+    
+<dropdown-list 
+    v-model="data.builder"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.builder.disabled"
+    valueType="string"
+    tag='UserRealName'
+    codelistType='DYNAMIC'
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
