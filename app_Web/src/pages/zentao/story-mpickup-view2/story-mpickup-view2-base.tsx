@@ -66,6 +66,17 @@ export class StoryMPickupView2Base extends MPickupViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof StoryMPickupView2Base
+	 */
+    protected customViewParams: any = {
+        'project': { isRawValue: false, value: 'project' }
+    };
+
     /**
      * 视图模型数据
      *
