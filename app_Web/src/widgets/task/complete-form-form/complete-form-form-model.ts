@@ -83,7 +83,7 @@ export default class CompleteFormModel {
       {
         name: 'finisheddate',
         prop: 'finisheddate',
-        dataType: 'DATETIME',
+        dataType: 'DATE',
       },
       {
         name: 'files',

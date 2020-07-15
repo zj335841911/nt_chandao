@@ -186,7 +186,7 @@ export default class MainEditModel {
       {
         name: 'finisheddate',
         prop: 'finisheddate',
-        dataType: 'DATETIME',
+        dataType: 'DATE',
       },
       {
         name: 'canceledby',
