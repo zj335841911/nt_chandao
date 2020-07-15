@@ -96,6 +96,11 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
+			build_linkstories: "关联需求",
+			build_submittotesting: "提交测试",
+			build_viewbugs: "viewBugs",
+			edit: "编辑",
+			remove: "删除",
 		},
 	},
 	default_searchform: {

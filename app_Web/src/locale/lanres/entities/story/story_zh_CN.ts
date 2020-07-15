@@ -528,6 +528,22 @@ export default {
 		uiactions: {
 		},
 	},
+	pickupgrid_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			plan: "所属计划",
+			modulename: "所属模块名称",
+			title: "需求名称",
+			openedby: "创建",
+			assignedto: "指派",
+			estimate: "预计",
+			status: "状态",
+			stage: "阶段",
+		},
+		uiactions: {
+		},
+	},
 	storyrelated_grid: {
 		columns: {
 			id: "编号",
@@ -551,22 +567,6 @@ export default {
 		},
 		uiactions: {
 			story_unlinkstory: "移除关联",
-		},
-	},
-	pickupgrid_grid: {
-		columns: {
-			id: "ID",
-			pri: "P",
-			plan: "所属计划",
-			modulename: "所属模块名称",
-			title: "需求名称",
-			openedby: "创建",
-			assignedto: "指派",
-			estimate: "预计",
-			status: "状态",
-			stage: "阶段",
-		},
-		uiactions: {
 		},
 	},
 	main_releasesub_grid: {
