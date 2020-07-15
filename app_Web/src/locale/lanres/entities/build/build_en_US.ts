@@ -101,7 +101,7 @@ export default {
         build_submittotesting: "提交测试",
         build_viewbugs: "viewBugs",
         edit: "Edit",
-        remove: "Remove",
+        build_removeonecolumn: "表格列删除",
 		},
 	},
 	default_searchform: {

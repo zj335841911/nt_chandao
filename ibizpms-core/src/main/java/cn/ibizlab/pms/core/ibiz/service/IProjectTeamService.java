@@ -34,6 +34,7 @@ public interface IProjectTeamService extends IService<ProjectTeam>{
     ProjectTeam get(BigInteger key) ;
     ProjectTeam getDraft(ProjectTeam et) ;
     boolean checkKey(ProjectTeam et) ;
+    ProjectTeam getUserRole(ProjectTeam et) ;
     boolean save(ProjectTeam et) ;
     void saveBatch(List<ProjectTeam> list) ;
     Page<ProjectTeam> searchDefault(ProjectTeamSearchContext context) ;

@@ -362,6 +362,7 @@ mock.onPost(new RegExp(/^\/projectteams\/?([a-zA-Z0-9\-\;]{0,35})\/checkkey$/)).
     return [status, data];
 });
 
+
     
 // Save
 mock.onPost(new RegExp(/^\/projects\/([a-zA-Z0-9\-\;]{1,35})\/projectteams\/([a-zA-Z0-9\-\;]{1,35})\/save$/)).reply((config: any) => {
@@ -721,6 +722,62 @@ mock.onGet(new RegExp(/^\/projectteams\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((confi
     }    
     const paramArray:Array<any> = ['id'];
     const matchArray:any = new RegExp(/^\/projectteams\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(_items?_items:{});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, _items?_items:{}];
+});
+
+// GetUserRole
+mock.onGet(new RegExp(/^\/projects\/([a-zA-Z0-9\-\;]{1,35})\/projectteams\/([a-zA-Z0-9\-\;]{1,35})\/getuserrole$/)).reply((config: any) => {
+    console.groupCollapsed("实体:projectteam 方法: GetUserRole");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/projects\/([a-zA-Z0-9\-\;]{1,35})\/projectteams\/([a-zA-Z0-9\-\;]{1,35})\/getuserrole$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(_items?_items:{});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, _items?_items:{}];
+});
+
+// GetUserRole
+mock.onGet(new RegExp(/^\/projectteams\/([a-zA-Z0-9\-\;]{1,35})\/getuserrole$/)).reply((config: any) => {
+    console.groupCollapsed("实体:projectteam 方法: GetUserRole");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/projectteams\/([a-zA-Z0-9\-\;]{1,35})\/getuserrole$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {

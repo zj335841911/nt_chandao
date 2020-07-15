@@ -592,6 +592,15 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 任务相关需求
+     */
+    @Override
+    public Page<Story> searchTaskRelatedStory(StorySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchTaskRelatedStory(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
     /**
