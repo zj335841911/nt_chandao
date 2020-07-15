@@ -42,12 +42,6 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.builder.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='builder' :itemRules="this.rules.builder" class='' :caption="$t('entities.build.quickcreate_form.details.builder')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.builder.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box v-model="data.builder"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.builder.disabled" type='text'  style=""></input-box>
-</app-form-item>
-
-</i-col>
 <i-col v-show="detailsModel.date.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='date' :itemRules="this.rules.date" class='' :caption="$t('entities.build.quickcreate_form.details.date')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.date.error" :isEmptyCaption="false" labelPos="LEFT">
     <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.date" :disabled="detailsModel.date.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.date = val1 }"></date-picker>
