@@ -37,7 +37,7 @@ public class ZTCheckItem implements Serializable {
                 rst = checkContains(target);
                 break;
         }
-        return rst && !isNegative;
+        return isNegative ? !rst : rst;
     }
 
     private boolean checkContains(String target) {
