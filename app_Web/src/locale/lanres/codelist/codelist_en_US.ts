@@ -401,6 +401,9 @@ export default {
         "cancel": "已取消",
         "empty": ""
     },
+    UserRealNameProject: {
+        "empty": "",
+    },
     Testcase__type: {
         "feature": "功能测试",
         "performance": "性能测试",

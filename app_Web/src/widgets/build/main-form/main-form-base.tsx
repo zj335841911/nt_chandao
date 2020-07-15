@@ -151,4 +151,14 @@ export class MainEditFormBase extends EditFormControlBase {
         product: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
     };
+
+    /**
+     * 新建默认值
+     * @memberof MainEditFormBase
+     */
+    public createDefault(){                    
+        if (this.data.hasOwnProperty('builder')) {
+            this.data['builder'] = this.viewparams['srfloginname'];
+        }
+    }
 }
