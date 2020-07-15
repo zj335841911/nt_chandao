@@ -169,7 +169,7 @@ export class MainGridBase extends GridControllerBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u5e8d863_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u92e4430_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -185,35 +185,7 @@ export class MainGridBase extends GridControllerBase {
           datas = [params];
         }
         // 界面行为
-        const curUIService:BuildUIService  = new BuildUIService();
-        curUIService.Build_removeOneColumn(datas,contextJO, paramJO,  $event, xData,this,"Build");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public grid_uagridcolumn1_u28734e7_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.RemoveAndExit(datas, contextJO,paramJO,  $event, xData,this,"Build");
+        this.Remove(datas, contextJO,paramJO,  $event, xData,this,"Build");
     }
 
     /**
@@ -254,28 +226,14 @@ export class MainGridBase extends GridControllerBase {
      * @param {*} [actionContext]  执行行为上下文
      * @memberof BuildMainGridViewBase
      */
-    public RemoveAndExit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public Remove(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         const _this: any = this;
-        if (xData && xData.removeAndExit instanceof Function) {
-            xData.removeAndExit().then((response: any) => {
-                if (!response || response.status !== 200) {
-                    return;
-                }
-                if(window.parent){
-                    window.parent.postMessage([{ ...response.data }],'*');
-                }
-            });
-        } else if (_this.removeAndExit && _this.removeAndExit instanceof Function) {
-            _this.removeAndExit().then((response: any) => {
-                if (!response || response.status !== 200) {
-                    return;
-                }
-                if(window.parent){
-                    window.parent.postMessage([{ ...response.data }],'*');
-                }
-            });
+        if (!xData || !(xData.remove instanceof Function)) {
+            return ;
         }
+        xData.remove(args);
     }
+
 
     /**
      * 界面UI服务对象
@@ -296,8 +254,7 @@ export class MainGridBase extends GridControllerBase {
         submitToTesting: { name: 'submitToTesting',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
         viewBugs: { name: 'viewBugs',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
         Edit: { name: 'Edit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        removeOneColumn: { name: 'removeOneColumn',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
-        RemoveAndExit: { name: 'RemoveAndExit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'}
+        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'MULTIKEY'}
     };
 
     /**
@@ -497,11 +454,8 @@ export class MainGridBase extends GridControllerBase {
         if(Object.is('Edit', tag)) {
             this.grid_uagridcolumn1_ub91afbf_click(row, tag, $event);
         }
-        if(Object.is('removeOneColumn', tag)) {
-            this.grid_uagridcolumn1_u5e8d863_click(row, tag, $event);
-        }
-        if(Object.is('RemoveAndExit', tag)) {
-            this.grid_uagridcolumn1_u28734e7_click(row, tag, $event);
+        if(Object.is('Remove', tag)) {
+            this.grid_uagridcolumn1_u92e4430_click(row, tag, $event);
         }
     }
 }
