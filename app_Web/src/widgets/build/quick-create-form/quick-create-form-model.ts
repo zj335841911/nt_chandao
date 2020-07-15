@@ -51,6 +51,11 @@ export default class QuickCreateModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'project',
+        prop: 'project',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'productname',
         prop: 'productname',
         dataType: 'PICKUPTEXT',

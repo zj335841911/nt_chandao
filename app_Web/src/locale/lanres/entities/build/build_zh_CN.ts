@@ -71,6 +71,7 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			project: "所属项目", 
 			productname: "产品", 
 			name: "名称编号", 
 			builder: "构建者", 

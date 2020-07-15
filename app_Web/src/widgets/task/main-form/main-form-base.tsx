@@ -111,6 +111,10 @@ export class MainEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '任务类型 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '任务类型 值不能为空', trigger: 'blur' },
         ],
+        assignedto: [
+            { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'blur' },
+        ],
         name: [
             { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
