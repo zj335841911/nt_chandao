@@ -87,6 +87,15 @@
          where  parent=#{id}
      </select>
 
+    <!--数据集合[BuildLinkableStories]-->
+	 <select id="searchBuildLinkableStories"  parameterType="cn.ibizlab.pms.core.zentao.filter.StorySearchContext"  resultMap="StoryResultMap">
+         select t1.* from (
+                <include refid="BuildLinkableStories" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据集合[BuildStories]-->
 	 <select id="searchBuildStories"  parameterType="cn.ibizlab.pms.core.zentao.filter.StorySearchContext"  resultMap="StoryResultMap">
          select t1.* from (
@@ -180,8 +189,7 @@
     <!--数据查询[BuildLinkableStories]-->
     <sql id="BuildLinkableStories" databaseId="mysql">
 		<![CDATA[ SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`BRANCH`, t41.`NAME` AS `BRANCHNAME`, t1.`CHILDSTORIES`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`DELETED`, t1.`DUPLICATESTORY`, t1.`ESTIMATE`, t1.`FROMBUG`, t1.`ID`, (CASE WHEN EXISTS (SELECT 1 FROM ZT_STORY WHERE  PARENT = t1.`ID` AND DELETED = '0') THEN FALSE ELSE TRUE  END ) AS `ISLEAF`, t1.`KEYWORDS`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LINKSTORIES`, t1.`MAILTO`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t21.`TITLE` AS `PARENTNAME`, t11.`PATH`, t1.`PLAN`, t1.`PRI`, t31.`NAME` AS `PRODOCTNAME`, t1.`PRODUCT`, t1.`REVIEWEDBY`, t1.`REVIEWEDDATE`, t1.`SOURCE`, t1.`SOURCENOTE`, t1.`STAGE`, t1.`STAGEDBY`, t1.`STATUS`, t1.`SUBSTATUS`, t1.`TITLE`, t1.`TOBUG`, t1.`TYPE`, t1.`VERSION` FROM `zt_story` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.PARENT = t21.ID  LEFT JOIN zt_product t31 ON t1.PRODUCT = t31.ID  LEFT JOIN zt_branch t41 ON t1.BRANCH = t41.ID  
-					 WHERE 	EXISTS(SELECT * FROM zt_projectstory t51  LEFT JOIN zt_project t61 ON t51.PROJECT = t61.ID   WHERE   t1.ID = t51.STORY  AND  NOT(EXISTS(SELECT * FROM zt_build t71   WHERE   t71.DELETED = '0'  AND  t61.ID = t71.PROJECT  AND  ( t71.`PRODUCT` = ${srfwebcontext('','{\"defname\":\"PRODUCT\",\"dename\":\"ZT_BUILD\"}')} ) ))  AND  ( t61.`ID` = ${srfwebcontext('','{\"defname\":\"ID\",\"dename\":\"ZT_PROJECT\"}')} ) )
-						 AND t1.DELETED = '0'
+					 WHERE 	t1.DELETED = '0'
 			]]>
     </sql>
     <!--数据查询[BuildStories]-->
