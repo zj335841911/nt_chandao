@@ -39,6 +39,7 @@ public interface ITaskTeamService extends IService<TaskTeam>{
     Page<TaskTeam> searchDefault(TaskTeamSearchContext context) ;
     List<TaskTeam> selectByRoot(BigInteger id) ;
     void removeByRoot(BigInteger id) ;
+    void saveByRoot(BigInteger id,List<TaskTeam> list) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

@@ -446,6 +446,14 @@ public class Task extends EntityMP implements Serializable {
     private cn.ibizlab.pms.core.zentao.domain.Task ztparent;
 
 
+    /**
+     * 任务团队
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private List<cn.ibizlab.pms.core.ibiz.domain.TaskTeam> taskteam;
+
 
     /**
      * 设置 [由谁取消]

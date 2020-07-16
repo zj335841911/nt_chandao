@@ -162,6 +162,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
             et.setId(key);
         }
         else{
+            et.setTaskteam(taskteamService.selectByRoot(key));
         }
         return et;
     }
