@@ -228,7 +228,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'aac141e4259ff75a6bca1542777b9a01',
                 '770a170098d148e438a7666b248e6519',
             ],
         },
@@ -289,7 +288,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '97f38c5fa6f63f69e18299306eae9077',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 'fd0b8748ff96edcde009d39903a9f211',
             ],
@@ -1772,7 +1770,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '4970832ed515bc37ec3c7c61b55d444b',
             ],
         },
         {
@@ -1998,15 +1995,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '4970832ed515bc37ec3c7c61b55d444b',
-            viewmodule: 'ibiz',
-            viewname: 'TaskTeamGridView9',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: '5d468f620cc30181773d875b3bb8be6e',
             viewmodule: 'ibiz',
             viewname: 'ProductStatsEditView9',
@@ -2051,15 +2039,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '97f38c5fa6f63f69e18299306eae9077',
-            viewmodule: 'ibiz',
-            viewname: 'TaskTeamGridView9_Look',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: '985c8eb7591e5e00de8e3cda638d5727',
             viewmodule: 'ibiz',
             viewname: 'ProductLifeRoadMapListView9',
@@ -2084,15 +2063,6 @@ export const viewstate: any = {
             viewtag: 'a9be826f6c53b091270f492be52f2519',
             viewmodule: 'ibiz',
             viewname: 'ProductModuleQuickCfgView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
-            viewtag: 'aac141e4259ff75a6bca1542777b9a01',
-            viewmodule: 'ibiz',
-            viewname: 'TaskTeamGridView9_Edit',
             viewaction: '',
             viewdatachange: false,
             refviews: [

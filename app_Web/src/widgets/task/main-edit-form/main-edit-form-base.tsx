@@ -66,7 +66,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
      * @type {number}
      * @memberof MainEditEditFormBase
      */
-    protected drCount: number = 2;
+    protected drCount: number = 1;
 
     /**
      * 表单数据对象
@@ -149,10 +149,6 @@ export class MainEditEditFormBase extends EditFormControlBase {
         grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.task.mainedit_form', extractMode: 'ITEM', details: [] } }),
 
         group1: new FormGroupPanelModel({ caption: '任务基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.task.mainedit_form', extractMode: 'ITEM', details: [] } }),
-
-        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
-
-        grouppanel8: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel8', visible: false, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.task.mainedit_form', extractMode: 'ITEM', details: [] } }),
 
         grouppanel1: new FormGroupPanelModel({ caption: '基本信息', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.task.mainedit_form', extractMode: 'ITEM', details: [] } }),
 
@@ -249,77 +245,4 @@ export class MainEditEditFormBase extends EditFormControlBase {
         module: new FormItemModel({ caption: 'id', detailType: 'FORMITEM', name: 'module', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
     };
-
-    /**
-     * 表单项逻辑
-     *
-     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @returns {Promise<void>}
-     * @memberof MainEditEditFormBase
-     */
-    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
-                
-
-
-
-
-
-
-        if (Object.is(name, '') || Object.is(name, 'multiple')) {
-            let ret = false;
-            const _multiple = this.data.multiple;
-            if (this.$verify.testCond(_multiple, 'EQ', '')) {
-                ret = true;
-            }
-            this.detailsModel.grouppanel8.setVisible(ret);
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    }
 }

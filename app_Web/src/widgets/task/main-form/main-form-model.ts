@@ -91,9 +91,6 @@ export default class MainModel {
         dataType: 'INT',
       },
       {
-        name: 'formitem',
-      },
-      {
         name: 'story',
         prop: 'story',
         dataType: 'PICKUP',
