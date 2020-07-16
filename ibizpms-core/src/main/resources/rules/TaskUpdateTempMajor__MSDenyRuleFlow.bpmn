@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+    <process id="cn.ibizlab.pms.core.zentao.service.logic.taskupdatetempmajor__msdeny" isClosed="false" isExecutable="true" name="ScoreRule" processType="Private" tns:packageName="cn.ibizlab.pms.core.zentao.service.logic.taskupdatetempmajor__msdeny">
+        <extensionElements>
+            <tns:import name="java.util.Map" />
+            <tns:import name="org.springframework.util.StringUtils"/>
+            <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+        <tns:global identifier="taskupdatetempmajor__msdenydefault" type="cn.ibizlab.pms.core.zentao.domain.Task" />
+        <tns:global identifier="taskupdatetempmajor__msdenytemp" type="cn.ibizlab.pms.core.zentao.domain.Task" />
+        </extensionElements>
+     <startEvent id="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__BEGIN" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskupdatetempmajor__msdenyget" id="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__GET" implementation="http://www.jboss.org/drools/rule" name="获取数据"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskupdatetempmajor__msdenydenybydoing" id="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__doing" implementation="http://www.jboss.org/drools/rule" name="状态[进行中]拒绝[UpdateTempMajor]操作"/>
+     <endEvent id="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__doing_End" name="End"/>
+     <sequenceFlow id="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__doing_End_Line" sourceRef="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__doing" targetRef="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__doing_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskupdatetempmajor__msdenydenybypause" id="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__pause" implementation="http://www.jboss.org/drools/rule" name="状态[已暂停]拒绝[UpdateTempMajor]操作"/>
+     <endEvent id="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__pause_End" name="End"/>
+     <sequenceFlow id="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__pause_End_Line" sourceRef="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__pause" targetRef="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__pause_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskupdatetempmajor__msdenydenybywait" id="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__wait" implementation="http://www.jboss.org/drools/rule" name="状态[未进行]拒绝[UpdateTempMajor]操作"/>
+     <endEvent id="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__wait_End" name="End"/>
+     <sequenceFlow id="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__wait_End_Line" sourceRef="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__wait" targetRef="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__wait_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskupdatetempmajor__msdenypreparetemp" id="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__PREPARETEMP" implementation="http://www.jboss.org/drools/rule" name="准备临时参数"/>
+     <sequenceFlow id="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__PREPARETEMP" sourceRef="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__BEGIN" targetRef="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__PREPARETEMP">
+     </sequenceFlow>
+     <sequenceFlow id="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__GET" sourceRef="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__PREPARETEMP" targetRef="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__GET">
+     </sequenceFlow>
+     <sequenceFlow id="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__doing" sourceRef="gateway-7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__GET" targetRef="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__doing">
+            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+            $taskupdatetempmajor__msdenydefault:Task();
+            $taskupdatetempmajor__msdenytemp:Task();
+            eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS"),"EQ","doing")))
+                ]]>
+            </conditionExpression>
+     </sequenceFlow>
+     <sequenceFlow id="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__pause" sourceRef="gateway-7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__GET" targetRef="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__pause">
+            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+            $taskupdatetempmajor__msdenydefault:Task();
+            $taskupdatetempmajor__msdenytemp:Task();
+            eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS"),"EQ","pause")))
+                ]]>
+            </conditionExpression>
+     </sequenceFlow>
+     <sequenceFlow id="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__wait" sourceRef="gateway-7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__GET" targetRef="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__wait">
+            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+            $taskupdatetempmajor__msdenydefault:Task();
+            $taskupdatetempmajor__msdenytemp:Task();
+            eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS"),"EQ","wait")))
+                ]]>
+            </conditionExpression>
+     </sequenceFlow>
+    <exclusiveGateway id="gateway-7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__GET" name="Gateway" gatewayDirection="Diverging" default="gateway-7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__GET_End_Line"></exclusiveGateway>
+    <sequenceFlow id="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__doing-gatewayline" sourceRef="7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__GET" targetRef="gateway-7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__GET"></sequenceFlow>
+    <sequenceFlow id="gateway-7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__GET_End_Line" sourceRef="gateway-7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__GET" targetRef="gateway-7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__GET_End"/>
+    <endEvent id="gateway-7B99FEBC-02CA-4CF5-916B-415536390FD9__MSDENY__GET_End" name="End"/>
+    </process>
+</definitions>
+

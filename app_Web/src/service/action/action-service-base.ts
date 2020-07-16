@@ -86,7 +86,7 @@ export default class ActionServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/actions`,data,isloading);
-        this.tempStorage.setItem(tempContext.srfsessionkey+'_histories',JSON.stringify(res.data.histories));
+        this.tempStorage.setItem(tempContext.srfsessionkey+'_histories',JSON.stringify(res.data.histories ? res.data.histories : []));
         return res;
     }
 
@@ -118,7 +118,7 @@ export default class ActionServiceBase extends EntityService {
         masterData.histories = historiesData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/actions/${context.action}`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_histories',JSON.stringify(res.data.histories));
+            this.tempStorage.setItem(context.srfsessionkey+'_histories',JSON.stringify(res.data.histories ? res.data.histories : []));
             return res;
     }
 
@@ -146,7 +146,7 @@ export default class ActionServiceBase extends EntityService {
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().get(`/actions/${context.action}`,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_histories',JSON.stringify(res.data.histories));
+            this.tempStorage.setItem(context.srfsessionkey+'_histories',JSON.stringify(res.data.histories ? res.data.histories : []));
             return res;
     }
 
@@ -162,7 +162,7 @@ export default class ActionServiceBase extends EntityService {
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let res:any = await  Http.getInstance().get(`/actions/getdraft`,isloading);
         res.data.action = data.action;
-            this.tempStorage.setItem(context.srfsessionkey+'_histories',JSON.stringify(res.data.histories));
+            this.tempStorage.setItem(context.srfsessionkey+'_histories',JSON.stringify(res.data.histories ? res.data.histories : []));
         return res;
     }
 
@@ -207,7 +207,7 @@ export default class ActionServiceBase extends EntityService {
         masterData.histories = historiesData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/actions/${context.action}/save`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_histories',JSON.stringify(res.data.histories));
+            this.tempStorage.setItem(context.srfsessionkey+'_histories',JSON.stringify(res.data.histories ? res.data.histories : []));
             return res;
     }
 
