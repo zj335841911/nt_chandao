@@ -474,20 +474,20 @@
 <i-col v-show="detailsModel.openedbuild.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='openedbuild' :itemRules="this.rules.openedbuild" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.openedbuild')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.openedbuild.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<dropdown-list 
-    v-model="data.openedbuild"
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.openedbuild.disabled"
-    valueType="string"
-    tag='CurProductBuild'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+<app-checkbox-list 
+  v-model="data.openedbuild" 
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams" 
+  :disabled="detailsModel.openedbuild.disabled" 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  tag='CurProductBuild' 
+  codelistType='DYNAMIC' 
+  mode=""
+  name="openedbuild" 
+  style="">
+</app-checkbox-list>
 </app-form-item>
 
 </i-col>

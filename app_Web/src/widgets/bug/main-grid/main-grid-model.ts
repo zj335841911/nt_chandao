@@ -137,6 +137,11 @@ export default class MainModel {
           dataType: 'NSCODELIST',
         },
         {
+          name: 'lastediteddate',
+          prop: 'lastediteddate',
+          dataType: 'DATETIME',
+        },
+        {
           name: 'plan',
           prop: 'plan',
           dataType: 'PICKUP',
