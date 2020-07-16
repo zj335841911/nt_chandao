@@ -55,7 +55,7 @@
 </i-col>
 <i-col v-show="detailsModel.comment.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='comment' :itemRules="this.rules.comment" class='' :caption="$t('entities.case.mainedit_form.details.comment')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.comment.error" :isEmptyCaption="false" labelPos="TOP">
-    <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{}' :exportparams='{}'  style=""></app-rich-text-editor>
+    <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{objecttype:"case",version:"editor"}' :exportparams='{objecttype:"case",version:"editor"}'  style=""></app-rich-text-editor>
 </app-form-item>
 
 </i-col>
