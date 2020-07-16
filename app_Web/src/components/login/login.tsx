@@ -131,7 +131,7 @@ export default class Login extends Vue {
                 this.setCookie("loginname", this.form.loginname, 7);
                 // 页面回跳
                 if (this.$route.query.redirect) {
-                    window.location.href = (this.$route.query.redirect as any);
+                    window.location.href = decodeURIComponent((this.$route.query.redirect as any));
                 } else {
                     this.$router.push({ path: '/' });
                 }
