@@ -74,7 +74,23 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 
     @Autowired
     @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskUpdateTemp__MSDenyLogic updatetemp__msdenyLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskUpdateTempMajor__MSDenyLogic updatetempmajor__msdenyLogic;
+
+    @Autowired
+    @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ITaskRemove__MSDenyLogic remove__msdenyLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskRemoveTemp__MSDenyLogic removetemp__msdenyLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskRemoveTempMajor__MSDenyLogic removetempmajor__msdenyLogic;
 
     @Autowired
     @Lazy

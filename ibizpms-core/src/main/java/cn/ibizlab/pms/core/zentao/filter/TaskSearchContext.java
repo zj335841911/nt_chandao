@@ -27,11 +27,53 @@ import cn.ibizlab.pms.core.zentao.domain.Task;
 @Data
 public class TaskSearchContext extends QueryWrapperContext<Task> {
 
+	private String n_canceledby_eq;//[由谁取消]
+	public void setN_canceledby_eq(String n_canceledby_eq) {
+        this.n_canceledby_eq = n_canceledby_eq;
+        if(!ObjectUtils.isEmpty(this.n_canceledby_eq)){
+            this.getSearchCond().eq("canceledby", n_canceledby_eq);
+        }
+    }
+	private String n_color_eq;//[标题颜色]
+	public void setN_color_eq(String n_color_eq) {
+        this.n_color_eq = n_color_eq;
+        if(!ObjectUtils.isEmpty(this.n_color_eq)){
+            this.getSearchCond().eq("color", n_color_eq);
+        }
+    }
 	private String n_finishedby_eq;//[由谁完成]
 	public void setN_finishedby_eq(String n_finishedby_eq) {
         this.n_finishedby_eq = n_finishedby_eq;
         if(!ObjectUtils.isEmpty(this.n_finishedby_eq)){
             this.getSearchCond().eq("finishedby", n_finishedby_eq);
+        }
+    }
+	private String n_closedby_eq;//[由谁关闭]
+	public void setN_closedby_eq(String n_closedby_eq) {
+        this.n_closedby_eq = n_closedby_eq;
+        if(!ObjectUtils.isEmpty(this.n_closedby_eq)){
+            this.getSearchCond().eq("closedby", n_closedby_eq);
+        }
+    }
+	private String n_closedreason_eq;//[关闭原因]
+	public void setN_closedreason_eq(String n_closedreason_eq) {
+        this.n_closedreason_eq = n_closedreason_eq;
+        if(!ObjectUtils.isEmpty(this.n_closedreason_eq)){
+            this.getSearchCond().eq("closedreason", n_closedreason_eq);
+        }
+    }
+	private Integer n_pri_eq;//[优先级]
+	public void setN_pri_eq(Integer n_pri_eq) {
+        this.n_pri_eq = n_pri_eq;
+        if(!ObjectUtils.isEmpty(this.n_pri_eq)){
+            this.getSearchCond().eq("pri", n_pri_eq);
+        }
+    }
+	private String n_lasteditedby_eq;//[最后修改]
+	public void setN_lasteditedby_eq(String n_lasteditedby_eq) {
+        this.n_lasteditedby_eq = n_lasteditedby_eq;
+        if(!ObjectUtils.isEmpty(this.n_lasteditedby_eq)){
+            this.getSearchCond().eq("lasteditedby", n_lasteditedby_eq);
         }
     }
 	private String n_status_eq;//[任务状态]
@@ -67,6 +109,13 @@ public class TaskSearchContext extends QueryWrapperContext<Task> {
         this.n_assignedto_eq = n_assignedto_eq;
         if(!ObjectUtils.isEmpty(this.n_assignedto_eq)){
             this.getSearchCond().eq("assignedto", n_assignedto_eq);
+        }
+    }
+	private String n_openedby_eq;//[由谁创建]
+	public void setN_openedby_eq(String n_openedby_eq) {
+        this.n_openedby_eq = n_openedby_eq;
+        if(!ObjectUtils.isEmpty(this.n_openedby_eq)){
+            this.getSearchCond().eq("openedby", n_openedby_eq);
         }
     }
 	private String n_modulename_eq;//[所属模块]

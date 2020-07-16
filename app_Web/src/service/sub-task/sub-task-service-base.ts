@@ -841,4 +841,100 @@ export default class SubTaskServiceBase extends EntityService {
         // URI参数传递情况未实现
         // URI参数传递情况未实现
     }
+
+    /**
+     * FetchTempByModule接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async FetchTempByModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.task && true){
+            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchtypegroup`,data,isloading);
+        }
+        if(context.project && context.task && true){
+            return Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchtypegroup`,data,isloading);
+        }
+        if(context.story && context.task && true){
+            return Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchtypegroup`,data,isloading);
+        }
+        if(context.task && true){
+            return Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchtypegroup`,data,isloading);
+        }
+    }
+
+    /**
+     * FetchTempDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.task && true){
+            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchtypegroup`,data,isloading);
+        }
+        if(context.project && context.task && true){
+            return Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchtypegroup`,data,isloading);
+        }
+        if(context.story && context.task && true){
+            return Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchtypegroup`,data,isloading);
+        }
+        if(context.task && true){
+            return Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchtypegroup`,data,isloading);
+        }
+    }
+
+    /**
+     * FetchTempRootTask接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async FetchTempRootTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.task && true){
+            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchtypegroup`,data,isloading);
+        }
+        if(context.project && context.task && true){
+            return Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchtypegroup`,data,isloading);
+        }
+        if(context.story && context.task && true){
+            return Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchtypegroup`,data,isloading);
+        }
+        if(context.task && true){
+            return Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchtypegroup`,data,isloading);
+        }
+    }
+
+    /**
+     * FetchTempTypeGroup接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async FetchTempTypeGroup(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.task && true){
+            return Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchtypegroup`,data,isloading);
+        }
+        if(context.project && context.task && true){
+            return Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchtypegroup`,data,isloading);
+        }
+        if(context.story && context.task && true){
+            return Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchtypegroup`,data,isloading);
+        }
+        if(context.task && true){
+            return Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchtypegroup`,data,isloading);
+        }
+    }
 }

@@ -111,8 +111,8 @@ export default class CaseServiceBase extends EntityService {
             }
             let tempContext:any = JSON.parse(JSON.stringify(context));
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases`,data,isloading);
-            this.tempStorage.setItem(tempContext.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
-            this.tempStorage.setItem(tempContext.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps ? res.data.ibzcasesteps : []));
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps ? res.data.casesteps : []));
             return res;
         }
         if(context.story && true){
@@ -156,8 +156,8 @@ export default class CaseServiceBase extends EntityService {
             }
             let tempContext:any = JSON.parse(JSON.stringify(context));
             let res:any = await Http.getInstance().post(`/stories/${context.story}/cases`,data,isloading);
-            this.tempStorage.setItem(tempContext.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
-            this.tempStorage.setItem(tempContext.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps ? res.data.ibzcasesteps : []));
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps ? res.data.casesteps : []));
             return res;
         }
         if(context.product && true){
@@ -201,8 +201,8 @@ export default class CaseServiceBase extends EntityService {
             }
             let tempContext:any = JSON.parse(JSON.stringify(context));
             let res:any = await Http.getInstance().post(`/products/${context.product}/cases`,data,isloading);
-            this.tempStorage.setItem(tempContext.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
-            this.tempStorage.setItem(tempContext.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps ? res.data.ibzcasesteps : []));
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps ? res.data.casesteps : []));
             return res;
         }
         let masterData:any = {};
@@ -245,8 +245,8 @@ export default class CaseServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/cases`,data,isloading);
-        this.tempStorage.setItem(tempContext.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
-        this.tempStorage.setItem(tempContext.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+        this.tempStorage.setItem(tempContext.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps ? res.data.ibzcasesteps : []));
+        this.tempStorage.setItem(tempContext.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps ? res.data.casesteps : []));
         return res;
     }
 
@@ -294,8 +294,8 @@ export default class CaseServiceBase extends EntityService {
         masterData.casesteps = casestepsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().put(`/products/${context.product}/stories/${context.story}/cases/${context.case}`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
-            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps ? res.data.ibzcasesteps : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps ? res.data.casesteps : []));
             return res;
         }
         if(context.story && context.case){
@@ -332,8 +332,8 @@ export default class CaseServiceBase extends EntityService {
         masterData.casesteps = casestepsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().put(`/stories/${context.story}/cases/${context.case}`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
-            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps ? res.data.ibzcasesteps : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps ? res.data.casesteps : []));
             return res;
         }
         if(context.product && context.case){
@@ -370,8 +370,8 @@ export default class CaseServiceBase extends EntityService {
         masterData.casesteps = casestepsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().put(`/products/${context.product}/cases/${context.case}`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
-            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps ? res.data.ibzcasesteps : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps ? res.data.casesteps : []));
             return res;
         }
         let masterData:any = {};
@@ -407,8 +407,8 @@ export default class CaseServiceBase extends EntityService {
         masterData.casesteps = casestepsData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/cases/${context.case}`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
-            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps ? res.data.ibzcasesteps : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps ? res.data.casesteps : []));
             return res;
     }
 
@@ -446,25 +446,25 @@ export default class CaseServiceBase extends EntityService {
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}`,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
-            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps ? res.data.ibzcasesteps : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps ? res.data.casesteps : []));
             return res;
         }
         if(context.story && context.case){
             let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/${context.case}`,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
-            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps ? res.data.ibzcasesteps : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps ? res.data.casesteps : []));
             return res;
         }
         if(context.product && context.case){
             let res:any = await Http.getInstance().get(`/products/${context.product}/cases/${context.case}`,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
-            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps ? res.data.ibzcasesteps : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps ? res.data.casesteps : []));
             return res;
         }
             let res:any = await Http.getInstance().get(`/cases/${context.case}`,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
-            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps ? res.data.ibzcasesteps : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps ? res.data.casesteps : []));
             return res;
     }
 
@@ -481,28 +481,28 @@ export default class CaseServiceBase extends EntityService {
         if(context.product && context.story && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/getdraft`,isloading);
             res.data.case = data.case;
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
-            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps ? res.data.ibzcasesteps : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps ? res.data.casesteps : []));
             return res;
         }
         if(context.story && true){
             let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/getdraft`,isloading);
             res.data.case = data.case;
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
-            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps ? res.data.ibzcasesteps : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps ? res.data.casesteps : []));
             return res;
         }
         if(context.product && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/cases/getdraft`,isloading);
             res.data.case = data.case;
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
-            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps ? res.data.ibzcasesteps : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps ? res.data.casesteps : []));
             return res;
         }
         let res:any = await  Http.getInstance().get(`/cases/getdraft`,isloading);
         res.data.case = data.case;
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
-            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps ? res.data.ibzcasesteps : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps ? res.data.casesteps : []));
         return res;
     }
 
@@ -550,8 +550,8 @@ export default class CaseServiceBase extends EntityService {
         masterData.casesteps = casestepsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/checkkey`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
-            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps ? res.data.ibzcasesteps : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps ? res.data.casesteps : []));
             return res;
         }
         if(context.story && context.case){
@@ -588,8 +588,8 @@ export default class CaseServiceBase extends EntityService {
         masterData.casesteps = casestepsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/checkkey`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
-            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps ? res.data.ibzcasesteps : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps ? res.data.casesteps : []));
             return res;
         }
         if(context.product && context.case){
@@ -626,8 +626,8 @@ export default class CaseServiceBase extends EntityService {
         masterData.casesteps = casestepsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/cases/${context.case}/checkkey`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
-            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps ? res.data.ibzcasesteps : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps ? res.data.casesteps : []));
             return res;
         }
             return Http.getInstance().post(`/cases/${context.case}/checkkey`,data,isloading);
@@ -677,8 +677,8 @@ export default class CaseServiceBase extends EntityService {
         masterData.casesteps = casestepsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/runcase`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
-            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps ? res.data.ibzcasesteps : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps ? res.data.casesteps : []));
             return res;
         }
         if(context.story && context.case){
@@ -715,8 +715,8 @@ export default class CaseServiceBase extends EntityService {
         masterData.casesteps = casestepsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/runcase`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
-            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps ? res.data.ibzcasesteps : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps ? res.data.casesteps : []));
             return res;
         }
         if(context.product && context.case){
@@ -753,8 +753,8 @@ export default class CaseServiceBase extends EntityService {
         masterData.casesteps = casestepsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/cases/${context.case}/runcase`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
-            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps ? res.data.ibzcasesteps : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps ? res.data.casesteps : []));
             return res;
         }
             return Http.getInstance().post(`/cases/${context.case}/runcase`,data,isloading);
@@ -804,8 +804,8 @@ export default class CaseServiceBase extends EntityService {
         masterData.casesteps = casestepsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/save`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
-            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps ? res.data.ibzcasesteps : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps ? res.data.casesteps : []));
             return res;
         }
         if(context.story && context.case){
@@ -842,8 +842,8 @@ export default class CaseServiceBase extends EntityService {
         masterData.casesteps = casestepsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/save`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
-            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps ? res.data.ibzcasesteps : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps ? res.data.casesteps : []));
             return res;
         }
         if(context.product && context.case){
@@ -880,8 +880,8 @@ export default class CaseServiceBase extends EntityService {
         masterData.casesteps = casestepsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/cases/${context.case}/save`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
-            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps ? res.data.ibzcasesteps : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps ? res.data.casesteps : []));
             return res;
         }
         let masterData:any = {};
@@ -917,8 +917,8 @@ export default class CaseServiceBase extends EntityService {
         masterData.casesteps = casestepsData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/cases/${context.case}/save`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps));
-            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps ? res.data.ibzcasesteps : []));
+            this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps ? res.data.casesteps : []));
             return res;
     }
 
