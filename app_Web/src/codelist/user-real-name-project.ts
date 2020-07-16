@@ -13,7 +13,7 @@ export default class UserRealNameProject {
      * @type boolean
      * @memberof UserRealNameProject
      */
-    public isEnableCache:boolean = true;
+    public isEnableCache:boolean = false;
 
     /**
      * 过期时间
@@ -29,7 +29,7 @@ export default class UserRealNameProject {
      * @type any
      * @memberof UserRealNameProject
      */
-    public cacheTimeout:any = 600;
+    public cacheTimeout:any = -1;
 
     /**
      * 代码表模型对象
@@ -101,7 +101,7 @@ export default class UserRealNameProject {
     public getItems(context: any={}, data: any={}, isloading?: boolean): Promise<any> {
         return new Promise((resolve, reject) => {
             data = this.handleQueryParam(data);
-            const promise: Promise<any> = this.userService.FetchDefault(context, data, isloading);
+            const promise: Promise<any> = this.userService.FetchProjectTeamUser(context, data, isloading);
             promise.then((response: any) => {
                 if (response && response.status === 200) {
                     const data =  response.data;

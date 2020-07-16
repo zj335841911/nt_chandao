@@ -151,6 +151,15 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         return new PageImpl<User>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 项目团队成员
+     */
+    @Override
+    public Page<User> searchProjectTeamUser(UserSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<User> pages=baseMapper.searchProjectTeamUser(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<User>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
 
