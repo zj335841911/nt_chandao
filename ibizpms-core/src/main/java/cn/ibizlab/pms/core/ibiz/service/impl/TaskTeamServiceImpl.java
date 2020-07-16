@@ -154,6 +154,35 @@ public class TaskTeamServiceImpl extends ServiceImpl<TaskTeamMapper, TaskTeam> i
         this.remove(new QueryWrapper<TaskTeam>().eq("root",id));
     }
 
+	@Override
+    public void saveByRoot(BigInteger id,List<TaskTeam> list) {
+        if(list==null)
+            return;
+        Set<BigInteger> delIds=new HashSet<BigInteger>();
+        List<TaskTeam> _update=new ArrayList<TaskTeam>();
+        List<TaskTeam> _create=new ArrayList<TaskTeam>();
+        for(TaskTeam before:selectByRoot(id)){
+            delIds.add(before.getId());
+        }
+        for(TaskTeam sub:list) {
+            sub.setRoot(id);
+            if(ObjectUtils.isEmpty(sub.getId()))
+                sub.setId((BigInteger)sub.getDefaultKey(true));
+            if(delIds.contains(sub.getId())) {
+                delIds.remove(sub.getId());
+                _update.add(sub);
+            }
+            else
+                _create.add(sub);
+        }
+        if(_update.size()>0)
+            this.updateBatch(_update);
+        if(_create.size()>0)
+            this.createBatch(_create);
+        if(delIds.size()>0)
+            this.removeBatch(delIds);
+	}
+
 
     /**
      * 查询集合 DEFAULT
