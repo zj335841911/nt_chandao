@@ -239,6 +239,7 @@ export class IBizPMSBase extends Vue {
       this.$store.getters.getAppData().context
     ) {
       Object.assign(this.context, this.$store.getters.getAppData().context);
+      this.$store.getters.getAppData().context = this.context;
     }
   }
 

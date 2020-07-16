@@ -8,11 +8,10 @@ export class ZentaoBase extends Vue {
     /**
      * 菜单点击
      *
-     * @protected
      * @param {*} item 菜单数据
      * @memberof Zentao
      */
-    protected click(item: any) {
+    public click(item: any) {
         if (item) {
             let judge = true;
             switch (item.appfunctag) {

@@ -152,6 +152,15 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     }
 
     /**
+     * 查询集合 根据源代码账户获取登录名
+     */
+    @Override
+    public Page<User> searchGetByCommiter(UserSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<User> pages=baseMapper.searchGetByCommiter(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<User>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 项目团队成员
      */
     @Override
