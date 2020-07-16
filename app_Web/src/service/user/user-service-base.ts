@@ -176,6 +176,20 @@ export default class UserServiceBase extends EntityService {
     }
 
     /**
+     * FetchGetByCommiter接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserServiceBase
+     */
+    public async FetchGetByCommiter(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/users/fetchgetbycommiter`,tempData,isloading);
+    }
+
+    /**
      * FetchProjectTeamUser接口方法
      *
      * @param {*} [context={}]

@@ -159,6 +159,27 @@ public class UserResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(userMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-searchGetByCommiter-all')")
+	@ApiOperation(value = "获取根据源代码账户获取登录名", tags = {"用户" } ,notes = "获取根据源代码账户获取登录名")
+    @RequestMapping(method= RequestMethod.GET , value="/users/fetchgetbycommiter")
+	public ResponseEntity<List<UserDTO>> fetchGetByCommiter(UserSearchContext context) {
+        Page<User> domains = userService.searchGetByCommiter(context) ;
+        List<UserDTO> list = userMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-searchGetByCommiter-all')")
+	@ApiOperation(value = "查询根据源代码账户获取登录名", tags = {"用户" } ,notes = "查询根据源代码账户获取登录名")
+    @RequestMapping(method= RequestMethod.POST , value="/users/searchgetbycommiter")
+	public ResponseEntity<Page<UserDTO>> searchGetByCommiter(@RequestBody UserSearchContext context) {
+        Page<User> domains = userService.searchGetByCommiter(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(userMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-searchProjectTeamUser-all')")
 	@ApiOperation(value = "获取项目团队成员", tags = {"用户" } ,notes = "获取项目团队成员")
     @RequestMapping(method= RequestMethod.GET , value="/users/fetchprojectteamuser")

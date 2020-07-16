@@ -144,7 +144,7 @@ public class User extends EntityMP implements Serializable {
     @JsonProperty("dept")
     private Integer dept;
     /**
-     * commiter
+     * 源代码账户
      */
     @TableField(value = "commiter")
     @JSONField(name = "commiter")
@@ -420,7 +420,7 @@ public class User extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [commiter]
+     * 设置 [源代码账户]
      */
     public void setCommiter(String commiter){
         this.commiter = commiter ;
