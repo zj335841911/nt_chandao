@@ -37,6 +37,7 @@ public interface IUserService extends IService<User>{
     boolean save(User et) ;
     void saveBatch(List<User> list) ;
     Page<User> searchDefault(UserSearchContext context) ;
+    Page<User> searchProjectTeamUser(UserSearchContext context) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

@@ -3048,7 +3048,7 @@
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"User",
-        "appdedataset":"FetchDefault",
+        "appdedataset":"FetchProjectTeamUser",
         "items": []
     }, 
     {
