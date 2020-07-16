@@ -1,5 +1,41 @@
 <template>
-  <textarea :id="id"></textarea>
+    <div class="rich-text-editor">
+        <div class="editor-custom-action">
+            <Poptip ref="propip" trigger="hover" placement="top-end" title="请输入模板标题" :width="250">
+                <Button class="appTemplate">
+                    保存模板
+                </Button>
+                <template slot="content">
+                    <div>
+                        <Input v-model="templateTitle" placeholder="请输入模板标题" />
+                        <div style="margin-top: 5px;">
+                            <Button @click="saveTemplate()">{{ $t('app.commonWords.save') }}</Button>&nbsp;
+                            <Button @click="onCancel()">{{ $t('app.commonWords.cancel') }}</Button>
+                        </div>
+                    </div>
+                </template>
+            </Poptip>
+            <Dropdown trigger="click">
+                <Button class="appTemplate">
+                    应用模板
+                    <Icon type="ios-arrow-down"></Icon>
+                </Button>
+                <DropdownMenu slot="list" >
+                    <DropdownItem v-for="(item,index) in appTemplate" :key='index' :value="item.content">
+                        <div style="position: relative;">
+                            <span class="span-content" @click="appTemplateFill(item.content)">
+                                {{item.title}}
+                            </span> 
+                            <span class="icon-close" @click="removeAppTemplate(item)" style="position: absolute;right: 0px;">
+                                <Icon type="md-close" size="17"/>
+                            </span>
+                        </div>
+                    </DropdownItem>
+                </DropdownMenu>
+            </Dropdown>
+        </div>
+        <textarea :id="id"></textarea>
+    </div>
 </template>
 <script lang = 'ts'>
 import { Vue, Component, Prop, Model, Watch } from 'vue-property-decorator';
@@ -23,7 +59,7 @@ import 'tinymce/icons/default/icons.min.js';
 
 const tinymceCode:any = tinymce;
 
-
+import UserTplService from '@/service/user-tpl/user-tpl-service';
 
 @Component({})
 export default class RichTextEditor extends Vue {
@@ -163,7 +199,30 @@ export default class RichTextEditor extends Vue {
      * @memberof RichTextEditor
      */
     @Prop() public data!: string;
-    
+
+    /**
+     * 应用模板参数
+     * 
+     * @type {string}
+     * @memberof RichTextEditor
+     */
+    @Prop() public templParams: any;
+
+    /**
+     * 注入实体服务
+     */
+    public userTplService: UserTplService = new UserTplService();
+
+    /**
+     * 应用模板集合
+     */
+    public appTemplate?: Array<any>=[];
+
+    /**
+     * 模板标题
+     */
+    public templateTitle?: string = '';
+
     /**
      * 语言映射文件
      * 
@@ -191,12 +250,14 @@ export default class RichTextEditor extends Vue {
      */
     public isNeedInit:boolean = false;
 
+
     /**
      * 生命周期
      *
      * @memberof RichTextEditor
      */
     public created() {
+        this.appTemplateData();
         if(this.formState) {
             this.formState.subscribe(({ type, data }) => {
                 if (Object.is('load', type)) {
@@ -315,8 +376,9 @@ export default class RichTextEditor extends Vue {
                 editor.on('blur', () => {
                     const content = editor.getContent();
                     richtexteditor.$emit('change', content);
-                });
+                });  
             },
+
             images_upload_handler: (bolbinfo: any, success: any, failure: any) => {
                 const formData = new FormData();
                 formData.append('file', bolbinfo.blob(), bolbinfo.filename());
@@ -363,6 +425,114 @@ export default class RichTextEditor extends Vue {
                 }
             }
         });
+    }
+
+    /**
+     * 应用模板参数处理
+     * 
+     * @memberof RichTextEditor
+     */
+    public getTemplParams(){
+        let data: any = {};
+        let _param = this.viewparams ? JSON.parse(JSON.stringify(this.viewparams)) : {};
+        let _context = this.context ? JSON.parse(JSON.stringify(this.context)) : {};
+        if (this.templParams && Object.keys(this.templParams).length >0){
+            data = this.$util.computedNavData({}, _context, _param, this.templParams);
+        }
+        return data;
+    }
+
+    /**
+     * 获取应用模板数据集
+     * 
+     * @memberof RichTextEditor
+     */
+    public async appTemplateData() {
+        let data: any ={};
+        const templParams = this.getTemplParams();
+        const response: any = await this.userTplService.FetchDefault({},templParams,false);
+        if(response && response.status === 200){
+            const { data: _data } = response;
+            this.appTemplate = _data;
+        }
+    }
+
+    /**
+     * 保存模板
+     * 
+     * @memberof RichTextEditor
+     */
+    public async saveTemplate(){
+        let templParams = this.getTemplParams();
+        const templateTitle = this.templateTitle;
+        const templateContent = this.editor.getContent();
+        if(!templateContent || Object.is(templateContent,'')){
+            this.$Notice.error({
+                    title: '请填充模板内容!!!',
+            });
+            return;
+        }
+        if(!templateTitle || Object.is(templateTitle,'')){
+            this.$Notice.error({
+                    title: '请输入模板标题!!!',
+            });
+            return;
+        }
+        templParams.title = templateTitle;
+        templParams.content = templateContent;
+        const response: any = await this.userTplService.Create({}, templParams, false);
+        if(response && response.status === 200){
+            this.$Notice.success({
+                title: '保存模板成功!!!',
+            });
+            this.appTemplateData();
+        }else{
+            this.$Notice.error({
+                title: '保存模板失败!!!',
+            });
+        }
+        let propip: any = this.$refs.propip;
+        propip.handleMouseleave();
+    }
+
+    /**
+     * 取消
+     */
+    public onCancel(){
+        let propip: any = this.$refs.propip;
+        propip.handleMouseleave();
+    }
+
+    /**
+     * 应用模板填充
+     * 
+     * @param content 应用模板内容
+     * @memberof RichTextEditor
+     */
+    public appTemplateFill(content: any){
+        this.editor.setContent(content == null ? content : '');
+
+    }
+
+    /**
+     * 删除应用模板
+     * 
+     * @param event 选中的应用模板
+     */
+    public async removeAppTemplate(event: any){
+        let context: any = {};
+        context.usertpl = event.id;
+        const response: any = await this.userTplService.Remove(context,{},false);
+        if(response && response.status === 200){
+            this.$Notice.success({
+                title: '删除模板成功!!!',
+            });
+            this.appTemplateData();
+        }else{
+            this.$Notice.error({
+                title: '删除模板失败!!!',
+            });
+        }
     }
 
     /**
@@ -432,4 +602,5 @@ export default class RichTextEditor extends Vue {
 }
 </script>
 <style lang="less">
+@import './rich-text-editor.less';
 </style>

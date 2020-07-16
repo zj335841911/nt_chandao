@@ -1,0 +1,33 @@
+
+.rich-text-editor {
+    position: relative;
+    .editor-custom-action {
+        position: absolute;
+        z-index: 2;
+        right: 2px;
+        top: 3px;
+    }
+    .appTemplate {
+        background: transparent;
+        color:#000 !important;
+        border: none !important;
+        outline: transparent !important;
+    }
+    .span-content {
+        display: inline-block;
+        text-overflow: ellipsis ;
+        overflow: hidden;
+        width: 106px;
+        margin-right: 5px;
+    }
+    .icon-close {
+        right: -13px !important;
+        top: 2px !important;
+    }
+    .appTemplate:hover {
+        background-color: #dee0e2;
+    }
+    .appTemplate.ivu-btn:focus {
+        box-shadow: initial;
+    }
+}
