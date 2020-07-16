@@ -1,0 +1,11 @@
+<div class='tabviewpanel' v-if='isActivied'>
+        <bug-plan-sub-grid-view 
+        class='viewcontainer2' 
+        :viewdata="viewdata" 
+        :viewparam="viewparam"
+        @viewload="viewDatasChange($event)" 
+        :viewDefaultUsage="false"
+        :viewUsage="7"
+        :expActive="expActive"
+    />
+</div>
