@@ -19,6 +19,10 @@ zuul:
       path: /cases/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_taskteamtemp:
+      path: /ibztaskteams/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_product:
       path: /products/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

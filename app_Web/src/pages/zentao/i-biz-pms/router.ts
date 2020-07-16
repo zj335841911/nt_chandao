@@ -679,13 +679,13 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-grid-view9-child/story-grid-view9-child.vue'),
                 },
                 {
-                    path: 'taskteams/:taskteam?/gridview9/:gridview9?',
+                    path: 'ibztaskteams/:ibztaskteam?/gridview9/:gridview9?',
                     meta: {
-                        caption: 'entities.taskteam.views.gridview9.title',
+                        caption: 'entities.ibztaskteam.views.gridview9.title',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'taskteams', parameterName: 'taskteam' },
+                            { pathName: 'ibztaskteams', parameterName: 'ibztaskteam' },
                             { pathName: 'gridview9', parameterName: 'gridview9' },
                         ],
                         requireAuth: true,

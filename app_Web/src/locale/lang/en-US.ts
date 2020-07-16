@@ -1,6 +1,7 @@
 import productplan_en_US from '@locale/lanres/entities/product-plan/product-plan_en_US';
 import projectproduct_en_US from '@locale/lanres/entities/project-product/project-product_en_US';
 import case_en_US from '@locale/lanres/entities/case/case_en_US';
+import ibztaskteam_en_US from '@locale/lanres/entities/ibztask-team/ibztask-team_en_US';
 import product_en_US from '@locale/lanres/entities/product/product_en_US';
 import taskteam_en_US from '@locale/lanres/entities/task-team/task-team_en_US';
 import file_en_US from '@locale/lanres/entities/file/file_en_US';
@@ -283,6 +284,7 @@ export default {
         productplan: productplan_en_US,
         projectproduct: projectproduct_en_US,
         case: case_en_US,
+        ibztaskteam: ibztaskteam_en_US,
         product: product_en_US,
         taskteam: taskteam_en_US,
         file: file_en_US,

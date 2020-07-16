@@ -236,6 +236,19 @@ export class MainEditFormBase extends EditFormControlBase {
 
 
         if (Object.is(name, '') || Object.is(name, 'multiple')) {
+            let ret = true;
+            const _multiple = this.data.multiple;
+            if (this.$verify.testCond(_multiple, 'EQ', '1')) {
+                ret = false;
+            }
+            this.rules.assignedto.some((rule: any) => {
+                if (rule.hasOwnProperty('required')) {
+                    rule.required = ret;
+                }
+                return false;
+            });
+        }
+        if (Object.is(name, '') || Object.is(name, 'multiple')) {
             let ret = false;
             const _multiple = this.data.multiple;
             if (this.$verify.testCond(_multiple, 'EQ', '0')) {
