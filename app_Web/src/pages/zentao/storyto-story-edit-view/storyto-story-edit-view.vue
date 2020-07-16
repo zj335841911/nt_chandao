@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { StorytoStoryEditViewBase } from './storyto-story-edit-view-base';
-import view_form from '@widgets/story/main-new-mode-form/main-new-mode-form.vue';
+import view_form from '@widgets/story/bug-to-story-form/bug-to-story-form.vue';
 
 /**
  * 需求视图
