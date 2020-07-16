@@ -35,23 +35,23 @@ export default class BugUIService extends BugUIServiceBase {
      */
     public async Bug_toStory(args: any[], context: any = {}, params: any = {}, $event?: any, xData?: any, actionContext?: any, srfParentDeName?: string) {
         let data: any = {};
-        let parentContext: any = {};
-        let parentViewParam: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
         const _this: any = actionContext;
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { bug: '%bug%' });
         Object.assign(params, { id: '%bug%' });
         Object.assign(params, { title: '%title%' });
-        if (_this.context) {
+        if(_this.context){
             parentContext = _this.context;
         }
-        if (_this.viewparams) {
+        if(_this.viewparams){
             parentViewParam = _this.viewparams;
         }
-        context = UIActionTool.handleContextParam(actionTarget, _args, parentContext, parentViewParam, context);
-        data = UIActionTool.handleActionParam(actionTarget, _args, parentContext, parentViewParam, params);
-        context = Object.assign({}, actionContext.context, context);
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
         let response: any = await this.dataService.Get(context, data, false);
         if (!response || response.status != 200) {
             return;
@@ -78,10 +78,10 @@ export default class BugUIService extends BugUIServiceBase {
             ]
         }
         const parameters: any[] = [
-            { pathName: 'bugs', parameterName: 'bug' },
+            { pathName: 'stories', parameterName: 'story' },
         ];
-        const openPopupModal = (view: any, data: any) => {
-            let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+        const openDrawer = (view: any, data: any) => {
+            let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context, data);
             container.subscribe((result: any) => {
                 if (!result || !Object.is(result.ret, 'OK')) {
                     return;
@@ -95,12 +95,13 @@ export default class BugUIService extends BugUIServiceBase {
             });
         }
         const view: any = {
-            viewname: 'bug-assing-to-view',
-            height: 600,
-            width: 800,
-            title: actionContext.$t('entities.bug.views.assingtoview.title'),
+            viewname: 'storyto-story-edit-view',
+            height: 0,
+            width: 0,
+            title: actionContext.$t('entities.story.views.tostoryeditview.title'),
+            placement: 'DRAWER_RIGHT',
         };
-        openPopupModal(view, data);
+        openDrawer(view, data);
     }
 
 }
