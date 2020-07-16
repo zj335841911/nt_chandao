@@ -25,7 +25,7 @@
 
 </i-col>
 <i-col v-show="detailsModel.version.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
-    <app-form-item name='version' :itemRules="this.rules.version" class='' :caption="$t('entities.story.storyspec_form.details.version')" uiStyle="DEFAULT" :labelWidth="1" :isShowCaption="true" :error="detailsModel.version.error" :isEmptyCaption="true" labelPos="LEFT">
+    <app-form-item name='version' :itemRules="this.rules.version" class='dropdown-transparent' :caption="$t('entities.story.storyspec_form.details.version')" uiStyle="DEFAULT" :labelWidth="1" :isShowCaption="true" :error="detailsModel.version.error" :isEmptyCaption="true" labelPos="LEFT">
     
 <dropdown-list 
     v-model="data.version"
