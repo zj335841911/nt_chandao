@@ -26,20 +26,20 @@ export default {
       		title: "团队",
 		},
 	},
-	mainedit_grid: {
+	main_grid: {
 		columns: {
-			account: "用户",
-			estimate: "预计",
+			account: "团队",
+			estimate: "最初预计",
 			consumed: "总计消耗",
 			left: "预计剩余",
 		},
 		uiactions: {
 		},
 	},
-	main_grid: {
+	mainedit_grid: {
 		columns: {
-			account: "团队",
-			estimate: "最初预计",
+			account: "用户",
+			estimate: "预计",
 			consumed: "总计消耗",
 			left: "预计剩余",
 		},
