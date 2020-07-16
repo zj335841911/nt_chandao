@@ -46,6 +46,9 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 
     @Autowired
     @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.ITaskTeamService taskteamService;
+    @Autowired
+    @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IBugService bugService;
     @Autowired
     @Lazy
