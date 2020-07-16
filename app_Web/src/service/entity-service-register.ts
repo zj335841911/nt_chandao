@@ -42,6 +42,7 @@ export class EntityServiceRegister {
                 this.allEntityService.set('productplan', () => import('@/service/product-plan/product-plan-service'));
         this.allEntityService.set('projectproduct', () => import('@/service/project-product/project-product-service'));
         this.allEntityService.set('case', () => import('@/service/case/case-service'));
+        this.allEntityService.set('ibztaskteam', () => import('@/service/ibztask-team/ibztask-team-service'));
         this.allEntityService.set('product', () => import('@/service/product/product-service'));
         this.allEntityService.set('taskteam', () => import('@/service/task-team/task-team-service'));
         this.allEntityService.set('file', () => import('@/service/file/file-service'));

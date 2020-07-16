@@ -1,6 +1,7 @@
 import productplan_zh_CN from '@locale/lanres/entities/product-plan/product-plan_zh_CN';
 import projectproduct_zh_CN from '@locale/lanres/entities/project-product/project-product_zh_CN';
 import case_zh_CN from '@locale/lanres/entities/case/case_zh_CN';
+import ibztaskteam_zh_CN from '@locale/lanres/entities/ibztask-team/ibztask-team_zh_CN';
 import product_zh_CN from '@locale/lanres/entities/product/product_zh_CN';
 import taskteam_zh_CN from '@locale/lanres/entities/task-team/task-team_zh_CN';
 import file_zh_CN from '@locale/lanres/entities/file/file_zh_CN';
@@ -282,6 +283,7 @@ export default {
         productplan: productplan_zh_CN,
         projectproduct: projectproduct_zh_CN,
         case: case_zh_CN,
+        ibztaskteam: ibztaskteam_zh_CN,
         product: product_zh_CN,
         taskteam: taskteam_zh_CN,
         file: file_zh_CN,

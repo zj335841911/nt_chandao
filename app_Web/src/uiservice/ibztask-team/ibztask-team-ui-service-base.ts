@@ -2,82 +2,82 @@ import { Environment } from '@/environments/environment';
 import { UIActionTool,Util } from '@/utils';
 import UIService from '../ui-service';
 import { Subject } from 'rxjs';
-import TaskTeamService from '@/service/task-team/task-team-service';
-import TaskTeamAuthService from '@/authservice/task-team/task-team-auth-service';
+import IBZTaskTeamService from '@/service/ibztask-team/ibztask-team-service';
+import IBZTaskTeamAuthService from '@/authservice/ibztask-team/ibztask-team-auth-service';
 
 /**
  * 任务团队UI服务对象基类
  *
  * @export
- * @class TaskTeamUIServiceBase
+ * @class IBZTaskTeamUIServiceBase
  */
-export default class TaskTeamUIServiceBase extends UIService {
+export default class IBZTaskTeamUIServiceBase extends UIService {
 
     /**
      * 是否支持工作流
      * 
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IBZTaskTeamUIServiceBase
      */
     public isEnableWorkflow:boolean = false;
 
     /**
      * 当前UI服务对应的数据服务对象
      * 
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IBZTaskTeamUIServiceBase
      */
-    public dataService:TaskTeamService = new TaskTeamService();
+    public dataService:IBZTaskTeamService = new IBZTaskTeamService();
 
     /**
      * 所有关联视图
      * 
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IBZTaskTeamUIServiceBase
      */ 
     public allViewMap: Map<string, Object> = new Map();
 
     /**
      * 状态值
      * 
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IBZTaskTeamUIServiceBase
      */ 
     public stateValue: number = 0;
 
     /**
      * 状态属性
      * 
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IBZTaskTeamUIServiceBase
      */ 
     public stateField: string = "";
 
     /**
      * 主状态属性集合
      * 
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IBZTaskTeamUIServiceBase
      */  
     public mainStateFields:Array<any> = [];
 
     /**
      * 主状态集合Map
      * 
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IBZTaskTeamUIServiceBase
      */  
     public allDeMainStateMap:Map<string,string> = new Map();
 
     /**
      * 主状态操作标识Map
      * 
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IBZTaskTeamUIServiceBase
      */ 
     public allDeMainStateOPPrivsMap:Map<string,any> = new Map();
 
     /**
-     * Creates an instance of  TaskTeamUIServiceBase.
+     * Creates an instance of  IBZTaskTeamUIServiceBase.
      * 
      * @param {*} [opts={}]
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IBZTaskTeamUIServiceBase
      */
     constructor(opts: any = {}) {
         super(opts);
-        this.authService = new TaskTeamAuthService(opts);
+        this.authService = new IBZTaskTeamAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();
         this.initDeMainStateOPPrivsMap();
@@ -86,15 +86,16 @@ export default class TaskTeamUIServiceBase extends UIService {
     /**
      * 初始化视图Map
      * 
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IBZTaskTeamUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'gridview9',srfappde:'ibztaskteams'});
     }
 
     /**
      * 初始化主状态集合
      * 
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IBZTaskTeamUIServiceBase
      */  
     public initDeMainStateMap(){
     }
@@ -102,7 +103,7 @@ export default class TaskTeamUIServiceBase extends UIService {
     /**
      * 初始化主状态操作标识
      * 
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IBZTaskTeamUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
     }
@@ -113,12 +114,12 @@ export default class TaskTeamUIServiceBase extends UIService {
      * 
      * @param srfkey 数据主键
      * @param isEnableWorkflow  重定向视图是否需要处理流程中的数据
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IBZTaskTeamUIServiceBase
      */
     public async getRDAppView(srfkey:string,isEnableWorkflow:boolean){
         this.isEnableWorkflow = isEnableWorkflow;
         // 进行数据查询
-        let result:any = await this.dataService.Get({taskteam:srfkey});
+        let result:any = await this.dataService.Get({ibztaskteam:srfkey});
         const curData:any = result.data;
         //判断当前数据模式,默认为true，todo
         const iRealDEModel:boolean = true;
@@ -145,7 +146,7 @@ export default class TaskTeamUIServiceBase extends UIService {
     /**
 	 * 获取实际的数据类型
      * 
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IBZTaskTeamUIServiceBase
 	 */
 	public getRealDEType(entity:any){
 
@@ -157,7 +158,7 @@ export default class TaskTeamUIServiceBase extends UIService {
      * @param curData 当前数据
      * @param bDataInWF 是否有数据在工作流中
      * @param bWFMode   是否工作流模式
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IBZTaskTeamUIServiceBase
      */
     public async getDESDDEViewPDTParam(curData:any, bDataInWF:boolean, bWFMode:boolean){
         let strPDTParam:string = '';
@@ -191,7 +192,7 @@ export default class TaskTeamUIServiceBase extends UIService {
      * 获取数据对象的主状态标识
      * 
      * @param curData 当前数据
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IBZTaskTeamUIServiceBase
      */  
     public getDEMainStateTag(curData:any){
         if(this.mainStateFields.length === 0) return null;
@@ -227,7 +228,7 @@ export default class TaskTeamUIServiceBase extends UIService {
     * 获取数据对象当前操作标识
     * 
     * @param data 当前数据
-    * @memberof  TaskTeamUIServiceBase
+    * @memberof  IBZTaskTeamUIServiceBase
     */  
    public getDEMainStateOPPrivs(data:any){
         if(this.getDEMainStateTag(data)){
@@ -241,7 +242,7 @@ export default class TaskTeamUIServiceBase extends UIService {
     * 获取数据对象所有的操作标识
     * 
     * @param data 当前数据
-    * @memberof  TaskTeamUIServiceBase
+    * @memberof  IBZTaskTeamUIServiceBase
     */ 
    public getAllOPPrivs(data:any){
        return this.authService.getOPPrivs(this.getDEMainStateOPPrivs(data));

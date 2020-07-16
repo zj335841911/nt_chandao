@@ -42,6 +42,7 @@ export class AuthServiceRegister {
                 this.allAuthService.set('productplan', () => import('@/authservice/product-plan/product-plan-auth-service'));
         this.allAuthService.set('projectproduct', () => import('@/authservice/project-product/project-product-auth-service'));
         this.allAuthService.set('case', () => import('@/authservice/case/case-auth-service'));
+        this.allAuthService.set('ibztaskteam', () => import('@/authservice/ibztask-team/ibztask-team-auth-service'));
         this.allAuthService.set('product', () => import('@/authservice/product/product-auth-service'));
         this.allAuthService.set('taskteam', () => import('@/authservice/task-team/task-team-auth-service'));
         this.allAuthService.set('file', () => import('@/authservice/file/file-auth-service'));
