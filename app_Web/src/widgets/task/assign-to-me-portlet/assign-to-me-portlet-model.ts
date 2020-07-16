@@ -162,6 +162,9 @@ export default class AssignToMeModel {
       {
         name: 'allmodules',
       },
+      {
+        name: 'multiple',
+      },
     ]
   }
 

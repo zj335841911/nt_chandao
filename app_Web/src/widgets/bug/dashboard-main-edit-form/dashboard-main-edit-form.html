@@ -474,20 +474,23 @@
 <i-col v-show="detailsModel.openedbuild.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='openedbuild' :itemRules="this.rules.openedbuild" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.openedbuild')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.openedbuild.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<app-checkbox-list 
-  v-model="data.openedbuild" 
-  :data="data" 
+<app-picker  
+  :formState="formState"
+  :data="data"
   :context="context"
-  :viewparams="viewparams" 
-  :disabled="detailsModel.openedbuild.disabled" 
+  :viewparams="viewparams"
   :localContext ='{ }' 
   :localParam ='{ }' 
-  tag='CurProductBuild' 
-  codelistType='DYNAMIC' 
-  mode=""
-  name="openedbuild" 
-  style="">
-</app-checkbox-list>
+  :disabled="detailsModel.openedbuild.disabled"
+  name='openedbuild' 
+  :service="service"
+  :acParams="{ }"
+  valueitem='' 
+  :value="data.openedbuild" 
+  editortype="dropdown"
+  style="" 
+  @formitemvaluechange="onFormItemValueChange($event)">
+</app-picker>
 </app-form-item>
 
 </i-col>

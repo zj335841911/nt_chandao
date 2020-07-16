@@ -89,6 +89,7 @@ export default class TaskTeamUIServiceBase extends UIService {
      * @memberof  TaskTeamUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'gridview9',srfappde:'taskteams'});
     }
 
     /**

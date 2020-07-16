@@ -397,4 +397,12 @@ export interface SubTask {
      * @memberof SubTask
      */
     allmodules?: any;
+
+    /**
+     * 多人任务
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    multiple?: any;
 }

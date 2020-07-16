@@ -50,6 +50,7 @@ export default {
     totaltime: "总计耗时",
     isleaf: "是否子任务",
     allmodules: "所有模块",
+    multiple: "多人任务",
   },
 	views: {
 		subtasknewview: {

@@ -1706,6 +1706,33 @@
         ]
     }, 
     {
+        "srfkey": "Team__type",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "project",
+                "label": "项目团队",
+                "text": "项目团队",
+                "data":"",
+                "codename":"Project",
+                "value": "project",
+                
+                "disabled": false
+            }
+            , {
+                "id": "task",
+                "label": "任务团队",
+                "text": "任务团队",
+                "data":"",
+                "codename":"Task",
+                "value": "task",
+                
+                "disabled": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "Product",
         "emptytext": "未定义",
         "codelisttype":"dynamic",

@@ -49,6 +49,7 @@ export default {
     totaltime: "总计耗时",
     isleaf: "是否子任务",
     allmodules: "所有模块",
+    multiple: "多人任务",
   },
 	views: {
 		assigntaskview: {
@@ -142,6 +143,8 @@ export default {
 	},
 	main_form: {
 		details: {
+			druipart1: "", 
+			grouppanel1: "团队", 
 			group1: "task基本信息", 
 			formpage1: "基本信息", 
 			srfupdatedate: "最后修改日期", 
@@ -158,7 +161,7 @@ export default {
 			modulename: "所属模块", 
 			allmodules: "所有模块", 
 			assignedto: "指派给", 
-			formitem1: "多人任务", 
+			multiple: "多人任务", 
 			story: "相关需求", 
 			storyname: "相关需求", 
 			name: "任务名称", 

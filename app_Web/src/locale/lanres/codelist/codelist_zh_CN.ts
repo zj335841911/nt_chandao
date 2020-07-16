@@ -245,6 +245,11 @@ export default {
         "others": "其他",
         "empty": "",
     },
+    Team__type: {
+        "project": "项目团队",
+        "task": "任务团队",
+        "empty": "",
+    },
     Product: {
         "empty": "",
     },

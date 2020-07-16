@@ -2159,6 +2159,16 @@
         "viewtag": "41dab4e36aef71df5c66acca4db7d045",
         "memo": ""
     },
+    "taskteamgridview9": {
+        "title": "任务团队表格视图",
+        "caption": "团队",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "ibiz",
+        "viewname": "TaskTeamGridView9",
+        "viewfilename": "task-team-grid-view9",
+        "viewtag": "4970832ed515bc37ec3c7c61b55d444b",
+        "memo": ""
+    },
     "productstatseditview9": {
         "title": "产品统计编辑视图",
         "caption": "产品统计",
