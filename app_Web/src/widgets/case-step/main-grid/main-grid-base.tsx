@@ -264,6 +264,9 @@ export class MainGridBase extends GridControllerBase {
      */
     public async save(args: any[], params?: any, $event?: any, xData?: any) {
         for (const item of this.items) {
+            if(Object.is(item.rowDataState, 'create')) {
+                continue;
+            }
             let _removeAction = this.removeAction;
             let _keys = item.srfkey;
             const context: any = JSON.parse(JSON.stringify(this.context));

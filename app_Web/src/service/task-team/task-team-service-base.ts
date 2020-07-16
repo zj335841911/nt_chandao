@@ -48,7 +48,6 @@ export default class TaskTeamServiceBase extends EntityService {
      * @memberof TaskTeamServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            return Http.getInstance().get(`/taskteams/${context.taskteam}/select`,isloading);
     }
 
     /**
@@ -61,7 +60,5 @@ export default class TaskTeamServiceBase extends EntityService {
      * @memberof TaskTeamServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/taskteams/select`,tempData,isloading);
     }
 }

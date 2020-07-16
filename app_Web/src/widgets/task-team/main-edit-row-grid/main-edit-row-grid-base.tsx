@@ -207,15 +207,4 @@ export class MainEditRowGridBase extends GridControllerBase {
         ]);
     }
 
-
-    /**
-     * 新建默认值
-     * @param {*}  row 行数据
-     * @memberof MainEditRowGridBase
-     */
-    public createDefault(row: any): void {
-        if (row.hasOwnProperty('root')) {
-            row['root'] = this.viewparams['srfparentkey'];
-        }
-    }
 }
