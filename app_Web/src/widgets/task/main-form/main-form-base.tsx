@@ -254,7 +254,7 @@ export class MainEditFormBase extends EditFormControlBase {
         if (Object.is(name, '') || Object.is(name, 'multiple')) {
             let ret = false;
             const _multiple = this.data.multiple;
-            if (this.$verify.testCond(_multiple, 'EQ', '0')) {
+            if (this.$verify.testCond(_multiple, 'NOTEQ', '1')) {
                 ret = true;
             }
             this.detailsModel.assignedto.setDisabled(!ret);
@@ -269,7 +269,7 @@ export class MainEditFormBase extends EditFormControlBase {
         if (Object.is(name, '') || Object.is(name, 'multiple')) {
             let ret = false;
             const _multiple = this.data.multiple;
-            if (this.$verify.testCond(_multiple, 'EQ', '0')) {
+            if (this.$verify.testCond(_multiple, 'NOTEQ', '0')) {
                 ret = true;
             }
             this.detailsModel.estimate.setDisabled(!ret);
@@ -291,6 +291,9 @@ export class MainEditFormBase extends EditFormControlBase {
     public createDefault(){                    
         if (this.data.hasOwnProperty('allmodules')) {
             this.data['allmodules'] = '1';
+        }
+        if (this.data.hasOwnProperty('multiple')) {
+            this.data['multiple'] = 0;
         }
     }
 }

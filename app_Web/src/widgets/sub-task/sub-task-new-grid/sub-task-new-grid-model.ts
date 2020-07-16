@@ -115,6 +115,11 @@ export default class SubTaskNewModel {
           dataType: 'TEXT',
         },
         {
+          name: 'allmodules',
+          prop: 'allmodules',
+          dataType: 'TEXT',
+        },
+        {
           name: 'left',
           prop: 'left',
           dataType: 'FLOAT',
