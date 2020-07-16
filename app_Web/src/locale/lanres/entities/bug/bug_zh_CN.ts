@@ -533,6 +533,7 @@ export default {
 			assignedto: "指派给",
 			resolution: "方案",
 			uagridcolumn1: "操作",
+			lastediteddate: "修改日期",
 		},
 		uiactions: {
 			bug_confirmbug: "确认",

@@ -295,6 +295,14 @@ export class MainGridBase extends GridControllerBase {
             util: 'PX',
             isEnableRowEdit: false,
         },
+        {
+            name: 'lastediteddate',
+            label: '修改日期',
+            langtag: 'entities.bug.main_grid.columns.lastediteddate',
+            show: true,
+            util: 'PX',
+            isEnableRowEdit: false,
+        },
     ]
 
     /**
@@ -339,6 +347,7 @@ export class MainGridBase extends GridControllerBase {
         'assignedto':false,
         'resolution':false,
         'uagridcolumn1':false,
+        'lastediteddate':false,
     };
 
     /**

@@ -88,7 +88,7 @@ export default class MainModel {
       {
         name: 'openedbuild',
         prop: 'openedbuild',
-        dataType: 'SSCODELIST',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'projectname',

@@ -201,7 +201,7 @@ export default class DashboardMainEditModel {
       {
         name: 'openedbuild',
         prop: 'openedbuild',
-        dataType: 'SSCODELIST',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'resolvedby',

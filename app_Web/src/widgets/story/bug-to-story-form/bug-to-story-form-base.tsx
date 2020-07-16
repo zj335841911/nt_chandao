@@ -187,6 +187,15 @@ export class BugToStoryEditFormBase extends EditFormControlBase {
         if (this.data.hasOwnProperty('branch')) {
             this.data['branch'] = this.viewparams['branch'];
         }
+        if (this.data.hasOwnProperty('modulename')) {
+            this.data['modulename'] = this.viewparams['modulename'];
+        }
+        if (this.data.hasOwnProperty('plan')) {
+            this.data['plan'] = this.viewparams['plan'];
+        }
+        if (this.data.hasOwnProperty('source')) {
+            this.data['source'] = 'bug';
+        }
         if (this.data.hasOwnProperty('assignedto')) {
             this.data['assignedto'] = this.viewparams['assignedto'];
         }
@@ -198,6 +207,9 @@ export class BugToStoryEditFormBase extends EditFormControlBase {
         }
         if (this.data.hasOwnProperty('mailto')) {
             this.data['mailto'] = this.viewparams['mailto'];
+        }
+        if (this.data.hasOwnProperty('keywords')) {
+            this.data['keywords'] = this.viewparams['keywords'];
         }
     }
 }

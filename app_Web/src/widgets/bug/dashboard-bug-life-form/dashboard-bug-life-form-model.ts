@@ -63,7 +63,7 @@ export default class DashboardBugLifeModel {
       {
         name: 'openedbuild',
         prop: 'openedbuild',
-        dataType: 'SSCODELIST',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'resolvedby',
