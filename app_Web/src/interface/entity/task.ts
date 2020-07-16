@@ -397,4 +397,12 @@ export interface Task {
      * @memberof Task
      */
     allmodules?: any;
+
+    /**
+     * 多人任务
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    multiple?: any;
 }

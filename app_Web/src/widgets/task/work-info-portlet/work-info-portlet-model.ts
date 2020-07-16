@@ -162,6 +162,9 @@ export default class WorkInfoModel {
       {
         name: 'allmodules',
       },
+      {
+        name: 'multiple',
+      },
     ]
   }
 

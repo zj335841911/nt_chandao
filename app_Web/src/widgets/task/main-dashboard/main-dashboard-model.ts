@@ -162,6 +162,9 @@ export default class MainModel {
       {
         name: 'allmodules',
       },
+      {
+        name: 'multiple',
+      },
     ]
   }
 

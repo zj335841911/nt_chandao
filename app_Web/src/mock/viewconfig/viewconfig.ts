@@ -1735,6 +1735,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectModuleMainGridView",
             "viewtag": "41dab4e36aef71df5c66acca4db7d045"
         },
+        "taskteamgridview9": {
+            "title": "任务团队表格视图",
+            "caption": "团队",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "ibiz",
+            "viewname": "TaskTeamGridView9",
+            "viewtag": "4970832ed515bc37ec3c7c61b55d444b"
+        },
         "productstatseditview9": {
             "title": "产品统计编辑视图",
             "caption": "产品统计",

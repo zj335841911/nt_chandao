@@ -424,6 +424,14 @@ public class TaskDTO extends DTOBase implements Serializable {
     @JsonProperty("allmodules")
     private String allmodules;
 
+    /**
+     * 属性 [MULTIPLE]
+     *
+     */
+    @JSONField(name = "multiple")
+    @JsonProperty("multiple")
+    private Integer multiple;
+
 
     /**
      * 设置 [CANCELEDBY]

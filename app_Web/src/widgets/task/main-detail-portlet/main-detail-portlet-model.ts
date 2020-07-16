@@ -162,6 +162,9 @@ export default class MainDetailModel {
       {
         name: 'allmodules',
       },
+      {
+        name: 'multiple',
+      },
     ]
   }
 

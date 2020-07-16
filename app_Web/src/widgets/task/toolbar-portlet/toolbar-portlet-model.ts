@@ -162,6 +162,9 @@ export default class ToolbarModel {
       {
         name: 'allmodules',
       },
+      {
+        name: 'multiple',
+      },
     ]
   }
 

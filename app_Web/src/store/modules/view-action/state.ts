@@ -1770,6 +1770,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '4970832ed515bc37ec3c7c61b55d444b',
             ],
         },
         {
@@ -1989,6 +1990,15 @@ export const viewstate: any = {
             viewtag: '41dab4e36aef71df5c66acca4db7d045',
             viewmodule: 'ibiz',
             viewname: 'ProjectModuleMainGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: '4970832ed515bc37ec3c7c61b55d444b',
+            viewmodule: 'ibiz',
+            viewname: 'TaskTeamGridView9',
             viewaction: '',
             viewdatachange: false,
             refviews: [
