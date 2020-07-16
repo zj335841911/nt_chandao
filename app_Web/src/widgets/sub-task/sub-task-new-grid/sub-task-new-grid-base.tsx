@@ -189,6 +189,7 @@ export class SubTaskNewGridBase extends GridControllerBase {
      */
     public getGridRowModel(){
         return {
+          project: new FormItemModel(),
           assignedto: new FormItemModel(),
           pri: new FormItemModel(),
           desc: new FormItemModel(),
@@ -208,6 +209,10 @@ export class SubTaskNewGridBase extends GridControllerBase {
      * @memberof SubTaskNewGridBase
      */
     public rules: any = {
+        project: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属项目 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属项目 值不能为空', trigger: 'blur' },
+        ],
         assignedto: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '指派给 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '指派给 值不能为空', trigger: 'blur' },
@@ -320,6 +325,9 @@ export class SubTaskNewGridBase extends GridControllerBase {
      * @memberof SubTaskNewGridBase
      */
     public createDefault(row: any): void {
+        if (row.hasOwnProperty('project')) {
+            row['project'] = this.viewparams['project'];
+        }
         if (row.hasOwnProperty('isleaf')) {
             row['isleaf'] = '1';
         }
