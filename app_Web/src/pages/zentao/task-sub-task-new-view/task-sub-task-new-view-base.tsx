@@ -69,6 +69,17 @@ export class TaskSubTaskNewViewBase extends GridViewBase {
      */    
     protected counterServiceArray: Array<any> = [];
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TaskSubTaskNewViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'PROJECT': { isRawValue: false, value: 'project' }
+    };
+
     /**
      * 视图模型数据
      *
