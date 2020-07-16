@@ -327,7 +327,8 @@
         "viewname": "TaskSubTaskNewView",
         "viewfilename": "task-sub-task-new-view",
         "viewtag": "35ba93bac795e0deb7297d2d471b7180",
-        "memo": ""
+        "memo": "SRFNAVCTX.project=%project%
+SRFNAVPARAM.project=%project%"
     },
     "casecurtesttaskgridview": {
         "title": "功能测试",
