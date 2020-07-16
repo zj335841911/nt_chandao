@@ -346,6 +346,7 @@ final public class ZTTaskHelper {
         ACTION_URL_PARAMS_CREATE.add("project");
         ACTION_URL_PARAMS_CREATE.add("story");
         ACTION_URL_PARAMS_CREATE.add("module");
+        ACTION_URL_PARAMS_CREATE.add("parent");
 
         // EDIT
         ACTION_URL_PARAMS_EDIT.add("id");
