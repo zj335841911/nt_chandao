@@ -675,6 +675,70 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-grid-view9-child/story-grid-view9-child.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/ibztaskteams/:ibztaskteam?/gridview9/:gridview9?',
+                    meta: {
+                        caption: 'entities.ibztaskteam.views.gridview9.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'ibztaskteams', parameterName: 'ibztaskteam' },
+                            { pathName: 'gridview9', parameterName: 'gridview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-team-grid-view9/task-team-grid-view9.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/ibztaskteams/:ibztaskteam?/gridview9/:gridview9?',
+                    meta: {
+                        caption: 'entities.ibztaskteam.views.gridview9.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'ibztaskteams', parameterName: 'ibztaskteam' },
+                            { pathName: 'gridview9', parameterName: 'gridview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-team-grid-view9/task-team-grid-view9.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/ibztaskteams/:ibztaskteam?/gridview9/:gridview9?',
+                    meta: {
+                        caption: 'entities.ibztaskteam.views.gridview9.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'ibztaskteams', parameterName: 'ibztaskteam' },
+                            { pathName: 'gridview9', parameterName: 'gridview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-team-grid-view9/task-team-grid-view9.vue'),
+                },
+                {
+                    path: 'tasks/:task?/ibztaskteams/:ibztaskteam?/gridview9/:gridview9?',
+                    meta: {
+                        caption: 'entities.ibztaskteam.views.gridview9.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'ibztaskteams', parameterName: 'ibztaskteam' },
+                            { pathName: 'gridview9', parameterName: 'gridview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-team-grid-view9/task-team-grid-view9.vue'),
+                },
+                {
                     path: 'ibztaskteams/:ibztaskteam?/gridview9/:gridview9?',
                     meta: {
                         caption: 'entities.ibztaskteam.views.gridview9.title',
