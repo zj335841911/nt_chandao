@@ -33,6 +33,9 @@ import cn.ibizlab.pms.core.zentao.domain.Task;
 import cn.ibizlab.pms.core.zentao.service.ITaskService;
 import cn.ibizlab.pms.core.zentao.filter.TaskSearchContext;
 import cn.ibizlab.pms.util.annotation.VersionCheck;
+import cn.ibizlab.pms.core.ibiz.filter.TaskTeamSearchContext;
+import cn.ibizlab.pms.core.ibiz.domain.TaskTeam;
+import cn.ibizlab.pms.core.ibiz.service.ITaskTeamService;
 
 @Slf4j
 @Api(tags = {"任务" })
@@ -46,6 +49,9 @@ public class TaskResource {
     @Autowired
     @Lazy
     public TaskMapping taskMapping;
+
+    @Autowired
+    private ITaskTeamService taskteamService;
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Create-all')")
     @ApiOperation(value = "新建任务", tags = {"任务" },  notes = "新建任务")

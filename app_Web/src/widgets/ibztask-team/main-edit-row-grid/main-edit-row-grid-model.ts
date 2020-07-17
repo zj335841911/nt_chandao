@@ -67,6 +67,11 @@ export default class MainEditRowModel {
           dataType: 'ACID',
         },
         {
+          name: 'task',
+          prop: 'id',
+          dataType: 'FONTKEY',
+        },
+        {
           name: 'ibztaskteam',
           prop: 'id',
         },
