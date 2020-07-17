@@ -424,7 +424,7 @@
   valueitem='story' 
   :value="data.storyname" 
   editortype="dropdown"
-  :valFormat="{0: ""}"
+  :valFormat="{0: ''}"
   style="" 
   @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
@@ -450,6 +450,7 @@
   valueitem='task' 
   :value="data.taskname" 
   editortype="dropdown"
+  :valFormat="{0: ''}"
   style="" 
   @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
