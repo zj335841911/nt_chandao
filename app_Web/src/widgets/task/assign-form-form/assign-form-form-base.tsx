@@ -105,6 +105,7 @@ export class AssignFormEditFormBase extends EditFormControlBase {
         left: [
             { required: true, type: 'number', message: '预计剩余 值不能为空', trigger: 'change' },
             { required: true, type: 'number', message: '预计剩余 值不能为空', trigger: 'blur' },
+            { pattern: /[0-9]*[1-9][0-9]*/, message: '内容必须为正整数', trigger: 'change' },
         ],
     }
 
