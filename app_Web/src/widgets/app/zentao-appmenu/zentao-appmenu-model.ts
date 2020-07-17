@@ -1,3 +1,5 @@
+import { ViewTool } from '@/utils';
+
 /**
  * Zentao 部件模型
  *
@@ -333,6 +335,53 @@ export default class ZentaoModel {
             ],
         },
 	];
+
+	/**
+	 * 根据当前路由查找激活菜单
+	 *
+	 * @param {*} route
+	 * @returns {*}
+	 * @memberof ZentaoModel
+	 */
+	public findActiveMenuByRoute(route: any): any {
+		if (route) {
+			const func = this.funcs.find((item: any) => {
+				if (item.openmode === '') {
+					const url: string = ViewTool.buildUpRoutePath(route, route.params, [], item.parameters, [], {});
+					return url === route.fullPath;
+				}
+			});
+            if (func) {
+			    return this.findMenuByFuncTag(func.appfunctag);
+            }
+		}
+	}
+
+	/**
+	 * 根据应用功能id查找菜单项
+	 *
+	 * @param {string} tag
+	 * @param {any[]} [menus=this.items]
+	 * @returns {*}
+	 * @memberof ZentaoModel
+	 */
+	public findMenuByFuncTag(tag: string, menus: any[] = this.items): any {
+		let menu: any;
+		menus.every((item: any) => {
+			if (item.appfunctag === tag) {
+				menu = item;
+				return false;
+			}
+			if (item.items) {
+				menu = this.findMenuByFuncTag(tag, item.items);
+				if (menu) {
+					return false;
+				}
+			}
+			return true;
+		});
+		return menu;
+	}
 
     /**
      * 获取所有菜单项集合

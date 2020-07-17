@@ -192,8 +192,9 @@ export class UserInfo extends Vue {
                             主题颜色
                         </dropdownItem>
                         <dropdownMenu slot="list">
-                            <dropdownItem name="app-theme-light" title="黑色主题">亮色</dropdownItem>
+                            <dropdownItem name="app-theme-light" title="黑色主题">紫色</dropdownItem>
                             <dropdownItem name="app-theme-dark" title="黑色主题">黑色</dropdownItem>
+                            <dropdownItem name="app-theme-dark-white" title="黑白主题">黑白</dropdownItem>
                             <dropdownItem name="app-theme-blue-dark" title="黑色主题">蓝黑</dropdownItem>
                         </dropdownMenu>
                     </dropdown>
