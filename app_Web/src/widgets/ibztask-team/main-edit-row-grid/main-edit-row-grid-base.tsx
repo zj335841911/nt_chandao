@@ -99,6 +99,14 @@ export class MainEditRowGridBase extends GridControllerBase {
      */
     public allColumns: any[] = [
         {
+            name: 'type',
+            label: '团队类型',
+            langtag: 'entities.ibztaskteam.maineditrow_grid.columns.type',
+            show: false,
+            util: 'PX',
+            codelistId: 'Team__type'
+        },
+        {
             name: 'account',
             label: '用户',
             langtag: 'entities.ibztaskteam.maineditrow_grid.columns.account',
@@ -167,6 +175,7 @@ export class MainEditRowGridBase extends GridControllerBase {
      * @memberof MainEditRowBase
      */
     public hasRowEdit: any = {
+        'type':true,
         'account':true,
         'estimate':true,
     };

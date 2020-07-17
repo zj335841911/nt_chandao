@@ -28,6 +28,7 @@ export default {
 	},
 	maineditrow_grid: {
 		columns: {
+			type: "团队类型",
 			account: "用户",
 			estimate: "预计",
 		},
