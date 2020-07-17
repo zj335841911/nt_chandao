@@ -74,7 +74,7 @@ export class MainEditRowGridBase extends GridControllerBase {
      * @type {string}
      * @memberof GridControllerBase
      */
-    protected localStorageTag: string = 'ibz_taskteamtemp_maineditrow_grid';
+    protected localStorageTag: string = 'ibz_taskteam_maineditrow_grid';
 
     /**
      * 是否支持分页
