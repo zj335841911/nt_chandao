@@ -325,7 +325,6 @@ final public class ZTBugHelper {
         ACTION_PARAMS_RESOLVE.put("buildProject", null);
         ACTION_PARAMS_RESOLVE.put("resolvedBuild", null);
         ACTION_PARAMS_RESOLVE.put("buildName", null);
-        ACTION_PARAMS_RESOLVE.put("createBuild", 0);
         ACTION_PARAMS_RESOLVE.put("resolvedDate", null);
         ACTION_PARAMS_RESOLVE.put("assignedTo", null);
         ACTION_PARAMS_RESOLVE.put("comment", null);
