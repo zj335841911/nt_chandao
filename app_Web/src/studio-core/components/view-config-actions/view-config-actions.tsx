@@ -184,7 +184,7 @@ export class ViewConfigActions extends Vue {
         return Environment.devMode ? <div v-show={this.sdc.isShowTool} class={{ 'studio-config-container': true, 'hover': this.actinsIsHover }}>
             <div ref="container" class="studio-config-actions" on-mouseenter={() => this.mouseenter()} on-mouseleave={() => this.mouseleave()}>
                 <div class="title">
-                    {this.config.memo && !Object.is(this.config.memo, '') ? <icon title={this.config.memo} type="ios-bulb-outline" /> : null}
+                    {this.config?.memo && !Object.is(this.config?.memo, '') ? <icon title={this.config.memo} type="ios-bulb-outline" /> : null}
                     {this.viewTitle}
                     <i-button title="拷贝视图文件名称" type="text" icon="ios-copy" ghost on-click={() => this.copyViewFileName()}></i-button>
                 </div>

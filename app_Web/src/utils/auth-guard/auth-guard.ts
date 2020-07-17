@@ -1,4 +1,5 @@
 import { Http } from '../http/http';
+import { AppService } from '@/studio-core/service/app-service/AppService';
 
 /**
  * AuthGuard net 对象
@@ -48,35 +49,34 @@ export class AuthGuard {
      * @returns {Promise<any>} 请求相响应对象
      * @memberof AuthGuard
      */
-    public authGuard(url: string, params: any = {}, router: any): Promise<boolean> {
-        return new Promise((resolve: any, reject: any) => {
-            const get: Promise<any> = Http.getInstance().get(url);
-            get.then((response: any) => {
-                if (response && response.status === 200) {
-                    let { data }: { data: any } = response;
-                    if (data) {
-                        // token认证把用户信息放入应用级数据
-                        if(localStorage.getItem('user')){
-                            let user:any = JSON.parse(localStorage.getItem('user') as string);
-                            let localAppData:any = {};
-                            if(user.sessionParams){
-                                localAppData = {context:user.sessionParams};
-                                Object.assign(localAppData,data);
-                            }
-                            data = JSON.parse(JSON.stringify(localAppData));
-                            this.formatAppData(data);
+    public async authGuard(url: string, params: any = {}, router: any): Promise<boolean> {
+        try {
+            const response = await Http.getInstance().get(url);
+            if (response && response.status === 200) {
+                let { data }: { data: any } = response;
+                if (data) {
+                    // token认证把用户信息放入应用级数据
+                    if (localStorage.getItem('user')) {
+                        let user: any = JSON.parse(localStorage.getItem('user') as string);
+                        let localAppData: any = {};
+                        if (user.sessionParams) {
+                            localAppData = { context: user.sessionParams };
+                            Object.assign(localAppData, data);
                         }
-                        router.app.$store.commit('addAppData', data);
-                        // 提交统一资源数据
-                        router.app.$store.dispatch('authresource/commitAuthData', data);
+                        data = JSON.parse(JSON.stringify(localAppData));
                     }
+                    this.formatAppData(data);
+                    new AppService().contextStore.appContext = data.context;
+                    router.app.$store.commit('addAppData', data);
+                    // 提交统一资源数据
+                    router.app.$store.dispatch('authresource/commitAuthData', data);
                 }
-                resolve(true);
-            }).catch((error: any) => {
-                resolve(true);
-                console.error("获取应用数据出现异常");
-            });
-        });
+            }
+            return true;
+        } catch (err) {
+            console.warn('应用数据获取异常:', err);
+            return false;
+        }
     }
 
     /**
@@ -88,11 +88,11 @@ export class AuthGuard {
      */
     protected formatAppData(data: any): void {
         Object.defineProperty(data.context, 'srfcurdate', {
-            get: function() {
+            get: function () {
                 return new Date().toLocaleString(undefined, { hour12: false });
             },
-            enumerable : true,
-            configurable : true
+            enumerable: true,
+            configurable: true
         });
     }
 
