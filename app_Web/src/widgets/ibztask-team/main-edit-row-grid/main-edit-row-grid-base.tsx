@@ -51,23 +51,6 @@ export class MainEditRowGridBase extends GridControllerBase {
     protected appDeName: string = 'ibztaskteam';
 
     /**
-     * 界面UI服务对象
-     *
-     * @type {IBZTaskTeamUIService}
-     * @memberof MainEditRowBase
-     */  
-    public appUIService:IBZTaskTeamUIService = new IBZTaskTeamUIService(this.$store);
-
-    /**
-     * 界面行为模型
-     *
-     * @type {*}
-     * @memberof MainEditRowBase
-     */  
-    public ActionModel: any = {
-    };
-
-    /**
      * 本地缓存标识
      *
      * @protected
@@ -121,7 +104,7 @@ export class MainEditRowGridBase extends GridControllerBase {
             langtag: 'entities.ibztaskteam.maineditrow_grid.columns.account',
             show: true,
             util: 'PX',
-            isEnableRowEdit: true,
+            codelistId: 'UserRealNameProject'
         },
         {
             name: 'estimate',
@@ -129,7 +112,6 @@ export class MainEditRowGridBase extends GridControllerBase {
             langtag: 'entities.ibztaskteam.maineditrow_grid.columns.estimate',
             show: true,
             util: 'PX',
-            isEnableRowEdit: true,
         },
     ]
 
@@ -223,4 +205,81 @@ export class MainEditRowGridBase extends GridControllerBase {
         ]);
     }
 
+    /**
+     * 添加数据
+     * @param {*}  row 行数据
+     * @memberof MainEditRow
+     */
+    public add({ row, index }: { row: any, index: number }, func: Function) {
+        if(!this.loaddraftAction){
+            this.$Notice.error({ title: '错误', desc: 'CaseStepMainGridView9_EditMode视图表格loaddraftAction参数未配置' });
+            return;
+        }
+        let _this = this;
+        let param: any = {};
+        Object.assign(param,{viewparams:this.viewparams});
+        let post: Promise<any> = this.service.loadDraft(this.loaddraftAction, JSON.parse(JSON.stringify(this.context)), param, this.showBusyIndicator);
+        post.then((response: any) => {
+            if (!response.status || response.status !== 200) {
+                if (response.errorMessage) {
+                    this.$Notice.error({ title: '错误', desc: response.errorMessage });
+                }
+                return;
+            }
+            const data = response.data;
+            this.createDefault(data);
+            data.rowDataState = "create";
+            if(Object.is(row.type.toLowerCase(), 'group') || Object.is(row.type.toLowerCase(), 'item')) {
+                data.type = 'item';
+            } else {
+                data.type = 'step';
+            }
+            if(func instanceof Function) {
+                func(data);
+            }
+            _this.gridItemsModel.push(_this.getGridRowModel());
+        }).catch((response: any) => {
+            if (response && response.status === 401) {
+                return;
+            }
+            if (!response || !response.status || !response.data) {
+                this.$Notice.error({ title: '错误', desc: '系统异常' });
+                return;
+            }
+        });
+    }
+
+    /**
+     * 保存
+     *
+     * @param {any[]} args
+     * @param {*} [params]
+     * @param {*} [$event]
+     * @param {*} [xData]
+     * @returns
+     * @memberof MainEditRow
+     */
+    public async save(args: any[], params?: any, $event?: any, xData?: any) {
+        for (const item of this.items) {
+            if(Object.is(item.rowDataState, 'create')) {
+                continue;
+            }
+            let _removeAction = this.removeAction;
+            let _keys = item.srfkey;
+            const _context: any = JSON.parse(JSON.stringify(this.context));
+            await this.service.delete(_removeAction, Object.assign(_context, { [this.appDeName]: _keys }), Object.assign({ [this.appDeName]: _keys }, { viewparams: this.viewparams }), this.showBusyIndicator);
+        }
+        let successItems: any = [];
+        for (const item of this.items) {
+            const _context: any = JSON.parse(JSON.stringify(this.context));
+            let { data: Data,context: Context } = this.service.handleRequestData(this.createAction, _context, item, true);
+            if (Object.is(item.rowDataState, 'create')) {
+                Data.id = null;
+            }
+            Object.assign(Data, { viewparams: this.viewparams });
+            let response = await this.service.add(this.createAction, JSON.parse(JSON.stringify(this.context)), Data, this.showBusyIndicator);
+            successItems.push(JSON.parse(JSON.stringify(response.data)));
+        }
+        this.$emit('save', successItems);
+    }
 }
