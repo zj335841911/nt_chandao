@@ -2966,7 +2966,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "WAITCLOSED",
                 label: "待关闭",
                 text: "待关闭",
-                "data":{"n_status_eq":"closed"},
+                "data":{"n_status_eq":"resolved"},
                 "codename":"Waitclosed",
                 value: "WAITCLOSED",
                 
@@ -2976,7 +2976,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "UNRESOLVED",
                 label: "未解决",
                 text: "未解决",
-                "data":{"n_status_eq":"resolved"},
+                "data":{"n_status_eq":"active"},
                 "codename":"Unresolved",
                 value: "UNRESOLVED",
                 

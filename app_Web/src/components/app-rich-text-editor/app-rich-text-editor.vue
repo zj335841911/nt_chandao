@@ -258,7 +258,8 @@ export default class AppRichTextEditor extends Vue {
      */
     @Watch('value', { immediate: true, deep: true })
     oncurrentContent(newval: any, val: any) {
-        if (newval) {
+        const content: any = this.editor ? this.editor.getContent() : undefined;
+        if (!Object.is(newval,content)) {
             this.init();
         }
         this.getParams();
@@ -291,8 +292,10 @@ export default class AppRichTextEditor extends Vue {
             height: richtexteditor.height,
             min_height: 400,
             branding: false,
-            plugins: ['link', 'paste', 'table', 'image', 'codesample', 'code', 'fullscreen', 'preview'],
+            plugins: ['link', 'paste', 'table', 'image', 'codesample', 'code', 'fullscreen', 'preview', 'quickbars'],
             toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | link image',
+            quickbars_insert_toolbar: false,
+            quickbars_selection_toolbar: 'forecolor fontsizeselect fontselect',
             codesample_languages: [
                 { text: 'HTML/XML', value: 'markup' },
                 { text: 'JavaScript', value: 'javascript' },
@@ -432,4 +435,7 @@ export default class AppRichTextEditor extends Vue {
 }
 </script>
 <style lang="less">
+.tox-statusbar__text-container{
+    display: none !important;
+}
 </style>
