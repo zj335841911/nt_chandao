@@ -218,6 +218,7 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			project: "所属项目", 
 			assignedto: "指派给", 
 			left: "预计剩余", 
 			comment: "备注", 

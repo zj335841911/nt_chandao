@@ -56,6 +56,11 @@ export default class AssignFormModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'project',
+        prop: 'project',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'assignedto',
         prop: 'assignedto',
         dataType: 'TEXT',
