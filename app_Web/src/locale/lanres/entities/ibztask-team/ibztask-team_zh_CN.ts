@@ -21,6 +21,10 @@ export default {
 			caption: "团队",
       		title: "团队",
 		},
+		gridview9_edit: {
+			caption: "团队",
+      		title: "团队",
+		},
 	},
 	maineditrow_grid: {
 		columns: {
@@ -30,7 +34,23 @@ export default {
 		uiactions: {
 		},
 	},
+	mainedit_grid: {
+		columns: {
+			account: "用户",
+			estimate: "预计",
+			consumed: "总计消耗",
+			left: "预计剩余",
+		},
+		uiactions: {
+		},
+	},
 	gridview9toolbar_toolbar: {
+		deuiaction2: {
+			caption: "新建行",
+			tip: "新建行",
+		},
+	},
+	gridview9_edittoolbar_toolbar: {
 		deuiaction2: {
 			caption: "新建行",
 			tip: "新建行",
