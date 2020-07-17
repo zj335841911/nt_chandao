@@ -165,6 +165,9 @@ export default class WorkInfoModel {
       {
         name: 'multiple',
       },
+      {
+        name: 'taskteams',
+      },
     ]
   }
 

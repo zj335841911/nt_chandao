@@ -165,6 +165,9 @@ export default class MainDetailModel {
       {
         name: 'multiple',
       },
+      {
+        name: 'taskteams',
+      },
     ]
   }
 

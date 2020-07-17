@@ -165,6 +165,9 @@ export default class ToolbarModel {
       {
         name: 'multiple',
       },
+      {
+        name: 'taskteams',
+      },
     ]
   }
 

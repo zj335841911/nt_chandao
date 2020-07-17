@@ -165,6 +165,9 @@ export default class MainModel {
       {
         name: 'multiple',
       },
+      {
+        name: 'taskteams',
+      },
     ]
   }
 

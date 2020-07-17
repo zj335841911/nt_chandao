@@ -405,4 +405,12 @@ export interface SubTask {
      * @memberof SubTask
      */
     multiple?: any;
+
+    /**
+     * 项目团队成员
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    taskteams?: any;
 }

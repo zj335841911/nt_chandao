@@ -165,6 +165,9 @@ export default class AssignToMeModel {
       {
         name: 'multiple',
       },
+      {
+        name: 'taskteams',
+      },
     ]
   }
 
