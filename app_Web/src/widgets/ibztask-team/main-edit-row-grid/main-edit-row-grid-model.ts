@@ -100,6 +100,10 @@ export default class MainEditRowModel {
           prop: 'srffrontuf',
           dataType: 'TEXT',
         },
+        {
+          name:'srfArray',
+          prop:'srfArray'
+        },
       ]
     }
   }
