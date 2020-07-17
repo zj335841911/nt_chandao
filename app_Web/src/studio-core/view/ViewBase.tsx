@@ -451,6 +451,9 @@ export class ViewBase extends Vue {
     protected parseViewParam(): void {
         this.context.clearAll();
         if (!this.viewDefaultUsage && this.viewdata && !Object.is(this.viewdata, '')) {
+            if (this.$store.getters.getAppData() && this.$store.getters.getAppData().context) {
+                Object.assign(this.context, this.$store.getters.getAppData().context);
+            }
             Object.assign(this.context, JSON.parse(this.viewdata));
             if (this.context && this.context.srfparentdename) {
                 Object.assign(this.viewparams, { srfparentdename: this.context.srfparentdename });
@@ -458,10 +461,10 @@ export class ViewBase extends Vue {
             if (this.context && this.context.srfparentkey) {
                 Object.assign(this.viewparams, { srfparentkey: this.context.srfparentkey });
             }
+        } else {
             if (this.$store.getters.getAppData() && this.$store.getters.getAppData().context) {
                 Object.assign(this.context, this.$store.getters.getAppData().context);
             }
-        } else {
             const path = (this.$route.matched[this.$route.matched.length - 1]).path;
             const keys: Array<any> = [];
             const curReg = this.$pathToRegExp.pathToRegexp(path, keys);
@@ -474,9 +477,6 @@ export class ViewBase extends Vue {
                 });
             });
             this.$viewTool.formatRouteParams(tempValue, this.$route, this.context, this.viewparams);
-            if (this.$store.getters.getAppData() && this.$store.getters.getAppData().context) {
-                Object.assign(this.context, this.$store.getters.getAppData().context);
-            }
             if (this.isDeView) {
                 this.context.srfsessionid = this.$util.createUUID();
             }
