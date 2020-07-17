@@ -185,6 +185,13 @@ export default class AppPicker extends Vue {
     @Prop() public extraFillParams?: any;
 
     /**
+     * 值格式
+     * 
+     * @memberof AppPicker
+     */
+    @Prop() public valFormat?: any;
+
+    /**
      * 值
      *
      * @type {*}
@@ -238,6 +245,9 @@ export default class AppPicker extends Vue {
      */
     get refvalue() {
         if (this.valueitem && this.data) {
+            if(this.valFormat && this.valFormat.hasOwnProperty(this.data[this.valueitem])) {
+                return this.valFormat[this.data[this.valueitem]];
+            }
             return this.data[this.valueitem];
         }
         return this.curvalue;
