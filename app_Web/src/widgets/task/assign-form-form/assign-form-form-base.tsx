@@ -83,6 +83,7 @@ export class AssignFormEditFormBase extends EditFormControlBase {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        project: null,
         assignedto: null,
         left: null,
         comment: null,
@@ -97,6 +98,14 @@ export class AssignFormEditFormBase extends EditFormControlBase {
      * @memberof AssignFormEditFormBase
      */
     public rules: any = {
+        assignedto: [
+            { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'blur' },
+        ],
+        left: [
+            { required: true, type: 'number', message: '预计剩余 值不能为空', trigger: 'change' },
+            { required: true, type: 'number', message: '预计剩余 值不能为空', trigger: 'blur' },
+        ],
     }
 
     /**
@@ -129,6 +138,8 @@ export class AssignFormEditFormBase extends EditFormControlBase {
         srfdeid: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfdeid', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
