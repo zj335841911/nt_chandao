@@ -144,6 +144,8 @@ export default {
 	},
 	main_form: {
 		details: {
+			druipart1: "", 
+			grouppanel1: "分组面板", 
 			group1: "task基本信息", 
 			formpage1: "基本信息", 
 			srfupdatedate: "最后修改日期", 

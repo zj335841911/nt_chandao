@@ -108,6 +108,40 @@
 </app-form-item>
 
 </i-col>
+<i-col v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group :model="detailsModel.grouppanel1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.main_form.details.grouppanel1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel1" :data="data" :context="context" :viewparams="viewparams"/>
+    <row>
+        <i-col v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem='task' 
+    :parentdata='{"srfparentdefname":"ROOT","srfparentdename":"ZT_TASK","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_IBZ_TASKTEAM_ZT_TASK_ROOT","SRFDER1NID":"DER1N_IBZ_TASKTEAM_ZT_TASK_ROOT"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{}'
+    parameterName='task'
+    parentName="Task"  
+    refviewtype='DEGRIDVIEW9' 
+    refreshitems='' 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname='task-team-grid-view9' 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved($event)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
 <i-col v-show="detailsModel.storyname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='storyname' :itemRules="this.rules.storyname" class='' :caption="$t('entities.task.main_form.details.storyname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.storyname.error" :isEmptyCaption="false" labelPos="LEFT">
     
