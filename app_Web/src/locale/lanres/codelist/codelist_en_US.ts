@@ -203,6 +203,15 @@ export default {
     TestTask: {
         "empty": "",
     },
+    Project_quickpacket: {
+        "All": "所有",
+        "wait": "未开始",
+        "MORE": "更多",
+        "doing": "进行中",
+        "suspended": "已挂起",
+        "closed": "已关闭",
+        "empty": ""
+    },
     Product__status: {
         "normal": "正常",
         "closed": "结束",
@@ -412,8 +421,8 @@ export default {
     Product_quickpacket: {
         "All": "所有",
         "normal": "正常",
-        "closed": "结束",
         "MORE": "更多",
+        "closed": "结束",
         "branch": "多平台",
         "platform": "多分支",
         "empty": ""

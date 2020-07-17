@@ -1,8 +1,8 @@
 <studio-view viewName="projectleftsidebarlistview" viewTitle="所有项目" class='delistview project-left-sidebar-list-view'>
-    <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
-    </template>
     <i-input slot="quickSearch" v-model="query" search @on-search="onSearch($event)"/>
+    <template slot="quickGroupSearch">
+        <app-quick-group :items="quickGroupModel" @valuechange="quickGroupValueChange($event)"></app-quick-group>
+    </template>
     <template slot="toolbar">
                 <view-toolbar :model="toolBarModels" @item-click="toolbar_click($event)"/>    </template>
     <view_list 
