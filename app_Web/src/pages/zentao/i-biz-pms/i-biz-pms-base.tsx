@@ -217,27 +217,11 @@ export class IBizPMSBase extends Vue {
    * @memberof IBizPMSBase
    */
   private parseViewParam(): void {
-    const path = this.$route.matched[this.$route.matched.length - 1].path;
-    const keys: Array<any> = [];
-    const curReg = this.$pathToRegExp.pathToRegexp(path, keys);
-    const matchArray = curReg.exec(this.$route.path);
-    let tempValue: Object = {};
-    keys.forEach((item: any, index: number) => {
-      Object.defineProperty(tempValue, item.name, {
-        enumerable: true,
-        value: matchArray[index + 1]
-      });
-    });
-    this.$viewTool.formatRouteParams(
-      tempValue,
-      this.$route,
-      this.context,
-      this.viewparams
-    );
-    if (
-      this.$store.getters.getAppData() &&
-      this.$store.getters.getAppData().context
-    ) {
+    const params = this.$route.params;
+    if (params?.ibizpms) {
+      this.context.ibizpms = params.ibizpms;
+    }
+    if (this.$store.getters.getAppData() && this.$store.getters.getAppData().context) {
       Object.assign(this.context, this.$store.getters.getAppData().context);
       this.$store.getters.getAppData().context = this.context;
     }

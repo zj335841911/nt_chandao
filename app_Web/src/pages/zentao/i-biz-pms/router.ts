@@ -13,19 +13,14 @@ const router = new Router({
     routes: [
         {
             path: '/ibizpms/:ibizpms?',
-            beforeEnter: (to: any, from: any, next: any) => {
+            beforeEnter: async (to: any, from: any, next: any) => {
                 const routerParamsName = 'ibizpms';
                 const params: any = {};
                 if (to.params && to.params[routerParamsName]) {
                     Object.assign(params, qs.parse(to.params[routerParamsName], { delimiter: ';' }));
                 }
                 const url: string = '/appdata';
-                const auth: Promise<any> = AuthGuard.getInstance().authGuard(url, params, router);
-                auth.then(() => {
-                    next();
-                }).catch(() => {
-                    next();
-                });
+                await AuthGuard.getInstance().authGuard(url, params, router);
                 appService.navHistory.indexMeta = {
                     caption: 'app.views.ibizpms.title',
                     info:'',
@@ -35,6 +30,7 @@ const router = new Router({
                     ],
                     requireAuth: true,
                 };
+                next();
             },
             meta: {  
                 caption: 'app.views.ibizpms.title',
