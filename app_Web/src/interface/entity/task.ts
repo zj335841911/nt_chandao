@@ -405,4 +405,12 @@ export interface Task {
      * @memberof Task
      */
     multiple?: any;
+
+    /**
+     * 项目团队成员
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    taskteams?: any;
 }
