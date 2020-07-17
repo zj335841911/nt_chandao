@@ -409,6 +409,15 @@ export default {
     UserRealNameProject: {
         "empty": "",
     },
+    Product_quickpacket: {
+        "All": "所有",
+        "normal": "正常",
+        "closed": "结束",
+        "MORE": "更多",
+        "branch": "多平台",
+        "platform": "多分支",
+        "empty": ""
+    },
     Testcase__type: {
         "feature": "功能测试",
         "performance": "性能测试",
