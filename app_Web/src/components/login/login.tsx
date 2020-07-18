@@ -75,11 +75,6 @@ export default class Login extends Vue {
      */
     public created() {
         this.setRules();
-        for (const el of document.body.children) {
-            if (el.id !== 'app') {
-                (el as HTMLDivElement).style.display = 'none';
-            }
-        }
     }
 
     /**
