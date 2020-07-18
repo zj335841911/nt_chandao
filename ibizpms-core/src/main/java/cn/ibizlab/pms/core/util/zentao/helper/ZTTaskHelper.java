@@ -282,7 +282,9 @@ final public class ZTTaskHelper {
         ACTION_PARAMS_EDIT.put("team[]", null);
         ACTION_PARAMS_EDIT.put("teamEstimate[]", null);
         ACTION_PARAMS_EDIT.put("multiple", 0);
-        ACTION_PARAMS_EDIT.put("status", "wait");
+        ACTION_PARAMS_EDIT.put("teamLeft[]", null);
+        ACTION_PARAMS_EDIT.put("teamConsumed[]", 0);
+
 
         // ASSIGNTO
         ACTION_PARAMS_ASSIGNTO.put("assignedTo", null);
