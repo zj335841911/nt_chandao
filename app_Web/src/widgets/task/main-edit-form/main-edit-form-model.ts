@@ -94,6 +94,11 @@ export default class MainEditModel {
         dataType: 'PICKUP',
       },
       {
+        name: 'module',
+        prop: 'module',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'modulename',
         prop: 'modulename',
         dataType: 'PICKUPTEXT',
@@ -217,11 +222,6 @@ export default class MainEditModel {
         name: 'closeddate',
         prop: 'closeddate',
         dataType: 'DATETIME',
-      },
-      {
-        name: 'module',
-        prop: 'module',
-        dataType: 'PICKUP',
       },
       {
         name: 'task',

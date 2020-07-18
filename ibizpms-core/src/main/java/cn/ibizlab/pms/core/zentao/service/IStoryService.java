@@ -44,6 +44,9 @@ public interface IStoryService extends IService<Story>{
     Story batchReview(Story et) ;
     Story batchUnlinkStory(Story et) ;
     Story bugToStory(Story et) ;
+    Story buildBatchUnlinkStory(Story et) ;
+    Story buildLinkStory(Story et) ;
+    Story buildUnlinkStory(Story et) ;
     Story change(Story et) ;
     boolean checkKey(Story et) ;
     Story close(Story et) ;

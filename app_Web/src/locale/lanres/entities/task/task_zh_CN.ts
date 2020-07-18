@@ -326,6 +326,7 @@ export default {
 			files: "附件", 
 			projectname: "所属项目", 
 			project: "所属项目", 
+			module: "id", 
 			modulename: "所属模块", 
 			allmodules: "所有模块", 
 			storyname: "相关需求", 
@@ -351,7 +352,6 @@ export default {
 			closedby: "由谁关闭", 
 			closedreason: "关闭原因", 
 			closeddate: "关闭时间", 
-			module: "id", 
 		},
 		uiactions: {
 		},

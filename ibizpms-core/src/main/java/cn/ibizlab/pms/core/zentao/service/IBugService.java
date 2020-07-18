@@ -36,6 +36,9 @@ public interface IBugService extends IService<Bug>{
     Bug activate(Bug et) ;
     Bug assignTo(Bug et) ;
     Bug batchUnlinkBug(Bug et) ;
+    Bug buildBatchUnlinkBug(Bug et) ;
+    Bug buildLinkBug(Bug et) ;
+    Bug buildUnlinkBug(Bug et) ;
     boolean checkKey(Bug et) ;
     Bug close(Bug et) ;
     Bug confirm(Bug et) ;
