@@ -1,6 +1,9 @@
 package cn.ibizlab.pms.core.extensions.service;
 
+import cn.ibizlab.pms.core.ibiz.domain.TaskTeam;
 import cn.ibizlab.pms.core.zentao.service.impl.TaskServiceImpl;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.zentao.domain.Task;
 import org.springframework.stereotype.Service;
@@ -130,6 +133,70 @@ public class TaskExService extends TaskServiceImpl {
     @Transactional
     public Task start(Task et) {
         return super.start(et);
+    }
+
+    @Override
+    @Transactional
+    public boolean create(Task et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser();
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        JSONObject jo =  (JSONObject) JSONObject.toJSON(et);
+        if(et.getMultiple() != null && et.getMultiple() == 1) {
+            List<TaskTeam> list = et.getTaskteam();
+            if(!list.isEmpty() && list.size() > 0) {
+                jo.put("assignedTo", list.get(0).getAccount());
+                double estimate = 0;
+                JSONArray team = new JSONArray();
+                JSONArray teamEstimate = new JSONArray();
+                for (TaskTeam taskTeam : list) {
+                    team.add(taskTeam.getAccount());
+                    teamEstimate.add(taskTeam.getEstimate());
+                    estimate += taskTeam.getEstimate();
+                }
+                jo.put("estimate", estimate);
+                jo.put("team", team);
+                jo.put("teamEstimate", teamEstimate);
+            }
+        }
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTaskHelper.create((String)user.getSessionParams().get("zentaosid"), jo, rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        et.set("ztrst", rst);
+        return bRst;
+    }
+
+    @Override
+    @Transactional
+    public boolean update(Task et) {
+        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser();
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        JSONObject jo =  (JSONObject) JSONObject.toJSON(et);
+        if(et.getMultiple() != null && et.getMultiple() == 1) {
+            List<TaskTeam> list = et.getTaskteam();
+            if(!list.isEmpty() && list.size() > 0) {
+                JSONArray team = new JSONArray();
+                JSONArray teamEstimate = new JSONArray();
+                JSONArray teamLeft = new JSONArray();
+                JSONArray teamConsumed = new JSONArray();
+                for (TaskTeam taskTeam : list) {
+                    team.add(taskTeam.getAccount());
+                    teamEstimate.add(taskTeam.getEstimate());
+                    teamLeft.add(taskTeam.getLeft());
+                    teamConsumed.add(taskTeam.getConsumed());
+                }
+                jo.put("team", team);
+                jo.put("teamEstimate", teamEstimate);
+                jo.put("teamLeft", teamLeft);
+                jo.put("teamConsumed", teamConsumed);
+            }
+        }
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTaskHelper.edit((String)user.getSessionParams().get("zentaosid"), jo, rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        et.set("ztrst", rst);
+        return bRst;
     }
 }
 
