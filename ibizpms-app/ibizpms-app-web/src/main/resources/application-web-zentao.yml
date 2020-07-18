@@ -8,3 +8,5 @@ zuul:
       path: /ibizutil/**
       serviceId: pms-webapi
       stripPrefix: false
+environment:
+  - TZ=Asia/Shanghai
