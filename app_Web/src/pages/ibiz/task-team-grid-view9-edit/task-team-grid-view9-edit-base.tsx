@@ -69,28 +69,6 @@ export class TaskTeamGridView9_EditBase extends GridView9Base {
      */    
     protected counterServiceArray: Array<any> = [];
 
-	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof TaskTeamGridView9_EditBase
-	 */
-    protected customViewNavContexts: any = {
-        'PROJECT': { isRawValue: false, value: 'project' }
-    };
-
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof TaskTeamGridView9_EditBase
-	 */
-    protected customViewParams: any = {
-        'project': { isRawValue: false, value: 'project' }
-    };
-
     /**
      * 视图模型数据
      *
@@ -321,6 +299,15 @@ export class TaskTeamGridView9_EditBase extends GridView9Base {
             _this.$Notice.error({ title: '错误', desc: 'newRow 视图处理逻辑不存在，请添加!' });
         }
     }
+
+    /**
+     * 是否单选
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof TaskTeamGridView9_EditBase
+     */
+    protected isGridSingleSelect: boolean = true;
 
     /**
      * 表格行数据默认激活模式
