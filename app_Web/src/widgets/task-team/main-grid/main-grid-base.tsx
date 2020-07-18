@@ -74,7 +74,7 @@ export class MainGridBase extends GridControllerBase {
      * @type {string}
      * @memberof GridControllerBase
      */
-    protected localStorageTag: string = 'taskteam_main_grid';
+    protected localStorageTag: string = 'zt_taskteam_main_grid';
 
     /**
      * 所有列成员

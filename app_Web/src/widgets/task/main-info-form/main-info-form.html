@@ -255,6 +255,44 @@
 
 
             </tab-pane> 
+            <tab-pane v-show="detailsModel.formpage3.visible" name='formpage3' :index="2" tab='maininfo' class=''  
+                :label="(h) =>{
+                    return h('span',{
+                        class:'caption'
+                    },[
+                    $t('entities.task.maininfo_form.details.formpage3')
+                    ])
+                }">
+                    
+<i-col v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem='task' 
+    :parentdata='{"srfparentdefname":"ROOT","srfparentdename":"ZT_TASK","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_IBZ_TASKTEAM_ZT_TASK_ROOT","SRFDER1NID":"DER1N_IBZ_TASKTEAM_ZT_TASK_ROOT"}'
+    :parameters="[
+        { pathName: 'tasks', parameterName: 'task' },
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{}'
+    parameterName='task'
+    parentName="Task"  
+    refviewtype='DEGRIDVIEW9' 
+    refreshitems='' 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname='task-team-grid-view9-look' 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved($event)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+
+
+            </tab-pane> 
     </tabs>
     </row>
 </i-form>

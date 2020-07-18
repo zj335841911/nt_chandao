@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TaskTeamGridView9_EditBase } from './task-team-grid-view9-edit-base';
-import view_grid from '@widgets/task-team/main-edit-grid/main-edit-grid.vue';
+import view_grid from '@widgets/ibztask-team/main-edit-grid/main-edit-grid.vue';
 
 /**
  * 团队视图

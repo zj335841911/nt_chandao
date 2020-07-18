@@ -1,10 +1,10 @@
 
 import { Subject } from 'rxjs';
 import { GridView9Base } from '@/studio-core';
-import TaskTeamService from '@/service/task-team/task-team-service';
-import TaskTeamAuthService from '@/authservice/task-team/task-team-auth-service';
+import IBZTaskTeamService from '@/service/ibztask-team/ibztask-team-service';
+import IBZTaskTeamAuthService from '@/authservice/ibztask-team/ibztask-team-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
-import TaskTeamUIService from '@/uiservice/task-team/task-team-ui-service';
+import IBZTaskTeamUIService from '@/uiservice/ibztask-team/ibztask-team-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -23,7 +23,7 @@ export class TaskTeamGridView9_EditBase extends GridView9Base {
      * @type {string}
      * @memberof TaskTeamGridView9_EditBase
      */
-    protected appDeName: string = 'taskteam';
+    protected appDeName: string = 'ibztaskteam';
 
     /**
      * 应用实体主键
@@ -46,18 +46,18 @@ export class TaskTeamGridView9_EditBase extends GridView9Base {
     /**
      * 实体服务对象
      *
-     * @type {TaskTeamService}
+     * @type {IBZTaskTeamService}
      * @memberof TaskTeamGridView9_EditBase
      */
-    protected appEntityService: TaskTeamService = new TaskTeamService;
+    protected appEntityService: IBZTaskTeamService = new IBZTaskTeamService;
 
     /**
      * 实体权限服务对象
      *
-     * @type TaskTeamUIService
+     * @type IBZTaskTeamUIService
      * @memberof TaskTeamGridView9_EditBase
      */
-    public appUIService: TaskTeamUIService = new TaskTeamUIService(this.$store);
+    public appUIService: IBZTaskTeamUIService = new IBZTaskTeamUIService(this.$store);
 
 
     /**
@@ -69,6 +69,28 @@ export class TaskTeamGridView9_EditBase extends GridView9Base {
      */    
     protected counterServiceArray: Array<any> = [];
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TaskTeamGridView9_EditBase
+	 */
+    protected customViewNavContexts: any = {
+        'PROJECT': { isRawValue: false, value: 'project' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TaskTeamGridView9_EditBase
+	 */
+    protected customViewParams: any = {
+        'project': { isRawValue: false, value: 'project' }
+    };
+
     /**
      * 视图模型数据
      *
@@ -77,9 +99,9 @@ export class TaskTeamGridView9_EditBase extends GridView9Base {
      * @memberof TaskTeamGridView9_EditBase
      */
     protected model: any = {
-        srfCaption: 'entities.taskteam.views.gridview9_edit.caption',
-        srfTitle: 'entities.taskteam.views.gridview9_edit.title',
-        srfSubTitle: 'entities.taskteam.views.gridview9_edit.subtitle',
+        srfCaption: 'entities.ibztaskteam.views.gridview9_edit.caption',
+        srfTitle: 'entities.ibztaskteam.views.gridview9_edit.title',
+        srfSubTitle: 'entities.ibztaskteam.views.gridview9_edit.subtitle',
         dataInfo: ''
     }
 
@@ -143,7 +165,7 @@ export class TaskTeamGridView9_EditBase extends GridView9Base {
                 this.newdata(args,fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
-            keyPSDEField: 'taskteam',
+            keyPSDEField: 'ibztaskteam',
             majorPSDEField: 'account',
             isLoadDefault: true,
         });
@@ -242,7 +264,7 @@ export class TaskTeamGridView9_EditBase extends GridView9Base {
           datas = [params];
         }
         // 界面行为
-        this.NewRow(datas, contextJO,paramJO,  $event, xData,this,"TaskTeam");
+        this.NewRow(datas, contextJO,paramJO,  $event, xData,this,"IBZTaskTeam");
     }
 
     /**
