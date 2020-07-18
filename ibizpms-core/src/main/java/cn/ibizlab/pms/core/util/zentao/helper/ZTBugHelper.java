@@ -661,6 +661,42 @@ final public class ZTBugHelper {
     }
 
     /**
+     * buildLinkBug 版本关联Bug
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean buildLinkBug(String zentaoSid, JSONObject jo, ZTResult rst) {
+        return ZTBuildHelper.linkBug(zentaoSid, jo, rst);
+    }
+
+    /**
+     * buildUnlinkBug 版本解除关联Bug
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean buildUnlinkBug(String zentaoSid, JSONObject jo, ZTResult rst) {
+        return ZTBuildHelper.unlinkBug(zentaoSid, jo, rst);
+    }
+
+    /**
+     * buildBatchUnlinkBug 版本批量解除关联Bug
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean buildBatchUnlinkBug(String zentaoSid, JSONObject jo, ZTResult rst) {
+        return ZTBuildHelper.batchUnlinkBug(zentaoSid, jo, rst);
+    }
+
+    /**
      * toStory Bug转需求
      *
      * @param zentaoSid
