@@ -268,7 +268,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
         if (Object.is(name, '') || Object.is(name, 'multiple')) {
             let ret = false;
             const _multiple = this.data.multiple;
-            if (this.$verify.testCond(_multiple, 'EQ', '')) {
+            if (this.$verify.testCond(_multiple, 'EQ', '1')) {
                 ret = true;
             }
             this.detailsModel.grouppanel8.setVisible(ret);
