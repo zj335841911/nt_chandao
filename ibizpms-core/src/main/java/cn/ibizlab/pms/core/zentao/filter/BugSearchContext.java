@@ -232,6 +232,34 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
             this.getSearchCond().like("taskname", n_taskname_like);
         }
     }
+	private String n_modulename_eq;//[模块名称]
+	public void setN_modulename_eq(String n_modulename_eq) {
+        this.n_modulename_eq = n_modulename_eq;
+        if(!ObjectUtils.isEmpty(this.n_modulename_eq)){
+            this.getSearchCond().eq("modulename", n_modulename_eq);
+        }
+    }
+	private String n_modulename_like;//[模块名称]
+	public void setN_modulename_like(String n_modulename_like) {
+        this.n_modulename_like = n_modulename_like;
+        if(!ObjectUtils.isEmpty(this.n_modulename_like)){
+            this.getSearchCond().like("modulename", n_modulename_like);
+        }
+    }
+	private String n_branchname_eq;//[平台/分支]
+	public void setN_branchname_eq(String n_branchname_eq) {
+        this.n_branchname_eq = n_branchname_eq;
+        if(!ObjectUtils.isEmpty(this.n_branchname_eq)){
+            this.getSearchCond().eq("branchname", n_branchname_eq);
+        }
+    }
+	private String n_branchname_like;//[平台/分支]
+	public void setN_branchname_like(String n_branchname_like) {
+        this.n_branchname_like = n_branchname_like;
+        if(!ObjectUtils.isEmpty(this.n_branchname_like)){
+            this.getSearchCond().like("branchname", n_branchname_like);
+        }
+    }
 
     /**
 	 * 启用快速搜索

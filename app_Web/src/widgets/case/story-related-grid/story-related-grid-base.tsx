@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, GridControllerBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
 import StoryRelatedService from './story-related-grid-service';
+import CaseUIService from '@/uiservice/case/case-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 
@@ -50,6 +51,23 @@ export class StoryRelatedGridBase extends GridControllerBase {
     protected appDeName: string = 'case';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {CaseUIService}
+     * @memberof StoryRelatedBase
+     */  
+    public appUIService:CaseUIService = new CaseUIService(this.$store);
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof StoryRelatedBase
+     */  
+    public ActionModel: any = {
+    };
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -65,6 +83,22 @@ export class StoryRelatedGridBase extends GridControllerBase {
      * @memberof StoryRelatedGridBase
      */
     public isEnablePagingBar: boolean = false;
+
+    /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof StoryRelatedGridBase
+     */
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof StoryRelatedGridBase
+     */
+    public minorSortPSDEF: string = 'id';
 
     /**
      * 分页条数
@@ -94,14 +128,16 @@ export class StoryRelatedGridBase extends GridControllerBase {
             label: 'P',
             langtag: 'entities.case.storyrelated_grid.columns.pri',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'title',
             label: '用例标题',
             langtag: 'entities.case.storyrelated_grid.columns.title',
             show: true,
-            util: 'STAR'
+            util: 'STAR',
+            isEnableRowEdit: false,
         },
     ]
 

@@ -282,6 +282,7 @@ export default class ModuleExpService extends ControlService {
                         Object.assign(treeNode, { id: strNodeId });
                         Object.assign(treeNode, { expanded: filter.isautoexpand });
                         Object.assign(treeNode, { leaf: false });
+                        Object.assign(treeNode, { navfilter: "n_branch_eq" });
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
@@ -482,6 +483,8 @@ export default class ModuleExpService extends ControlService {
 
             Object.assign(treeNode, { expanded: true });
             Object.assign(treeNode, { leaf: false });
+            Object.assign(treeNode, {navigateContext: {SRFPARENTKEY:"0"} });
+            Object.assign(treeNode, {navigateParams: {n_branch_noteq:"0"} });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
             list.push(treeNode);

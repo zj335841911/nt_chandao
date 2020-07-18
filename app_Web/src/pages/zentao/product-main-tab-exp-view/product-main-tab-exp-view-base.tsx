@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { TabExpViewBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
+import ProductAuthService from '@/authservice/product/product-auth-service';
 import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
+import ProductUIService from '@/uiservice/product/product-ui-service';
 
 /**
  * 产品视图基类
@@ -11,7 +13,6 @@ import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
  * @extends {TabExpViewBase}
  */
 export class ProductMainTabExpViewBase extends TabExpViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -22,12 +23,38 @@ export class ProductMainTabExpViewBase extends TabExpViewBase {
     protected appDeName: string = 'product';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductMainTabExpViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductMainTabExpViewBase
+     */
+    protected appDeMajor: string = 'name';
+
+    /**
      * 实体服务对象
      *
      * @type {ProductService}
      * @memberof ProductMainTabExpViewBase
      */
     protected appEntityService: ProductService = new ProductService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProductUIService
+     * @memberof ProductMainTabExpViewBase
+     */
+    public appUIService: ProductUIService = new ProductUIService(this.$store);
 
 
     /**
@@ -108,33 +135,6 @@ export class ProductMainTabExpViewBase extends TabExpViewBase {
             majorPSDEField: 'name',
             isLoadDefault: true,
         });
-    }
-
-
-
-    /**
-     * 加载模型
-     *
-     * @protected
-     * @memberof ProductMainTabExpViewBase
-     */
-    protected async loadModel(): Promise<any> {
-        if(this.context.product){
-            this.appEntityService.getDataInfo(JSON.parse(JSON.stringify(this.context)),{},false).then((response:any) =>{
-                if (!response || response.status !== 200) {
-                    return;
-                }
-                const { data } = response;
-                if (data.name) {
-                    Object.assign(this.model, { dataInfo: data.name });
-                    if(this.$route){
-                        this.$route.meta.info = this.model.dataInfo;
-                    }
-                    Object.assign(this.model, { srfTitle: `${this.$t(this.model.srfTitle)} - ${this.model.dataInfo}` });
-                    this.$appService.navHistory.setCaption({ tag: this.viewtag, info: this.model.dataInfo });
-                }
-            })
-        }
     }
 
 

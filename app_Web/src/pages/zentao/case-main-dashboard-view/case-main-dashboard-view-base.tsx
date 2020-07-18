@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { DashboardViewBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
+import CaseAuthService from '@/authservice/case/case-auth-service';
 import PortalViewEngine from '@engine/view/portal-view-engine';
+import CaseUIService from '@/uiservice/case/case-ui-service';
 
 /**
  * 功能测试视图基类
@@ -11,7 +13,6 @@ import PortalViewEngine from '@engine/view/portal-view-engine';
  * @extends {DashboardViewBase}
  */
 export class CaseMainDashboardViewBase extends DashboardViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -22,12 +23,38 @@ export class CaseMainDashboardViewBase extends DashboardViewBase {
     protected appDeName: string = 'case';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseMainDashboardViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseMainDashboardViewBase
+     */
+    protected appDeMajor: string = 'title';
+
+    /**
      * 实体服务对象
      *
      * @type {CaseService}
      * @memberof CaseMainDashboardViewBase
      */
     protected appEntityService: CaseService = new CaseService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type CaseUIService
+     * @memberof CaseMainDashboardViewBase
+     */
+    public appUIService: CaseUIService = new CaseUIService(this.$store);
 
 
     /**

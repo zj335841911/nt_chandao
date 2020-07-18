@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, ListControllerBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import TestExpService from './test-exp-list-service';
+import ProductUIService from '@/uiservice/product/product-ui-service';
 
 
 /**
@@ -124,5 +125,13 @@ export class TestExpListBase extends ListControllerBase {
      * @type {string}
      * @memberof TestExpListBase
      */
-    public minorSortDir: string = '';
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof TestExpListBase
+     */
+    public minorSortPSDEF: string = 'id';
 }

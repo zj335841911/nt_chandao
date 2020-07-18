@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditView9Base } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
+import CaseAuthService from '@/authservice/case/case-auth-service';
 import EditView9Engine from '@engine/view/edit-view9-engine';
+import CaseUIService from '@/uiservice/case/case-ui-service';
 
 /**
  * 测试用例编辑视图视图基类
@@ -11,7 +13,6 @@ import EditView9Engine from '@engine/view/edit-view9-engine';
  * @extends {EditView9Base}
  */
 export class CaseMainDetailEditView9Base extends EditView9Base {
-
     /**
      * 视图对应应用实体名称
      *
@@ -22,12 +23,38 @@ export class CaseMainDetailEditView9Base extends EditView9Base {
     protected appDeName: string = 'case';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseMainDetailEditView9Base
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseMainDetailEditView9Base
+     */
+    protected appDeMajor: string = 'title';
+
+    /**
      * 实体服务对象
      *
      * @type {CaseService}
      * @memberof CaseMainDetailEditView9Base
      */
     protected appEntityService: CaseService = new CaseService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type CaseUIService
+     * @memberof CaseMainDetailEditView9Base
+     */
+    public appUIService: CaseUIService = new CaseUIService(this.$store);
 
 
     /**

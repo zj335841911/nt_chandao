@@ -1,12 +1,15 @@
 package cn.ibizlab.pms.core.extensions.service;
 
 import cn.ibizlab.pms.core.zentao.domain.StorySpec;
+import cn.ibizlab.pms.core.zentao.filter.StorySearchContext;
 import cn.ibizlab.pms.core.zentao.filter.StorySpecSearchContext;
 import cn.ibizlab.pms.core.zentao.service.impl.StoryServiceImpl;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.zentao.domain.Story;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Primary;
@@ -142,6 +145,7 @@ public class StoryExService extends StoryServiceImpl {
         StorySpec storySpec = storyspecService.searchDefault(context).getContent().get(0);
         et.setSpec(storySpec.getSpec());
         et.setVerify(storySpec.getVerify());
+        et.setTitle(storySpec.getTitle());
         return et;
     }
     /**
@@ -208,6 +212,16 @@ public class StoryExService extends StoryServiceImpl {
             et.setPlan(String.valueOf(et.get("productplan")));
         }
         return super.unlinkStory(et);
+    }
+
+    /**
+     * 查询集合 任务相关需求
+     */
+    @Override
+    public Page<Story> searchTaskRelatedStory(StorySearchContext context) {
+        context.getSelectCond().clear();
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchTaskRelatedStory(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 }
 

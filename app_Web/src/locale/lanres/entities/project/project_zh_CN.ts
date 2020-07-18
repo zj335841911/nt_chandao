@@ -40,6 +40,7 @@ export default {
     plans: "关联产品产品计划",
     srfarray: "关联数据数组",
     comment: "备注",
+    period: "时间段",
   },
 	views: {
 		tasktreeexpview: {
@@ -180,6 +181,7 @@ export default {
 	},
 	main_edit_form: {
 		details: {
+			grouppanel3: "分组面板", 
 			grouppanel2: "负责人", 
 			grouppanel1: "分组面板", 
 			group1: "project基本信息", 
@@ -196,6 +198,7 @@ export default {
 			begin: "开始时间", 
 			end: "结束日期", 
 			formitemex1: "项目周期", 
+			period: "", 
 			days: "可用工作日", 
 			type: "项目类型", 
 			team: "团队名称", 
@@ -258,6 +261,7 @@ export default {
 	},
 	main_form: {
 		details: {
+			grouppanel2: "分组面板", 
 			grouppanel1: "分组面板", 
 			group1: "project基本信息", 
 			formpage1: "基本信息", 
@@ -273,6 +277,7 @@ export default {
 			begin: "开始时间", 
 			end: "结束日期", 
 			formitemex1: "项目周期", 
+			period: "", 
 			days: "可用工作日", 
 			team: "团队名称", 
 			type: "项目类型", 
@@ -347,7 +352,15 @@ export default {
 			tip: "保存并关闭",
 		},
 	},
-	curproductgridviewtoolbar_toolbar: {
+	gridviewtoolbar_toolbar: {
+		deuiaction4: {
+			caption: "删除",
+			tip: "删除",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
@@ -359,15 +372,7 @@ export default {
 			tip: "保存并关闭",
 		},
 	},
-	gridviewtoolbar_toolbar: {
-		deuiaction4: {
-			caption: "删除",
-			tip: "删除",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
+	curproductgridviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",

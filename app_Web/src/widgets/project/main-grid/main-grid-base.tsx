@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, GridControllerBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import MainService from './main-grid-service';
+import ProjectUIService from '@/uiservice/project/project-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 
@@ -50,6 +51,23 @@ export class MainGridBase extends GridControllerBase {
     protected appDeName: string = 'project';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {ProjectUIService}
+     * @memberof MainBase
+     */  
+    public appUIService:ProjectUIService = new ProjectUIService(this.$store);
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof MainBase
+     */  
+    public ActionModel: any = {
+    };
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -57,6 +75,22 @@ export class MainGridBase extends GridControllerBase {
      * @memberof GridControllerBase
      */
     protected localStorageTag: string = 'zt_project_main_grid';
+
+    /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    public minorSortPSDEF: string = 'id';
 
     /**
      * 所有列成员
@@ -70,35 +104,40 @@ export class MainGridBase extends GridControllerBase {
             label: 'ID',
             langtag: 'entities.project.main_grid.columns.id',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'name',
             label: '项目名称',
             langtag: 'entities.project.main_grid.columns.name',
             show: true,
-            util: 'STAR'
+            util: 'STAR',
+            isEnableRowEdit: false,
         },
         {
             name: 'code',
             label: '项目代号',
             langtag: 'entities.project.main_grid.columns.code',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'status',
             label: '项目状态',
             langtag: 'entities.project.main_grid.columns.status',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'end',
             label: '结束日期',
             langtag: 'entities.project.main_grid.columns.end',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
     ]
 

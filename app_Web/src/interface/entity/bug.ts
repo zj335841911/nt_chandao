@@ -485,4 +485,20 @@ export interface Bug {
      * @memberof Bug
      */
     taskname?: any;
+
+    /**
+     * 模块名称
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    modulename?: any;
+
+    /**
+     * 平台/分支
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    branchname?: any;
 }

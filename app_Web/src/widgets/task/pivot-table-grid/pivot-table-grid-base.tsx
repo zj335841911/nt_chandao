@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import PivotTableService from './pivot-table-grid-service';
+import TaskUIService from '@/uiservice/task/task-ui-service';
 import CodeListService from "@service/app/codelist-service";
 import { FormItemModel } from '@/model/form-detail';
 
@@ -187,7 +188,7 @@ export class PivotTableGridBase extends MainControlBase {
      * @type {string}
      * @memberof PivotTable
      */
-    public minorSortDir: string = '';
+    public minorSortDir: string = 'DESC';
 
     /**
      * 排序字段
@@ -195,7 +196,7 @@ export class PivotTableGridBase extends MainControlBase {
      * @type {string}
      * @memberof PivotTable
      */
-    public minorSortPSDEF: string = '';
+    public minorSortPSDEF: string = 'id';
 
     /**
      * 分页条数
@@ -236,6 +237,14 @@ export class PivotTableGridBase extends MainControlBase {
      * @memberof PivotTable
      */
     @Prop() public selectedData?: string;
+
+    /**
+     * 动态代码表集合
+     *
+     * @type {*}
+     * @memberof PivotTable
+     */
+    public dCodeList: any = {};
 
     /**
      * 选中值变化
@@ -534,9 +543,13 @@ export class PivotTableGridBase extends MainControlBase {
             }
         }
         if(Object.is('assignedto', name)) {
-            let codelist: any[] = this.$store.getters.getCodeList('UserRealName');
-            if(codelist) {
-                return this.getCodeListItem(codelist, value);
+            let items = this.dCodeList['UserRealName'];
+            if(items) {
+                for(let i = 0; i < items.length; i++) {
+                    if(Object.is(items[i].value, value)) {
+                        return items[i].text;
+                    }
+                }
             }
         }
         return value;
@@ -555,6 +568,22 @@ export class PivotTableGridBase extends MainControlBase {
             }
         }
         return codelist.emptytext;
+    }
+
+    /**
+     * 准备动态代码表数据集合
+     *
+     * @memberof PivotTable
+     */
+    public async readyDCodelist() {
+        let keys: string[] = [
+            'UserRealName'
+        ];
+        for (let key of keys) {
+            let items = await this.codeListService.getItems('UserRealName');
+            this.dCodeList[key] = items;
+        }
+        
     }
 
     /**
@@ -1079,6 +1108,7 @@ export class PivotTableGridBase extends MainControlBase {
      *  @memberof PivotTable
      */    
     public afterCreated(){
+        this.readyDCodelist();
         this.setColState();
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {

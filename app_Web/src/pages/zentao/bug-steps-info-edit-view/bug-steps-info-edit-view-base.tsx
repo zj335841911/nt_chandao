@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
+import BugAuthService from '@/authservice/bug/bug-auth-service';
 import EditViewEngine from '@engine/view/edit-view-engine';
+import BugUIService from '@/uiservice/bug/bug-ui-service';
 
 /**
  * Bug编辑视图视图基类
@@ -11,7 +13,6 @@ import EditViewEngine from '@engine/view/edit-view-engine';
  * @extends {EditViewBase}
  */
 export class BugStepsInfoEditViewBase extends EditViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -22,12 +23,38 @@ export class BugStepsInfoEditViewBase extends EditViewBase {
     protected appDeName: string = 'bug';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugStepsInfoEditViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugStepsInfoEditViewBase
+     */
+    protected appDeMajor: string = 'title';
+
+    /**
      * 实体服务对象
      *
      * @type {BugService}
      * @memberof BugStepsInfoEditViewBase
      */
     protected appEntityService: BugService = new BugService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type BugUIService
+     * @memberof BugStepsInfoEditViewBase
+     */
+    public appUIService: BugUIService = new BugUIService(this.$store);
 
 
     /**

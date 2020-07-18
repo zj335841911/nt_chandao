@@ -2,7 +2,9 @@
 import { Subject } from 'rxjs';
 import { GridViewBase } from '@/studio-core';
 import BranchService from '@/service/branch/branch-service';
+import BranchAuthService from '@/authservice/branch/branch-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
+import BranchUIService from '@/uiservice/branch/branch-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -14,7 +16,6 @@ import CodeListService from "@service/app/codelist-service";
  * @extends {GridViewBase}
  */
 export class BranchPMGridViewBase extends GridViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -25,12 +26,38 @@ export class BranchPMGridViewBase extends GridViewBase {
     protected appDeName: string = 'branch';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof BranchPMGridViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof BranchPMGridViewBase
+     */
+    protected appDeMajor: string = 'name';
+
+    /**
      * 实体服务对象
      *
      * @type {BranchService}
      * @memberof BranchPMGridViewBase
      */
     protected appEntityService: BranchService = new BranchService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type BranchUIService
+     * @memberof BranchPMGridViewBase
+     */
+    public appUIService: BranchUIService = new BranchUIService(this.$store);
 
 
     /**
@@ -75,10 +102,10 @@ export class BranchPMGridViewBase extends GridViewBase {
      * @memberof BranchPMGridView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '新建','isShowCaption':true,'isShowIcon':true, tooltip: '新建', iconcls: 'fa fa-file-text-o', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'New', target: '' }, class: '' },
+        deuiaction1: { name: 'deuiaction1', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-file-text-o', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'New', target: '', class: '' } },
 
         seperator1: {  name: 'seperator1', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
-        deuiaction2: { name: 'deuiaction2', caption: '编辑','isShowCaption':true,'isShowIcon':true, tooltip: '编辑', iconcls: 'fa fa-edit', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Edit', target: 'SINGLEKEY' }, class: '' },
+        deuiaction2: { name: 'deuiaction2', caption: '编辑', 'isShowCaption': true, 'isShowIcon': true, tooltip: '编辑', iconcls: 'fa fa-edit', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Edit', target: 'SINGLEKEY', class: '' } },
 
     };
 
@@ -318,8 +345,8 @@ export class BranchPMGridViewBase extends GridViewBase {
      * @memberof BranchPMGridView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
+        const localContext: any = null;
+        const localViewParam: any =null;
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){

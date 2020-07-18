@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditViewBase } from '@/studio-core';
 import BuildService from '@/service/build/build-service';
+import BuildAuthService from '@/authservice/build/build-auth-service';
 import EditViewEngine from '@engine/view/edit-view-engine';
+import BuildUIService from '@/uiservice/build/build-ui-service';
 
 /**
  * 版本编辑视图视图基类
@@ -11,7 +13,6 @@ import EditViewEngine from '@engine/view/edit-view-engine';
  * @extends {EditViewBase}
  */
 export class BuildMainViewBase extends EditViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -22,12 +23,38 @@ export class BuildMainViewBase extends EditViewBase {
     protected appDeName: string = 'build';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof BuildMainViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof BuildMainViewBase
+     */
+    protected appDeMajor: string = 'name';
+
+    /**
      * 实体服务对象
      *
      * @type {BuildService}
      * @memberof BuildMainViewBase
      */
     protected appEntityService: BuildService = new BuildService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type BuildUIService
+     * @memberof BuildMainViewBase
+     */
+    public appUIService: BuildUIService = new BuildUIService(this.$store);
 
 
     /**

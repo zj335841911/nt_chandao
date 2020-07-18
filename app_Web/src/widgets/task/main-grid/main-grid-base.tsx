@@ -219,6 +219,29 @@ export class MainGridBase extends GridControllerBase {
     }
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {TaskUIService}
+     * @memberof MainBase
+     */  
+    public appUIService:TaskUIService = new TaskUIService(this.$store);
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof MainBase
+     */  
+    public ActionModel: any = {
+        AssignTask: { name: 'AssignTask',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'ASSIGN', target: 'SINGLEKEY'},
+        StartTask: { name: 'StartTask',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'START', target: 'SINGLEKEY'},
+        CloseTask: { name: 'CloseTask',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'CLOSE', target: 'SINGLEKEY'},
+        DoneTask: { name: 'DoneTask',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'COMPLETE', target: 'SINGLEKEY'},
+        MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'EDIT', target: 'SINGLEKEY'},
+        NewSubTask: { name: 'NewSubTask',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SUBTASKS', target: 'SINGLEKEY'}
+    };
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -226,6 +249,22 @@ export class MainGridBase extends GridControllerBase {
      * @memberof GridControllerBase
      */
     protected localStorageTag: string = 'zt_task_main_grid';
+
+    /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    public minorSortPSDEF: string = 'id';
 
     /**
      * 所有列成员
@@ -239,77 +278,88 @@ export class MainGridBase extends GridControllerBase {
             label: 'ID',
             langtag: 'entities.task.main_grid.columns.id',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'pri',
             label: 'P',
             langtag: 'entities.task.main_grid.columns.pri',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'name',
             label: '任务名称',
             langtag: 'entities.task.main_grid.columns.name',
             show: true,
-            util: 'STAR'
+            util: 'STAR',
+            isEnableRowEdit: false,
         },
         {
             name: 'status',
             label: '任务状态',
             langtag: 'entities.task.main_grid.columns.status',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'assignedto',
             label: '指派给',
             langtag: 'entities.task.main_grid.columns.assignedto',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'finishedby',
             label: '完成者',
             langtag: 'entities.task.main_grid.columns.finishedby',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'estimate',
             label: '预计',
             langtag: 'entities.task.main_grid.columns.estimate',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'consumed',
             label: '消耗',
             langtag: 'entities.task.main_grid.columns.consumed',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'left',
             label: '剩余',
             langtag: 'entities.task.main_grid.columns.left',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'deadline',
             label: '截止日期',
             langtag: 'entities.task.main_grid.columns.deadline',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'uagridcolumn1',
             label: '操作',
             langtag: 'entities.task.main_grid.columns.uagridcolumn1',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
     ]
 

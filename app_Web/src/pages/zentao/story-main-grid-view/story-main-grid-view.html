@@ -5,6 +5,18 @@
     </template>
     <template slot="toolbar">
                 <view-toolbar :model="toolBarModels" @item-click="toolbar_click($event)"/>    </template>
+    <template slot="searchBar">
+                <view_searchbar 
+            :viewState="viewState"  
+            :viewparams="viewparams" 
+            :context="context" 
+            v-show="isExpandSearchForm"
+            @search="onSearch($event)"
+            name="searchbar"  
+            ref='searchbar' 
+            @closeview="closeView($event)">
+        </view_searchbar>
+    </template>
     <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 
@@ -13,15 +25,15 @@
         :showBusyIndicator="true"
         :isOpenEdit="false"
         :gridRowActiveMode="gridRowActiveMode"
-        @save="onSave"
+        @save="onSave.apply(_self, arguments)"
         updateAction=""
         removeAction="Remove"
         loaddraftAction=""
         loadAction=""
         createAction=""
         fetchAction="FetchDefault"
-        :newdata="newdata"
-        :opendata="opendata"
+        :newdata="newdata.bind(_self)"
+        :opendata="opendata.bind(_self)"
         name="grid"  
         ref='grid' 
         @selectionchange="grid_selectionchange($event)"  

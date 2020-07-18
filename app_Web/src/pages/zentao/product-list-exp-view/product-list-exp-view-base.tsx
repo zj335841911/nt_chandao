@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { ListExpViewBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
+import ProductAuthService from '@/authservice/product/product-auth-service';
 import ListExpViewEngine from '@engine/view/list-exp-view-engine';
+import ProductUIService from '@/uiservice/product/product-ui-service';
 
 /**
  * 产品列表导航视图视图基类
@@ -11,7 +13,6 @@ import ListExpViewEngine from '@engine/view/list-exp-view-engine';
  * @extends {ListExpViewBase}
  */
 export class ProductListExpViewBase extends ListExpViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -22,12 +23,38 @@ export class ProductListExpViewBase extends ListExpViewBase {
     protected appDeName: string = 'product';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductListExpViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductListExpViewBase
+     */
+    protected appDeMajor: string = 'name';
+
+    /**
      * 实体服务对象
      *
      * @type {ProductService}
      * @memberof ProductListExpViewBase
      */
     protected appEntityService: ProductService = new ProductService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProductUIService
+     * @memberof ProductListExpViewBase
+     */
+    public appUIService: ProductUIService = new ProductUIService(this.$store);
 
 
     /**
@@ -71,7 +98,7 @@ export class ProductListExpViewBase extends ListExpViewBase {
      * @memberof ProductListExpView
      */
     public listexpviewlistexpbar_list_quicktoolbarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '新建','isShowCaption':true,'isShowIcon':true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'New', target: '' }, class: '' },
+        deuiaction1: { name: 'deuiaction1', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'New', target: '', class: '' } },
 
     };
 
@@ -173,8 +200,6 @@ export class ProductListExpViewBase extends ListExpViewBase {
      * @memberof ProductListExpView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
     this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
     }
 

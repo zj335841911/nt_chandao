@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditViewBase } from '@/studio-core';
 import BranchService from '@/service/branch/branch-service';
+import BranchAuthService from '@/authservice/branch/branch-auth-service';
 import EditViewEngine from '@engine/view/edit-view-engine';
+import BranchUIService from '@/uiservice/branch/branch-ui-service';
 
 /**
  * 平台管理视图基类
@@ -11,7 +13,6 @@ import EditViewEngine from '@engine/view/edit-view-engine';
  * @extends {EditViewBase}
  */
 export class BranchPMEditViewBase extends EditViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -22,12 +23,38 @@ export class BranchPMEditViewBase extends EditViewBase {
     protected appDeName: string = 'branch';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof BranchPMEditViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof BranchPMEditViewBase
+     */
+    protected appDeMajor: string = 'name';
+
+    /**
      * 实体服务对象
      *
      * @type {BranchService}
      * @memberof BranchPMEditViewBase
      */
     protected appEntityService: BranchService = new BranchService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type BranchUIService
+     * @memberof BranchPMEditViewBase
+     */
+    public appUIService: BranchUIService = new BranchUIService(this.$store);
 
 
     /**
@@ -72,7 +99,7 @@ export class BranchPMEditViewBase extends EditViewBase {
      * @memberof BranchPMEditView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭','isShowCaption':true,'isShowIcon':true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'SaveAndExit', target: '' }, class: '' },
+        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
 
     };
 

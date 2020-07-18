@@ -90,7 +90,7 @@ export default class ProductPlanServiceBase extends EntityService {
             }
             let tempContext:any = JSON.parse(JSON.stringify(context));
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans`,data,isloading);
-            this.tempStorage.setItem(tempContext.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
             return res;
         }
         let masterData:any = {};
@@ -118,7 +118,7 @@ export default class ProductPlanServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/productplans`,data,isloading);
-        this.tempStorage.setItem(tempContext.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
+        this.tempStorage.setItem(tempContext.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
         return res;
     }
 
@@ -151,7 +151,7 @@ export default class ProductPlanServiceBase extends EntityService {
         masterData.subproductplans = subproductplansData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().put(`/products/${context.product}/productplans/${context.productplan}`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
             return res;
         }
         let masterData:any = {};
@@ -172,7 +172,7 @@ export default class ProductPlanServiceBase extends EntityService {
         masterData.subproductplans = subproductplansData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/productplans/${context.productplan}`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
             return res;
     }
 
@@ -204,11 +204,11 @@ export default class ProductPlanServiceBase extends EntityService {
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan){
             let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}`,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
             return res;
         }
             let res:any = await Http.getInstance().get(`/productplans/${context.productplan}`,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
             return res;
     }
 
@@ -225,12 +225,12 @@ export default class ProductPlanServiceBase extends EntityService {
         if(context.product && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/getdraft`,isloading);
             res.data.productplan = data.productplan;
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
             return res;
         }
         let res:any = await  Http.getInstance().get(`/productplans/getdraft`,isloading);
         res.data.productplan = data.productplan;
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
         return res;
     }
 
@@ -263,7 +263,7 @@ export default class ProductPlanServiceBase extends EntityService {
         masterData.subproductplans = subproductplansData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/batchunlinkbug`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
             return res;
         }
             return Http.getInstance().post(`/productplans/${context.productplan}/batchunlinkbug`,data,isloading);
@@ -298,7 +298,7 @@ export default class ProductPlanServiceBase extends EntityService {
         masterData.subproductplans = subproductplansData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/batchunlinkstory`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
             return res;
         }
             return Http.getInstance().post(`/productplans/${context.productplan}/batchunlinkstory`,data,isloading);
@@ -333,7 +333,7 @@ export default class ProductPlanServiceBase extends EntityService {
         masterData.subproductplans = subproductplansData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/checkkey`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
             return res;
         }
             return Http.getInstance().post(`/productplans/${context.productplan}/checkkey`,data,isloading);
@@ -368,7 +368,7 @@ export default class ProductPlanServiceBase extends EntityService {
         masterData.subproductplans = subproductplansData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/linkbug`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
             return res;
         }
             return Http.getInstance().post(`/productplans/${context.productplan}/linkbug`,data,isloading);
@@ -403,7 +403,7 @@ export default class ProductPlanServiceBase extends EntityService {
         masterData.subproductplans = subproductplansData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/linkstory`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
             return res;
         }
             return Http.getInstance().post(`/productplans/${context.productplan}/linkstory`,data,isloading);
@@ -438,7 +438,7 @@ export default class ProductPlanServiceBase extends EntityService {
         masterData.subproductplans = subproductplansData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/save`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
             return res;
         }
         let masterData:any = {};
@@ -459,7 +459,7 @@ export default class ProductPlanServiceBase extends EntityService {
         masterData.subproductplans = subproductplansData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/productplans/${context.productplan}/save`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
             return res;
     }
 
@@ -492,7 +492,7 @@ export default class ProductPlanServiceBase extends EntityService {
         masterData.subproductplans = subproductplansData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/unlinkbug`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
             return res;
         }
             return Http.getInstance().post(`/productplans/${context.productplan}/unlinkbug`,data,isloading);
@@ -527,7 +527,7 @@ export default class ProductPlanServiceBase extends EntityService {
         masterData.subproductplans = subproductplansData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/unlinkstory`,data,isloading);
-            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans));
+            this.tempStorage.setItem(context.srfsessionkey+'_subproductplans',JSON.stringify(res.data.subproductplans ? res.data.subproductplans : []));
             return res;
         }
             return Http.getInstance().post(`/productplans/${context.productplan}/unlinkstory`,data,isloading);

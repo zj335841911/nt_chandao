@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditView9Base } from '@/studio-core';
 import TestTaskService from '@/service/test-task/test-task-service';
+import TestTaskAuthService from '@/authservice/test-task/test-task-auth-service';
 import EditView9Engine from '@engine/view/edit-view9-engine';
+import TestTaskUIService from '@/uiservice/test-task/test-task-ui-service';
 
 /**
  * 测试版本编辑视图视图基类
@@ -11,7 +13,6 @@ import EditView9Engine from '@engine/view/edit-view9-engine';
  * @extends {EditView9Base}
  */
 export class TestTaskEditView9_DetailBase extends EditView9Base {
-
     /**
      * 视图对应应用实体名称
      *
@@ -22,12 +23,38 @@ export class TestTaskEditView9_DetailBase extends EditView9Base {
     protected appDeName: string = 'testtask';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestTaskEditView9_DetailBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestTaskEditView9_DetailBase
+     */
+    protected appDeMajor: string = 'name';
+
+    /**
      * 实体服务对象
      *
      * @type {TestTaskService}
      * @memberof TestTaskEditView9_DetailBase
      */
     protected appEntityService: TestTaskService = new TestTaskService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type TestTaskUIService
+     * @memberof TestTaskEditView9_DetailBase
+     */
+    public appUIService: TestTaskUIService = new TestTaskUIService(this.$store);
 
 
     /**

@@ -33,6 +33,9 @@ import cn.ibizlab.pms.core.zentao.domain.Task;
 import cn.ibizlab.pms.core.zentao.service.ITaskService;
 import cn.ibizlab.pms.core.zentao.filter.TaskSearchContext;
 import cn.ibizlab.pms.util.annotation.VersionCheck;
+import cn.ibizlab.pms.core.ibiz.filter.TaskTeamSearchContext;
+import cn.ibizlab.pms.core.ibiz.domain.TaskTeam;
+import cn.ibizlab.pms.core.ibiz.service.ITaskTeamService;
 
 @Slf4j
 @Api(tags = {"任务" })
@@ -46,6 +49,9 @@ public class TaskResource {
     @Autowired
     @Lazy
     public TaskMapping taskMapping;
+
+    @Autowired
+    private ITaskTeamService taskteamService;
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Create-all')")
     @ApiOperation(value = "新建任务", tags = {"任务" },  notes = "新建任务")
@@ -124,7 +130,7 @@ public class TaskResource {
     @Transactional
     public ResponseEntity<TaskDTO> activate(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
-        domain.setId(task_id);
+domain.setId(task_id);
         domain = taskService.activate(domain);
         taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
@@ -136,7 +142,7 @@ public class TaskResource {
     @Transactional
     public ResponseEntity<TaskDTO> assignTo(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
-        domain.setId(task_id);
+domain.setId(task_id);
         domain = taskService.assignTo(domain);
         taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
@@ -148,7 +154,7 @@ public class TaskResource {
     @Transactional
     public ResponseEntity<TaskDTO> cancel(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
-        domain.setId(task_id);
+domain.setId(task_id);
         domain = taskService.cancel(domain);
         taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
@@ -166,7 +172,7 @@ public class TaskResource {
     @Transactional
     public ResponseEntity<TaskDTO> close(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
-        domain.setId(task_id);
+domain.setId(task_id);
         domain = taskService.close(domain);
         taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
@@ -178,7 +184,7 @@ public class TaskResource {
     @Transactional
     public ResponseEntity<TaskDTO> deleteEstimate(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
-        domain.setId(task_id);
+domain.setId(task_id);
         domain = taskService.deleteEstimate(domain);
         taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
@@ -190,7 +196,7 @@ public class TaskResource {
     @Transactional
     public ResponseEntity<TaskDTO> editEstimate(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
-        domain.setId(task_id);
+domain.setId(task_id);
         domain = taskService.editEstimate(domain);
         taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
@@ -202,7 +208,7 @@ public class TaskResource {
     @Transactional
     public ResponseEntity<TaskDTO> finish(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
-        domain.setId(task_id);
+domain.setId(task_id);
         domain = taskService.finish(domain);
         taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
@@ -214,7 +220,7 @@ public class TaskResource {
     @Transactional
     public ResponseEntity<TaskDTO> pause(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
-        domain.setId(task_id);
+domain.setId(task_id);
         domain = taskService.pause(domain);
         taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
@@ -226,7 +232,7 @@ public class TaskResource {
     @Transactional
     public ResponseEntity<TaskDTO> recordEstimate(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
-        domain.setId(task_id);
+domain.setId(task_id);
         domain = taskService.recordEstimate(domain);
         taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
@@ -238,7 +244,7 @@ public class TaskResource {
     @Transactional
     public ResponseEntity<TaskDTO> restart(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
-        domain.setId(task_id);
+domain.setId(task_id);
         domain = taskService.restart(domain);
         taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
@@ -265,7 +271,7 @@ public class TaskResource {
     @Transactional
     public ResponseEntity<TaskDTO> start(@PathVariable("task_id") BigInteger task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
-        domain.setId(task_id);
+domain.setId(task_id);
         domain = taskService.start(domain);
         taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);

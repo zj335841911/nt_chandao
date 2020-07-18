@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditView9Base } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
+import StoryAuthService from '@/authservice/story/story-auth-service';
 import EditView9Engine from '@engine/view/edit-view9-engine';
+import StoryUIService from '@/uiservice/story/story-ui-service';
 
 /**
  * 需求编辑视图视图基类
@@ -11,7 +13,6 @@ import EditView9Engine from '@engine/view/edit-view9-engine';
  * @extends {EditView9Base}
  */
 export class StoryMainView9Base extends EditView9Base {
-
     /**
      * 视图对应应用实体名称
      *
@@ -22,12 +23,38 @@ export class StoryMainView9Base extends EditView9Base {
     protected appDeName: string = 'story';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryMainView9Base
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryMainView9Base
+     */
+    protected appDeMajor: string = 'title';
+
+    /**
      * 实体服务对象
      *
      * @type {StoryService}
      * @memberof StoryMainView9Base
      */
     protected appEntityService: StoryService = new StoryService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type StoryUIService
+     * @memberof StoryMainView9Base
+     */
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
 
     /**

@@ -2,7 +2,9 @@
 import { Subject } from 'rxjs';
 import { GridViewBase } from '@/studio-core';
 import ProductModuleService from '@/service/product-module/product-module-service';
+import ProductModuleAuthService from '@/authservice/product-module/product-module-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
+import ProductModuleUIService from '@/uiservice/product-module/product-module-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -14,7 +16,6 @@ import CodeListService from "@service/app/codelist-service";
  * @extends {GridViewBase}
  */
 export class ProductModuleGridViewBase extends GridViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -25,12 +26,38 @@ export class ProductModuleGridViewBase extends GridViewBase {
     protected appDeName: string = 'productmodule';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductModuleGridViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductModuleGridViewBase
+     */
+    protected appDeMajor: string = 'name';
+
+    /**
      * 实体服务对象
      *
      * @type {ProductModuleService}
      * @memberof ProductModuleGridViewBase
      */
     protected appEntityService: ProductModuleService = new ProductModuleService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProductModuleUIService
+     * @memberof ProductModuleGridViewBase
+     */
+    public appUIService: ProductModuleUIService = new ProductModuleUIService(this.$store);
 
 
     /**
@@ -88,9 +115,9 @@ export class ProductModuleGridViewBase extends GridViewBase {
      * @memberof ProductModuleGridView
      */
     public toolBarModels: any = {
-        deuiaction2: { name: 'deuiaction2', caption: '新建行','isShowCaption':true,'isShowIcon':true, tooltip: '新建行', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'NewRow', target: '' }, class: '' },
+        deuiaction2: { name: 'deuiaction2', caption: '新建行', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建行', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'NewRow', target: '', class: '' } },
 
-        deuiaction3: { name: 'deuiaction3', caption: '保存行','isShowCaption':true,'isShowIcon':true, tooltip: '保存行', iconcls: 'fa fa-save', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'SaveRow', target: '' }, class: '' },
+        deuiaction3: { name: 'deuiaction3', caption: '保存行', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存行', iconcls: 'fa fa-save', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'SaveRow', target: '', class: '' } },
 
     };
 
@@ -272,7 +299,7 @@ export class ProductModuleGridViewBase extends GridViewBase {
     public NewRow(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         const _this: any = this;
         const data: any = {};
-        if (_this.newRow && _this.newRow instanceof Function) {
+        if (_this.hasOwnProperty('newRow') && _this.newRow instanceof Function) {
             _this.newRow([{ ...data }], params, $event, xData);
         } else if(xData.newRow && xData.newRow instanceof Function) {
             xData.newRow([{ ...data }], params, $event, xData);

@@ -163,6 +163,27 @@ export class MainGridBase extends GridControllerBase {
     }
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {BugUIService}
+     * @memberof MainBase
+     */  
+    public appUIService:BugUIService = new BugUIService(this.$store);
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof MainBase
+     */  
+    public ActionModel: any = {
+        ConfirmBug: { name: 'ConfirmBug',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
+        ResolveBug: { name: 'ResolveBug',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
+        CloseBug: { name: 'CloseBug',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
+        MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'}
+    };
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -170,6 +191,22 @@ export class MainGridBase extends GridControllerBase {
      * @memberof GridControllerBase
      */
     protected localStorageTag: string = 'zt_bug_main_grid';
+
+    /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    public minorSortPSDEF: string = 'id';
 
     /**
      * 所有列成员
@@ -183,70 +220,88 @@ export class MainGridBase extends GridControllerBase {
             label: 'ID',
             langtag: 'entities.bug.main_grid.columns.id',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'pri',
             label: 'P',
             langtag: 'entities.bug.main_grid.columns.pri',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'confirmed',
             label: '确认',
             langtag: 'entities.bug.main_grid.columns.confirmed',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'title',
             label: 'Bug标题',
             langtag: 'entities.bug.main_grid.columns.title',
             show: true,
-            util: 'PX'
+            util: 'STAR',
+            isEnableRowEdit: false,
         },
         {
             name: 'status',
             label: 'Bug状态',
             langtag: 'entities.bug.main_grid.columns.status',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'openedby',
             label: '由谁创建',
             langtag: 'entities.bug.main_grid.columns.openedby',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'openeddate',
             label: '创建日期',
             langtag: 'entities.bug.main_grid.columns.openeddate',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'assignedto',
             label: '指派给',
             langtag: 'entities.bug.main_grid.columns.assignedto',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'resolution',
             label: '方案',
             langtag: 'entities.bug.main_grid.columns.resolution',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'uagridcolumn1',
             label: '操作',
             langtag: 'entities.bug.main_grid.columns.uagridcolumn1',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
+        },
+        {
+            name: 'lastediteddate',
+            label: '修改日期',
+            langtag: 'entities.bug.main_grid.columns.lastediteddate',
+            show: true,
+            util: 'PX',
+            isEnableRowEdit: false,
         },
     ]
 
@@ -292,6 +347,7 @@ export class MainGridBase extends GridControllerBase {
         'assignedto':false,
         'resolution':false,
         'uagridcolumn1':false,
+        'lastediteddate':false,
     };
 
     /**

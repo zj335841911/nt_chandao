@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { TreeExpViewBase } from '@/studio-core';
 import ProjectModuleService from '@/service/project-module/project-module-service';
+import ProjectModuleAuthService from '@/authservice/project-module/project-module-auth-service';
 import TreeExpViewEngine from '@engine/view/tree-exp-view-engine';
+import ProjectModuleUIService from '@/uiservice/project-module/project-module-ui-service';
 
 /**
  * 任务模块树导航视图视图基类
@@ -11,7 +13,6 @@ import TreeExpViewEngine from '@engine/view/tree-exp-view-engine';
  * @extends {TreeExpViewBase}
  */
 export class ProjectModuleTreeExpViewBase extends TreeExpViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -22,12 +23,38 @@ export class ProjectModuleTreeExpViewBase extends TreeExpViewBase {
     protected appDeName: string = 'projectmodule';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectModuleTreeExpViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectModuleTreeExpViewBase
+     */
+    protected appDeMajor: string = 'name';
+
+    /**
      * 实体服务对象
      *
      * @type {ProjectModuleService}
      * @memberof ProjectModuleTreeExpViewBase
      */
     protected appEntityService: ProjectModuleService = new ProjectModuleService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProjectModuleUIService
+     * @memberof ProjectModuleTreeExpViewBase
+     */
+    public appUIService: ProjectModuleUIService = new ProjectModuleUIService(this.$store);
 
 
     /**
@@ -82,9 +109,9 @@ export class ProjectModuleTreeExpViewBase extends TreeExpViewBase {
      * @memberof ProjectModuleTreeExpView
      */
     public treeexpviewtreeexpbar_toolbarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '修复','isShowCaption':true,'isShowIcon':true, tooltip: '修复', iconcls: 'fa fa-wrench', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Fix', target: 'NONE' }, class: '' },
+        deuiaction1: { name: 'deuiaction1', caption: '修复', 'isShowCaption': true, 'isShowIcon': true, tooltip: '修复', iconcls: 'fa fa-wrench', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Fix', target: 'NONE', class: '' } },
 
-        deuiaction2: { name: 'deuiaction2', caption: '刷新','isShowCaption':true,'isShowIcon':true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'RefreshAll', target: '' }, class: '' },
+        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'RefreshAll', target: '', class: '' } },
 
     };
 
@@ -186,8 +213,6 @@ export class ProjectModuleTreeExpViewBase extends TreeExpViewBase {
      * @memberof ProjectModuleTreeExpView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
     this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
     }
 

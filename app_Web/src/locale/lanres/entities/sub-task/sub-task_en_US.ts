@@ -48,6 +48,10 @@ export default {
     comment: "备注",
     currentconsumed: "本次消耗",
     totaltime: "总计耗时",
+    isleaf: "是否子任务",
+    allmodules: "所有模块",
+    multiple: "多人任务",
+    taskteams: "项目团队成员",
   },
 	views: {
 		subtasknewview: {

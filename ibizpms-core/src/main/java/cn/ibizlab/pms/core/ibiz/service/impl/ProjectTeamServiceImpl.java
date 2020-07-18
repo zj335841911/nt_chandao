@@ -114,6 +114,13 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     }
     @Override
     @Transactional
+    public ProjectTeam getUserRole(ProjectTeam et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
     public boolean save(ProjectTeam et) {
         if(!saveOrUpdate(et))
             return false;
@@ -161,6 +168,15 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     @Override
     public Page<ProjectTeam> searchDefault(ProjectTeamSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectTeam> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<ProjectTeam>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 行编辑查询
+     */
+    @Override
+    public Page<ProjectTeam> searchRowEditDefault(ProjectTeamSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectTeam> pages=baseMapper.searchRowEditDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProjectTeam>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

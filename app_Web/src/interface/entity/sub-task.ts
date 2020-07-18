@@ -381,4 +381,36 @@ export interface SubTask {
      * @memberof SubTask
      */
     totaltime?: any;
+
+    /**
+     * 是否子任务
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    isleaf?: any;
+
+    /**
+     * 所有模块
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    allmodules?: any;
+
+    /**
+     * 多人任务
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    multiple?: any;
+
+    /**
+     * 项目团队成员
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    taskteams?: any;
 }

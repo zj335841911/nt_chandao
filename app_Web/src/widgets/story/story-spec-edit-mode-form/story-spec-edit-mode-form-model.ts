@@ -95,6 +95,8 @@ export default class StorySpec_EditModeModel {
       },
       {
         name: 'files',
+        prop: 'files',
+        dataType: 'TEXT',
       },
       {
         name: 'story',

@@ -117,4 +117,12 @@ export interface ProjectTeam {
      * @memberof ProjectTeam
      */
     root?: any;
+
+    /**
+     * 用户
+     *
+     * @returns {*}
+     * @memberof ProjectTeam
+     */
+    username?: any;
 }

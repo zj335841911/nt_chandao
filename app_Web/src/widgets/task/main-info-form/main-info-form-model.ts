@@ -118,7 +118,7 @@ export default class MainInfoModel {
       {
         name: 'finisheddate',
         prop: 'finisheddate',
-        dataType: 'DATETIME',
+        dataType: 'DATE',
       },
       {
         name: 'canceledby',
@@ -154,6 +154,11 @@ export default class MainInfoModel {
         name: 'lastediteddate',
         prop: 'lastediteddate',
         dataType: 'DATETIME',
+      },
+      {
+        name: 'multiple',
+        prop: 'multiple',
+        dataType: 'INT',
       },
       {
         name: 'id',

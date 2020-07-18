@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { DashboardViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
+import BugAuthService from '@/authservice/bug/bug-auth-service';
 import PortalViewEngine from '@engine/view/portal-view-engine';
+import BugUIService from '@/uiservice/bug/bug-ui-service';
 
 /**
  * Bug数据看板视图视图基类
@@ -11,7 +13,6 @@ import PortalViewEngine from '@engine/view/portal-view-engine';
  * @extends {DashboardViewBase}
  */
 export class BugMainDashboardViewBase extends DashboardViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -22,12 +23,38 @@ export class BugMainDashboardViewBase extends DashboardViewBase {
     protected appDeName: string = 'bug';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugMainDashboardViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugMainDashboardViewBase
+     */
+    protected appDeMajor: string = 'title';
+
+    /**
      * 实体服务对象
      *
      * @type {BugService}
      * @memberof BugMainDashboardViewBase
      */
     protected appEntityService: BugService = new BugService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type BugUIService
+     * @memberof BugMainDashboardViewBase
+     */
+    public appUIService: BugUIService = new BugUIService(this.$store);
 
 
     /**

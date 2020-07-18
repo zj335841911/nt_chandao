@@ -135,6 +135,9 @@ export default class MainTabExpViewtabviewpanel4Model {
       {
         name: 'comment',
       },
+      {
+        name: 'period',
+      },
     ]
   }
 

@@ -218,7 +218,7 @@ export class ProjectPortalView_dbDashboardBase extends MainControlBase {
     public handleClick(){
       const view:any ={
         viewname: 'app-portal-design',
-        title: '面板设计',
+        title: (this.$t('app.dashBoard.handleClick.title')),
         width: 1600,
         placement: 'DRAWER_RIGHT'
       }

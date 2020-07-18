@@ -45,6 +45,11 @@ export default class AppMpicker extends Vue {
     @Prop() curvalue?: any;
 
     /**
+     * 值项
+     */
+    @Prop() valueitem?: any;
+
+    /**
      * 局部上下文导航参数
      * 
      * @type {any}
@@ -88,6 +93,14 @@ export default class AppMpicker extends Vue {
      * @memberof AppMpicker
      */
     @Prop({default: () => {}}) public acParams?: any;
+
+    /**
+     * 编辑器额外填充参数
+     *
+     * @type {string}
+     * @memberof AppMpicker
+     */
+    @Prop() public extraFillParams?: any;
 
     /**
      * 应用实体主信息属性名称
@@ -144,14 +157,34 @@ export default class AppMpicker extends Vue {
         this.value = [];
         this.selectItems = [];
         if (newVal) {
-            this.selectItems = this.parseValue(JSON.parse(newVal));
-            this.selectItems.forEach((item: any) => {
-                this.value.push(item[this.deKeyField]);
-                let index = this.items.findIndex((i) => Object.is(i[this.deKeyField], item[this.deKeyField]));
-                if (index < 0) {
-                    this.items.push({ [this.deMajorField]: item[this.deMajorField], [this.deKeyField]: item[this.deKeyField] });
+            try {
+              this.selectItems = this.parseValue(JSON.parse(newVal));
+              this.selectItems.forEach((item: any) => {
+                  this.value.push(item[this.deKeyField]);
+                  let index = this.items.findIndex((i) => Object.is(i[this.deKeyField], item[this.deKeyField]));
+                  if (index < 0) {
+                      this.items.push({ [this.deMajorField]: item[this.deMajorField], [this.deKeyField]: item[this.deKeyField] });
+                  }
+              });
+            } catch (error) {
+              if(error.name === 'SyntaxError'){
+                let srfkeys:any = newVal.split(',');
+                let srfmajortexts:any = null;
+                if(this.valueitem && this.activeData[this.valueitem]){
+                    srfmajortexts = this.activeData[this.valueitem].split(',');
                 }
-            });
+                if(srfkeys.length && srfkeys.length > 0 && srfmajortexts.length && srfmajortexts.length > 0 && srfkeys.length == srfmajortexts.length){
+                    srfkeys.forEach((id: any, index: number) => {
+                        this.value.push(id);
+                        this.selectItems.push({[this.deKeyField]: id, [this.deMajorField]: srfmajortexts[index]});
+                        let _index = this.items.findIndex((i) => Object.is(i[this.deKeyField],id));
+                        if (_index < 0) {
+                            this.items.push({[this.deKeyField]: id, [this.deMajorField]: srfmajortexts[index]});
+                        }
+                    });
+                }
+              }
+            }
         }
         this.$forceUpdate();
     }
@@ -206,13 +239,15 @@ export default class AppMpicker extends Vue {
      * @memberof AppMpicker
      */
     public onSelect(selects: any) {
-        let val: Array<any> = [];
+        const val: Array<any> = [];
         if (selects.length > 0) {
             selects.forEach((select: any) => {
                 let index = this.items.findIndex((item) => Object.is(item[this.deKeyField], select));
                 if (index >= 0) {
-                    let item = this.items[index];
-                    val.push({ [this.deKeyField]: item[this.deKeyField], [this.deMajorField]: item[this.deMajorField] });
+                    const item = this.items[index];
+                    const params = { [this.deKeyField]: item[this.deKeyField], [this.deMajorField]: item[this.deMajorField] };
+                    this.fillExtraValue(params, item);
+                    val.push(params);
                 } else {
                     index = this.selectItems.findIndex((item: any) => Object.is(item[this.deKeyField], select));
                     if (index >= 0) {
@@ -221,7 +256,7 @@ export default class AppMpicker extends Vue {
                     }
                 }
             });
-            let value = val.length > 0 ? JSON.stringify(this.formatValue(val)) : '';
+            const value = val.length > 0 ? JSON.stringify(this.formatValue(val)) : '';
             this.$emit('formitemvaluechange', { name: this.name, value: value });
         }
     }
@@ -307,10 +342,12 @@ export default class AppMpicker extends Vue {
                 let selects: Array<any> = [];
                 if (result.datas && Array.isArray(result.datas)) {
                     result.datas.forEach((select: any) => {
-                        selects.push({ [this.deKeyField]: select[this.deKeyField], [this.deMajorField]: select[this.deMajorField] });
+                        const params = { [this.deMajorField]: select[this.deMajorField], [this.deKeyField]: select[this.deKeyField] }
+                        this.fillExtraValue(params, select);
+                        selects.push(params);
                         let index = this.items.findIndex((item) => Object.is(item[this.deKeyField], select[this.deKeyField]));
                         if (index < 0) {
-                            this.items.push({ [this.deMajorField]: select[this.deMajorField], [this.deKeyField]: select[this.deKeyField] });
+                            this.items.push(params);
                         }
                     });
                 }
@@ -332,7 +369,9 @@ export default class AppMpicker extends Vue {
         let result = [];
         if(this.deKeyField !== "srfkey" || this.deMajorField !== "srfmajortext"){
             value.forEach((item: any) => {
-                result.push({[this.deMajorField]: item.srfmajortext, [this.deKeyField]: item.srfkey});
+                const params = {[this.deMajorField]: item.srfmajortext, [this.deKeyField]: item.srfkey};
+                this.fillExtraValue(params, item);
+                result.push(params);
             });
         }else{
             result = value;
@@ -350,7 +389,9 @@ export default class AppMpicker extends Vue {
         let result = [];
         if(this.deKeyField !== "srfkey" || this.deMajorField !== "srfmajortext"){
             value.forEach((item: any) => {
-                result.push({srfmajortext : item[this.deMajorField], srfkey : item[this.deKeyField]});
+                const params = {srfmajortext : item[this.deMajorField], srfkey : item[this.deKeyField]};
+                this.fillExtraValue(params, item);
+                result.push(params);
             });
         }else{
             result = value;
@@ -358,6 +399,22 @@ export default class AppMpicker extends Vue {
         return result;
     }
 
+    /**
+     * 填充额外参数
+     *
+     * @param {*} params 
+     * @param {*} item 
+     * @memberof AppMpicker
+     */
+    public fillExtraValue(params: any, item: any): void {
+        if (isExist(this.extraFillParams)) {
+            this.extraFillParams.forEach((self: any) => {
+                if (isExist(item[self.key])) {
+                    Object.assign(params, { [self.value]: item[self.key]});
+                }
+            });
+        }
+    }
 
 }
 </script>

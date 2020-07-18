@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditView9Base } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
+import ProductAuthService from '@/authservice/product/product-auth-service';
 import EditView9Engine from '@engine/view/edit-view9-engine';
+import ProductUIService from '@/uiservice/product/product-ui-service';
 
 /**
  * 产品信息视图基类
@@ -11,7 +13,6 @@ import EditView9Engine from '@engine/view/edit-view9-engine';
  * @extends {EditView9Base}
  */
 export class ProductDashboardInfoMainView9Base extends EditView9Base {
-
     /**
      * 视图对应应用实体名称
      *
@@ -22,12 +23,38 @@ export class ProductDashboardInfoMainView9Base extends EditView9Base {
     protected appDeName: string = 'product';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductDashboardInfoMainView9Base
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductDashboardInfoMainView9Base
+     */
+    protected appDeMajor: string = 'name';
+
+    /**
      * 实体服务对象
      *
      * @type {ProductService}
      * @memberof ProductDashboardInfoMainView9Base
      */
     protected appEntityService: ProductService = new ProductService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProductUIService
+     * @memberof ProductDashboardInfoMainView9Base
+     */
+    public appUIService: ProductUIService = new ProductUIService(this.$store);
 
 
     /**

@@ -156,6 +156,18 @@ export default class AssignToMeModel {
       {
         name: 'totaltime',
       },
+      {
+        name: 'isleaf',
+      },
+      {
+        name: 'allmodules',
+      },
+      {
+        name: 'multiple',
+      },
+      {
+        name: 'taskteams',
+      },
     ]
   }
 

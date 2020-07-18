@@ -150,6 +150,15 @@ export default class MPickupViewpickupviewpanelModel {
       {
         name: 'comment',
       },
+      {
+        name: 'isleaf',
+      },
+      {
+        name: 'files',
+      },
+      {
+        name: 'branchname',
+      },
     ]
   }
 

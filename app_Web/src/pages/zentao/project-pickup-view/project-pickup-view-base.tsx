@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { PickupViewBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
+import ProjectAuthService from '@/authservice/project/project-auth-service';
 import PickupViewEngine from '@engine/view/pickup-view-engine';
+import ProjectUIService from '@/uiservice/project/project-ui-service';
 
 /**
  * project数据选择视图视图基类
@@ -11,7 +13,6 @@ import PickupViewEngine from '@engine/view/pickup-view-engine';
  * @extends {PickupViewBase}
  */
 export class ProjectPickupViewBase extends PickupViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -22,12 +23,38 @@ export class ProjectPickupViewBase extends PickupViewBase {
     protected appDeName: string = 'project';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectPickupViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectPickupViewBase
+     */
+    protected appDeMajor: string = 'name';
+
+    /**
      * 实体服务对象
      *
      * @type {ProjectService}
      * @memberof ProjectPickupViewBase
      */
     protected appEntityService: ProjectService = new ProjectService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProjectUIService
+     * @memberof ProjectPickupViewBase
+     */
+    public appUIService: ProjectUIService = new ProjectUIService(this.$store);
 
 
     /**

@@ -134,7 +134,7 @@ export default class AppPicker extends Vue {
      * @type {string}
      * @memberof AppPicker
      */
-    @Prop() public editortype?: string;
+    @Prop({ default: '' }) public editortype?: string;
 
     /**
      * 视图参数（如：视图name，title，width，height）
@@ -175,6 +175,21 @@ export default class AppPicker extends Vue {
      * @memberof AppPicker
      */
     @Prop() public valueitem!: string;
+
+    /**
+     * 编辑器额外填充参数
+     *
+     * @type {string}
+     * @memberof AppPicker
+     */
+    @Prop() public extraFillParams?: any;
+
+    /**
+     * 值格式
+     * 
+     * @memberof AppPicker
+     */
+    @Prop() public valFormat?: any;
 
     /**
      * 值
@@ -230,6 +245,9 @@ export default class AppPicker extends Vue {
      */
     get refvalue() {
         if (this.valueitem && this.data) {
+            if(this.valFormat && this.valFormat.hasOwnProperty(this.data[this.valueitem])) {
+                return this.valFormat[this.data[this.valueitem]];
+            }
             return this.data[this.valueitem];
         }
         return this.curvalue;
@@ -242,7 +260,7 @@ export default class AppPicker extends Vue {
      * @param {*} oldVal
      * @memberof AppPicker
      */
-    @Watch('value',{immediate: true})
+    @Watch('value')
     public onValueChange(newVal: any, oldVal: any) {
         this.curvalue = newVal;
         if (Object.is(this.editortype, 'dropdown') && this.valueitem) {
@@ -267,6 +285,9 @@ export default class AppPicker extends Vue {
     public created() {
         if(Object.is(this.editortype, 'dropdown')){
             this.onSearch("", null, true);
+        }
+        if(!Object.is(this.editortype, 'pickup-no-ac') && !Object.is(this.editortype, 'dropdown')){
+            this.curvalue = this.value;
         }
     }
 
@@ -355,6 +376,16 @@ export default class AppPicker extends Vue {
      */
     public onACSelect(item: any): void {
         this.selectValue = item[this.deMajorField];
+        if (isExist(this.extraFillParams)) {
+            for (const key in this.extraFillParams) {
+                if (this.extraFillParams.hasOwnProperty(key)) {
+                    const self = this.extraFillParams[key];
+                    if (isExist(item[self.key])) {
+                        this.$emit('formitemvaluechange', { name: self.value, value: item[self.key]});
+                    }
+                }
+            }
+        }
         if (this.valueitem) {
             this.$emit('formitemvaluechange', { name: this.valueitem, value: item[this.deKeyField] });
         }
@@ -388,6 +419,14 @@ export default class AppPicker extends Vue {
      * 清除
      */
     public onClear($event: any): void {
+        if (isExist(this.extraFillParams)) {
+            for (const key in this.extraFillParams) {
+                if (this.extraFillParams.hasOwnProperty(key)) {
+                    const self = this.extraFillParams[key];
+                    this.$emit('formitemvaluechange', { name: self.value, value: ''});
+                }
+            }
+        }
         if (this.valueitem) {
             this.$emit('formitemvaluechange', { name: this.valueitem, value: '' });
         }
@@ -628,13 +667,22 @@ export default class AppPicker extends Vue {
         if (result.datas && Array.isArray(result.datas)) {
             Object.assign(item, result.datas[0]);
         }
-
         if (this.data) {
+            if (isExist(this.extraFillParams)) {
+                for (const key in this.extraFillParams) {
+                    if (this.extraFillParams.hasOwnProperty(key)) {
+                        const self = this.extraFillParams[key];
+                        if (isExist(item[self.key])) {
+                            this.$emit('formitemvaluechange', { name: self.value, value: item[self.key]});
+                        }
+                    }
+                }
+            }
             if (this.valueitem) {
-                this.$emit('formitemvaluechange', { name: this.valueitem, value: item[this.deKeyField]?item[this.deKeyField]:item["srfkey"] });
+                this.$emit('formitemvaluechange', { name: this.valueitem, value: item[this.deKeyField] ? item[this.deKeyField] : item["srfkey"] });
             }
             if (this.name) {
-                this.$emit('formitemvaluechange', { name: this.name, value: item[this.deMajorField]?item[this.deMajorField]:item["srfmajortext"] });
+                this.$emit('formitemvaluechange', { name: this.name, value: item[this.deMajorField] ? item[this.deMajorField] : item["srfmajortext"] });
             }
         }
     }
@@ -736,7 +784,6 @@ export default class AppPicker extends Vue {
             appPicker.blur();
         }
     }
-    
 
 }
 </script>

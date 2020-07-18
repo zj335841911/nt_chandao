@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditViewBase } from '@/studio-core';
 import ReleaseService from '@/service/release/release-service';
+import ReleaseAuthService from '@/authservice/release/release-auth-service';
 import EditViewEngine from '@engine/view/edit-view-engine';
+import ReleaseUIService from '@/uiservice/release/release-ui-service';
 
 /**
  * 发布编辑视图视图基类
@@ -11,7 +13,6 @@ import EditViewEngine from '@engine/view/edit-view-engine';
  * @extends {EditViewBase}
  */
 export class ReleaseMainInfoViewBase extends EditViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -22,12 +23,38 @@ export class ReleaseMainInfoViewBase extends EditViewBase {
     protected appDeName: string = 'release';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ReleaseMainInfoViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ReleaseMainInfoViewBase
+     */
+    protected appDeMajor: string = 'name';
+
+    /**
      * 实体服务对象
      *
      * @type {ReleaseService}
      * @memberof ReleaseMainInfoViewBase
      */
     protected appEntityService: ReleaseService = new ReleaseService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ReleaseUIService
+     * @memberof ReleaseMainInfoViewBase
+     */
+    public appUIService: ReleaseUIService = new ReleaseUIService(this.$store);
 
 
     /**

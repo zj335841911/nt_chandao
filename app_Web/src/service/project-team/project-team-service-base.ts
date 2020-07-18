@@ -186,6 +186,24 @@ export default class ProjectTeamServiceBase extends EntityService {
     }
 
     /**
+     * GetUserRole接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectTeamServiceBase
+     */
+    public async GetUserRole(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectteam){
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectteams/${context.projectteam}/getuserrole`,isloading);
+            return res;
+        }
+            let res:any = await Http.getInstance().get(`/projectteams/${context.projectteam}/getuserrole`,isloading);
+            return res;
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]
@@ -223,5 +241,23 @@ export default class ProjectTeamServiceBase extends EntityService {
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
         return Http.getInstance().get(`/projectteams/fetchdefault`,tempData,isloading);
+    }
+
+    /**
+     * FetchRowEditDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectTeamServiceBase
+     */
+    public async FetchRowEditDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return Http.getInstance().get(`/projects/${context.project}/projectteams/fetchroweditdefault`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return Http.getInstance().get(`/projectteams/fetchroweditdefault`,tempData,isloading);
     }
 }

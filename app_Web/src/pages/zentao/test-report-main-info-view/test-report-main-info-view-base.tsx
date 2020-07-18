@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditViewBase } from '@/studio-core';
 import TestReportService from '@/service/test-report/test-report-service';
+import TestReportAuthService from '@/authservice/test-report/test-report-auth-service';
 import EditViewEngine from '@engine/view/edit-view-engine';
+import TestReportUIService from '@/uiservice/test-report/test-report-ui-service';
 
 /**
  * 测试报告编辑视图视图基类
@@ -11,7 +13,6 @@ import EditViewEngine from '@engine/view/edit-view-engine';
  * @extends {EditViewBase}
  */
 export class TestReportMainInfoViewBase extends EditViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -22,12 +23,38 @@ export class TestReportMainInfoViewBase extends EditViewBase {
     protected appDeName: string = 'testreport';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestReportMainInfoViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestReportMainInfoViewBase
+     */
+    protected appDeMajor: string = 'title';
+
+    /**
      * 实体服务对象
      *
      * @type {TestReportService}
      * @memberof TestReportMainInfoViewBase
      */
     protected appEntityService: TestReportService = new TestReportService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type TestReportUIService
+     * @memberof TestReportMainInfoViewBase
+     */
+    public appUIService: TestReportUIService = new TestReportUIService(this.$store);
 
 
     /**

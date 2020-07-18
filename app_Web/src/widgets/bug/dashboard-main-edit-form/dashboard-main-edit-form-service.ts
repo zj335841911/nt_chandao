@@ -119,8 +119,8 @@ export default class DashboardMainEditService extends ControlService {
         if (Object.is(serviceName, 'ProductService') && Object.is(interfaceName, 'FetchDefault')) {
             return this.doItems(this.productService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'product');
         }
-        if (Object.is(serviceName, 'ProjectService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.projectService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'project');
+        if (Object.is(serviceName, 'ProjectService') && Object.is(interfaceName, 'FetchBugProject')) {
+            return this.doItems(this.projectService.FetchBugProject(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'project');
         }
         if (Object.is(serviceName, 'StoryService') && Object.is(interfaceName, 'FetchDefault')) {
             return this.doItems(this.storyService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'story');

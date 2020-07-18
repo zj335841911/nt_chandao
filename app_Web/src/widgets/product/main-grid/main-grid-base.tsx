@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, GridControllerBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import MainService from './main-grid-service';
+import ProductUIService from '@/uiservice/product/product-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 
@@ -50,6 +51,23 @@ export class MainGridBase extends GridControllerBase {
     protected appDeName: string = 'product';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {ProductUIService}
+     * @memberof MainBase
+     */  
+    public appUIService:ProductUIService = new ProductUIService(this.$store);
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof MainBase
+     */  
+    public ActionModel: any = {
+    };
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -57,6 +75,22 @@ export class MainGridBase extends GridControllerBase {
      * @memberof GridControllerBase
      */
     protected localStorageTag: string = 'zt_product_main_grid';
+
+    /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    public minorSortPSDEF: string = 'id';
 
     /**
      * 所有列成员
@@ -70,35 +104,40 @@ export class MainGridBase extends GridControllerBase {
             label: '产品名称',
             langtag: 'entities.product.main_grid.columns.name',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'code',
             label: '产品代号',
             langtag: 'entities.product.main_grid.columns.code',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'status',
             label: '状态',
             langtag: 'entities.product.main_grid.columns.status',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'type',
             label: '产品类型',
             langtag: 'entities.product.main_grid.columns.type',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'linename',
             label: '产品线',
             langtag: 'entities.product.main_grid.columns.linename',
             show: true,
-            util: 'PX'
+            util: 'STAR',
+            isEnableRowEdit: false,
         },
     ]
 

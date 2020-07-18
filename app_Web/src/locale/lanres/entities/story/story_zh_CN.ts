@@ -45,6 +45,9 @@ export default {
     verify: "验收标准",
     result: "评审结果",
     comment: "备注",
+    isleaf: "是否子需求",
+    files: "附件",
+    branchname: "平台/分支",
   },
 	views: {
 		mainview9_related: {
@@ -70,6 +73,10 @@ export default {
 		mainview9_editmode: {
 			caption: "需求",
       		title: "需求编辑视图",
+		},
+		tostoryeditview: {
+			caption: "需求",
+      		title: "需求",
 		},
 		plansubeditview: {
 			caption: "需求",
@@ -99,6 +106,10 @@ export default {
 			caption: "需求",
       		title: "story表格视图",
 		},
+		assigntoview: {
+			caption: "指派",
+      		title: "指派",
+		},
 		releasesubeditview: {
 			caption: "需求",
       		title: "需求",
@@ -115,6 +126,10 @@ export default {
 			caption: "需求",
       		title: "story表格视图",
 		},
+		pickupgridview2: {
+			caption: "需求",
+      		title: "需求",
+		},
 		gridview9_related: {
 			caption: "相关需求",
       		title: "相关需求",
@@ -122,6 +137,10 @@ export default {
 		maingridview: {
 			caption: "需求",
       		title: "story表格视图",
+		},
+		mpickupview2: {
+			caption: "关联需求",
+      		title: "关联需求",
 		},
 		mpickupview: {
 			caption: "关联需求",
@@ -143,9 +162,17 @@ export default {
 			caption: "需求评审",
       		title: "需求评审",
 		},
+		closeview: {
+			caption: "需求关闭",
+      		title: "需求关闭",
+		},
 		editview_storychange: {
 			caption: "变更",
       		title: "需求编辑视图",
+		},
+		activiteview: {
+			caption: "需求激活",
+      		title: "需求激活",
 		},
 	},
 	storyspec_editmode_form: {
@@ -208,6 +235,26 @@ export default {
 		uiactions: {
 		},
 	},
+	cosed_form: {
+		details: {
+			druipart1: "", 
+			grouppanel2: "分组面板", 
+			group1: "需求描述信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "需求名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			closedreason: "关闭原因", 
+			comment: "备注", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
 	main_editmode_form: {
 		details: {
 			grouppanel11: "需求描述", 
@@ -237,11 +284,13 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			parent: "父需求", 
-			version: "版本#", 
+			id: "", 
+			title: "", 
+			version: "", 
 			spec: "需求描述", 
 			verify: "验收标准", 
-			title: "需求名称", 
 			prodoctname: "所属产品", 
+			branch: "", 
 			modulename: "所属模块", 
 			plan: "所属计划", 
 			source: "需求来源", 
@@ -258,7 +307,6 @@ export default {
 			assignedto: "指派给", 
 			assigneddate: "于", 
 			linkstories: "相关需求", 
-			id: "编号", 
 			module: "所属模块", 
 		},
 		uiactions: {
@@ -280,6 +328,7 @@ export default {
 			product: "所属产品", 
 			module: "所属模块", 
 			prodoctname: "所属产品", 
+			branch: "", 
 			modulename: "所属模块", 
 			plan: "计划", 
 			source: "需求来源", 
@@ -316,9 +365,50 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			parent: "父需求", 
-			version: "版本#", 
+			id: "", 
+			title: "", 
+			version: "", 
 			spec: "需求描述", 
 			verify: "验收标准", 
+		},
+		uiactions: {
+		},
+	},
+	assignto_form: {
+		details: {
+			druipart1: "", 
+			grouppanel2: "分组面板", 
+			group1: "需求描述信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "需求名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			assignedto: "指派给", 
+			comment: "备注", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
+	activation_form: {
+		details: {
+			druipart1: "", 
+			grouppanel2: "分组面板", 
+			group1: "需求描述信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "需求名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			assignedto: "指派给", 
+			comment: "备注", 
 			id: "编号", 
 		},
 		uiactions: {
@@ -340,8 +430,9 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
-			title: "需求名称", 
 			prodoctname: "所属产品", 
+			branch: "平台/分支", 
+			branchname: "平台/分支", 
 			modulename: "所属模块", 
 			plan: "所属计划", 
 			source: "需求来源", 
@@ -390,6 +481,39 @@ export default {
 			srfsourcekey: "", 
 			linkstories: "相关需求", 
 			childstories: "细分需求", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
+	bugtostory_form: {
+		details: {
+			group1: "需求基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "需求名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			product: "所属产品", 
+			module: "所属模块", 
+			prodoctname: "所属产品", 
+			branch: "", 
+			modulename: "所属模块", 
+			plan: "计划", 
+			source: "需求来源", 
+			sourcenote: "来源备注", 
+			reviewedby: "由谁评审", 
+			assignedto: "由谁评审", 
+			title: "需求名称", 
+			pri: "优先级", 
+			estimate: "预计", 
+			spec: "需求描述", 
+			verify: "验收标准", 
+			mailto: "抄送给", 
+			keywords: "关键词", 
 			id: "编号", 
 		},
 		uiactions: {
@@ -445,6 +569,22 @@ export default {
 		uiactions: {
 		},
 	},
+	pickupgrid_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			plan: "所属计划",
+			modulename: "所属模块名称",
+			title: "需求名称",
+			openedby: "创建",
+			assignedto: "指派",
+			estimate: "预计",
+			status: "状态",
+			stage: "阶段",
+		},
+		uiactions: {
+		},
+	},
 	storyrelated_grid: {
 		columns: {
 			id: "编号",
@@ -468,22 +608,6 @@ export default {
 		},
 		uiactions: {
 			story_unlinkstory: "移除关联",
-		},
-	},
-	pickupgrid_grid: {
-		columns: {
-			id: "ID",
-			pri: "P",
-			plan: "所属计划",
-			modulename: "所属模块名称",
-			title: "需求名称",
-			openedby: "创建",
-			assignedto: "指派",
-			estimate: "预计",
-			status: "状态",
-			stage: "阶段",
-		},
-		uiactions: {
 		},
 	},
 	main_releasesub_grid: {
@@ -592,6 +716,14 @@ export default {
 			caption: "编辑",
 			tip: "编辑",
 		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction3: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	maingridview_bymoduletoolbar_toolbar: {
 		deuiaction1: {
@@ -636,21 +768,15 @@ export default {
 		},
 	},
 	releasesubgridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "新建",
-			tip: "新建",
-		},
-		deuiaction4: {
-			caption: "删除",
-			tip: "删除",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+	},
+	tostoryeditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
 		},
 	},
 	reportsubgridviewtoolbar_toolbar: {

@@ -135,6 +135,9 @@ export default class PickupViewpickupviewpanelModel {
       {
         name: 'comment',
       },
+      {
+        name: 'period',
+      },
     ]
   }
 

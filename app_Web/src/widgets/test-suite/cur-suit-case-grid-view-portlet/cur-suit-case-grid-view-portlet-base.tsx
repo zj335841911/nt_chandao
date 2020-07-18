@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
 import TestSuiteService from '@/service/test-suite/test-suite-service';
 import CurSuitCaseGridViewService from './cur-suit-case-grid-view-portlet-service';
+import TestSuiteUIService from '@/uiservice/test-suite/test-suite-ui-service';
 import { Environment } from '@/environments/environment';
 
 

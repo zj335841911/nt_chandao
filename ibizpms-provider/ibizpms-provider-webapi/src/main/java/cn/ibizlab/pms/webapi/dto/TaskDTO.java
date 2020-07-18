@@ -267,8 +267,8 @@ public class TaskDTO extends DTOBase implements Serializable {
      * 属性 [FINISHEDDATE]
      *
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "finisheddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "finisheddate" , format="yyyy-MM-dd")
     @JsonProperty("finisheddate")
     private Timestamp finisheddate;
 
@@ -407,6 +407,30 @@ public class TaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "totaltime")
     @JsonProperty("totaltime")
     private Double totaltime;
+
+    /**
+     * 属性 [ISLEAF]
+     *
+     */
+    @JSONField(name = "isleaf")
+    @JsonProperty("isleaf")
+    private String isleaf;
+
+    /**
+     * 属性 [ALLMODULES]
+     *
+     */
+    @JSONField(name = "allmodules")
+    @JsonProperty("allmodules")
+    private String allmodules;
+
+    /**
+     * 属性 [MULTIPLE]
+     *
+     */
+    @JSONField(name = "multiple")
+    @JsonProperty("multiple")
+    private Integer multiple;
 
 
     /**
@@ -657,6 +681,13 @@ public class TaskDTO extends DTOBase implements Serializable {
         this.modify("module",module);
     }
 
+
+    /**
+     *  [IBZ_TASKTEAM]
+     */
+    @JsonProperty("ibztaskteams")
+    @JSONField(name = "ibztaskteams")
+	private List<IBZTaskTeamDTO> taskteam ;
 
 }
 

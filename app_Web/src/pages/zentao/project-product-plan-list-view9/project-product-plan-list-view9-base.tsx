@@ -2,7 +2,9 @@
 import { Subject } from 'rxjs';
 import { ListView9Base } from '@/studio-core';
 import ProjectProductService from '@/service/project-product/project-product-service';
+import ProjectProductAuthService from '@/authservice/project-product/project-product-auth-service';
 import ListView9Engine from '@engine/view/list-view9-engine';
+import ProjectProductUIService from '@/uiservice/project-product/project-product-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -14,7 +16,6 @@ import CodeListService from "@service/app/codelist-service";
  * @extends {ListView9Base}
  */
 export class ProjectProductPlanListView9Base extends ListView9Base {
-
     /**
      * 视图对应应用实体名称
      *
@@ -25,12 +26,38 @@ export class ProjectProductPlanListView9Base extends ListView9Base {
     protected appDeName: string = 'projectproduct';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectProductPlanListView9Base
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectProductPlanListView9Base
+     */
+    protected appDeMajor: string = 'productname';
+
+    /**
      * 实体服务对象
      *
      * @type {ProjectProductService}
      * @memberof ProjectProductPlanListView9Base
      */
     protected appEntityService: ProjectProductService = new ProjectProductService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProjectProductUIService
+     * @memberof ProjectProductPlanListView9Base
+     */
+    public appUIService: ProjectProductUIService = new ProjectProductUIService(this.$store);
 
 
     /**
@@ -104,6 +131,7 @@ export class ProjectProductPlanListView9Base extends ListView9Base {
                 this.newdata(args,fullargs, params, $event, xData);
             },
             keyPSDEField: 'projectproduct',
+            majorPSDEField: 'productname',
             isLoadDefault: true,
         });
     }
@@ -191,8 +219,6 @@ export class ProjectProductPlanListView9Base extends ListView9Base {
      * @memberof ProjectProductPlanListView9
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
     this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
     }
 

@@ -94,6 +94,10 @@ export default class MainSubPlanModel {
           prop:'query'
         },
         {
+          name:'filter',
+          prop:'filter'
+        },
+        {
           name:'page',
           prop:'page'
         },

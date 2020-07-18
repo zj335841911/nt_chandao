@@ -1,8 +1,10 @@
+
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import ProductStatusService from './product-status-chart-service';
+import ProductUIService from '@/uiservice/product/product-ui-service';
 import echarts from 'echarts';
 import moment from "moment"; 
 import CodeListService from "@service/app/codelist-service";
@@ -56,7 +58,7 @@ export class ProductStatusChartBase extends MainControlBase {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof ProductStatus
+     * @memberof ProductStatusBase
      */
     public getDatas(): any[] {
         return [];
@@ -66,7 +68,7 @@ export class ProductStatusChartBase extends MainControlBase {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof ProductStatus
+     * @memberof ProductStatusBase
      */
     public getData(): any {
         return null;
@@ -76,7 +78,7 @@ export class ProductStatusChartBase extends MainControlBase {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof ProductStatus
+     * @memberof ProductStatusBase
      */
     @Prop({ default: true }) public showBusyIndicator!: boolean;
 
@@ -84,14 +86,14 @@ export class ProductStatusChartBase extends MainControlBase {
      * 部件行为--fetch
      *
      * @type {string}
-     * @memberof ProductStatus
+     * @memberof ProductStatusBase
      */
     @Prop() public fetchAction!: string;  
 
     /**
     * Vue声明周期(组件初始化完毕)
     *
-    * @memberof ProductStatus
+    * @memberof ProductStatusBase
     */
     public created() {
          this.afterCreated();     
@@ -100,7 +102,7 @@ export class ProductStatusChartBase extends MainControlBase {
     /**
     * 执行created后的逻辑
     *
-    * @memberof ProductStatus
+    * @memberof ProductStatusBase
     */
     public afterCreated(){
         if (this.viewState) {
@@ -118,7 +120,7 @@ export class ProductStatusChartBase extends MainControlBase {
     /**
      * vue 生命周期
      *
-     * @memberof ProductStatus
+     * @memberof ProductStatusBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -127,7 +129,7 @@ export class ProductStatusChartBase extends MainControlBase {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof ProductStatus
+     * @memberof ProductStatusBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -300,6 +302,7 @@ export class ProductStatusChartBase extends MainControlBase {
         this.$emit('beforeload', parentdata);
         Object.assign(arg, parentdata);
         Object.assign(arg,{viewparams:this.viewparams,page:0,size:1000});
+        Object.assign(arg,{sort: 'id,desc'});
         this.service.search(this.fetchAction,JSON.parse(JSON.stringify(this.context)),arg,this.showBusyIndicator).then((res) => {
             if (res) {
                this.transformToBasicChartSetData(res.data,(codelist:any) =>{_this.drawCharts(codelist)});

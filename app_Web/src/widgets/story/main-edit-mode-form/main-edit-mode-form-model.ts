@@ -56,6 +56,16 @@ export default class Main_EditModeModel {
         dataType: 'PICKUP',
       },
       {
+        name: 'id',
+        prop: 'id',
+        dataType: 'ACID',
+      },
+      {
+        name: 'title',
+        prop: 'title',
+        dataType: 'TEXT',
+      },
+      {
         name: 'version',
         prop: 'version',
         dataType: 'INT',
@@ -71,14 +81,14 @@ export default class Main_EditModeModel {
         dataType: 'TEXT',
       },
       {
-        name: 'title',
-        prop: 'title',
-        dataType: 'TEXT',
-      },
-      {
         name: 'prodoctname',
         prop: 'productname',
         dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'branch',
+        prop: 'branch',
+        dataType: 'PICKUP',
       },
       {
         name: 'modulename',
@@ -159,11 +169,6 @@ export default class Main_EditModeModel {
         name: 'linkstories',
         prop: 'linkstories',
         dataType: 'SMCODELIST',
-      },
-      {
-        name: 'id',
-        prop: 'id',
-        dataType: 'ACID',
       },
       {
         name: 'module',

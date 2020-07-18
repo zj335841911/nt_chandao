@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { PickupGridViewBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
+import StoryAuthService from '@/authservice/story/story-auth-service';
 import PickupGridViewEngine from '@engine/view/pickup-grid-view-engine';
+import StoryUIService from '@/uiservice/story/story-ui-service';
 
 /**
  * 需求视图基类
@@ -11,7 +13,6 @@ import PickupGridViewEngine from '@engine/view/pickup-grid-view-engine';
  * @extends {PickupGridViewBase}
  */
 export class StoryPickupGridViewBase extends PickupGridViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -22,12 +23,38 @@ export class StoryPickupGridViewBase extends PickupGridViewBase {
     protected appDeName: string = 'story';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryPickupGridViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryPickupGridViewBase
+     */
+    protected appDeMajor: string = 'title';
+
+    /**
      * 实体服务对象
      *
      * @type {StoryService}
      * @memberof StoryPickupGridViewBase
      */
     protected appEntityService: StoryService = new StoryService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type StoryUIService
+     * @memberof StoryPickupGridViewBase
+     */
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
 
     /**

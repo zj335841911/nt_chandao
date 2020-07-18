@@ -23,36 +23,40 @@
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
-            <template v-if="getColumnState('account')">
-                <el-table-column show-overflow-tooltip :prop="'account'" :label="$t('entities.projectteam.main_editrow_grid.columns.account')" :width="400"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('username')">
+                <el-table-column show-overflow-tooltip :prop="'username'" :label="$t('entities.projectteam.main_editrow_grid.columns.username')" :width="400"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.projectteam.main_editrow_grid.columns.account')}}
+                        {{$t('entities.projectteam.main_editrow_grid.columns.username')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template v-if="actualIsOpenEdit">
                             <app-form-item :error="gridItemsModel[$index][column.property].error">
                                 
-             <dropdown-list 
-              v-model="row[column.property]" 
-              :disabled="row.srfuf === 1 ? (1 & 2) !== 2 : (1 & 1) !== 1" 
-              :data="row" 
+            <app-picker  
+              :formState="viewState" 
+              :data="row"
               :context="context"
-              :viewparams="viewparams" 
+              :viewparams="viewparams"
               :localContext ='{ }' 
               :localParam ='{ }' 
-              tag='UserRealName' 
-              codelistType='DYNAMIC'
-              placeholder='请选择...' 
+              :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1" 
+              name='username' 
+              deMajorField='realname'
+              deKeyField='account'
+              :service="service"
+              :acParams="{ serviceName: 'UserService', interfaceName: 'FetchDefault'}"
+              valueitem='account' 
+              :value="row[column.property]" 
+              editortype="dropdown" 
               style="" 
-              @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
-             </dropdown-list>
-            
+              @formitemvaluechange="($event)=>{onGridItemValueChange(row,$event,$index)}">
+            </app-picker>
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <codelist :value="row.account" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                                <app-span name='username' editorType="PICKER" :value="row.username"></app-span>
                         </template>
                     </template>
                 </el-table-column>

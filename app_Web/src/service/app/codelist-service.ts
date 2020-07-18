@@ -1,6 +1,7 @@
 import RelatedStory from '@/codelist/related-story';   
 import ProductBranch_Cache from '@/codelist/product-branch-cache';   
 import CurProductPlan from '@/codelist/cur-product-plan';   
+import UserRealNameTask from '@/codelist/user-real-name-task';   
 import UserRealName from '@/codelist/user-real-name';   
 import ProductBranch from '@/codelist/product-branch';   
 import CurProductBuild from '@/codelist/cur-product-build';   
@@ -8,7 +9,9 @@ import BugModule from '@/codelist/bug-module';
 import Role from '@/codelist/role';   
 import TestTask from '@/codelist/test-task';   
 import Product from '@/codelist/product';   
+import CurCaseVersion from '@/codelist/cur-case-version';   
 import ProductPlan from '@/codelist/product-plan';   
+import UserRealNameProject from '@/codelist/user-real-name-project';   
 import CurStory from '@/codelist/cur-story';   
 import { Store } from 'vuex';
 
@@ -86,6 +89,14 @@ export default class CodeListService {
     public CurProductPlan: CurProductPlan = new CurProductPlan();
 
     /**
+     * 代码表--用户真实名称（项目团队成员-任务）
+     *
+     * @type {UserRealNameTask}
+     * @memberof CodeListService
+     */
+    public UserRealNameTask: UserRealNameTask = new UserRealNameTask();
+
+    /**
      * 代码表--用户真实名称（动态）
      *
      * @type {UserRealName}
@@ -142,12 +153,28 @@ export default class CodeListService {
     public Product: Product = new Product();
 
     /**
+     * 代码表--当前用例版本（动态）
+     *
+     * @type {CurCaseVersion}
+     * @memberof CodeListService
+     */
+    public CurCaseVersion: CurCaseVersion = new CurCaseVersion();
+
+    /**
      * 代码表--产品计划（动态）
      *
      * @type {ProductPlan}
      * @memberof CodeListService
      */
     public ProductPlan: ProductPlan = new ProductPlan();
+
+    /**
+     * 代码表--用户真实名称（项目团队成员）
+     *
+     * @type {UserRealNameProject}
+     * @memberof CodeListService
+     */
+    public UserRealNameProject: UserRealNameProject = new UserRealNameProject();
 
     /**
      * 代码表--当前需求版本（动态）

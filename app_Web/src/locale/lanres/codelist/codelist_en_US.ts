@@ -80,6 +80,14 @@ export default {
         "CANCELLED": "已取消",
         "empty": ""
     },
+    UserRealNameTask: {
+        "empty": "",
+    },
+    YesNo: {
+        "1": "是",
+        "0": "否",
+        "empty": ""
+    },
     Bug__os: {
         "all": "全部",
         "windows": "Windows",
@@ -240,8 +248,23 @@ export default {
         "others": "其他",
         "empty": ""
     },
+    Team__type: {
+        "project": "项目团队",
+        "task": "任务团队",
+        "empty": ""
+    },
     Product: {
         "empty": "",
+    },
+    Zt__delta: {
+        "7": "一星期",
+        "14": "两星期",
+        "31": "一个月",
+        "62": "两个月",
+        "93": "三个月",
+        "186": "半年",
+        "365": "一年",
+        "empty": "按时间段"
     },
     Action__type: {
         "created": "创建",
@@ -318,6 +341,9 @@ export default {
         "deletechildrenstory": "删除子需求",
         "empty": ""
     },
+    CurCaseVersion: {
+        "empty": "",
+    },
     User__gender: {
         "f": "女",
         "m": "男",
@@ -382,6 +408,9 @@ export default {
         "done": "已完成",
         "cancel": "已取消",
         "empty": ""
+    },
+    UserRealNameProject: {
+        "empty": "",
     },
     Testcase__type: {
         "feature": "功能测试",

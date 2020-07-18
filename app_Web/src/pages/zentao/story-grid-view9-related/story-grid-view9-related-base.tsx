@@ -2,7 +2,9 @@
 import { Subject } from 'rxjs';
 import { GridView9Base } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
+import StoryAuthService from '@/authservice/story/story-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
+import StoryUIService from '@/uiservice/story/story-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -14,7 +16,6 @@ import CodeListService from "@service/app/codelist-service";
  * @extends {GridView9Base}
  */
 export class StoryGridView9_RelatedBase extends GridView9Base {
-
     /**
      * 视图对应应用实体名称
      *
@@ -25,12 +26,38 @@ export class StoryGridView9_RelatedBase extends GridView9Base {
     protected appDeName: string = 'story';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryGridView9_RelatedBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryGridView9_RelatedBase
+     */
+    protected appDeMajor: string = 'title';
+
+    /**
      * 实体服务对象
      *
      * @type {StoryService}
      * @memberof StoryGridView9_RelatedBase
      */
     protected appEntityService: StoryService = new StoryService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type StoryUIService
+     * @memberof StoryGridView9_RelatedBase
+     */
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
 
     /**
@@ -241,8 +268,8 @@ export class StoryGridView9_RelatedBase extends GridView9Base {
      * @memberof StoryGridView9_Related
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
+        const localContext: any = null;
+        const localViewParam: any =null;
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){

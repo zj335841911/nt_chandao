@@ -112,6 +112,7 @@ public class BranchServiceImpl extends ServiceImpl<BranchMapper, Branch> impleme
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         Branch et = this.get(key);
         boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBranchHelper.delete((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        et.set("ztrst", rst);
         return bRst;
     }
 
@@ -185,7 +186,8 @@ public class BranchServiceImpl extends ServiceImpl<BranchMapper, Branch> impleme
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return et;
+        et.set("ztrst", rst);
+        return et;
     }
 
 

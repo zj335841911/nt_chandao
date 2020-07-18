@@ -74,6 +74,10 @@ export default class PlatformManagementModel {
           prop:'query'
         },
         {
+          name:'filter',
+          prop:'filter'
+        },
+        {
           name:'page',
           prop:'page'
         },

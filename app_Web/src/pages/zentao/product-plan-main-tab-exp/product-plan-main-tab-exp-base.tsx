@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { TabExpViewBase } from '@/studio-core';
 import ProductPlanService from '@/service/product-plan/product-plan-service';
+import ProductPlanAuthService from '@/authservice/product-plan/product-plan-auth-service';
 import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
+import ProductPlanUIService from '@/uiservice/product-plan/product-plan-ui-service';
 
 /**
  * 计划视图基类
@@ -11,7 +13,6 @@ import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
  * @extends {TabExpViewBase}
  */
 export class ProductPlanMainTabExpBase extends TabExpViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -22,12 +23,38 @@ export class ProductPlanMainTabExpBase extends TabExpViewBase {
     protected appDeName: string = 'productplan';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductPlanMainTabExpBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductPlanMainTabExpBase
+     */
+    protected appDeMajor: string = 'title';
+
+    /**
      * 实体服务对象
      *
      * @type {ProductPlanService}
      * @memberof ProductPlanMainTabExpBase
      */
     protected appEntityService: ProductPlanService = new ProductPlanService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProductPlanUIService
+     * @memberof ProductPlanMainTabExpBase
+     */
+    public appUIService: ProductPlanUIService = new ProductPlanUIService(this.$store);
 
 
     /**
@@ -97,33 +124,6 @@ export class ProductPlanMainTabExpBase extends TabExpViewBase {
             majorPSDEField: 'title',
             isLoadDefault: true,
         });
-    }
-
-
-
-    /**
-     * 加载模型
-     *
-     * @protected
-     * @memberof ProductPlanMainTabExpBase
-     */
-    protected async loadModel(): Promise<any> {
-        if(this.context.productplan){
-            this.appEntityService.getDataInfo(JSON.parse(JSON.stringify(this.context)),{},false).then((response:any) =>{
-                if (!response || response.status !== 200) {
-                    return;
-                }
-                const { data } = response;
-                if (data.title) {
-                    Object.assign(this.model, { dataInfo: data.title });
-                    if(this.$route){
-                        this.$route.meta.info = this.model.dataInfo;
-                    }
-                    Object.assign(this.model, { srfTitle: `${this.$t(this.model.srfTitle)} - ${this.model.dataInfo}` });
-                    this.$appService.navHistory.setCaption({ tag: this.viewtag, info: this.model.dataInfo });
-                }
-            })
-        }
     }
 
 

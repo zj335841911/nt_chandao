@@ -71,7 +71,8 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return bRst;
+        et.set("ztrst", rst);
+        return bRst;
     }
 
     @Override
@@ -87,7 +88,8 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return bRst;
+        et.set("ztrst", rst);
+        return bRst;
     }
 
     @Override
@@ -101,6 +103,7 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         Build et = this.get(key);
         boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBuildHelper.delete((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        et.set("ztrst", rst);
         return bRst;
     }
 
@@ -135,6 +138,20 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     public boolean checkKey(Build et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
+    @Override
+    @Transactional
+    public Build linkStories(Build et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public Build linkStory(Build et) {
+        //自定义代码
+        return et;
+    }
+
     @Override
     @Transactional
     public boolean save(Build et) {

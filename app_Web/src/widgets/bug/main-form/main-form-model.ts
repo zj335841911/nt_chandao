@@ -71,6 +71,11 @@ export default class MainModel {
         dataType: 'PICKUP',
       },
       {
+        name: 'modulename',
+        prop: 'modulename',
+        dataType: 'PICKUPTEXT',
+      },
+      {
         name: 'module',
         prop: 'module',
         dataType: 'PICKUP',
@@ -81,14 +86,14 @@ export default class MainModel {
         dataType: 'PICKUP',
       },
       {
+        name: 'openedbuild',
+        prop: 'openedbuild',
+        dataType: 'SMCODELIST',
+      },
+      {
         name: 'projectname',
         prop: 'projectname',
         dataType: 'PICKUPTEXT',
-      },
-      {
-        name: 'openedbuild',
-        prop: 'openedbuild',
-        dataType: 'SSCODELIST',
       },
       {
         name: 'assignedto',

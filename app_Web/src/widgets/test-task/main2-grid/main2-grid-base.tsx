@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, GridControllerBase } from '@/studio-core';
 import TestTaskService from '@/service/test-task/test-task-service';
 import Main2Service from './main2-grid-service';
+import TestTaskUIService from '@/uiservice/test-task/test-task-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 
@@ -50,6 +51,23 @@ export class Main2GridBase extends GridControllerBase {
     protected appDeName: string = 'testtask';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {TestTaskUIService}
+     * @memberof Main2Base
+     */  
+    public appUIService:TestTaskUIService = new TestTaskUIService(this.$store);
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof Main2Base
+     */  
+    public ActionModel: any = {
+    };
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -65,6 +83,22 @@ export class Main2GridBase extends GridControllerBase {
      * @memberof Main2GridBase
      */
     public isEnablePagingBar: boolean = false;
+
+    /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof Main2GridBase
+     */
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof Main2GridBase
+     */
+    public minorSortPSDEF: string = 'id';
 
     /**
      * 分页条数
@@ -86,49 +120,56 @@ export class Main2GridBase extends GridControllerBase {
             label: 'ID',
             langtag: 'entities.testtask.main2_grid.columns.id',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'productname',
             label: '产品',
             langtag: 'entities.testtask.main2_grid.columns.productname',
             show: true,
-            util: 'PX'
+            util: 'STAR',
+            isEnableRowEdit: false,
         },
         {
             name: 'name',
             label: '名称',
             langtag: 'entities.testtask.main2_grid.columns.name',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'projecttname',
             label: '项目',
             langtag: 'entities.testtask.main2_grid.columns.projecttname',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'build',
             label: '版本',
             langtag: 'entities.testtask.main2_grid.columns.build',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'begin',
             label: '开始日期',
             langtag: 'entities.testtask.main2_grid.columns.begin',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'end',
             label: '结束日期',
             langtag: 'entities.testtask.main2_grid.columns.end',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
     ]
 

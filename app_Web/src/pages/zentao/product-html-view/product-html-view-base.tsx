@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { ViewBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
+import ProductAuthService from '@/authservice/product/product-auth-service';
 import HtmlViewEngine from '@engine/view/html-view-engine';
+import ProductUIService from '@/uiservice/product/product-ui-service';
 
 /**
  * iBiz软件生产管理视图基类
@@ -11,7 +13,6 @@ import HtmlViewEngine from '@engine/view/html-view-engine';
  * @extends {ViewBase}
  */
 export class ProductHtmlViewBase extends ViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -22,12 +23,38 @@ export class ProductHtmlViewBase extends ViewBase {
     protected appDeName: string = 'product';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductHtmlViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductHtmlViewBase
+     */
+    protected appDeMajor: string = 'name';
+
+    /**
      * 实体服务对象
      *
      * @type {ProductService}
      * @memberof ProductHtmlViewBase
      */
     protected appEntityService: ProductService = new ProductService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProductUIService
+     * @memberof ProductHtmlViewBase
+     */
+    public appUIService: ProductUIService = new ProductUIService(this.$store);
 
 
     /**

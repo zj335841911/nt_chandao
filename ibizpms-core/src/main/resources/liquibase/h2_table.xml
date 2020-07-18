@@ -190,7 +190,13 @@
     <!--输出实体[ZT_TASKESTIMATE]数据结构 -->
 
 
+    <!--输出实体[IBZ_TASKTEAM]数据结构 -->
+
+
     <!--输出实体[ZT_TEAM]数据结构 -->
+
+
+    <!--输出实体[IBZ_TESTMODULE]数据结构 -->
 
 
     <!--输出实体[ZT_TESTREPORT]数据结构 -->
@@ -292,7 +298,9 @@
         <!--输出实体[ZT_SUITECASE]外键关系 -->
         <!--输出实体[ZT_TASK]外键关系 -->
         <!--输出实体[ZT_TASKESTIMATE]外键关系 -->
+        <!--输出实体[IBZ_TASKTEAM]外键关系 -->
         <!--输出实体[ZT_TEAM]外键关系 -->
+        <!--输出实体[IBZ_TESTMODULE]外键关系 -->
         <!--输出实体[ZT_TESTREPORT]外键关系 -->
         <!--输出实体[ZT_TESTRESULT]外键关系 -->
         <!--输出实体[ZT_TESTRUN]外键关系 -->

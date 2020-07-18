@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { PickupGridViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
+import BugAuthService from '@/authservice/bug/bug-auth-service';
 import PickupGridViewEngine from '@engine/view/pickup-grid-view-engine';
+import BugUIService from '@/uiservice/bug/bug-ui-service';
 
 /**
  * bug选择表格视图视图基类
@@ -11,7 +13,6 @@ import PickupGridViewEngine from '@engine/view/pickup-grid-view-engine';
  * @extends {PickupGridViewBase}
  */
 export class BugPickupGridViewBase extends PickupGridViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -22,12 +23,38 @@ export class BugPickupGridViewBase extends PickupGridViewBase {
     protected appDeName: string = 'bug';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugPickupGridViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugPickupGridViewBase
+     */
+    protected appDeMajor: string = 'title';
+
+    /**
      * 实体服务对象
      *
      * @type {BugService}
      * @memberof BugPickupGridViewBase
      */
     protected appEntityService: BugService = new BugService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type BugUIService
+     * @memberof BugPickupGridViewBase
+     */
+    public appUIService: BugUIService = new BugUIService(this.$store);
 
 
     /**

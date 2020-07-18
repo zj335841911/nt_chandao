@@ -66,6 +66,11 @@ export default class MainEditModel {
         dataType: 'TEXT',
       },
       {
+        name: 'multiple',
+        prop: 'multiple',
+        dataType: 'INT',
+      },
+      {
         name: 'desc',
         prop: 'desc',
         dataType: 'LONGTEXT',
@@ -89,9 +94,19 @@ export default class MainEditModel {
         dataType: 'PICKUP',
       },
       {
+        name: 'module',
+        prop: 'module',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'modulename',
         prop: 'modulename',
         dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'allmodules',
+        prop: 'allmodules',
+        dataType: 'TEXT',
       },
       {
         name: 'storyname',
@@ -127,6 +142,16 @@ export default class MainEditModel {
         name: 'status',
         prop: 'status',
         dataType: 'SSCODELIST',
+      },
+      {
+        name: 'pri',
+        prop: 'pri',
+        dataType: 'NSCODELIST',
+      },
+      {
+        name: 'mailto',
+        prop: 'mailto',
+        dataType: 'LONGTEXT',
       },
       {
         name: 'eststarted',
@@ -171,7 +196,7 @@ export default class MainEditModel {
       {
         name: 'finisheddate',
         prop: 'finisheddate',
-        dataType: 'DATETIME',
+        dataType: 'DATE',
       },
       {
         name: 'canceledby',
@@ -197,11 +222,6 @@ export default class MainEditModel {
         name: 'closeddate',
         prop: 'closeddate',
         dataType: 'DATETIME',
-      },
-      {
-        name: 'module',
-        prop: 'module',
-        dataType: 'PICKUP',
       },
       {
         name: 'task',

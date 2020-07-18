@@ -14,7 +14,7 @@ export default {
     realname: "真实姓名",
     zipcode: "zipcode",
     dept: "所属部门",
-    commiter: "commiter",
+    commiter: "源代码账户",
     role: "职位",
     deleted: "逻辑删除标志",
     last: "最后登录",

@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditView9Base } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
+import TaskAuthService from '@/authservice/task/task-auth-service';
 import EditView9Engine from '@engine/view/edit-view9-engine';
+import TaskUIService from '@/uiservice/task/task-ui-service';
 
 /**
  * 工时信息视图基类
@@ -11,7 +13,6 @@ import EditView9Engine from '@engine/view/edit-view9-engine';
  * @extends {EditView9Base}
  */
 export class TaskWorkInfoEditView9Base extends EditView9Base {
-
     /**
      * 视图对应应用实体名称
      *
@@ -22,12 +23,38 @@ export class TaskWorkInfoEditView9Base extends EditView9Base {
     protected appDeName: string = 'task';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskWorkInfoEditView9Base
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskWorkInfoEditView9Base
+     */
+    protected appDeMajor: string = 'name';
+
+    /**
      * 实体服务对象
      *
      * @type {TaskService}
      * @memberof TaskWorkInfoEditView9Base
      */
     protected appEntityService: TaskService = new TaskService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type TaskUIService
+     * @memberof TaskWorkInfoEditView9Base
+     */
+    public appUIService: TaskUIService = new TaskUIService(this.$store);
 
 
     /**

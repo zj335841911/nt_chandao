@@ -71,6 +71,7 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			project: "所属项目", 
 			productname: "产品", 
 			name: "名称编号", 
 			builder: "构建者", 
@@ -96,6 +97,11 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
+			build_linkstories: "关联需求",
+			build_submittotesting: "提交测试",
+			build_viewbugs: "viewBugs",
+			edit: "编辑",
+			remove: "删除",
 		},
 	},
 	default_searchform: {
@@ -106,61 +112,9 @@ export default {
 		},
 	},
 	maingridviewtoolbar_toolbar: {
-		tbitem3: {
-			caption: "新建",
-			tip: "新建",
-		},
-		tbitem4: {
-			caption: "编辑",
-			tip: "编辑",
-		},
-		tbitem6: {
-			caption: "拷贝",
-			tip: "拷贝",
-		},
-		tbitem7: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem8: {
-			caption: "删除",
-			tip: "删除",
-		},
-		tbitem9: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem13: {
-			caption: "导出",
-			tip: "导出",
-		},
-		tbitem10: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem16: {
-			caption: "其它",
-			tip: "其它",
-		},
-		tbitem21: {
-			caption: "导出数据模型",
-			tip: "导出数据模型",
-		},
-		tbitem23: {
-			caption: "数据导入",
-			tip: "数据导入",
-		},
-		tbitem17: {
-			caption: "-",
-			tip: "",
-		},
-		tbitem19: {
-			caption: "过滤",
-			tip: "过滤",
-		},
-		tbitem18: {
-			caption: "帮助",
-			tip: "帮助",
+		deuiaction1: {
+			caption: "创建版本",
+			tip: "创建版本",
 		},
 	},
 	editviewtoolbar_toolbar: {

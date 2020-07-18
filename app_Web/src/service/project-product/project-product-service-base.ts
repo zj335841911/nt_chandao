@@ -31,7 +31,7 @@ export default class ProjectProductServiceBase extends EntityService {
         this.APPLYDEKEY ='projectproduct';
         this.APPDEKEY = 'id';
         this.APPDENAME = 'projectproducts';
-        this.APPDETEXT = '';
+        this.APPDETEXT = 'productname';
         this.APPNAME = 'web';
         this.SYSTEMNAME = 'pms';
     }

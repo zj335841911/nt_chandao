@@ -20,3 +20,6 @@ import { StorySpecEditFormBase } from './story-spec-form-base';
 @VueLifeCycleProcessing()
 export default class StorySpecEditForm extends StorySpecEditFormBase { }
 </script>
+<style lang='less'>
+@import './story-spec-form.less';
+</style>

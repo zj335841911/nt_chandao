@@ -136,6 +136,14 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
     @JsonProperty("root")
     private BigInteger root;
 
+    /**
+     * 属性 [USERNAME]
+     *
+     */
+    @JSONField(name = "username")
+    @JsonProperty("username")
+    private String username;
+
 
     /**
      * 设置 [JOIN]

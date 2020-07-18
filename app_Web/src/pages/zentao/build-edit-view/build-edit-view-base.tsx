@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditViewBase } from '@/studio-core';
 import BuildService from '@/service/build/build-service';
+import BuildAuthService from '@/authservice/build/build-auth-service';
 import EditViewEngine from '@engine/view/edit-view-engine';
+import BuildUIService from '@/uiservice/build/build-ui-service';
 
 /**
  * build编辑视图视图基类
@@ -11,7 +13,6 @@ import EditViewEngine from '@engine/view/edit-view-engine';
  * @extends {EditViewBase}
  */
 export class BuildEditViewBase extends EditViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -22,12 +23,38 @@ export class BuildEditViewBase extends EditViewBase {
     protected appDeName: string = 'build';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof BuildEditViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof BuildEditViewBase
+     */
+    protected appDeMajor: string = 'name';
+
+    /**
      * 实体服务对象
      *
      * @type {BuildService}
      * @memberof BuildEditViewBase
      */
     protected appEntityService: BuildService = new BuildService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type BuildUIService
+     * @memberof BuildEditViewBase
+     */
+    public appUIService: BuildUIService = new BuildUIService(this.$store);
 
 
     /**
@@ -38,6 +65,17 @@ export class BuildEditViewBase extends EditViewBase {
      * @memberof BuildEditViewBase
      */    
     protected counterServiceArray: Array<any> = [];
+
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof BuildEditViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'PROJECT': { isRawValue: false, value: 'project' }
+    };
 
     /**
      * 视图模型数据
@@ -72,7 +110,7 @@ export class BuildEditViewBase extends EditViewBase {
      * @memberof BuildEditView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭','isShowCaption':true,'isShowIcon':true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'SaveAndExit', target: '' }, class: '' },
+        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
 
     };
 

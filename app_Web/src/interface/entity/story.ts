@@ -365,4 +365,28 @@ export interface Story {
      * @memberof Story
      */
     comment?: any;
+
+    /**
+     * 是否子需求
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    isleaf?: any;
+
+    /**
+     * 附件
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    files?: any;
+
+    /**
+     * 平台/分支
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    branchname?: any;
 }

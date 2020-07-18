@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
 import ProjectModuleService from '@/service/project-module/project-module-service';
 import TaskModuleExpService from './task-module-exp-treeview-service';
+import ProjectModuleUIService from '@/uiservice/project-module/project-module-ui-service';
 
 
 /**
@@ -357,11 +358,12 @@ export class TaskModuleExpTreeBase extends MainControlBase {
             return;
         }
     }
+
     /**
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     public getDatas(): any[] {
         return [this.currentselectedNode];
@@ -371,7 +373,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     public getData(): any {
         return this.currentselectedNode;
@@ -381,7 +383,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * 是否单选
      *
      * @type {boolean}
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     @Prop({ default: true }) public isSingleSelect!: boolean;
 
@@ -389,7 +391,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * 是否默认选中第一条数据
      *
      * @type {boolean}
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     @Prop({ default: false }) public isSelectFirstDefault!: boolean;
 
@@ -397,7 +399,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * 枝干节点是否可用（具有数据能力，可抛出）
      *
      * @type {string}
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     @Prop({default:true}) public isBranchAvailable!: boolean;
 
@@ -405,7 +407,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     @Prop({ default: true }) public showBusyIndicator?: boolean;
 
@@ -413,7 +415,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * 初始化完成
      *
      * @type {boolean}
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     public inited: boolean = false;
 
@@ -421,7 +423,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * 已选中数据集合
      *
      * @type {*}
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     public selectedNodes: any = [];
 
@@ -429,7 +431,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * 当前选中数据项
      *
      * @type {*}
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     public currentselectedNode: any = {};
 
@@ -437,7 +439,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * 选中数据字符串
      *
      * @type {string}
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     @Prop() public selectedData?: string;
 
@@ -446,7 +448,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     @Watch('selectedData')
     public onValueChange(newVal: any, oldVal: any) {
@@ -468,7 +470,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * 回显选中数据集合
      *
      * @type {*}
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     public echoselectedNodes:any[] = this.selectedData ? ( this.isSingleSelect ? [JSON.parse(this.selectedData)[0]] : JSON.parse(this.selectedData)) : [];
 
@@ -476,7 +478,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * 部件行为--update
      *
      * @type {string}
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     @Prop() public updateAction!: string;
 
@@ -484,7 +486,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * 部件行为--fetch
      *
      * @type {string}
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     @Prop() public fetchAction!: string;
 
@@ -492,7 +494,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * 部件行为--remove
      *
      * @type {string}
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     @Prop() public removeAction!: string;
 
@@ -500,7 +502,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * 部件行为--load
      *
      * @type {string}
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     @Prop() public loadAction!: string;
 
@@ -508,7 +510,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     @Prop() public createAction!: string;
 
@@ -516,7 +518,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * 过滤属性
      *
      * @type {string}
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     public srfnodefilter: string = '';
 
@@ -524,7 +526,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * 默认输出图标
      *
      * @type {boolean}
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     public isOutputIconDefault: boolean = false;
 
@@ -533,7 +535,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * 数据展开主键
      *
      * @type {string[]}
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     @Provide()
     public expandedKeys: string[] = [];
@@ -545,7 +547,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * @param {*} data
      * @param {*} data 当前节点对应传入对象
      * @param {*} checkedState 树目前选中状态对象
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     public onCheck(data: any, checkedState: any) {
         // 处理多选数据
@@ -562,7 +564,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * @public
      * @param {*} data 节点对应传入对象
      * @param {*} node 节点对应node对象
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     public selectionChange(data: any, node: any) {
         // 禁用项处理
@@ -585,7 +587,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
     /**
      * Vue声明周期(处理组件的输入属性)
      *
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     public created() {
         this.afterCreated();
@@ -594,7 +596,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof TaskModuleExp
+     *  @memberof TaskModuleExpBase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -632,7 +634,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
     /**
      * vue 生命周期
      *
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -641,7 +643,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -652,7 +654,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
     /**
      * 刷新数据
      *
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     public refresh_all(): void {
         this.inited = false;
@@ -664,7 +666,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
     /**
      * 刷新父节点
      *
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     public refresh_parent(): void {
         if (Object.keys(this.currentselectedNode).length === 0) {
@@ -693,7 +695,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * 数据加载
      *
      * @param {*} node
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     public load(node: any = {}, resolve?: any) {
         if (node.data && node.data.children) {
@@ -719,7 +721,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
         Object.assign(params,{viewparams:tempViewParams});
         this.service.getNodes(tempContext,params).then((response: any) => {
             if (!response || response.status !== 200) {
-                this.$Notice.error({ title: "错误", desc: response.info });
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.info });
                 resolve([]);
                 return;
             }
@@ -735,7 +737,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
             if (response && response.status === 401) {
                 return;
             }
-            this.$Notice.error({ title: "错误", desc: response.info });
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.info });
         });
     }
 
@@ -743,7 +745,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * 计算当前节点的上下文
      *
      * @param {*} curNode 当前节点
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     public computecurNodeContext(curNode:any){
         let tempContext:any = {};
@@ -759,7 +761,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * 刷新功能
      *
      * @param {any[]} args
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     public refresh(args: any[]): void {
         this.refresh_all();
@@ -772,7 +774,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * @param {*} [curContext] 当前节点上下文
      * @param {*} [arg={}] 当前节点附加参数
      * @param {boolean} parentnode 是否是刷新父节点
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     public refresh_node(curContext:any,arg: any = {}, parentnode: boolean): void {
         const { srfnodeid: id } = arg;
@@ -780,7 +782,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
         const get: Promise<any> = this.service.getNodes(JSON.parse(JSON.stringify(this.context)),arg);
         get.then((response: any) => {
             if (!response || response.status !== 200) {
-                this.$Notice.error({ title: '错误', desc: response.info });
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.info });
                 return;
             }
             const _items = [...response.data];
@@ -795,7 +797,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
             if (response && response.status === 401) {
                 return;
             }
-            this.$Notice.error({ title: '错误', desc: response.info });
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.info });
         });
     }
 
@@ -805,7 +807,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * @public
      * @param {any[]} items
      * @returns {any[]}
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     public formatExpanded(items: any[]): any[] {
         const data: any[] = [];
@@ -823,7 +825,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * @param {any[]} items 当前节点所有子节点集合
      * @param {boolean} isRoot 是否是加载根节点
      * @param {boolean} isSelectedAll 是否选中所有子节点
-     * @memberof MainTree
+     * @memberof TaskModuleExpBase
      */
     public setDefaultSelection(items: any[], isRoot: boolean = false, isSelectedAll: boolean = false): void {
         if(items.length == 0){
@@ -889,7 +891,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      *
      * @param {*} node
      * @returns
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     public renderContextMenu(node: any) {
         let content;
@@ -927,7 +929,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      *
      * @param {*} node
      * @returns
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     public renderContextMenuZt_product() {
         return (
@@ -947,7 +949,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      *
      * @param {*} node
      * @returns
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     public renderContextMenuBranchs() {
         return (
@@ -967,7 +969,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      *
      * @param {*} node
      * @returns
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     public renderContextMenuAll() {
         return (
@@ -987,7 +989,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      *
      * @param {*} node
      * @returns
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     public renderContextMenuModule() {
         return (
@@ -1007,7 +1009,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      *
      * @param {*} node
      * @returns
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     public renderContextMenuRootmodule() {
         return (
@@ -1027,7 +1029,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      *
      * @param {*} node
      * @returns
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     public renderContextMenuRoot_nobranch() {
         return (
@@ -1047,7 +1049,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      *
      * @param {*} node
      * @returns
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     public renderContextMenuProjectmodule() {
         return (
@@ -1066,7 +1068,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * 设置选中高亮
      *
      * @param {*} data
-     * @memberof TaskModuleExp
+     * @memberof TaskModuleExpBase
      */
     public setTreeNodeHighLight(data: any): void {
         const tree: any = this.$refs.treeexpbar_tree;
@@ -1077,7 +1079,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * 执行默认界面行为
      *
      * @param {*} node
-     * @memberof AppView
+     * @memberof TaskModuleExpBase
      */
     public doDefaultAction(node: any) {
         if (node && node.data) {

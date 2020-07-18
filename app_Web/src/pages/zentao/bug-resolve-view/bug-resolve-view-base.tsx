@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { OptionViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
+import BugAuthService from '@/authservice/bug/bug-auth-service';
 import OptionViewEngine from '@engine/view/option-view-engine';
+import BugUIService from '@/uiservice/bug/bug-ui-service';
 
 /**
  * 解决Bug视图基类
@@ -11,7 +13,6 @@ import OptionViewEngine from '@engine/view/option-view-engine';
  * @extends {OptionViewBase}
  */
 export class BugResolveViewBase extends OptionViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -22,12 +23,38 @@ export class BugResolveViewBase extends OptionViewBase {
     protected appDeName: string = 'bug';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugResolveViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugResolveViewBase
+     */
+    protected appDeMajor: string = 'title';
+
+    /**
      * 实体服务对象
      *
      * @type {BugService}
      * @memberof BugResolveViewBase
      */
     protected appEntityService: BugService = new BugService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type BugUIService
+     * @memberof BugResolveViewBase
+     */
+    public appUIService: BugUIService = new BugUIService(this.$store);
 
 
     /**

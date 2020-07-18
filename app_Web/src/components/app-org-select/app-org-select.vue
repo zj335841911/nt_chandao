@@ -1,6 +1,6 @@
 <template>
   <div class="app-org-select">
-    <ibiz-select-tree :NodesData="NodesData" v-model="selectTreeValue" :multiple="multiple" @select="treeSelectChange"></ibiz-select-tree>
+    <ibiz-select-tree :NodesData="NodesData" v-model="selectTreeValue" :disabled="disabled" :multiple="multiple" @select="treeSelectChange"></ibiz-select-tree>
   </div>
 </template>
 <script lang = 'ts'>
@@ -43,6 +43,14 @@ export default class AppOrgSelect extends Vue {
    * @memberof AppOrgSelect
    */
   @Prop({default:false}) public multiple?:boolean;
+
+  /**
+   * 是否禁用
+   *
+   * @type {*}
+   * @memberof AppDepartmentSelect
+   */
+  @Prop({default:false}) public disabled?: boolean;
 
   /**
    * 查询单位路径
@@ -175,7 +183,7 @@ export default class AppOrgSelect extends Vue {
     }
     Http.getInstance().get(requestUrl).then((res:any) =>{
       if(!res.status && res.status !== 200){
-        console.error("加载数据失败");
+        console.error((this.$t('components.appOrgSelect.loadFail') as string));
         return;
       }
       this.NodesData = res.data;

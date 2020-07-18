@@ -134,6 +134,10 @@ export default class StoryRelatedModel {
           prop:'query'
         },
         {
+          name:'filter',
+          prop:'filter'
+        },
+        {
           name:'page',
           prop:'page'
         },

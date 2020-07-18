@@ -1,9 +1,5 @@
-#nacos配置中心、数据源
+#缓存、数据源
 spring:
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 172.16.240.110:8848
   cache:
     redis:
       time-to-live: 3600

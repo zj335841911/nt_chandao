@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditView9Base } from '@/studio-core';
 import ProductStatsService from '@/service/product-stats/product-stats-service';
+import ProductStatsAuthService from '@/authservice/product-stats/product-stats-auth-service';
 import EditView9Engine from '@engine/view/edit-view9-engine';
+import ProductStatsUIService from '@/uiservice/product-stats/product-stats-ui-service';
 
 /**
  * 产品统计编辑视图视图基类
@@ -11,7 +13,6 @@ import EditView9Engine from '@engine/view/edit-view9-engine';
  * @extends {EditView9Base}
  */
 export class ProductStatsTestEditView9Base extends EditView9Base {
-
     /**
      * 视图对应应用实体名称
      *
@@ -22,12 +23,38 @@ export class ProductStatsTestEditView9Base extends EditView9Base {
     protected appDeName: string = 'productstats';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductStatsTestEditView9Base
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductStatsTestEditView9Base
+     */
+    protected appDeMajor: string = 'name';
+
+    /**
      * 实体服务对象
      *
      * @type {ProductStatsService}
      * @memberof ProductStatsTestEditView9Base
      */
     protected appEntityService: ProductStatsService = new ProductStatsService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProductStatsUIService
+     * @memberof ProductStatsTestEditView9Base
+     */
+    public appUIService: ProductStatsUIService = new ProductStatsUIService(this.$store);
 
 
     /**

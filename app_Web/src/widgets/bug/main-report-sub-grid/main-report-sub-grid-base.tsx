@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, GridControllerBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import Main_ReportSubService from './main-report-sub-grid-service';
+import BugUIService from '@/uiservice/bug/bug-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 
@@ -50,6 +51,23 @@ export class Main_ReportSubGridBase extends GridControllerBase {
     protected appDeName: string = 'bug';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {BugUIService}
+     * @memberof Main_ReportSubBase
+     */  
+    public appUIService:BugUIService = new BugUIService(this.$store);
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof Main_ReportSubBase
+     */  
+    public ActionModel: any = {
+    };
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -65,6 +83,22 @@ export class Main_ReportSubGridBase extends GridControllerBase {
      * @memberof Main_ReportSubGridBase
      */
     public isEnablePagingBar: boolean = false;
+
+    /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof Main_ReportSubGridBase
+     */
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof Main_ReportSubGridBase
+     */
+    public minorSortPSDEF: string = 'id';
 
     /**
      * 分页条数
@@ -86,49 +120,56 @@ export class Main_ReportSubGridBase extends GridControllerBase {
             label: 'ID',
             langtag: 'entities.bug.main_reportsub_grid.columns.id',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'pri',
             label: 'P',
             langtag: 'entities.bug.main_reportsub_grid.columns.pri',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'title',
             label: 'Bug标题',
             langtag: 'entities.bug.main_reportsub_grid.columns.title',
             show: true,
-            util: 'PX'
+            util: 'STAR',
+            isEnableRowEdit: false,
         },
         {
             name: 'openedby',
             label: '创建',
             langtag: 'entities.bug.main_reportsub_grid.columns.openedby',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'resolvedby',
             label: '解决者',
             langtag: 'entities.bug.main_reportsub_grid.columns.resolvedby',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'resolveddate',
             label: '解决日期',
             langtag: 'entities.bug.main_reportsub_grid.columns.resolveddate',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'status',
             label: 'Bug状态',
             langtag: 'entities.bug.main_reportsub_grid.columns.status',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
     ]
 

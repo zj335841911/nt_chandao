@@ -1,6 +1,7 @@
 import { Subject } from 'rxjs';
 import { ChartViewBase } from '@/studio-core';
 import BurnService from '@/service/burn/burn-service';
+import BurnAuthService from '@/authservice/burn/burn-auth-service';
 import ChartViewEngine from '@engine/view/chart-view-engine';
 import BurnUIService from '@/uiservice/burn/burn-ui-service';
 
@@ -12,7 +13,6 @@ import BurnUIService from '@/uiservice/burn/burn-ui-service';
  * @extends {ChartViewBase}
  */
 export class BurnChartViewBase extends ChartViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -23,12 +23,38 @@ export class BurnChartViewBase extends ChartViewBase {
     protected appDeName: string = 'burn';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof BurnChartViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof BurnChartViewBase
+     */
+    protected appDeMajor: string = 'date';
+
+    /**
      * 实体服务对象
      *
      * @type {BurnService}
      * @memberof BurnChartViewBase
      */
     protected appEntityService: BurnService = new BurnService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type BurnUIService
+     * @memberof BurnChartViewBase
+     */
+    public appUIService: BurnUIService = new BurnUIService(this.$store);
 
 
     /**
@@ -73,7 +99,7 @@ export class BurnChartViewBase extends ChartViewBase {
      * @memberof BurnChartView
      */
     public toolBarModels: any = {
-        deuiaction1_computeburn: { name: 'deuiaction1_computeburn', caption: '更新燃尽图','isShowCaption':true,'isShowIcon':true, tooltip: '更新燃尽图', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'ComputeBurn', target: 'SINGLEKEY' }, class: '' },
+        deuiaction1_computeburn: { name: 'deuiaction1_computeburn', caption: '更新燃尽图', 'isShowCaption': true, 'isShowIcon': true, tooltip: '更新燃尽图', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ComputeBurn', target: 'SINGLEKEY', class: '' } },
 
     };
 

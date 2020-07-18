@@ -2,7 +2,9 @@
 import { Subject } from 'rxjs';
 import { ListView9Base } from '@/studio-core';
 import ActionService from '@/service/action/action-service';
+import ActionAuthService from '@/authservice/action/action-auth-service';
 import ListView9Engine from '@engine/view/list-view9-engine';
+import ActionUIService from '@/uiservice/action/action-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -14,7 +16,6 @@ import CodeListService from "@service/app/codelist-service";
  * @extends {ListView9Base}
  */
 export class ActionProductTrendsListView9Base extends ListView9Base {
-
     /**
      * 视图对应应用实体名称
      *
@@ -25,12 +26,38 @@ export class ActionProductTrendsListView9Base extends ListView9Base {
     protected appDeName: string = 'action';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ActionProductTrendsListView9Base
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ActionProductTrendsListView9Base
+     */
+    protected appDeMajor: string = 'comment';
+
+    /**
      * 实体服务对象
      *
      * @type {ActionService}
      * @memberof ActionProductTrendsListView9Base
      */
     protected appEntityService: ActionService = new ActionService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ActionUIService
+     * @memberof ActionProductTrendsListView9Base
+     */
+    public appUIService: ActionUIService = new ActionUIService(this.$store);
 
 
     /**
@@ -213,8 +240,8 @@ export class ActionProductTrendsListView9Base extends ListView9Base {
      * @memberof ActionProductTrendsListView9
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
+        const localContext: any = null;
+        const localViewParam: any =null;
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){

@@ -139,6 +139,37 @@ export class EditFormControlBase extends FormControlBase {
                 }
             }
         }, 'update', this.appDeName.toUpperCase()));
+        this.fillDetailModels();
+    }
+
+    /**
+     * 填充表单模型
+     *
+     * @protected
+     * @memberof EditFormControlBase
+     */
+    protected fillDetailModels(): void {
+        for (const key in this.detailsModel) {
+            if (this.detailsModel.hasOwnProperty(key)) {
+                const item = this.detailsModel[key];
+                if (item.detailType === 'GROUPPANEL') {
+                    if (item.opts.anchorPoints) {
+                        item.opts.anchorPoints.forEach((str: string) => {
+                            if (this.detailsModel[str]) {
+                                item.anchorPoints[str] = this.detailsModel[str];
+                            }
+                        });
+                    }
+                    if (item.opts.controlledItems) {
+                        item.opts.controlledItems.forEach((str: string) => {
+                            if (this.detailsModel[str]) {
+                                item.controlledItems[str] = this.detailsModel[str];
+                            }
+                        });
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -183,9 +214,10 @@ export class EditFormControlBase extends FormControlBase {
      * 表单项逻辑
      *
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {Promise<void>}
      * @memberof EditFormControlBase
      */
-    public formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void { }
+    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> { }
 
     /**
      * 值填充
@@ -229,7 +261,7 @@ export class EditFormControlBase extends FormControlBase {
         const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
         if (!action) {
             let actionName: any = Object.is(data.srfuf, '1') ? "updateAction" : "createAction";
-            this.$Notice.error({ title: '错误', desc: '${view.getName()}视图表单' + actionName + '参数未配置' });
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: '${view.getName()}' + (this.$t('app.formpage.notconfig.actionname') as string) });
             return;
         }
         Object.assign(arg, { viewparams: this.viewparams });
@@ -237,7 +269,7 @@ export class EditFormControlBase extends FormControlBase {
         post.then((response: any) => {
             if (!response.status || response.status !== 200) {
                 if (response.data) {
-                    this.$Notice.error({ title: '错误', desc: response.data.message });
+                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
                 }
                 return;
             }
@@ -252,12 +284,21 @@ export class EditFormControlBase extends FormControlBase {
             });
         }).catch((response: any) => {
             if (response && response.status && response.data) {
-                this.$Notice.error({ title: '错误', desc: response.data.message });
+                if (response.data.errorKey && Object.is(response.data.errorKey, "versionCheck")) {
+                    this.$Modal.confirm({
+                        title: (this.$t('app.formpage.saveerror') as string),
+                        content: (this.$t('app.formpage.savecontent') as string),
+                        onOk: () => {
+                            this.refresh([]);
+                        },
+                        onCancel: () => { }
+                    });
+                } else {
+                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
+                }
                 return;
-            }
-            if (!response || !response.status || !response.data) {
-                this.$Notice.error({ title: '错误', desc: '系统异常' });
-                return;
+            } else {
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.sysException') as string) });
             }
         });
     }
@@ -275,14 +316,15 @@ export class EditFormControlBase extends FormControlBase {
         return new Promise((resolve: any, reject: any) => {
             showResultInfo = showResultInfo === undefined ? true : false;
             if (!this.formValidateStatus()) {
-                this.$Notice.error({ title: '错误', desc: '值规则校验异常' });
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.formpage.valuecheckex') as string) });
                 return;
             }
             const arg: any = { ...opt };
             const data = this.getValues();
-            Object.assign(arg, data);
             Object.assign(arg, this.context);
+            Object.assign(arg, data);
             if (ifStateNext && this.drCount > 0) {
+                this.drcounter = this.drCount;
                 this.drsaveopt = opt;
                 this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存
                 this.saveState = resolve;
@@ -291,7 +333,7 @@ export class EditFormControlBase extends FormControlBase {
             const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
             if (!action) {
                 let actionName: any = Object.is(data.srfuf, '1') ? "updateAction" : "createAction";
-                this.$Notice.error({ title: '错误', desc: '${view.getName()}视图表单' + actionName + '参数未配置' });
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: '${view.getName()}' + (this.$t('app.formpage.notconfig.actionname') as string) });
                 return;
             }
             Object.assign(arg, { viewparams: this.viewparams });
@@ -299,7 +341,7 @@ export class EditFormControlBase extends FormControlBase {
             post.then((response: any) => {
                 if (!response.status || response.status !== 200) {
                     if (response.data) {
-                        this.$Notice.error({ title: '错误', desc: response.data.message });
+                        this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
                     }
                     return;
                 }
@@ -312,17 +354,29 @@ export class EditFormControlBase extends FormControlBase {
                 this.$nextTick(() => {
                     this.formState.next({ type: 'save', data: data });
                 });
+                if (showResultInfo) {
+                    this.$Notice.success({ title: '', desc: (data.srfmajortext ? data.srfmajortext : '') + '&nbsp;' + (this.$t('app.formpage.savesuccess') as string) });
+                }
                 resolve(response);
             }).catch((response: any) => {
                 if (response && response.status && response.data) {
-                    this.$Notice.error({ title: '错误', desc: response.data.message });
-                    reject(response);
+                    if (response.data.errorKey && Object.is(response.data.errorKey, "versionCheck")) {
+                        this.$Modal.confirm({
+                            title: (this.$t('app.formpage.saveerror') as string),
+                            content: (this.$t('app.formpage.savecontent') as string),
+                            onOk: () => {
+                                this.refresh([]);
+                            },
+                            onCancel: () => { }
+                        });
+                    } else {
+                        this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
+                        reject(response);
+                    }
                     return;
-                }
-                if (!response || !response.status || !response.data) {
-                    this.$Notice.error({ title: '错误', desc: '系统异常' });
+                } else {
+                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.sysException') as string) });
                     reject(response);
-                    return;
                 }
                 reject(response);
             });
@@ -384,20 +438,20 @@ export class EditFormControlBase extends FormControlBase {
                 result.then((response: any) => {
                     if (!response || response.status !== 200) {
                         if (response.data) {
-                            this.$Notice.error({ title: '', desc: '工作流启动失败, ' + response.data.message });
+                            this.$Notice.error({ title: '', desc: (this.$t('app.formpage.workflow.starterror') as string) + ', ' + response.data.message });
                         }
                         return;
                     }
-                    this.$Notice.info({ title: '', desc: '工作流启动成功' });
+                    this.$Notice.info({ title: '', desc: (this.$t('app.formpage.workflow.startsuccess') as string) });
                     resolve(response);
                 }).catch((response: any) => {
                     if (response && response.status && response.data) {
-                        this.$Notice.error({ title: '错误', desc: response.data.message });
+                        this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
                         reject(response);
                         return;
                     }
                     if (!response || !response.status || !response.data) {
-                        this.$Notice.error({ title: '错误', desc: '系统异常' });
+                        this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.sysException') as string) });
                         reject(response);
                         return;
                     }
@@ -405,12 +459,12 @@ export class EditFormControlBase extends FormControlBase {
                 });
             }).catch((response: any) => {
                 if (response && response.status && response.data) {
-                    this.$Notice.error({ title: '错误', desc: response.data.message });
+                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
                     reject(response);
                     return;
                 }
                 if (!response || !response.status || !response.data) {
-                    this.$Notice.error({ title: '错误', desc: '系统异常' });
+                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.sysException') as string) });
                     reject(response);
                     return;
                 }
@@ -456,22 +510,22 @@ export class EditFormControlBase extends FormControlBase {
                 result.then((response: any) => {
                     if (!response || response.status !== 200) {
                         if (response.data) {
-                            this.$Notice.error({ title: '', desc: '工作流提交失败, ' + response.data.message });
+                            this.$Notice.error({ title: '', desc: (this.$t('app.formpage.workflow.submiterror') as string) + ', ' + response.data.message });
                         }
                         return;
                     }
                     this.onFormLoad(arg, 'submit');
                     this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
-                    this.$Notice.info({ title: '', desc: '工作流提交成功' });
+                    this.$Notice.info({ title: '', desc: (this.$t('app.formpage.workflow.submitsuccess') as string) });
                     resolve(response);
                 }).catch((response: any) => {
                     if (response && response.status && response.data) {
-                        this.$Notice.error({ title: '错误', desc: response.data.message });
+                        this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
                         reject(response);
                         return;
                     }
                     if (!response || !response.status || !response.data) {
-                        this.$Notice.error({ title: '错误', desc: '系统异常' });
+                        this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.sysException') as string) });
                         reject(response);
                         return;
                     }
@@ -479,12 +533,12 @@ export class EditFormControlBase extends FormControlBase {
                 });
             }).catch((response: any) => {
                 if (response && response.status && response.data) {
-                    this.$Notice.error({ title: '错误', desc: response.data.message });
+                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
                     reject(response);
                     return;
                 }
                 if (!response || !response.status || !response.data) {
-                    this.$Notice.error({ title: '错误', desc: '系统异常' });
+                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.sysException') as string) });
                     reject(response);
                     return;
                 }
@@ -511,7 +565,7 @@ export class EditFormControlBase extends FormControlBase {
         const post: Promise<any> = this.service.frontLogic(mode, this.context, data, showloading);
         post.then((response: any) => {
             if (!response || response.status !== 200) {
-                this.$Notice.error({ title: '错误', desc: '表单项更新失败' });
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.formpage.updateerror') as string) });
                 return;
             }
             const data = response.data;
@@ -531,11 +585,11 @@ export class EditFormControlBase extends FormControlBase {
             });
         }).catch((response: any) => {
             if (response && response.status && response.data) {
-                this.$Notice.error({ title: '错误', desc: response.data.message });
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
                 return;
             }
             if (!response || !response.status || !response.data) {
-                this.$Notice.error({ title: '错误', desc: '系统异常' });
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.sysException') as string) });
                 return;
             }
         });

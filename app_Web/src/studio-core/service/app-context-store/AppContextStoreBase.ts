@@ -7,6 +7,14 @@
 export class AppContextStoreBase {
 
     /**
+     * 应用上下文
+     *
+     * @type {*}
+     * @memberof AppContextStoreBase
+     */
+    public appContext: any = {};
+
+    /**
      * 向上下文中设置数据，根据应用实体名称
      *
      * @param {*} context 上下文

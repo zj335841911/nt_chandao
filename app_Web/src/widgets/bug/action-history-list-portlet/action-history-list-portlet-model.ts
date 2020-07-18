@@ -195,6 +195,12 @@ export default class ActionHistoryListModel {
       {
         name: 'taskname',
       },
+      {
+        name: 'modulename',
+      },
+      {
+        name: 'branchname',
+      },
     ]
   }
 

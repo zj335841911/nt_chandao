@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
 import ActionService from '@/service/action/action-service';
 import ProductTrendsTimelineService from './product-trends-timeline-portlet-service';
+import ActionUIService from '@/uiservice/action/action-ui-service';
 import { Environment } from '@/environments/environment';
 
 

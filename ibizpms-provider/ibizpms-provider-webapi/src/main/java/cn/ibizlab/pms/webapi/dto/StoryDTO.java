@@ -388,6 +388,30 @@ public class StoryDTO extends DTOBase implements Serializable {
     @JsonProperty("comment")
     private String comment;
 
+    /**
+     * 属性 [ISLEAF]
+     *
+     */
+    @JSONField(name = "isleaf")
+    @JsonProperty("isleaf")
+    private String isleaf;
+
+    /**
+     * 属性 [FILES]
+     *
+     */
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    private String files;
+
+    /**
+     * 属性 [BRANCHNAME]
+     *
+     */
+    @JSONField(name = "branchname")
+    @JsonProperty("branchname")
+    private String branchname;
+
 
     /**
      * 设置 [ASSIGNEDTO]

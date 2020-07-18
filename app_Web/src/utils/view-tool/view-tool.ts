@@ -79,7 +79,7 @@ export class ViewTool {
         const { parameters: _parameters }: { parameters: any[] } = route.meta;
         const { pathName: _pathName, parameterName: _parameterName }: { pathName: string, parameterName: string } = _parameters[0];
         const param = route.params[_parameterName];
-        if (param && !Object.is(param, '')) {
+        if (isExistAndNotEmpty(param)) {
             return `/${_pathName}/${param}`;
         }
         return `/${_pathName}`;
@@ -107,7 +107,7 @@ export class ViewTool {
                 } else if (arg[parameterName] && !Object.is(arg[parameterName], '') && !Object.is(arg[parameterName], 'null')) {
                     value = arg[parameterName];
                 }
-                routePath = `${routePath}/${pathName}` + (value !== null ? `/${value}` : '');
+                routePath = `${routePath}/${pathName}` + (isExistAndNotEmpty(value) ? `/${value}` : '');
             });
         }
         return routePath;
@@ -120,7 +120,6 @@ export class ViewTool {
      * @param {any[]} parameters 当前应用视图参数对象
      * @param {any[]} args 多项数据
      * @param {*} data 行为参数
-     * @param {*} [viewParam={}] 上下文数据
      * @returns {string}
      * @memberof ViewTool
      */
@@ -139,7 +138,7 @@ export class ViewTool {
                 arg = arg ? arg : {};
                 const [{ pathName: _pathName, parameterName: _parameterName }, { pathName: _pathName2, parameterName: _parameterName2 }] = parameters;
                 const _value: any = arg[_parameterName] || viewParam[_parameterName] || null;
-                routePath = `/${_pathName}${((_value !== null && !Object.is(_value, '')) ? `/${_value}` : '')}/${_pathName2}`;
+                routePath = `/${_pathName}${isExistAndNotEmpty(_value) ? `/${_value}` : ''}/${_pathName2}`;
                 if (Object.keys(data).length > 0) {
                     routePath = `${routePath}?${qs.stringify(data, { delimiter: ';' })}`;
                 }
@@ -241,5 +240,41 @@ export class ViewTool {
      */
     public static getIndexViewParam(): any {
         return this.indexViewParam;
+    }
+
+    /**
+     * 计算界面行为项权限状态
+     *
+     * @static
+     * @param {*} [data] 传入数据
+     * @param {*} [ActionModel] 界面行为模型
+     * @param {*} [UIService] 界面行为服务
+     * @memberof ViewTool
+     */
+    public static calcActionItemAuthState(data: any, ActionModel: any, UIService: any) {
+        for (const key in ActionModel) {
+            if (!ActionModel.hasOwnProperty(key)) {
+                return;
+            }
+            const _item = ActionModel[key];
+            if (_item && _item['dataaccaction'] && UIService && data && Object.keys(data).length > 0) {
+                let dataActionResult: any = UIService.getAllOPPrivs(data)[_item['dataaccaction']];
+                // 无权限:0;有权限:1
+                if (!dataActionResult) {
+                    // 禁用:1;隐藏:2;隐藏且默认隐藏:6
+                    if (_item.noprivdisplaymode === 1) {
+                        _item.disabled = true;
+                    }
+                    if ((_item.noprivdisplaymode === 2) || (_item.noprivdisplaymode === 6)) {
+                        _item.visabled = false;
+                    } else {
+                        _item.visabled = true;
+                    }
+                } else {
+                    _item.visabled = true;
+                    _item.disabled = false;
+                }
+            }
+        }
     }
 }

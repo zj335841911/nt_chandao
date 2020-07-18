@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { EditView9Base } from '@/studio-core';
 import ProjectStatsService from '@/service/project-stats/project-stats-service';
+import ProjectStatsAuthService from '@/authservice/project-stats/project-stats-auth-service';
 import EditView9Engine from '@engine/view/edit-view9-engine';
+import ProjectStatsUIService from '@/uiservice/project-stats/project-stats-ui-service';
 
 /**
  * 项目统计编辑视图视图基类
@@ -11,7 +13,6 @@ import EditView9Engine from '@engine/view/edit-view9-engine';
  * @extends {EditView9Base}
  */
 export class ProjectStatsEditView9Base extends EditView9Base {
-
     /**
      * 视图对应应用实体名称
      *
@@ -22,12 +23,38 @@ export class ProjectStatsEditView9Base extends EditView9Base {
     protected appDeName: string = 'projectstats';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectStatsEditView9Base
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectStatsEditView9Base
+     */
+    protected appDeMajor: string = 'name';
+
+    /**
      * 实体服务对象
      *
      * @type {ProjectStatsService}
      * @memberof ProjectStatsEditView9Base
      */
     protected appEntityService: ProjectStatsService = new ProjectStatsService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProjectStatsUIService
+     * @memberof ProjectStatsEditView9Base
+     */
+    public appUIService: ProjectStatsUIService = new ProjectStatsUIService(this.$store);
 
 
     /**

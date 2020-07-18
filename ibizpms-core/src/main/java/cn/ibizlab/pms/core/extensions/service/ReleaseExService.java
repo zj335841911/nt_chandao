@@ -32,6 +32,16 @@ public class ReleaseExService extends ReleaseServiceImpl {
         return super.activate(et);
     }
     /**
+     * 自定义行为[BatchUnlinkBug]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Release batchUnlinkBug(Release et) {
+        return super.batchUnlinkBug(et);
+    }
+    /**
      * 自定义行为[ChangeStatus]用户扩展
      * @param et
      * @return
@@ -42,6 +52,36 @@ public class ReleaseExService extends ReleaseServiceImpl {
         return super.changeStatus(et);
     }
     /**
+     * 自定义行为[LinkBug]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Release linkBug(Release et) {
+        return super.linkBug(et);
+    }
+    /**
+     * 自定义行为[LinkBugbyBug]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Release linkBugbyBug(Release et) {
+        return super.linkBugbyBug(et);
+    }
+    /**
+     * 自定义行为[LinkBugbyLeftBug]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Release linkBugbyLeftBug(Release et) {
+        return super.linkBugbyLeftBug(et);
+    }
+    /**
      * 自定义行为[Terminate]用户扩展
      * @param et
      * @return
@@ -50,6 +90,16 @@ public class ReleaseExService extends ReleaseServiceImpl {
     @Transactional
     public Release terminate(Release et) {
         return super.terminate(et);
+    }
+    /**
+     * 自定义行为[UnlinkBug]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Release unlinkBug(Release et) {
+        return super.unlinkBug(et);
     }
 }
 

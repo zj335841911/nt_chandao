@@ -8,7 +8,8 @@ import { Environment } from '@/environments/environment';
 import axios from 'axios';
 
 import tinymce from "tinymce/tinymce";
-import 'tinymce/themes/modern';
+// import 'tinymce/themes/modern';
+import 'tinymce/themes/silver';
 import 'tinymce/plugins/link';
 import 'tinymce/plugins/paste';
 import 'tinymce/plugins/table';
@@ -18,6 +19,7 @@ import 'tinymce/plugins/codesample';
 import 'tinymce/plugins/code';
 import 'tinymce/plugins/fullscreen';
 import 'tinymce/plugins/preview';
+import 'tinymce/icons/default/icons.min.js';
 
 const tinymceCode:any = tinymce;
 
@@ -105,6 +107,62 @@ export default class AppRichTextEditor extends Vue {
      * @memberof AppRichTextEditor
      */
     public langu: any = localStorage.getItem('local') ? localStorage.getItem('local') : 'zh-CN' ;
+
+    /**
+     * 上传params
+     *
+     * @type {Array<any>}
+     * @memberof AppRichTextEditor
+     */
+    public upload_params: Array<any> = [];
+
+    /**
+     * 导出params
+     *
+     * @type {Array<any>}
+     * @memberof AppRichTextEditor
+     */
+    public export_params: Array<any> = [];
+
+    /**
+     * 上传参数
+     *
+     * @type {string}
+     * @memberof AppRichTextEditor
+     */
+    @Prop() public uploadparams?: any;
+
+    /**
+     * 下载参数
+     *
+     * @type {string}
+     * @memberof AppRichTextEditor
+     */
+    @Prop() public exportparams?: any;
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof AppRichTextEditor
+     */
+    @Prop() public viewparams!: any;
+
+    /**
+     * 视图上下文
+     *
+     * @type {*}
+     * @memberof AppRichTextEditor
+     */
+    @Prop() public context!: any;
+
+    /**
+     * 表单数据
+     *
+     * @type {string}
+     * @memberof AppRichTextEditor
+     */
+    @Prop() public data!: string;
     
     /**
      * 语言映射文件
@@ -142,6 +200,7 @@ export default class AppRichTextEditor extends Vue {
         if(this.formState) {
             this.formState.subscribe(({ type, data }) => {
                 if (Object.is('load', type)) {
+                    this.getParams();
                     if (!this.value) {
                         this.init();
                     }
@@ -199,9 +258,11 @@ export default class AppRichTextEditor extends Vue {
      */
     @Watch('value', { immediate: true, deep: true })
     oncurrentContent(newval: any, val: any) {
-        if (newval) {
+        const content: any = this.editor ? this.editor.getContent() : undefined;
+        if (!Object.is(newval,content)) {
             this.init();
         }
+        this.getParams();
     }
 
     /**
@@ -231,7 +292,10 @@ export default class AppRichTextEditor extends Vue {
             height: richtexteditor.height,
             min_height: 400,
             branding: false,
-            plugins: ['link', 'paste', 'table', 'image', 'codesample', 'code', 'fullscreen', 'preview'],
+            plugins: ['link', 'paste', 'table', 'image', 'codesample', 'code', 'fullscreen', 'preview', 'quickbars'],
+            toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | link image',
+            quickbars_insert_toolbar: false,
+            quickbars_selection_toolbar: 'forecolor fontsizeselect fontselect',
             codesample_languages: [
                 { text: 'HTML/XML', value: 'markup' },
                 { text: 'JavaScript', value: 'javascript' },
@@ -246,7 +310,7 @@ export default class AppRichTextEditor extends Vue {
             ],
             paste_data_images: true,
             codesample_content_css: 'assets/tinymce/prism.css',
-            skin_url: './assets/tinymce/skins/lightgray',
+            skin_url: './assets/tinymce/skins/lightgray/ui/oxide',
             language_url: './assets/tinymce/langs/' + richtexteditor.languMap[richtexteditor.langu] + '.js',
             language:richtexteditor.languMap[richtexteditor.langu],
             setup: (editor: any) => {
@@ -259,12 +323,32 @@ export default class AppRichTextEditor extends Vue {
             images_upload_handler: (bolbinfo: any, success: any, failure: any) => {
                 const formData = new FormData();
                 formData.append('file', bolbinfo.blob(), bolbinfo.filename());
-                const _url = richtexteditor.uploadUrl;
+                let _url = richtexteditor.uploadUrl;
+                if (this.upload_params.length > 0 ) {
+                    _url +='?';
+                    this.upload_params.forEach((item:any,i:any)=>{
+                        _url += `${Object.keys(item)[0]}=${Object.values(item)[0]}`;
+                        if(i<this.upload_params.length-1){
+                            _url += '&';
+                        }
+                    })    
+                }
+                this.uploadUrl = _url;
                 richtexteditor.uploadFile(_url, formData).subscribe((file: any) => {
+                    let downloadUrl =   richtexteditor.downloadUrl;
                     if (file.filename) {
                         const id: string = file.fileid;
-                        const url: string = `${richtexteditor.downloadUrl}/${id}`
+                        const url: string = `${downloadUrl}/${id}`
                         success(url);
+                    }
+                    if (this.export_params.length > 0) {
+                        downloadUrl +='?';
+                        this.export_params.forEach((item:any,i:any)=>{
+                            downloadUrl += `${Object.keys(item)[0]}=${Object.values(item)[0]}`;
+                            if(i<this.export_params.length-1){
+                                downloadUrl += '&';
+                            }
+                        })
                     }
                 }, (error: any) => {
                     console.log(error);
@@ -310,5 +394,48 @@ export default class AppRichTextEditor extends Vue {
         });
         return subject;
     }
+
+    /**
+     *获取上传，导出参数
+     *
+     *@memberof AppRichTextEditor
+     */
+    public getParams(){
+        let uploadparams: any = JSON.parse(JSON.stringify(this.uploadparams));
+        let exportparams: any = JSON.parse(JSON.stringify(this.exportparams));
+
+        let upload_params: Array<string> = [];
+        let export_params: Array<string> = [];
+
+        let param:any = this.viewparams;
+        let context:any = this.context;
+        let _data:any = JSON.parse(this.data);
+
+        if (this.uploadparams && !Object.is(this.uploadparams, '')) {
+            upload_params = this.$util.computedNavData(_data,param,context,uploadparams);    
+        }
+        if (this.exportparams && !Object.is(this.exportparams, '')) {
+            export_params = this.$util.computedNavData(_data,param,context,exportparams);
+        }
+        
+        this.upload_params = [];
+        this.export_params = [];
+
+        for (const item in upload_params) {
+            this.upload_params.push({
+                [item]:upload_params[item]
+            })
+        }
+        for (const item in export_params) {
+            this.export_params.push({
+                [item]:export_params[item]
+            })
+        }
+    }
 }
 </script>
+<style lang="less">
+.tox-statusbar__text-container{
+    display: none !important;
+}
+</style>

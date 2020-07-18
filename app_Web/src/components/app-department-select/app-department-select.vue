@@ -1,6 +1,6 @@
 <template>
   <div class="app-department-select">
-    <ibiz-select-tree  :NodesData="Nodesdata" v-model="selectTreeValue" :multiple="multiple" @select="onSelect"></ibiz-select-tree>
+    <ibiz-select-tree  :NodesData="Nodesdata" v-model="selectTreeValue" :disabled="disabled" :multiple="multiple" @select="onSelect"></ibiz-select-tree>
   </div>
 </template>
 
@@ -41,6 +41,14 @@ export default class AppDepartmentSelect extends Vue {
      * @memberof AppDepartmentSelect
      */
     @Prop({default:false}) public multiple?: any;
+
+    /**
+     * 是否禁用
+     *
+     * @type {*}
+     * @memberof AppDepartmentSelect
+     */
+    @Prop({default:false}) public disabled?: boolean;
 
     /**
      * 表单数据
@@ -123,7 +131,7 @@ export default class AppDepartmentSelect extends Vue {
           this.$store.commit('addDepData', { srfkey: this.filter, orgData: response.data });
       }).catch((response: any) => {
           if (!response || !response.status || !response.data) {
-              this.$Notice.error({ title: '错误', desc: '系统异常！' });
+              this.$Notice.error({ title: (this.$t('app.commonWords.error') as string), desc: (this.$t('app.commonWords.sysException') as string) });
               return;
           }
       });

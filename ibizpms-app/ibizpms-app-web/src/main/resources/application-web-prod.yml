@@ -9,151 +9,171 @@ zuul:
   routes:
     zt_productplan:
       path: /productplans/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_projectproduct:
       path: /projectproducts/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_case:
       path: /cases/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibz_taskteam:
+      path: /ibztaskteams/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_product:
       path: /products/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    zt_taskteam:
+      path: /taskteams/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_file:
       path: /files/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_suitecase:
       path: /suitecases/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_burn:
       path: /burns/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_subproductplan:
       path: /subproductplans/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_storyspec:
       path: /storyspecs/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    zt_usertpl:
+      path: /usertpls/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_branch:
       path: /branches/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_productstats:
       path: /productstats/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_action:
       path: /actions/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_group:
       path: /groups/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_casestep:
       path: /casesteps/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_dept:
       path: /depts/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_company:
       path: /companies/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibz_casestep:
+      path: /ibzcasesteps/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_story:
       path: /stories/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_subtask:
       path: /subtasks/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_project:
       path: /projects/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_history:
       path: /histories/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_user:
       path: /users/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_productmodule:
       path: /productmodules/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_module:
       path: /modules/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibz_testmodule:
+      path: /testmodules/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_productlife:
       path: /productlives/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_task:
       path: /tasks/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_build:
       path: /builds/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_testresult:
       path: /testresults/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_testsuite:
       path: /testsuites/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_projectteam:
       path: /projectteams/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_testtask:
       path: /testtasks/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_testreport:
       path: /testreports/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_projectstats:
       path: /projectstats/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_testrun:
       path: /testruns/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_bug:
       path: /bugs/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_projectmodule:
       path: /projectmodules/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_doc:
       path: /ibzdocs/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_release:
       path: /releases/**
-      serviceId: pms-webapi
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
   sensitive-headers:
     - Cookie,Set-Cookie,Authorization

@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, ListControllerBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import SidebarService from './sidebar-list-service';
+import ProductUIService from '@/uiservice/product/product-ui-service';
 
 
 /**
@@ -62,5 +63,13 @@ export class SidebarListBase extends ListControllerBase {
      * @type {string}
      * @memberof SidebarListBase
      */
-    public minorSortDir: string = '';
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof SidebarListBase
+     */
+    public minorSortPSDEF: string = 'id';
 }

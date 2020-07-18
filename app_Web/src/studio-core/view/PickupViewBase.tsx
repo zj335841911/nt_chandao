@@ -59,6 +59,7 @@ export class PickupViewBase extends ViewBase {
      * @memberof PickupViewBase
      */
     public onClickCancel(): void {
+        this.$emit('viewdataschange', null);
         this.$emit('close', null);
     }
 }

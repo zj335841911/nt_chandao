@@ -89,6 +89,10 @@ export default class MainModel {
           prop:'query'
         },
         {
+          name:'filter',
+          prop:'filter'
+        },
+        {
           name:'page',
           prop:'page'
         },
@@ -105,6 +109,10 @@ export default class MainModel {
           name: 'srffrontuf',
           prop: 'srffrontuf',
           dataType: 'TEXT',
+        },
+        {
+          name:'srfArray',
+          prop:'srfArray'
         },
       ]
     }

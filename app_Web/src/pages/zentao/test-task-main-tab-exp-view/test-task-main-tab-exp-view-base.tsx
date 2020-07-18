@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { TabExpViewBase } from '@/studio-core';
 import TestTaskService from '@/service/test-task/test-task-service';
+import TestTaskAuthService from '@/authservice/test-task/test-task-auth-service';
 import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
+import TestTaskUIService from '@/uiservice/test-task/test-task-ui-service';
 
 /**
  * 测试版本分页导航视图视图基类
@@ -11,7 +13,6 @@ import TabExpViewEngine from '@engine/view/tab-exp-view-engine';
  * @extends {TabExpViewBase}
  */
 export class TestTaskMainTabExpViewBase extends TabExpViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -22,12 +23,38 @@ export class TestTaskMainTabExpViewBase extends TabExpViewBase {
     protected appDeName: string = 'testtask';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestTaskMainTabExpViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestTaskMainTabExpViewBase
+     */
+    protected appDeMajor: string = 'name';
+
+    /**
      * 实体服务对象
      *
      * @type {TestTaskService}
      * @memberof TestTaskMainTabExpViewBase
      */
     protected appEntityService: TestTaskService = new TestTaskService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type TestTaskUIService
+     * @memberof TestTaskMainTabExpViewBase
+     */
+    public appUIService: TestTaskUIService = new TestTaskUIService(this.$store);
 
 
     /**
@@ -97,33 +124,6 @@ export class TestTaskMainTabExpViewBase extends TabExpViewBase {
             majorPSDEField: 'name',
             isLoadDefault: true,
         });
-    }
-
-
-
-    /**
-     * 加载模型
-     *
-     * @protected
-     * @memberof TestTaskMainTabExpViewBase
-     */
-    protected async loadModel(): Promise<any> {
-        if(this.context.testtask){
-            this.appEntityService.getDataInfo(JSON.parse(JSON.stringify(this.context)),{},false).then((response:any) =>{
-                if (!response || response.status !== 200) {
-                    return;
-                }
-                const { data } = response;
-                if (data.name) {
-                    Object.assign(this.model, { dataInfo: data.name });
-                    if(this.$route){
-                        this.$route.meta.info = this.model.dataInfo;
-                    }
-                    Object.assign(this.model, { srfTitle: `${this.$t(this.model.srfTitle)} - ${this.model.dataInfo}` });
-                    this.$appService.navHistory.setCaption({ tag: this.viewtag, info: this.model.dataInfo });
-                }
-            })
-        }
     }
 
 

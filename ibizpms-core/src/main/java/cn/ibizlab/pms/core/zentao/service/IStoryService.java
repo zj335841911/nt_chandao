@@ -33,6 +33,7 @@ public interface IStoryService extends IService<Story>{
     void removeBatch(Collection<BigInteger> idList) ;
     Story get(BigInteger key) ;
     Story getDraft(Story et) ;
+    Story activate(Story et) ;
     Story assignTo(Story et) ;
     Story batchAssignTo(Story et) ;
     Story batchChangeBranch(Story et) ;
@@ -42,6 +43,10 @@ public interface IStoryService extends IService<Story>{
     Story batchClose(Story et) ;
     Story batchReview(Story et) ;
     Story batchUnlinkStory(Story et) ;
+    Story bugToStory(Story et) ;
+    Story buildBatchUnlinkStory(Story et) ;
+    Story buildLinkStory(Story et) ;
+    Story buildUnlinkStory(Story et) ;
     Story change(Story et) ;
     boolean checkKey(Story et) ;
     Story close(Story et) ;
@@ -50,11 +55,15 @@ public interface IStoryService extends IService<Story>{
     Story projectBatchUnlinkStory(Story et) ;
     Story projectLinkStory(Story et) ;
     Story projectUnlinkStory(Story et) ;
+    Story releaseBatchUnlinkStory(Story et) ;
+    Story releaseLinkStory(Story et) ;
+    Story releaseUnlinkStory(Story et) ;
     Story resetReviewedBy(Story et) ;
     Story review(Story et) ;
     boolean save(Story et) ;
     void saveBatch(List<Story> list) ;
     Story unlinkStory(Story et) ;
+    Page<Story> searchBuildLinkableStories(StorySearchContext context) ;
     Page<Story> searchBuildStories(StorySearchContext context) ;
     Page<Story> searchByModule(StorySearchContext context) ;
     Page<Story> searchDefault(StorySearchContext context) ;
@@ -64,6 +73,7 @@ public interface IStoryService extends IService<Story>{
     Page<Story> searchReportStories(StorySearchContext context) ;
     Page<Story> searchStoryChild(StorySearchContext context) ;
     Page<Story> searchStoryRelated(StorySearchContext context) ;
+    Page<Story> searchTaskRelatedStory(StorySearchContext context) ;
     List<Story> selectByModule(BigInteger id) ;
     void removeByModule(BigInteger id) ;
     List<Story> selectByBranch(BigInteger id) ;

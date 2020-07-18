@@ -164,6 +164,10 @@ export default class Main_ReportSubModel {
           prop:'query'
         },
         {
+          name:'filter',
+          prop:'filter'
+        },
+        {
           name:'page',
           prop:'page'
         },

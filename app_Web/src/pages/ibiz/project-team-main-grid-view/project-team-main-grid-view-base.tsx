@@ -2,6 +2,7 @@
 import { Subject } from 'rxjs';
 import { GridViewBase } from '@/studio-core';
 import ProjectTeamService from '@/service/project-team/project-team-service';
+import ProjectTeamAuthService from '@/authservice/project-team/project-team-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import ProjectTeamUIService from '@/uiservice/project-team/project-team-ui-service';
 import CodeListService from "@service/app/codelist-service";
@@ -15,7 +16,6 @@ import CodeListService from "@service/app/codelist-service";
  * @extends {GridViewBase}
  */
 export class ProjectTeamMainGridViewBase extends GridViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -26,12 +26,38 @@ export class ProjectTeamMainGridViewBase extends GridViewBase {
     protected appDeName: string = 'projectteam';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectTeamMainGridViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectTeamMainGridViewBase
+     */
+    protected appDeMajor: string = 'account';
+
+    /**
      * 实体服务对象
      *
      * @type {ProjectTeamService}
      * @memberof ProjectTeamMainGridViewBase
      */
     protected appEntityService: ProjectTeamService = new ProjectTeamService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProjectTeamUIService
+     * @memberof ProjectTeamMainGridViewBase
+     */
+    public appUIService: ProjectTeamUIService = new ProjectTeamUIService(this.$store);
 
 
     /**
@@ -76,7 +102,7 @@ export class ProjectTeamMainGridViewBase extends GridViewBase {
      * @memberof ProjectTeamMainGridView
      */
     public toolBarModels: any = {
-        deuiaction1_managermember: { name: 'deuiaction1_managermember', caption: '团队管理','isShowCaption':true,'isShowIcon':true, tooltip: '团队管理', iconcls: 'fa fa-users', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'ManagerMember', target: 'NONE' }, class: '' },
+        deuiaction1_managermember: { name: 'deuiaction1_managermember', caption: '团队管理', 'isShowCaption': true, 'isShowIcon': true, tooltip: '团队管理', iconcls: 'fa fa-users', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ManagerMember', target: 'NONE', class: '' } },
 
     };
 
@@ -248,8 +274,6 @@ export class ProjectTeamMainGridViewBase extends GridViewBase {
      * @memberof ProjectTeamMainGridView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
     this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
     }
 

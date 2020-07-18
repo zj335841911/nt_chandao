@@ -110,11 +110,11 @@ export default class MainService extends ControlService {
         if (Object.is(serviceName, 'ProjectService') && Object.is(interfaceName, 'FetchDefault')) {
             return this.doItems(this.projectService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'project');
         }
-        if (Object.is(serviceName, 'ProjectModuleService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.projectmoduleService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'projectmodule');
+        if (Object.is(serviceName, 'ProjectModuleService') && Object.is(interfaceName, 'FetchTaskModules')) {
+            return this.doItems(this.projectmoduleService.FetchTaskModules(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'projectmodule');
         }
-        if (Object.is(serviceName, 'StoryService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.storyService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'story');
+        if (Object.is(serviceName, 'StoryService') && Object.is(interfaceName, 'FetchTaskRelatedStory')) {
+            return this.doItems(this.storyService.FetchTaskRelatedStory(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'story');
         }
 
         return Promise.reject([])

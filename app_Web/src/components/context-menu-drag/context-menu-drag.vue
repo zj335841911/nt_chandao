@@ -7,7 +7,7 @@
             <Icon type="md-apps" />
           </div>
           <div class="content">
-            <span>全部应用</span>
+            <span>{{$t('components.contextMenuDrag.allApp')}}</span>
           </div>
           <div class="forward">
             <Icon type="ios-arrow-forward" />
@@ -25,7 +25,7 @@
                     </span>
                   </el-col>
                   <el-col :span="14">
-                    <span>{{ item.label }}</span>
+                    <span>{{ item.fullName ? item.fullName:item.label }}</span>
                   </el-col>
                   <el-col :span="6">
                     <div class="bar">
@@ -46,7 +46,7 @@
       <Drawer class-name="menu-drawer" width="60" :closable="true" :mask="false" placement="left" v-model="rightDrawerVisiable">
         <div class="menuItems">
           <div @click="skipTo(item)" class="item" v-for="(item) in list" :key="item.id">
-            <span class="title">{{item.label}}</span>
+            <span class="title">{{ item.fullName ? item.fullName:item.label }}</span>
             <span v-if="isStar(item.id)" class="star" @click.stop="outStar(item)">
               <Icon type="ios-star" />
             </span>
@@ -221,7 +221,7 @@ export default class ContextMenuDrag extends Vue {
       const put: Promise<any> = this.entityService.updateChooseApp(null,params);
       window.location.href = item.addr;
      }else{
-       this.$message.info("未找到该应用");
+       this.$message.info((this.$t('components.contextMenuDrag.noFind') as string));
      }
    }
 

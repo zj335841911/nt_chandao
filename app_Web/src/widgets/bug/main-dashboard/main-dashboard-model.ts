@@ -195,6 +195,12 @@ export default class MainModel {
       {
         name: 'taskname',
       },
+      {
+        name: 'modulename',
+      },
+      {
+        name: 'branchname',
+      },
     ]
   }
 

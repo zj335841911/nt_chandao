@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, GridControllerBase } from '@/studio-core';
 import ProjectModuleService from '@/service/project-module/project-module-service';
 import MainService from './main-grid-service';
+import ProjectModuleUIService from '@/uiservice/project-module/project-module-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 
@@ -97,6 +98,24 @@ export class MainGridBase extends GridControllerBase {
 
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {ProjectModuleUIService}
+     * @memberof MainBase
+     */  
+    public appUIService:ProjectModuleUIService = new ProjectModuleUIService(this.$store);
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof MainBase
+     */  
+    public ActionModel: any = {
+        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'MULTIKEY'}
+    };
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -133,21 +152,24 @@ export class MainGridBase extends GridControllerBase {
             label: '名称',
             langtag: 'entities.projectmodule.main_grid.columns.name',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: true,
         },
         {
             name: 'short',
             label: '简称',
             langtag: 'entities.projectmodule.main_grid.columns.short',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: true,
         },
         {
             name: 'uagridcolumn1',
             label: '操作',
             langtag: 'entities.projectmodule.main_grid.columns.uagridcolumn1',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
     ]
 

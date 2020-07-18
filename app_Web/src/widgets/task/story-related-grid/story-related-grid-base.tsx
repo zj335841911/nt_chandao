@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, GridControllerBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import StoryRelatedService from './story-related-grid-service';
+import TaskUIService from '@/uiservice/task/task-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 
@@ -50,6 +51,23 @@ export class StoryRelatedGridBase extends GridControllerBase {
     protected appDeName: string = 'task';
 
     /**
+     * 界面UI服务对象
+     *
+     * @type {TaskUIService}
+     * @memberof StoryRelatedBase
+     */  
+    public appUIService:TaskUIService = new TaskUIService(this.$store);
+
+    /**
+     * 界面行为模型
+     *
+     * @type {*}
+     * @memberof StoryRelatedBase
+     */  
+    public ActionModel: any = {
+    };
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -65,6 +83,22 @@ export class StoryRelatedGridBase extends GridControllerBase {
      * @memberof StoryRelatedGridBase
      */
     public isEnablePagingBar: boolean = false;
+
+    /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof StoryRelatedGridBase
+     */
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof StoryRelatedGridBase
+     */
+    public minorSortPSDEF: string = 'id';
 
     /**
      * 分页条数
@@ -94,21 +128,24 @@ export class StoryRelatedGridBase extends GridControllerBase {
             label: '编号',
             langtag: 'entities.task.storyrelated_grid.columns.id',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
         {
             name: 'name',
             label: '任务名称',
             langtag: 'entities.task.storyrelated_grid.columns.name',
             show: true,
-            util: 'STAR'
+            util: 'STAR',
+            isEnableRowEdit: false,
         },
         {
             name: 'projectname',
             label: '所属项目',
             langtag: 'entities.task.storyrelated_grid.columns.projectname',
             show: true,
-            util: 'PX'
+            util: 'PX',
+            isEnableRowEdit: false,
         },
     ]
 

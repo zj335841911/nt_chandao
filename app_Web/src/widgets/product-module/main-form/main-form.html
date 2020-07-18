@@ -3,7 +3,8 @@
     <row >
             
 <i-col v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productmodule.main_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productmodule.main_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col v-show="detailsModel.rootname.visible" :style="{}"  :lg="{ span: 16, offset: 0 }" :xl="{ span: 16, offset: 0 }">
     <app-form-item name='rootname' :itemRules="this.rules.rootname" class='' :caption="$t('entities.productmodule.main_form.details.rootname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.rootname.error" :isEmptyCaption="false" labelPos="LEFT">
@@ -23,7 +24,7 @@
   :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchDefault'}"
   valueitem='root' 
   :value="data.rootname" 
-  editortype="dropdown" 
+  editortype="dropdown"
   style="" 
   @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
@@ -33,18 +34,20 @@
 <i-col v-show="detailsModel.branch.visible" :style="{}"  :lg="{ span: 8, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='branch' :itemRules="this.rules.branch" class='' :caption="$t('entities.productmodule.main_form.details.branch')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.branch.error" :isEmptyCaption="false" labelPos="NONE">
     
- <dropdown-list 
-    v-model="data.branch" 
-    :data="data" 
+<dropdown-list 
+    v-model="data.branch"
+    :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.branch.disabled"  
-    tag='ProductBranch_Cache' 
+    :disabled="detailsModel.branch.disabled"
+    valueType="number"
+    tag='ProductBranch_Cache'
     codelistType='DYNAMIC'
-    placeholder='请选择...' style="">
- </dropdown-list>
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
@@ -66,7 +69,7 @@
   :acParams="{ serviceName: 'ProductModuleService', interfaceName: 'FetchDefault'}"
   valueitem='parent' 
   :value="data.parentname" 
-  editortype="dropdown" 
+  editortype="dropdown"
   style="" 
   @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>

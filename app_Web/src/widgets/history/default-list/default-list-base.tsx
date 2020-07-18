@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, ListControllerBase } from '@/studio-core';
 import HistoryService from '@/service/history/history-service';
 import DEFAULTService from './default-list-service';
+import HistoryUIService from '@/uiservice/history/history-ui-service';
 
 
 /**

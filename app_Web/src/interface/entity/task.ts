@@ -381,4 +381,36 @@ export interface Task {
      * @memberof Task
      */
     totaltime?: any;
+
+    /**
+     * 是否子任务
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    isleaf?: any;
+
+    /**
+     * 所有模块
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    allmodules?: any;
+
+    /**
+     * 多人任务
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    multiple?: any;
+
+    /**
+     * 项目团队成员
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    taskteams?: any;
 }

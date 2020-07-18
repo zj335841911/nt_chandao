@@ -119,7 +119,7 @@ export interface User {
     dept?: any;
 
     /**
-     * commiter
+     * 源代码账户
      *
      * @returns {*}
      * @memberof User

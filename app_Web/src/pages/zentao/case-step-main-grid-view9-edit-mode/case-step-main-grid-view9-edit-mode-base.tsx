@@ -1,8 +1,10 @@
 
 import { Subject } from 'rxjs';
 import { GridView9Base } from '@/studio-core';
-import CaseStepService from '@/service/case-step/case-step-service';
+import IBZCaseStepService from '@/service/ibzcase-step/ibzcase-step-service';
+import IBZCaseStepAuthService from '@/authservice/ibzcase-step/ibzcase-step-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
+import IBZCaseStepUIService from '@/uiservice/ibzcase-step/ibzcase-step-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -14,7 +16,6 @@ import CodeListService from "@service/app/codelist-service";
  * @extends {GridView9Base}
  */
 export class CaseStepMainGridView9_EditModeBase extends GridView9Base {
-
     /**
      * 视图对应应用实体名称
      *
@@ -22,15 +23,41 @@ export class CaseStepMainGridView9_EditModeBase extends GridView9Base {
      * @type {string}
      * @memberof CaseStepMainGridView9_EditModeBase
      */
-    protected appDeName: string = 'casestep';
+    protected appDeName: string = 'ibzcasestep';
+
+    /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseStepMainGridView9_EditModeBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseStepMainGridView9_EditModeBase
+     */
+    protected appDeMajor: string = 'expect';
 
     /**
      * 实体服务对象
      *
-     * @type {CaseStepService}
+     * @type {IBZCaseStepService}
      * @memberof CaseStepMainGridView9_EditModeBase
      */
-    protected appEntityService: CaseStepService = new CaseStepService;
+    protected appEntityService: IBZCaseStepService = new IBZCaseStepService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type IBZCaseStepUIService
+     * @memberof CaseStepMainGridView9_EditModeBase
+     */
+    public appUIService: IBZCaseStepUIService = new IBZCaseStepUIService(this.$store);
 
 
     /**
@@ -50,9 +77,9 @@ export class CaseStepMainGridView9_EditModeBase extends GridView9Base {
      * @memberof CaseStepMainGridView9_EditModeBase
      */
     protected model: any = {
-        srfCaption: 'entities.casestep.views.maingridview9_editmode.caption',
-        srfTitle: 'entities.casestep.views.maingridview9_editmode.title',
-        srfSubTitle: 'entities.casestep.views.maingridview9_editmode.subtitle',
+        srfCaption: 'entities.ibzcasestep.views.maingridview9_editmode.caption',
+        srfTitle: 'entities.ibzcasestep.views.maingridview9_editmode.title',
+        srfSubTitle: 'entities.ibzcasestep.views.maingridview9_editmode.subtitle',
         dataInfo: ''
     }
 
@@ -75,7 +102,7 @@ export class CaseStepMainGridView9_EditModeBase extends GridView9Base {
      * @memberof CaseStepMainGridView9_EditMode
      */
     public toolBarModels: any = {
-        deuiaction2: { name: 'deuiaction2', caption: '新建行','isShowCaption':true,'isShowIcon':true, tooltip: '新建行', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'NewRow', target: '' }, class: '' },
+        deuiaction2: { name: 'deuiaction2', caption: '新建行', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建行', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'NewRow', target: '', class: '' } },
 
     };
 
@@ -116,7 +143,7 @@ export class CaseStepMainGridView9_EditModeBase extends GridView9Base {
                 this.newdata(args,fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
-            keyPSDEField: 'casestep',
+            keyPSDEField: 'ibzcasestep',
             majorPSDEField: 'expect',
             isLoadDefault: true,
         });
@@ -215,7 +242,7 @@ export class CaseStepMainGridView9_EditModeBase extends GridView9Base {
           datas = [params];
         }
         // 界面行为
-        this.NewRow(datas, contextJO,paramJO,  $event, xData,this,"CaseStep");
+        this.NewRow(datas, contextJO,paramJO,  $event, xData,this,"IBZCaseStep");
     }
 
     /**
@@ -246,8 +273,6 @@ export class CaseStepMainGridView9_EditModeBase extends GridView9Base {
      * @memberof CaseStepMainGridView9_EditMode
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
     this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
     }
 
@@ -266,7 +291,7 @@ export class CaseStepMainGridView9_EditModeBase extends GridView9Base {
     public NewRow(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         const _this: any = this;
         const data: any = {};
-        if (_this.newRow && _this.newRow instanceof Function) {
+        if (_this.hasOwnProperty('newRow') && _this.newRow instanceof Function) {
             _this.newRow([{ ...data }], params, $event, xData);
         } else if(xData.newRow && xData.newRow instanceof Function) {
             xData.newRow([{ ...data }], params, $event, xData);

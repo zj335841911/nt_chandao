@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
 import ProductModuleService from '@/service/product-module/product-module-service';
 import CaseExpService from './case-exp-treeview-service';
+import ProductModuleUIService from '@/uiservice/product-module/product-module-ui-service';
 
 
 /**
@@ -47,11 +48,12 @@ export class CaseExpTreeBase extends MainControlBase {
      * @memberof CaseExpTreeBase
      */
     protected appDeName: string = 'productmodule';
+
     /**
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     public getDatas(): any[] {
         return [this.currentselectedNode];
@@ -61,7 +63,7 @@ export class CaseExpTreeBase extends MainControlBase {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     public getData(): any {
         return this.currentselectedNode;
@@ -71,7 +73,7 @@ export class CaseExpTreeBase extends MainControlBase {
      * 是否单选
      *
      * @type {boolean}
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     @Prop({ default: true }) public isSingleSelect!: boolean;
 
@@ -79,7 +81,7 @@ export class CaseExpTreeBase extends MainControlBase {
      * 是否默认选中第一条数据
      *
      * @type {boolean}
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     @Prop({ default: false }) public isSelectFirstDefault!: boolean;
 
@@ -87,7 +89,7 @@ export class CaseExpTreeBase extends MainControlBase {
      * 枝干节点是否可用（具有数据能力，可抛出）
      *
      * @type {string}
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     @Prop({default:true}) public isBranchAvailable!: boolean;
 
@@ -95,7 +97,7 @@ export class CaseExpTreeBase extends MainControlBase {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     @Prop({ default: true }) public showBusyIndicator?: boolean;
 
@@ -103,7 +105,7 @@ export class CaseExpTreeBase extends MainControlBase {
      * 初始化完成
      *
      * @type {boolean}
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     public inited: boolean = false;
 
@@ -111,7 +113,7 @@ export class CaseExpTreeBase extends MainControlBase {
      * 已选中数据集合
      *
      * @type {*}
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     public selectedNodes: any = [];
 
@@ -119,7 +121,7 @@ export class CaseExpTreeBase extends MainControlBase {
      * 当前选中数据项
      *
      * @type {*}
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     public currentselectedNode: any = {};
 
@@ -127,7 +129,7 @@ export class CaseExpTreeBase extends MainControlBase {
      * 选中数据字符串
      *
      * @type {string}
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     @Prop() public selectedData?: string;
 
@@ -136,7 +138,7 @@ export class CaseExpTreeBase extends MainControlBase {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     @Watch('selectedData')
     public onValueChange(newVal: any, oldVal: any) {
@@ -158,7 +160,7 @@ export class CaseExpTreeBase extends MainControlBase {
      * 回显选中数据集合
      *
      * @type {*}
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     public echoselectedNodes:any[] = this.selectedData ? ( this.isSingleSelect ? [JSON.parse(this.selectedData)[0]] : JSON.parse(this.selectedData)) : [];
 
@@ -166,7 +168,7 @@ export class CaseExpTreeBase extends MainControlBase {
      * 部件行为--update
      *
      * @type {string}
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     @Prop() public updateAction!: string;
 
@@ -174,7 +176,7 @@ export class CaseExpTreeBase extends MainControlBase {
      * 部件行为--fetch
      *
      * @type {string}
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     @Prop() public fetchAction!: string;
 
@@ -182,7 +184,7 @@ export class CaseExpTreeBase extends MainControlBase {
      * 部件行为--remove
      *
      * @type {string}
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     @Prop() public removeAction!: string;
 
@@ -190,7 +192,7 @@ export class CaseExpTreeBase extends MainControlBase {
      * 部件行为--load
      *
      * @type {string}
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     @Prop() public loadAction!: string;
 
@@ -198,7 +200,7 @@ export class CaseExpTreeBase extends MainControlBase {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     @Prop() public createAction!: string;
 
@@ -206,7 +208,7 @@ export class CaseExpTreeBase extends MainControlBase {
      * 过滤属性
      *
      * @type {string}
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     public srfnodefilter: string = '';
 
@@ -214,7 +216,7 @@ export class CaseExpTreeBase extends MainControlBase {
      * 默认输出图标
      *
      * @type {boolean}
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     public isOutputIconDefault: boolean = false;
 
@@ -223,7 +225,7 @@ export class CaseExpTreeBase extends MainControlBase {
      * 数据展开主键
      *
      * @type {string[]}
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     @Provide()
     public expandedKeys: string[] = [];
@@ -235,7 +237,7 @@ export class CaseExpTreeBase extends MainControlBase {
      * @param {*} data
      * @param {*} data 当前节点对应传入对象
      * @param {*} checkedState 树目前选中状态对象
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     public onCheck(data: any, checkedState: any) {
         // 处理多选数据
@@ -252,7 +254,7 @@ export class CaseExpTreeBase extends MainControlBase {
      * @public
      * @param {*} data 节点对应传入对象
      * @param {*} node 节点对应node对象
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     public selectionChange(data: any, node: any) {
         // 禁用项处理
@@ -275,7 +277,7 @@ export class CaseExpTreeBase extends MainControlBase {
     /**
      * Vue声明周期(处理组件的输入属性)
      *
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     public created() {
         this.afterCreated();
@@ -284,7 +286,7 @@ export class CaseExpTreeBase extends MainControlBase {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof CaseExp
+     *  @memberof CaseExpBase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -322,7 +324,7 @@ export class CaseExpTreeBase extends MainControlBase {
     /**
      * vue 生命周期
      *
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -331,7 +333,7 @@ export class CaseExpTreeBase extends MainControlBase {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -342,7 +344,7 @@ export class CaseExpTreeBase extends MainControlBase {
     /**
      * 刷新数据
      *
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     public refresh_all(): void {
         this.inited = false;
@@ -354,7 +356,7 @@ export class CaseExpTreeBase extends MainControlBase {
     /**
      * 刷新父节点
      *
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     public refresh_parent(): void {
         if (Object.keys(this.currentselectedNode).length === 0) {
@@ -383,7 +385,7 @@ export class CaseExpTreeBase extends MainControlBase {
      * 数据加载
      *
      * @param {*} node
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     public load(node: any = {}, resolve?: any) {
         if (node.data && node.data.children) {
@@ -409,7 +411,7 @@ export class CaseExpTreeBase extends MainControlBase {
         Object.assign(params,{viewparams:tempViewParams});
         this.service.getNodes(tempContext,params).then((response: any) => {
             if (!response || response.status !== 200) {
-                this.$Notice.error({ title: "错误", desc: response.info });
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.info });
                 resolve([]);
                 return;
             }
@@ -425,7 +427,7 @@ export class CaseExpTreeBase extends MainControlBase {
             if (response && response.status === 401) {
                 return;
             }
-            this.$Notice.error({ title: "错误", desc: response.info });
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.info });
         });
     }
 
@@ -433,7 +435,7 @@ export class CaseExpTreeBase extends MainControlBase {
      * 计算当前节点的上下文
      *
      * @param {*} curNode 当前节点
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     public computecurNodeContext(curNode:any){
         let tempContext:any = {};
@@ -449,7 +451,7 @@ export class CaseExpTreeBase extends MainControlBase {
      * 刷新功能
      *
      * @param {any[]} args
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     public refresh(args: any[]): void {
         this.refresh_all();
@@ -462,7 +464,7 @@ export class CaseExpTreeBase extends MainControlBase {
      * @param {*} [curContext] 当前节点上下文
      * @param {*} [arg={}] 当前节点附加参数
      * @param {boolean} parentnode 是否是刷新父节点
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     public refresh_node(curContext:any,arg: any = {}, parentnode: boolean): void {
         const { srfnodeid: id } = arg;
@@ -470,7 +472,7 @@ export class CaseExpTreeBase extends MainControlBase {
         const get: Promise<any> = this.service.getNodes(JSON.parse(JSON.stringify(this.context)),arg);
         get.then((response: any) => {
             if (!response || response.status !== 200) {
-                this.$Notice.error({ title: '错误', desc: response.info });
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.info });
                 return;
             }
             const _items = [...response.data];
@@ -485,7 +487,7 @@ export class CaseExpTreeBase extends MainControlBase {
             if (response && response.status === 401) {
                 return;
             }
-            this.$Notice.error({ title: '错误', desc: response.info });
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.info });
         });
     }
 
@@ -495,7 +497,7 @@ export class CaseExpTreeBase extends MainControlBase {
      * @public
      * @param {any[]} items
      * @returns {any[]}
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     public formatExpanded(items: any[]): any[] {
         const data: any[] = [];
@@ -513,7 +515,7 @@ export class CaseExpTreeBase extends MainControlBase {
      * @param {any[]} items 当前节点所有子节点集合
      * @param {boolean} isRoot 是否是加载根节点
      * @param {boolean} isSelectedAll 是否选中所有子节点
-     * @memberof MainTree
+     * @memberof CaseExpBase
      */
     public setDefaultSelection(items: any[], isRoot: boolean = false, isSelectedAll: boolean = false): void {
         if(items.length == 0){
@@ -579,7 +581,7 @@ export class CaseExpTreeBase extends MainControlBase {
      *
      * @param {*} node
      * @returns
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     public renderContextMenu(node: any) {
         let content;
@@ -595,7 +597,7 @@ export class CaseExpTreeBase extends MainControlBase {
      * 设置选中高亮
      *
      * @param {*} data
-     * @memberof CaseExp
+     * @memberof CaseExpBase
      */
     public setTreeNodeHighLight(data: any): void {
         const tree: any = this.$refs.treeexpbar_tree;
@@ -606,7 +608,7 @@ export class CaseExpTreeBase extends MainControlBase {
      * 执行默认界面行为
      *
      * @param {*} node
-     * @memberof AppView
+     * @memberof CaseExpBase
      */
     public doDefaultAction(node: any) {
         if (node && node.data) {

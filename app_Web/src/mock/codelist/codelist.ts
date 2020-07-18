@@ -554,6 +554,41 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "UserRealNameTask",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"User",
+        "appdedataset":"FetchProjectTeamUser_Task",
+        "items": []
+    },
+    {
+        srfkey: "YesNo",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "1",
+                label: "是",
+                text: "是",
+                "data":"",
+                "codename":"Item_1",
+                value: "1",
+                
+                disabled: false,
+            },
+            {
+                id: "0",
+                label: "否",
+                text: "否",
+                "data":"",
+                "codename":"Item_0",
+                value: "0",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Bug__os",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -1360,7 +1395,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"Module",
-        "appdedataset":"FetchDefault",
+        "appdedataset":"FetchStoryModule",
         "items": []
     },
     {
@@ -1687,12 +1722,116 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "Team__type",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "project",
+                label: "项目团队",
+                text: "项目团队",
+                "data":"",
+                "codename":"Project",
+                value: "project",
+                
+                disabled: false,
+            },
+            {
+                id: "task",
+                label: "任务团队",
+                text: "任务团队",
+                "data":"",
+                "codename":"Task",
+                value: "task",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         "srfkey": "Product",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"Product",
         "appdedataset":"FetchDefault",
         "items": []
+    },
+    {
+        srfkey: "Zt__delta",
+        emptytext: "按时间段",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "7",
+                label: "一星期",
+                text: "一星期",
+                "data":"",
+                "codename":"Item_7",
+                value: "7",
+                
+                disabled: false,
+            },
+            {
+                id: "14",
+                label: "两星期",
+                text: "两星期",
+                "data":"",
+                "codename":"Item_14",
+                value: "14",
+                
+                disabled: false,
+            },
+            {
+                id: "31",
+                label: "一个月",
+                text: "一个月",
+                "data":"",
+                "codename":"Item_31",
+                value: "31",
+                
+                disabled: false,
+            },
+            {
+                id: "62",
+                label: "两个月",
+                text: "两个月",
+                "data":"",
+                "codename":"Item_62",
+                value: "62",
+                
+                disabled: false,
+            },
+            {
+                id: "93",
+                label: "三个月",
+                text: "三个月",
+                "data":"",
+                "codename":"Item_93",
+                value: "93",
+                
+                disabled: false,
+            },
+            {
+                id: "186",
+                label: "半年",
+                text: "半年",
+                "data":"",
+                "codename":"Item_186",
+                value: "186",
+                
+                disabled: false,
+            },
+            {
+                id: "365",
+                label: "一年",
+                text: "一年",
+                "data":"",
+                "codename":"Item_365",
+                value: "365",
+                
+                disabled: false,
+            },
+        ]
     },
     {
         srfkey: "Action__type",
@@ -2422,6 +2561,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "CurCaseVersion",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"CaseStep",
+        "appdedataset":"FetchVersion",
+        "items": []
+    },
+    {
         srfkey: "User__gender",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -2827,7 +2974,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "WAITCLOSED",
                 label: "待关闭",
                 text: "待关闭",
-                "data":{"n_status_eq":"closed"},
+                "data":{"n_status_eq":"resolved"},
                 "codename":"Waitclosed",
                 value: "WAITCLOSED",
                 
@@ -2837,7 +2984,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "UNRESOLVED",
                 label: "未解决",
                 text: "未解决",
-                "data":{"n_status_eq":"resolved"},
+                "data":{"n_status_eq":"active"},
                 "codename":"Unresolved",
                 value: "UNRESOLVED",
                 
@@ -2911,6 +3058,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 disabled: false,
             },
         ]
+    },
+    {
+        "srfkey": "UserRealNameProject",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"User",
+        "appdedataset":"FetchProjectTeamUser",
+        "items": []
     },
     {
         srfkey: "Testcase__type",

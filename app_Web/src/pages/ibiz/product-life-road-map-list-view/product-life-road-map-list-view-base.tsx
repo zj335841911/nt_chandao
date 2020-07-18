@@ -2,7 +2,9 @@
 import { Subject } from 'rxjs';
 import { ListViewBase } from '@/studio-core';
 import ProductLifeService from '@/service/product-life/product-life-service';
+import ProductLifeAuthService from '@/authservice/product-life/product-life-auth-service';
 import ListViewEngine from '@engine/view/list-view-engine';
+import ProductLifeUIService from '@/uiservice/product-life/product-life-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -14,7 +16,6 @@ import CodeListService from "@service/app/codelist-service";
  * @extends {ListViewBase}
  */
 export class ProductLifeRoadMapListViewBase extends ListViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -25,12 +26,38 @@ export class ProductLifeRoadMapListViewBase extends ListViewBase {
     protected appDeName: string = 'productlife';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductLifeRoadMapListViewBase
+     */
+    protected appDeKey: string = 'ibz_productlifeid';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductLifeRoadMapListViewBase
+     */
+    protected appDeMajor: string = 'ibz_productlifename';
+
+    /**
      * 实体服务对象
      *
      * @type {ProductLifeService}
      * @memberof ProductLifeRoadMapListViewBase
      */
     protected appEntityService: ProductLifeService = new ProductLifeService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProductLifeUIService
+     * @memberof ProductLifeRoadMapListViewBase
+     */
+    public appUIService: ProductLifeUIService = new ProductLifeUIService(this.$store);
 
 
     /**
@@ -204,8 +231,6 @@ export class ProductLifeRoadMapListViewBase extends ListViewBase {
      * @memberof ProductLifeRoadMapListView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
     this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
     }
 

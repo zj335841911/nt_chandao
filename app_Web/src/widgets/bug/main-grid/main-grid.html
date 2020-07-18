@@ -64,7 +64,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('title')">
-                <el-table-column show-overflow-tooltip :prop="'title'" :label="$t('entities.bug.main_grid.columns.title')" :width="150"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'title'" :label="$t('entities.bug.main_grid.columns.title')" :min-width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.bug.main_grid.columns.title')}}
@@ -192,6 +192,18 @@
                             <div slot='content'>{{$t('entities.bug.main_grid.uiactions.bug_mainedit')}}</div>
                             </tooltip>
                         </div>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('lastediteddate')">
+                <el-table-column show-overflow-tooltip :prop="'lastediteddate'" :label="$t('entities.bug.main_grid.columns.lastediteddate')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.bug.main_grid.columns.lastediteddate')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <app-format-data format="YYYY-MM-DD hh:mm:ss" :data="row.lastediteddate"></app-format-data>
                     </template>
                 </el-table-column>
             </template>

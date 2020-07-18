@@ -11,6 +11,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'f78c94cb0a20d7f459753a4070f8f3e7',
+                'a4c56767e9b34cd619d79b676fa2ccd9',
                 'a3bd82ec712d2e3ad12e716655e960fc',
                 '63b82c8ee288130faca83833ec1f837c',
                 '48600bd551aa923b5fceabcb83f65239',
@@ -128,7 +129,14 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '542c854d7aaafdecc9235e9f285d289a',
+                'e67fe0ec86d17b74944c16e187da482d',
                 '6558930042f15c2297572f51d7e77df5',
+                '7c6956b0c4bcc773697adb506d3ce5e9',
+                '5890a810365fec51e801d2cffce44fde',
+                'c1e9611b6972b1877b75fa5d2c67aad6',
+                '37166f95166299e28f1a366b0b375d06',
+                'e897cf80a700c92025004c4696d9ae10',
                 '122af527bf38b47ddc53c882847b490e',
                 '443935a0b9d0fa8daf3131956a8bacc9',
                 'ec9a5987de12c718961f243f4034efea',
@@ -220,6 +228,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'aac141e4259ff75a6bca1542777b9a01',
                 '770a170098d148e438a7666b248e6519',
             ],
         },
@@ -280,6 +289,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '97f38c5fa6f63f69e18299306eae9077',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 'fd0b8748ff96edcde009d39903a9f211',
             ],
@@ -305,6 +315,16 @@ export const viewstate: any = {
                 '6f78b25e86923ab600a2141d50fe49fd',
                 '5890a810365fec51e801d2cffce44fde',
                 '66769499a681f12bd2ebff8859f1d4ea',
+            ],
+        },
+        {
+            viewtag: '37166f95166299e28f1a366b0b375d06',
+            viewmodule: 'zentao',
+            viewname: 'BugActivationView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
             ],
         },
         {
@@ -347,9 +367,12 @@ export const viewstate: any = {
                 '94e0ee1a97736ff4d28b88a46cd395b7',
                 '538555af88ea31549a5bc7dbf1e6286a',
                 '1f87f07919b8496e5bf832f95686fada',
+                '90d6a9dc6032a7a7e19fee6ac22fccc0',
                 '61f32b2b422e8f1a9825e1f704464a8c',
+                'e0fbca7627cdd68765e173028b07f687',
                 'e54598b1e6d38d7c6ce8231b531b46bd',
                 '770a170098d148e438a7666b248e6519',
+                'e6797f4a1585954f5bb2f682880fa9d6',
             ],
         },
         {
@@ -409,7 +432,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '5a8a29268a7563b62fc0160233958830',
+                '846ddf8e555650608d4f75c4595c1270',
                 '7df0f0deee91304e0350f00baa8a92d6',
             ],
         },
@@ -550,6 +573,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '542c854d7aaafdecc9235e9f285d289a',
+            viewmodule: 'zentao',
+            viewname: 'StorytoStoryEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '54a5f5fa5f8def88d2aec9c7ee6d85fe',
             viewmodule: 'zentao',
             viewname: 'StoryPlanSubEditView',
@@ -595,6 +627,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '321ab2e4e87a29fef8eed086e951a006',
+                '843526ee13bf0af6fe937470853bf36b',
                 '21e00a7239d9737bbfda5c1608b4129c',
                 'a97ff9ae4f22d5974b51af2c0fae1aa2',
                 'c9c256aef78723e1bf9ddc1d38667c3f',
@@ -796,7 +829,12 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '575fecad655143bbd28f17c581725a4e',
+                'c9c256aef78723e1bf9ddc1d38667c3f',
+                'a97ff9ae4f22d5974b51af2c0fae1aa2',
+                'b03bf2445d2e295fccbb6280b2601248',
+                'abca63015fc84466991c6479f955f6d0',
                 'ea141fddc78fd1af4d06e494baf12cc1',
+                '507c506d62dc910a814332e6ae242266',
             ],
         },
         {
@@ -874,6 +912,7 @@ export const viewstate: any = {
                 '538555af88ea31549a5bc7dbf1e6286a',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 '4863a523ac490ebce771717756f0c6a8',
+                'e0fbca7627cdd68765e173028b07f687',
                 'e54598b1e6d38d7c6ce8231b531b46bd',
             ],
         },
@@ -943,17 +982,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '7f9b2e4d5b622528df75121b824b6fcc',
-            viewmodule: 'zentao',
-            viewname: 'CaseGridView9',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '6f78b25e86923ab600a2141d50fe49fd',
-                '02b7ecd8e994b90558a9d6c23705f600',
-            ],
-        },
-        {
             viewtag: '8104f8c4c275f6ba17fb969edf52eb37',
             viewmodule: 'zentao',
             viewname: 'BuildMainGridView',
@@ -961,7 +989,8 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'e9d61d4506a28dec9a6f1d7b9e1fff6a',
-                'fffe78c32fb25b287d0c5165d46f8dd2',
+                '09b6c2af7dcc4b719d4c8aad2319f1c5',
+                'a74d54220e97fb172fdb2117118f665d',
             ],
         },
         {
@@ -987,6 +1016,16 @@ export const viewstate: any = {
                 'aad9a5713d6828d3119b811b26915215',
                 '08ca1b1e6234a0d038e1fbf52478ea7f',
                 '21d716ac12c793af54b112a5a3599674',
+            ],
+        },
+        {
+            viewtag: '843526ee13bf0af6fe937470853bf36b',
+            viewmodule: 'zentao',
+            viewname: 'TaskActivationTaskView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
             ],
         },
         {
@@ -1087,6 +1126,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '90d6a9dc6032a7a7e19fee6ac22fccc0',
+            viewmodule: 'zentao',
+            viewname: 'StoryAssignToView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
             viewtag: '928e6614bcfbd67af3b596cf5dc5a46b',
             viewmodule: 'zentao',
             viewname: 'StoryReleaseSubEditView',
@@ -1116,6 +1165,7 @@ export const viewstate: any = {
                 'df5a966e312ca9c5f5a41428bc2e2672',
                 '538555af88ea31549a5bc7dbf1e6286a',
                 '4863a523ac490ebce771717756f0c6a8',
+                'e0fbca7627cdd68765e173028b07f687',
                 'e54598b1e6d38d7c6ce8231b531b46bd',
             ],
         },
@@ -1131,6 +1181,7 @@ export const viewstate: any = {
                 '538555af88ea31549a5bc7dbf1e6286a',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 '4863a523ac490ebce771717756f0c6a8',
+                'e0fbca7627cdd68765e173028b07f687',
                 'e54598b1e6d38d7c6ce8231b531b46bd',
             ],
         },
@@ -1142,6 +1193,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'f8b69912b3ca27b5d083c8fb1971c84a',
+            ],
+        },
+        {
+            viewtag: '971a6faeda9b1b090521472c06eba003',
+            viewmodule: 'zentao',
+            viewname: 'StoryPickupGridView2',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -1231,6 +1291,7 @@ export const viewstate: any = {
                 '538555af88ea31549a5bc7dbf1e6286a',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 '4863a523ac490ebce771717756f0c6a8',
+                'e0fbca7627cdd68765e173028b07f687',
                 'e54598b1e6d38d7c6ce8231b531b46bd',
             ],
         },
@@ -1283,6 +1344,16 @@ export const viewstate: any = {
             refviews: [
                 '6c7b582273d0726bcf77214807cfe40c',
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: 'a74d54220e97fb172fdb2117118f665d',
+            viewmodule: 'zentao',
+            viewname: 'StoryMPickupView2',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '971a6faeda9b1b090521472c06eba003',
             ],
         },
         {
@@ -1342,7 +1413,7 @@ export const viewstate: any = {
         {
             viewtag: 'ac21af5f9696e38031a7c2291ed02d64',
             viewmodule: 'zentao',
-            viewname: 'IBZ_PROJECTTEAMMainGridView_EditRow',
+            viewname: 'ProjectTeamMainGridView_EditRow',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -1485,6 +1556,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'c5b7fb7289325c348ca867eb86185986',
+            viewmodule: 'zentao',
+            viewname: 'CaseGridView9_MeCretae',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '6f78b25e86923ab600a2141d50fe49fd',
+                '02b7ecd8e994b90558a9d6c23705f600',
+            ],
+        },
+        {
             viewtag: 'c9410c9f72535adf1fff569d5243edd1',
             viewmodule: 'zentao',
             viewname: 'BugGridView',
@@ -1605,6 +1687,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'e0fbca7627cdd68765e173028b07f687',
+            viewmodule: 'zentao',
+            viewname: 'StoryCloseView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
             viewtag: 'e396b6f39451e3bf963aec602106adf0',
             viewmodule: 'zentao',
             viewname: 'ProductListExpView',
@@ -1618,6 +1710,16 @@ export const viewstate: any = {
             viewtag: 'e54598b1e6d38d7c6ce8231b531b46bd',
             viewmodule: 'zentao',
             viewname: 'StoryEditView_StoryChange',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: 'e6797f4a1585954f5bb2f682880fa9d6',
+            viewmodule: 'zentao',
+            viewname: 'StoryActiviteView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -1644,6 +1746,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'e897cf80a700c92025004c4696d9ae10',
+            viewmodule: 'zentao',
+            viewname: 'BugAssingToView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
             viewtag: 'e9d61d4506a28dec9a6f1d7b9e1fff6a',
             viewmodule: 'zentao',
             viewname: 'BuildEditView',
@@ -1660,6 +1772,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '4970832ed515bc37ec3c7c61b55d444b',
             ],
         },
         {
@@ -1721,6 +1834,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '9ed41cee96088630f3d4b0a91e705930',
                 '2e0d4fb0f3e1ba1ba5bea16a5553cc21',
             ],
         },
@@ -1838,6 +1952,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '01384caaa1bc452610f056415c86aaf4',
+            viewmodule: 'ibiz',
+            viewname: 'ProductModuleGridViewBranch',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '0568d197dda832ceb89ad0442ab9f230',
             viewmodule: 'ibiz',
             viewname: 'ProjectModuleQuickCfgView',
@@ -1875,6 +1998,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '4970832ed515bc37ec3c7c61b55d444b',
+            viewmodule: 'ibiz',
+            viewname: 'TaskTeamGridView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '5d468f620cc30181773d875b3bb8be6e',
             viewmodule: 'ibiz',
             viewname: 'ProductStatsEditView9',
@@ -1889,6 +2021,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '65129e5f76f96cbb1d2d1c9e9bb2afed',
+            viewmodule: 'ibiz',
+            viewname: 'TestModuleGridViewBranch',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '84104216ff9049079f9442c9cbd54342',
             viewmodule: 'ibiz',
             viewname: 'ProductModuleTreeExpView',
@@ -1897,6 +2038,25 @@ export const viewstate: any = {
             refviews: [
                 'a9be826f6c53b091270f492be52f2519',
                 '523abe6eb852ca08fe4a3c140ff47b42',
+                '01384caaa1bc452610f056415c86aaf4',
+            ],
+        },
+        {
+            viewtag: '9396442ba87e188748229e6bc6927156',
+            viewmodule: 'ibiz',
+            viewname: 'TestModuleGridViewMain',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: '97f38c5fa6f63f69e18299306eae9077',
+            viewmodule: 'ibiz',
+            viewname: 'TaskTeamGridView9_Look',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -1909,9 +2069,30 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'a4c56767e9b34cd619d79b676fa2ccd9',
+            viewmodule: 'ibiz',
+            viewname: 'TestModuleTreeExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'd337f5c3c125dc2641321f2d93b65476',
+                '65129e5f76f96cbb1d2d1c9e9bb2afed',
+                '9396442ba87e188748229e6bc6927156',
+            ],
+        },
+        {
             viewtag: 'a9be826f6c53b091270f492be52f2519',
             viewmodule: 'ibiz',
             viewname: 'ProductModuleQuickCfgView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: 'aac141e4259ff75a6bca1542777b9a01',
+            viewmodule: 'ibiz',
+            viewname: 'TaskTeamGridView9_Edit',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -1930,6 +2111,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'd337f5c3c125dc2641321f2d93b65476',
+            viewmodule: 'ibiz',
+            viewname: 'TestModuleQuickCfgView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'e444135470a806822b9b950e15c42a3e',
             viewmodule: 'ibiz',
             viewname: 'ProjectStatsEditView9',
@@ -1945,10 +2135,10 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '7f9b2e4d5b622528df75121b824b6fcc',
                 '3091670967914b91fb4b6f46751dcd7e',
                 '81893d14e76cac341d4218a9c5ef185d',
                 'c539f1585371e9943b90177eaef08b6b',
+                'c5b7fb7289325c348ca867eb86185986',
             ],
         },
     ],

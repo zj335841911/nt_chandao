@@ -56,6 +56,9 @@ export default class SidebarModel {
 				dataType: 'PICKUP',
 			},
 			{
+				name: 'srfmstag',
+			},
+			{
 				name: 'project',
 				prop: 'id',
 				dataType: 'FONTKEY',

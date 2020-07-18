@@ -42,12 +42,15 @@ export class EntityServiceRegister {
                 this.allEntityService.set('productplan', () => import('@/service/product-plan/product-plan-service'));
         this.allEntityService.set('projectproduct', () => import('@/service/project-product/project-product-service'));
         this.allEntityService.set('case', () => import('@/service/case/case-service'));
+        this.allEntityService.set('ibztaskteam', () => import('@/service/ibztask-team/ibztask-team-service'));
         this.allEntityService.set('product', () => import('@/service/product/product-service'));
+        this.allEntityService.set('taskteam', () => import('@/service/task-team/task-team-service'));
         this.allEntityService.set('file', () => import('@/service/file/file-service'));
         this.allEntityService.set('suitecase', () => import('@/service/suite-case/suite-case-service'));
         this.allEntityService.set('burn', () => import('@/service/burn/burn-service'));
         this.allEntityService.set('subproductplan', () => import('@/service/sub-product-plan/sub-product-plan-service'));
         this.allEntityService.set('storyspec', () => import('@/service/story-spec/story-spec-service'));
+        this.allEntityService.set('usertpl', () => import('@/service/user-tpl/user-tpl-service'));
         this.allEntityService.set('branch', () => import('@/service/branch/branch-service'));
         this.allEntityService.set('productstats', () => import('@/service/product-stats/product-stats-service'));
         this.allEntityService.set('action', () => import('@/service/action/action-service'));
@@ -55,6 +58,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('casestep', () => import('@/service/case-step/case-step-service'));
         this.allEntityService.set('dept', () => import('@/service/dept/dept-service'));
         this.allEntityService.set('company', () => import('@/service/company/company-service'));
+        this.allEntityService.set('ibzcasestep', () => import('@/service/ibzcase-step/ibzcase-step-service'));
         this.allEntityService.set('story', () => import('@/service/story/story-service'));
         this.allEntityService.set('subtask', () => import('@/service/sub-task/sub-task-service'));
         this.allEntityService.set('project', () => import('@/service/project/project-service'));
@@ -62,6 +66,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('user', () => import('@/service/user/user-service'));
         this.allEntityService.set('productmodule', () => import('@/service/product-module/product-module-service'));
         this.allEntityService.set('module', () => import('@/service/module/module-service'));
+        this.allEntityService.set('testmodule', () => import('@/service/test-module/test-module-service'));
         this.allEntityService.set('productlife', () => import('@/service/product-life/product-life-service'));
         this.allEntityService.set('task', () => import('@/service/task/task-service'));
         this.allEntityService.set('build', () => import('@/service/build/build-service'));

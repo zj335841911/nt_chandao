@@ -123,7 +123,7 @@ public class TestTaskResource {
     @Transactional
     public ResponseEntity<TestTaskDTO> activate(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
-        domain.setId(testtask_id);
+domain.setId(testtask_id);
         domain = testtaskService.activate(domain);
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
@@ -135,7 +135,7 @@ public class TestTaskResource {
     @Transactional
     public ResponseEntity<TestTaskDTO> block(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
-        domain.setId(testtask_id);
+domain.setId(testtask_id);
         domain = testtaskService.block(domain);
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
@@ -153,7 +153,7 @@ public class TestTaskResource {
     @Transactional
     public ResponseEntity<TestTaskDTO> close(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
-        domain.setId(testtask_id);
+domain.setId(testtask_id);
         domain = testtaskService.close(domain);
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
@@ -180,7 +180,7 @@ public class TestTaskResource {
     @Transactional
     public ResponseEntity<TestTaskDTO> start(@PathVariable("testtask_id") BigInteger testtask_id, @RequestBody TestTaskDTO testtaskdto) {
         TestTask domain = testtaskMapping.toDomain(testtaskdto);
-        domain.setId(testtask_id);
+domain.setId(testtask_id);
         domain = testtaskService.start(domain);
         testtaskdto = testtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);

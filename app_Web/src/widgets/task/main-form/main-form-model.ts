@@ -76,7 +76,9 @@ export default class MainModel {
         dataType: 'PICKUPTEXT',
       },
       {
-        name: 'formitem',
+        name: 'allmodules',
+        prop: 'allmodules',
+        dataType: 'TEXT',
       },
       {
         name: 'assignedto',
@@ -84,7 +86,9 @@ export default class MainModel {
         dataType: 'TEXT',
       },
       {
-        name: 'formitem1',
+        name: 'multiple',
+        prop: 'multiple',
+        dataType: 'INT',
       },
       {
         name: 'story',

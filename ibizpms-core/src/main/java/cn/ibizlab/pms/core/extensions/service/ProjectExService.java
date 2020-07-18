@@ -62,6 +62,16 @@ public class ProjectExService extends ProjectServiceImpl {
         return super.linkStory(et);
     }
     /**
+     * 自定义行为[ManageMembers]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Project manageMembers(Project et) {
+        return super.manageMembers(et);
+    }
+    /**
      * 自定义行为[Putoff]用户扩展
      * @param et
      * @return
@@ -90,6 +100,16 @@ public class ProjectExService extends ProjectServiceImpl {
     @Transactional
     public Project suspend(Project et) {
         return super.suspend(et);
+    }
+    /**
+     * 自定义行为[UnlinkMember]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Project unlinkMember(Project et) {
+        return super.unlinkMember(et);
     }
     /**
      * 自定义行为[UnlinkStory]用户扩展

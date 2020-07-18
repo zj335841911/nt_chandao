@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import ProjectExpViewService from './project-exp-view-portlet-service';
+import ProjectUIService from '@/uiservice/project/project-ui-service';
 import { Environment } from '@/environments/environment';
 
 

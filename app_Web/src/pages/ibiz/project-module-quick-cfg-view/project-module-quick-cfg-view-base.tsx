@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { OptionViewBase } from '@/studio-core';
 import ProjectModuleService from '@/service/project-module/project-module-service';
+import ProjectModuleAuthService from '@/authservice/project-module/project-module-auth-service';
 import OptionViewEngine from '@engine/view/option-view-engine';
+import ProjectModuleUIService from '@/uiservice/project-module/project-module-ui-service';
 
 /**
  * 任务模块视图基类
@@ -11,7 +13,6 @@ import OptionViewEngine from '@engine/view/option-view-engine';
  * @extends {OptionViewBase}
  */
 export class ProjectModuleQuickCfgViewBase extends OptionViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -22,12 +23,38 @@ export class ProjectModuleQuickCfgViewBase extends OptionViewBase {
     protected appDeName: string = 'projectmodule';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectModuleQuickCfgViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectModuleQuickCfgViewBase
+     */
+    protected appDeMajor: string = 'name';
+
+    /**
      * 实体服务对象
      *
      * @type {ProjectModuleService}
      * @memberof ProjectModuleQuickCfgViewBase
      */
     protected appEntityService: ProjectModuleService = new ProjectModuleService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProjectModuleUIService
+     * @memberof ProjectModuleQuickCfgViewBase
+     */
+    public appUIService: ProjectModuleUIService = new ProjectModuleUIService(this.$store);
 
 
     /**

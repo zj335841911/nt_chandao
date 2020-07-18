@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { ListExpViewBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
+import ProjectAuthService from '@/authservice/project/project-auth-service';
 import ListExpViewEngine from '@engine/view/list-exp-view-engine';
+import ProjectUIService from '@/uiservice/project/project-ui-service';
 
 /**
  * 项目列表导航视图视图基类
@@ -11,7 +13,6 @@ import ListExpViewEngine from '@engine/view/list-exp-view-engine';
  * @extends {ListExpViewBase}
  */
 export class ProjectListExpViewBase extends ListExpViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -22,12 +23,38 @@ export class ProjectListExpViewBase extends ListExpViewBase {
     protected appDeName: string = 'project';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectListExpViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectListExpViewBase
+     */
+    protected appDeMajor: string = 'name';
+
+    /**
      * 实体服务对象
      *
      * @type {ProjectService}
      * @memberof ProjectListExpViewBase
      */
     protected appEntityService: ProjectService = new ProjectService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProjectUIService
+     * @memberof ProjectListExpViewBase
+     */
+    public appUIService: ProjectUIService = new ProjectUIService(this.$store);
 
 
     /**
@@ -161,8 +188,6 @@ export class ProjectListExpViewBase extends ListExpViewBase {
      * @memberof ProjectListExpView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
     this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
     }
 

@@ -1,7 +1,9 @@
 import { Subject } from 'rxjs';
 import { PickupGridViewBase } from '@/studio-core';
 import ModuleService from '@/service/module/module-service';
+import ModuleAuthService from '@/authservice/module/module-auth-service';
 import PickupGridViewEngine from '@engine/view/pickup-grid-view-engine';
+import ModuleUIService from '@/uiservice/module/module-ui-service';
 
 /**
  * 模块选择视图基类
@@ -11,7 +13,6 @@ import PickupGridViewEngine from '@engine/view/pickup-grid-view-engine';
  * @extends {PickupGridViewBase}
  */
 export class ModulePickupGridViewBase extends PickupGridViewBase {
-
     /**
      * 视图对应应用实体名称
      *
@@ -22,12 +23,38 @@ export class ModulePickupGridViewBase extends PickupGridViewBase {
     protected appDeName: string = 'module';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof ModulePickupGridViewBase
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof ModulePickupGridViewBase
+     */
+    protected appDeMajor: string = 'name';
+
+    /**
      * 实体服务对象
      *
      * @type {ModuleService}
      * @memberof ModulePickupGridViewBase
      */
     protected appEntityService: ModuleService = new ModuleService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ModuleUIService
+     * @memberof ModulePickupGridViewBase
+     */
+    public appUIService: ModuleUIService = new ModuleUIService(this.$store);
 
 
     /**

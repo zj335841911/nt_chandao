@@ -9,7 +9,7 @@
         :showBusyIndicator="true"
         :isOpenEdit="true"
         :gridRowActiveMode="gridRowActiveMode"
-        @save="onSave"
+        @save="onSave.apply(_self, arguments)"
         updateAction="Update"
         removeAction="Remove"
         loaddraftAction="GetDraft"

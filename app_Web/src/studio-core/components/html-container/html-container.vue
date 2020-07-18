@@ -49,9 +49,13 @@ export default class HtmlContainer extends Vue {
     }
 }
 </script>
-<style lang="less" scoped>
+<style lang="less">
     .html-container {
         height: 100%;
         width: 100%;
+
+        img {
+            max-width: 100%;
+        }
     }
 </style>

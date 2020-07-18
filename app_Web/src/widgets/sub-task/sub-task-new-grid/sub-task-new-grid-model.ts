@@ -42,6 +42,11 @@ export default class SubTaskNewModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'isleaf',
+          prop: 'isleaf',
+          dataType: 'TEXT',
+        },
+        {
           name: 'parent',
           prop: 'parent',
           dataType: 'PICKUP',
@@ -55,6 +60,9 @@ export default class SubTaskNewModel {
           name: 'type',
           prop: 'type',
           dataType: 'SSCODELIST',
+        },
+        {
+          name: 'srfmstag',
         },
         {
           name: 'srfmajortext',
@@ -107,6 +115,11 @@ export default class SubTaskNewModel {
           dataType: 'TEXT',
         },
         {
+          name: 'allmodules',
+          prop: 'allmodules',
+          dataType: 'TEXT',
+        },
+        {
           name: 'left',
           prop: 'left',
           dataType: 'FLOAT',
@@ -127,6 +140,10 @@ export default class SubTaskNewModel {
         {
           name:'query',
           prop:'query'
+        },
+        {
+          name:'filter',
+          prop:'filter'
         },
         {
           name:'page',

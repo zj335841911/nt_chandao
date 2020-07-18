@@ -21,6 +21,7 @@ import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
+import cn.ibizlab.pms.util.annotation.Audit;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -333,6 +334,13 @@ public class Project extends EntityMP implements Serializable {
     @JSONField(name = "comment")
     @JsonProperty("comment")
     private String comment;
+    /**
+     * 时间段
+     */
+    @TableField(exist = false)
+    @JSONField(name = "period")
+    @JsonProperty("period")
+    private String period;
 
     /**
      * 

@@ -55,7 +55,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.build.main_grid.columns.name')" :min-width="1"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.build.main_grid.columns.name')" :min-width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.build.main_grid.columns.name')}}
@@ -124,14 +124,58 @@
                     </template>
                 </el-table-column>
             </template>
-            !!!!模版产生代码错误:----
-            Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-            ----
-            
-            ----
-            FTL stack trace ("~" means nesting-related):
-            	- Failed at: #if item.getPSDEUIActionGroup().getPS...  [in template "TEMPLCODE_zh_CN" at line 100, column 3]
-            ----
+            <template v-if="getColumnState('uagridcolumn1')">
+                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.build.main_grid.columns.uagridcolumn1')" :width="200"  :align="'center'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.build.main_grid.columns.uagridcolumn1')}}
+                      </span>
+                    </template>
+                    <template slot-scope="scope">
+                        <div style="text-align: center;">
+                            <tooltip :transfer="true" :max-width="600">
+                            <a @click="uiAction(scope.row, 'linkStories', $event)">
+                              <i class='fa fa-link'></i>
+                              
+                            </a>
+                            <div slot='content'>{{$t('entities.build.main_grid.uiactions.build_linkstories')}}</div>
+                            </tooltip>
+                            <divider type='vertical'></divider>
+                            <tooltip :transfer="true" :max-width="600">
+                            <a @click="uiAction(scope.row, 'submitToTesting', $event)">
+                              <i class='fa fa-paper-plane'></i>
+                              
+                            </a>
+                            <div slot='content'>{{$t('entities.build.main_grid.uiactions.build_submittotesting')}}</div>
+                            </tooltip>
+                            <divider type='vertical'></divider>
+                            <tooltip :transfer="true" :max-width="600">
+                            <a @click="uiAction(scope.row, 'viewBugs', $event)">
+                              <i class='fa fa-bug'></i>
+                              
+                            </a>
+                            <div slot='content'>{{$t('entities.build.main_grid.uiactions.build_viewbugs')}}</div>
+                            </tooltip>
+                            <divider type='vertical'></divider>
+                            <tooltip :transfer="true" :max-width="600">
+                            <a @click="uiAction(scope.row, 'Edit', $event)">
+                              <i class='fa fa-edit'></i>
+                              
+                            </a>
+                            <div slot='content'>{{$t('entities.build.main_grid.uiactions.build_edit')}}</div>
+                            </tooltip>
+                            <divider type='vertical'></divider>
+                            <tooltip :transfer="true" :max-width="600">
+                            <a @click="uiAction(scope.row, 'Remove', $event)">
+                              <i class='fa fa-remove'></i>
+                              
+                            </a>
+                            <div slot='content'>{{$t('entities.build.main_grid.uiactions.build_remove')}}</div>
+                            </tooltip>
+                        </div>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="adaptiveState">
                 <el-table-column></el-table-column>
             </template>

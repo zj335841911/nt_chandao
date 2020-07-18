@@ -510,6 +510,22 @@ public class BugDTO extends DTOBase implements Serializable {
     @JsonProperty("taskname")
     private String taskname;
 
+    /**
+     * 属性 [MODULENAME]
+     *
+     */
+    @JSONField(name = "modulename")
+    @JsonProperty("modulename")
+    private String modulename;
+
+    /**
+     * 属性 [BRANCHNAME]
+     *
+     */
+    @JSONField(name = "branchname")
+    @JsonProperty("branchname")
+    private String branchname;
+
 
     /**
      * 设置 [SEVERITY]

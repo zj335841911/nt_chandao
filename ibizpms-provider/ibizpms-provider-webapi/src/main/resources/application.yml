@@ -1,5 +1,5 @@
 spring:
   profiles:
-    include: sys, zentao, webapi-prod
+    include: sys, zentao, nacos, webapi-prod
   application:
     name: pms-webapi

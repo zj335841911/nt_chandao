@@ -41,6 +41,27 @@ public class StorySearchContext extends QueryWrapperContext<Story> {
             this.getSearchCond().eq("plan", n_plan_eq);
         }
     }
+	private Integer n_pri_eq;//[优先级]
+	public void setN_pri_eq(Integer n_pri_eq) {
+        this.n_pri_eq = n_pri_eq;
+        if(!ObjectUtils.isEmpty(this.n_pri_eq)){
+            this.getSearchCond().eq("pri", n_pri_eq);
+        }
+    }
+	private Integer n_pri_gtandeq;//[优先级]
+	public void setN_pri_gtandeq(Integer n_pri_gtandeq) {
+        this.n_pri_gtandeq = n_pri_gtandeq;
+        if(!ObjectUtils.isEmpty(this.n_pri_gtandeq)){
+            this.getSearchCond().ge("pri", n_pri_gtandeq);
+        }
+    }
+	private Integer n_pri_ltandeq;//[优先级]
+	public void setN_pri_ltandeq(Integer n_pri_ltandeq) {
+        this.n_pri_ltandeq = n_pri_ltandeq;
+        if(!ObjectUtils.isEmpty(this.n_pri_ltandeq)){
+            this.getSearchCond().le("pri", n_pri_ltandeq);
+        }
+    }
 	private String n_status_eq;//[当前状态]
 	public void setN_status_eq(String n_status_eq) {
         this.n_status_eq = n_status_eq;
@@ -67,6 +88,13 @@ public class StorySearchContext extends QueryWrapperContext<Story> {
         this.n_openedby_eq = n_openedby_eq;
         if(!ObjectUtils.isEmpty(this.n_openedby_eq)){
             this.getSearchCond().eq("openedby", n_openedby_eq);
+        }
+    }
+	private BigInteger n_id_eq;//[编号]
+	public void setN_id_eq(BigInteger n_id_eq) {
+        this.n_id_eq = n_id_eq;
+        if(!ObjectUtils.isEmpty(this.n_id_eq)){
+            this.getSearchCond().eq("id", n_id_eq);
         }
     }
 	private String n_stage_eq;//[所处阶段]
@@ -172,6 +200,20 @@ public class StorySearchContext extends QueryWrapperContext<Story> {
         this.n_branch_eq = n_branch_eq;
         if(!ObjectUtils.isEmpty(this.n_branch_eq)){
             this.getSearchCond().eq("branch", n_branch_eq);
+        }
+    }
+	private String n_branchname_eq;//[平台/分支]
+	public void setN_branchname_eq(String n_branchname_eq) {
+        this.n_branchname_eq = n_branchname_eq;
+        if(!ObjectUtils.isEmpty(this.n_branchname_eq)){
+            this.getSearchCond().eq("branchname", n_branchname_eq);
+        }
+    }
+	private String n_branchname_like;//[平台/分支]
+	public void setN_branchname_like(String n_branchname_like) {
+        this.n_branchname_like = n_branchname_like;
+        if(!ObjectUtils.isEmpty(this.n_branchname_like)){
+            this.getSearchCond().like("branchname", n_branchname_like);
         }
     }
 

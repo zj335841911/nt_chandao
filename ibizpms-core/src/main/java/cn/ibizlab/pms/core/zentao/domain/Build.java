@@ -21,6 +21,7 @@ import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
+import cn.ibizlab.pms.util.annotation.Audit;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -49,6 +50,7 @@ public class Build extends EntityMP implements Serializable {
     /**
      * 构建者
      */
+    @DEField(defaultValueType = DEFieldDefaultValueType.OPERATORNAME)
     @TableField(value = "builder")
     @JSONField(name = "builder")
     @JsonProperty("builder")

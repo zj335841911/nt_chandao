@@ -226,6 +226,56 @@ export default class BuildServiceBase extends EntityService {
     }
 
     /**
+     * LinkStories接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BuildServiceBase
+     */
+    public async LinkStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.build){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/builds/${context.build}/linkstories`,data,isloading);
+            return res;
+        }
+        if(context.product && context.build){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/builds/${context.build}/linkstories`,data,isloading);
+            return res;
+        }
+            return Http.getInstance().post(`/builds/${context.build}/linkstories`,data,isloading);
+    }
+
+    /**
+     * LinkStory接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BuildServiceBase
+     */
+    public async LinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.build){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/builds/${context.build}/linkstory`,data,isloading);
+            return res;
+        }
+        if(context.product && context.build){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/builds/${context.build}/linkstory`,data,isloading);
+            return res;
+        }
+            return Http.getInstance().post(`/builds/${context.build}/linkstory`,data,isloading);
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]
@@ -295,5 +345,20 @@ export default class BuildServiceBase extends EntityService {
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
         return Http.getInstance().get(`/builds/fetchdefault`,tempData,isloading);
+    }
+
+    /**
+     * MentionTest接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BuildServiceBase
+     */
+    public async MentionTest(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // URI参数传递情况未实现
+        // URI参数传递情况未实现
+        // URI参数传递情况未实现
     }
 }

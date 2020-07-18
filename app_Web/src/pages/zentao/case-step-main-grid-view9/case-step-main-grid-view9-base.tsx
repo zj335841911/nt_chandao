@@ -2,7 +2,9 @@
 import { Subject } from 'rxjs';
 import { GridView9Base } from '@/studio-core';
 import CaseStepService from '@/service/case-step/case-step-service';
+import CaseStepAuthService from '@/authservice/case-step/case-step-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
+import CaseStepUIService from '@/uiservice/case-step/case-step-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -14,7 +16,6 @@ import CodeListService from "@service/app/codelist-service";
  * @extends {GridView9Base}
  */
 export class CaseStepMainGridView9Base extends GridView9Base {
-
     /**
      * 视图对应应用实体名称
      *
@@ -25,12 +26,38 @@ export class CaseStepMainGridView9Base extends GridView9Base {
     protected appDeName: string = 'casestep';
 
     /**
+     * 应用实体主键
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseStepMainGridView9Base
+     */
+    protected appDeKey: string = 'id';
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseStepMainGridView9Base
+     */
+    protected appDeMajor: string = 'expect';
+
+    /**
      * 实体服务对象
      *
      * @type {CaseStepService}
      * @memberof CaseStepMainGridView9Base
      */
     protected appEntityService: CaseStepService = new CaseStepService;
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type CaseStepUIService
+     * @memberof CaseStepMainGridView9Base
+     */
+    public appUIService: CaseStepUIService = new CaseStepUIService(this.$store);
 
 
     /**
@@ -75,7 +102,7 @@ export class CaseStepMainGridView9Base extends GridView9Base {
      * @memberof CaseStepMainGridView9
      */
     public toolBarModels: any = {
-        deuiaction2: { name: 'deuiaction2', caption: '刷新','isShowCaption':true,'isShowIcon':true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true, dataaccaction: '', uiaction: { tag: 'Refresh', target: '' }, class: '' },
+        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
     };
 
@@ -246,8 +273,6 @@ export class CaseStepMainGridView9Base extends GridView9Base {
      * @memberof CaseStepMainGridView9
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
     this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
     }
 

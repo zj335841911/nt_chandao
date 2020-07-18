@@ -88,7 +88,8 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return bRst;
+        et.set("ztrst", rst);
+        return bRst;
     }
 
     @Override
@@ -104,7 +105,8 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return bRst;
+        et.set("ztrst", rst);
+        return bRst;
     }
 
     @Override
@@ -118,6 +120,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         Case et = this.get(key);
         boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.delete((String)user.getSessionParams().get("zentaosid"), (JSONObject) JSONObject.toJSON(et), rst);
+        et.set("ztrst", rst);
         return bRst;
     }
 
@@ -162,7 +165,8 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
-	    return et;
+        et.set("ztrst", rst);
+        return et;
     }
 
     @Override

@@ -2,6 +2,8 @@ import { Http,Util,Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import SubTaskService from '@/service/sub-task/sub-task-service';
 import SubTaskNewModel from './sub-task-new-grid-model';
+import StoryService from '@/service/story/story-service';
+import ProjectModuleService from '@/service/project-module/project-module-service';
 
 
 /**
@@ -43,6 +45,22 @@ export default class SubTaskNewService extends ControlService {
 
 
     /**
+     * 需求服务对象
+     *
+     * @type {StoryService}
+     * @memberof SubTaskNewService
+     */
+    public storyService: StoryService = new StoryService();
+
+    /**
+     * 任务模块服务对象
+     *
+     * @type {ProjectModuleService}
+     * @memberof SubTaskNewService
+     */
+    public projectmoduleService: ProjectModuleService = new ProjectModuleService();
+
+    /**
      * 处理数据
      *
      * @public
@@ -81,6 +99,14 @@ export default class SubTaskNewService extends ControlService {
      */
     @Errorlog
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
+        data.page = data.page ? data.page : 0;
+        data.size = data.size ? data.size : 1000;
+        if (Object.is(serviceName, 'StoryService') && Object.is(interfaceName, 'FetchTaskRelatedStory')) {
+            return this.doItems(this.storyService.FetchTaskRelatedStory(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'story');
+        }
+        if (Object.is(serviceName, 'ProjectModuleService') && Object.is(interfaceName, 'FetchTaskModules')) {
+            return this.doItems(this.projectmoduleService.FetchTaskModules(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'projectmodule');
+        }
 
         return Promise.reject([])
     }

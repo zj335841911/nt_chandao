@@ -3,6 +3,7 @@ import { UIActionTool,Util } from '@/utils';
 import UIService from '../ui-service';
 import { Subject } from 'rxjs';
 import ProjectTeamService from '@/service/project-team/project-team-service';
+import ProjectTeamAuthService from '@/authservice/project-team/project-team-auth-service';
 
 /**
  * 项目团队UI服务对象基类
@@ -62,6 +63,13 @@ export default class ProjectTeamUIServiceBase extends UIService {
     public allDeMainStateMap:Map<string,string> = new Map();
 
     /**
+     * 主状态操作标识Map
+     * 
+     * @memberof  ProjectTeamUIServiceBase
+     */ 
+    public allDeMainStateOPPrivsMap:Map<string,any> = new Map();
+
+    /**
      * Creates an instance of  ProjectTeamUIServiceBase.
      * 
      * @param {*} [opts={}]
@@ -69,8 +77,10 @@ export default class ProjectTeamUIServiceBase extends UIService {
      */
     constructor(opts: any = {}) {
         super(opts);
+        this.authService = new ProjectTeamAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();
+        this.initDeMainStateOPPrivsMap();
     }
 
     /**
@@ -89,6 +99,14 @@ export default class ProjectTeamUIServiceBase extends UIService {
      * @memberof  ProjectTeamUIServiceBase
      */  
     public initDeMainStateMap(){
+    }
+
+    /**
+     * 初始化主状态操作标识
+     * 
+     * @memberof  ProjectTeamUIServiceBase
+     */  
+    public initDeMainStateOPPrivsMap(){
     }
 
     /**
@@ -143,7 +161,7 @@ export default class ProjectTeamUIServiceBase extends UIService {
         }
         const backend = () => {
             const curService:ProjectTeamService =  new ProjectTeamService();
-            curService.Get(context,data, true).then((response: any) => {
+            curService.Remove(context,data, true).then((response: any) => {
                 if (!response || response.status !== 200) {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;
@@ -228,7 +246,7 @@ export default class ProjectTeamUIServiceBase extends UIService {
                 });
             }
             const view: any = {
-                viewname: 'ibz-projectteammain-grid-view-edit-row', 
+                viewname: 'project-team-main-grid-view-edit-row', 
                 height: 0, 
                 width: 0,  
                 title: actionContext.$t('entities.projectteam.views.maingridview_editrow.title'),
@@ -307,12 +325,12 @@ export default class ProjectTeamUIServiceBase extends UIService {
         }
 		if(!Environment.isAppMode){
             if(this.getDEMainStateTag(curData)){
-                return `MOBEDITVIEW:MSTAG:${ await this.getDEMainStateTag(curData)}`;
+                return `MOBEDITVIEW:MSTAG:${ this.getDEMainStateTag(curData)}`;
             }
 			return 'MOBEDITVIEW:';
         }
         if(this.getDEMainStateTag(curData)){
-            return `EDITVIEW:MSTAG:${ await this.getDEMainStateTag(curData)}`;
+            return `EDITVIEW:MSTAG:${ this.getDEMainStateTag(curData)}`;
         }
 		return 'EDITVIEW:';
     }
@@ -323,7 +341,7 @@ export default class ProjectTeamUIServiceBase extends UIService {
      * @param curData 当前数据
      * @memberof  ProjectTeamUIServiceBase
      */  
-    public async getDEMainStateTag(curData:any){
+    public getDEMainStateTag(curData:any){
         if(this.mainStateFields.length === 0) return null;
 
         this.mainStateFields.forEach((singleMainField:any) =>{
@@ -331,8 +349,6 @@ export default class ProjectTeamUIServiceBase extends UIService {
                 console.error(`当前数据对象不包含属性singleMainField，可能会发生错误`);
             }
         })
-
-        let strTag:String = "";
         for (let i = 0; i <= 1; i++) {
             let strTag:string = (curData[this.mainStateFields[0]])?(i == 0) ? curData[this.mainStateFields[0]] : "":"";
             if (this.mainStateFields.length >= 2) {
@@ -354,5 +370,29 @@ export default class ProjectTeamUIServiceBase extends UIService {
         }
         return null;
     }
+
+    /**
+    * 获取数据对象当前操作标识
+    * 
+    * @param data 当前数据
+    * @memberof  ProjectTeamUIServiceBase
+    */  
+   public getDEMainStateOPPrivs(data:any){
+        if(this.getDEMainStateTag(data)){
+            return this.allDeMainStateOPPrivsMap.get((this.getDEMainStateTag(data) as string));
+        }else{
+            return null;
+        }
+   }
+
+    /**
+    * 获取数据对象所有的操作标识
+    * 
+    * @param data 当前数据
+    * @memberof  ProjectTeamUIServiceBase
+    */ 
+   public getAllOPPrivs(data:any){
+       return this.authService.getOPPrivs(this.getDEMainStateOPPrivs(data));
+   }
 
 }
