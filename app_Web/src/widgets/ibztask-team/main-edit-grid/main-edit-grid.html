@@ -24,7 +24,7 @@
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('account')">
-                <el-table-column show-overflow-tooltip :prop="'account'" :label="$t('entities.ibztaskteam.mainedit_grid.columns.account')" :min-width="200"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'account'" :label="$t('entities.ibztaskteam.mainedit_grid.columns.account')" :min-width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.ibztaskteam.mainedit_grid.columns.account')}}
@@ -58,7 +58,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('estimate')">
-                <el-table-column show-overflow-tooltip :prop="'estimate'" :label="$t('entities.ibztaskteam.mainedit_grid.columns.estimate')" :width="200"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'estimate'" :label="$t('entities.ibztaskteam.mainedit_grid.columns.estimate')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.ibztaskteam.mainedit_grid.columns.estimate')}}
