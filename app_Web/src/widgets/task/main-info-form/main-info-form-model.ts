@@ -156,6 +156,11 @@ export default class MainInfoModel {
         dataType: 'DATETIME',
       },
       {
+        name: 'multiple',
+        prop: 'multiple',
+        dataType: 'INT',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

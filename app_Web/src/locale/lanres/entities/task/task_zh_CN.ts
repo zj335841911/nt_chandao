@@ -419,6 +419,7 @@ export default {
 			closedreason: "关闭原因", 
 			lasteditedby: "最后修改", 
 			lastediteddate: "于", 
+			multiple: "多人任务", 
 			id: "编号", 
 			story: "相关需求", 
 			project: "所属项目", 
