@@ -1,16 +1,16 @@
 /**
- * Main 部件模型
+ * MainEdit 部件模型
  *
  * @export
- * @class MainModel
+ * @class MainEditModel
  */
-export default class MainModel {
+export default class MainEditModel {
 
 	/**
 	 * 是否是实体数据导出
 	 *
 	 * @returns {any[]}
-	 * @memberof MainGridMode
+	 * @memberof MainEditGridMode
 	 */
 	public isDEExport: boolean = false;
 
@@ -18,7 +18,7 @@ export default class MainModel {
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof MainGridMode
+	 * @memberof MainEditGridMode
 	 */
 	public getDataItems(): any[] {
     if(this.isDEExport){
@@ -37,6 +37,11 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'account_text',
+          prop: 'account',
+          dataType: 'TEXT',
+        },
+        {
           name: 'account',
           prop: 'account',
           dataType: 'TEXT',
@@ -45,6 +50,11 @@ export default class MainModel {
           name: 'left',
           prop: 'left',
           dataType: 'DECIMAL',
+        },
+        {
+          name: 'type',
+          prop: 'type',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'estimate',
@@ -72,7 +82,7 @@ export default class MainModel {
           dataType: 'FONTKEY',
         },
         {
-          name: 'taskteam',
+          name: 'ibztaskteam',
           prop: 'id',
         },
         {

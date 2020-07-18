@@ -60,6 +60,15 @@ export class MainInfoEditFormBase extends EditFormControlBase {
 
 
     /**
+     * 关系界面数量
+     *
+     * @protected
+     * @type {number}
+     * @memberof MainInfoEditFormBase
+     */
+    protected drCount: number = 1;
+
+    /**
      * 表单数据对象
      *
      * @type {*}
@@ -132,6 +141,10 @@ export class MainInfoEditFormBase extends EditFormControlBase {
 
         formpage2: new FormPageModel({ caption: '任务的一生', detailType: 'FORMPAGE', name: 'formpage2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
+        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        formpage3: new FormPageModel({ caption: '团队', detailType: 'FORMPAGE', name: 'formpage3', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
         srfupdatedate: new FormItemModel({ caption: '最后修改日期', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -194,7 +207,7 @@ export class MainInfoEditFormBase extends EditFormControlBase {
 
         project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        form: new FormTabPanelModel({ caption: 'form', detailType: 'TABPANEL', name: 'form', visible: true, isShowCaption: true, form: this, tabPages: [{ name: 'formpage1', index: 0, visible: true }, { name: 'formpage2', index: 1, visible: true }] }),
+        form: new FormTabPanelModel({ caption: 'form', detailType: 'TABPANEL', name: 'form', visible: true, isShowCaption: true, form: this, tabPages: [{ name: 'formpage1', index: 0, visible: true }, { name: 'formpage2', index: 1, visible: true }, { name: 'formpage3', index: 2, visible: true }] }),
     };
 
     /**
@@ -206,6 +219,8 @@ export class MainInfoEditFormBase extends EditFormControlBase {
      */
     public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
                 
+
+
 
 
 

@@ -897,6 +897,84 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-edit-view-suspend/project-edit-view-suspend.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/ibztaskteams/:ibztaskteam?/gridview9_edit/:gridview9_edit?',
+                    meta: {
+                        caption: 'entities.ibztaskteam.views.gridview9_edit.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'ibztaskteams', parameterName: 'ibztaskteam' },
+                            { pathName: 'gridview9_edit', parameterName: 'gridview9_edit' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-team-grid-view9-edit/task-team-grid-view9-edit.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/ibztaskteams/:ibztaskteam?/gridview9_edit/:gridview9_edit?',
+                    meta: {
+                        caption: 'entities.ibztaskteam.views.gridview9_edit.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'ibztaskteams', parameterName: 'ibztaskteam' },
+                            { pathName: 'gridview9_edit', parameterName: 'gridview9_edit' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-team-grid-view9-edit/task-team-grid-view9-edit.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/ibztaskteams/:ibztaskteam?/gridview9_edit/:gridview9_edit?',
+                    meta: {
+                        caption: 'entities.ibztaskteam.views.gridview9_edit.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'ibztaskteams', parameterName: 'ibztaskteam' },
+                            { pathName: 'gridview9_edit', parameterName: 'gridview9_edit' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-team-grid-view9-edit/task-team-grid-view9-edit.vue'),
+                },
+                {
+                    path: 'tasks/:task?/ibztaskteams/:ibztaskteam?/gridview9_edit/:gridview9_edit?',
+                    meta: {
+                        caption: 'entities.ibztaskteam.views.gridview9_edit.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'ibztaskteams', parameterName: 'ibztaskteam' },
+                            { pathName: 'gridview9_edit', parameterName: 'gridview9_edit' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-team-grid-view9-edit/task-team-grid-view9-edit.vue'),
+                },
+                {
+                    path: 'ibztaskteams/:ibztaskteam?/gridview9_edit/:gridview9_edit?',
+                    meta: {
+                        caption: 'entities.ibztaskteam.views.gridview9_edit.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibztaskteams', parameterName: 'ibztaskteam' },
+                            { pathName: 'gridview9_edit', parameterName: 'gridview9_edit' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-team-grid-view9-edit/task-team-grid-view9-edit.vue'),
+                },
+                {
                     path: 'products/:product?/testtasks/:testtask?/editview/:editview?',
                     meta: {
                         caption: 'entities.testtask.views.editview.title',
@@ -2469,6 +2547,84 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/project-edit-view-close/project-edit-view-close.vue'),
+                },
+                {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/taskteams/:taskteam?/gridview9_look/:gridview9_look?',
+                    meta: {
+                        caption: 'entities.taskteam.views.gridview9_look.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskteams', parameterName: 'taskteam' },
+                            { pathName: 'gridview9_look', parameterName: 'gridview9_look' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-team-grid-view9-look/task-team-grid-view9-look.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/taskteams/:taskteam?/gridview9_look/:gridview9_look?',
+                    meta: {
+                        caption: 'entities.taskteam.views.gridview9_look.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskteams', parameterName: 'taskteam' },
+                            { pathName: 'gridview9_look', parameterName: 'gridview9_look' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-team-grid-view9-look/task-team-grid-view9-look.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/taskteams/:taskteam?/gridview9_look/:gridview9_look?',
+                    meta: {
+                        caption: 'entities.taskteam.views.gridview9_look.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskteams', parameterName: 'taskteam' },
+                            { pathName: 'gridview9_look', parameterName: 'gridview9_look' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-team-grid-view9-look/task-team-grid-view9-look.vue'),
+                },
+                {
+                    path: 'tasks/:task?/taskteams/:taskteam?/gridview9_look/:gridview9_look?',
+                    meta: {
+                        caption: 'entities.taskteam.views.gridview9_look.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskteams', parameterName: 'taskteam' },
+                            { pathName: 'gridview9_look', parameterName: 'gridview9_look' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-team-grid-view9-look/task-team-grid-view9-look.vue'),
+                },
+                {
+                    path: 'taskteams/:taskteam?/gridview9_look/:gridview9_look?',
+                    meta: {
+                        caption: 'entities.taskteam.views.gridview9_look.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'taskteams', parameterName: 'taskteam' },
+                            { pathName: 'gridview9_look', parameterName: 'gridview9_look' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-team-grid-view9-look/task-team-grid-view9-look.vue'),
                 },
                 {
                     path: 'products/:product?/releases/:release?/editview/:editview?',
