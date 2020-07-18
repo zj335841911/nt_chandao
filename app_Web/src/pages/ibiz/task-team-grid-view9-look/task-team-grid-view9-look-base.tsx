@@ -225,6 +225,15 @@ export class TaskTeamGridView9_LookBase extends GridView9Base {
 
 
     /**
+     * 是否单选
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof TaskTeamGridView9_LookBase
+     */
+    protected isGridSingleSelect: boolean = true;
+
+    /**
      * 表格行数据默认激活模式
      * 0 不激活
      * 1 单击激活
