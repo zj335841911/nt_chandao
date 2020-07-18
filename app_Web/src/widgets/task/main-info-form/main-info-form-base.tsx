@@ -103,6 +103,7 @@ export class MainInfoEditFormBase extends EditFormControlBase {
         closedreason: null,
         lasteditedby: null,
         lastediteddate: null,
+        multiple: null,
         id: null,
         story: null,
         project: null,
@@ -141,7 +142,7 @@ export class MainInfoEditFormBase extends EditFormControlBase {
 
         formpage2: new FormPageModel({ caption: '任务的一生', detailType: 'FORMPAGE', name: 'formpage2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
-        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: false, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         formpage3: new FormPageModel({ caption: '团队', detailType: 'FORMPAGE', name: 'formpage3', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
@@ -201,6 +202,8 @@ export class MainInfoEditFormBase extends EditFormControlBase {
 
         lastediteddate: new FormItemModel({ caption: '于', detailType: 'FORMITEM', name: 'lastediteddate', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
+        multiple: new FormItemModel({ caption: '多人任务', detailType: 'FORMITEM', name: 'multiple', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
         story: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'story', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -227,6 +230,14 @@ export class MainInfoEditFormBase extends EditFormControlBase {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'multiple')) {
+            let ret = false;
+            const _multiple = this.data.multiple;
+            if (this.$verify.testCond(_multiple, 'EQ', '1')) {
+                ret = true;
+            }
+            this.detailsModel.druipart1.setVisible(ret);
+        }
 
 
 
@@ -296,6 +307,7 @@ export class MainInfoEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.lastediteddate.setVisible(ret);
         }
+
 
 
 
