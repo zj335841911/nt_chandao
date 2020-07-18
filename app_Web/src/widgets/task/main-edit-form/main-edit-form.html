@@ -126,6 +126,12 @@
 </app-form-item>
 
 </i-col>
+<i-col v-show="detailsModel.project.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='project' :itemRules="this.rules.project" class='' :caption="$t('entities.task.mainedit_form.details.project')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.project.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box v-model="data.project"  @enter="onEnter($event)"   unit=""  :disabled="detailsModel.project.disabled" type='number'  style=""></input-box>
+</app-form-item>
+
+</i-col>
 <i-col v-show="detailsModel.modulename.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
     <app-form-item name='modulename' :itemRules="this.rules.modulename" class='' :caption="$t('entities.task.mainedit_form.details.modulename')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.modulename.error" :isEmptyCaption="false" labelPos="LEFT">
     
