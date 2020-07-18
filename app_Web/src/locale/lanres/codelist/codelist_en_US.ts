@@ -80,6 +80,9 @@ export default {
         "CANCELLED": "已取消",
         "empty": ""
     },
+    UserRealNameTask: {
+        "empty": "",
+    },
     YesNo: {
         "1": "是",
         "0": "否",

@@ -242,7 +242,7 @@ export class MainEditGridBase extends GridControllerBase {
         return super.formatExcelData(filterVal, jsonData, [
             {
                 name: 'account',
-                srfkey: 'UserRealNameProject',
+                srfkey: 'UserRealNameTask',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',

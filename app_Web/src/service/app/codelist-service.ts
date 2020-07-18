@@ -1,6 +1,7 @@
 import RelatedStory from '@/codelist/related-story';   
 import ProductBranch_Cache from '@/codelist/product-branch-cache';   
 import CurProductPlan from '@/codelist/cur-product-plan';   
+import UserRealNameTask from '@/codelist/user-real-name-task';   
 import UserRealName from '@/codelist/user-real-name';   
 import ProductBranch from '@/codelist/product-branch';   
 import CurProductBuild from '@/codelist/cur-product-build';   
@@ -86,6 +87,14 @@ export default class CodeListService {
      * @memberof CodeListService
      */
     public CurProductPlan: CurProductPlan = new CurProductPlan();
+
+    /**
+     * 代码表--用户真实名称（项目团队成员-任务）
+     *
+     * @type {UserRealNameTask}
+     * @memberof CodeListService
+     */
+    public UserRealNameTask: UserRealNameTask = new UserRealNameTask();
 
     /**
      * 代码表--用户真实名称（动态）
