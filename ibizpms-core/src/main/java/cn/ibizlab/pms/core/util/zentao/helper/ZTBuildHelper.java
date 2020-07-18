@@ -158,6 +158,19 @@ final public class ZTBuildHelper {
         ACTION_PARAMS_EDIT.put("date", "0000-00-00");
         ACTION_PARAMS_EDIT.put("desc", null);
 
+        // LINKSTORY
+        ACTION_PARAMS_LINKSTORY.put("stories[]", null);
+
+        // BATCHUNLINKSTORY
+        ACTION_PARAMS_BATCHUNLINKSTORY.put("unlinkStories[]", null);
+
+        // LINKBUG
+        ACTION_PARAMS_LINKBUG.put("bugs[]", null);
+        ACTION_PARAMS_LINKBUG.put("resolvedBy[]", null);
+
+        // BATCHUNLINKBUG
+        ACTION_PARAMS_BATCHUNLINKBUG.put("unlinkBugs[]", null);
+
     }
 
     // ----------
@@ -174,6 +187,31 @@ final public class ZTBuildHelper {
         // DELETE
         ACTION_URL_PARAMS_DELETE.add("id");
         ACTION_URL_PARAMS_DELETE.add("confirm");
+
+        // LINKSTORY
+        ACTION_URL_PARAMS_LINKSTORY.add("id");
+
+        // BATCHUNLINKSTORY
+        ACTION_URL_PARAMS_BATCHUNLINKSTORY.add("id");
+
+        // UNLINKSTORY
+        // id为story id
+        ACTION_URL_PARAMS_UNLINKSTORY.add("build");
+        ACTION_URL_PARAMS_UNLINKSTORY.add("id");
+
+        // LINKBUG
+        ACTION_URL_PARAMS_LINKBUG.add("id");
+        ACTION_URL_PARAMS_UNLINKBUG.add("browseType");
+        ACTION_URL_PARAMS_UNLINKBUG.add("myQueryID");
+        ACTION_URL_PARAMS_UNLINKBUG.add("linkType");
+
+        // BATCHUNLINKBUG
+        ACTION_URL_PARAMS_BATCHUNLINKBUG.add("id");
+
+        // UNLINKBUG
+        // id为bug id
+        ACTION_URL_PARAMS_UNLINKBUG.add("build");
+        ACTION_URL_PARAMS_UNLINKBUG.add("id");
 
     }
 
@@ -252,6 +290,168 @@ final public class ZTBuildHelper {
         List<ZTCheckItem> checkList = ACTION_CHECKLIST_DELETE;
 
         jo.put("confirm", "yes");
+
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
+    }
+
+    /**
+     * linkStory 关联需求
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean linkStory(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_LINKSTORY;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_LINKSTORY;
+        Map<String, Object> actionParams = ACTION_PARAMS_LINKSTORY;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_LINKSTORY;
+        String returnUrlRegexPrev = ACTION_RETURNURL_LINKSTORY;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_LINKSTORY;
+
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
+    }
+
+    /**
+     * unlinkStory 解除关联需求
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean unlinkStory(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_UNLINKSTORY;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_UNLINKSTORY;
+        Map<String, Object> actionParams = ACTION_PARAMS_UNLINKSTORY;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_UNLINKSTORY;
+        String returnUrlRegexPrev = ACTION_RETURNURL_UNLINKSTORY;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_UNLINKSTORY;
+
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
+    }
+
+    /**
+     * batchUnlinkStory 批量解除关联需求
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean batchUnlinkStory(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_BATCHUNLINKSTORY;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_BATCHUNLINKSTORY;
+        Map<String, Object> actionParams = ACTION_PARAMS_BATCHUNLINKSTORY;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_BATCHUNLINKSTORY;
+        String returnUrlRegexPrev = ACTION_RETURNURL_BATCHUNLINKSTORY;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_BATCHUNLINKSTORY;
+
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
+    }
+
+    /**
+     * linkBugbyBug 关联Bug（解决Bug）
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean linkBugbyBug(String zentaoSid, JSONObject jo, ZTResult rst) {
+        jo.put("browseType", "bySearch");
+        jo.put("myQueryID", "myQueryID");
+        jo.put("linkType", "bug");
+        return linkBug(zentaoSid, jo, rst);
+    }
+
+    /**
+     * linkBugbyLeftBug 关联Bug（遗留Bug）
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean linkBugbyLeftBug(String zentaoSid, JSONObject jo, ZTResult rst) {
+        jo.put("browseType", "bySearch");
+        jo.put("myQueryID", "myQueryID");
+        jo.put("linkType", "leftBug");
+        return linkBug(zentaoSid, jo, rst);
+    }
+
+    /**
+     * linkBug 关联Bug
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean linkBug(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_LINKBUG;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_LINKBUG;
+        Map<String, Object> actionParams = ACTION_PARAMS_LINKBUG;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_LINKBUG;
+        String returnUrlRegexPrev = ACTION_RETURNURL_LINKBUG;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_LINKBUG;
+
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
+    }
+
+    /**
+     * unlinkBug 解除关联Bug
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean unlinkBug(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_UNLINKBUG;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_UNLINKBUG;
+        Map<String, Object> actionParams = ACTION_PARAMS_UNLINKBUG;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_UNLINKBUG;
+        String returnUrlRegexPrev = ACTION_RETURNURL_UNLINKBUG;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_UNLINKBUG;
+
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
+    }
+
+    /**
+     * batchUnlinkBug 批量解除关联Bug
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean batchUnlinkBug(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_BATCHUNLINKBUG;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_BATCHUNLINKBUG;
+        Map<String, Object> actionParams = ACTION_PARAMS_BATCHUNLINKBUG;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_BATCHUNLINKBUG;
+        String returnUrlRegexPrev = ACTION_RETURNURL_BATCHUNLINKBUG;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_BATCHUNLINKBUG;
 
         return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
     }
