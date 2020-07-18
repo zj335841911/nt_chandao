@@ -8,3 +8,5 @@ zentao:
 ibiz:
   auth:
     service: IBZUAAZTUserService
+environment:
+  - TZ=Asia/Shanghai
