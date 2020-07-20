@@ -164,17 +164,17 @@
                             <i class='fa fa-eye'></i>
                             
                           </a>
-                          <divider type='vertical'></divider>
+                          <divider v-show="scope.row.ResolveBug.visabled" type='vertical'></divider>
                           <a v-show="scope.row.ResolveBug.visabled" :style="{'pointer-events':scope.row.ResolveBug.disabled ? 'none' : 'auto'}" @click="uiAction(scope.row, 'ResolveBug', $event)" :title="$t('entities.bug.main_grid.uiactions.bug_resolvebug')">
                             <i class='fa fa-check-square-o'></i>
                             
                           </a>
-                          <divider type='vertical'></divider>
+                          <divider v-show="scope.row.CloseBug.visabled" type='vertical'></divider>
                           <a v-show="scope.row.CloseBug.visabled" :style="{'pointer-events':scope.row.CloseBug.disabled ? 'none' : 'auto'}" @click="uiAction(scope.row, 'CloseBug', $event)" :title="$t('entities.bug.main_grid.uiactions.bug_closebug')">
                             <i class='fa fa-power-off'></i>
                             
                           </a>
-                          <divider type='vertical'></divider>
+                          <divider v-show="scope.row.MainEdit.visabled" type='vertical'></divider>
                           <a v-show="scope.row.MainEdit.visabled" :style="{'pointer-events':scope.row.MainEdit.disabled ? 'none' : 'auto'}" @click="uiAction(scope.row, 'MainEdit', $event)" :title="$t('entities.bug.main_grid.uiactions.bug_mainedit')">
                             <i class='fa fa-edit'></i>
                             
