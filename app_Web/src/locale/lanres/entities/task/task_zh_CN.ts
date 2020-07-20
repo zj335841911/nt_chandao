@@ -182,7 +182,8 @@ export default {
 	maindetail_form: {
 		details: {
 			grouppanel3: "任务描述", 
-			grouppanel2: "需求描述", 
+			druipart3: "", 
+			grouppanel2: "需求", 
 			druipart2: "", 
 			grouppanel4: "附件", 
 			druipart1: "", 

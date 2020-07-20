@@ -143,6 +143,10 @@ export default {
 			caption: "关联需求",
       		title: "关联需求",
 		},
+		editview9: {
+			caption: "需求描述",
+      		title: "需求编辑视图",
+		},
 		mpickupview: {
 			caption: "关联需求",
       		title: "关联需求",
@@ -461,6 +465,31 @@ export default {
 		uiactions: {
 		},
 	},
+	taskstoryspec_form: {
+		details: {
+			_druipart2: "", 
+			_grouppanel1: "附件", 
+			grouppanel11: "需求描述", 
+			druipart1: "", 
+			grouppanel1: "相关用例", 
+			grouppanel21: "验收标准", 
+			group11: "需求描述信息", 
+			grouppanel31: "需求描述", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "需求名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			spec: "需求描述", 
+			verify: "验收标准", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
 	related_form: {
 		details: {
 			druipart1: "", 
@@ -677,6 +706,8 @@ export default {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
 		},
+	},
+	editview9toolbar_toolbar: {
 	},
 	curprojectgridviewtoolbar_toolbar: {
 		deuiaction1: {

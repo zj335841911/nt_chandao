@@ -66,7 +66,7 @@ export class MainDetailEditFormBase extends EditFormControlBase {
      * @type {number}
      * @memberof MainDetailEditFormBase
      */
-    protected drCount: number = 2;
+    protected drCount: number = 3;
 
     /**
      * 表单数据对象
@@ -108,7 +108,9 @@ export class MainDetailEditFormBase extends EditFormControlBase {
     public detailsModel: any = {
         grouppanel3: new FormGroupPanelModel({ caption: '任务描述', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.task.maindetail_form', extractMode: 'ITEM', details: [] } }),
 
-        grouppanel2: new FormGroupPanelModel({ caption: '需求描述', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: false, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.task.maindetail_form', extractMode: 'ITEM', details: [] } }),
+        druipart3: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart3', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        grouppanel2: new FormGroupPanelModel({ caption: '需求', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: false, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.task.maindetail_form', extractMode: 'ITEM', details: [] } }),
 
         druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
@@ -157,6 +159,7 @@ export class MainDetailEditFormBase extends EditFormControlBase {
      */
     public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
                 
+
 
         if (Object.is(name, '') || Object.is(name, 'story')) {
             let ret = false;

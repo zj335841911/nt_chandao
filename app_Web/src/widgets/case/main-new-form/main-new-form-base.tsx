@@ -104,6 +104,10 @@ export class MainNewEditFormBase extends EditFormControlBase {
      * @memberof MainNewEditFormBase
      */
     public rules: any = {
+        type: [
+            { required: true, type: 'string', message: '用例类型 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '用例类型 值不能为空', trigger: 'blur' },
+        ],
         title: [
             { required: true, type: 'string', message: '用例标题 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '用例标题 值不能为空', trigger: 'blur' },

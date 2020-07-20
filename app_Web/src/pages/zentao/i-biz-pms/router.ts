@@ -3449,6 +3449,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/release-grid-view/release-grid-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/editview9/:editview9?',
+                    meta: {
+                        caption: 'entities.story.views.editview9.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'editview9', parameterName: 'editview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-edit-view9/story-edit-view9.vue'),
+                },
+                {
+                    path: 'stories/:story?/editview9/:editview9?',
+                    meta: {
+                        caption: 'entities.story.views.editview9.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'editview9', parameterName: 'editview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-edit-view9/story-edit-view9.vue'),
+                },
+                {
                     path: 'products/:product?/productmodules/:productmodule?/treeexpview/:treeexpview?',
                     meta: {
                         caption: 'entities.productmodule.views.treeexpview.title',
@@ -3961,20 +3990,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-activite-view/story-activite-view.vue'),
                 },
                 {
-                    path: 'testsuites/:testsuite?/editview/:editview?',
-                    meta: {
-                        caption: 'entities.testsuite.views.editview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'testsuites', parameterName: 'testsuite' },
-                            { pathName: 'editview', parameterName: 'editview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/test-suite-edit-view/test-suite-edit-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/releasesubeditview/:releasesubeditview?',
                     meta: {
                         caption: 'entities.story.views.releasesubeditview.title',
@@ -4002,6 +4017,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/story-release-sub-edit-view/story-release-sub-edit-view.vue'),
+                },
+                {
+                    path: 'testsuites/:testsuite?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.testsuite.views.editview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'testsuites', parameterName: 'testsuite' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-suite-edit-view/test-suite-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/maindashboardview/:maindashboardview?',
