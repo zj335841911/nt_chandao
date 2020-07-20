@@ -108,6 +108,10 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public rules: any = {
+        openedbuild: [
+            { required: true, type: 'string', message: '影响版本 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '影响版本 值不能为空', trigger: 'blur' },
+        ],
         title: [
             { required: true, type: 'string', message: 'Bug标题 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: 'Bug标题 值不能为空', trigger: 'blur' },
