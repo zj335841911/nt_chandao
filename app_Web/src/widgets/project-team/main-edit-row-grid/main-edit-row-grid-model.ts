@@ -30,16 +30,19 @@ export default class Main_EditRowModel {
           name: 'limited',
           prop: 'limited',
           dataType: 'SSCODELIST',
+          isEditable:true
         },
         {
           name: 'username',
           prop: 'username',
           dataType: 'TEXT',
+          isEditable:true
         },
         {
           name: 'days',
           prop: 'days',
           dataType: 'INT',
+          isEditable:true
         },
         {
           name: 'root',
@@ -50,16 +53,19 @@ export default class Main_EditRowModel {
           name: 'hours',
           prop: 'hours',
           dataType: 'FLOAT',
+          isEditable:true
         },
         {
           name: 'account',
           prop: 'account',
           dataType: 'TEXT',
+          isEditable:true
         },
         {
           name: 'role',
           prop: 'role',
           dataType: 'TEXT',
+          isEditable:true
         },
         {
           name: 'srfmajortext',
@@ -75,6 +81,7 @@ export default class Main_EditRowModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
+          isEditable:true
         },
         {
           name: 'projectteam',

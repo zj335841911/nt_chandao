@@ -384,7 +384,7 @@ export class GridControllerBase extends MDControlBase {
                         if (item[this.appDeName]) {
                             Object.assign(this.context, { [this.appDeName]: item[this.appDeName] });
                         }
-                        let response = await this.service.add(this.updateAction, JSON.parse(JSON.stringify(this.context)), item, this.showBusyIndicator);
+                        let response = await this.service.update(this.updateAction, JSON.parse(JSON.stringify(this.context)), item, this.showBusyIndicator);
                         successItems.push(JSON.parse(JSON.stringify(response.data)));
                     }
                 }
