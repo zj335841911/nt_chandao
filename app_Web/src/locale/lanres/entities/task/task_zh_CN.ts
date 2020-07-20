@@ -462,7 +462,6 @@ export default {
 	},
 	main_grid: {
 		columns: {
-			parent: "父任务",
 			id: "ID",
 			pri: "P",
 			name: "任务名称",

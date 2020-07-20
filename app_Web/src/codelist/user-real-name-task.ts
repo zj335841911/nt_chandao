@@ -13,7 +13,7 @@ export default class UserRealNameTask {
      * @type boolean
      * @memberof UserRealNameTask
      */
-    public isEnableCache:boolean = true;
+    public isEnableCache:boolean = false;
 
     /**
      * 过期时间
@@ -29,7 +29,7 @@ export default class UserRealNameTask {
      * @type any
      * @memberof UserRealNameTask
      */
-    public cacheTimeout:any = 300;
+    public cacheTimeout:any = -1;
 
     /**
      * 代码表模型对象
