@@ -371,6 +371,7 @@ export default {
 			id: "", 
 			title: "", 
 			version: "", 
+			formitem: "版本号", 
 			spec: "需求描述", 
 			verify: "验收标准", 
 		},
