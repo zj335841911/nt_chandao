@@ -159,6 +159,9 @@ export default class StoryRelatedModel {
       {
         name: 'branchname',
       },
+      {
+        name: 'versionc',
+      },
     ]
   }
 

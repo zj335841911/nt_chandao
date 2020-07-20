@@ -159,6 +159,9 @@ export default class AssignedToMeStoryModel {
       {
         name: 'branchname',
       },
+      {
+        name: 'versionc',
+      },
     ]
   }
 
