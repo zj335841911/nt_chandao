@@ -201,7 +201,6 @@ export class SubTaskNewGridBase extends GridControllerBase {
           story: new FormItemModel(),
           project: new FormItemModel(),
           pri: new FormItemModel(),
-          lastediteddate: new FormItemModel(),
           name: new FormItemModel(),
           allmodules: new FormItemModel(),
           left: new FormItemModel(),
@@ -262,10 +261,6 @@ export class SubTaskNewGridBase extends GridControllerBase {
         pri: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '优先级 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '优先级 值不能为空', trigger: 'blur' },
-        ],
-        lastediteddate: [
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '最后修改日期 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '最后修改日期 值不能为空', trigger: 'blur' },
         ],
         name: [
             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '任务名称 值不能为空', trigger: 'change' },

@@ -121,12 +121,6 @@ export default class SubTaskNewModel {
           isEditable:true
         },
         {
-          name: 'lastediteddate',
-          prop: 'lastediteddate',
-          dataType: 'DATETIME',
-          isEditable:true
-        },
-        {
           name: 'name',
           prop: 'name',
           dataType: 'TEXT',
