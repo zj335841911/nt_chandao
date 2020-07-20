@@ -6,7 +6,7 @@ import { StoryEditView9Base } from './story-edit-view9-base';
 import view_form from '@widgets/story/task-story-spec-form/task-story-spec-form.vue';
 
 /**
- * 需求编辑视图视图
+ * 关联需求视图
  *
  * @export
  * @class StoryEditView9

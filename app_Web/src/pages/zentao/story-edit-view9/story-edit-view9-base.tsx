@@ -6,7 +6,7 @@ import EditView9Engine from '@engine/view/edit-view9-engine';
 import StoryUIService from '@/uiservice/story/story-ui-service';
 
 /**
- * 需求编辑视图视图基类
+ * 关联需求视图基类
  *
  * @export
  * @class StoryEditView9Base
