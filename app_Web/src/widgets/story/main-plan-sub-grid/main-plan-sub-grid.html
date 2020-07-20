@@ -158,7 +158,7 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.UnlinkStory.visabled" :style="{'pointer-events':scope.row.UnlinkStory.disabled?'none':'auto'}" @click="uiAction(scope.row, 'UnlinkStory', $event)" :title="$t('entities.story.main_plansub_grid.uiactions.story_unlinkstory')">
+                          <a v-show="scope.row.UnlinkStory.visabled" :style="{'pointer-events':scope.row.UnlinkStory.disabled ? 'none' : 'auto'}" @click="uiAction(scope.row, 'UnlinkStory', $event)" :title="$t('entities.story.main_plansub_grid.uiactions.story_unlinkstory')">
                             <i class='fa fa-unlink'></i>
                             
                           </a>

@@ -166,19 +166,22 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.LinkCase.visabled" :style="{'pointer-events':scope.row.LinkCase.disabled?'none':'auto'}" @click="uiAction(scope.row, 'LinkCase', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_linkcase')">
+                          <a v-show="scope.row.LinkCase.visabled" :style="{'pointer-events':scope.row.LinkCase.disabled ? 'none' : 'auto'}" @click="uiAction(scope.row, 'LinkCase', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_linkcase')">
                             <i class='fa fa-link'></i>
                             
                           </a>
-                          <a v-show="scope.row.OpenInfoView.visabled" :style="{'pointer-events':scope.row.OpenInfoView.disabled?'none':'auto'}" @click="uiAction(scope.row, 'OpenInfoView', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_openinfoview')">
+                          <divider type='vertical'></divider>
+                          <a v-show="scope.row.OpenInfoView.visabled" :style="{'pointer-events':scope.row.OpenInfoView.disabled ? 'none' : 'auto'}" @click="uiAction(scope.row, 'OpenInfoView', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_openinfoview')">
                             <i class='fa fa-stack-exchange'></i>
                             
                           </a>
-                          <a v-show="scope.row.EditEdit.visabled" :style="{'pointer-events':scope.row.EditEdit.disabled?'none':'auto'}" @click="uiAction(scope.row, 'EditEdit', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_editedit')">
+                          <divider type='vertical'></divider>
+                          <a v-show="scope.row.EditEdit.visabled" :style="{'pointer-events':scope.row.EditEdit.disabled ? 'none' : 'auto'}" @click="uiAction(scope.row, 'EditEdit', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_editedit')">
                             <i class='fa fa-edit'></i>
                             
                           </a>
-                          <a v-show="scope.row.Remove.visabled" :style="{'pointer-events':scope.row.Remove.disabled?'none':'auto'}" @click="uiAction(scope.row, 'Remove', $event)" :title="$t('entities.testtask.main_grid.uiactions.remove')">
+                          <divider type='vertical'></divider>
+                          <a v-show="scope.row.Remove.visabled" :style="{'pointer-events':scope.row.Remove.disabled ? 'none' : 'auto'}" @click="uiAction(scope.row, 'Remove', $event)" :title="$t('entities.testtask.main_grid.uiactions.remove')">
                             <i class='fa fa-remove'></i>
                             
                           </a>
