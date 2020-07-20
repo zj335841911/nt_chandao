@@ -244,10 +244,12 @@ export default class DropDownListExtend extends Vue {
             let _datas: any[] = [];
             for (let data of this.datas) {    
                 if (data[_name]) {
-                    _datas.push(data[_name])
+                    if(!(this.data[_name] && this.data[_name] == data[_name])) {
+                        _datas.push(data[_name]);
+                    }
                 }
             }
-            arg.param[_name] = _datas.join(';');
+            arg.param[_name] = _datas.join(',');
         }
     }
 
