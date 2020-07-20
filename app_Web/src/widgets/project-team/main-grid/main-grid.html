@@ -120,7 +120,7 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.RemoveMember.visabled" :style="{'pointer-events':scope.row.RemoveMember.disabled?'none':'auto'}" @click="uiAction(scope.row, 'RemoveMember', $event)" :title="$t('entities.projectteam.main_grid.uiactions.projectteam_removemember')">
+                          <a v-show="scope.row.RemoveMember.visabled" :style="{'pointer-events':scope.row.RemoveMember.disabled ? 'none' : 'auto'}" @click="uiAction(scope.row, 'RemoveMember', $event)" :title="$t('entities.projectteam.main_grid.uiactions.projectteam_removemember')">
                             <i class='fa fa-unlink'></i>
                             
                           </a>

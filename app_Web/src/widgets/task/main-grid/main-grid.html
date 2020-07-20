@@ -170,23 +170,27 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.StartTask.visabled" :style="{'pointer-events':scope.row.StartTask.disabled?'none':'auto'}" @click="uiAction(scope.row, 'StartTask', $event)" :title="$t('entities.task.main_grid.uiactions.task_starttask')">
+                          <a v-show="scope.row.StartTask.visabled" :style="{'pointer-events':scope.row.StartTask.disabled ? 'none' : 'auto'}" @click="uiAction(scope.row, 'StartTask', $event)" :title="$t('entities.task.main_grid.uiactions.task_starttask')">
                             <i class='fa fa-play-circle-o'></i>
                             
                           </a>
-                          <a v-show="scope.row.CloseTask.visabled" :style="{'pointer-events':scope.row.CloseTask.disabled?'none':'auto'}" @click="uiAction(scope.row, 'CloseTask', $event)" :title="$t('entities.task.main_grid.uiactions.task_closetask')">
+                          <divider type='vertical'></divider>
+                          <a v-show="scope.row.CloseTask.visabled" :style="{'pointer-events':scope.row.CloseTask.disabled ? 'none' : 'auto'}" @click="uiAction(scope.row, 'CloseTask', $event)" :title="$t('entities.task.main_grid.uiactions.task_closetask')">
                             <i class='fa fa-power-off'></i>
                             
                           </a>
-                          <a v-show="scope.row.DoneTask.visabled" :style="{'pointer-events':scope.row.DoneTask.disabled?'none':'auto'}" @click="uiAction(scope.row, 'DoneTask', $event)" :title="$t('entities.task.main_grid.uiactions.task_donetask')">
+                          <divider type='vertical'></divider>
+                          <a v-show="scope.row.DoneTask.visabled" :style="{'pointer-events':scope.row.DoneTask.disabled ? 'none' : 'auto'}" @click="uiAction(scope.row, 'DoneTask', $event)" :title="$t('entities.task.main_grid.uiactions.task_donetask')">
                             <i class='fa fa-check-square-o'></i>
                             
                           </a>
-                          <a v-show="scope.row.MainEdit.visabled" :style="{'pointer-events':scope.row.MainEdit.disabled?'none':'auto'}" @click="uiAction(scope.row, 'MainEdit', $event)" :title="$t('entities.task.main_grid.uiactions.task_mainedit')">
+                          <divider type='vertical'></divider>
+                          <a v-show="scope.row.MainEdit.visabled" :style="{'pointer-events':scope.row.MainEdit.disabled ? 'none' : 'auto'}" @click="uiAction(scope.row, 'MainEdit', $event)" :title="$t('entities.task.main_grid.uiactions.task_mainedit')">
                             <i class='fa fa-edit'></i>
                             
                           </a>
-                          <a v-show="scope.row.NewSubTask.visabled" :style="{'pointer-events':scope.row.NewSubTask.disabled?'none':'auto'}" @click="uiAction(scope.row, 'NewSubTask', $event)" :title="$t('entities.task.main_grid.uiactions.task_newsubtask')">
+                          <divider type='vertical'></divider>
+                          <a v-show="scope.row.NewSubTask.visabled" :style="{'pointer-events':scope.row.NewSubTask.disabled ? 'none' : 'auto'}" @click="uiAction(scope.row, 'NewSubTask', $event)" :title="$t('entities.task.main_grid.uiactions.task_newsubtask')">
                             <i class='iconfont studio-icon-subnets'></i>
                             
                           </a>

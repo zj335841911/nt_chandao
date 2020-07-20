@@ -156,11 +156,12 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.OpenTestRunResultView.visabled" :style="{'pointer-events':scope.row.OpenTestRunResultView.disabled?'none':'auto'}" @click="uiAction(scope.row, 'OpenTestRunResultView', $event)" :title="$t('entities.case.maingrid_suitsub_grid.uiactions.case_opentestrunresultview')">
+                          <a v-show="scope.row.OpenTestRunResultView.visabled" :style="{'pointer-events':scope.row.OpenTestRunResultView.disabled ? 'none' : 'auto'}" @click="uiAction(scope.row, 'OpenTestRunResultView', $event)" :title="$t('entities.case.maingrid_suitsub_grid.uiactions.case_opentestrunresultview')">
                             <i class='fa fa-stack-overflow'></i>
                             
                           </a>
-                          <a v-show="scope.row.Execute.visabled" :style="{'pointer-events':scope.row.Execute.disabled?'none':'auto'}" @click="uiAction(scope.row, 'Execute', $event)" :title="$t('entities.case.maingrid_suitsub_grid.uiactions.case_execute')">
+                          <divider type='vertical'></divider>
+                          <a v-show="scope.row.Execute.visabled" :style="{'pointer-events':scope.row.Execute.disabled ? 'none' : 'auto'}" @click="uiAction(scope.row, 'Execute', $event)" :title="$t('entities.case.maingrid_suitsub_grid.uiactions.case_execute')">
                             <i class='fa fa-play-circle-o'></i>
                             
                           </a>
