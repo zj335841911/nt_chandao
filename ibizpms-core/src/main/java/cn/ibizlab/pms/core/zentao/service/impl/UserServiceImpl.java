@@ -178,6 +178,15 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         return new PageImpl<User>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 TASKTEAM
+     */
+    @Override
+    public Page<User> searchTaskTeam(UserSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<User> pages=baseMapper.searchTaskTeam(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<User>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
 

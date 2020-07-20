@@ -113,9 +113,9 @@ export class Main_EditEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '项目代号 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '项目代号 值不能为空', trigger: 'blur' },
         ],
-        formitemex1: [
-            { required: true, type: 'string', message: '项目周期 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '项目周期 值不能为空', trigger: 'blur' },
+        period: [
+            { required: true, type: 'string', message: ' 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
     }
 
