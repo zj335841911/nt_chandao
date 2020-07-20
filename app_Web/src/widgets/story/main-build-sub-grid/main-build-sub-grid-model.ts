@@ -58,6 +58,7 @@ export default class Main_BuildSubModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
+          isEditable:true
         },
         {
           name: 'srfdataaccaction',

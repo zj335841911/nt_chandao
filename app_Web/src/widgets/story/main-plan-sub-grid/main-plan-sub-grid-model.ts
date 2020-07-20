@@ -73,6 +73,7 @@ export default class Main_PlanSubModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
+          isEditable:true
         },
         {
           name: 'srfdataaccaction',

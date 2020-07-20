@@ -73,6 +73,7 @@ export default class Main_ReportSubModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
+          isEditable:true
         },
         {
           name: 'srfdataaccaction',

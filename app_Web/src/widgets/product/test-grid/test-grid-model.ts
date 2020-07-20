@@ -73,6 +73,7 @@ export default class TestModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
+          isEditable:true
         },
         {
           name: 'product',

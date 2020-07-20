@@ -68,6 +68,7 @@ export default class Main3Model {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
+          isEditable:true
         },
         {
           name: 'srfdataaccaction',

@@ -60,6 +60,7 @@ export default class MainGrid_SuitSubModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
+          isEditable:true
         },
         {
           name: 'srfdataaccaction',

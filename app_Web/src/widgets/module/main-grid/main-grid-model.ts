@@ -75,6 +75,7 @@ export default class MainModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
+          isEditable:true
         },
         {
           name: 'module',

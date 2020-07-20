@@ -70,6 +70,7 @@ export default class MainGridModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
+          isEditable:true
         },
         {
           name: 'openedby',
