@@ -23,6 +23,18 @@
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
+            <template v-if="getColumnState('parent')">
+                <el-table-column show-overflow-tooltip :prop="'parent'" :label="$t('entities.task.main_grid.columns.parent')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.task.main_grid.columns.parent')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.parent}}</span>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="getColumnState('id')">
                 <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.task.main_grid.columns.id')" :width="80"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
