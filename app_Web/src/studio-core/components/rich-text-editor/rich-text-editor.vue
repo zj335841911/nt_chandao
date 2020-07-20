@@ -1,7 +1,7 @@
 <template>
     <div class="rich-text-editor">
         <div class="editor-custom-action">
-            <Poptip ref="propip" trigger="hover" placement="top-end" title="请输入模板标题" :width="250">
+            <Poptip ref="propip" trigger="hover" placement="top-end" title="请输入模板标题" :width="250" @on-popper-show="openPoper()">
                 <Button class="appTemplate">
                     保存模板
                 </Button>
@@ -9,6 +9,7 @@
                     <div>
                         <Input v-model="templateTitle" placeholder="请输入模板标题" />
                         <div style="margin-top: 5px;">
+                            <Checkbox v-model="single">公开的</Checkbox>
                             <Button @click="saveTemplate()">{{ $t('app.commonWords.save') }}</Button>&nbsp;
                             <Button @click="onCancel()">{{ $t('app.commonWords.cancel') }}</Button>
                         </div>
@@ -21,13 +22,17 @@
                     <Icon type="ios-arrow-down"></Icon>
                 </Button>
                 <DropdownMenu slot="list" >
+                    <Tabs v-model="ibizpublic" :animated="false">
+                        <TabPane label="私人的" name="0"></TabPane>
+                        <TabPane label="公开的" name="1"></TabPane>
+                    </Tabs>
                     <DropdownItem v-for="(item,index) in appTemplate" :key='index' :value="item.content">
-                        <div style="position: relative;">
+                        <div class="keyOperation" v-if="ibizpublic == '' || item.ibizpublic == ibizpublic">
                             <span class="span-content" @click="appTemplateFill(item.content)">
-                                {{item.title}}
+                                {{item.title+"-"+item.account}}
                             </span> 
-                            <span class="icon-close" @click="removeAppTemplate(item)" style="position: absolute;right: 0px;">
-                                <Icon type="md-close" size="17"/>
+                            <span class="icon-close" @click="removeAppTemplate(item)">
+                                <Icon type="md-close" size="18"/>
                             </span>
                         </div>
                     </DropdownItem>
@@ -217,12 +222,12 @@ export default class RichTextEditor extends Vue {
     /**
      * 应用模板集合
      */
-    public appTemplate?: Array<any>=[];
+    public appTemplate: Array<any>=[];
 
     /**
      * 模板标题
      */
-    public templateTitle?: string = '';
+    public templateTitle: string = '';
 
     /**
      * 语言映射文件
@@ -241,7 +246,7 @@ export default class RichTextEditor extends Vue {
      * @type {boolean}
      * @memberof RichTextEditor
      */
-    public isActived:boolean = true;
+    public isActived: boolean = true;
 
     /**
      * 是否需要初始化
@@ -249,8 +254,21 @@ export default class RichTextEditor extends Vue {
      * @type {boolean}
      * @memberof RichTextEditor
      */
-    public isNeedInit:boolean = false;
+    public isNeedInit: boolean = false;
 
+    /**
+     * 多选框默认值
+     * @type {boolean}
+     * @memberof RichTextEditor
+     */
+    public single: boolean = false;
+
+    /**
+     * 模板类型（默认所有类型）
+     * @type {string}
+     * @memberof RichTextEditor
+     */
+    public ibizpublic: string = '';
 
     /**
      * 生命周期
@@ -452,13 +470,27 @@ export default class RichTextEditor extends Vue {
      * @memberof RichTextEditor
      */
     public async appTemplateData() {
-        let data: any ={};
         const templParams = this.getTemplParams();
         const response: any = await this.userTplService.FetchDefault({},templParams,false);
         if(response && response.status === 200){
             const { data: _data } = response;
-            this.appTemplate = _data;
+            _data.forEach((item:any)=>{
+                if(Object.is(item.account,templParams.account) || Object.is(item.ibizpublic,'1')){
+                    this.appTemplate.push(item);
+                }
+            });
         }
+        console.log(this.appTemplate);
+    }
+
+    /**
+     * 打开气泡时
+     * 
+     * @memberof RichTextEditor
+     */
+    public openPoper(){
+        this.templateTitle = '';
+        this.single = false;
     }
 
     /**
@@ -470,6 +502,7 @@ export default class RichTextEditor extends Vue {
         let templParams = this.getTemplParams();
         const templateTitle = this.templateTitle;
         const templateContent = this.editor.getContent();
+        templParams.public = this.single == true? 1 : 0;
         if(!templateContent || Object.is(templateContent,'')){
             this.$Notice.error({
                     title: '请填充模板内容!!!',
@@ -484,17 +517,18 @@ export default class RichTextEditor extends Vue {
         }
         templParams.title = templateTitle;
         templParams.content = templateContent;
+        console.log(templParams);
         const response: any = await this.userTplService.Create({}, templParams, false);
         if(response && response.status === 200){
             this.$Notice.success({
                 title: '保存模板成功!!!',
             });
-            this.appTemplateData();
         }else{
             this.$Notice.error({
                 title: '保存模板失败!!!',
             });
         }
+        this.appTemplateData();
         let propip: any = this.$refs.propip;
         propip.handleMouseleave();
     }
@@ -514,8 +548,7 @@ export default class RichTextEditor extends Vue {
      * @memberof RichTextEditor
      */
     public appTemplateFill(content: any){
-        this.editor.setContent(content == null ? content : '');
-
+        this.editor.setContent(content == null ? '' : content);
     }
 
     /**
@@ -531,12 +564,12 @@ export default class RichTextEditor extends Vue {
             this.$Notice.success({
                 title: '删除模板成功!!!',
             });
-            this.appTemplateData();
         }else{
             this.$Notice.error({
                 title: '删除模板失败!!!',
             });
         }
+        this.appTemplateData();
     }
 
     /**
