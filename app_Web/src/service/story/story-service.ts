@@ -22,7 +22,7 @@ export default class StoryService extends StoryServiceBase {
     }
 
     /**
-     * GetDraft接口方法
+     * GetTaskReStory接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -30,7 +30,7 @@ export default class StoryService extends StoryServiceBase {
      * @returns {Promise<any>}
      * @memberof StoryServiceBase
      */
-    public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async GetTaskReStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/stories/getdraft`,isloading);
             res.data.story = data.story;
