@@ -112,7 +112,7 @@ export class TaskStorySpecEditFormBase extends EditFormControlBase {
 
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
-        grouppanel1: new FormGroupPanelModel({ caption: '相关用例', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.story.taskstoryspec_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel1: new FormGroupPanelModel({ caption: '相关用例', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.story.taskstoryspec_form', extractMode: 'ITEM', details: [] } }),
 
         grouppanel21: new FormGroupPanelModel({ caption: '验收标准', detailType: 'GROUPPANEL', name: 'grouppanel21', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.story.taskstoryspec_form', extractMode: 'ITEM', details: [] } }),
 
