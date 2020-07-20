@@ -172,27 +172,27 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.ChangeStoryDetail.visabled" :style="{'pointer-events':scope.row.ChangeStoryDetail.disabled ? 'none' : 'auto'}" @click="uiAction(scope.row, 'ChangeStoryDetail', $event)" :title="$t('entities.story.main_grid.uiactions.story_changestorydetail')">
+                          <a v-show="scope.row.ChangeStoryDetail.visabled" :disabled="scope.row.ChangeStoryDetail.disabled.toString()" @click="uiAction(scope.row, 'ChangeStoryDetail', $event)" :title="$t('entities.story.main_grid.uiactions.story_changestorydetail')">
                             <i class='fa fa-exchange'></i>
                             
                           </a>
                           <divider v-show="scope.row.ReviewStory.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.ReviewStory.visabled" :style="{'pointer-events':scope.row.ReviewStory.disabled ? 'none' : 'auto'}" @click="uiAction(scope.row, 'ReviewStory', $event)" :title="$t('entities.story.main_grid.uiactions.story_reviewstory')">
+                          <a v-show="scope.row.ReviewStory.visabled" :disabled="scope.row.ReviewStory.disabled.toString()" @click="uiAction(scope.row, 'ReviewStory', $event)" :title="$t('entities.story.main_grid.uiactions.story_reviewstory')">
                             <i class='fa fa-search'></i>
                             
                           </a>
                           <divider v-show="scope.row.CloseStory.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.CloseStory.visabled" :style="{'pointer-events':scope.row.CloseStory.disabled ? 'none' : 'auto'}" @click="uiAction(scope.row, 'CloseStory', $event)" :title="$t('entities.story.main_grid.uiactions.story_closestory')">
+                          <a v-show="scope.row.CloseStory.visabled" :disabled="scope.row.CloseStory.disabled.toString()" @click="uiAction(scope.row, 'CloseStory', $event)" :title="$t('entities.story.main_grid.uiactions.story_closestory')">
                             <i class='fa fa-power-off'></i>
                             
                           </a>
                           <divider v-show="scope.row.OpenBaseInfoEditView.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.OpenBaseInfoEditView.visabled" :style="{'pointer-events':scope.row.OpenBaseInfoEditView.disabled ? 'none' : 'auto'}" @click="uiAction(scope.row, 'OpenBaseInfoEditView', $event)" :title="$t('entities.story.main_grid.uiactions.story_openbaseinfoeditview')">
+                          <a v-show="scope.row.OpenBaseInfoEditView.visabled" :disabled="scope.row.OpenBaseInfoEditView.disabled.toString()" @click="uiAction(scope.row, 'OpenBaseInfoEditView', $event)" :title="$t('entities.story.main_grid.uiactions.story_openbaseinfoeditview')">
                             <i class='fa fa-edit'></i>
                             
                           </a>
                           <divider v-show="scope.row.OpenCaseCreateView.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.OpenCaseCreateView.visabled" :style="{'pointer-events':scope.row.OpenCaseCreateView.disabled ? 'none' : 'auto'}" @click="uiAction(scope.row, 'OpenCaseCreateView', $event)" :title="$t('entities.story.main_grid.uiactions.story_opencasecreateview')">
+                          <a v-show="scope.row.OpenCaseCreateView.visabled" :disabled="scope.row.OpenCaseCreateView.disabled.toString()" @click="uiAction(scope.row, 'OpenCaseCreateView', $event)" :title="$t('entities.story.main_grid.uiactions.story_opencasecreateview')">
                             <i class='fa fa-lightbulb-o'></i>
                             
                           </a>
