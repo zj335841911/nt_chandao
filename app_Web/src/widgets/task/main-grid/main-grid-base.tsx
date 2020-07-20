@@ -274,14 +274,6 @@ export class MainGridBase extends GridControllerBase {
      */
     public allColumns: any[] = [
         {
-            name: 'parent',
-            label: '父任务',
-            langtag: 'entities.task.main_grid.columns.parent',
-            show: true,
-            util: 'PX',
-            isEnableRowEdit: false,
-        },
-        {
             name: 'id',
             label: 'ID',
             langtag: 'entities.task.main_grid.columns.id',
@@ -403,7 +395,6 @@ export class MainGridBase extends GridControllerBase {
      * @memberof MainBase
      */
     public hasRowEdit: any = {
-        'parent':false,
         'id':false,
         'pri':false,
         'name':false,

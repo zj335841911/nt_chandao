@@ -6,7 +6,7 @@ import cn.ibizlab.pms.webapi.dto.UserTplDTO;
 import cn.ibizlab.pms.util.domain.MappingBase;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(componentModel = "spring", uses = {},
+@Mapper(componentModel = "spring", uses = {},implementationName="WebApiUserTplMapping",
     nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
     nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS)
 public interface UserTplMapping extends MappingBase<UserTplDTO, UserTpl> {

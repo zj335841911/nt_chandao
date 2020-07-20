@@ -6,7 +6,7 @@ import cn.ibizlab.pms.webapi.dto.ProductDTO;
 import cn.ibizlab.pms.util.domain.MappingBase;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(componentModel = "spring", uses = {},
+@Mapper(componentModel = "spring", uses = {},implementationName="WebApiProductMapping",
     nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
     nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS)
 public interface ProductMapping extends MappingBase<ProductDTO, Product> {

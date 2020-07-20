@@ -101,6 +101,14 @@ export class ReviewEditFormBase extends EditFormControlBase {
      * @memberof ReviewEditFormBase
      */
     public rules: any = {
+        result: [
+            { required: true, type: 'string', message: '评审结果 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '评审结果 值不能为空', trigger: 'blur' },
+        ],
+        assignedto: [
+            { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'blur' },
+        ],
     }
 
     /**

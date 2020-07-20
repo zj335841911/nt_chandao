@@ -303,6 +303,14 @@ export class MainGridBase extends GridControllerBase {
             util: 'PX',
             isEnableRowEdit: false,
         },
+        {
+            name: 'activateddate',
+            label: '激活日期',
+            langtag: 'entities.bug.main_grid.columns.activateddate',
+            show: true,
+            util: 'PX',
+            isEnableRowEdit: false,
+        },
     ]
 
     /**
@@ -348,6 +356,7 @@ export class MainGridBase extends GridControllerBase {
         'resolution':false,
         'uagridcolumn1':false,
         'lastediteddate':false,
+        'activateddate':false,
     };
 
     /**
