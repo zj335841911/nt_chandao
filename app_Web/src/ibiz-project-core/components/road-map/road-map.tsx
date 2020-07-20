@@ -111,7 +111,7 @@ export class RoadMap extends Vue {
     protected renderItems(items: any[]): any {
         return <div class="road-map-wrapper">
             {
-                items.map((item) => {
+                items.map((item, i) => {  
                     return <div class="road-map-item">
                         <a href="javascript:void(0);">
                             <div class="content">
@@ -123,6 +123,9 @@ export class RoadMap extends Vue {
                                         :
                                         <div class="date" title={item.end}>{item.end}</div>
                                 }
+                                {
+                                    item.marker === 1 && (i % 2 === 0 ? <i class="fa fa-flag fa-2x odd" aria-hidden="true"></i> : <i class="fa fa-flag fa-2x even" aria-hidden="true"></i>)
+                                }  
                             </div>
                         </a>
                     </div>;
