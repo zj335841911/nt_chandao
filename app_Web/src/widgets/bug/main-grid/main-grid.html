@@ -160,22 +160,22 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.ConfirmBug.visabled" :disabled="scope.row.ConfirmBug.disabled.toString()" @click="uiAction(scope.row, 'ConfirmBug', $event)" :title="$t('entities.bug.main_grid.uiactions.bug_confirmbug')">
+                          <a v-show="scope.row.ConfirmBug.visabled" :disabled="scope.row.ConfirmBug.disabled" @click="uiAction(scope.row, 'ConfirmBug', $event)" :title="$t('entities.bug.main_grid.uiactions.bug_confirmbug')">
                             <i class='fa fa-eye'></i>
                             
                           </a>
                           <divider v-show="scope.row.ResolveBug.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.ResolveBug.visabled" :disabled="scope.row.ResolveBug.disabled.toString()" @click="uiAction(scope.row, 'ResolveBug', $event)" :title="$t('entities.bug.main_grid.uiactions.bug_resolvebug')">
+                          <a v-show="scope.row.ResolveBug.visabled" :disabled="scope.row.ResolveBug.disabled" @click="uiAction(scope.row, 'ResolveBug', $event)" :title="$t('entities.bug.main_grid.uiactions.bug_resolvebug')">
                             <i class='fa fa-check-square-o'></i>
                             
                           </a>
                           <divider v-show="scope.row.CloseBug.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.CloseBug.visabled" :disabled="scope.row.CloseBug.disabled.toString()" @click="uiAction(scope.row, 'CloseBug', $event)" :title="$t('entities.bug.main_grid.uiactions.bug_closebug')">
+                          <a v-show="scope.row.CloseBug.visabled" :disabled="scope.row.CloseBug.disabled" @click="uiAction(scope.row, 'CloseBug', $event)" :title="$t('entities.bug.main_grid.uiactions.bug_closebug')">
                             <i class='fa fa-power-off'></i>
                             
                           </a>
                           <divider v-show="scope.row.MainEdit.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.MainEdit.visabled" :disabled="scope.row.MainEdit.disabled.toString()" @click="uiAction(scope.row, 'MainEdit', $event)" :title="$t('entities.bug.main_grid.uiactions.bug_mainedit')">
+                          <a v-show="scope.row.MainEdit.visabled" :disabled="scope.row.MainEdit.disabled" @click="uiAction(scope.row, 'MainEdit', $event)" :title="$t('entities.bug.main_grid.uiactions.bug_mainedit')">
                             <i class='fa fa-edit'></i>
                             
                           </a>
