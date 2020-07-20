@@ -202,11 +202,11 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('left')">
-                <el-table-column show-overflow-tooltip :prop="'left'" :label="$t('entities.subtask.subtasknew_grid.columns.left')" :width="100"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('estimate')">
+                <el-table-column show-overflow-tooltip :prop="'estimate'" :label="$t('entities.subtask.subtasknew_grid.columns.estimate')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.subtask.subtasknew_grid.columns.left')}}
+                        {{$t('entities.subtask.subtasknew_grid.columns.estimate')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -224,7 +224,45 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <app-span name='left' editorType="TEXTBOX" :value="row.left" dataType="FLOAT" precision="0" ></app-span>
+            <app-span name='estimate' editorType="TEXTBOX" :value="row.estimate" dataType="FLOAT" precision="0" ></app-span>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('eststarted')">
+                <el-table-column show-overflow-tooltip :prop="'eststarted'" :label="$t('entities.subtask.subtasknew_grid.columns.eststarted')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.subtask.subtasknew_grid.columns.eststarted')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template v-if="actualIsOpenEdit">
+                            <app-form-item :error="gridItemsModel[$index][column.property].error">
+                                <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1" :value="row[column.property]" style="" @on-change="(val1, val2) => { row[column.property] = val1; gridEditItemChange(row, column.property, val1, $index)}"></date-picker>
+                            </app-form-item>
+                        </template>
+                        <template v-if="!actualIsOpenEdit">
+            <app-span name='eststarted' editorType="DATEPICKER" :value="row.eststarted" dataType="DATE" precision="0" ></app-span>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('deadline')">
+                <el-table-column show-overflow-tooltip :prop="'deadline'" :label="$t('entities.subtask.subtasknew_grid.columns.deadline')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.subtask.subtasknew_grid.columns.deadline')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template v-if="actualIsOpenEdit">
+                            <app-form-item :error="gridItemsModel[$index][column.property].error">
+                                <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1" :value="row[column.property]" style="" @on-change="(val1, val2) => { row[column.property] = val1; gridEditItemChange(row, column.property, val1, $index)}"></date-picker>
+                            </app-form-item>
+                        </template>
+                        <template v-if="!actualIsOpenEdit">
+            <app-span name='deadline' editorType="DATEPICKER" :value="row.deadline" dataType="DATE" precision="0" ></app-span>
                         </template>
                     </template>
                 </el-table-column>
