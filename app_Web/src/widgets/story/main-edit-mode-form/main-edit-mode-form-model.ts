@@ -66,11 +66,6 @@ export default class Main_EditModeModel {
         dataType: 'TEXT',
       },
       {
-        name: 'version',
-        prop: 'version',
-        dataType: 'INT',
-      },
-      {
         name: 'spec',
         prop: 'spec',
         dataType: 'TEXT',

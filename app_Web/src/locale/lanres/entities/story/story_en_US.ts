@@ -291,7 +291,6 @@ export default {
 			parent: "父需求", 
 			id: "", 
 			title: "", 
-			version: "", 
 			spec: "需求描述", 
 			verify: "验收标准", 
 			prodoctname: "所属产品", 

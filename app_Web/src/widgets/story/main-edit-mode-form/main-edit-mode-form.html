@@ -28,26 +28,6 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.version.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
-    <app-form-item name='version' :itemRules="this.rules.version" class='dropdown-transparent' :caption="$t('entities.story.main_editmode_form.details.version')" uiStyle="DEFAULT" :labelWidth="1" :isShowCaption="true" :error="detailsModel.version.error" :isEmptyCaption="true" labelPos="LEFT">
-    
-<dropdown-list 
-    v-model="data.version"
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.version.disabled"
-    valueType="number"
-    tag='CurStory'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
-</app-form-item>
-
-</i-col>
 <i-col v-show="detailsModel.grouppanel11.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-group :model="detailsModel.grouppanel11" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel11.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.main_editmode_form.details.grouppanel11')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel11" :data="data" :context="context" :viewparams="viewparams"/>
