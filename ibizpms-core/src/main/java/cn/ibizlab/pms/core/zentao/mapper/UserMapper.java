@@ -23,6 +23,7 @@ public interface UserMapper extends BaseMapper<User>{
     Page<User> searchGetByCommiter(IPage page, @Param("srf") UserSearchContext context, @Param("ew") Wrapper<User> wrapper) ;
     Page<User> searchProjectTeamUser(IPage page, @Param("srf") UserSearchContext context, @Param("ew") Wrapper<User> wrapper) ;
     Page<User> searchProjectTeamUser_Task(IPage page, @Param("srf") UserSearchContext context, @Param("ew") Wrapper<User> wrapper) ;
+    Page<User> searchTaskTeam(IPage page, @Param("srf") UserSearchContext context, @Param("ew") Wrapper<User> wrapper) ;
     @Override
     User selectById(Serializable id);
     @Override

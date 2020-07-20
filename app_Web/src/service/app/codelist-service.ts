@@ -13,6 +13,7 @@ import CurCaseVersion from '@/codelist/cur-case-version';
 import ProductPlan from '@/codelist/product-plan';   
 import UserRealNameProject from '@/codelist/user-real-name-project';   
 import CurStory from '@/codelist/cur-story';   
+import UserRealNameTaskTeam from '@/codelist/user-real-name-task-team';   
 import { Store } from 'vuex';
 
 /**
@@ -183,6 +184,14 @@ export default class CodeListService {
      * @memberof CodeListService
      */
     public CurStory: CurStory = new CurStory();
+
+    /**
+     * 代码表--用户真实名称（任务团队）
+     *
+     * @type {UserRealNameTaskTeam}
+     * @memberof CodeListService
+     */
+    public UserRealNameTaskTeam: UserRealNameTaskTeam = new UserRealNameTaskTeam();
 
     /**
      * 获取动态代码表

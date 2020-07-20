@@ -40,6 +40,7 @@ public interface IUserService extends IService<User>{
     Page<User> searchGetByCommiter(UserSearchContext context) ;
     Page<User> searchProjectTeamUser(UserSearchContext context) ;
     Page<User> searchProjectTeamUser_Task(UserSearchContext context) ;
+    Page<User> searchTaskTeam(UserSearchContext context) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

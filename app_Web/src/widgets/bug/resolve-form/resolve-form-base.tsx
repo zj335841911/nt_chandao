@@ -100,6 +100,10 @@ export class ResolveEditFormBase extends EditFormControlBase {
      * @memberof ResolveEditFormBase
      */
     public rules: any = {
+        resolution: [
+            { required: true, type: 'string', message: '解决方案 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '解决方案 值不能为空', trigger: 'blur' },
+        ],
     }
 
     /**
