@@ -133,45 +133,26 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'linkStories', $event)">
-                              <i class='fa fa-link'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.build.main_grid.uiactions.build_linkstories')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'submitToTesting', $event)">
-                              <i class='fa fa-paper-plane'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.build.main_grid.uiactions.build_submittotesting')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'viewBugs', $event)">
-                              <i class='fa fa-bug'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.build.main_grid.uiactions.build_viewbugs')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'Edit', $event)">
-                              <i class='fa fa-edit'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.build.main_grid.uiactions.build_edit')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'Remove', $event)">
-                              <i class='fa fa-remove'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.build.main_grid.uiactions.build_remove')}}</div>
-                            </tooltip>
+                          <a v-show="scope.row.linkStories.visabled" :style="{'pointer-events':scope.row.linkStories.disabled?'none':'auto'}" @click="uiAction(scope.row, 'linkStories', $event)" :title="$t('entities.build.main_grid.uiactions.build_linkstories')">
+                            <i class='fa fa-link'></i>
+                            
+                          </a>
+                          <a v-show="scope.row.submitToTesting.visabled" :style="{'pointer-events':scope.row.submitToTesting.disabled?'none':'auto'}" @click="uiAction(scope.row, 'submitToTesting', $event)" :title="$t('entities.build.main_grid.uiactions.build_submittotesting')">
+                            <i class='fa fa-paper-plane'></i>
+                            
+                          </a>
+                          <a v-show="scope.row.viewBugs.visabled" :style="{'pointer-events':scope.row.viewBugs.disabled?'none':'auto'}" @click="uiAction(scope.row, 'viewBugs', $event)" :title="$t('entities.build.main_grid.uiactions.build_viewbugs')">
+                            <i class='fa fa-bug'></i>
+                            
+                          </a>
+                          <a v-show="scope.row.Edit.visabled" :style="{'pointer-events':scope.row.Edit.disabled?'none':'auto'}" @click="uiAction(scope.row, 'Edit', $event)" :title="$t('entities.build.main_grid.uiactions.edit')">
+                            <i class='fa fa-edit'></i>
+                            
+                          </a>
+                          <a v-show="scope.row.Remove.visabled" :style="{'pointer-events':scope.row.Remove.disabled?'none':'auto'}" @click="uiAction(scope.row, 'Remove', $event)" :title="$t('entities.build.main_grid.uiactions.remove')">
+                            <i class='fa fa-remove'></i>
+                            
+                          </a>
                         </div>
                     </template>
                 </el-table-column>

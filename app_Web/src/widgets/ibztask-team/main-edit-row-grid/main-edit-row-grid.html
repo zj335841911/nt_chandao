@@ -81,7 +81,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-                                <app-span name='estimate' editorType="TEXTBOX" :value="row.estimate"></app-span>
+            <app-span name='estimate' editorType="TEXTBOX" :value="row.estimate" dataType="DECIMAL" precision="0" ></app-span>
                         </template>
                     </template>
                 </el-table-column>

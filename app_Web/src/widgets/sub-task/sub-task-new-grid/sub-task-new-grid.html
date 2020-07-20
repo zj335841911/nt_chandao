@@ -56,7 +56,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-                                <app-span name='modulename' editorType="PICKER" :value="row.modulename"></app-span>
+            <app-span name='modulename' editorType="PICKER" :value="row.modulename" dataType="PICKUPTEXT" precision="0" ></app-span>
                         </template>
                     </template>
                 </el-table-column>
@@ -129,7 +129,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-                                <app-span name='name' editorType="TEXTBOX" :value="row.name"></app-span>
+            <app-span name='name' editorType="TEXTBOX" :value="row.name" dataType="TEXT" precision="0" ></app-span>
                         </template>
                     </template>
                 </el-table-column>
@@ -224,7 +224,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-                                <app-span name='left' editorType="TEXTBOX" :value="row.left"></app-span>
+            <app-span name='left' editorType="TEXTBOX" :value="row.left" dataType="FLOAT" precision="0" ></app-span>
                         </template>
                     </template>
                 </el-table-column>
@@ -245,7 +245,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-                                <app-span name='desc' editorType="TEXTAREA" :value="row.desc"></app-span>
+            <app-span name='desc' editorType="TEXTAREA" :value="row.desc" dataType="LONGTEXT" precision="0" ></app-span>
                         </template>
                     </template>
                 </el-table-column>
