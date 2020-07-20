@@ -105,9 +105,17 @@ export class ReviewEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '评审结果 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '评审结果 值不能为空', trigger: 'blur' },
         ],
+        closedreason: [
+            { required: true, type: 'string', message: '拒绝原因 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '拒绝原因 值不能为空', trigger: 'blur' },
+        ],
         assignedto: [
             { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'blur' },
+        ],
+        reviewedby: [
+            { required: true, type: 'string', message: '由谁评审 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '由谁评审 值不能为空', trigger: 'blur' },
         ],
     }
 

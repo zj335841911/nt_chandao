@@ -6140,6 +6140,66 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-task-tree-exp-view/project-task-tree-exp-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/forwardview/:forwardview?',
+                    meta: {
+                        caption: 'entities.task.views.forwardview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'forwardview', parameterName: 'forwardview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-forward-view/task-forward-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/forwardview/:forwardview?',
+                    meta: {
+                        caption: 'entities.task.views.forwardview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'forwardview', parameterName: 'forwardview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-forward-view/task-forward-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/forwardview/:forwardview?',
+                    meta: {
+                        caption: 'entities.task.views.forwardview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'forwardview', parameterName: 'forwardview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-forward-view/task-forward-view.vue'),
+                },
+                {
+                    path: 'tasks/:task?/forwardview/:forwardview?',
+                    meta: {
+                        caption: 'entities.task.views.forwardview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'forwardview', parameterName: 'forwardview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-forward-view/task-forward-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/tasktypeganttview/:tasktypeganttview?',
                     meta: {
                         caption: 'entities.task.views.tasktypeganttview.title',

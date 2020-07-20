@@ -141,6 +141,34 @@ export class ToolbarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public dashboard_sysportlet2_uff762b3_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TaskUIService  = new TaskUIService();
+        curUIService.Task_Forward(datas,contextJO, paramJO,  $event, xData,this,"Task");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public dashboard_sysportlet2_ub4d331e_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -391,6 +419,11 @@ export class ToolbarPortletBase extends MainControlBase {
         iconcls: null,
         icon: null,
         },
+        { viewlogicname:"dashboard_sysportlet2_uff762b3_click",
+        text: "转交",
+        iconcls: null,
+        icon: null,
+        },
         { viewlogicname:"dashboard_sysportlet2_ub4d331e_click",
         text: "暂停",
         iconcls: "fa fa-circle-o",
@@ -437,6 +470,9 @@ export class ToolbarPortletBase extends MainControlBase {
         }
         if(Object.is($event,'dashboard_sysportlet2_ua266741_click')){
             this.dashboard_sysportlet2_ua266741_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet2_uff762b3_click')){
+            this.dashboard_sysportlet2_uff762b3_click(null);
         }
         if(Object.is($event,'dashboard_sysportlet2_ub4d331e_click')){
             this.dashboard_sysportlet2_ub4d331e_click(null);

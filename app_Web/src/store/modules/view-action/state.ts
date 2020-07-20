@@ -627,6 +627,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '321ab2e4e87a29fef8eed086e951a006',
+                'f27febc6ab4d30f9e419caf1e6930a94',
                 '843526ee13bf0af6fe937470853bf36b',
                 '21e00a7239d9737bbfda5c1608b4129c',
                 'a97ff9ae4f22d5974b51af2c0fae1aa2',
@@ -1848,6 +1849,16 @@ export const viewstate: any = {
                 '9ed41cee96088630f3d4b0a91e705930',
                 'a9d151a6bb5fb2481836a7e0ed5afb7e',
                 '2e0d4fb0f3e1ba1ba5bea16a5553cc21',
+            ],
+        },
+        {
+            viewtag: 'f27febc6ab4d30f9e419caf1e6930a94',
+            viewmodule: 'zentao',
+            viewname: 'TaskForwardView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '770a170098d148e438a7666b248e6519',
             ],
         },
         {
