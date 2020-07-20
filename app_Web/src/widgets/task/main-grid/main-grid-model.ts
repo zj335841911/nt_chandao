@@ -65,12 +65,12 @@ export default class MainModel {
           dataType: 'TEXT',
         },
         {
-          name: 'srfkey',
+          name: 'srfdataaccaction',
           prop: 'id',
           dataType: 'ACID',
         },
         {
-          name: 'srfdataaccaction',
+          name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
         },
