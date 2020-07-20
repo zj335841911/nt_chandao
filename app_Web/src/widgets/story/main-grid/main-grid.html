@@ -176,22 +176,22 @@
                             <i class='fa fa-exchange'></i>
                             
                           </a>
-                          <divider type='vertical'></divider>
+                          <divider v-show="scope.row.ReviewStory.visabled" type='vertical'></divider>
                           <a v-show="scope.row.ReviewStory.visabled" :style="{'pointer-events':scope.row.ReviewStory.disabled ? 'none' : 'auto'}" @click="uiAction(scope.row, 'ReviewStory', $event)" :title="$t('entities.story.main_grid.uiactions.story_reviewstory')">
                             <i class='fa fa-search'></i>
                             
                           </a>
-                          <divider type='vertical'></divider>
+                          <divider v-show="scope.row.CloseStory.visabled" type='vertical'></divider>
                           <a v-show="scope.row.CloseStory.visabled" :style="{'pointer-events':scope.row.CloseStory.disabled ? 'none' : 'auto'}" @click="uiAction(scope.row, 'CloseStory', $event)" :title="$t('entities.story.main_grid.uiactions.story_closestory')">
                             <i class='fa fa-power-off'></i>
                             
                           </a>
-                          <divider type='vertical'></divider>
+                          <divider v-show="scope.row.OpenBaseInfoEditView.visabled" type='vertical'></divider>
                           <a v-show="scope.row.OpenBaseInfoEditView.visabled" :style="{'pointer-events':scope.row.OpenBaseInfoEditView.disabled ? 'none' : 'auto'}" @click="uiAction(scope.row, 'OpenBaseInfoEditView', $event)" :title="$t('entities.story.main_grid.uiactions.story_openbaseinfoeditview')">
                             <i class='fa fa-edit'></i>
                             
                           </a>
-                          <divider type='vertical'></divider>
+                          <divider v-show="scope.row.OpenCaseCreateView.visabled" type='vertical'></divider>
                           <a v-show="scope.row.OpenCaseCreateView.visabled" :style="{'pointer-events':scope.row.OpenCaseCreateView.disabled ? 'none' : 'auto'}" @click="uiAction(scope.row, 'OpenCaseCreateView', $event)" :title="$t('entities.story.main_grid.uiactions.story_opencasecreateview')">
                             <i class='fa fa-lightbulb-o'></i>
                             

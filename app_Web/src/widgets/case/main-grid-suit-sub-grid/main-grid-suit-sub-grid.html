@@ -160,7 +160,7 @@
                             <i class='fa fa-stack-overflow'></i>
                             
                           </a>
-                          <divider type='vertical'></divider>
+                          <divider v-show="scope.row.Execute.visabled" type='vertical'></divider>
                           <a v-show="scope.row.Execute.visabled" :style="{'pointer-events':scope.row.Execute.disabled ? 'none' : 'auto'}" @click="uiAction(scope.row, 'Execute', $event)" :title="$t('entities.case.maingrid_suitsub_grid.uiactions.case_execute')">
                             <i class='fa fa-play-circle-o'></i>
                             

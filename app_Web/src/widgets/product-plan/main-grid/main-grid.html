@@ -92,17 +92,17 @@
                             <i class='fa fa-link'></i>
                             
                           </a>
-                          <divider type='vertical'></divider>
+                          <divider v-show="scope.row.RelationBug.visabled" type='vertical'></divider>
                           <a v-show="scope.row.RelationBug.visabled" :style="{'pointer-events':scope.row.RelationBug.disabled ? 'none' : 'auto'}" @click="uiAction(scope.row, 'RelationBug', $event)" :title="$t('entities.productplan.main_grid.uiactions.productplan_relationbug')">
                             <i class='fa fa-bug'></i>
                             
                           </a>
-                          <divider type='vertical'></divider>
+                          <divider v-show="scope.row.MainEdit.visabled" type='vertical'></divider>
                           <a v-show="scope.row.MainEdit.visabled" :style="{'pointer-events':scope.row.MainEdit.disabled ? 'none' : 'auto'}" @click="uiAction(scope.row, 'MainEdit', $event)" :title="$t('entities.productplan.main_grid.uiactions.productplan_mainedit')">
                             <i class='fa fa-edit'></i>
                             
                           </a>
-                          <divider type='vertical'></divider>
+                          <divider v-show="scope.row.NewSubPlan.visabled" type='vertical'></divider>
                           <a v-show="scope.row.NewSubPlan.visabled" :style="{'pointer-events':scope.row.NewSubPlan.disabled ? 'none' : 'auto'}" @click="uiAction(scope.row, 'NewSubPlan', $event)" :title="$t('entities.productplan.main_grid.uiactions.productplan_newsubplan')">
                             <i class='fa fa-sitemap'></i>
                             
