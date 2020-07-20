@@ -173,6 +173,21 @@ export default class DropDownListExtend extends Vue {
      */
     @Prop() public placeholder?: string;
 
+    /**
+     * 字段属性
+     * 
+     * @type {string}
+     * @memberof DropDownListExtend
+     */
+    @Prop() public name?:string;
+
+    /**
+     * 当前行数据
+     * 
+     * @type {any[]}
+     * @memberof DropDownListExtend
+     */
+    @Prop() public datas?:Array<any>;
 
     /**
      * 计算属性(当前值)
@@ -223,6 +238,16 @@ export default class DropDownListExtend extends Vue {
         if (this.localParam && Object.keys(this.localParam).length >0) {
             let _param = this.$util.computedNavData(this.data,arg.context,arg.param,this.localParam);
             Object.assign(arg.param,_param);
+        }
+        if (this.name && this.datas){
+            let _name: string = this.name;
+            let _datas: any[] = [];
+            for (let data of this.datas) {    
+                if (data[_name]) {
+                    _datas.push(data[_name])
+                }
+            }
+            arg.param[_name] = _datas.join(';');
         }
     }
 
@@ -322,7 +347,6 @@ export default class DropDownListExtend extends Vue {
             }
         }
     }
-
 }
 </script>
 <style lang='less'>
