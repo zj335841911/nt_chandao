@@ -89,8 +89,8 @@ export default class MainService extends ControlService {
      */
     @Errorlog
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
-        if (Object.is(serviceName, 'ProductService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.productService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'product');
+        if (Object.is(serviceName, 'ProductService') && Object.is(interfaceName, 'FetchCurProject')) {
+            return this.doItems(this.productService.FetchCurProject(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'product');
         }
 
         return Promise.reject([])
