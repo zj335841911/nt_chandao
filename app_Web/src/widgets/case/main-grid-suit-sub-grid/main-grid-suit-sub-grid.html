@@ -156,12 +156,12 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.OpenTestRunResultView.visabled" :disabled="scope.row.OpenTestRunResultView.disabled.toString()" @click="uiAction(scope.row, 'OpenTestRunResultView', $event)" :title="$t('entities.case.maingrid_suitsub_grid.uiactions.case_opentestrunresultview')">
+                          <a v-show="scope.row.OpenTestRunResultView.visabled" :disabled="scope.row.OpenTestRunResultView.disabled" @click="uiAction(scope.row, 'OpenTestRunResultView', $event)" :title="$t('entities.case.maingrid_suitsub_grid.uiactions.case_opentestrunresultview')">
                             <i class='fa fa-stack-overflow'></i>
                             
                           </a>
                           <divider v-show="scope.row.Execute.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.Execute.visabled" :disabled="scope.row.Execute.disabled.toString()" @click="uiAction(scope.row, 'Execute', $event)" :title="$t('entities.case.maingrid_suitsub_grid.uiactions.case_execute')">
+                          <a v-show="scope.row.Execute.visabled" :disabled="scope.row.Execute.disabled" @click="uiAction(scope.row, 'Execute', $event)" :title="$t('entities.case.maingrid_suitsub_grid.uiactions.case_execute')">
                             <i class='fa fa-play-circle-o'></i>
                             
                           </a>

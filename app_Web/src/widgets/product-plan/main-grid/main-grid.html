@@ -88,22 +88,22 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.RelationStory.visabled" :disabled="scope.row.RelationStory.disabled.toString()" @click="uiAction(scope.row, 'RelationStory', $event)" :title="$t('entities.productplan.main_grid.uiactions.productplan_relationstory')">
+                          <a v-show="scope.row.RelationStory.visabled" :disabled="scope.row.RelationStory.disabled" @click="uiAction(scope.row, 'RelationStory', $event)" :title="$t('entities.productplan.main_grid.uiactions.productplan_relationstory')">
                             <i class='fa fa-link'></i>
                             
                           </a>
                           <divider v-show="scope.row.RelationBug.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.RelationBug.visabled" :disabled="scope.row.RelationBug.disabled.toString()" @click="uiAction(scope.row, 'RelationBug', $event)" :title="$t('entities.productplan.main_grid.uiactions.productplan_relationbug')">
+                          <a v-show="scope.row.RelationBug.visabled" :disabled="scope.row.RelationBug.disabled" @click="uiAction(scope.row, 'RelationBug', $event)" :title="$t('entities.productplan.main_grid.uiactions.productplan_relationbug')">
                             <i class='fa fa-bug'></i>
                             
                           </a>
                           <divider v-show="scope.row.MainEdit.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.MainEdit.visabled" :disabled="scope.row.MainEdit.disabled.toString()" @click="uiAction(scope.row, 'MainEdit', $event)" :title="$t('entities.productplan.main_grid.uiactions.productplan_mainedit')">
+                          <a v-show="scope.row.MainEdit.visabled" :disabled="scope.row.MainEdit.disabled" @click="uiAction(scope.row, 'MainEdit', $event)" :title="$t('entities.productplan.main_grid.uiactions.productplan_mainedit')">
                             <i class='fa fa-edit'></i>
                             
                           </a>
                           <divider v-show="scope.row.NewSubPlan.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.NewSubPlan.visabled" :disabled="scope.row.NewSubPlan.disabled.toString()" @click="uiAction(scope.row, 'NewSubPlan', $event)" :title="$t('entities.productplan.main_grid.uiactions.productplan_newsubplan')">
+                          <a v-show="scope.row.NewSubPlan.visabled" :disabled="scope.row.NewSubPlan.disabled" @click="uiAction(scope.row, 'NewSubPlan', $event)" :title="$t('entities.productplan.main_grid.uiactions.productplan_newsubplan')">
                             <i class='fa fa-sitemap'></i>
                             
                           </a>
