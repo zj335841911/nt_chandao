@@ -141,6 +141,10 @@ export default {
 			caption: "任务",
       		title: "任务编辑视图",
 		},
+		forwardview: {
+			caption: "指派任务",
+      		title: "指派任务",
+		},
 	},
 	main_form: {
 		details: {
@@ -222,6 +226,29 @@ export default {
 			srfsourcekey: "", 
 			project: "所属项目", 
 			assignedto: "指派给", 
+			left: "预计剩余", 
+			comment: "备注", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
+	forward_form: {
+		details: {
+			druipart1: "", 
+			grouppanel1: "分组面板", 
+			group1: "任务基本信息", 
+			formpage1: "基本信息", 
+			srfupdatedate: "最后修改日期", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "任务名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			project: "所属项目", 
+			assignedto: "转交给", 
 			left: "预计剩余", 
 			comment: "备注", 
 			id: "编号", 

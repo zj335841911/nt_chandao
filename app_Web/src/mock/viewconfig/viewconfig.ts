@@ -1583,6 +1583,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskMainDetailView9",
             "viewtag": "ef6cfafd09bb61ddb6fec7840f78e97d"
         },
+        "taskforwardview": {
+            "title": "指派任务",
+            "caption": "指派任务",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskForwardView",
+            "viewtag": "f27febc6ab4d30f9e419caf1e6930a94"
+        },
         "testreporteditview": {
             "title": "testreport编辑视图",
             "caption": "测试报告",

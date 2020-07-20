@@ -1969,6 +1969,16 @@
         "viewtag": "ef6cfafd09bb61ddb6fec7840f78e97d",
         "memo": ""
     },
+    "taskforwardview": {
+        "title": "指派任务",
+        "caption": "指派任务",
+        "viewtype": "DEOPTVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TaskForwardView",
+        "viewfilename": "task-forward-view",
+        "viewtag": "f27febc6ab4d30f9e419caf1e6930a94",
+        "memo": ""
+    },
     "testreporteditview": {
         "title": "testreport编辑视图",
         "caption": "测试报告",
