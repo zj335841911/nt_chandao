@@ -156,9 +156,25 @@ export class SubTaskNewGridBase extends GridControllerBase {
             isEnableRowEdit: true,
         },
         {
-            name: 'left',
+            name: 'estimate',
             label: '预计',
-            langtag: 'entities.subtask.subtasknew_grid.columns.left',
+            langtag: 'entities.subtask.subtasknew_grid.columns.estimate',
+            show: true,
+            util: 'PX',
+            isEnableRowEdit: true,
+        },
+        {
+            name: 'eststarted',
+            label: '预计开始',
+            langtag: 'entities.subtask.subtasknew_grid.columns.eststarted',
+            show: true,
+            util: 'PX',
+            isEnableRowEdit: true,
+        },
+        {
+            name: 'deadline',
+            label: '截止日期',
+            langtag: 'entities.subtask.subtasknew_grid.columns.deadline',
             show: true,
             util: 'PX',
             isEnableRowEdit: true,
@@ -195,15 +211,18 @@ export class SubTaskNewGridBase extends GridControllerBase {
           parent: new FormItemModel(),
           storyname: new FormItemModel(),
           type: new FormItemModel(),
+          estimate: new FormItemModel(),
           srfkey: new FormItemModel(),
+          project: new FormItemModel(),
           modulename: new FormItemModel(),
           assignedto: new FormItemModel(),
           story: new FormItemModel(),
-          project: new FormItemModel(),
           pri: new FormItemModel(),
           name: new FormItemModel(),
           allmodules: new FormItemModel(),
+          eststarted: new FormItemModel(),
           left: new FormItemModel(),
+          deadline: new FormItemModel(),
         }
     }
 
@@ -238,9 +257,17 @@ export class SubTaskNewGridBase extends GridControllerBase {
             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '任务类型 值不能为空', trigger: 'change' },
             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '任务类型 值不能为空', trigger: 'blur' },
         ],
+        estimate: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计 值不能为空', trigger: 'blur' },
+        ],
         srfkey: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'blur' },
+        ],
+        project: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属项目 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属项目 值不能为空', trigger: 'blur' },
         ],
         modulename: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属模块 值不能为空', trigger: 'change' },
@@ -254,10 +281,6 @@ export class SubTaskNewGridBase extends GridControllerBase {
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '相关需求 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '相关需求 值不能为空', trigger: 'blur' },
         ],
-        project: [
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属项目 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属项目 值不能为空', trigger: 'blur' },
-        ],
         pri: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '优先级 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '优先级 值不能为空', trigger: 'blur' },
@@ -270,9 +293,17 @@ export class SubTaskNewGridBase extends GridControllerBase {
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所有模块 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所有模块 值不能为空', trigger: 'blur' },
         ],
+        eststarted: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计开始 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计开始 值不能为空', trigger: 'blur' },
+        ],
         left: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计 值不能为空', trigger: 'blur' },
+        ],
+        deadline: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '截止日期 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '截止日期 值不能为空', trigger: 'blur' },
         ],
     }
 
@@ -288,7 +319,9 @@ export class SubTaskNewGridBase extends GridControllerBase {
         'name':true,
         'type':true,
         'assignedto':true,
-        'left':true,
+        'estimate':true,
+        'eststarted':true,
+        'deadline':true,
         'desc':true,
         'pri':true,
     };
