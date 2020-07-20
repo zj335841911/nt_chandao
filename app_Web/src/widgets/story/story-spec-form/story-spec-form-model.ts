@@ -72,8 +72,8 @@ export default class StorySpecModel {
       },
       {
         name: 'formitem',
-        prop: 'version',
-        dataType: 'INT',
+        prop: 'versionc',
+        dataType: 'TEXT',
       },
       {
         name: 'spec',

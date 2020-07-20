@@ -159,6 +159,9 @@ export default class MainPanelModel {
       {
         name: 'branchname',
       },
+      {
+        name: 'versionc',
+      },
     ]
   }
 

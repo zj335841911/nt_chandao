@@ -48,6 +48,7 @@ export default {
     isleaf: "是否子需求",
     files: "附件",
     branchname: "平台/分支",
+    versionc: "版本号",
   },
 	views: {
 		mainview9_related: {
