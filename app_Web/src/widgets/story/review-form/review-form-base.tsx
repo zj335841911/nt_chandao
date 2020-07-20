@@ -227,6 +227,19 @@ export class ReviewEditFormBase extends EditFormControlBase {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'result')) {
+            let ret = true;
+            const _result = this.data.result;
+            if (this.$verify.testCond(_result, 'NOTEQ', 'reject')) {
+                ret = false;
+            }
+            this.rules.closedreason.some((rule: any) => {
+                if (rule.hasOwnProperty('required')) {
+                    rule.required = ret;
+                }
+                return false;
+            });
+        }
 
 
 
