@@ -2,7 +2,7 @@ import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
-import CosedService from './cosed-form-service';
+import TaskStorySpecService from './task-story-spec-form-service';
 import StoryUIService from '@/uiservice/story/story-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 
@@ -12,32 +12,32 @@ import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormP
  *
  * @export
  * @class EditFormControlBase
- * @extends {CosedEditFormBase}
+ * @extends {TaskStorySpecEditFormBase}
  */
-export class CosedEditFormBase extends EditFormControlBase {
+export class TaskStorySpecEditFormBase extends EditFormControlBase {
 
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof CosedEditFormBase
+     * @memberof TaskStorySpecEditFormBase
      */
     protected controlType: string = 'FORM';
 
     /**
      * 建构部件服务对象
      *
-     * @type {CosedService}
-     * @memberof CosedEditFormBase
+     * @type {TaskStorySpecService}
+     * @memberof TaskStorySpecEditFormBase
      */
-    public service: CosedService = new CosedService({ $store: this.$store });
+    public service: TaskStorySpecService = new TaskStorySpecService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {StoryService}
-     * @memberof CosedEditFormBase
+     * @memberof TaskStorySpecEditFormBase
      */
     public appEntityService: StoryService = new StoryService({ $store: this.$store });
 
@@ -46,7 +46,7 @@ export class CosedEditFormBase extends EditFormControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof CosedEditFormBase
+     * @memberof TaskStorySpecEditFormBase
      */
     protected appDeName: string = 'story';
 
@@ -54,7 +54,7 @@ export class CosedEditFormBase extends EditFormControlBase {
      * 界面UI服务对象
      *
      * @type {StoryUIService}
-     * @memberof CosedEditFormBase
+     * @memberof TaskStorySpecEditFormBase
      */  
     public appUIService:StoryUIService = new StoryUIService(this.$store);
 
@@ -64,15 +64,15 @@ export class CosedEditFormBase extends EditFormControlBase {
      *
      * @protected
      * @type {number}
-     * @memberof CosedEditFormBase
+     * @memberof TaskStorySpecEditFormBase
      */
-    protected drCount: number = 1;
+    protected drCount: number = 2;
 
     /**
      * 表单数据对象
      *
      * @type {*}
-     * @memberof CosedEditFormBase
+     * @memberof TaskStorySpecEditFormBase
      */
     public data: any = {
         srforikey: null,
@@ -82,8 +82,8 @@ export class CosedEditFormBase extends EditFormControlBase {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        closedreason: null,
-        comment: null,
+        spec: null,
+        verify: null,
         id: null,
         story:null,
     };
@@ -92,27 +92,33 @@ export class CosedEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof CosedEditFormBase
+     * @memberof TaskStorySpecEditFormBase
      */
     public rules: any = {
-        closedreason: [
-            { required: true, type: 'string', message: '关闭原因 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '关闭原因 值不能为空', trigger: 'blur' },
-        ],
     }
 
     /**
      * 详情模型集合
      *
      * @type {*}
-     * @memberof CosedEditFormBase
+     * @memberof TaskStorySpecEditFormBase
      */
     public detailsModel: any = {
+        _druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: '_druipart2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        _grouppanel1: new FormGroupPanelModel({ caption: '附件', detailType: 'GROUPPANEL', name: '_grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.story.taskstoryspec_form', extractMode: 'ITEM', details: [] } }),
+
+        grouppanel11: new FormGroupPanelModel({ caption: '需求描述', detailType: 'GROUPPANEL', name: 'grouppanel11', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.story.taskstoryspec_form', extractMode: 'ITEM', details: [] } }),
+
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
-        grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.story.cosed_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel1: new FormGroupPanelModel({ caption: '相关用例', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.story.taskstoryspec_form', extractMode: 'ITEM', details: [] } }),
 
-        group1: new FormGroupPanelModel({ caption: '需求描述信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.story.cosed_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel21: new FormGroupPanelModel({ caption: '验收标准', detailType: 'GROUPPANEL', name: 'grouppanel21', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.story.taskstoryspec_form', extractMode: 'ITEM', details: [] } }),
+
+        group11: new FormGroupPanelModel({ caption: '需求描述信息', detailType: 'GROUPPANEL', name: 'group11', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.story.taskstoryspec_form', extractMode: 'ITEM', details: [] } }),
+
+        grouppanel31: new FormGroupPanelModel({ caption: '需求描述', detailType: 'GROUPPANEL', name: 'grouppanel31', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.story.taskstoryspec_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
@@ -130,9 +136,9 @@ export class CosedEditFormBase extends EditFormControlBase {
 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        closedreason: new FormItemModel({ caption: '关闭原因', detailType: 'FORMITEM', name: 'closedreason', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        spec: new FormItemModel({ caption: '需求描述', detailType: 'FORMITEM', name: 'spec', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        verify: new FormItemModel({ caption: '验收标准', detailType: 'FORMITEM', name: 'verify', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 

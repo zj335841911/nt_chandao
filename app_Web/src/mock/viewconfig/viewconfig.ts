@@ -1135,6 +1135,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskCancelTaskView",
             "viewtag": "a97ff9ae4f22d5974b51af2c0fae1aa2"
         },
+        "storyeditview9": {
+            "title": "需求编辑视图",
+            "caption": "需求描述",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "StoryEditView9",
+            "viewtag": "a9d151a6bb5fb2481836a7e0ed5afb7e"
+        },
         "productplaneditview": {
             "title": "计划",
             "caption": "产品计划",
