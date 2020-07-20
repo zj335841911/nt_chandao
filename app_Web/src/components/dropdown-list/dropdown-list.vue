@@ -193,7 +193,7 @@ export default class DropDownList extends Vue {
      * @memberof DropDownList
      */
     get currentVal() {
-        return this.value;
+        return this.itemValue;
     }
 
     /**
