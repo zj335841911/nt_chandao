@@ -160,37 +160,22 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'ConfirmBug', $event)">
-                              <i class='fa fa-eye'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.bug.main_grid.uiactions.bug_confirmbug')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'ResolveBug', $event)">
-                              <i class='fa fa-check-square-o'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.bug.main_grid.uiactions.bug_resolvebug')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'CloseBug', $event)">
-                              <i class='fa fa-power-off'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.bug.main_grid.uiactions.bug_closebug')}}</div>
-                            </tooltip>
-                            <divider type='vertical'></divider>
-                            <tooltip :transfer="true" :max-width="600">
-                            <a @click="uiAction(scope.row, 'MainEdit', $event)">
-                              <i class='fa fa-edit'></i>
-                              
-                            </a>
-                            <div slot='content'>{{$t('entities.bug.main_grid.uiactions.bug_mainedit')}}</div>
-                            </tooltip>
+                          <a v-show="scope.row.ConfirmBug.visabled" :style="{'pointer-events':scope.row.ConfirmBug.disabled?'none':'auto'}" @click="uiAction(scope.row, 'ConfirmBug', $event)" :title="$t('entities.bug.main_grid.uiactions.bug_confirmbug')">
+                            <i class='fa fa-eye'></i>
+                            
+                          </a>
+                          <a v-show="scope.row.ResolveBug.visabled" :style="{'pointer-events':scope.row.ResolveBug.disabled?'none':'auto'}" @click="uiAction(scope.row, 'ResolveBug', $event)" :title="$t('entities.bug.main_grid.uiactions.bug_resolvebug')">
+                            <i class='fa fa-check-square-o'></i>
+                            
+                          </a>
+                          <a v-show="scope.row.CloseBug.visabled" :style="{'pointer-events':scope.row.CloseBug.disabled?'none':'auto'}" @click="uiAction(scope.row, 'CloseBug', $event)" :title="$t('entities.bug.main_grid.uiactions.bug_closebug')">
+                            <i class='fa fa-power-off'></i>
+                            
+                          </a>
+                          <a v-show="scope.row.MainEdit.visabled" :style="{'pointer-events':scope.row.MainEdit.disabled?'none':'auto'}" @click="uiAction(scope.row, 'MainEdit', $event)" :title="$t('entities.bug.main_grid.uiactions.bug_mainedit')">
+                            <i class='fa fa-edit'></i>
+                            
+                          </a>
                         </div>
                     </template>
                 </el-table-column>
