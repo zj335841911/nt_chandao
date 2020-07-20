@@ -1410,8 +1410,8 @@
         "memo": ""
     },
     "storyeditview9": {
-        "title": "需求编辑视图",
-        "caption": "需求描述",
+        "title": "关联需求",
+        "caption": "关联需求",
         "viewtype": "DEEDITVIEW9",
         "viewmodule": "zentao",
         "viewname": "StoryEditView9",

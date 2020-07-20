@@ -144,8 +144,8 @@ export default {
       		title: "关联需求",
 		},
 		editview9: {
-			caption: "需求描述",
-      		title: "需求编辑视图",
+			caption: "关联需求",
+      		title: "关联需求",
 		},
 		mpickupview: {
 			caption: "关联需求",

@@ -97,6 +97,22 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public rules: any = {
+        projecttname: [
+            { required: true, type: 'string', message: '项目 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '项目 值不能为空', trigger: 'blur' },
+        ],
+        buildname: [
+            { required: true, type: 'string', message: '版本 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '版本 值不能为空', trigger: 'blur' },
+        ],
+        begin: [
+            { required: true, type: 'string', message: '开始日期 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '开始日期 值不能为空', trigger: 'blur' },
+        ],
+        end: [
+            { required: true, type: 'string', message: '结束日期 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '结束日期 值不能为空', trigger: 'blur' },
+        ],
         name: [
             { required: true, type: 'string', message: '名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '名称 值不能为空', trigger: 'blur' },
