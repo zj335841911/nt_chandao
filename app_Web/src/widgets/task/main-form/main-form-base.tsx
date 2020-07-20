@@ -120,10 +120,6 @@ export class MainEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '任务类型 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '任务类型 值不能为空', trigger: 'blur' },
         ],
-        assignedto: [
-            { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'blur' },
-        ],
         name: [
             { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
@@ -247,19 +243,6 @@ export class MainEditFormBase extends EditFormControlBase {
 
 
 
-        if (Object.is(name, '') || Object.is(name, 'multiple')) {
-            let ret = true;
-            const _multiple = this.data.multiple;
-            if (this.$verify.testCond(_multiple, 'EQ', '1')) {
-                ret = false;
-            }
-            this.rules.assignedto.some((rule: any) => {
-                if (rule.hasOwnProperty('required')) {
-                    rule.required = ret;
-                }
-                return false;
-            });
-        }
         if (Object.is(name, '') || Object.is(name, 'multiple')) {
             let ret = false;
             const _multiple = this.data.multiple;
