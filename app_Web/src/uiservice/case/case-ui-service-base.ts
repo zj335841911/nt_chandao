@@ -112,6 +112,7 @@ export default class CaseUIServiceBase extends UIService {
      */  
     public initDeMainStateMap(){
         this.allDeMainStateMap.set('blocked','blocked');
+        this.allDeMainStateMap.set('investigate','investigate');
         this.allDeMainStateMap.set('normal','normal');
         this.allDeMainStateMap.set('wait','wait');
     }
@@ -123,7 +124,8 @@ export default class CaseUIServiceBase extends UIService {
      */  
     public initDeMainStateOPPrivsMap(){
         this.allDeMainStateOPPrivsMap.set('blocked',{});
-        this.allDeMainStateOPPrivsMap.set('normal',{});
+        this.allDeMainStateOPPrivsMap.set('investigate',{});
+        this.allDeMainStateOPPrivsMap.set('normal',{'RUN':1,'UPDATE':1,'RESULT':1});
         this.allDeMainStateOPPrivsMap.set('wait',{});
     }
 
