@@ -1584,8 +1584,8 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "ef6cfafd09bb61ddb6fec7840f78e97d"
         },
         "taskforwardview": {
-            "title": "指派任务",
-            "caption": "指派任务",
+            "title": "转交任务",
+            "caption": "转交任务",
             "viewtype": "DEOPTVIEW",
             "viewmodule": "zentao",
             "viewname": "TaskForwardView",
