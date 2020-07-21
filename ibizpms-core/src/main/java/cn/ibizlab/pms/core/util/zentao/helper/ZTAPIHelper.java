@@ -8,10 +8,6 @@ import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpMethod;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 /**
  * 【禅道接口-API】 辅助类
  */
@@ -46,12 +42,23 @@ final public class ZTAPIHelper {
     // ----------
 
     /**
-     * getSessionID 获取Sesson ID
+     * getSessionID 获取Sesson ID（有ZT后台生成Token）
      *
-     * @param rst
+     * @param rst 准备参数，用于接收API调用结果
      * @return
      */
     public static boolean getSessionID(ZTResult rst) {
+
+        return getSessionID(rst,null);
+    }
+
+    /**
+     * 设置SessionId。
+     * @param rst
+     * @param sessionId
+     * @return
+     */
+    public static boolean getSessionID(ZTResult rst, String sessionId) {
         // 参数赋值
         String moduleName = MODULE_NAME;
         String urlExt = ZenTaoConstants.ZT_URL_EXT;
@@ -60,7 +67,7 @@ final public class ZTAPIHelper {
 
         try {
             String url = ZenTaoHttpHelper.formatUrl(moduleName, actionName, urlExt);
-            JSONObject rstJO = ZenTaoHttpHelper.doRequest(null, url, actionHttpMethod);
+            JSONObject rstJO = ZenTaoHttpHelper.doRequest(sessionId, url, actionHttpMethod);
             rst.setResult(rstJO);
             if (!"success".equals(rstJO.getString("status")) || !rstJO.containsKey("data") || !rstJO.getString("data").contains("zentaosid")) {
                 rst.setMessage(ZenTaoMessage.MSG_ERROR_0006);
@@ -79,5 +86,4 @@ final public class ZTAPIHelper {
         }
         return rst.isSuccess();
     }
-
 }

@@ -2,7 +2,8 @@ zuul:
   routes:
     v7:
       path: /v7/**
-      serviceId: pms-webapi
+      # 登录直接请求UAA登录。
+      serviceId: ibzuaa-api-ldap
       stripPrefix: false
     ibizutil:
       path: /ibizutil/**
@@ -10,3 +11,14 @@ zuul:
       stripPrefix: false
 environment:
   - TZ=Asia/Shanghai
+
+
+ibiz:
+  ref:
+    service:
+      pms-webapi: pms-webapi
+      uaa: ibzuaa-api-ldap
+  auth:
+    token:
+#      util: ZTUAATokenUtil
+      util: UAATokenUtil
