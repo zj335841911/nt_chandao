@@ -4,7 +4,7 @@
             <tr>
                 <th :width="50">编号</th>
                 <template v-for="(col, index) of getCols()">
-                    <th :key="index" v-if="col.show"> {{col.label}} </th>
+                    <th :key="index" v-if="col.show" :width="(col.width > 0 ? col.width : -1)"> {{col.label}} </th>
                 </template>
                 <th v-if="isEdit" :width="100">操作</th>
             </tr>
@@ -25,7 +25,7 @@
                                     </slot>
                                 </div>
                                 <div v-if="isEdit" class="table-td-edit">
-                                    <slot :item="{row: item, index: index, column: col}">
+                                    <slot :name="col.name" :row="item" :$index="index" :column="col">
                                         <i-input class="table-edit-input" v-model="item[col.name]" @on-change="onEditChange(item, col.name,index)"></i-input>
                                         <el-select class="table-edit-group" v-if="groupfield && i === 0" size="small" clearable v-model="item[groupfield]" @change="onEditChange(item, groupfield,index)">
                                             <template v-for="(option, n) of groupItems">
@@ -204,62 +204,5 @@ export default class GroupStepTable extends Vue {
 </script>
 
 <style lang="less">
-.group-step-table {
-    width: 100%;
-    margin-bottom: 10px;
-    tr {
-        th, td {
-            line-height: 30px;
-            border: 1px solid #999;
-            border-right-width: 0;
-        }
-        th:nth-last-child(1), td:nth-last-child(1) {
-            border-right-width: 1px;
-        }
-    }
-    tbody {
-        tr {
-            th, td {
-                border-top-width: 0;
-            }
-        }
-        .table-item {
-            display: flex;
-            .table-td {
-                padding: 0 4px;
-            }
-            .table-td-edit {
-                flex-grow: 1;
-                display: flex;
-                .table-edit-input {
-                    flex-grow: 1;
-                    .ivu-input {
-                        border-radius: 0;
-                    }
-                }
-                .table-edit-group {
-                    width: 100px;
-                    flex-shrink: 0;
-                    .el-input__inner {
-                        border-radius: 0;
-                    }
-                }
-            }
-        }
-        .table-order {
-            height: 30px;
-            width: 49px;
-            text-align: center;
-            flex-shrink: 0;
-        }
-        .table-action {
-            text-align: center;
-            font-size: 20px;
-            .ivu-icon {
-                margin-left: 5px;
-                cursor: pointer;
-            }
-        }
-    }
-}
+@import './group-step-table.less';
 </style>
