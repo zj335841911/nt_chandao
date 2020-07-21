@@ -71,7 +71,7 @@ export class AppContent extends Vue {
      */
     protected renderContent(isSlot: boolean): any {
         return <div slot={isSlot ? 'right' : null} class={{ 'app-content-right': true, 'hidden-bottom': (!this.$uiState.layoutState.contentBottomShow || !this.$slots.content_bottom) }}>
-            <split mode="vertical" v-model={this.$uiState.layoutState.contentVerticalSplit}>
+            <split mode="vertical" v-model={this.$uiState.layoutState.contentVerticalSplit} max={0.1}>
                 <div slot="top" class="app-content-exp">
                     {this.$slots.default}
                 </div>
@@ -99,7 +99,7 @@ export class AppContent extends Vue {
                 this.renderContent(false)
             ]
         } else {
-            content = this.$slots.content_left ? <split class={{ 'app-content-split': true, 'hidden-left': !this.$uiState.layoutState.leftExpContentShow }} v-model={this.$uiState.layoutState.contentHorizontalSplit}>
+            content = this.$slots.content_left ? <split class={{ 'app-content-split': true, 'hidden-left': !this.$uiState.layoutState.leftExpContentShow }} v-model={this.$uiState.layoutState.contentHorizontalSplit} min={0.1} max={0.5}>
                 <div slot="left" class="app-content-left">
                     {this.$slots.content_left}
                 </div>
