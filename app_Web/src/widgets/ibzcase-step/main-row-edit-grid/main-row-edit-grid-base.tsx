@@ -105,6 +105,7 @@ export class Main_RowEditGridBase extends GridControllerBase {
             langtag: 'entities.ibzcasestep.main_rowedit_grid.columns.desc',
             show: true,
             util: 'PX',
+            width: 300,
         },
         {
             name: 'type',
@@ -113,6 +114,7 @@ export class Main_RowEditGridBase extends GridControllerBase {
             langtag: 'entities.ibzcasestep.main_rowedit_grid.columns.type',
             show: false,
             util: 'PX',
+            width: 100,
             codelistId: 'Casestep__type'
         },
         {
@@ -122,6 +124,7 @@ export class Main_RowEditGridBase extends GridControllerBase {
             langtag: 'entities.ibzcasestep.main_rowedit_grid.columns.expect',
             show: true,
             util: 'STAR',
+            width: 1,
         },
     ]
 
