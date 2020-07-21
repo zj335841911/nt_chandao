@@ -30,11 +30,13 @@ export default class Main_RowEditModel {
           name: 'expect',
           prop: 'expect',
           dataType: 'LONGTEXT',
+          isEditable:true
         },
         {
           name: 'desc',
           prop: 'desc',
           dataType: 'LONGTEXT',
+          isEditable:true
         },
         {
           name: 'parent',
@@ -50,6 +52,7 @@ export default class Main_RowEditModel {
           name: 'type',
           prop: 'type',
           dataType: 'SSCODELIST',
+          isEditable:true
         },
         {
           name: 'srfmajortext',
@@ -65,6 +68,7 @@ export default class Main_RowEditModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
+          isEditable:true
         },
         {
           name: 'case',
@@ -104,10 +108,6 @@ export default class Main_RowEditModel {
           name: 'srffrontuf',
           prop: 'srffrontuf',
           dataType: 'TEXT',
-        },
-        {
-          name:'srfArray',
-          prop:'srfArray'
         },
       ]
     }
