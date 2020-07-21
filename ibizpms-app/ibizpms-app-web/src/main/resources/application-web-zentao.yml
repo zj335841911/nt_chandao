@@ -2,11 +2,11 @@ zuul:
   routes:
     v7:
       path: /v7/**
-      serviceId: pms-webapi-uaa
+      serviceId: pms-webapi
       stripPrefix: false
     ibizutil:
       path: /ibizutil/**
-      serviceId: pms-webapi-uaa
+      serviceId: pms-webapi
       stripPrefix: false
 environment:
   - TZ=Asia/Shanghai
@@ -15,8 +15,8 @@ environment:
 ibiz:
   ref:
     service:
-      pms-webapi: pms-webapi-uaa
-      uaa: ibzuaa-api-ldap
+      pms-webapi: pms-webapi
+      uaa: ibzuaa-api-pms
   auth:
     token:
       # 本地ZT账户认证模式：SimpleTokenUtil
