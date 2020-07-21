@@ -463,7 +463,7 @@ export class FormControlBase extends MainControlBase {
      */
     public load(opt: any = {}): void {
         if (!this.loadAction) {
-            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: '${view.getName()}' + (this.$t('app.formpage.notconfig.loadaction') as string) });
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc:  (this.$t('app.formpage.notconfig.loadaction') as string) });
             return;
         }
         const arg: any = { ...opt };
@@ -499,7 +499,7 @@ export class FormControlBase extends MainControlBase {
      */
     public loadDraft(opt: any = {}): void {
         if (!this.loaddraftAction) {
-            this.$Notice.error({ title: '错误', desc: '${view.getName()}视图表单loaddraftAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: `${this.name}表单loaddraftAction参数未配置` });
             return;
         }
         const arg: any = { ...opt };

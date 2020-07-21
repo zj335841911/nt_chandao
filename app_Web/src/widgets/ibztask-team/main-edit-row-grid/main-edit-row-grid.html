@@ -6,4 +6,37 @@
     @change="gridEditItemChange.apply(_self, arguments)"
     @remove="remove.apply(_self, arguments)"
     @add="add.apply(_self, arguments)">
+    <template slot-scope="{row, index, column}">
+        <template v-if="column.name='account'">
+        
+ <dropdown-list-extend
+  :name="column.property"
+  v-model="row[column.property]" 
+  :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1" 
+  :data="row" 
+  :datas="items"
+  :context="context"
+  :viewparams="viewparams" 
+  :localContext ='{ PROJECT:"%project%" }' 
+  :localParam ='{ project:"%project%" }' 
+  tag='UserRealNameProject' 
+  codelistType='DYNAMIC'
+  placeholder='请选择...' 
+  style="" 
+  @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
+ </dropdown-list-extend>
+
+        </template>
+        <template v-if="column.name='estimate'">
+        <input-box 
+  :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1" 
+  v-model="row[column.property]" 
+  type="number"
+  :precision="0"
+  style="" 
+  placeholder="预计"
+  @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
+</input-box>
+        </template>
+    </template>
 </group-step-table>

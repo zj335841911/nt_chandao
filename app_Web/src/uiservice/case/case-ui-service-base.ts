@@ -123,8 +123,8 @@ export default class CaseUIServiceBase extends UIService {
      * @memberof  CaseUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('blocked',{});
-        this.allDeMainStateOPPrivsMap.set('investigate',{});
+        this.allDeMainStateOPPrivsMap.set('blocked',{'RUN':1,'UPDATE':1,'RESULT':1});
+        this.allDeMainStateOPPrivsMap.set('investigate',{'RESULT':1,'RUN':1,'UPDATE':1});
         this.allDeMainStateOPPrivsMap.set('normal',{'RUN':1,'UPDATE':1,'RESULT':1});
         this.allDeMainStateOPPrivsMap.set('wait',{});
     }
