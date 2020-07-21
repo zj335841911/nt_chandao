@@ -40,7 +40,6 @@ public interface IActionService extends IService<Action>{
     Page<Action> searchDefault(ActionSearchContext context) ;
     Page<Action> searchProductTrends(ActionSearchContext context) ;
     Page<Action> searchProjectTrends(ActionSearchContext context) ;
-    Page<Action> searchTrends(ActionSearchContext context) ;
     Page<Action> searchType(ActionSearchContext context) ;
     List<Action> selectByProject(BigInteger id) ;
     void removeByProject(BigInteger id) ;

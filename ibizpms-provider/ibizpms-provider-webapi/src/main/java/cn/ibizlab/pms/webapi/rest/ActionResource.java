@@ -213,27 +213,6 @@ domain.setId(action_id);
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(actionMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-searchTrends-all')")
-	@ApiOperation(value = "获取动态", tags = {"系统日志" } ,notes = "获取动态")
-    @RequestMapping(method= RequestMethod.GET , value="/actions/fetchtrends")
-	public ResponseEntity<List<ActionDTO>> fetchTrends(ActionSearchContext context) {
-        Page<Action> domains = actionService.searchTrends(context) ;
-        List<ActionDTO> list = actionMapping.toDto(domains.getContent());
-        return ResponseEntity.status(HttpStatus.OK)
-                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
-                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
-                .header("x-total", String.valueOf(domains.getTotalElements()))
-                .body(list);
-	}
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-searchTrends-all')")
-	@ApiOperation(value = "查询动态", tags = {"系统日志" } ,notes = "查询动态")
-    @RequestMapping(method= RequestMethod.POST , value="/actions/searchtrends")
-	public ResponseEntity<Page<ActionDTO>> searchTrends(@RequestBody ActionSearchContext context) {
-        Page<Action> domains = actionService.searchTrends(context) ;
-	    return ResponseEntity.status(HttpStatus.OK)
-                .body(new PageImpl(actionMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
-	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-searchType-all')")
 	@ApiOperation(value = "获取Type", tags = {"系统日志" } ,notes = "获取Type")
     @RequestMapping(method= RequestMethod.GET , value="/actions/fetchtype")

@@ -267,20 +267,6 @@ export default class ActionServiceBase extends EntityService {
     }
 
     /**
-     * FetchTrends接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ActionServiceBase
-     */
-    public async FetchTrends(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let tempData:any = JSON.parse(JSON.stringify(data));
-        return Http.getInstance().get(`/actions/fetchtrends`,tempData,isloading);
-    }
-
-    /**
      * FetchType接口方法
      *
      * @param {*} [context={}]
