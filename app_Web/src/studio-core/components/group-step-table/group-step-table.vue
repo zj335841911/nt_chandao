@@ -27,7 +27,7 @@
                                 <div v-if="isEdit" class="table-td-edit">
                                     <slot :item="{row: item, index: index, column: col}">
                                         <i-input class="table-edit-input" v-model="item[col.name]" @on-change="onEditChange(item, col.name,index)"></i-input>
-                                        <el-select class="table-edit-group" v-if="i === 0" size="small" clearable v-model="item[groupfield]" @change="onEditChange(item, groupfield,index)">
+                                        <el-select class="table-edit-group" v-if="groupfield && i === 0" size="small" clearable v-model="item[groupfield]" @change="onEditChange(item, groupfield,index)">
                                             <template v-for="(option, n) of groupItems">
                                                 <el-option :key="n" :label="option.label" :value="option.value"></el-option>
                                             </template>
@@ -97,10 +97,10 @@ export default class GroupStepTable extends Vue {
      */
     get groupItems() {
         let items: any[] = [];
-        if(this.cols) {
+        if(this.groupfield && this.cols) {
             const col: any = this.cols.find((col: any) => Object.is(col.name, this.groupfield));
-            if(col.codelistId) {
-                let codelist: any = this.$store.getters.getCodeList('Casestep__type');
+            if(col && col.codelistId) {
+                let codelist: any = this.$store.getters.getCodeList(col.codelistId);
                 if(codelist) {
                     return codelist.items;
                 }
@@ -129,10 +129,10 @@ export default class GroupStepTable extends Vue {
             if(data.hasOwnProperty('child_order_num')) {
                 delete data.child_order_num;
             }
-            if(data[this.groupfield] && Object.is(data[this.groupfield].toLowerCase(), 'group')) {
+            if(this.groupfield && data[this.groupfield] && Object.is(data[this.groupfield].toLowerCase(), 'group')) {
                 groupNum = order;
                 data.order_num = order++;
-            } else if(data[this.groupfield] && Object.is(data[this.groupfield].toLowerCase(), 'item') && groupNum > 0) {
+            } else if(this.groupfield && data[this.groupfield] && Object.is(data[this.groupfield].toLowerCase(), 'item') && groupNum > 0) {
                 data.child_order_num = groupNum + '.' + num++;
             } else {
                 groupNum = 0;
