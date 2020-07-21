@@ -22,12 +22,14 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.DigestUtils;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.security.auth.login.LoginContext;
 import javax.servlet.http.HttpServletRequest;
+import java.security.MessageDigest;
 import java.util.List;
 import java.util.Map;
 
@@ -69,9 +71,9 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
 
             //使用UAA统一认证获取用户。
             AuthenticationUser uaaUser = uaaFeignClient.loginByUsername(username);
-
+            String token = getRequestToken();
             //构造权限用户。
-            user = constructSecurityContextUser(ztUser);
+            user = constructSecurityContextUser(ztUser,token);
 
             // 权限默认给管理员（权限未接入之前）
             user.setAuthorities(AuthorityUtils.createAuthorityList("ROLE_SUPERADMIN"));
@@ -207,13 +209,13 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
      */
     public static JSONObject doZTLogin(String loginname, String password, String token) {
         ZTResult rstSession = new ZTResult();
-
+        String zentaoSid = DigestUtils.md5DigestAsHex(token.getBytes());
         if (!ZTAPIHelper.getSessionID(rstSession, token)) {
             throw new InternalServerErrorException("登录失败");
         }
 
-        String zentaoSid = JSONObject.parseObject(rstSession.getResult().getString("data")).getString("sessionID");
-
+//        String zentaoSid = JSONObject.parseObject(rstSession.getResult().getString("data")).getString("sessionID");
+        System.out.println("sessionID相同："+token.equals(zentaoSid));
         ZTResult rstLogin = new ZTResult();
         JSONObject jo = new JSONObject();
         jo.put("account", loginname);
@@ -239,11 +241,11 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
      * 构建用户信息，作为返回值。
      *
      * @param userJO    ZT API获取的用户信息。
-     * @param zentaoSid 从UAA系统生成的token
+     * @param token 从UAA系统生成的token
      * @param domains   域名
      * @return 作为页面用户信息数据源
      */
-    private AuthenticationUser constructPageUserInfo(JSONObject userJO, String zentaoSid, String domains) {
+    private AuthenticationUser constructPageUserInfo(JSONObject userJO, String token, String domains) {
         //获取用户信息
         AuthenticationUser user = new AuthenticationUser();
         user.setUserid(userJO.getString("id"));
@@ -264,15 +266,16 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
         Map<String, Object> sessionParams = user.getSessionParams();
 
         sessionParams.put("ztuser", userJO);
-        sessionParams.put("zentaoSid", zentaoSid);
-        sessionParams.put("token", zentaoSid);
-
+        sessionParams.put("zentaoSid", DigestUtils.md5DigestAsHex(token.getBytes()));
+        sessionParams.put("token", token);
+        System.out.println("token: "+token);
+        System.out.println("zentaoSid==============:"+DigestUtils.md5DigestAsHex(token.getBytes()));
         user.setSessionParams(sessionParams);
         return user;
     }
 
 
-    private AuthenticationUser constructSecurityContextUser(User ztUser) {
+    private AuthenticationUser constructSecurityContextUser(User ztUser,String token) {
         //获取用户信息
         AuthenticationUser user = new AuthenticationUser();
         user.setUserid(ztUser.getId().toString());
@@ -288,8 +291,10 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
         Map<String, Object> sessionParams = user.getSessionParams();
 
         sessionParams.put("ztuser", ztUser);
-//        sessionParams.put("zentaoSid", "");//SessionID 暂缺
-
+        String zentaoSid = DigestUtils.md5DigestAsHex(token.getBytes());
+        sessionParams.put("zentaoSid", DigestUtils.md5DigestAsHex(token.getBytes()));//SessionID 暂缺
+        System.out.println("token: "+token);
+        System.out.println("zentaoSid==============:"+zentaoSid);
         user.setSessionParams(sessionParams);
         return user;
     }
