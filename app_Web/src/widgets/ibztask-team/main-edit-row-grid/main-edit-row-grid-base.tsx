@@ -100,6 +100,7 @@ export class MainEditRowGridBase extends GridControllerBase {
     public allColumns: any[] = [
         {
             name: 'account',
+            property: 'account',
             label: '用户',
             langtag: 'entities.ibztaskteam.maineditrow_grid.columns.account',
             show: true,
@@ -108,6 +109,7 @@ export class MainEditRowGridBase extends GridControllerBase {
         },
         {
             name: 'estimate',
+            property: 'estimate',
             label: '预计',
             langtag: 'entities.ibztaskteam.maineditrow_grid.columns.estimate',
             show: true,

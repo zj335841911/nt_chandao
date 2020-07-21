@@ -100,6 +100,7 @@ export class Main_RowEditGridBase extends GridControllerBase {
     public allColumns: any[] = [
         {
             name: 'desc',
+            property: 'desc',
             label: '步骤',
             langtag: 'entities.ibzcasestep.main_rowedit_grid.columns.desc',
             show: true,
@@ -107,6 +108,7 @@ export class Main_RowEditGridBase extends GridControllerBase {
         },
         {
             name: 'type',
+            property: 'type',
             label: '类型',
             langtag: 'entities.ibzcasestep.main_rowedit_grid.columns.type',
             show: false,
@@ -115,6 +117,7 @@ export class Main_RowEditGridBase extends GridControllerBase {
         },
         {
             name: 'expect',
+            property: 'expect',
             label: '预期',
             langtag: 'entities.ibzcasestep.main_rowedit_grid.columns.expect',
             show: true,
