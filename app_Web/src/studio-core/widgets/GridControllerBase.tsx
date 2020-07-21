@@ -1045,6 +1045,7 @@ export class GridControllerBase extends MDControlBase {
             const data = response.data;
             this.createDefault(data);
             data.rowDataState = "create";
+            Object.assign(data, this.getActionState(data));
             this.items.push(data);
             this.gridItemsModel.push(this.getGridRowModel());
         }).catch((response: any) => {
