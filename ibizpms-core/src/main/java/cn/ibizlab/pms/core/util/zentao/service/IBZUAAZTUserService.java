@@ -210,7 +210,7 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
     public static JSONObject doZTLogin(String loginname, String password, String token) {
         ZTResult rstSession = new ZTResult();
         String zentaoSid = DigestUtils.md5DigestAsHex(token.getBytes());
-        if (!ZTAPIHelper.getSessionID(rstSession, token)) {
+        if (!ZTAPIHelper.getSessionID(rstSession, zentaoSid)) {
             throw new InternalServerErrorException("登录失败");
         }
 
