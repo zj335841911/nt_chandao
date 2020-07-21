@@ -233,7 +233,7 @@ export class ActionProductTrendsListViewBase extends ListViewBase {
         const view: any = {
             viewname: 'action-edit-view', 
             height: 0, 
-            width: 0,  
+            width: 800,  
             title: this.$t('entities.action.views.editview.title'),
         };
         openPopupModal(view, data);
@@ -278,7 +278,7 @@ export class ActionProductTrendsListViewBase extends ListViewBase {
         const view: any = {
             viewname: 'action-edit-view', 
             height: 0, 
-            width: 0,  
+            width: 800,  
             title: this.$t('entities.action.views.editview.title'),
         };
         openPopupModal(view, data);
