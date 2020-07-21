@@ -528,6 +528,7 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			product: "所属产品", 
+			frombug: "来源Bug", 
 			module: "所属模块", 
 			prodoctname: "所属产品", 
 			branch: "", 
