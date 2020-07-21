@@ -1970,8 +1970,8 @@
         "memo": ""
     },
     "taskforwardview": {
-        "title": "指派任务",
-        "caption": "指派任务",
+        "title": "转交任务",
+        "caption": "转交任务",
         "viewtype": "DEOPTVIEW",
         "viewmodule": "zentao",
         "viewname": "TaskForwardView",
