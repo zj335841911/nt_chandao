@@ -47,6 +47,9 @@ export default class BatchNewModel {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'srfmstag',
+        },
+        {
           name: 'srfmajortext',
           prop: 'title',
           dataType: 'TEXT',
