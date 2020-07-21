@@ -70,10 +70,6 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 
     @Autowired
     @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskUpdate__MSDenyLogic update__msdenyLogic;
-
-    @Autowired
-    @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ITaskUpdateTemp__MSDenyLogic updatetemp__msdenyLogic;
 
     @Autowired
@@ -82,35 +78,11 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 
     @Autowired
     @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskRemove__MSDenyLogic remove__msdenyLogic;
-
-    @Autowired
-    @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ITaskRemoveTemp__MSDenyLogic removetemp__msdenyLogic;
 
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ITaskRemoveTempMajor__MSDenyLogic removetempmajor__msdenyLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskGet__MSDenyLogic get__msdenyLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskActivate__MSDenyLogic activate__msdenyLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskAssignTo__MSDenyLogic assignto__msdenyLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskClose__MSDenyLogic close__msdenyLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskSave__MSDenyLogic save__msdenyLogic;
 
     protected int batchSize = 500;
 
@@ -170,8 +142,6 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Override
     @Transactional
     public Task get(BigInteger key) {
-        Task tempET=new Task();
-        tempET.set("id",key);
         Task et = getById(key);
         if(et==null){
             et=new Task();
