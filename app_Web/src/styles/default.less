@@ -211,7 +211,12 @@ div::-webkit-scrollbar-thumb {
 
                                         >.el-checkbox__inner {
                                             background-color: var(--form-editor-background-color);
-                                            border: 1px solid var(--view-background-color-bright);
+                                            border: 1px solid var(--form-editor-border-color);
+                                        }
+                                        >.el-checkbox__inner::after{
+                                            border: 1px solid var(--form-editor-font-color);
+                                            border-left: 0;
+                                            border-top: 0;
                                         }
                                     }
                                 }
@@ -253,6 +258,12 @@ div::-webkit-scrollbar-thumb {
                                             background-color: var(--form-editor-background-color);
                                             border: 1px solid var(--view-background-color-bright);
                                         }
+                                        >.el-checkbox__inner::after{
+                                          border: 1px solid var(--form-editor-font-color);
+                                          border-left: 0;
+                                          border-top: 0;
+                                        }
+                                        
                                     }
                                 }
                             }
@@ -343,7 +354,7 @@ div::-webkit-scrollbar-thumb {
             .ivu-page-item-active {
 
                 >a {
-                    color: var(--view-font-color-bright);
+                    color: var(--view-button-color);
                 }
             }
 
@@ -355,9 +366,9 @@ div::-webkit-scrollbar-thumb {
 
                         >.ivu-select-selection {
                             height: 22px;
-                            background-color: var(--form-editor-background-color);
-                            border: 1px solid var(--form-editor-background-color);
-                            color: var(--form-editor-font-color);
+                            background-color: var(--view-button-background-color);
+                            border: 1px solid var(--form-editor-border-color);
+                            color: var(--view-button-color);
 
                             >div {
 
@@ -369,8 +380,9 @@ div::-webkit-scrollbar-thumb {
                         }
 
                         >.ivu-select-selection:hover {
-                            border-color: var(--form-editor-active-color);
-                            background-color: var(--form-editor-active-color);
+                            border-color: var(--view-button-background-color-active);
+                            background-color: var(--view-button-background-color-active);
+                            color: var(--view-button-color-active);
                         }
                     }
                 }
@@ -645,7 +657,7 @@ div::-webkit-scrollbar-thumb {
 
                     >.ivu-select-selection {
                         background: var(--form-editor-background-color);
-                        border-color: transparent;
+                        border-color: var(--form-editor-border-color);;
 
                         .ivu-select-placeholder {
                             color: var(--form-editor-placeholder-font-color);
@@ -673,7 +685,7 @@ div::-webkit-scrollbar-thumb {
                 }
 
                 .ivu-input-number {
-                    border-color: transparent;
+                    border-color: var(--form-editor-border-color);
                     
                     .ivu-input-number-input {
                         text-align: left;
