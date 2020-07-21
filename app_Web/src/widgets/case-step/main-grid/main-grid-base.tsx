@@ -100,32 +100,40 @@ export class MainGridBase extends GridControllerBase {
     public allColumns: any[] = [
         {
             name: 'id',
+            property: 'id',
             label: '编号',
             langtag: 'entities.casestep.main_grid.columns.id',
             show: false,
             util: 'PX',
+            width: 100,
         },
         {
             name: 'desc',
+            property: 'desc',
             label: '步骤',
             langtag: 'entities.casestep.main_grid.columns.desc',
             show: true,
             util: 'PX',
+            width: 400,
         },
         {
             name: 'type',
+            property: 'type',
             label: '类型',
             langtag: 'entities.casestep.main_grid.columns.type',
             show: false,
             util: 'PX',
+            width: 100,
             codelistId: 'Casestep__type'
         },
         {
             name: 'expect',
+            property: 'expect',
             label: '预期',
             langtag: 'entities.casestep.main_grid.columns.expect',
             show: true,
             util: 'PX',
+            width: -1,
         },
     ]
 
@@ -232,10 +240,12 @@ export class MainGridBase extends GridControllerBase {
             const data = response.data;
             this.createDefault(data);
             data.rowDataState = "create";
-            if(Object.is(row.type.toLowerCase(), 'group') || Object.is(row.type.toLowerCase(), 'item')) {
-                data.type = 'item';
-            } else {
-                data.type = 'step';
+            if(row.type) {
+                if(Object.is(row.type.toLowerCase(), 'group') || Object.is(row.type.toLowerCase(), 'item')) {
+                    data.type = 'item';
+                } else {
+                    data.type = 'step';
+                }
             }
             if(func instanceof Function) {
                 func(data);

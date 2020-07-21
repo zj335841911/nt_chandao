@@ -53,7 +53,7 @@ export default class CaseUIServiceBase extends UIService {
      * 
      * @memberof  CaseUIServiceBase
      */  
-    public mainStateFields:Array<any> = [];
+    public mainStateFields:Array<any> = ['status'];
 
     /**
      * 主状态集合Map
@@ -111,6 +111,10 @@ export default class CaseUIServiceBase extends UIService {
      * @memberof  CaseUIServiceBase
      */  
     public initDeMainStateMap(){
+        this.allDeMainStateMap.set('blocked','blocked');
+        this.allDeMainStateMap.set('investigate','investigate');
+        this.allDeMainStateMap.set('normal','normal');
+        this.allDeMainStateMap.set('wait','wait');
     }
 
     /**
@@ -119,6 +123,10 @@ export default class CaseUIServiceBase extends UIService {
      * @memberof  CaseUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
+        this.allDeMainStateOPPrivsMap.set('blocked',{'RUN':1,'UPDATE':1,'RESULT':1});
+        this.allDeMainStateOPPrivsMap.set('investigate',{'RESULT':1,'RUN':1,'UPDATE':1});
+        this.allDeMainStateOPPrivsMap.set('normal',{'RUN':1,'UPDATE':1,'RESULT':1});
+        this.allDeMainStateOPPrivsMap.set('wait',{});
     }
 
     /**

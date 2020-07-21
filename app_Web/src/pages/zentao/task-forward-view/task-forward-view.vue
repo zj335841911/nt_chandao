@@ -6,7 +6,7 @@ import { TaskForwardViewBase } from './task-forward-view-base';
 import view_form from '@widgets/task/forward-form/forward-form.vue';
 
 /**
- * 指派任务视图
+ * 转交任务视图
  *
  * @export
  * @class TaskForwardView

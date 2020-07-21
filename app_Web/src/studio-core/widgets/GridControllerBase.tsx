@@ -370,7 +370,7 @@ export class GridControllerBase extends MDControlBase {
             try {
                 if (Object.is(item.rowDataState, 'create')) {
                     if (!this.createAction) {
-                        this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: '${view.getName()}' + (this.$t('app.gridpage.notConfig.createAction') as string) });
+                        this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.gridpage.notConfig.createAction') as string) });
                     } else {
                         Object.assign(item, { viewparams: this.viewparams });
                         let response = await this.service.add(this.createAction, JSON.parse(JSON.stringify(this.context)), item, this.showBusyIndicator);
@@ -378,7 +378,7 @@ export class GridControllerBase extends MDControlBase {
                     }
                 } else if (Object.is(item.rowDataState, 'update')) {
                     if (!this.updateAction) {
-                        this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: '${view.getName()}' + (this.$t('app.gridpage.notConfig.updateAction') as string) });
+                        this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.gridpage.notConfig.updateAction') as string) });
                     } else {
                         Object.assign(item, { viewparams: this.viewparams });
                         if (item[this.appDeName]) {
@@ -416,7 +416,7 @@ export class GridControllerBase extends MDControlBase {
      */
     public load(opt: any = {}, pageReset: boolean = false): void {
         if (!this.fetchAction) {
-            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: '${view.getName()}' + (this.$t('app.gridpage.notConfig.fetchAction') as string) });
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.gridpage.notConfig.fetchAction') as string) });
             return;
         }
         if (pageReset) {
@@ -500,7 +500,7 @@ export class GridControllerBase extends MDControlBase {
      */
     public async remove(items: any[]): Promise<any> {
         if (!this.removeAction) {
-            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: '${view.getName()}' + (this.$t('app.gridpage.notConfig.removeAction') as string) });
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.gridpage.notConfig.removeAction') as string) });
             return;
         }
         const arr: any[] = [];
@@ -1030,7 +1030,7 @@ export class GridControllerBase extends MDControlBase {
      */
     public newRow(args: any[], params?: any, $event?: any, xData?: any): void {
         if (!this.loaddraftAction) {
-            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: '${view.getName()}' + (this.$t('app.gridpage.notConfig.loaddraftAction') as string) });
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.gridpage.notConfig.loaddraftAction') as string) });
             return;
         }
         Object.assign(args[0], { viewparams: this.viewparams });
@@ -1045,6 +1045,7 @@ export class GridControllerBase extends MDControlBase {
             const data = response.data;
             this.createDefault(data);
             data.rowDataState = "create";
+            Object.assign(data, this.getActionState(data));
             this.items.push(data);
             this.gridItemsModel.push(this.getGridRowModel());
         }).catch((response: any) => {

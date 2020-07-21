@@ -17,7 +17,7 @@ const router = new Router({
                 const routerParamsName = 'ibizpms';
                 const params: any = {};
                 if (to.params && to.params[routerParamsName]) {
-                    Object.assign(params, qs.parse(to.params[routerParamsName], { delimiter: ';' }));
+                    params[routerParamsName] = to.params[routerParamsName];
                 }
                 const url: string = '/appdata';
                 await AuthGuard.getInstance().authGuard(url, params, router);

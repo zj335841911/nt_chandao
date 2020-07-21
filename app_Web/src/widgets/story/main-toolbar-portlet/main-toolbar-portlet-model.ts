@@ -159,6 +159,9 @@ export default class MainToolbarModel {
       {
         name: 'branchname',
       },
+      {
+        name: 'versionc',
+      },
     ]
   }
 

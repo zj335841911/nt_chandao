@@ -207,7 +207,7 @@ export default class BuildUIServiceBase extends UIService {
         }
         const backend = () => {
             const curService:BuildService =  new BuildService();
-            curService.LinkStories(context,data, true).then((response: any) => {
+            curService.LinkStory(context,data, true).then((response: any) => {
                 if (!response || response.status !== 200) {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;

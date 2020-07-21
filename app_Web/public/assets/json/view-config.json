@@ -1970,8 +1970,8 @@
         "memo": ""
     },
     "taskforwardview": {
-        "title": "指派任务",
-        "caption": "指派任务",
+        "title": "转交任务",
+        "caption": "转交任务",
         "viewtype": "DEOPTVIEW",
         "viewmodule": "zentao",
         "viewname": "TaskForwardView",
@@ -2050,8 +2050,8 @@
         "memo": ""
     },
     "actioneditview": {
-        "title": "action编辑视图",
-        "caption": "系统日志",
+        "title": "备注",
+        "caption": "备注",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "zentao",
         "viewname": "ActionEditView",

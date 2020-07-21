@@ -93,4 +93,12 @@ export interface Action {
      * @memberof Action
      */
     project?: any;
+
+    /**
+     * 备注
+     *
+     * @returns {*}
+     * @memberof Action
+     */
+    lastcomment?: any;
 }

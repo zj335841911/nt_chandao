@@ -134,10 +134,10 @@ export default class TaskUIServiceBase extends UIService {
      * @memberof  TaskUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('cancel',{'ASSIGN':0,'ACTIVATION':0,'EDIT':0,'CLOSE':0,'SUBTASKS':0});
+        this.allDeMainStateOPPrivsMap.set('cancel',{'ASSIGN':1,'ACTIVATION':1,'EDIT':1,'CLOSE':1,'SUBTASKS':1});
         this.allDeMainStateOPPrivsMap.set('closed',{'SUBTASKS':1,'ACTIVATION':1,'EDIT':1,'DELETE':1});
         this.allDeMainStateOPPrivsMap.set('doing',{'PAUSE':1,'CANCEL':1,'EDIT':1,'SUBTASKS':1,'COMPLETE':1,'ASSIGN':1});
-        this.allDeMainStateOPPrivsMap.set('done',{'CLOSE':0,'EDIT':0,'ASSIGN':0,'ACTIVATION':0,'SUBTASKS':0,'DELETE':0});
+        this.allDeMainStateOPPrivsMap.set('done',{'CLOSE':1,'EDIT':1,'ASSIGN':1,'ACTIVATION':1,'SUBTASKS':1,'DELETE':1});
         this.allDeMainStateOPPrivsMap.set('pause',{'CANCEL':1,'PROCEED':1,'EDIT':1,'ASSIGN':1,'SUBTASKS':1,'DELETE':1,'COMPLETE':1});
         this.allDeMainStateOPPrivsMap.set('wait',{'DELETE':1,'ASSIGN':1,'ACTIVATION':1,'EDIT':1,'CANCEL':1,'START':1,'SUBTASKS':1});
     }

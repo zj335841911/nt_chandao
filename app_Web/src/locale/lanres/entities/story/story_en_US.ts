@@ -49,6 +49,7 @@ export default {
     isleaf: "是否子需求",
     files: "附件",
     branchname: "平台/分支",
+    versionc: "版本号",
   },
 	views: {
 		mainview9_related: {
@@ -372,6 +373,7 @@ export default {
 			id: "", 
 			title: "", 
 			version: "", 
+			formitem: "版本号", 
 			spec: "需求描述", 
 			verify: "验收标准", 
 		},
@@ -527,6 +529,7 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			product: "所属产品", 
+			frombug: "来源Bug", 
 			module: "所属模块", 
 			prodoctname: "所属产品", 
 			branch: "", 
