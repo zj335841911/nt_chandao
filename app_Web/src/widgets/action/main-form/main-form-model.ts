@@ -51,6 +51,11 @@ export default class MainModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'lastcomment',
+        prop: 'lastcomment',
+        dataType: 'HTMLTEXT',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

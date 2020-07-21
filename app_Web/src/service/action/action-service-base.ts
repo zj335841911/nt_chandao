@@ -180,6 +180,19 @@ export default class ActionServiceBase extends EntityService {
     }
 
     /**
+     * EditComment接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ActionServiceBase
+     */
+    public async EditComment(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            return Http.getInstance().post(`/actions/${context.action}/editcomment`,data,isloading);
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]

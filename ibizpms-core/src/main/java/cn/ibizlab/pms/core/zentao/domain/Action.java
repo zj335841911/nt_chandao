@@ -121,6 +121,13 @@ public class Action extends EntityMP implements Serializable {
     @JSONField(name = "project")
     @JsonProperty("project")
     private BigInteger project;
+    /**
+     * 备注
+     */
+    @TableField(exist = false)
+    @JSONField(name = "lastcomment")
+    @JsonProperty("lastcomment")
+    private String lastcomment;
 
     /**
      * 项目

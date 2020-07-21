@@ -48,6 +48,9 @@ export default class ActionHistoryModel {
       {
         name: 'project',
       },
+      {
+        name: 'lastcomment',
+      },
     ]
   }
 
