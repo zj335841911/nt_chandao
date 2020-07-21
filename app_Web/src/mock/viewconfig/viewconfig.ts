@@ -1649,7 +1649,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "actioneditview": {
             "title": "action编辑视图",
-            "caption": "系统日志",
+            "caption": "备注",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",
             "viewname": "ActionEditView",

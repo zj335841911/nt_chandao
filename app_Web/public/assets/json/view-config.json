@@ -2051,7 +2051,7 @@
     },
     "actioneditview": {
         "title": "action编辑视图",
-        "caption": "系统日志",
+        "caption": "备注",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "zentao",
         "viewname": "ActionEditView",

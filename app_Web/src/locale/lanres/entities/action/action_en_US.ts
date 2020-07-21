@@ -40,7 +40,7 @@ export default {
       		title: "系统日志列表视图",
 		},
 		editview: {
-			caption: "系统日志",
+			caption: "备注",
       		title: "action编辑视图",
 		},
 	},
