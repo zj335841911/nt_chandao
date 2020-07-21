@@ -114,7 +114,7 @@ export class MainGridBase extends GridControllerBase {
             langtag: 'entities.casestep.main_grid.columns.desc',
             show: true,
             util: 'PX',
-            width: 300,
+            width: 400,
         },
         {
             name: 'type',
@@ -133,7 +133,7 @@ export class MainGridBase extends GridControllerBase {
             langtag: 'entities.casestep.main_grid.columns.expect',
             show: true,
             util: 'PX',
-            width: 300,
+            width: -1,
         },
     ]
 

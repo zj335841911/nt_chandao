@@ -105,7 +105,7 @@ export class MainEditRowGridBase extends GridControllerBase {
             langtag: 'entities.ibztaskteam.maineditrow_grid.columns.account',
             show: true,
             util: 'PX',
-            width: 200,
+            width: -1,
             codelistId: 'UserRealNameProject'
         },
         {
@@ -115,7 +115,7 @@ export class MainEditRowGridBase extends GridControllerBase {
             langtag: 'entities.ibztaskteam.maineditrow_grid.columns.estimate',
             show: true,
             util: 'PX',
-            width: 200,
+            width: 300,
         },
     ]
 
