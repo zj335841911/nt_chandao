@@ -16,20 +16,26 @@ import cn.ibizlab.pms.util.security.SpringContextHolder;
 import cn.ibizlab.pms.util.service.AuthenticationUserService;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.security.auth.login.LoginContext;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 import java.util.Map;
 
 /**
- * 实体[IBZUSER] 服务对象接口实现
+ * 账户认证：UAA
+ * 用户信息：ZT
  */
+@Slf4j
 @Service("IBZUAAZTUserService")
 @ConditionalOnExpression("(!${ibiz.enablePermissionValid:false})&&'${ibiz.auth.service:SimpleUserService}'.equals('IBZUAAZTUserService')")
 public class IBZUAAZTUserService implements AuthenticationUserService {
@@ -44,43 +50,44 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
 
     @Override
     public AuthenticationUser loadUserByUsername(String username) {
-        if (username == null || username.trim().isEmpty()) {
-            throw new InternalServerErrorException("用户还未登录");
+        AuthenticationUser user = null;
+        try {
+            if (username == null || username.trim().isEmpty()) {
+                throw new InternalServerErrorException("用户还未登录");
+            }
+
+            // 适配统一认证email crimson@ibizsys.net 与 禅道 crimson 关系
+
+            //登录UAA系统前，先查看ZT账户是否存在。
+            //获取UAA账号对应的ZT用户。
+            User ztUser = getZTUserInfo(username);
+            if (ztUser == null) {
+                //（二期）没有对应账号，后台新建账号，再登录
+                throw new RuntimeException("无法加载ZT用户信息。");
+
+            }
+
+            //使用UAA统一认证获取用户。
+            AuthenticationUser uaaUser = uaaFeignClient.loginByUsername(username);
+
+            //构造权限用户。
+            user = constructSecurityContextUser(ztUser);
+
+            // 权限默认给管理员（权限未接入之前）
+            user.setAuthorities(AuthorityUtils.createAuthorityList("ROLE_SUPERADMIN"));
+        } catch (RuntimeException e) {
+            log.error(e.getMessage());
         }
-
-        // 适配统一认证email crimson@ibizsys.net 与 禅道 crimson 关系
-
-        //获取UAA账号对应的ZT用户。
-        User ztUser = getZTUserInfo(username);
-
-        if (ztUser == null) {
-            //（二期）没有对应账号，后台新建账号，再登录
-            throw new BadRequestAlertException("当前用户没有关联禅道账户，请联系管理员。", null,null);
-
-        }
-
-        //使用UAA统一认证获取用户信心。
-        AuthenticationUser uaaUser = uaaFeignClient.loginByUsername(ztUser.getCommiter());
-
-        //在API系统中注册UAA生成的Token（后续API功能内置后移除）。
-        String token = getRequestToken();
-        doZTLogin(ztUser.getAccount(), ztpassword, token);
-
-        //构造权限用户。
-        AuthenticationUser user = constructSecurityContextUser(ztUser);
-
-        // 权限默认给管理员（权限未接入之前）
-        user.setAuthorities(AuthorityUtils.createAuthorityList("ROLE_SUPERADMIN"));
 
         return user;
     }
+
     /**
      * 使用ZT用户名密码登录
      *
      * @param username UAA登录账户
      * @param password UAA登录密码
      * @return token是最主要的数据。
-     *
      */
     @Deprecated
     @Override
@@ -88,20 +95,25 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
         if (username == null || username.trim().isEmpty() || password == null || password.trim().isEmpty()) {
             throw new InternalServerErrorException("请输入用户名密码");
         }
+        String domains = getDomains(username);
 
-        String[] data=username.split("[|]");
-        String loginname=username;
-        String domains="";
-
-        if(data.length==2) {
-            loginname=data[0].trim();
-            domains=data[1].trim();
+        //登录UAA系统前，先查看ZT账户是否存在。
+        //获取UAA账号对应的ZT用户，从account、commiter四个字段查询。
+        User ztUser = getZTUserInfo(username);
+        if (ztUser == null || ztUser.getCommiter() == null) {
+            //（二期）没有对应账号，后台新建账号，再登录
+            throw new BadRequestAlertException("当前用户没有关联ZT账户，请联系管理员。", null, null);
         }
 
-        JSONObject userJO = doZTLogin(loginname,password,null);
+        //以代码提交账户，进行UAA认证。
+        AuthenticationInfo authenticationInfo = uaaFeignClient.v7Login(buildRemoteLoginParam(ztUser.getCommiter(), password));
+
+        String token = authenticationInfo.getToken();
+        //ZT API登录。
+        JSONObject userJO = doZTLogin(ztUser.getAccount(), ztpassword, token);
 
         //构造前端需要的用户数据。
-        AuthenticationUser pageUser = constructPageUserInfo(userJO, null, domains);
+        AuthenticationUser pageUser = constructPageUserInfo(userJO, token, domains);
 
         // 权限默认给管理员（权限未接入之前）
         pageUser.setAuthorities(AuthorityUtils.createAuthorityList("ROLE_SUPERADMIN"));
@@ -123,7 +135,6 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
      * @return 登录参数，根据UAA系统，提供的API生成对应DTO
      */
     private AuthorizationLogin buildRemoteLoginParam(String username, String password) {
-//        String domains = "PMS";        //UAA识别请求系统，执行对应处理， TODO 后续需要统一逻辑。
 
         AuthorizationLogin loginUser = new AuthorizationLogin();
         loginUser.setLoginname(getLoginnameByUsername(username));
@@ -176,12 +187,17 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
         UserMapper userMapper = SpringContextHolder.getBean(UserMapper.class);
         IUserService userService = SpringContextHolder.getBean(IUserService.class);
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("account", loginname).or().eq("email", loginname)
-                .or().eq("mobile", loginname).or().eq("commiter", loginname);
+        queryWrapper.eq("account", loginname).or().eq("commiter", loginname);
 
-        User user = userService.getOne(queryWrapper);
+        List<User> users = userService.list(queryWrapper);
+        if (CollectionUtils.isEmpty(users)) {
+            return null;
+        } else if (users.size() > 1) {
+            throw new BadRequestAlertException("关联的ZT账户不唯一，请联系管理员。", null, null);
+        } else {
+            return users.get(0);
+        }
 
-        return user;
     }
 
     /**
@@ -189,7 +205,7 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
      *
      * @param loginname ZT账号
      */
-    private JSONObject doZTLogin(String loginname, String password, String token) {
+    public static JSONObject doZTLogin(String loginname, String password, String token) {
         ZTResult rstSession = new ZTResult();
 
         if (!ZTAPIHelper.getSessionID(rstSession, token)) {
@@ -293,6 +309,5 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
         }
         return authToken;
     }
-
 
 }

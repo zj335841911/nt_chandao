@@ -2,16 +2,5 @@ spring:
   profiles:
     include: sys, zentao, nacos, webapi-prod
   application:
-    name: pms-webapi
-
-
-#API替换相关配置。
-ibiz:
-  auth:
-    service: IBZUAAZTUserService
-    token:
-      util: UAATokenUtil
-  ref:
-    service:
-      uaa: ibzuaa-api-ldap
+    name: pms-webapi-uaa
 
