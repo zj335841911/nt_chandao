@@ -213,7 +213,7 @@ export class ViewToolbar extends Vue {
             }
             return <i-button title={item.tooltip} v-show={item.visabled} disabled={item.disabled} class={item.class} on-click={(e: any) => this.itemClick({ tag: item.name }, e)}>
                 <menu-icon item={item} />
-                <span class='caption'>{item.caption}</span>
+                <span class='caption' v-show={item.isShowCaption}>{item.caption}</span>
             </i-button>;
         });
     }

@@ -159,6 +159,10 @@ zuul:
       path: /testruns/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_myterritory:
+      path: /ibzmyterritories/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_bug:
       path: /bugs/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

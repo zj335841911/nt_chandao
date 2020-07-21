@@ -1319,6 +1319,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseGridView9_MeCretae",
             "viewtag": "c5b7fb7289325c348ca867eb86185986"
         },
+        "homeportalview": {
+            "title": "首页",
+            "caption": "",
+            "viewtype": "APPPORTALVIEW",
+            "viewmodule": "zentao",
+            "viewname": "HomePortalView",
+            "viewtag": "C5D95892-6FF7-4334-9B5D-903B94A4B9DF"
+        },
         "buggridview": {
             "title": "bug表格视图",
             "caption": "Bug",
