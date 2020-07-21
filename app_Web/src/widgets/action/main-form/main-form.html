@@ -8,18 +8,18 @@
 </app-form-item>
 
 </i-col>
-<i-col v-show="detailsModel.button2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+<i-col v-show="detailsModel.button2.visible" :style="{'width':'100px !important'}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
         <i-button type="primary" @click="button2_click($event)"
-         style="">
-           
+         style="width: 100px;">
+        <i class="fa fa-save" style="margin-right: 2px;"></i>   
         <span >{{$t('entities.action.main_form.details.button2')}}</span>
     </i-button>
 
 </i-col>
-<i-col v-show="detailsModel.button1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+<i-col v-show="detailsModel.button1.visible" :style="{'width':'100px !important'}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
         <i-button type="primary" @click="button1_click($event)"
-         style="">
-           
+         style="width: 100px;">
+        <i class="fa fa-sign-out" style="margin-right: 2px;"></i>   
         <span >{{$t('entities.action.main_form.details.button1')}}</span>
     </i-button>
 
