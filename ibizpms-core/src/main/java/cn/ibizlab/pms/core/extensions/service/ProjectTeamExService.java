@@ -28,7 +28,7 @@ public class ProjectTeamExService extends ProjectTeamServiceImpl {
         if(list.isEmpty() || list.size() == 0) {
             return;
         }
-        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser();
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         JSONObject jo = new JSONObject();
 //        JSONArray realnames = new JSONArray();
@@ -52,7 +52,7 @@ public class ProjectTeamExService extends ProjectTeamServiceImpl {
         jo.put("hours", hours);
         jo.put("accounts", accounts);
         jo.put("limited", limited);
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProjectHelper.manageMembers((String)user.getSessionParams().get("zentaosid"), jo, rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProjectHelper.manageMembers(zentaoSid, jo, rst);
     }
 
     /**
