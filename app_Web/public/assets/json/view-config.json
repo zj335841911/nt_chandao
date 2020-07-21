@@ -2050,7 +2050,7 @@
         "memo": ""
     },
     "actioneditview": {
-        "title": "action编辑视图",
+        "title": "备注",
         "caption": "备注",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "zentao",
