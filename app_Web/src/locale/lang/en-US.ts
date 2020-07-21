@@ -36,6 +36,7 @@ import testtask_en_US from '@locale/lanres/entities/test-task/test-task_en_US';
 import testreport_en_US from '@locale/lanres/entities/test-report/test-report_en_US';
 import projectstats_en_US from '@locale/lanres/entities/project-stats/project-stats_en_US';
 import testrun_en_US from '@locale/lanres/entities/test-run/test-run_en_US';
+import ibzmyterritory_en_US from '@locale/lanres/entities/ibz-my-territory/ibz-my-territory_en_US';
 import bug_en_US from '@locale/lanres/entities/bug/bug_en_US';
 import projectmodule_en_US from '@locale/lanres/entities/project-module/project-module_en_US';
 import ibzdoc_en_US from '@locale/lanres/entities/ibz-doc/ibz-doc_en_US';
@@ -319,6 +320,7 @@ export default {
         testreport: testreport_en_US,
         projectstats: projectstats_en_US,
         testrun: testrun_en_US,
+        ibzmyterritory: ibzmyterritory_en_US,
         bug: bug_en_US,
         projectmodule: projectmodule_en_US,
         ibzdoc: ibzdoc_en_US,
