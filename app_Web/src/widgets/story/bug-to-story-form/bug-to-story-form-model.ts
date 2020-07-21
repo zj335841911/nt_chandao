@@ -56,6 +56,11 @@ export default class BugToStoryModel {
         dataType: 'PICKUP',
       },
       {
+        name: 'frombug',
+        prop: 'frombug',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'module',
         prop: 'module',
         dataType: 'PICKUP',
