@@ -51,7 +51,8 @@ export class AuthGuard {
      */
     public async authGuard(url: string, params: any = {}, router: any): Promise<boolean> {
         try {
-            const response = await Http.getInstance().get(url);
+            let appContext = {};
+            const response = await Http.getInstance().get(url, params);
             if (response && response.status === 200) {
                 let { data }: { data: any } = response;
                 if (data) {
@@ -66,11 +67,14 @@ export class AuthGuard {
                         data = JSON.parse(JSON.stringify(localAppData));
                     }
                     this.formatAppData(data);
-                    new AppService().contextStore.appContext = data.context;
+                    if (data.context) {
+                        appContext = data.context;
+                    }
                     router.app.$store.commit('addAppData', data);
                     // 提交统一资源数据
                     router.app.$store.dispatch('authresource/commitAuthData', data);
                 }
+                new AppService().contextStore.appContext = appContext;
             }
             return true;
         } catch (err) {
