@@ -1,9 +1,4 @@
-<studio-view viewName="actioneditview" viewTitle="action编辑视图" class='deeditview action-edit-view'>
-    <template slot='title'>
-    <span class='caption-info'>{{$t(model.srfTitle)}}</span>
-    </template>
-    <template slot="toolbar">
-                <view-toolbar :model="toolBarModels" @item-click="toolbar_click($event)"/>    </template>
+<studio-view viewName="actioneditview" viewTitle="备注" class='deeditview action-edit-view'>
     <view_form 
                 :viewState="viewState"  
                 :viewparams="viewparams" 
@@ -11,7 +6,7 @@
                 :autosave="false" 
                 :viewtag="viewtag"
                 :showBusyIndicator="true"
-                updateAction="Update"
+                updateAction="EditComment"
                 removeAction="Remove"
                 loaddraftAction="GetDraft"
                 loadAction="Get"

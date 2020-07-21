@@ -12,6 +12,7 @@ export default {
     objectid: "对象ID",
     actor: "操作者",
     project: "项目",
+    lastcomment: "备注",
   },
 	views: {
 		historylistview: {
@@ -39,16 +40,15 @@ export default {
       		title: "系统日志列表视图",
 		},
 		editview: {
-			caption: "系统日志",
-      		title: "action编辑视图",
+			caption: "备注",
+      		title: "备注",
 		},
 	},
 	main_form: {
 		details: {
-			group1: "action基本信息", 
+			button2: "Save And Close", 
+			button1: "关闭", 
 			formpage1: "基本信息", 
-			group2: "操作信息", 
-			formpage2: "其它", 
 			srforikey: "", 
 			srfkey: "id", 
 			srfmajortext: "备注", 
@@ -56,15 +56,13 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			lastcomment: "", 
+			formitem: "", 
 			id: "id", 
 		},
 		uiactions: {
-		},
-	},
-	editviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
+        saveandexit: "Save And Close",
+        exit: "返回",
 		},
 	},
 };

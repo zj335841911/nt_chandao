@@ -233,11 +233,11 @@ export class MainGridBase extends GridControllerBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        AssignTask: { name: 'AssignTask',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'ASSIGN', target: 'SINGLEKEY'},
-        StartTask: { name: 'StartTask',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'START', target: 'SINGLEKEY'},
-        CloseTask: { name: 'CloseTask',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'CLOSE', target: 'SINGLEKEY'},
-        DoneTask: { name: 'DoneTask',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'COMPLETE', target: 'SINGLEKEY'},
-        MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'EDIT', target: 'SINGLEKEY'},
+        AssignTask: { name: 'AssignTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'ASSIGN', target: 'SINGLEKEY'},
+        StartTask: { name: 'StartTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'START', target: 'SINGLEKEY'},
+        CloseTask: { name: 'CloseTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'CLOSE', target: 'SINGLEKEY'},
+        DoneTask: { name: 'DoneTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'COMPLETE', target: 'SINGLEKEY'},
+        MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'EDIT', target: 'SINGLEKEY'},
         NewSubTask: { name: 'NewSubTask',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SUBTASKS', target: 'SINGLEKEY'}
     };
 

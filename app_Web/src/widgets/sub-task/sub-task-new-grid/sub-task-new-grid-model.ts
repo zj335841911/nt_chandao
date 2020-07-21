@@ -70,6 +70,12 @@ export default class SubTaskNewModel {
           name: 'srfmstag',
         },
         {
+          name: 'estimate',
+          prop: 'estimate',
+          dataType: 'FLOAT',
+          isEditable:true
+        },
+        {
           name: 'srfmajortext',
           prop: 'name',
           dataType: 'TEXT',
@@ -91,6 +97,12 @@ export default class SubTaskNewModel {
           dataType: 'TEXT',
         },
         {
+          name: 'project',
+          prop: 'project',
+          dataType: 'PICKUP',
+          isEditable:true
+        },
+        {
           name: 'modulename',
           prop: 'modulename',
           dataType: 'PICKUPTEXT',
@@ -105,12 +117,6 @@ export default class SubTaskNewModel {
         {
           name: 'story',
           prop: 'story',
-          dataType: 'PICKUP',
-          isEditable:true
-        },
-        {
-          name: 'project',
-          prop: 'project',
           dataType: 'PICKUP',
           isEditable:true
         },
@@ -136,6 +142,18 @@ export default class SubTaskNewModel {
           name: 'left',
           prop: 'left',
           dataType: 'FLOAT',
+          isEditable:true
+        },
+        {
+          name: 'eststarted',
+          prop: 'eststarted',
+          dataType: 'DATE',
+          isEditable:true
+        },
+        {
+          name: 'deadline',
+          prop: 'deadline',
+          dataType: 'DATE',
           isEditable:true
         },
         {

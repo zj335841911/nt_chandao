@@ -159,6 +159,9 @@ export default class BaseInfoModel {
       {
         name: 'branchname',
       },
+      {
+        name: 'versionc',
+      },
     ]
   }
 

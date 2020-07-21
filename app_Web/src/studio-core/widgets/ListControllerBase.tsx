@@ -96,7 +96,7 @@ export class ListControllerBase extends MDControlBase {
      */
     public load(opt: any = {}): void {
         if (!this.fetchAction) {
-            this.$Notice.error({ title: '错误', desc: '${view.getName()}视图列表fetchAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: '视图列表fetchAction参数未配置' });
             return;
         }
         const arg: any = { ...opt };
@@ -160,7 +160,7 @@ export class ListControllerBase extends MDControlBase {
      */
     public async remove(items: any[]): Promise<any> {
         if (!this.removeAction) {
-            this.$Notice.error({ title: '错误', desc: '${view.getName()}视图表格removeAction参数未配置' });
+            this.$Notice.error({ title: '错误', desc: `${this.name}列表removeAction参数未配置` });
             return;
         }
         if (items.length === 0) {

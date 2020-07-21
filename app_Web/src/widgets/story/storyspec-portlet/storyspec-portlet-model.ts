@@ -159,6 +159,9 @@ export default class StoryspecModel {
       {
         name: 'branchname',
       },
+      {
+        name: 'versionc',
+      },
     ]
   }
 

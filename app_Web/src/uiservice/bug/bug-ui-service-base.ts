@@ -53,7 +53,7 @@ export default class BugUIServiceBase extends UIService {
      * 
      * @memberof  BugUIServiceBase
      */  
-    public mainStateFields:Array<any> = [];
+    public mainStateFields:Array<any> = ['status'];
 
     /**
      * 主状态集合Map
@@ -119,6 +119,9 @@ export default class BugUIServiceBase extends UIService {
      * @memberof  BugUIServiceBase
      */  
     public initDeMainStateMap(){
+        this.allDeMainStateMap.set('active','active');
+        this.allDeMainStateMap.set('closed','closed');
+        this.allDeMainStateMap.set('resolved','resolved');
     }
 
     /**
@@ -127,6 +130,9 @@ export default class BugUIServiceBase extends UIService {
      * @memberof  BugUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
+        this.allDeMainStateOPPrivsMap.set('active',{'UPDATE':1,'CONFIRM':1,'CREATECASE':1,'DELETE':1,'ASSIGNTO':1,'RESOLVE':1});
+        this.allDeMainStateOPPrivsMap.set('closed',{'UPDATE':1,'ASSIGNTO':1,'ACTIVATE':1,'DELETE':1,'CREATECASE':1});
+        this.allDeMainStateOPPrivsMap.set('resolved',{'CLOSE':1,'UPDATE':1,'DELETE':1,'ACTIVATE':1,'CREATECASE':1,'ASSIGNTO':1});
     }
 
     /**

@@ -100,25 +100,31 @@ export class Main_RowEditGridBase extends GridControllerBase {
     public allColumns: any[] = [
         {
             name: 'desc',
+            property: 'desc',
             label: '步骤',
             langtag: 'entities.ibzcasestep.main_rowedit_grid.columns.desc',
             show: true,
             util: 'PX',
+            width: 300,
         },
         {
             name: 'type',
+            property: 'type',
             label: '类型',
             langtag: 'entities.ibzcasestep.main_rowedit_grid.columns.type',
             show: false,
             util: 'PX',
+            width: 100,
             codelistId: 'Casestep__type'
         },
         {
             name: 'expect',
+            property: 'expect',
             label: '预期',
             langtag: 'entities.ibzcasestep.main_rowedit_grid.columns.expect',
             show: true,
             util: 'STAR',
+            width: -1,
         },
     ]
 
@@ -224,10 +230,12 @@ export class Main_RowEditGridBase extends GridControllerBase {
             const data = response.data;
             this.createDefault(data);
             data.rowDataState = "create";
-            if(Object.is(row.type.toLowerCase(), 'group') || Object.is(row.type.toLowerCase(), 'item')) {
-                data.type = 'item';
-            } else {
-                data.type = 'step';
+            if(row.type) {
+                if(Object.is(row.type.toLowerCase(), 'group') || Object.is(row.type.toLowerCase(), 'item')) {
+                    data.type = 'item';
+                } else {
+                    data.type = 'step';
+                }
             }
             if(func instanceof Function) {
                 func(data);

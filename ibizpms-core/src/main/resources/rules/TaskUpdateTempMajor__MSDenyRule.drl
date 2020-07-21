@@ -11,6 +11,15 @@ global cn.ibizlab.pms.util.security.AuthenticationUser curuser;
 
 no-loop
 
+//逻辑处理节点[状态[已取消]拒绝[updatetempmajor]操作]
+rule "denybycancel"
+ruleflow-group "taskupdatetempmajor__msdenydenybycancel"
+    when
+    then
+    update(taskupdatetempmajor__msdenydefault);//更新fact中变量值
+    update(taskupdatetempmajor__msdenytemp);//更新fact中变量值
+    end
+
 //逻辑处理节点[开始]
 rule "begin"
 ruleflow-group "taskupdatetempmajor__msdenybegin"
@@ -46,6 +55,15 @@ ruleflow-group "taskupdatetempmajor__msdenydenybypause"
     update(taskupdatetempmajor__msdenytemp);//更新fact中变量值
     end
 
+//逻辑处理节点[状态[已关闭]拒绝[updatetempmajor]操作]
+rule "denybyclosed"
+ruleflow-group "taskupdatetempmajor__msdenydenybyclosed"
+    when
+    then
+    update(taskupdatetempmajor__msdenydefault);//更新fact中变量值
+    update(taskupdatetempmajor__msdenytemp);//更新fact中变量值
+    end
+
 //逻辑处理节点[状态[未进行]拒绝[updatetempmajor]操作]
 rule "denybywait"
 ruleflow-group "taskupdatetempmajor__msdenydenybywait"
@@ -61,6 +79,15 @@ ruleflow-group "taskupdatetempmajor__msdenypreparetemp"
     when
     then
     taskupdatetempmajor__msdenytemp.set("id",taskupdatetempmajor__msdenydefault.get("id"));
+    update(taskupdatetempmajor__msdenydefault);//更新fact中变量值
+    update(taskupdatetempmajor__msdenytemp);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已完成]拒绝[updatetempmajor]操作]
+rule "denybydone"
+ruleflow-group "taskupdatetempmajor__msdenydenybydone"
+    when
+    then
     update(taskupdatetempmajor__msdenydefault);//更新fact中变量值
     update(taskupdatetempmajor__msdenytemp);//更新fact中变量值
     end

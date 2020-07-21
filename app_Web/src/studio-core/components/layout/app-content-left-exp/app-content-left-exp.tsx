@@ -75,6 +75,7 @@ export class AppContentLeftExp extends Vue {
         if (this.activeIndex === index) {
             this.uiState.leftExpContentShowChange();
         } else {
+            this.uiState.leftExpContentShowChange(true);
             this.changeActiveItem(item, index);
         }
     }

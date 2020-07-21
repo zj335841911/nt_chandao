@@ -142,8 +142,8 @@ export default {
       		title: "任务编辑视图",
 		},
 		forwardview: {
-			caption: "指派任务",
-      		title: "指派任务",
+			caption: "转交任务",
+      		title: "转交任务",
 		},
 	},
 	main_form: {

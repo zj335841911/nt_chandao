@@ -29,6 +29,15 @@ ruleflow-group "taskupdatetemp__msdenydenybywait"
     update(taskupdatetemp__msdenydefault);//更新fact中变量值
     end
 
+//逻辑处理节点[状态[已取消]拒绝[updatetemp]操作]
+rule "denybycancel"
+ruleflow-group "taskupdatetemp__msdenydenybycancel"
+    when
+    then
+    update(taskupdatetemp__msdenytemp);//更新fact中变量值
+    update(taskupdatetemp__msdenydefault);//更新fact中变量值
+    end
+
 //逻辑处理节点[开始]
 rule "begin"
 ruleflow-group "taskupdatetemp__msdenybegin"
@@ -45,12 +54,30 @@ ruleflow-group "taskupdatetemp__msdenydenybypause"
     update(taskupdatetemp__msdenydefault);//更新fact中变量值
     end
 
+//逻辑处理节点[状态[已完成]拒绝[updatetemp]操作]
+rule "denybydone"
+ruleflow-group "taskupdatetemp__msdenydenybydone"
+    when
+    then
+    update(taskupdatetemp__msdenytemp);//更新fact中变量值
+    update(taskupdatetemp__msdenydefault);//更新fact中变量值
+    end
+
 //逻辑处理节点[准备临时参数]
 rule "preparetemp"
 ruleflow-group "taskupdatetemp__msdenypreparetemp"
     when
     then
     taskupdatetemp__msdenytemp.set("id",taskupdatetemp__msdenydefault.get("id"));
+    update(taskupdatetemp__msdenytemp);//更新fact中变量值
+    update(taskupdatetemp__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已关闭]拒绝[updatetemp]操作]
+rule "denybyclosed"
+ruleflow-group "taskupdatetemp__msdenydenybyclosed"
+    when
+    then
     update(taskupdatetemp__msdenytemp);//更新fact中变量值
     update(taskupdatetemp__msdenydefault);//更新fact中变量值
     end

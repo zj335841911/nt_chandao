@@ -48,6 +48,9 @@ export default class ProductTrendsTimelineModel {
       {
         name: 'project',
       },
+      {
+        name: 'lastcomment',
+      },
     ]
   }
 

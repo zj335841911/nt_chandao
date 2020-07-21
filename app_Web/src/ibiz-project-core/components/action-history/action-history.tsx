@@ -97,6 +97,16 @@ export class ActionHistory extends Vue {
     }
 
     /**
+     * 编辑数据
+     *
+     * @param {*} item
+     * @memberof ActionHistory
+     */
+    public editData(item: any) {
+        this.$emit('edit-data', item)
+    }
+
+    /**
      * 绘制操作历史项
      *
      * @protected
@@ -145,7 +155,7 @@ export class ActionHistory extends Vue {
     protected renderActionContent(item: ActionItem): any {
         return <div class="action-content">
             <div class="text">{item.date}，由&nbsp;<strong>{item.actor}</strong>&nbsp;{item.actionText}</div>
-            { (Object.is(item.action, 'changed') || Object.is(item.action, 'edited')  || Object.is(item.action, 'commented') ) && this.load ? <div class="show-history">
+            { (Object.is(item.action, 'changed') || Object.is(item.action, 'edited')  || Object.is(item.action, 'commented') || Object.is(item.action, 'assigned') || Object.is(item.action, 'reviewed')) && this.load ? <div class="show-history">
                 <i-button title="切换显示" type="text" ghost icon={item.expand === true ? 'md-remove-circle' : 'md-add-circle'} on-click={() => this.loadChildren(item)} />
             </div> : null}
         </div>;
@@ -156,9 +166,10 @@ export class ActionHistory extends Vue {
      * @param {ActionItem} item
      *
      */
-    protected  renderActionComment(item : ActionItem): any {
+    protected  renderActionComment(item : ActionItem, isEdit: boolean): any {
         return <div class="action-comment">
             <html-container content={item.comment}></html-container>
+            { isEdit ? <icon class="action-comment-edit" type="ios-create-outline" on-click={() => this.editData(item)}/> : null }
         </div>;
     }
 
@@ -171,11 +182,12 @@ export class ActionHistory extends Vue {
      */
     protected renderAction(): any {
         return <div class="action-wrapper">
-            {this.items.map((item: ActionItem) => {
+            {this.items.map((item: ActionItem, index: number) => {
+                
                 return <div class="action-item">
                     {this.renderActionContent(item)}
                     {(item.children && item.expand) ? this.renderHistory(item, item.children) : null}
-                    {item.comment ? this.renderActionComment(item) : null}
+                    {item.comment ? this.renderActionComment(item, (this.items.length - 1 == index)) : null}
                 </div>;
             })}
         </div>;
