@@ -199,6 +199,15 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
     }
 
     /**
+     * 查询集合 动态
+     */
+    @Override
+    public Page<Action> searchTrends(ActionSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Action> pages=baseMapper.searchTrends(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Action>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 Type
      */
     @Override

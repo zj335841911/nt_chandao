@@ -1639,6 +1639,16 @@
         "viewtag": "c5b7fb7289325c348ca867eb86185986",
         "memo": ""
     },
+    "homeportalview": {
+        "title": "首页",
+        "caption": "",
+        "viewtype": "APPPORTALVIEW",
+        "viewmodule": "zentao",
+        "viewname": "HomePortalView",
+        "viewfilename": "home-portal-view",
+        "viewtag": "C5D95892-6FF7-4334-9B5D-903B94A4B9DF",
+        "memo": ""
+    },
     "buggridview": {
         "title": "bug表格视图",
         "caption": "Bug",
