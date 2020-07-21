@@ -71,7 +71,7 @@ public class BugExService extends BugServiceImpl {
     @Override
     @Transactional
     public Bug linkBug(Bug et) {
-        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser();
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         JSONObject jo = new JSONObject();
         if(et.get("srfactionparam") != null) {
@@ -87,7 +87,7 @@ public class BugExService extends BugServiceImpl {
         if(et.get("productplan") != null) {
             jo.put("id", et.get("productplan"));
         }
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBugHelper.linkBug((String)user.getSessionParams().get("zentaosid"), jo, rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTBugHelper.linkBug(zentaoSid, jo, rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }

@@ -138,7 +138,7 @@ public class TaskExService extends TaskServiceImpl {
     @Override
     @Transactional
     public boolean create(Task et) {
-        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser();
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         JSONObject jo =  (JSONObject) JSONObject.toJSON(et);
         if(et.getMultiple() != null && et.getMultiple() == 1) {
@@ -158,7 +158,7 @@ public class TaskExService extends TaskServiceImpl {
                 jo.put("teamEstimate", teamEstimate);
             }
         }
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTaskHelper.create((String)user.getSessionParams().get("zentaosid"), jo, rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTaskHelper.create(zentaoSid, jo, rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
@@ -169,7 +169,7 @@ public class TaskExService extends TaskServiceImpl {
     @Override
     @Transactional
     public boolean update(Task et) {
-        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser();
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         JSONObject jo =  (JSONObject) JSONObject.toJSON(et);
         if(et.getMultiple() != null && et.getMultiple() == 1) {
@@ -191,7 +191,7 @@ public class TaskExService extends TaskServiceImpl {
                 jo.put("teamConsumed", teamConsumed);
             }
         }
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTaskHelper.edit((String)user.getSessionParams().get("zentaosid"), jo, rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTaskHelper.edit(zentaoSid, jo, rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }

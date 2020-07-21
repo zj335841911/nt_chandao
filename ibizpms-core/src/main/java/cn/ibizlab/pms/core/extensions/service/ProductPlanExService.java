@@ -51,7 +51,7 @@ public class ProductPlanExService extends ProductPlanServiceImpl {
     @Override
     @Transactional
     public ProductPlan linkBug(ProductPlan et) {
-        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser();
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         JSONObject jo = (JSONObject) JSONObject.toJSON(et);
         if(et.get("srfactionparam") != null) {
@@ -64,7 +64,7 @@ public class ProductPlanExService extends ProductPlanServiceImpl {
             }
             jo.put("bugs",jsonArray);
         }
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductPlanHelper.linkBug((String)user.getSessionParams().get("zentaosid"), jo, rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductPlanHelper.linkBug(zentaoSid, jo, rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
@@ -78,7 +78,7 @@ public class ProductPlanExService extends ProductPlanServiceImpl {
     @Override
     @Transactional
     public ProductPlan linkStory(ProductPlan et) {
-        cn.ibizlab.pms.util.security.AuthenticationUser user = cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser();
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.service.IBZUAAZTUserService.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         JSONObject jo = (JSONObject) JSONObject.toJSON(et);
         if(et.get("srfactionparam") != null) {
@@ -91,7 +91,7 @@ public class ProductPlanExService extends ProductPlanServiceImpl {
             }
             jo.put("stories",jsonArray);
         }
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductPlanHelper.linkStory((String)user.getSessionParams().get("zentaosid"), jo, rst);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductPlanHelper.linkStory(zentaoSid, jo, rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
