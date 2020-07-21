@@ -34,6 +34,7 @@ public interface IActionService extends IService<Action>{
     Action get(BigInteger key) ;
     Action getDraft(Action et) ;
     boolean checkKey(Action et) ;
+    Action editComment(Action et) ;
     boolean save(Action et) ;
     void saveBatch(List<Action> list) ;
     Page<Action> searchDefault(ActionSearchContext context) ;

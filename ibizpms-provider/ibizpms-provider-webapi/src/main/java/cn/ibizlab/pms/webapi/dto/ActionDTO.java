@@ -112,6 +112,14 @@ public class ActionDTO extends DTOBase implements Serializable {
     @JsonProperty("project")
     private BigInteger project;
 
+    /**
+     * 属性 [LASTCOMMENT]
+     *
+     */
+    @JSONField(name = "lastcomment")
+    @JsonProperty("lastcomment")
+    private String lastcomment;
+
 
     /**
      * 设置 [EXTRA]

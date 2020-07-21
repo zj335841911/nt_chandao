@@ -123,6 +123,18 @@ public class ActionResource {
         return  ResponseEntity.status(HttpStatus.OK).body(actionService.checkKey(actionMapping.toDomain(actiondto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-EditComment-all')")
+    @ApiOperation(value = "编辑备注信息", tags = {"系统日志" },  notes = "编辑备注信息")
+	@RequestMapping(method = RequestMethod.POST, value = "/actions/{action_id}/editcomment")
+    @Transactional
+    public ResponseEntity<ActionDTO> editComment(@PathVariable("action_id") BigInteger action_id, @RequestBody ActionDTO actiondto) {
+        Action domain = actionMapping.toDomain(actiondto);
+domain.setId(action_id);
+        domain = actionService.editComment(domain);
+        actiondto = actionMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(actiondto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Save-all')")
     @ApiOperation(value = "保存系统日志", tags = {"系统日志" },  notes = "保存系统日志")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/save")
