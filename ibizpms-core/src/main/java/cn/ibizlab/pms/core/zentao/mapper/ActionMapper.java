@@ -22,7 +22,6 @@ public interface ActionMapper extends BaseMapper<Action>{
     Page<Action> searchDefault(IPage page, @Param("srf") ActionSearchContext context, @Param("ew") Wrapper<Action> wrapper) ;
     Page<Action> searchProductTrends(IPage page, @Param("srf") ActionSearchContext context, @Param("ew") Wrapper<Action> wrapper) ;
     Page<Action> searchProjectTrends(IPage page, @Param("srf") ActionSearchContext context, @Param("ew") Wrapper<Action> wrapper) ;
-    Page<Action> searchTrends(IPage page, @Param("srf") ActionSearchContext context, @Param("ew") Wrapper<Action> wrapper) ;
     Page<Action> searchType(IPage page, @Param("srf") ActionSearchContext context, @Param("ew") Wrapper<Action> wrapper) ;
     @Override
     Action selectById(Serializable id);
