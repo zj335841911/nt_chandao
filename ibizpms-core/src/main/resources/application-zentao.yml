@@ -5,8 +5,24 @@ zentao:
   file:
     uploadpath: ibizutil/ztupload
 #    downloadpath: ibizutil/ztdownload/{id}
-ibiz:
-  auth:
-    service: IBZUAAZTUserService
+
 environment:
   - TZ=Asia/Shanghai
+
+
+#API替换相关配置。
+ibiz:
+  # 是否使用UAA认证。
+  uaa: true
+  auth:
+    #本地用户认证：IBZZTUserService
+    #UAA认证：IBZUAAZTUserService
+    service: IBZUAAZTUserService
+    token:
+    # 本地ZT账户认证模式：SimpleTokenUtil
+    # UAA认证模式：SimpleTokenUtil
+      util: UAATokenUtil
+  ref:
+    service:
+      uaa: ibzuaa-api-ldap
+

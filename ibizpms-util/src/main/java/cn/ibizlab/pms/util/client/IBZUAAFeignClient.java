@@ -1,5 +1,6 @@
 package cn.ibizlab.pms.util.client;
 
+import cn.ibizlab.pms.util.security.AuthenticationInfo;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import cn.ibizlab.pms.util.security.AuthorizationLogin;
 import org.springframework.cache.annotation.Cacheable;
@@ -26,6 +27,8 @@ public interface IBZUAAFeignClient
 	@PostMapping(value = "/uaa/login")
 	AuthenticationUser login(@RequestBody AuthorizationLogin authorizationLogin);
 
+	@PostMapping(value = "/v7/login")
+	AuthenticationInfo v7Login(@RequestBody AuthorizationLogin authorizationLogin);
 
 	@PostMapping(value = "/uaa/loginbyusername")
 	AuthenticationUser loginByUsername(@RequestBody String username);
