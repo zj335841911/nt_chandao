@@ -100,6 +100,7 @@ export class MainGridBase extends GridControllerBase {
     public allColumns: any[] = [
         {
             name: 'id',
+            property: 'id',
             label: '编号',
             langtag: 'entities.casestep.main_grid.columns.id',
             show: false,
@@ -107,6 +108,7 @@ export class MainGridBase extends GridControllerBase {
         },
         {
             name: 'desc',
+            property: 'desc',
             label: '步骤',
             langtag: 'entities.casestep.main_grid.columns.desc',
             show: true,
@@ -114,6 +116,7 @@ export class MainGridBase extends GridControllerBase {
         },
         {
             name: 'type',
+            property: 'type',
             label: '类型',
             langtag: 'entities.casestep.main_grid.columns.type',
             show: false,
@@ -122,6 +125,7 @@ export class MainGridBase extends GridControllerBase {
         },
         {
             name: 'expect',
+            property: 'expect',
             label: '预期',
             langtag: 'entities.casestep.main_grid.columns.expect',
             show: true,
