@@ -27,12 +27,12 @@
                                 <div v-if="isEdit" class="table-td-edit">
                                     <slot :name="col.name" :row="item" :$index="index" :column="col">
                                         <i-input class="table-edit-input" v-model="item[col.name]" @on-change="onEditChange(item, col.name,index)"></i-input>
-                                        <el-select class="table-edit-group" v-if="groupfield && i === 0" size="small" clearable v-model="item[groupfield]" @change="onEditChange(item, groupfield,index)">
-                                            <template v-for="(option, n) of groupItems">
-                                                <el-option :key="n" :label="option.label" :value="option.value"></el-option>
-                                            </template>
-                                        </el-select>
                                     </slot>
+                                    <el-select class="table-edit-group" v-if="groupfield && i === 0" size="small" clearable v-model="item[groupfield]" @change="onEditChange(item, groupfield,index)">
+                                        <template v-for="(option, n) of groupItems">
+                                            <el-option :key="n" :label="option.label" :value="option.value"></el-option>
+                                        </template>
+                                    </el-select>
                                 </div>
                             </div>
                         </td>
