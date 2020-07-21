@@ -6,6 +6,7 @@ import cn.ibizlab.pms.core.zentao.filter.StorySpecSearchContext;
 import cn.ibizlab.pms.core.zentao.service.impl.StoryServiceImpl;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.zentao.domain.Story;
 import org.springframework.data.domain.Page;
@@ -220,6 +221,7 @@ public class StoryExService extends StoryServiceImpl {
     @Override
     public Page<Story> searchTaskRelatedStory(StorySearchContext context) {
         context.getSelectCond().clear();
+        context.setQuery(context.getQuery());
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchTaskRelatedStory(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
