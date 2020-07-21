@@ -6,7 +6,7 @@ import { ActionEditViewBase } from './action-edit-view-base';
 import view_form from '@widgets/action/main-form/main-form.vue';
 
 /**
- * action编辑视图视图
+ * 备注视图
  *
  * @export
  * @class ActionEditView

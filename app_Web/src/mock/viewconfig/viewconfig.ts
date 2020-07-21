@@ -1648,7 +1648,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "f83dac873b9215483c4bb91673284b41"
         },
         "actioneditview": {
-            "title": "action编辑视图",
+            "title": "备注",
             "caption": "备注",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",

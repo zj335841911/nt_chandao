@@ -6,7 +6,7 @@ import EditViewEngine from '@engine/view/edit-view-engine';
 import ActionUIService from '@/uiservice/action/action-ui-service';
 
 /**
- * action编辑视图视图基类
+ * 备注视图基类
  *
  * @export
  * @class ActionEditViewBase

@@ -40,7 +40,7 @@ export default {
 		},
 		editview: {
 			caption: "备注",
-      		title: "action编辑视图",
+      		title: "备注",
 		},
 	},
 	main_form: {
@@ -56,6 +56,7 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			lastcomment: "", 
+			formitem: "", 
 			id: "id", 
 		},
 		uiactions: {
